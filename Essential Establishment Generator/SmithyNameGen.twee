@@ -1,6 +1,6 @@
 
-
 :: SmithyNameGen
+
 <<set _smithynameroll to random(1, 5)>>
 
 <<set $smithy.adjective to either("Hard", "Sharp", "Pointy", "Well-worn", "Rusted", "Shiny", "Cold", "Glowing", "Heated", "Golden", "Silvered", "Bronzed", "Polished", "Engraved", "Jeweled", "Plated", "Eternal", "Long-Lasting", "Famed")>>

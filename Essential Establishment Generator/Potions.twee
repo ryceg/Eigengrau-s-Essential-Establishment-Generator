@@ -1,5 +1,6 @@
 
 :: Potions
+
 <<set $potion to {
 	type: either([
 "Potion",

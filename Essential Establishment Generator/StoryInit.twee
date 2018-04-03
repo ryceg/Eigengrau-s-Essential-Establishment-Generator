@@ -1,5 +1,6 @@
 
 :: StoryInit
+
 <<set $versionnumber to "0.3">>
 
 <<include "Town">>

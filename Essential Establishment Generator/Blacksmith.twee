@@ -1,6 +1,6 @@
 
-
 :: Blacksmith
+
 /*<<set $blacksmith to clone($npc)>>*/
 
 <<set $blacksmith to {

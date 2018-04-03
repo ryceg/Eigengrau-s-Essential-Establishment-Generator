@@ -1,5 +1,6 @@
 
 :: Bartender
+
 <<set $bartender to {
 	lastname: either($name.last),
 	gender: either($npc.gender),

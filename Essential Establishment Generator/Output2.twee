@@ -1,5 +1,6 @@
 
 :: Output2 [output]
+
 <<nobr>><<include "Renders">><</nobr>><span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordnoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.structure tavern that the locals know best for its $tavern.draw.
 
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.racenote who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himher<<nobr>>self<</nobr>> as $bartender.name, the $bartender.owner of $tavern.name<<nobr>>.<</nobr>>

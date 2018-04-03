@@ -1,6 +1,6 @@
 
-
 :: Pickpocket
+
 <<nobr>><<set $npc.pockets to ["5 cp",
 "6 cp",
 "15 cp",

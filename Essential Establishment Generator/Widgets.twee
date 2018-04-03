@@ -1,6 +1,6 @@
 
-
 :: Widgets [widget widgets]
+
 <<nobr>><<widget "money">>
 <<if Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) gte 1>>
 		<<print Math.floor($args / 100)>> Gold, <<print Math.floor(($args / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper

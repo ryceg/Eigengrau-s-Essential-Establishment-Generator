@@ -1,5 +1,6 @@
 
 :: TavernNameGen
+
 /* ------------------------- TOWN NAME -------------------------- */
 
 <<set $town.nameprefix to either("Green", "Elms", "Oak", "Fair", "Farren", "Tall", "Nar", "Alla", "Lans", "San", "Col", "Fri", "Plain", "Hon", "Far", "Barrow", "Shi", "Mel", "Mal", "Bon", "Bie", "Can", "Pol", "Pan", "Fald", "Frior", "Pol")>>

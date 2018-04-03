@@ -1,6 +1,6 @@
 
-
 :: Smithy
+
 <<set $smithy to {
 	wealth: either("squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic", "kingly"),
 	wealthroll: random(1, 100),

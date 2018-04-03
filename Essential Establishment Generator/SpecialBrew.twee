@@ -1,7 +1,6 @@
 
-
-
 :: SpecialBrew
+
 <<set $specialbrew to either([
 	{
 	name: "Gnollblood",

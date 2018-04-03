@@ -1,6 +1,6 @@
 
-
 :: TavernDescription
+
 <<nobr>>
 <<switch $tavern.draw>>
 	<<case "attractive waitstaff">>

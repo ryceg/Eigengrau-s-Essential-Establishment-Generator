@@ -1,6 +1,6 @@
 
-
 :: ReputationDescriptor
+
 <<nobr>><<if $tavern.type == "regular">>
 		<<print "just a regular inn, known">>
 	<<else>>

@@ -1,6 +1,6 @@
 
-
 :: Tavern
+
 <<set $tavern to {
 	wordnoun: either("tavern", "tavern", "tavern", "tavern", "pub", "pub", "pub", "inn", "inn", "bar", "bar", "bar", "watering hole", "drinkery"),
 	wealth: either("squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic", "kingly"),

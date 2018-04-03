@@ -1,5 +1,6 @@
 
 :: Start [output]
+
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
 <<nobr>><<linkappend "<h4>Changelog</h4>" t8n>>
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>

@@ -1,6 +1,6 @@
 
-
 :: MathClamp
+
 math.clamp($tavern.sinroll, 1, 100)
 math.clamp($tavern.wealthroll, 1, 100)
 math.clamp($tavern.reputationroll, 1, 100)

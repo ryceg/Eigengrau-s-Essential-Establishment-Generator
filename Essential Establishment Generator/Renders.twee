@@ -1,6 +1,6 @@
 
-
 :: Renders
+
 <<nobr>>
 /* ------------------------- WEALTH -------------------------- */
 <<if $tavern.wealthroll gt 95>>

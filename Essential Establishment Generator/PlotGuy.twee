@@ -1,6 +1,6 @@
 
-
 :: PlotGuy
+
 <<set $plotguy to {
 	lastname: either($name.last),
 	gender: either($npc.gender),

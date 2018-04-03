@@ -1,6 +1,6 @@
 
-
 :: PlotHookRumour
+
 <<nobr>>
 <<set _PlotHookRumourRoll to random(1, 2)>>
 <<if _PlotHookRumourRoll is 1>>

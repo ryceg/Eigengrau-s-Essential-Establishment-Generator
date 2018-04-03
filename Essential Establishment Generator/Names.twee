@@ -1,5 +1,6 @@
 
 :: Names
+
 /* ------------------------- NAMES -------------------------- */
 <<set $name to {
 	last: ["Alder", "Ash", "Ashdown", "Atwood", "Barnes", "Becker", "Berry", "Briar", "Briggs", "Brock", "Brook", "Bundy", "Burnside", "Burroughs", "Bush", "Butcher", "Butler", "Clay", "Court", "Cox", "Croft", "Cross", "Crump", "Dale", "Deane", "Delaney", "Dike", "Dodd", "Ford", "Forrest", "Fox", "Freeman", "Garside", "Gorsuch", "Graves", "Green", "Greeves", "Gross", "Grove", "Grover", "Hall", "Hawthorne", "Hazel", "Head", "Heather", "Hill", "Holley", "Holmes", "Holt", "Homer", "Hooke", "Hope", "House", "Howe", "Hume", "Hyde", "Johnston", "Kaye", "Keats", "Kerry", "Kirk", "Lamb", "Layne", "Lea", "Lowell", "March", "Marsh", "Marshal", "Martin", "May", "Millerchip", "Mills", "Moore", "Newby", "Paine", "Paxton", "Perrin", "Pike", "Pitt", "Preacher", "Provost", "Purple", "Ridge", "Rock", "Rose", "Rowen", "Sangster", "Sellers", "Shaw", "Short", "Thorne", "Underwood", "Walsh", "Wells", "West", "Whitney", "Wilde", "Wood", "Wragge", "Wynne"],

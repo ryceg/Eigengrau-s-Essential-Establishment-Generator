@@ -1,7 +1,6 @@
 
-
-
 :: SmithyModifiers
+
 /* ------------------------- SIZE -------------------------- */
 <<if $tavern.sizeroll gt 80>>
 		<<set $tavern.size to "huge">>

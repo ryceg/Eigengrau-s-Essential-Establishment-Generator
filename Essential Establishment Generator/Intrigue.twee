@@ -1,5 +1,6 @@
 
 :: Intrigue
+
 <<nobr>>
 <<linkreplace "<h4>Anything interesting in $tavern.name?</h4>" t8n>><h4>Interesting things in $tavern.name...</h4>
 

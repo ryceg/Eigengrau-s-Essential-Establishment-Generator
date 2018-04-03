@@ -1,6 +1,6 @@
 
-
 :: TavernFlavour
+
 <<set $tavern.fun to ["A group of commoners is playing horse shoes out back.",
 "The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.",
 "A group of Hill Dwarves are in the middle of a drinking contest, and two of them are passed out already. The Prize is a solid platinum stein.",

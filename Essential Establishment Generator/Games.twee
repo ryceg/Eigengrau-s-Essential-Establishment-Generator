@@ -1,6 +1,6 @@
 
-
 :: Games
+
 <<set $games to either([
 {
 	name: "Passe-dix",

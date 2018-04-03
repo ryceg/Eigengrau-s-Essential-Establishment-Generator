@@ -1,6 +1,6 @@
 
-
 :: PlotHook
+
 <<set $plothook to {
 	people: ["I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
 	"There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.", "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print $name.man.pluck()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",

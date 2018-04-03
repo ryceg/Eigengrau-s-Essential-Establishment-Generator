@@ -1,6 +1,5 @@
-
-
 :: AlchemistShop
+
 /* %%%%%%%%%%%%%%%%%%%%%%% UNDER CONSTRUCTION %%%%%%%%%%%%%%%%%%%%%%% */
 <<if $town.population gt 3000>>
 		<<
