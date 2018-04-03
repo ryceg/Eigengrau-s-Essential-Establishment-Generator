@@ -81,37 +81,3 @@
 <<elseif $plotguy.race is "tiefling">>
 	<<set $plotguy.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
 <</if>>
-
-
-:: Town
-<<set $town to {
-	race: either(["human", "human", "human", "human", "dwarf", "dwarf", "dwarf", "elf", "elf", "half-orc", "half-elf"]),
-	wealth: random(1, 100),
-	reputation: random(1, 100),
-	sin: random(1, 100),
-	diversity: random(1, 100)
-}>>
-
-/* Town Population Roller */
-<<set _townpopulationroll to random(1, 10)>>
-	<<if _townpopulationroll gt 8>>
-		<<set $town.population to random(3001, 6000), $town.type to "city", $town.wealth += 15, $town.reputation += 5, $town.sin += 15, $town.diversity += 10>>
-	<<elseif _townpopulationroll gt 5>>
-		<<set $town.population to random(1001, 3000), $town.type to "town", $town.wealth += 5, $town.reputation += 2, $town.sin += 5, $town.diversity += 4>>
-	<<elseif _townpopulationroll gt 2>>
-		<<set $town.population to random(301, 1000), $town.type to "village", $town.wealth += 2, $town.reputation -= 2, $town.sin -= 3, $town.diversity -= 4>>
-	<<elseif _townpopulationroll lte 2>>
-		<<set $town.population to random(30, 300), $town.type to "hamlet", $town.wealth -= 2, $town.reputation -= 12, $town.sin -= 15, $town.diversity -= 12>>
-	<</if>>
-
-<<set _townpotentiallocation to ["Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Jungle", "Volcanic Field", "Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Tundra", "Ice Sheet", "Seacoast", "Desert", "Hills", "Plains", "Mountains", "River Coast", "Wasteland", "Oasis"]>>
-<<set _terrainroll to random(1, 6)>>
-	<<if _terrainroll lte 3>>
-		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(0, 5)]>>
-	  <<elseif _terrainroll is 4>>
-		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(6, 13)]>>
-	  <<elseif _terrainroll is 5>>
-		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(14, 21)]>>
-	  <<elseif _terrainroll is 6>>
-		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(22, 29)]>>
-<</if>>

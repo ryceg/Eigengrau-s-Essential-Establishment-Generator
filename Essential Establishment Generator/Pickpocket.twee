@@ -75,7 +75,7 @@
 "a black opal worth 100gp"]>>
 
 <</nobr>><<linkreplace "Try and pickpocket someone">>
-	<<print random(15, 21)>> Sleight of Hand check to succeed.
+	<<print either(10, 10, 10, 10, 10, 15, 15, 15, 15, 20, 20, 25)>> Sleight of Hand check to succeed.
 	<<choice "Success" [You find <<print $npc.pockets.pluck()>> in the pockets of your hapless target.]>>
 	<<choice "Failure" [You have been caught! Your target notices your attempts.]>>
 <</linkreplace>>

@@ -1,0 +1,47 @@
+
+:: Guard
+
+<<set $guard to {
+	population: $town.population /= 150
+	}>>
+
+<<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
+<<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
+<<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong"])>>
+<<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak"])>>
+
+<<if $tavern.sinroll gt 80>>
+		<<set $guard.population to $town.population /= 250>>
+	<<elseif $tavern.sinroll gt 60>>
+		<<set $guard.population to $town.population /= 200>>
+	<<elseif $tavern.sinroll gt 40>>
+		<<set $guard.population to $town.population /= 150>>
+	<<elseif $tavern.sinroll gt 20>>
+		<<set $guard.population to $town.population /= 130>>
+	<<elseif $tavern.sinroll lte 20>>
+		<<set $guard.population to $town.population /= 110>>
+		<</if>>
+
+<<set _guardnameroll to random(1, 6)>>
+<<switch _guardnameroll>>
+	<<case 1>>
+		<<set $guard.name to "The " + _guardnameA + " of " + $town.name>>
+	<<case 2>>
+		<<set $guard.name to "The " + $town.name + _guardnameA>>
+	<<case 3>>
+		<<set $guard.name to "The " + _guardnameA + " of " + _guardnameB>>
+	<<case 4>>
+		<<set $guard.name to "The " + _guardnameC + " " + _guardnameA>>
+	<<case 5>>
+		<<set $guard.name to "The " + _guardnameC + " " + _guardnameD>>
+	<<case 6>>
+			<<set $guard.name to "The " + _guardnameC + " " + _guardnameD + " of " + _guardnameB>>
+
+
+<<if $Guard.population gt 20>>
+		<<set $guard.size to ""
+	<<elseif $Guard.population gt 10>>
+		<<
+	<<elseif $guard.population lte 10>>
+		<<
+<</if>>
