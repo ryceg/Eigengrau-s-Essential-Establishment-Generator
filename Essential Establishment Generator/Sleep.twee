@@ -96,9 +96,9 @@
 <</if>>
 <<switch $tavern.type>>
 	<<case "brothel">>
-		<<prepend "#sleep-type">>in spite of the whores moaning<</prepend>>
+		<<replace "#sleep-type">>in spite of the whores moaning.<</replace>>
 	<<case "gambling den">>
-		<<prepend "#sleep-type">>in spite of the commotion whenever something interesting happened at the gambling tables<</prepend>>
+		<<replace "#sleep-type">>in spite of the commotion whenever something interesting happened at the gambling tables.<</replace>>
 <</switch>>
 
 <<if $tavern.wealth is "kingly">>
