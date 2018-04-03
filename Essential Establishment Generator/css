@@ -280,6 +280,7 @@ html[data-debug-view] .debug.hidden,
 html[data-debug-view] .debug.hidden .debug {
 	background-color: #bbb;
 }
+
 /*! <<numberpool>> macro set for SugarCube v2 */
 div[id|="numberbox-body"] {
 	display: inline-block;
