@@ -63,7 +63,7 @@
 		You surprisingly get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 90>>
 		You get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
-	<elseif _restfulness gt 80, _sleepeasy gte 2>>
+	<<elseif _restfulness gt 80, _sleepeasy gte 2>>
 		You unsurprisingly get a great night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 80, _sleepeasy lte -2>>
 		You surprisingly get a great night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
