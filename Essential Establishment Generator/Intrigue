@@ -1,0 +1,19 @@
+
+:: Intrigue
+<<nobr>>
+<<linkreplace "<h4>Anything interesting in $tavern.name?</h4>" t8n>><h4>Interesting things in $tavern.name...</h4>
+
+<<set _rollintrigue to random(1, 4)>>
+		<<if _rollintrigue is 1>>
+			<<include "PlotHookRumour">>
+		<<elseif _rollintrigue is 2>>
+			<<include "PlotHookRumour">>
+		<<elseif _rollintrigue is 3>>
+			<<include "PlotHookPaper">>
+		<<elseif _rollintrigue is 4>>
+			<<include "PlotHookPeople">>
+		<<elseif _rollintrigue is 5>>
+			<<include "PlotHookThings">>
+<</if>>
+<<include "ShitPlotHookGenerator">>
+<</linkreplace>><</nobr>>

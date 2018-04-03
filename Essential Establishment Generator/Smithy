@@ -1,0 +1,15 @@
+
+
+:: Smithy
+<<set $smithy to {
+	wealth: either("squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic", "kingly"),
+	wealthroll: random(1, 100),
+	reputationroll: random(1, 100),
+	sizeroll: random(20, 80),
+	cleanlinessroll: random(1, 100),
+	expertiseroll: random(1, 100),
+	intricacyroll: random(1, 100),
+	hardinessroll: random(1, 100),
+	magicroll: random(1, 100),
+	structure: either("wooden", "wooden", "wooden", "wooden", "wooden", "stone", "stone", "stone", "stone", "hewn rock", "chiseled stone"),
+}>>

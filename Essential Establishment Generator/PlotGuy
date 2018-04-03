@@ -1,0 +1,117 @@
+
+
+:: PlotGuy
+<<set $plotguy to {
+	lastname: either($name.last),
+	gender: either($npc.gender),
+	race: either($npc.race),
+	age: either($npc.age),
+	height: either($npc.height),
+	weight: either($npc.weight)
+}>>
+
+<<if $plotguy.gender is "man">>
+	<<set $plotguy.heshe to "he">>
+	<<set $plotguy.himher to "him">>
+	<<set $plotguy.hisher to "his">>
+	<<set $plotguy.boygirl to "boy">>
+	<<set $plotguy.manwoman to "man">>
+	<<set $plotguy.menwomen to "men">>
+	<<set $plotguy.guygirl to "guy">>
+	<<set $plotguy.firstname to either($name.man)>>
+<<elseif $plotguy.gender is "woman">>
+	<<set $plotguy.heshe to "she">>
+	<<set $plotguy.himher to "her">>
+	<<set $plotguy.hisher to "her">>
+	<<set $plotguy.boygirl to "girl">>
+	<<set $plotguy.manwoman to "woman">>
+	<<set $plotguy.menwomen to "women">>
+	<<set $plotguy.guygirl to "girl">>
+	<<set $plotguy.firstname to either($name.woman)>>
+<</if>>
+
+<<set _PlotGuyEyeColours to ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"]>>
+<<set _PlotGuyeye to random (1, 10)>>
+<<if _PlotGuyeye gt 9>>
+	<<set $plotguy.eyes to _BarEyeColours[random(10, 14)]>>
+<<elseif _PlotGuyeye gt 6>>
+	<<set $plotguy.eyes to _BarEyeColours[random(0, 9)]>>
+<<else>>
+	<<set $plotguy.eyes to _BarEyeColours[random(1, 6)]>>
+<</if>>
+
+<<set _BarskinColours to ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"]>>
+<<set _PlotGuyskin to random(1, 10)>>
+<<if _PlotGuyskin gt 6>>
+		<<set $plotguy.skincolour to _BarskinColours[random(5, 9)]>>
+	<<elseif _PlotGuyskin gt 3>>
+		<<set $plotguy.skincolour to _BarskinColours[random(3, 6)]>>
+	<<elseif _PlotGuyskin lte 3>>
+		<<set $plotguy.skincolour to _BarskinColours[random(0, 3)]>>
+<</if>>
+
+<<set $plotguy.hair to $npc.hairtype.random() + " " + $npc.haircolour.random() + " hair">>
+
+<<set _PlotGuyphysicaltraitroll to random(1, 10)>>
+	<<if _PlotGuyphysicaltraitroll gt 8>>
+		<<set $plotguy.physicaltrait to either($npc.scar)>>
+	<<elseif _PlotGuyphysicaltraitroll gt 6>>
+		<<set $plotguy.physicaltrait to either($npc.tattoo)>>
+	<<elseif _PlotGuyphysicaltraitroll lte 6>>
+		<<set $plotguy.physicaltrait to either($npc.hair)>>
+	<</if>>
+
+<<set $plotguy.name to "$plotguy.firstname" + " " + "$plotguy.lastname">>
+
+
+<<if $plotguy.race is "half-elf">>
+	<<set $plotguy.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $plotguy.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+<<elseif $plotguy.race is "elf">>
+	<<set $plotguy.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $plotguy.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "slightly underweight")>>
+<<elseif $plotguy.race is "dwarf">>
+	<<set $plotguy.height to either("short", "squat"), $plotguy.weight to either("stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly")>>
+<<elseif $plotguy.race is "gnome">>
+	<<set $plotguy.height to either("short", "tiny"),  $plotguy.weight to either("stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby")>>
+<<elseif $plotguy.race is "halfling">>
+	<<set $plotguy.height to either("short", "tiny"), $plotguy.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+<<elseif $plotguy.race is "half-orc">>
+	<<set $plotguy.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight")>>
+<<elseif $plotguy.race is "dragonborn">>
+	<<set $plotguy.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $plotguy.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight")>>
+<<elseif $plotguy.race is "tiefling">>
+	<<set $plotguy.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+<</if>>
+
+
+:: Town
+<<set $town to {
+	race: either(["human", "human", "human", "human", "dwarf", "dwarf", "dwarf", "elf", "elf", "half-orc", "half-elf"]),
+	wealth: random(1, 100),
+	reputation: random(1, 100),
+	sin: random(1, 100),
+	diversity: random(1, 100)
+}>>
+
+/* Town Population Roller */
+<<set _townpopulationroll to random(1, 10)>>
+	<<if _townpopulationroll gt 8>>
+		<<set $town.population to random(3001, 6000), $town.type to "city", $town.wealth += 15, $town.reputation += 5, $town.sin += 15, $town.diversity += 10>>
+	<<elseif _townpopulationroll gt 5>>
+		<<set $town.population to random(1001, 3000), $town.type to "town", $town.wealth += 5, $town.reputation += 2, $town.sin += 5, $town.diversity += 4>>
+	<<elseif _townpopulationroll gt 2>>
+		<<set $town.population to random(301, 1000), $town.type to "village", $town.wealth += 2, $town.reputation -= 2, $town.sin -= 3, $town.diversity -= 4>>
+	<<elseif _townpopulationroll lte 2>>
+		<<set $town.population to random(30, 300), $town.type to "hamlet", $town.wealth -= 2, $town.reputation -= 12, $town.sin -= 15, $town.diversity -= 12>>
+	<</if>>
+
+<<set _townpotentiallocation to ["Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Jungle", "Volcanic Field", "Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Tundra", "Ice Sheet", "Seacoast", "Desert", "Hills", "Plains", "Mountains", "River Coast", "Wasteland", "Oasis"]>>
+<<set _terrainroll to random(1, 6)>>
+	<<if _terrainroll lte 3>>
+		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(0, 5)]>>
+	  <<elseif _terrainroll is 4>>
+		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(6, 13)]>>
+	  <<elseif _terrainroll is 5>>
+		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(14, 21)]>>
+	  <<elseif _terrainroll is 6>>
+		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(22, 29)]>>
+<</if>>

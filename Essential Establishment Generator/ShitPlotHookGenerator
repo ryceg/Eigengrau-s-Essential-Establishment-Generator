@@ -1,0 +1,7 @@
+
+
+
+:: ShitPlotHookGenerator
+/*<<linkreplace "They need yet ANOTHER plot hook?" t8n>>
+	<<print $shitplothooks.pluck()>>
+<</linkreplace>> */

@@ -1,0 +1,15 @@
+
+
+:: Output3 [output]
+<<nobr>><<include "Renders">><</nobr>><span class="firstcharacter">Y</span>ou walk through the $town.type of $town.name, and eventually come to <strong>$tavern.name</strong>; a $tavern.structure $tavern.wordnoun which is known in the area for its $tavern.draw, and <<nobr>>
+
+<<if $tavern.type is "regular">>
+		<<print "its <<print $tavern.sin>> patrons.">>
+	<<elseif $tavern.type isnot "regular">>
+		<<print "for being a $tavern.type, with $tavern.sin patrons.">>
+<</if>><</nobr>>
+
+<<include "TavernDescription">>
+
+<h3>The Bar</h3>Behind the $tavern.structure bar is a $bartender.racenote who you assume is the owner of the establishment; $bartender.heshe is currently <<print $bartender.idle.pluck()>>. You walk up to the bar, and introduce yourselves, and $bartender.heshe reciprocates; $bartender.heshe is $bartender.name, the $bartender.owner of $tavern.name.
+<<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><h3>$bartender.name</h3><<include "BartenderTalk">><</linkreplace>><<include "Menu">><h3>The Tavern</h3><<include "LookAround">> <<print $tavern.entertainment.pluck()>> <<include "Intrigue">><<include "Rooms">>

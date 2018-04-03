@@ -1,0 +1,17 @@
+
+:: Output1 [output]
+<<nobr>><<include "Renders">><</nobr>><span class="firstcharacter">T</span>he $tavern.wordnoun is called <strong>$tavern.name</strong><<nobr>>,<</nobr>> and is <<include "ReputationDescriptor">><<nobr>>
+<<if $tavern.type is "regular">>
+		<<print "in $town.name for the cheap beer and its $tavern.sin patrons.">>
+	<<elseif $tavern.type isnot "regular">>
+		<<print "in $town.name for being a $tavern.type, with $tavern.sin patrons. Its main draw in the $town.type is the $tavern.draw<<nobr>>.<</nobr>>">>
+<</if>>
+
+<<include "TavernDescription">><</nobr>>
+
+<h3>The Bar</h3><<nobr>>
+
+<</nobr>>Behind $tavern.name's $tavern.structure bar is a $bartender.racenote, who you notice has $bartender.physicaltrait. Currently, $bartender.heshe is <<print $bartender.idle.random()>>. Looking up, $bartender.heshe <<print $bartender.greeting.pluck()>> and introduces <<nobr>>$bartender.himher<</nobr>>self as $bartender.firstname<<nobr>><</nobr>> $bartender.lastname<<nobr>>,<</nobr>> $bartender.hisher $bartender.eyes eyes <<print either("looking brightly at you.", "piercing through your armour.", "staring at you warily.", "watching you suspiciously.", "looking at you kindly.", "darting back and forth around the room.")>><<nobr>>
+<<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><h3>$bartender.name</h3><<include "BartenderTalk">><</linkreplace>><</nobr>><<include "Menu">>
+<h3>The Tavern</h3><<linkreplace "<h4>Look around the $tavern.wordnoun</h4>" t8n>><<include "LookAround">><<print $tavern.patrons.pluck()>><</linkreplace>><<print $tavern.entertainment.pluck()>>
+<<include "Intrigue">><<include "Rooms">>

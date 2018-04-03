@@ -1,0 +1,143 @@
+
+:: Bartender
+<<set $bartender to {
+	lastname: either($name.last),
+	gender: either($npc.gender),
+	race: either($npc.race),
+	raceroll: random(1, 100),
+	age: either($npc.age),
+	height: either($npc.height),
+	weight: either($npc.weight),
+	trait: either($npc.trait),
+	idle: ["polishing a glass with $bartender.hisher hands", "pouring a drink for a customer", "taking an order from a customer", "talking with a customer", "picking $bartender.hisher nose", "playing a card game by $bartender.himher<<nobr>>self<</nobr>>", "checking the stock levels of the beer on tap", "shouting into the kitchen, annoyed", "yelling instructions into the kitchen", "leaning against a stool, surveying the work of one of the barmaids"],
+	owner: either(["owner", "caretaker", "proud owner", "proprietor", "current owner", "manager", "manager", "acting manager"]),
+	greeting: ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $bartender.heshe nods at you", "checks you out for just a moment before smiling at you"]
+}>>
+
+<<if $bartender.gender is "man">>
+	<<set $bartender.heshe to "he">>
+	<<set $bartender.himher to "him">>
+	<<set $bartender.hisher to "his">>
+	<<set $bartender.boygirl to "boy">>
+	<<set $bartender.manwoman to "man">>
+	<<set $bartender.menwomen to "men">>
+	<<set $bartender.guygirl to "guy">>
+	<<set $bartender.firstname to either($name.man)>>
+<<elseif $bartender.gender is "woman">>
+	<<set $bartender.heshe to "she">>
+	<<set $bartender.himher to "her">>
+	<<set $bartender.hisher to "her">>
+	<<set $bartender.boygirl to "girl">>
+	<<set $bartender.manwoman to "woman">>
+	<<set $bartender.menwomen to "women">>
+	<<set $bartender.guygirl to "girl">>
+	<<set $bartender.firstname to either($name.woman)>>
+<</if>>
+
+<<set _BarEyeColours to ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"]>>
+<<set _bareye to random (1, 10)>>
+<<if _bareye gt 9>>
+	<<set $bartender.eyes to _BarEyeColours[random(10, 14)]>>
+<<elseif _bareye gt 6>>
+	<<set $bartender.eyes to _BarEyeColours[random(0, 9)]>>
+<<else>>
+	<<set $bartender.eyes to _BarEyeColours[random(1, 6)]>>
+<</if>>
+
+<<set _BarskinColours to ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"]>>
+<<set _Barskin to random(1, 10)>>
+<<if _Barskin gt 6>>
+		<<set $bartender.skincolour to _BarskinColours[random(5, 9)]>>
+	<<elseif _Barskin gt 3>>
+		<<set $bartender.skincolour to _BarskinColours[random(3, 6)]>>
+	<<elseif _Barskin lte 3>>
+		<<set $bartender.skincolour to _BarskinColours[random(0, 3)]>>
+<</if>>
+
+<<set $bartender.hair to $npc.hairtype.random() + " " + $npc.haircolour.random() + " hair">>
+
+<<set _barphysicaltraitroll to random(1, 10)>>
+	<<if _barphysicaltraitroll gt 8>>
+		<<set $bartender.physicaltrait to either($npc.scar)>>
+	<<elseif _barphysicaltraitroll gt 6>>
+		<<set $bartender.physicaltrait to either($npc.tattoo)>>
+	<<elseif _barphysicaltraitroll lte 6>>
+		<<set $bartender.physicaltrait to $bartender.hair>>
+	<</if>>
+
+<<set $bartender.name to "$bartender.firstname" + " " + "$bartender.lastname">>
+
+
+/* ------------------------- BARTENDER RACE -------------------------- */
+<<switch $bartender.race>>
+	<<case "human">>
+		<<set $tavern.diversityroll -= 10>>
+	<<case "half-elf">>
+		<<set $bartender.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $bartender.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"), $tavern.diversityroll += 5, $tavern.roughnessroll -= 5, $tavern.magicroll += 2>>
+	<<case "elf">>
+		<<set $bartender.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $bartender.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "slightly underweight"), $tavern.diversityroll += 5, $tavern.roughnessroll -= 10, $tavern.wealthroll += 5, $tavern.magicroll += 4>>
+	<<case "dwarf">>
+		<<set $bartender.height to either("short", "squat"), $bartender.weight to either("stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"), $tavern.diversityroll += 5, $tavern.roughnessroll += 5, $tavern.wealthroll += 5, $tavern.magicroll += 1>>
+	<<case "gnome">>
+		<<set $bartender.height to either("short", "tiny"),  $bartender.weight to either("stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby"),$tavern.diversityroll += 10, $tavern.roughnessroll -= 5, $tavern.magicroll += 1>>
+	<<case "halfling">>
+		<<set $bartender.height to either("short", "tiny"), $bartender.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"), $tavern.diversityroll += 5, $tavern.roughnessroll -= 5, $tavern.magicroll += 1>>
+	<<case "half-orc">>
+		<<set $bartender.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"), $tavern.diversityroll += 10, $tavern.roughnessroll += 15>>
+	<<case "dragonborn">>
+		<<set $bartender.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $bartender.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"), $tavern.diversityroll += 10, $tavern.roughnessroll += 5, $tavern.wealthroll += 5, $tavern.magicroll += 5>>
+	<<case "tiefling">>
+		<<set $bartender.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"), $tavern.diversityroll += 15, $tavern.roughnessroll += 5, $tavern.sinroll += 15, $tavern.wealthroll += 10, $tavern.magicroll += 7>>
+<</switch>>
+
+/* Brothel Code - so the bartender is the Master or Madame of the brothel
+<<if ($tavern.draw is "brothel", $bartender.himher is "him")>>
+		<<set $bartender.owner to "master">>
+	<<elseif ($tavern.draw is "brothel", "$bartender.himher is "her")>>
+		<<set $bartender.owner to "madame">>
+<</if>>*/
+
+/* Race Note Code - so humans are introduced as 'a short woman', and elves are introduced as elves. */
+<<if $bartender.race is "human">>
+		<<set $bartender.racenote to $bartender.height + " " + $bartender.manwoman>>
+	<<else>>
+		<<set $bartender.racenote to $bartender.race>>
+<</if>>
+
+<<switch $bartender.race>>
+	<<case "elf">>
+		<<set $bartender.racesingular to "elf",
+		$bartender.raceplural to "elves",
+		$bartender.raceadjective to "elven",
+		$bartender.racelanguage to "Elfish">>
+	<<case "dwarf">>
+		<<set $bartender.racesingular to "dwarf",
+		$bartender.raceplural to "dwarves",
+		$bartender.raceadjective to "dwarven",
+		$bartender.racelanguage to "Dwarven">>
+	<<case "halfling">>
+		<<set $bartender.racesingular to "halfling",
+		$bartender.raceplural to "hobbits",
+		$bartender.raceadjective to "dwarven",
+		$bartender.racelanguage to "Dwarven">>
+	<<case "half-orc">>
+		<<set $bartender.racesingular to "half-orc",
+		$bartender.raceplural to "half-orcs",
+		$bartender.raceadjective to "orcish",
+		$bartender.racelanguage to "Orcish">>
+	<<case "dragonborn">>
+		<<set $bartender.racesingular to "drake",
+		$bartender.raceplural to "drakes",
+		$bartender.raceadjective to "draconian",
+		$bartender.racelanguage to "Draconic">>
+	<<case "tiefling">>
+		<<set $bartender.racesingular to "tiefling",
+		$bartender.raceplural to "tieflings",
+		$bartender.raceadjective to "devilish",
+		$bartender.racelanguage to "Demonic">>
+	<<default>>
+		<<set $bartender.racesingular to "person",
+		$bartender.raceplural to "people",
+		$bartender.raceadjective to "human",
+		$bartender.racelanguage to "Common">>
+<</switch>>

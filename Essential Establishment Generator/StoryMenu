@@ -1,0 +1,11 @@
+
+
+:: StoryMenu
+[[Credits]]
+
+<<link "Submit a Suggestion">><<include "Submission Form">><</link>>
+
+
+/*<<link "Check Variables">><<checkvars>><</link>>
+
+<<link "Create Bug Report">><<bugreport "Bug Report Instructions">><</link>>*/

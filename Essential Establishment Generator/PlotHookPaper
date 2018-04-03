@@ -1,0 +1,5 @@
+
+
+
+:: PlotHookPaper
+You see a noticeboard next to the $tavern.wordnoun's $tavern.structure bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like 'have chook, want grain', 'have grain, want chook'. One catches your eye, though; it reads '<<print $plothook.paper.random()>>'

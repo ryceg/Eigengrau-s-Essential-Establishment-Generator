@@ -1,0 +1,53 @@
+
+
+:: Games
+<<set $games to either([
+{
+	name: "Passe-dix",
+	type: "chance game",
+	description: "You see a man take three six-sided dice, and then roll them. He roars with pleasure as the dice come to a total of 12, and grabs his winnings from the banker. The dice moves to the next player, and the carrot (which signifies the banker) who spits on the dice, and everyone that's playing hands the new banker a silver piece. The player then rolls them, but only rolls a total of 9, which is met with boos and jeering.",
+	rules: "Passe-dix is played with three dice. There’s always a banker, and the number of players is unlimited. The first gamer rolls: every time he throws UNDER ten he (and all the other players in the game) lose the specified stake, which goes to the banker. Every time he rolls ABOVE ten (or PASSES TEN–whence the name of the game), the banker must return double the stake to all the players in the game. After three losses of the roller (no matter how many wins), the roller position is passed to another gamer in the circle. The banker changes after each roll.",
+	bet: 20
+	},
+
+	{
+	name: "Highest Points",
+	type: "chance game",
+	description: "Two slack-jawed men are sitting in the middle of the room with two whittled dice each. They chuck a copper piece on the table, then roll, and the one that rolled higher grins as he grabs the copper.",
+	rules: "2 six-sided dice, 2 players: each roll both dice and the highest sum wins.",
+	bet: 2
+	},
+
+	{
+	name: "Cross and Pile",
+	type: "chance game",
+	description: "Two men sit around a large table, and take turns flipping a coin. As the coin flies mid-air, the other calls out the result, winning the meager pot if they guess correctly.",
+	rules: "Two players choose each side of a coin, and then the coin is flipped. The top side after flipping the coin is the one that wins.",
+	bet: 10
+	},
+
+	{
+	name: "Thimble Rig",
+	type: "guessing game",
+	description: "A quick hand, a rattling tongue, a deal board, three thimbles, and a pepper-corn. The game they played around the table with these three curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in dexterously seeming to place the pepper-corn under one particular thimble, getting the better to bet that it was there, and then winning his money by showing that it is not.",
+	rules: "The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.",
+	bet: 5
+	},
+
+	{
+	name: "Arm Wrestling",
+	type: "strength game",
+	description: "Two men sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
+	rules: "It's easy, haven't you ever played before?",
+	bet: 8
+
+	},
+
+	{
+	name: "Two-Up",
+	type: "gambling game",
+	description: "A small crowd of people are gathered around a table, where they flip two coins in the air, with one man groaning whenever they both turned heads, and another greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles."
+	rules: "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
+	bet: 10
+	}
+	])>>

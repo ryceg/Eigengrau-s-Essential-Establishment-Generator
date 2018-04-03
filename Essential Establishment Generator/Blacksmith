@@ -1,0 +1,141 @@
+
+
+:: Blacksmith
+/*<<set $blacksmith to clone($npc)>>*/
+
+<<set $blacksmith to {
+	lastname: either($name.last),
+	gender: either($npc.gender),
+	race: either($npc.race),
+	raceroll: random(1, 100),
+	age: either($npc.age),
+	height: either($npc.height),
+	weight: either($npc.weight),
+	trait: either($npc.trait),
+	idle: ["talking with a customer", "picking $blacksmith.hisher nose", "playing a card game by $blacksmith.himher<<nobr>>self<</nobr>>", "sharpening a knife", "stocking the forge with fresh coals", "lugging a piece of metal to be worked on", "wiping the sweat from $blacksmith.hisher brow", "taking a drink of water", "sweating profusely from exertion"],
+	owner: either(["owner", "caretaker", "proud owner", "proprietor", "current owner"]),
+	greeting: ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $blacksmith.heshe nods at you", "checks you out for just a moment before smiling at you"]
+}>>
+
+<<if $blacksmith.gender is "man">>
+	<<set $blacksmith.heshe to "he">>
+	<<set $blacksmith.himher to "him">>
+	<<set $blacksmith.hisher to "his">>
+	<<set $blacksmith.boygirl to "boy">>
+	<<set $blacksmith.manwoman to "man">>
+	<<set $blacksmith.menwomen to "men">>
+	<<set $blacksmith.guygirl to "guy">>
+	<<set $blacksmith.firstname to either($name.man)>>
+<<elseif $blacksmith.gender is "woman">>
+	<<set $blacksmith.heshe to "she">>
+	<<set $blacksmith.himher to "her">>
+	<<set $blacksmith.hisher to "her">>
+	<<set $blacksmith.boygirl to "girl">>
+	<<set $blacksmith.manwoman to "woman">>
+	<<set $blacksmith.menwomen to "women">>
+	<<set $blacksmith.guygirl to "girl">>
+	<<set $blacksmith.firstname to either($name.woman)>>
+<</if>>
+
+<<set _BlackEyeColours to ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"]>>
+<<set _blackeye to random (1, 10)>>
+<<if _blackeye gt 9>>
+	<<set $blacksmith.eyes to _BlackEyeColours[random(10, 14)]>>
+<<elseif _blackeye gt 6>>
+	<<set $blacksmith.eyes to _BlackEyeColours[random(0, 9)]>>
+<<else>>
+	<<set $blacksmith.eyes to _BlackEyeColours[random(1, 6)]>>
+<</if>>
+
+<<set _BlackskinColours to ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"]>>
+<<set _Blackskin to random(1, 10)>>
+<<if _Blackskin gt 6>>
+		<<set $blacksmith.skincolour to _BarskinColours[random(5, 9)]>>
+	<<elseif _Blackskin gt 3>>
+		<<set $blacksmith.skincolour to _BarskinColours[random(3, 6)]>>
+	<<elseif _Blackskin lte 3>>
+		<<set $blacksmith.skincolour to _BarskinColours[random(0, 3)]>>
+<</if>>
+
+<<set $blacksmith.hair to $npc.hairtype.random() + " " + $npc.haircolour.random() + " hair">>
+
+<<set _blackphysicaltraitroll to random(1, 10)>>
+	<<if _blackphysicaltraitroll gt 8>>
+		<<set $blacksmith.physicaltrait to either($npc.scar)>>
+	<<elseif _blackphysicaltraitroll gt 6>>
+		<<set $blacksmith.physicaltrait to either($npc.tattoo)>>
+	<<elseif _blackphysicaltraitroll lte 6>>
+		<<set $blacksmith.physicaltrait to $blacksmith.hair>>
+	<</if>>
+
+<<set $blacksmith.name to "$blacksmith.firstname" + " " + "$blacksmith.lastname">>
+
+
+/* ------------------------ BLACKSMITH RACE ------------------------- */
+<<if $blacksmith.race is "half-elf">>
+	<<set $blacksmith.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"),
+	$blacksmith.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "stocky", "beefy", "muscular", "muscular", "slightly underweight")>>
+<<elseif $blacksmith.race is "elf">>
+	<<set $blacksmith.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"),
+	$blacksmith.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "muscular", "stocky", "slightly underweight")>>
+<<elseif $blacksmith.race is "dwarf">>
+	<<set $blacksmith.height to either("short", "squat"),
+	$blacksmith.weight to either("stocky", "beefy", "muscular", "muscular", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby")>>
+<<elseif $blacksmith.race is "gnome">>
+	<<set $blacksmith.height to either("short", "tiny"),
+	$blacksmith.weight to either("stocky", "beefy", "muscular", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby")>>
+<<elseif $blacksmith.race is "halfling">>
+	<<set $blacksmith.height to either("short", "tiny"),
+	$blacksmith.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+<<elseif $blacksmith.race is "half-orc">>
+	<<set $blacksmith.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight")>>
+<<elseif $blacksmith.race is "dragonborn">>
+	<<set $blacksmith.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $blacksmith.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight")>>
+<<elseif $blacksmith.race is "tiefling">>
+	<<set $blacksmith.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+<</if>>
+
+/* Race Note Code - so humans are introduced as 'a short woman', and elves are introduced as elves. */
+<<if $blacksmith.race is "human">>
+		<<set $blacksmith.racenote to $blacksmith.height + $blacksmith.manwoman>>
+	<<else>>
+		<<set $blacksmith.racenote to $blacksmith.race>>
+<</if>>
+
+<<switch $blacksmith.race>>
+	<<case "elf">>
+		<<set $blacksmith.racesingular to "elf",
+		$blacksmith.raceplural to "elves",
+		$blacksmith.raceadjective to "elven",
+		$blacksmith.racelanguage to "Elfish">>
+	<<case "dwarf">>
+		<<set $blacksmith.racesingular to "dwarf",
+		$blacksmith.raceplural to "dwarves",
+		$blacksmith.raceadjective to "dwarven",
+		$blacksmith.racelanguage to "Dwarven">>
+	<<case "halfling">>
+		<<set $blacksmith.racesingular to "halfling",
+		$blacksmith.raceplural to "hobbits",
+		$blacksmith.raceadjective to "dwarven",
+		$blacksmith.racelanguage to "Dwarven">>
+	<<case "half-orc">>
+		<<set $blacksmith.racesingular to "half-orc",
+		$blacksmith.raceplural to "half-orcs",
+		$blacksmith.raceadjective to "orcish",
+		$blacksmith.racelanguage to "Orcish">>
+	<<case "dragonborn">>
+		<<set $blacksmith.racesingular to "drake",
+		$blacksmith.raceplural to "drakes",
+		$blacksmith.raceadjective to "draconian",
+		$blacksmith.racelanguage to "Draconic">>
+	<<case "tiefling">>
+		<<set $blacksmith.racesingular to "tiefling",
+		$blacksmith.raceplural to "tieflings",
+		$blacksmith.raceadjective to "devilish",
+		$blacksmith.racelanguage to "Demonic">>
+	<<default>>
+		<<set $blacksmith.racesingular to "person",
+		$blacksmith.raceplural to "people",
+		$blacksmith.raceadjective to "human",
+		$blacksmith.racelanguage to "Common">>
+<</switch>>

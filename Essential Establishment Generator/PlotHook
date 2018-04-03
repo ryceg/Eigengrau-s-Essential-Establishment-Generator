@@ -1,0 +1,24 @@
+
+
+:: PlotHook
+<<set $plothook to {
+	people: ["I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
+	"There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.", "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print $name.man.pluck()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",
+	"I know that you are not likely to believe me, but... I am the messenger for the Duke's brother- yes, he had a brother, who has been in exile for some time. I've been charged to deliver this letter to the Duke, but I fear that I'm being followed and may meet my fate soon; the exact details are better left unknown, lest you make yourself a permanent target for holding the knowledge that I do. You must get this message to him. But do not open it, as the Duke will not touch it if the wax seal has been broken.",
+	"I'm looking for some guards to help me deliver some cargo some weeks' way away from $town.name; I can't promise that it's going to be easy, but if you keep me and my cargo safe, I can promise rewards well worth your time.",
+	"For many years, I've kept in contact with the priest of $town.name, Father <<print $name.man.pluck()>>. But when I visited last spring, he was nowhere to be seen, and $bartender.firstname said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
+	"Many years ago, my sister $npc.woman.pluck() had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows."],
+
+
+	things: ["Behind the bar of $tavern.name, there's a small rat which you've seen the bartender look directly at, without trying to kill the pest."],
+
+
+	rumour: ["The hedge maze in front of the manor has been maintained for decades by a strange elf who speaks in cryptic riddles. Recently, a visiting noble from a nearby kingdom went into the maze and never came out. Everyone who has gone in looking for him has met the same fate...",
+	"A talented sculptor recently did a sculpture for the Lord of $town.name and ever since, the Lord has not been himself- before he remembered all his servants names, and now he merely bark orders... We fear that something happened to him.",
+	"A local tinkerer named Ebonweg has recently gone missing. The locals know him as an honest tradesman; however he was also something of a recluse, whose tinkerings sometimes bordered on the immoral.",
+	"There was talk of a group of bandits that had taken up terrorizing the road to the north of $town.name, but I went through there just last week, and there was nought a sound the entire journey."],
+
+
+	paper: ["The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
+	"The paper states 'WANTED: DEAD OR ALIVE', with the fine print reading 'For the crimes of theft, robbery, burglary, and arson, the $town.name Bandit is wanted dead or alive.' You ask $bartender.firstname about what the crimes entailed, and apparently there's been a huge rash of thefts of food in $town.name recently, resulting in food shortages. The $town.type's council has hired bounty hunters to catch the criminal."]
+}>>
