@@ -58,47 +58,47 @@
 <</if>>
 
 <<if _restfulness gt 90, _sleepeasy gte 2>>
-		You unsurprisingly get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleeptype">.</span>
+		You unsurprisingly get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 90, _sleepeasy lte -2>>
-		You surprisingly get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleeptype">.</span>
+		You surprisingly get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 90>>
-		You get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleeptype">.</span>
+		You get an excellent night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<elseif _restfulness gt 80, _sleepeasy gte 2>>
-		You unsurprisingly get a great night's sleep, and awake feeling refreshed and reinvigorated<span id="sleeptype">.</span>
+		You unsurprisingly get a great night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 80, _sleepeasy lte -2>>
-		You surprisingly get a great night's sleep, and awake feeling refreshed and reinvigorated<span id="sleeptype">.</span>
+		You surprisingly get a great night's sleep, and awake feeling refreshed and reinvigorated<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 70, _sleepeasy gte 2>>
-		You unsurprisingly get a good night's sleep, and awake feeling refreshed<span id="sleeptype">.</span>
+		You unsurprisingly get a good night's sleep, and awake feeling refreshed<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 70, _sleepeasy lte -2>>
-		You surprisingly get a good night's sleep, and awake feeling refreshed<span id="sleeptype">.</span>
+		You surprisingly get a good night's sleep, and awake feeling refreshed<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 70>>
-		You get a good night's sleep, and awake feeling refreshed<span id="sleeptype">.</span>
+		You get a good night's sleep, and awake feeling refreshed<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 50, _sleepeasy gte 2>>
-		You get an alright night's sleep, which is disappointing considering the quality of $tavern.name, but you awake feeling reasonably refreshed<span id="sleeptype">.</span>
+		You get an alright night's sleep, which is disappointing considering the quality of $tavern.name, but you awake feeling reasonably refreshed<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 50, _sleepeasy lte -2>>
-		You get an alright night's sleep despite the poor quality of $tavern.name, but you awake feeling reasonably refreshed<span id="sleeptype">.</span>
+		You get an alright night's sleep despite the poor quality of $tavern.name, but you awake feeling reasonably refreshed<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 50>>
-		You get an alright night's sleep, and awake feeling reasonably refreshed<span id="sleeptype">.</span>
+		You get an alright night's sleep, and awake feeling reasonably refreshed<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 30, _sleepeasy gte 2>>
-		You get an awful night's sleep, which is disappointing considering the quality of $tavern.name, and awake with a sore back; it might have been how you were sleeping, or the bed, but you feel pretty awful<span id="sleeptype">.</span>
+		You get an awful night's sleep, which is disappointing considering the quality of $tavern.name, and awake with a sore back; it might have been how you were sleeping, or the bed, but you feel pretty awful<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 30, _sleepeasy lte -2>>
-		You get an awful night's sleep, which is unsurprising considering the quality of $tavern.name, and awake with a sore back; it might have been how you were sleeping, or the bed, but you feel pretty awful<span id="sleeptype">.</span>
+		You get an awful night's sleep, which is unsurprising considering the quality of $tavern.name, and awake with a sore back; it might have been how you were sleeping, or the bed, but you feel pretty awful<span id="sleep-type">.</span>
 	<<elseif _restfulness gt 30>>
-		You get an awful night's sleep, and awake with a sore back; it might have been how you were sleeping, or the bed, but you feel pretty awful<span id="sleeptype">.</span>
+		You get an awful night's sleep, and awake with a sore back; it might have been how you were sleeping, or the bed, but you feel pretty awful<span id="sleep-type">.</span>
 	<<elseif _restfulness lte 30, _sleepeasy gte 2>>
-		The night seems to go on forever, and you just can't get to sleep, despite the comforts provided. You awake in the morning to the roosters outside, and feel groggy, and not at all rested<span id="sleeptype">.</span>
+		The night seems to go on forever, and you just can't get to sleep, despite the comforts provided. You awake in the morning to the roosters outside, and feel groggy, and not at all rested<span id="sleep-type">.</span>
 	<<elseif _restfulness lte 30, _sleepeasy lte -2>>
-		The night seems to go on forever, and you just can't get to sleep, probably due to the disgusting conditions that you were expected to sleep in. You awake in the morning to the roosters outside, and feel groggy, and not at all rested<span id="sleeptype">.</span>
+		The night seems to go on forever, and you just can't get to sleep, probably due to the disgusting conditions that you were expected to sleep in. You awake in the morning to the roosters outside, and feel groggy, and not at all rested<span id="sleep-type">.</span>
 	<<elseif _restfulness lte 30>>
-		The night seems to go on forever, and you just can't get to sleep. You awake in the morning to the roosters outside, and feel groggy, and not at all rested<span id="sleeptype">.</span>
+		The night seems to go on forever, and you just can't get to sleep. You awake in the morning to the roosters outside, and feel groggy, and not at all rested<span id="sleep-type">.</span>
 	<<else>>
 		<<print "It's a regular sort of sleep, and you awake feeling reasonably refreshed">>
 <</if>>
 <<switch $tavern.type>>
 	<<case "brothel">>
-		<<prepend "#sleeptype">>in spite of the whores moaning<</prepend>>
+		<<prepend "#sleep-type">>in spite of the whores moaning<</prepend>>
 	<<case "gambling den">>
-		<<prepend "#sleeptype">>in spite of the commotion whenever something interesting happened at the gambling tables<</prepend>>
+		<<prepend "#sleep-type">>in spite of the commotion whenever something interesting happened at the gambling tables<</prepend>>
 <</switch>>
 
 <<if $tavern.wealth is "kingly">>
