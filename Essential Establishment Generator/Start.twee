@@ -9,6 +9,9 @@
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>><</nobr>>
 <<linkreplace "Rename <strong>$tavern.name</strong>">><h3><<textbox "$tavern.name" $tavern.name>></h3><</linkreplace>>
 
+$guard.population
+
+$alchemistinventory
 
 Tavern Wealth: <<numberslider "$tavern.wealthroll" $tavern.wealthroll 1 100 1>>
 
