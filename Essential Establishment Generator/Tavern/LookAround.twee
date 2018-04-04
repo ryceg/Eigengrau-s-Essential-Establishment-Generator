@@ -3,15 +3,20 @@
 
 <<nobr>>
 	<<if $tavern.populationroll gt 80 && $tavern.roughnessroll gt 60>>
-			<<print either("You can barely hear each other over the din of the other patrons ($tavern.diversity), who are pretty rowdy. One elbows you in the ribs as they try to get around you to the bar.", "You find it difficult to hear each other over the din of the crowds that are drunkenly cavorting around.")>>
+			<<print either("You can barely hear each other over the din of the other patrons ($tavern.diversity), who are pretty rowdy. One elbows you in the ribs as they try to get around you to the bar.",
+			"You find it difficult to hear each other over the din of the crowds that are drunkenly cavorting around.")>>
 	<<elseif $tavern.populationroll gt 80>>
-			<<print either("There's barely enough room to stand, let alone find a seat in the $tavern.wordnoun<<nobr>>.<</nobr>> The patrons of $tavern.name are $tavern.diversity", "The $tavern.wordnoun is packed, and the patrons who are $tavern.diversity are clamouring to find the few barmaids that are on staff.")>>
+			<<print either("There's barely enough room to stand, let alone find a seat in the $tavern.wordnoun.",
+			"The $tavern.wordnoun is packed, and the patrons who are $tavern.diversity are clamouring to find the few barmaids that are on staff.")>>
 	<<elseif $tavern.populationroll gt 60 && $tavern.roughnessroll gt 60>>
-			<<print either("The $tavern.wordnoun is packed with $tavern.diversity, and you're pushed to the side as somebody makes for the latrine in a hurry.", "It's peak hour for $tavern.name and you can tell that $bartender.name is concerned about a fight breaking out. $tavern.diversity")>>
+			<<print either("The $tavern.wordnoun is packed with $tavern.diversity, and you're pushed to the side as somebody makes for the latrine in a hurry.",
+			"It's peak hour for $tavern.name and you can tell that $bartender.name is concerned about a fight breaking out. $tavern.diversity")>>
 	<<elseif $tavern.populationroll gt 60>>
-			<<print either("The $tavern.wordnoun is pretty packed with $tavern.diversity, and it's difficult for you to find a seat. $tavern.diversity", "The $tavern.wordnoun is quite full; $tavern.diversity, and the owner is clearly enjoying the amount of business $bartender.hisher $tavern.wordnoun is receiving.", "It must be peak hour for the $tavern.wordnoun. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.")>>
+			<<print either("The $tavern.wordnoun is pretty packed with $tavern.diversity, and it's difficult for you to find a seat. $tavern.diversity",
+			"The $tavern.wordnoun is quite full; $tavern.diversity, and the owner is clearly enjoying the amount of business $bartender.hisher $tavern.wordnoun is receiving.", "It must be peak hour for the $tavern.wordnoun. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.")>>
 	<<elseif $tavern.populationroll gt 40 && $tavern.roughnessroll gt 60>>
-			<<print either("The clientele is pretty rough, and might have scared off some of the less rambunctious potential customers.  $tavern.diversity", "There's a fair number of people in the $tavern.wordnoun with quite a few swords on display. $tavern.diversity")>>
+			<<print either("The clientele is pretty rough, and might have scared off some of the less rambunctious potential customers.  $tavern.diversity",
+			"There's a fair number of people in the $tavern.wordnoun with quite a few swords on display. $tavern.diversity")>>
 	<<elseif $tavern.populationroll gt 40>>
 			<<print either("There's a reasonable amount of customers in the $tavern.wordnoun. $tavern.name's barmaid is happily walking back and forth from the kitchen, taking out plates as they are delivered.", "There's a decent number of people in $tavern.name, and you manage to find a seat without too much trouble. $tavern.diversity")>>
 	<<elseif $tavern.populationroll lte 40 && $tavern.roughnessroll gt 60>>
@@ -22,7 +27,31 @@
 			<<print "It's almost just you and the bartender in here.">>
 <</if>>
 
+<<set _guard to random(1, 100)>>
 <<set _brawl to random(1, 100)>>
+	<<if $guard.population gt 20>>
+		<<set _guard += 10>>
+	<<elesif $guard.population gt 15>>
+		<<set _guard += 5>>
+	<<elseif $guard.population gt 10>>
+		<<set _guard += 1>>
+	<<elseif $guard.population gt 5 && $tavern.sizeroll gt 60>>
+		<<set _guard -= 7>>
+	<<elseif $guard.population gt 5>>
+			<<set _guard -= 5>>
+	<<elseif $guard.population lte 5 && $tavern.sizeroll gt 60>>
+			<<set _guard -= 15>>
+	<<elseif $guard.population lte 5>>
+		<<set _guard -= 10>>
+		<</if>>
+
+<<if _guard gte 50>>
+	<<set $tavern.guard to true, _brawl -= 20>>
+	<<elseif _guard lt 50>>
+	<<set $tavern.guard to false>>
+	<</if>>
+
+
 	<<if $tavern.populationroll gt 80>>
 		<<set _brawl += 15>>
 	<<elseif $tavern.populationroll gt 70>>
