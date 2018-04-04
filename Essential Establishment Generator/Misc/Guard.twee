@@ -1,9 +1,9 @@
 
 :: Guard
 <<set _guardpopulationroll to random(-20, 20)>>
-<<set $guard to {
-	population: $town.population /= 150 + _guardpopulationroll
-	}>>
+<<set $guard to {}>
+
+<<set $guard.population == ($town.population /= 150 + _guardpopulationroll)>>
 
 <<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
 <<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
