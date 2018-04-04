@@ -4,19 +4,19 @@
 <<nobr>>
 /* ------------------------- WEALTH -------------------------- */
 <<if $tavern.wealthroll gt 95>>
-		<<set $tavern.wealth to "kingly", $tavern.lodging = 800, $tavern.food = 400>>
+		<<set $tavern.wealth to "kingly", $tavern.lodging == 800, $tavern.food = 400>>
 	<<elseif $tavernwealthroll gt 80>>
-		<<set $tavern.wealth to "aristocratic", $tavern.lodging = 400, $tavern.food = 200>>
+		<<set $tavern.wealth to "aristocratic", $tavern.lodging == 400, $tavern.food = 200>>
 	<<elseif $tavernwealthroll gt 70>>
-		<<set $tavern.wealth to "wealthy", $tavern.lodging = 200, $tavern.food = 80>>
+		<<set $tavern.wealth to "wealthy", $tavern.lodging == 200, $tavern.food = 80>>
 	<<elseif $tavernwealthroll gt 60>>
-		<<set $tavern.wealth to "comfortable", $tavern.lodging = 50, $tavern.food = 40>>
+		<<set $tavern.wealth to "comfortable", $tavern.lodging == 50, $tavern.food = 40>>
 	<<elseif $tavernwealthroll gt 50>>
-		<<set $tavern.wealth to "modest", $tavern.lodging = 30, $tavern.food = 30>>
+		<<set $tavern.wealth to "modest", $tavern.lodging == 30, $tavern.food = 30>>
 	<<elseif $tavernwealthroll gt 25>>
-		<<set $tavern.wealth to "poor", $tavern.lodging = 10, $tavern.food = 6>>
+		<<set $tavern.wealth to "poor", $tavern.lodging == 10, $tavern.food = 6>>
 	<<elseif $tavernwealthroll lte 25>>
-		<<set $tavern.wealth to "squalid", $tavern.lodging = 7, $tavern.food = 3>>
+		<<set $tavern.wealth to "squalid", $tavern.lodging == 7, $tavern.food = 3>>
 <</if>>
 
 /* ------------------------- SIZE -------------------------- */
