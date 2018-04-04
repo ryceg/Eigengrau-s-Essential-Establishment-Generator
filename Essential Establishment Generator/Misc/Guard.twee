@@ -1,7 +1,7 @@
 
 :: Guard
 <<set _guardpopulationroll to random(-20, 20)>>
-<<set $guard to {}>
+<<set $guard to {}>>
 
 <<set $guard.population == ($town.population /= 150 + _guardpopulationroll)>>
 

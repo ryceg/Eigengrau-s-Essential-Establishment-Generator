@@ -7,5 +7,6 @@
 - Implement pickpocketing
 - More rumours
 - Implement variable tavern prices based on size, cleanliness, wealth.
+  - Fix how lodging is priced during the render phase so it can be modified
 - Implement brawls in the tavern
 - Implement alchemist's shop
