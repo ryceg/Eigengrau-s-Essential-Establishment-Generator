@@ -35,6 +35,8 @@
 	<<set $bartender.firstname to either($name.woman)>>
 <</if>>
 
+
+
 <<set _BarEyeColours to ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"]>>
 <<set _bareye to random (1, 10)>>
 <<if _bareye gt 9>>

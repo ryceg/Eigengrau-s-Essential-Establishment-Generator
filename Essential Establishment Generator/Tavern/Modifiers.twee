@@ -14,7 +14,7 @@
 /* ------------------------- WEALTH -------------------------- */
 
 	<<if $town.wealth gt 95>>
-		<<set $tavern.wealthroll += 5>>
+		<<set $tavern.wealthroll += 5, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
 	<<elseif $town.wealth gt 80>>
 		<<set $tavern.wealthroll += 3>>
 	<<elseif $town.wealth gt 70>>
@@ -34,7 +34,7 @@
 <</if>>
 /* ------------------------- TYPE -------------------------- */
 <<if $tavern.type is "brothel" or $tavern.type is "gambling den">>
-		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5>>
+		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5, $tavern.lodging *= 1.3>>
 	<<elseif $tavern.type is "quiet and low-key bar">>
 		<<set $tavern.sinroll -= 15, $tavern.populationroll -= 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 3>>
 	<<elseif $tavern.type is "raucous dive">>
@@ -42,7 +42,7 @@
 	<<elseif $tavern.type is "thieves' guild hangout">>
 		<<set $tavern.sinroll += 15, $tavern.roughnessroll +=5>>
 	<<elseif $tavern.type is "high-end dining club" or $tavern.type is "members-only club">>
-		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10>>
+		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10, $tavern.food *= 1.3>>
 	<<elseif $tavern.type is "gathering place for a secret society">>
 		<<set $tavern.sinroll += 5, $tavern.populationroll -= 5>>
 <</if>>
@@ -59,7 +59,7 @@
 		<<set $tavern.roughnessroll -= 2, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 1>>
 */
 	<<if $tavern.draw is "lack of bedbugs" or $tavern.draw is "clean beds">>
-		<<set $tavern.roughnessroll -= 4, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 15>>
+		<<set $tavern.roughnessroll -= 4, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 15, $tavern.lodging *= 1.1>>
 <</if>>
 
 /* ---------------------- TAVERN STRUCTURE MATERIAL ----------------------- */
@@ -75,7 +75,7 @@
 /* ------------------------- WEALTH -------------------------- */
 
 	<<if $tavern.wealthroll gt 95>>
-		<<set $tavern.cost += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10>>
+		<<set $tavern.cost += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
 	<<elseif $tavern.wealthroll gt 80>>
 		<<set $tavern.cost += 3, $tavern.cleanlinessroll += 10>>
 	<<elseif $tavern.wealthroll gt 70>>
@@ -107,7 +107,7 @@
 /* ------------------------- ROUGHNESS -------------------------- */
 
 	<<if $tavern.roughnessroll gt 80>>
-		<<set $tavern.population += 3, $tavern.sinroll +=5, $tavern.cleanlinessroll -= 4>>
+		<<set $tavern.population += 3, $tavern.sinroll +=5, $tavern.cleanlinessroll -= 4, $tavern.lodging *= 0.8>>
 	<<elseif $tavern.roughnessroll gt 60>>
 		<<set $tavern.population += 1, $tavern.sinroll +=3, $tavern.cleanlinessroll -= 2>>
 	<<elseif $tavern.roughnessroll gt 50>>

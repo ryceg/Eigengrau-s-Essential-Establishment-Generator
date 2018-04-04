@@ -15,7 +15,7 @@
 	roughnessroll: random(1, 100),
 	cleanlinessroll: random(1, 100),
 	magicroll: random(1, 20),
-	structure: either("wooden", "wooden", "wooden", "wooden", "wooden", "stone", "stone", "stone", "stone", "hewn rock", "chiseled stone"),
+
 	type: either("quiet and low-key bar", "regular", "regular", "regular", "regular", "raucous dive", "raucous dive", "raucous dive", "raucous dive", "thieves' guild hangout", "gathering place for a secret society", "high-end dining club", "high-end dining club", "gambling den", "gambling den", "$bartender.race only club", "guild-member's only club", "members-only club", "brothel", "brothel"),
 	draw: either("attractive waitstaff", "resident bard", "<<print $tavern.roughness>> atmosphere", "<<print $tavern.roughness>> atmosphere", "<<print $tavern.roughness>> atmosphere", "witty banter with the waitstaff", "crude jokes the bartender makes", "proximity to the thieves' guild headquarters", "warmth inside", "magic incense which is constantly burning", "proximity to the brothel", "proximity to the church", "location by the river", "wooden-chopping competition held weekly", "mahogany stairs", "clean beds", "lack of bedbugs", "magic bedbugs", "drunk wizard", "huge fireplace", "incredible view", "nice view"),
 	shortages: ["wine", "booze", "grog", "whiskey", "mutton", "lamb", "carrots", "mugs", "forks", "frogs", "bread", "mushrooms", "salt", "silver pieces", "chairs", "eggs", "potatoes"]
@@ -29,3 +29,5 @@
 	<<elseif ($tavern.type is "raucous dive" && $tavern.draw is "proximity to the church")>>
 		<<set $tavern.draw to "proximity to the brothel">>
 <</if>>
+
+<<set $tavern.structure to either($building.structure)>>
