@@ -10,7 +10,7 @@ url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_textu
   margin-top: 4px;
   /*color: black;*/
 }
-
+/*
 h1 {
   font-family: MrJeeves;
   font-size: 37px;
@@ -79,7 +79,191 @@ a:link {
 a {
   color: 58180D;
 }
+*/
 
+h1, h2, h3, h4{
+margin-top:         .2em;
+margin-bottom:      .2em;
+font-family:        MrJeeves;
+font-weight:        800;
+color:              #58180D;}
+
+/* H1 */
+
+h1{
+column-span:        all;
+font-size:          .987cm;
+-webkit-column-span:all;
+-moz-column-span:   all;}
+
+
+/* H2 */
+
+h2{
+font-size:          .705cm;
+}
+
+
+/* H3 */
+
+h3{
+font-size:          .529cm;
+border-bottom:      2px solid #c9ad6a
+}
+
+
+/* H4 */
+
+h4{
+margin-bottom:      0;
+font-size:          .458cm
+}
+
+
+/* H5 */
+
+h5{
+margin-bottom:      .2em;
+font-family:        ScalySansSmallCaps;
+font-size:          .423cm;
+font-weight:        900
+}
+
+
+/* H6 */
+
+
+h6{}
+
+
+/* ### Paragraphs */
+
+/* P */
+
+p{
+line-height:        1.3em;}
+
+
+/* P+P */
+
+p+p{
+margin-top:         -0.8em;}
+
+
+/* Text Indentation */
+
+p+p,
+ul+p,
+ol+p {
+    text-indent:    1em
+}
+
+
+/* Text Decoration */
+
+strong {
+    font-weight:    bold;
+    letter-spacing: .03em
+}
+em {
+    font-style:     italic
+}
+sup {
+    vertical-align: super;
+    font-size:      xx-small;
+    line-height:    0
+}
+sub {
+    vertical-align: sub;
+    font-size:      smaller;
+    line-height:    0
+}
+
+
+/* First Letter after H1 */
+
+h1+p::first-letter {
+    float:          left;
+    font-family:    Solberry;
+    font-size:      10em;
+    color:          #222;
+    line-height:    .8em
+}
+blockquote {
+    font-family: ScalySans;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    margin-top: 9px;
+    padding: 5px 10px;
+    background-color: #e0e5c1;
+    border-style: solid;
+    border-width: 11px;
+    border-image: url('http://www.gmbinder.com/assets/img/note-wrap.png') 11;
+    border-image-outset: 9px 0;
+    box-shadow: 1px 4px 14px #888
+}
+blockquote em {
+    font-family: ScalySans;
+    font-style: italic
+}
+blockquote strong {
+    font-family: ScalySans;
+    font-weight: 800;
+    letter-spacing: -0.02em
+}
+blockquote p,
+blockquote ul {
+    font-size: .352cm;
+    line-height: 1.1em
+}
+pre+blockquote,
+h2+blockquote,
+h3+blockquote,
+h4+blockquote,
+h5+blockquote {
+    margin-top: 13px}
+blockquote h5 {
+    margin-top: 0}
+
+
+    <div class='descriptive'>
+
+     ##### Catchy Title
+     Useful information
+
+     </div>
+
+    .descriptive{
+        display:block-inline;
+        margin-bottom:1em;
+        background-color:#faf7ea;
+        font-family:ScalySans;
+        border-style:solid;
+        border-width:7px;
+        border-image:url('http://www.gmbinder.com/assets/img/sidebars.png') 12 round;
+        border-image-outset:4px;
+        box-shadow:0 0 6px #faf7ea
+    }
+    .descriptive p{
+        display:block;
+        padding-bottom:0;
+        line-height:1.5em
+    }
+    .descriptive p+p{
+        padding-top:.8em
+    }
+    .descriptive em{
+        font-family:ScalySans;
+        font-style:italic
+    }
+    .descriptive strong{
+        font-family:ScalySans;
+        font-weight:800;
+        letter-spacing:-0.02em
+    }
+    pre+.descriptive{
+        margin-top:8px
+    }
 /***********************************************************************
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
 ***********************************************************************/
