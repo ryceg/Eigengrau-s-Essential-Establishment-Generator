@@ -1,18 +1,18 @@
 
 :: Story Stylesheet [stylesheet]
 
-body {
-  /*background-image: url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_texture_by_kluckham-d91rf3o.png);
+/*body {
+  background-image: url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_texture_by_kluckham-d91rf3o.png);
   background-attachment: scroll;
   background-repeat: repeat;
-  background-size: cover;*/
+  background-size: cover;
   font-family: Bookos;
   font-size: 18px;
   margin-bottom: 4px;
   margin-top: 4px;
   /*color: black;*/
 }
-
+/*
 h1 {
   font-family: MrJeeves;
   font-size: 37px;
@@ -55,14 +55,192 @@ h5 {
   padding-right: 8px;
   padding-left: 3px;
 }
+*/
+.phb h1, .phb h2, .phb h3, .phb h4{
+margin-top:         .2em;
+margin-bottom:      .2em;
+font-family:        MrJeeves;
+font-weight:        800;
+color:              #58180D;}
 
-blockquote {
-    border-style: solid;
-    border-width: 2px;
-  	background-color: #E0E5C1;
-    box-sizing: border-box;
+/* H1 */
+
+.phb h1{
+column-span:        all;
+font-size:          .987cm;
+-webkit-column-span:all;
+-moz-column-span:   all;}
+
+
+/* H2 */
+
+.phb h2{
+font-size:          .705cm;
 }
 
+
+/* H3 */
+
+.phb h3{
+font-size:          .529cm;
+border-bottom:      2px solid #c9ad6a
+}
+
+
+/* H4 */
+
+.phb h4{
+margin-bottom:      0;
+font-size:          .458cm
+}
+
+
+/* H5 */
+
+.phb h5{
+margin-bottom:      .2em;
+font-family:        ScalySansSmallCaps;
+font-size:          .423cm;
+font-weight:        900
+}
+
+
+/* H6 */
+
+
+.phb h6{}
+
+
+/* ### Paragraphs */
+
+/* P */
+
+.phb p{
+line-height:        1.3em;}
+
+
+/* P+P */
+
+.phb p+p{
+margin-top:         -0.8em;}
+
+
+/* Text Indentation */
+
+.phb p+p,
+.phb ul+p,
+.phb ol+p {
+    text-indent:    1em
+}
+
+
+/* Text Decoration */
+
+.phb strong {
+    font-weight:    bold;
+    letter-spacing: .03em
+}
+.phb em {
+    font-style:     italic
+}
+.phb sup {
+    vertical-align: super;
+    font-size:      xx-small;
+    line-height:    0
+}
+.phb sub {
+    vertical-align: sub;
+    font-size:      smaller;
+    line-height:    0
+}
+
+
+/* First Letter after H1 */
+
+.phb h1+p::first-letter {
+    float:          left;
+    font-family:    Solberry;
+    font-size:      10em;
+    color:          #222;
+    line-height:    .8em
+}
+.phb blockquote {
+    font-family: ScalySans;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    margin-top: 9px;
+    padding: 5px 10px;
+    background-color: #e0e5c1;
+    border-style: solid;
+    border-width: 11px;
+    border-image: url('/assets/img/note-wrap.png') 11;
+    border-image-outset: 9px 0;
+    box-shadow: 1px 4px 14px #888
+}
+.phb blockquote em {
+    font-family: ScalySans;
+    font-style: italic
+}
+.phb blockquote strong {
+    font-family: ScalySans;
+    font-weight: 800;
+    letter-spacing: -0.02em
+}
+.phb blockquote p,
+.phb blockquote ul {
+    font-size: .352cm;
+    line-height: 1.1em
+}
+.phb pre+blockquote,
+.phb h2+blockquote,
+.phb h3+blockquote,
+.phb h4+blockquote,
+.phb h5+blockquote {
+    margin-top: 13px}
+.phb blockquote h5 {
+    margin-top: 0}
+
+
+    <div class='descriptive'>
+
+     ##### Catchy Title
+     Useful information
+
+     </div>
+
+    .phb .descriptive{
+        display:block-inline;
+        margin-bottom:1em;
+        background-color:#faf7ea;
+        font-family:ScalySans;
+        border-style:solid;
+        border-width:7px;
+        border-image:url('/assets/img/sidebars.png') 12 round;
+        border-image-outset:4px;
+        box-shadow:0 0 6px #faf7ea
+    }
+    .phb .descriptive p{
+        display:block;
+        padding-bottom:0;
+        line-height:1.5em
+    }
+    .phb .descriptive p+p{
+        padding-top:.8em
+    }
+    .phb .descriptive em{
+        font-family:ScalySans;
+        font-style:italic
+    }
+    .phb .descriptive strong{
+        font-family:ScalySans;
+        font-weight:800;
+        letter-spacing:-0.02em
+    }
+    .phb pre+.descriptive{
+        margin-top:8px
+    }
+
+/*
 descriptive {
   border-style: solid;
   font-family: ScalySans;
@@ -73,6 +251,7 @@ descriptive {
   background-color: #FAF7EA;
   box-sizing: border-box;
 }
+*/
 
 a:link {
   color: 58180D;

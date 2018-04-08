@@ -23,8 +23,8 @@ Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>>
 
 Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanlinessroll 1 100 1>>
 
-<<money $tavern.lodging>>
-$tavern.lodging
+<span class=".phb.descriptive"><<money $tavern.lodging>></span>
+<h1>$tavern.lodging</h1>
 <<money 471>>
 
 When you're ready, here's the <<nobr>><<set _output to random(1, 3)>>
