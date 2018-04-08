@@ -33,6 +33,8 @@ Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanliness
 
      </div>
 
+		 <blockquote> Test block quote </blockquote>
+
 When you're ready, here's the <<nobr>><<set _output to random(1, 3)>>
 	<<switch _output>>
 	<<case 1>>
