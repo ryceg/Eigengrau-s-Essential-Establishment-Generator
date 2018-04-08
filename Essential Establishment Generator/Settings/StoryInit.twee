@@ -44,6 +44,8 @@
 
 <<include "Renders">>
 
+<<inlude "newspaper">>
+
 <<include "Pickpocket">>
 
 <<include "Potions">>
