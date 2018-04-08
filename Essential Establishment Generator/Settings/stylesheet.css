@@ -8,7 +8,6 @@ url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_textu
   font-size: 18px;
   margin-bottom: 4px;
   margin-top: 4px;
-  /*color: black;*/
 }
 /*
 h1 {
@@ -225,14 +224,6 @@ h5+blockquote {
 blockquote h5 {
     margin-top: 0}
 
-
-    <div class='descriptive'>
-
-     ##### Catchy Title
-     Useful information
-
-     </div>
-
     .descriptive{
         display:block-inline;
         margin-bottom:1em;
@@ -264,6 +255,19 @@ blockquote h5 {
     pre+.descriptive{
         margin-top:8px
     }
+
+    descriptive{
+        display:block-inline;
+        margin-bottom:1em;
+        background-color:#faf7ea;
+        font-family:ScalySans;
+        border-style:solid;
+        border-width:7px;
+        border-image:url('http://www.gmbinder.com/assets/img/sidebars.png') 12 round;
+        border-image-outset:4px;
+        box-shadow:0 0 6px #faf7ea
+    }
+
 /***********************************************************************
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
 ***********************************************************************/
