@@ -56,7 +56,7 @@ h5 {
   padding-left: 3px;
 }
 */
-.phb h1, .phb h2, .phb h3, .phb h4{
+h1, h2, h3, h4{
 margin-top:         .2em;
 margin-bottom:      .2em;
 font-family:        MrJeeves;
@@ -65,7 +65,7 @@ color:              #58180D;}
 
 /* H1 */
 
-.phb h1{
+h1{
 column-span:        all;
 font-size:          .987cm;
 -webkit-column-span:all;
@@ -74,14 +74,14 @@ font-size:          .987cm;
 
 /* H2 */
 
-.phb h2{
+h2{
 font-size:          .705cm;
 }
 
 
 /* H3 */
 
-.phb h3{
+h3{
 font-size:          .529cm;
 border-bottom:      2px solid #c9ad6a
 }
@@ -89,7 +89,7 @@ border-bottom:      2px solid #c9ad6a
 
 /* H4 */
 
-.phb h4{
+h4{
 margin-bottom:      0;
 font-size:          .458cm
 }
@@ -97,7 +97,7 @@ font-size:          .458cm
 
 /* H5 */
 
-.phb h5{
+h5{
 margin-bottom:      .2em;
 font-family:        ScalySansSmallCaps;
 font-size:          .423cm;
@@ -108,47 +108,47 @@ font-weight:        900
 /* H6 */
 
 
-.phb h6{}
+h6{}
 
 
 /* ### Paragraphs */
 
 /* P */
 
-.phb p{
+p{
 line-height:        1.3em;}
 
 
 /* P+P */
 
-.phb p+p{
+p+p{
 margin-top:         -0.8em;}
 
 
 /* Text Indentation */
 
-.phb p+p,
-.phb ul+p,
-.phb ol+p {
+p+p,
+ul+p,
+ol+p {
     text-indent:    1em
 }
 
 
 /* Text Decoration */
 
-.phb strong {
+strong {
     font-weight:    bold;
     letter-spacing: .03em
 }
-.phb em {
+em {
     font-style:     italic
 }
-.phb sup {
+sup {
     vertical-align: super;
     font-size:      xx-small;
     line-height:    0
 }
-.phb sub {
+sub {
     vertical-align: sub;
     font-size:      smaller;
     line-height:    0
@@ -157,14 +157,14 @@ margin-top:         -0.8em;}
 
 /* First Letter after H1 */
 
-.phb h1+p::first-letter {
+h1+p::first-letter {
     float:          left;
     font-family:    Solberry;
     font-size:      10em;
     color:          #222;
     line-height:    .8em
 }
-.phb blockquote {
+blockquote {
     font-family: ScalySans;
     box-sizing: border-box;
     margin-bottom: 1em;
@@ -177,27 +177,27 @@ margin-top:         -0.8em;}
     border-image-outset: 9px 0;
     box-shadow: 1px 4px 14px #888
 }
-.phb blockquote em {
+blockquote em {
     font-family: ScalySans;
     font-style: italic
 }
-.phb blockquote strong {
+blockquote strong {
     font-family: ScalySans;
     font-weight: 800;
     letter-spacing: -0.02em
 }
-.phb blockquote p,
-.phb blockquote ul {
+blockquote p,
+blockquote ul {
     font-size: .352cm;
     line-height: 1.1em
 }
-.phb pre+blockquote,
-.phb h2+blockquote,
-.phb h3+blockquote,
-.phb h4+blockquote,
-.phb h5+blockquote {
+pre+blockquote,
+h2+blockquote,
+h3+blockquote,
+h4+blockquote,
+h5+blockquote {
     margin-top: 13px}
-.phb blockquote h5 {
+blockquote h5 {
     margin-top: 0}
 
 
@@ -208,7 +208,7 @@ margin-top:         -0.8em;}
 
      </div>
 
-    .phb .descriptive{
+    .descriptive{
         display:block-inline;
         margin-bottom:1em;
         background-color:#faf7ea;
@@ -219,24 +219,24 @@ margin-top:         -0.8em;}
         border-image-outset:4px;
         box-shadow:0 0 6px #faf7ea
     }
-    .phb .descriptive p{
+    .descriptive p{
         display:block;
         padding-bottom:0;
         line-height:1.5em
     }
-    .phb .descriptive p+p{
+    .descriptive p+p{
         padding-top:.8em
     }
-    .phb .descriptive em{
+    .descriptive em{
         font-family:ScalySans;
         font-style:italic
     }
-    .phb .descriptive strong{
+    .descriptive strong{
         font-family:ScalySans;
         font-weight:800;
         letter-spacing:-0.02em
     }
-    .phb pre+.descriptive{
+    pre+.descriptive{
         margin-top:8px
     }
 
