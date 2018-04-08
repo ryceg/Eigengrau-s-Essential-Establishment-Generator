@@ -5,6 +5,10 @@
 
 <<include "Town">>
 
+<<include "Building">>
+
+<<include "Guard">>
+
 <<include "Tavern">>
 
 <<include "TavernNameGen">>
