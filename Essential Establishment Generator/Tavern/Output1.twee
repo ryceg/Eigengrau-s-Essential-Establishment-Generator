@@ -13,6 +13,10 @@
 <h3>The Bar</h3><<nobr>>
 
 <</nobr>>Behind $tavern.name's $tavern.structure bar is a $bartender.racenote, who you notice has $bartender.physicaltrait. Currently, $bartender.heshe is <<print $bartender.idle.random()>>. Looking up, $bartender.heshe <<print $bartender.greeting.pluck()>> and introduces <<nobr>>$bartender.himher<</nobr>>self as $bartender.name, $bartender.hisher $bartender.eyes eyes <<print either("looking brightly at you.", "piercing through your armour.", "staring at you warily.", "watching you suspiciously.", "looking at you kindly.", "darting back and forth around the room.")>><<nobr>>
-<<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><h3>$bartender.name</h3><<include "BartenderTalk">><</linkreplace>><</nobr>><<include "Menu">>
+
+<<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>>
+<h3>$bartender.name</h3><<include "BartenderTalk">><</linkreplace>>
+
+<</nobr>><<include "Menu">>
 <h3>The Tavern</h3><<linkreplace "<h4>Look around the $tavern.wordnoun</h4>" t8n>><<include "LookAround">><<print $tavern.patrons.pluck()>><</linkreplace>><<print $tavern.entertainment.pluck()>>
 <<include "Intrigue">><<include "Rooms">>

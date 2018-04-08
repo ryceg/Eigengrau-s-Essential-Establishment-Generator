@@ -1,4 +1,6 @@
 
+:: TavernGuard
+
 <<set _guard to random(1, 100)>>
 <<set _brawl to random(1, 100)>>
 	<<if $guard.population gt 20>>

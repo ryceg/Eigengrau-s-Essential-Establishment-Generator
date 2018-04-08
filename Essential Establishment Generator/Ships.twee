@@ -2,9 +2,7 @@
 :: Ships
 
 <<set $ship to {
-	name: ["Lantheon", "Starchaser", "Dryad’s Fury", "Black Trident", "Corellon’s Arrow", "Morkoth",
-	"Koalinthas", "Sehanine’s Fool", "Stormcrow", "Vaazrus", "Shield of Khahar", "Stingray", "Sanaj-Rakal",
-	"Zhal-Vazir", "Griffonwing", "Blademark", "Golden Libram", "Hareth’s Barrel", "Kasha’s Wake", "Shining Flute",
+	name: ["Lantheon", "Starchaser", "Dryad’s Fury", "Black Trident", "Corellon’s Arrow", "Morkoth","Koalinthas", "Sehanine’s Fool", "Stormcrow", "Vaazrus", "Shield of Khahar", "Stingray", "Sanaj-Rakal","Zhal-Vazir", "Griffonwing", "Blademark", "Golden Libram", "Hareth’s Barrel", "Kasha’s Wake", "Shining Flute",
 	"White Feather", "Riventide", "Moonriser", "Gem of Malfier", "Dragon’s Glory", "Menacer", "Scarlet Dagger",
 	"Kral-Tajir", "Ravager", "Kerle’s Drum", "Heart of Avandra", "Goldraker", "Sea Haunt", "Storm Maven",
 	"Grimbol’s Cutlass", "Scimitar", "Black Gauntlet", "Iron Maiden", "Wavecrusher", "Hammer of Kavath",
