@@ -173,7 +173,7 @@ margin-top:         -0.8em;}
     background-color: #e0e5c1;
     border-style: solid;
     border-width: 11px;
-    border-image: url('/assets/img/note-wrap.png') 11;
+    border-image: url('http://www.gmbinder.com/assets/img/note-wrap.png') 11;
     border-image-outset: 9px 0;
     box-shadow: 1px 4px 14px #888
 }
@@ -215,7 +215,7 @@ margin-top:         -0.8em;}
         font-family:ScalySans;
         border-style:solid;
         border-width:7px;
-        border-image:url('/assets/img/sidebars.png') 12 round;
+        border-image:url('http://www.gmbinder.com/assets/img/sidebars.png') 12 round;
         border-image-outset:4px;
         box-shadow:0 0 6px #faf7ea
     }
