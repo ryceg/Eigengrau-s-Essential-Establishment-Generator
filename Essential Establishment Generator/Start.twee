@@ -25,7 +25,7 @@ Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanliness
 
 <div class="descriptive">
 
-     ##### Catchy Title
+     <h4> Catchy Title </h4>
      Useful information
 
      </div>
