@@ -23,11 +23,7 @@ Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>>
 
 Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanlinessroll 1 100 1>>
 
-<descriptive><<money $tavern.lodging>></descriptive>
-
-<div style="descriptive"><<money 471>></div>
-
-<blockquote> Test blockquote 2 </blockquote>
+<div class='descriptive'><<money $tavern.lodging>></div>
 
 When you're ready, here's the <<nobr>><<set _output to random(1, 3)>>
 	<<switch _output>>
