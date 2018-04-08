@@ -28,7 +28,7 @@
 		<<set $guard.name to "The " + _guardnameC + " " + _guardnameD>>
 	<<case 6>>
 			<<set $guard.name to "The " + _guardnameC + " " + _guardnameD + " of " + _guardnameB>>
-
+<</switch>>
 
 <<if $Guard.population gt 20>>
 		<<set $guard.size to "batallion">>
