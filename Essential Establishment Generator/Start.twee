@@ -23,10 +23,7 @@ Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>>
 
 Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanlinessroll 1 100 1>>
 
-<div class='descriptive'><<money $tavern.lodging>></div>
-
-
-    <div class='descriptive'>
+<div class="descriptive">
 
      ##### Catchy Title
      Useful information
