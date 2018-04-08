@@ -3,11 +3,17 @@
 
 <<set $versionnumber to "0.3">>
 
+<<include "MathClamp">>
+
 <<include "Town">>
 
 <<include "Building">>
 
 <<include "Names">>
+
+<<include "Cloner">>
+
+<<include "NPC">>
 
 <<include "Guard">>
 
@@ -18,16 +24,11 @@
 <<include "TavernFlavour">>
 
 
-
-<<include "MathClamp">>
-
 /*<<include "fairmath">>*/
 
 <<include "Modifiers">>
 
-<<include "Cloner">>
 
-<<include "NPC">>
 
 <<include "Bartender">>
 
