@@ -11,8 +11,8 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 100 6000 25>>
 
-<<div "descriptive">> Test Descriptive </div>
+<div "descriptive"> Test Descriptive </div>
 
-<<blockquote>> Blockquote <</blockquote>>
+<blockquote> Blockquote </blockquote>
 
 [[$tavern.name|InitTavern]]
