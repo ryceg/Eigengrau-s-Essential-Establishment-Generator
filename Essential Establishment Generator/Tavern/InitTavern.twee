@@ -1,5 +1,5 @@
 
-:: InitTavern
+:: InitTavern [output]
 
 <<linkreplace "Rename <strong>$tavern.name</strong>">><h3><<textbox "$tavern.name" $tavern.name>></h3><</linkreplace>>
 

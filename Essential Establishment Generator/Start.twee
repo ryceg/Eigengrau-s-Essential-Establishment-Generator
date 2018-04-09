@@ -11,6 +11,6 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 100 6000 25>>
 
-[[$TavernName|InitTavern]]
+[[$Tavern.Name|InitTavern]]
 
 <</nobr>>
