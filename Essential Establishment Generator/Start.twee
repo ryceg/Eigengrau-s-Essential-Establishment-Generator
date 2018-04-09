@@ -3,7 +3,7 @@
 
 <h1>Eigengrau's Essential Establishment Generator</h1>
 Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
-<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>>
+<<linkappend "<h4>Changelog</h4>" t8n>>
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
 <<include "ToDo">><</linkappend>><</linkappend>>
 
@@ -11,6 +11,4 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 100 6000 25>>
 
-[[$Tavern.Name|InitTavern]]
-
-<</nobr>>
+[[<<print $tavern.name>>|InitTavern]]

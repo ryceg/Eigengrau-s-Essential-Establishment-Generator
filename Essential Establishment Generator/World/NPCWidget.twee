@@ -1,6 +1,6 @@
 
 :: NPCWidget [widget]
-<<widget>>
+<<widget "NPCWidget">>
 <<set $npc to {
 	lastname: $name.last.pluck(),
 	gender: ["man", "woman"],
