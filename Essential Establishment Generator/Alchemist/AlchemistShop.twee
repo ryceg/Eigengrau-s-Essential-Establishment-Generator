@@ -9,6 +9,3 @@
 	<<elseif $town.population lte 1000>>
 		<<
 <</if>>
-
-<<set _priceroll to random(1, 100)>>
-	<<if _priceroll
