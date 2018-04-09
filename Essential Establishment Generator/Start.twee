@@ -7,8 +7,8 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
 <<include "ToDo">><</linkappend>><</linkappend>>
 
-<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>><</nobr>>
+<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 Town Population: <<numberslider "$town.population" $town.population 100 6000 25>>
 
-[[<<print $tavern.name>>|InitTavern]]
+[[$tavern.name|InitTavern]]
