@@ -1,4 +1,4 @@
-:: PassageDone
+:: PassageReady
 
 <<include "Renders">>
 <<include "SmithyRenders">>

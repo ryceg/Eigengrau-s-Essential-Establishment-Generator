@@ -18,15 +18,15 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
     <<print _i + 1>>. _name.name - <<money _name.cost>>
     <</for>>
   <<case "town">>
-    <<for _i, _name range $alchemistinventory.availability lt 4>>
+    <<for _i, _name range $alchemistinventory>>
     <<print _i + 1>>. _name.name - <<money _name.cost>>
     <</for>>
   <<case "village">>
-    <<for _i, _name range $alchemistinventory.availability lt 3>>
+    <<for _i, _name range $alchemistinventory>>
     <<print _i + 1>>. _name.name - <<money _name.cost>>
     <</for>>
   <<case "hamlet">>
-    <<for _i, _name range $alchemistinventory.availability lt 2>>
+    <<for _i, _name range $alchemistinventory>>
     <<print _i + 1>>. _name.name - <<money _name.cost>>
     <</for>>
 <</switch>>

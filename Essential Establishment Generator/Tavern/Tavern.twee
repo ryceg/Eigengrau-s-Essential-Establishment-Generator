@@ -4,7 +4,6 @@
 <<set $tavern to {
 	wordnoun: either("tavern", "tavern", "tavern", "tavern", "pub", "pub", "pub", "inn", "inn", "bar", "bar", "bar", "watering hole", "drinkery"),
 	wealth: either("squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic", "kingly"),
-	cost: 10,
 	wealthroll: random(1, 100),
 	priceroll: random(-10, 10),
 	populationroll: random(1, 100),
