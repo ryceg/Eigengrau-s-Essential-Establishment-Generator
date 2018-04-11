@@ -3,9 +3,11 @@
 
 /* %%%%%%%%%%%%%%%%%%%%%%% UNDER CONSTRUCTION %%%%%%%%%%%%%%%%%%%%%%% */
 <<if $town.population gt 3000>>
-		<<
+		<<set $alchemistinventory to [0, 20]>>
 	<<elseif $town.population gt 1000>>
-		<<
-	<<elseif $town.population lte 1000>>
-		<<
+		<<set $alchemistinventory to [0, 18]>>
+	<<elseif $town.population gt 300>>
+		<<set $alchemistinventory to [0, 13]>>
+	<<elseif $town.population lte 300>>
+		<<set $alchemistinventory to [0, 9]>>
 <</if>>
