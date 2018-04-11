@@ -15,26 +15,31 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 <<switch $town.type>>
   <<case "city">>
     <<for _i, _alchemiststore range $alchemistinventory>>
+    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _alchemiststore.map(function(x){return x.name;})>>
     <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "town">>
     <<for _i, _alchemiststore range $alchemistinventory>>
+    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _alchemiststore.map(function(x){return x.name;})>>
     <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "village">>
     <<for _i, _alchemiststore range $alchemistinventory>>
+    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _alchemiststore.map(function(x){return x.name;})>>
     <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "hamlet">>
     <<for _i, _alchemiststore range $alchemistinventory>>
+    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _alchemiststore.map(function(x){return x.name;})>>
     <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
 <</switch>>
 
-$alchemistinventory.filter(function(x){return x.availability <= 2;})
-<<print _alchemiststore.map(function(x){return x.name;})>>
-
-
+<<print _i>>
 /*
 <<script>>
 function checkAvailability(availability) {
