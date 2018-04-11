@@ -1,4 +1,0 @@
-
-:: PlotGuyTalk
-
-You make your way around $tavern.name, and meet a <<print $plotguy.race>>

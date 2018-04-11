@@ -9,11 +9,8 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-Town Population: <<numberslider "$town.population" $town.population 100 6000 25>>
+Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
-<<Building "alchemist">>
-
-<<print _currentbuilding.name>>
-<<print _currentbuilding.structure>>
+<<money $tavern.lodging>>
 
 [[$tavern.name|InitTavern]]
