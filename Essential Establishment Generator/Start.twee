@@ -17,6 +17,8 @@ Lodging <<money $tavern.lodging>>
 Special Brew<<money $specialbrew.cost>>
 Food <<money $tavern.food>>
 
-AlchemistInventory $alchemistinventory[2]
+<<for _i, _name range $alchemistinventory>>
+<<print _i + 1>>. _name
+<</for>>
 
 [[$tavern.name|InitTavern]]

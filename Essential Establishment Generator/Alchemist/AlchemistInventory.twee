@@ -4,69 +4,15 @@
 <<set $alchemistinventory to [
 
 	{
-	name: "Acid",
-	cost: 2500,
-	availability: 2
-	},
-
-	{
-	name: "Alchemist's Fire (flask)",
-	cost: 5000,
-	availability: 3
-	},
-
-	{
-	name: "Anti-toxin (vial)",
-	cost: 5000,
+	name: "Potion (Common)",
+	cost: 50000,
 	availability: 1
 	},
 
 	{
-	name: "Bottle, glass",
-	cost: 200,
+	name: "Potion (Uncommon)",
+	cost: 250000,
 	availability: 1
-	},
-
-	{
-	name: "Component Pouch",
-	cost: 2500,
-	availability: 2
-	},
-
-	{
-	name: "Flask",
-	cost: 2,
-	availability: 1
-	},
-
-	{
-	name: "Healer's Kit",
-	cost: 500,
-	availability: 3
-	},
-
-	{
-	name: "Ink (1 ounce bottle)",
-	cost: 1000,
-	availability: 4
-	},
-
-	{
-	name: "Jug",
-	cost: 2,
-	availability: 1
-	},
-
-	{
-	name: "Flask of Oil",
-	cost: 10,
-	availability: 2
-	},
-
-	{
-	name: "Perfume (vial)",
-	cost: 500,
-	availability: 4
 	},
 
 	{
@@ -88,9 +34,26 @@
 	},
 
 	{
-	name: "Alchemist's Supplies",
-	cost: 50000,
-	availability: 3
+	name: "Flask",
+	cost: 2,
+	availability: 1
+	},
+
+	{
+	name: "Jug",
+	cost: 2,
+	availability: 1
+	},
+	{
+	name: "Anti-toxin (vial)",
+	cost: 5000,
+	availability: 1
+	},
+
+	{
+	name: "Bottle, glass",
+	cost: 200,
+	availability: 1
 	},
 
 	{
@@ -100,10 +63,23 @@
 	},
 
 	{
-	name: "Cook's Utensils",
-	cost: 20,
-	availability: 3
+	name: "Acid",
+	cost: 2500,
+	availability: 2
 	},
+
+	{
+	name: "Flask of Oil",
+	cost: 10,
+	availability: 2
+	},
+
+	{
+	name: "Component Pouch",
+	cost: 2500,
+	availability: 2
+	},
+
 
 	{
 	name: "Poisoner's Kit",
@@ -111,22 +87,48 @@
 	availability: 2
 	},
 
+
 	{
-	name: "Potion (Common)",
-	cost: 50000,
-	availability: 1
+	name: "Healer's Kit",
+	cost: 500,
+	availability: 3
 	},
 
 	{
-	name: "Potion (Uncommon)",
-	cost: 250000,
-	availability: 1
+	name: "Alchemist's Supplies",
+	cost: 50000,
+	availability: 3
 	},
+	{
+	name: "Cook's Utensils",
+	cost: 20,
+	availability: 3
+	},
+
+	{
+	name: "Alchemist's Fire (flask)",
+	cost: 5000,
+	availability: 3
+	},
+
 
 	{
 	name: "Potion (Rare)",
 	cost: 2500000,
 	availability: 3
-	}
+	},
+
+
+	{
+	name: "Perfume (vial)",
+	cost: 500,
+	availability: 4
+	},
+
+	{
+	name: "Ink (1 ounce bottle)",
+	cost: 1000,
+	availability: 4
+	},
 
 	]>>
