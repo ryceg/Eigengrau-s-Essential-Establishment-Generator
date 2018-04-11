@@ -15,27 +15,27 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 <<switch $town.type>>
   <<case "city">>
     <<for _i, _alchemiststore range $alchemistinventory>>
-    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _i + 1>>. $alchemistinventory.filter(function(x){return x.availability <= 4;})
       <<print $alchemistinventory.map(function(x){return x.name;})>>
-    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
+     _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "town">>
     <<for _i, _alchemiststore range $alchemistinventory>>
-    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _i + 1>>. $alchemistinventory.filter(function(x){return x.availability <= 3;})
       <<print $alchemistinventory.map(function(x){return x.name;})>>
-    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
+     _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "village">>
     <<for _i, _alchemiststore range $alchemistinventory>>
-    $alchemistinventory.filter(function(x){return x.availability <= 2;})
-    <<print $alchemistinventory.map(function(x){return x.name;})>>
-    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
+    <<print _i + 1>>. $alchemistinventory.filter(function(x){return x.availability <= 2;})
+      <<print $alchemistinventory.map(function(x){return x.name;})>>
+     _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "hamlet">>
     <<for _i, _alchemiststore range $alchemistinventory>>
-    $alchemistinventory.filter(function(x){return x.availability <= 2;})
+    <<print _i + 1>>. $alchemistinventory.filter(function(x){return x.availability <= 1;})
       <<print $alchemistinventory.map(function(x){return x.name;})>>
-    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
+     _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
 <</switch>>
 
