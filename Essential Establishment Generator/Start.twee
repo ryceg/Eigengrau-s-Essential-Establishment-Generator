@@ -14,23 +14,28 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
 <<switch $town.type>>
   <<case "city">>
-    <<for _i, _name range $alchemistinventory>>
-    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <<for _i, _alchemiststore range $alchemistinventory>>
+    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "town">>
-    <<for _i, _name range $alchemistinventory>>
-    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <<for _i, _alchemiststore range $alchemistinventory>>
+    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "village">>
-    <<for _i, _name range $alchemistinventory>>
-    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <<for _i, _alchemiststore range $alchemistinventory>>
+    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
   <<case "hamlet">>
-    <<for _i, _name range $alchemistinventory>>
-    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <<for _i, _alchemiststore range $alchemistinventory>>
+    <<print _i + 1>>. _alchemiststore.name - <<money _alchemiststore.cost>>
     <</for>>
 <</switch>>
 
+$alchemistinventory.filter(function(x){return x.availability <= 2;})
+<<print _alchemiststore.map(function(x){return x.name;})>>
+
+
+/*
 <<script>>
 function checkAvailability(availability) {
     return availability <= 4;
@@ -40,5 +45,7 @@ function myFunction() {
     document.getElementById("demo").innerHTML = availability.filter(checkAvailability);
 }
 <</script>>
+
+*/
 
 [[$tavern.name|InitTavern]]
