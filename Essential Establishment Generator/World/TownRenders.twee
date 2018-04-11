@@ -2,7 +2,7 @@
 
 <<if $town.population gt 3000>>
     <<set $town.type to "city">>
-  <<elseif $town.population 1000>>
+  <<elseif $town.population gt 1000>>
     <<set $town.type to "town">>
   <<elseif $town.population gt 300>>
     <<set $town.type to "village">>
