@@ -11,13 +11,6 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
-<<nobr>>
-<<for _i, _item range
-$alchemistinventory.filter(function (item) {
-  return item.availability <= 2;})>>
-    <<= _i + 1>>. _item.name
-<</for>>
-
 <<switch $town.type>>
   <<case "city">>
     <<for _i, _item range
