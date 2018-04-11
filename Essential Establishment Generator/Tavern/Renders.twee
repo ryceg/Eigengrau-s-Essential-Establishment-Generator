@@ -19,21 +19,22 @@
 		<<set $tavern.wealth to "squalid", $tavern.lodging to 7, $tavern.food = 3>>
 <</if>>
 
-<<if $tavern.wealthroll gt 95>>
+<<switch $tavern.wealth>>
+	<<case "kingly">>
 		<<set $tavern.lodging to 800, $tavern.food to 400>>
-	<<elseif $tavernwealthroll gt 80>>
+<<case "aristocratic">>
 		<<set $tavern.lodging to 400, $tavern.food to 200>>
-	<<elseif $tavernwealthroll gt 70>>
+<<case "wealthy">>
 		<<set $tavern.lodging to 200, $tavern.food to 80>>
-	<<elseif $tavernwealthroll gt 60>>
+<<case "comfortable">>
 		<<set $tavern.lodging to 50, $tavern.food to 40>>
-	<<elseif $tavernwealthroll gt 50>>
+<<case "modest">>
 		<<set $tavern.lodging to 30, $tavern.food to 30>>
-	<<elseif $tavernwealthroll gt 25>>
+<<case "poor">>
 		<<set $tavern.lodging to 10, $tavern.food to 6>>
-	<<elseif $tavernwealthroll lte 25>>
+<<case "squalid">>
 		<<set $tavern.lodging to 7, $tavern.food to 3>>
-<</if>>
+<</switch>>
 
 /* ------------------------- SIZE -------------------------- */
 <<if $tavern.sizeroll gt 80>>
