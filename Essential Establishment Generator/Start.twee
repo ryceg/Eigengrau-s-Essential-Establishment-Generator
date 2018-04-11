@@ -31,4 +31,14 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
     <</for>>
 <</switch>>
 
+<<script>>
+function checkAvailability(availability) {
+    return availability <= 4;
+}
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = availability.filter(checkAvailability);
+}
+<</script>>
+
 [[$tavern.name|InitTavern]]
