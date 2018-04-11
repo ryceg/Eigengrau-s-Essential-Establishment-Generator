@@ -11,6 +11,9 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 100 6000 25>>
 
+<<Building "alchemist">>
 
+<<print _currentbuilding.name>>
+<<print _currentbuilding.structure>>
 
 [[$tavern.name|InitTavern]]
