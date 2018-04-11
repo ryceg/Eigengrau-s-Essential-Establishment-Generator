@@ -5,130 +5,127 @@
 
 	{
 	name: "Potion (Common)",
-	cost: 50000,
-	availability: 1
+	cost: 50000
 	},
 
 	{
 	name: "Potion (Uncommon)",
-	cost: 250000,
-	availability: 1
+	cost: 250000
 	},
 
 	{
 	name: "Poison, Basic",
-	cost: 10000,
-	availability: 1
+	cost: 10000
 	},
 
 	{
 	name: "Potion of Healing",
-	cost: 5000,
-	availability: 1
+	cost: 5000
+
 	},
 
 	{
 	name: "Vial",
-	cost: 20,
-	availability: 1
+	cost: 20
+
 	},
 
 	{
 	name: "Flask",
-	cost: 2,
-	availability: 1
+	cost: 2
+
 	},
 
 	{
 	name: "Jug",
-	cost: 2,
-	availability: 1
+	cost: 2
+
 	},
 	{
 	name: "Anti-toxin (vial)",
-	cost: 5000,
-	availability: 1
+	cost: 5000
+
 	},
 
 	{
 	name: "Bottle, glass",
-	cost: 200,
-	availability: 1
+	cost: 200
+
 	},
 
 	{
 	name: "Brewer's Supplies",
-	cost: 2000,
-	availability: 1
+	cost: 2000
+
 	},
 
 	{
 	name: "Acid",
-	cost: 2500,
-	availability: 2
+	cost: 2500
+
 	},
 
 	{
 	name: "Flask of Oil",
-	cost: 10,
-	availability: 2
+	cost: 10
+
 	},
 
 	{
 	name: "Component Pouch",
-	cost: 2500,
-	availability: 2
+	cost: 2500
+
 	},
 
 
 	{
 	name: "Poisoner's Kit",
-	cost: 50000,
-	availability: 2
+	cost: 50000
+
 	},
 
 
 	{
 	name: "Healer's Kit",
-	cost: 500,
-	availability: 3
+	cost: 500
+
 	},
 
 	{
 	name: "Alchemist's Supplies",
-	cost: 50000,
-	availability: 3
+	cost: 50000
+
 	},
 	{
 	name: "Cook's Utensils",
-	cost: 20,
-	availability: 3
+	cost: 20
+
 	},
 
 	{
 	name: "Alchemist's Fire (flask)",
-	cost: 5000,
-	availability: 3
+	cost: 5000
+
 	},
 
 
 	{
 	name: "Potion (Rare)",
-	cost: 2500000,
-	availability: 3
+	cost: 2500000
+
 	},
 
 
 	{
 	name: "Perfume (vial)",
-	cost: 500,
-	availability: 4
+	cost: 500
+
 	},
 
 	{
 	name: "Ink (1 ounce bottle)",
-	cost: 1000,
-	availability: 4
+	cost: 1000
+
 	},
 
 	]>>
