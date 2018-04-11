@@ -11,51 +11,38 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
-<<for _i, _alchemiststore range $alchemistinventory>>
-<<print _i + 1>>. _alchemiststore.filter(function(x){return x.availability <= 2;})
-  <<print _alchemiststore.map(function(x){return x.name;})>> - <<money _alchemiststore.cost>>
+<<nobr>>
+<<for _i, _item range
+$alchemistinventory.filter(function (item) {
+  return item.availability <= 2;})>>
+    <<= _i + 1>>. _item.name
 <</for>>
-
 
 <<switch $town.type>>
   <<case "city">>
-    <<for _i, _alchemiststore range $alchemistinventory>>
-    <<print _i + 1>>. _alchemiststore.filter(function(x){return x.availability <= 4;})
-      <<print _alchemiststore.map(function(x){return x.name;})>>
-     _alchemiststore.name - <<money _alchemiststore.cost>>
-    <</for>>
+    <<for _i, _item range
+  $alchemistinventory.filter(function (item) {
+    return item.availability <= 4;})>>
+      <<= _i + 1>>. _item.name
+  <</for>>
   <<case "town">>
-    <<for _i, _alchemiststore range $alchemistinventory>>
-    <<print _i + 1>>. _alchemiststore.filter(function(x){return x.availability <= 3;})
-      <<print _alchemiststore.map(function(x){return x.name;})>>
-     _alchemiststore.name - <<money _alchemiststore.cost>>
-    <</for>>
+  <<for _i, _item range
+  $alchemistinventory.filter(function (item) {
+    return item.availability <= 3;})>>
+      <<= _i + 1>>. _item.name
+  <</for>>
   <<case "village">>
-    <<for _i, _alchemiststore range $alchemistinventory>>
-    <<print _i + 1>>. _alchemiststore.filter(function(x){return x.availability <= 2;})
-      <<print _alchemiststore.map(function(x){return x.name;})>>
-     _alchemiststore.name - <<money _alchemiststore.cost>>
-    <</for>>
+  <<for _i, _item range
+  $alchemistinventory.filter(function (item) {
+    return item.availability <= 2;})>>
+      <<= _i + 1>>. _item.name
+  <</for>>
   <<case "hamlet">>
-    <<for _i, _alchemiststore range $alchemistinventory>>
-    <<print _i + 1>>. _alchemiststore.filter(function(x){return x.availability <= 1;})
-      <<print _alchemiststore.map(function(x){return x.name;})>>
-     _alchemiststore.name - <<money _alchemiststore.cost>>
-    <</for>>
-<</switch>>
-
-<<print _i>>
-/*
-<<script>>
-function checkAvailability(availability) {
-    return availability <= 4;
-}
-
-function myFunction() {
-    document.getElementById("demo").innerHTML = availability.filter(checkAvailability);
-}
-<</script>>
-
-*/
+  <<for _i, _item range
+  $alchemistinventory.filter(function (item) {
+    return item.availability <= 1;})>>
+      <<= _i + 1>>. _item.name
+  <</for>>
+<</switch>><</nobr>>
 
 [[$tavern.name|InitTavern]]
