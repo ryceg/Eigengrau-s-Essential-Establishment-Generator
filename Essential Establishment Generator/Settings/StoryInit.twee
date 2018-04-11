@@ -42,9 +42,9 @@
 
 <<include "Bonds">>
 
-<<include "Renders">>
+<<include "TavernRenders">>
 
-<<inlude "newspaper">>
+<<include "newspaper">>
 
 <<include "Pickpocket">>
 
