@@ -1,0 +1,5 @@
+:: PassageDone
+
+<<include "Renders">>
+<<include "SmithyRenders">>
+<<include "TownRenders">>

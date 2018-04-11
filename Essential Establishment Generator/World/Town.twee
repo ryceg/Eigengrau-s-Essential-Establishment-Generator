@@ -5,7 +5,9 @@
 	wealth: random(1, 100),
 	reputation: random(1, 100),
 	sin: random(1, 100),
-	diversity: random(1, 100)
+	diversity: random(1, 100),
+	magic: random(0, 35),
+	size: random(0, 100)
 }>>
 
 /* Town Population Roller */
