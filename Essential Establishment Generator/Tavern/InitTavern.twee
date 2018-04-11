@@ -17,6 +17,11 @@ Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>>
 
 Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanlinessroll 1 100 1>>
 
+Wealthroll $tavern.wealthroll
+Wealth $tavern.wealth
+Lodging <<money $tavern.lodging>>
+Special Brew<<money $specialbrew.cost>>
+Food <<money $tavern.food>>
 
 When you're ready, here's the <<nobr>><<set _output to random(1, 3)>>
 	<<switch _output>>
