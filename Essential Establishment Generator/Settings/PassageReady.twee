@@ -1,5 +1,5 @@
 :: PassageReady
 
-<<include "Renders">>
+<<include "TavernRenders">>
 <<include "SmithyRenders">>
 <<include "TownRenders">>
