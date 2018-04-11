@@ -11,6 +11,11 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
+<<for _i, _alchemiststore range $alchemistinventory>>
+<<print _i + 1>>. _alchemiststore.filter(function(x){return x.availability <= 2;})
+  <<print _alchemiststore.map(function(x){return x.name;})>> - <<money _alchemiststore.cost>>
+<</for>>
+
 
 <<switch $town.type>>
   <<case "city">>
