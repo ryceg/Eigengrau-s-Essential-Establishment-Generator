@@ -13,5 +13,6 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
 <<money $tavern.lodging>>
 <<money $specialbrew.cost>>
+<<money $tavern.food>>
 
 [[$tavern.name|InitTavern]]
