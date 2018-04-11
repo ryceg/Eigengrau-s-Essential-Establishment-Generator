@@ -1,5 +1,11 @@
 
-:: Building
+:: Building [widget]
+<<widget "Building">>
+<<if ndef $buildingcount>>
+    <<set $buildingcount to 1>>
+  <<else>>
+    <<set $buildingcount += 1>>
+<</if>>
 
 <<set $building to {
   	structure: ["wooden", "wooden", "wooden", "wooden", "wooden", "stone", "stone", "stone", "stone", "hewn rock", "chiseled stone"],
@@ -7,3 +13,9 @@
     disrepair: ["dilapidated", "ruined", "old", "somewhat rickety", "well-loved", "well-kept", "brand new"],
     function: ["home", "barber", "alchemist's shop", "blacksmithery", "temple", "tannery", "butchery", "library"]
 }>>
+
+<<set _currentbuilding to $args>>
+<<set $args to clone($building)>>
+<<set _currentbuilding.structure to either(_currentbuilding.structure)>>
+<<set _currentbuilding.name to $args>>
+<</widget>>
