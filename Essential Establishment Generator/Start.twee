@@ -11,14 +11,24 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
-Wealthroll $tavern.wealthroll
-Wealth $tavern.wealth
-Lodging <<money $tavern.lodging>>
-Special Brew<<money $specialbrew.cost>>
-Food <<money $tavern.food>>
 
-<<for _i, _name range $alchemistinventory>>
-<<print _i + 1>>. _name.name
-<</for>>
+<<switch $town.type>>
+  <<case "city">>
+    <<for _i, _name range $alchemistinventory>>
+    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <</for>>
+  <<case "town">>
+    <<for _i, _name range $alchemistinventory.availability lt 4>>
+    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <</for>>
+  <<case "village">>
+    <<for _i, _name range $alchemistinventory.availability lt 3>>
+    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <</for>>
+  <<case "hamlet">>
+    <<for _i, _name range $alchemistinventory.availability lt 2>>
+    <<print _i + 1>>. _name.name - <<money _name.cost>>
+    <</for>>
+<</switch>>
 
 [[$tavern.name|InitTavern]]

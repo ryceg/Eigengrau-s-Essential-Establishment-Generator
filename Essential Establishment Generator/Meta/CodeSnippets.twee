@@ -1,0 +1,5 @@
+:: CodeSnippets
+
+<<for _i, _name range $alchemistinventory>>
+<<print _i + 1>>. _name.name
+<</for>>
