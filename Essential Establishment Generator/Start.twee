@@ -10,7 +10,7 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
-
+<<nobr>>
 <<switch $town.type>>
   <<case "city">>
     <<for _i, _item range
@@ -36,6 +36,7 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
     return item.availability <= 1;})>>
       <<= _i + 1>>. _item.name
   <</for>>
-<</switch>><</nobr>>
+<</switch>>
+<</nobr>>
 
 [[$tavern.name|InitTavern]]
