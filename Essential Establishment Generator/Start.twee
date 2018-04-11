@@ -11,6 +11,8 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
+Wealthroll $tavern.wealthroll
+Wealth $tavern.wealth 
 Lodging <<money $tavern.lodging>>
 Special Brew<<money $specialbrew.cost>>
 Food <<money $tavern.food>>
