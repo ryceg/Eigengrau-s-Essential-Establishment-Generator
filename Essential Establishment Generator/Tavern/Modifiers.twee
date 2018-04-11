@@ -75,19 +75,19 @@
 /* ------------------------- WEALTH -------------------------- */
 
 	<<if $tavern.wealthroll gt 95>>
-		<<set $tavern.cost += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
+		<<set $tavern.pricemodifier += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
 	<<elseif $tavern.wealthroll gt 80>>
-		<<set $tavern.cost += 3, $tavern.cleanlinessroll += 10>>
+		<<set $tavern.pricemodifier += 3, $tavern.cleanlinessroll += 10>>
 	<<elseif $tavern.wealthroll gt 70>>
-		<<set $tavern.wealth to "wealthy", $tavern.cost += 2, $tavern.cleanlinessroll += 6>>
+		<<set $tavern.wealth to "wealthy", $tavern.pricemodifier += 2, $tavern.cleanlinessroll += 6>>
 	<<elseif $tavern.wealthroll gt 60>>
-		<<set $tavern.cost += 1, $tavern.populationroll += 5, $tavern.cleanlinessroll += 4>>
+		<<set $tavern.pricemodifier += 1, $tavern.populationroll += 5, $tavern.cleanlinessroll += 4>>
 	<<elseif $tavern.wealthroll gt 50>>
 		<<set $tavern.populationroll += 5, $tavern.reputation -= 5, $tavern.cleanlinessroll += 2>>
 	<<elseif $tavern.wealthroll gt 30>>
-		<<set $tavern.cost -= 1, $tavern.reputation -= 7, $tavern.cleanlinessroll -= 15>>
+		<<set $tavern.pricemodifier -= 1, $tavern.reputation -= 7, $tavern.cleanlinessroll -= 15>>
 	<<elseif $tavern.wealthroll lte 30>>
-		<<set $tavern.cost -= 2, $tavern.reputation -= 10, $tavern.cleanlinessroll -= 25>>
+		<<set $tavern.pricemodifier -= 2, $tavern.reputation -= 10, $tavern.cleanlinessroll -= 25>>
 <</if>>
 
 /* ------------------------- SIZE -------------------------- */
