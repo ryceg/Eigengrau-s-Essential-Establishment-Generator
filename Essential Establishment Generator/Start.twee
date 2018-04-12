@@ -13,29 +13,25 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
 <<switch $town.type>>
   <<case "city">>
-    <<for _i, _item range
-  $alchemistinventory.filter(function (item) {
-    return item.availability <= 4;})>>
+    <<for _i, _item range $alchemistinventory.filter(function (item) {
+    return item.availability <= 4; })>>
       <<= _i + 1>>. _item.name
-  <</for>>
+      <</for>>
   <<case "town">>
-  <<for _i, _item range
-  $alchemistinventory.filter(function (item) {
-    return item.availability <= 3;})>>
-      <<= _i + 1>>. _item.name
-  <</for>>
+    <<for _i, _item range $alchemistinventory.filter(function (item) {
+    return item.availability <= 3; })>>
+    <<= _i + 1>>. _item.name
+    <</for>>
   <<case "village">>
-  <<for _i, _item range
-  $alchemistinventory.filter(function (item) {
-    return item.availability <= 2;})>>
+  <<for _i, _item range $alchemistinventory.filter(function (item) {
+    return item.availability <= 2; })>>
       <<= _i + 1>>. _item.name
   <</for>>
   <<case "hamlet">>
-  <<for _i, _item range
-  $alchemistinventory.filter(function (item) {
-    return item.availability <= 1;})>>
-      <<= _i + 1>>. _item.name
-  <</for>>
+  <<for _i, _item range $alchemistinventory.filter(function (item) {
+    return item.availability <= 1; })>>
+    <<= _i + 1>>. _item.name
+<</for>>
 <</switch>>
 
 [[$tavern.name|InitTavern]]
