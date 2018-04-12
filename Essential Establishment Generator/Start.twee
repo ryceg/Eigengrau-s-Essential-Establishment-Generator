@@ -13,10 +13,10 @@ $town.population
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
-<<link Generate a random potion!>>
+<<button Generate a random potion!>>
 $potion.titlereadout
 $potion.descriptionreadout
 $potion.functionreadout
-<</link>>
+<</button>>
 
 [[$tavern.name|InitTavern]]
