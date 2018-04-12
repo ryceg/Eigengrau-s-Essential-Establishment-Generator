@@ -1,7 +1,7 @@
 
 :: Output1 [output]
 <h1>$tavern.name</h1>
-<<nobr>><<include "Renders">><</nobr>><span class="firstcharacter">T</span>he $tavern.wordnoun is called <strong>$tavern.name</strong><<nobr>>,<</nobr>> and is <<include "ReputationDescriptor">><<nobr>>
+<<nobr>><<include "TavernRenders">><</nobr>><span class="firstcharacter">T</span>he $tavern.wordnoun is called <strong>$tavern.name</strong><<nobr>>,<</nobr>> and is <<include "ReputationDescriptor">><<nobr>>
 <<if $tavern.type is "regular">>
 		<<print "in $town.name for the cheap beer and its $tavern.sin patrons.">>
 	<<elseif $tavern.type isnot "regular">>
