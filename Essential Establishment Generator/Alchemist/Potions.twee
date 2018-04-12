@@ -2,7 +2,7 @@
 :: Potions
 
 <<set $potion to {
-	type: either([
+	type: [
 "Potion",
 "Elixir",
 "Draught",
@@ -12,7 +12,7 @@
 "Brew",
 "Ichor",
 "Juice",
-"Concoction"]),
+"Concoction"],
 	title: [
 "Healing",
 "Vigor",
@@ -217,7 +217,7 @@
 "lets the user track an enemy",
 "cures any status effects"],
 
-	strength: either([
+	strength: [
 "regular with no side effect",
 "regular with a slight side effect",
 "regular with a strong side effect",
@@ -227,9 +227,9 @@
 "major with a small side effect",
 "poisonous. Almost no positive effect and is all side effect",
 "temporary, but strong and wears off quickly",
-"seemingly permanent"]),
+"seemingly permanent"],
 
-	sideeffect: either([
+	sideeffect: [
 "nothing bad at all",
 "puts the user to sleep",
 "rapid hair growth all over the body",
@@ -329,10 +329,10 @@
 "slight aches",
 "a bad taste for some time",
 "giddiness",
-"laughter"]),
+"laughter"],
 
 
-	container: either([
+	container: [
 "conical smooth glass bottle",
 "square glass bottle",
 "not quite watertight leather waterskin",
@@ -374,9 +374,9 @@
 "metallic",
 "purple",
 "brown",
-"dark red"]),
+"dark red"],
 
-	appearance2: either([
+	appearance2: [
 "flecks of colour",
 "swirls of colour",
 "fizzing bubbles",
@@ -396,9 +396,9 @@
 "steam coming from it",
 "a face in the liquid",
 "constantly moving and shifting liquid",
-"a constant heat"]),
+"a constant heat"],
 
-	texture: either([
+	texture: [
 "thick and sludgy",
 "thin and watery",
 "airy and bubbly",
@@ -408,9 +408,9 @@
 "chunky",
 "bitty",
 "milky",
-"almost gaseous"]),
+"almost gaseous"],
 
-	smell: either([
+	smell: [
 "nothing at all",
 "sulphur",
 "fresh air",
@@ -510,9 +510,9 @@
 "music",
 "the end of the world",
 "magically the worst thing to you",
-"magically the most desirable thing to you"]),
+"magically the most desirable thing to you"],
 
-	taste: either([
+	taste: [
 "nothing at all",
 "sulphur",
 "fresh air",
@@ -612,9 +612,9 @@
 "music",
 "the end of the world",
 "magically the worst thing to you",
-"magically the most desirable thing to you"]),
+"magically the most desirable thing to you"],
 
-	label: either([
+	label: [
 "its name and title in bold letters",
 "its description in ornate elvish",
 "its description in elvish with a relevant mythic story",
@@ -715,12 +715,12 @@
 "the name of the bad guy",
 "crawling with bugs",
 "covered in something unspeakable",
-"covered in glitter. It gets everywhere"])
+"covered in glitter. It gets everywhere"]
 }>>
 
 <<set _potionroll to random(0, 99)>>
 	<<set $potion.title to $potion.title[_potionroll], $potion.effect to $potion.effect[_potionroll]>>
 
-<<set $potion.titlereadout to $potion.type + " of " + $potion.title>>
-<<set $potion.descriptionreadout to "The potion is in a " + $potion.container + ", and has a label showing " + $potion.label + ". It looks " + $potion.appearance + " with " + "$potion.appearance2. " + "It is " + $potion.texture + " and smells of " + $potion.smell + " but tastes of " + $potion.taste + ".">>
-<<set $potion.functionreadout to "The potion's strength is " + $potion.strength + ", and " + $potion.effect + " with the side effect of " + $potion.sideeffect + ".">>
+<<set $potion.titlereadout to $potion.type.random() + " of " + $potion.title.random()>>
+<<set $potion.descriptionreadout to "The potion is in a " + $potion.container.random() + ", and has a label showing " + $potion.label.random() + ". It looks " + $potion.appearance.random() + " with " + "$potion.appearance2.random(). " + "It is " + $potion.texture.random() + " and smells of " + $potion.smell.random() + " but tastes of " + $potion.taste.random() + ".">>
+<<set $potion.functionreadout to "The potion's strength is " + $potion.strength.random() + ", and " + $potion.effect.random() + " with the side effect of " + $potion.sideeffect.random() + ".">>

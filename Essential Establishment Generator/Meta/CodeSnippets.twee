@@ -1,5 +1,5 @@
 :: CodeSnippets
 
-<<for _i, _name range $alchemistinventory>>
-<<print _i + 1>>. _name.name
-<</for>>
+
+<<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
+    <<= _i + 1>>. _item.name - <<money _item.cost>>

@@ -13,23 +13,10 @@ $town.population
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
-<<nobr>><<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 4; })>>
-    <<= _i + 1>>. _item.name - <<money _item.cost>>
-<</for>>
-  <<case "town">>
-  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 3; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 1; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
-  <</for>>
-<</switch>><</nobr>>
+<<link Generate a random potion!>>
+$potion.titlereadout
+$potion.descriptionreadout
+$potion.functionreadout
+<</link>>
 
 [[$tavern.name|InitTavern]]

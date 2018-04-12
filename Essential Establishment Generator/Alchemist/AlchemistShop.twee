@@ -2,12 +2,32 @@
 :: AlchemistShop
 
 /* %%%%%%%%%%%%%%%%%%%%%%% UNDER CONSTRUCTION %%%%%%%%%%%%%%%%%%%%%%% */
-<<if $town.population gt 3000>>
-		<<set $alchemistinventory to [0, 20]>>
-	<<elseif $town.population gt 1000>>
-		<<set $alchemistinventory to [0, 18]>>
-	<<elseif $town.population gt 300>>
-		<<set $alchemistinventory to [0, 13]>>
-	<<elseif $town.population lte 300>>
-		<<set $alchemistinventory to [0, 9]>>
-<</if>>
+
+Hello! Welcome to the Alchemist's Shop
+
+
+<<link Generate a random potion!>>
+$potion.titlereadout
+$potion.descriptionreadout
+$potion.functionreadout
+<</link>>
+
+
+<<nobr>><<switch $town.type>>
+  <<case "city">>
+  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 4; })>>
+    <<= _i + 1>>. _item.name - <<money _item.cost>>
+<</for>>
+  <<case "town">>
+  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 3; })>>
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <</for>>
+  <<case "village">>
+  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <</for>>
+  <<case "hamlet">>
+  <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 1; })>>
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <</for>>
+<</switch>><</nobr>>
