@@ -37,5 +37,5 @@ Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
       <<= _i + 1>>. _item.name
   <</for>>
 <</switch>>
-- <<money _item.cost>>
+
 [[$tavern.name|InitTavern]]
