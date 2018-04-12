@@ -14,9 +14,13 @@ $town.population
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
 <<button Text>>
+<<print
+
+$potion.title
+
 $potion.titlereadout
 $potion.descriptionreadout
-$potion.functionreadout
+$potion.functionreadout>>
 <</button>>
 
 [[$tavern.name|InitTavern]]
