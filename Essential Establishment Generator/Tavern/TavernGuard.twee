@@ -20,9 +20,9 @@
 		<</if>>
 
 <<if _guard gte 50>>
-	<<set $tavern.guard to true, _brawl -= 20>>
+	<<set $tavern.guardpresent to true, _brawl -= 20>>
 	<<elseif _guard lt 50>>
-	<<set $tavern.guard to false>>
+	<<set $tavern.guardpresent to false>>
 	<</if>>
 
 
