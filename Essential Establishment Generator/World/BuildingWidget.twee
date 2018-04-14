@@ -7,17 +7,11 @@
     <<set $buildingcount += 1>>
 <</if>>
 
-<<set $building to {
-  	structure: ["wooden", "wooden", "wooden", "wooden", "wooden", "stone", "stone", "stone", "stone", "hewn rock", "chiseled stone"],
-    outside: ["a horse grazing on the bushes nearby", "a rusted shovel near a somewhat overgrown flowerbed", "a well with an old rope, but no bucket to go on the end", "a dog panting by the door", "a cat lazily lounging in the shade", "a muddy pair of boots by the door", "a sign from the local paper which reads '$newspaperheadline'"],
-    disrepair: ["dilapidated", "ruined", "old", "somewhat rickety", "well-loved", "well-kept", "brand new"],
-    function: ["home", "barber", "alchemist's shop", "blacksmithery", "temple", "tannery", "butchery", "library"]
-}>>
+
 
 <<set $args to clone($building)>>
-<<set _currentbuilding.structure to either(_currentbuilding.structure)>>
-<<set _currentbuilding.outside to either(_currentbuilding.outside)>>
-<<set _currentbuilding.disrepair to either(_currentbuilding.disrepair)>>
-<<set _currentbuilding.function to either(_currentbuilding.function)>>
-<<set _currentbuilding to $args>>
+<<set $args.structure to either($args.structure)>>
+<<set $args.outside to either($args.outside)>>
+<<set $args.disrepair to either($args.disrepair)>>
+<<set $args.function to either($args.function)>>
 <</nobr>><</widget>>
