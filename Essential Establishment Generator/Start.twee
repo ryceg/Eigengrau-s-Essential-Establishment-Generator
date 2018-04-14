@@ -9,7 +9,8 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-
+<<Building "test">>
+$test.structure
 
 Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
 
