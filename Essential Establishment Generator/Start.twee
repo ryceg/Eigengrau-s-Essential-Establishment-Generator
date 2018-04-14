@@ -12,6 +12,8 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 <<Building "test">>
 $test.structure
 
-Town Population: <<numberslider "$town.population" $town.population 0 6000 25>>
+$building.structure
+
+$town.type population: $town.population 
 
 [[$tavern.name|InitTavern]]
