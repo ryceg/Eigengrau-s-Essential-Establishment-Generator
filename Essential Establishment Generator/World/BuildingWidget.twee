@@ -1,6 +1,6 @@
 
 :: BuildingWidget [widget]
-<<widget "Building">>
+<<widget "Building">><<nobr>>
 <<if ndef $buildingcount>>
     <<set $buildingcount to 1>>
   <<else>>
@@ -14,8 +14,10 @@
     function: ["home", "barber", "alchemist's shop", "blacksmithery", "temple", "tannery", "butchery", "library"]
 }>>
 
-<<set _currentbuilding to $args>>
 <<set $args to clone($building)>>
 <<set _currentbuilding.structure to either(_currentbuilding.structure)>>
+<<set _currentbuilding.outside to either(_currentbuilding.outside)>>
+<<set _currentbuilding.disrepair to either(_currentbuilding.disrepair)>>
+<<set _currentbuilding.function to either(_currentbuilding.function)>>
 <<set _currentbuilding to $args>>
-<</widget>>
+<</nobr>><</widget>>
