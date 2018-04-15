@@ -1,13 +1,6 @@
 
 :: BuildingWidget [widget]
 <<widget "Building">><<nobr>>
-<<if ndef $buildingcount>>
-    <<set $buildingcount to 1>>
-  <<else>>
-    <<set $buildingcount += 1>>
-<</if>>
-
-
 
 <<set $args to clone($building)>>
 <<set $args.structure to either($args.structure)>>

@@ -1,0 +1,4 @@
+:: Counter
+
+<<set $npccounter to [$bartender, $blacksmith]>>
+<<set $buildingcounter to [$tavern, $smithy]>>

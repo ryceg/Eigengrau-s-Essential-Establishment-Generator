@@ -4,6 +4,11 @@
 <<set $npc to {
 	lastname: $name.last.pluck(),
 	gender: ["man", "woman"],
+	age: ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "mid aged", "relatively old", "sun wizened", "quite old", "ancient"],
+	height: ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"],
+	weight: ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"],
+	haircolour: ["brunette", "brunette", "brown", "brownish", "muddy", "blonde", "blonde", "white", "black", "black"],
+	hairtype: ["thick", "wispy", "straight", "straight", "wavy", "wavy", "curly", "wiry", "oily", "lush", "poofy", "long", "braided", "very long", "greasy", "unruly", "unusually styled", "short cropped hair", "a shaved head"],
 	scar: ["a jagged scar", "a dark purple scar", "an angry red scar", "a long, thin scar running up the arm", "a scar on the eye", "a scar around the neck", "a scar on the throat", "a fiery red scar", "a finger missing", "two fingers missing"],
 	tattoo: ["a dagger tattoo", "an arrow tattoo", "an anchor tattoo", "a skull tattoo", "a pair of crossed bones tattoo", "a snake tattoo", "a scorpion tattoo", "a spider web tattoo", "a heart tattoo", "a ring of thorns tattoo", "a mermaid tattoo", "a dragon tattoo"],
 	class: ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "rogue", "ranger", "paladin", "sorcerer", "warlock", "wizard"],
@@ -15,12 +20,6 @@
 }>>
 
 <<set $npc.race to either(["human", "human", "human", "human", "human", "human", "half-elf", "half-elf", "elf", "elf", "dwarf", "dwarf", "gnome", "halfling", "half-orc", "dragonborn", "tiefling"])>>
-/*age: ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "mid aged", "relatively old", "sun wizened", "quite old", "ancient"],
-height: ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"],
-weight: ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"],
-haircolour: ["brunette", "brunette", "brown", "brownish", "muddy", "blonde", "blonde", "white", "black", "black"],
-hairtype: ["thick", "wispy", "straight", "straight", "wavy", "wavy", "curly", "wiry", "oily", "lush", "poofy", "long", "braided", "very long", "greasy", "unruly", "unusually styled", "short cropped hair", "a shaved head"],*/
-
 
 <<switch $npc.race>>
 	<<case "human">>
@@ -106,6 +105,11 @@ hairtype: ["thick", "wispy", "straight", "straight", "wavy", "wavy", "curly", "w
 		$npc.racelanguage to "Gnomish",
 		$npc.height to either("short", "tiny"),
 		$npc.weight to either("slightly underweight", "stocky", "beefy", "slightly overweight", "slightly overweight", "round", "tubby")>>
+		<<if $npc.gender is "man">>
+				<<set $npc.firstname to either($name.man.pluck(), $name.maleelf.pluck())>>
+			<<elseif $npc.gender is "woman">>
+				<<set $npc.firstname to either($name.woman.pluck(), $name.femaleelf.pluck())>>
+		<</if>>
 <</switch>>
 
 
@@ -129,8 +133,6 @@ hairtype: ["thick", "wispy", "straight", "straight", "wavy", "wavy", "curly", "w
 		<<set $npc.skincolour to _skinColours[random(3, 6)]>>
 	<<elseif _skin lte 3>>
 		<<set $npc.skincolour to _skinColours[random(0, 3)]>>
-	<<else>>
-		<<set $tavern.error += 1>>
 <</if>>
 
 /* Race Note Code - so humans are introduced as 'a short woman', and elves are introduced as elves. */

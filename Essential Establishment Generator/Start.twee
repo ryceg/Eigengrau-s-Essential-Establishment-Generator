@@ -9,11 +9,18 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
+<<link Generate a random potion!>>
+$potion.titlereadout
+$potion.descriptionreadout
+$potion.functionreadout
+<</link>>
+
 <<Building "test">>
+
 $test.structure
 
 $building.structure
 
-$town.type population: $town.population 
+$town.type population: $town.population
 
 [[$tavern.name|InitTavern]]

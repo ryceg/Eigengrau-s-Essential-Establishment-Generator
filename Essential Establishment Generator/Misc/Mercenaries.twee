@@ -1,3 +1,5 @@
+:: Mercenaries
+
 <<set $mercenaries to {
   colours:
     ["Black",

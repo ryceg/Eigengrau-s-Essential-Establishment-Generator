@@ -15,25 +15,7 @@
 	greeting: ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $bartender.heshe nods at you", "checks you out for just a moment before smiling at you"]
 }>>
 
-<<if $bartender.gender is "man">>
-	<<set $bartender.heshe to "he">>
-	<<set $bartender.himher to "him">>
-	<<set $bartender.hisher to "his">>
-	<<set $bartender.boygirl to "boy">>
-	<<set $bartender.manwoman to "man">>
-	<<set $bartender.menwomen to "men">>
-	<<set $bartender.guygirl to "guy">>
-	<<set $bartender.firstname to either($name.man)>>
-<<elseif $bartender.gender is "woman">>
-	<<set $bartender.heshe to "she">>
-	<<set $bartender.himher to "her">>
-	<<set $bartender.hisher to "her">>
-	<<set $bartender.boygirl to "girl">>
-	<<set $bartender.manwoman to "woman">>
-	<<set $bartender.menwomen to "women">>
-	<<set $bartender.guygirl to "girl">>
-	<<set $bartender.firstname to either($name.woman)>>
-<</if>>
+<<heshe bartender>>
 
 
 

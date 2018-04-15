@@ -7,7 +7,6 @@
 	lastname: either($name.last),
 	gender: either($npc.gender),
 	race: either($npc.race),
-	raceroll: random(1, 100),
 	age: either($npc.age),
 	height: either($npc.height),
 	weight: either($npc.weight),
