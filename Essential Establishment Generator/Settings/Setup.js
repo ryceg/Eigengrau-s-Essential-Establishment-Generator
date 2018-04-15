@@ -147,7 +147,7 @@ setup.createNPC = function () {
            var firstname = State.variables.name.femaledwarf.pluck()
       }
       break;
-
+}
   return {
       gender : gender.random(),
       race : race.random(),
