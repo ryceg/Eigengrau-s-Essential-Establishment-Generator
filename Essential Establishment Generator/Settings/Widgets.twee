@@ -37,4 +37,4 @@
 		<<set $args.manwoman to "woman">>
 		<<set $args.menwomen to "women">>
 		<<set $args.guygirl to "girl">>
-<</switch>><</nobr>>
+<</switch>><</widget>><</nobr>>
