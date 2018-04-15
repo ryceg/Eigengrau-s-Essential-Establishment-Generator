@@ -352,9 +352,9 @@
 "coloured bottle",
 "bone flask",
 "small metal vial",
-"large bottle that can be swigged several times"]),
+"large bottle that can be swigged several times"],
 
-	appearance: either([
+	appearance: [
 "clear",
 "blue",
 "green",

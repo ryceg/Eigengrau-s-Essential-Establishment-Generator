@@ -9,12 +9,6 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-<<linkappend Generate a random potion!>>
-$potion.titlereadout
-$potion.descriptionreadout
-$potion.functionreadout
-<</linkappend>>
-
 <<set $test to setup.createBuilding()>>
 
 $test.structure
