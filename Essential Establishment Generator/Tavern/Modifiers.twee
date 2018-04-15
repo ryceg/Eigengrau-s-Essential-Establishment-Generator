@@ -63,11 +63,11 @@
 <</if>>
 
 /* ---------------------- TAVERN STRUCTURE MATERIAL ----------------------- */
-<<if $tavern.structure is "hewn rock">>
+<<if $tavern.material is "hewn rock">>
 		<<set $tavern.roughnessroll += 3>>
-	<<elseif $tavern.structure is "chiseled stone">>
+	<<elseif $tavern.material is "chiseled stone">>
 		<<set $tavern.roughnessroll -= 1>>
-	<<elseif $tavern.structure is "marble">>
+	<<elseif $tavern.material is "marble">>
 		<<set $tavern.cleanlinessroll += 5, $tavern.wealthroll += 6>>
 <</if>>
 
