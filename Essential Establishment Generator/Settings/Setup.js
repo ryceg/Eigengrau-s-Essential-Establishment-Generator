@@ -11,7 +11,7 @@ setup.createBuilding = function () {
         disrepair  : disrepair.random(),
     };
 };
-
+/*
 setup.createNPC = function () {
 	var gender = ["man", "woman"],
   var race = ["human", "human", "human", "human", "human", "human", "half-elf", "half-elf", "elf", "elf", "dwarf", "dwarf", "gnome", "halfling", "half-orc", "dragonborn", "tiefling"];
