@@ -22,7 +22,7 @@
 	<<case "proximity to the church">>
 		<<set _tavernnotable to "You see a sign by the door which reads 'No proselytising'. Clearly, $tavern.name has an issue with the nearby church.", $tavern.magicroll += 1>>
 	<<case "location by the river">>
-		<<set _tavernnotable to "$tavern.name overlooks a gorgeous river, which you can hear gently rushing by the $tavern.structure $tavern.wordnoun inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating.">>
+		<<set _tavernnotable to "$tavern.name overlooks a gorgeous river, which you can hear gently rushing by the $tavern.material $tavern.wordnoun inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating.">>
 	<<case "wooden-chopping competition held weekly">>
 		<<set _tavernnotable to "Above the bar is a fearsome axe. And another, and another. On the wall is what looks to be a leaderboard, with names and points next to the names. Upon closer inspection, it's revealed to be the scores for the wood chopping competition. Clever bartender; you can see the fireplace is well stocked.">>
 	<<case "mahogany stairs">>
@@ -51,10 +51,10 @@
 	<<case "large">>
 		$tavern.name is a large building, with the $tavern.cleanliness bar occupying the ground floor, and the beds for patrons are on the floor directly above you.
 	<<case "medium">>
-		<<print either("$tavern.name is a tall building, but not particularly spacious; the $tavern.cleanliness bar occupies the ground floor, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the $tavern.structure building.", "$tavern.name is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is $tavern.cleanliness.")>>
+		<<print either("$tavern.name is a tall building, but not particularly spacious; the $tavern.cleanliness bar occupies the ground floor, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the $tavern.material building.", "$tavern.name is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is $tavern.cleanliness.")>>
 	<<case "small">>
 		$tavern.name is barely more than a large house; the $tavern.cleanliness bar area is permanently crowded due to a bottleneck preventing barmaids from passing through without having to negotiate through thirsty patrons looking for refills.
 	<<case "tiny">>
-		$tavern.name is very obviously a house that's been converted into a $tavern.wordnoun, probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny $tavern.structure building. The tavern is $tavern.cleanliness.
+		$tavern.name is very obviously a house that's been converted into a $tavern.wordnoun, probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny $tavern.material building. The tavern is $tavern.cleanliness.
 <</switch>>
 <</nobr>> _tavernnotable

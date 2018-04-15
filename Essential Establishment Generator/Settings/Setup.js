@@ -62,6 +62,7 @@ setup.createNPC = function () {
   				 var firstname = State.variables.name.femaleelf.pluck()
   		}
       break;
+
   	case "dwarf":
   		 var racesingular = "dwarf",
   		var raceplural = "dwarves",
@@ -74,6 +75,7 @@ setup.createNPC = function () {
   				 var firstname = State.variables.name.femaledwarf.pluck()
   		}
       break;
+
   	case "halfling":
   		 var racesingular = "halfling",
   		var raceplural = "hobbits",
@@ -95,6 +97,7 @@ setup.createNPC = function () {
   				 var firstname = State.variables.name.femaleorc.pluck()
   		}
       break;
+
   	case "dragonborn":
   		 var racesingular = "drake",
   		var raceplural = "drakes",
@@ -116,6 +119,7 @@ setup.createNPC = function () {
   				 var firstname = State.variables.name.femaletiefling.pluck()
   		}
       break;
+
   	case "half-elf":
   		 var racesingular = "half-elf",
   		var raceplural = "half-elves",
@@ -129,6 +133,7 @@ setup.createNPC = function () {
   				 var firstname = either(State.variables.name.woman.pluck(), State.variables.name.femaleelf.pluck())
   		}
       break;
+
   	case "gnome":
   		 var racesingular = "gnome",
   		var raceplural = "gnomes",

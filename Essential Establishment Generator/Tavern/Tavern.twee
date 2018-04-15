@@ -28,4 +28,4 @@
 		<<set $tavern.draw to "proximity to the brothel">>
 <</if>>
 
-<<set $tavern.structure to either($building.structure)>>
+<<set $tavern.material to either($building.material)>>
