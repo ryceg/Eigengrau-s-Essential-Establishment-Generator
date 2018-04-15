@@ -15,11 +15,17 @@ $potion.descriptionreadout
 $potion.functionreadout
 <</linkappend>>
 
-<<Building "test">>
+<<set $test to setup.createBuilding()>>
 
 $test.structure
 
 $building.structure
+
+<<set $npctest to setup.createNPC()>>
+
+$npctest.gender
+$npctest.race
+$npctest.racelanguage
 
 $town.type population: $town.population
 
