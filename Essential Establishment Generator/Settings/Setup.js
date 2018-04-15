@@ -1,14 +1,14 @@
-setup.createBuilding = function () {
+== var =  var =  var = setup.createBuilding = function () {
     var material = ["wooden", "wooden", "wooden", "wooden", "wooden", "stone", "stone", "stone", "stone", "hewn rock", "chiseled stone"];
     var purpose = ["home", "barber", "alchemist's shop", "blacksmithery", "temple", "tannery", "butchery", "library"];
     var outside: ["a horse grazing on the bushes nearby", "a rusted shovel near a somewhat overgrown flowerbed", "a well with an old rope, but no bucket to go on the end", "a dog panting by the door", "a cat lazily lounging in the shade", "a muddy pair of boots by the door", "a sign from the local paper which reads '$newspaperheadline'"],
-    disrepair: ["dilapidated", "ruined", "old", "somewhat rickety", "well-loved", "well-kept", "brand new"];
+    var disrepair: ["dilapidated", "ruined", "old", "somewhat rickety", "well-loved", "well-kept", "brand new"];
 
     return {
         material : material.random(),
         purpose  : purpose.random(),
         outside  : outside.random(),
-        disrepair  : disrepair.random(),
+        disrepair  : disrepair.random()
     };
 };
 
@@ -29,106 +29,118 @@ setup.createNPC = function () {
 	var idle = ["sitting, with a piece of bread in hand", "sitting, mug in hand", "poring over some map", "reading some letter intently", "reading a book", "shuffling a pack of cards", "chewing on a piece of hay", "sharpening a knife", "buffing a piece of armour", "polishing a shield", "sharpening the blade on a fearsome looking dagger", "cutting an apple into bite sized pieces", "biting into an apple", "eating an apple while looking at some book", "eating a hunk of cheese while reading a book", "sipping out of a huge mug while reading a book", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'"];
 	var reading = ["a piece of history- my forefather's journal, detailing his life in $town.name when it was just a settlement.", "my journal, from many years ago.", "my mother's journal, from just before she disappeared", "a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.", "a traitor's memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.", "some sort of spell, though I don't know how to read it.", "a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.", "a book which I bought, believing it to be blank, and suitable for a journal. However, now there's this strange foreign script that I can't read in it.", "a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read.", "a supposedly blank book but every time I open it different words appear in a strange language."];
 
-  switch $npc.race {
-  	case "human":
-  		<<set $npc.racesingular to "person",
-  	$npc.raceplural to "humans",
-  	$npc.raceadjective to "man",
-  	$npc.racelanguage to "Common",
-  	$npc.height to either("tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"),
-  	$npc.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly")>>
-  	<<if $npc.gender is "man">>
-  			<<set $npc.firstname to $name.man.pluck()>>
-  		<<elseif $npc.gender is "woman">>
-  			<<set $npc.firstname to $name.woman.pluck()>>
-  	<</if>>
-      break;
+  return {
+      race : race.random(),
+      gender  : gender.random()
+    };
+
+  switch (race) {
+
+    case "human":
+		 var racesingular = "person",
+  	 var raceplural = "humans",
+  	 var raceadjective = "man",
+  	 var racelanguage = "Common",
+  	 var height = random("tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"),
+  	 var weight = random("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly")
+  	 if (gender === "man") {
+  			var firstname = State.variables.name.man.pluck()}
+      else if (gender === "woman"){
+  			var firstname = State.variables.name.woman.pluck()
+      }
+    break;
+
   	case "elf":
-  		<<set $npc.racesingular to "elf",
-  		$npc.raceplural to "elves",
-  		$npc.raceadjective to "elfish",
-  		$npc.racelanguage to "Elven",
-  		$npc.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"), $npc.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "slightly underweight")>>
-  		<<if $npc.gender is "man">>
-  				<<set $npc.firstname to $name.maleelf.pluck()>>
-  			<<elseif $npc.gender is "woman">>
-  				<<set $npc.firstname to $name.femaleelf.pluck()>>
-  		<</if>>
+  		var racesingular = "elf",
+  		var raceplural = "elves",
+  		var raceadjective = "elfish",
+  		var racelanguage = "Elven",
+  		var height = either("rather average height", "slightly above average height", "tall", "tall", "tall"), var weight = either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "slightly underweight")
+  		if (gender === "man"){
+  				var firstname = State.variables.name.maleelf.pluck()}
+  			  else if (gender === "woman"){
+  				 var firstname = State.variables.name.femaleelf.pluck()
+  		}
       break;
   	case "dwarf":
-  		<<set $npc.racesingular to "dwarf",
-  		$npc.raceplural to "dwarves",
-  		$npc.raceadjective to "dwarven",
-  		$npc.racelanguage to "Dwarven",
-  		$npc.height to either("short", "squat"), $npc.weight to either("stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly")>>
-  		<<if $npc.gender is "man">>
-  				<<set $npc.firstname to $name.maledwarf.pluck()>>
-  			<<elseif $npc.gender is "woman">>
-  				<<set $npc.firstname to $name.femaledwarf.pluck()>>
-  		<</if>>
+  		 var racesingular = "dwarf",
+  		var raceplural = "dwarves",
+  		var raceadjective = "dwarven",
+  		var racelanguage = "Dwarven",
+  		var height = either("short", "squat"), var weight = either("stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly")
+  		if (gender === "man"){
+  				 var firstname = State.variables.name.maledwarf.pluck()}
+  			  else if (gender === "woman"){
+  				 var firstname = State.variables.name.femaledwarf.pluck()
+  		}
       break;
   	case "halfling":
-  		<<set $npc.racesingular to "halfling",
-  		$npc.raceplural to "hobbits",
-  		$npc.raceadjective to "halfling",
-  		$npc.racelanguage to "Halfling",
-  		$npc.height to either("short", "tiny", "diminuitive", "little"),
-      $npc.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+  		 var racesingular = "halfling",
+  		var raceplural = "hobbits",
+  		var raceadjective = "halfling",
+  		var racelanguage = "Halfling",
+  		var height = either("short", "tiny", "diminuitive", "little"),
+      var weight = either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")
       break;
   	case "half-orc":
-  		<<set $npc.racesingular to "half-orc",
-  		$npc.raceplural to "half-orcs",
-  		$npc.raceadjective to "orcish",
-  		$npc.racelanguage to "Orcish",
-  		$npc.height to either("rather average height", "slightly above average height", "tall", "tall", "intimidatingly tall"),
-  		$npc.weight to either("slightly underweight", "stocky", "beefy", "muscular", "extremely muscular", "slightly overweight")>>
-  		<<if $npc.gender is "man">>
-  				<<set $npc.firstname to $name.maleorc.pluck()>>
-  			<<elseif $npc.gender is "woman">>
-  				<<set $npc.firstname to $name.femaleorc.pluck()>>
-  		<</if>>
+  		 var racesingular = "half-orc",
+  		var raceplural = "half-orcs",
+  		var raceadjective = "orcish",
+  		var racelanguage = "Orcish",
+  		var height = either("rather average height", "slightly above average height", "tall", "tall", "intimidatingly tall"),
+  		var weight = either("slightly underweight", "stocky", "beefy", "muscular", "extremely muscular", "slightly overweight")
+  		if (gender === "man"){
+  				 var firstname = State.variables.name.maleorc.pluck()}
+  			  else if (gender === "woman"){
+  				 var firstname = State.variables.name.femaleorc.pluck()
+  		}
       break;
   	case "dragonborn":
-  		<<set $npc.racesingular to "drake",
-  		$npc.raceplural to "drakes",
-  		$npc.raceadjective to "draconian",
-  		$npc.racelanguage to "Draconic",
-  		$npc.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"),
-      $npc.weight to either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight")>>
+  		 var racesingular = "drake",
+  		var raceplural = "drakes",
+  		var raceadjective = "draconian",
+  		var racelanguage = "Draconic",
+  		var height = either("rather average height", "slightly above average height", "tall", "tall", "tall"),
+      var weight = either("stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight")
       break;
   	case "tiefling":
-  		<<set $npc.racesingular to "tiefling",
-  		$npc.raceplural to "tieflings",
-  		$npc.raceadjective to "devilish",
-  		$npc.racelanguage to "Demonic",
-  		$npc.height to either("tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"),
-  		$npc.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
-  		<<if $npc.gender is "man">>
-  				<<set $npc.firstname to $name.maletiefling.pluck()>>
-  			<<elseif $npc.gender is "woman">>
-  				<<set $npc.firstname to $name.femaletiefling.pluck()>>
-  		<</if>>
+  		 var racesingular = "tiefling",
+  		var raceplural = "tieflings",
+  		var raceadjective = "devilish",
+  		var racelanguage = "Demonic",
+  		var height = either("tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"),
+  		var weight = either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")
+  		if (gender === "man"){
+  				 var firstname = State.variables.name.maletiefling.pluck()}
+  			  else if (gender === "woman"){
+  				 var firstname = State.variables.name.femaletiefling.pluck()
+  		}
       break;
   	case "half-elf":
-  		<<set $npc.racesingular to "half-elf",
-  		$npc.raceplural to "half-elves",
-  		$npc.raceadjective to "elfish",
-  		$npc.racelanguage to "Elven",
-  		$npc.height to either("rather average height", "slightly above average height", "tall", "tall", "tall"),
-      $npc.weight to either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")>>
+  		 var racesingular = "half-elf",
+  		var raceplural = "half-elves",
+  		var raceadjective = "elfish",
+  		var racelanguage = "Elven",
+  		var height = either("rather average height", "slightly above average height", "tall", "tall", "tall"),
+      var weight = either("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight")
+      if (gender === "man"){
+  				 var firstname = either(State.variables.name.man.pluck(), State.variables.name.maleelf.pluck())}
+  			  else if (gender === "woman"){
+  				 var firstname = either(State.variables.name.woman.pluck(), State.variables.name.femaleelf.pluck())
+  		}
       break;
   	case "gnome":
-  		<<set $npc.racesingular to "gnome",
-  		$npc.raceplural to "gnomes",
-  		$npc.raceadjective to "gnomish",
-  		$npc.racelanguage to "Gnomish",
-  		$npc.height to either("short", "tiny"),
-  		$npc.weight to either("slightly underweight", "stocky", "beefy", "slightly overweight", "slightly overweight", "round", "tubby")>>
-  		<<if $npc.gender is "man">>
-  				<<set $npc.firstname to either($name.man.pluck(), $name.maleelf.pluck())>>
-  			<<elseif $npc.gender is "woman">>
-  				<<set $npc.firstname to either($name.woman.pluck(), $name.femaleelf.pluck())>>
-  		<</if>>
+  		 var racesingular = "gnome",
+  		var raceplural = "gnomes",
+  		var raceadjective = "gnomish",
+  		var racelanguage = "Gnomish",
+  		var height = either("short", "tiny"),
+  		var weight = either("slightly underweight", "stocky", "beefy", "slightly overweight", "slightly overweight", "round", "tubby")
+      if (gender === "man"){
+           var firstname = State.variables.name.maledwarf.pluck()}
+          else if (gender === "woman"){
+           var firstname = State.variables.name.femaledwarf.pluck()
+      }
       break;
   <</switch>>
 
