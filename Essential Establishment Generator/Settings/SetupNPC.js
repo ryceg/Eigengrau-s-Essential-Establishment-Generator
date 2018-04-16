@@ -28,8 +28,8 @@ setup.createNPC = function() {
         raceplural    = "humans";
         raceadjective = "man";
         racelanguage  = "Common";
-        height        = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"];
-        weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"];
+        height        = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random();
+        weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"].random();
         if (gender === "man") {
             firstname = State.variables.name.man.pluck();
         }
@@ -43,8 +43,8 @@ setup.createNPC = function() {
         raceplural    = "elves";
         raceadjective = "elfish";
         racelanguage  = "Elven";
-        height        = ["rather average height", "slightly above average height", "tall", "tall", "tall"];
-        weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "slightly underweight"];
+        height        = ["rather average height", "slightly above average height", "tall", "tall", "tall"].random();
+        weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "slightly underweight"].random();
         if (gender === "man") {
             firstname = State.variables.name.maleelf.pluck();
         }
@@ -59,8 +59,8 @@ setup.createNPC = function() {
   		raceplural      = "dwarves";
   		raceadjective   = "dwarven";
   		racelanguage    = "Dwarven";
-  		height          = ["short", "squat"];
-      weight          = ["stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"];
+  		height          = ["short", "squat"].random();
+      weight          = ["stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"].random();
   		if (gender === "man"){
   			   firstname  = State.variables.name.maledwarf.pluck();
       }
@@ -74,16 +74,16 @@ setup.createNPC = function() {
   		raceplural      = "hobbits";
   		raceadjective   = "halfling";
   		racelanguage    = "Halfling";
-  		height          = ["short", "tiny", "diminuitive", "little"];
-      weight          = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"];
+  		height          = ["short", "tiny", "diminuitive", "little"].random();
+      weight          = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"].random();
       break;
   	case "half-orc":
   		racesingular    = "half-orc";
   		raceplural      = "half-orcs";
   		raceadjective   = "orcish";
   		racelanguage    = "Orcish";
-  		height          = ["rather average height", "slightly above average height", "tall", "tall", "intimidatingly tall"];
-  		weight          = ["slightly underweight", "stocky", "beefy", "muscular", "extremely muscular", "slightly overweight"];
+  		height          = ["rather average height", "slightly above average height", "tall", "tall", "intimidatingly tall"].random();
+  		weight          = ["slightly underweight", "stocky", "beefy", "muscular", "extremely muscular", "slightly overweight"].random();
   		if (gender === "man"){
   				 firstname = State.variables.name.maleorc.pluck();
       }
@@ -97,16 +97,16 @@ setup.createNPC = function() {
   		raceplural      = "drakes";
   		raceadjective   = "draconian";
   		racelanguage    = "Draconic";
-  		height          = ["rather average height", "slightly above average height", "tall", "tall", "tall"];
-      weight          = ["stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"];
+  		height          = ["rather average height", "slightly above average height", "tall", "tall", "tall"].random();
+      weight          = ["stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"].random();
       break;
   	case "tiefling":
   		racesingular    = "tiefling";
   		raceplural      = "tieflings";
   		raceadjective   = "devilish";
   		racelanguage    = "Demonic";
-  		height          = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"];
-  		weight          = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"];
+  		height          = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random();
+  		weight          = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"].random();
   		if (gender === "man"){
   				 firstname = State.variables.name.maletiefling.pluck();
       }
@@ -120,13 +120,13 @@ setup.createNPC = function() {
   		raceplural      = "half-elves";
   		raceadjective   = "elfish";
   		racelanguage    = "Elven";
-  		height          = ["rather average height", "slightly above average height", "tall", "tall", "tall"];
-      weight          = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"];
+  		height          = ["rather average height", "slightly above average height", "tall", "tall", "tall"].random();
+      weight          = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"].random();
       if (gender === "man"){
-  				 firstname = [State.variables.name.man.pluck(), State.variables.name.maleelf.pluck()];
+  				 firstname = [State.variables.name.man.pluck(), State.variables.name.maleelf.pluck()].random();
       }
   			  else if (gender === "woman"){
-  				 firstname = [State.variables.name.woman.pluck(), State.variables.name.femaleelf.pluck()];
+  				 firstname = [State.variables.name.woman.pluck(), State.variables.name.femaleelf.pluck()].random();
   		}
       break;
 
@@ -135,8 +135,8 @@ setup.createNPC = function() {
   		raceplural      = "gnomes";
   		raceadjective   = "gnomish";
   		racelanguage    = "Gnomish";
-  		height          = ["short", "tiny"];
-  		weight          = ["slightly underweight", "stocky", "beefy", "slightly overweight", "slightly overweight", "round", "tubby"];
+  		height          = ["short", "tiny"].random();
+  		weight          = ["slightly underweight", "stocky", "beefy", "slightly overweight", "slightly overweight", "round", "tubby"].random();
       if (gender === "man"){
            firstname = State.variables.name.maledwarf.pluck();
       }
@@ -146,10 +146,10 @@ setup.createNPC = function() {
       break;
 }
   return {
-      gender : gender.random(),
-      race : race.random(),
-      height : height.random(),
-      weight : weight.random(),
+      gender : gender
+      race : race
+      height : height
+      weight : weight
       haircolour : haircolour.random(),
       hairtype : hairtype.random(),
       scar : scar.random(),
@@ -157,7 +157,6 @@ setup.createNPC = function() {
       dndclass : dndclass.random(),
       profession : profession.random(),
       trait : trait.random(),
-      weight : weight.random(),
       haircolour : haircolour.random()
   };
 
