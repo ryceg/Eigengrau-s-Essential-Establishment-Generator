@@ -3,7 +3,6 @@
 
 <<set $versionnumber to "0.3">>
 
-<<include "MathClamp">>
 
 <<include "Town">>
 
@@ -65,66 +64,12 @@
 <<include "Books">>
 
 
-math.clamp($tavern.sinroll, 1, 100)
-math.clamp($tavern.wealthroll, 1, 100)
-math.clamp($tavern.reputationroll, 1, 100)
-math.clamp($tavern.cleanlinessroll, 1, 100)
-math.clamp($tavern.populationroll, 1, 100)
-math.clamp($tavern.roughnessroll, 1, 100)
-math.clamp($tavern.diversityroll, 1, 100)
-math.clamp($tavern.sizeroll, 1, 100)
-math.clamp($tavern.magicroll, 1, 100)
-
-<<if $tavern.sinroll gt 100>>
-		<<set $tavern.sinroll to 100>>
-	<<elseif $tavern.sinroll lt 1>>
-		<<set $tavern.sinroll to 1>>
-<</if>>
-
-<<if $tavern.wealthroll gt 100>>
-		<<set $tavern.wealthroll to 100>>
-	<<elseif $tavern.wealthroll lt 1>>
-		<<set $tavern.wealthroll to 1>>
-<</if>>
-
-<<if $tavern.reputationroll gt 100>>
-		<<set $tavern.reputationroll to 100>>
-	<<elseif $tavern.reputationroll lt 1>>
-		<<set $tavern.reputationroll to 1>>
-<</if>>
-
-<<if $tavern.cleanlinessroll gt 100>>
-		<<set $tavern.cleanlinessroll to 100>>
-	<<elseif $tavern.cleanlinessroll lt 1>>
-		<<set $tavern.cleanlinessroll to 1>>
-<</if>>
-
-<<if $tavern.populationroll gt 100>>
-		<<set $tavern.populationroll to 100>>
-	<<elseif $tavern.populationroll lt 1>>
-		<<set $tavern.populationroll to 1>>
-<</if>>
-
-<<if $tavern.roughnessroll gt 100>>
-		<<set $tavern.roughnessroll to 100>>
-	<<elseif $tavern.roughnessroll lt 1>>
-		<<set $tavern.roughnessroll to 1>>
-<</if>>
-
-<<if $tavern.diversityroll gt 100>>
-		<<set $tavern.diversityroll to 100>>
-	<<elseif $tavern.diversityroll lt 1>>
-		<<set $tavern.diversityroll to 1>>
-<</if>>
-
-<<if $tavern.sizeroll gt 100>>
-		<<set $tavern.sizeroll to 100>>
-	<<elseif $tavern.sizeroll lt 1>>
-		<<set $tavern.sizeroll to 1>>
-<</if>>
-
-<<if $tavern.magicroll gt 100>>
-		<<set $tavern.magicroll to 100>>
-	<<elseif $tavern.magicroll lt 1>>
-		<<set $tavern.magicroll to 1>>
-<</if>>
+$tavern.sinroll.clamp(1, 100)
+$tavern.wealthroll.clamp(1, 100)
+$tavern.reputationroll.clamp(1, 100)
+$tavern.cleanlinessroll.clamp(1, 100)
+$tavern.populationroll.clamp(1, 100)
+$tavern.roughnessroll.clamp(1, 100)
+$tavern.diversityroll.clamp(1, 100)
+$tavern.sizeroll.clamp(1, 100)
+$tavern.magicroll.clamp(1, 100)
