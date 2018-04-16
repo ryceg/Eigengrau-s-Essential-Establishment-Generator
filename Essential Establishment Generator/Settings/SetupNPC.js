@@ -150,10 +150,10 @@ setup.createNPC = function() {
       break;
 }
   return {
-      gender : gender
-      race : race
-      height : height
-      weight : weight
+      gender : gender,
+      race : race,
+      height : height,
+      weight : weight,
       haircolour : haircolour.random(),
       hairtype : hairtype.random(),
       scar : scar.random(),
