@@ -1,4 +1,4 @@
-/*setup.createNPC = function () {
+setup.createNPC = function() {
 	var gender = ["man", "woman"],
   var race = ["human", "human", "human", "human", "human", "human", "half-elf", "half-elf", "elf", "elf", "dwarf", "dwarf", "gnome", "halfling", "half-orc", "dragonborn", "tiefling"];
 	var age =  ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "mid aged", "relatively old", "sun wizened", "quite old", "ancient"];
