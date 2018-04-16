@@ -26,7 +26,7 @@ setup.createNPC = function() {
       race : race.random(),
       gender  : gender.random()
     };
-
+/*
     switch (race) {
     case "human":
         racesingular  = "person";
