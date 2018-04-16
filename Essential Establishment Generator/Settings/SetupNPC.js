@@ -9,8 +9,6 @@ setup.createNPC = function() {
   var racelanguage;
   var height;
   var weight;
-  //var height      = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"];
-  //var weight      = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"];
   var haircolour    = ["brunette", "brunette", "brown", "brownish", "muddy", "blonde", "blonde", "white", "black", "black"];
 	var hairtype      = ["thick", "wispy", "straight", "straight", "wavy", "wavy", "curly", "wiry", "oily", "lush", "poofy", "long", "braided", "very long", "greasy", "unruly", "unusually styled", "short cropped hair", "a shaved head"];
 	var scar          = ["a jagged scar", "a dark purple scar", "an angry red scar", "a long, thin scar running up the arm", "a scar on the eye", "a scar around the neck", "a scar on the throat", "a fiery red scar", "a finger missing", "two fingers missing"];
@@ -52,7 +50,6 @@ setup.createNPC = function() {
             firstname = State.variables.name.femaleelf.pluck();
         }
         break;
-    }
 
   	case "dwarf":
   		racesingular    = "dwarf";
@@ -99,7 +96,14 @@ setup.createNPC = function() {
   		racelanguage    = "Draconic";
   		height          = ["rather average height", "slightly above average height", "tall", "tall", "tall"].random();
       weight          = ["stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"].random();
+      if (gender === "man") {
+          firstname = State.variables.name.man.pluck();
+      }
+      else if (gender === "woman") {
+          firstname = State.variables.name.woman.pluck();
+      }
       break;
+
   	case "tiefling":
   		racesingular    = "tiefling";
   		raceplural      = "tieflings";
