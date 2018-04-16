@@ -4,7 +4,7 @@ setup.createNPC = function() {
   var firstname;
   var lastname      = State.variables.name.last.random();
 	var age           =  ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "middle aged", "relatively old", "sun wizened", "quite old", "ancient"].random();
-  var eyeColours;
+  // var eyeColours;
   var racesingular;
   var raceplural;
   var raceadjective;
@@ -26,7 +26,7 @@ setup.createNPC = function() {
 
     switch (race) {
     case "human":
-        eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+        // eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
         racesingular  = "person";
         raceplural    = "humans";
         raceadjective = "man";
@@ -42,7 +42,7 @@ setup.createNPC = function() {
         break;
 
     case "elf":
-        eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+        // eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
         racesingular  = "elf";
         raceplural    = "elves";
         raceadjective = "elfish";
@@ -58,7 +58,7 @@ setup.createNPC = function() {
         break;
 
   	case "dwarf":
-      eyeColours      = ["yellow", "amber", "brown", "dark brown", "hazel", "green", "blue", "gray", "brown", "dark brown", "hazel", "green", "blue", "gray", "aqua"].random();
+      // eyeColours      = ["yellow", "amber", "brown", "dark brown", "hazel", "green", "blue", "gray", "brown", "dark brown", "hazel", "green", "blue", "gray", "aqua"].random();
   		racesingular    = "dwarf";
   		raceplural      = "dwarves";
   		raceadjective   = "dwarven";
@@ -74,7 +74,7 @@ setup.createNPC = function() {
       break;
 
   	case "halfling":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+      // eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
   	  racesingular    = "halfling";
   		raceplural      = "hobbits";
   		raceadjective   = "halfling";
@@ -89,7 +89,7 @@ setup.createNPC = function() {
       }
       break;
   	case "half-orc":
-      eyeColours      = ["yellow", "amber", "orange", "brown", "hazel", "yellow", "amber", "orange", "brown", "hazel", "green", "blue", "gray", "aqua", "red"].random();
+      // eyeColours      = ["yellow", "amber", "orange", "brown", "hazel", "yellow", "amber", "orange", "brown", "hazel", "green", "blue", "gray", "aqua", "red"].random();
   		racesingular    = "half-orc";
   		raceplural      = "half-orcs";
   		raceadjective   = "orcish";
@@ -105,7 +105,7 @@ setup.createNPC = function() {
       break;
 
   	case "dragonborn":
-      eyeColours      = ["yellow", "amber", "yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "aqua", "red", "purple", "gold", "gold"].random();
+      // eyeColours      = ["yellow", "amber", "yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "aqua", "red", "purple", "gold", "gold"].random();
   		racesingular    = "drake";
   		raceplural      = "drakes";
   		raceadjective   = "draconian";
@@ -121,7 +121,7 @@ setup.createNPC = function() {
       break;
 
   	case "tiefling":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray", "violet red", "aquamarine", "deep blue", "spring green", "sea green", "emerald green"].random();
+      // eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray", "violet red", "aquamarine", "deep blue", "spring green", "sea green", "emerald green"].random();
   		racesingular    = "tiefling";
   		raceplural      = "tieflings";
   		raceadjective   = "devilish";
@@ -137,7 +137,7 @@ setup.createNPC = function() {
       break;
 
   	case "half-elf":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+      // eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
   		racesingular    = "half-elf";
   		raceplural      = "half-elves";
   		raceadjective   = "elfish";
@@ -153,7 +153,7 @@ setup.createNPC = function() {
       break;
 
   	case "gnome":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+      // eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
   		racesingular    = "gnome";
   		raceplural      = "gnomes";
   		raceadjective   = "gnomish";
@@ -172,7 +172,7 @@ setup.createNPC = function() {
       gender        : gender,
       race          : race,
       age           : age,
-      eyeColours    : eyeColours,
+      // eyeColours    : // eyeColours,
       racesingular  : racesingular,
       raceplural    : raceplural,
       raceadjective : raceadjective,
