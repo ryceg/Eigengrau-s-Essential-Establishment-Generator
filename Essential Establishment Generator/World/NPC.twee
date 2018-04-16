@@ -51,8 +51,6 @@
 		<<set $npc.skincolour to _skinColours[random(3, 6)]>>
 	<<elseif _skin lte 3>>
 		<<set $npc.skincolour to _skinColours[random(0, 3)]>>
-	<<else>>
-		<<set $tavern.error += 1>>
 <</if>>
 
 /* Race Note Code - so humans are introduced as 'a short woman', and elves are introduced as elves. */
