@@ -23,10 +23,10 @@ setup.createNPC = function() {
   switch (race) {
 
     case "human":
-		 var racesingular = "person";
-  	 var raceplural = "humans";
-  	 var raceadjective = "man";
-  	 var racelanguage = "Common";
+		  var racesingular = "person";
+  	  var raceplural = "humans";
+  	  var raceadjective = "man";
+	    var racelanguage = "Common";
   	 //var height = random("tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"),
   	 //var weight = random("waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly")
   	 if (gender === "man") {
@@ -51,7 +51,7 @@ setup.createNPC = function() {
       break;
 
   	case "dwarf":
-  		 var racesingular = "dwarf";
+  		var racesingular = "dwarf";
   		var raceplural = "dwarves";
   		var raceadjective = "dwarven";
   		var racelanguage = "Dwarven";
@@ -65,7 +65,7 @@ setup.createNPC = function() {
       break;
 
   	case "halfling":
-  		 var racesingular = "halfling";
+  	  var racesingular = "halfling";
   		var raceplural = "hobbits";
   		var raceadjective = "halfling";
   		var racelanguage = "Halfling";
@@ -73,7 +73,7 @@ setup.createNPC = function() {
       var weight = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight"];
       break;
   	case "half-orc":
-  		 var racesingular = "half-orc";
+  		var racesingular = "half-orc";
   		var raceplural = "half-orcs";
   		var raceadjective = "orcish";
   		var racelanguage = "Orcish";
@@ -87,7 +87,7 @@ setup.createNPC = function() {
       break;
 
   	case "dragonborn":
-  		 var racesingular = "drake";
+  		var racesingular = "drake";
   		var raceplural = "drakes";
   		var raceadjective = "draconian";
   		var racelanguage = "Draconic";
@@ -95,7 +95,7 @@ setup.createNPC = function() {
       var weight = ["stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"];
       break;
   	case "tiefling":
-  		 var racesingular = "tiefling";
+  		var racesingular = "tiefling";
   		var raceplural = "tieflings";
   		var raceadjective = "devilish";
   		var racelanguage = "Demonic";
@@ -109,7 +109,7 @@ setup.createNPC = function() {
       break;
 
   	case "half-elf":
-  		 var racesingular = "half-elf";
+  		var racesingular = "half-elf";
   		var raceplural = "half-elves";
   		var raceadjective = "elfish";
   		var racelanguage = "Elven";
@@ -123,7 +123,7 @@ setup.createNPC = function() {
       break;
 
   	case "gnome":
-  		 var racesingular = "gnome";
+  		var racesingular = "gnome";
   		var raceplural = "gnomes";
   		var raceadjective = "gnomish";
   		var racelanguage = "Gnomish";
@@ -149,7 +149,7 @@ setup.createNPC = function() {
       profession : profession.random(),
       trait : trait.random(),
       weight : weight.random(),
-      haircolour : haircolour.random(),
+      haircolour : haircolour.random()
   };
 
 };
