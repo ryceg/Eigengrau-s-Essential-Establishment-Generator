@@ -11,9 +11,9 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 <<set $test to setup.createBuilding()>>
 
-$test.structure
+$test.material
 
-$building.structure
+$building.material
 
 <<set $npctest to setup.createNPC()>>
 
