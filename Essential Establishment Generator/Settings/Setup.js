@@ -6,9 +6,9 @@ setup.createBuilding() = function() {
 
     return {
         material : material.random(),
-        purpose  : purpose.random(),
-        outside  : outside.random(),
-        disrepair  : disrepair.random()
+        purpose : purpose.random(),
+        outside : outside.random(),
+        disrepair : disrepair.random()
     };
 };
 /*
