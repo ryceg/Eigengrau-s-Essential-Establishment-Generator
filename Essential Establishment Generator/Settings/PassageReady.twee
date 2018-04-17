@@ -1,5 +1,5 @@
 :: PassageReady
 
-<<include "TavernRenders">>
-<<include "SmithyRenders">>
-<<include "TownRenders">>
+<<for _passage range Story.lookup("tags", "render")>>
+    <<include _passage.title>>
+<</for>>

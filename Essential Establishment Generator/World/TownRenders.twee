@@ -1,4 +1,4 @@
-:: TownRenders
+:: TownRenders [render]
 
 <<if $town.population gt 3000>>
     <<set $town.type to "city">>
