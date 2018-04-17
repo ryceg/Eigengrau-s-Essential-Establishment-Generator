@@ -7,9 +7,9 @@
 <h3>$chemist.name</h3><</linkreplace>>
 
 <span id="potiontitle"><<link "<h4>Generate a random potion!</h4>">>
-<div class='descriptive'><h3>$potion.titlereadout</h3>
+<div class='descriptive'><<print "<h3>$potion.titlereadout</h3>
 $potion.descriptionreadout
-$potion.functionreadout</div><</link>></span>
+$potion.functionreadout">></div><</link>></span>
 
 
 <<linkappend "<h4>Buy something</h4>">><<nobr>>
