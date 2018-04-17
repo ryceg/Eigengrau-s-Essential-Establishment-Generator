@@ -49,9 +49,9 @@
 <<if $tavern.wealthroll gte 50>>
 	<<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">>
 <</if>><</linkreplace>><</nobr>>
-<<linkappend "Show me the menu!">><<nobr>><table>
+<<linkreplace "Show me the menu!">><<nobr>><table>
 	<tr>
-		<th>Item</th>
+		<th>Dish</th>
 		<th>Cost</th>
 	</tr>
 <<switch $town.type>>
@@ -71,4 +71,4 @@
 	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 	<</for>></table>
-<</switch>><</nobr>><</linkappend>>
+<</switch>><</nobr>><</linkreplace>>
