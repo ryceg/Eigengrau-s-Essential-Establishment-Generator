@@ -708,7 +708,7 @@
 "a warning about potion abuse and to only take in moderation",
 "a label with warnings and side effects all scribbled out",
 "that only shows the side effects",
-"a mysterious number",
+"a mysterious number- <<print random(0, 100)>>",
 "a code name",
 "a few unrelated letters",
 "the name of one of the party members",
@@ -721,6 +721,6 @@
 <<set _potionroll to random(0, 99)>>
 	<<set $potion.title to $potion.title[_potionroll], $potion.effect to $potion.effect[_potionroll]>>
 
-<<set $potion.titlereadout to $potion.type.random() + " of " + $potion.title.random()>>
-<<set $potion.descriptionreadout to "The potion is in a " + $potion.container.random() + ", and has a label showing " + $potion.label.random() + ". It looks " + $potion.appearance.random() + " with " + "$potion.appearance2.random(). " + "It is " + $potion.texture.random() + " and smells of " + $potion.smell.random() + " but tastes of " + $potion.taste.random() + ".">>
-<<set $potion.functionreadout to "The potion's strength is " + $potion.strength.random() + ", and " + $potion.effect.random() + " with the side effect of " + $potion.sideeffect.random() + ".">>
+<<set $potion.titlereadout to either($potion.type) + " of " + either($potion.title)>>
+<<set $potion.descriptionreadout to "The potion is in a " + either($potion.container) + ", and has a label showing " + either($potion.label) + ". It looks " + either($potion.appearance) + " with " + "$potion.appearance2). " + "It is " + either($potion.texture) + " and smells of " + either($potion.smell) + " but tastes of " + either($potion.taste) + ".">>
+<<set $potion.functionreadout to "The potion's strength is " + either($potion.strength) + ", and " + either($potion.effect) + " with the side effect of " + either($potion.sideeffect) + ".">>
