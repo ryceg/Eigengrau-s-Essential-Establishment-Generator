@@ -275,7 +275,13 @@ blockquote h5 {
         margin-bottom: 1em;
         font-size: 10pt;
         line-height: 1.1em
+        table-layout: auto;
     }
+
+    table.a {
+    table-layout: auto;
+    width: 180px;
+}
     table em {
         font-family: ScalySans;
         font-style: italic
@@ -300,6 +306,8 @@ blockquote h5 {
     table tbody tr:nth-child(odd) {
         background-color: #e0e5c1
     }
+
+
 
 /***********************************************************************
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
