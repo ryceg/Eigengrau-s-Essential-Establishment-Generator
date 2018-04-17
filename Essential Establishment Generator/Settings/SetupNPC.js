@@ -60,7 +60,7 @@ setup.createNPC = function() {
         racelanguage  = "Common";
         height        = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random();
 				weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"].random();
-				racenote 			= height + gender;
+				racenote 			= height + " " + gender;
 			  if (gender === "man") {
             firstname = State.variables.name.man.pluck();
         }
