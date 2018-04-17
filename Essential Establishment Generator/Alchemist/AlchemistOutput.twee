@@ -6,11 +6,11 @@
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
 <h3>$chemist.name</h3><</linkreplace>>
 
-<<linkappend "<h4>Generate a random potion!</h4>">>
+<<linkreplace "<h4>Generate a random potion!</h4>">><<link "<h4>Generate another!</h4>">>
 <div class='descriptive'><h3>$potion.titlereadout</h3>
 $potion.descriptionreadout
 $potion.functionreadout</div>
-<</linkappend>>
+<</link>><</linkreplace>>
 <<linkappend "<h4>Buy something</h4>">><<nobr>>
 <table>
   <tr>
