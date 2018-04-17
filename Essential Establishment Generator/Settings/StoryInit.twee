@@ -24,6 +24,7 @@
 
 <<include "TavernFlavour">>
 
+<<include "TavernInventory">>
 
 /*<<include "fairmath">>*/
 

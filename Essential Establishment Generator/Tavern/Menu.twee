@@ -3,7 +3,29 @@
 
 <<nobr>>
 <<linkreplace "<h4>Look at the menu.</h4>" t8n>>
-	<h3>On offer today...</h3>
+	<h3>On offer today...</h3><<linkreplace "Show me the menu!">><table>
+	  <tr>
+	    <th>Item</th>
+	    <th>Cost</th>
+	  </tr>
+	<<switch $town.type>>
+	  <<case "city">>
+	  <<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability <= 4; })>><tr><td>_item.name</td>
+	<td><<money _item.cost>></td></tr>
+	  <</for>>
+	  <<case "town">>
+	  <<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability <= 3; })>><tr><td>_item.name</td>
+	<td><<money _item.cost>></td></tr>
+	  <</for>>
+	  <<case "village">>
+	  <<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability <= 2; })>><tr><td>_item.name</td>
+	<td><<money _item.cost>></td></tr>
+	  <</for>>
+	  <<case "hamlet">>
+	  <<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
+	<td><<money _item.cost>></td></tr>
+	  <</for>></table>
+	<</switch>><</nobr>><</linkreplace>>
 	<<if $tavern.wealthroll gt 80 && $tavern.roughness gt 80>>
 		<<print either(
 			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. $bartender.name proudly tells you that there are no stinkin' vegetables, and that $tavern.name stocks only the finest meats.",
