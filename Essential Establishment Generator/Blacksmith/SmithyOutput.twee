@@ -1,4 +1,4 @@
 
 :: SmithyOutput [output]
 
-You enter $smithy.name and see the blacksmith is <<print $blacksmith.idle.pluck()>>. The $smithy.size room is $smithy.cleanliness
+You enter $smithy.name and see the blacksmith is <<print $blacksmith.idle.random()>>. The $smithy.size room is $smithy.cleanliness

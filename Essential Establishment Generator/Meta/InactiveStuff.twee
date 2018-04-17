@@ -4,7 +4,3 @@
 Ships
 
 Smithy and Blacksmith
-
-$tavern.priceroll
-	$SpecialBrew.cost
-	$Tavern.Lodging
