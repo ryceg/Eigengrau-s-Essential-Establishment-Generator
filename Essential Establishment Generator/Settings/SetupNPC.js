@@ -54,14 +54,14 @@ setup.createNPC = function() {
     switch (race) {
     case "human":
         eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
-				racenote 			= height + gender;
         racesingular  = "person";
         raceplural    = "humans";
         raceadjective = "man";
         racelanguage  = "Common";
         height        = ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random();
-        weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"].random();
-        if (gender === "man") {
+				weight        = ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"].random();
+				racenote 			= height + gender;
+			  if (gender === "man") {
             firstname = State.variables.name.man.pluck();
         }
         else if (gender === "woman") {
