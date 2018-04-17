@@ -8,7 +8,7 @@
 	"I'm looking for some guards to help me deliver some cargo some weeks' way away from $town.name; I can't promise that it's going to be easy, but if you keep me and my cargo safe, I can promise rewards well worth your time.",
 	"For many years, I've kept in contact with the priest of $town.name, Father <<print $name.man.pluck()>>. But when I visited last spring, he was nowhere to be seen, and $bartender.firstname said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
 	"Many years ago, my sister $npc.woman.pluck() had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows."
-	"I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?",],
+	"I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?"],
 
 
 	things: ["Behind the bar of $tavern.name, there's a small rat which you've seen the bartender look directly at, without trying to kill the pest."],
@@ -18,12 +18,12 @@
 	"A talented sculptor recently did a sculpture for the Lord of $town.name and ever since, the Lord has not been himself- before he remembered all his servants names, and now he merely bark orders... We fear that something happened to him.",
 	"A local tinkerer named Ebonweg has recently gone missing. The locals know him as an honest tradesman; however he was also something of a recluse, whose tinkerings sometimes bordered on the immoral.",
 	"There was talk of a group of bandits that had taken up terrorizing the road to the north of $town.name, but I went through there just last week, and there was nought a sound the entire journey.",
-	"The lord of the city is rumored to have been killed and replaced with a doppleganger. A local guard thought he saw the lord change skin, but he had no proof, so his accusation was thrown out. He turned up dead yesterday.",],
+	"The lord of the city is rumored to have been killed and replaced with a doppleganger. A local guard thought he saw the lord change skin, but he had no proof, so his accusation was thrown out. He turned up dead yesterday."],
 
 
 	paper: ["The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
 	"The paper states 'WANTED: DEAD OR ALIVE', with the fine print reading 'For the crimes of theft, robbery, burglary, and arson, the $town.name Bandit is wanted dead or alive.' You ask $bartender.firstname about what the crimes entailed, and apparently there's been a huge rash of thefts of food in $town.name recently, resulting in food shortages. The $town.type's council has hired bounty hunters to catch the criminal.",
-	"The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high.""]
+	"The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high."]
 }>>
 
 /*
@@ -122,3 +122,4 @@ Ever since the ascension of the new baron/burgher, criminals have been taken int
 A public execution is taking place in the town square, the town is split on whether the accused is actually guilty. (u/crunkDealer)
 A house/shop in the middle of town has vanished entirely, as if it were just erased from creation. A strange scent and magical residue permeates the premises. (u/crunkDealer)
 A very belligerent (and often drunk) old man is causing problems in town. The hangup: it is the burgher's dearly beloved uncle who remains an extremely proficient fighter in his advanced age. The guard can't apprehend him without serious injury to the man. (u/crunkDealer)
+*/
