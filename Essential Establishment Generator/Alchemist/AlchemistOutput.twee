@@ -14,22 +14,22 @@ $potion.functionreadout
 <<nobr>><<switch $town.type>>
   <<case "city">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 4; })>>
-    <<= _i + 1>>. _item.name - <<money _item.cost>>
 
+    <<= _i + 1>>. _item.name - <<money _item.cost>>
 <</for>>
   <<case "town">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 3; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
 
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
   <</for>>
   <<case "village">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 2; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
 
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
   <</for>>
   <<case "hamlet">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 1; })>>
+
       <<= _i + 1>>. _item.name - <<money _item.cost>>
-      
   <</for>>
 <</switch>><</nobr>>
