@@ -57,3 +57,5 @@
 <<include "SmithyNameGen">>
 
 <<include "Books">>
+
+<<include "Mercenaries">>
