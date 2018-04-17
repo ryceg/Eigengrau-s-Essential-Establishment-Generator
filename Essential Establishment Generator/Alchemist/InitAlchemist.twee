@@ -1,0 +1,22 @@
+
+:: InitAlchemist [output]
+
+<<linkreplace "Rename <strong>$alchemist.name</strong>">><h3><<textbox "$alchemist.name" $alchemist.name>></h3><</linkreplace>>
+
+Alchemist Wealth: <<numberslider "$alchemist.wealthroll" $alchemist.wealthroll 1 100 1>>
+
+Alchemist Size: <<numberslider "$alchemist.sizeroll" $alchemist.sizeroll 1 100 1>>
+
+Alchemist Reputation: <<numberslider "$alchemist.reputationroll" $alchemist.reputationroll 1 100 1>>
+
+Alchemist Cleanliness: <<numberslider "$alchemist.cleanlinessroll" $alchemist.cleanlinessroll 1 100 1>>
+
+<<linkreplace "Alchemist Craftsmanship">>
+Alchemist Expertise: <<numberslider "$alchemist.expertiseroll" $alchemist.expertiseroll 1 100 1>>
+
+Alchemist Intricacy: <<numberslider "$alchemist.intricacyroll" $alchemist.intricacyroll 1 100 1>>
+
+Alchemist Magic: <<numberslider "$alchemist.magicroll" $alchemist.magicroll 1 100 1>>
+<</linkreplace>>
+
+When you're ready, here's the [[alchemist|AlchemistOutput]]

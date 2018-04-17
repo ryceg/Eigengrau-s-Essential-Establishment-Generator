@@ -14,3 +14,5 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 [[$tavern.name|InitTavern]]
 
 [[$smithy.name|InitSmithy]]
+
+[[$alchemist.name|InitAlchemist]]
