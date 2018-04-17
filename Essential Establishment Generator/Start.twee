@@ -9,24 +9,6 @@ Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This 
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-<<set $test to setup.createBuilding()>>
-
-$test.material
-
-$building.material
-
-<<set $npctest to setup.createNPC()>>
-
-$npctest.firstname
-$npctest.gender
-$npctest.himher
-$npctest.racenote
-$npctest.physicaltrait
-$npctest.height
-$npctest.weight
-$npctest.race
-$npctest.racelanguage
-
-$town.type population: $town.population
+Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 [[$tavern.name|InitTavern]]

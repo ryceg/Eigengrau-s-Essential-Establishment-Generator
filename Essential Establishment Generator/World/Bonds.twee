@@ -1,7 +1,7 @@
 
 :: Bonds
 
-<<set $npc.bond to ["I would die to recover an ancient artifact of my faith that was lost long ago.",
+<<set $bond to ["I would die to recover an ancient artifact of my faith that was lost long ago.",
 "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.",
 "I owe me life to the priest <<print $name.man.pluck()>> who took me in when my parents died.",
 "Everything I do is for the common people.",

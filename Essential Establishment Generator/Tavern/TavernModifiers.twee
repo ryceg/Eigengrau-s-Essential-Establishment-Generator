@@ -1,5 +1,5 @@
 
-:: Modifiers
+:: TavernModifiers
 
 /* ------------------------- NAME ------------------------- */
 <<if ["Silver", "Golden", "Glorious", "Beautiful", "Handsome", "Lovely", "Educated", "Ornate", "Wealthy", "Cleanly", "Jeweled", "Superior", "Flawless", "Exquisite", "Elegant", "Fine"].includes($tavern.adjective)>>
@@ -13,23 +13,23 @@
 
 /* ------------------------- WEALTH -------------------------- */
 
-	<<if $town.wealth gt 95>>
+	<<if $town.wealthroll gt 95>>
 		<<set $tavern.wealthroll += 5, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
-	<<elseif $town.wealth gt 80>>
+	<<elseif $town.wealthroll gt 80>>
 		<<set $tavern.wealthroll += 3>>
-	<<elseif $town.wealth gt 70>>
+	<<elseif $town.wealthroll gt 70>>
 		<<set $tavern.wealthroll += 2>>
-	<<elseif $town.wealth gt 60>>
+	<<elseif $town.wealthroll gt 60>>
 		<<set $tavern.wealthroll += 1, $tavern.populationroll += 1>>
-	<<elseif $town.wealth gt 50>>
+	<<elseif $town.wealthroll gt 50>>
 		<<set $tavern.wealthroll += 1, $tavern.populationroll += 3>>
-	<<elseif $town.wealth gt 40>>
+	<<elseif $town.wealthroll gt 40>>
 		<<set $tavern.wealthroll -= 1, $tavern.populationroll += 2>>
-	<<elseif $town.wealth gt 30>>
+	<<elseif $town.wealthroll gt 30>>
 		<<set $tavern.wealthroll -= 2>>
-	<<elseif $town.wealth gt 20>>
+	<<elseif $town.wealthroll gt 20>>
 		<<set $tavern.wealthroll -= 3, $tavern.sinroll += 1>>
-	<<elseif $town.wealth lte 20>>
+	<<elseif $town.wealthroll lte 20>>
 		<<set $tavern.wealthroll -= 5, $tavern.sinroll += 3, $tavern.populationroll -= 3>>
 <</if>>
 /* ------------------------- TYPE -------------------------- */

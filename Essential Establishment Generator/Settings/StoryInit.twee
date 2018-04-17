@@ -5,12 +5,16 @@
 
 
 <<include "Town">>
-
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 <<include "Building">>
 
 <<include "Names">>
 
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Names ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
 <<include "Guard">>
+
+<<include "SpecialBrew">>
 
 <<include "Tavern">>
 
@@ -21,8 +25,7 @@
 
 /*<<include "fairmath">>*/
 
-<<include "Modifiers">>
-
+<<include "TavernModifiers">>
 
 
 <<include "Bartender">>
@@ -31,15 +34,11 @@
 
 <<include "ShitPlotHooks">>
 
-<<include "SpecialBrew">>
-
 <<include "Bonds">>
 
 <<include "TavernRenders">>
 
 <<include "Newspaper">>
-
-<<include "Pickpocket">>
 
 <<include "Potions">>
 
