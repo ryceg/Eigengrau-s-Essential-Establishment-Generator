@@ -1,0 +1,43 @@
+
+:: Start [output]
+
+<h1>Eigengrau's Essential Establishment Generator</h1>
+Welcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
+<<linkappend "<h4>Changelog</h4>" t8n>>
+<<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
+<<include "ToDo">><</linkappend>><</linkappend>>
+
+<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
+
+Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
+
+[[$tavern.name|InitTavern]]
+
+[[$smithy.name|InitSmithy]]
+
+[[$alchemist.name|InitAlchemist]]
+
+<table class="a"> Test </div>
+
+<table class="a">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
