@@ -19,7 +19,7 @@
 	"A local tinkerer named Ebonweg has recently gone missing. The locals know him as an honest tradesman; however he was also something of a recluse, whose tinkerings sometimes bordered on the immoral.",
 	"There was talk of a group of bandits that had taken up terrorizing the road to the north of $town.name, but I went through there just last week, and there was nought a sound the entire journey.",
 	"The lord of the city is rumored to have been killed and replaced with a doppleganger. A local guard thought he saw the lord change skin, but he had no proof, so his accusation was thrown out. He turned up dead yesterday."],
-
+	boring: ["I've heard that over the "],
 
 	paper: ["The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
 	"The paper states 'WANTED: DEAD OR ALIVE', with the fine print reading 'For the crimes of theft, robbery, burglary, and arson, the $town.name Bandit is wanted dead or alive.' You ask $bartender.firstname about what the crimes entailed, and apparently there's been a huge rash of thefts of food in $town.name recently, resulting in food shortages. The $town.type's council has hired bounty hunters to catch the criminal.",

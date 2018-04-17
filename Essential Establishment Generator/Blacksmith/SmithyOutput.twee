@@ -4,3 +4,23 @@
 
 <<linkreplace "<h4>Talk with $blacksmith.name</h4>" t8n>>
 <h3>$blacksmith.name</h3><</linkreplace>>
+
+<<linkappend "<h4>Buy something</h4>">>
+<<switch $town.type>>
+  <<case "city">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4; })>>
+    <<= _i + 1>>. _item.name - <<money _item.cost>>
+<</for>>
+  <<case "town">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3; })>>
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <</for>>
+  <<case "village">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2; })>>
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <</for>>
+  <<case "hamlet">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1; })>>
+      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <</for>>
+<</switch>><</linkappend>>
