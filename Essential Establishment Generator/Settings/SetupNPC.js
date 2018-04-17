@@ -54,15 +54,15 @@ setup.createNPC = function() {
 }
 
 var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
-		if (physicaltraitroll > 8);
+		if (physicaltraitroll > 8)
 		{
 				physicaltrait = scar;
 		}
-		else if (physicaltraitroll > 6);
+		else if (physicaltraitroll > 6)
 		{
 				physicaltrait = tattoo;
 		}
-		else if (physicaltraitroll <= 6);
+		else if (physicaltraitroll <= 6)
 		{
 				physicaltrait = hair;
 		}
