@@ -10,6 +10,6 @@
 	expertiseroll: random(1, 100),
 	intricacyroll: random(1, 100),
 	hardinessroll: random(1, 100),
-	magicroll: random(1, 100),
+	magicroll: random(1, 20),
 	material: either("wooden", "wooden", "wooden", "wooden", "wooden", "stone", "stone", "stone", "stone", "hewn rock", "chiseled stone"),
 }>>

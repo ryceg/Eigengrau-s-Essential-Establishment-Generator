@@ -1,0 +1,22 @@
+
+:: InitSmithy [output]
+
+<<linkreplace "Rename <strong>$smithy.name</strong>">><h3><<textbox "$smithy.name" $smithy.name>></h3><</linkreplace>>
+
+Smithy Wealth: <<numberslider "$smithy.wealthroll" $smithy.wealthroll 1 100 1>>
+
+Smithy Size: <<numberslider "$smithy.sizeroll" $smithy.sizeroll 1 100 1>>
+
+Smithy Reputation: <<numberslider "$smithy.reputationroll" $smithy.reputationroll 1 100 1>>
+
+Smithy Cleanliness: <<numberslider "$smithy.cleanlinessroll" $smithy.cleanlinessroll 1 100 1>>
+
+<<linkreplace "Smithy Craftsmanship">>
+Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1 100 1>>
+
+Smithy Intricacy: <<numberslider "$smithy.intricacyroll" $smithy.intricacyroll 1 100 1>>
+
+Smithy Magic: <<numberslider "$smithy.magicroll" $smithy.magicroll 1 100 1>>
+<</linkreplace>>
+
+When you're ready, here's the [[SmithyOutput|smithy]]

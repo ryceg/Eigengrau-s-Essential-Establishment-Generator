@@ -20,16 +20,6 @@
 
 <<include "Tavern">>
 
-$tavern.sinroll.clamp(1, 100)
-$tavern.wealthroll.clamp(1, 100)
-$tavern.reputationroll.clamp(1, 100)
-$tavern.cleanlinessroll.clamp(1, 100)
-$tavern.populationroll.clamp(1, 100)
-$tavern.roughnessroll.clamp(1, 100)
-$tavern.diversityroll.clamp(1, 100)
-$tavern.sizeroll.clamp(1, 100)
-$tavern.magicroll.clamp(1, 100)
-
 <<include "TavernNameGen">>
 
 <<include "TavernFlavour">>
