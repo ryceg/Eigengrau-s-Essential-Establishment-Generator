@@ -8,6 +8,7 @@ setup.createNPC = function() {
 	var menwomen;
 	var guygirl;
   var race          = ["human", "human", "human", "human", "human", "human", "half-elf", "half-elf", "elf", "elf", "dwarf", "dwarf", "gnome", "halfling", "half-orc", "dragonborn", "tiefling"].random();
+	var racenote;
   var firstname;
   var lastname      = State.variables.name.last.random();
 	var age           =  ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "middle aged", "relatively old", "sun wizened", "quite old", "ancient"].random();
@@ -32,22 +33,29 @@ setup.createNPC = function() {
 
 	switch (gender) {
 		case "man":
-			heshe = "he"
-			himher = "him"
-			hisher = "his"
-			boygirl = "boy"
-			manwoman = "man"
-			menwomen = "men"
-			guygirl = "guy"
+			heshe 				= "he";
+			himher 				= "him";
+			hisher 				= "his";
+			boygirl			  = "boy";
+			manwoman 			= "man";
+			menwomen 			= "men";
+			guygirl 			= "guy";
 			break;
 		case "woman":
-			heshe = "she"
-			himher = "her"
-			hisher = "her"
-			boygirl = "girl"
-			manwoman = "woman"
-			menwomen = "women"
-			guygirl = "girl"
+			heshe 				= "she";
+			himher			  = "her";
+			hisher 				= "her";
+			boygirl			  = "girl";
+			manwoman 			= "woman";
+			menwomen		  = "women";
+			guygirl 			= "girl";
+}
+
+		switch (race) {
+		case "human":
+			racenote = height + " " + gender;
+		default:
+			racenote = race;
 }
 
     switch (race) {
@@ -206,6 +214,7 @@ setup.createNPC = function() {
       race          : race,
       age           : age,
       eyeColours    : eyeColours,
+			racenote			: racenote,
       racesingular  : racesingular,
       raceplural    : raceplural,
       raceadjective : raceadjective,
