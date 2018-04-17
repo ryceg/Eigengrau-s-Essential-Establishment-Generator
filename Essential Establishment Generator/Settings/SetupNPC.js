@@ -53,7 +53,7 @@ setup.createNPC = function() {
 
 		switch (race) {
 		case "human":
-			racenote = height + " " + gender;
+			racenote = height + gender;
 		default:
 			racenote = race;
 }

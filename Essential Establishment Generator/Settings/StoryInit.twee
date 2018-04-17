@@ -10,8 +10,6 @@
 
 <<include "Names">>
 
-<<include "NPC">>
-
 <<include "Guard">>
 
 <<include "Tavern">>
