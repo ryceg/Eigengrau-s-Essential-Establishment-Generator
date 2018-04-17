@@ -113,5 +113,4 @@
     "warhammers",
     "scimitars",
     "scimitars and a shields"]
-  readout: "<<print 'A group of mercenaries sit in the corner of the room, armed to the teeth with $mercenary.weapon, wearing $mercenary.colours livery over their $mercenary.armour with an insignia of $mercenary.insignia. They are $mercenary.attitude towards their commander, who is $mercenary.commander. They specialise in $mercenary.specializes, and are notorious for $mercenary.notorious. They are famous for their $mercenary.tactics, and are currently $mercenary.currently.'>>"
 }>>
