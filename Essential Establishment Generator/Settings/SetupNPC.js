@@ -14,7 +14,7 @@ setup.createNPC = function() {
   var lastname      = State.variables.name.last.random();
 	var name;
 	var age           =  ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "middle aged", "relatively old", "sun wizened", "quite old", "ancient"].random();
-  var eyeColours;
+  var eyes;
   var racesingular;
   var raceplural;
   var raceadjective;
@@ -71,7 +71,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
 
     switch (race) {
     case "human":
-        eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+        eyes    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
         racesingular  = "person";
         raceplural    = "humans";
         raceadjective = "man";
@@ -88,7 +88,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
         break;
 
     case "elf":
-        eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+        eyes    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
         racesingular  = "elf";
 				racenote 			= race;
         raceplural    = "elves";
@@ -105,7 +105,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
         break;
 
   	case "dwarf":
-      eyeColours      = ["yellow", "amber", "brown", "dark brown", "hazel", "green", "blue", "gray", "brown", "dark brown", "hazel", "green", "blue", "gray", "aqua"].random();
+      eyes      = ["yellow", "amber", "brown", "dark brown", "hazel", "green", "blue", "gray", "brown", "dark brown", "hazel", "green", "blue", "gray", "aqua"].random();
   		racesingular    = "dwarf";
 			racenote 				= race;
   		raceplural      = "dwarves";
@@ -122,7 +122,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       break;
 
   	case "halfling":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+      eyes      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
   	  racesingular    = "halfling";
 			racenote 				= race;
   		raceplural      = "hobbits";
@@ -138,7 +138,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       }
       break;
   	case "half-orc":
-      eyeColours      = ["yellow", "amber", "orange", "brown", "hazel", "yellow", "amber", "orange", "brown", "hazel", "green", "blue", "gray", "aqua", "red"].random();
+      eyes      = ["yellow", "amber", "orange", "brown", "hazel", "yellow", "amber", "orange", "brown", "hazel", "green", "blue", "gray", "aqua", "red"].random();
   		racesingular    = "half-orc";
 			racenote 				= race;
   		raceplural      = "half-orcs";
@@ -155,7 +155,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       break;
 
   	case "dragonborn":
-      eyeColours      = ["yellow", "amber", "yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "aqua", "red", "purple", "gold", "gold"].random();
+      eyes      = ["yellow", "amber", "yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "aqua", "red", "purple", "gold", "gold"].random();
   		racesingular    = "drake";
 			racenote 				= race;
   		raceplural      = "drakes";
@@ -172,7 +172,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       break;
 
   	case "tiefling":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray", "violet red", "aquamarine", "deep blue", "spring green", "sea green", "emerald green"].random();
+      eyes      = ["yellow", "amber", "brown", "hazel", "green", "blue", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray", "violet red", "aquamarine", "deep blue", "spring green", "sea green", "emerald green"].random();
   		racesingular    = "tiefling";
 			racenote 				= race;
   		raceplural      = "tieflings";
@@ -189,7 +189,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       break;
 
   	case "half-elf":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+      eyes      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
   		racesingular    = "half-elf";
 			racenote 				= race;
   		raceplural      = "half-elves";
@@ -206,7 +206,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       break;
 
   	case "gnome":
-      eyeColours      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
+      eyes      = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "red", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
   		racesingular    = "gnome";
 			racenote 				= race;
   		raceplural      = "gnomes";
@@ -236,7 +236,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
 			guygirl				: guygirl,
       race          : race,
       age           : age,
-      eyeColours    : eyeColours,
+      eyes   			  : eyes,
 			racenote			: racenote,
 			physicaltrait : physicaltrait,
       racesingular  : racesingular,
