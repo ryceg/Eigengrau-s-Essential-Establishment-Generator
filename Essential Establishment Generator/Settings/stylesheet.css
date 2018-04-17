@@ -306,7 +306,7 @@ blockquote h5 {
     table tbody tr:nth-child(odd) {
         background-color: #e0e5c1
     }
-
+    tr:nth-child(even) {background-color: #e0e5c1;}
 
 
 /***********************************************************************
