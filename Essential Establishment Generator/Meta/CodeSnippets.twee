@@ -12,5 +12,6 @@ export TWEEGO_PATH=/Users/admin/Documents/Twine/story-formats/
 <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
     <<= _i + 1>>. _item.name - <<money _item.cost>>
 
+either($potion.smell)
 
 */

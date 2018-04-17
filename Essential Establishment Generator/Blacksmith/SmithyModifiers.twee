@@ -24,11 +24,11 @@
 	magicroll:
 */
 
-<<if $smithy.structure is "hewn rock">>
+<<if $smithy.material is "hewn rock">>
 		<<set $smithy.roughnessroll += 3>>
-	<<elseif $smithy.structure is "chiseled stone">>
+	<<elseif $smithy.material is "chiseled stone">>
 		<<set $smithy.roughnessroll -= 1>>
-	<<elseif $smithy.structure is "marble">>
+	<<elseif $smithy.material is "marble">>
 		<<set $smithy.cleanlinessroll += 5, $smithy.wealthroll += 6>>
 <</if>>
 
