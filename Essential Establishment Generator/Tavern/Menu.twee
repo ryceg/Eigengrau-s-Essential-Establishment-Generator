@@ -49,7 +49,7 @@
 <<if $tavern.wealthroll gte 50>>
 	<<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">>
 <</if>><</linkreplace>><</nobr>>
-<<linkappend "Show me the menu!">><table>
+<<linkappend "Show me the menu!">><<nobr>><table>
 	<tr>
 		<th>Item</th>
 		<th>Cost</th>
