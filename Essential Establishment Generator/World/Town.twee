@@ -22,6 +22,7 @@
 		<<set $town.population to random(30, 300), $town.type to "hamlet", $town.wealthroll -= 2, $town.reputationroll -= 12, $town.sinroll -= 15, $town.diversityroll -= 12>>
 	<</if>>
 
+/* Town Location Roller */
 <<set _townpotentiallocation to ["Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Jungle", "Volcanic Field", "Seacoast", "Forest", "Hills", "Plains", "Mountains", "River Coast", "Tundra", "Ice Sheet", "Seacoast", "Desert", "Hills", "Plains", "Mountains", "River Coast", "Wasteland", "Oasis"]>>
 <<set _terrainroll to random(1, 6)>>
 	<<if _terrainroll lte 3>>

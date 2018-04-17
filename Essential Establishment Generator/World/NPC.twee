@@ -1,6 +1,6 @@
 
 :: NPC
-
+/* Legacy code */
 <<set $npc to {
 	lastname: $name.last.pluck(),
 	gender: ["man", "woman"],
