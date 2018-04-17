@@ -1,7 +1,7 @@
 
 :: ShitPlotHooks
 
-<<set $shitplothooks to ["A bard. Not a magic one. Just a bard. Like y'know. A minstrel or some shit he's ok I guess.",
+<<set $shitplothook to ["A bard. Not a magic one. Just a bard. Like y'know. A minstrel or some shit he's ok I guess.",
 "Man chasing after a woman through a corn field. Distant saxophone is heard before both get eaten by a troll which chokes to death on them.",
 "The world's highest dragon lands, eats three deer, tries to fly, crashes, then just sleeps where he fell.",
 "A circus is in town. A shitty circus. Like a mobile Chuck E. Cheeses during a power outage.",

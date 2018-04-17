@@ -51,7 +51,8 @@
 	<<case "large">>
 		$tavern.name is a large building, with the $tavern.cleanliness bar occupying the ground floor, and the beds for patrons are on the floor directly above you.
 	<<case "medium">>
-		<<print either("$tavern.name is a tall building, but not particularly spacious; the $tavern.cleanliness bar occupies the ground floor, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the $tavern.material building.", "$tavern.name is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is $tavern.cleanliness.")>>
+		<<print either("$tavern.name is a tall building, but not particularly spacious; the $tavern.cleanliness bar occupies the ground floor, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the $tavern.material building.",
+		"$tavern.name is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is $tavern.cleanliness.")>>
 	<<case "small">>
 		$tavern.name is barely more than a large house; the $tavern.cleanliness bar area is permanently crowded due to a bottleneck preventing barmaids from passing through without having to negotiate through thirsty patrons looking for refills.
 	<<case "tiny">>

@@ -16,5 +16,5 @@
 		<<elseif _rollintrigue is 5>>
 			<<include "PlotHookThings">>
 <</if>>
-<<include "ShitPlotHookGenerator">>
+<<linkreplace "They need ANOTHER plot hook?">><<print $shitplothook.pluck()>><</linkreplace>>
 <</linkreplace>><</nobr>>
