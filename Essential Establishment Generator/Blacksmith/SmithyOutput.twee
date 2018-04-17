@@ -2,4 +2,7 @@
 :: SmithyOutput [output]
 <h1>$smithy.name</h1>
 
-You enter $smithy.name and see the blacksmith is <<print $blacksmith.idle.random()>>. The $smithy.size room is $smithy.cleanliness
+You enter $smithy.name and see the blacksmith is <<print $blacksmith.idle.random()>>. The $smithy.size room is $smithy.cleanliness. The blacksmith either($blacksmith.greeting), and either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $blacksmith.hisher feet over") to you, and introduces $blacksmith.himher<<nobr>>self<</nobr>> as $blacksmith.name, and asks what they can do for you.
+
+<<linkreplace "<h4>Talk with $blacksmith.name</h4>" t8n>>
+<h3>$blacksmith.name</h3><</linkreplace>>

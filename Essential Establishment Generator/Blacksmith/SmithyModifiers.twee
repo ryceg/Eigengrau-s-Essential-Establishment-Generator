@@ -2,21 +2,20 @@
 :: SmithyModifiers
 
 /* ------------------------- SIZE -------------------------- */
-<<if $tavern.sizeroll gt 80>>
-		<<set $tavern.size to "huge">>
-	<<elseif $tavern.sizeroll gt 60>>
-		<<set $tavern.size to "large">>
-	<<elseif $tavern.sizeroll gt 40>>
-		<<set $tavern.size to "medium">>
-	<<elseif $tavern.sizeroll gt 20>>
-		<<set $tavern.size to "small">>
-	<<elseif $tavern.sizeroll lte 20>>
-		<<set $tavern.size to "tiny">>
+<<if $smithy.sizeroll gt 80>>
+		<<set $smithy.size to "huge">>
+	<<elseif $smithy.sizeroll gt 60>>
+		<<set $smithy.size to "large">>
+	<<elseif $smithy.sizeroll gt 40>>
+		<<set $smithy.size to "medium">>
+	<<elseif $smithy.sizeroll gt 20>>
+		<<set $smithy.size to "small">>
+	<<elseif $smithy.sizeroll lte 20>>
+		<<set $smithy.size to "tiny">>
 <</if>>
 
 /*
 	reputationroll: random(1, 100),
-	sizeroll: random(20, 80),
 	cleanlinessroll: random(1, 100),
 	expertiseroll: random(1, 100),
 	intricacyroll: random(1, 100),
