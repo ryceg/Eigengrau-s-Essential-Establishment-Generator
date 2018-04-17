@@ -1,0 +1,3 @@
+:: BlacksmithTalk
+
+$blacksmith.firstname <<print either("loves working in $smithy.name", "hates working in $smithy.name", "finds working in the $smithy.name boring", "finds working in the smithy fun")>>, and says that the patrons of $smithy.name are <<print either("alright, especially the farmers", "a bit stingy, especially the farmers", "somewhat stingy", "fine, but rather dull", "way too exciting for $blacksmith.firstname's tastes", "nice and friendly", "nice and friendly, but rather boring- nothing interesting is ever ordered", "just a bunch of hicks", "a bunch of weirdos")>>.
