@@ -34,5 +34,3 @@
 	  <<elseif _terrainroll is 6>>
 		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(22, 29)]>>
 <</if>>
-
-<<set $lord to setup.createNPC()>>
