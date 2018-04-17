@@ -223,7 +223,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       break;
 }
 
-		var name 					= firstname + " " lastname;
+		var name 					= firstname + " " + lastname;
 
   return {
       gender        : gender,
