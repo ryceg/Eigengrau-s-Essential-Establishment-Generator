@@ -25,11 +25,15 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
   </tr>
 <<switch $town.type>>
   <<case "city">>
-  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 4; })>><td>_item.name</td>  <tr><td><<money _item.cost>></td></tr><</for>>
+  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 4; })>><td>_item.name</td>
+  <tr><td><<money _item.cost>></td></tr><</for>>
   <<case "town">>
-  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 3; })>><td>_item.name</td>  <tr><td><<money _item.cost>></td></tr><</for>>
+  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 3; })>><td>_item.name</td>
+  <tr><td><<money _item.cost>></td></tr><</for>>
   <<case "village">>
-  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 2; })>><td>_item.name</td>  <tr><td><<money _item.cost>></td></tr><</for>>
+  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 2; })>><td>_item.name</td>
+  <tr><td><<money _item.cost>></td></tr><</for>>
   <<case "hamlet">>
-  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 1; })>><td>_item.name</td>  <tr><td><<money _item.cost>></td></tr><</for>></table>
+  <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 1; })>><td>_item.name</td>
+  <tr><td><<money _item.cost>></td></tr><</for>></table>
 <</switch>><</nobr>><</linkappend>>
