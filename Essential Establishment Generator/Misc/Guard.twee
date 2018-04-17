@@ -1,14 +1,15 @@
 
-:: Guard
+:: guard
+
+<<set $guardcaptain to setup.createNPC()>>
+<<set $guard to {}>>
+
 
 <<set _guardpopulationroll to random(-20, 20)>>
-<<set $guard to {
-	captainname: either($name.man)
-	}>>
+<<set _townpop to $town.population>>
+<<set $guard.population == (_townpop /= 150 + _guardpopulationroll)>>
 
-<<set $guard.population == ($town.population /= 150 + _guardpopulationroll)>>
-
-<<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
+<<set _guardnameA to either(["Regiment", "guard", "Officers", "guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
 <<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
 <<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong"])>>
 <<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak"])>>
@@ -30,9 +31,9 @@
 			<<set $guard.name to "The " + _guardnameC + " " + _guardnameD + " of " + _guardnameB>>
 <</switch>>
 
-<<if $Guard.population gt 20>>
+<<if $guard.population gt 20>>
 		<<set $guard.size to "batallion">>
-	<<elseif $Guard.population gt 10>>
+	<<elseif $guard.population gt 10>>
 		<<set $guard.size to "squad">>
 	<<elseif $guard.population lte 10>>
 		<<set $guard.size to "militia">>
