@@ -5,22 +5,27 @@
 <<linkreplace "<h4>Talk with $blacksmith.name</h4>" t8n>>
 <h3>$blacksmith.name</h3><</linkreplace>>
 
-<<linkappend "<h4>Buy something</h4>">>
+<<linkappend "<h4>Buy something</h4>">><<nobr>>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
 <<switch $town.type>>
   <<case "city">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4; })>>
-    <<= _i + 1>>. _item.name - <<money _item.cost>>
-<</for>>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
   <<case "town">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
   <</for>>
   <<case "village">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
   <</for>>
   <<case "hamlet">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1; })>>
-      <<= _i + 1>>. _item.name - <<money _item.cost>>
-  <</for>>
-<</switch>><</linkappend>>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>></table>
+<</switch>><</nobr>><</linkappend>>
