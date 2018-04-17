@@ -1,7 +1,7 @@
 
 :: Story Stylesheet [stylesheet]
 
-/*body {
+body {
   background-image: url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_texture_by_kluckham-d91rf3o.png);
   background-attachment: scroll;
   background-repeat: repeat;
@@ -164,6 +164,15 @@ h1+p::first-letter {
     color:          #222;
     line-height:    .8em
 }
+
+firstcharacter {
+    float:          left;
+    font-family:    Solberry;
+    font-size:      10em;
+    color:          #222;
+    line-height:    .8em
+}
+
 blockquote {
     font-family: ScalySans;
     box-sizing: border-box;

@@ -16,5 +16,3 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 [[$smithy.name|InitSmithy]]
 
 [[$alchemist.name|InitAlchemist]]
-
-<<div class='descriptive'>>Test <</div>>

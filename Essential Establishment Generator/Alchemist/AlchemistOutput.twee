@@ -7,9 +7,9 @@ You enter $alchemist.name and see the chemist is <<print $chemist.idle.random()>
 
 
 <<linkappend "Generate a random potion!">>
-<<div class='descriptive'>>$potion.titlereadout
+<div class='descriptive'>$potion.titlereadout
 $potion.descriptionreadout
-$potion.functionreadout<</div>>
+$potion.functionreadout</div>
 <</linkappend>>
 
 
