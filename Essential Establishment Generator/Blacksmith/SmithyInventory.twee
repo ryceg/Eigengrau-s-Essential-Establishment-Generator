@@ -1,4 +1,4 @@
-:: "SmithyInventory
+:: SmithyInventory
 
 <<set $smithy.inventory to [
       {name: "Dagger", cost: 200, availability: 1},
@@ -61,5 +61,5 @@
       {name: "Mason's Tools", cost: 1000, availability: 2},
       {name: "Smith's Tools", cost: 2000, availability: 1},
       {name: "Tinker's Tools", cost: 5000, availability: 3},
-      {name: "Horn", cost: 300, availability: 4} 
+      {name: "Horn", cost: 300, availability: 4}
 ]>>
