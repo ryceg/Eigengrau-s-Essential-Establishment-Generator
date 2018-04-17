@@ -20,6 +20,7 @@ $building.material
 $npctest.firstname
 $npctest.gender
 $npctest.himher
+$npctest.racenote
 $npctest.height
 $npctest.weight
 $npctest.race
