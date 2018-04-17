@@ -221,6 +221,9 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       }
       break;
 }
+
+		var name 					= firstname + " " lastname;
+
   return {
       gender        : gender,
 			heshe					: heshe,
@@ -239,6 +242,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       raceplural    : raceplural,
       raceadjective : raceadjective,
       racelanguage  : racelanguage,
+			name					: name,
       firstname     : firstname,
       lastname      : lastname,
       height        : height,
