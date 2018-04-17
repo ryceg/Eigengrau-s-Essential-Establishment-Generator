@@ -20,9 +20,10 @@
 		<</if>>
 
 <<if _guard gte 50>>
-	<<set $tavern.guardpresent to true, _brawl -= 20>>
+		<<set $tavern.guardpresent to true, _brawl -= 20>>
+		<<set $TavernGuard to setup.createNPC()>>
 	<<elseif _guard lt 50>>
-	<<set $tavern.guardpresent to false>>
+		<<set $tavern.guardpresent to false>>
 	<</if>>
 
 

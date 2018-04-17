@@ -3,10 +3,10 @@
 
 <<set $raiders to {
   exorting: either([
-    "random(2, 10) CP per week from each family",
-    "random(5, 12) CP per from from each family",
-    "random(2, 5) SP per month from from each family",
-    "random(1, 6) SP per month from from each family"]),
+    "<<print random(2, 10)>> CP per week from each family",
+    "<<print random(5, 12)>> CP per from from each family",
+    "<<print random(2, 5)>> SP per month from from each family",
+    "<<print random(1, 6)>> SP per month from from each family"]),
   demand: either([
     "that we give them half of all the food we grow",
     "that we provide free room and board whenever they travel through our territory",
