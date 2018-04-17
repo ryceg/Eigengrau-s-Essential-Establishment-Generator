@@ -54,7 +54,7 @@ setup.createNPC = function() {
     switch (race) {
     case "human":
         eyeColours    = ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random();
-				racenote 			= height + " " + gender;
+				racenote 			= height + gender;
         racesingular  = "person";
         raceplural    = "humans";
         raceadjective = "man";
