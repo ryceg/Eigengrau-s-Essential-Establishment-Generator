@@ -21,6 +21,7 @@ $npctest.firstname
 $npctest.gender
 $npctest.himher
 $npctest.racenote
+$npctest.physicaltrait
 $npctest.height
 $npctest.weight
 $npctest.race
