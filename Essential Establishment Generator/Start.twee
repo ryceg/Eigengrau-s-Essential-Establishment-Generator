@@ -15,6 +15,6 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 [[$smithy.name|InitSmithy]]
 
-$mercenary.readout
+either($mercenary.readout
 
-A group of mercenaries sit in the corner of the room, armed to the teeth with $mercenary.weapon, wearing $mercenary.colours livery over their $mercenary.armour with an insignia of $mercenary.insignia. They are $mercenary.attitude towards their commander, who is $mercenary.commander. They specialise in $mercenary.specializes, and are notorious for $mercenary.notorious. They are famous for their $mercenary.tactics, and are currently $mercenary.currently.
+A group of mercenaries sit in the corner of the room, armed to the teeth with either($mercenary.weapon), wearing either($mercenary.colours) livery over their either($mercenary.armour) with an insignia of either($mercenary.insignia). They are either($mercenary.attitude) towards their commander, who is either($mercenary.commander). They specialise in either($mercenary.specializes), and are notorious for either($mercenary.notorious). They are famous for their either($mercenary.tactics), and are currently either($mercenary.currently).

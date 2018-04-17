@@ -1,7 +1,7 @@
 :: Mercenaries
 
 <<set $mercenary to {
-  colours: either([
+  colours: [
     "black",
     "red",
     "scarlet",
@@ -15,8 +15,8 @@
     "navy blue",
     "dark brown",
     "steel",
-    "olive green"]),
-  insignia: either([
+    "olive green"],
+  insignia: [
     "a skull",
     "a ghost",
     "a clenched fist",
@@ -36,8 +36,8 @@
     "a scorpion",
     "a snake",
     "a vulture",
-    "a wolf"]),
-  commander: either([
+    "a wolf"],
+  commander: [
     "a brazen outlaw",
     "a charismatic demagogue",
     "a mysterious foreigner",
@@ -47,22 +47,22 @@
     "a brutish thug",
     "a celebrated war hero",
     "a disgraced knight",
-    "a former arena champion"]),
-  attitude: either([
+    "a former arena champion"],
+  attitude: [
     "friendly and loyal",
     "respectful and business-like",
     "cautious and uncertain",
     "terrified and tight-lipped",
     "disappointed and rude",
-    "angry and rebellious"]),
-  currently: either([
+    "angry and rebellious"],
+  currently: [
     "gainfully employed as guards",
     "gainfully employed in war",
     "under contract with some criminals",
     "under contract with some merchants",
     "under contract with some nobles",
-    "looking for work"]),
-  specializes: either([
+    "looking for work"],
+  specializes: [
     "siege-breaking",
     "holding a redoubt or fort",
     "frontal assault",
@@ -72,8 +72,8 @@
     "patrolling",
     "flanking maneuvers",
     "guerilla tactics",
-    "raiding and pillaging"]),
-  notorious: either([
+    "raiding and pillaging"],
+  notorious: [
     "taking no prisoners",
     "leaving the dead to be eaten by beasts",
     "tattooing or branding prisoners",
@@ -81,8 +81,8 @@
     "burning villages and fields",
     "betraying their employers",
     "singing bawdy songs",
-    "drinking too much ale and wine"]),
-  tactics: either([
+    "drinking too much ale and wine"],
+  tactics: [
     "hit-and-run tactics",
     "direct assaults on the enemy",
     "fancy footwork",
@@ -90,8 +90,8 @@
     "masterful combat maneuvers",
     "complete lack of mercy",
     "taunting and jeering the enemy",
-    "dirty tactics"]),
-  armour: either([
+    "dirty tactics"],
+  armour: [
     "exotic robes",
     "leather armor",
     "studded leather armor",
@@ -99,8 +99,8 @@
     "ringmail",
     "chainmail",
     "scale armor",
-    "plate armor"]),
-  weapon: either([
+    "plate armor"],
+  weapon: [
     "longswords",
     "longswords and shields",
     "shortswords and spears",
@@ -112,6 +112,6 @@
     "battleaxes and shields",
     "warhammers",
     "scimitars",
-    "scimitars and a shields"])
+    "scimitars and a shields"]
   readout: "<<print 'A group of mercenaries sit in the corner of the room, armed to the teeth with $mercenary.weapon, wearing $mercenary.colours livery over their $mercenary.armour with an insignia of $mercenary.insignia. They are $mercenary.attitude towards their commander, who is $mercenary.commander. They specialise in $mercenary.specializes, and are notorious for $mercenary.notorious. They are famous for their $mercenary.tactics, and are currently $mercenary.currently.'>>"
 }>>
