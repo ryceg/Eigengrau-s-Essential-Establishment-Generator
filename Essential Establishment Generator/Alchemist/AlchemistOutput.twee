@@ -1,18 +1,15 @@
 
 :: AlchemistOutput [output]
 
-<h1>$alchemist.name</h1>
+<h1>$alchemist.name</h1>You enter $alchemist.name and see the chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness.
 
-You enter $alchemist.name and see the chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness.
-
-
-<<linkappend "Generate a random potion!">>
-<div class='descriptive'>$potion.titlereadout
+<<linkappend "<h4>Generate a random potion!</h4>">>
+<div class='descriptive'><h3>$potion.titlereadout</h3>
 $potion.descriptionreadout
 $potion.functionreadout</div>
 <</linkappend>>
 
-
+<<linkappend "<h4>Buy something</h4>">>
 <<switch $town.type>>
   <<case "city">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 4; })>>
@@ -30,4 +27,4 @@ $potion.functionreadout</div>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 1; })>>
       <<= _i + 1>>. _item.name - <<money _item.cost>>
   <</for>>
-<</switch>>
+<</switch>><</linkappend>>
