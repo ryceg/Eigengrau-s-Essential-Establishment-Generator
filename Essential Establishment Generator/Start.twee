@@ -17,7 +17,7 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 [[$alchemist.name|InitAlchemist]]
 
-<<linkappend "<h4>Buy something</h4>">>
+<<linkappend "<h4>Buy something</h4>">><<nobr>>
 <table class="a">
   <tr>
     <th>Item</th>
@@ -30,14 +30,14 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 <</for>>
   <<case "town">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 3; })>>
-      <td>_item.name</td>  <tr><td><<money _item.cost>></td></tr>
+    <td>_item.name</td>  <tr><td><<money _item.cost>></td></tr>
   <</for>>
   <<case "village">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 2; })>>
-      <td>_item.name</td>  <tr><td><<money _item.cost>></td></tr>
+    <td>_item.name</td>  <tr><td><<money _item.cost>></td></tr>
   <</for>>
   <<case "hamlet">>
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 1; })>>
-      <td>_item.name</td>  <tr><td><<money _item.cost>></td></tr>
+    <td>_item.name</td>  <tr><td><<money _item.cost>></td></tr>
   <</for>></table>
-<</switch>><</linkappend>>
+<</switch>><</nobr>><</linkappend>>
