@@ -25,7 +25,7 @@
 	  <<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
 	<td><<money _item.cost>></td></tr>
 	  <</for>></table>
-	<</switch>><</nobr>><</linkappende>>
+	<</switch>><</nobr>><</linkappend>>
 	<<if $tavern.wealthroll gt 80 && $tavern.roughness gt 80>>
 		<<print either(
 			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. $bartender.name proudly tells you that there are no stinkin' vegetables, and that $tavern.name stocks only the finest meats.",
