@@ -12,6 +12,7 @@ setup.createNPC = function() {
 	var physicaltrait;
 	var firstname;
   var lastname      = State.variables.name.last.random();
+	var name;
 	var age           =  ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "middle aged", "relatively old", "sun wizened", "quite old", "ancient"].random();
   var eyeColours;
   var racesingular;
