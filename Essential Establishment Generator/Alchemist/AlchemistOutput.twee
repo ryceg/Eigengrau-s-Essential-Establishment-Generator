@@ -1,7 +1,9 @@
 
 :: AlchemistOutput [output]
 
-/* %%%%%%%%%%%%%%%%%%%%%%% UNDER CONSTRUCTION %%%%%%%%%%%%%%%%%%%%%%% */
+<h1>$alchemist.name</h1>
+
+You enter $alchemist.name and see the chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness.
 
 
 <<linkappend "Generate a random potion!">>

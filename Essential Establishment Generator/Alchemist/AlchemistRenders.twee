@@ -1,1 +1,29 @@
 :: AlchemistRenders [render]
+
+<<if $alchemist.sizeroll gt 80>>
+		<<set $alchemist.size to "huge">>
+	<<elseif $alchemist.sizeroll gt 60>>
+		<<set $alchemist.size to "large">>
+	<<elseif $alchemist.sizeroll gt 40>>
+		<<set $alchemist.size to "medium">>
+	<<elseif $alchemist.sizeroll gt 20>>
+		<<set $alchemist.size to "small">>
+	<<elseif $alchemist.sizeroll lte 20>>
+		<<set $alchemist.size to "tiny">>
+<</if>>
+
+<<if $alchemist.wealthroll gt 95>>
+		<<set $alchemist.wealth to "kingly">>
+	<<elseif $alchemistwealthroll gt 80>>
+		<<set $alchemist.wealth to "aristocratic">>
+	<<elseif $alchemistwealthroll gt 70>>
+		<<set $alchemist.wealth to "wealthy">>
+	<<elseif $alchemistwealthroll gt 60>>
+		<<set $alchemist.wealth to "comfortable">>
+	<<elseif $alchemistwealthroll gt 50>>
+		<<set $alchemist.wealth to "modest">>
+	<<elseif $alchemistwealthroll gt 25>>
+		<<set $alchemist.wealth to "poor">>
+	<<elseif $alchemistwealthroll lte 25>>
+		<<set $alchemist.wealth to "squalid">>
+<</if>>

@@ -1,4 +1,5 @@
 
 :: SmithyOutput [output]
+<h1>$smithy.name</h1>
 
 You enter $smithy.name and see the blacksmith is <<print $blacksmith.idle.random()>>. The $smithy.size room is $smithy.cleanliness
