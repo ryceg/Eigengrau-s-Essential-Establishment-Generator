@@ -1,0 +1,10 @@
+:: Alchemist
+
+<<set $chemist to setup.createNPC()>>
+
+<<set $chemist.idle to ["talking with a customer", "picking $chemist.hisher nose", "playing a card game by $chemist.himher<<nobr>>self<</nobr>>", "looking over a recipe book", "carefully putting ingredients into a vial", "pouring ingredients into a tube", "throwing herbs into a cauldron", "taking a drink from a glass", "taking a drink from a glass of water", "stirring a pot which is bubbling happily", "stirring a cauldron which bubbles menacingly", "stirring a small pot with a glass spoon carefully"],
+	$chemist.owner to either(["owner", "caretaker", "proud owner", "proprietor", "current owner", "chief owner", "master chemist", "chief researcher"]),
+	$chemist.greeting to ["nods at you", "looks suspiciously at your hair, and then smiles, and welcomes you warmly", "looks at your eyes intently, and then smiles, and welcomes you", "welcomes you warmly", "smiles and greets you", "raises a gloved hand with a wave", "sizes you up, before $chemist.heshe nods at you", "checks you out for just a moment before smiling at you"]
+>>
+
+<<set $alchemist to setup.createBuilding()>>

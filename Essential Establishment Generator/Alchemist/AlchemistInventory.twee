@@ -1,7 +1,7 @@
 
 :: AlchemistInventory
 
-<<set $alchemistinventory to [
+<<set $alchemist.inventory to [
 
 	{
 	name: "Potion (Common)",

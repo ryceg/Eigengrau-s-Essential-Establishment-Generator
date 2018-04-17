@@ -29,6 +29,7 @@
 
 <<include "TavernModifiers">>
 
+<<include "NPC">>
 
 <<include "Bartender">>
 
@@ -41,6 +42,10 @@
 <<include "TavernRenders">>
 
 <<include "Newspaper">>
+
+<<include "Alchemist">>
+
+<<include "AlchemistNameGen">>
 
 <<include "Potions">>
 
