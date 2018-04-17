@@ -31,8 +31,6 @@
 
 <<include "Bartender">>
 
-<<include "PlotGuy">>
-
 <<include "PlotHook">>
 
 <<include "ShitPlotHooks">>
