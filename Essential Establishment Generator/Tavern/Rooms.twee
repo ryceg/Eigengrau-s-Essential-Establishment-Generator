@@ -1,6 +1,7 @@
 
 :: Rooms
 
+
 <<nobr>><<if $tavern.sizeroll gt 80>>
 		<<set _freerooms to random(6, 10)>>
 	<<elseif $tavern.sizeroll gt 60>>
