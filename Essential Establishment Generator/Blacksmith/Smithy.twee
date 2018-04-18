@@ -2,4 +2,4 @@
 :: Smithy
 
 <<set $smithy to setup.createBuilding()>>
-<<set $smithy.weapons to ["dagger", "long sword", "short sword", "morning star", "mace", "axe", "greataxe", "spear", "falcheon"]
+<<set $smithy.weapons to ["dagger", "long sword", "short sword", "morning star", "mace", "axe", "greataxe", "spear", "falcheon"]>>

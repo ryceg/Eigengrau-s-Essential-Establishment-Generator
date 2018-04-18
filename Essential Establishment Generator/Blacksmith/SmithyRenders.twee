@@ -2,18 +2,49 @@
 :: SmithyRenders [render]
 
 /* ------------------------- SIZE -------------------------- */
+<<set _warmthroll to random(1, 100)>>
 <<if $smithy.sizeroll gt 80>>
 		<<set $smithy.size to "huge">>
+		<<set _warmthroll -= 20>>
+	<<elseif $smithy.sizeroll gt 70>>
+		<<set $smithy.size to "quite large">>
+		<<set _warmthroll -= 15>>
 	<<elseif $smithy.sizeroll gt 60>>
 		<<set $smithy.size to "large">>
+		<<set _warmthroll -= 10>>
+	<<elseif $smithy.sizeroll gt 50>>
+		<<set $smithy.size to "spacious">>
+		<<set _warmthroll -= 5>>
 	<<elseif $smithy.sizeroll gt 40>>
 		<<set $smithy.size to "medium">>
+	<<elseif $smithy.sizeroll gt 30>>
+		<<set $smithy.size to "slightly cramped">>
+		<<set _warmthroll += 15>>
 	<<elseif $smithy.sizeroll gt 20>>
 		<<set $smithy.size to "small">>
+		<<set _warmthroll += 15>>
 	<<elseif $smithy.sizeroll lte 20>>
 		<<set $smithy.size to "tiny">>
+		<<set _warmthroll += 30>>
 <</if>>
 
+<<if _warmthroll gt 80>>
+		<<set $smithy.warmth to "swelteringly hot">>
+	<<elseif _warmthroll gt 70>>
+		<<set $smithy.warmth to "extremely warm">>
+	<<elseif _warmthroll gt 60>>
+		<<set $smithy.warmth to "uncomfortably warm">>
+	<<elseif _warmthroll gt 50>>
+		<<set $smithy.warmth to "nice and toasty">>
+	<<elseif _warmthroll gt 40>>
+		<<set $smithy.warmth to "quite warm">>
+	<<elseif _warmthroll gt 30>>
+		<<set $smithy.warmth to "warm">>
+	<<elseif _warmthroll gt 20>>
+		<<set $smithy.warmth to "mild">>
+	<<elseif _warmthroll lte 20>>
+		<<set $smithy.warmth to "cold">>
+<</if>>
 
 /* ------------------------- CLEANLINESS -------------------------- */
 
