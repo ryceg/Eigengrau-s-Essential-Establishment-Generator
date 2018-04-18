@@ -5,7 +5,7 @@
     <<replace "#NPC">>
         \<div class="descriptive">
             \<h3>$tavernNPC.name</h3>
-            \$tavernNPC.name is a $tavernNPC.racenote $tavernNPC.dndclass, who you notice has $tavernNPC.physicaltrait. 
-    \<</replace>>
+            \$tavernNPC.name is a $tavernNPC.racenote $tavernNPC.dndclass, who you notice has $tavernNPC.physicaltrait.</div>
+    <</replace>>
 <</link>>\
 <span id="NPC"></span>
