@@ -7,7 +7,7 @@
 
 <<set $alchemist.noun to either("Potion", "Liquid", "Fumes", "Bottle", "Vial", "Firewater", "Mortar and Pestle", "Lab", "Laboratory", "Chemist", "Alchemist", "Brewer", "Lotion", "Wishes")>>
 
-<<set $alchemist.family to either("Son", "Daughter", "Brother", "Sister", "Uncle", "Aunt", "Father", "Friends", "Family", "Fool")>>
+<<set $alchemist.adjective2 to either("Bubbling", "Spicy", "Soggy", "Fizzy", "Liquid", "Fluorescent", "Clear", "Alcoholic", "Abyssal", "Angelic", "Elven", "Measured", "Marked", "Glass", "Glass", "Copper", "Corked", "Burning", "Red", "Blue", "Green", "Gold", "Yellow", "Vile", "Genuine", "Original")>>
 
 <<set $alchemist.rider to either("Chemist", "Alchemist", "Potion Shop", "Potionery", "Ointmentary", "Juice Bar", "Lab", "Laboratory", "Secret Lair")>>
 
@@ -15,9 +15,9 @@
 	<<case 1>>
 		<<set $alchemist.name to "The " + $alchemist.adjective + " " + $alchemist.noun>>
 	<<case 2>>
-		<<set $alchemist.name to $chemist.firstname + " and " + $alchemist.family>>
+		<<set $alchemist.name to $chemist.firstname + " and " + $alchemist.adjective2>>
 	<<case 3>>
-		<<set $alchemist.name to $alchemist.noun + " and " + $alchemist.family>>
+		<<set $alchemist.name to "The " + $alchemist.noun + " and " + $alchemist.adjective2>>
 	<<case 4>>
 		<<set $alchemist.name to "The " + $alchemist.adjective + " " + $alchemist.rider>>
 	<<case 5>>
