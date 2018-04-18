@@ -20,6 +20,16 @@ setup.createBuilding = function() {
     var intricacyroll     = Math.floor(Math.random() * 99) + 1;
     var hardinessroll     = Math.floor(Math.random() * 99) + 1;
 
+    sinroll.clamp(1, 100);
+    wealthroll.clamp(1, 100);
+    reputationroll.clamp(1, 100);
+    cleanlinessroll.clamp(1, 100);
+    populationroll.clamp(1, 100);
+    roughnessroll.clamp(1, 100);
+    diversityroll.clamp(1, 100);
+    sizeroll.clamp(1, 100);
+    magicroll.clamp(1, 100);
+
 
     return {
         material          : material.random(),
