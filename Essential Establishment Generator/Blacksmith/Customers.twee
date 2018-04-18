@@ -1,0 +1,42 @@
+:: Customers
+<<nobr>>
+<<set _customer to random(1, 100)>>
+<<if $smithy.reputationroll gt 80>>
+    <<set _customer += 5>>
+  <<elseif $smithy.reputationroll gt 70>>
+    <<set _customer += 3>>
+  <<elseif $smithy.reputationroll gt 60>>
+    <<set _customer += 2>>
+  <<elseif $smithy.reputationroll gt 50>>
+    <<set _customer += 1>>
+<</if>>
+
+<<if $smithy.expertiseroll gt 80>>
+    <<set _customer += 5>>
+  <<elseif $smithy.expertiseroll gt 70>>
+    <<set _customer += 3>>
+  <<elseif $smithy.expertiseroll gt 60>>
+    <<set _customer += 2>>
+<</if>>
+
+<<if $smithy.sizeroll gt 40>>
+    <<set _customer += 1>>
+  <<elseif $smithy.sizeroll gt 30>>
+    <<set _customer -= 1>>
+  <<elseif $smithy.sizeroll gt 20>>
+    <<set _customer -= 2>>
+  <<elseif $smithy.sizeroll lte 20>>
+    <<set _customer -= 3>>
+<</if>>
+
+<<if _customer gt 90>>
+    <<set $smithycustomer to $lord>>
+  <<elseif _customer gt 85>>
+    <<set $smithycustomer to $guardcaptain>>
+  <<elseif _customer gt 80>>
+    <<set $smithycustomer to $mercenarycaptain>>
+  <<elseif _customer lte 80>>
+    <<set $smithycustomer to setup.createNPC()>>
+<</if>>
+
+<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>>, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name.

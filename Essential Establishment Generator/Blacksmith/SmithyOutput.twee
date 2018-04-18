@@ -9,3 +9,5 @@
 <h3>$blacksmith.name</h3><<include "BlacksmithTalk">><</linkreplace>>
 
 <<linkappend "<h4>Buy something</h4>">><<include "SmithySell">><</linkappend>>
+
+<<linkreplace "<h4>Talk with a customer"</h4> t8n>><h4>$smithycustomer.name</h4><<include "Customers">><</linkreplace>>
