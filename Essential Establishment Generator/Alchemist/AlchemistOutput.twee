@@ -6,10 +6,19 @@
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
 <h3>$chemist.name</h3><</linkreplace>>
 
-<span id="potiontitle"><<link "<h4>Generate a random potion!</h4>">>
-<div class='descriptive'><<print <h3>$potion.titlereadout</h3>
-$potion.descriptionreadout
-$potion.functionreadout>></div><</link>></span>
+<<link "<h4>Generate a random potion!</h4>">>
+    <<set $potion.titlereadout to either($potion.type) + " of " + either($potion.title)>>
+    <<set $potion.descriptionreadout to "The potion is in a " + either($potion.container)>>
+    <<set $potion.functionreadout to "The potion's strength is " + either($potion.strength)>>
+    <<replace "#randpotion">>
+        \<div class="descriptive">
+            \<h3>$potion.titlereadout</h3>
+            \$potion.descriptionreadout<br>
+            \$potion.functionreadout
+        \</div>
+    \<</replace>>
+<</link>>\
+<span id="randpotion"></span>
 
 
 <<linkappend "<h4>Buy something</h4>">><<nobr>>
