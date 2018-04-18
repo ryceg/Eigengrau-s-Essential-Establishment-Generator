@@ -10,6 +10,13 @@
 	sizeroll: random(0, 100)
 }>>
 
+$town.wealthroll.clamp(1, 100)
+$town.reputationroll.clamp(1, 100)
+$town.sinroll.clamp(1, 100)
+$town.diversityroll.clamp(1, 100)
+$town.magicroll.clamp(1, 100)
+$town.sizeroll.clamp(1, 100)
+
 /* Town Population Roller */
 <<set _townpopulationroll to random(1, 10)>>
 	<<if _townpopulationroll gt 8>>
