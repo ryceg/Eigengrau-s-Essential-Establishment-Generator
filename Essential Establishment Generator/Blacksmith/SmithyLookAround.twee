@@ -23,7 +23,7 @@
 <<elseif $smithy.expertiseroll gt 70>>
 		On the bench lies a <<print either($smithy.weapons)>>, and looking at it, you can tell that the blacksmith is talented at $blacksmith.hisher craft; this is a well made weapon.
 <<elseif $smithy.expertiseroll gt 60>>
-		On the bench is a <<print either($smithy.weapons)>>, and you can tell that $smithy.name is well trained; the weapon is more than servicable, and carries a nice heft to it.
+		On the bench is a <<print either($smithy.weapons)>>, and you can tell that $blacksmith.name is well trained; the weapon is more than servicable, and carries a nice heft to it.
 <<elseif $smithy.expertiseroll gt 50>>
 		On the bench lies a <<print either($smithy.weapons)>>. Inspecting it, it's of slightly above average quality, and is made well.
 <<elseif $smithy.expertiseroll gt 40>>
