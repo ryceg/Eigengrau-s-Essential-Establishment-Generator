@@ -11,4 +11,4 @@
 <<set $cheese.colourreadout to either($cheese.colour)>>
 <<set $cheese.texturereadout to either($cheese.texture)>>
 <<set $cheese.tastereadout to either($cheese.taste)>>
-<<set $cheese.smellreadout to either($cheese.smell)>>
+<<set $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to $cheese.cost>>
