@@ -28,9 +28,9 @@
 		<<set $tavern.diversityroll += 15, $tavern.roughnessroll += 5, $tavern.sinroll += 15, $tavern.wealthroll += 10, $tavern.magicroll += 7>>
 <</switch>>
 
-/* Brothel Code - so the bartender is the Master or Madame of the brothel
-<<if ($tavern.draw is "brothel", $bartender.himher is "him")>>
+ Brothel Code - so the bartender is the Master or Madame of the brothel
+<<if $tavern.draw is "brothel" && $bartender.gender is "man">>
 		<<set $bartender.owner to "master">>
-	<<elseif ($tavern.draw is "brothel", "$bartender.himher is "her")>>
+	<<elseif $tavern.draw is "brothel" && $bartender.gender is "woman">>
 		<<set $bartender.owner to "madame">>
-<</if>>*/
+<</if>>
