@@ -2,10 +2,16 @@
 
 <<if $alchemist.sizeroll gt 80>>
 		<<set $alchemist.size to "huge">>
+	<<elseif $alchemist.sizeroll gt 70>>
+		<<set $alchemist.size to "quite large">>
 	<<elseif $alchemist.sizeroll gt 60>>
 		<<set $alchemist.size to "large">>
+	<<elseif $alchemist.sizeroll gt 50>>
+		<<set $alchemist.size to "spacious">>
 	<<elseif $alchemist.sizeroll gt 40>>
 		<<set $alchemist.size to "medium">>
+	<<elseif $alchemist.sizeroll gt 30>>
+		<<set $alchemist.size to "slightly cramped">>
 	<<elseif $alchemist.sizeroll gt 20>>
 		<<set $alchemist.size to "small">>
 	<<elseif $alchemist.sizeroll lte 20>>
@@ -26,4 +32,47 @@
 		<<set $alchemist.wealth to "poor">>
 	<<elseif $alchemistwealthroll lte 25>>
 		<<set $alchemist.wealth to "squalid">>
+<</if>>
+
+
+/* ------------------------- CLEANLINESS -------------------------- */
+
+
+<<if $alchemist.cleanlinessroll gt 80>>
+		<<set $alchemist.cleanliness to "fastidious">>
+	<<elseif $alchemist.cleanlinessroll gt 70>>
+		<<set $alchemist.cleanliness to "very tidy">>
+	<<elseif $alchemist.cleanlinessroll gt 60>>
+		<<set $alchemist.cleanliness to "tidy">>
+	<<elseif $alchemist.cleanlinessroll gt 50>>
+		<<set $alchemist.cleanliness to "reasonably tidy">>
+	<<elseif $alchemist.cleanlinessroll gt 40>>
+		<<set $alchemist.cleanliness to "somewhat messy">>
+	<<elseif $alchemist.cleanlinessroll gt 30>>
+		<<set $alchemist.cleanliness to "rather messy">>
+	<<elseif $alchemist.cleanlinessroll gt 20>>
+		<<set $alchemist.cleanliness to "very messy">>
+	<<elseif $alchemist.cleanlinessroll lte 20>>
+		<<set $alchemist.cleanliness to "filthy">>
+<</if>>
+
+
+/* ------------------------- Expertise -------------------------- */
+
+<<if $alchemist.expertiseroll gt 80>>
+		<<set $alchemist.expertise to "masterful">>
+<<elseif $alchemist.expertiseroll gt 70>>
+		<<set $alchemist.expertise to "exceptional">>
+<<elseif $alchemist.expertiseroll gt 60>>
+		<<set $alchemist.expertise to "superior quality">>
+<<elseif $alchemist.expertiseroll gt 50>>
+		<<set $alchemist.expertise to "finely-crafted">>
+<<elseif $alchemist.expertiseroll gt 40>>
+		<<set $alchemist.expertise to "well-crafted">>
+<<elseif $alchemist.expertiseroll gt 30>>
+		<<set $alchemist.expertise to "somewhat well made">>
+<<elseif $alchemist.expertiseroll gt 20>>
+		<<set $alchemist.expertise to "somewhat amateur">>
+<<elseif $alchemist.expertiseroll lte 20>>
+		<<set $alchemist.expertise to "blatantly amateur">>
 <</if>>
