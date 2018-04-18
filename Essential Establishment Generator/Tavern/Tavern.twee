@@ -1,23 +1,11 @@
 
 :: Tavern
-
-<<set $tavern to {
-	wordnoun: either("tavern", "tavern", "tavern", "tavern", "pub", "pub", "pub", "inn", "inn", "bar", "bar", "bar", "watering hole", "drinkery"),
-	wealth: either("squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic", "kingly"),
-	wealthroll: random(1, 100),
-	pricemodifier: random(-10, 10),
-	populationroll: random(1, 100),
-	reputationroll: random(1, 100),
-	sinroll: random(1, 100),
-	sizeroll: random(20, 80),
-	diversityroll: random(20, 80),
-	roughnessroll: random(1, 100),
-	cleanlinessroll: random(1, 100),
-	magicroll: random(1, 20),
-	type: either("quiet and low-key bar", "regular", "regular", "regular", "regular", "raucous dive", "raucous dive", "raucous dive", "raucous dive", "thieves' guild hangout", "gathering place for a secret society", "high-end dining club", "high-end dining club", "gambling den", "gambling den", "$bartender.race only club", "guild-member's only club", "members-only club", "brothel", "brothel"),
-	draw: either("attractive waitstaff", "resident bard", "<<print $tavern.roughness>> atmosphere", "<<print $tavern.roughness>> atmosphere", "<<print $tavern.roughness>> atmosphere", "witty banter with the waitstaff", "crude jokes the bartender makes", "proximity to the thieves' guild headquarters", "warmth inside", "magic incense which is constantly burning", "proximity to the brothel", "proximity to the church", "location by the river", "wooden-chopping competition held weekly", "mahogany stairs", "clean beds", "lack of bedbugs", "magic bedbugs", "drunk wizard", "huge fireplace", "incredible view", "nice view"),
-	shortages: ["wine", "booze", "grog", "whiskey", "mutton", "lamb", "carrots", "mugs", "forks", "frogs", "bread", "mushrooms", "salt", "silver pieces", "chairs", "eggs", "potatoes"]
-}>>
+<<set $tavern to setup.createBuilding()>>
+<<set $tavern.wordnoun to either("tavern", "tavern", "tavern", "tavern", "pub", "pub", "pub", "inn", "inn", "bar", "bar", "bar", "watering hole", "drinkery"),
+	$tavern.type to either("quiet and low-key bar", "regular", "regular", "regular", "regular", "raucous dive", "raucous dive", "raucous dive", "raucous dive", "thieves' guild hangout", "gathering place for a secret society", "high-end dining club", "high-end dining club", "gambling den", "gambling den", "$bartender.race only club", "guild-member's only club", "members-only club", "brothel", "brothel"),
+	$tavern.draw to either("attractive waitstaff", "resident bard", "<<print $tavern.roughness>> atmosphere", "<<print $tavern.roughness>> atmosphere", "<<print $tavern.roughness>> atmosphere", "witty banter with the waitstaff", "crude jokes the bartender makes", "proximity to the thieves' guild headquarters", "warmth inside", "magic incense which is constantly burning", "proximity to the brothel", "proximity to the church", "location by the river", "wooden-chopping competition held weekly", "mahogany stairs", "clean beds", "lack of bedbugs", "magic bedbugs", "drunk wizard", "huge fireplace", "incredible view", "nice view"),
+	$tavern.shortages to ["wine", "booze", "grog", "whiskey", "mutton", "lamb", "carrots", "mugs", "forks", "frogs", "bread", "mushrooms", "salt", "silver pieces", "chairs", "eggs", "potatoes"]
+>>
 
 /* Exclusion code for brothels + churches */
 <<if ($tavern.type is "gambling den" && $tavern.draw is "proximity to the church")>>
@@ -27,8 +15,6 @@
 	<<elseif ($tavern.type is "raucous dive" && $tavern.draw is "proximity to the church")>>
 		<<set $tavern.draw to "proximity to the brothel">>
 <</if>>
-
-<<set $tavern.material to either($building.material)>>
 
 $tavern.sinroll.clamp(1, 100)
 $tavern.wealthroll.clamp(1, 100)
