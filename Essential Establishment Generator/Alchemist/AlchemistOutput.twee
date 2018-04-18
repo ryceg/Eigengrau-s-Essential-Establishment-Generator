@@ -7,13 +7,12 @@
 <h3>$chemist.name</h3><</linkreplace>>
 
 <<link "<h4>Generate a random potion!</h4>">>
-<<nobr>>
   <<set $potionroll to random(0, 99)>>
 	<<set $potion.title to $potion.title[$potionroll],
   $potion.effect to $potion.effect[$potionroll]>>
   <<set $potion.titlereadout to either($potion.type) + " of " + either($potion.title)>>
   <<set $potion.descriptionreadout to "The potion is in a " + either($potion.container) + ", and has a label showing " + either($potion.label) + ". It looks " + either($potion.appearance) + " with " + either($potion.appearance2) + ". " + "It is " + either($potion.texture) + " and smells of " + either($potion.smell) + " but tastes of " + either($potion.taste) + ".">>
-  <<set $potion.functionreadout to "The potion's strength is " + either($potion.strength) + ", and " + either($potion.effect) + " with the side effect of " + either($potion.sideeffect) + ".">><</nobr>>
+  <<set $potion.functionreadout to "The potion's strength is " + either($potion.strength) + ", and " + either($potion.effect) + " with the side effect of " + either($potion.sideeffect) + ".">>
     <<replace "#randpotion">>
         \<div class="descriptive">
             \<h3>$potion.titlereadout</h3>
