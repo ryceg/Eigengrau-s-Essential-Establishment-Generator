@@ -4,7 +4,7 @@
   <<case "city">>
   $blacksmith.name smiles, and says "You're looking to buy something? Name it, here at $smithy.name, we stock everything the average man could possibly need!"
   <<case "town">>
-  $blacksmith.name says "Well, what is it you need? We specialise in <<print either($smithy.weapons)>>, but can do just about anything for you."
+  $blacksmith.name says "Well, what is it you need? We specialise in <<print either($smithy.weapons)>>s, but can do just about anything for you."
   <<case "village">>
   $blacksmith.name says "Sure, what are you after? <<print $smithy.mundane.toUpperFirst()random()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
   <<case "hamlet">>
