@@ -1,7 +1,9 @@
 
 :: SmithyOutput [output]
-<h1>$smithy.name</h1>You enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is <<print $blacksmith.idle.random()>>. <<include "SmithyLookAround">>
-The blacksmith <<print either($blacksmith.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $blacksmith.hisher feet over")>> to you, and introduces $blacksmith.himher<<nobr>>self<</nobr>> as $blacksmith.name, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
+<h1>$smithy.name</h1>You enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is <<print $blacksmith.idle.random()>>. The blacksmith <<print either($blacksmith.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $blacksmith.hisher feet over")>> to you, and introduces $blacksmith.himher<<nobr>>self<</nobr>> as $blacksmith.name, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
+
+<<include "SmithyLookAround">>
+
 
 <<linkreplace "<h4>Talk with $blacksmith.name</h4>" t8n>>
 <h3>$blacksmith.name</h3><<include "BlacksmithTalk">><</linkreplace>>

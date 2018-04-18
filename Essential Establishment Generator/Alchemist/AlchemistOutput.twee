@@ -1,8 +1,8 @@
 
 :: AlchemistOutput [output]
 
-<h1>$alchemist.name</h1>You enter $alchemist.name and see the chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The blacksmith <<print either($chemist.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet over")>> to you, and introduces $chemist.himher<<nobr>>self<</nobr>> as $chemist.name, the $chemist.owner of the smithy, and asks what $chemist.heshe can do for you.
-
+<h1>$alchemist.name</h1>You enter $alchemist.name and see the chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The chemist <<print either($chemist.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet over")>> to you, and introduces $chemist.himher<<nobr>>self<</nobr>> as $chemist.name, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
+<<include "AlchemistLookAround">>
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
 <h3>$chemist.name</h3><</linkreplace>>
 
