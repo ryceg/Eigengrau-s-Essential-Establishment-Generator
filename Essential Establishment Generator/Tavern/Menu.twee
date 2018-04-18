@@ -48,7 +48,7 @@
 
 <<if $tavern.wealthroll gte 50>>
 	<<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">>
-<</if>>The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell)>> is a <<replace #cheese>>is $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
+<</if>>The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell)>><<replace #cheese>> is <<money random(1, 23)>>, and is a  $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is <<money random(1, 23)>>, and is a $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
 
  <</linkreplace>><</nobr>>
 <<linkreplace "<h4>Show me the menu!</h4>">><<nobr>><table>
