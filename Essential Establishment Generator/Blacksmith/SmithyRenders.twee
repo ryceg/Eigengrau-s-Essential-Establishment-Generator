@@ -16,20 +16,43 @@
 
 
 /* ------------------------- CLEANLINESS -------------------------- */
+
+
 <<if $smithy.cleanlinessroll gt 80>>
-		<<set $smithy.cleanliness to "fastidious, with a swept floor and tools stored neatly on the walls. There's a desk in the corner with a piece of parchment showing the current project's measurements, and the materials are neatly stored in bins. Clearly, whatever apprentice has been charged with upkeep of the smithy has taken their job very seriously.">>
+		<<set $smithy.cleanliness to "fastidious">>
 	<<elseif $smithy.cleanlinessroll gt 70>>
-		<<set $smithy.cleanliness to "very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently swept, and there's a surprising lack of grime. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy.">>
+		<<set $smithy.cleanliness to "very tidy">>
 	<<elseif $smithy.cleanlinessroll gt 60>>
-		<<set $smithy.cleanliness to "tidy, with a swept floor and things in some semblance of order. There are sheafs of paper on the bench, with hunks of metal neatly holding each stack down; clearly, they are specifications for different projects, and the materials needed for each of them.">>
+		<<set $smithy.cleanliness to "tidy">>
 	<<elseif $smithy.cleanlinessroll gt 50>>
-		<<set $smithy.cleanliness to "reasonably tidy, with the usual dirt from $blacksmith.firstname<<nobr>>'s<</nobr>> current project on the floor. There are sheafs of parchment on the bench with measurements and specifications for projects, and there's a bucket of water still sizzling from a recent dousing in the corner.">>
+		<<set $smithy.cleanliness to "reasonably tidy">>
 	<<elseif $smithy.cleanlinessroll gt 40>>
-		<<set $smithy.cleanliness to "somewhat messy, with the usual dirt and debris from $blacksmith.firstname<<nobr>>'s<</nobr>> current project on the floor; a half-hearted sweeping has been recently made, although all that did was push the dirt around the smithy to dirty up different parts of the floor.">>
+		<<set $smithy.cleanliness to "somewhat messy">>
 	<<elseif $smithy.cleanlinessroll gt 30>>
-		<<set $smithy.cleanliness to "rather messy, with tools strewn around, and spare hunks of metal littering the floor. You can see several projects lying either abandoned or at least temporarily forgotten, coated in a layer of dust. The bench top is cluttered with hammers, and the anvil itself has a layer of grime on it, in desperate need of a cleaning.">>
+		<<set $smithy.cleanliness to "rather messy">>
 	<<elseif $smithy.cleanlinessroll gt 20>>
-		<<set $smithy.cleanliness to "very messy, with tools and offcuts strewn around, and blackened cobwebs lining the ceiling. There's a layer of dust and grime on the bench top, and the floor has not been swept in quite a while.">>
+		<<set $smithy.cleanliness to "very messy">>
 	<<elseif $smithy.cleanlinessroll lte 20>>
-		<<set $smithy.cleanliness to "filthy, with smoke having blackened the walls and a thick layer of grime and dust coating every surface. The smell of various burnt woods, coals, and other things permeates your nostrils, and your boots leave visible footprints in the ash underfoot.">>
+		<<set $smithy.cleanliness to "filthy">>
+<</if>>
+
+
+/* ------------------------- Expertise -------------------------- */
+
+<<if $smithy.expertiseroll gt 80>>
+		<<set $smithy.expertise to "masterful">>
+<<elseif $smithy.expertiseroll gt 70>>
+		<<set $smithy.expertise to "exceptional">>
+<<elseif $smithy.expertiseroll gt 60>>
+		<<set $smithy.expertise to "superior quality">>
+<<elseif $smithy.expertiseroll gt 50>>
+		<<set $smithy.expertise to "finely-crafted">>
+<<elseif $smithy.expertiseroll gt 40>>
+		<<set $smithy.expertise to "well-crafted">>
+<<elseif $smithy.expertiseroll gt 30>>
+		<<set $smithy.expertise to "somewhat well made">>
+<<elseif $smithy.expertiseroll gt 20>>
+		<<set $smithy.expertise to "somewhat amateur">>
+<<elseif $smithy.expertiseroll lte 20>>
+		<<set $smithy.expertise to "blatantly amateur">>
 <</if>>
