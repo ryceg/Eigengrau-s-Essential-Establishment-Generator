@@ -11,10 +11,7 @@ Smithy Reputation: <<numberslider "$smithy.reputationroll" $smithy.reputationrol
 
 Smithy Cleanliness: <<numberslider "$smithy.cleanlinessroll" $smithy.cleanlinessroll 1 100 1>>
 
-<<linkreplace "Smithy Craftsmanship">>
 Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1 100 1>>
-
-Smithy Intricacy: <<numberslider "$smithy.intricacyroll" $smithy.intricacyroll 1 100 1>>
 
 Smithy Magic: <<numberslider "$smithy.magicroll" $smithy.magicroll 1 100 1>>
 <</linkreplace>>
