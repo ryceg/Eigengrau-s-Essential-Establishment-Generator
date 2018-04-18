@@ -1,3 +1,3 @@
 :: ChemistTalk
 
-$chemist.firstname looks <<print $chemist.currentmood.random()>>, and idly prepares an ingredient which he tells the less alchemically inclined of you that it is called <<print either($chemist.ingredients)>> as $chemist.heshe talks. The $chemist.racenote <<print either($chemist.chitchat)>> as you peruse the shop, and asks you about yourselves. When you say that you're adventurers, $chemist.hisher $chemist.eyes eyes light up, and $chemist.heshe says "<<print either($chemist.calltoaction)>>"
+$chemist.firstname looks <<print $chemist.currentmood.random()>>, and idly shifts a box of <<print either($chemist.ingredients)>> as $chemist.heshe talks. The $chemist.racenote <<print either($chemist.chitchat)>> as you peruse the shop, and asks you about yourselves. When you say that you're adventurers, $chemist.hisher $chemist.eyes eyes light up, and $chemist.heshe says "<<print either($chemist.calltoaction)>>"

@@ -1,5 +1,5 @@
 :: AlchemistSell
-<<linkappend "<h4>Buy something</h4>">><<nobr>>
+<<linkreplace "<h4>Buy something</h4>">><h3>$alchemist.name's Potions and Wares</h3><<nobr>>
 <table>
   <tr>
     <th>Item</th>
@@ -22,4 +22,4 @@
   <<for _i, _item range $alchemist.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>></table>
-<</switch>><</nobr>><</linkappend>>
+<</switch>><</nobr>><</linkreplace>>
