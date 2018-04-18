@@ -13,8 +13,8 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-Tavern: [[<b>$tavern.name</b>|InitTavern]]
+Tavern: [[$tavern.name|InitTavern]]
 
-Blacksmith: [[<b>$smithy.name</b>|InitSmithy]]
+Blacksmith: [[$smithy.name|InitSmithy]]
 
-Alchemist: [[<b>$alchemist.name</b>|InitAlchemist]]
+Alchemist: [[$alchemist.name|InitAlchemist]]
