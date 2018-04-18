@@ -3672,11 +3672,11 @@ Town Wealth: &lt;&lt;numberslider &quot;$town.wealthroll&quot; $town.wealthroll 
 
 Town Population: &lt;&lt;numberslider &quot;$town.population&quot; $town.population 30 6000 10&gt;&gt;
 
-[[$tavern.name|InitTavern]]
+Tavern: [[$tavern.name|InitTavern]]
 
-[[$smithy.name|InitSmithy]]
+Blacksmith: [[$smithy.name|InitSmithy]]
 
-[[$alchemist.name|InitAlchemist]]</tw-passagedata><tw-passagedata pid="52" name="Bartender" tags="" position="225,725">&lt;&lt;set $bartender to setup.createNPC()&gt;&gt;
+Alchemist: [[$alchemist.name|InitAlchemist]]</tw-passagedata><tw-passagedata pid="52" name="Bartender" tags="" position="225,725">&lt;&lt;set $bartender to setup.createNPC()&gt;&gt;
 &lt;&lt;set $bartender.idle to [&quot;polishing a glass with $bartender.hisher hands&quot;, &quot;reading a newspaper which says &lt;&lt;print $newspaperheadline&gt;&gt;&quot;, &quot;pouring a drink for a customer&quot;, &quot;taking an order from a customer&quot;, &quot;talking with a customer&quot;, &quot;picking $bartender.hisher nose&quot;, &quot;playing a card game by $bartender.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt;&quot;, &quot;checking the stock levels of the beer on tap&quot;, &quot;shouting into the kitchen, annoyed&quot;, &quot;yelling instructions into the kitchen&quot;, &quot;leaning against a stool, surveying the work of one of the barmaids&quot;],
 	$bartender.owner to either([&quot;owner&quot;, &quot;caretaker&quot;, &quot;proud owner&quot;, &quot;proprietor&quot;, &quot;current owner&quot;, &quot;manager&quot;, &quot;manager&quot;, &quot;acting manager&quot;]),
 	$bartender.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $bartender.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;]
@@ -5532,6 +5532,13 @@ femaledragonborn: [&quot;Akra&quot;,
 	magicroll: random(0, 35),
 	sizeroll: random(0, 100)
 }&gt;&gt;
+
+$town.wealthroll.clamp(1, 100)
+$town.reputationroll.clamp(1, 100)
+$town.sinroll.clamp(1, 100)
+$town.diversityroll.clamp(1, 100)
+$town.magicroll.clamp(1, 100)
+$town.sizeroll.clamp(1, 100)
 
 /* Town Population Roller */
 &lt;&lt;set _townpopulationroll to random(1, 10)&gt;&gt;
