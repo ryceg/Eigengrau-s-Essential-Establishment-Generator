@@ -8,3 +8,4 @@
 >>
 
 <<set $alchemist to setup.createBuilding()>>
+<<set $alchemist.magicroll to random(40, 100)>>

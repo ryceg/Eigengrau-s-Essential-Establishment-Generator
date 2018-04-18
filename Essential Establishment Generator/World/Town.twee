@@ -13,9 +13,9 @@
 /* Town Population Roller */
 <<set _townpopulationroll to random(1, 10)>>
 	<<if _townpopulationroll gt 8>>
-		<<set $town.population to random(3001, 6000), $town.type to "city", $town.wealthroll += 15, $town.reputationroll += 5, $town.sinroll += 15, $town.diversityroll += 10>>
+		<<set $town.population to random(3001, 6000), $town.type to "city", $town.wealthroll += 5, $town.reputationroll += 5, $town.sinroll += 15, $town.diversityroll += 10>>
 	<<elseif _townpopulationroll gt 5>>
-		<<set $town.population to random(1001, 3000), $town.type to "town", $town.wealthroll += 5, $town.reputationroll += 2, $town.sinroll += 5, $town.diversityroll += 4>>
+		<<set $town.population to random(1001, 3000), $town.type to "town", $town.wealthroll += 3, $town.reputationroll += 2, $town.sinroll += 5, $town.diversityroll += 4>>
 	<<elseif _townpopulationroll gt 2>>
 		<<set $town.population to random(301, 1000), $town.type to "village", $town.wealthroll += 2, $town.reputationroll -= 2, $town.sinroll -= 3, $town.diversityroll -= 4>>
 	<<elseif _townpopulationroll lte 2>>
