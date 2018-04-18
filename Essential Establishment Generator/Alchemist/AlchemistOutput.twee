@@ -7,9 +7,6 @@
 <h3>$chemist.name</h3><</linkreplace>>
 
 <<link "<h4>Generate a random potion!</h4>">>
-    <<set $potion.titlereadout to either($potion.type) + " of " + either($potion.title)>>
-    <<set $potion.descriptionreadout to "The potion is in a " + either($potion.container)>>
-    <<set $potion.functionreadout to "The potion's strength is " + either($potion.strength)>>
     <<replace "#randpotion">>
         \<div class="descriptive">
             \<h3>$potion.titlereadout</h3>
