@@ -13,8 +13,8 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-Tavern: [[$tavern.name|InitTavern]]
+<<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>>[[$tavern.name|InitTavern]]
 
-Blacksmith: [[$smithy.name|InitSmithy]]
+<<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>>[[$smithy.name|InitSmithy]]
 
-Alchemist: [[$alchemist.name|InitAlchemist]]
+<<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And finally, on $alchemist.road is the ")>>[[$alchemist.name|InitAlchemist]]
