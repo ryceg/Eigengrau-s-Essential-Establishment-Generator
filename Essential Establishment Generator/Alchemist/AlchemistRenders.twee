@@ -1,5 +1,7 @@
 :: AlchemistRenders [render]
 
+/* ------------------------- SIZE -------------------------- */
+
 <<if $alchemist.sizeroll gt 80>>
 		<<set $alchemist.size to "huge">>
 	<<elseif $alchemist.sizeroll gt 70>>
@@ -17,6 +19,8 @@
 	<<elseif $alchemist.sizeroll lte 20>>
 		<<set $alchemist.size to "tiny">>
 <</if>>
+
+/* ------------------------- WEALTH -------------------------- */
 
 <<if $alchemist.wealthroll gt 95>>
 		<<set $alchemist.wealth to "kingly">>
@@ -57,7 +61,7 @@
 <</if>>
 
 
-/* ------------------------- Expertise -------------------------- */
+/* ------------------------- EXPERTISE -------------------------- */
 
 <<if $alchemist.expertiseroll gt 80>>
 		<<set $alchemist.expertise to "masterful">>

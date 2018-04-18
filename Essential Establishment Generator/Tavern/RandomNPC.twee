@@ -1,0 +1,11 @@
+:: RandomNPC
+
+<<link "<h4>Meet a fellow adventurer!</h4>">>
+<<set $tavernNPC to setup.createNPC()>>
+    <<replace "#NPC">>
+        \<div class="descriptive">
+            \<h3>$tavernNPC.name</h3>
+            \$tavernNPC.name is a $tavernNPC.racenote $tavernNPC.dndclass, who you notice has $tavernNPC.physicaltrait. 
+    \<</replace>>
+<</link>>\
+<span id="NPC"></span>
