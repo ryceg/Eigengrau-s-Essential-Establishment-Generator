@@ -18,7 +18,7 @@
             \<h3>$potion.titlereadout</h3>
             \$potion.descriptionreadout<br></div>
             \<blockquote>$potion.functionreadout</blockquote>
-        \</div>
+        \
     \<</replace>>
 <</link>>\
 <span id="randpotion"></span>
