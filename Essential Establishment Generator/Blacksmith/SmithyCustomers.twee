@@ -1,5 +1,5 @@
 :: SmithyCustomers
-<<nobr>>
+<h4><span id="smithycustomername">$smithycustomer.name</span></h4><<nobr>>
 <<set _customer to random(1, 100)>>
 <<if $smithy.reputationroll gt 80>>
     <<set _customer += 5>>
