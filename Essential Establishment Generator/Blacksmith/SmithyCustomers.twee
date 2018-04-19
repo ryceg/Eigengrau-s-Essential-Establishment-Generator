@@ -1,5 +1,5 @@
 :: SmithyCustomers
-<h4><span id="smithycustomername">$smithycustomer.name</span></h4><<nobr>>
+<<nobr>>
 <<set _customer to random(1, 100)>>
 <<if $smithy.reputationroll gt 80>>
     <<set _customer += 5>>
@@ -38,5 +38,6 @@
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
 <</if>>
-<<replace "#smithycustomername">><<smithycustomer.name>><</replace>>
+<h4><span id="smithycustomername">$smithycustomer.name</span></h4>
+<<replace "#smithycustomername">>$smithycustomer.name<</replace>>
 <</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>>, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name.
