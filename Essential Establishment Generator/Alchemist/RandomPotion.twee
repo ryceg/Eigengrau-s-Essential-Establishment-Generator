@@ -1,11 +1,12 @@
 :: RandomPotion
 <<link "<h4>Generate a random potion!</h4>">>
   <<set $potionroll to random(0, 99)>>
+  <<set $potionstrengthroll to random(0, 9)>>
 	<<set $potion.title to $potion.titleoriginal[$potionroll],
   $potion.effect to $potion.effectoriginal[$potionroll]>>
   <<set $potion.titlereadout to either($potion.type) + " of " + either($potion.title)>>
   <<set $potion.descriptionreadout to "The potion is in a " + either($potion.container) + ", and has a label showing " + either($potion.label) + ". It looks " + either($potion.appearance) + " with " + either($potion.appearance2) + ". " + "It is " + either($potion.texture) + " and smells of " + either($potion.smell) + " but tastes of " + either($potion.taste) + ".">>
-  <<set $potion.strengthreadout to either($potionstrength)>>
+  <<set $potion.strengthreadout to either($potion.strength)>>
   <<switch $potion.strengthreadout>>
     <<case "regular with no side effect">>
     . <<set $potion.functionreadout to "The potion's strength is " + $potion.strengthreadout + ", and " + either($potion.effect) + ".">>
