@@ -31,13 +31,16 @@
 
 <<if _customer gt 90>>
     <<set $smithycustomer to $lord>>
+    <<replace "#notablecustomer">>, Lord of $town.name.<</replace>>
   <<elseif _customer gt 85>>
     <<set $smithycustomer to $guardcaptain>>
+    <<replace "#notablecustomer">>, Captain of $guard.name, the local guard.<</replace>>
   <<elseif _customer gt 80>>
     <<set $smithycustomer to $mercenarycaptain>>
+    <<replace "#notablecustomer">>, Commander of the $mercenary.colour Mercenaries.<</replace>>
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
 <</if>>
-<h4><span id="smithycustomername">$smithycustomer.name</span></h4>
-<<replace "#smithycustomername">>$smithycustomer.name<</replace>>
-<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>>, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name.
+<span id="smithycustomername"><h4>$smithycustomer.name</h4></span>
+<<replace "#smithycustomername">><h4>$smithycustomer.name</h4><</replace>>
+<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>>, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer">.</span>
