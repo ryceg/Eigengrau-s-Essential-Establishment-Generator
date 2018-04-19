@@ -1,70 +1,69 @@
 :: Rings
-
-Gold.
-White gold.
-Tarnished silver.
-Polished silver.
-Gold-plated brass.
-Silver-plated brass.
-Gold-plated steel.
-Silver-plated steel.
-Brass.
-Black steel.
-Bone.
-Ivory.
-Ebony.
-Mahogany.
-Walnut.
-Turquoise.
-Jade.
-Iron.
-Copper.
-Platinum.
-d20 Decorative feature: The ring features a/an…
-
-Handful of small gemstones arrayed around the band.
-Trio of small gemstones.
-Single small gemstone.
-Single large gemstone.
-Large gemstone with flanking smaller stones.
-Snake's head with a gemstone set in its eyes.
-Dragon's head with a gemstone set in its eyes.
-Fiend with gemstones set in its eyes.
-Skull with gemstones set in its eyes.
-Floral pattern.
-Leafy motif.
-Antler motif.
-Thorny motif.
-Hexagonal pattern.
-Wavy pattern.
-Spider-web motif.
-Cross-hatching pattern.
-Phrase written in a Dwarvish script.
-Phrase written in an Elvish script.
-Handful of arcane runes.
-d20 Gemstone: The ring has a/an...
-
-Diamond.
-Blue diamond.
-Pink diamond.
-Yelllow diamond.
-Ruby.
-Fire opal.
-White opal.
-Black opal.
-Yellow opal.
-Green opal.
-Emerald.
-Blue sapphire.
-Purple sapphire.
-Pink sapphire.
-Star sapphire.
-Garnet.
-Pearl.
-Black pearl.
-Amethyst.
-Topaz.
-d20 Creator: This ring was made by or made for a/an..
+<<set $ring to {
+  material: [
+    "gold",
+    "white gold",
+    "tarnished silver",
+    "polished silver",
+    "gold-plated brass",
+    "silver-plated brass",
+    "gold-plated steel",
+    "silver-plated steel",
+    "brass",
+    "black steel",
+    "bone",
+    "ivory",
+    "ebony",
+    "mahogany",
+    "walnut",
+    "turquoise",
+    "jade",
+    "iron",
+    "copper",
+    "platinum"],
+  decoration:
+    ["handful of small gemstones arrayed around the band",
+    "trio of small gemstones",
+    "single small gemstone",
+    "single large gemstone",
+    "large gemstone with flanking smaller stones",
+    "snake's head with a gemstone set in its eyes",
+    "dragon's head with a gemstone set in its eyes",
+    "fiend with gemstones set in its eyes",
+    "skull with gemstones set in its eyes",
+    "floral pattern",
+    "leafy motif",
+    "deer motif",
+    "thorny motif",
+    "hexagonal pattern",
+    "wavy pattern",
+    "spider-web motif",
+    "cross-hatching pattern",
+    "phrase written in a Dwarvish script",
+    "phrase written in an Elvish script",
+    "handful of arcane runes"],
+  gemstone:
+    ["diamond",
+    "blue diamond",
+    "pink diamond",
+    "yelllow diamond",
+    "ruby",
+    "fire opal",
+    "white opal",
+    "black opal",
+    "yellow opal",
+    "green opal",
+    "emerald",
+    "blue sapphire",
+    "purple sapphire",
+    "pink sapphire",
+    "star sapphire",
+    "garnet",
+    "pearl",
+    "black pearl",
+    "amethyst",
+    "topaz"]}>>
+d20 Creator: This ring was made by or made for a/an
 
 Dwarvish king.
 Elvish prince.

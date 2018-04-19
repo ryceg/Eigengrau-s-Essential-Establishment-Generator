@@ -34,7 +34,7 @@
       {name: "Ring Mail", cost: 3000, availability: 2},
       {name: "Chain Mail", cost: 7500, availability: 2},
       {name: "Splint", cost: 20000, availability: 3},
-      {name: "Plate", cost: 1500000, availability: 4},
+      {name: "Plate", cost: 150000, availability: 4},
       {name: "Shield", cost: 1000, availability: 1},
 
       {name: "Ball Bearings (1000)", cost: 100, availability: 2},
