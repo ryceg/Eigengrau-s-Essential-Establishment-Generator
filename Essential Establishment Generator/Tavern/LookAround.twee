@@ -1,6 +1,5 @@
 
 :: LookAround
-
 <<nobr>>
 	<<if $tavern.populationroll gt 80 && $tavern.roughnessroll gt 60>>
 			<<print either("You can barely hear each other over the din of the other patrons, who are pretty rowdy. One elbows you in the ribs as they try to get around you to the bar.",
