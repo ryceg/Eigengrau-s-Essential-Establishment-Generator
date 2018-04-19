@@ -1,5 +1,5 @@
 
-:: Games
+:: TavernGames
 
 <<set $taverngames to either([
 {

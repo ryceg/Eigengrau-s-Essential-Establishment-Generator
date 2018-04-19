@@ -66,4 +66,6 @@
 
 <<include "Books">>
 
+<<include "TavernGames">>
+
 <<include "Mercenaries">>
