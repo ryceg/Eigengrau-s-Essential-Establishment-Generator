@@ -38,5 +38,5 @@
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
 <</if>>
-
+<<replace "#smithycustomername">><<smithycustomer.name>><</replace>>
 <</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>>, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name.
