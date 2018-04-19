@@ -51,4 +51,4 @@
 	bet: 10
 	}
 	])>><</nobr>>
-$taverngames.description <<linkreplace "Ask how to play">> The $NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>>
+<div class="descriptive">$taverngames.description <<linkreplace "Ask how to play">> The $NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>></div>
