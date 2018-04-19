@@ -29,6 +29,6 @@
 			<<print "$tavern.name is basically empty, and there's not much for the $tavern.wordnoun<<nobr>>'s<</nobr>> barmaid to do.">>
 	<<elseif $tavern.populationroll lte 30>>
 			<<print "It's almost just you and the bartender in here.">>
-<</if>>
+<</if>><<linkappend "$taverngames.description">>$taverngames.rules The current bet is <<money $taverngames.bet>><</linkappend>>
 <<include "RandomNPC">>
 <</nobr>>

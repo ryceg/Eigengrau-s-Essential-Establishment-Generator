@@ -1,7 +1,7 @@
 
 :: Games
 
-<<set $games to either([
+<<set $taverngames to either([
 {
 	name: "Passe-dix",
 	type: "chance game",
@@ -29,7 +29,7 @@
 	{
 	name: "Thimble Rig",
 	type: "guessing game",
-	description: "A quick hand, a rattling tongue, a deal board, three thimbles, and a pepper-corn. The game they played around the table with these three curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in dexterously seeming to place the pepper-corn under one particular thimble, getting the better to bet that it was there, and then winning his money by showing that it is not.",
+	description: "A quick hand, a rattling tongue, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching. The game they play around the table with these three curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the better to bet that it was there, and then winning his money by showing that it is not.",
 	rules: "The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.",
 	bet: 5
 	},
