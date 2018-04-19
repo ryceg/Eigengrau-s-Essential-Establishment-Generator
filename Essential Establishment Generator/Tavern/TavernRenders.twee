@@ -39,10 +39,16 @@
 /* ------------------------- SIZE -------------------------- */
 <<if $tavern.sizeroll gt 80>>
 		<<set $tavern.size to "huge">>
+	<<elseif $tavern.sizeroll gt 70>>
+		<<set $tavern.size to "quite large">>
 	<<elseif $tavern.sizeroll gt 60>>
 		<<set $tavern.size to "large">>
+	<<elseif $tavern.sizeroll gt 50>>
+		<<set $tavern.size to "spacious">>
 	<<elseif $tavern.sizeroll gt 40>>
 		<<set $tavern.size to "medium">>
+	<<elseif $tavern.sizeroll gt 30>>
+		<<set $tavern.size to "slightly cramped">>
 	<<elseif $tavern.sizeroll gt 20>>
 		<<set $tavern.size to "small">>
 	<<elseif $tavern.sizeroll lte 20>>
