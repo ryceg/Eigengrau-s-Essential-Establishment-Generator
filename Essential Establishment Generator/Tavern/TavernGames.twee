@@ -46,7 +46,7 @@
 	{
 	name: "Two-Up",
 	type: "gambling game",
-	description: "A small crowd of people are gathered around a table, where they flip two coins in the air, with one man groaning whenever they both turned heads, and another greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles."
+	description: "A small crowd of people are gathered around a table, where they flip two coins in the air, with one man groaning whenever they both turned heads, and another greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.",
 	rules: "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
 	bet: 10
 	}
