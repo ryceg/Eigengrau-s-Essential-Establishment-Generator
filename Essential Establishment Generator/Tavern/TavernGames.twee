@@ -5,7 +5,7 @@
 {
 	name: "Passe-dix",
 	type: "chance game",
-	description: "You see a $NPCgamer.racenote take three six-sided dice, and then roll them. $NPCgamer.heshe.toUpperFirst() roars with pleasure as the dice come to a total of 12, and grabs $NPCgamer.hisher.toUpperFirst() winnings from the banker. The dice moves to the next player, and the person with the carrot (which signifies the banker) spits on the dice, and everyone that's playing hands the new banker a silver piece. The player then rolls them, but only rolls a total of 9, which is met with boos and jeering.",
+	description: "You see a $NPCgamer.racenote take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of 12, and grabs <<print $NPCgamer.hisher.toUpperFirst()>> winnings from the banker. The dice moves to the next player, and the person with the carrot (which signifies the banker) spits on the dice, and everyone that's playing hands the new banker a silver piece. The player then rolls them, but only rolls a total of 9, which is met with boos and jeering.",
 	rules: "Passe-dix is played with three dice. There’s always a banker, and the number of players is unlimited. The first gamer rolls: every time he throws UNDER ten he (and all the other players in the game) lose the specified stake, which goes to the banker. Every time he rolls ABOVE ten (or PASSES TEN–whence the name of the game), the banker must return double the stake to all the players in the game. After three losses of the roller (no matter how many wins), the roller position is passed to another gamer in the circle. The banker changes after each roll.",
 	bet: 20
 	},
@@ -51,4 +51,4 @@
 	bet: 10
 	}
 	])>><</nobr>>
-$taverngames.description <<linkreplace "Ask how to play">> The NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>.""<</linkreplace>>
+$taverngames.description <<linkreplace "Ask how to play">> The NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>>

@@ -30,5 +30,6 @@
 	<<elseif $tavern.populationroll lte 30>>
 			<<print "It's almost just you and the bartender in here.">>
 <</if>><</nobr>>
-<<include "TavernGames">>
+<<print $tavern.patrons.pluck()>>
+
 <<include "RandomNPC">>

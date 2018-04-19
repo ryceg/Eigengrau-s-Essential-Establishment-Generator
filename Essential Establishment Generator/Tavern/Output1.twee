@@ -18,5 +18,5 @@
 <h3>$bartender.name</h3><<include "BartenderTalk">><</linkreplace>>
 
 <</nobr>><<include "Menu">>
-<h3>The Tavern</h3><<linkreplace "<h4>Look around the $tavern.wordnoun</h4>" t8n>><<include "LookAround">><<print $tavern.patrons.pluck()>><</linkreplace>><<print $tavern.entertainment.pluck()>>
+<h3>The Tavern</h3><<linkreplace "<h4>Look around the $tavern.wordnoun</h4>" t8n>><<include "LookAround">><<include "TavernGames">><</linkreplace>><<print $tavern.entertainment.pluck()>>
 <<include "Intrigue">><<include "Rooms">>
