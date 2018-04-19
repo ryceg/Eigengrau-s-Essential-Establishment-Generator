@@ -1,5 +1,5 @@
 :: Mercenaries
-
+<<set $mercenarycaptain to setup.createNPC()>>
 <<set $mercenary to {
   colours: [
     "black",
@@ -114,4 +114,4 @@
     "scimitars",
     "scimitars and a shields"]
 }>>
-<<set $mercenary.readout to "A group of mercenaries sit in the corner of the room, armed to the teeth with " + either($mercenary.weapon) + ", wearing " + either($mercenary.colours) + " livery over their " + either($mercenary.armour) + " with an insignia of " + either($mercenary.insignia) + ". They are " + either($mercenary.attitude) + " towards their commander, who is " + either($mercenary.commander) + ". They specialise in " + either($mercenary.specializes) + ", and are notorious for " + either($mercenary.notorious) + ". They are famous for their " + either($mercenary.tactics) + ", and are currently " + either($mercenary.currently) + ".">>
+<<set $mercenary.readout to "A group of mercenaries sit in the corner of the room, armed to the teeth with " + either($mercenary.weapon) + ", wearing " + either($mercenary.colours) + " livery over their " + either($mercenary.armour) + " with an insignia of " + either($mercenary.insignia) + ". They are " + either($mercenary.attitude) + " towards their commander $mercenarycaptain.name, who is " + either($mercenary.commander) + ". They specialise in " + either($mercenary.specializes) + ", and are notorious for " + either($mercenary.notorious) + ". They are famous for their " + either($mercenary.tactics) + ", and are currently " + either($mercenary.currently) + ".">>
