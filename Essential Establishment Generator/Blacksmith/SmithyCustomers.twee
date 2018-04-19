@@ -1,4 +1,4 @@
-:: Customers
+:: SmithyCustomers
 <<nobr>>
 <<set _customer to random(1, 100)>>
 <<if $smithy.reputationroll gt 80>>
