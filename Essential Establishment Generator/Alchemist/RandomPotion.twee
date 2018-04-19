@@ -1,7 +1,6 @@
 :: RandomPotion
 <<link "<h4>Generate a random potion!</h4>">>
   <<set $potionroll to random(0, 99)>>
-  <<set $potionstrengthroll to random(0, 9)>>
 	<<set $potion.title to $potion.titleoriginal[$potionroll],
   $potion.effect to $potion.effectoriginal[$potionroll]>>
   <<set $potion.titlereadout to either($potion.type) + " of " + either($potion.title)>>
@@ -15,7 +14,7 @@
     <<case "seemingly permanent">>
     . <<set $potion.functionreadout to "The potion's strength is " + $potion.strengthreadout + ", and " + either($potion.effect) + ".">>
     <<case "poisonous. Almost no positive effect and is all side effect">>
-        <<set $potion.functionreadout to "The potion's strength is " + $potion.strengthreadout + ", and allegedly" + either($potion.effect) + " but has the strong side effect of " + either($potion.sideeffect) + ".">>
+        <<set $potion.functionreadout to "The potion's strength is " + $potion.strengthreadout + ", and allegedly " + either($potion.effect) + " but has the strong side effect of " + either($potion.sideeffect) + ".">>
     <<default>>
       <<set $potion.functionreadout to "The potion's strength is " + $potion.strengthreadout + ", and " + either($potion.effect) + " with the side effect of " + either($potion.sideeffect) + ".">>
   <</switch>>
