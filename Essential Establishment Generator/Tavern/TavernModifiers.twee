@@ -12,6 +12,38 @@
 /* THIS IS IN THE BARTENDER PASSAGE */
 
 /* ------------------------- WEALTH -------------------------- */
+<<if $tavern.wealthroll gt 95>>
+		<<set $tavern.wealth to "kingly">>
+	<<elseif $tavernwealthroll gt 80>>
+		<<set $tavern.wealth to "aristocratic">>
+	<<elseif $tavernwealthroll gt 70>>
+		<<set $tavern.wealth to "wealthy">>
+	<<elseif $tavernwealthroll gt 60>>
+		<<set $tavern.wealth to "comfortable">>
+	<<elseif $tavernwealthroll gt 50>>
+		<<set $tavern.wealth to "modest">>
+	<<elseif $tavernwealthroll gt 25>>
+		<<set $tavern.wealth to "poor">>
+	<<elseif $tavernwealthroll lte 25>>
+		<<set $tavern.wealth to "squalid">>
+<</if>>
+
+<<switch $tavern.wealth>>
+	<<case "kingly">>
+		<<set $tavern.lodging to 800, $tavern.food to 400>>
+<<case "aristocratic">>
+		<<set $tavern.lodging to 400, $tavern.food to 200>>
+<<case "wealthy">>
+		<<set $tavern.lodging to 200, $tavern.food to 80>>
+<<case "comfortable">>
+		<<set $tavern.lodging to 50, $tavern.food to 40>>
+<<case "modest">>
+		<<set $tavern.lodging to 30, $tavern.food to 30>>
+<<case "poor">>
+		<<set $tavern.lodging to 10, $tavern.food to 6>>
+<<case "squalid">>
+		<<set $tavern.lodging to 7, $tavern.food to 3>>
+<</switch>>
 
 	<<if $town.wealthroll gt 95>>
 		<<set $tavern.wealthroll += 5, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
@@ -79,7 +111,7 @@
 	<<elseif $tavern.wealthroll gt 80>>
 		<<set $tavern.pricemodifier += 3, $tavern.cleanlinessroll += 10>>
 	<<elseif $tavern.wealthroll gt 70>>
-		<<set $tavern.wealth to "wealthy", $tavern.pricemodifier += 2, $tavern.cleanlinessroll += 6>>
+		<<set $tavern.pricemodifier += 2, $tavern.cleanlinessroll += 6>>
 	<<elseif $tavern.wealthroll gt 60>>
 		<<set $tavern.pricemodifier += 1, $tavern.populationroll += 5, $tavern.cleanlinessroll += 4>>
 	<<elseif $tavern.wealthroll gt 50>>
