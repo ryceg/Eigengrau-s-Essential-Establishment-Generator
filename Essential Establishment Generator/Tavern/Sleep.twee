@@ -2,38 +2,6 @@
 :: Sleep
 
 <<nobr>>
-<<if $tavern.wealthroll gt 95>>
-		<<set $tavern.wealth to "kingly">>
-	<<elseif $tavernwealthroll gt 80>>
-		<<set $tavern.wealth to "aristocratic">>
-	<<elseif $tavernwealthroll gt 70>>
-		<<set $tavern.wealth to "wealthy">>
-	<<elseif $tavernwealthroll gt 60>>
-		<<set $tavern.wealth to "comfortable">>
-	<<elseif $tavernwealthroll gt 50>>
-		<<set $tavern.wealth to "modest">>
-	<<elseif $tavernwealthroll gt 25>>
-		<<set $tavern.wealth to "poor">>
-	<<elseif $tavernwealthroll lte 25>>
-		<<set $tavern.wealth to "squalid">>
-<</if>>
-
-<<switch $tavern.wealth>>
-	<<case "kingly">>
-		<<set $tavern.lodging to 800, $tavern.food to 400>>
-<<case "aristocratic">>
-		<<set $tavern.lodging to 400, $tavern.food to 200>>
-<<case "wealthy">>
-		<<set $tavern.lodging to 200, $tavern.food to 80>>
-<<case "comfortable">>
-		<<set $tavern.lodging to 50, $tavern.food to 40>>
-<<case "modest">>
-		<<set $tavern.lodging to 30, $tavern.food to 30>>
-<<case "poor">>
-		<<set $tavern.lodging to 10, $tavern.food to 6>>
-<<case "squalid">>
-		<<set $tavern.lodging to 7, $tavern.food to 3>>
-<</switch>>
 
 <<set _restfulness to random(1, 100)>>
 <<set _sleepeasy to 0>>
