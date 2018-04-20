@@ -42,4 +42,4 @@
     <<set $smithycustomer to setup.createNPC()>>
 <</if>>
 <span id="smithy-customer-name"><h4>$smithycustomer.name</h4></span>
-<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>>, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer">.</span> $smithycustomer.firstname tells you that $smithycustomer.heshe is a $smithycustomer.dndclass.
+<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer">.</span> $smithycustomer.firstname tells you that $smithycustomer.heshe is a $smithycustomer.dndclass.
