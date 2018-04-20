@@ -40,7 +40,7 @@ setup.createBuilding = function() {
         disrepair         : disrepair.random(),
         road1             : road1,
         road2             : road2,
-        road             : road,
+        road              : road,
         wealthroll        : wealthroll,
         magicroll         : magicroll,
         pricemodifier     : pricemodifier,
