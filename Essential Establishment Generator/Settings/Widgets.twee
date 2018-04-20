@@ -20,11 +20,13 @@
 <</widget>><</nobr>>
 */
 
-<<widget "money">><<silently>>
-		<<set _copper to Number(($args * ((100 + $currentpassage.pricemodifier) / 100)))>>
-		<<set _copper to (_copper + Math.round(_copper))>>
+/*(($args * ((100 + $currentpassage.pricemodifier) / 100)))>>*/
 
-			<<if _coppet gte 100>>
+<<widget "money">><<silently>>
+		<<set _copper to Number($args)>>
+		<<set _copper to (_copper + Math.round(_copper * setup.getPriceMod()))>>
+
+			<<if _copper gte 100>>
 					<<set _gold to Math.trunc(_copper / 100)>>
 					<<set _copper %= 100>>
 				<<else>>
