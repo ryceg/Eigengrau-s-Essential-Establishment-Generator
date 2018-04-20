@@ -1,6 +1,6 @@
 
 :: AlchemistOutput [alchemist]
-<h1>$alchemist.name</h1><span id="RandomEvent"></span>You enter $alchemist.name and see the $chemist.racenote chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist <<print either($chemist.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet")>> over to you and introduces $chemist.himher<<nobr>>self<</nobr>> as $chemist.name, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
+<h1>$alchemist.name</h1><span id="Random-Event"></span>You enter $alchemist.name and see the $chemist.racenote chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist <<print either($chemist.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet")>> over to you and introduces $chemist.himher<<nobr>>self<</nobr>> as $chemist.name, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
 
 <<include "AlchemistLookAround">>
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
@@ -11,5 +11,5 @@
 <<include "AlchemistSell">>
 <<set _RandomEvent to random(1, 99)>>
 <<if _RandomEvent gt 50>>
-  <<replace "#RandomEvent">>As you make your way along $alchemist.road, <<print $TownMicroEvents.random() >><</replace>>
+  <<replace "#Random-Event">>As you make your way along $alchemist.road, <<print $TownMicroEvents.random() >><</replace>>
 <</if>>
