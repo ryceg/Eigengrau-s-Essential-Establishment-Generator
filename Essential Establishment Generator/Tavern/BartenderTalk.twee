@@ -1,7 +1,7 @@
 
 :: BartenderTalk
 
-$bartender.name looks <<print $npc.currentmood.random()>>, and is idly <<print $npc.idle.random()>>, until you start talking with the $bartender.weight $bartender.manwoman, who looks pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a <<print $tavern.sin>> lot. You talk about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says "<span id="shortages"> </span><<nobr>>
+$bartender.name looks <<print $npc.currentmood.random()>>, and is idly <<print $npc.idle.random()>>, until you start talking with the $bartender.weight $bartender.manwoman, who looks pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a <<print $tavern.sin>> lot. You talk about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says "<span id="shortages"> </span>"<<nobr>>
 
 <<set _shortage to random(1, 10)>>
 	<<if $tavern.wealthroll gt 80>>

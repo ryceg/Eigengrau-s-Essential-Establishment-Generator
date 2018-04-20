@@ -1,0 +1,201 @@
+:: TownMicroEvents
+
+ <<set $TownMicroEvents to ["A gnarled old man offers to sell you a 'lucky' trinket for a gold coin",
+
+ "A young boy wants to see a demonstration of your weapon",
+
+ "A little girl is crying because she broke her favorite toy",
+
+ "A little gem falls out of the pocket of the man walking ahead of you",
+
+ "A guard stops you and asks you a few questions because you sort of match the description of a wanted criminal",
+
+ "A simpleton relaxing in the shade challenges you to a milk-drinking contest",
+
+ "A handful of giggling teenagers badger you for some adventuring stories",
+
+ "A middle-aged noble accuses you of cheating with their spouse",
+
+ "A young man bumps into you and falls to the ground.",
+
+"A man and a woman are having an argument and are blocking your way forward.",
+
+"A young woman approaches you and offers you a good time. But only to you, not the rest of your party.",
+
+"A woman empties a chamber pot from a second storey window. Some of it splashes on you.", 
+
+"A group of children suddenly run across the road, chasing each other. Your horse is startled, and rears suddenly. (Maybe ask for a ride check to remain mounted)",
+
+"A cart blocks the road forward. An elderly man stares at the broken axle and scratches his head.",
+
+"A cat runs out of nowhere, bats at your foot frantically, then runs back into its hiding place.",
+
+"Random weather event (a lot of games have mechanics for this already)",
+
+"A scrawny dog has started following you around. When you stop, it sits next to you and whines gently.",
+
+"A man lays on the side of the road, unconscious. You can smell alcohol and urine as you pass him.",
+
+"A man in tattered clothing offers to shine your shoes for a copper piece",
+
+"A town crier stands on the corner. When you meet his gaze, he offers to recite the news for a coin.",
+
+"A bard passes you going the other direction atop a horse. As you pass, you can hear him muttering the lyrics to a song you haven't heard.",
+
+"A person who looks just like someone you know, but shouldn't be here turns the corner onto another street. Do you ignore it? Follow it?",
+
+"Lost dog starts to follow the group of PC's.",
+
+"Bauble or trinket found on the ground with the initials P.C.",
+
+"A man in a dark cloak falls in pace with one of the PC's. Continues walking silently for a block or so.",
+
+"The PC's are being shadowed. When they turn to look whoever or whatever it is ducks into an alley/behind a barrel/runs away.",
+
+"Street hawkers try to sell the characters nearly everything, or anything. Bonus points if they actually do, and there is a hidden catch.",
+
+"Street clerics spouting off religion. Again bonus points if the characters catch a bit that doesn't fit with the way they believe that religion works.",
+
+"Foreigners come to the characters with a book or map and are looking for help in deciphering it. They will not be fluent in the local language.",
+
+"A 'lady of the evening' approaches the most pious member of the party begging for a religious blessing.",
+
+"A firebrand preacher is in a town square or on a corner and points out a PC as an example of either piety or paganism.",
+
+"A young street urchin is being beaten with a riding crop by a wealthier merchant.",
+
+"A toothless old hag offers to read a PCs fortune in tarot cards.",
+
+"A schizophrenic beggar begins speaking in tongues or has a conversation with himself.",
+
+"A random fellow gets thrown out a bar/tavern/inn window with no warning in front of the PCs.",
+
+"A poor young girl ask you to buy some food for her pet rat (bonus fun if it's actually a tamed dire rat).",
+
+"A wealthy and overdressed noble is thrown from his horse.",
+
+"A young prostitute is getting slapped around by her pimp in an alleyway.",
+
+"A young and very wealthy heir gets drunk and makes a spectacle of himself at a party/ball/dance.",
+
+"A vengeful wife slaps the shit out of her husband right next to the party.",
+
+"A young couple is making out in the shadow of a doorway. Was it a priest and a famous noble's daughter, or someone else?!",
+
+"A runaway horse charges through a marketplace, causing chaos.",
+
+"A magical device malfunctions blowing the windows out of a shop.",
+
+"A huge barrel of ale gets loose during a delivery and rolls down the street toward the party.",
+
+"An older woman lets out a mightily creepy cackle, but it was just over a joke her sister told her.",
+
+"A young poet asks the party for inspiration.",
+
+"A down on his luck artist asks if they might commission him for a portrait of one of them.",
+
+"A cutpurse is tackled and beaten by two city watch officers.",
+
+"A screaming child throws a tantrum because his/her mother/father won't buy him a trinket.",
+
+"Your mama sends you a nice cloth hat with earflaps.",
+
+"An old man says that his cookoo bird will tell your fortune.",
+
+"A sleeping dragon (because snorelax is copyrighted) blocks your path",
+
+"You run into a random acolyte in a temple with a bag on his head handing out grease scrolls",
+
+"A woman asks you to take this soup to her brother. He works at the store across town. The soup has orange things in it that don't quite look like carrots",
+
+"A little old man with a heavy foreign accent offers to sell you one of his bizarre monkey-like creatures as a pet.",
+
+"A middle aged man roughly grabs you by the shoulder, and growls, 'You the fella what knocked up my daughter?!'",
+
+"Two mustachioed gentlemen are in the market square on top of boxes, giving away samples of a new kind of alcoholic beverages. Reactions so far are very mixed.",
+
+"A bloody knife lays on the ground. Nobody else seems to have noticed it yet.",
+
+"You witness the guards arresting a man, apparently for deserting his military unit. The young man wails, 'I don't want to fight! I don't want to die! Please! No!'",
+
+"A young boy excitedly points at you and jumps up and down, soon the party is swarmed by young kids asking for autographs.",
+
+"Two bearded men approach the largest member of your group and offer to sponsor him in a local pit-fighting tournament",
+
+"As the group is stopped, a particularly gaunt half-elf starts measuring one of the party's arms and legs with a marked string. If permitted, he takes measurements for the entire party. He is an undertaker.",
+
+"A group of teenage girls are performing a strenuous dance routine on the street corner while a scarred halfling limps around taking donations.",
+
+"You notice a WANTED poster with your face on it. The name listed, however, is Vhargle the Black; and the crime is desecration of a holy site.",
+
+"Everyone in this town keeps trying to sell you everything imaginable, but they ALL make a point that they will not, under any circumstances, be selling you their hair. Not that you ever asked.",
+
+"An old man with piercing blue eyes stops you. He is clearly starving to death. He holds up a purse bulging with coins. 'Does this belong to you?'",
+
+"A small girl is crying in the road. She looks lost. If asked, her father told her to wait here for him while he went into the pub 'for a minute'. That was six hours ago.",
+
+"A couple are having sex in a pile of straw near the road. They are loud, and a crowd is starting to gather.",
+
+"A young urchin is running full speed toward the party carrying a live chicken. Chasing after him is a screaming older man in a fancy cloak, swinging a walking stick.",
+
+"You find a piece of gold just laying on the ground. No one has noticed it yet.",
+
+"someone walking by catches your attention. It appears to be a beggar, and he says he'll sketch your caricature in exchange for some soup.",
+
+"you wake up and head down to the common room of the inn for some breakfast. Your companions aren't awake yet, but you do notice a little commotion outside the window. Looks like some street thugs are accosting a young woman!",
+
+"You see guards searching the contents of a canvas covered cart that belongs to a woman. She is sitting on the ground crying into her hands.",
+
+"A store clerk hands you back too much change. If you try to give it back he winks at you and turns to tend to another customer.",
+
+"As you are entering a store a young man exits forcibly and runs down the street. The clerk appears in front of you right after and asks you 'What way did that thief go!?'",
+
+"You see a group of young women harassing a young man outside of a bar.",
+
+"a blind reagent seller shows up at your keep. How do you react?",
+
+"A street side sailsman hails the players and offers to sell them powerful magic items. He's got loads- 'boots of levitation,' 'rock of undead destruction' 'vampire repellant amulet' and the like. They totally aren't just some boots with five inch heels, or just a rock as big as your head, or a string with garlic on it. No way. Powerful magic in each one.",
+
+"A couple of town guards approach the party to ask a few questions. They're not intimidating: quite the contrary. The PCs are obviously new arrivals and could bring good tales and rumors. If the meeting goes well the guards might offer them a pint each after their shift.",
+
+"The party witness a merchant being bullied by two guards and the town's guard captain. After some harsh word exchanges the merchant is forced out of town with threats of jail. This is not a fascist show of force: the merchant refuses to pay the agreed fee to sell on the market and is often accused of selling bad goods, and the guards feel forced to remove him to make place for honest merchants.",
+
+"As the party enters town they are asked to deposit they're weapons at the town guard armory. If they refuse, there will be questions. At no point is anyone being intolerant and mean, however. The guards just want to make sure the PCs aren't troublemakers, and repeatedly point out that the safety of the populace is what matters.",
+
+"An old woman approach the party in tears. She proceeds to embrace a random character. 'Oh Garvus, I knew you weren't dead!' She has mistaken the character for her son. The son went missing in action in a war over a decade ago.",
+
+"A man in rags is standing on a wooden box and proclaiming he had a vision. He proceeds to describe how the god of milk fairies wants the people to stop eating cheese. They should instead burn all the cheese ceremonially at midnight to receive magic powers. Locals ignore him.",
+
+"A parchment flies through the street and the wind flaps it on your face. It is a saucy love letter to 'My burly bear' from 'Your naughty little minx'.",
+
+"A demented (and obviously harmless) old man causes a scene by blaming a random female character for being his adulterous wife. He then tries to pick a fight with the burliest male character, blaming he has seduced the old man's wife.",
+
+"There is a maimed beggar on the street, asking for alms. Someone recognizes him as the famous adventurer / war hero, who was his/her idol when s/he was a child.",
+
+"A fake mystic offers to read their fortune. It is all cold reading and fake, but it is a good act, just without an ounce of magic in it.",
+
+"Despite it being winter, there are butterflies following a small girl walking past the characters.",
+
+"The characters see an innkeeper refuse to serve a person of different ethnicity/species/something followed by obviously racist slurs.",
+
+"An annoying youngster starts pestering a magician (or someone looking like one!) to teach him magic, because he wants to 'kill monsters, loot dungeons and get all the girls!'.",
+
+"The character witness a public execution for a relatively minor crime. The crowd cheers on as the executioners struts his stuff like a rock star on the stage before getting on with the business.",
+
+"A cart transporting beer/bread/fresh fruit has fallen over. A mob of poor people are now grabbing free goodies, while the teamster tries to shout them off.",
+
+"Two middle aged bards have a high brow version of a rap battle in the street. They're competing against one another to entice customers into their respective establishments.",
+
+"A group of junior mages are using a cantrip leveled version of 'gust of wind' to blow up womens' skirts.",
+
+"A traveling troupe of monks showcase their skills for food and minor coin.",
+
+"An aquatic elf offers underwater tours at a coastal city's port.",
+
+"A carnival is in town, showing off their newest ride: a vertical iron wheel with seats meant to let people see the whole town at once. They nicknamed it the 'ferric wheel' due to it being made mostly of iron.",
+
+"A merchant in a heavily corroded outfit tries to sell his dishwashing invention. (contains a black pudding)",
+
+"You notice two thugs following a young woman from a distance, trying to look inconspicuous.",
+
+"A gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward."]>>
