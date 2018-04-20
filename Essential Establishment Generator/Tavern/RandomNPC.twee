@@ -4,7 +4,7 @@
     <<replace "#NPC">>
         \<div class="descriptive">
             \<h3>$tavernNPC.name</h3>
-            \$tavernNPC.name is a $tavernNPC.weight $tavernNPC.racenote $tavernNPC.dndclass, who you notice has $tavernNPC.physicaltrait, and $tavernNPC.eyes eyes. <<print $tavernNPC.heshe.toUpperFirst()>> is currently <<print $tavernNPC.idle.random()>></div>
+            \$tavernNPC.name is a $tavernNPC.weight $tavernNPC.racenote $tavernNPC.dndclass who is $tavernNPC.adventure, who you notice has $tavernNPC.physicaltrait, and $tavernNPC.eyes eyes. <<print $tavernNPC.heshe.toUpperFirst()>> is currently <<print $tavernNPC.idle.random()>></div>
     <</replace>>
 <</link>>\
 <span id="NPC"></span>
