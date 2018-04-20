@@ -20,7 +20,7 @@
 <</widget>><</nobr>>
 */
 
-<<widget "money">><<silently>>
+<<widget "money">>/*<<silently>>*/
 		<<set _copper to Number(($args * ((100 + passage()))>>
 		<<set _copper to (_copper + Math.round(_copper)>>
 
@@ -37,7 +37,7 @@
 				<<else>>
 					<<set _silver to 0>>
 				<</if>>
-		<</silently>>
+		/*<</silently>>*/
 		<<if _gold>><<= _gold>>g <</if>>\
 		<<if _silver>><<= _silver>>s <</if>>\
 		<<if _copper>><<= _copper>>c<</if>>
