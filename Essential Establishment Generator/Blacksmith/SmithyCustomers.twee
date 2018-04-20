@@ -41,5 +41,12 @@
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
 <</if>>
+
+<<if $smithycustomer.adventure is "retired from adventuring">>
+    <<set _tense to "was">>
+  <<else>>
+    <<set _tense to "is">>
+<</if>>
+
 <span id="smithy-customer-name"><h4>$smithycustomer.name</h4></span>
-<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer"></span>, and you notice $smithycustomer.heshe has $smithycustomer.physicaltrait, and $smithycustomer.eyes eyes. $smithycustomer.firstname tells you that $smithycustomer.heshe is a $smithycustomer.dndclass.
+<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer"></span>, and you notice $smithycustomer.heshe has $smithycustomer.physicaltrait. $smithycustomer.firstname tells you that $smithycustomer.heshe _tense a $smithycustomer.dndclass, . $smithycustomer.heshe.toUpperFirst() looks at you with $smithycustomer.hisher $smithycustomer.eyes eyes for a moment, and says "Actually, you might be interested; "<<print either("$plothook.people.random()", "$plothook.rumour.random()")>>

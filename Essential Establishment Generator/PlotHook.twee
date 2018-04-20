@@ -10,15 +10,14 @@
 	"Many years ago, my sister $npc.woman.pluck() had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows.",
 	"I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?"],
 
-
 	things: ["Behind the bar of $tavern.name, there's a small rat which you've seen the bartender look directly at, without trying to kill the pest."],
-
 
 	rumour: ["The hedge maze in front of the manor has been maintained for decades by a strange elf who speaks in cryptic riddles. Recently, a visiting noble from a nearby kingdom went into the maze and never came out. Everyone who has gone in looking for him has met the same fate...",
 	"A talented sculptor recently did a sculpture for the Lord of $town.name and ever since, the Lord has not been himself- before he remembered all his servants names, and now he merely bark orders... We fear that something happened to him.",
 	"A local tinkerer named Ebonweg has recently gone missing. The locals know him as an honest tradesman; however he was also something of a recluse, whose tinkerings sometimes bordered on the immoral.",
 	"There was talk of a group of bandits that had taken up terrorizing the road to the north of $town.name, but I went through there just last week, and there was nought a sound the entire journey.",
-	"The lord of the city is rumored to have been killed and replaced with a doppleganger. A local guard thought he saw the lord change skin, but he had no proof, so his accusation was thrown out. He turned up dead yesterday."],
+	"Lord $lord.name is rumored to have been killed and replaced with a doppleganger. A local guard thought he saw the lord change skin, but he had no proof, so his accusation was thrown out. He turned up dead yesterday."],
+
 	boring: ["I've heard that over the "],
 
 	paper: ["The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
