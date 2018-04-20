@@ -2,11 +2,11 @@
 <<nobr>>
 <<set _customer to random(1, 100)>>
 <<if $smithy.reputationroll gt 80>>
-    <<set _customer += 5>>
+    <<set _customer += 15>>
   <<elseif $smithy.reputationroll gt 70>>
-    <<set _customer += 3>>
+    <<set _customer += 10>>
   <<elseif $smithy.reputationroll gt 60>>
-    <<set _customer += 2>>
+    <<set _customer += 5>>
   <<elseif $smithy.reputationroll gt 50>>
     <<set _customer += 1>>
 <</if>>
