@@ -12,4 +12,6 @@
 <<include "TavernDescription">>
 
 <h3>The Bar</h3>Behind the $tavern.material bar is a $bartender.racenote who you assume is the owner of the establishment; $bartender.heshe is currently <<print $bartender.idle.pluck()>>. You walk up to the bar, and introduce yourselves, and $bartender.heshe reciprocates; $bartender.heshe is $bartender.name, the $bartender.owner of $tavern.name.
-<<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><h3>$bartender.name</h3><<include "BartenderTalk">><</linkreplace>><<include "Menu">><h3>The Tavern</h3><<include "LookAround">><<include "TavernGames">> <<print $tavern.entertainment.pluck()>> <<include "Intrigue">><<include "Rooms">>
+<<include "BartenderTalk">><<include "Menu">><h3>The Tavern</h3><<include "LookAround">><<include "TavernGames">> <<print $tavern.entertainment.pluck()>><<include "Intrigue">>
+
+<<include "Rooms">>
