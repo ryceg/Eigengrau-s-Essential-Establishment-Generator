@@ -32,14 +32,12 @@
 				<<else>>
 					<<set _gold to 0>>
 			<</if>>
-
 			<<if _copper gte 10>>
 					<<set _silver to Math.trunc(_copper / 10)>>
 					<<set _copper %= 10>>
 				<<else>>
 					<<set _silver to 0>>
 				<</if>>
-
 		<</silently>>
 		<<if _gold>><<= _gold>> Gold <</if>>\
 		<<if _silver>><<= _silver>> Silver <</if>>\
