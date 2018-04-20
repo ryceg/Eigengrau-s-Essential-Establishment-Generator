@@ -2,10 +2,10 @@
 :: TavernGames
 <<nobr>><<set $NPCgamer to setup.createNPC()>><<set $NPCgamebanker to setup.createNPC()>>
 <<set $taverngames to either([
-{
+	{
 	name: "Passe-dix",
 	type: "chance game",
-	description: "You see a <<print $NPCgamer.racenote>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of 12, and grabs <<print $NPCgamer.hisher.toUpperFirst()>> winnings from a $NPCgamebanker.racenote who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight $NPCgamebanker.racesingular with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls them, but only rolls a total of 9, which is met with boos and jeering.",
+	description: "You see a <<print $NPCgamer.racenote>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $NPCgamer.hisher winnings from a $NPCgamebanker.racenote who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight $NPCgamebanker.racesingular with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print either ('boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing')>>.",
 	rules: "Passe-dix is played with three dice. There’s always a banker, and the number of players is unlimited. The first gamer rolls: every time he throws UNDER ten he (and all the other players in the game) lose the specified stake, which goes to the banker. Every time he rolls ABOVE ten (or PASSES TEN–whence the name of the game), the banker must return double the stake to all the players in the game. After three losses of the roller (no matter how many wins), the roller position is passed to another gamer in the circle. The banker changes after each roll.",
 	bet: random(15, 25)
 	},
@@ -13,7 +13,7 @@
 	{
 	name: "Highest Points",
 	type: "chance game",
-	description: "A $NPCgamebanker.racenote, and a <<print $NPCgamer.racenote>> are sitting in the middle of the room with two whittled dice each. They chuck a copper piece on the table, then roll, and the one that rolled higher grins as they grab the copper.",
+	description: "A $NPCgamebanker.racenote, and a <<print $NPCgamer.racenote>> are sitting in the middle of the room with two whittled dice each. They chuck <<money $taverngames.bet>> on the table, then roll, and the one that rolled higher grins as they grab the copper.",
 	rules: "2 six-sided dice, 2 players: each roll both dice and the highest sum wins.",
 	bet: random(2, 5)
 	},

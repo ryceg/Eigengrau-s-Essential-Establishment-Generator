@@ -1,8 +1,8 @@
 
 :: Sleep
 
-<<nobr>>
 
+<<nobr>>
 <<set _restfulness to random(1, 100)>>
 <<set _sleepeasy to 0>>
 	<<if $tavern.wealth is "kingly">>
