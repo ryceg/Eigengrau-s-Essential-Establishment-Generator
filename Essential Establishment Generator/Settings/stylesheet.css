@@ -188,6 +188,14 @@ h1+p::first-letter {
     color:          #222;
     line-height:    .8em
 }
+
+firstcharacter {
+    float:          left;
+    font-family:    Solberry;
+    font-size:      10em;
+    color:          #222;
+    line-height:    .8em
+}
 blockquote {
     font-family: ScalySans;
     box-sizing: border-box;

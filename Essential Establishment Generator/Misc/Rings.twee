@@ -62,29 +62,29 @@
     "pearl",
     "black pearl",
     "amethyst",
-    "topaz"]}>>
-d20 Creator: This ring was made by or made for a/an
-
-Dwarvish king.
-Elvish prince.
-Terrifying elf-witch.
-Gnomish gemcutter.
-Ancient hero.
-Dark sorceress.
-Notorious witch.
-Legendary mage.
-High priest or priestess.
-Mysterious knight.
-Sinister lich.
-Devious rogue.
-Eccentric wizard.
-Powerful queen.
-Beautiful princess.
-Wealthy lord.
-Conniving fiend.
-Infamous warlord.
-Renowned explorer.
-Famous singer.
+    "topaz"],
+intendedowner: [
+    "Dwarvish king",
+    "Elvish prince",
+    "Terrifying elf-witch",
+    "Gnomish gemcutter",
+    "Ancient hero",
+    "Dark sorceress",
+    "Notorious witch",
+    "Legendary mage",
+    "High priest",
+    "Mysterious knight",
+    "Sinister lich",
+    "Devious rogue",
+    "Eccentric wizard",
+    "Powerful queen",
+    "Beautiful princess",
+    "Wealthy lord",
+    "Conniving fiend",
+    "Infamous warlord",
+    "Renowned explorer",
+    "Famous singer"],
+    }>>
 d20 Special power: When properly activated, the ring allows its wearer to...
 
 Absorb (d6): 1. fire damage; 2. lightning damage; 3. memories; 4. souls; 5. spells; 6. water.
