@@ -4,10 +4,16 @@
 /* ------------------------- SIZE -------------------------- */
 <<if $smithy.sizeroll gt 80>>
 		<<set $smithy.size to "huge">>
+	<<elseif $smithy.sizeroll gt 70>>
+		<<set $smithy.size to "quite large">>
 	<<elseif $smithy.sizeroll gt 60>>
 		<<set $smithy.size to "large">>
+	<<elseif $smithy.sizeroll gt 50>>
+		<<set $smithy.size to "spacious">>
 	<<elseif $smithy.sizeroll gt 40>>
 		<<set $smithy.size to "medium">>
+	<<elseif $smithy.sizeroll gt 30>>
+		<<set $smithy.size to "slightly cramped">>
 	<<elseif $smithy.sizeroll gt 20>>
 		<<set $smithy.size to "small">>
 	<<elseif $smithy.sizeroll lte 20>>
@@ -70,4 +76,20 @@
 		$smithy.hardinessroll -= 8,
 		$smithy.intricacyroll -= 10,
 		$smithy.cleanliness to "filthy">>
+<</if>>
+
+<<if $smithy.wealthroll gt 95>>
+	<<set $smithy.pricemodifier += 4, $smithy.sizeroll += 3, $smithy.cleanlinessroll += 15, $smithy.reputation += 10>>
+<<elseif $smithy.wealthroll gt 80>>
+	<<set $smithy.pricemodifier += 3, $smithy.cleanlinessroll += 10, $smithy.reputation += 7>>
+<<elseif $smithy.wealthroll gt 70>>
+	<<set $smithy.pricemodifier += 2, $smithy.cleanlinessroll += 6, $smithy.reputation += 4>>
+<<elseif $smithy.wealthroll gt 60>>
+	<<set $smithy.pricemodifier += 1, $smithy.populationroll += 5, $smithy.cleanlinessroll += 4>>
+<<elseif $smithy.wealthroll gt 50>>
+	<<set $smithy.populationroll += 5, $smithy.reputation -= 5, $smithy.cleanlinessroll += 2>>
+<<elseif $smithy.wealthroll gt 30>>
+	<<set $smithy.pricemodifier -= 1, $smithy.reputation -= 7, $smithy.cleanlinessroll -= 15>>
+<<elseif $smithy.wealthroll lte 30>>
+	<<set $smithy.pricemodifier -= 2, $smithy.reputation -= 10, $smithy.cleanlinessroll -= 25>>
 <</if>>

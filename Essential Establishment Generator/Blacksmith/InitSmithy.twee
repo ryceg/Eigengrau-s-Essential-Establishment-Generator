@@ -17,3 +17,4 @@ Smithy Magic: <<numberslider "$smithy.magicroll" $smithy.magicroll 1 100 1>>
 
 When you're ready, here's the [[smithy|SmithyOutput]]
 <<set $currentpassage to $smithy>>
+<<include "SmithyModifiers">>

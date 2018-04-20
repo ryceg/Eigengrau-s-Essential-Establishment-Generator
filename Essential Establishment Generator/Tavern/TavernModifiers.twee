@@ -65,17 +65,22 @@
 		<<set $tavern.wealthroll -= 5, $tavern.sinroll += 3, $tavern.populationroll -= 3>>
 <</if>>
 /* ------------------------- TYPE -------------------------- */
-<<if $tavern.type is "brothel" or $tavern.type is "gambling den">>
+<<switch $tavern.type>>
+	<<case "brothel" "gambling den">>
 		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5, $tavern.lodging *= 1.3>>
-	<<elseif $tavern.type is "quiet and low-key bar">>
+	<<case "gambling den">>
+		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5, $tavern.lodging *= 1.3>>
+	<<case "quiet and low-key bar">>
 		<<set $tavern.sinroll -= 15, $tavern.populationroll -= 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 3>>
-	<<elseif $tavern.type is "raucous dive">>
+	<<case "raucous dive">>
 		<<set $tavern.sinroll += 5, $tavern.populationroll += 15, $tavern.roughnessroll +=5, $tavern.cleanlinessroll -= 5>>
-	<<elseif $tavern.type is "thieves' guild hangout">>
+	<<case "thieves' guild hangout">>
 		<<set $tavern.sinroll += 15, $tavern.roughnessroll +=5>>
-	<<elseif $tavern.type is "high-end dining club" or $tavern.type is "members-only club">>
+	<<case "high-end dining club">>
 		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10, $tavern.food *= 1.3>>
-	<<elseif $tavern.type is "gathering place for a secret society">>
+	<<case "members-only club">>
+		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10, $tavern.food *= 1.3>>
+	<<case "gathering place for a secret society">>
 		<<set $tavern.sinroll += 5, $tavern.populationroll -= 5>>
 <</if>>
 /* ------------------------- DRAW -------------------------- */
