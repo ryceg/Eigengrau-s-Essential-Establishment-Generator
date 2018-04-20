@@ -31,15 +31,15 @@
 
 <<if _customer gt 90>>
     <<set $smithycustomer to $lord>>
-    <<replace "#notablecustomer">>, Lord of $town.name.<</replace>>
+    <<replace "#notablecustomer">>, Lord of $town.name<</replace>>
   <<elseif _customer gt 85>>
     <<set $smithycustomer to $guardcaptain>>
-    <<replace "#notablecustomer">>, Captain of $guard.name, the local guard.<</replace>>
+    <<replace "#notablecustomer">>, Captain of $guard.name, the local guard<</replace>>
   <<elseif _customer gt 80>>
     <<set $smithycustomer to $mercenarycaptain>>
-    <<replace "#notablecustomer">>, Commander of the $mercenary.colour Mercenaries.<</replace>>
+    <<replace "#notablecustomer">>, Commander of the $mercenary.colour Mercenaries<</replace>>
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
 <</if>>
 <span id="smithy-customer-name"><h4>$smithycustomer.name</h4></span>
-<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer">.</span> $smithycustomer.firstname tells you that $smithycustomer.heshe is a $smithycustomer.dndclass.
+<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himher<<nobr>>self<</nobr>> as $smithycustomer.name<span id="notablecustomer"></span>, and you notice $smithycustomer.heshe has $smithycustomer.physicaltrait, and $smithycustomer.eyes eyes. $smithycustomer.firstname tells you that $smithycustomer.heshe is a $smithycustomer.dndclass.
