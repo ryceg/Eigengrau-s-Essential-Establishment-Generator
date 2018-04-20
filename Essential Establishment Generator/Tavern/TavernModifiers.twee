@@ -82,7 +82,7 @@
 		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10, $tavern.food *= 1.3>>
 	<<case "gathering place for a secret society">>
 		<<set $tavern.sinroll += 5, $tavern.populationroll -= 5>>
-<</if>>
+<</switch>>
 /* ------------------------- DRAW -------------------------- */
 /*<<if $tavern.draw is "attractive waitstaff">>
 		<<set $tavern.roughnessroll += 3, $tavern.sinroll += 1>>
