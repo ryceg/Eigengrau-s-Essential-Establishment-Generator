@@ -44,9 +44,10 @@
 <<case "squalid">>
 		<<set $tavern.lodging to 7, $tavern.food to 3>>
 <</switch>>
-/*
+
 	<<if $town.wealthroll gt 95>>
-		<<set $tavern.wealthroll += 5, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
+		<<set $tavern.wealthroll += 5>>
+		/*<<set $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>*/
 	<<elseif $town.wealthroll gt 80>>
 		<<set $tavern.wealthroll += 3>>
 	<<elseif $town.wealthroll gt 70>>
@@ -67,9 +68,11 @@
 /* ------------------------- TYPE -------------------------- */
 <<switch $tavern.type>>
 	<<case "brothel" "gambling den">>
-		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5, $tavern.lodging *= 1.3>>
+		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5>>
+		/*<<set $tavern.lodging *= 1.3>>*/
 	<<case "gambling den">>
-		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5, $tavern.lodging *= 1.3>>
+		<<set $tavern.sinroll += 20, $tavern.roughnessroll +=4, $tavern.cleanlinessroll -= 5>>
+		/*<<set $tavern.lodging *= 1.3>>*/
 	<<case "quiet and low-key bar">>
 		<<set $tavern.sinroll -= 15, $tavern.populationroll -= 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 3>>
 	<<case "raucous dive">>
@@ -84,35 +87,51 @@
 		<<set $tavern.sinroll += 5, $tavern.populationroll -= 5>>
 <</switch>>
 /* ------------------------- DRAW -------------------------- */
-/*<<if $tavern.draw is "attractive waitstaff">>
+<<switch $tavern.draw>>
+	<<case "attractive waitstaff">>
 		<<set $tavern.roughnessroll += 3, $tavern.sinroll += 1>>
-	<<elseif $tavern.draw is "crude jokes the bartender makes">>
+	<<case "crude jokes the bartender makes">>
 		<<set $tavern.roughnessroll += 3, $tavern.sinroll += 1>>
-	<<elseif $tavern.draw is "proximity to the thieves' guild headquarters" or $tavern.draw is "proximity to the brothel">>
+	<<case "proximity to the thieves' guild headquarters">>
 		<<set $tavern.roughnessroll += 1, $tavern.sinroll += 3>>
-	<<elseif $tavern.draw is "witty banter with the waitstaff" or $tavern.draw is "proximity to the church" or $tavern.draw is "incredible view" or $tavern.draw is "nice view">>
+		<<case "proximity to the brothel">>
+		<<set $tavern.roughnessroll += 1, $tavern.sinroll += 3>>
+	<<case "witty banter with the waitstaff">>
 		<<set $tavern.roughnessroll -= 1, $tavern.sinroll -= 3, $tavern.cleanlinessroll += 1>>
-	<<elseif tavern.draw is "warmth inside" or $tavern.draw is "huge fireplace">>
+	<<case "incredible view">>
+		<<set $tavern.roughnessroll -= 1, $tavern.sinroll -= 3, $tavern.cleanlinessroll += 1>>
+	<<case "nice view">>
+		<<set $tavern.roughnessroll -= 1, $tavern.sinroll -= 3, $tavern.cleanlinessroll += 1>>
+	<<case "proximity to the church">>
+		<<set $tavern.roughnessroll -= 1, $tavern.sinroll -= 3, $tavern.cleanlinessroll += 1>>
+	<<case "warmth inside">>
 		<<set $tavern.roughnessroll -= 2, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 1>>
-*/
-	<<if $tavern.draw is "lack of bedbugs" or $tavern.draw is "clean beds">>
-		<<set $tavern.roughnessroll -= 4, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 15, $tavern.lodging *= 1.1>>
-<</if>>
+	<<case "huge fireplace">>
+		<<set $tavern.roughnessroll -= 2, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 1>>
+	<<case "lack of bedbugs">>
+		<<set $tavern.roughnessroll -= 4, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 15>>
+	<<case "clean beds">>
+		<<set $tavern.roughnessroll -= 4, $tavern.sinroll -= 1, $tavern.cleanlinessroll += 15>>
+		/*<<set $tavern.lodging *= 1.1>>*/
+<</switch>>
 
 /* ---------------------- TAVERN STRUCTURE MATERIAL ----------------------- */
-<<if $tavern.material is "hewn rock">>
+
+<<switch $tavern.material>>
+	<<case "hewn rock">>
 		<<set $tavern.roughnessroll += 3>>
-	<<elseif $tavern.material is "chiseled stone">>
+	<<case "chiseled stone">>
 		<<set $tavern.roughnessroll -= 1>>
-	<<elseif $tavern.material is "marble">>
+	<<case "marble">>
 		<<set $tavern.cleanlinessroll += 5, $tavern.wealthroll += 6>>
-<</if>>
+<</switch>>
 
 /* ======================= RENDERS ======================= */
 /* ------------------------- WEALTH -------------------------- */
 
 	<<if $tavern.wealthroll gt 95>>
-		<<set $tavern.pricemodifier += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
+		<<set $tavern.pricemodifier += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10>>
+		/*<<set $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>*/
 	<<elseif $tavern.wealthroll gt 80>>
 		<<set $tavern.pricemodifier += 3, $tavern.cleanlinessroll += 10>>
 	<<elseif $tavern.wealthroll gt 70>>
@@ -144,7 +163,8 @@
 /* ------------------------- ROUGHNESS -------------------------- */
 
 	<<if $tavern.roughnessroll gt 80>>
-		<<set $tavern.population += 3, $tavern.sinroll +=5, $tavern.cleanlinessroll -= 4, $tavern.lodging *= 0.8>>
+		<<set $tavern.population += 3, $tavern.sinroll +=5, $tavern.cleanlinessroll -= 4>>
+		/*<<set $tavern.lodging *= 0.8>>*/
 	<<elseif $tavern.roughnessroll gt 60>>
 		<<set $tavern.population += 1, $tavern.sinroll +=3, $tavern.cleanlinessroll -= 2>>
 	<<elseif $tavern.roughnessroll gt 50>>
