@@ -1,5 +1,5 @@
 
-:: Output2 [output]
+:: Output2 [tavern]
 <h1>$tavern.name</h1>
 <<nobr>><<include "TavernRenders">><</nobr>><span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordnoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 

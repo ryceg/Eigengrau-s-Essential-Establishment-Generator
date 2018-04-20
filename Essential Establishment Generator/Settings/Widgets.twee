@@ -14,7 +14,7 @@
 		<<print Math.floor(($args / 10) % 10)>> Silver, and <<print Math.floor($args % 10)>> Copper
 	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) lt 1>>
 		<<print Math.floor(($args / 10) % 10)>> Silver
-	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) lt 1&& Math.floor($args % 10) gte 1>>
+	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) gte 1>>
 		<<print Math.floor($args % 10)>> Copper
 	<</if>>
 <</widget>><</nobr>>
