@@ -20,7 +20,7 @@
 <</widget>><</nobr>>
 */
 
-<<widget "money">>/*<<silently>>*/
+<<widget "money">><<silently>>
 		<<set _copper to Number(($args * ((100 + $currentpassage.pricemodifier) / 100)))>>
 		<<set _copper to (_copper + Math.round(_copper))>>
 
@@ -37,10 +37,10 @@
 				<<else>>
 					<<set _silver to 0>>
 				<</if>>
-		/*<</silently>>*/
-		<<if _gold>><<= _gold>>g <</if>>\
-		<<if _silver>><<= _silver>>s <</if>>\
-		<<if _copper>><<= _copper>>c<</if>>
+		<</silently>>
+		<<if _gold>><<= _gold>>Gold <</if>>\
+		<<if _silver>><<= _silver>>Silver <</if>>\
+		<<if _copper>><<= _copper>>Copper<</if>>
 <</widget>>
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
