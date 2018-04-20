@@ -21,7 +21,7 @@
 */
 
 <<widget "money">>/*<<silently>>*/
-		<<set _copper to Number(($args * ((100 + passage()))>>
+		<<set _copper to Number(($args * ((100 + $currentpassage.pricemodifier)/ 100)>>
 		<<set _copper to (_copper + Math.round(_copper)>>
 
 			<<if _coppet gte 100>>
