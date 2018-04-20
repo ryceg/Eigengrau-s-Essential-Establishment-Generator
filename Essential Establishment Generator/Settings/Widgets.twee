@@ -42,8 +42,7 @@
 		<</silently>>
 		<<if _gold>><<= _gold>> Gold <</if>>\
 		<<if _silver>><<= _silver>> Silver <</if>>\
-		<<if _copper>><<= _copper>> Copper<</if>>
-<</widget>>
+		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
 <<nobr>><<widget "heshe">>
