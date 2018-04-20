@@ -19,8 +19,8 @@
 	<</if>>
 <</widget>><</nobr>>
 
-<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
-
+/*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
+*/
 <<nobr>><<widget "heshe">>
 <<switch $args.gender>>
 	<<case "man">>
