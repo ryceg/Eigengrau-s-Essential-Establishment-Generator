@@ -19,6 +19,28 @@
 	<</if>>
 <</widget>><</nobr>>
 
+<<silently>>
+		<<set _copper to Number($args)>>
+		<<set _copper to (_copper + Math.round(_copper) * setup.getPriceMod())>>
+
+			<<if _coppet gte 100>>
+					<<set _gold to Math.trunc(_copper / 100)>>
+					<<set _copper %= 100>>
+				<<else>>
+					<<set _gold to 0>>
+			<</if>>
+
+			<<if _copper gte 10>>
+					<<set _silver to Math.trunc(_copper / 10)>>
+					<<set _copper %= 10>>
+				<<else>>
+					<<set _silver to 0>>
+				<</if>>
+		<</silently>>
+		<<if _gold>><<= _gold>>g <</if>>\
+		<<if _silver>><<= _silver>>s <</if>>\
+		<<if _copper>><<= _copper>>c<</if>>
+
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
 <<nobr>><<widget "heshe">>
