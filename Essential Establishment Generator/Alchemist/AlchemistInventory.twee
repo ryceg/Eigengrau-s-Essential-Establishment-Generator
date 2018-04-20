@@ -28,6 +28,147 @@
 	},
 
 	{
+	name: "Potion of Poison",
+	cost: 10000,
+	availability: 2
+	},
+
+	{
+	name: "Potion of Health",
+	cost: 12000,
+	availability: 4
+	},
+
+	{
+	name: "Potion of Fire Breath",
+	cost: 150000,
+	availability: 3
+	},
+
+	{
+	name: "Potion of Greater Healing",
+	cost: 15000,
+	availability: 2
+	},
+
+	{
+	name: "Potion of Climbing",
+	cost: 18000,
+	availability: 1
+	},
+
+	{
+	name: "Potion of Heroism",
+	cost: 18000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Invisibility",
+	cost: 18000,
+	availability: 4
+	},
+
+	{
+	name: "Potion of Mind Reading",
+	cost: 18000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Water Breathing",
+	cost: 18000,
+	availability: 2
+	},
+
+
+	{
+	name: "Potion of Animal Friendship",
+	cost: 20000,
+	availability: 3
+	},
+
+
+	{
+	name: "Potion of Diminution",
+	cost: 27000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Growth",
+	cost: 27000,
+	availability: 3
+	},
+
+
+	{
+	name: "Potion of Gaseous Form",
+	cost: 30000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Resistance",
+	cost: 30000,
+	availability: 3
+	},
+
+
+	{
+	name: "Potion of Speed",
+	cost: 40000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Superior Healing",
+	cost: 45000,
+	availability: 3
+	},
+
+
+	{
+	name: "Potion of Flying",
+	cost: 50000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Clairvoyance",
+	cost: 96000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Vitality",
+	cost: 96000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Supreme Healing",
+	cost: 135000,
+	availability: 4
+	},
+
+
+	{
+	name: "Potion of Invulnerability",
+	cost: 384000,
+	availability: 4
+	},
+
+
+	{
 	name: "Vial",
 	cost: 20,
 	availability: 1
