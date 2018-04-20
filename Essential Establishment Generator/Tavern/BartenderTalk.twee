@@ -1,7 +1,7 @@
 
 :: BartenderTalk
 
-$bartender.name looks <<print $npc.currentmood.random()>>, but looks pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a <<print $tavern.sin>> lot. $bartender.firstname pours $bartender.himher<<nobr>>self a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says "<span id="shortages"> </span>"<<nobr>>
+$bartender.name looks <<print $npc.currentmood.random()>>, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a <<print $tavern.sin>> lot. $bartender.firstname pours $bartender.himher<<nobr>>self<</nobr>> a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says "<span id="shortages"> </span>"<<nobr>>
 
 <<set _shortage to random(1, 10)>>
 	<<if $tavern.wealthroll gt 80>>
@@ -30,7 +30,7 @@ $bartender.name looks <<print $npc.currentmood.random()>>, but looks pleased wit
 	<<elseif _shortage gt 4>>
 		<<replace "#shortages">><<print either("We've currently got a bit of a shortage of <<print $tavern.shortages.pluck()>>, but hopefully we'll be getting a cartload overmorrow.",
 "We're currently running out of <<print $tavern.shortages.pluck()>>, but with any luck, we'll be getting some more before the night is out.",
-"I don't know how it happened, but we're running out of <<print $tavern.shortages.pluck()>><<nobr>>...<</nobr>> To be honest, I reckon the barmaid is to blame.",
+"I don't know how it happened, but we're running out of <<print $tavern.shortages.pluck()>>... To be honest, I reckon the barmaid is to blame.",
 "I swear that I ordered a cartload last week, but I'll be damned if we're not running low on <<print $tavern.shortages.pluck()>> somehow.",
 "I told <<print $name.woman.pluck()>> to order some, but wouldn't you know, I find myself low on <<print $tavern.shortages.pluck()>>!")>><</replace>>
 	<<elseif _shortage lte 4, $tavern.population gt 70>>
