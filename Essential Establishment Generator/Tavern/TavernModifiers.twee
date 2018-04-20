@@ -30,21 +30,21 @@
 
 <<switch $tavern.wealth>>
 	<<case "kingly">>
-		<<set $tavern.lodging = 800, $tavern.food to 400>>
+		<<set $tavern.lodging to 800, $tavern.food to 400>>
 <<case "aristocratic">>
-		<<set $tavern.lodging = 400, $tavern.food to 200>>
+		<<set $tavern.lodging to 400, $tavern.food to 200>>
 <<case "wealthy">>
-		<<set $tavern.lodging = 200, $tavern.food to 80>>
+		<<set $tavern.lodging to 200, $tavern.food to 80>>
 <<case "comfortable">>
-		<<set $tavern.lodging = 50, $tavern.food to 40>>
+		<<set $tavern.lodging to 50, $tavern.food to 40>>
 <<case "modest">>
-		<<set $tavern.lodging = 30, $tavern.food to 30>>
+		<<set $tavern.lodging to 30, $tavern.food to 30>>
 <<case "poor">>
-		<<set $tavern.lodging = 10, $tavern.food to 6>>
+		<<set $tavern.lodging to 10, $tavern.food to 6>>
 <<case "squalid">>
-		<<set $tavern.lodging = 7, $tavern.food to 3>>
+		<<set $tavern.lodging to 7, $tavern.food to 3>>
 <</switch>>
-
+/*
 	<<if $town.wealthroll gt 95>>
 		<<set $tavern.wealthroll += 5, $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>
 	<<elseif $town.wealthroll gt 80>>
@@ -63,7 +63,7 @@
 		<<set $tavern.wealthroll -= 3, $tavern.sinroll += 1>>
 	<<elseif $town.wealthroll lte 20>>
 		<<set $tavern.wealthroll -= 5, $tavern.sinroll += 3, $tavern.populationroll -= 3>>
-<</if>>
+<</if>>*/
 /* ------------------------- TYPE -------------------------- */
 <<switch $tavern.type>>
 	<<case "brothel" "gambling den">>
