@@ -33,5 +33,5 @@
 <<elseif $smithy.expertiseroll gt 20>>
 		On the bench lies a <<print either($smithy.weapons)>>. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.
 <<elseif $smithy.expertiseroll lte 20>>
-		On the bench lies a <<print either($smithy.weapons)>>. It's obviously amateurish. $blacksmith.firstname moves around the shop, unsure of $blacksmith.himher<<nobr>>self<</nobr>>, betraying $blacksmith.hisher lack of skills.
+		On the bench lies a <<print either($smithy.weapons)>>. It's obviously amateurish. $blacksmith.firstname moves around the shop, unsure of $blacksmith.himherself, betraying $blacksmith.hisher lack of skills.
 <</if>><</nobr>>

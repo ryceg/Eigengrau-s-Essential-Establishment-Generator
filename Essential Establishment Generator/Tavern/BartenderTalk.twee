@@ -1,7 +1,7 @@
 :: BartenderTalk
 <<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>>
 <h3>$bartender.name</h3>
-$bartender.name looks <<print $npc.currentmood.random()>>, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a <<print $tavern.sin>> lot. $bartender.firstname pours $bartender.himher<<nobr>>self<</nobr>> a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says "<span id="shortages"> </span>"<<nobr>>
+$bartender.name looks <<print $npc.currentmood.random()>>, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a <<print $tavern.sin>> lot. $bartender.firstname pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says "<span id="shortages"> </span>"
 
 <<set _shortage to random(1, 10)>>
 	<<if $tavern.wealthroll gt 80>>
@@ -43,7 +43,6 @@ $bartender.name looks <<print $npc.currentmood.random()>>, but seems pleased wit
 		<<replace "#shortages">><<print "Well, business could be better. We've got a bit of a shortage on <<print $tavern.shortages.pluck()>>, and that certainly can't be helping things, but I suppose there's always some bad days; they're just not spending the coin, is all.">><</replace>>
 <</if>>
 
-<</nobr>>
 <<linkreplace "Talk more with $bartender.name" t8n>>
 $bartender.firstname tells you that the patrons are $tavern.diversity, and that $bartender.heshe <<print either("loves working in $tavern.name", "hates working in $tavern.name", "finds working in the $tavern.wordnoun boring", "finds working in the $tavern.wordnoun fun")>>. $bartender.firstname says "Before I took over $tavern.name, I was a $bartender.dndclass, and damn good at it. But that was a long time ago... The only thing that bonds me to the past now? <<print $bond.random()>>'
 <</linkreplace>>

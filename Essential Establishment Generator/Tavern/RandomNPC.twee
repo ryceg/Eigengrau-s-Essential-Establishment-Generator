@@ -1,5 +1,4 @@
 :: RandomNPC
-
 <<link "<h4>Meet a fellow adventurer!</h4>">>
 <<set $tavernNPC to setup.createNPC()>>
     <<replace "#NPC">>

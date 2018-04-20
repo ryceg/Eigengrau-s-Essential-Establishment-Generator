@@ -3,6 +3,8 @@ setup.createNPC = function() {
 	var heshe;
 	var himher;
 	var hisher;
+	var himherself;
+	var hisherself;
 	var boygirl;
 	var manwoman;
 	var menwomen;
@@ -111,7 +113,9 @@ setup.createNPC = function() {
 		case "man":
 			heshe 				= "he";
 			himher 				= "him";
+			himherself		= "himself";
 			hisher 				= "his";
+			hisherself		= "hisself";
 			boygirl			  = "boy";
 			manwoman 			= "man";
 			menwomen 			= "men";
@@ -120,7 +124,9 @@ setup.createNPC = function() {
 		case "woman":
 			heshe 				= "she";
 			himher			  = "her";
+			himherself		= "herself";
 			hisher 				= "her";
+			hisherself		= "herself";
 			boygirl			  = "girl";
 			manwoman 			= "woman";
 			menwomen		  = "women";
@@ -302,6 +308,8 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       gender        : gender,
 			heshe					: heshe,
 			himher				: himher,
+			himherself		: himherself,
+			hisherself		: hisherself,
 			hisher				: hisher,
 			boygirl				: boygirl,
 			manwoman			: manwoman,

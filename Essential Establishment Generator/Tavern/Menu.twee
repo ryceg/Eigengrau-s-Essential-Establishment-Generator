@@ -24,9 +24,9 @@
 		<<print either(
 			"There's ales available. The food is a peculiarly limited menu; roast vegetables, breads, cheeses, but no meats, despite $tavern.name clearly being able to afford it.",
 			"There's your standard beers, with the $tavern.wordnoun specialising in ales, which are allegedly quite good. As far as food is concerned, there's breads, cheeses, and all the vegetables you could ever ask for, but not a single bone of meat is available.",
-			"Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask $bartender.name about it, $bartender.heshe smiles, and says that $bartender.heshe is an animal lover, and wouldn't be able to forgive $bartender.himher<<nobr>>self<</nobr>> if an animal came to harm due to $bartender.hisher business.")>>
+			"Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask $bartender.name about it, $bartender.heshe smiles, and says that $bartender.heshe is an animal lover, and wouldn't be able to forgive $bartender.himherself if an animal came to harm due to $bartender.hisher business.")>>
 	<<elseif $tavern.wealthroll gt 60 && $bartender.race is "elf">>
-		<<print "Drinks are pretty standard, with the house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask $bartender.name about it, $bartender.heshe smiles, and says that $bartender.heshe is an animal lover, and wouldn't be able to forgive $bartender.himher<<nobr>>self<</nobr>> if an animal came to harm due to $bartender.hisher business.">>
+		<<print "Drinks are pretty standard, with the house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask $bartender.name about it, $bartender.heshe smiles, and says that $bartender.heshe is an animal lover, and wouldn't be able to forgive $bartender.himherself if an animal came to harm due to $bartender.hisher business.">>
 	<<elseif $tavern.wealthroll gt 60>>
 		<<print either(
 			"There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food.",
