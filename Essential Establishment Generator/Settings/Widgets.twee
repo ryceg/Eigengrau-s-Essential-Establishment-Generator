@@ -3,21 +3,23 @@
 
 <<nobr>><<widget "money">>
 <<if Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor($args / 100)>> Gold, <<print Math.floor(($args / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
-	<<elseif Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor($args / 100)>> Gold, and <<print Math.floor($args % 10)>> Copper
+		<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor(($args * ((100 + passage()) / 100)) % 10)>> Copper
+	<<elseif Math.floor(($args * ((100 + passage()) / 100)) / 100) gte 1 && Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10) lt 1 && Math.floor(($args * ((100 + passage()) / 100)) % 10) gte 1>>
+		<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, and <<print Math.floor(($args * ((100 + passage()) / 100)) % 10)>> Copper
 	<<elseif Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) lt 1>>
-		<<print Math.floor($args / 100)>> Gold, and <<print Math.floor(($args / 10) % 10)>> Silver
+		<<print Math.floor(($args * ((100 + passage()) / 100))s / 100)>> Gold, and <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver
 	<<elseif Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) lt 1>>
-		<<print Math.floor($args / 100)>> Gold
+		<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold
 	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor(($args / 10) % 10)>> Silver, and <<print Math.floor($args % 10)>> Copper
+		<<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and <<print Math.floor(($args * ((100 + passage()) / 100)) % 10)>> Copper
 	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) lt 1>>
-		<<print Math.floor(($args / 10) % 10)>> Silver
+		<<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver
 	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor($args % 10)>> Copper
+		<<print Math.floor(($args * ((100 + passage()) / 100)) % 10)>> Copper
 	<</if>>
 <</widget>><</nobr>>
+
+<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor(($args * ((100 + passage()) / 100)) % 10)>> Copper
 
 <<nobr>><<widget "heshe">>
 <<switch $args.gender>>
