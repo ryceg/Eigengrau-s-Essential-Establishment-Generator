@@ -1,7 +1,5 @@
 
 :: Intrigue
-
-<<nobr>>
 <<linkreplace "<h4>Anything interesting in $tavern.name?</h4>" t8n>><h4>Interesting things in $tavern.name...</h4>
 
 <<set _rollintrigue to random(1, 4)>>
@@ -15,7 +13,7 @@
 			<<include "PlotHookPeople">>
 		<<elseif _rollintrigue is 5>>
 			<<include "PlotHookThings">>
-<</if>><</nobr>>
+<</if>>
 
 <<linkreplace "They need ANOTHER plot hook?">><<print $shitplothook.pluck()>><</linkreplace>>
 <</linkreplace>>
