@@ -130,12 +130,12 @@
 /* ------------------------- WEALTH -------------------------- */
 
 	<<if $tavern.wealthroll gt 95>>
-		<<set $tavern.pricemodifier += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10>>
+		<<set $tavern.pricemodifier += random(1, 5), $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10>>
 		/*<<set $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>*/
 	<<elseif $tavern.wealthroll gt 80>>
-		<<set $tavern.pricemodifier += 3, $tavern.cleanlinessroll += 10>>
+		<<set $tavern.pricemodifier += random(1, 4), $tavern.cleanlinessroll += 10>>
 	<<elseif $tavern.wealthroll gt 70>>
-		<<set $tavern.pricemodifier += 2, $tavern.cleanlinessroll += 6>>
+		<<set $tavern.pricemodifier += random(0, 3), $tavern.cleanlinessroll += 6>>
 	<<elseif $tavern.wealthroll gt 60>>
 		<<set $tavern.pricemodifier += 1, $tavern.populationroll += 5, $tavern.cleanlinessroll += 4>>
 	<<elseif $tavern.wealthroll gt 50>>
