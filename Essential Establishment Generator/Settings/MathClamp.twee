@@ -2,199 +2,199 @@
 
 
 <<if $smithy.magicroll gt 100>>
-    <<set $smithy.magicroll 100>>
+    <<set $smithy.magicroll to 100>>
   <<elseif $smithy.magicroll lt 1>>
-    <<set $smithy.magicroll 1>>
+    <<set $smithy.magicroll to 1>>
 <</if>>
 
 <<if $smithy.sizeroll gt 100>>
-    <<set $smithy.sizeroll 100>>
+    <<set $smithy.sizeroll to 100>>
   <<elseif $smithy.sizeroll lt 1>>
-    <<set $smithy.sizeroll 1>>
+    <<set $smithy.sizeroll to 1>>
 <</if>>
 
 <<if $smithy.diversityroll gt 100>>
-    <<set $smithy.diversityroll 100>>
+    <<set $smithy.diversityroll to 100>>
   <<elseif $smithy.diversityroll lt 1>>
-    <<set $smithy.diversityroll 1>>
+    <<set $smithy.diversityroll to 1>>
 <</if>>
 
 <<if $smithy.wealthroll gt 100>>
-    <<set $smithy.wealthroll 100>>
+    <<set $smithy.wealthroll to 100>>
   <<elseif $smithy.wealthroll lt 1>>
-    <<set $smithy.wealthroll 1>>
+    <<set $smithy.wealthroll to 1>>
 <</if>>
 
 <<if $smithy.populationroll gt 100>>
-    <<set $smithy.populationroll 100>>
+    <<set $smithy.populationroll to 100>>
   <<elseif $smithy.populationroll lt 1>>
-    <<set $smithy.populationroll 1>>
+    <<set $smithy.populationroll to 1>>
 <</if>>
 
 <<if $smithy.reputationroll gt 100>>
-    <<set $smithy.reputationroll 100>>
+    <<set $smithy.reputationroll to 100>>
   <<elseif $smithy.reputationroll lt 1>>
-    <<set $smithy.reputationroll 1>>
+    <<set $smithy.reputationroll to 1>>
 <</if>>
 
 <<if $smithy.sinroll gt 100>>
-    <<set $smithy.sinroll 100>>
+    <<set $smithy.sinroll to 100>>
   <<elseif $smithy.sinroll lt 1>>
-    <<set $smithy.sinroll 1>>
+    <<set $smithy.sinroll to 1>>
 <</if>>
 
 <<if $smithy.roughnessroll gt 100>>
-    <<set $smithy.roughnessroll 100>>
+    <<set $smithy.roughnessroll to 100>>
   <<elseif $smithy.roughnessroll lt 1>>
-    <<set $smithy.roughnessroll 1>>
+    <<set $smithy.roughnessroll to 1>>
 <</if>>
 
 <<if $smithy.cleanlinessroll gt 100>>
-    <<set $smithy.cleanlinessroll 100>>
+    <<set $smithy.cleanlinessroll to 100>>
   <<elseif $smithy.cleanlinessroll lt 1>>
-    <<set $smithy.cleanlinessroll 1>>
+    <<set $smithy.cleanlinessroll to 1>>
 <</if>>
 
 <<if $smithy.expertiseroll gt 100>>
-    <<set $smithy.expertiseroll 100>>
+    <<set $smithy.expertiseroll to 100>>
   <<elseif $smithy.expertiseroll lt 1>>
-    <<set $smithy.expertiseroll 1>>
+    <<set $smithy.expertiseroll to 1>>
 <</if>>
 
 <<if $smithy.intricacyroll gt 100>>
-    <<set $smithy.intricacyroll 100>>
+    <<set $smithy.intricacyroll to 100>>
   <<elseif $smithy.intricacyroll lt 1>>
-    <<set $smithy.intricacyroll 1>>
+    <<set $smithy.intricacyroll to 1>>
 <</if>>
 
 <<if $alchemist.magicroll gt 100>>
-    <<set $alchemist.magicroll 100>>
+    <<set $alchemist.magicroll to 100>>
   <<elseif $alchemist.magicroll lt 1>>
-    <<set $alchemist.magicroll 1>>
+    <<set $alchemist.magicroll to 1>>
 <</if>>
 
 <<if $alchemist.sizeroll gt 100>>
-    <<set $alchemist.sizeroll 100>>
+    <<set $alchemist.sizeroll to 100>>
   <<elseif $alchemist.sizeroll lt 1>>
-    <<set $alchemist.sizeroll 1>>
+    <<set $alchemist.sizeroll to 1>>
 <</if>>
 
 <<if $alchemist.diversityroll gt 100>>
-    <<set $alchemist.diversityroll 100>>
+    <<set $alchemist.diversityroll to 100>>
   <<elseif $alchemist.diversityroll lt 1>>
-    <<set $alchemist.diversityroll 1>>
+    <<set $alchemist.diversityroll to 1>>
 <</if>>
 
 <<if $alchemist.wealthroll gt 100>>
-    <<set $alchemist.wealthroll 100>>
+    <<set $alchemist.wealthroll to 100>>
   <<elseif $alchemist.wealthroll lt 1>>
-    <<set $alchemist.wealthroll 1>>
+    <<set $alchemist.wealthroll to 1>>
 <</if>>
 
 <<if $alchemist.populationroll gt 100>>
-    <<set $alchemist.populationroll 100>>
+    <<set $alchemist.populationroll to 100>>
   <<elseif $alchemist.populationroll lt 1>>
-    <<set $alchemist.populationroll 1>>
+    <<set $alchemist.populationroll to 1>>
 <</if>>
 
 <<if $alchemist.reputationroll gt 100>>
-    <<set $alchemist.reputationroll 100>>
+    <<set $alchemist.reputationroll to 100>>
   <<elseif $alchemist.reputationroll lt 1>>
-    <<set $alchemist.reputationroll 1>>
+    <<set $alchemist.reputationroll to 1>>
 <</if>>
 
 <<if $alchemist.sinroll gt 100>>
-    <<set $alchemist.sinroll 100>>
+    <<set $alchemist.sinroll to 100>>
   <<elseif $alchemist.sinroll lt 1>>
-    <<set $alchemist.sinroll 1>>
+    <<set $alchemist.sinroll to 1>>
 <</if>>
 
 <<if $alchemist.roughnessroll gt 100>>
-    <<set $alchemist.roughnessroll 100>>
+    <<set $alchemist.roughnessroll to 100>>
   <<elseif $alchemist.roughnessroll lt 1>>
-    <<set $alchemist.roughnessroll 1>>
+    <<set $alchemist.roughnessroll to 1>>
 <</if>>
 
 <<if $alchemist.cleanlinessroll gt 100>>
-    <<set $alchemist.cleanlinessroll 100>>
+    <<set $alchemist.cleanlinessroll to 100>>
   <<elseif $alchemist.cleanlinessroll lt 1>>
-    <<set $alchemist.cleanlinessroll 1>>
+    <<set $alchemist.cleanlinessroll to 1>>
 <</if>>
 
 <<if $alchemist.expertiseroll gt 100>>
-    <<set $alchemist.expertiseroll 100>>
+    <<set $alchemist.expertiseroll to 100>>
   <<elseif $alchemist.expertiseroll lt 1>>
-    <<set $alchemist.expertiseroll 1>>
+    <<set $alchemist.expertiseroll to 1>>
 <</if>>
 
 <<if $alchemist.intricacyroll gt 100>>
-    <<set $alchemist.intricacyroll 100>>
+    <<set $alchemist.intricacyroll to 100>>
   <<elseif $alchemist.intricacyroll lt 1>>
-    <<set $alchemist.intricacyroll 1>>
+    <<set $alchemist.intricacyroll to 1>>
 <</if>>
 
 <<if $tavern.magicroll gt 100>>
-    <<set $tavern.magicroll 100>>
+    <<set $tavern.magicroll to 100>>
   <<elseif $tavern.magicroll lt 1>>
-    <<set $tavern.magicroll 1>>
+    <<set $tavern.magicroll to 1>>
 <</if>>
 
 <<if $tavern.sizeroll gt 100>>
-    <<set $tavern.sizeroll 100>>
+    <<set $tavern.sizeroll to 100>>
   <<elseif $tavern.sizeroll lt 1>>
-    <<set $tavern.sizeroll 1>>
+    <<set $tavern.sizeroll to 1>>
 <</if>>
 
 <<if $tavern.diversityroll gt 100>>
-    <<set $tavern.diversityroll 100>>
+    <<set $tavern.diversityroll to 100>>
   <<elseif $tavern.diversityroll lt 1>>
-    <<set $tavern.diversityroll 1>>
+    <<set $tavern.diversityroll to 1>>
 <</if>>
 
 <<if $tavern.wealthroll gt 100>>
-    <<set $tavern.wealthroll 100>>
+    <<set $tavern.wealthroll to 100>>
   <<elseif $tavern.wealthroll lt 1>>
-    <<set $tavern.wealthroll 1>>
+    <<set $tavern.wealthroll to 1>>
 <</if>>
 
 <<if $tavern.populationroll gt 100>>
-    <<set $tavern.populationroll 100>>
+    <<set $tavern.populationroll to 100>>
   <<elseif $tavern.populationroll lt 1>>
-    <<set $tavern.populationroll 1>>
+    <<set $tavern.populationroll to 1>>
 <</if>>
 
 <<if $tavern.reputationroll gt 100>>
-    <<set $tavern.reputationroll 100>>
+    <<set $tavern.reputationroll to 100>>
   <<elseif $tavern.reputationroll lt 1>>
-    <<set $tavern.reputationroll 1>>
+    <<set $tavern.reputationroll to 1>>
 <</if>>
 
 <<if $tavern.sinroll gt 100>>
-    <<set $tavern.sinroll 100>>
+    <<set $tavern.sinroll to 100>>
   <<elseif $tavern.sinroll lt 1>>
-    <<set $tavern.sinroll 1>>
+    <<set $tavern.sinroll to 1>>
 <</if>>
 
 <<if $tavern.roughnessroll gt 100>>
-    <<set $tavern.roughnessroll 100>>
+    <<set $tavern.roughnessroll to 100>>
   <<elseif $tavern.roughnessroll lt 1>>
-    <<set $tavern.roughnessroll 1>>
+    <<set $tavern.roughnessroll to 1>>
 <</if>>
 
 <<if $tavern.cleanlinessroll gt 100>>
-    <<set $tavern.cleanlinessroll 100>>
+    <<set $tavern.cleanlinessroll to 100>>
   <<elseif $tavern.cleanlinessroll lt 1>>
-    <<set $tavern.cleanlinessroll 1>>
+    <<set $tavern.cleanlinessroll to 1>>
 <</if>>
 
 <<if $tavern.expertiseroll gt 100>>
-    <<set $tavern.expertiseroll 100>>
+    <<set $tavern.expertiseroll to 100>>
   <<elseif $tavern.expertiseroll lt 1>>
-    <<set $tavern.expertiseroll 1>>
+    <<set $tavern.expertiseroll to 1>>
 <</if>>
 
 <<if $tavern.intricacyroll gt 100>>
-    <<set $tavern.intricacyroll 100>>
+    <<set $tavern.intricacyroll to 100>>
   <<elseif $tavern.intricacyroll lt 1>>
-    <<set $tavern.intricacyroll 1>>
+    <<set $tavern.intricacyroll to 1>>
 <</if>>
