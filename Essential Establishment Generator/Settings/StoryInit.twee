@@ -68,4 +68,6 @@
 
 <<include "TavernGames">>
 
+<<include "TownMicroEvents">>
+
 <<include "Mercenaries">>
