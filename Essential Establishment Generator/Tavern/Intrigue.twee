@@ -13,5 +13,4 @@
 			<<include "PlotHookThings">>
 <</if>><</nobr>>
 
-<<linkreplace "They need ANOTHER plot hook?">><<print $shitplothook.pluck()>><</linkreplace>>
-<</linkreplace>>
+<<linkreplace "They need ANOTHER plot hook?">><<print $shitplothook.pluck()>><</linkreplace>><</linkreplace>>
