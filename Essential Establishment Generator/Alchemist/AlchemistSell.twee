@@ -1,5 +1,5 @@
 :: AlchemistSell
-
+<<linkreplace "<h4>Buy something</h4>">><h3>$alchemist.name's Potions and Wares</h3><<nobr>>
 <div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
@@ -11,8 +11,6 @@
   <<case "hamlet">>
   $chemist.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $alchemist.ingredients.randomMany(2)>>, you name it!"
 <</switch>></div>
-
-<<linkreplace "<h4>Buy something</h4>">><h3>$alchemist.name's Potions and Wares</h3><<nobr>>
 <table>
   <tr>
     <th>Item</th>
