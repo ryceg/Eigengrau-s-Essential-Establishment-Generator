@@ -40,7 +40,6 @@
 					<<set _silver to 0>>
 				<</if>>
 
-			<<set _copper to Math.round(_copper)>>
 		<</silently>>
 		<<if _gold>><<= _gold>> Gold <</if>>\
 		<<if _silver>><<= _silver>> Silver <</if>>\
