@@ -41,3 +41,9 @@ $town.sizeroll.clamp(1, 100)
 	  <<elseif _terrainroll is 6>>
 		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(22, 29)]>>
 <</if>>
+
+<<if $town.wealthroll gt 100>>
+    <<set $town.wealthroll to 100>>
+  <<elseif $town.wealthroll lt 1>>
+    <<set $town.wealthroll to 1>>
+<</if>>
