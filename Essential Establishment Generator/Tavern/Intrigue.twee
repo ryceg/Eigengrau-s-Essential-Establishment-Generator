@@ -17,4 +17,4 @@
 			<<include "PlotHookThings">>
 <</if>><</nobr>>
 
-<span id="plothook"><<linkappend "They need ANOTHER plot hook?">></span><<replace "#plothook">><<print $shitplothook.pluck()>><</replace>><</linkappend>><</linkreplace>>
+<span id="plothook"><<linkappend "They need ANOTHER plot hook?">><<replace "#plothook">><<print $shitplothook.pluck()>><</replace>><</linkappend>></span><</linkreplace>>
