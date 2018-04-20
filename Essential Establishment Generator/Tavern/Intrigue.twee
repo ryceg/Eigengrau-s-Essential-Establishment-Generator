@@ -1,7 +1,7 @@
 
 :: Intrigue
 <<linkreplace "<h4>Anything interesting in $tavern.name?</h4>" t8n>><h4>Interesting things in $tavern.name...</h4>
-<</nobr>><<set _rollintrigue to random(1, 4)>>
+<<nobr>><<set _rollintrigue to random(1, 4)>>
 		<<if _rollintrigue is 1>>
 			<<include "PlotHookRumour">>
 		<<elseif _rollintrigue is 2>>
