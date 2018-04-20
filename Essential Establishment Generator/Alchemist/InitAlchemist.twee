@@ -19,3 +19,4 @@ Alchemist Magic: <<numberslider "$alchemist.magicroll" $alchemist.magicroll 1 10
 <</linkreplace>>
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]
+<<set $currentpassage to $alchemist>>

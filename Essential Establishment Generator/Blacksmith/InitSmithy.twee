@@ -16,3 +16,4 @@ Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1
 Smithy Magic: <<numberslider "$smithy.magicroll" $smithy.magicroll 1 100 1>>
 
 When you're ready, here's the [[smithy|SmithyOutput]]
+<<set $currentpassage to $smithy>>

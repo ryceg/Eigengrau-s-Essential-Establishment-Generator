@@ -1,6 +1,6 @@
 
 :: Widgets [widget widgets]
-
+/*
 <<nobr>><<widget "money">>
 <<if Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) gte 1>>
 		<<print Math.floor($args / 100)>> Gold, <<print Math.floor(($args / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
@@ -18,11 +18,11 @@
 		<<print Math.floor($args % 10)>> Copper
 	<</if>>
 <</widget>><</nobr>>
+*/
 
-/*
-<<silently>>
-		<<set _copper to Number($args)>>
-		<<set _copper to (_copper + Math.round(_copper) * setup.getPriceMod())>>
+<<widget "money">><<silently>>
+		<<set _copper to Number(($args * ((100 + passage()))>>
+		<<set _copper to (_copper + Math.round(_copper)>>
 
 			<<if _coppet gte 100>>
 					<<set _gold to Math.trunc(_copper / 100)>>
@@ -41,7 +41,7 @@
 		<<if _gold>><<= _gold>>g <</if>>\
 		<<if _silver>><<= _silver>>s <</if>>\
 		<<if _copper>><<= _copper>>c<</if>>
-*/
+<</widget>>
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
 <<nobr>><<widget "heshe">>
