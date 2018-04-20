@@ -5,13 +5,13 @@
 			<<print either("You can barely hear each other over the din of the other patrons, who are pretty rowdy. One elbows you in the ribs as they try to get around you to the bar.",
 			"You find it difficult to hear each other over the din of the crowds that are drunkenly cavorting around.")>>
 	<<elseif $tavern.populationroll gt 80>>
-			<<print either("There's barely enough room to stand, let alone find a seat in the $tavern.wordnoun.",
-			"The $tavern.wordnoun is packed, and the patrons who are  are clamouring to find the few barmaids that are on staff.")>>
+			<<print either("There's barely enough room to stand, let alone find a seat in the $tavern.lighting $tavern.wordnoun.",
+			"The $tavern.wordnoun is packed, and the patrons are clamouring to find the few barmaids that are on staff.")>>
 	<<elseif $tavern.populationroll gt 60 && $tavern.roughnessroll gt 60>>
 			<<print either("The $tavern.wordnoun is packed with patrons, and you're pushed to the side as somebody makes for the latrine in a hurry.",
 			"It's peak hour for $tavern.name and you can tell that $bartender.name is concerned about a fight breaking out. ")>>
 	<<elseif $tavern.populationroll gt 60>>
-			<<print either("The $tavern.wordnoun is pretty packed with patrons, and it's difficult for you to find a seat.",
+			<<print either("The $tavern.wordnoun is pretty packed with patrons, and it's difficult for you to find a seat in the $tavern.lighting tavern.",
 			"The $tavern.wordnoun is quite full, and the owner is clearly enjoying the amount of business $bartender.hisher $tavern.wordnoun is receiving.",
 			"It must be peak hour for the $tavern.wordnoun. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.")>>
 	<<elseif $tavern.populationroll gt 40 && $tavern.roughnessroll gt 60>>
