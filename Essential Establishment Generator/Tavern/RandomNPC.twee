@@ -1,11 +1,10 @@
 :: RandomNPC
-<<linkreplace "<h4>Meet a fellow adventurer!</h4>">>
+<<link "<h4>Meet a fellow adventurer!</h4>">>
 <<set $tavernNPC to setup.createNPC()>>
     <<replace "#NPC">>
-        \<div class="descriptive">
-            \<h3><<link $tavernNPC.name>></h3><<set $tavernNPC to setup.createNPC()>>
-                <<replace "#NPC">>
+          \<div class="descriptive">
+            \<h3>$tavernNPC.name</h3>
             \ A $tavernNPC.racenote is currently <<print $tavernNPC.idle.random()>> in the corner. You strike up conversation with $tavernNPC.himher, and the $tavernNPC.weight $tavernNPC.race introduces $tavernNPC.himherself as $tavernNPC.name, a $tavernNPC.dndclass who is $tavernNPC.adventure. <<print $tavernNPC.heshe.toUpperFirst()>> looks at you with $tavernNPC.hisher $tavernNPC.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"</div>
     <</replace>>
-<</linkreplace>>\
+<</link>>\
 <span id="NPC"></span>
