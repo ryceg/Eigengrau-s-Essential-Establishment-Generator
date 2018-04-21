@@ -68,8 +68,6 @@
 
 <<include "TavernGames">>
 
-<<include "AlchemistPriceTalk">>
-
 <<include "TownMicroEvents">>
 
 <<include "Mercenaries">>
