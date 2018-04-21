@@ -49,4 +49,5 @@
 	rules: "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
 	bet: 10
 	}
-	])>><</nobr>><div class="descriptive">$taverngames.description <<linkreplace "Ask how to play">> The $NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>></div>
+	])>><</nobr>><div class="descriptive"><h3>$taverngames.name</h3>
+	$taverngames.description <<linkreplace "Ask how to play">> The $NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>></div>
