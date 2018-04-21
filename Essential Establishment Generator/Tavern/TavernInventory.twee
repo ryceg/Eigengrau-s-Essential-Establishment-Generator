@@ -1,5 +1,4 @@
 :: TavernInventory
-
 <<set $tavern.inventory to [
     {name: "Crisped Worm and Potatoes", cost: 3, availability: 1},
     {name: "Frogs on Skewers", cost: 4, availability: 1},

@@ -31,17 +31,17 @@
 <<switch $tavern.wealth>>
 	<<case "kingly">>
 		<<set $tavern.lodging to 800, $tavern.food to 400>>
-<<case "aristocratic">>
+	<<case "aristocratic">>
 		<<set $tavern.lodging to 400, $tavern.food to 200>>
-<<case "wealthy">>
+	<<case "wealthy">>
 		<<set $tavern.lodging to 200, $tavern.food to 80>>
-<<case "comfortable">>
+	<<case "comfortable">>
 		<<set $tavern.lodging to 50, $tavern.food to 40>>
-<<case "modest">>
+	<<case "modest">>
 		<<set $tavern.lodging to 30, $tavern.food to 30>>
-<<case "poor">>
+	<<case "poor">>
 		<<set $tavern.lodging to 10, $tavern.food to 6>>
-<<case "squalid">>
+	<<case "squalid">>
 		<<set $tavern.lodging to 7, $tavern.food to 3>>
 <</switch>>
 
@@ -80,9 +80,11 @@
 	<<case "thieves' guild hangout">>
 		<<set $tavern.sinroll += 15, $tavern.roughnessroll +=5>>
 	<<case "high-end dining club">>
-		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10, $tavern.food *= 1.3>>
+		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10>>
+		<<set $tavern.food *= 1.3>>
 	<<case "members-only club">>
-		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10, $tavern.food *= 1.3>>
+		<<set $tavern.sinroll -= 10, $tavern.wealthroll += 5, $tavern.roughnessroll -=10, $tavern.cleanlinessroll += 10>>
+		<<set $tavern.food *= 1.3>>
 	<<case "gathering place for a secret society">>
 		<<set $tavern.sinroll += 5, $tavern.populationroll -= 5>>
 <</switch>>
@@ -130,12 +132,12 @@
 /* ------------------------- WEALTH -------------------------- */
 
 	<<if $tavern.wealthroll gt 95>>
-		<<set $tavern.pricemodifier += random(1, 5), $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10>>
+		<<set $tavern.pricemodifier += 4, $tavern.sizeroll += 3, $tavern.cleanlinessroll += 15, $tavern.roughnessroll -= 10>>
 		/*<<set $tavern.lodging *= 1.1, $specialbrew.cost *= 1.2, $tavern.food *= 1.2>>*/
 	<<elseif $tavern.wealthroll gt 80>>
-		<<set $tavern.pricemodifier += random(1, 4), $tavern.cleanlinessroll += 10>>
+		<<set $tavern.pricemodifier += 3, $tavern.cleanlinessroll += 10>>
 	<<elseif $tavern.wealthroll gt 70>>
-		<<set $tavern.pricemodifier += random(0, 3), $tavern.cleanlinessroll += 6>>
+		<<set $tavern.pricemodifier += 2, $tavern.cleanlinessroll += 6>>
 	<<elseif $tavern.wealthroll gt 60>>
 		<<set $tavern.pricemodifier += 1, $tavern.populationroll += 5, $tavern.cleanlinessroll += 4>>
 	<<elseif $tavern.wealthroll gt 50>>
