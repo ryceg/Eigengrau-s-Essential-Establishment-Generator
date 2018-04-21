@@ -6,7 +6,9 @@
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.racenote who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as $bartender.name, the $bartender.owner of $tavern.name<<nobr>>.<</nobr>>
 <<include "BartenderTalk">><<include "Menu">><h3>The Tavern</h3><<include "TavernDescription">><<include "LookAround">>
 <<include "TavernGames">>
+
 <<print $tavern.entertainment.pluck()>>
+
 <<include "Intrigue">>
 
 <<include "Rooms">>

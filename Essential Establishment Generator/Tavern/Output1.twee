@@ -17,6 +17,7 @@
 <<include "BartenderTalk">>
 <</nobr>><<include "Menu">>
 <h3>The Tavern</h3><<linkreplace "<h4>Look around the $tavern.wordnoun</h4>" t8n>><<include "LookAround">><<include "TavernGames">><</linkreplace>><<print $tavern.entertainment.pluck()>>
+
 <<include "Intrigue">>
 
 <<include "Rooms">>
