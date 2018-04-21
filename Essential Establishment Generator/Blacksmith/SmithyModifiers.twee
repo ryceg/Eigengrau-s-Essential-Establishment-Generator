@@ -1,6 +1,6 @@
 
 :: SmithyModifiers
-
+<</nobr>>
 /* ------------------------- SIZE -------------------------- */
 <<if $smithy.sizeroll gt 80>>
 		<<set $smithy.size to "huge">>
@@ -93,3 +93,4 @@
 <<elseif $smithy.wealthroll lte 30>>
 	<<set $smithy.pricemodifier -= 2, $smithy.reputation -= 10, $smithy.cleanlinessroll -= 25>>
 <</if>>
+<</nobr>>

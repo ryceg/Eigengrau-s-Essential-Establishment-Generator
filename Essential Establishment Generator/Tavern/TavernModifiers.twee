@@ -1,6 +1,6 @@
 
 :: TavernModifiers
-
+<<nobr>>
 /* ------------------------- NAME ------------------------- */
 <<if ["Silver", "Golden", "Glorious", "Beautiful", "Handsome", "Lovely", "Educated", "Ornate", "Wealthy", "Cleanly", "Jeweled", "Superior", "Flawless", "Exquisite", "Elegant", "Fine"].includes($tavern.adjective)>>
 		<<set $tavern.wealthroll += 3>>
@@ -64,7 +64,7 @@
 		<<set $tavern.wealthroll -= 3, $tavern.sinroll += 1>>
 	<<elseif $town.wealthroll lte 20>>
 		<<set $tavern.wealthroll -= 5, $tavern.sinroll += 3, $tavern.populationroll -= 3>>
-<</if>>*/
+<</if>>
 /* ------------------------- TYPE -------------------------- */
 <<switch $tavern.type>>
 	<<case "brothel" "gambling den">>
@@ -200,3 +200,4 @@
 	<<elseif $tavern.cleanlinessroll lte 20>>
 		<<set $tavern.population -= 3, $tavern.sinroll +=5, $tavern.wealthroll -= 8>>
 <</if>>
+<</nobr>>
