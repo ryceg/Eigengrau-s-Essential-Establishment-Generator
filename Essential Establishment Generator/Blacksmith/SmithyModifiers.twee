@@ -1,6 +1,6 @@
 
 :: SmithyModifiers
-<</nobr>>
+<<nobr>>
 /* ------------------------- SIZE -------------------------- */
 <<if $smithy.sizeroll gt 80>>
 		<<set $smithy.size to "huge">>
