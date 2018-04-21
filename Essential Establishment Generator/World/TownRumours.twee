@@ -24,7 +24,7 @@
       rumour: "There's a serious lergy going around. They fall into a fever, and then wake speaking in tongues, and then walk around like some sort of zombie.",
       dm: "An illness is taking over $town.name; this could be due to a spell by a malevolent caster, or a monster.",
     },
-
+/*
     {
       title: "",
       rumour: "",
@@ -48,4 +48,5 @@
       rumour: "",
       dm: "",
     },
+    */
 ]>>
