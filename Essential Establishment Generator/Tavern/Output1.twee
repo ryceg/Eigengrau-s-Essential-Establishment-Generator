@@ -1,7 +1,7 @@
 
 :: Output1 [tavern]
 <h1>$tavern.name</h1>
-<<nobr>><<include "TavernRenders">><</nobr>><span class="firstcharacter">T</span>he $tavern.wordnoun is called <strong>$tavern.name</strong><<nobr>>,<</nobr>> and is <<include "ReputationDescriptor">><<nobr>>
+<span class="firstcharacter">T</span>he $tavern.wordnoun is called <strong>$tavern.name</strong><<nobr>>,<</nobr>> and is <<include "ReputationDescriptor">><<nobr>>
 <<if $tavern.type is "regular">>
 		<<print "in $town.name for the cheap beer and its $tavern.sin patrons.">>
 	<<elseif $tavern.type isnot "regular">>
@@ -19,5 +19,4 @@
 <h3>The Tavern</h3><<linkreplace "<h4>Look around the $tavern.wordnoun</h4>" t8n>><<include "LookAround">><<include "TavernGames">><</linkreplace>><<print $tavern.entertainment.pluck()>>
 
 <<include "Intrigue">>
-
 <<include "Rooms">>
