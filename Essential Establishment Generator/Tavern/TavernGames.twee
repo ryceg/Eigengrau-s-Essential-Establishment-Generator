@@ -37,7 +37,7 @@
 	name: "Arm Wrestling",
 	type: "strength game",
 	description: "A $NPCgamer.dndclass and a $NPCgamebanker.racenote sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
-	rules: "It's easy, haven't you ever played before?",
+	rules: "It's easy, haven't you ever played before? <blockquote> <<print random(12, 25) DC Athletics Check>></blockquote>",
 	bet: random(6, 12)
 
 	},
