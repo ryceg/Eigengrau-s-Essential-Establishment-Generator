@@ -3,7 +3,7 @@ setup.getPriceMod = function () {
             return 0;
       }
 
-      var locations = ["blacksmith", "tavern", "alchemist"];
+      var locations = ["blacksmith", "tavern", "alchemist", "GeneralStore"];
       var loc = tags().find(function (tag) {
             return locations.includes(tag);
       });
