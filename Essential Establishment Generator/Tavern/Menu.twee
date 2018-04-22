@@ -56,7 +56,7 @@
 	</tr>
 <<switch $town.type>>
 	<<case "city">>
-	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 4; })>><tr><td>_item.name</td>
+	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 	<</for>>
 	<<case "town">>
