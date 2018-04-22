@@ -102,7 +102,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="Eigengrau&#39;s Essential Establishment Generator" startnode="57" creator="Tweego" creator-version="1.2.0" ifid="F7166797-FFA0-4EC8-A0B6-FBB555954C13" zoom="1" format="SugarCube" format-version="2.23.5" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "stylesheet.css" */
+	<div id="store-area" hidden><tw-storydata name="Eigengrau&#39;s Essential Establishment Generator" startnode="65" creator="Tweego" creator-version="1.2.0" ifid="F7166797-FFA0-4EC8-A0B6-FBB555954C13" zoom="1" format="SugarCube" format-version="2.23.5" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "stylesheet.css" */
 body {
   background-image:
 url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_texture_by_kluckham-d91rf3o.png);
@@ -146,7 +146,7 @@ h5 {
   font-family: ScalySansSmallCaps;
   font-size: 16px;
   color: black;
-}
+}*/
 
 .firstcharacter {
   float: left;
@@ -157,7 +157,7 @@ h5 {
   padding-right: 8px;
   padding-left: 3px;
 }
-
+/*
 blockquote {
     border-style: solid;
     border-width: 2px;
@@ -782,7 +782,7 @@ setup.getPriceMod = function () {
             return 0;
       }
 
-      var locations = ["blacksmith", "tavern", "alchemist"];
+      var locations = ["blacksmith", "tavern", "alchemist", "GeneralStore"];
       var loc = tags().find(function (tag) {
             return locations.includes(tag);
       });
@@ -1668,7 +1668,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
 &lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="AlchemistOutput" tags="alchemist" position="725,100">&lt;h1&gt;$alchemist.name&lt;/h1&gt;&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1, 99) gt 50&gt;&gt;
   &lt;blockquote&gt;As you make your way along $alchemist.road, &lt;&lt;print $TownMicroEvents.random()&gt;&gt;&lt;/blockquote&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;You enter $alchemist.name and see the $chemist.racenote chemist is &lt;&lt;print $chemist.idle.random()&gt;&gt;. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist &lt;&lt;print either($chemist.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $chemist.hisher feet&quot;)&gt;&gt; over to you and introduces $chemist.himherself as $chemist.name, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou enter $alchemist.name and see the $chemist.racenote chemist is &lt;&lt;print $chemist.idle.random()&gt;&gt;. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist &lt;&lt;print either($chemist.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $chemist.hisher feet&quot;)&gt;&gt; over to you and introduces $chemist.himherself as $chemist.name, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
 
 &lt;&lt;include &quot;AlchemistLookAround&quot;&gt;&gt;
 &lt;&lt;linkreplace &quot;&lt;h4&gt;Talk with $chemist.name&lt;/h4&gt;&quot; t8n&gt;&gt;
@@ -1760,7 +1760,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
 &lt;&lt;if $alchemist.pricemodifier gt 5 &amp;&amp; $alchemist.wealthroll gt 80&gt;&gt;
     &lt;&lt;set $alchemist.pricetalk to &quot;Be warned, these prices might be... out of your range&quot;&gt;&gt;
   &lt;&lt;elseif $alchemist.pricemodifier gt 5 &amp;&amp; $alchemist.wealthroll lt 30&gt;&gt;
-    &lt;&lt;set $alchemist.pricetalk to &quot;I&#39;m afraid that times are tough, there&#39;s a bit of a surcharge on the magical stuff.&quot;&gt;&gt;
+    &lt;&lt;set $alchemist.pricetalk to &quot;I&#39;m afraid that times are tough, there&#39;s a bit of a surcharge on the fun stuff.&quot;&gt;&gt;
   &lt;&lt;elseif $alchemist.pricemodifier gt 5&gt;&gt;
     &lt;&lt;set $alchemist.pricetalk to &quot;Fair warning; the prices ain&#39;t what they used to be, by a long shot.&quot;&gt;&gt;
   &lt;&lt;elseif $alchemist.pricemodifier gt 2 &amp;&amp; $alchemist.wealthroll gt 80&gt;&gt;
@@ -1827,7 +1827,7 @@ Alchemist Cleanliness: &lt;&lt;numberslider &quot;$alchemist.cleanlinessroll&quo
 
 &lt;&lt;linkreplace &quot;Alchemist Craftsmanship&quot;&gt;&gt;Alchemist Expertise: &lt;&lt;numberslider &quot;$alchemist.expertiseroll&quot; $alchemist.expertiseroll 1 100 1&gt;&gt;
 
-Alchemist Intricacy: &lt;&lt;numberslider &quot;$alchemist.intricacyroll&quot; $alchemist.intricacyroll 1 100 1&gt;&gt;
+Alchemist Activity: &lt;&lt;numberslider &quot;$alchemist.activityroll&quot; $alchemist.activityroll 1 100 1&gt;&gt;
 
 Alchemist Magic: &lt;&lt;numberslider &quot;$alchemist.magicroll&quot; $alchemist.magicroll 1 100 1&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
@@ -2916,7 +2916,7 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
 		&lt;&lt;set $smithy.name to $smithy.adjective + &quot; &quot; + $smithy.noun&gt;&gt;
 &lt;&lt;default&gt;&gt;
     &lt;&lt;set $smithy.name to &quot;The &quot; + $smithy.adjective + &quot; Smithy&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="SmithyOutput" tags="smithy" position="225,350">&lt;h1&gt;$smithy.name&lt;/h1&gt;You make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is &lt;&lt;print $blacksmith.idle.random()&gt;&gt;. The blacksmith &lt;&lt;print either($blacksmith.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $blacksmith.hisher feet over&quot;)&gt;&gt; to you, and introduces $blacksmith.himherself as $blacksmith.name, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
+&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="SmithyOutput" tags="smithy" position="225,350">&lt;h1&gt;$smithy.name&lt;/h1&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is &lt;&lt;print $blacksmith.idle.random()&gt;&gt;. The blacksmith &lt;&lt;print either($blacksmith.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $blacksmith.hisher feet over&quot;)&gt;&gt; to you, and introduces $blacksmith.himherself as $blacksmith.name, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
 
 &lt;&lt;include &quot;SmithyLookAround&quot;&gt;&gt;
 
@@ -3013,21 +3013,21 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $smithy.activityroll gt 80&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;extremely busy&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;extremely busy&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll gt 70&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;very busy&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;very busy&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll gt 60&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;rather busy&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;rather busy&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll gt 50&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;reasonably busy&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;reasonably busy&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll gt 40&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;not terribly busy&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;not terribly busy&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll gt 30&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;not busy&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;not busy&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll gt 20&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;rather quiet&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;rather quiet&quot;&gt;&gt;
 	&lt;&lt;elseif $smithy.activityroll lte 20&gt;&gt;
-		&lt;&lt;set $smithy.business to &quot;very quiet&quot;&gt;&gt;
+		&lt;&lt;set $smithy.activity to &quot;very quiet&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="SmithySell" tags="" position="475,350">&lt;&lt;linkappend &quot;&lt;h4&gt;Buy something&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;div class=&quot;descriptive&quot;&gt;
 &lt;&lt;switch $town.type&gt;&gt;
   &lt;&lt;case &quot;city&quot;&gt;&gt;
@@ -3062,7 +3062,833 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
   &lt;&lt;for _i, _item range $smithy.inventory.filter(function (item) { return item.availability &lt;= 1; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
 &lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
   &lt;&lt;/for&gt;&gt;&lt;/table&gt;
-&lt;&lt;/switch&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Authors" tags="" position="600,350">$specialbrew.author</tw-passagedata><tw-passagedata pid="26" name="Changelog" tags="" position="725,350">v.0.3
+&lt;&lt;/switch&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="GeneralStore" tags="" position="600,350">&lt;&lt;set $GeneralStore to setup.createBuilding()&gt;&gt;
+&lt;&lt;set $shopkeep to setup.createNPC()&gt;&gt;
+&lt;&lt;set $shopkeep.mundane to [&quot;pliers&quot;, &quot;tins&quot;, &quot;twine&quot;, &quot;cups&quot;, &quot;spoons&quot;, &quot;pans&quot;, &quot;chairs&quot;, &quot;cushions&quot;],
+      $shopkeep.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $blacksmith.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;],
+    	$shopkeep.owner to either([&quot;owner&quot;, &quot;caretaker&quot;, &quot;proud owner&quot;, &quot;proprietor&quot;, &quot;current owner&quot;, &quot;manager&quot;, &quot;manager&quot;, &quot;acting manager&quot;])&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="GeneralStoreInventory" tags="" position="725,350">&lt;&lt;set $GeneralStore.inventory to [
+	{
+	name: &quot;Club&quot;,
+	cost: 10,
+	availability: 1
+	},
+
+  {
+  name: &quot;Dagger&quot;,
+  cost: 200,
+  availability: 1
+  },
+
+  {
+	name: &quot;Greatclub&quot;,
+	cost: 20,
+	availability: 1
+	},
+
+  {
+	name: &quot;Handaxe&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Light Hammer&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Quarterstaff&quot;,
+	cost: 20,
+	availability: 1
+	},
+
+  {
+	name: &quot;Light Crossbow&quot;,
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Dart&quot;,
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: &quot;Shortbow&quot;,
+	cost: 2500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Sling&quot;,
+	cost: 10,
+	availability: 1
+	},
+
+  {
+	name: &quot;Whip&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Hand Crossbow&quot;,
+	cost: 7500,
+	availability: 3
+	},
+
+  {
+	name: &quot;Heavy Crossbow&quot;,
+	cost: 5000,
+	availability: 4
+	},
+
+  {
+	name: &quot;Longbow&quot;,
+	cost: 5000,
+	availability: 1
+	},
+
+  {
+	name: &quot;Padded Armour&quot;,
+	cost: 500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Leather Armour&quot;,
+	cost: 1000,
+	availability: 3
+	},
+
+  {
+	name: &quot;Studded Leather Armour&quot;,
+	cost: 4500,
+	availability: 4
+	},
+
+  {
+	name: &quot;Hide Armour&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Backpack&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Bedroll&quot;,
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: &quot;Blanket&quot;,
+	cost: 50,
+	availability: 1
+	},
+
+  {
+	name: &quot;Block and Tackle&quot;,
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: &quot;Book&quot;,
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Bottle, Glass&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Bucket&quot;,
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: &quot;Candle&quot;,
+	cost: 1,
+	availability: 2
+	},
+
+  {
+	name: &quot;Case, Crossbow Bolt&quot;,
+	cost: 500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Case, Map or Scroll&quot;,
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: &quot;Chain, 10 feet&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Chest&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Climbers Kit&quot;,
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Clothes, Traveler&#39;s&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Component Pouch&quot;,
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Crowbar&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Fishing Tackle&quot;,
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: &quot;Flask or tankard&quot;,
+	cost: 2,
+	availability: 1
+	},
+
+  {
+	name: &quot;Grappling Hook&quot;,
+	cost: 200,
+	availability: 2
+	},
+
+  {
+	name: &quot;Hammer&quot;,
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: &quot;Healer&#39;s Kit&quot;,
+	cost: 500,
+	availability: 2
+	},
+
+  {
+	name: &quot;Hourglass&quot;,
+	cost: 2500,
+	availability: 3
+	},
+
+  {
+	name: &quot;Hunting Trap&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Ink (1 ounce)&quot;,
+	cost: 1000,
+	availability: 3
+	},
+
+  {
+	name: &quot;Ink Pen&quot;,
+	cost: 2,
+	availability: 3
+	},
+
+  {
+	name: &quot;Ladder, 10ft.&quot;,
+	cost: 10,
+	availability: 1
+	},
+
+
+  {
+	name: &quot;Lantern, Bullseye&quot;,
+	cost: 1000,
+	availability: 3
+	},
+
+
+  {
+	name: &quot;Lantern, Hooded&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Magnifying Glass&quot;,
+	cost: 10000,
+	availability: 3
+	},
+
+  {
+	name: &quot;Manacles&quot;,
+	cost: 200,
+	availability: 2
+	},
+
+  {
+	name: &quot;Mess Kit&quot;,
+	cost: 20,
+	availability: 3
+	},
+
+  {
+	name: &quot;Steel Mirror&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Oil, flask&quot;,
+	cost: 10,
+	availability: 1
+	},
+
+  {
+	name: &quot;Paper (one sheet)&quot;,
+	cost: 20,
+	availability: 4
+	},
+
+  {
+	name: &quot;Parchment (one sheet)&quot;,
+	cost: 10,
+	availability: 1
+	},
+
+  {
+	name: &quot;Miner&#39;s Pick&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Piton&quot;,
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: &quot;Pole (10 ft.)&quot;,
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: &quot;Pot, Iron&quot;,
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: &quot;Pouch&quot;,
+	cost: 50,
+	availability: 1
+	},
+
+  {
+	name: &quot;Quiver&quot;,
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: &quot;Rope, Hemp (50ft)&quot;,
+	cost: 100,
+	availability: 1
+	},
+
+  {
+  name: &quot;Rope, Silk (50ft)&quot;,
+  cost: 1000,
+  availability: 4
+  },
+
+  {
+  name: &quot;Sack&quot;,
+  cost: 1,
+  availability: 1
+  },
+
+  {
+  name: &quot;Shovel&quot;,
+  cost: 200,
+  availability: 1
+  },
+
+  {
+  name: &quot;Signal whistle&quot;,
+  cost: 5,
+  availability: 3
+  },
+
+  {
+  name: &quot;Spikes, Iron (10)&quot;,
+  cost: 100,
+  availability: 1
+  },
+
+  {
+  name: &quot;Spyglass&quot;,
+  cost: 100000,
+  availability: 4
+  },
+
+  {
+  name: &quot;Two person tent&quot;,
+  cost: 200,
+  availability: 2
+  },
+
+  {
+  name: &quot;Tinderbox&quot;,
+  cost: 50,
+  availability: 1
+  },
+
+  {
+  name: &quot;Torch&quot;,
+  cost: 1,
+  availability: 1
+  },
+
+  {
+  name: &quot;Vial&quot;,
+  cost: 100,
+  availability: 1
+  },
+
+  {
+  name: &quot;Waterskin&quot;,
+  cost: 20,
+  availability: 1
+  },
+
+  {
+  name: &quot;Cartographer&#39;s Tools&quot;,
+  cost: 1500,
+  availability: 2
+  },
+
+  {
+  name: &quot;Tinker&#39;s Tools&quot;,
+  cost: 5000,
+  availability: 3
+  },
+
+  {
+  name: &quot;Herbalism Kit&quot;,
+  cost: 500,
+  availability: 2
+  },
+
+  {
+  name: &quot;Navigator&#39;s Tools&quot;,
+  cost: 2500,
+  availability: 1
+  },
+
+  {
+  name: &quot;Mason&#39;s Tools&quot;,
+  cost: 1000,
+  availability: 1
+  },
+
+  {
+  name: &quot;Painter&#39;s Supplies&quot;,
+  cost: 1000,
+  availability: 3
+  },
+
+  {
+  name: &quot;Potter&#39;s Tools&quot;,
+  cost: 1000,
+  availability: 1
+  },
+
+  {
+  name: &quot;Dice Set&quot;,
+  cost: 10,
+  availability: 1
+  },
+
+  {
+  name: &quot;Playing Card Set&quot;,
+  cost: 50,
+  availability: 1
+  }
+]&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="GeneralStoreModifiers" tags="" position="850,350">&lt;&lt;nobr&gt;&gt;
+/* ------------------------- SIZE -------------------------- */
+&lt;&lt;if $GeneralStore.sizeroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;huge&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.activityroll -= 4&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;quite large&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.activityroll -= 3&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;large&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.activityroll -= 1&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;spacious&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;medium&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;slightly cramped&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.activityroll += 1&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;small&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.activityroll += 1&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;tiny&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.activityroll += 3&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+/*
+	reputationroll: random(1, 100),
+	cleanlinessroll: random(1, 100),
+	expertiseroll: random(1, 100),
+	activityroll: random(1, 100),
+	hardinessroll: random(1, 100),
+	magicroll:
+*/
+
+&lt;&lt;switch $GeneralStore.material&gt;&gt;
+	&lt;&lt;case &quot;hewn rock&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.roughnessroll += 3&gt;&gt;
+	&lt;&lt;case &quot;chiseled stone&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.roughnessroll -= 1&gt;&gt;
+	&lt;&lt;case &quot;marble&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanlinessroll += 5, $GeneralStore.wealthroll += 6&gt;&gt;
+&lt;&lt;/switch&gt;&gt;
+
+/* ------------------------- CLEANLINESS -------------------------- */
+&lt;&lt;if $GeneralStore.cleanlinessroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll += 10,
+		$GeneralStore.activityroll += 6,
+		$GeneralStore.hardinessroll += 8,
+		$GeneralStore.cleanliness to &quot;fastidious&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll += 7,
+		$GeneralStore.activityroll += 4,
+		$GeneralStore.hardinessroll += 6,
+		$GeneralStore.cleanliness to &quot;very tidy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll += 3,
+		$GeneralStore.activityroll += 3,
+		$GeneralStore.hardinessroll += 4,
+		$GeneralStore.cleanliness to &quot;tidy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll += 1,
+		$GeneralStore.hardinessroll += 2,
+		$GeneralStore.cleanliness to &quot;reasonably tidy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll -= 1,
+		$GeneralStore.hardinessroll -= 2,
+		$GeneralStore.cleanliness to &quot;somewhat messy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll -= 3,
+		$GeneralStore.hardinessroll -= 4,
+		$GeneralStore.activityroll -= 2,
+		$GeneralStore.cleanliness to &quot;rather messy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll -= 5,
+		$GeneralStore.hardinessroll -= 6,
+		$GeneralStore.activityroll -= 6,
+		$GeneralStore.cleanliness to &quot;very messy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertiseroll -= 7,
+		$GeneralStore.hardinessroll -= 8,
+		$GeneralStore.activityroll -= 10,
+		$GeneralStore.cleanliness to &quot;filthy&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.wealthroll gt 95&gt;&gt;
+	&lt;&lt;set $GeneralStore.pricemodifier += 4, $GeneralStore.sizeroll += 3, $GeneralStore.cleanlinessroll += 15, $GeneralStore.reputation += 10&gt;&gt;
+&lt;&lt;elseif $GeneralStore.wealthroll gt 80&gt;&gt;
+	&lt;&lt;set $GeneralStore.pricemodifier += 3, $GeneralStore.cleanlinessroll += 10, $GeneralStore.reputation += 7&gt;&gt;
+&lt;&lt;elseif $GeneralStore.wealthroll gt 70&gt;&gt;
+	&lt;&lt;set $GeneralStore.pricemodifier += 2, $GeneralStore.cleanlinessroll += 6, $GeneralStore.reputation += 4&gt;&gt;
+&lt;&lt;elseif $GeneralStore.wealthroll gt 60&gt;&gt;
+	&lt;&lt;set $GeneralStore.pricemodifier += 1, $GeneralStore.populationroll += 5, $GeneralStore.cleanlinessroll += 4&gt;&gt;
+&lt;&lt;elseif $GeneralStore.wealthroll gt 50&gt;&gt;
+	&lt;&lt;set $GeneralStore.populationroll += 5, $GeneralStore.reputation -= 5, $GeneralStore.cleanlinessroll += 2&gt;&gt;
+&lt;&lt;elseif $GeneralStore.wealthroll gt 30&gt;&gt;
+	&lt;&lt;set $GeneralStore.pricemodifier -= 1, $GeneralStore.reputation -= 7, $GeneralStore.cleanlinessroll -= 15&gt;&gt;
+&lt;&lt;elseif $GeneralStore.wealthroll lte 30&gt;&gt;
+	&lt;&lt;set $GeneralStore.pricemodifier -= 2, $GeneralStore.reputation -= 10, $GeneralStore.cleanlinessroll -= 25&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.activityroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;extremely busy&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation += 5, $GeneralStore.cleanlinessroll -= 5&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;very busy&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation += 3, $GeneralStore.cleanlinessroll -= 3&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;rather busy&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation += 2, $GeneralStore.cleanlinessroll -= 2&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;reasonably busy&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation += 1, $GeneralStore.cleanlinessroll -= 1&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;not terribly busy&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation -= 1, $GeneralStore.cleanlinessroll += 1&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;not busy&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation -= 2, $GeneralStore.cleanlinessroll += 2&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;rather quiet&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation -= 3, $GeneralStore.cleanlinessroll += 3&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;very quiet&quot;&gt;&gt;
+		&lt;&lt;set $GeneralStore.reputation -= 5, $GeneralStore.cleanlinessroll += 5&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="GeneralStoreNameGen" tags="" position="975,350">&lt;&lt;set _GeneralStorenameroll to random(1, 5)&gt;&gt;
+
+&lt;&lt;set $GeneralStore.adjective to either(&quot;Dependable&quot;, &quot;Reliable&quot;, &quot;Expendable&quot;, &quot;Indispensible&quot;, &quot;Incomparable&quot;, &quot;Incredible&quot;, &quot;Excellent&quot;, &quot;Important&quot;, &quot;Cheap&quot;, &quot;Affordable&quot;, &quot;Affable&quot;, &quot;Discount&quot;, &quot;Low-Cost&quot;)&gt;&gt;
+
+&lt;&lt;set $GeneralStore.noun to either(&quot;Mount&quot;, &quot;Saddle&quot;, &quot;Guild&quot;, &quot;Fangs&quot;, &quot;Man&quot;, &quot;Pardon&quot;, &quot;Pleasure&quot;, &quot;Belt&quot;, &quot;Staff&quot;, &quot;Shield&quot;, &quot;Prince&quot;, &quot;Master&quot;, &quot;Servant&quot;, &quot;Meal&quot;, &quot;Prince&quot;, &quot;Favor&quot;, &quot;Love&quot;, &quot;Word&quot;, &quot;Scribe&quot;, &quot;Apprentice&quot;, &quot;Acolyte&quot;, &quot;Dress&quot;, &quot;Goddess&quot;, &quot;God&quot;, &quot;Gold&quot;, &quot;Purse&quot;, &quot;Trap&quot;, &quot;King&quot;, &quot;Son&quot;, &quot;Sister&quot;, &quot;Mother&quot;, &quot;Daughter&quot;, &quot;Cry&quot;, &quot;Shout&quot;, &quot;Cupboard&quot;, &quot;Pantry&quot;, &quot;Queen&quot;, &quot;Wealth&quot;, &quot;Star&quot;, &quot;Void&quot;, &quot;Woman&quot;, &quot;Man&quot;, &quot;Whore&quot;, &quot;Butcher&quot;, &quot;Anvil&quot;, &quot;Tome&quot;, &quot;Sacrifice&quot;,&quot;Armor&quot;, &quot;Cup&quot;, &quot;Pot&quot;, &quot;Stove&quot;, &quot;Stool&quot;, &quot;Princess&quot;, &quot;Chain&quot;, &quot;Sword&quot;, &quot;Pork&quot;, &quot;Grain&quot;, &quot;Tooth&quot;, &quot;Lance&quot;, &quot;Axe&quot;, &quot;Scabbard&quot;, &quot;Knife&quot;, &quot;Dagger&quot;, &quot;Spear&quot;, &quot;Bow&quot;, &quot;Crossbow&quot;, &quot;Quarterstaff&quot;, &quot;Staff&quot;, &quot;Fire&quot;, &quot;Ice&quot;, &quot;Wind&quot;, &quot;Earth&quot;, &quot;Water&quot;, &quot;Stone&quot;, &quot;Ladle&quot;, &quot;Monastery&quot;, &quot;Chalice&quot;, &quot;Goblet&quot;, &quot;Dungeon&quot;, &quot;Lust&quot;, &quot;Lantern&quot;, &quot;Bone&quot;, &quot;Life&quot;, &quot;Stone&quot;, &quot;Mistress&quot;, &quot;Mind&quot;, &quot;Treasure&quot;, &quot;Barter&quot;, &quot;Armorer&quot;, &quot;Butler&quot;, &quot;Page&quot;, &quot;Tome&quot;, &quot;Feather&quot;, &quot;Shadow&quot;, &quot;Friend&quot;, &quot;Labyrinth&quot;, &quot;Mountain&quot;, &quot;Hope&quot;, &quot;Boot&quot;, &quot;Gauntlet&quot;)&gt;&gt;
+
+&lt;&lt;set $GeneralStore.family to either(&quot;Son&quot;, &quot;Daughter&quot;, &quot;Brother&quot;, &quot;Sister&quot;, &quot;Uncle&quot;, &quot;Aunt&quot;, &quot;Father&quot;, &quot;Friends&quot;, &quot;Family&quot;, &quot;Fool&quot;)&gt;&gt;
+
+&lt;&lt;set $GeneralStore.rider to either(&quot;Shop&quot;, &quot;Bazaar&quot;, &quot;Convenience Store&quot;, &quot;Trading Post&quot;, &quot;Warehouse&quot;, &quot;Antiquerie&quot;, &quot;Adventure Supplier&quot;, &quot;Supplier&quot;, &quot;Goods&quot;, &quot;Goods and Bads&quot;, &quot;Stock Shop&quot;, &quot;Wares&quot;)&gt;&gt;
+
+&lt;&lt;switch _GeneralStorenameroll&gt;&gt;
+	&lt;&lt;case 1&gt;&gt;
+		&lt;&lt;set $GeneralStore.name to &quot;The &quot; + $GeneralStore.adjective + &quot; &quot; + $GeneralStore.noun&gt;&gt;
+	&lt;&lt;case 2&gt;&gt;
+		&lt;&lt;set $GeneralStore.name to $blacksmith.firstname + &quot; and &quot; + $GeneralStore.family&gt;&gt;
+	&lt;&lt;case 3&gt;&gt;
+		&lt;&lt;set $GeneralStore.name to $GeneralStore.noun + &quot; and &quot; + $GeneralStore.family&gt;&gt;
+	&lt;&lt;case 4&gt;&gt;
+		&lt;&lt;set $GeneralStore.name to &quot;The &quot; + $GeneralStore.adjective + &quot; &quot; + $GeneralStore.rider&gt;&gt;
+	&lt;&lt;case 5&gt;&gt;
+		&lt;&lt;set $GeneralStore.name to $GeneralStore.adjective + &quot; &quot; + $GeneralStore.noun&gt;&gt;
+&lt;&lt;default&gt;&gt;
+    &lt;&lt;set $GeneralStore.name to &quot;The &quot; + $GeneralStore.adjective + &quot; Adventurer&#39;s Store&quot;&gt;&gt;
+&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="GeneralStoreOutput" tags="GeneralStore" position="1100,350">&lt;h1&gt;$GeneralStore.name&lt;/h1&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $GeneralStore.road, and enter $GeneralStore.name and see that inside, the $GeneralStore.size $GeneralStore.material building is $GeneralStore.cleanliness. The shopkeep is &lt;&lt;print $shopkeep.idle.random()&gt;&gt;. The shopkeep &lt;&lt;print either($shopkeep.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $shopkeep.hisher feet over&quot;)&gt;&gt; to you, and introduces $shopkeep.himherself as $shopkeep.name, the $shopkeep.owner of the General Store, and asks what $shopkeep.heshe can do for you.
+
+
+&lt;&lt;include &quot;GeneralStoreSell&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="GeneralStoreRenders" tags="render" position="1225,350">/* ------------------------- SIZE -------------------------- */
+&lt;&lt;set _warmthroll to random(1, 100)&gt;&gt;
+&lt;&lt;if $GeneralStore.sizeroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;huge&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll -= 20&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;quite large&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll -= 15&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;large&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll -= 10&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;spacious&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll -= 5&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;medium&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;slightly cramped&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll += 15&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;small&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll += 15&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.sizeroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.size to &quot;tiny&quot;&gt;&gt;
+		&lt;&lt;set _warmthroll += 30&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if _warmthroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;swelteringly hot&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;extremely warm&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;uncomfortably warm&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;nice and toasty&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;quite warm&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;warm&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;mild&quot;&gt;&gt;
+	&lt;&lt;elseif _warmthroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.warmth to &quot;cold&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+/* ------------------------- CLEANLINESS -------------------------- */
+
+
+&lt;&lt;if $GeneralStore.cleanlinessroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;fastidious&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;very tidy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;tidy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;reasonably tidy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;somewhat messy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;rather messy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;very messy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.cleanlinessroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.cleanliness to &quot;filthy&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+
+/* ------------------------- Expertise -------------------------- */
+
+&lt;&lt;if $GeneralStore.expertiseroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;masterful&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;exceptional&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;superior quality&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;finely-crafted&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;well-crafted&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;somewhat well made&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;somewhat amateur&quot;&gt;&gt;
+&lt;&lt;elseif $GeneralStore.expertiseroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.expertise to &quot;blatantly amateur&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.activityroll gt 80&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;extremely busy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 70&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;very busy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 60&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;rather busy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 50&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;reasonably busy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 40&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;not terribly busy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 30&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;not busy&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll gt 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;rather quiet&quot;&gt;&gt;
+	&lt;&lt;elseif $GeneralStore.activityroll lte 20&gt;&gt;
+		&lt;&lt;set $GeneralStore.activity to &quot;very quiet&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.pricemodifier gt 5 &amp;&amp; $GeneralStore.wealthroll gt 80&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Be warned, these prices might be... out of your range&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt 5 &amp;&amp; $GeneralStore.wealthroll lt 30&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;I&#39;m afraid that times are tough, there&#39;s a bit of a surcharge on the fun stuff.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt 5&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Fair warning; the prices ain&#39;t what they used to be, by a long shot.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt 2 &amp;&amp; $GeneralStore.wealthroll gt 80&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Fair warning, premium products come with a premium price.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt 2 &amp;&amp; $GeneralStore.wealthroll lt 30&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Things might be a wee bit more expensive than you&#39;re used to, but that&#39;s the cost of doing business at the moment.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt 2&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Fair warning; the prices ain&#39;t what they used to be.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt -2 &amp;&amp; $GeneralStore.wealthroll gt 80&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;These are priced to move, so I can make some space and get some new stock in.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt -2 &amp;&amp; $GeneralStore.wealthroll lt 30&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Priced to sell, so I can afford some new stock!&quot;&gt;&gt;&quot;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt -2&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Priced to move!&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt -4 &amp;&amp; $GeneralStore.wealthroll gt 80&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Everything must go! I&#39;m getting in entirely new, custom stock in a couple day&#39;s time, and need the space clear.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt -4 &amp;&amp; $GeneralStore.wealthroll lt 30&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;Everything must go- can&#39;t afford to keep $GeneralStore.name open much longer, so I&#39;m getting rid of the final stock.&quot;&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.pricemodifier gt -4&gt;&gt;
+    &lt;&lt;set $GeneralStore.pricetalk to &quot;I&#39;ve got a massive sale going on at the moment!&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="GeneralStoreSell" tags="" position="100,475">&lt;&lt;linkappend &quot;&lt;h4&gt;Buy something&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;div class=&quot;descriptive&quot;&gt;
+&lt;&lt;switch $town.type&gt;&gt;
+  &lt;&lt;case &quot;city&quot;&gt;&gt;
+  $shopkeep.name smiles, and says &quot;You&#39;re looking to buy something? Name it, here at $GeneralStore.name, we stock everything the average man could possibly need!&quot;
+  &lt;&lt;case &quot;town&quot;&gt;&gt;
+  $shopkeep.name says &quot;Well, what is it you need? We can do just about anything for you.&quot;
+  &lt;&lt;case &quot;village&quot;&gt;&gt;
+  $shopkeep.name says &quot;Sure, what are you after? &lt;&lt;print $GeneralStore.mundane.random().toUpperFirst()&gt;&gt;?&quot;
+  &lt;&lt;case &quot;hamlet&quot;&gt;&gt;
+  $shopkeep.name smiles, and says &quot;What are you after? We can do just about anything you could possibly need; &lt;&lt;print $GeneralStore.mundane.randomMany(4)&gt;&gt;, you name it!&quot;
+&lt;&lt;/switch&gt;&gt;&lt;&lt;print $GeneralStore.pricetalk&gt;&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Item&lt;/th&gt;
+    &lt;th&gt;Cost&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;&lt;switch $town.type&gt;&gt;
+  &lt;&lt;case &quot;city&quot;&gt;&gt;
+  &lt;&lt;for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability &lt;= 4; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
+&lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;&lt;/for&gt;&gt;
+  &lt;&lt;case &quot;town&quot;&gt;&gt;
+  &lt;&lt;for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability &lt;= 3; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
+&lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;&lt;/for&gt;&gt;
+  &lt;&lt;case &quot;village&quot;&gt;&gt;
+  &lt;&lt;for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability &lt;= 2; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
+&lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;&lt;/for&gt;&gt;
+  &lt;&lt;case &quot;hamlet&quot;&gt;&gt;
+  &lt;&lt;for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability &lt;= 1; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
+&lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;&lt;/for&gt;&gt;&lt;/table&gt;
+&lt;&lt;/switch&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="InitGeneralStore" tags="output" position="225,475">&lt;&lt;linkreplace &quot;Rename &lt;strong&gt;$GeneralStore.name&lt;/strong&gt;&quot;&gt;&gt;&lt;h3&gt;&lt;&lt;textbox &quot;$GeneralStore.name&quot; $GeneralStore.name&gt;&gt;&lt;/h3&gt;&lt;&lt;/linkreplace&gt;&gt;
+
+General Store Wealth: &lt;&lt;numberslider &quot;$GeneralStore.wealthroll&quot; $GeneralStore.wealthroll 1 100 1&gt;&gt;
+
+General Store Size: &lt;&lt;numberslider &quot;$GeneralStore.sizeroll&quot; $GeneralStore.sizeroll 1 100 1&gt;&gt;
+
+General Store Reputation: &lt;&lt;numberslider &quot;$GeneralStore.reputationroll&quot; $GeneralStore.reputationroll 1 100 1&gt;&gt;
+
+General Store Cleanliness: &lt;&lt;numberslider &quot;$GeneralStore.cleanlinessroll&quot; $GeneralStore.cleanlinessroll 1 100 1&gt;&gt;
+
+General Store Activity: &lt;&lt;numberslider &quot;$GeneralStore.activityroll&quot; $GeneralStore.activityroll 1 100 1&gt;&gt;
+
+General Store Magic: &lt;&lt;numberslider &quot;$GeneralStore.magicroll&quot; $GeneralStore.magicroll 1 100 1&gt;&gt;
+
+
+When you&#39;re ready, here&#39;s the [[general store|GeneralStoreOutput]]
+&lt;&lt;set $currentpassage to $GeneralStore&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="" position="350,475">$specialbrew.author</tw-passagedata><tw-passagedata pid="34" name="Changelog" tags="" position="475,475">v.1.0
+- Added Alchemist
+- Added Blacksmith
+- Added significant CSS changes
+- Thousands of lines of code all over the place
+- JavaScript creator for NPCs
+- Huge code cleanup as a result of JS.
+
+
+&lt;&lt;linkappend &quot;v.0.3&quot;&gt;&gt;
 - Added ability to rename town &amp; tavern
 - Modified room cost formula to mirror the recommended prices
 - CSS Style update
@@ -3070,7 +3896,7 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
 - Added exclusions for the brothels&#39; main attractions being near the church...
 - Minor code cleanup behind the scenes
 
-v.0.2.0
+&lt;&lt;linkappend &quot;v.0.2.0&quot;&gt;&gt;
 - Added vegetarian &amp; carnivorous menus based on tavern&#39;s roughness.
 - Replaced attribute buttons with sliders (that actually work)
 - Added races
@@ -3082,8 +3908,9 @@ v.0.2.0
 - Added descriptions of taverns based on size and draw.
 - Made room availability dependent on size, and current population of the tavern.
 
-v.0.1.0
-* First release</tw-passagedata><tw-passagedata pid="27" name="CodeSnippets" tags="" position="850,350">/*
+&lt;&lt;linkappend &quot;v.0.1.0&quot;&gt;&gt;
+* First release
+&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="CodeSnippets" tags="" position="600,475">/*
 tweego -o EEEG.html github/Eigengrau
 
 export TWEEGO_PATH=/Users/admin/Documents/Twine/story-formats/
@@ -3098,7 +3925,7 @@ either($potion.smell)
 
 &lt;div class=&#39;descriptive&#39;&gt;Test &lt;/div&gt;
 
-*/</tw-passagedata><tw-passagedata pid="28" name="Credits" tags="output" position="975,350">Many thanks to /u/FamousHippopotamus and /u/OrkishBlade for their excellent tables and DMing advice over the years. Shoutout to /r/twinegames and the good folks in the Discord server who helped a total newb learn how to code in Twine.
+*/</tw-passagedata><tw-passagedata pid="36" name="Credits" tags="output" position="725,475">Many thanks to /u/FamousHippopotamus and /u/OrkishBlade for their excellent tables and DMing advice over the years. Shoutout to /r/twinegames and the good folks in the Discord server who helped a total newb learn how to code in Twine.
 
 This software is provided on an as-is basis, and no warranty or guarantee that it works is provided. This software will always be free, without any ads or for any pay. If you have purchased this software, seek a refund immediately.
 
@@ -3116,25 +3943,21 @@ The following user&#39;s content appears in this instance (i.e. only the content
 $specialbrew.author
 
 &lt;&lt;linkappend &quot;To Do List&quot;&gt;&gt;
-&lt;&lt;include &quot;ToDo&quot;&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Inactive Stuff" tags="" position="1100,350">Ships
+&lt;&lt;include &quot;ToDo&quot;&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="Inactive Stuff" tags="" position="850,475">Ships
 
-Smithy and Blacksmith</tw-passagedata><tw-passagedata pid="30" name="Submission Form" tags="" position="1225,350">&lt;&lt;include &quot;Bugs&quot;&gt;&gt;
+Smithy and Blacksmith</tw-passagedata><tw-passagedata pid="38" name="Submission Form" tags="" position="975,475">&lt;&lt;include &quot;Bugs&quot;&gt;&gt;
 
-&lt;iframe src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSekxPe31_N0dzBiE_4CpqAXTQzJoH_XUQcxV2O1C35UsVXvEw/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;500&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="31" name="ToDo" tags="" position="100,475">- Implement Fairmath for some modifiers
+&lt;iframe src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSekxPe31_N0dzBiE_4CpqAXTQzJoH_XUQcxV2O1C35UsVXvEw/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;500&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="39" name="ToDo" tags="" position="1100,475">- Implement Fairmath for some modifiers
 - Implement neighbouring taverns
 - Implement overview of the town
 - Implement pickpocketing
 - More rumours
-- Implement variable tavern prices based on size, cleanliness, wealth.
-  - Fix how lodging is priced during the render phase so it can be modified
 - Implement brawls in the tavern
-- Implement alchemist&#39;s shop
 
-&lt;&lt;include &quot;Bugs&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Bugs" tags="" position="225,475">Known bugs:
 
-Tavern lodging costs aren&#39;t displaying properly
-#shortages isn&#39;t playing nicely
-Looking around the tavern has linkreplace bugs.</tw-passagedata><tw-passagedata pid="33" name="Books" tags="" position="350,475">&lt;&lt;set $book to {
+&lt;&lt;include &quot;Bugs&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Bugs" tags="" position="1225,475">Known bugs:
+
+&lt;iframe&gt;src=&quot;https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues&quot; height=&quot;80%&quot; width=&quot;80%&quot;&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="41" name="Books" tags="" position="100,600">&lt;&lt;set $book to {
   pun: [&quot;How to make Illusions and Charm People&quot;,
 &quot;The Illithid by Homer&quot;,
 &quot;Memoirs of a Genasi&quot;,
@@ -3172,7 +3995,7 @@ Looking around the tavern has linkreplace bugs.</tw-passagedata><tw-passagedata 
 &quot;One Thousand and One Knights&quot;,
 &quot;The Grapes of Wraith: Wining and Dining the Undead&quot;,
 &quot;The Adventures of Nancy Druid&quot;]
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="Guard" tags="" position="475,475">&lt;&lt;set $guardcaptain to setup.createNPC()&gt;&gt;
+}&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Guard" tags="" position="225,600">&lt;&lt;set $guardcaptain to setup.createNPC()&gt;&gt;
 &lt;&lt;set $guard to {}&gt;&gt;
 
 
@@ -3208,7 +4031,7 @@ Looking around the tavern has linkreplace bugs.</tw-passagedata><tw-passagedata 
 		&lt;&lt;set $guard.size to &quot;squad&quot;&gt;&gt;
 	&lt;&lt;elseif $guard.population lte 10&gt;&gt;
 		&lt;&lt;set $guard.size to &quot;militia&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Markets" tags="" position="600,475">&lt;&lt;set $market to {
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Markets" tags="" position="350,600">&lt;&lt;set $market to {
   selling: [&quot;Ale by the pint&quot;,
 &quot;Amulets and totems&quot;,
 &quot;Apples&quot;,
@@ -3309,7 +4132,7 @@ Looking around the tavern has linkreplace bugs.</tw-passagedata><tw-passagedata 
 &quot;Wool shirts and caps&quot;,
 &quot;Woven baskets&quot;, 
 &quot;Young horses and ponies&quot;]
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Mercenaries" tags="" position="725,475">&lt;&lt;set $mercenarycaptain to setup.createNPC()&gt;&gt;
+}&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="Mercenaries" tags="" position="475,600">&lt;&lt;set $mercenarycaptain to setup.createNPC()&gt;&gt;
 &lt;&lt;set $mercenary to {
   colours: [
     &quot;black&quot;,
@@ -3424,7 +4247,7 @@ Looking around the tavern has linkreplace bugs.</tw-passagedata><tw-passagedata 
     &quot;scimitars&quot;,
     &quot;scimitars and a shields&quot;]
 }&gt;&gt;
-&lt;&lt;set $mercenary.readout to &quot;A group of mercenaries sit in the corner of the room, armed to the teeth with &quot; + either($mercenary.weapon) + &quot;, wearing &quot; + either($mercenary.colours) + &quot; livery over their &quot; + either($mercenary.armour) + &quot; with an insignia of &quot; + either($mercenary.insignia) + &quot;. They are &quot; + either($mercenary.attitude) + &quot; towards their commander $mercenarycaptain.name, who is &quot; + either($mercenary.commander) + &quot;. They specialise in &quot; + either($mercenary.specializes) + &quot;, and are notorious for &quot; + either($mercenary.notorious) + &quot;. They are famous for their &quot; + either($mercenary.tactics) + &quot;, and are currently &quot; + either($mercenary.currently) + &quot;.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="Raiders" tags="" position="850,475">&lt;&lt;set $raiders to {
+&lt;&lt;set $mercenary.readout to &quot;A group of mercenaries sit in the corner of the room, armed to the teeth with &quot; + either($mercenary.weapon) + &quot;, wearing &quot; + either($mercenary.colours) + &quot; livery over their &quot; + either($mercenary.armour) + &quot; with an insignia of &quot; + either($mercenary.insignia) + &quot;. They are &quot; + either($mercenary.attitude) + &quot; towards their commander $mercenarycaptain.name, who is &quot; + either($mercenary.commander) + &quot;. They specialise in &quot; + either($mercenary.specializes) + &quot;, and are notorious for &quot; + either($mercenary.notorious) + &quot;. They are famous for their &quot; + either($mercenary.tactics) + &quot;, and are currently &quot; + either($mercenary.currently) + &quot;.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="Raiders" tags="" position="600,600">&lt;&lt;set $raiders to {
   exorting: either([
     &quot;&lt;&lt;print random(2, 10)&gt;&gt; CP per week from each family&quot;,
     &quot;&lt;&lt;print random(5, 12)&gt;&gt; CP per from from each family&quot;,
@@ -3508,7 +4331,7 @@ Looking around the tavern has linkreplace bugs.</tw-passagedata><tw-passagedata 
     &quot;It&#39;s hard to make our payments, but that&#39;s just how things work out here. We&#39;d rather not risk inciting the raiders to anger.&quot;,
     &quot;Just when we thought things couldn&#39;t get worse, one of our daughters was found murdered and brutalized. Enough is enough!&quot;
     ])
-    }&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Rings" tags="" position="975,475">&lt;&lt;set $ring to {
+    }&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Rings" tags="" position="725,600">&lt;&lt;set $ring to {
   material: [
     &quot;gold&quot;,
     &quot;white gold&quot;,
@@ -3647,7 +4470,7 @@ Gain the cooperation of a world leader (d6): 1. brutal warlord; 2. high priest o
 Unlock ancient knowledge and secrets.
 Gain immense wealth and influence.
 Conquer the world.
-Open portals to other realms.</tw-passagedata><tw-passagedata pid="39" name="Newspaper" tags="" position="1100,475">&lt;&lt;set $newspaperheadline to either([&quot;NPC attempts to become player, ridiculed.&quot;,
+Open portals to other realms.</tw-passagedata><tw-passagedata pid="47" name="Newspaper" tags="" position="850,600">&lt;&lt;set $newspaperheadline to either([&quot;NPC attempts to become player, ridiculed.&quot;,
 &quot;Underground homunculi fights discovered - homunculi sales increase.&quot;,
 &quot;Wizard house vanishes in the night, locals suspect shenanigans.&quot;,
 &quot;Doppelganger discovered in mayor&#39;s place. Townsfolk agree he&#39;s better than the old.&quot;,
@@ -3746,7 +4569,7 @@ Open portals to other realms.</tw-passagedata><tw-passagedata pid="39" name="New
 &quot;Adventurer teaches blink dog Common. &#39;Wow. Very language.&#39; comments dog.&quot;,
 &quot;Unidentified kobold mage summons sarrukh. Apocalypse scheduled for 6 PM.&quot;,
 &quot;Evil Lich Necromancer escaped prison. Wanted dead or alive.&quot;,
-&quot;Impersonator discovers his house is a mimic&quot;])&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="PlotHook" tags="" position="1225,475">&lt;&lt;set $plothook to {
+&quot;Impersonator discovers his house is a mimic&quot;])&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="PlotHook" tags="" position="975,600">&lt;&lt;set $plothook to {
 	people: [&quot;I overheard from two servants that they plan to poison the Lord of $town.name! I&#39;ve tried to get in to his grounds, but the doorguard won&#39;t listen to me because I&#39;m just a nobody... Please, save him!&quot;,
 	&quot;There&#39;s a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name&#39;s security detail.&quot;,
 	&quot;There&#39;s a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great &lt;&lt;print $name.man.pluck()&gt;&gt;? Well, last week, thieves broke in to the Songsmith&#39;s mansion, but the only thing that the scoundrels took was the bard&#39;s voice. There&#39;s a handsome reward for the return of it, too.&quot;,
@@ -3867,7 +4690,7 @@ Ever since the ascension of the new baron/burgher, criminals have been taken int
 A public execution is taking place in the town square, the town is split on whether the accused is actually guilty. (u/crunkDealer)
 A house/shop in the middle of town has vanished entirely, as if it were just erased from creation. A strange scent and magical residue permeates the premises. (u/crunkDealer)
 A very belligerent (and often drunk) old man is causing problems in town. The hangup: it is the burgher&#39;s dearly beloved uncle who remains an extremely proficient fighter in his advanced age. The guard can&#39;t apprehend him without serious injury to the man. (u/crunkDealer)
-*/</tw-passagedata><tw-passagedata pid="41" name="PlotHookCity" tags="" position="100,600">&lt;&lt;set $plothook.city to [&quot;The town guard think the party&#39;s mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the real culprit before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?&quot;,
+*/</tw-passagedata><tw-passagedata pid="49" name="PlotHookCity" tags="" position="1100,600">&lt;&lt;set $plothook.city to [&quot;The town guard think the party&#39;s mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the real culprit before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?&quot;,
 &quot;The party is taken aside to the guardhouse upon first entering the city. They are told the guard captain wants to speak with them. When the captain arrives, he attempts to shake down the party under pain of death.&quot;,
 &quot;A woman falls into the street from the second story window in front of the party and dies on impact. Soon after, a PC notices a hooded figure skillfully dropping, uninjured, from another second story window facing into the alley. The figure quickly disappears into a maze of side streets.&quot;,
 &quot;The party is invited to a manor by an important socialite for a potential job opportunity. When they arrive, they are told to wait in an empty room. Soon after entering the room, the party realizes they are locked in with a magical ward.&quot;,
@@ -3916,16 +4739,16 @@ A very belligerent (and often drunk) old man is causing problems in town. The ha
 &quot;The PCs are hired as security for the auction of a mysterious artifact. While stopping repeated theft and auction-rigging attempts, they eventually learn of its evil nature and have to debate breaking their contract and destroying the thing while getting away with it.&quot;,
 &quot;Someone falls out the window of a high building. It wasn&#39;t suicide as he had his hands and feet bound together and three large sacks of gold tied around his neck. What will be more important, the murder or the money?&quot;,
 &quot;A rich man walks through a bad part of town with obvious riches and money. If mugged, he gives it willingly. He has been doing this for the last three days.&quot;,
-&quot; small animal brushes past the PCs as they walk along a dock. After it jumps into the water, a group of sailors rushes onto the dock, firing crossbows and flinging harpoons at the ripples the animal left in the water. While the sailors curse and fire the last few missiles they have, one of the PCs notices the animal left a muddy gem on the top of her shoe.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="PlotHookPaper" tags="" position="225,600">You see a noticeboard next to the $tavern.wordnoun&#39;s $tavern.material bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like &#39;have chook, want grain&#39;, &#39;have grain, want chook&#39;. One catches your eye, though; it reads &#39;&lt;&lt;print $plothook.paper.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="43" name="PlotHookPeople" tags="" position="350,600">&lt;&lt;set $plotguy to setup.createNPC()&gt;&gt;You wander around the $tavern.wordnoun, and eventually find yourself in conversation with a $plotguy.height, $plotguy.weight $plotguy.gender who introduces $plotguy.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt; as $plotguy.firstname $plotguy.lastname&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; You can&#39;t help but notice $plotguy.firstname has a &lt;&lt;print $plotguy.physicaltrait&gt;&gt;. You explain that you are adventurers, looking for work or otherwise profitable endeavours, and $plotguy.hisher $plotguy.eyes eyes light up, and $plotguy.firstname draws you closer, and whispers in a hushed tone &#39;I may have something of interest for you, in that case; &lt;&lt;print $plothook.people.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="44" name="PlotHookRumour" tags="" position="475,600">&lt;&lt;nobr&gt;&gt;&lt;&lt;set _PlotHookRumourRoll to random(1, 2)&gt;&gt;
+&quot; small animal brushes past the PCs as they walk along a dock. After it jumps into the water, a group of sailors rushes onto the dock, firing crossbows and flinging harpoons at the ripples the animal left in the water. While the sailors curse and fire the last few missiles they have, one of the PCs notices the animal left a muddy gem on the top of her shoe.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="PlotHookPaper" tags="" position="1225,600">You see a noticeboard next to the $tavern.wordnoun&#39;s $tavern.material bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like &#39;have chook, want grain&#39;, &#39;have grain, want chook&#39;. One catches your eye, though; it reads &#39;&lt;&lt;print $plothook.paper.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="51" name="PlotHookPeople" tags="" position="100,725">&lt;&lt;set $plotguy to setup.createNPC()&gt;&gt;You wander around the $tavern.wordnoun, and eventually find yourself in conversation with a $plotguy.height, $plotguy.weight $plotguy.gender who introduces $plotguy.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt; as $plotguy.firstname $plotguy.lastname&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; You can&#39;t help but notice $plotguy.firstname has a &lt;&lt;print $plotguy.physicaltrait&gt;&gt;. You explain that you are adventurers, looking for work or otherwise profitable endeavours, and $plotguy.hisher $plotguy.eyes eyes light up, and $plotguy.firstname draws you closer, and whispers in a hushed tone &#39;I may have something of interest for you, in that case; &lt;&lt;print $plothook.people.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="52" name="PlotHookRumour" tags="" position="225,725">&lt;&lt;nobr&gt;&gt;&lt;&lt;set _PlotHookRumourRoll to random(1, 2)&gt;&gt;
 &lt;&lt;if _PlotHookRumourRoll is 1&gt;&gt;
 You make your way around the $tavern.wordnoun, and chat with a couple of the locals. They are friendly enough for simple $town.type folk, and are happy to share a drink with you, and gossip easily- apparently, $bartender.name $bartender.trait&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; When you steer the conversation towards rumours that they&#39;ve heard, the half-drunk &lt;&lt;print either(&quot;man&quot;, &quot;woman&quot;)&gt;&gt; looks around, and in a hushed voice, whispers
 	&lt;&lt;elseif _PlotHookRumourRoll is 2&gt;&gt;
 You talk amongst the good folk of $town.name, who seem pleasant enough. They gossip easily, and reckon that $tavern.name is only known for its $tavern.draw, and that the pub across the road is totally way better. You steer the conversation towards topics that are more interesting to adventurers such as yourselves, and the drunk &lt;&lt;print $npc.weight.random()&gt;&gt; &lt;&lt;print either(&quot;man&quot;, &quot;woman&quot;, &quot;person whose gender you can&#39;t quite pin down&quot;)&gt;&gt; looks around, and whispers in a hushed voice
-&lt;&lt;/if&gt;&gt;&#39;&lt;&lt;print $plothook.rumour.pluck()&gt;&gt;&#39;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="PlotHookThings" tags="" position="600,600">To be added.</tw-passagedata><tw-passagedata pid="46" name="ReputationDescriptor" tags="" position="725,600">&lt;&lt;nobr&gt;&gt;&lt;&lt;if $tavern.type == &quot;regular&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;&#39;&lt;&lt;print $plothook.rumour.pluck()&gt;&gt;&#39;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="PlotHookThings" tags="" position="350,725">To be added.</tw-passagedata><tw-passagedata pid="54" name="ReputationDescriptor" tags="" position="475,725">&lt;&lt;nobr&gt;&gt;&lt;&lt;if $tavern.type == &quot;regular&quot;&gt;&gt;
 		&lt;&lt;print &quot;just a regular inn, known&quot;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;print $tavern.reputation&gt;&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Fairmath" tags="" position="850,600">/*
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Fairmath" tags="" position="600,725">/*
 
 &lt;&lt;widget &quot;wealthincrease&quot;&gt;&gt;
 &lt;&lt;set $tavern.wealthrollresult to Math.round($args[0]+((100-$args[0])*($args[1]/100))) &gt;&gt;
@@ -3991,7 +4814,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &lt;&lt;set $tavern.cleanlinessrollresult to Math.round($args[0]-($args[0]*($args[1]/100) )) &gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
-*/</tw-passagedata><tw-passagedata pid="48" name="MathClamp" tags="render" position="975,600">&lt;&lt;if $smithy.magicroll gt 100&gt;&gt;
+*/</tw-passagedata><tw-passagedata pid="56" name="MathClamp" tags="render" position="725,725">&lt;&lt;if $smithy.magicroll gt 100&gt;&gt;
     &lt;&lt;set $smithy.magicroll to 100&gt;&gt;
   &lt;&lt;elseif $smithy.magicroll lt 1&gt;&gt;
     &lt;&lt;set $smithy.magicroll to 1&gt;&gt;
@@ -4187,9 +5010,9 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
     &lt;&lt;set $tavern.activityroll to 100&gt;&gt;
   &lt;&lt;elseif $tavern.activityroll lt 1&gt;&gt;
     &lt;&lt;set $tavern.activityroll to 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="PassageHeader" tags="" position="1100,600">&lt;h5&gt;The $town.type of [[$town.name|Start]]&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="50" name="PassageReady" tags="" position="1225,600">&lt;&lt;for _passage range Story.lookup(&quot;tags&quot;, &quot;render&quot;)&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="PassageHeader" tags="" position="850,725">&lt;h5&gt;The $town.type of [[$town.name|Start]]&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="58" name="PassageReady" tags="" position="975,725">&lt;&lt;for _passage range Story.lookup(&quot;tags&quot;, &quot;render&quot;)&gt;&gt;
     &lt;&lt;include _passage.title&gt;&gt;
-&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="StoryAuthor" tags="" position="100,725">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="52" name="StoryInit" tags="" position="225,725">&lt;&lt;set $versionnumber to &quot;0.3&quot;&gt;&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="StoryAuthor" tags="" position="1100,725">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="60" name="StoryInit" tags="" position="1225,725">&lt;&lt;set $versionnumber to &quot;1.0&quot;&gt;&gt;
 
 
 &lt;&lt;include &quot;Town&quot;&gt;&gt;
@@ -4254,20 +5077,30 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 
 &lt;&lt;include &quot;SmithyNameGen&quot;&gt;&gt;
 
+&lt;&lt;include &quot;GeneralStore&quot;&gt;&gt;
+
+&lt;&lt;include &quot;GeneralStoreInventory&quot;&gt;&gt;
+
+&lt;&lt;include &quot;GeneralStoreModifiers&quot;&gt;&gt;
+
+&lt;&lt;include &quot;GeneralStoreNameGen&quot;&gt;&gt;
+
+&lt;&lt;include &quot;GeneralStoreRenders&quot;&gt;&gt;
+
 &lt;&lt;include &quot;Books&quot;&gt;&gt;
 
 &lt;&lt;include &quot;TavernGames&quot;&gt;&gt;
 
 &lt;&lt;include &quot;TownMicroEvents&quot;&gt;&gt;
 
-&lt;&lt;include &quot;Mercenaries&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="StoryMenu" tags="" position="350,725">[[Credits]]
+&lt;&lt;include &quot;Mercenaries&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="StoryMenu" tags="" position="100,850">[[Credits]]
 
 &lt;&lt;link &quot;Submit a Suggestion&quot;&gt;&gt;&lt;&lt;include &quot;Submission Form&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
 
 /*&lt;&lt;link &quot;Check Variables&quot;&gt;&gt;&lt;&lt;checkvars&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-&lt;&lt;link &quot;Create Bug Report&quot;&gt;&gt;&lt;&lt;bugreport &quot;Bug Report Instructions&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="54" name="Widgets" tags="widget widgets" position="475,725">/*
+&lt;&lt;link &quot;Create Bug Report&quot;&gt;&gt;&lt;&lt;bugreport &quot;Bug Report Instructions&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="62" name="Widgets" tags="widget widgets" position="225,850">/*
 &lt;&lt;nobr&gt;&gt;&lt;&lt;widget &quot;money&quot;&gt;&gt;
 &lt;&lt;if Math.floor($args / 100) gte 1 &amp;&amp; Math.floor(($args / 10) % 10) gte 1 &amp;&amp; Math.floor($args % 10) gte 1&gt;&gt;
 		&lt;&lt;print Math.floor($args / 100)&gt;&gt; Gold, &lt;&lt;print Math.floor(($args / 10) % 10)&gt;&gt; Silver, and also &lt;&lt;print Math.floor($args % 10)&gt;&gt; Copper
@@ -4329,7 +5162,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 		&lt;&lt;set $args.manwoman to &quot;woman&quot;&gt;&gt;
 		&lt;&lt;set $args.menwomen to &quot;women&quot;&gt;&gt;
 		&lt;&lt;set $args.guygirl to &quot;girl&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;&lt;&lt;/widget&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Ships" tags="" position="600,725">&lt;&lt;set $ship to {
+&lt;&lt;/switch&gt;&gt;&lt;&lt;/widget&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Ships" tags="" position="350,850">&lt;&lt;set $ship to {
 	name: [&quot;Lantheon&quot;, &quot;Starchaser&quot;, &quot;Dryad’s Fury&quot;, &quot;Black Trident&quot;, &quot;Corellon’s Arrow&quot;, &quot;Morkoth&quot;,&quot;Koalinthas&quot;, &quot;Sehanine’s Fool&quot;, &quot;Stormcrow&quot;, &quot;Vaazrus&quot;, &quot;Shield of Khahar&quot;, &quot;Stingray&quot;, &quot;Sanaj-Rakal&quot;,&quot;Zhal-Vazir&quot;, &quot;Griffonwing&quot;, &quot;Blademark&quot;, &quot;Golden Libram&quot;, &quot;Hareth’s Barrel&quot;, &quot;Kasha’s Wake&quot;, &quot;Shining Flute&quot;,&quot;White Feather&quot;, &quot;Riventide&quot;, &quot;Moonriser&quot;, &quot;Gem of Malfier&quot;, &quot;Dragon’s Glory&quot;, &quot;Menacer&quot;, &quot;Scarlet Dagger&quot;,
 	&quot;Kral-Tajir&quot;, &quot;Ravager&quot;, &quot;Kerle’s Drum&quot;, &quot;Heart of Avandra&quot;, &quot;Goldraker&quot;, &quot;Sea Haunt&quot;, &quot;Storm Maven&quot;,&quot;Grimbol’s Cutlass&quot;, &quot;Scimitar&quot;, &quot;Black Gauntlet&quot;, &quot;Iron Maiden&quot;, &quot;Wavecrusher&quot;, &quot;Hammer of Kavath&quot;,
 	&quot;Waterblade&quot;, &quot;Arkhor’s Secret&quot;, &quot;Dire Gar&quot;, &quot;Prallmar’s Shadow&quot;, &quot;Piranha&quot;, &quot;Devil’s Fork&quot;, &quot;Tuersyl’s Fist&quot;, &quot;Daraj-Vzan&quot;, &quot;Silver Chalice&quot;, &quot;Demonrudder&quot;, &quot;Turathi Flame&quot;, &quot;Storm’s Eye&quot;,
@@ -4338,7 +5171,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 	&quot;Dominant&quot;, &quot;Shoal Courser&quot;, &quot;Crescent Moon&quot;, &quot;Crystal Tear&quot;, &quot;Kara-Vaji&quot;, &quot;Shalastar&quot;, &quot;Roc’s Talon&quot;, &quot;Wavecarver&quot;, &quot;Graethan&quot;, &quot;Rotten Apple&quot;, &quot;Bharzim’s Victory&quot;, &quot;Avarice&quot;, &quot;Farak-Changal&quot;, &quot;Falling Star&quot;, &quot;Crimson Knife&quot;, &quot;Yisek’s Ride&quot;, &quot;Shara-Vaja&quot;, &quot;Varalan’s Dweomer&quot;, &quot;Rangoth&quot;, &quot;Vostarika&quot;, &quot;Mirasandra&quot;, &quot;Second Chance&quot;, &quot;Redfeather&quot;, &quot;Maal-Destir&quot;, &quot;Scorpion&quot;, &quot;Ghorzaar’s Bane&quot;, &quot;Moonwatcher&quot;, &quot;Dragon’s Crown&quot;, &quot;Dragonhawk&quot;, &quot;Dancing Sword&quot;, &quot;Kaveth’s Whisper&quot;, &quot;Tirah&quot;, &quot;Phantom Shark&quot;, &quot;Hjeltia&quot;, &quot;Satyr&quot;, &quot;Breyten’s Thrill&quot;, &quot;Golden Coin&quot;, &quot;Pearl of Fire&quot;, &quot;Bhez-Rizma&quot;, &quot;Fireball&quot;, &quot;Color Spray&quot;, &quot;Sea Bear&quot;, &quot;Prosperous&quot;, &quot;Summer Rain&quot;, &quot;Sundowner&quot;, &quot;Skulldark’s Ire&quot;, &quot;Skandalor&quot;, &quot;Zarkanan&quot;, &quot;Sana-Losi&quot;, &quot;Wolfshark&quot;, &quot;Song of Elyndri&quot;, &quot;Coral Rose&quot;, &quot;Rune of Halendros&quot;, &quot;Maelstrom&quot;, &quot;Shadow Mask&quot;, &quot;Deep Heathen&quot;, &quot;Aurora&quot;, &quot;Rusted Cutlass&quot;, &quot;Thog’s Maul&quot;, &quot;Wooden Stake&quot;, &quot;Hellstrike&quot;, &quot;Scepter Queen&quot;, &quot;Prince of Lies&quot;, &quot;Fang of Tezmyr&quot;, &quot;White Hart&quot;, &quot;Floating Cask&quot;, &quot;Sea Howler&quot;, &quot;Frostwind&quot;, &quot;Moonshadow&quot;, &quot;Melora’s Favor&quot;, &quot;Dark Queen’s Voice&quot;, &quot;Chethel’s Ghost&quot;, &quot;Mad Hag&quot;, &quot;Tamarion’s Grudge&quot;, &quot;Raven’s Gamble&quot;, &quot;Reckoner&quot;, &quot;Wraithwind&quot;, &quot;Kalisa Tano&quot;, &quot;Beholder&quot;, &quot;Slippery Trickster&quot;, &quot;Retribution&quot;, &quot;Whirling Glyph&quot;, &quot;Lady Rose&quot;, &quot;Karthang’s Plunder&quot;, &quot;Good Fortune&quot;, &quot;Axe of Thard&quot;, &quot;Black Bow&quot;, &quot;Quickstrike&quot;, &quot;Thelandira&quot;, &quot;Hammergust&quot;, &quot;Barracuda&quot;, &quot;Sahandrian’s Quarrel&quot;, &quot;Feral Knave&quot;, &quot;Wildwyrm&quot;, &quot;Shevaya’s Honor&quot;, &quot;Blackhelm’s Legacy&quot;, &quot;Wyvern’s Sting&quot;, &quot;Dragonroar&quot;, &quot;Kegstaff&quot;, &quot;Oaken Ranger&quot;, &quot;Timber Serpent&quot;, &quot;Desperate Sorceress&quot;, &quot;Screaming Gull&quot;, &quot;Greedy Drake&quot;, &quot;Light of Pjaltr&quot;, &quot;Fate’s Blessing&quot;, &quot;Stardancer&quot;, &quot;Leering Skull&quot;, &quot;Ebon Moon&quot;, &quot;Werewolf&quot;, &quot;Redemption&quot;, &quot;Zaetchan’s Privilege&quot;, &quot;Sea Skulk&quot;, &quot;Savage Swan&quot;, &quot;Bane’s Breath&quot;, &quot;Ghorok’s Grail&quot;, &quot;Emerald Eye&quot;, &quot;Remorseless&quot;, &quot;Skiprock&quot;, &quot;Zaetra&quot;, &quot;Silverfin&quot;, &quot;Risen Ghost&quot;, &quot;Listless&quot;, &quot;Vortex&quot;, &quot;Advantage&quot;, &quot;Autumn Song&quot;, &quot;Trystan’s Delight&quot;, &quot;Soaring Manta&quot;, &quot;Calomaar’s Edge&quot;, &quot;Saerthzal&quot;, &quot;Iron Trumpet&quot;, &quot;Locathah&quot;, &quot;Demonskull&quot;, &quot;Arrowhead&quot;, &quot;Frastain’s Bottle&quot;],
 	type: [&quot;caravel&quot;, &quot;carrack&quot;, &quot;crayer&quot;, &quot;hoy&quot;, &quot;picard&quot;, &quot;galley&quot;, &quot;longship&quot;, &quot;balinger&quot;, &quot;frigate&quot;, &quot;galleon&quot;, &quot;galleass&quot;, &quot;galley&quot;, &quot;nef&quot;]
 	}
-&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="ShitPlotHooks" tags="" position="725,725">&lt;&lt;set $shitplothook to [&quot;A bard. Not a magic one. Just a bard. Like y&#39;know. A minstrel or some shit he&#39;s ok I guess.&quot;,
+&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="ShitPlotHooks" tags="" position="475,850">&lt;&lt;set $shitplothook to [&quot;A bard. Not a magic one. Just a bard. Like y&#39;know. A minstrel or some shit he&#39;s ok I guess.&quot;,
 &quot;Man chasing after a woman through a corn field. Distant saxophone is heard before both get eaten by a troll which chokes to death on them.&quot;,
 &quot;The world&#39;s highest dragon lands, eats three deer, tries to fly, crashes, then just sleeps where he fell.&quot;,
 &quot;A circus is in town. A shitty circus. Like a mobile Chuck E. Cheeses during a power outage.&quot;,
@@ -4411,8 +5244,8 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &quot;Two bards are actually killing a particular song. The crowd around them is pretty into it.&quot;,
 &quot;A man is selling hats. He&#39;s willing to trade for skins if anyone in the party has any.&quot;,
 &quot;The party sees a mild acquaintance. S/He offers to get lunch with them.&quot;, &quot;The party sees a mild annoyance. S/He flips them the bird before wandering off.&quot;, &quot;A pie eating contest is in progress. It looks like it&#39;s down to the blacksmith&#39;s son or the cowherd&#39;s daughter.&quot;, &quot;Two teenagers are walking down the street holding hands and blushing whenever one catches the other&#39;s eye.&quot;, &quot;The wizard steps in shit. Roll 1d4 to see what kind. 1- Cow, 2- Cow, 3- Cow, 4- Builette.&quot;, &quot;A group of bandits charge, but petter out before combat engages because the party looks too tough to take on.&quot;, &quot;Seven men in hooded robes are fumbling around. Overhead is: &#39;Hey John, I think I&#39;ve got your robes&#39; &#39;Damnit Sev, your wife swapped our hoods again.&#39; and &#39;Who&#39;s got my sash? It was the scarlet one.&#39;&quot;,&quot;A drow is hung over on the side of the road. A three empty bottles of dwarven ale are nearby. He&#39;s waving his hands about muttering &#39;Turn off the sun.&#39; Shortly after Dancing Lights twirl around his location as he lets out a groan of pain.&quot;, &quot;A dwarf is passed out in a puddle of his own drool on the side of the road. A half empty bottle of elven wine is nearby.&quot;, &quot;A friendly dog comes by and starts begging for treats from the most cleric-like party member.&quot;, &quot;An unfriendly dog attempts to pee on the most wizard-like party member.&quot;, &quot;Two old men are playing some sort of game on the side of the road talking mostly in murmurs, grunts, and chortles.&quot;, &quot;Two old women are gossiping nearby knitting scarves longer than they are tall that are growing by the inch as you watch.&quot;, &quot;A man is juggling torches nearby. Nothing goes amiss.&quot;, &quot;Two young teenagers are arguing about whether a dragon could be three owlbears if the owlbears had armor and magic wands and the dragon had a sword.&quot;, &quot;A local noble is in town collecting his due taxes.&quot;, &quot;The worst bandit in the world attempts to way-lay the party with a sharpened stick and a dented pot lit. If actually confronted he faints in shock.&quot;, &quot;The wizard discovers he has a sign pinned to the back of his robes reading &#39;Ass-zard&#39;. It is unknown when it was placed there or how long it&#39;s been there.&quot;, &quot;A dungeon is nearby, if investigated it turns out that it&#39;s still in the process of being excavated and won&#39;t be ready for several more years.&quot;, &quot;The thief find a socket puppet nestled amongst his belongings. It appears to be made from one of the wizards socks.&quot;, &quot;The fighter finds a flask of good booze they had forgot about amongst their belongings.&quot;, &quot;The cleric finds a bag of honeyed nuts amongst her belongings.&quot;
-*/</tw-passagedata><tw-passagedata pid="57" name="Start" tags="output" position="850,725">&lt;h1&gt;Eigengrau&#39;s Essential Establishment Generator&lt;/h1&gt;
-Welcome to Eigengrau&#39;s Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
+*/</tw-passagedata><tw-passagedata pid="65" name="Start" tags="output" position="600,850">&lt;h1&gt;Eigengrau&#39;s Essential Establishment Generator&lt;/h1&gt;
+&lt;span class=&quot;firstcharacter&quot;&gt;W&lt;/span&gt;elcome to Eigengrau&#39;s Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
 &lt;&lt;linkappend &quot;&lt;h4&gt;Changelog&lt;/h4&gt;&quot; t8n&gt;&gt;
 &lt;&lt;include &quot;Changelog&quot;&gt;&gt;&lt;&lt;linkappend &quot;&lt;h5&gt;To Do List&lt;/h5&gt;&quot; t8n&gt;&gt;
 &lt;&lt;include &quot;ToDo&quot;&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
@@ -4427,7 +5260,9 @@ Town Population: &lt;&lt;numberslider &quot;$town.population&quot; $town.populat
 
 &lt;&lt;print either(&quot;On $smithy.road is the blacksmith &quot;, &quot;Along $smithy.road is the blacksmithery &quot;, &quot;Over on $smithy.road is the smith &quot;)&gt;&gt;[[$smithy.name|InitSmithy]]
 
-&lt;&lt;print either(&quot;On $alchemist.road is the &quot;, &quot;And on $alchemist.road is the &quot;, &quot;And finally, on $alchemist.road is the &quot;)&gt;&gt;[[$alchemist.name|InitAlchemist]]</tw-passagedata><tw-passagedata pid="58" name="Bartender" tags="" position="975,725">&lt;&lt;set $bartender to setup.createNPC()&gt;&gt;
+&lt;&lt;print either(&quot;Along $GeneralStore.road is the general store &quot;, &quot;On $GeneralStore.road is the supplies store &quot;, &quot;On $GeneralStore.road is the general store &quot;)&gt;&gt;[[$GeneralStore.name|InitGeneralStore]]
+
+&lt;&lt;print either(&quot;On $alchemist.road is the &quot;, &quot;And on $alchemist.road is the &quot;, &quot;And finally, on $alchemist.road is the &quot;)&gt;&gt;[[$alchemist.name|InitAlchemist]]</tw-passagedata><tw-passagedata pid="66" name="Bartender" tags="" position="725,850">&lt;&lt;set $bartender to setup.createNPC()&gt;&gt;
 &lt;&lt;set $bartender.idle to [&quot;polishing a glass with $bartender.hisher hands&quot;, &quot;reading a newspaper which says &lt;&lt;print $newspaperheadline&gt;&gt;&quot;, &quot;pouring a drink for a customer&quot;, &quot;taking an order from a customer&quot;, &quot;talking with a customer&quot;, &quot;picking $bartender.hisher nose&quot;, &quot;playing a card game by $bartender.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt;&quot;, &quot;checking the stock levels of the beer on tap&quot;, &quot;shouting into the kitchen, annoyed&quot;, &quot;yelling instructions into the kitchen&quot;, &quot;leaning against a stool, surveying the work of one of the barmaids&quot;],
 	$bartender.owner to either([&quot;owner&quot;, &quot;caretaker&quot;, &quot;proud owner&quot;, &quot;proprietor&quot;, &quot;current owner&quot;, &quot;manager&quot;, &quot;manager&quot;, &quot;acting manager&quot;]),
 	$bartender.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $bartender.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;]
@@ -4460,7 +5295,7 @@ Town Population: &lt;&lt;numberslider &quot;$town.population&quot; $town.populat
 		&lt;&lt;set $bartender.owner to &quot;master&quot;&gt;&gt;
 	&lt;&lt;elseif $tavern.draw is &quot;brothel&quot; &amp;&amp; $bartender.gender is &quot;woman&quot;&gt;&gt;
 		&lt;&lt;set $bartender.owner to &quot;madame&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="BartenderTalk" tags="" position="1100,725">&lt;&lt;linkreplace &quot;&lt;h4&gt;Talk with $bartender.name&lt;/h4&gt;&quot; t8n&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="BartenderTalk" tags="" position="850,850">&lt;&lt;linkreplace &quot;&lt;h4&gt;Talk with $bartender.name&lt;/h4&gt;&quot; t8n&gt;&gt;
 &lt;h3&gt;$bartender.name&lt;/h3&gt;
 $bartender.name looks &lt;&lt;print $npc.currentmood.random()&gt;&gt;, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a &lt;&lt;print $tavern.sin&gt;&gt; lot. $bartender.firstname pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says &lt;&lt;nobr&gt;&gt;
 
@@ -4509,7 +5344,7 @@ $bartender.firstname tells you that the patrons are $tavern.diversity, and that 
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;linkreplace &quot;Anything interesting been happening lately?&quot; t8n&gt;&gt;
 &#39;Well...&lt;&lt;print $plothook.rumour.pluck()&gt;&gt;&#39;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Cheese" tags="" position="1225,725">&lt;&lt;set $cheese to {
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="Cheese" tags="" position="975,850">&lt;&lt;set $cheese to {
   colour: [&quot;pale grey, with dark flecks&quot;, &quot;bright yellow&quot;, &quot;warm yellow&quot;, &quot;spotty yellow&quot;, &quot;pale yellow&quot;, &quot;light green&quot;, &quot;light greenish-yellow&quot;],
   texture: [&quot;crumbly, with a texture similar to plaster&quot;, &quot;rubbery, and squeaks while you eat it&quot;, &quot;rubbery, and squeaks rather disconcertingly while you eat it&quot;, &quot;crumbly, with bits going everywhere&quot;, &quot;somewhat rubbery&quot;, &quot;somewhat stringy&quot;, &quot;slightly stringy&quot;, &quot;rubbery, like a piece of leather that has been soaking in some greasy sludge&quot;, &quot;soft and spongey, with the occassional... crunch&quot;, &quot;soft, springy, and moist&quot;, &quot;gooey&quot;, &quot;moist and delicious&quot;, &quot;almost liquid once you bite through the rind&quot;],
   taste: [&quot;sharp&quot;, &quot;sharp and salty&quot;, &quot;somewhat bland&quot;, &quot;inoffensively mild&quot;, &quot;salty, like a cow&#39;s salt-lick&quot;, &quot;rich and creamy&quot;, &quot;creamy, with hints of oak&quot;, &quot;strong, slightly salty, and extremely more-ish&quot;, &quot;smokey, with hints of rum&quot;, &quot;smokey, with hints of chili&quot;, &quot;salty, but immediately the spice from the peppers takes over&quot;, &quot;bitter, with the rind tasting somewhere between a burnt log and dead bug, but the taste isn&#39;t entirely unpleasant&quot;, &quot;a warm and smooth creaminess which envelopes your taste buds like a mother&#39;s embrace&quot;],
@@ -4520,7 +5355,7 @@ $bartender.firstname tells you that the patrons are $tavern.diversity, and that 
 &lt;&lt;set $cheese.colourreadout to either($cheese.colour)&gt;&gt;
 &lt;&lt;set $cheese.texturereadout to either($cheese.texture)&gt;&gt;
 &lt;&lt;set $cheese.tastereadout to either($cheese.taste)&gt;&gt;
-&lt;&lt;set $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to $cheese.cost&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="InitTavern" tags="output" position="100,850">&lt;&lt;linkreplace &quot;Rename &lt;strong&gt;$tavern.name&lt;/strong&gt;&quot;&gt;&gt;&lt;h3&gt;&lt;&lt;textbox &quot;$tavern.name&quot; $tavern.name&gt;&gt;&lt;/h3&gt;&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;set $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to $cheese.cost&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="InitTavern" tags="output" position="1100,850">&lt;&lt;linkreplace &quot;Rename &lt;strong&gt;$tavern.name&lt;/strong&gt;&quot;&gt;&gt;&lt;h3&gt;&lt;&lt;textbox &quot;$tavern.name&quot; $tavern.name&gt;&gt;&lt;/h3&gt;&lt;&lt;/linkreplace&gt;&gt;
 
 Tavern Wealth: &lt;&lt;numberslider &quot;$tavern.wealthroll&quot; $tavern.wealthroll 1 100 1&gt;&gt;
 
@@ -4546,7 +5381,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 		[[output|Output3]]
 	&lt;&lt;/switch&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;set $currentpassage to $tavern&gt;&gt;
-&lt;&lt;include &quot;TavernModifiers&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Intrigue" tags="" position="225,850">&lt;&lt;linkreplace &quot;&lt;h4&gt;Anything interesting in $tavern.name?&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;h4&gt;Interesting things in $tavern.name...&lt;/h4&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;include &quot;TavernModifiers&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Intrigue" tags="" position="1225,850">&lt;&lt;linkreplace &quot;&lt;h4&gt;Anything interesting in $tavern.name?&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;h4&gt;Interesting things in $tavern.name...&lt;/h4&gt;&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set _rollintrigue to random(1, 4)&gt;&gt;
 		&lt;&lt;if _rollintrigue is 1&gt;&gt;
 			&lt;&lt;include &quot;PlotHookRumour&quot;&gt;&gt;
@@ -4560,7 +5395,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 			&lt;&lt;include &quot;PlotHookThings&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
-&lt;&lt;linkreplace &quot;They need ANOTHER plot hook?&quot;&gt;&gt;&lt;&lt;print $shitplothook.pluck()&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="LookAround" tags="" position="350,850">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;linkreplace &quot;They need ANOTHER plot hook?&quot;&gt;&gt;&lt;&lt;print $shitplothook.pluck()&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="LookAround" tags="" position="100,975">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $tavern.populationroll gt 80 &amp;&amp; $tavern.roughnessroll gt 60&gt;&gt;
 			&lt;&lt;print either(&quot;You can barely hear each other over the din of the other patrons, who are pretty rowdy. One elbows you in the ribs as they try to get around you to the bar.&quot;,
 			&quot;You find it difficult to hear each other over the din of the crowds that are drunkenly cavorting around.&quot;)&gt;&gt;
@@ -4590,7 +5425,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 			&lt;&lt;print &quot;It&#39;s almost just you and the bartender in here.&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;print $tavern.patrons.pluck()&gt;&gt;
 
-&lt;&lt;include &quot;RandomNPC&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Menu" tags="" position="475,850">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;include &quot;RandomNPC&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="Menu" tags="" position="225,975">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;linkreplace &quot;&lt;h4&gt;What&#39;s good?&lt;/h4&gt;&quot; t8n&gt;&gt;
 	&lt;h3&gt;On offer today...&lt;/h3&gt;
 	&lt;&lt;if $tavern.wealthroll gt 80 &amp;&amp; $tavern.roughness gt 80&gt;&gt;
@@ -4646,7 +5481,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 	&lt;/tr&gt;
 &lt;&lt;switch $town.type&gt;&gt;
 	&lt;&lt;case &quot;city&quot;&gt;&gt;
-	&lt;&lt;for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 4; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
+	&lt;&lt;for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
 &lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
 	&lt;&lt;/for&gt;&gt;
 	&lt;&lt;case &quot;town&quot;&gt;&gt;
@@ -4662,7 +5497,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
 	&lt;&lt;/for&gt;&gt;&lt;/table&gt;
 &lt;&lt;/switch&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Output1" tags="tavern" position="600,850">&lt;h1&gt;$tavern.name&lt;/h1&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="73" name="Output1" tags="tavern" position="350,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
 &lt;span class=&quot;firstcharacter&quot;&gt;T&lt;/span&gt;he $tavern.wordnoun is called &lt;strong&gt;$tavern.name&lt;/strong&gt;&lt;&lt;nobr&gt;&gt;,&lt;&lt;/nobr&gt;&gt; and is &lt;&lt;include &quot;ReputationDescriptor&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if $tavern.type is &quot;regular&quot;&gt;&gt;
 		&lt;&lt;print &quot;in $town.name for the cheap beer and its $tavern.sin patrons.&quot;&gt;&gt;
@@ -4682,7 +5517,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;&lt;print $tavern.entertainment.pluck()&gt;&gt;
 
 &lt;&lt;include &quot;Intrigue&quot;&gt;&gt;
-&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Output2" tags="tavern" position="725,850">&lt;h1&gt;$tavern.name&lt;/h1&gt;
+&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="74" name="Output2" tags="tavern" position="475,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
 &lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way through the $town.type of $town.name until you come to a $tavern.wordnoun, which is called &lt;strong&gt;$tavern.name&lt;/strong&gt;, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 
 &lt;h3&gt;The Bar&lt;/h3&gt;Behind the counter is who you would assume to be the bartender, a $bartender.racenote who is currently &lt;&lt;print $bartender.idle.random()&gt;&gt;. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as $bartender.name, the $bartender.owner of $tavern.name.
@@ -4691,7 +5526,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;&lt;print $tavern.entertainment.pluck()&gt;&gt;
 
 &lt;&lt;include &quot;Intrigue&quot;&gt;&gt;
-&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="Output3" tags="tavern" position="850,850">&lt;h1&gt;$tavern.name&lt;/h1&gt;
+&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="75" name="Output3" tags="tavern" position="600,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
 &lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou walk through the $town.type of $town.name, and eventually come to &lt;strong&gt;$tavern.name&lt;/strong&gt;; a $tavern.material $tavern.wordnoun which is known in the area for its $tavern.draw, and &lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;if $tavern.type is &quot;regular&quot;&gt;&gt;
@@ -4707,7 +5542,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;&lt;print $tavern.entertainment.pluck()&gt;&gt;
 
 &lt;&lt;include &quot;Intrigue&quot;&gt;&gt;
-&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="RandomNPC" tags="" position="975,850">&lt;&lt;link &quot;&lt;h4&gt;Meet a fellow adventurer!&lt;/h4&gt;&quot;&gt;&gt;
+&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="76" name="RandomNPC" tags="" position="725,975">&lt;&lt;link &quot;&lt;h4&gt;Meet a fellow adventurer!&lt;/h4&gt;&quot;&gt;&gt;
 &lt;&lt;set $tavernNPC to setup.createNPC()&gt;&gt;
     &lt;&lt;replace &quot;#NPC&quot;&gt;&gt;
           \&lt;div class=&quot;descriptive&quot;&gt;
@@ -4715,7 +5550,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
             \ A $tavernNPC.racenote is currently &lt;&lt;print $tavernNPC.idle.random()&gt;&gt; in the corner. You strike up conversation with $tavernNPC.himher, and the $tavernNPC.weight $tavernNPC.race introduces $tavernNPC.himherself as $tavernNPC.name, a $tavernNPC.dndclass who is $tavernNPC.adventure. &lt;&lt;print $tavernNPC.heshe.toUpperFirst()&gt;&gt; looks at you with $tavernNPC.hisher $tavernNPC.eyes eyes for a moment, and says &quot;Actually, you might be interested; &lt;&lt;print either(&quot;&lt;&lt;print $plothook.people.random()&gt;&gt;&quot;, &quot;&lt;&lt;print $plothook.rumour.random()&gt;&gt;&quot;)&gt;&gt;&quot;&lt;/div&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/link&gt;&gt;\
-&lt;span id=&quot;NPC&quot;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="69" name="Rooms" tags="" position="1100,850">&lt;&lt;nobr&gt;&gt;
+&lt;span id=&quot;NPC&quot;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="77" name="Rooms" tags="" position="850,975">&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;if $tavern.wealthroll gt 95&gt;&gt;
 		&lt;&lt;set $tavern.wealth to &quot;kingly&quot;&gt;&gt;
@@ -4784,7 +5619,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 		&lt;&lt;replace &quot;#room-cost&quot;&gt;&gt;&lt;&lt;include &quot;Sleep&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 		&lt;&lt;/linkreplace&gt;&gt;
 		&lt;span id=&quot;room-cost&quot;&gt;&lt;&lt;print &quot;$tavern.name has _freerooms available rooms, which are $tavern.size and $tavern.bedcleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost &lt;&lt;money $tavern.lodging&gt;&gt; to stay here for the night.&quot;&gt;&gt;&lt;/span&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Sleep" tags="" position="1225,850">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="Sleep" tags="" position="975,975">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set _restfulness to random(1, 100)&gt;&gt;
 &lt;&lt;set _sleepeasy to 0&gt;&gt;
 	&lt;&lt;if $tavern.wealth is &quot;kingly&quot;&gt;&gt;
@@ -4900,7 +5735,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 	&lt;&lt;elseif $tavern.wealth is &quot;squalid&quot;&gt;&gt;
 		&lt;&lt;print either(&quot;You start to make your way out of the $tavern.cleanliness $tavern.wordnoun, and smell something burning, and make your way down to check; when you get down to the kitchen of $tavern.name, you find $bartender.firstname sitting, chewing angrily over a bowl of burnt porridge.&quot;, &quot;You can&#39;t help but shake the feeling that there&#39;s a smell clinging to your clothes after staying the night at $tavern.name.&quot;)&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="SpecialBrew" tags="" position="100,975">&lt;&lt;set $specialbrew to either([
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="SpecialBrew" tags="" position="1100,975">&lt;&lt;set $specialbrew to either([
 	{
 	name: &quot;Gnollblood&quot;,
 	type: &quot;non-magical mead&quot;,
@@ -5012,7 +5847,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 	description: &quot;Distilled on the Elemental Plane of Air by the Djinn in a process that uses no machinery, but by captive air elementals controlling the temperatures and pressures while the liquid free floats in the air. Clear when poured but will louche when exposed to normal air pressure. Tastes of licorice, anise, and a warm breeze with a slight bitter aftertaste. Makes you lightheaded, maybe literally. Best mixed.&quot;,
 	author: &quot;twocalf&quot;
 	}
-])&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="Tavern" tags="" position="225,975">&lt;&lt;set $tavern to setup.createBuilding()&gt;&gt;
+])&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="Tavern" tags="" position="1225,975">&lt;&lt;set $tavern to setup.createBuilding()&gt;&gt;
 &lt;&lt;set $tavern.wordnoun to either(&quot;tavern&quot;, &quot;tavern&quot;, &quot;tavern&quot;, &quot;tavern&quot;, &quot;pub&quot;, &quot;pub&quot;, &quot;pub&quot;, &quot;inn&quot;, &quot;inn&quot;, &quot;bar&quot;, &quot;bar&quot;, &quot;bar&quot;, &quot;watering hole&quot;, &quot;drinkery&quot;),
 	$tavern.type to either(&quot;quiet and low-key bar&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;thieves&#39; guild hangout&quot;, &quot;gathering place for a secret society&quot;, &quot;high-end dining club&quot;, &quot;high-end dining club&quot;, &quot;gambling den&quot;, &quot;gambling den&quot;, &quot;$bartender.race only club&quot;, &quot;guild-member&#39;s only club&quot;, &quot;members-only club&quot;, &quot;brothel&quot;, &quot;brothel&quot;),
 	$tavern.draw to either(&quot;attractive waitstaff&quot;, &quot;resident bard&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;witty banter with the waitstaff&quot;, &quot;crude jokes the bartender makes&quot;, &quot;proximity to the thieves&#39; guild headquarters&quot;, &quot;warmth inside&quot;, &quot;magic incense which is constantly burning&quot;, &quot;proximity to the brothel&quot;, &quot;proximity to the church&quot;, &quot;location by the river&quot;, &quot;wooden-chopping competition held weekly&quot;, &quot;mahogany stairs&quot;, &quot;clean beds&quot;, &quot;lack of bedbugs&quot;, &quot;magic bedbugs&quot;, &quot;drunk wizard&quot;, &quot;huge fireplace&quot;, &quot;incredible view&quot;, &quot;nice view&quot;),
@@ -5036,7 +5871,7 @@ $tavern.populationroll.clamp(1, 100)
 $tavern.roughnessroll.clamp(1, 100)
 $tavern.diversityroll.clamp(1, 100)
 $tavern.sizeroll.clamp(1, 100)
-$tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="TavernDescription" tags="" position="350,975">&lt;&lt;nobr&gt;&gt;
+$tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="81" name="TavernDescription" tags="" position="100,1100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;switch $tavern.draw&gt;&gt;
 	&lt;&lt;case &quot;attractive waitstaff&quot;&gt;&gt;
 		&lt;&lt;set _tavernnotable to &quot;You see one of the barmaids talking to a patron, and it&#39;s difficult to convince your eyes there&#39;s a more pleasant sight in the room, until you see another equally attractive barmaid pulling a pint at the bar.&quot;&gt;&gt;
@@ -5102,7 +5937,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 	&lt;&lt;case &quot;tiny&quot;&gt;&gt;
 		$tavern.name is very obviously a house that&#39;s been converted into a $tavern.wordnoun, probably as a hobby for the owner. It&#39;s unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny $tavern.material building. The tavern is $tavern.cleanliness, and is $tavern.lighting.
 &lt;&lt;/switch&gt;&gt;
-&lt;&lt;/nobr&gt;&gt; _tavernnotable</tw-passagedata><tw-passagedata pid="74" name="TavernFlavour" tags="" position="475,975">&lt;&lt;set $tavern.fun to [&quot;A group of commoners is playing horse shoes out back.&quot;,
+&lt;&lt;/nobr&gt;&gt; _tavernnotable</tw-passagedata><tw-passagedata pid="82" name="TavernFlavour" tags="" position="225,1100">&lt;&lt;set $tavern.fun to [&quot;A group of commoners is playing horse shoes out back.&quot;,
 &quot;The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.&quot;,
 &quot;A group of Hill Dwarves are in the middle of a drinking contest, and two of them are passed out already. The Prize is a solid platinum stein.&quot;,
 &quot;Wet Chainmail contest!&quot;,
@@ -5154,7 +5989,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 	&quot;Behind the bar is a gnomish alchemist with a penchant for mixology experiments.&quot;,
 	&quot;The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn&#39;t as bad as the time a carrion crawler was in there.&quot;,
 	&quot;The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.&quot;,
-	&quot;A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it&#39;s way onto the dance floor?&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="75" name="TavernGames" tags="" position="600,975">&lt;&lt;nobr&gt;&gt;&lt;&lt;set $NPCgamer to setup.createNPC()&gt;&gt;&lt;&lt;set $NPCgamebanker to setup.createNPC()&gt;&gt;
+	&quot;A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it&#39;s way onto the dance floor?&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="TavernGames" tags="" position="350,1100">&lt;&lt;nobr&gt;&gt;&lt;&lt;set $NPCgamer to setup.createNPC()&gt;&gt;&lt;&lt;set $NPCgamebanker to setup.createNPC()&gt;&gt;
 &lt;&lt;set $taverngames to either([
 	{
 	name: &quot;Passe-dix&quot;,
@@ -5204,7 +6039,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 	rules: &quot;Two coins are flipped by the &#39;spinner&#39;, who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the &#39;spinner&#39; losing out on five consecutive re-tosses.&quot;,
 	bet: 10
 	}
-	])&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;descriptive&quot;&gt;&lt;h3&gt;$taverngames.name&lt;/h3&gt;$taverngames.description &lt;&lt;linkreplace &quot;Ask how to play&quot;&gt;&gt; The $NPCgamer.racenote that was playing says &quot;$taverngames.rules The current bet is &lt;&lt;money $taverngames.bet&gt;&gt;.&quot;&lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="76" name="TavernGuard" tags="" position="725,975">&lt;&lt;set _guard to random(1, 100)&gt;&gt;
+	])&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;descriptive&quot;&gt;&lt;h3&gt;$taverngames.name&lt;/h3&gt;$taverngames.description &lt;&lt;linkreplace &quot;Ask how to play&quot;&gt;&gt; The $NPCgamer.racenote that was playing says &quot;$taverngames.rules The current bet is &lt;&lt;money $taverngames.bet&gt;&gt;.&quot;&lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="84" name="TavernGuard" tags="" position="475,1100">&lt;&lt;set _guard to random(1, 100)&gt;&gt;
 &lt;&lt;set _brawl to random(1, 100)&gt;&gt;
 	&lt;&lt;if $guard.population gt 20&gt;&gt;
 		&lt;&lt;set _guard += 10&gt;&gt;
@@ -5267,7 +6102,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 		&lt;&lt;set _brawl -= 20&gt;&gt;
 	&lt;&lt;elseif $tavern.roughnessroll lte 20&gt;&gt;
 		&lt;&lt;set _brawl -= 40&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="77" name="TavernInventory" tags="" position="850,975">&lt;&lt;set $tavern.inventory to [
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="TavernInventory" tags="" position="600,1100">&lt;&lt;set $tavern.inventory to [
     {name: &quot;Crisped Worm and Potatoes&quot;, cost: 3, availability: 1},
     {name: &quot;Frogs on Skewers&quot;, cost: 4, availability: 1},
     {name: &quot;Green Chili Stew&quot;, cost: 3, availability: 1},
@@ -5296,7 +6131,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
     {name: &quot;Pork Chop and Curds&quot;, cost: 92, availability: 3},
     {name: &quot;Rack of Lamb Platter&quot;, cost: 95, availability: 3},
     {name: &quot;Barbecued Tiger Fish and Papaya&quot;, cost: 200, availability: 4},
-]&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="TavernModifiers" tags="" position="975,975">&lt;&lt;nobr&gt;&gt;
+]&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="TavernModifiers" tags="" position="725,1100">&lt;&lt;nobr&gt;&gt;
 /* ------------------------- NAME ------------------------- */
 &lt;&lt;if [&quot;Silver&quot;, &quot;Golden&quot;, &quot;Glorious&quot;, &quot;Beautiful&quot;, &quot;Handsome&quot;, &quot;Lovely&quot;, &quot;Educated&quot;, &quot;Ornate&quot;, &quot;Wealthy&quot;, &quot;Cleanly&quot;, &quot;Jeweled&quot;, &quot;Superior&quot;, &quot;Flawless&quot;, &quot;Exquisite&quot;, &quot;Elegant&quot;, &quot;Fine&quot;].includes($tavern.adjective)&gt;&gt;
 		&lt;&lt;set $tavern.wealthroll += 3&gt;&gt;
@@ -5496,7 +6331,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 	&lt;&lt;elseif $tavern.cleanlinessroll lte 20&gt;&gt;
 		&lt;&lt;set $tavern.population -= 3, $tavern.sinroll +=5, $tavern.wealthroll -= 8&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="TavernNameGen" tags="" position="1100,975">/* ------------------------- TOWN NAME -------------------------- */
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="TavernNameGen" tags="" position="850,1100">/* ------------------------- TOWN NAME -------------------------- */
 
 &lt;&lt;set $town.nameprefix to either(&quot;Green&quot;, &quot;Elms&quot;, &quot;Oak&quot;, &quot;Fair&quot;, &quot;Farren&quot;, &quot;Tall&quot;, &quot;Nar&quot;, &quot;Alla&quot;, &quot;Lans&quot;, &quot;San&quot;, &quot;Col&quot;, &quot;Fri&quot;, &quot;Plain&quot;, &quot;Hon&quot;, &quot;Far&quot;, &quot;Barrow&quot;, &quot;Shi&quot;, &quot;Mel&quot;, &quot;Mal&quot;, &quot;Bon&quot;, &quot;Bie&quot;, &quot;Can&quot;, &quot;Pol&quot;, &quot;Pan&quot;, &quot;Fald&quot;, &quot;Frior&quot;, &quot;Pol&quot;)&gt;&gt;
 
@@ -5537,7 +6372,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
     	&lt;&lt;set $tavern.name to &quot;The &quot; + $tavern.verb + &quot; &quot; + $tavern.nounA + &quot; and the &quot; + $tavern.nounC&gt;&gt;
 &lt;&lt;default&gt;&gt;
     &lt;&lt;set $tavern.name to &quot;The &quot; + $tavern.nounA + &quot; Inn&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="TavernRenders" tags="render" position="1225,975">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="TavernRenders" tags="render" position="975,1100">&lt;&lt;nobr&gt;&gt;
 /* ------------------------- WEALTH -------------------------- */
 &lt;&lt;if $tavern.wealthroll gt 95&gt;&gt;
 		&lt;&lt;set $tavern.wealth to &quot;kingly&quot;&gt;&gt;
@@ -5699,7 +6534,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 	&lt;&lt;elseif $tavern.reputationroll lte 20&gt;&gt;
 		&lt;&lt;set $tavern.reputation to &quot;infamous&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="81" name="Bonds" tags="" position="100,1100">&lt;&lt;set $bond to [&quot;I would die to recover an ancient artifact of my faith that was lost long ago.&quot;,
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="89" name="Bonds" tags="" position="1100,1100">&lt;&lt;set $bond to [&quot;I would die to recover an ancient artifact of my faith that was lost long ago.&quot;,
 &quot;I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.&quot;,
 &quot;I owe me life to the priest &lt;&lt;print $name.man.pluck()&gt;&gt; who took me in when my parents died.&quot;,
 &quot;Everything I do is for the common people.&quot;,
@@ -5776,15 +6611,15 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 &quot;I owe my survival to another urchin who taught me to live on the streets.&quot;,
 &quot;I owe a debt I can never repay to the person who took pity on me.&quot;,
 &quot;I escaped my life of poverty by robbing an important person, and I&#39;m wanted for it.&quot;,
-&quot;No one else is going to have to endure the hardships I&#39;ve been through.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="Building" tags="" position="225,1100">&lt;&lt;set $building to {
+&quot;No one else is going to have to endure the hardships I&#39;ve been through.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Building" tags="" position="1225,1100">&lt;&lt;set $building to {
   	material: [&quot;wooden&quot;, &quot;wooden&quot;, &quot;wooden&quot;, &quot;wooden&quot;, &quot;wooden&quot;, &quot;stone&quot;, &quot;stone&quot;, &quot;stone&quot;, &quot;stone&quot;, &quot;hewn rock&quot;, &quot;chiseled stone&quot;],
     outside: [&quot;a horse grazing on the bushes nearby&quot;, &quot;a rusted shovel near a somewhat overgrown flowerbed&quot;, &quot;a well with an old rope, but no bucket to go on the end&quot;, &quot;a dog panting by the door&quot;, &quot;a cat lazily lounging in the shade&quot;, &quot;a muddy pair of boots by the door&quot;, &quot;a sign from the local paper which reads &#39;$newspaperheadline&#39;&quot;],
     disrepair: [&quot;dilapidated&quot;, &quot;ruined&quot;, &quot;old&quot;, &quot;somewhat rickety&quot;, &quot;well-loved&quot;, &quot;well-kept&quot;, &quot;brand new&quot;],
     purpose: [&quot;home&quot;, &quot;barber&quot;, &quot;alchemist&#39;s shop&quot;, &quot;blacksmithery&quot;, &quot;temple&quot;, &quot;tannery&quot;, &quot;butchery&quot;, &quot;library&quot;]
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="Counter" tags="" position="350,1100">&lt;&lt;set $npccounter to [$bartender, $blacksmith]&gt;&gt;
-&lt;&lt;set $buildingcounter to [$tavern, $smithy]&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="Environment" tags="" position="475,1100">&lt;&lt;set $environment to {
+}&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="Counter" tags="" position="100,1225">&lt;&lt;set $npccounter to [$bartender, $blacksmith]&gt;&gt;
+&lt;&lt;set $buildingcounter to [$tavern, $smithy]&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Environment" tags="" position="225,1225">&lt;&lt;set $environment to {
 
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="NPC" tags="" position="600,1100">/* Legacy code */
+}&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="NPC" tags="" position="350,1225">/* Legacy code */
 &lt;&lt;set $npc to {
 	lastname: $name.last.pluck(),
 	gender: [&quot;man&quot;, &quot;woman&quot;],
@@ -5804,7 +6639,7 @@ $tavern.magicroll.clamp(1, 100)</tw-passagedata><tw-passagedata pid="73" name="T
 	reading: [&quot;a piece of history- my forefather&#39;s journal, detailing his life in $town.name when it was just a settlement.&quot;, &quot;my journal, from many years ago.&quot;, &quot;my mother&#39;s journal, from just before she disappeared&quot;, &quot;a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.&quot;, &quot;a traitor&#39;s memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.&quot;, &quot;some sort of spell, though I don&#39;t know how to read it.&quot;, &quot;a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.&quot;, &quot;a book which I bought, believing it to be blank, and suitable for a journal. However, now there&#39;s this strange foreign script that I can&#39;t read in it.&quot;, &quot;a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read.&quot;, &quot;a supposedly blank book, but every time I open it, different words appear in a strange language.&quot;]
 }&gt;&gt;
 
-&lt;&lt;set $lord to setup.createNPC()&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="Names" tags="" position="725,1100">/* ------------------------- NAMES -------------------------- */
+&lt;&lt;set $lord to setup.createNPC()&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Names" tags="" position="475,1225">/* ------------------------- NAMES -------------------------- */
 &lt;&lt;set $name to {
 	last: [&quot;Alder&quot;, &quot;Ash&quot;, &quot;Ashdown&quot;, &quot;Atwood&quot;, &quot;Barnes&quot;, &quot;Becker&quot;, &quot;Berry&quot;, &quot;Briar&quot;, &quot;Briggs&quot;, &quot;Brock&quot;, &quot;Brook&quot;, &quot;Bundy&quot;, &quot;Burnside&quot;, &quot;Burroughs&quot;, &quot;Bush&quot;, &quot;Butcher&quot;, &quot;Butler&quot;, &quot;Clay&quot;, &quot;Court&quot;, &quot;Cox&quot;, &quot;Croft&quot;, &quot;Cross&quot;, &quot;Crump&quot;, &quot;Dale&quot;, &quot;Deane&quot;, &quot;Delaney&quot;, &quot;Dike&quot;, &quot;Dodd&quot;, &quot;Ford&quot;, &quot;Forrest&quot;, &quot;Fox&quot;, &quot;Freeman&quot;, &quot;Garside&quot;, &quot;Gorsuch&quot;, &quot;Graves&quot;, &quot;Green&quot;, &quot;Greeves&quot;, &quot;Gross&quot;, &quot;Grove&quot;, &quot;Grover&quot;, &quot;Hall&quot;, &quot;Hawthorne&quot;, &quot;Hazel&quot;, &quot;Head&quot;, &quot;Heather&quot;, &quot;Hill&quot;, &quot;Holley&quot;, &quot;Holmes&quot;, &quot;Holt&quot;, &quot;Homer&quot;, &quot;Hooke&quot;, &quot;Hope&quot;, &quot;House&quot;, &quot;Howe&quot;, &quot;Hume&quot;, &quot;Hyde&quot;, &quot;Johnston&quot;, &quot;Kaye&quot;, &quot;Keats&quot;, &quot;Kerry&quot;, &quot;Kirk&quot;, &quot;Lamb&quot;, &quot;Layne&quot;, &quot;Lea&quot;, &quot;Lowell&quot;, &quot;March&quot;, &quot;Marsh&quot;, &quot;Marshal&quot;, &quot;Martin&quot;, &quot;May&quot;, &quot;Millerchip&quot;, &quot;Mills&quot;, &quot;Moore&quot;, &quot;Newby&quot;, &quot;Paine&quot;, &quot;Paxton&quot;, &quot;Perrin&quot;, &quot;Pike&quot;, &quot;Pitt&quot;, &quot;Preacher&quot;, &quot;Provost&quot;, &quot;Purple&quot;, &quot;Ridge&quot;, &quot;Rock&quot;, &quot;Rose&quot;, &quot;Rowen&quot;, &quot;Sangster&quot;, &quot;Sellers&quot;, &quot;Shaw&quot;, &quot;Short&quot;, &quot;Thorne&quot;, &quot;Underwood&quot;, &quot;Walsh&quot;, &quot;Wells&quot;, &quot;West&quot;, &quot;Whitney&quot;, &quot;Wilde&quot;, &quot;Wood&quot;, &quot;Wragge&quot;, &quot;Wynne&quot;],
 	man: [&quot;Aaryn&quot;, &quot;Aaro&quot;, &quot;Aarus&quot;, &quot;Abramus&quot;, &quot;Abrahm&quot;, &quot;Abyl&quot;, &quot;Abelus&quot;, &quot;Adannius&quot;, &quot;Adanno&quot;, &quot;Aedam&quot;, &quot;Adym&quot;, &quot;Adamus&quot;, &quot;Aedrian&quot;, &quot;Aedrio&quot;, &quot;Aedyn&quot;, &quot;Aidyn&quot;, &quot;Aelijah&quot;, &quot;Elyjah&quot;, &quot;Aendro&quot;, &quot;Androe&quot;, &quot;Aenry&quot;, &quot;Hynroe&quot;, &quot;Hynrus&quot;, &quot;Aethan&quot;, &quot;Aethyn&quot;, &quot;Aevan&quot;, &quot;Evyn&quot;, &quot;Evanus&quot;, &quot;Alecks&quot;, &quot;Alyx&quot;, &quot;Alexandyr&quot;, &quot;Xandyr&quot;, &quot;Alyn&quot;, &quot;Alaen&quot;, &quot;Andrus&quot;, &quot;Aendrus&quot;, &quot;Anglo&quot;, &quot;Aenglo&quot;, &quot;Anglus&quot;, &quot;Antony&quot;, &quot;Antonyr&quot;, &quot;Astyn&quot;, &quot;Astinus&quot;, &quot;Axelus&quot;, &quot;Axyl&quot;, &quot;Benjamyn&quot;, &quot;Benjamyr&quot;, &quot;Braidyn&quot;, &quot;Brydus&quot;, &quot;Braddeus&quot;, &quot;Brandyn&quot;, &quot;Braendyn&quot;, &quot;Bryus&quot;, &quot;Bryne&quot;, &quot;Bryn&quot;, &quot;Branus&quot;, &quot;Caeleb&quot;, &quot;Caelyb&quot;, &quot;Caerlos&quot;, &quot;Carlus&quot;, &quot;Cameryn&quot;, &quot;Camerus&quot;, &quot;Cartus&quot;, &quot;Caertero&quot;, &quot;Charlus&quot;, &quot;Chaerles&quot;, &quot;Chyrles&quot;, &quot;Christophyr&quot;, &quot;Christo&quot;, &quot;Chrystian&quot;, &quot;Chrystan&quot;, &quot;Connorus&quot;, &quot;Connyr&quot;, &quot;Daemian&quot;, &quot;Damyan&quot;, &quot;Daenyel&quot;, &quot;Danyel&quot;, &quot;Davyd&quot;, &quot;Daevo&quot;, &quot;Dominac&quot;, &quot;Dylaen&quot;, &quot;Dylus&quot;, &quot;Elius&quot;, &quot;Aeli&quot;, &quot;Elyas&quot;, &quot;Helius&quot;, &quot;Helian&quot;, &quot;Emilyan&quot;, &quot;Emilanus&quot;, &quot;Emmanus&quot;, &quot;Emynwell&quot;, &quot;Ericus&quot;, &quot;Eryc&quot;, &quot;Eryck&quot;, &quot;Ezekius&quot;, &quot;Zeckus&quot;, &quot;Ezekio&quot;, &quot;Ezrus&quot;, &quot;Yzra&quot;, &quot;Gabrael&quot;, &quot;Gaebriel&quot;, &quot;Gael&quot;, &quot;Gayl&quot;, &quot;Gayel&quot;, &quot;Gaeus&quot;, &quot;Gavyn&quot;, &quot;Gaevyn&quot;, &quot;Goshwa&quot;, &quot;Joshoe&quot;, &quot;Graysus&quot;, &quot;Graysen&quot;, &quot;Gwann&quot;, &quot;Ewan&quot;, &quot;Gwyllam&quot;, &quot;Gwyllem&quot;, &quot;Haddeus&quot;, &quot;Hudsyn&quot;, &quot;Haesoe&quot;, &quot;Haesys&quot;, &quot;Haesus&quot;, &quot;Handus&quot;, &quot;Handyr&quot;, &quot;Hantus&quot;, &quot;Huntyr&quot;, &quot;Haroldus&quot;, &quot;Haryld&quot;, &quot;Horgus&quot;, &quot;Horus&quot;, &quot;Horys&quot;, &quot;Horyce&quot;, &quot;Hosea&quot;, &quot;Hosius&quot;, &quot;Iaen&quot;, &quot;Yan&quot;, &quot;Ianus&quot;, &quot;Ivaen&quot;, &quot;Yvan&quot;, &quot;Jaecoby&quot;, &quot;Jaecob&quot;, &quot;Jaeden&quot;, &quot;Jaedyn&quot;, &quot;Jaeremiah&quot;, &quot;Jeremus&quot;, &quot;Jasyn&quot;, &quot;Jaesen&quot;, &quot;Jaxon&quot;, &quot;Jaxyn&quot;, &quot;Jaxus&quot;, &quot;Johnus&quot;, &quot;Jonus&quot;, &quot;Jonaeth&quot;, &quot;Jonathyn&quot;, &quot;Jordus&quot;, &quot;Jordyn&quot;, &quot;Josaeth&quot;, &quot;Josephus&quot;, &quot;Josaeus&quot;, &quot;Josayah&quot;, &quot;Jovanus&quot;, &quot;Giovan&quot;, &quot;Julyan&quot;, &quot;Julyo&quot;, &quot;Jyck&quot;, &quot;Jaeck&quot;, &quot;Jacus&quot;, &quot;Kaevin&quot;, &quot;Kevyn&quot;, &quot;Vinkus&quot;, &quot;Laevi&quot;, &quot;Levy&quot;, &quot;Levius&quot;, &quot;Landyn&quot;, &quot;Laendus&quot;, &quot;Leo&quot;, &quot;Leonus&quot;, &quot;Leonaerdo&quot;, &quot;Leonyrdo&quot;, &quot;Lynardus&quot;, &quot;Lincon&quot;, &quot;Lyncon&quot;, &quot;Linconus&quot;, &quot;Logaen&quot;, &quot;Logus&quot;, &quot;Louis&quot;, &quot;Lucius&quot;, &quot;Lucae&quot;, &quot;Lucaen&quot;, &quot;Lucaes&quot;, &quot;Lucoe&quot;, &quot;Lucus&quot;, &quot;Lyam&quot;, &quot;Maeson&quot;, &quot;Masyn&quot;, &quot;Maetho&quot;, &quot;Mathoe&quot;, &quot;Matteus&quot;, &quot;Matto&quot;, &quot;Maxus&quot;, &quot;Maximus&quot;, &quot;Maximo&quot;, &quot;Maxymer&quot;, &quot;Mychael&quot;, &quot;Mygwell&quot;, &quot;Miglus&quot;, &quot;Mythro&quot;, &quot;Mithrus&quot;, &quot;Naemo&quot;, &quot;Naethyn&quot;, &quot;Nathanus&quot;, &quot;Naethynel&quot;, &quot;Nicholaes&quot;, &quot;Nycholas&quot;, &quot;Nicholys&quot;, &quot;Nicolus&quot;, &quot;Nolyn&quot;, &quot;Nolanus&quot;, &quot;Olivyr&quot;, &quot;Alivyr&quot;, &quot;Olivus&quot;, &quot;Oscarus&quot;, &quot;Oscoe&quot;, &quot;Raen&quot;, &quot;Ryn&quot;, &quot;Robertus&quot;, &quot;Robett&quot;, &quot;Bertus&quot;, &quot;Romyn&quot;, &quot;Romanus&quot;, &quot;Ryderus&quot;, &quot;Ridyr&quot;, &quot;Samwell&quot;, &quot;Saemuel&quot;, &quot;Santegus&quot;, &quot;Santaegus&quot;, &quot;Sybasten&quot;, &quot;Bastyen&quot;, &quot;Tago&quot;, &quot;Aemo&quot;, &quot;Tagus&quot;, &quot;Theodorus&quot;, &quot;Theodus&quot;, &quot;Thaeodore&quot;, &quot;Thomys&quot;, &quot;Thomas&quot;, &quot;Tommus&quot;, &quot;Tylus&quot;, &quot;Tilyr&quot;, &quot;Uwyn&quot;, &quot;Oewyn&quot;, &quot;Victor&quot;, &quot;Victyr&quot;, &quot;Victorus&quot;, &quot;Vincynt&quot;, &quot;Vyncent&quot;, &quot;Vincentus&quot;, &quot;Wyttus&quot;, &quot;Wyaett&quot;, &quot;Xavius&quot;, &quot;Havius&quot;, &quot;Xavyer&quot;, &quot;Yago&quot;, &quot;Tyago&quot;, &quot;Tyego&quot;, &quot;Ysaac&quot;, &quot;Aisaac&quot;, &quot;Ysaiah&quot;, &quot;Aisiah&quot;, &quot;Siahus&quot;, &quot;Zacharus&quot;, &quot;Zachar&quot;, &quot;Zachaery&quot;],
@@ -6410,7 +7245,7 @@ femaledragonborn: [&quot;Akra&quot;,
 &quot;Vezera&quot;,
 &quot;Zykrofl&quot;]
 }
-&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="Town" tags="" position="850,1100">&lt;&lt;set $town to {
+&gt;&gt;</tw-passagedata><tw-passagedata pid="95" name="Town" tags="" position="600,1225">&lt;&lt;set $town to {
 	race: either([&quot;human&quot;, &quot;human&quot;, &quot;human&quot;, &quot;human&quot;, &quot;dwarf&quot;, &quot;dwarf&quot;, &quot;dwarf&quot;, &quot;elf&quot;, &quot;elf&quot;, &quot;half-orc&quot;, &quot;half-elf&quot;]),
 	wealthroll: random(1, 100),
 	reputationroll: random(1, 100),
@@ -6456,7 +7291,7 @@ $town.sizeroll.clamp(1, 100)
     &lt;&lt;set $town.wealthroll to 100&gt;&gt;
   &lt;&lt;elseif $town.wealthroll lt 1&gt;&gt;
     &lt;&lt;set $town.wealthroll to 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="TownMicroEvents" tags="" position="975,1100">&lt;&lt;set $TownMicroEvents to [&quot;a gnarled old man offers to sell you a &#39;lucky&#39; trinket for a gold coin&quot;,
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="TownMicroEvents" tags="" position="725,1225">&lt;&lt;set $TownMicroEvents to [&quot;a gnarled old man offers to sell you a &#39;lucky&#39; trinket for a gold coin&quot;,
  &quot;a young boy wants to see a demonstration of your weapon&quot;,
  &quot;a little girl is crying because she broke her favorite toy&quot;,
  &quot;a little gem falls out of the pocket of the man walking ahead of you&quot;,
@@ -6554,7 +7389,7 @@ $town.sizeroll.clamp(1, 100)
 &quot;a carnival is in town, showing off their newest ride: a vertical iron wheel with seats meant to let people see the whole town at once. They nicknamed it the &#39;ferric wheel&#39; due to it being made mostly of iron.&quot;,
 &quot;a merchant in a heavily corroded outfit tries to sell his dishwashing invention. (contains a black pudding)&quot;,
 &quot;you notice two thugs following a young woman from a distance, trying to look inconspicuous.&quot;,
-&quot;a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="89" name="TownRenders" tags="render" position="1100,1100">&lt;&lt;if $town.population gt 3000&gt;&gt;
+&quot;a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="TownRenders" tags="render" position="850,1225">&lt;&lt;if $town.population gt 3000&gt;&gt;
     &lt;&lt;set $town.type to &quot;city&quot;&gt;&gt;
   &lt;&lt;elseif $town.population gt 1000&gt;&gt;
     &lt;&lt;set $town.type to &quot;town&quot;&gt;&gt;
@@ -6564,7 +7399,7 @@ $town.sizeroll.clamp(1, 100)
     &lt;&lt;set $town.type to &quot;hamlet&quot;&gt;&gt;
   &lt;&lt;elseif $town.population lte 30&gt;&gt;
     &lt;&lt;set $town.type to &quot;hamlet&quot;, $town.population to 30&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="TownRumours" tags="" position="1225,1100">&lt;&lt;set $town.events to [
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="TownRumours" tags="" position="975,1225">&lt;&lt;set $town.events to [
     {
       title: &quot;bodies being dug up&quot;,
       rumour: &quot;I heard that there were bodies being dug up out in the cemetary near $alchemist.road.&quot;,
@@ -6613,7 +7448,7 @@ $town.sizeroll.clamp(1, 100)
       dm: &quot;&quot;,
     },
     */
-]&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="WildernessEvents" tags="" position="100,1225">You see a gazebo squatting by the road. It has an arrow sticking from it.
+]&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="WildernessEvents" tags="" position="1100,1225">You see a gazebo squatting by the road. It has an arrow sticking from it.
 
 12) There is a hanged corpse swaying in the wind. It seems he was tortured before being hanged. A sign around his neck says &quot;Looter of the dead&quot;.
 
