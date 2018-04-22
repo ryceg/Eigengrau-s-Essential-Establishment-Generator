@@ -20,12 +20,6 @@
 	},
 
   {
-	name: "",
-	cost: 500,
-	availability: 1
-	},
-
-  {
 	name: "Handaxe",
 	cost: 500,
 	availability: 1
