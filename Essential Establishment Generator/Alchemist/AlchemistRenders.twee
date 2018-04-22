@@ -84,7 +84,7 @@
 <<if $alchemist.pricemodifier gt 5 && $alchemist.wealthroll gt 80>>
     <<set $alchemist.pricetalk to "Be warned, these prices might be... out of your range">>
   <<elseif $alchemist.pricemodifier gt 5 && $alchemist.wealthroll lt 30>>
-    <<set $alchemist.pricetalk to "I'm afraid that times are tough, there's a bit of a surcharge on the magical stuff.">>
+    <<set $alchemist.pricetalk to "I'm afraid that times are tough, there's a bit of a surcharge on the fun stuff.">>
   <<elseif $alchemist.pricemodifier gt 5>>
     <<set $alchemist.pricetalk to "Fair warning; the prices ain't what they used to be, by a long shot.">>
   <<elseif $alchemist.pricemodifier gt 2 && $alchemist.wealthroll gt 80>>
