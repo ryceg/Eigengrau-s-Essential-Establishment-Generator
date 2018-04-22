@@ -1,5 +1,5 @@
 
-:: SmithyModifiers
+:: AlchemistModifiers
 <<nobr>>
 /* ------------------------- SIZE -------------------------- */
 <<if $alchemist.sizeroll gt 80>>
