@@ -1,7 +1,5 @@
-:: GeneralStoreRenders
+:: GeneralStoreRenders [render]
 
-
-:: SmithyRenders [render]
 
 /* ------------------------- SIZE -------------------------- */
 <<set _warmthroll to random(1, 100)>>
