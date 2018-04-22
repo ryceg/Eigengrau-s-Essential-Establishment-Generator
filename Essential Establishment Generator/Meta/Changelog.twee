@@ -1,7 +1,16 @@
 
 :: Changelog
 
-v.0.3
+v.1.0
+- Added Alchemist
+- Added Blacksmith
+- Added significant CSS changes
+- Thousands of lines of code all over the place
+- JavaScript creator for NPCs
+- Huge code cleanup as a result of JS.
+
+
+<<linkappend "v.0.3">>
 - Added ability to rename town & tavern
 - Modified room cost formula to mirror the recommended prices
 - CSS Style update
@@ -9,7 +18,7 @@ v.0.3
 - Added exclusions for the brothels' main attractions being near the church...
 - Minor code cleanup behind the scenes
 
-v.0.2.0
+<<linkappend "v.0.2.0">>
 - Added vegetarian & carnivorous menus based on tavern's roughness.
 - Replaced attribute buttons with sliders (that actually work)
 - Added races
@@ -21,5 +30,6 @@ v.0.2.0
 - Added descriptions of taverns based on size and draw.
 - Made room availability dependent on size, and current population of the tavern.
 
-v.0.1.0
+<<linkappend "v.0.1.0">>
 * First release
+<</linkappend>><</linkappend>><</linkappend>>

@@ -44,7 +44,7 @@ h5 {
   font-family: ScalySansSmallCaps;
   font-size: 16px;
   color: black;
-}
+}*/
 
 .firstcharacter {
   float: left;
@@ -55,7 +55,7 @@ h5 {
   padding-right: 8px;
   padding-left: 3px;
 }
-*/
+
 h1, h2, h3, h4{
 margin-top:         .2em;
 margin-bottom:      .2em;
