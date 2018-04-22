@@ -61,10 +61,10 @@
     <<set $smithy.expertiseroll to 1>>
 <</if>>
 
-<<if $smithy.intricacyroll gt 100>>
-    <<set $smithy.intricacyroll to 100>>
-  <<elseif $smithy.intricacyroll lt 1>>
-    <<set $smithy.intricacyroll to 1>>
+<<if $smithy.activityroll gt 100>>
+    <<set $smithy.activityroll to 100>>
+  <<elseif $smithy.activityroll lt 1>>
+    <<set $smithy.activityroll to 1>>
 <</if>>
 
 <<if $alchemist.magicroll gt 100>>
@@ -127,10 +127,10 @@
     <<set $alchemist.expertiseroll to 1>>
 <</if>>
 
-<<if $alchemist.intricacyroll gt 100>>
-    <<set $alchemist.intricacyroll to 100>>
-  <<elseif $alchemist.intricacyroll lt 1>>
-    <<set $alchemist.intricacyroll to 1>>
+<<if $alchemist.activityroll gt 100>>
+    <<set $alchemist.activityroll to 100>>
+  <<elseif $alchemist.activityroll lt 1>>
+    <<set $alchemist.activityroll to 1>>
 <</if>>
 
 <<if $tavern.magicroll gt 100>>
@@ -193,8 +193,8 @@
     <<set $tavern.expertiseroll to 1>>
 <</if>>
 
-<<if $tavern.intricacyroll gt 100>>
-    <<set $tavern.intricacyroll to 100>>
-  <<elseif $tavern.intricacyroll lt 1>>
-    <<set $tavern.intricacyroll to 1>>
+<<if $tavern.activityroll gt 100>>
+    <<set $tavern.activityroll to 100>>
+  <<elseif $tavern.activityroll lt 1>>
+    <<set $tavern.activityroll to 1>>
 <</if>>
