@@ -89,19 +89,19 @@
 <</if>>
 
 <<if $smithy.activityroll gt 80>>
-		<<set $smithy.business to "extremely busy">>
+		<<set $smithy.activity to "extremely busy">>
 	<<elseif $smithy.activityroll gt 70>>
-		<<set $smithy.business to "very busy">>
+		<<set $smithy.activity to "very busy">>
 	<<elseif $smithy.activityroll gt 60>>
-		<<set $smithy.business to "rather busy">>
+		<<set $smithy.activity to "rather busy">>
 	<<elseif $smithy.activityroll gt 50>>
-		<<set $smithy.business to "reasonably busy">>
+		<<set $smithy.activity to "reasonably busy">>
 	<<elseif $smithy.activityroll gt 40>>
-		<<set $smithy.business to "not terribly busy">>
+		<<set $smithy.activity to "not terribly busy">>
 	<<elseif $smithy.activityroll gt 30>>
-		<<set $smithy.business to "not busy">>
+		<<set $smithy.activity to "not busy">>
 	<<elseif $smithy.activityroll gt 20>>
-		<<set $smithy.business to "rather quiet">>
+		<<set $smithy.activity to "rather quiet">>
 	<<elseif $smithy.activityroll lte 20>>
-		<<set $smithy.business to "very quiet">>
+		<<set $smithy.activity to "very quiet">>
 <</if>>

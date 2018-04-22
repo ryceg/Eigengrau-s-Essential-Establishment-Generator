@@ -17,4 +17,6 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>>[[$smithy.name|InitSmithy]]
 
+<<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>>[[$GeneralStore.name|InitGeneralStore]]
+
 <<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And finally, on $alchemist.road is the ")>>[[$alchemist.name|InitAlchemist]]

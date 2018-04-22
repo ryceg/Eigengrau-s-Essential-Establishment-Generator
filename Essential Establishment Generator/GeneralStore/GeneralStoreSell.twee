@@ -1,0 +1,37 @@
+:: GeneralStoreSells
+
+<<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive">
+<<switch $town.type>>
+  <<case "city">>
+  $shopkeep.name smiles, and says "You're looking to buy something? Name it, here at $GeneralStore.name, we stock everything the average man could possibly need!"
+  <<case "town">>
+  $shopkeep.name says "Well, what is it you need? We can do just about anything for you."
+  <<case "village">>
+  $shopkeep.name says "Sure, what are you after? <<print $GeneralStore.mundane.random().toUpperFirst()>>?"
+  <<case "hamlet">>
+  $shopkeep.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $GeneralStore.mundane.randomMany(4)>>, you name it!"
+<</switch>></div>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
+<<switch $town.type>>
+  <<case "city">>
+  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 4; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "town">>
+  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 3; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "village">>
+  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 2; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "hamlet">>
+  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>></table>
+<</switch>><</nobr>><</linkappend>>

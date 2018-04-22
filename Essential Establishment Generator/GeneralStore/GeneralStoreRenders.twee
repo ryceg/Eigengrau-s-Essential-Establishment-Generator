@@ -1,0 +1,109 @@
+:: GeneralStoreRenders
+
+
+:: SmithyRenders [render]
+
+/* ------------------------- SIZE -------------------------- */
+<<set _warmthroll to random(1, 100)>>
+<<if $GeneralStore.sizeroll gt 80>>
+		<<set $GeneralStore.size to "huge">>
+		<<set _warmthroll -= 20>>
+	<<elseif $GeneralStore.sizeroll gt 70>>
+		<<set $GeneralStore.size to "quite large">>
+		<<set _warmthroll -= 15>>
+	<<elseif $GeneralStore.sizeroll gt 60>>
+		<<set $GeneralStore.size to "large">>
+		<<set _warmthroll -= 10>>
+	<<elseif $GeneralStore.sizeroll gt 50>>
+		<<set $GeneralStore.size to "spacious">>
+		<<set _warmthroll -= 5>>
+	<<elseif $GeneralStore.sizeroll gt 40>>
+		<<set $GeneralStore.size to "medium">>
+	<<elseif $GeneralStore.sizeroll gt 30>>
+		<<set $GeneralStore.size to "slightly cramped">>
+		<<set _warmthroll += 15>>
+	<<elseif $GeneralStore.sizeroll gt 20>>
+		<<set $GeneralStore.size to "small">>
+		<<set _warmthroll += 15>>
+	<<elseif $GeneralStore.sizeroll lte 20>>
+		<<set $GeneralStore.size to "tiny">>
+		<<set _warmthroll += 30>>
+<</if>>
+
+<<if _warmthroll gt 80>>
+		<<set $GeneralStore.warmth to "swelteringly hot">>
+	<<elseif _warmthroll gt 70>>
+		<<set $GeneralStore.warmth to "extremely warm">>
+	<<elseif _warmthroll gt 60>>
+		<<set $GeneralStore.warmth to "uncomfortably warm">>
+	<<elseif _warmthroll gt 50>>
+		<<set $GeneralStore.warmth to "nice and toasty">>
+	<<elseif _warmthroll gt 40>>
+		<<set $GeneralStore.warmth to "quite warm">>
+	<<elseif _warmthroll gt 30>>
+		<<set $GeneralStore.warmth to "warm">>
+	<<elseif _warmthroll gt 20>>
+		<<set $GeneralStore.warmth to "mild">>
+	<<elseif _warmthroll lte 20>>
+		<<set $GeneralStore.warmth to "cold">>
+<</if>>
+
+/* ------------------------- CLEANLINESS -------------------------- */
+
+
+<<if $GeneralStore.cleanlinessroll gt 80>>
+		<<set $GeneralStore.cleanliness to "fastidious">>
+	<<elseif $GeneralStore.cleanlinessroll gt 70>>
+		<<set $GeneralStore.cleanliness to "very tidy">>
+	<<elseif $GeneralStore.cleanlinessroll gt 60>>
+		<<set $GeneralStore.cleanliness to "tidy">>
+	<<elseif $GeneralStore.cleanlinessroll gt 50>>
+		<<set $GeneralStore.cleanliness to "reasonably tidy">>
+	<<elseif $GeneralStore.cleanlinessroll gt 40>>
+		<<set $GeneralStore.cleanliness to "somewhat messy">>
+	<<elseif $GeneralStore.cleanlinessroll gt 30>>
+		<<set $GeneralStore.cleanliness to "rather messy">>
+	<<elseif $GeneralStore.cleanlinessroll gt 20>>
+		<<set $GeneralStore.cleanliness to "very messy">>
+	<<elseif $GeneralStore.cleanlinessroll lte 20>>
+		<<set $GeneralStore.cleanliness to "filthy">>
+<</if>>
+
+
+/* ------------------------- Expertise -------------------------- */
+
+<<if $GeneralStore.expertiseroll gt 80>>
+		<<set $GeneralStore.expertise to "masterful">>
+<<elseif $GeneralStore.expertiseroll gt 70>>
+		<<set $GeneralStore.expertise to "exceptional">>
+<<elseif $GeneralStore.expertiseroll gt 60>>
+		<<set $GeneralStore.expertise to "superior quality">>
+<<elseif $GeneralStore.expertiseroll gt 50>>
+		<<set $GeneralStore.expertise to "finely-crafted">>
+<<elseif $GeneralStore.expertiseroll gt 40>>
+		<<set $GeneralStore.expertise to "well-crafted">>
+<<elseif $GeneralStore.expertiseroll gt 30>>
+		<<set $GeneralStore.expertise to "somewhat well made">>
+<<elseif $GeneralStore.expertiseroll gt 20>>
+		<<set $GeneralStore.expertise to "somewhat amateur">>
+<<elseif $GeneralStore.expertiseroll lte 20>>
+		<<set $GeneralStore.expertise to "blatantly amateur">>
+<</if>>
+
+<<if $GeneralStore.activityroll gt 80>>
+		<<set $GeneralStore.activity to "extremely busy">>
+	<<elseif $GeneralStore.activityroll gt 70>>
+		<<set $GeneralStore.activity to "very busy">>
+	<<elseif $GeneralStore.activityroll gt 60>>
+		<<set $GeneralStore.activity to "rather busy">>
+	<<elseif $GeneralStore.activityroll gt 50>>
+		<<set $GeneralStore.activity to "reasonably busy">>
+	<<elseif $GeneralStore.activityroll gt 40>>
+		<<set $GeneralStore.activity to "not terribly busy">>
+	<<elseif $GeneralStore.activityroll gt 30>>
+		<<set $GeneralStore.activity to "not busy">>
+	<<elseif $GeneralStore.activityroll gt 20>>
+		<<set $GeneralStore.activity to "rather quiet">>
+	<<elseif $GeneralStore.activityroll lte 20>>
+		<<set $GeneralStore.activity to "very quiet">>
+<</if>>

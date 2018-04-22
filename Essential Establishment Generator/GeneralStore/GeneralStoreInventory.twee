@@ -1,0 +1,500 @@
+:: GeneralStoreInventory
+
+<<set $GeneralStoreInventory to [
+
+
+	{
+	name: "Potion (Common)",
+	cost: 50000,
+	availability: 1
+	},
+
+
+	{
+	name: "Club",
+	cost: 10,
+	availability: 1
+	},
+
+  {
+  name: "Dagger",
+  cost: 200,
+  availability: 1
+  },
+
+  {
+	name: "Greatclub",
+	cost: 20,
+	availability: 1
+	},
+
+  {
+	name: "",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Handaxe",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Light Hammer",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Quarterstaff",
+	cost: 20,
+	availability: 1
+	},
+
+  {
+	name: "Light Crossbow",
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: "Dart",
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: "Shortbow",
+	cost: 2500,
+	availability: 1
+	},
+
+  {
+	name: "Sling",
+	cost: 10,
+	availability: 1
+	},
+
+  {
+	name: "Whip",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Hand Crossbow",
+	cost: 7500,
+	availability: 3
+	},
+
+  {
+	name: "Heavy Crossbow",
+	cost: 5000,
+	availability: 4
+	},
+
+  {
+	name: "Longbow",
+	cost: 5000,
+	availability: 1
+	},
+
+  {
+	name: "Padded Armour",
+	cost: 500,
+	availability: 2
+	},
+
+  {
+	name: "Leather Armour",
+	cost: 1000,
+	availability: 3
+	},
+
+  {
+	name: "Studded Leather Armour",
+	cost: 4500,
+	availability: 4
+	},
+
+  {
+	name: "Hide Armour",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Backpack",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Bedroll",
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: "Blanket",
+	cost: 50,
+	availability: 1
+	},
+
+  {
+	name: "Block and Tackle",
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: "Book",
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: "Bottle, Glass",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Bucket",
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: "Candle",
+	cost: 1,
+	availability: 2
+	},
+
+  {
+	name: "Case, Crossbow Bolt",
+	cost: 500,
+	availability: 2
+	},
+
+  {
+	name: "Case, Map or Scroll",
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: "Chain, 10 feet",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Chest",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Climbers Kit",
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: "Clothes, Traveler's",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Component Pouch",
+	cost: 2500,
+	availability: 2
+	},
+
+  {
+	name: "Crowbar",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Fishing Tackle",
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: "Flask or tankard",
+	cost: 2,
+	availability: 1
+	},
+
+  {
+	name: "Grappling Hook",
+	cost: 200,
+	availability: 2
+	},
+
+  {
+	name: "Hammer",
+	cost: 100,
+	availability: 1
+	},
+
+  {
+	name: "Healer's Kit",
+	cost: 500,
+	availability: 2
+	},
+
+  {
+	name: "Hourglass",
+	cost: 2500,
+	availability: 3
+	},
+
+  {
+	name: "Hunting Trap",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Ink (1 ounce)",
+	cost: 1000,
+	availability: 3
+	},
+
+  {
+	name: "Ink Pen",
+	cost: 2,
+	availability: 3
+	},
+
+  {
+	name: "Ladder, 10ft.",
+	cost: 10,
+	availability: 1
+	},
+
+
+  {
+	name: "Lantern, Bullseye",
+	cost: 1000,
+	availability: 3
+	},
+
+
+  {
+	name: "Lantern, Hooded",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Magnifying Glass",
+	cost: 10000,
+	availability: 3
+	},
+
+  {
+	name: "Manacles",
+	cost: 200,
+	availability: 2
+	},
+
+  {
+	name: "Mess Kit",
+	cost: 20,
+	availability: 3
+	},
+
+  {
+	name: "Steel Mirror",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Oil, flask",
+	cost: 10,
+	availability: 1
+	},
+
+  {
+	name: "Paper (one sheet)",
+	cost: 20,
+	availability: 4
+	},
+
+  {
+	name: "Parchment (one sheet)",
+	cost: 10,
+	availability: 1
+	},
+
+  {
+	name: "Miner's Pick",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Piton",
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: "Pole (10 ft.)",
+	cost: 5,
+	availability: 1
+	},
+
+  {
+	name: "Pot, Iron",
+	cost: 200,
+	availability: 1
+	},
+
+  {
+	name: "Pouch",
+	cost: 50,
+	availability: 1
+	},
+
+  {
+	name: "Quiver",
+	cost: 500,
+	availability: 1
+	},
+
+  {
+	name: "Rope, Hemp (50ft)",
+	cost: 100,
+	availability: 1
+	},
+
+  {
+  name: "Rope, Silk (50ft)",
+  cost: 1000,
+  availability: 4
+  },
+
+  {
+  name: "Sack",
+  cost: 1,
+  availability: 1
+  },
+
+  {
+  name: "Shovel",
+  cost: 200,
+  availability: 1
+  },
+
+  {
+  name: "Signal whistle",
+  cost: 5,
+  availability: 3
+  },
+
+  {
+  name: "Spikes, Iron (10)",
+  cost: 100,
+  availability: 1
+  },
+
+  {
+  name: "Spyglass",
+  cost: 100000,
+  availability: 4
+  },
+
+  {
+  name: "Two person tent",
+  cost: 200,
+  availability: 2
+  },
+
+  {
+  name: "Tinderbox",
+  cost: 50,
+  availability: 1
+  },
+
+  {
+  name: "Torch",
+  cost: 1,
+  availability: 1
+  },
+
+  {
+  name: "Vial",
+  cost: 100,
+  availability: 1
+  },
+
+  {
+  name: "Waterskin",
+  cost: 20,
+  availability: 1
+  },
+
+  {
+  name: "Cartographer's Tools",
+  cost: 1500,
+  availability: 2
+  },
+
+  {
+  name: "Tinker's Tools",
+  cost: 5000,
+  availability: 3
+  },
+
+  {
+  name: "Herbalism Kit",
+  cost: 500,
+  availability: 2
+  },
+
+  {
+  name: "Navigator's Tools",
+  cost: 2500,
+  availability: 1
+  },
+
+  {
+  name: "Mason's Tools",
+  cost: 1000,
+  availability: 1
+  },
+
+  {
+  name: "Painter's Supplies",
+  cost: 1000,
+  availability: 3
+  },
+
+  {
+  name: "Potter's Tools",
+  cost: 1000,
+  availability: 1
+  },
+
+  {
+  name: "Dice Set",
+  cost: 10,
+  availability: 1
+  },
+
+  {
+  name: "Playing Card Set",
+  cost: 50,
+  availability: 1
+  }
+]>>

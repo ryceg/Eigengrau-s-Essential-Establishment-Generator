@@ -66,6 +66,16 @@
 
 <<include "SmithyNameGen">>
 
+<<include "GeneralStore">>
+
+<<include "GeneralStoreInventory">>
+
+<<include "GeneralStoreModifiers">>
+
+<<include "GeneralStoreNameGen">>
+
+<<include "GeneralStoreRenders">>
+
 <<include "Books">>
 
 <<include "TavernGames">>
