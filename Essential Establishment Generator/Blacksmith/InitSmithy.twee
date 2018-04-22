@@ -13,7 +13,7 @@ Smithy Cleanliness: <<numberslider "$smithy.cleanlinessroll" $smithy.cleanliness
 
 Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1 100 1>>
 
-Smithy Magic: <<numberslider "$smithy.magicroll" $smithy.magicroll 1 100 1>>
+Smithy Activity: <<numberslider "$smithy.activityroll" $smithy.activityroll 1 100 1>>
 
 When you're ready, here's the [[smithy|SmithyOutput]]
 <<set $currentpassage to $smithy>>

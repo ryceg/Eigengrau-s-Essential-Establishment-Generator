@@ -18,7 +18,7 @@ setup.createBuilding = function() {
     var roughnessroll     = Math.floor(Math.random() * 99) + 1;
     var cleanlinessroll   = Math.floor(Math.random() * 99) + 1;
     var expertiseroll     = Math.floor(Math.random() * 99) + 1;
-    var intricacyroll     = Math.floor(Math.random() * 99) + 1;
+    var activityroll      = Math.floor(Math.random() * 99) + 1;
     var hardinessroll     = Math.floor(Math.random() * 99) + 1;
 
     sinroll.clamp(1, 100);
@@ -52,7 +52,7 @@ setup.createBuilding = function() {
         roughnessroll     : roughnessroll,
         cleanlinessroll   : cleanlinessroll,
         expertiseroll     : expertiseroll,
-        intricacyroll     : intricacyroll,
+        activityroll      : activityroll,
         hardinessroll     : hardinessroll
     };
 };

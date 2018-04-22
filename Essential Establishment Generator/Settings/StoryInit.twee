@@ -46,6 +46,8 @@
 
 <<include "Alchemist">>
 
+<<include "AlchemistModifiers">>
+
 <<include "AlchemistNameGen">>
 
 <<include "Potions">>
