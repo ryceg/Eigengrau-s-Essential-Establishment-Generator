@@ -14,7 +14,7 @@ General Store Cleanliness: <<numberslider "$GeneralStore.cleanlinessroll" $Gener
 General Store Activity: <<numberslider "$GeneralStore.activityroll" $GeneralStore.activityroll 1 100 1>>
 
 General Store Magic: <<numberslider "$GeneralStore.magicroll" $GeneralStore.magicroll 1 100 1>>
-<</linkreplace>>
+
 
 When you're ready, here's the [[general store|GeneralStoreOutput]]
 <<set $currentpassage to $GeneralStore>>

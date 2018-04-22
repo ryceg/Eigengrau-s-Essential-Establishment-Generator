@@ -1,4 +1,4 @@
-:: GeneralStoreSells
+:: GeneralStoreSell
 
 <<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive">
 <<switch $town.type>>
