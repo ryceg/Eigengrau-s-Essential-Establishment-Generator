@@ -1,15 +1,6 @@
 :: GeneralStoreInventory
 
-<<set $GeneralStoreInventory to [
-
-
-	{
-	name: "Potion (Common)",
-	cost: 50000,
-	availability: 1
-	},
-
-
+<<set $GeneralStore.inventory to [
 	{
 	name: "Club",
 	cost: 10,
