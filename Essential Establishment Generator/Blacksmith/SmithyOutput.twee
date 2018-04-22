@@ -9,4 +9,4 @@
 
 <<include "SmithySell">>
 
-<<include "SmithyCustomers">>
+<<linkreplace "<h4>Talk with a customer</h4>" t8n>><<include "SmithyCustomers">><</linkreplace>>
