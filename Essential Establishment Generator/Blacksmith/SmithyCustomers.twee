@@ -31,13 +31,13 @@
 
 <<if _customer gt 90>>
     <<set $smithycustomer to $lord>>
-    <<set _notablecustomer to ", Lord of $town.name">>
+    <<set _notablecustomer to "Lord of $town.name">>
   <<elseif _customer gt 85>>
     <<set $smithycustomer to $guardcaptain>>
-    <<set _notablecustomer to ", Captain of $guard.name, the local guard">>
+    <<set _notablecustomer to "Captain of $guard.name, the local guard">>
   <<elseif _customer gt 80>>
     <<set $smithycustomer to $mercenarycaptain>>
-    <<set _notablecustomer to ", Commander of the $mercenary.colour Mercenaries">>
+    <<set _notablecustomer to "Commander of the $mercenary.colour Mercenaries">>
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
     <<set _notablecustomer to "">>
