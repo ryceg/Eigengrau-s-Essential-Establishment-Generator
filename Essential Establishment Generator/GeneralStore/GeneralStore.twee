@@ -3,4 +3,4 @@
 <<set $GeneralStore to setup.createBuilding()>>
 <<set $shopkeep to setup.createNPC()>>
 <<set $shopkeep.mundane to ["pliers", "tins", "twine", "cups", "spoons", "pans", "chairs", "cushions"],
-      $shopkeep.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $blacksmith.heshe nods at you", "checks you out for just a moment before smiling at you"],>>
+      $shopkeep.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $blacksmith.heshe nods at you", "checks you out for just a moment before smiling at you"]>>
