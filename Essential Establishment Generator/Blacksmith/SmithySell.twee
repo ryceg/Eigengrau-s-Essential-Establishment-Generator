@@ -1,5 +1,5 @@
 :: SmithySell
-<<nobr>><div class="descriptive">
+<<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
   $blacksmith.name smiles, and says "You're looking to buy something? Name it, here at $smithy.name, we stock everything the average man could possibly need!"
@@ -33,4 +33,4 @@
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>></table>
-<</switch>><</nobr>>
+<</switch>><</nobr>><</linkappend>>

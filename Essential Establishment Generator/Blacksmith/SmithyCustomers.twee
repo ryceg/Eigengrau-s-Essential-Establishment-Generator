@@ -31,15 +31,16 @@
 
 <<if _customer gt 90>>
     <<set $smithycustomer to $lord>>
-    <<replace "#notablecustomer">>, Lord of $town.name,<</replace>>
+    <<set _notablecustomer to ", Lord of $town.name">>
   <<elseif _customer gt 85>>
     <<set $smithycustomer to $guardcaptain>>
-    <<replace "#notablecustomer">>, Captain of $guard.name, the local guard,<</replace>>
+    <<set _notablecustomer to ", Captain of $guard.name, the local guard">>
   <<elseif _customer gt 80>>
     <<set $smithycustomer to $mercenarycaptain>>
-    <<replace "#notablecustomer">>, Commander of the $mercenary.colour Mercenaries,<</replace>>
+    <<set _notablecustomer to ", Commander of the $mercenary.colour Mercenaries">>
   <<elseif _customer lte 80>>
     <<set $smithycustomer to setup.createNPC()>>
+    <<set _notablecustomer to ""
 <</if>>
 
 <<if $smithycustomer.adventure is "retired from adventuring">>
@@ -47,6 +48,7 @@
   <<else>>
     <<set _tense to "is">>
 <</if>>
-
+<<linkreplace "<h4>Talk with a customer</h4>" t8n>>
 <span id="smithy-customer-name"><h4>$smithycustomer.name</h4></span>
-<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himherself as $smithycustomer.name<span id="notablecustomer">,</span> and you notice $smithycustomer.heshe has $smithycustomer.physicaltrait. $smithycustomer.firstname tells you that $smithycustomer.heshe _tense a $smithycustomer.dndclass, and $smithycustomer.adventure. <<print $smithycustomer.heshe.toUpperFirst()>> looks at you with $smithycustomer.hisher $smithycustomer.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"
+<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himherself as $smithycustomer.name, _notablecustomer and you notice $smithycustomer.heshe has $smithycustomer.physicaltrait. $smithycustomer.firstname tells you that $smithycustomer.heshe _tense a $smithycustomer.dndclass, and $smithycustomer.adventure. <<print $smithycustomer.heshe.toUpperFirst()>> looks at you with $smithycustomer.hisher $smithycustomer.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"
+<</linkreplace>>

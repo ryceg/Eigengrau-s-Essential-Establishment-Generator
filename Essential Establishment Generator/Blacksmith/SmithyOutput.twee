@@ -5,9 +5,8 @@
 <<include "SmithyLookAround">>
 
 
-<<linkreplace "<h4>Talk with $blacksmith.name</h4>" t8n>>
-<h3>$blacksmith.name</h3><<include "BlacksmithTalk">><</linkreplace>>
+<<include "BlacksmithTalk">>
 
-<<linkappend "<h4>Buy something</h4>">><<include "SmithySell">><</linkappend>>
+<<include "SmithySell">>
 
-<<linkreplace "<h4>Talk with a customer</h4>" t8n>><<include "SmithyCustomers">><</linkreplace>>
+<<include "SmithyCustomers">>
