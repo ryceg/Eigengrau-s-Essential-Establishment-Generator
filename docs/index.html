@@ -5013,6 +5013,73 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
     &lt;&lt;set $tavern.activityroll to 100&gt;&gt;
   &lt;&lt;elseif $tavern.activityroll lt 1&gt;&gt;
     &lt;&lt;set $tavern.activityroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+
+&lt;&lt;if $GeneralStore.magicroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.magicroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.magicroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.magicroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.sizeroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.sizeroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.sizeroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.sizeroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.diversityroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.diversityroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.diversityroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.diversityroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.wealthroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.wealthroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.wealthroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.wealthroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.populationroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.populationroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.populationroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.populationroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.reputationroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.reputationroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.reputationroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.reputationroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.sinroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.sinroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.sinroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.sinroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.roughnessroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.roughnessroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.roughnessroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.roughnessroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.cleanlinessroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.cleanlinessroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.cleanlinessroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.cleanlinessroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.expertiseroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.expertiseroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.expertiseroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.expertiseroll to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $GeneralStore.activityroll gt 100&gt;&gt;
+    &lt;&lt;set $GeneralStore.activityroll to 100&gt;&gt;
+  &lt;&lt;elseif $GeneralStore.activityroll lt 1&gt;&gt;
+    &lt;&lt;set $GeneralStore.activityroll to 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="PassageHeader" tags="" position="850,725">&lt;h5&gt;The $town.type of [[$town.name|Start]]&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="58" name="PassageReady" tags="" position="975,725">&lt;&lt;for _passage range Story.lookup(&quot;tags&quot;, &quot;render&quot;)&gt;&gt;
     &lt;&lt;include _passage.title&gt;&gt;
 &lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="StoryAuthor" tags="" position="1100,725">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="60" name="StoryInit" tags="" position="1225,725">&lt;&lt;set $versionnumber to &quot;1.0&quot;&gt;&gt;
