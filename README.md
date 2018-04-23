@@ -1,4 +1,4 @@
-# Eigengrau-s-Essential-Establishment-Generator
+# Eigengrau's Essential Establishment Generator
 
 Hi! I hope you enjoy using my Essential Establishment Generator!
 
