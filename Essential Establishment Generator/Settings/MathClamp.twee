@@ -198,3 +198,70 @@
   <<elseif $tavern.activityroll lt 1>>
     <<set $tavern.activityroll to 1>>
 <</if>>
+
+
+<<if $GeneralStore.magicroll gt 100>>
+    <<set $GeneralStore.magicroll to 100>>
+  <<elseif $GeneralStore.magicroll lt 1>>
+    <<set $GeneralStore.magicroll to 1>>
+<</if>>
+
+<<if $GeneralStore.sizeroll gt 100>>
+    <<set $GeneralStore.sizeroll to 100>>
+  <<elseif $GeneralStore.sizeroll lt 1>>
+    <<set $GeneralStore.sizeroll to 1>>
+<</if>>
+
+<<if $GeneralStore.diversityroll gt 100>>
+    <<set $GeneralStore.diversityroll to 100>>
+  <<elseif $GeneralStore.diversityroll lt 1>>
+    <<set $GeneralStore.diversityroll to 1>>
+<</if>>
+
+<<if $GeneralStore.wealthroll gt 100>>
+    <<set $GeneralStore.wealthroll to 100>>
+  <<elseif $GeneralStore.wealthroll lt 1>>
+    <<set $GeneralStore.wealthroll to 1>>
+<</if>>
+
+<<if $GeneralStore.populationroll gt 100>>
+    <<set $GeneralStore.populationroll to 100>>
+  <<elseif $GeneralStore.populationroll lt 1>>
+    <<set $GeneralStore.populationroll to 1>>
+<</if>>
+
+<<if $GeneralStore.reputationroll gt 100>>
+    <<set $GeneralStore.reputationroll to 100>>
+  <<elseif $GeneralStore.reputationroll lt 1>>
+    <<set $GeneralStore.reputationroll to 1>>
+<</if>>
+
+<<if $GeneralStore.sinroll gt 100>>
+    <<set $GeneralStore.sinroll to 100>>
+  <<elseif $GeneralStore.sinroll lt 1>>
+    <<set $GeneralStore.sinroll to 1>>
+<</if>>
+
+<<if $GeneralStore.roughnessroll gt 100>>
+    <<set $GeneralStore.roughnessroll to 100>>
+  <<elseif $GeneralStore.roughnessroll lt 1>>
+    <<set $GeneralStore.roughnessroll to 1>>
+<</if>>
+
+<<if $GeneralStore.cleanlinessroll gt 100>>
+    <<set $GeneralStore.cleanlinessroll to 100>>
+  <<elseif $GeneralStore.cleanlinessroll lt 1>>
+    <<set $GeneralStore.cleanlinessroll to 1>>
+<</if>>
+
+<<if $GeneralStore.expertiseroll gt 100>>
+    <<set $GeneralStore.expertiseroll to 100>>
+  <<elseif $GeneralStore.expertiseroll lt 1>>
+    <<set $GeneralStore.expertiseroll to 1>>
+<</if>>
+
+<<if $GeneralStore.activityroll gt 100>>
+    <<set $GeneralStore.activityroll to 100>>
+  <<elseif $GeneralStore.activityroll lt 1>>
+    <<set $GeneralStore.activityroll to 1>>
+<</if>>
