@@ -6,6 +6,9 @@
 <<linkappend "<h4>Changelog</h4>" t8n>>
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
 <<include "ToDo">><</linkappend>><</linkappend>>
+<<if random(1, 99) gt 95>>
+  If you enjoy this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997
+<</if>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
