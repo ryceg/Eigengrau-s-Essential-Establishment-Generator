@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
 
 body {
   background-image: [img[backgroundpaper]];
@@ -10,6 +10,8 @@ body {
   margin-bottom: 4px;
   margin-top: 4px;
 }
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 img, embed, object, video {
     max-width: 100%;
