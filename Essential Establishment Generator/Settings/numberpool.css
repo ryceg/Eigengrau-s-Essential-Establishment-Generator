@@ -1,0 +1,113 @@
+/*! <<numberpool>> macro set for SugarCube v2 */
+div[id|="numberbox-body"] {
+	display: inline-block;
+}
+div[id|="numberbox-body"] input {
+	min-width: 3em;
+	width: 3em;
+	text-align: center;
+   	font-color: black;
+}
+div[id|="numberbox-body"] button {
+	font-family: "tme-fa-icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+  	font-color: black;
+	text-transform: none;
+	line-height: normal;
+	speak: none;
+	padding: 0.4em 0.6em;
+}
+div[id|="numberbox-body"] button[id|="numberbox-minus"] {
+	margin-right: 0.4em;
+}
+div[id|="numberbox-body"] button[id|="numberbox-plus"] {
+	margin-left: 0.4em;
+}
+
+div[id|="numberslider-body"] {
+	display: inline-block;
+}
+div[id|="numberslider-body"] span {
+	display: inline-block;
+	/*font-size: 1.25em;*/
+	margin-left: 0.25em;
+	min-width: 3em;
+	text-align: center;
+	vertical-align: middle;
+}
+div[id|="numberslider-body"] input {
+	-webkit-appearance: none;
+	cursor: pointer;
+	height: 1.25em;
+	min-width: auto;
+	vertical-align: middle;
+}
+div[id|="numberslider-body"] input:focus {
+	outline: none;
+}
+div[id|="numberslider-body"] input::-webkit-slider-runnable-track {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+	cursor: pointer;
+	height: 10px;
+	width: 100%;
+}
+div[id|="numberslider-body"] input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 18px;
+	margin-top: -5px;
+	width: 33px;
+}
+div[id|="numberslider-body"] input:focus::-webkit-slider-runnable-track {
+	background: #222;
+}
+div[id|="numberslider-body"] input::-moz-range-track {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+	cursor: pointer;
+	height: 10px;
+	width: 100%;
+}
+div[id|="numberslider-body"] input::-moz-range-thumb {
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 18px;
+	width: 33px;
+}
+div[id|="numberslider-body"] input::-ms-track {
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+	cursor: pointer;
+	height: 10px;
+	width: 99%; /* fallback for MS browsers without support for calc() */
+	width: calc(100% - 1px);
+}
+div[id|="numberslider-body"] input::-ms-fill-lower {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+}
+div[id|="numberslider-body"] input::-ms-fill-upper {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+}
+div[id|="numberslider-body"] input::-ms-thumb {
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 16px;
+	width: 33px;
+}
