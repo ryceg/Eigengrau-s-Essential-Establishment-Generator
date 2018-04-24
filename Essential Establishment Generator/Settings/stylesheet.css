@@ -183,7 +183,7 @@ sub {
 
 h1+p::first-letter {
     float:          left;
-    font-family:    Solberry;
+    font-family:    Solbera Imitation;
     font-size:      10em;
     color:          #222;
     line-height:    .8em
@@ -191,7 +191,7 @@ h1+p::first-letter {
 
 firstcharacter {
     float:          left;
-    font-family:    Solberry;
+    font-family:    Solbera Imitation;
     font-size:      10em;
     color:          #222;
     line-height:    .8em
