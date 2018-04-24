@@ -1,5 +1,5 @@
 body {
-  background-image: backgroundpaper;
+  background-image: url(backgroundpaper);
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
