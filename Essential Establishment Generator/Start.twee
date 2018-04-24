@@ -1,6 +1,4 @@
-
 :: Start [output]
-
 <h1>Eigengrau's Essential Establishment Generator</h1>
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
 <<linkappend "<h4>Changelog</h4>" t8n>>
@@ -10,8 +8,8 @@
   <blockquote>If you enjoy this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997</blockquote>
   <<elseif random(1, 99) gt 85>>
   <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator!</blockquote>
-<</if>><</nobr>>
-
+<</if>>
+<</nobr>>
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
