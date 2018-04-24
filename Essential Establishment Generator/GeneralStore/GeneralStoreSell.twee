@@ -9,7 +9,7 @@
   <<case "village">>
   $shopkeep.name says "Sure, what are you after? <<print $shopkeep.mundane.random().toUpperFirst()>>?"
   <<case "hamlet">>
-  $shopkeep.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $GeneralStore.mundane.randomMany(4)>>, you name it!"
+  $shopkeep.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $shopkeep.mundane.randomMany(4)>>, you name it!"
 <</switch>><<print $GeneralStore.pricetalk>></div>
 
 <table>

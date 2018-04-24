@@ -8,6 +8,12 @@ body {
   margin-bottom: 4px;
   margin-top: 4px;
 }
+
+img, embed, object, video {
+    max-width: 100%;
+}
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
 /*
 h1 {
   font-family: MrJeeves;
