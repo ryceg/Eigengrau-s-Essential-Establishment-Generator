@@ -4,7 +4,7 @@ url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_textu
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
-  font-family: Bookos;
+  font-family: ZatannaMisdirection;
   font-size: 18px;
   margin-bottom: 4px;
   margin-top: 4px;
@@ -197,7 +197,7 @@ firstcharacter {
     line-height:    .8em
 }
 blockquote {
-    font-family: ScalySans;
+    font-family: Scaly Sans;
     box-sizing: border-box;
     margin-bottom: 1em;
     margin-top: 9px;
@@ -210,11 +210,11 @@ blockquote {
     box-shadow: 1px 4px 14px #888
 }
 blockquote em {
-    font-family: ScalySans;
+    font-family: Scaly Sans;
     font-style: italic
 }
 blockquote strong {
-    font-family: ScalySans;
+    font-family: Scaly Sans;
     font-weight: 800;
     letter-spacing: -0.02em
 }
