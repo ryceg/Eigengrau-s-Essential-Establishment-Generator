@@ -4,9 +4,9 @@
 <<linkappend "<h4>Changelog</h4>" t8n>>
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
 <<include "ToDo">><</linkappend>><</linkappend>>
-<<nobr>><<if random(1, 99) gt 95>>
+<<nobr>><<set _roll to random(1, 99)>><<if _roll gt 90>>
   <blockquote>If you enjoy this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997</blockquote>
-  <<elseif random(1, 99) gt 85>>
+  <<elseif _roll gt 80>>
   <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator!</blockquote>
 <</if>>
 <</nobr>>
