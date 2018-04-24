@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://pre00.deviantart.net/3a51/th/pre/i/2015/198/a/1/phb_background_texture_by_kluckham-d91rf3o.png);
+  background-image: [img[backgroundpaper]];
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
@@ -204,7 +204,7 @@ blockquote {
     background-color: #e0e5c1;
     border-style: solid;
     border-width: 11px;
-    border-image: url('http://www.gmbinder.com/assets/img/note-wrap.png') 11;
+    border-image: [img[note-wrap]]; 11;
     border-image-outset: 9px 0;
     box-shadow: 1px 4px 14px #888
 }
@@ -238,7 +238,7 @@ blockquote h5 {
         font-family:ScalySans;
         border-style:solid;
         border-width:7px;
-        border-image:url('http://www.gmbinder.com/assets/img/sidebars.png') 12 round;
+        border-image: [img[sidebars]]; 12 round;
         border-image-outset:4px;
         box-shadow:0 0 6px #faf7ea
     }
@@ -263,14 +263,14 @@ blockquote h5 {
         margin-top:8px
     }
 
-    descriptive{
+    descriptive {
         display:block-inline;
         margin-bottom:1em;
         background-color:#faf7ea;
         font-family:ScalySans;
         border-style:solid;
         border-width:7px;
-        border-image:url('http://www.gmbinder.com/assets/img/sidebars.png') 12 round;
+        border-image: [img[sidebars]]; 12 round;
         border-image-outset:4px;
         box-shadow:0 0 6px #faf7ea
     }
@@ -315,6 +315,22 @@ blockquote h5 {
     }
     tr:nth-child(even) {background-color: #e0e5c1;}
 
+    .body:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 55px;
+        width: 100%;
+        background-image: [img[footer]];
+        background-size: cover
+    }
+    .body:nth-child(even):after {transform: scaleX(-1)}
+    .body:nth-child(even) .pageNumber {left: 2px}
+    .body:nth-child(even) .footnote {
+        left: 80px;
+        text-align: left
+    }
 
 /***********************************************************************
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
