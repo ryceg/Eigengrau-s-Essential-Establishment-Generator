@@ -8,6 +8,8 @@
   <blockquote>If you enjoy this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997 </blockquote>
   <<elseif _roll gt 80>>
   <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator! </blockquote>
+  <<elseif _roll gt 70>>
+  <blockquote>Find us on Discord at https://discord.gg/4wYNwp2 </blockquote>
 <</if>>
 <</nobr>>
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
