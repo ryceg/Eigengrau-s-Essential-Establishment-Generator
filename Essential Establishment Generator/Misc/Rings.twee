@@ -84,7 +84,47 @@ intendedowner: [
     "Infamous warlord",
     "Renowned explorer",
     "Famous singer"]
-    }>>
+
+  power: [
+    "absorb fire damage",
+    "absorb lightning damage",
+    "absorb memories",
+    "absorb souls",
+    "absorb spells",
+    "absorb water",
+    "attract birds",
+    "attract ghosts",
+    "attract members of the opposite sex",
+    "attract rats",
+    "attract snakes",
+    "attract stirges",
+    "avoid former lovers",
+    "avoid sobriety",
+    "avoid trap triggers",
+    "avoid trolls",
+    "avoid vampires",
+    "avoid werewolves",
+    "bolster  ",
+    "bolster ",
+    "bolster ",
+    "bolster ",
+    "bolster ",
+    "bolster ",
+    "cast a spell ",
+    "cast a spell ",
+    "cast a spell ",
+    "cast a spell ",
+    "cast a spell ",
+    "cast a spell ",
+    "command ",
+    "command ",
+    "command ",
+    "command ",
+    "command ",
+    "command ",
+
+  ]
+  }>>
 d20 Special power: When properly activated, the ring allows its wearer to...
 
 Absorb (d6): 1. fire damage; 2. lightning damage; 3. memories; 4. souls; 5. spells; 6. water.
