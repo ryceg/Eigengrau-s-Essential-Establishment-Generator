@@ -40,17 +40,17 @@ switch (tavernnameroll) {
     	name = "The " + nounA + " and " + nounB;
       break;
 	case 3:
-		name = "The " + nounA + " and the " + nounB;
-    break;
+		  name = "The " + nounA + " and the " + nounB;
+      break;
 	case 4:
     	name = "The " + verb + " " + nounA;
       break;
 	case 5:
     	name = "The " + verb + " " + nounA + " and the " + nounC;
       break;
-  default:
+/*  default:
       name = "The " + nounA + " Inn";
-      break;
+      break;*/
 }
 
 return {
