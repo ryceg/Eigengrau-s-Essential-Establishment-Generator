@@ -1,17 +1,5 @@
 
 :: TavernNameGen
-
-/* ------------------------- TOWN NAME -------------------------- */
-
-<<set $town.nameprefix to either("Green", "Elms", "Oak", "Fair", "Farren", "Tall", "Nar", "Alla", "Lans", "San", "Col", "Fri", "Plain", "Hon", "Far", "Barrow", "Shi", "Mel", "Mal", "Bon", "Bie", "Can", "Pol", "Pan", "Fald", "Frior", "Pol")>>
-
-<<set $town.namesuffix to either("dale", "ten", "den", "ven", "gen", "len", "lun", "stun", "ville", "burn", "view", "nen", "lan", "sed", "folk", "ork", "len", "pan", "rel", "old", "ten", "tan", "lend", "vorn", "vant", "lid", "lin")>>
-
-<<set $town.name to $town.nameprefix + $town.namesuffix>>
-
-
-
-
 /* ------------------------- TAVERN NAME -------------------------- */
 <<set _tavernnameroll to random(1, 5)>>
 

@@ -8,9 +8,6 @@
 		<<set $tavern.wealthroll -= 3>>
 <</if>>
 
-/* ------------------------- BARTENDER RACE -------------------------- */
-/* THIS IS IN THE BARTENDER PASSAGE */
-
 /* ------------------------- WEALTH -------------------------- */
 <<if $tavern.wealthroll gt 95>>
 		<<set $tavern.wealth to "kingly">>

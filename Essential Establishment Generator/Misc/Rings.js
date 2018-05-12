@@ -1,6 +1,6 @@
-:: Rings
-<<set $ring to {
-  material: [
+
+setup.createTrinket = function() {
+  material = [
     "gold",
     "white gold",
     "tarnished silver",
@@ -21,8 +21,8 @@
     "iron",
     "copper",
     "platinum"],
-  decoration:
-    ["handful of small gemstones arrayed around the band",
+  decoration = [
+    "handful of small gemstones arrayed around the band",
     "trio of small gemstones",
     "single small gemstone",
     "single large gemstone",
@@ -42,8 +42,8 @@
     "phrase written in a Dwarvish script",
     "phrase written in an Elvish script",
     "handful of arcane runes"],
-  gemstone:
-    ["diamond",
+  gemstone = [
+    "diamond",
     "blue diamond",
     "pink diamond",
     "yelllow diamond",
@@ -63,50 +63,211 @@
     "black pearl",
     "amethyst",
     "topaz"],
-intendedowner: [
+intendedowner = [
     "Dwarvish king",
     "Elvish prince",
-    "Terrifying elf-witch",
+    "terrifying elf-witch",
     "Gnomish gemcutter",
-    "Ancient hero",
-    "Dark sorceress",
-    "Notorious witch",
-    "Legendary mage",
-    "High priest",
-    "Mysterious knight",
-    "Sinister lich",
-    "Devious rogue",
-    "Eccentric wizard",
-    "Powerful queen",
-    "Beautiful princess",
-    "Wealthy lord",
-    "Conniving fiend",
-    "Infamous warlord",
-    "Renowned explorer",
-    "Famous singer"]
-    }>>
+    "ancient hero",
+    "dark sorceress",
+    "notorious witch",
+    "legendary mage",
+    "high priest",
+    "mysterious knight",
+    "sinister lich",
+    "devious rogue",
+    "eccentric wizard",
+    "powerful queen",
+    "beautiful princess",
+    "wealthy lord",
+    "conniving fiend",
+    "infamous warlord",
+    "renowned explorer",
+    "famous singer"],
+  power = ["absorb", "attract", "avoid", "bolster", "cast a spell", "conjure a swarm of", "control", "detect", "disappear", "detect the nearest", "move like a", "predict", "regain", "resist", "see", "talk to a", "summon", "teleport"]
+    }
 d20 Special power: When properly activated, the ring allows its wearer to...
 
-Absorb (d6): 1. fire damage; 2. lightning damage; 3. memories; 4. souls; 5. spells; 6. water.
-Attract (d6): 1. birds; 2. ghosts; 3. members of the opposite sex; 4. rats; 5. snakes; 6. stirges.
-Avoid (d6): 1. former lovers; 2. sobriety; 3. trap triggers; 4. trolls; 5. vampires; 6. werewolves.
-Bolster your (d6): 1. agility and reflexes; 2. awareness and senses; 3. confidence and self-esteem; 4. health and toughness; 5. intellect and problem-solving skills; 6. strength and endurance.
-Cast a spell (d6): 1. at random; 2. prepared and stored in the ring by the ring's creator; 3. prepared and stored in the ring by you; 4. that creates a disguise; 5. that restores lost hit points; 6. that grants invisibility.
-Command (d6): 1. air elementals; 2. earth elementals; 3. fire elementals; 4. ghouls; 5. water elementals; 6. wolves.
-Conjure a swarm of (d6): 1. bats; 2. parrots; 3. ravens; 4. rats; 5. spiders; 6. zombies.
-Control (d6): 1. demons; 2. dwarves; 3. elves; 4. flames; 5. human minds; 6. weather.
-Detect (d6): 1. lies; 2. illusions; 3. poisoned food and drink; 4. secret doors; 5. traps; 6. water sources.
-Disappear in/into a (d6): 1. hole in the earth; 2. flash of light; 3. nearby tree; 4. shimmering mist; 5. swirl of shadows; 6. wisp of smoke.
-Dodge (d6): 1. attacks from dragons; 2. attacks from giants; 3. lightning bolts; 4. mechanical traps; 5. spell attacks; 6. weapon attacks.
-Locate the nearest (d6): 1. corpse; 2. dragon; 3. gold; 4. living creature; 5. poisonous plant; 6. undead.
-Move like a/an (d6): 1. dolphin; 2. burrowing badger; 3. gust of wind; 4. jackrabbit; 5. ooze; 6. spider.
-Predict (d6): 1. deaths; 2. fluctuations in the price of grain; 3. future catastrophes; 4. military victories; 5. storms; 6. winning horses.
-Recover (d6): 1. expended spell slots; 2. lost dignity; 3. lost hit points; 4. lost gold; 5. lost time; 6. used torches.
-Resist (d6): 1. diseases; 2. mind-affecting charms; 3. persuasion; 4. poisons; 5. psionic powers; 6. seduction.
-See (d6): 1. faraway places; 2. into others' dreams; 3. invisible creatures and objects; 4. people dear to you wherever they are; 5. through the eyes of a beast; 6. through the eyes of a corpse.
-Speak with a/an (d6): 1. dear friend or lover; 2. long-dead person; 3. recently deceased person; 4. snake; 5. spider; 6. wolf.
-Summon a/an (d6): 1. angel; 2. demon; 3. devil; 4. djinni; 5. efreet; 6. pack of wolves.
-Teleport (d6): 1. up to ten feet; 2. to another room nearby; 3. to a well-known temple; 4. to a previously prepared teleportation circle; 5. to the presence of a powerful fiend; 6. to an ancient crypt.
+absorb
+
+"fire damage",
+"lightning damage",
+"memories",
+"souls",
+"spells",
+"water",
+
+
+attract
+
+"birds",
+"ghosts",
+"members of the opposite sex",
+"rats",
+"snakes",
+"stirges",
+
+
+avoid
+
+"former lovers",
+"sobriety",
+"trap triggers",
+"trolls",
+"vampires",
+"werewolves",
+
+
+bolster
+
+"agility and reflexes",
+"awareness and senses",
+"confidence and self-esteem",
+"health and toughness",
+"intellect and problem-solving skills",
+"strength and endurance",
+
+
+cast a spell
+
+"at random",
+"prepared and stored in the ring by the ring's creator",
+"prepared and stored in the ring by you",
+"that creates a disguise",
+"that restores lost hit points",
+"that grants invisibility",
+
+conjure a swarm of
+
+"bats",
+"parrots",
+"ravens",
+"rats",
+"spiders",
+"zombies",
+
+
+control
+
+"demons",
+"dwarves",
+"elves",
+"flames",
+"human minds",
+"weather",
+
+
+detect
+
+"lies",
+"illusions",
+"poisoned food and drink",
+"secret doors",
+"traps",
+"water sources",
+
+
+disappear
+
+"into a hole in the earth",
+"in a flash of light",
+"to a nearby tree",
+"in a shimmering mist",
+"in a swirl of shadows",
+"in a wisp of smoke",
+
+
+detect the nearest
+
+"corpse",
+"dragon",
+"gold",
+"living creature",
+"poisonous plant",
+"undead",
+
+
+move like a
+
+"dolphin",
+"burrowing badger",
+"gust of wind",
+"jackrabbit",
+"ooze",
+"spider",
+
+
+predict
+
+"deaths",
+"fluctuations in the price of grain",
+"future catastrophes",
+"military victories",
+"storms",
+"winning horses",
+
+
+regain
+
+"expended spell slots",
+"lost dignity",
+"lost hitpoints",
+"lost gold",
+"lost time",
+"used torches",
+
+
+resist
+
+"diseases",
+"mind-affecting charms",
+"persuasion",
+"poisons",
+"psionic powers",
+"seduction",
+
+
+see
+
+"faraway places",
+"into others' dreams",
+"invisible creatures and objects",
+"people dear to you",
+"through the eyes of an owl",
+"through the eyes of a corpse",
+
+
+talk to a
+
+"dear friend or lover",
+"long-dead person",
+"recently deceased person",
+"snake",
+"spider",
+"wolf",
+
+
+summon
+
+"an angel",
+"a demon",
+"a devil",
+"a djinni",
+"an efreet",
+"a pack of wolves",
+
+
+teleport
+
+"up to ten feet",
+"to another room nearby",
+"to a well-known temple",
+"to a previously prepared teleportation circle",
+"to the presence of a powerful fiend",
+"to an ancient crypt",
+
+
+
 d6 Activation/amplification: The ring's special power or special property activates or amplifies…
 
 On a particular plane (d6): 1. celestial realm; 2. fiendish realm; 3. mortal world; 4. realm of death; 5. realm of dreams and magic; 6. realm of shadow and death.
@@ -117,7 +278,14 @@ Underground.
 Under starlight.
 d6 Reliability and costs: The ring's special power...
 
-Works (d6): 1. perfectly, every time; 2. most of the time with infrequent mishaps; 3. as expected about half the time; 4. occasionally, when the proper conditions are met; 5. rarely and unpredictably; 6. only the first time the wearer uses the power.
+Works =
+"perfectly, every time",
+"most of the time with infrequent mishaps",
+"as expected about half the time",
+"occasionally, when the proper conditions are met", 
+"rarely and unpredictably",
+"only the first time the wearer uses the power",
+
 Comes at a temporary or acute health cost (d6): 1. chills; 2. fatigue; 3. flatulence; 4. headaches; 5. nausea; 6. unsightly and rapid hair growth.
 Comes at a chronic or permanent health cost (d6): 1. blurred vision or blindness; 2. loss of the power of speech; 3. painful scarring and deformity; 4. poor wound healing; 5. tumorous growths and deformity; 6. wasting sickness.
 Brings on mental distress (d6): 1. anxiety; 2. bad dreams; 3. compulsive behavior (drinking, smoking, scratching, hygiene, etc.); 4. insomnia; 5. short temper (irritability); 6. weight gain (stress eating).
