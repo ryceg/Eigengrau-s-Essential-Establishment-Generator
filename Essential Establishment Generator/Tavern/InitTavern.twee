@@ -2,7 +2,7 @@
 :: InitTavern [output]
 
 <<linkreplace "Rename <strong>$tavern.name</strong>">><</linkreplace>> <<link "reroll">>
-<<set $tavern to setup.TavernNameGen()>>
+<<set $tavernname to setup.TavernNameGen()>><<set $tavern.name to $tavernname.name>>
     <<replace "#tavernname">>
             \<h3><<textbox "$tavern.name" $tavern.name>></h3>
     <</replace>>
