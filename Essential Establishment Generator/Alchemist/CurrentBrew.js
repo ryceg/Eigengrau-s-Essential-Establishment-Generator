@@ -16,7 +16,7 @@ setup.createAlchemistBrew = function() {
       adjective     : adjective,
       material      : material,
       vessel        : vessel,
-      ingredient   : ingredient,
+      ingredient    : ingredient,
       purpose       : purpose,
       appearance    : appearance,
       appearance2   : appearance2,

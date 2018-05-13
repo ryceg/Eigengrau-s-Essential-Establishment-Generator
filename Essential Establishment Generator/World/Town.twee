@@ -1,7 +1,6 @@
 :: Town
 
 <<set $town to {
-	race: either(["human", "human", "human", "human", "dwarf", "dwarf", "dwarf", "elf", "elf", "half-orc", "half-elf"]),
 	wealthroll: random(1, 100),
 	reputationroll: random(1, 100),
 	sinroll: random(1, 100),
