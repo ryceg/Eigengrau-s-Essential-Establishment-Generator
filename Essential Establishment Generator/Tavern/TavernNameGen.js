@@ -1,4 +1,4 @@
-setup.TavernNameGen = function() {
+setup.createTavernNameGen = function() {
 /* ------------------------- TAVERN NAME -------------------------- */
 var nounA     = ["Warhorse", "Horseman", "Maiden", "Mage", "Bachelor", "King", "Magistrate", "Warchief", "Warrior", "Mare", "Wolf", "Fox", "Lion", "Lamb", "Warden", "Mule", "Assassin", "Swordsman", "Lady", "Knight", "Soldier", "Wizard", "Warlock", "Ranger", "Bard", "Druid", "Monk", "Paladin", "Sorcerer", "Rogue", "Cleric", "Bear", "Goblin", "Kobold", "Gnome", "Halfling", "Dwarf", "Fool", "Virgin", "Horde", "Squire", "Eagle", "Rooster", "Piglet", "Thief", "Priest", "Friar", "Blacksmith", "Guard", "Stag", "Hag", "Devil", "Angel", "Serpent", "Snake", "Rat", "Mouse", "Bandit", "Chieftain", "Griffon", "Dragon", "Lizard", "Pony", "Baron", "Heifer", "Bull", "Hound", "Goat", "Toad", "Stallion", "Monster", "Vermin", "Beholder", "Monkey", "Elephant", "Boar", "Beagle", "Bat", "Demon", "Imp", "Sprite", "Fey", "Spirit", "Bitch", "Starling", "Minotaur", "Barbarian", "Prophet", "Merchant", "Cobbler", "Unicorn", "Ogre", "Nymph", "Butcher", "Captain", "Angler", "Lover", "Mason", "Tinker", "Whale"].random();
 var nounB;
