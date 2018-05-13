@@ -25,3 +25,6 @@ $tavern.roughnessroll.clamp(1, 100)
 $tavern.diversityroll.clamp(1, 100)
 $tavern.sizeroll.clamp(1, 100)
 $tavern.magicroll.clamp(1, 100)
+
+<<set $tavernname to setup.createTavernNameGen()>>
+<<set $tavern.name to $tavernname.name>>
