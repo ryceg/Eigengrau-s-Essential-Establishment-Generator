@@ -17,6 +17,7 @@ $town.diversityroll.clamp(1, 100)
 $town.magicroll.clamp(1, 100)
 $town.sizeroll.clamp(1, 100)
 
+<<set $lord to setup.createNPC()>>
 
 /* ------------------------- TOWN NAME -------------------------- */
 
