@@ -1,5 +1,5 @@
-setup.createTavernNameGen = function() {
-/* ------------------------- TAVERN NAME -------------------------- */
+/*setup.createTavernNameGen = function() {
+
 var nounA     = ["Warhorse", "Horseman", "Maiden", "Mage", "Bachelor", "King", "Magistrate", "Warchief", "Warrior", "Mare", "Wolf", "Fox", "Lion", "Lamb", "Warden", "Mule", "Assassin", "Swordsman", "Lady", "Knight", "Soldier", "Wizard", "Warlock", "Ranger", "Bard", "Druid", "Monk", "Paladin", "Sorcerer", "Rogue", "Cleric", "Bear", "Goblin", "Kobold", "Gnome", "Halfling", "Dwarf", "Fool", "Virgin", "Horde", "Squire", "Eagle", "Rooster", "Piglet", "Thief", "Priest", "Friar", "Blacksmith", "Guard", "Stag", "Hag", "Devil", "Angel", "Serpent", "Snake", "Rat", "Mouse", "Bandit", "Chieftain", "Griffon", "Dragon", "Lizard", "Pony", "Baron", "Heifer", "Bull", "Hound", "Goat", "Toad", "Stallion", "Monster", "Vermin", "Beholder", "Monkey", "Elephant", "Boar", "Beagle", "Bat", "Demon", "Imp", "Sprite", "Fey", "Spirit", "Bitch", "Starling", "Minotaur", "Barbarian", "Prophet", "Merchant", "Cobbler", "Unicorn", "Ogre", "Nymph", "Butcher", "Captain", "Angler", "Lover", "Mason", "Tinker", "Whale"].random();
 var nounB;
 var nounC;
@@ -30,8 +30,6 @@ var tavernnameroll = Math.floor(Math.random() * 5) + 1;
 		}
 
 
-/* ---------------------- TAVERN NAMEROLL CODE ----------------------- */
-
 switch (tavernnameroll) {
 	case 1:
 		  name = "The " + adjective + " " + nounA;
@@ -48,9 +46,7 @@ switch (tavernnameroll) {
 	case 5:
     	name = "The " + verb + " " + nounA + " and the " + nounC;
       break;
-/*  default:
-      name = "The " + nounA + " Inn";
-      break;*/
+
 }
 
 return {
@@ -64,3 +60,4 @@ return {
   };
 
 };
+*/
