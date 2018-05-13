@@ -1,7 +1,7 @@
 
 :: InitTavern [output]
 
-<<link "reroll">>
+<<set $tavernname to setup.createTavernNameGen()>><<link "reroll">>
 <<set $tavernname to setup.createTavernNameGen()>>
     <<replace "#tavernname">>
             \<h3><<textbox "$tavernname.name" $tavernname.name>></h3>
