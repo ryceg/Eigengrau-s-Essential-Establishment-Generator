@@ -486,7 +486,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       tattoo        : tattoo,
       dndclass      : dndclass,
 			background		: background,
-			Bonds					: bond,
+			bond					: bond,
 			adventure			: adventure,
       profession    : profession.random(),
       trait         : trait.random(),
