@@ -1,4 +1,4 @@
-setup.createAlchemistBrew = function() {
+/*setup.createAlchemistBrew = function() {
 
   var adjective = [
     "delicate",
@@ -130,8 +130,7 @@ setup.createAlchemistBrew = function() {
   var containerDescription = "a " + adjective + " " + material + " " + vessel;
   var liquidDescription = texture + " " + appearance + " liquid with " + appearance2;
 
-  return
-      {
+  return {
       adjective     : adjective,
       material      : material,
       vessel        : vessel,
@@ -144,3 +143,4 @@ setup.createAlchemistBrew = function() {
       liquidDescription : liquidDescription
     };
 };
+*/
