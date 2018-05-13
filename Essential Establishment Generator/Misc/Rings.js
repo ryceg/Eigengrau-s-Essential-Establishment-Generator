@@ -1,4 +1,4 @@
-
+/*
 setup.createTrinket = function() {
   material = [
     "gold",
@@ -282,7 +282,7 @@ Works =
 "perfectly, every time",
 "most of the time with infrequent mishaps",
 "as expected about half the time",
-"occasionally, when the proper conditions are met", 
+"occasionally, when the proper conditions are met",
 "rarely and unpredictably",
 "only the first time the wearer uses the power",
 
@@ -307,3 +307,4 @@ Unlock ancient knowledge and secrets.
 Gain immense wealth and influence.
 Conquer the world.
 Open portals to other realms.
+*/
