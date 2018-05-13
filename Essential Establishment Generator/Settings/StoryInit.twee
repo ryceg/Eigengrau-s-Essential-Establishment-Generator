@@ -38,8 +38,6 @@
 
 <<include "ShitPlotHooks">>
 
-<<include "Bonds">>
-
 <<include "TavernRenders">>
 
 <<include "Newspaper">>
