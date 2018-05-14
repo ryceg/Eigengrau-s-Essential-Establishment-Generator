@@ -49,7 +49,8 @@
 
 <<switch $tavern.size>>
 	<<case "huge">>
-		$tavern.name is just one huge, $tavern.lighting $tavern.cleanliness room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.
+		<<print either("$tavern.name is just one huge, $tavern.lighting $tavern.cleanliness room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.",
+		"$tavern.name is huge, $tavern.lighting, and $tavern.cleanliness. There are several large $tavern.material tables")>>
 	<<case "quite large">>
 			$tavern.name is quite large, $tavern.cleanliness, and $tavern.lighting. The ceiling is unusually high, and the amount of wood that $bartender.firstname must go through would be immense. The dining hall has several large $tavern.material tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.
 	<<case "large">>
