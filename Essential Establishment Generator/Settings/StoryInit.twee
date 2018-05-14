@@ -20,7 +20,7 @@
 
 <<include "Tavern">>
 
-<<include "TavernNameGen">>
+/*<<include "TavernNameGen">>*/
 
 <<include "TavernFlavour">>
 
