@@ -1,11 +1,11 @@
 
 :: InitTavern [output]
 
-<<nobr>><<link "reroll">><<set $tavernname to setup.createTavernNameGen()>><<set $tavern.name to $tavernname.name>>
+<<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<textbox "$tavernname.name" $tavernname.name>>
+            \<<textbox "$tavern.name" $tavern.name>><<set $tavernname to setup.createTavernNameGen()>><<set $tavern.name to $tavernname.name>>
     <</replace>><</link>>
-<span id="tavernname"><<textbox "$tavernname.name" $tavernname.name>></span><</nobr>>
+<span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
 
 Tavern Wealth: <<numberslider "$tavern.wealthroll" $tavern.wealthroll 1 100 1>>
 
