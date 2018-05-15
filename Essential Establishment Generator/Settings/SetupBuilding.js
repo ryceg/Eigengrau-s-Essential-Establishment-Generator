@@ -26,6 +26,7 @@ setup.createBuilding = function() {
     var roughness;
     var cleanlinessroll   = Math.floor(Math.random() * 99) + 1;
     var cleanliness;
+    var bedcleanliness;
     var expertiseroll     = Math.floor(Math.random() * 99) + 1;
     var expertise;
     var activityroll      = Math.floor(Math.random() * 99) + 1;
@@ -62,66 +63,66 @@ setup.createBuilding = function() {
 
 
     /* ------------------------- SIZE -------------------------- */
-    if sizeroll > 80{
+    if (sizeroll > 80){
     		 size = "huge";}
-    	else if sizeroll > 70{
+    	else if (sizeroll > 70){
     		 size = "quite large";}
-    	else if sizeroll > 60{
+    	else if (sizeroll > 60){
     		 size = "large";}
-    	else if sizeroll > 50{
+    	else if (sizeroll > 50){
     		 size = "spacious";}
-    	else if sizeroll > 40{
+    	else if (sizeroll > 40){
     		 size = "medium";}
-    	else if sizeroll > 30{
+    	else if (sizeroll > 30){
     		 size = "slightly cramped";}
-    	else if sizeroll > 20{
+    	else if (sizeroll > 20){
     		 size = "small";}
-    	else if sizeroll <= 20{
+    	else if (sizeroll <= 20){
     		 size = "tiny";}
 
 
     /* ------------------------- ROUGHNESS -------------------------- */
 
-    	if roughnessroll > 80{
+    	if (roughnessroll > 80){
     		 roughness = "bloodthirsty";}
-    	else if roughnessroll > 60{
+    	else if (roughnessroll > 60){
     		 roughness = "rough";}
-    	else if roughnessroll > 50{
+    	else if (roughnessroll > 50){
     		 roughness = "alright";}
-    	else if roughnessroll > 40{
+    	else if (roughnessroll > 40){
     		 roughness = "placid";}
-    	else if roughnessroll > 30{
+    	else if (roughnessroll > 30){
     		 roughness = "calm";}
-    	else if roughnessroll > 20{
+    	else if (roughnessroll > 20){
     		 roughness = "tranquil";}
-    	else if roughnessroll <= 20{
+    	else if (roughnessroll <= 20){
     		 roughness = "utterly serene";}
 
 
     /* ------------------------- CLEANLINESS -------------------------- */
 
-    	if cleanlinessroll > 80{
+    	if (cleanlinessroll > 80){
     		 cleanliness = "absolutely spotless";
          bedcleanliness = "perfectly prepared, with fresh sheets and a lemon scent in the air of the room";}
-    	else if cleanlinessroll > 70{
+    	else if (cleanlinessroll > 70){
     		 cleanliness = "spotless";
          bedcleanliness = "freshly cleaned and neat";}
-    	else if cleanlinessroll > 60{
+    	else if (cleanlinessroll > 60){
     		 cleanliness = "hygienic";
          bedcleanliness = "tidy and neat";}
-    	else if cleanlinessroll > 50{
+    	else if (cleanlinessroll > 50){
     		 cleanliness = "decently hygienic";
          bedcleanliness = "reasonably clean";}
-    	else if cleanlinessroll > 40{
+    	else if (cleanlinessroll > 40){
     		 cleanliness = "slightly grubby";
          bedcleanliness = "somewhat tidy";}
-    	else if cleanlinessroll > 30{
+    	else if (cleanlinessroll > 30){
     		 cleanliness = "quite dirty";
          bedcleanliness = "disgusting";}
-    	else if cleanlinessroll > 20{
+    	else if (cleanlinessroll > 20){
     		 cleanliness = "rather filthy";
          bedcleanliness = "teeming with rats";}
-    	else if cleanlinessroll <= 20{
+    	else if (cleanlinessroll <= 20){
     		 cleanliness = "absolutely putrid";
          bedcleanliness = "festering with bugs";}
 
@@ -129,40 +130,40 @@ setup.createBuilding = function() {
 
     /* ------------------------- SIN -------------------------- */
 
-    	if sinroll > 80{
+    	if (sinroll > 80){
     		 sin = "corrupt";}
-    	else if sinroll > 70{
+    	else if (sinroll > 70){
     		 sin = "venal";}
-    	else if sinroll > 60{
+    	else if (sinroll > 60){
     		 sin = "sleazy";}
-    	else if sinroll > 50{
+    	else if (sinroll > 50){
     		 sin = "seedy";}
-    	else if sinroll > 40 && roughnessroll > 60{
+    	else if (sinroll > 40 && roughnessroll > 60){
     		 sin = "surprisingly trustworthy";}
-    	else if sinroll > 40{
+    	else if (sinroll > 40){
     		 sin = "trustworthy";}
-    	else if sinroll > 30 && roughnessroll > 60{
+    	else if (sinroll > 30 && roughnessroll > 60){
     		 sin = "surprisingly reliable";}
-    	else if sinroll > 30{
+    	else if (sinroll > 30){
     		 sin = "reliable";}
-    	else if sinroll <= 20 && roughnessroll > 60{
+    	else if (sinroll <= 20 && roughnessroll > 60){
     		 sin = "surprisingly honest";}
-    	else if sinroll <= 20{
+    	else if (sinroll <= 20){
     		 sin = "honest";}
 
 
 
     /* ------------------------- REPUTATION -------------------------- */
 
-    if reputationroll > 80{
+    if (reputationroll > 80){
     		 reputation = "famous";}
-    	else if reputationroll > 60{
+    	else if (reputationroll > 60){
     		 reputation = "well known";}
-    	else if reputationroll > 40{
+    	else if (reputationroll > 40){
     		 reputation = "famous-ish";}
-    	else if reputationroll > 20{
+    	else if (reputationroll > 20){
     		 reputation = "reviled";}
-    	else if reputationroll <= 20{
+    	else if (reputationroll <= 20){
     		 reputation = "infamous";}
 
 
@@ -195,6 +196,7 @@ setup.createBuilding = function() {
         roughness         : roughness,
         cleanlinessroll   : cleanlinessroll,
         cleanliness       : cleanliness,
+        bedcleanliness    : bedcleanliness,
         expertiseroll     : expertiseroll,
         expertise         : expertise,
         activityroll      : activityroll,
