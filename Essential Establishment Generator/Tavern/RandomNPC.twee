@@ -1,6 +1,6 @@
 :: RandomNPC
 <<link "<h4>Meet a fellow adventurer!</h4>">>
-<<set $tavernNPC to setup.createNPC({race: "dwarf"})>>
+<<set $tavernNPC to setup.createNPC({gender: "man"})>>
     <<replace "#NPC">>
           \<div class="descriptive">
             \<h3>$tavernNPC.name</h3>
