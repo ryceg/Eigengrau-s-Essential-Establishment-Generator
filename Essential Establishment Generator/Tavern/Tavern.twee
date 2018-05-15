@@ -28,6 +28,7 @@ $tavern.magicroll.clamp(1, 100)
 
 <<set $tavernname to setup.createTavernNameGen()>>
 <<set $tavern.name to $tavernname.name>>
-<<if $tavern.draw is "proximity to the brothel" && ndef $brothel>>
+
+/*<<if $tavern.draw is "proximity to the brothel" && ndef $brothel>>
 		<<include "Brothel">>
-<</if>>
+<</if>>*/
