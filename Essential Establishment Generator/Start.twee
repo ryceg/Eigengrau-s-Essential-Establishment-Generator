@@ -25,7 +25,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>>[[$GeneralStore.name|InitGeneralStore]]
 
 <<nobr>><<if def $brothel>>
-  On $brothel.road is the whorehouse [[$brothel.name|BrothelOutput]]
-<</if>><</nobr>>
-
+<<print "On $brothel.road is the whorehouse "[[$brothel.name|BrothelOutput]]
+<</if>>
+<</nobr>>
 <<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And finally, on $alchemist.road is the ")>>[[$alchemist.name|InitAlchemist]]
