@@ -33,7 +33,6 @@
                                 "you can pay for the services with things other than coin. The primary currency used is secrets."])>>
 <</if>>
 
-
 <<set $brothel.rumour to either(["a nobleman got one of the girls with child but refuses to acknowledge her or the baby",
                                 "someone slaughtered half of the workers and clients in the night",
                                 "a client was stabbed with a letter opener",
@@ -52,21 +51,22 @@
                                 "a tyrannical and cruel fellow",
                                 "a sultry seductress",
                                 "a charming witch"])>>
+
 <<switch $brothel.owner>>
     <<case "a mean old madam">>
-        <<set $pimp to setup.createNPC(age: "venerable", gender: "woman", demeanour: "mean")>>
+        <<set $pimp to setup.createNPC({age: "venerable", gender: "woman", demeanour: "mean"})>>
     <<case "a large madam with a no-nonsense attitude">>
-        <<set $pimp to setup.createNPC(gender: "woman", weight: "plump", demeanour: "sensible")>>
+        <<set $pimp to setup.createNPC({gender: "woman", weight: "plump", demeanour: "sensible"})>>
     <<case "a warm motherly figure">>
-        <<set $pimp to setup.createNPC(gender: "woman", weight: "plump", demeanour: "kind")>>
+        <<set $pimp to setup.createNPC({gender: "woman", weight: "plump", demeanour: "kind"})>>
     <<case "a surly brute">>
-        <<set $pimp to setup.createNPC(gender: "man", weight: "muscular", demeanour: "mean")>>
+        <<set $pimp to setup.createNPC({gender: "man", weight: "muscular", demeanour: "mean"})>>
     <<case "a tyrannical and cruel fellow">>
-        <<set $pimp to setup.createNPC(gender: "man", age: "middle-aged", demeanour: "mean")>>
+        <<set $pimp to setup.createNPC({gender: "man", age: "middle-aged", demeanour: "mean"})>>
     <<case "a sultry seductress">>
-        <<set $pimp to setup.createNPC(gender: "woman", age: "relatively young", demeanour: "flirtatious")>>
+        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", demeanour: "flirtatious"})>>
     <<case "a charming witch">>
-        <<set $pimp to setup.createNPC(gender: "woman", age: "relatively young", dndclass: "sorcerer")>>
+        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", dndclass: "sorcerer"})>>
 <</switch>>
 
 <<switch $pimp.gender>>
