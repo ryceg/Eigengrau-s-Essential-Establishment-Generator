@@ -82,3 +82,5 @@
     <<case "woman">>
         <<set $pimp.title to "mistress">>
 <</switch>>
+
+<<set $pimp.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $pimp.heshe nods at you", "checks you out for just a moment before smiling at you"]>>
