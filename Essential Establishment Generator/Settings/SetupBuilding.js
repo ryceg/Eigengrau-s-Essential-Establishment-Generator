@@ -46,7 +46,7 @@ setup.createBuilding = function() {
 
     /* ------------------------- WEALTH -------------------------- */
     if (wealthroll > 95){
-    		 wealth = "kingly"}
+    		 wealth = "kingly";}
     	else if (wealthroll > 80){
     		 wealth = "aristocratic";}
     	else if (wealthroll > 70){
