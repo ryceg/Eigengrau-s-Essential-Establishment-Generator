@@ -52,7 +52,7 @@
                                 "a tyrannical and cruel fellow",
                                 "a sultry seductress",
                                 "a charming witch"])>>
-/*<<switch $brothel.owner>>
+<<switch $brothel.owner>>
     <<case "a mean old madam">>
         <<set _age to "venerable", _gender to "woman", _demeanour to "mean">>
         <<set $pimp to setup.createNPC()>>
@@ -81,4 +81,4 @@
         <<set $pimp.title to "pimp">>
     <<case "woman">>
         <<set $pimp.title to "mistress">>
-<</switch>>*/
+<</switch>>
