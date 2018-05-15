@@ -75,10 +75,10 @@
         <<set _age to "relatively young", _gender to "woman", _dndclass to "sorcerer">>
         <<set $pimp to setup.createNPC()>>
 <</switch>>
-
+/*
 <<switch $pimp.gender>>
     <<case "man">>
         <<set $pimp.title to "pimp">>
     <<case "woman">>
         <<set $pimp.title to "mistress">>
-<</switch>>
+<</switch>>*/
