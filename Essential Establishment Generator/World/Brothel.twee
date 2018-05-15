@@ -56,7 +56,7 @@
     <<case "a mean old madam">>
         <<set $pimp to setup.createNPC(age: "venerable", gender: "woman", demeanour: "mean")>>
     <<case "a large madam with a no-nonsense attitude">>
-        <<set $pimp to setup.createNPC(gender: "woman"), weight: "plump", demeanour: "sensible">>
+        <<set $pimp to setup.createNPC(gender: "woman", weight: "plump", demeanour: "sensible")>>
     <<case "a warm motherly figure">>
         <<set $pimp to setup.createNPC(gender: "woman", weight: "plump", demeanour: "kind")>>
     <<case "a surly brute">>
