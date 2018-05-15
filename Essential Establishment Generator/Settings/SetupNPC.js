@@ -1,4 +1,4 @@
-setup.createNPC = function() {
+setup.createNPC = function(base) {
 	var gender        = ["man", "woman"].random();
 	var heshe;
 	var himher;
@@ -42,40 +42,6 @@ setup.createNPC = function() {
 	var pockets			= ["5 cp", "6 cp", "15 cp", "22 cp", "27 cp", "5 sp"/*, "5 sp", "6 sp", "7 sp", "2 gp", "34 cp and 4 sp", "12 sp and 7 gp", "a clove of garlic", "a vial of ink worth 8sp", "hardtack", "an explosive rune, dealing 2d4 fire damage", "a palm-sized glass sphere", "a wooden comb", "fragments of a shattered sword", "a deck of tarot cards", "map of a nearby castle", "map of the local area", "a tin spoon", "a mess kit", "lacy undergarments", "spectacles worth 5gp", "a spool of thread", "a piece of chalk", "a necklace of animal teeth", "a headhunter's contract", "a list of people in a nearby city", "a worn leather strap", "a ring of iron keys", "a flask full of salt water", "a box of candles", "a vial of quicksilver", "a traveller's journal", "a lead amulet", "a signet ring for a noble house", "a list of local taverns", "a golden yellow topaz gem worth 50gp", "a page torn from a spellbook", "scraps of bad poetry", "a pair of bloodstained gloves", "thirteen mouse teeth", "a pouch full of dried berries", "an invitation to a wedding that happened a few weeks ago", "a brass ring", "a shopping list", "the cork from a wine bottle", "a scrap of paper with uninteligible writing on it", "a smoking pipe", "a pouch of ruby powder", "a deed to a ruined tower", "a bottle of honey", "a sling with 10 bullets", "a broken buckle", "a knot of silk ribbons", "a silver pearl worth 10gp", "a potion of Polymorph Self worth 350gp", "1pp wrapped in a crude map", "pocket sand", "a wedge of cheese", "a string of wooden prayer beads", "a lock of hair", "a dead mouse", "a compass", "an empty flask", "85gp", "three diamonds worth 30gp each", "a black pearl worth 50gp", "a black opal worth 100gp"*/
 ].random();
 
-	if (typeof State.temporary.gender !== 'undefined') {
-			//if the variable _gender is defined
-			gender				= State.temporary.gender;
-	}
-
-	if (typeof State.temporary.race !== 'undefined') {
-			//if the variable _race is defined
-			race				= State.temporary.race;
-	}
-
-	if (typeof State.temporary.dndclass !== 'undefined') {
-			//if the variable _dndclass is defined
-			dndclass				= State.temporary.dndclass;
-	}
-
-	if (typeof State.temporary.age !== 'undefined') {
-			//if the variable _age is defined
-			age				= State.temporary.age;
-	}
-
-	if (typeof State.temporary.weight !== 'undefined') {
-			//if the variable _weight is defined
-			weight				= State.temporary.weight;
-	}
-
-	if (typeof State.temporary.height !== 'undefined') {
-			//if the variable _height is defined
-			height				= State.temporary.height;
-	}
-
-	if (typeof State.temporary.demeanour !== 'undefined') {
-			//if the variable _demeanour is defined
-			demeanour				= State.temporary.demeanour;
-	}
 
 	switch (gender) {
 		case "man":
@@ -419,7 +385,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
 
 		var name 					= firstname + " " + lastname;
 
-  return {
+  return Object.assign({
       gender        : gender,
 			heshe					: heshe,
 			himher				: himher,
@@ -461,6 +427,6 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       idle          : idle,
       reading       : reading,
 			pockets				: pockets
-  };
+  }, base);
 
 };
