@@ -54,26 +54,19 @@
                                 "a charming witch"])>>
 <<switch $brothel.owner>>
     <<case "a mean old madam">>
-        <<set _age to "venerable", _gender to "woman", _demeanour to "mean">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(age: "venerable", gender: "woman", demeanour: "mean")>>
     <<case "a large madam with a no-nonsense attitude">>
-        <<set _weight to "plump", _gender to "woman", _demeanour to "sensible">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(gender: "woman"), weight: "plump", demeanour: "sensible">>
     <<case "a warm motherly figure">>
-        <<set _weight to "plump", _gender to "woman", _demeanour to "kind">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(gender: "woman", weight: "plump", demeanour: "kind")>>
     <<case "a surly brute">>
-        <<set _weight to "muscular", _gender to "man", _demeanour to "mean">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(gender: "man", weight: "muscular", demeanour: "mean")>>
     <<case "a tyrannical and cruel fellow">>
-        <<set _age to "middle-aged", _gender to "man", _demeanour to "mean">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(gender: "man", age: "middle-aged", demeanour: "mean")>>
     <<case "a sultry seductress">>
-        <<set _age to "relatively young", _gender to "woman", _demeanour to "flirtatious">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(gender: "woman", age: "relatively young", demeanour: "flirtatious")>>
     <<case "a charming witch">>
-        <<set _age to "relatively young", _gender to "woman", _dndclass to "sorcerer">>
-        <<set $pimp to setup.createNPC()>>
+        <<set $pimp to setup.createNPC(gender: "woman", age: "relatively young", dndclass: "sorcerer")>>
 <</switch>>
 
 <<switch $pimp.gender>>
