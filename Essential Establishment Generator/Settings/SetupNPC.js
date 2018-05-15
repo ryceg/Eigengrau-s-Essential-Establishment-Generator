@@ -43,37 +43,37 @@ setup.createNPC = function() {
 
 	if (typeof State.temporary.gender !== 'undefined') {
 			//if the variable _gender is defined
-			gender				= State.temporary.gender
+			gender				= State.temporary.gender;
 	}
 
 	if (typeof State.temporary.race !== 'undefined') {
 			//if the variable _race is defined
-			race				= State.temporary.race
+			race				= State.temporary.race;
 	}
 
 	if (typeof State.temporary.dndclass !== 'undefined') {
 			//if the variable _dndclass is defined
-			dndclass				= State.temporary.dndclass
+			dndclass				= State.temporary.dndclass;
 	}
 
 	if (typeof State.temporary.age !== 'undefined') {
 			//if the variable _age is defined
-			age				= State.temporary.age
+			age				= State.temporary.age;
 	}
 
 	if (typeof State.temporary.weight !== 'undefined') {
 			//if the variable _weight is defined
-			weight				= State.temporary.weight
+			weight				= State.temporary.weight;
 	}
 
 	if (typeof State.temporary.height !== 'undefined') {
 			//if the variable _height is defined
-			height				= State.temporary.height
+			height				= State.temporary.height;
 	}
 
 	if (typeof State.temporary.demeanour !== 'undefined') {
 			//if the variable _demeanour is defined
-			demeanour				= State.temporary.demeanour
+			demeanour				= State.temporary.demeanour;
 	}
 
 	switch (gender) {
