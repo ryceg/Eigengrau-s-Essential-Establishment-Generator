@@ -25,11 +25,13 @@
                               "nothing much; a popular girl is with child",
                               "you can pay for services with things other than coin")>>
 
-<<if $brothel.talk == "You can pay for services with things other than coin">>
+<<if $brothel.talk is "You can pay for services with things other than coin">>
   <<set $brothel talk to either("you can pay for the services by doing contract work.",
                                 "you can pay for the services offered with criminal favors.",
                                 "you can pay for services with things other than coin; namely goods, artworks, and other bartering items.",
                                 "you can pay for the services with things other than coin. The primary currency used is secrets.")>>
+<</if>>
+
 
 <<set $brothel.rumour to either("a nobleman got one of the girls with child but refuses to acknowledge her or the baby",
                                 "someone slaughtered half of the workers and clients in the night",
