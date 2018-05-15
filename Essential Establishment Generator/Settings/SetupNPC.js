@@ -23,6 +23,7 @@ setup.createNPC = function() {
   var racelanguage;
   var height;
   var weight;
+	var demeanour;
 	var adventure			= ["retired from adventuring", "currently looking for an adventure", "looking for assistance", "recuperating from an adventure", "on a holiday from adventuring", "taking a short break from adventuring"].random();
   var skinColours   = ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"];
   var haircolour    = ["brunette", "brunette", "brown", "brownish", "auburn", "amber", "hazel", "redhead", "dark redhead", "blonde", "dark blonde", "white", "platinum", "black", "black"].random();
@@ -50,9 +51,29 @@ setup.createNPC = function() {
 			race				= State.temporary.race
 	}
 
+	if (typeof State.temporary.dndclass !== 'undefined') {
+			//if the variable _dndclass is defined
+			race				= State.temporary.dndclass
+	}
+
 	if (typeof State.temporary.age !== 'undefined') {
 			//if the variable _age is defined
 			age				= State.temporary.age
+	}
+
+	if (typeof State.temporary.weight !== 'undefined') {
+			//if the variable _weight is defined
+			age				= State.temporary.weight
+	}
+
+	if (typeof State.temporary.height !== 'undefined') {
+			//if the variable _height is defined
+			age				= State.temporary.height
+	}
+
+	if (typeof State.temporary.demeanour !== 'undefined') {
+			//if the variable _demeanour is defined
+			age				= State.temporary.demeanour
 	}
 
 	switch (gender) {
@@ -422,6 +443,7 @@ var physicaltraitroll = Math.floor(Math.random() * 10) + 1;
       lastname      : lastname,
       height        : height,
       weight        : weight,
+			demeanour			: demeanour,
       skinColours   : skinColours.random(),
       haircolour    : haircolour,
       hairtype      : hairtype,

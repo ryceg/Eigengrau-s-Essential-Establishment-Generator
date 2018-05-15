@@ -58,3 +58,7 @@ $town.sizeroll.clamp(1, 100)
   <<elseif $town.wealthroll lt 1>>
     <<set $town.wealthroll to 1>>
 <</if>>
+
+<<if $town.sinroll gt 75 && $town.population gt 300>>
+	<<include "Brothel">>
+<</if>>

@@ -1,0 +1,5 @@
+:: BrothelOutput [brothel]
+
+<h1>$brothel.name</h1><span class="firstcharacter">Y</span>ou make your way down $brothel.road, and enter $brothel.name and see that inside, the $brothel.size $brothel.material building is $brothel.cleanliness. The $pimp.title is <<print $pimp.idle.random()>>. The $pimp.racenote <<print either($pimp.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $pimp.hisher feet over")>> to you, and introduces $pimp.himherself as $pimp.name, the $pimp.owner of $brothel.name, and asks what $pimp.heshe can do for you.
+
+When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality. Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour

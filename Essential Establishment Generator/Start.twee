@@ -5,7 +5,7 @@
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
 <<include "ToDo">><</linkappend>><</linkappend>>
 <<nobr>><<set _roll to random(1, 99)>><<if _roll gt 90>>
-  <blockquote>If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997 </blockquote>
+  <blockquote>If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/bePatron?c=1709078 </blockquote>
   <<elseif _roll gt 80>>
   <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator! </blockquote>
   <<elseif _roll gt 70>>
@@ -23,5 +23,9 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>>[[$smithy.name|InitSmithy]]
 
 <<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>>[[$GeneralStore.name|InitGeneralStore]]
+
+<<nobr>><<if def $brothel>>
+  <<print On $brothel.road is the whorehouse [[$brothel.name|BrothelOutput]]>>
+<</if>><</nobr>>
 
 <<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And finally, on $alchemist.road is the ")>>[[$alchemist.name|InitAlchemist]]
