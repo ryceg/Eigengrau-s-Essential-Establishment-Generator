@@ -23,7 +23,7 @@ setup.createNPC = function() {
   var racelanguage;
   var height;
   var weight;
-	var demeanour;
+	var demeanour			= ["calm", "moody", "kind", "conceited", "cruel", "mean", "careful", "polite", "happy"].random();
 	var adventure			= ["retired from adventuring", "currently looking for an adventure", "looking for assistance", "recuperating from an adventure", "on a holiday from adventuring", "taking a short break from adventuring"].random();
   var skinColours   = ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"];
   var haircolour    = ["brunette", "brunette", "brown", "brownish", "auburn", "amber", "hazel", "redhead", "dark redhead", "blonde", "dark blonde", "white", "platinum", "black", "black"].random();
