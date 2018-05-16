@@ -15,6 +15,28 @@
                                   "stuff with exotic/magical ingredients, potions, etc",
                                   "magical delights"])>>
 
+<<set $brothel.notice to either(["the scent of lavender in the air",
+"the scent of lilac perfume in the air",
+"the scent of ginger and cinnamon hanging in the air",
+"the scent of roses in the air",
+"scented candles burning cheerily on the counter",
+"the soft red glow from a shaded lamp on the desk",
+"a lamp burning dimly in the corner of the room",
+"a statue of two figures kissing in the corner of the room",
+"a statue of two figures coupling in the corner of the room",
+"a statue of a nude woman bathing in the corner of the room",
+"a painting of several nudes bathing hanging on the wall",
+"a painting of a pair of lovers hanging on the wall",
+"a curtain of beads",
+"a silky curtain lining the walls",
+"a plush and somewhat gaudy carpet beneath your feet",
+"a thick fur carpet beneath your feet",
+"the sound of distant, soft music playing in the background",
+"the sound of furniture creaking in one of the rooms above",
+"a lengthy, shrill scream",
+"a long moan emanating from the room above"
+])>>
+
 <<set $brothel.talk to either(["the girls are underpaid and poorly treated",
                               "nothing really; it’s a neighborhood brothel",
                               "a prominent noble or merchant is a regular",
