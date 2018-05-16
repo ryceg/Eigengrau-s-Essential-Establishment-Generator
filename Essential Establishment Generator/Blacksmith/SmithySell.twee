@@ -18,19 +18,19 @@
   </tr>
 <<switch $town.type>>
   <<case "city">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4; })>><tr><td>_item.name</td>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "weapon"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>>
   <<case "town">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3; })>><tr><td>_item.name</td>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "weapon"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>>
   <<case "village">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2; })>><tr><td>_item.name</td>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "weapon"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>>
   <<case "hamlet">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1; })>><tr><td>_item.name</td>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "weapon"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>></table>
 <</switch>><</nobr>><</linkappend>>
