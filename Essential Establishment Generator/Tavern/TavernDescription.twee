@@ -18,7 +18,7 @@
 	<<case "magic incense which is constantly burning">>
 		<<set _tavernnotable to "You smell a peculiar aroma, which you can't quite place, only that it reminds you of the fond days of your childhood, until you see wafts of smoke trailing from behind the bar; there's a stick of incense burning, clearly at least somewhat magical.", $tavern.magicroll += 4>>
 	<<case "proximity to the brothel">>
-		<<set _tavernnotable to "You saw a sign outside which read 'No Soliciting', but inside, you see a much larger, more insistent sign which read 'NO SOLICITING. OF EITHER SORT'. Clearly, $tavern.name has an issue with the nearby whorehouse.">>
+		<<set _tavernnotable to "You saw a sign outside which read 'No Soliciting', but inside, you see a much larger, more insistent sign which read 'NO SOLICITING. OF EITHER SORT'. Clearly, $tavern.name has an issue with the nearby whorehouse, [[$brothel.name|BrothelOutput]].">>
 	<<case "proximity to the church">>
 		<<set _tavernnotable to "You see a sign by the door which reads 'No proselytising'. Clearly, $tavern.name has an issue with the nearby church.", $tavern.magicroll += 1>>
 	<<case "location by the river">>
