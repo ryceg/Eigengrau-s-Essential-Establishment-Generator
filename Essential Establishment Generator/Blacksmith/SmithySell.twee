@@ -37,11 +37,6 @@
 <</switch>>
 
 <h3>Armour</h3>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Cost</th>
-  </tr>
 <<switch $town.type>>
   <<case "city">>
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "armour"; })>><tr><td>_item.name</td>
@@ -62,11 +57,6 @@
 <</switch>>
 
 <h3>Misc</h3>
-/*<table>
-  <tr>
-    <th>Item</th>
-    <th>Cost</th>
-  </tr>*/
 <<switch $town.type>>
   <<case "city">>
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "misc"; })>><tr><td>_item.name</td>
