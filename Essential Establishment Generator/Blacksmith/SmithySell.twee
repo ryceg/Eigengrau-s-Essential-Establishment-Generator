@@ -11,12 +11,13 @@
   $blacksmith.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $smithy.mundane.randomMany(4)>>, you name it!"
 <</switch>></div>
 
-<h3>Weapons</h3>
+
 <table>
   <tr>
     <th>Item</th>
     <th>Cost</th>
   </tr>
+<h3>Weapons</h3>
 <<switch $town.type>>
   <<case "city">>
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "weapon"; })>><tr><td>_item.name</td>
