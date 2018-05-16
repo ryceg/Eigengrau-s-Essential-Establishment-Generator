@@ -8,7 +8,7 @@ export TWEEGO_PATH=/Users/admin/Documents/Twine/story-formats/
 tweego -o EEEG.html github/Eigengrau/Essential\ Establishment\ Generator/
 
 
-
+$tavernNPC.heshe.toUpperFirst()
 
 <<set $npctest to setup.createNPC()>>
 
