@@ -1,272 +1,189 @@
+setup.createRing = function(base) {
+var ring = Object.assign({
+    power = ["absorb", "attract", "avoid", "bolster", "cast a spell", "conjure a swarm of", "control", "detect", "disappear", "detect the nearest", "move like a", "predict", "regain", "resist", "see", "talk to a", "summon", "teleport"].random()
+    material = [
+      "gold",
+      "white gold",
+      "tarnished silver",
+      "polished silver",
+      "gold-plated brass",
+      "silver-plated brass",
+      "gold-plated steel",
+      "silver-plated steel",
+      "brass",
+      "black steel",
+      "bone",
+      "ivory",
+      "ebony",
+      "mahogany",
+      "walnut",
+      "turquoise",
+      "jade",
+      "iron",
+      "copper",
+      "platinum"].random(),
+    decoration = [
+      "handful of small gemstones arrayed around the band",
+      "trio of small gemstones",
+      "single small gemstone",
+      "single large gemstone",
+      "large gemstone with flanking smaller stones",
+      "snake's head with a gemstone set in its eyes",
+      "dragon's head with a gemstone set in its eyes",
+      "fiend with gemstones set in its eyes",
+      "skull with gemstones set in its eyes",
+      "floral pattern",
+      "leafy motif",
+      "deer motif",
+      "thorny motif",
+      "hexagonal pattern",
+      "wavy pattern",
+      "spider-web motif",
+      "cross-hatching pattern",
+      "phrase written in a Dwarvish script",
+      "phrase written in an Elvish script",
+      "handful of arcane runes"].random(),
+    gemstone = [
+      "diamond",
+      "blue diamond",
+      "pink diamond",
+      "yelllow diamond",
+      "ruby",
+      "fire opal",
+      "white opal",
+      "black opal",
+      "yellow opal",
+      "green opal",
+      "emerald",
+      "blue sapphire",
+      "purple sapphire",
+      "pink sapphire",
+      "star sapphire",
+      "garnet",
+      "pearl",
+      "black pearl",
+      "amethyst",
+      "topaz"].random(),
+  intendedowner = [
+      "a Dwarvish king",
+      "an Elvish prince",
+      "a terrifying elf-witch",
+      "a Gnomish gemcutter",
+      "an ancient hero",
+      "a dark sorceress",
+      "a notorious witch",
+      "a legendary mage",
+      "a high priest",
+      "a mysterious knight",
+      "a sinister lich",
+      "a devious rogue",
+      "an eccentric wizard",
+      "a powerful queen",
+      "a beautiful princess",
+      "a wealthy lord",
+      "a conniving fiend",
+      "an infamous warlord",
+      "a renowned explorer",
+      "a famous singer"].random(),
+
+      }, base);
+switch (ring.power) {
+case "absorb":
+    Object.assign(ring, {
+        power: "absorb " + ["fire damage", "lightning damage", "memories", "souls", "spells", "water"].random()
+    });
+          break;
+case "attract":
+    Object.assign(ring, {
+        power: "attract " + ["birds", "ghosts", "members of the opposite sex", "rats", "snakes", "stirges"].random()
+});
+  break;
+case "avoid" :
+    Object.assign(ring, {
+        power: "avoid " + ["former lovers", "sobriety", "trap triggers", "trolls", "vampires", "werewolves"].random()
+});
+  break;
+case "bolster":
+    Object.assign(ring, {
+        power: "bolster " + ["agility and reflexes", "awareness and senses", "confidence and self-esteem", "health and toughness", "intellect and problem-solving skills", "strength and endurance"].random()
+});
+  break;
+case "cast a spell":
+    Object.assign(ring, {
+        power: "cast a spell  " + ["at random", "prepared and stored in the ring by the ring's creator", "prepared and stored in the ring by you", "that creates a disguise", "that restores lost hit points", "that grants invisibility"].random()
+});
+  break;
+case "conjure a swarm of"
+    Object.assign(ring, {
+        power: "conjure a swarm of " + ["bats", "parrots", "ravens", "rats", "spiders", "zombies"].random()
+});
+  break;
+case "control":
+    Object.assign(ring, {
+        power: "control " + ["demons", "dwarves", "elves", "flames", "human minds", "weather"].random()
+});
+  break;
+case "detect":
+    Object.assign(ring, {
+        power: "detect " + ["lies", "illusions", "poisoned food and drink", "secret doors", "traps", "water sources"].random()
+});
+  break;
+case "disappear":
+    Object.assign(ring, {
+        power: "disappear " + ["into a hole in the earth", "in a flash of light", "to a nearby tree", "in a shimmering mist", "in a swirl of shadows", "in a wisp of smoke"].random()
+});
+  break;
+case "detect the nearest":
+    Object.assign(ring, {
+        power: "detect the nearest " + ["corpse", "dragon", "gold", "living creature", "poisonous plant", "undead"].random()
+});
+  break;
+case "move like a":
+    Object.assign(ring, {
+        power: "move like a  " + ["dolphin", "burrowing badger", "gust of wind", "jackrabbit", "ooze", "spider"].random()
+});
+  break;
+case "predict":
+    Object.assign(ring, {
+        power: "predict " + ["deaths", "fluctuations in the price of grain", "future catastrophes", "military victories", "storms", "winning horses"].random()
+});
+  break;
+case "regain":
+    Object.assign(ring, {
+        power: "regain " + ["expended spell slots", "lost dignity", "lost hitpoints", "lost gold", "lost time", "used torches"].random()
+});
+  break;
+case "resist":
+    Object.assign(ring, {
+        power: "resist " + ["diseases", "mind-affecting charms", "persuasion", "poisons", "psionic powers", "seduction"].random()
+});
+  break;
+case "see":
+    Object.assign(ring, {
+        power: "see " + ["faraway places", "into others' dreams", "invisible creatures and objects", "people dear to you", "through the eyes of an owl", "through the eyes of a corpse"].random()
+});
+  break;
+case "talk to a":
+    Object.assign(ring, {
+        power: "talk to a " + ["dear friend or lover", "long-dead person", "recently deceased person", "snake", "spider", "wolf"].random()
+});
+  break;
+case "summon":
+    Object.assign(ring, {
+        power: "summon " + ["an angel", "a demon", "a devil", "a djinni", "an efreet", "a pack of wolves"].random()
+});
+  break;
+case "teleport":
+    Object.assign(ring, {
+        power: "tele " + ["up to ten feet", "to another room nearby", "to a well-known temple", "to a previously prepared teleportation circle", "to the presence of a powerful fiend", "to an ancient crypt"].random()
+});
+  break;
+
+  return ring;
+};
+
+
 /*
-setup.createTrinket = function() {
-  material = [
-    "gold",
-    "white gold",
-    "tarnished silver",
-    "polished silver",
-    "gold-plated brass",
-    "silver-plated brass",
-    "gold-plated steel",
-    "silver-plated steel",
-    "brass",
-    "black steel",
-    "bone",
-    "ivory",
-    "ebony",
-    "mahogany",
-    "walnut",
-    "turquoise",
-    "jade",
-    "iron",
-    "copper",
-    "platinum"],
-  decoration = [
-    "handful of small gemstones arrayed around the band",
-    "trio of small gemstones",
-    "single small gemstone",
-    "single large gemstone",
-    "large gemstone with flanking smaller stones",
-    "snake's head with a gemstone set in its eyes",
-    "dragon's head with a gemstone set in its eyes",
-    "fiend with gemstones set in its eyes",
-    "skull with gemstones set in its eyes",
-    "floral pattern",
-    "leafy motif",
-    "deer motif",
-    "thorny motif",
-    "hexagonal pattern",
-    "wavy pattern",
-    "spider-web motif",
-    "cross-hatching pattern",
-    "phrase written in a Dwarvish script",
-    "phrase written in an Elvish script",
-    "handful of arcane runes"],
-  gemstone = [
-    "diamond",
-    "blue diamond",
-    "pink diamond",
-    "yelllow diamond",
-    "ruby",
-    "fire opal",
-    "white opal",
-    "black opal",
-    "yellow opal",
-    "green opal",
-    "emerald",
-    "blue sapphire",
-    "purple sapphire",
-    "pink sapphire",
-    "star sapphire",
-    "garnet",
-    "pearl",
-    "black pearl",
-    "amethyst",
-    "topaz"],
-intendedowner = [
-    "Dwarvish king",
-    "Elvish prince",
-    "terrifying elf-witch",
-    "Gnomish gemcutter",
-    "ancient hero",
-    "dark sorceress",
-    "notorious witch",
-    "legendary mage",
-    "high priest",
-    "mysterious knight",
-    "sinister lich",
-    "devious rogue",
-    "eccentric wizard",
-    "powerful queen",
-    "beautiful princess",
-    "wealthy lord",
-    "conniving fiend",
-    "infamous warlord",
-    "renowned explorer",
-    "famous singer"],
-  power = ["absorb", "attract", "avoid", "bolster", "cast a spell", "conjure a swarm of", "control", "detect", "disappear", "detect the nearest", "move like a", "predict", "regain", "resist", "see", "talk to a", "summon", "teleport"]
-    }
-d20 Special power: When properly activated, the ring allows its wearer to...
-
-absorb
-
-"fire damage",
-"lightning damage",
-"memories",
-"souls",
-"spells",
-"water",
-
-
-attract
-
-"birds",
-"ghosts",
-"members of the opposite sex",
-"rats",
-"snakes",
-"stirges",
-
-
-avoid
-
-"former lovers",
-"sobriety",
-"trap triggers",
-"trolls",
-"vampires",
-"werewolves",
-
-
-bolster
-
-"agility and reflexes",
-"awareness and senses",
-"confidence and self-esteem",
-"health and toughness",
-"intellect and problem-solving skills",
-"strength and endurance",
-
-
-cast a spell
-
-"at random",
-"prepared and stored in the ring by the ring's creator",
-"prepared and stored in the ring by you",
-"that creates a disguise",
-"that restores lost hit points",
-"that grants invisibility",
-
-conjure a swarm of
-
-"bats",
-"parrots",
-"ravens",
-"rats",
-"spiders",
-"zombies",
-
-
-control
-
-"demons",
-"dwarves",
-"elves",
-"flames",
-"human minds",
-"weather",
-
-
-detect
-
-"lies",
-"illusions",
-"poisoned food and drink",
-"secret doors",
-"traps",
-"water sources",
-
-
-disappear
-
-"into a hole in the earth",
-"in a flash of light",
-"to a nearby tree",
-"in a shimmering mist",
-"in a swirl of shadows",
-"in a wisp of smoke",
-
-
-detect the nearest
-
-"corpse",
-"dragon",
-"gold",
-"living creature",
-"poisonous plant",
-"undead",
-
-
-move like a
-
-"dolphin",
-"burrowing badger",
-"gust of wind",
-"jackrabbit",
-"ooze",
-"spider",
-
-
-predict
-
-"deaths",
-"fluctuations in the price of grain",
-"future catastrophes",
-"military victories",
-"storms",
-"winning horses",
-
-
-regain
-
-"expended spell slots",
-"lost dignity",
-"lost hitpoints",
-"lost gold",
-"lost time",
-"used torches",
-
-
-resist
-
-"diseases",
-"mind-affecting charms",
-"persuasion",
-"poisons",
-"psionic powers",
-"seduction",
-
-
-see
-
-"faraway places",
-"into others' dreams",
-"invisible creatures and objects",
-"people dear to you",
-"through the eyes of an owl",
-"through the eyes of a corpse",
-
-
-talk to a
-
-"dear friend or lover",
-"long-dead person",
-"recently deceased person",
-"snake",
-"spider",
-"wolf",
-
-
-summon
-
-"an angel",
-"a demon",
-"a devil",
-"a djinni",
-"an efreet",
-"a pack of wolves",
-
-
-teleport
-
-"up to ten feet",
-"to another room nearby",
-"to a well-known temple",
-"to a previously prepared teleportation circle",
-"to the presence of a powerful fiend",
-"to an ancient crypt",
-
-
 
 d6 Activation/amplification: The ring's special power or special property activates or amplifies…
 

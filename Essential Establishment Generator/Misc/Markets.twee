@@ -2,6 +2,7 @@
 <<set $marketsellerA to createNPC()>>
 <<set $marketsellerB to createNPC()>>
 <<set $marketsellerC to createNPC()>>
+<<set $marketsellerD to createNPC()>>
 <<set $market to {
   selling: ["ale by the pint",
 "amulets and totems",
