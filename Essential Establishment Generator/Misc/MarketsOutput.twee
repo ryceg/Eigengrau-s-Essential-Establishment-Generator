@@ -3,12 +3,16 @@
 
 The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and introduces $marketsellerD.himherself as $marketsellerD.firstname, a purveyor of fine goods. $marketsellerD.heshe.toUpperFirst() asks you for your ring size, and then $marketsellerD.heshe reaches below $marketsellerD.hisher table, and procures a ring...
 
-<<link "<h4>Look at the ring!</h4>">>
+<<linkreplace "<h4>Look at the ring!</h4>">>
 <<set $marketRing to setup.createRing()>>
     <<replace "#ring">>
           \<div class="descriptive">
             \<h3>A $marketRing.material ring</h3>
             \ The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div>
-    <</replace>>
-<</link>>\
+    <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketRing to setup.createRing()>>
+        <<replace "#ring">>
+              \<div class="descriptive">
+                \<h3>A $marketRing.material ring</h3>
+                \ The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><</link>>
+<</linkreplace>>\
 <span id="ring"></span>
