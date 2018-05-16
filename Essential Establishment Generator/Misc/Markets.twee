@@ -105,3 +105,36 @@
 "woven baskets",
 "young horses and ponies"]
 }>>
+
+<<set $market.location to either("a wide, rectangular plaza",
+"a large, circular or elliptical plaza",
+"a large plaza in a pentagon shape",
+"an intersection of two wide roads",
+"a sprawling maze of small alleyways",
+"a sprawling maze of tunnels beneath the city streets",
+"a huge pavilion with a solid roof overhead",
+"a disorganized series of large tents")>>
+
+<<set $market.organisation to either("type of merchandise",
+"nation of origin of the merchandise",
+"race or ethnicity of the merchants",
+"nothing; the place is a big disorganized mess",
+"religious or political affiliation of the merchants",
+"raw materials and commodities on one half of the market, finished products on the other half",
+"imported goods on one half of the market, local goods on the other half",
+"an intricate and archaic system put down in an ancient civic or religious document",
+"the social class to which the vendor caters",
+"order of arrival at the marketplace on any given day")>>
+
+<<set $market.tent to ["a little push cart", 
+"a small, mule-drawn cart",
+"a sizable, horse- or ox-drawn wagon",
+"a handful of crates or chests the vendor has set up",
+"a large rug on which the vendor has laid out the merchandise",
+"a flimsy wooden booth",
+"a sturdy wooden booth with a cotton awning",
+"a semi-permanent wooden stall",
+"a permanent stone stall",
+"a huge sack the merchant has set down on the ground",
+"a one- or two-man tent",
+"a myriad of pockets in the vendor's clothes"]>>
