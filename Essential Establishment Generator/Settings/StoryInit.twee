@@ -7,11 +7,7 @@
 
 <<include "Town">>
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
-<<include "Building">>
 
-
-
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Names ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 <<include "Guard">>
 
