@@ -20,7 +20,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>>[[$tavern.name|InitTavern]]
 
-Down from $tavern.road is the [[markets|MarketOutput]]
+Down from $tavern.road are the [[markets|MarketOutput]]
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>>[[$smithy.name|InitSmithy]]
 
