@@ -1,7 +1,7 @@
 :: MarketOutput [market]
 <h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across a market. There's a $marketsellerA.racenote selling <<print either($market.selling)>>, a $marketsellerB.racenote selling <<print either($market.selling)>>, a $marketsellerC.racenote selling <<print either($market.selling)>>, and a $marketsellerD.racenote selling magical trinkets. Or, at least, supposedly magical trinkets.
 
-The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and introduces $marketsellerD.himherself as $marketsellerD.firstname, a purveyor of fine goods. $marketsellerD.heshe.toUpperFirst() asks you for your ring size, and then $marketsellerD.heshe reaches below $marketsellerD.hisher table, and procures a ring...
+The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and introduces $marketsellerD.himherself as $marketsellerD.firstname, a purveyor of fine goods. The $marketsellerD.racenote asks you for your ring size, and then $marketsellerD.heshe reaches below $marketsellerD.hisher table, and procures a ring...
 
 <<linkreplace "<h4>Look at the ring!</h4>">>
 <<set $marketRing to setup.createRing()>>
