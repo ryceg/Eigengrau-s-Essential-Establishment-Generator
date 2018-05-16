@@ -33,7 +33,7 @@
   <<case "hamlet">>
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "weapon"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  <</for>></table>
+  <</for>>
 <</switch>>
 
 <h3>Armour</h3>
@@ -58,7 +58,7 @@
   <<case "hamlet">>
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "armour"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  <</for>></table>
+  <</for>>
 <</switch>>
 
 <h3>Misc</h3>
