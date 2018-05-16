@@ -1,14 +1,15 @@
 
 :: StoryInit
 
-<<set $versionnumber to "1.0">>
+<<set $versionnumber to "1.1">>
 
+<<include "Names">>
 
 <<include "Town">>
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 <<include "Building">>
 
-<<include "Names">>
+
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Names ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 

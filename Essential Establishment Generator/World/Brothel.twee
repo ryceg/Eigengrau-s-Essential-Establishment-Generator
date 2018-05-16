@@ -75,5 +75,6 @@
     <<case "woman">>
         <<set $pimp.title to "mistress">>
 <</switch>>
+all the better for it. But when you met Jake, things got out of hand. Most of your kids were low intelligence, disabled, or socioeconomically disadvantaged to the point where they were on equal footing with mentally challenged kids. Jake was different. You knew from the very first day that he was a different kind of at-risk; the intensity in his stare made you feel like there was nothing behind those cold, dead eyes, and his complete disinterest in the usual traps that young boys fall into such as cars, drinking, gambling, and women was unheard of. Until you saw him take a beer from one of the other kids.
 
 <<set $pimp.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $pimp.heshe nods at you", "checks you out for just a moment before smiling at you"]>>
