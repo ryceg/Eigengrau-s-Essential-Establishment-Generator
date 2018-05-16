@@ -8,7 +8,7 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     <<replace "#ring">>
           \<div class="descriptive">
             \<h3>A $marketRing.material ring</h3>
-            \ The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it has the power to $marketRing.power</div>
+            \ The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div>
     <</replace>>
 <</link>>\
 <span id="ring"></span>
