@@ -11,6 +11,7 @@
   $blacksmith.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $smithy.mundane.randomMany(4)>>, you name it!"
 <</switch>></div>
 
+<h3>Weapons</h3>
 <table>
   <tr>
     <th>Item</th>
@@ -33,4 +34,56 @@
   <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "weapon"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
   <</for>></table>
-<</switch>><</nobr>><</linkappend>>
+<</switch>>
+
+<h3>Armour</h3>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
+<<switch $town.type>>
+  <<case "city">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "armour"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "town">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "armour"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "village">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "armour"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "hamlet">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "armour"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>></table>
+<</switch>>
+
+<h3>Misc</h3>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
+<<switch $town.type>>
+  <<case "city">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "misc"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "town">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "misc"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "village">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "misc"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>>
+  <<case "hamlet">>
+  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "misc"; })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+  <</for>></table>
+<</switch>>
+
+<</nobr>><</linkappend>>
