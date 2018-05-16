@@ -107,7 +107,7 @@
 }>>
 
 <<set $market.location to either("a wide, rectangular plaza",
-"a large, circular or elliptical plaza",
+"a large, circular plaza",
 "a large plaza in a pentagon shape",
 "an intersection of two wide roads",
 "a sprawling maze of small alleyways",
@@ -126,7 +126,7 @@
 "the social class to which the vendor caters",
 "order of arrival at the marketplace on any given day")>>
 
-<<set $market.tent to ["a little push cart", 
+<<set $market.tent to ["a little push cart",
 "a small, mule-drawn cart",
 "a sizable, horse- or ox-drawn wagon",
 "a handful of crates or chests the vendor has set up",
