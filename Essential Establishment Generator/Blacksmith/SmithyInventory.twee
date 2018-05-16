@@ -58,8 +58,8 @@
       {name: "Pot, Iron", cost: 200, availability: 1, type: "misc"},
       {name: "Ram, Portable", cost: 400, availability: 4, type: "misc"},
       {name: "Spikes, Iron (10)", cost: 100, availability: 1, type: "misc"},
-      {name: "Mason's Tools", cost: 1000, availability: 2, type: "misc"},
-      {name: "Smith's Tools", cost: 2000, availability: 1, type: "misc"},
-      {name: "Tinker's Tools", cost: 5000, availability: 3, type: "misc"},
-      {name: "Horn", cost: 300, availability: 4, type: "misc"}
+      {name: "Mason's Tools", cost: 1000, availability: 2, type: "tools"},
+      {name: "Smith's Tools", cost: 2000, availability: 1, type: "tools"},
+      {name: "Tinker's Tools", cost: 5000, availability: 3, type: "tools"},
+      {name: "Horn", cost: 300, availability: 4, type: "tools"}
 ]>>
