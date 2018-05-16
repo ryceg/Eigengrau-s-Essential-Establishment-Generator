@@ -2,9 +2,13 @@
 
 
 /*
-tweego -o EEEG.html github/Eigengrau
 
 export TWEEGO_PATH=/Users/admin/Documents/Twine/story-formats/
+
+tweego -o EEEG.html github/Eigengrau/Essential\ Establishment\ Generator/
+
+
+
 
 <<set $npctest to setup.createNPC()>>
 
