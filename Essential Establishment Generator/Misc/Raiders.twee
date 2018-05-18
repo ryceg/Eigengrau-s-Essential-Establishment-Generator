@@ -2,7 +2,7 @@
 :: Raiders
 
 <<set $raidedvillager to setup.createNPC()>>
-<<set $raider.leader to setup.createNPC({dndclass: "barbarian", gender: "male"})>>
+<<set $raiderleader to setup.createNPC({dndclass: "barbarian", gender: "male"})>>
 <<set $raiders to {
   exorting: either([
     "<<print random(2, 10)>> CP per week from each family",
