@@ -25,7 +25,7 @@
 			"There are basically no people in the tavern, save for a few battle-hardened men talking in the corner.",
 			"There's not very many customers in $tavern.name at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele.")>>
 	<<elseif $tavern.populationroll gt 30>>
-			<<print "$tavern.name is basically empty, and there's not much for the $tavern.wordnoun<<nobr>>'s<</nobr>> barmaid to do.">>
+			<<print "$tavern.name is basically empty, and there's not much for the $tavern.wordnoun<<nobr>>'s<</nobr>> barmaid to do. The $barmaid.height woman settles for polishing a glass.">>
 	<<elseif $tavern.populationroll lte 30>>
 			<<print "It's almost just you and the bartender in here.">>
 <</if>><</nobr>><<print $tavern.patrons.pluck()>>
