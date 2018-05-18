@@ -6,7 +6,7 @@
 	$bartender.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $bartender.heshe nods at you", "checks you out for just a moment before smiling at you"]
 >>
 
-<<set $barmaid to setup.createNPC(gender: "woman")>>
+<<set $barmaid to setup.createNPC({gender: "woman"})>>
 
 /* ------------------------- BARTENDER RACE -------------------------- */
 <<switch $bartender.race>>
