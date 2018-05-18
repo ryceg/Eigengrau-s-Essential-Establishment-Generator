@@ -4,7 +4,7 @@
 <<set $raidedvillager to setup.createNPC()>>
 <<set $raiderleader to setup.createNPC({dndclass: "barbarian", gender: "male"})>>
 <<set $raiders to {
-  exorting: either([
+  extort: either([
     "<<print random(2, 10)>> CP per week from each family",
     "<<print random(5, 12)>> CP per from from each family",
     "<<print random(2, 5)>> SP per month from from each family",
