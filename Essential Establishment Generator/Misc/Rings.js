@@ -127,8 +127,8 @@ setup.createRing = (function() {
         "powerful fiend",
         "legendary warrior",
         "notorious giant",
-        "well known prophet"
-        "powerful spellcaster"
+        "well known prophet",
+        "powerful spellcaster",
         "heir to a fallen noble house",
         "sitting monarch",
         "fiendish prince",
