@@ -17,12 +17,11 @@ setup.createRing = (function() {
         "talk to a": () => "talk to a " + ["dear friend or lover", "long-dead person", "recently deceased person", "snake", "spider", "wolf"].random(),
         "summon": () => "summon " + ["an angel", "a demon", "a devil", "a djinni", "an efreet", "a pack of wolves"].random(),
         "teleport": () => "teleport " + ["up to ten feet", "to another room nearby", "to a well-known temple", "to a previously prepared teleportation circle", "to the presence of a powerful fiend", "to an ancient crypt"].random(),
-
     };
     const cost = {
         "temporary": () => "upon activation, it causes temporary " + ["chills all over", "fatigue", "flatulence", "head-splitting headaches", "nausea", "unsightly and rapid hair growth"].random(),
         "chronic": () => "while attuned, it causes permanent " + ["blurred vision", "blindness", "loss of the power of speech", "painful scarring and deformity", "poor wound healing", "tumorous growths and deformities", "debilitating nausea"].random(),
-        "mental": () => "it brings on " + ["anxiety", "bad dreams", "compulsive behavior (drinking, smoking, scratching, hygiene, etc.)", "insomnia", "a short temper", "weight gain (stress eating)"].random() + "while it is being worn",
+        "mental": () => "it brings on " + ["anxiety", "bad dreams", "compulsive behavior (drinking, smoking, scratching, hygiene, etc.)", "insomnia", "a short temper", "weight gain (stress eating)"].random() + " while it is being worn",
         "attention": () => "it attracts the attention of " + ["aberrations", "dragons", "fiends", "ghosts and wraiths", "spiders", "snakes", "zombies and wights"].random(),
         "accompanied": () => "activation of its powers is occasionally accompanied by " + ["a blizzard", "earthquakes", "rapid plant growth", "thick fog", "thunderstorms", "volcanic eruptions"].random(),
     };
@@ -30,7 +29,7 @@ setup.createRing = (function() {
       "on a particular plane": () => "in the " + ["celestial realm", "fiendish realm", "mortal world", "realm of death", "realm of dreams and magic", "realm of shadow and death"].random(),
       "when worn by a": () => "when worn by a " + ["dwarf", "half-dragon", "high elf", "serpentfolk", "shadowfolk", "wood elf", "littlefolk"].random(),
       "sunlight": () => "when worn in " + ["sunlight", "the shade"].random(),
-      "moonlight": () => "when worn under a " + ["full moon", "half-moon", "crescent moon", "moon", "moon", "moon"].random()
+      "moonlight": () => "when worn under a " + ["full moon", "half-moon", "crescent moon", "moon", "moon", "moon"].random(),
       "underground": () => "underground",
       "starlight": () => "under starlight",
     };
@@ -75,7 +74,8 @@ setup.createRing = (function() {
         "cross-hatching pattern",
         "phrase written in a Dwarvish script",
         "phrase written in an Elvish script",
-        "handful of arcane runes"];
+        "handful of arcane runes"
+    ];
     const gemstones = [
         "diamond",
         "blue diamond",
@@ -96,7 +96,8 @@ setup.createRing = (function() {
         "pearl",
         "black pearl",
         "amethyst",
-        "topaz"];
+        "topaz"
+    ];
     const intendedowner = [
         "a Dwarvish king",
         "an Elvish prince",
@@ -117,7 +118,8 @@ setup.createRing = (function() {
         "a conniving fiend",
         "an infamous warlord",
         "a renowned explorer",
-        "a famous singer"];
+        "a famous singer"
+    ];
     const importance = [
         "ancient king",
         "elder dragon",
@@ -160,11 +162,11 @@ setup.createRing = (function() {
         }
         if(cost[ring.cost]) {
             // expand the cost description
-            ring.cost = powers[ring.cost]();
+            ring.cost = cost[ring.cost]();
         }
         if(cost[ring.activation]) {
             // expand the activation description
-            ring.activation = powers[ring.activation]();
+            ring.activation = activation[ring.activation]();
         }
         return ring;
     };
