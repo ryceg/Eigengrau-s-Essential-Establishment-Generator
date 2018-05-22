@@ -95,6 +95,6 @@
   <<case "hamlet">>
   <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 1, item.type == "tools"; })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  </table><</for>>
+  <</for>>
 <</switch>>
 <</nobr>><</linkappend>>
