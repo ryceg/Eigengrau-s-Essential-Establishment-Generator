@@ -164,7 +164,7 @@ setup.createRing = (function() {
             // expand the cost description
             ring.cost = cost[ring.cost]();
         }
-        if(cost[ring.activation]) {
+        if(activation[ring.activation]) {
             // expand the activation description
             ring.activation = activation[ring.activation]();
         }
