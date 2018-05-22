@@ -53,7 +53,8 @@ setup.createRing = (function() {
         "jade",
         "iron",
         "copper",
-        "platinum"];
+        "platinum"
+    ];
     const decorations = [
         "handful of small gemstones arrayed around the band",
         "trio of small gemstones",
@@ -148,15 +149,15 @@ setup.createRing = (function() {
 
     return function(base) {
         var ring = Object.assign({
-            power: Object.keys(powers).random(),
-            cost: Object.keys(cost).random(),
-            activation: Object.keys(activation).random(),
-            material: materials.random(),
-            decoration: decorations.random(),
-            gemstone: gemstones.random(),
-            intendedowner: intendedowner.random(),
-            importance: importance.random(),
-            works: works.random()
+            power         : Object.keys(powers).random(),
+            cost          : Object.keys(cost).random(),
+            activation    : Object.keys(activation).random(),
+            material      : materials.random(),
+            decoration    : decorations.random(),
+            gemstone      : gemstones.random(),
+            intendedowner : intendedowner.random(),
+            importance    : importance.random(),
+            works         : works.random()
         }, base);
         if(powers[ring.power]) {
             // expand the power description
