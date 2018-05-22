@@ -14,7 +14,7 @@
 
 <<include "TavernDescription">><</nobr>>
 
-<h3>The Bar</h3>Behind $tavern.name's $tavern.material bar is a $bartender.racenote, who you notice has $bartender.physicaltrait. Currently, $bartender.heshe is <<print $bartender.idle.random()>>. Looking up, $bartender.heshe <<print $bartender.greeting.pluck()>> and introduces <<nobr>>$bartender.himher<</nobr>>self as $bartender.name, $bartender.hisher $bartender.eyes eyes <<print either("looking brightly at you.", "piercing through your armour.", "staring at you warily.", "watching you suspiciously.", "looking at you kindly.", "darting back and forth around the room.")>><<nobr>>
+<h3>The Bar</h3>Behind $tavern.name's $tavern.material bar is a $bartender.racenote, who you notice has $bartender.physicaltrait. Currently, $bartender.heshe is <<print $bartender.idle.random()>>. Looking up, $bartender.heshe <<print $bartender.greeting.random()>> and introduces <<nobr>>$bartender.himher<</nobr>>self as $bartender.name, $bartender.hisher $bartender.eyes eyes <<print either("looking brightly at you.", "piercing through your armour.", "staring at you warily.", "watching you suspiciously.", "looking at you kindly.", "darting back and forth around the room.")>><<nobr>>
 
 <<include "BartenderTalk">>
 <</nobr>><<include "Menu">>
@@ -23,3 +23,4 @@
 
 <<include "Intrigue">>
 <<include "Rooms">>
+<<include "TavernBrothel">>
