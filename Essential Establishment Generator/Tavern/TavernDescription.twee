@@ -10,7 +10,8 @@
 	<<case "witty banter with the waitstaff">>
 		<<set _tavernnotable to "You see a gruff looking man catcall after one of the barmaids, and she looks over her shoulder, and replies something that you can't quite make out. Despite this, it's clear that whatever she said destroyed the man, as his friends burst into laughter while he deflates rather rapidly.">>
 	<<case "crude jokes the bartender makes">>
-		<<set _tavernnotable to "You see the bartender is talking to a <<print either($npc.age)>> <<print either($npc.gender)>>, smiles, and then says something, making $bartender.hisher conversation partner go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling them 'too goody-two-shoes to be able to handle $tavern.name'.">>
+		<<set $tavernPatron to setup.createNPC()>>
+		<<set _tavernnotable to "You see the bartender is talking to a $tavernPatron.age $tavernPatron.racenote. <<print $bartender.heshe.toUpperFirst()>> smiles, and then says something, making the $tavernPatron.racenote go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle $tavern.name'.">>
 	<<case "proximity to the thieves' guild headquarters">>
 		<<set _tavernnotable to "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, $tavern.name has an issue with the nearby thieves' guild.">>
 	<<case "warmth inside">>
