@@ -162,6 +162,10 @@ setup.createRing = (function() {
             // expand the cost description
             ring.cost = powers[ring.cost]();
         }
+        if(cost[ring.activation]) {
+            // expand the activation description
+            ring.activation = powers[ring.activation]();
+        }
         return ring;
     };
 })();
