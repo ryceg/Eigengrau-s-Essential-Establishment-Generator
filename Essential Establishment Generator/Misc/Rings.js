@@ -33,6 +33,15 @@ setup.createRing = (function() {
       "underground": () => "underground",
       "starlight": () => "under starlight",
     };
+    const works = [
+        "perfectly, every time",
+        "most of the time with infrequent mishaps",
+        "as expected about half the time",
+        "occasionally, when the proper conditions are met",
+        "rarely and unpredictably",
+        "only the first time the wearer uses the power",
+        "well, but at a cost"
+    ];
     const materials = [
         "gold",
         "white gold",
@@ -136,15 +145,7 @@ setup.createRing = (function() {
         "forgotten god",
         "ancient evil being"
     ];
-    const works = [
-        "perfectly, every time",
-        "most of the time with infrequent mishaps",
-        "as expected about half the time",
-        "occasionally, when the proper conditions are met",
-        "rarely and unpredictably",
-        "only the first time the wearer uses the power",
-        "well, but at a cost"
-    ];
+
 
 
     return function(base) {
@@ -152,12 +153,12 @@ setup.createRing = (function() {
             power         : Object.keys(powers).random(),
             cost          : Object.keys(cost).random(),
             activation    : Object.keys(activation).random(),
+            works         : works.random(),
             material      : materials.random(),
             decoration    : decorations.random(),
             gemstone      : gemstones.random(),
             intendedowner : intendedowner.random(),
             importance    : importance.random(),
-            works         : works.random()
         }, base);
         if(powers[ring.power]) {
             // expand the power description
