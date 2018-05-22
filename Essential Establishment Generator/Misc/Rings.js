@@ -149,6 +149,8 @@ setup.createRing = (function() {
     return function(base) {
         var ring = Object.assign({
             power: Object.keys(powers).random(),
+            cost: Object.keys(cost).random(),
+            activation: Object.keys(activation).random(),
             material: materials.random(),
             decoration: decorations.random(),
             gemstone: gemstones.random(),
