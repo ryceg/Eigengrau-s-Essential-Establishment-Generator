@@ -33,7 +33,7 @@ setup.createRing = (function() {
       "moonlight": () => "when worn under a " + ["full moon", "half-moon", "crescent moon", "moon", "moon", "moon"].random()
       "underground": () => "underground",
       "starlight": () => "under starlight",
-    }
+    };
     const materials = [
         "gold",
         "white gold",
