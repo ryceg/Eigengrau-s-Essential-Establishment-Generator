@@ -10,11 +10,11 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     <<replace "#ring">>
           <div class="descriptive">
             <h3>A $marketRing.material ring</h3>
-            The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, at a cost; $marketRing.cost</blockquote>
+            The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote>
     <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketRing to setup.createRing()>>
         <<replace "#ring">>
               <div class="descriptive">
                 <h3>A $marketRing.material ring</h3>
-                <<print either("The $marketsellerD.racenote", "$marketsellerD.firstname")>> <<print either("hands you", "passes you", "procures another ring, this one")>> a $marketRing.material ring which is decorated with a $marketRing.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, at a cost; $marketRing.cost</blockquote><</replace>><</link>>
+                <<print either("The $marketsellerD.racenote", "$marketsellerD.firstname")>> <<print either("hands you", "passes you", "procures another ring, this one")>> a $marketRing.material ring which is decorated with a $marketRing.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote><</replace>><</link>>
 <</linkreplace>>
 <span id="ring"></span><</nobr>>
