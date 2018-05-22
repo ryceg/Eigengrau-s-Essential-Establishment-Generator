@@ -26,7 +26,7 @@ setup.createRing = (function() {
         "accompanied": () => "activation of its powers is occasionally accompanied by " + ["a blizzard", "earthquakes", "rapid plant growth", "thick fog", "thunderstorms", "volcanic eruptions"].random(),
     };
     const activation = {
-      "on a particular plane": () => "in the " + ["celestial realm", "fiendish realm", "mortal world", "realm of death", "realm of dreams and magic", "realm of shadow and death"].random(),
+      "on a particular plane": () => "when worn in the " + ["celestial realm", "fiendish realm", "mortal world", "realm of death", "realm of dreams and magic", "realm of shadow and death"].random(),
       "when worn by a": () => "when worn by a " + ["dwarf", "half-dragon", "high elf", "serpentfolk", "shadowfolk", "wood elf", "littlefolk"].random(),
       "sunlight": () => "when worn in " + ["sunlight", "the shade"].random(),
       "moonlight": () => "when worn under a " + ["full moon", "half-moon", "crescent moon", "moon", "moon", "moon"].random(),
