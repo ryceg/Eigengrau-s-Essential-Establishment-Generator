@@ -30,7 +30,7 @@
       {name: "Chain Shirt", cost: 5000, availability: 1, type: "armour"},
       {name: "Scale Mail", cost: 5000, availability: 1, type: "armour"},
       {name: "Breastplate", cost: 40000, availability: 2, type: "armour"},
-      {name: "Half Plate", cost: 750000, availability: 4, type: "armour"},
+      {name: "Half Plate", cost: 75000, availability: 4, type: "armour"},
       {name: "Ring Mail", cost: 3000, availability: 2, type: "armour"},
       {name: "Chain Mail", cost: 7500, availability: 2, type: "armour"},
       {name: "Splint", cost: 20000, availability: 3, type: "armour"},
