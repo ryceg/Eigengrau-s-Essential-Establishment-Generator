@@ -1,18 +1,17 @@
 :: Start [output]
 <h1>Eigengrau's Essential Establishment Generator</h1>
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
-<<linkappend "<h4>Changelog</h4>" t8n>>
+<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>>
 <<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
 <<include "ToDo">><</linkappend>><</linkappend>>
-<<nobr>><<set _roll to random(1, 99)>><<if _roll gt 90>>
+<<set _roll to random(1, 99)>><<if _roll gt 90>>
   <blockquote>If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/bePatron?c=1709078 </blockquote>
   <<elseif _roll gt 80>>
   <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator! </blockquote>
   <<elseif _roll gt 70>>
   <blockquote>Join the Discord server at https://discord.gg/4wYNwp2 </blockquote>
 <</if>>
-<</nobr>>
-<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
+<</nobr>><<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 $town.name is located in the $town.terrain $town.location. A population of $town.population, the denizens live a $town.wealth existence.
 
