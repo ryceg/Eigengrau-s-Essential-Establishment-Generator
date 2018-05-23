@@ -16,6 +16,8 @@
 
 A $raidedvillager.racenote runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. <<print $raidedvillager.heshe.toUpperFirst()>> continues, saying "they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally"
 
+$town.name is located in the $town.terrain $town.location. A population of $town.population, they 
+
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
