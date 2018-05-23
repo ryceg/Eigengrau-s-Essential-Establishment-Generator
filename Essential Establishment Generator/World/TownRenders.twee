@@ -11,3 +11,19 @@
   <<elseif $town.population lte 30>>
     <<set $town.type to "hamlet", $town.population to 30>>
 <</if>>
+
+<<if $town.wealthroll gt 95>>
+		<<set $town.wealth to "kingly">>
+	<<elseif $town.wealthroll gt 90>>
+		<<set $town.wealth to "aristocratic">>
+	<<elseif $town.wealthroll gt 80>>
+		<<set $town.wealth to "wealthy">>
+	<<elseif $town.wealthroll gt 70>>
+		<<set $town.wealth to "comfortable">>
+	<<elseif $town.wealthroll gt 30>>
+		<<set $town.wealth to "modest">>
+	<<elseif $town.wealthroll gt 25>>
+		<<set $town.wealth to "poor">>
+	<<elseif $town.wealthroll lte 25>>
+		<<set $town.wealth to "squalid">>
+<</if>>
