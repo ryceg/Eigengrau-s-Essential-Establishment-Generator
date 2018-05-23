@@ -88,3 +88,5 @@
     "Just when we thought things couldn't get worse, one of our daughters was found murdered and brutalized. Enough is enough!"
     ])
     }>>
+
+    /*A $raidedvillager.racenote runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. <<print $raidedvillager.heshe.toUpperFirst()>> continues, saying "they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally"*/
