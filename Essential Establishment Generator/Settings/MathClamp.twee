@@ -1,5 +1,10 @@
 :: MathClamp [render]
 
+<<if $smithy.pricemodifier gt 10>>
+    <<set $smithy.pricemodifier to 100>>
+  <<elseif $smithy.pricemodifier lt -10>>
+    <<set $smithy.pricemodifier to -10>>
+<</if>>
 
 <<if $smithy.magicroll gt 100>>
     <<set $smithy.magicroll to 100>>
@@ -65,6 +70,12 @@
     <<set $smithy.activityroll to 100>>
   <<elseif $smithy.activityroll lt 1>>
     <<set $smithy.activityroll to 1>>
+<</if>>
+
+<<if $alchemist.pricemodifier gt 10>>
+    <<set $alchemist.pricemodifier to 100>>
+  <<elseif $alchemist.pricemodifier lt -10>>
+    <<set $alchemist.pricemodifier to -10>>
 <</if>>
 
 <<if $alchemist.magicroll gt 100>>
@@ -133,6 +144,12 @@
     <<set $alchemist.activityroll to 1>>
 <</if>>
 
+<<if $tavern.pricemodifier gt 10>>
+    <<set $tavern.pricemodifier to 100>>
+  <<elseif $tavern.pricemodifier lt -10>>
+    <<set $tavern.pricemodifier to -10>>
+<</if>>
+
 <<if $tavern.magicroll gt 100>>
     <<set $tavern.magicroll to 100>>
   <<elseif $tavern.magicroll lt 1>>
@@ -199,6 +216,11 @@
     <<set $tavern.activityroll to 1>>
 <</if>>
 
+<<if $GeneralStore.pricemodifier gt 10>>
+    <<set $GeneralStore.pricemodifier to 100>>
+  <<elseif $GeneralStore.pricemodifier lt -10>>
+    <<set $GeneralStore.pricemodifier to -10>>
+<</if>>
 
 <<if $GeneralStore.magicroll gt 100>>
     <<set $GeneralStore.magicroll to 100>>
