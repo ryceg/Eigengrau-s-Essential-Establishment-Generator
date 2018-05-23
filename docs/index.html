@@ -1082,9 +1082,8 @@ setup.createRing = (function() {
         "cast a spell": () => "cast a spell " + ["at random", "prepared and stored in the ring by the ring's creator", "prepared and stored in the ring by you", "that creates a disguise", "that restores lost hit points", "that grants invisibility"].random(),
         "conjure a swarm of": () => "conjure a swarm of " + ["bats", "parrots", "ravens", "rats", "spiders", "zombies"].random(),
         "control": () => "control " + ["demons", "dwarves", "elves", "flames", "human minds", "weather"].random(),
-        "detect": () => "detect",
         "disappear": () => "disappear " + ["into a hole in the earth", "in a flash of light", "to a nearby tree", "in a shimmering mist", "in a swirl of shadows", "in a wisp of smoke"].random(),
-        "detect the nearest": () => "detect the nearest " + ["corpse", "dragon", "gold", "living creature", "poisonous plant", "undead"].random(),
+        "detect the nearest": () => "detect the nearest " + ["corpse", "dragon", "piece of gold", "living creature", "poisonous plant", "undead"].random(),
         "move like a": () => "move like a  " + ["dolphin", "burrowing badger", "gust of wind", "jackrabbit", "ooze", "spider"].random(),
         "predict": () => "predict " + ["deaths", "fluctuations in the price of grain", "future catastrophes", "military victories", "storms", "winning horses"].random(),
         "regain": () => "regain " + ["expended spell slots", "lost dignity", "lost hitpoints", "lost gold", "lost time", "used torches"].random(),
@@ -1092,8 +1091,32 @@ setup.createRing = (function() {
         "see": () => "see " + ["faraway places", "into others' dreams", "invisible creatures and objects", "people dear to you", "through the eyes of an owl", "through the eyes of a corpse"].random(),
         "talk to a": () => "talk to a " + ["dear friend or lover", "long-dead person", "recently deceased person", "snake", "spider", "wolf"].random(),
         "summon": () => "summon " + ["an angel", "a demon", "a devil", "a djinni", "an efreet", "a pack of wolves"].random(),
-        "teleport": () => "tele " + ["up to ten feet", "to another room nearby", "to a well-known temple", "to a previously prepared teleportation circle", "to the presence of a powerful fiend", "to an ancient crypt"].random(),
+        "teleport": () => "teleport " + ["up to ten feet", "to another room nearby", "to a well-known temple", "to a previously prepared teleportation circle", "to the presence of a powerful fiend", "to an ancient crypt"].random(),
     };
+    const cost = {
+        "temporary": () => "upon activation, it causes temporary " + ["chills all over", "fatigue", "flatulence", "head-splitting headaches", "nausea", "unsightly and rapid hair growth"].random(),
+        "chronic": () => "while attuned, it causes permanent " + ["blurred vision", "blindness", "loss of the power of speech", "painful scarring and deformity", "poor wound healing", "tumorous growths and deformities", "debilitating nausea"].random(),
+        "mental": () => "it brings on " + ["anxiety", "bad dreams", "compulsive behavior (drinking, smoking, scratching, hygiene, etc.)", "insomnia", "a short temper", "weight gain (stress eating)"].random() + " while it is being worn",
+        "attention": () => "it attracts the attention of " + ["aberrations", "dragons", "fiends", "ghosts and wraiths", "spiders", "snakes", "zombies and wights"].random(),
+        "accompanied": () => "activation of its powers is occasionally accompanied by " + ["a blizzard", "earthquakes", "rapid plant growth", "thick fog", "thunderstorms", "volcanic eruptions"].random(),
+    };
+    const activation = {
+      "on a particular plane": () => "when worn in the " + ["celestial realm", "fiendish realm", "mortal world", "realm of death", "realm of dreams and magic", "realm of shadow and death"].random(),
+      "when worn by a": () => "when worn by a " + ["dwarf", "half-dragon", "high elf", "serpentfolk", "shadowfolk", "wood elf", "littlefolk"].random(),
+      "sunlight": () => "when worn in " + ["sunlight", "the shade"].random(),
+      "moonlight": () => "when worn under a " + ["full moon", "half-moon", "crescent moon", "moon", "moon", "moon"].random(),
+      "underground": () => "underground",
+      "starlight": () => "under starlight",
+    };
+    const works = [
+        "perfectly, every time",
+        "most of the time with infrequent mishaps",
+        "as expected about half the time",
+        "occasionally, when the proper conditions are met",
+        "rarely and unpredictably",
+        "only the first time the wearer uses the power",
+        "well, but at a cost"
+    ];
     const materials = [
         "gold",
         "white gold",
@@ -1114,7 +1137,8 @@ setup.createRing = (function() {
         "jade",
         "iron",
         "copper",
-        "platinum"];
+        "platinum"
+    ];
     const decorations = [
         "handful of small gemstones arrayed around the band",
         "trio of small gemstones",
@@ -1135,7 +1159,8 @@ setup.createRing = (function() {
         "cross-hatching pattern",
         "phrase written in a Dwarvish script",
         "phrase written in an Elvish script",
-        "handful of arcane runes"];
+        "handful of arcane runes"
+    ];
     const gemstones = [
         "diamond",
         "blue diamond",
@@ -1156,8 +1181,9 @@ setup.createRing = (function() {
         "pearl",
         "black pearl",
         "amethyst",
-        "topaz"];
-    const owners = [
+        "topaz"
+    ];
+    const intendedowner = [
         "a Dwarvish king",
         "an Elvish prince",
         "a terrifying elf-witch",
@@ -1177,66 +1203,53 @@ setup.createRing = (function() {
         "a conniving fiend",
         "an infamous warlord",
         "a renowned explorer",
-        "a famous singer"];
+        "a famous singer"
+    ];
+    const importance = [
+        "ancient king",
+        "elder dragon",
+        "powerful fiend",
+        "legendary warrior",
+        "notorious giant",
+        "well known prophet",
+        "powerful spellcaster",
+        "heir to a fallen noble house",
+        "sitting monarch",
+        "fiendish prince",
+        "elemental lord",
+        "forgotten god",
+        "ancient evil being"
+    ];
+
+
 
     return function(base) {
         var ring = Object.assign({
-            power: Object.keys(powers).random(),
-            material: materials.random(),
-            decoration: decorations.random(),
-            gemstone: gemstones.random(),
-            intendedowner: owners.random(),
+            power         : Object.keys(powers).random(),
+            cost          : Object.keys(cost).random(),
+            activation    : Object.keys(activation).random(),
+            works         : works.random(),
+            material      : materials.random(),
+            decoration    : decorations.random(),
+            gemstone      : gemstones.random(),
+            intendedowner : intendedowner.random(),
+            importance    : importance.random(),
         }, base);
         if(powers[ring.power]) {
             // expand the power description
             ring.power = powers[ring.power]();
         }
+        if(cost[ring.cost]) {
+            // expand the cost description
+            ring.cost = cost[ring.cost]();
+        }
+        if(activation[ring.activation]) {
+            // expand the activation description
+            ring.activation = activation[ring.activation]();
+        }
         return ring;
     };
 })();
-
-/*
-
-d6 Activation/amplification: The ring's special power or special property activates or amplifies…
-
-On a particular plane (d6): 1. celestial realm; 2. fiendish realm; 3. mortal world; 4. realm of death; 5. realm of dreams and magic; 6. realm of shadow and death.
-When worn by a member of a specific race (d6): 1. dwarf; 2. half-dragon; 3. high elf; 4. serpentfolk; 5. shadowfolk; 6. wood elf.
-In sunlight.
-In moonlight.
-Underground.
-Under starlight.
-d6 Reliability and costs: The ring's special power...
-
-Works =
-"perfectly, every time",
-"most of the time with infrequent mishaps",
-"as expected about half the time",
-"occasionally, when the proper conditions are met",
-"rarely and unpredictably",
-"only the first time the wearer uses the power",
-
-Comes at a temporary or acute health cost (d6): 1. chills; 2. fatigue; 3. flatulence; 4. headaches; 5. nausea; 6. unsightly and rapid hair growth.
-Comes at a chronic or permanent health cost (d6): 1. blurred vision or blindness; 2. loss of the power of speech; 3. painful scarring and deformity; 4. poor wound healing; 5. tumorous growths and deformity; 6. wasting sickness.
-Brings on mental distress (d6): 1. anxiety; 2. bad dreams; 3. compulsive behavior (drinking, smoking, scratching, hygiene, etc.); 4. insomnia; 5. short temper (irritability); 6. weight gain (stress eating).
-Attracts the attention of malevolent creatures (d6): 1. aberrations; 2. dragons; 3. fiends; 4. ghosts and wraiths; 5. spiders or snakes; 6. zombies and wights.
-Is occasionally accompanied by (d6): 1. blizzards; 2. earthquakes; 3. rapid plant growth; 4. thick fog; 5. thunderstorms; 6. volcanic eruptions.
-d6 Importance: The ring is rumored to be important to a/an...
-
-Quirky individual who claims to be descended from a/an (d6): 1. ancient king or queen; 2. dragon; 3. fiend; 4. legendary warrior; 5. notorious giant; 6. well-known prophet.
-Powerful spellcaster (d6): 1. arch-lich; 2. master conjurer or illusionist; 3. high priest or priestess; 4. shadow-witch or warlock; 5. dark sorcerer or sorceress; 6. druid or woods-witch.
-Heir to a fallen noble house.
-Sitting monarch.
-Fiendish prince or elemental lord.
-Forgotten god or ancient evil.
-d6 Purpose: The ring is rumored to be important because its wearer could...
-
-Sell it for an unimaginable fortune.
-Gain the cooperation of a world leader (d6): 1. brutal warlord; 2. high priest or priestess; 3. infamous pirate captain or outlaw; 4. king or queen; 5. merchant-prince; 6. vampire lord.
-Unlock ancient knowledge and secrets.
-Gain immense wealth and influence.
-Conquer the world.
-Open portals to other realms.
-*/
 /* twine-user-script #3: "Trinkets.js" */
 /*setup.createTrinket = function() {
 
@@ -1488,9 +1501,9 @@ setup.createNPC = function(base) {
     var skinColours   = ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"];
     var profession    = ["actor", "advocate", "advisor", "animal handler", "apothecary", "architect", "archivist", "armorer", "astrologer", "baker", "banker", "barber", "barkeep", "blacksmith", "bookseller", "brewer", "bricklayer", "brothel keeper", "buccaneer", "butcher", "caravanner", "carpenter", "cartographer", "chandler", "chef", "clock maker", "cobbler", "cook", "counselor", "courtesan", "courtier", "cowherd", "dancer", "diplomat", "distiller", "diver", "farmer", "fisherman", "fishmonger", "gardener", "general", "gladiator", "glovemaker", "goldsmith", "grocer", "guardsman", "guildmaster", "hatmaker", "healer", "herald", "herbalist", "hermit", "historian", "hunter", "ice seller", "innkeeper", "inventor", "jailer", "jester", "jeweler", "judge", "knight", "lady", "leatherworker", "librarian", "linguist", "locksmith", "lord", "lumberjack", "mason", "masseur", "merchant", "messenger", "midwife", "miller", "miner", "minister", "minstrel", "monk", "mortician", "necromancer", "noble", "nun", "nurse", "officer", "painter", "patissier", "perfumer", "philosopher", "physician", "pilgrim", "potter", "priest", "privateer", "professor", "roofer", "ropemaker", "rugmaker", "saddler", "sailor", "scabbard maker", "sculptor", "scavenger", "scholar", "seamstress", "servant", "shaman", "shepherd", "ship's captain", "silversmith", "slave", "slaver", "smith", "soldier", "spice merchant", "squire", "stablehand", "stevedore", "stonemason", "steward", "street seller", "street sweeper", "student", "surgeon", "surveyor", "sailor", "tanner", "tavernkeeper", "tax collector", "teacher", "thatcher", "thief", "torturer", "town crier", "toymaker", "vendor", "veterinarian", "vintner", "weaver", "wetnurse", "woodcarver", "wood seller", "wrestler", "writer"];
     var trait       = ["fidgets", "drinks too much", "eats too much", "swears often", "has poor hygiene", "cannot resist flirting", "cannot stop staring at you", "sweats profusely and easily", "is a habitual liar", "embellishes the truth", "exaggerates details", "has a short temper", "is melodramatic", "gossips about the most mundane things", "cannot resist a juicy secret", "chews with an open mouth", "often sniffs audibly", "is incredibly gullible", "is skeptical of everything", "paces about incessantly", "makes poor eye contact"];
-    var currentmood = ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"];
     var idle        = ["sitting, with a piece of bread in hand", "sitting, mug in hand", "poring over some map", "reading some letter intently", "reading a book", "shuffling a pack of cards", "chewing on a piece of hay", "sharpening a knife", "buffing a piece of armour", "polishing a shield", "sharpening the blade on a fearsome looking dagger", "cutting an apple into bite sized pieces", "biting into an apple", "eating an apple while looking at some book", "eating a hunk of cheese while reading a book", "sipping out of a huge mug while reading a book", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'"];
     var reading     = ["a piece of history- my forefather's journal, detailing his life in $town.name when it was just a settlement.", "my journal, from many years ago.", "my mother's journal, from just before she disappeared", "a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.", "a traitor's memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.", "some sort of spell, though I don't know how to read it.", "a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.", "a book which I bought, believing it to be blank, and suitable for a journal. However, now there's this strange foreign script that I can't read in it.", "a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read."];
+    var currentmood;
 
     // Base random variables first - those that don't depend on others
     var npc = Object.assign({
@@ -1498,7 +1511,10 @@ setup.createNPC = function(base) {
         race: ["human", "human", "human", "human", "human", "human", "half-elf", "half-elf", "elf", "elf", "dwarf", "dwarf", "gnome", "halfling", "half-orc", "dragonborn", "tiefling"].random(),
         lastname: State.variables.name.last.random(),
         age: ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "middle aged", "relatively old", "sun wizened", "quite old", "ancient"].random(),
+        currentmood: ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"].random(),
         demeanour: ["calm", "moody", "kind", "conceited", "cruel", "mean", "careful", "polite", "happy"].random(),
+        calmtrait: ["compassionate", "cheerful", "reserved", "outspoken", "uninterested", "gruff", "eager", "deceitful", "foolish", "strict", "agreeable", "mischeivious", "angry", "fearful", "manipulative", "devout", "greedy", "funny", "dour", "fun-loving", "lazy", "driven", "boastful", "artistic", "assertive", "carefree", "cautious", "confident", "thoughtful", "loyal", "sophisticated", "weak-willed"].random(),
+        stresstrait: ["withdrawn", "murderous", "obsessive", "authoritarian", "determined", "brave", "spiteful", "belligerent", "caustic", "reckless", "argumentative", "gluttonous", "overly protective", "angry", "cowardly", "meticulous", "sarcastic", "stubborn", "destructive", "practical", "pushy", "fanatical", "secretive", "scornful", "courageous", "impractical", "calculating", "industrious", "manipulative", "destructive", "compulsive", "intolerant"].random(),
         adventure: ["retired from adventuring", "currently looking for an adventure", "looking for assistance", "recuperating from an adventure", "on a holiday from adventuring", "taking a short break from adventuring"].random(),
         haircolour: ["brunette", "brunette", "brown", "brownish", "auburn", "amber", "hazel", "redhead", "dark redhead", "blonde", "dark blonde", "white", "platinum", "black", "black"].random(),
         hairtype: ["thick", "wispy", "straight", "straight", "wavy", "wavy", "curly", "wiry", "oily", "lush", "poofy", "long", "braided", "very long", "greasy", "unruly", "unusually styled", "short cropped hair"].random(),
@@ -1513,6 +1529,7 @@ setup.createNPC = function(base) {
 				idle: idle,
 				reading: reading,
         skinColours: skinColours.random(),
+        rumourOrigin: ["a child", "a fat merchant", "a priest", "a sailor", "a soldier", "a magician", "a noble", "a rogue", "a crazy monk", "a drunken farmer", "the butcher", "the tailor"].random(),
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
     switch (npc.gender) {
@@ -1693,9 +1710,11 @@ setup.createNPC = function(base) {
             });
             npc.racenote = npc.race;
             if (npc.gender === "man") {
-                npc.firstname = [State.variables.name.man.pluck(), State.variables.name.maleelf.pluck()].random();
+                npc.firstname = [["Adran", "Aelar", "Aerdeth", "Ahvain", "Aramil", "Arannis", "Aust", "Azaki", "Beiro", "Berrian", "Caeldrim", "Carric", "Dayereth", "Dreali", "Efieril", "Eiravel", "Enialis", "Erdan", "Erevan", "Fivin", "Galinndan", "Gennal", "Hadarai", "Halimath", "Heian", "Himo", "Immeral",
+							"Ivellios", "Korfel", "Lamlis", "Laucian", "Lucan", "Mindartis", "Naal", "Nutae", "Paelias", "Peren", "Quarion", "Riardon", "Rolen",
+							"Soveliss", "Suhnae", "Thamior", "Tharivol", "Theren", "Theriatis", "Thervan", "Uthemar", "Vanuath", "Varis"].random(), ["Aaryn", "Aaro", "Aarus", "Abramus", "Abrahm", "Abyl", "Abelus", "Adannius", "Adanno", "Aedam", "Adym", "Adamus", "Aedrian", "Aedrio", "Aedyn", "Aidyn", "Aelijah", "Elyjah", "Aendro", "Androe", "Aenry", "Hynroe", "Hynrus", "Aethan", "Aethyn", "Aevan", "Evyn", "Evanus", "Alecks", "Alyx", "Alexandyr", "Xandyr", "Alyn", "Alaen", "Andrus", "Aendrus", "Anglo", "Aenglo", "Anglus", "Antony", "Antonyr", "Astyn", "Astinus", "Axelus", "Axyl", "Benjamyn", "Benjamyr", "Braidyn", "Brydus", "Braddeus", "Brandyn", "Braendyn", "Bryus", "Bryne", "Bryn", "Branus", "Caeleb", "Caelyb", "Caerlos", "Carlus", "Cameryn", "Camerus", "Cartus", "Caertero", "Charlus", "Chaerles", "Chyrles", "Christophyr", "Christo", "Chrystian", "Chrystan", "Connorus", "Connyr", "Daemian", "Damyan", "Daenyel", "Danyel", "Davyd", "Daevo", "Dominac", "Dylaen", "Dylus", "Elius", "Aeli", "Elyas", "Helius", "Helian", "Emilyan", "Emilanus", "Emmanus", "Emynwell", "Ericus", "Eryc", "Eryck", "Ezekius", "Zeckus", "Ezekio", "Ezrus", "Yzra", "Gabrael", "Gaebriel", "Gael", "Gayl", "Gayel", "Gaeus", "Gavyn", "Gaevyn", "Goshwa", "Joshoe", "Graysus", "Graysen", "Gwann", "Ewan", "Gwyllam", "Gwyllem", "Haddeus", "Hudsyn", "Haesoe", "Haesys", "Haesus", "Handus", "Handyr", "Hantus", "Huntyr", "Haroldus", "Haryld", "Horgus", "Horus", "Horys", "Horyce", "Hosea", "Hosius", "Iaen", "Yan", "Ianus", "Ivaen", "Yvan", "Jaecoby", "Jaecob", "Jaeden", "Jaedyn", "Jaeremiah", "Jeremus", "Jasyn", "Jaesen", "Jaxon", "Jaxyn", "Jaxus", "Johnus", "Jonus", "Jonaeth", "Jonathyn", "Jordus", "Jordyn", "Josaeth", "Josephus", "Josaeus", "Josayah", "Jovanus", "Giovan", "Julyan", "Julyo", "Jyck", "Jaeck", "Jacus", "Kaevin", "Kevyn", "Vinkus", "Laevi", "Levy", "Levius", "Landyn", "Laendus", "Leo", "Leonus", "Leonaerdo", "Leonyrdo", "Lynardus", "Lincon", "Lyncon", "Linconus", "Logaen", "Logus", "Louis", "Lucius", "Lucae", "Lucaen", "Lucaes", "Lucoe", "Lucus", "Lyam", "Maeson", "Masyn", "Maetho", "Mathoe", "Matteus", "Matto", "Maxus", "Maximus", "Maximo", "Maxymer", "Mychael", "Mygwell", "Miglus", "Mythro", "Mithrus", "Naemo", "Naethyn", "Nathanus", "Naethynel", "Nicholaes", "Nycholas", "Nicholys", "Nicolus", "Nolyn", "Nolanus", "Olivyr", "Alivyr", "Olivus", "Oscarus", "Oscoe", "Raen", "Ryn", "Robertus", "Robett", "Bertus", "Romyn", "Romanus", "Ryderus", "Ridyr", "Samwell", "Saemuel", "Santegus", "Santaegus", "Sybasten", "Bastyen", "Tago", "Aemo", "Tagus", "Theodorus", "Theodus", "Thaeodore", "Thomys", "Thomas", "Tommus", "Tylus", "Tilyr", "Uwyn", "Oewyn", "Victor", "Victyr", "Victorus", "Vincynt", "Vyncent", "Vincentus", "Wyttus", "Wyaett", "Xavius", "Havius", "Xavyer", "Yago", "Tyago", "Tyego", "Ysaac", "Aisaac", "Ysaiah", "Aisiah", "Siahus", "Zacharus", "Zachar", "Zachaery"].random()].random();
             } else if (npc.gender === "woman") {
-                npc.firstname = [State.variables.name.woman.pluck(), State.variables.name.femaleelf.pluck()].random();
+                npc.firstname = [["Abigayl", "Aebria", "Aeobreia", "Breia", "Aedria", "Aodreia", "Dreia", "Aeliya", "Aliya", "Aella", "Aemilya", "Aemma", "Aemy", "Amy", "Ami", "Aeria", "Arya", "Aeva", "Aevelyn", "Evylann", "Alaexa", "Alyxa", "Alina", "Aelina", "Aelinea", "Allisann", "Allysann", "Alyce", "Alys", "Alysea", "Alyssia", "Aelyssa", "Amelya", "Maelya", "Andreya", "Aendrea", "Arianna", "Aryanna", "Arielle", "Aryell", "Ariella", "Ashlena", "Aurora", "Avaery", "Avyrie", "Bella", "Baella", "Brooklinea", "Bryanna", "Brynna", "Brinna", "Caemila", "Chloe", "Chloeia", "Claira", "Clayre", "Clayra", "Delyla", "Dalyla", "Elisybeth", "Aelisabeth", "Ellia", "Ellya", "Elyana", "Eliana", "Eva", "Falyne", "Genaesis", "Genaesys", "Gianna", "Jianna", "Janna", "Graece", "Grassa", "Haenna", "Hanna", "Halya", "Harperia", "Peria", "Hazyl", "Hazel", "Jasmyne", "Jasmine", "Jocelyne", "Joceline", "Celine", "Kaelia", "Kaelya", "Kathryne", "Kathrine", "Kayla", "Kaila", "Kymber", "Kimbera", "Layla", "Laylanna", "Leia", "Leya", "Leah", "Lilia", "Lylia", "Luna", "Maedisa", "Maelania", "Melania", "Maya", "Mya", "Myla", "Milae", "Naomi", "Naome", "Natalya", "Talya", "Nathylie", "Nataliae", "Thalia", "Nicola", "Nikola", "Nycola", "Olivya", "Alivya", "Penelope", "Paenelope", "Pynelope", "Rianna", "Ryanna", "Ruby", "Ryla", "Samaentha", "Samytha", "Sara", "Sarah", "Savannia", "Scarletta", "Sharlotta", "Caerlotta", "Sophya", "Stella", "Stylla", "Valentyna", "Valerya", "Valeria", "Valia", "Valea", "Victorya", "Vilettia", "Ximena", "Imaena", "Ysabel", "Zoe", "Zoeia", "Zoea", "Zoesia"].random(), ["Adria", "Ahinar", "Althaea", "Anastrianna", "Andraste", "Antinua", "Arara", "Baelitae", "Bethrynna", "Birel", "Caelynn", "Chaedi", "Claira", "Dara", "Drusilia", "Elama", "Enna", "Faral", "Felosial", "Hatae", "Ielenia", "Ilanis", "Irann", "Jarsali", "Jelenneth", "Keyleth", "Leshanna", "Lia", "Maiathah", "Malquis", "Meriele", "Mialee", "Myathethil", "Naivara", "Quelenna", "Quillathe", "Ridaro", "Sariel", "Shanairla", "Shava", "Silaqui", "Sumnes", "Theirastra", "Thiala", "Tiaathque", "Traulam", "Vadania", "Valanthe", "Valna", "Xanaphia"].random()].random();
             }
             break;
         case "gnome":
@@ -1710,9 +1729,9 @@ setup.createNPC = function(base) {
             });
             npc.racenote = npc.race;
             if (npc.gender === "man") {
-                npc.firstname = State.variables.name.maledwarf.pluck();
+                npc.firstname = ["Alston", "Alvyn", "Anverth", "Arumawann", "Bilbron", "Boddynock", "Brocc", "Burgell", "Cockaby", "Crampernap", "Dabbledob", "Delebean", "Dimble", "Eberdeb", "Eldon", "Erky", "Fablen", "Fibblestib", "Fonkin", "Frouse", "Frug", "Gerbo", "Gimble", "Glim", "lgden", "Jabble", "Jebeddo", "Kellen", "Kipper", "Namfoodle", "Oppleby", "Orryn", "Paggen", "PaHabar", "Pog", "Qualen", "Ribbles", "Rimple", "Roondar", "Sappw", "Seebo", "Senteq", "Sindri", "Umpen", "Warryn", "Wiggens", "Wobbles", "Wrenn", "Zaffrab", "Zook"].random();
             } else if (npc.gender === "woman") {
-                npc.firstname = State.variables.name.femaledwarf.pluck();
+                npc.firstname = ["Abalaba", "Bimpnottin", "Breena", "Buvvie", "Callybon", "Caramip", "Carlin", "Cumpen", "Dalaba", "Donella", "Duvamil", "Ella", "Ellyjoybell", "Ellywick", "Enidda", "Lilli", "Loopmottin", "Lorilla", "Luthra", "Mardnab", "Meena", "Menny", "Mumpena", "Nissa", "Numba", "Nyx", "Oda", "Oppah", "Orla", "Panana", "Pynfle", "Quilla", "Ranala", "Reddlepop", "Roywyn", "Salanop", "Shamil", "Sifiress", "Symma", "Tana", "Tenena", "Tervaround", "Tippletoe", "Ulia", "Unvera", "Veloptima", "Virra", "Waywocket", "Yebe", "Zanna"].random();
             }
             break;
     }
@@ -1759,14 +1778,16 @@ setup.createNPC = function(base) {
 
     switch (npc.background) {
         case "acolyte":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I ran away from home at a young age, and found refuge in a temple.", "My family gave me to a temple, since they were unable to care for me.", "I grew up in a household with strong religious convictions. Entering the service of the Gods seemed to be the natural progression.", "An impassioned sermon struck a chord deep in me, and compelled me to serve the faith.", "I followed a childhood friend into religious service because we made a pact to never be apart.", "I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life."].random();
             npc.bond = npc.bond || ["I would die to recover an ancient artifact of my faith that was lost long ago.",
                 "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.",
-                "I owe me life to the priest <<print $name.man.pluck()>> who took me in when my parents died.",
+                "I owe me life to the priest who took me in when my parents died.",
                 "Everything I do is for the common people.",
                 "I will do anything to protect the temple where I served.",
                 "I seek to preserve a sacred text that my enemies consider heretical and seek to destroy."].random();
             break;
         case "charlatan":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["As a youngster, I was left to my own devices. My knack for manipulating people helped me survive.", "I learned early on that people are easy to exploit, and are gullible and too trusting.", "I often got into trouble as a youngster, but talked my way out of it.", "I took up cheating as a hobby, then was sort of adopted by a local scam artist. It just sort of became a way of life for me.", "After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam."].random();
             npc.bond = npc.bond || ["I fleeced the wrong person, a lord called <<print $name.man.pluck()>>, and must work to ensure that he never crosses paths with me or those I care about.",
                 "I owe everything to my mentor <<print $name.man.pluck()>>--a horrible person who's probably rotting in jail somewhere.",
                 "Somewhere out there I have a child, litte <<print $name.man.pluck()>>, who doesn't know me. I'm going to try and make the world better for him.",
@@ -1775,6 +1796,7 @@ setup.createNPC = function(base) {
                 "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself."].random();
             break;
         case "criminal":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I resented authority in my younger days, and I saw a life of crime as a way to get back at those that I thought had wronged me.", "I resented authority as a youngster, and saw a life of crime as the best way to fight back against tyranny and oppression.", "I fell in with a gang of reprobates and ne’er-do- wells, and I learned my specialty from them.", "A relative taught me the trade to prepare me for the family trade.", "I left home at a relatively young age, and found refuge in a thieves' guild.", "I was always bored, so I started committing minor crimes to pass the time. The adrenaline rush was addictive, and soon I was going on to bigger and better heists."].random();
             npc.bond = npc.bond || ["I'm trying to pay off an old debt I owe to a generous benefactor.",
                 "My ill-gotten gains go to support my family.",
                 "Something important was taken from me, and I aim to steal it back.",
@@ -1783,6 +1805,7 @@ setup.createNPC = function(base) {
                 "Someone I loved died because of a mistake I made. That will never happen again."].random();
             break;
         case "entertainer":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["Members ofmy family made ends meet by per- forming, so it was fitting for me to follow their example", "I always had a keen insight into what made other people laugh and cry. A life as an entertainer seemed to be the natural continuation of that.", "I saw a bard perform once, and it inspired me so much that I decided to follow in his footsteps.", "I ran away from home to join a minstrel troupe.", "I earned extra coin by performing on the streets as a child, and I never seemed to stop.", "A traveling entertainer took me in to teach me the trade, and I learned to love it."].random();
             npc.bond = npc.bond || ["My instrument is my most treasured possession, and it reminds me of someone I love.",
                 "Someone stole my precious instrument, and someday I'll get it back.",
                 "I want to be famous, whatever it takes.",
@@ -1791,6 +1814,7 @@ setup.createNPC = function(base) {
                 "I would do anything for the other members of my old party."].random();
             break;
         case "folk hero":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I learned what was right and wrong from my family.", "I was always enamored by tales of heroes and wished I could be something more than ordinary.", "I hated my mundane life, so when it was time for someone to step up and do the right thing, I took my chance.", "One of my relatives was an adventurer, and l was inspired by that person’s courage.", "A mad old hermit spoke a prophecy when l was born, saying that I would accomplish great things.", "I have always stood up for those who are weaker than me."].random();
             npc.bond = npc.bond || ["I have a family, but I have no idea where they are.  One day, I hope to see them again.",
                 "I worked the land, I love the land, and I will protect the land.",
                 "A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.",
@@ -1799,6 +1823,7 @@ setup.createNPC = function(base) {
                 "I wish my childhood sweetheart had come with me to pursue my destiny."].random();
             break;
         case "guild artisan":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["l was apprenticed to a master who taught me the guild’s business.", "I helped a guild artisan keep a secret, and in return, I was taken on as an apprentice.", "One of my relatives who belonged to the guild made a place for me.", "I was always good with my hands, so I figured that I would make something of it.", "I wanted to get away from my home situation and start a new life, so I learned a trade in secret and ran away one night.", "I learned the essentials from an old mentor, but I had to join a guild to finish my learning once he passed away."].random();
             npc.bond = npc.bond || ["The workshop where I learned my trade is the most important place in the world to me.",
                 "I created a great work for someone, and then found them unworthy to receive it; I'm still looking for someone worthy.",
                 "I owe my guild a great debt for forging me into the person I am today.",
@@ -1807,6 +1832,7 @@ setup.createNPC = function(base) {
                 "I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood."].random();
             break;
         case "hermit":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["My enemy ruined my reputation, and I had to flee to a life of solitude to escape further disparagement.", "I am comfortable with isolation, as I seek inner peace.", "I find myself in love with nature, and prefer the company of the animals and plants to that of people.", "I never liked the people that I grew up with, so it was easy for me to leave it all behind and strike out a new life, alone.", "I felt compelled to forsake my past, and did so with great reluctane. Even now, I sometimes regret my decisions."].random();
             npc.bond = npc.bond || ["Nothing is more important than the other members of my hermitage, order, or association.",
                 "I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.",
                 "I'm still seeking the enlightenment I pursued in my seclusion, and it still eludes me.",
@@ -1815,6 +1841,7 @@ setup.createNPC = function(base) {
                 "My isolation gave me great insight into a great evil that only I can destroy."].random();
             break;
         case "noble":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["My family has been disgraced, and I intend to restore our once pristine reputation.", "I come from an old and storied family, and it fell to me to preserve the family name.", "My family recently came by its title, and that eleva— tion thrust us into a new and strange world.", "My family has a title, but none of my ancestors have done anything of note.", "My family is filled with remarkable people. I hope to live up to their reputation.", "I hope to increase my family's power and influence."].random();
             npc.bond = npc.bond || ["I will face any challenge to win the approval of my family.",
                 "My house's alliance with another noble family must be sustained at all costs.",
                 "Nothing is more important that the other members of my family.",
@@ -1823,6 +1850,7 @@ setup.createNPC = function(base) {
                 "The common folk must see me as a hero of the people."].random();
             break;
         case "outlander":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I spent a lot of time in the wilderness as a youngster, and I came to love that way of life.", "From a young age, I couldn't abide the stink of cities, and sought out the wilderness for respite from the chaos of people.", "I came to understand the darkness that lurks in the wilds, and l vowed to combat it.", "My people live on the edges of civilisation, and I learned the methods of survival from my family.", "After a personal tragedy, I retreated to the wilderness to be alone with my thoughts.", "My family moved away from civilisation, and I learnt to adapt with the harsh environment."].random();
             npc.bond = npc.bond || ["My family, clan, or tribe is the most important thing in my life, even when they are far from me.",
                 "An injury to the unspoiled wilderness of my home is an injury to me.",
                 "I will bring terrible wrath down on the evildoers who destroyed my homeland.",
@@ -1831,6 +1859,7 @@ setup.createNPC = function(base) {
                 "It is my duty to provide children to sustain my tribe."].random();
             break;
         case "sage":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I was naturally curious, so I packed up and went to a university to learn more about the world.", "My mentor’s teachings opened my mind to new possibilities in that field of study.", "I was always an avid reader, and became a sage to learn more from the thousands of books that I tended to.", "I discovered an old library and pored over the texts I found there. That experience awakened a hunger in me for knowledge that I still seek.", "I impressed a traveling wizard, who told me that I was squandering my talents and that I should seek out an education to take advantage of my gifts.", "My father gave me a basic education which whetted my appetite for more knowledge, and I left home to build on what I knew."].random();
             npc.bond = npc.bond || ["It is my duty to protect my students.",
                 "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.",
                 "I work to preserve a library, university, scriptorium, or monastery.",
@@ -1839,6 +1868,7 @@ setup.createNPC = function(base) {
                 "I sold my soul for knowledge; I hope to do great deeds and win it back."].random();
             break;
         case "sailor":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I was press-ganged by pirates and forced to serve as a deck-hand on their ship until I could escape from their clutches.", "I wanted to see the world, so I signed on as a deck- hand for a merchant ship.", "One of my relatives was a sailor, and took me to sea when I was young, which inspired a life-long love of the oceans and the water.", "I needed to escape from town quickly, so I stowed away on a ship. They found me out, and force me to work as a deck-hand as payment for my passage.", "Reavers attacked my village, and I found refuge in a ship.", "There were few prospects where I was living, so I hopped on board a boat, to seek my fortunes elsewhere."].random();
             npc.bond = npc.bond || ["I'm loyal to my captain first, everything else second.",
                 "The ship is most important--crewmates and captains come and go.",
                 "I'll always remember my first ship.",
@@ -1847,6 +1877,7 @@ setup.createNPC = function(base) {
                 "Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine."].random();
             break;
         case "soldier":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I wanted fame and fortune, so I signed up to the militia to prove my mettle. I don't think I knew what I was doing, but my determination carried me through my contract, and I never stopped.", "I wanted to protect my village from monsters, so I learnt swordcraft and how to fight. Then I learnt that you could earn coin for it, too.", "I was forced to enlist in the local militia to fight for my lord. Many of my friends are dead because of him.", "Invaders attacked my village, and I vowed to never let my family be unprotected again, so I picked up the sword.", "I was always playing with a sword as a kid, and it wasn't until a visiting adventurer sparred with me for fun that I realised that I had a real talent."].random();
             npc.bond = npc.bond || ["I would lay down my life for the people I served with.",
                 "Someone saved my life on the battlefield. To this day, I will never leave a friend behind.",
                 "My honor is my life.",
@@ -1855,6 +1886,7 @@ setup.createNPC = function(base) {
                 "I fight for those who cannot fight for themselves."].random();
             break;
         case "urchin":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["My parents died, leaving nobody to look after me, so I took care of myself.", "I had to escape my homelife. I lived off crumbs and scraps, but it was better than the alternative.", "Raiders attacked my village when I was a child, leaving me the only survivor. I had to walk for three days to the next town over, and begged to survive.", "My family was swindled, and we lost everything we had. I had to beg on the streets to look after my family.", "A thief took me in, and in exchange for food and shelter, I would keep an eye on the streets while he pulled off heists."].random();
             npc.bond = npc.bond || ["My town or city is my home, and I'll fight to defend it.",
                 "I sponsor an orphanage to keep others from enduring what I was forced to endure.",
                 "I owe my survival to another urchin who taught me to live on the streets.",
@@ -2648,7 +2680,7 @@ When you&#39;re ready, here&#39;s the [[alchemist|AlchemistOutput]]
 &quot;loss of a random item&quot;,
 &quot;curses&quot;,
 &quot;1d8 damage&quot;,
-&quot;weakness to &lt;&lt;print either(&#39;shocking&#39;, &#39;fire&#39;, &#39;ice&#39;, &#39;the opposite sex&#39;)&quot;,
+&quot;weakness to &lt;&lt;print either(&#39;shocking&#39;, &#39;fire&#39;, &#39;ice&#39;, &#39;the opposite sex&#39;)&gt;&gt;&quot;,
 &quot;weakness to physical damage&quot;,
 &quot;feelings of guilt&quot;,
 &quot;feelings of anxiety&quot;,
@@ -2884,19 +2916,7 @@ When you&#39;re ready, here&#39;s the [[alchemist|AlchemistOutput]]
 &quot;the worst, most terrible thing ever&quot;,
 &quot;magically the most desirable thing to you&quot;],
 
-	taste: [
-	&quot;thick and sludgy&quot;,
-	&quot;thin and watery&quot;,
-	&quot;airy and bubbly&quot;,
-	&quot;slimey&quot;,
-	&quot;almost solid&quot;,
-	&quot;oily&quot;,
-	&quot;chunky&quot;,
-	&quot;bitty&quot;,
-	&quot;milky&quot;,
-	&quot;almost gaseous&quot;],
-
-		smell: [
+		taste: [
 	&quot;nothing at all&quot;,
 	&quot;sulphur&quot;,
 	&quot;fresh air&quot;,
@@ -4130,8 +4150,8 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
   &lt;&lt;case &quot;hamlet&quot;&gt;&gt;
   &lt;&lt;for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability &lt;= 1, item.type == &quot;tools&quot;; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
 &lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;&lt;&lt;/for&gt;&gt;
-&lt;&lt;/switch&gt;&gt;
+  &lt;&lt;/for&gt;&gt;
+&lt;&lt;/switch&gt;&gt;&lt;/table&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="InitGeneralStore" tags="output" position="225,475">&lt;&lt;linkreplace &quot;Rename &lt;strong&gt;$GeneralStore.name&lt;/strong&gt;&quot;&gt;&gt;&lt;h3&gt;&lt;&lt;textbox &quot;$GeneralStore.name&quot; $GeneralStore.name&gt;&gt;&lt;/h3&gt;&lt;&lt;/linkreplace&gt;&gt;
 
 General Store Wealth: &lt;&lt;numberslider &quot;$GeneralStore.wealthroll&quot; $GeneralStore.wealthroll 1 100 1&gt;&gt;
@@ -4150,13 +4170,19 @@ General Store Price Modifier: &lt;&lt;numberslider &quot;$GeneralStore.pricemodi
 
 
 When you&#39;re ready, here&#39;s the [[general store|GeneralStoreOutput]]
-&lt;&lt;set $currentpassage to $GeneralStore&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="" position="350,475">$specialbrew.author</tw-passagedata><tw-passagedata pid="34" name="Changelog" tags="" position="475,475">v.1.1
+&lt;&lt;set $currentpassage to $GeneralStore&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="" position="350,475">$specialbrew.author</tw-passagedata><tw-passagedata pid="34" name="Changelog" tags="" position="475,475">v.1.1.5
+- Added background origins
+- Minor bug fixes with potions
+- Started work on town descriptors
+- Started work on &quot;Starting Campaign&quot; mode, for DMs starting a new campaign.
+
+v.1.1
 - Added NPC generator in the Tavern
 - Added plothooks for alchemist
 - Added the excellent Solbera fonts
 - Added JavaScript to force specfic attributes to creating NPCs
 - Added backgrounds relevant to NPC classes, and bonds
-- Added more stuff to be added later on.
+- Added more stuff to be added later on
 - Added brothel
 - Added marketplace
 
@@ -4211,6 +4237,8 @@ either($potion.smell)
 
 &lt;div class=&#39;descriptive&#39;&gt;Test &lt;/div&gt;
 
+
+
 */</tw-passagedata><tw-passagedata pid="36" name="Credits" tags="output" position="725,475">Many thanks to /u/FamousHippopotamus and /u/OrkishBlade for their excellent tables and DMing advice over the years. Shoutout to /r/twinegames and the good folks in the Discord server who helped a total newb learn how to code in Twine.
 
 This software is provided on an as-is basis, and no warranty or guarantee that it works is provided. This software will always be free. If you have purchased this software, seek a refund immediately.
@@ -4246,6 +4274,7 @@ Smithy and Blacksmith</tw-passagedata><tw-passagedata pid="38" name="Submission 
 &lt;&lt;include &quot;Bugs&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Bugs" tags="" position="1225,475">Known bugs:
 
 &lt;iframe&gt;src=&quot;https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues&quot; height=&quot;80%&quot; width=&quot;80%&quot;&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="41" name="Books" tags="" position="100,600">&lt;&lt;set $book to {
+  normal: [&quot;A Study of Elementals: Volume 3: Pain and Tolerance of the Elements&quot;, &quot;Typhory’s Guide To Abjurations: Rapid Adaptions To Opposing Forces&quot;, &quot;Notes of Death and Undeath: Vykathar’s Endeavours in the Unholy&quot;, &quot;The Credits of Lightning and Ice: Shifting Plans and their Collisions&quot;, &quot;The Basics of Regeneration: Healing in Many instances&quot;, &quot;Blood and the Foul Arts: Dark Practices of Necromancy&quot;, &quot;Ethereal and Material: infusing Arcane and Steel&quot;, &quot;The Warping of Broken Minds: Eteterveil’s Enchanting of the Mad&quot;, &quot;The Walls That Won’t Change: Transmutation and the Laws of Exchange&quot;, &quot;Magic in War: Scorched Earth and Seared Minds&quot;, &quot;Gynthorn’s Research Notes of Arcane Fauna&quot;, &quot;The Call of the Void: the Draw of the Yawning Nothing&quot;, &quot;Tides of Chaos: Studies of the Broken Flows&quot;, &quot;Null Zones: Hythen &amp; Surich’s Research of Anti Magic Zone&quot;, &quot;Compulsion: the Forcing of a Mind&quot;, &quot;Seeing Beyond the Sight: Illusionary Hallmarks&quot;, &quot;A Brief History of the Magically Corrupted Races&quot;, &quot;Tyven’s Folly of Illusion and Enchantment influence - Vol. 3&quot;, &quot;To Create and Channel, Evocation and Conjuration: a Study of Flows&quot;, &quot;Sight Beyond the Realm: Divination Visions of Maliksin&quot;, &quot;The Dangers of the Shadow Weave: Arch Mage Quilore’s Secret War&quot;, &quot;The Decay of a Soul: a Study of Resurrection - Vol. 5&quot;, &quot;A Study of Foci: To Shape Reality Upon the Physical&quot;, &quot;A Fragile Balance: Nature and It’s Secrets&quot;, &quot;The Findings of the Wyrm Cult of Asrigah&quot;, &quot;Eterhen’s Study of Wyvern: the Lesser Dragons&quot;, &quot;Ethereal Enchantments of Magical Materials: Gyhaki’s Work&quot;, &quot;Blades of Light in the Howling Night: the Angel’s Decent&quot;, &quot;The Hungry Abyss: What Lays Beneath Our Fears&quot;, &quot;Blue Fire’s Wrath: Spell Plague Anthology&quot;, &quot;Power in the Blood: Elven and Other Fey Descendants&quot;, &quot;The Mirroring Planes: Fequries Enquiries To the Planes and their Shared Features&quot;, &quot;A Walk Within the Dead Light of Cold Suns: Tales From the Old Ones&quot;, &quot;The Study of Gems: Kurin’s Geology - Vol. 7&quot;, &quot;The Parables of Circles: infinite Lines and Endless Angles. First Prints&quot;, &quot;Salt and Chalk: the Mundane Script of the Arcane&quot;, &quot;Chasing Echos: insanity From the Mundane&quot;, &quot;The Scaled King: Regime of Shadow - Vol. 6&quot;, &quot;The Winds of Change: From Empire To Dust. Gnome Chronicles 6&quot;, &quot;Chaotic Minds and Iron Wills: Corruption in Golems&quot;, &quot;Uses of the Soul: Vol 5: Soul Lightning&quot;, &quot;Chi: the Energies of Balance&quot;, &quot;Wyfen’s Advance: a One Man Conquest of the Silver Spires&quot;, &quot;Tar’tari Tendary: the City of Cosmic Shadows&quot;, &quot;Secrets and Riddles of the Weave: Vol 14&quot;, &quot;Shadow and Dust: What Rots and Remains&quot;, &quot;Fey Unbound: Study of Entrapped Creatures and their Release&quot;, &quot;Evil’s Horde: Hugar and Juik’s Notes On Demons&quot;, &quot;Asamokology: the Nature of What Is Fake&quot;, &quot;Breaking the Cycle: the Written War Against the Gods - Vol. 146&quot;, &quot;Losing Yourself To Be One: Mind Flayer and the Hive Mind&quot;, &quot;Stone Eyes: the Myth of Aqytorky&quot;],
   pun: [&quot;How to make Illusions and Charm People&quot;,
 &quot;The Illithid by Homer&quot;,
 &quot;Memoirs of a Genasi&quot;,
@@ -4469,12 +4498,12 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     &lt;&lt;replace &quot;#ring&quot;&gt;&gt;
           &lt;div class=&quot;descriptive&quot;&gt;
             &lt;h3&gt;A $marketRing.material ring&lt;/h3&gt;
-            The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power&lt;/div&gt;
+            The $marketsellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone. $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power&lt;/div&gt;&lt;blockquote&gt;This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost&lt;/blockquote&gt;
     &lt;&lt;/replace&gt;&gt;&lt;&lt;link &quot;&lt;h4&gt;Look at another ring&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $marketRing to setup.createRing()&gt;&gt;
         &lt;&lt;replace &quot;#ring&quot;&gt;&gt;
               &lt;div class=&quot;descriptive&quot;&gt;
                 &lt;h3&gt;A $marketRing.material ring&lt;/h3&gt;
-                &lt;&lt;print either(&quot;The $marketsellerD.racenote&quot;, &quot;$marketsellerD.firstname&quot;)&gt;&gt; &lt;&lt;print either(&quot;hands you&quot;, &quot;passes you&quot;, &quot;procures another ring, this one&quot;)&gt;&gt; a $marketRing.material ring which is decorated with a $marketRing.decoration. &lt;&lt;print either(&quot;In the centre is&quot;, &quot;The gemstone in the middle is&quot;)&gt;&gt; a $marketRing.gemstone, which $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power&lt;/div&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
+                &lt;&lt;print either(&quot;The $marketsellerD.racenote&quot;, &quot;$marketsellerD.firstname&quot;)&gt;&gt; &lt;&lt;print either(&quot;hands you&quot;, &quot;passes you&quot;, &quot;procures another ring, this one&quot;)&gt;&gt; a $marketRing.material ring which is decorated with a $marketRing.decoration. &lt;&lt;print either(&quot;In the centre is&quot;, &quot;The gemstone in the middle is&quot;)&gt;&gt; a $marketRing.gemstone. $marketsellerD.firstname says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power&lt;/div&gt;&lt;blockquote&gt;This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost&lt;/blockquote&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;span id=&quot;ring&quot;&gt;&lt;/span&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="Mercenaries" tags="" position="600,600">&lt;&lt;set $mercenarycaptain to setup.createNPC()&gt;&gt;
 &lt;&lt;set $mercenary to {
@@ -4591,8 +4620,10 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     &quot;scimitars&quot;,
     &quot;scimitars and a shields&quot;]
 }&gt;&gt;
-&lt;&lt;set $mercenary.readout to &quot;A group of mercenaries sit in the corner of the room, armed to the teeth with &quot; + either($mercenary.weapon) + &quot;, wearing &quot; + either($mercenary.colours) + &quot; livery over their &quot; + either($mercenary.armour) + &quot; with an insignia of &quot; + either($mercenary.insignia) + &quot;. They are &quot; + either($mercenary.attitude) + &quot; towards their commander $mercenarycaptain.name, who is &quot; + either($mercenary.commander) + &quot;. They specialise in &quot; + either($mercenary.specializes) + &quot;, and are notorious for &quot; + either($mercenary.notorious) + &quot;. They are famous for their &quot; + either($mercenary.tactics) + &quot;, and are currently &quot; + either($mercenary.currently) + &quot;.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Raiders" tags="" position="725,600">&lt;&lt;set $raiders to {
-  exorting: either([
+&lt;&lt;set $mercenary.readout to &quot;A group of mercenaries sit in the corner of the room, armed to the teeth with &quot; + either($mercenary.weapon) + &quot;, wearing &quot; + either($mercenary.colours) + &quot; livery over their &quot; + either($mercenary.armour) + &quot; with an insignia of &quot; + either($mercenary.insignia) + &quot;. They are &quot; + either($mercenary.attitude) + &quot; towards their commander $mercenarycaptain.name, who is &quot; + either($mercenary.commander) + &quot;. They specialise in &quot; + either($mercenary.specializes) + &quot;, and are notorious for &quot; + either($mercenary.notorious) + &quot;. They are famous for their &quot; + either($mercenary.tactics) + &quot;, and are currently &quot; + either($mercenary.currently) + &quot;.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Raiders" tags="" position="725,600">&lt;&lt;set $raidedvillager to setup.createNPC()&gt;&gt;
+&lt;&lt;set $raiderleader to setup.createNPC({dndclass: &quot;barbarian&quot;, gender: &quot;male&quot;})&gt;&gt;
+&lt;&lt;set $raiders to {
+  extort: either([
     &quot;&lt;&lt;print random(2, 10)&gt;&gt; CP per week from each family&quot;,
     &quot;&lt;&lt;print random(5, 12)&gt;&gt; CP per from from each family&quot;,
     &quot;&lt;&lt;print random(2, 5)&gt;&gt; SP per month from from each family&quot;,
@@ -4666,7 +4697,7 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     &quot;A second group of raiders has recently arrived, and they, too, demand tribute! We can&#39;t possibly pay both.&quot;,
     &quot;A stranger passed through town recently, and ended up killing several raiders in a tavern fight. He has already left, and we now fear retaliation.&quot;,
     &quot;The raiders have a new leader, now, and this one is even more demanding and cruel than the last. We can&#39;t take this anymore!&quot;,
-    &quot;In spite of their abuses, these raiders are a mere annoyance. They spend more time backstabbing each other than enforcing their threats upon us.&quot;,
+    &quot;In spite of their abuses, they seem to spend more time backstabbing each other than enforcing their threats upon us. I can only imagine what it would be like without their in-fighting dividing them.&quot;,
     &quot;These raiders are ruthless. Even though we&#39;ve never defied them, they parade the mutilated remains of travellers through town just to remind us what they&#39;re capable of.&quot;,
     &quot;There are many among their group who are actually decent folk. They try to keep the abuses from their comrades to a minimum, but can only do so much. If we could bring those few to our defense, it could make all the difference.&quot;,
     &quot;So long as we pay on time, the abuses are kept to a minimum. We should really just be thankful that they aren&#39;t asking for more.&quot;,
@@ -4675,7 +4706,9 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     &quot;It&#39;s hard to make our payments, but that&#39;s just how things work out here. We&#39;d rather not risk inciting the raiders to anger.&quot;,
     &quot;Just when we thought things couldn&#39;t get worse, one of our daughters was found murdered and brutalized. Enough is enough!&quot;
     ])
-    }&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Newspaper" tags="" position="850,600">&lt;&lt;set $newspaperheadline to either([&quot;NPC attempts to become player, ridiculed.&quot;,
+    }&gt;&gt;
+
+    /*A $raidedvillager.racenote runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. &lt;&lt;print $raidedvillager.heshe.toUpperFirst()&gt;&gt; continues, saying &quot;they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally&quot;*/</tw-passagedata><tw-passagedata pid="47" name="Newspaper" tags="" position="850,600">&lt;&lt;set $newspaperheadline to either([&quot;NPC attempts to become player, ridiculed.&quot;,
 &quot;Underground homunculi fights discovered - homunculi sales increase.&quot;,
 &quot;Wizard house vanishes in the night, locals suspect shenanigans.&quot;,
 &quot;Doppelganger discovered in mayor&#39;s place. Townsfolk agree he&#39;s better than the old.&quot;,
@@ -4944,12 +4977,12 @@ A very belligerent (and often drunk) old man is causing problems in town. The ha
 &quot;The PCs are hired as security for the auction of a mysterious artifact. While stopping repeated theft and auction-rigging attempts, they eventually learn of its evil nature and have to debate breaking their contract and destroying the thing while getting away with it.&quot;,
 &quot;Someone falls out the window of a high building. It wasn&#39;t suicide as he had his hands and feet bound together and three large sacks of gold tied around his neck. What will be more important, the murder or the money?&quot;,
 &quot;A rich man walks through a bad part of town with obvious riches and money. If mugged, he gives it willingly. He has been doing this for the last three days.&quot;,
-&quot; small animal brushes past the PCs as they walk along a dock. After it jumps into the water, a group of sailors rushes onto the dock, firing crossbows and flinging harpoons at the ripples the animal left in the water. While the sailors curse and fire the last few missiles they have, one of the PCs notices the animal left a muddy gem on the top of her shoe.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="PlotHookPaper" tags="" position="1225,600">You see a noticeboard next to the $tavern.wordnoun&#39;s $tavern.material bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like &#39;have chook, want grain&#39;, &#39;have grain, want chook&#39;. One catches your eye, though; it reads &#39;&lt;&lt;print $plothook.paper.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="51" name="PlotHookPeople" tags="" position="100,725">&lt;&lt;set $plotguy to setup.createNPC()&gt;&gt;You wander around the $tavern.wordnoun, and eventually find yourself in conversation with a $plotguy.height, $plotguy.weight $plotguy.gender who introduces $plotguy.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt; as $plotguy.firstname $plotguy.lastname&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; You can&#39;t help but notice $plotguy.firstname has a &lt;&lt;print $plotguy.physicaltrait&gt;&gt;. You explain that you are adventurers, looking for work or otherwise profitable endeavours, and $plotguy.hisher $plotguy.eyes eyes light up, and $plotguy.firstname draws you closer, and whispers in a hushed tone &#39;I may have something of interest for you, in that case; &lt;&lt;print $plothook.people.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="52" name="PlotHookRumour" tags="" position="225,725">&lt;&lt;nobr&gt;&gt;&lt;&lt;set _PlotHookRumourRoll to random(1, 2)&gt;&gt;
+&quot; small animal brushes past the PCs as they walk along a dock. After it jumps into the water, a group of sailors rushes onto the dock, firing crossbows and flinging harpoons at the ripples the animal left in the water. While the sailors curse and fire the last few missiles they have, one of the PCs notices the animal left a muddy gem on the top of her shoe.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="PlotHookPaper" tags="" position="1225,600">You see a noticeboard next to the $tavern.wordnoun&#39;s $tavern.material bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like &#39;have chook, want grain&#39;, &#39;have grain, want chook&#39;. One catches your eye, though; it reads &#39;&lt;&lt;print $plothook.paper.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="51" name="PlotHookPeople" tags="" position="100,725">&lt;&lt;set $plotguy to setup.createNPC()&gt;&gt;You wander around the $tavern.wordnoun, and eventually find yourself in conversation with a $plotguy.height, $plotguy.weight $plotguy.gender who introduces $plotguy.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt; as $plotguy.firstname $plotguy.lastname&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; You can&#39;t help but notice $plotguy.firstname has a &lt;&lt;print $plotguy.physicaltrait&gt;&gt;. You explain that you are adventurers, looking for work or otherwise profitable endeavours, and $plotguy.hisher $plotguy.eyes eyes light up, and $plotguy.firstname draws you closer, and whispers in a hushed tone &#39;I may have something of interest for you, in that case; &lt;&lt;print $plothook.people.random()&gt;&gt;&#39;</tw-passagedata><tw-passagedata pid="52" name="PlotHookRumour" tags="" position="225,725">&lt;&lt;nobr&gt;&gt;&lt;&lt;set _PlotHookRumourRoll to random(1, 2)&gt;&gt;&lt;&lt;set $tavernPatron to setup.createNPC()&gt;&gt;
 &lt;&lt;if _PlotHookRumourRoll is 1&gt;&gt;
-You make your way around the $tavern.wordnoun, and chat with a couple of the locals. They are friendly enough for simple $town.type folk, and are happy to share a drink with you, and gossip easily- apparently, $bartender.name $bartender.trait&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; When you steer the conversation towards rumours that they&#39;ve heard, the half-drunk &lt;&lt;print either(&quot;man&quot;, &quot;woman&quot;)&gt;&gt; looks around, and in a hushed voice, whispers
+You make your way around the $tavern.wordnoun, and chat with a couple of the locals. They are friendly enough for simple $town.type folk, and are happy to share a drink with you, and gossip easily- apparently, $bartender.name $bartender.trait&lt;&lt;nobr&gt;&gt;.&lt;&lt;/nobr&gt;&gt; When you steer the conversation towards rumours that they&#39;ve heard, the half-drunk $tavernPatron.racenote looks around, and in a hushed voice, whispers
 	&lt;&lt;elseif _PlotHookRumourRoll is 2&gt;&gt;
-You talk amongst the good folk of $town.name, who seem pleasant enough. They gossip easily, and reckon that $tavern.name is only known for its $tavern.draw, and that the pub across the road is totally way better. You steer the conversation towards topics that are more interesting to adventurers such as yourselves, and the drunk &lt;&lt;print $npc.weight.random()&gt;&gt; &lt;&lt;print either(&quot;man&quot;, &quot;woman&quot;, &quot;person whose gender you can&#39;t quite pin down&quot;)&gt;&gt; looks around, and whispers in a hushed voice
-&lt;&lt;/if&gt;&gt;&#39;&lt;&lt;print $plothook.rumour.pluck()&gt;&gt;&#39;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="PlotHookThings" tags="" position="350,725">To be added.</tw-passagedata><tw-passagedata pid="54" name="ReputationDescriptor" tags="" position="475,725">&lt;&lt;nobr&gt;&gt;&lt;&lt;if $tavern.type == &quot;regular&quot;&gt;&gt;
+You talk amongst the good folk of $town.name, who seem pleasant enough. They gossip easily, and reckon that $tavern.name is only known for its $tavern.draw, and that the pub across the road is totally way better. You steer the conversation towards topics that are more interesting to adventurers such as yourselves, and the drunk $tavernPatron.racenote looks around, and whispers in a hushed voice
+&lt;&lt;/if&gt;&gt;&quot;&lt;&lt;print $plothook.rumour.pluck()&gt;&gt;&quot;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="PlotHookThings" tags="" position="350,725">To be added.</tw-passagedata><tw-passagedata pid="54" name="ReputationDescriptor" tags="" position="475,725">&lt;&lt;nobr&gt;&gt;&lt;&lt;if $tavern.type == &quot;regular&quot;&gt;&gt;
 		&lt;&lt;print &quot;just a regular inn, known&quot;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;print $tavern.reputation&gt;&gt;
@@ -5284,7 +5317,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
     &lt;&lt;set $GeneralStore.activityroll to 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="PassageHeader" tags="" position="100,850">&lt;h5&gt;The $town.type of [[$town.name|Start]]&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="62" name="PassageReady" tags="" position="225,850">&lt;&lt;for _passage range Story.lookup(&quot;tags&quot;, &quot;render&quot;)&gt;&gt;
     &lt;&lt;include _passage.title&gt;&gt;
-&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="StoryAuthor" tags="" position="350,850">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="64" name="StoryInit" tags="" position="475,850">&lt;&lt;set $versionnumber to &quot;1.1&quot;&gt;&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="StoryAuthor" tags="" position="350,850">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="64" name="StoryInit" tags="" position="475,850">&lt;&lt;set $versionnumber to &quot;1.1.5&quot;&gt;&gt;
 
 &lt;&lt;include &quot;Names&quot;&gt;&gt;
 
@@ -5363,6 +5396,8 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &lt;&lt;include &quot;Mercenaries&quot;&gt;&gt;
 
 &lt;&lt;include &quot;Lord&quot;&gt;&gt;
+
+&lt;&lt;include &quot;Raiders&quot;&gt;&gt;
 
 &lt;&lt;include &quot;Markets&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="StoryMenu" tags="" position="600,850">[[Credits]]
 
@@ -5517,18 +5552,19 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &quot;The party sees a mild acquaintance. S/He offers to get lunch with them.&quot;, &quot;The party sees a mild annoyance. S/He flips them the bird before wandering off.&quot;, &quot;A pie eating contest is in progress. It looks like it&#39;s down to the blacksmith&#39;s son or the cowherd&#39;s daughter.&quot;, &quot;Two teenagers are walking down the street holding hands and blushing whenever one catches the other&#39;s eye.&quot;, &quot;The wizard steps in shit. Roll 1d4 to see what kind. 1- Cow, 2- Cow, 3- Cow, 4- Builette.&quot;, &quot;A group of bandits charge, but petter out before combat engages because the party looks too tough to take on.&quot;, &quot;Seven men in hooded robes are fumbling around. Overhead is: &#39;Hey John, I think I&#39;ve got your robes&#39; &#39;Damnit Sev, your wife swapped our hoods again.&#39; and &#39;Who&#39;s got my sash? It was the scarlet one.&#39;&quot;,&quot;A drow is hung over on the side of the road. A three empty bottles of dwarven ale are nearby. He&#39;s waving his hands about muttering &#39;Turn off the sun.&#39; Shortly after Dancing Lights twirl around his location as he lets out a groan of pain.&quot;, &quot;A dwarf is passed out in a puddle of his own drool on the side of the road. A half empty bottle of elven wine is nearby.&quot;, &quot;A friendly dog comes by and starts begging for treats from the most cleric-like party member.&quot;, &quot;An unfriendly dog attempts to pee on the most wizard-like party member.&quot;, &quot;Two old men are playing some sort of game on the side of the road talking mostly in murmurs, grunts, and chortles.&quot;, &quot;Two old women are gossiping nearby knitting scarves longer than they are tall that are growing by the inch as you watch.&quot;, &quot;A man is juggling torches nearby. Nothing goes amiss.&quot;, &quot;Two young teenagers are arguing about whether a dragon could be three owlbears if the owlbears had armor and magic wands and the dragon had a sword.&quot;, &quot;A local noble is in town collecting his due taxes.&quot;, &quot;The worst bandit in the world attempts to way-lay the party with a sharpened stick and a dented pot lit. If actually confronted he faints in shock.&quot;, &quot;The wizard discovers he has a sign pinned to the back of his robes reading &#39;Ass-zard&#39;. It is unknown when it was placed there or how long it&#39;s been there.&quot;, &quot;A dungeon is nearby, if investigated it turns out that it&#39;s still in the process of being excavated and won&#39;t be ready for several more years.&quot;, &quot;The thief find a socket puppet nestled amongst his belongings. It appears to be made from one of the wizards socks.&quot;, &quot;The fighter finds a flask of good booze they had forgot about amongst their belongings.&quot;, &quot;The cleric finds a bag of honeyed nuts amongst her belongings.&quot;
 */</tw-passagedata><tw-passagedata pid="69" name="Start" tags="output" position="1100,850">&lt;h1&gt;Eigengrau&#39;s Essential Establishment Generator&lt;/h1&gt;
 &lt;span class=&quot;firstcharacter&quot;&gt;W&lt;/span&gt;elcome to Eigengrau&#39;s Essential Establishment Generator, v$versionnumber! This is still in alpha. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
-&lt;&lt;linkappend &quot;&lt;h4&gt;Changelog&lt;/h4&gt;&quot; t8n&gt;&gt;
+&lt;&lt;nobr&gt;&gt;&lt;&lt;linkappend &quot;&lt;h4&gt;Changelog&lt;/h4&gt;&quot; t8n&gt;&gt;
 &lt;&lt;include &quot;Changelog&quot;&gt;&gt;&lt;&lt;linkappend &quot;&lt;h5&gt;To Do List&lt;/h5&gt;&quot; t8n&gt;&gt;
 &lt;&lt;include &quot;ToDo&quot;&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
-&lt;&lt;nobr&gt;&gt;&lt;&lt;set _roll to random(1, 99)&gt;&gt;&lt;&lt;if _roll gt 90&gt;&gt;
+&lt;&lt;set _roll to random(1, 99)&gt;&gt;&lt;&lt;if _roll gt 90&gt;&gt;
   &lt;blockquote&gt;If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/bePatron?c=1709078 &lt;/blockquote&gt;
   &lt;&lt;elseif _roll gt 80&gt;&gt;
   &lt;blockquote&gt;Find us on Reddit at www.reddit.com/r/EigengrausGenerator! &lt;/blockquote&gt;
   &lt;&lt;elseif _roll gt 70&gt;&gt;
   &lt;blockquote&gt;Join the Discord server at https://discord.gg/4wYNwp2 &lt;/blockquote&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;linkreplace &quot;Rename the $town.type &lt;strong&gt;$town.name&lt;/strong&gt;&quot;&gt;&gt;&lt;&lt;textbox &quot;$town.name&quot; $town.name&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;&lt;&lt;linkreplace &quot;Rename the $town.type &lt;strong&gt;$town.name&lt;/strong&gt;&quot;&gt;&gt;&lt;&lt;textbox &quot;$town.name&quot; $town.name&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
+
+$town.name is located in the $town.terrain $town.location. A population of $town.population, the denizens live a $town.wealth existence.
 
 Town Wealth: &lt;&lt;numberslider &quot;$town.wealthroll&quot; $town.wealthroll 1 100 1&gt;&gt;
 
@@ -5551,6 +5587,8 @@ Down from $tavern.road are the [[markets|MarketOutput]]
 	$bartender.owner to either([&quot;owner&quot;, &quot;caretaker&quot;, &quot;proud owner&quot;, &quot;proprietor&quot;, &quot;current owner&quot;, &quot;manager&quot;, &quot;manager&quot;, &quot;acting manager&quot;]),
 	$bartender.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $bartender.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;]
 &gt;&gt;
+
+&lt;&lt;set $barmaid to setup.createNPC({gender: &quot;woman&quot;})&gt;&gt;
 
 /* ------------------------- BARTENDER RACE -------------------------- */
 &lt;&lt;switch $bartender.race&gt;&gt;
@@ -5579,9 +5617,7 @@ Down from $tavern.road are the [[markets|MarketOutput]]
 		&lt;&lt;set $bartender.owner to &quot;master&quot;&gt;&gt;
 	&lt;&lt;elseif $tavern.draw is &quot;brothel&quot; &amp;&amp; $bartender.gender is &quot;woman&quot;&gt;&gt;
 		&lt;&lt;set $bartender.owner to &quot;madame&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="BartenderTalk" tags="" position="100,975">&lt;&lt;linkreplace &quot;&lt;h4&gt;Talk with $bartender.name&lt;/h4&gt;&quot; t8n&gt;&gt;
-&lt;h3&gt;$bartender.name&lt;/h3&gt;
-$bartender.name looks &lt;&lt;print $npc.currentmood.random()&gt;&gt;, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a &lt;&lt;print $tavern.sin&gt;&gt; lot. $bartender.firstname pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says &lt;&lt;nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="BartenderTalk" tags="" position="100,975">&lt;&lt;linkreplace &quot;&lt;h4&gt;Talk with $bartender.name&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;set _shortage to random(1, 10)&gt;&gt;
 	&lt;&lt;if $tavern.wealthroll gt 80&gt;&gt;
@@ -5603,25 +5639,26 @@ $bartender.name looks &lt;&lt;print $npc.currentmood.random()&gt;&gt;, but seems
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if _shortage gt 7, $tavern.populationroll gt 70&gt;&gt;
-		&lt;&lt;print either(&quot;We&#39;re lucky that I bought that extra case of grog... I get the feeling that we&#39;re gonna need it.&quot;,
-		&quot;I&#39;m glad that Breiga kept an eye on the stock levels, otherwise we&#39;d have sold out of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;&quot;)&gt;&gt;
+		&lt;&lt;set _talk to either(&quot;We&#39;re lucky that I bought that extra case of grog... I get the feeling that we&#39;re gonna need it.&quot;,
+		&quot;I&#39;m glad that Breiga kept an eye on the stock levels, otherwise we&#39;d have sold out of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;.&quot;)&gt;&gt;
 	&lt;&lt;elseif _shortage gt 7&gt;&gt;
-		&lt;&lt;print either(&quot;Business is alright, in honesty I think that I prefer running out of supplies than not... At the moment, it looks like I&#39;ll not be running out any time soon.&quot;, &quot;I think that I may have oversupplied on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;...&quot;)&gt;&gt;
+		&lt;&lt;set _talk to either(&quot;Business is alright, in honesty I think that I prefer running out of supplies than not... At the moment, it looks like I&#39;ll not be running out any time soon.&quot;, &quot;I think that I may have oversupplied on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;...&quot;)&gt;&gt;
 	&lt;&lt;elseif _shortage gt 4&gt;&gt;
-		&lt;&lt;print either(&quot;We&#39;ve currently got a bit of a shortage of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;, but hopefully we&#39;ll be getting a cartload overmorrow.&quot;,
+		&lt;&lt;set _talk to either(&quot;We&#39;ve currently got a bit of a shortage of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;, but hopefully we&#39;ll be getting a cartload overmorrow.&quot;,
 &quot;We&#39;re currently running out of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;, but with any luck, we&#39;ll be getting some more before the night is out.&quot;,
 &quot;I don&#39;t know how it happened, but we&#39;re running out of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;... To be honest, I reckon the barmaid is to blame.&quot;,
 &quot;I swear that I ordered a cartload last week, but I&#39;ll be damned if we&#39;re not running low on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt; somehow.&quot;,
 &quot;I told &lt;&lt;print $name.woman.pluck()&gt;&gt; to order some, but wouldn&#39;t you know, I find myself low on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;!&quot;)&gt;&gt;
 	&lt;&lt;elseif _shortage lte 4, $tavern.population gt 70&gt;&gt;
-		&lt;&lt;print either(&quot;Things are honestly in a mess at the moment around the $tavern.name, we&#39;ve got a full house, and I&#39;m low on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt; AND &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;! How does that even happen!?&quot;,
+		&lt;&lt;set _talk to either(&quot;Things are honestly in a mess at the moment around the $tavern.name, we&#39;ve got a full house, and I&#39;m low on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt; AND &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;! How does that even happen!?&quot;,
 		&quot;You can tell that business is booming, but there&#39;s only one more case of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;, and we&#39;re completely out of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;!&quot;)&gt;&gt;
 	&lt;&lt;elseif _shortage lte 4, $tavern.populationroll lt 40&gt;&gt;
-		&lt;&lt;print either(&quot;Well, you can probably guess that business isn&#39;t the best right at this moment. Maybe the lack of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt; has something to do with it...&quot;,
+		&lt;&lt;set _talk to either(&quot;Well, you can probably guess that business isn&#39;t the best right at this moment. Maybe the lack of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt; has something to do with it...&quot;,
 		&quot;Business is slow, I&#39;m not gonna lie. We&#39;ve had no cartments of &lt;&lt;print $tavern.shortages.pluck()&gt;&gt; for almost a week, certainly isn&#39;t helping things.&quot;)&gt;&gt;
 	&lt;&lt;elseif _shortage lte 4&gt;&gt;
-		&lt;&lt;print &quot;Well, business could be better. We&#39;ve got a bit of a shortage on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;, and that certainly can&#39;t be helping things, but I suppose there&#39;s always some bad days; they&#39;re just not spending the coin, is all.&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+		&lt;&lt;set _talk to &quot;Well, business could be better. We&#39;ve got a bit of a shortage on &lt;&lt;print $tavern.shortages.pluck()&gt;&gt;, and that certainly can&#39;t be helping things, but I suppose there&#39;s always some bad days; they&#39;re just not spending the coin, is all.&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;h3&gt;$bartender.name&lt;/h3&gt;
+$bartender.name looks $bartender.currentmood, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a &lt;&lt;print $tavern.sin&gt;&gt; lot. $bartender.firstname pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstname says &quot;_talk&quot;
 
 &lt;&lt;linkreplace &quot;Talk more with $bartender.name&quot; t8n&gt;&gt;
 $bartender.firstname tells you that the patrons are $tavern.diversity, and that $bartender.heshe &lt;&lt;print either(&quot;loves working in $tavern.name&quot;, &quot;hates working in $tavern.name&quot;, &quot;finds working in the $tavern.wordnoun boring&quot;, &quot;finds working in the $tavern.wordnoun fun&quot;)&gt;&gt;. $bartender.firstname says &quot;Before I took over $tavern.name, I was a $bartender.dndclass, and damn good at it. But that was a long time ago... The only thing that binds me to that past life? $bartender.bond&#39;
@@ -5710,7 +5747,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 			&quot;There are basically no people in the tavern, save for a few battle-hardened men talking in the corner.&quot;,
 			&quot;There&#39;s not very many customers in $tavern.name at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele.&quot;)&gt;&gt;
 	&lt;&lt;elseif $tavern.populationroll gt 30&gt;&gt;
-			&lt;&lt;print &quot;$tavern.name is basically empty, and there&#39;s not much for the $tavern.wordnoun&lt;&lt;nobr&gt;&gt;&#39;s&lt;&lt;/nobr&gt;&gt; barmaid to do.&quot;&gt;&gt;
+			&lt;&lt;print &quot;$tavern.name is basically empty, and there&#39;s not much for the $tavern.wordnoun&lt;&lt;nobr&gt;&gt;&#39;s&lt;&lt;/nobr&gt;&gt; barmaid to do. The $barmaid.height woman settles for polishing a glass.&quot;&gt;&gt;
 	&lt;&lt;elseif $tavern.populationroll lte 30&gt;&gt;
 			&lt;&lt;print &quot;It&#39;s almost just you and the bartender in here.&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;print $tavern.patrons.pluck()&gt;&gt;
@@ -5801,7 +5838,7 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 
 &lt;&lt;include &quot;TavernDescription&quot;&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
-&lt;h3&gt;The Bar&lt;/h3&gt;Behind $tavern.name&#39;s $tavern.material bar is a $bartender.racenote, who you notice has $bartender.physicaltrait. Currently, $bartender.heshe is &lt;&lt;print $bartender.idle.random()&gt;&gt;. Looking up, $bartender.heshe &lt;&lt;print $bartender.greeting.pluck()&gt;&gt; and introduces &lt;&lt;nobr&gt;&gt;$bartender.himher&lt;&lt;/nobr&gt;&gt;self as $bartender.name, $bartender.hisher $bartender.eyes eyes &lt;&lt;print either(&quot;looking brightly at you.&quot;, &quot;piercing through your armour.&quot;, &quot;staring at you warily.&quot;, &quot;watching you suspiciously.&quot;, &quot;looking at you kindly.&quot;, &quot;darting back and forth around the room.&quot;)&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;h3&gt;The Bar&lt;/h3&gt;Behind $tavern.name&#39;s $tavern.material bar is a $bartender.racenote, who you notice has $bartender.physicaltrait. Currently, $bartender.heshe is &lt;&lt;print $bartender.idle.random()&gt;&gt;. Looking up, $bartender.heshe &lt;&lt;print $bartender.greeting.random()&gt;&gt; and introduces &lt;&lt;nobr&gt;&gt;$bartender.himher&lt;&lt;/nobr&gt;&gt;self as $bartender.name, $bartender.hisher $bartender.eyes eyes &lt;&lt;print either(&quot;looking brightly at you.&quot;, &quot;piercing through your armour.&quot;, &quot;staring at you warily.&quot;, &quot;watching you suspiciously.&quot;, &quot;looking at you kindly.&quot;, &quot;darting back and forth around the room.&quot;)&gt;&gt;&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;include &quot;BartenderTalk&quot;&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;include &quot;Menu&quot;&gt;&gt;
@@ -5809,7 +5846,8 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;&lt;print $tavern.entertainment.pluck()&gt;&gt;
 
 &lt;&lt;include &quot;Intrigue&quot;&gt;&gt;
-&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="Output2" tags="tavern" position="975,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
+&lt;&lt;include &quot;Rooms&quot;&gt;&gt;
+&lt;&lt;include &quot;TavernBrothel&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="Output2" tags="tavern" position="975,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
 &lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way through the $town.type of $town.name until you come to a $tavern.wordnoun, which is called &lt;strong&gt;$tavern.name&lt;/strong&gt;, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 
 &lt;h3&gt;The Bar&lt;/h3&gt;Behind the counter is who you would assume to be the bartender, a $bartender.racenote who is currently &lt;&lt;print $bartender.idle.random()&gt;&gt;. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as $bartender.name, the $bartender.owner of $tavern.name.
@@ -5818,7 +5856,8 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;&lt;print $tavern.entertainment.pluck()&gt;&gt;
 
 &lt;&lt;include &quot;Intrigue&quot;&gt;&gt;
-&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="Output3" tags="tavern" position="1100,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
+&lt;&lt;include &quot;Rooms&quot;&gt;&gt;
+&lt;&lt;include &quot;TavernBrothel&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="Output3" tags="tavern" position="1100,975">&lt;h1&gt;$tavern.name&lt;/h1&gt;
 &lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou walk through the $town.type of $town.name, and eventually come to &lt;strong&gt;$tavern.name&lt;/strong&gt;; a $tavern.material $tavern.wordnoun which is known in the area for its $tavern.draw, and &lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;if $tavern.type is &quot;regular&quot;&gt;&gt;
@@ -5834,12 +5873,13 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 &lt;&lt;print $tavern.entertainment.pluck()&gt;&gt;
 
 &lt;&lt;include &quot;Intrigue&quot;&gt;&gt;
-&lt;&lt;include &quot;Rooms&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="RandomNPC" tags="" position="1225,975">&lt;&lt;link &quot;&lt;h4&gt;Meet a fellow adventurer!&lt;/h4&gt;&quot;&gt;&gt;
+&lt;&lt;include &quot;Rooms&quot;&gt;&gt;
+&lt;&lt;include &quot;TavernBrothel&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="RandomNPC" tags="" position="1225,975">&lt;&lt;link &quot;&lt;h4&gt;Meet a fellow adventurer!&lt;/h4&gt;&quot;&gt;&gt;
 &lt;&lt;set $tavernNPC to setup.createNPC()&gt;&gt;
     &lt;&lt;replace &quot;#NPC&quot;&gt;&gt;
           \&lt;div class=&quot;descriptive&quot;&gt;
             \&lt;h3&gt;$tavernNPC.name&lt;/h3&gt;
-            \ A $tavernNPC.racenote is currently &lt;&lt;print $tavernNPC.idle.random()&gt;&gt; in the corner. You strike up conversation with $tavernNPC.himher, and the $tavernNPC.weight $tavernNPC.race introduces $tavernNPC.himherself as $tavernNPC.name, a $tavernNPC.dndclass who is $tavernNPC.adventure. You talk about your backgrounds, and $tavernNPC.heshe says &quot;I was a $tavernNPC.background before I was a $tavernNPC.dndclass. $tavernNPC.bond&quot; &lt;&lt;print $tavernNPC.heshe.toUpperFirst()&gt;&gt; looks at you with $tavernNPC.hisher $tavernNPC.eyes eyes for a moment, and says &quot;Actually, you might be interested; &lt;&lt;print either(&quot;&lt;&lt;print $plothook.people.random()&gt;&gt;&quot;, &quot;&lt;&lt;print $plothook.rumour.random()&gt;&gt;&quot;)&gt;&gt;&quot;&lt;/div&gt;
+            \ A $tavernNPC.racenote is currently &lt;&lt;print $tavernNPC.idle.random()&gt;&gt; in the corner. You strike up conversation with $tavernNPC.himher, and the $tavernNPC.weight $tavernNPC.race introduces $tavernNPC.himherself as $tavernNPC.name, a $tavernNPC.dndclass who is $tavernNPC.adventure. You talk about your backgrounds, and $tavernNPC.heshe says &quot;I was a $tavernNPC.background before I was a $tavernNPC.dndclass. $tavernNPC.backgroundOrigin $tavernNPC.bond&quot; &lt;&lt;print $tavernNPC.heshe.toUpperFirst()&gt;&gt; looks at you with $tavernNPC.hisher $tavernNPC.eyes eyes for a moment, and says &quot;Actually, you might be interested; &lt;&lt;print either(&quot;&lt;&lt;print $plothook.people.random()&gt;&gt;&quot;, &quot;&lt;&lt;print $plothook.rumour.random()&gt;&gt;&quot;)&gt;&gt;&quot;&lt;/div&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/link&gt;&gt;\
 &lt;span id=&quot;NPC&quot;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="81" name="Rooms" tags="" position="100,1100">&lt;&lt;nobr&gt;&gt;
@@ -6140,8 +6180,8 @@ When you&#39;re ready, here&#39;s the &lt;&lt;nobr&gt;&gt;&lt;&lt;set _output to
 	}
 ])&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="Tavern" tags="" position="475,1100">&lt;&lt;set $tavern to setup.createBuilding()&gt;&gt;
 &lt;&lt;set $tavern.wordnoun to either(&quot;tavern&quot;, &quot;tavern&quot;, &quot;tavern&quot;, &quot;tavern&quot;, &quot;pub&quot;, &quot;pub&quot;, &quot;pub&quot;, &quot;inn&quot;, &quot;inn&quot;, &quot;bar&quot;, &quot;bar&quot;, &quot;bar&quot;, &quot;watering hole&quot;, &quot;drinkery&quot;),
-	$tavern.type to either(&quot;quiet and low-key bar&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;thieves&#39; guild hangout&quot;, &quot;gathering place for a secret society&quot;, &quot;high-end dining club&quot;, &quot;high-end dining club&quot;, &quot;gambling den&quot;, &quot;gambling den&quot;, &quot;$bartender.race only club&quot;, &quot;guild-member&#39;s only club&quot;, &quot;members-only club&quot;, &quot;brothel&quot;, &quot;brothel&quot;),
-	$tavern.draw to either(&quot;attractive waitstaff&quot;, &quot;resident bard&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;witty banter with the waitstaff&quot;, &quot;crude jokes the bartender makes&quot;, &quot;proximity to the thieves&#39; guild headquarters&quot;, &quot;warmth inside&quot;, &quot;magic incense which is constantly burning&quot;, &quot;proximity to the brothel&quot;, &quot;proximity to the church&quot;, &quot;location by the river&quot;, &quot;wooden-chopping competition held weekly&quot;, &quot;mahogany stairs&quot;, &quot;clean beds&quot;, &quot;lack of bedbugs&quot;, &quot;magic bedbugs&quot;, &quot;drunk wizard&quot;, &quot;huge fireplace&quot;, &quot;incredible view&quot;, &quot;nice view&quot;),
+	$tavern.type to either([&quot;quiet and low-key bar&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;regular&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;raucous dive&quot;, &quot;thieves&#39; guild hangout&quot;, &quot;gathering place for a secret society&quot;, &quot;high-end dining club&quot;, &quot;high-end dining club&quot;, &quot;gambling den&quot;, &quot;gambling den&quot;, &quot;$bartender.race only club&quot;, &quot;guild-member&#39;s only club&quot;, &quot;members-only club&quot;, &quot;brothel&quot;, &quot;brothel&quot;]),
+	$tavern.draw to either([&quot;attractive waitstaff&quot;, &quot;resident bard&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;&lt;&lt;print $tavern.roughness&gt;&gt; atmosphere&quot;, &quot;witty banter with the waitstaff&quot;, &quot;crude jokes the bartender makes&quot;, &quot;proximity to the thieves&#39; guild headquarters&quot;, &quot;warmth inside&quot;, &quot;magic incense which is constantly burning&quot;, &quot;proximity to the brothel&quot;, &quot;proximity to the church&quot;, &quot;location by the river&quot;, &quot;wooden-chopping competition held weekly&quot;, &quot;mahogany stairs&quot;, &quot;clean beds&quot;, &quot;lack of bedbugs&quot;, &quot;magic bedbugs&quot;, &quot;drunk wizard&quot;, &quot;huge fireplace&quot;, &quot;incredible view&quot;, &quot;nice view&quot;]),
 	$tavern.shortages to [&quot;wine&quot;, &quot;booze&quot;, &quot;grog&quot;, &quot;whiskey&quot;, &quot;mutton&quot;, &quot;lamb&quot;, &quot;carrots&quot;, &quot;mugs&quot;, &quot;forks&quot;, &quot;frogs&quot;, &quot;bread&quot;, &quot;mushrooms&quot;, &quot;salt&quot;, &quot;silver pieces&quot;, &quot;chairs&quot;, &quot;eggs&quot;, &quot;potatoes&quot;]
 &gt;&gt;
 
@@ -6169,16 +6209,20 @@ $tavern.magicroll.clamp(1, 100)
 
 &lt;&lt;if $tavern.draw is &quot;proximity to the brothel&quot; &amp;&amp; ndef $brothel&gt;&gt;
 		&lt;&lt;include &quot;Brothel&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="TavernDescription" tags="" position="600,1100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="TavernBrothel" tags="" position="600,1100">&lt;&lt;nobr&gt;&gt;&lt;&lt;if $tavern.type == &quot;brothel&quot;&gt;&gt;
+  &lt;&lt;set $brothel to $tavern&gt;&gt;
+&lt;&lt;linkreplace &quot;Go upstairs to the brothel&quot;&gt;&gt;&lt;h3&gt;The Brothel&lt;/h3&gt;When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality. You go up the $tavern.material staircase to the brothel section, and up there, you notice $brothel.notice. Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="TavernDescription" tags="" position="725,1100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;switch $tavern.draw&gt;&gt;
 	&lt;&lt;case &quot;attractive waitstaff&quot;&gt;&gt;
-		&lt;&lt;set _tavernnotable to &quot;You see one of the barmaids talking to a patron, and it&#39;s difficult to convince your eyes there&#39;s a more pleasant sight in the room, until you see another equally attractive barmaid pulling a pint at the bar.&quot;&gt;&gt;
+		&lt;&lt;set _tavernnotable to &quot;You see one of the barmaids talking to a patron, and it&#39;s difficult to convince your eyes there&#39;s a more pleasant sight in the room, until you see another equally attractive $barmaid.racenote barmaid pulling a pint at the bar.&quot;&gt;&gt;
 	&lt;&lt;case &quot;resident bard&quot;&gt;&gt;
 		&lt;&lt;set _tavernnotable to &quot;You see a bard singing a love song in the corner of the room, and are drawn to his pure, melifluous voice. He&#39;s quite a good singer, and the patrons are nodding along to the song appreciatively.&quot;&gt;&gt;
 	&lt;&lt;case &quot;witty banter with the waitstaff&quot;&gt;&gt;
 		&lt;&lt;set _tavernnotable to &quot;You see a gruff looking man catcall after one of the barmaids, and she looks over her shoulder, and replies something that you can&#39;t quite make out. Despite this, it&#39;s clear that whatever she said destroyed the man, as his friends burst into laughter while he deflates rather rapidly.&quot;&gt;&gt;
 	&lt;&lt;case &quot;crude jokes the bartender makes&quot;&gt;&gt;
-		&lt;&lt;set _tavernnotable to &quot;You see the bartender is talking to a &lt;&lt;print either($npc.age)&gt;&gt; &lt;&lt;print either($npc.gender)&gt;&gt;, smiles, and then says something, making $bartender.hisher conversation partner go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling them &#39;too goody-two-shoes to be able to handle $tavern.name&#39;.&quot;&gt;&gt;
+		&lt;&lt;set $tavernPatron to setup.createNPC()&gt;&gt;
+		&lt;&lt;set _tavernnotable to &quot;You see the bartender is talking to a $tavernPatron.age $tavernPatron.racenote. &lt;&lt;print $bartender.heshe.toUpperFirst()&gt;&gt; smiles, and then says something, making the $tavernPatron.racenote go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling $tavernPatron.himher &#39;too goody-two-shoes to be able to handle $tavern.name&#39;.&quot;&gt;&gt;
 	&lt;&lt;case &quot;proximity to the thieves&#39; guild headquarters&quot;&gt;&gt;
 		&lt;&lt;set _tavernnotable to &quot;You can see a sign by the door stating &#39;REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES&#39; GUILD BEING BANNED FROM THESE PREMISES&#39;. Clearly, $tavern.name has an issue with the nearby thieves&#39; guild.&quot;&gt;&gt;
 	&lt;&lt;case &quot;warmth inside&quot;&gt;&gt;
@@ -6202,7 +6246,8 @@ $tavern.magicroll.clamp(1, 100)
 	&lt;&lt;case &quot;magic bedbugs&quot;&gt;&gt;
 		&lt;&lt;set _tavernnotable to &quot;You see a patron enter the bar from the sleeping quarters, who&#39;s scratching his arms madly, with a doped up smile upon his face.&quot;, $tavern.magicroll += 4&gt;&gt;
 	&lt;&lt;case &quot;drunk wizard&quot;&gt;&gt;
-		&lt;&lt;set _tavernnotable to &quot;There&#39;s a thaumaturgist in the corner, who is practising cantrips as he downs another pint. He looks over at you, smiles, and says &#39;You can&#39;t cast drunk if you don&#39;t practice drunk!&#39;&quot;, $tavern.magicroll += 4&gt;&gt;
+		&lt;&lt;set $drunkwizard to setup.createNPC(dndclass: &quot;wizard&quot;)&gt;&gt;
+		&lt;&lt;set _tavernnotable to &quot;There&#39;s a $drunkwizard.racenote thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. $drunkwizard.heshe.toUpperFirst() looks over at you, smiles, and says &#39;You can&#39;t cast drunk if you don&#39;t practice drunk!&#39;&quot;, $tavern.magicroll += 4&gt;&gt;
 	&lt;&lt;case &quot;huge fireplace&quot;&gt;&gt;
 		&lt;&lt;set _tavernnotable to &quot;You see a huge fireplace in the centre of the $tavern.wordnoun, which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.&quot;&gt;&gt;
 	&lt;&lt;case &quot;incredible view&quot;&gt;&gt;
@@ -6218,7 +6263,7 @@ $tavern.magicroll.clamp(1, 100)
 &lt;&lt;switch $tavern.size&gt;&gt;
 	&lt;&lt;case &quot;huge&quot;&gt;&gt;
 		&lt;&lt;print either(&quot;$tavern.name is just one huge, $tavern.lighting $tavern.cleanliness room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.&quot;,
-		&quot;$tavern.name is huge, $tavern.lighting, and $tavern.cleanliness. There are several large $tavern.material tables&quot;)&gt;&gt;
+		&quot;$tavern.name is huge, $tavern.lighting, and $tavern.cleanliness. There are several large $tavern.material tables.&quot;)&gt;&gt;
 	&lt;&lt;case &quot;quite large&quot;&gt;&gt;
 			$tavern.name is quite large, $tavern.cleanliness, and $tavern.lighting. The ceiling is unusually high, and the amount of wood that $bartender.firstname must go through would be immense. The dining hall has several large $tavern.material tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.
 	&lt;&lt;case &quot;large&quot;&gt;&gt;
@@ -6236,7 +6281,7 @@ $tavern.magicroll.clamp(1, 100)
 	&lt;&lt;case &quot;tiny&quot;&gt;&gt;
 		$tavern.name is very obviously a house that&#39;s been converted into a $tavern.wordnoun, probably as a hobby for the owner. It&#39;s unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny $tavern.material building. The tavern is $tavern.cleanliness, and is $tavern.lighting.
 &lt;&lt;/switch&gt;&gt;
-&lt;&lt;/nobr&gt;&gt; _tavernnotable</tw-passagedata><tw-passagedata pid="86" name="TavernFlavour" tags="" position="725,1100">&lt;&lt;set $tavern.fun to [&quot;A group of commoners is playing horse shoes out back.&quot;,
+&lt;&lt;/nobr&gt;&gt; _tavernnotable</tw-passagedata><tw-passagedata pid="87" name="TavernFlavour" tags="" position="850,1100">&lt;&lt;set $tavern.fun to [&quot;A group of commoners is playing horse shoes out back.&quot;,
 &quot;The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.&quot;,
 &quot;A group of Hill Dwarves are in the middle of a drinking contest, and two of them are passed out already. The Prize is a solid platinum stein.&quot;,
 &quot;Wet Chainmail contest!&quot;,
@@ -6288,7 +6333,7 @@ $tavern.magicroll.clamp(1, 100)
 	&quot;Behind the bar is a gnomish alchemist with a penchant for mixology experiments.&quot;,
 	&quot;The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn&#39;t as bad as the time a carrion crawler was in there.&quot;,
 	&quot;The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.&quot;,
-	&quot;A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it&#39;s way onto the dance floor?&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="TavernGames" tags="" position="850,1100">&lt;&lt;nobr&gt;&gt;&lt;&lt;set $NPCgamer to setup.createNPC()&gt;&gt;&lt;&lt;set $NPCgamebanker to setup.createNPC()&gt;&gt;
+	&quot;A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it&#39;s way onto the dance floor?&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="TavernGames" tags="" position="975,1100">&lt;&lt;nobr&gt;&gt;&lt;&lt;set $NPCgamer to setup.createNPC()&gt;&gt;&lt;&lt;set $NPCgamebanker to setup.createNPC()&gt;&gt;
 &lt;&lt;set $taverngames to either([
 	{
 	name: &quot;Passe-dix&quot;,
@@ -6338,7 +6383,7 @@ $tavern.magicroll.clamp(1, 100)
 	rules: &quot;Two coins are flipped by the &#39;spinner&#39;, who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the &#39;spinner&#39; losing out on five consecutive re-tosses.&quot;,
 	bet: 10
 	}
-	])&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;descriptive&quot;&gt;&lt;h3&gt;$taverngames.name&lt;/h3&gt;$taverngames.description &lt;&lt;linkreplace &quot;Ask how to play&quot;&gt;&gt; The $NPCgamer.racenote that was playing says &quot;$taverngames.rules The current bet is &lt;&lt;money $taverngames.bet&gt;&gt;.&quot;&lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="88" name="TavernGuard" tags="" position="975,1100">&lt;&lt;set _guard to random(1, 100)&gt;&gt;
+	])&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;descriptive&quot;&gt;&lt;h3&gt;$taverngames.name&lt;/h3&gt;$taverngames.description &lt;&lt;linkreplace &quot;Ask how to play&quot;&gt;&gt; The $NPCgamer.racenote that was playing says &quot;$taverngames.rules The current bet is &lt;&lt;money $taverngames.bet&gt;&gt;.&quot;&lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="89" name="TavernGuard" tags="" position="1100,1100">&lt;&lt;set _guard to random(1, 100)&gt;&gt;
 &lt;&lt;set _brawl to random(1, 100)&gt;&gt;
 	&lt;&lt;if $guard.population gt 20&gt;&gt;
 		&lt;&lt;set _guard += 10&gt;&gt;
@@ -6401,7 +6446,7 @@ $tavern.magicroll.clamp(1, 100)
 		&lt;&lt;set _brawl -= 20&gt;&gt;
 	&lt;&lt;elseif $tavern.roughnessroll lte 20&gt;&gt;
 		&lt;&lt;set _brawl -= 40&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="89" name="TavernInventory" tags="" position="1100,1100">&lt;&lt;set $tavern.inventory to [
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="TavernInventory" tags="" position="1225,1100">&lt;&lt;set $tavern.inventory to [
     {name: &quot;Crisped Worm and Potatoes&quot;, cost: 3, availability: 1},
     {name: &quot;Frogs on Skewers&quot;, cost: 4, availability: 1},
     {name: &quot;Green Chili Stew&quot;, cost: 3, availability: 1},
@@ -6430,7 +6475,7 @@ $tavern.magicroll.clamp(1, 100)
     {name: &quot;Pork Chop and Curds&quot;, cost: 92, availability: 3},
     {name: &quot;Rack of Lamb Platter&quot;, cost: 95, availability: 3},
     {name: &quot;Barbecued Tiger Fish and Papaya&quot;, cost: 200, availability: 4},
-]&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="TavernModifiers" tags="" position="1225,1100">&lt;&lt;nobr&gt;&gt;
+]&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="TavernModifiers" tags="" position="100,1225">&lt;&lt;nobr&gt;&gt;
 /* ------------------------- NAME ------------------------- */
 &lt;&lt;if [&quot;Silver&quot;, &quot;Golden&quot;, &quot;Glorious&quot;, &quot;Beautiful&quot;, &quot;Handsome&quot;, &quot;Lovely&quot;, &quot;Educated&quot;, &quot;Ornate&quot;, &quot;Wealthy&quot;, &quot;Cleanly&quot;, &quot;Jeweled&quot;, &quot;Superior&quot;, &quot;Flawless&quot;, &quot;Exquisite&quot;, &quot;Elegant&quot;, &quot;Fine&quot;].includes($tavern.adjective)&gt;&gt;
 		&lt;&lt;set $tavern.wealthroll += 3&gt;&gt;
@@ -6627,7 +6672,7 @@ $tavern.magicroll.clamp(1, 100)
 	&lt;&lt;elseif $tavern.cleanlinessroll lte 20&gt;&gt;
 		&lt;&lt;set $tavern.population -= 3, $tavern.sinroll +=5, $tavern.wealthroll -= 8&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="TavernNameGen" tags="" position="100,1225">/* ------------------------- TAVERN NAME -------------------------- */
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="TavernNameGen" tags="" position="225,1225">/* ------------------------- TAVERN NAME -------------------------- */
 /*&lt;&lt;set _tavernnameroll to random(1, 5)&gt;&gt;
 
 &lt;&lt;set $tavern.nounA to either(&quot;Warhorse&quot;, &quot;Horseman&quot;, &quot;Maiden&quot;, &quot;Mage&quot;, &quot;Bachelor&quot;, &quot;King&quot;, &quot;Magistrate&quot;, &quot;Warchief&quot;, &quot;Warrior&quot;, &quot;Mare&quot;, &quot;Wolf&quot;, &quot;Fox&quot;, &quot;Lion&quot;, &quot;Lamb&quot;, &quot;Warden&quot;, &quot;Mule&quot;, &quot;Assassin&quot;, &quot;Swordsman&quot;, &quot;Lady&quot;, &quot;Knight&quot;, &quot;Soldier&quot;, &quot;Wizard&quot;, &quot;Warlock&quot;, &quot;Ranger&quot;, &quot;Bard&quot;, &quot;Druid&quot;, &quot;Monk&quot;, &quot;Paladin&quot;, &quot;Sorcerer&quot;, &quot;Rogue&quot;, &quot;Cleric&quot;, &quot;Bear&quot;, &quot;Goblin&quot;, &quot;Kobold&quot;, &quot;Gnome&quot;, &quot;Halfling&quot;, &quot;Dwarf&quot;, &quot;Fool&quot;, &quot;Virgin&quot;, &quot;Horde&quot;, &quot;Squire&quot;, &quot;Eagle&quot;, &quot;Rooster&quot;, &quot;Piglet&quot;, &quot;Thief&quot;, &quot;Priest&quot;, &quot;Friar&quot;, &quot;Blacksmith&quot;, &quot;Guard&quot;, &quot;Stag&quot;, &quot;Hag&quot;, &quot;Devil&quot;, &quot;Angel&quot;, &quot;Serpent&quot;, &quot;Snake&quot;, &quot;Rat&quot;, &quot;Mouse&quot;, &quot;Bandit&quot;, &quot;Chieftain&quot;, &quot;Griffon&quot;, &quot;Dragon&quot;, &quot;Lizard&quot;, &quot;Pony&quot;, &quot;Baron&quot;, &quot;Heifer&quot;, &quot;Bull&quot;, &quot;Hound&quot;, &quot;Goat&quot;, &quot;Toad&quot;, &quot;Stallion&quot;, &quot;Monster&quot;, &quot;Vermin&quot;, &quot;Beholder&quot;, &quot;Monkey&quot;, &quot;Elephant&quot;, &quot;Boar&quot;, &quot;Beagle&quot;, &quot;Bat&quot;, &quot;Demon&quot;, &quot;Imp&quot;, &quot;Sprite&quot;, &quot;Fey&quot;, &quot;Spirit&quot;, &quot;Bitch&quot;, &quot;Starling&quot;, &quot;Minotaur&quot;, &quot;Barbarian&quot;, &quot;Prophet&quot;, &quot;Merchant&quot;, &quot;Cobbler&quot;, &quot;Unicorn&quot;, &quot;Ogre&quot;, &quot;Nymph&quot;, &quot;Butcher&quot;, &quot;Captain&quot;, &quot;Angler&quot;, &quot;Lover&quot;, &quot;Mason&quot;, &quot;Tinker&quot;, &quot;Whale&quot;)&gt;&gt;
@@ -6658,7 +6703,7 @@ $tavern.magicroll.clamp(1, 100)
     	&lt;&lt;set $tavern.name to &quot;The &quot; + $tavern.verb + &quot; &quot; + $tavern.nounA + &quot; and the &quot; + $tavern.nounC&gt;&gt;
 &lt;&lt;default&gt;&gt;
     &lt;&lt;set $tavern.name to &quot;The &quot; + $tavern.nounA + &quot; Inn&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;*/</tw-passagedata><tw-passagedata pid="92" name="TavernRenders" tags="render" position="225,1225">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/switch&gt;&gt;*/</tw-passagedata><tw-passagedata pid="93" name="TavernRenders" tags="render" position="350,1225">&lt;&lt;nobr&gt;&gt;
 /* ------------------------- WEALTH -------------------------- */
 &lt;&lt;if $tavern.wealthroll gt 95&gt;&gt;
 		&lt;&lt;set $tavern.wealth to &quot;kingly&quot;&gt;&gt;
@@ -6820,7 +6865,7 @@ $tavern.magicroll.clamp(1, 100)
 	&lt;&lt;elseif $tavern.reputationroll lte 20&gt;&gt;
 		&lt;&lt;set $tavern.reputation to &quot;infamous&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Brothel" tags="" position="350,1225">&lt;&lt;set $brothel to setup.createBuilding()&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Brothel" tags="" position="475,1225">&lt;&lt;set $brothel to setup.createBuilding()&gt;&gt;
 &lt;&lt;set $brothel.name to either([&quot;Daisies&quot;, &quot;The Don&quot;, &quot;Blinkers&quot;, &quot;The Prude&#39;s Suspenders&quot;, &quot;Gold’s Dust&quot;, &quot;The Velvet Fang&quot;, &quot;The Whisper Home&quot;, &quot;The Hook&quot;, &quot;Over the River&quot;, &quot;Slooshes&quot;, &quot;The Rapid Rascal&quot;, &quot;The Stoat&quot;, &quot;The Fidgety Ferret&quot;, &quot;Long Shaft&quot;])&gt;&gt;
 /*&lt;&lt;set $brothel.name to either(&quot;Daisies&quot;, &quot;The Don&quot;, &quot;Blinkers&quot;, &quot;The Prude&#39;s Suspenders&quot;, &quot;Gold’s Dust&quot;, &quot;The Velvet Fang&quot;, &quot;The Whisper Home&quot;, &quot;The Hook&quot;, &quot;Over the River&quot;, &quot;Slooshes&quot;, &quot;The Rapid Rascal&quot;, &quot;The Stoat&quot;, &quot;The Fidgety Ferret&quot;, &quot;Long Shaft&quot;, &quot;The Guards&quot;, &quot;Chastity’s&quot;, &quot;The Mask&quot;, &quot;The Red Dress&quot;, &quot;Jewels&quot;, &quot;Silken Flute&quot;, &quot;The Nag’s Head&quot;, &quot;Drummers&quot;, &quot;Sailors Choice&quot;, &quot;Blacksmiths Envy&quot;, &quot;The Nagging Wife&quot;, &quot;Colins Rubble&quot;, &quot;Dron&#39;s Beat&quot;, &quot;The Wink&quot;, &quot;Maggie’s Horn&quot;, &quot;The Sun &amp; Cider&quot;, &quot;The Oakworm&quot;, &quot;Tickle &amp; Feather&quot;, &quot;The Mistress&quot;, &quot;Madam Zersannies&#39;s&quot;, &quot;The King&#39;s Court&quot;, &quot;The Cursed Coin&quot;, &quot;Slit&quot;, &quot;The Maiden Head&quot;, &quot;The Rusty&quot;, &quot;The Silken Ferret&quot;, &quot;Long Legs&quot;, &quot;Elven Whispers&quot;, &quot;The Leg&quot;, &quot;False Suspenders&quot;, &quot;Aunt Fannies Bloomers&quot;, &quot;Final Rest&quot;, &quot;Cocks Crow&quot;, &quot;The Unblinking Eye&quot;, &quot;The Bountiful Bosom&quot;, &quot;Tuskers&quot;, &quot;The Thrusting Gentleman&quot;, &quot;Tally Hoes&quot;, &quot;Rutting&quot;, &quot;Pigs in Blankets&quot;, &quot;The Delicate Touch&quot;, &quot;Aphrodite’s Wish&quot;, &quot;The Dirty Secret&quot;, &quot;Long Locks&quot;, &quot;Sweat&quot;, &quot;The Plain Brothel&quot;, &quot;Taters&quot;, &quot;The Swift Finish&quot;, &quot;Cumberlands&quot;, &quot;The Missing Sausage&quot;, &quot;The Fools Frolic&quot;, &quot;Dragons&quot;, &quot;The Bushel&quot;, &quot;Farmers Oats&quot;, &quot;The Raised Brow&quot;, &quot;Genies&quot;, &quot;The Farfetched Feather&quot;, &quot;Junk&quot;, &quot;The Connoisseur’s Choice&quot;, &quot;Colossus&quot;, &quot;The Smooth Ride&quot;, &quot;Bucking&quot;, &quot;The Great Big Globes&quot;, &quot;The Glimmeric&quot;, &quot;Loving Embrace&quot;, &quot;Chokers Necklace&quot;, &quot;The Grand Madame&#39;s Emporium of Fine Delicacies Treats and the Exotic&quot;, &quot;Thug’s Retreat&quot;, &quot;Warriors&#39; Return&quot;, &quot;Gold Gobblers&quot;, &quot;Cackling Croons&quot;, &quot;The Warty&quot;, &quot;Bessie’s Best&quot;, &quot;Corset&quot;, &quot;Winkies&quot;, &quot;The Shagger&quot;, &quot;Port of Call&quot;, &quot;The Home Away from Hoes&quot;, &quot;Smooth&quot;, &quot;The Maiden Fair&quot;, &quot;The Bit&quot;, &quot;Hosted&quot;, &quot;Glamourous Delights&quot;, &quot;Happily Ever After&quot;, &quot;Sultry Stare&quot;, &quot;The Full Flush&quot;, &quot;The Lighted Candle&quot;, &quot;The Red Candle&quot;, &quot;The Raised Candle&quot;, &quot;The Dancing Flame&quot;, &quot;The Candlelight Resort&quot;, &quot;The Sweetest Cherry&quot;, &quot;Cherry&#39;s&quot;, &quot;Cherry Pie&quot;, &quot;The Velvet Cherry&quot;, &quot;The Golden Cherry&quot;, &quot;The Silk Curtain&quot;, &quot;The Red Curtain&quot;, &quot;The Lacy Curtain&quot;, &quot;The Welcoming Curtain&quot;, &quot;The Satin Curtain&quot;, &quot;Satin Dolls&quot;, &quot;Sweet Dolls&quot;, &quot;Porcelain Dolls&quot;, &quot;The Sugar Doll&quot;, &quot;Dancers and Dolls&quot;, &quot;The Red Door&quot;, &quot;The Golden Door&quot;, &quot;The Silver Door&quot;, &quot;The Maiden&#39;s Door&quot;, &quot;The Dancers&#39; Door&quot;, &quot;Lover&#39;s Embrace&quot;, &quot;Lady&#39;s Embrace&quot;, &quot;The Sweetest Embrace&quot;, &quot;The Warmest Embrace&quot;, &quot;Welcoming Embrace&quot;, &quot;The Satin Glove&quot;, &quot;Silky Gloves&quot;, &quot;Lacy Gloves&quot;, &quot;The Lady&#39;s Glove&quot;, &quot;The Maiden&#39;s Glove&quot;, &quot;The Shining Heart&quot;, &quot;Pink Hearts&quot;, &quot;Lacy Hearts&quot;, &quot;Sweetheart&#39;s&quot;, The Maiden&#39;s Heart&quot;, &quot;The Night House&quot;, &quot;The Pink House&quot;, &quot;The Porcelain House&quot;, &quot;The Welcoming House&quot;, &quot;The Cozy House&quot;, &quot;The Warmest Lamp&quot;, &quot;The Red Lamp&quot;, &quot;The Pink Lamp&quot;, &quot;The Soft Lamp&quot;, &quot;The Lady&#39;s Lamp&quot;, &quot;The Lady&#39;s Kiss&quot;, &quot;The Maiden&#39;s Kiss&quot;, &quot;The Night&#39;s Kiss&quot;, &quot;Cozy Kisses&quot;, &quot;Satin Kisses&quot;, &quot;Peach&#39;s Place&quot;, &quot;The Peach&quot;, &quot;The Prettiest Peach&quot;, &quot;The Sweetest Peach&quot;, &quot;The Golden Peach&quot;, &quot;The Silky Purse&quot;, &quot;The Satin Purse&quot;, &quot;The Lady&#39;s Purse&quot;, &quot;The Dancer&#39;s Purse&quot;, &quot;The Pink Purse&quot;, &quot;The Maiden&#39;s Room&quot;, &quot;The Lovers&#39; Room&quot;, &quot;The Night Room&quot;, &quot;The Warm Room&quot;, &quot;The Red Room&quot;, &quot;The Silver Slipper&quot;, &quot;The Satin Slipper&quot;, &quot;The Silk Slipper&quot;, &quot;The Red Slipper&quot;, &quot;The Dancer&#39;s Slipper&quot;, &quot;The Lacy Skirt&quot;, &quot;The Welcoming Skirt&quot;, &quot;The Pink Skirt&quot;, &quot;The Dancer&#39;s Skirt&quot;, &quot;The Lady&#39;s Skirt&quot;, &quot;The Maiden&#39;s Shoe&quot;, &quot;The Red Shoe&quot;, &quot;Cozy Shoes&quot;, &quot;Lovers&#39; Shoes&quot;, &quot;Silver Shoes&quot;, &quot;Silky Stockings&quot;, &quot;The Red Stocking&quot;, &quot;The Lacy Stocking&quot;, &quot;The Lady&#39;s Stocking&quot;, &quot;The Softest Stockings&quot;, &quot;The Maiden&#39;s Veil&quot;, &quot;The Lacy Veil&quot;, &quot;The Silk Veil&quot;, &quot;The Lovers&#39; Veil&quot;, &quot;The Veil of Night&quot;, &quot;Soft-Lighted Window&quot;, &quot;The Shining Window&quot;, &quot;The Lighted Window&quot;, &quot;The Pink Window&quot;, &quot;The Welcoming Window&quot;)&gt;&gt;*/
 
@@ -6919,15 +6964,15 @@ $tavern.magicroll.clamp(1, 100)
 &lt;&lt;/switch&gt;&gt;
 
 
-&lt;&lt;set $pimp.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $pimp.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="BrothelOutput" tags="brothel" position="475,1225">&lt;h1&gt;$brothel.name&lt;/h1&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality. 
+&lt;&lt;set $pimp.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $pimp.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="95" name="BrothelOutput" tags="brothel" position="600,1225">&lt;h1&gt;$brothel.name&lt;/h1&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality.
 
 Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. You notice $brothel.notice. The $pimp.title is &lt;&lt;print $pimp.idle.random()&gt;&gt;. The $pimp.racenote &lt;&lt;print either($pimp.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $pimp.hisher feet over&quot;)&gt;&gt; to you, and introduces $pimp.himherself as $pimp.name, the $pimp.title of $brothel.name, and asks what $pimp.heshe can do for you.
 
-Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour</tw-passagedata><tw-passagedata pid="95" name="Counter" tags="" position="600,1225">&lt;&lt;set $npccounter to [$bartender, $blacksmith]&gt;&gt;
-&lt;&lt;set $buildingcounter to [$tavern, $smithy]&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="Environment" tags="" position="725,1225">&lt;&lt;set $environment to {
+Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour</tw-passagedata><tw-passagedata pid="96" name="Counter" tags="" position="725,1225">&lt;&lt;set $npccounter to [$bartender, $blacksmith]&gt;&gt;
+&lt;&lt;set $buildingcounter to [$tavern, $smithy]&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="Environment" tags="" position="850,1225">&lt;&lt;set $environment to {
 
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="Lord" tags="" position="850,1225">&lt;&lt;set $lord to setup.createNPC()&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="NPC" tags="" position="975,1225">/* Legacy code */
-&lt;&lt;set $npc to {
+}&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="Lord" tags="" position="975,1225">&lt;&lt;set $lord to setup.createNPC()&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="NPC" tags="" position="1100,1225">/* Legacy code */
+/*&lt;&lt;set $npc to {
 	lastname: $name.last.pluck(),
 	gender: [&quot;man&quot;, &quot;woman&quot;],
 	race: [&quot;human&quot;, &quot;human&quot;, &quot;human&quot;, &quot;human&quot;, &quot;human&quot;, &quot;human&quot;, &quot;half-elf&quot;, &quot;half-elf&quot;, &quot;elf&quot;, &quot;elf&quot;, &quot;dwarf&quot;, &quot;dwarf&quot;, &quot;gnome&quot;, &quot;halfling&quot;, &quot;half-orc&quot;, &quot;dragonborn&quot;, &quot;tiefling&quot;],
@@ -6944,7 +6989,8 @@ Rumours abound in whorehouses, and $brothel.name is no different; apparently, $b
 	currentmood: [&quot;annoyed&quot;, &quot;scared&quot;, &quot;relaxed&quot;, &quot;concerned&quot;, &quot;bemused&quot;, &quot;stressed&quot;, &quot;amused&quot;, &quot;content&quot;, &quot;distracted&quot;],
 	idle: [&quot;sitting, with a piece of bread in hand&quot;, &quot;sitting, mug in hand&quot;, &quot;poring over some map&quot;, &quot;reading some letter intently&quot;, &quot;reading a book&quot;, &quot;shuffling a pack of cards&quot;, &quot;chewing on a piece of hay&quot;, &quot;sharpening a knife&quot;, &quot;buffing a piece of armour&quot;, &quot;polishing a shield&quot;, &quot;sharpening the blade on a fearsome looking dagger&quot;, &quot;cutting an apple into bite sized pieces&quot;, &quot;biting into an apple&quot;, &quot;eating an apple while looking at some book&quot;, &quot;eating a hunk of cheese while reading a book&quot;, &quot;sipping out of a huge mug while reading a book&quot;],
 	reading: [&quot;a piece of history- my forefather&#39;s journal, detailing his life in $town.name when it was just a settlement.&quot;, &quot;my journal, from many years ago.&quot;, &quot;my mother&#39;s journal, from just before she disappeared&quot;, &quot;a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.&quot;, &quot;a traitor&#39;s memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.&quot;, &quot;some sort of spell, though I don&#39;t know how to read it.&quot;, &quot;a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.&quot;, &quot;a book which I bought, believing it to be blank, and suitable for a journal. However, now there&#39;s this strange foreign script that I can&#39;t read in it.&quot;, &quot;a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read.&quot;, &quot;a supposedly blank book, but every time I open it, different words appear in a strange language.&quot;]
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="Names" tags="" position="1100,1225">/* ------------------------- NAMES -------------------------- */
+}&gt;&gt;
+*/</tw-passagedata><tw-passagedata pid="100" name="Names" tags="" position="1225,1225">/* ------------------------- NAMES -------------------------- */
 &lt;&lt;set $name to {
 	last: [&quot;Alder&quot;, &quot;Ash&quot;, &quot;Ashdown&quot;, &quot;Atwood&quot;, &quot;Barnes&quot;, &quot;Becker&quot;, &quot;Berry&quot;, &quot;Briar&quot;, &quot;Briggs&quot;, &quot;Brock&quot;, &quot;Brook&quot;, &quot;Bundy&quot;, &quot;Burnside&quot;, &quot;Burroughs&quot;, &quot;Bush&quot;, &quot;Butcher&quot;, &quot;Butler&quot;, &quot;Clay&quot;, &quot;Court&quot;, &quot;Cox&quot;, &quot;Croft&quot;, &quot;Cross&quot;, &quot;Crump&quot;, &quot;Dale&quot;, &quot;Deane&quot;, &quot;Delaney&quot;, &quot;Dike&quot;, &quot;Dodd&quot;, &quot;Ford&quot;, &quot;Forrest&quot;, &quot;Fox&quot;, &quot;Freeman&quot;, &quot;Garside&quot;, &quot;Gorsuch&quot;, &quot;Graves&quot;, &quot;Green&quot;, &quot;Greeves&quot;, &quot;Gross&quot;, &quot;Grove&quot;, &quot;Grover&quot;, &quot;Hall&quot;, &quot;Hawthorne&quot;, &quot;Hazel&quot;, &quot;Head&quot;, &quot;Heather&quot;, &quot;Hill&quot;, &quot;Holley&quot;, &quot;Holmes&quot;, &quot;Holt&quot;, &quot;Homer&quot;, &quot;Hooke&quot;, &quot;Hope&quot;, &quot;House&quot;, &quot;Howe&quot;, &quot;Hume&quot;, &quot;Hyde&quot;, &quot;Johnston&quot;, &quot;Kaye&quot;, &quot;Keats&quot;, &quot;Kerry&quot;, &quot;Kirk&quot;, &quot;Lamb&quot;, &quot;Layne&quot;, &quot;Lea&quot;, &quot;Lowell&quot;, &quot;March&quot;, &quot;Marsh&quot;, &quot;Marshal&quot;, &quot;Martin&quot;, &quot;May&quot;, &quot;Millerchip&quot;, &quot;Mills&quot;, &quot;Moore&quot;, &quot;Newby&quot;, &quot;Paine&quot;, &quot;Paxton&quot;, &quot;Perrin&quot;, &quot;Pike&quot;, &quot;Pitt&quot;, &quot;Preacher&quot;, &quot;Provost&quot;, &quot;Purple&quot;, &quot;Ridge&quot;, &quot;Rock&quot;, &quot;Rose&quot;, &quot;Rowen&quot;, &quot;Sangster&quot;, &quot;Sellers&quot;, &quot;Shaw&quot;, &quot;Short&quot;, &quot;Thorne&quot;, &quot;Underwood&quot;, &quot;Walsh&quot;, &quot;Wells&quot;, &quot;West&quot;, &quot;Whitney&quot;, &quot;Wilde&quot;, &quot;Wood&quot;, &quot;Wragge&quot;, &quot;Wynne&quot;],
 	man: [&quot;Aaryn&quot;, &quot;Aaro&quot;, &quot;Aarus&quot;, &quot;Abramus&quot;, &quot;Abrahm&quot;, &quot;Abyl&quot;, &quot;Abelus&quot;, &quot;Adannius&quot;, &quot;Adanno&quot;, &quot;Aedam&quot;, &quot;Adym&quot;, &quot;Adamus&quot;, &quot;Aedrian&quot;, &quot;Aedrio&quot;, &quot;Aedyn&quot;, &quot;Aidyn&quot;, &quot;Aelijah&quot;, &quot;Elyjah&quot;, &quot;Aendro&quot;, &quot;Androe&quot;, &quot;Aenry&quot;, &quot;Hynroe&quot;, &quot;Hynrus&quot;, &quot;Aethan&quot;, &quot;Aethyn&quot;, &quot;Aevan&quot;, &quot;Evyn&quot;, &quot;Evanus&quot;, &quot;Alecks&quot;, &quot;Alyx&quot;, &quot;Alexandyr&quot;, &quot;Xandyr&quot;, &quot;Alyn&quot;, &quot;Alaen&quot;, &quot;Andrus&quot;, &quot;Aendrus&quot;, &quot;Anglo&quot;, &quot;Aenglo&quot;, &quot;Anglus&quot;, &quot;Antony&quot;, &quot;Antonyr&quot;, &quot;Astyn&quot;, &quot;Astinus&quot;, &quot;Axelus&quot;, &quot;Axyl&quot;, &quot;Benjamyn&quot;, &quot;Benjamyr&quot;, &quot;Braidyn&quot;, &quot;Brydus&quot;, &quot;Braddeus&quot;, &quot;Brandyn&quot;, &quot;Braendyn&quot;, &quot;Bryus&quot;, &quot;Bryne&quot;, &quot;Bryn&quot;, &quot;Branus&quot;, &quot;Caeleb&quot;, &quot;Caelyb&quot;, &quot;Caerlos&quot;, &quot;Carlus&quot;, &quot;Cameryn&quot;, &quot;Camerus&quot;, &quot;Cartus&quot;, &quot;Caertero&quot;, &quot;Charlus&quot;, &quot;Chaerles&quot;, &quot;Chyrles&quot;, &quot;Christophyr&quot;, &quot;Christo&quot;, &quot;Chrystian&quot;, &quot;Chrystan&quot;, &quot;Connorus&quot;, &quot;Connyr&quot;, &quot;Daemian&quot;, &quot;Damyan&quot;, &quot;Daenyel&quot;, &quot;Danyel&quot;, &quot;Davyd&quot;, &quot;Daevo&quot;, &quot;Dominac&quot;, &quot;Dylaen&quot;, &quot;Dylus&quot;, &quot;Elius&quot;, &quot;Aeli&quot;, &quot;Elyas&quot;, &quot;Helius&quot;, &quot;Helian&quot;, &quot;Emilyan&quot;, &quot;Emilanus&quot;, &quot;Emmanus&quot;, &quot;Emynwell&quot;, &quot;Ericus&quot;, &quot;Eryc&quot;, &quot;Eryck&quot;, &quot;Ezekius&quot;, &quot;Zeckus&quot;, &quot;Ezekio&quot;, &quot;Ezrus&quot;, &quot;Yzra&quot;, &quot;Gabrael&quot;, &quot;Gaebriel&quot;, &quot;Gael&quot;, &quot;Gayl&quot;, &quot;Gayel&quot;, &quot;Gaeus&quot;, &quot;Gavyn&quot;, &quot;Gaevyn&quot;, &quot;Goshwa&quot;, &quot;Joshoe&quot;, &quot;Graysus&quot;, &quot;Graysen&quot;, &quot;Gwann&quot;, &quot;Ewan&quot;, &quot;Gwyllam&quot;, &quot;Gwyllem&quot;, &quot;Haddeus&quot;, &quot;Hudsyn&quot;, &quot;Haesoe&quot;, &quot;Haesys&quot;, &quot;Haesus&quot;, &quot;Handus&quot;, &quot;Handyr&quot;, &quot;Hantus&quot;, &quot;Huntyr&quot;, &quot;Haroldus&quot;, &quot;Haryld&quot;, &quot;Horgus&quot;, &quot;Horus&quot;, &quot;Horys&quot;, &quot;Horyce&quot;, &quot;Hosea&quot;, &quot;Hosius&quot;, &quot;Iaen&quot;, &quot;Yan&quot;, &quot;Ianus&quot;, &quot;Ivaen&quot;, &quot;Yvan&quot;, &quot;Jaecoby&quot;, &quot;Jaecob&quot;, &quot;Jaeden&quot;, &quot;Jaedyn&quot;, &quot;Jaeremiah&quot;, &quot;Jeremus&quot;, &quot;Jasyn&quot;, &quot;Jaesen&quot;, &quot;Jaxon&quot;, &quot;Jaxyn&quot;, &quot;Jaxus&quot;, &quot;Johnus&quot;, &quot;Jonus&quot;, &quot;Jonaeth&quot;, &quot;Jonathyn&quot;, &quot;Jordus&quot;, &quot;Jordyn&quot;, &quot;Josaeth&quot;, &quot;Josephus&quot;, &quot;Josaeus&quot;, &quot;Josayah&quot;, &quot;Jovanus&quot;, &quot;Giovan&quot;, &quot;Julyan&quot;, &quot;Julyo&quot;, &quot;Jyck&quot;, &quot;Jaeck&quot;, &quot;Jacus&quot;, &quot;Kaevin&quot;, &quot;Kevyn&quot;, &quot;Vinkus&quot;, &quot;Laevi&quot;, &quot;Levy&quot;, &quot;Levius&quot;, &quot;Landyn&quot;, &quot;Laendus&quot;, &quot;Leo&quot;, &quot;Leonus&quot;, &quot;Leonaerdo&quot;, &quot;Leonyrdo&quot;, &quot;Lynardus&quot;, &quot;Lincon&quot;, &quot;Lyncon&quot;, &quot;Linconus&quot;, &quot;Logaen&quot;, &quot;Logus&quot;, &quot;Louis&quot;, &quot;Lucius&quot;, &quot;Lucae&quot;, &quot;Lucaen&quot;, &quot;Lucaes&quot;, &quot;Lucoe&quot;, &quot;Lucus&quot;, &quot;Lyam&quot;, &quot;Maeson&quot;, &quot;Masyn&quot;, &quot;Maetho&quot;, &quot;Mathoe&quot;, &quot;Matteus&quot;, &quot;Matto&quot;, &quot;Maxus&quot;, &quot;Maximus&quot;, &quot;Maximo&quot;, &quot;Maxymer&quot;, &quot;Mychael&quot;, &quot;Mygwell&quot;, &quot;Miglus&quot;, &quot;Mythro&quot;, &quot;Mithrus&quot;, &quot;Naemo&quot;, &quot;Naethyn&quot;, &quot;Nathanus&quot;, &quot;Naethynel&quot;, &quot;Nicholaes&quot;, &quot;Nycholas&quot;, &quot;Nicholys&quot;, &quot;Nicolus&quot;, &quot;Nolyn&quot;, &quot;Nolanus&quot;, &quot;Olivyr&quot;, &quot;Alivyr&quot;, &quot;Olivus&quot;, &quot;Oscarus&quot;, &quot;Oscoe&quot;, &quot;Raen&quot;, &quot;Ryn&quot;, &quot;Robertus&quot;, &quot;Robett&quot;, &quot;Bertus&quot;, &quot;Romyn&quot;, &quot;Romanus&quot;, &quot;Ryderus&quot;, &quot;Ridyr&quot;, &quot;Samwell&quot;, &quot;Saemuel&quot;, &quot;Santegus&quot;, &quot;Santaegus&quot;, &quot;Sybasten&quot;, &quot;Bastyen&quot;, &quot;Tago&quot;, &quot;Aemo&quot;, &quot;Tagus&quot;, &quot;Theodorus&quot;, &quot;Theodus&quot;, &quot;Thaeodore&quot;, &quot;Thomys&quot;, &quot;Thomas&quot;, &quot;Tommus&quot;, &quot;Tylus&quot;, &quot;Tilyr&quot;, &quot;Uwyn&quot;, &quot;Oewyn&quot;, &quot;Victor&quot;, &quot;Victyr&quot;, &quot;Victorus&quot;, &quot;Vincynt&quot;, &quot;Vyncent&quot;, &quot;Vincentus&quot;, &quot;Wyttus&quot;, &quot;Wyaett&quot;, &quot;Xavius&quot;, &quot;Havius&quot;, &quot;Xavyer&quot;, &quot;Yago&quot;, &quot;Tyago&quot;, &quot;Tyego&quot;, &quot;Ysaac&quot;, &quot;Aisaac&quot;, &quot;Ysaiah&quot;, &quot;Aisiah&quot;, &quot;Siahus&quot;, &quot;Zacharus&quot;, &quot;Zachar&quot;, &quot;Zachaery&quot;],
@@ -6963,7 +7009,7 @@ Rumours abound in whorehouses, and $brothel.name is no different; apparently, $b
 	femalehalfling: [&quot;Alain&quot;, &quot;Andry&quot;, &quot;Anne&quot;, &quot;Bella&quot;, &quot;Blossom&quot;, &quot;Bree&quot;, &quot;Callie&quot;, &quot;Chenna&quot;, &quot;Cora&quot;, &quot;Dee&quot;, &quot;Dell&quot;, &quot;Eida&quot;, &quot;Eran&quot;, &quot;Euphamia&quot;, &quot;Georgina&quot;, &quot;Gynnie&quot;, &quot;Harriet&quot;, &quot;Jasmine&quot;, &quot;Jillian&quot;, &quot;Jo&quot;, &quot;Kithri&quot;, &quot;Lavinia&quot;, &quot;Lidda&quot;, &quot;Maegan&quot;, &quot;Marigold&quot;, &quot;Merla&quot;, &quot;Myria&quot;, &quot;Nedda&quot;, &quot;Nikki&quot;, &quot;Nora&quot;, &quot;Olivia&quot;, &quot;Paela&quot;, &quot;Pearl&quot;, &quot;Pennie&quot;, &quot;Philomena&quot;, &quot;Portia&quot;, &quot;Robbie&quot;, &quot;Rose&quot;, &quot;Saral&quot;, &quot;Seraphina&quot;, &quot;Shaena&quot;, &quot;Stacee&quot;, &quot;Tawna&quot;, &quot;Thea&quot;, &quot;Trym&quot;, &quot;Tyna&quot;, &quot;Vani&quot;, &quot;Verna&quot;, &quot;Wella&quot;, &quot;Willow&quot;], maledragonborn: [&quot;Adrex&quot;, &quot;Arjhan&quot;, &quot;Azzakh&quot;, &quot;Balasar&quot;, &quot;Baradad&quot;, &quot;Bharash&quot;, &quot;Bidreked&quot;, &quot;Dadalan&quot;, &quot;Dazzazn&quot;, &quot;Direcris&quot;, &quot;Donaar&quot;, &quot;Fax&quot;, &quot;Gargax&quot;, &quot;Ghesh&quot;, &quot;Gorbundus&quot;, &quot;Greethen&quot;, &quot;Heskan&quot;, &quot;Hirrathak&quot;, &quot;Illdrex&quot;, &quot;Kaladan&quot;, &quot;Kerkad&quot;, &quot;Kiirith&quot;, &quot;Kriv&quot;, &quot;Maagog&quot;, &quot;Medrash&quot;, &quot;Mehen&quot;, &quot;Mozikth&quot;, &quot;Mreksh&quot;, &quot;Mugrunden&quot;, &quot;Nadarr&quot;, &quot;Nithther&quot;, &quot;Norkruuth&quot;, &quot;Nykkan&quot;, &quot;Pandjed&quot;, &quot;Patrin&quot;, &quot;Pijjink&quot;, &quot;Quarethon&quot;, &quot;Rathkran&quot;, &quot;Rhogar&quot;, &quot;Rivaan&quot;, &quot;Sethrekar&quot;, &quot;Shamash&quot;, &quot;Shedinn&quot;, &quot;Srorthen&quot;, &quot;Tarhun&quot;, &quot;Torinn&quot;, &quot;Trynnicus&quot;, &quot;Valorean&quot;, &quot;Vrondiss&quot;, &quot;Zedaar&quot;],
 	femaledragonborn: [&quot;Akra&quot;, &quot;Aasathra&quot;, &quot;Antrara&quot;, &quot;Arava&quot;, &quot;Biri&quot;, &quot;Blendaeth&quot;, &quot;Burana&quot;, &quot;Chassath&quot;, &quot;Daar&quot;, &quot;Dentratha&quot;, &quot;Doudra&quot;, &quot;Driindar&quot;, &quot;Eggren&quot;, &quot;Farideh&quot;, &quot;Findex&quot;, &quot;Furrele&quot;, &quot;Gesrethe&quot;, &quot;Gilkass&quot;, &quot;Harann&quot;, &quot;Havilar&quot;, &quot;Hethress&quot;, &quot;Hillanot&quot;, &quot;Jaxi&quot;, &quot;Jezean&quot;, &quot;Jheri&quot;, &quot;Kadana&quot;, &quot;Kava&quot;, &quot;Koflnn&quot;, &quot;Megren&quot;, &quot;Mijira&quot;, &quot;Mishann&quot;, &quot;Nala&quot;, &quot;Nuthra&quot;, &quot;Perra&quot;, &quot;Pogranix&quot;, &quot;Pyxrin&quot;, &quot;Quespa&quot;, &quot;Raiann&quot;, &quot;Rezena&quot;, &quot;Ruloth&quot;, &quot;Saphara&quot;, &quot;Savaran&quot;, &quot;Sora&quot;, &quot;Surina&quot;, &quot;Synthrin&quot;, &quot;Tatyan&quot;, &quot;Thava&quot;, &quot;Uadflt&quot;, &quot;Vezera&quot;, &quot;Zykrofl&quot;]
 }
-&gt;&gt;</tw-passagedata><tw-passagedata pid="100" name="Town" tags="" position="1225,1225">&lt;&lt;set $town to {
+&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="Town" tags="" position="100,1350">&lt;&lt;set $town to {
 	wealthroll: random(1, 100),
 	reputationroll: random(1, 100),
 	sinroll: random(1, 100),
@@ -7004,27 +7050,63 @@ $town.sizeroll.clamp(1, 100)
 	&lt;&lt;/if&gt;&gt;
 
 /* Town Location Roller */
-&lt;&lt;set _townpotentiallocation to [&quot;Seacoast&quot;, &quot;Forest&quot;, &quot;Hills&quot;, &quot;Plains&quot;, &quot;Mountains&quot;, &quot;River Coast&quot;, &quot;Seacoast&quot;, &quot;Forest&quot;, &quot;Hills&quot;, &quot;Plains&quot;, &quot;Mountains&quot;, &quot;River Coast&quot;, &quot;Jungle&quot;, &quot;Volcanic Field&quot;, &quot;Seacoast&quot;, &quot;Forest&quot;, &quot;Hills&quot;, &quot;Plains&quot;, &quot;Mountains&quot;, &quot;River Coast&quot;, &quot;Tundra&quot;, &quot;Ice Sheet&quot;, &quot;Seacoast&quot;, &quot;Desert&quot;, &quot;Hills&quot;, &quot;Plains&quot;, &quot;Mountains&quot;, &quot;River Coast&quot;, &quot;Wasteland&quot;, &quot;Oasis&quot;]&gt;&gt;
+&lt;&lt;set _townpotentiallocation to [&quot;seacoast&quot;, &quot;forest&quot;, &quot;hills&quot;, &quot;plains&quot;, &quot;mountains&quot;, &quot;river coast&quot;, &quot;seacoast&quot;, &quot;forest&quot;, &quot;hills&quot;, &quot;plains&quot;, &quot;mountains&quot;, &quot;river coast&quot;, &quot;jungle&quot;, &quot;volcanic field&quot;, &quot;seacoast&quot;, &quot;forest&quot;, &quot;hills&quot;, &quot;plains&quot;, &quot;mountains&quot;, &quot;river coast&quot;, &quot;tundra&quot;, &quot;ice sheet&quot;, &quot;seacoast&quot;, &quot;desert&quot;, &quot;hills&quot;, &quot;plains&quot;, &quot;mountains&quot;, &quot;river coast&quot;, &quot;wasteland&quot;, &quot;oasis&quot;]&gt;&gt;
 &lt;&lt;set _terrainroll to random(1, 6)&gt;&gt;
 	&lt;&lt;if _terrainroll lte 3&gt;&gt;
-		  &lt;&lt;set $town.terrain to &quot;temperate&quot;, $town.location to _townpotentiallocation[random(0, 5)]&gt;&gt;
-	  &lt;&lt;elseif _terrainroll is 4&gt;&gt;
-		  &lt;&lt;set $town.terrain to &quot;temperate&quot;, $town.location to _townpotentiallocation[random(6, 13)]&gt;&gt;
-	  &lt;&lt;elseif _terrainroll is 5&gt;&gt;
-		  &lt;&lt;set $town.terrain to &quot;temperate&quot;, $town.location to _townpotentiallocation[random(14, 21)]&gt;&gt;
-	  &lt;&lt;elseif _terrainroll is 6&gt;&gt;
-		  &lt;&lt;set $town.terrain to &quot;temperate&quot;, $town.location to _townpotentiallocation[random(22, 29)]&gt;&gt;
+		 &lt;&lt;set $town.terrain to &quot;temperate&quot;, $town.location to _townpotentiallocation[random(0, 5)]&gt;&gt;
+	 &lt;&lt;elseif _terrainroll is 4&gt;&gt;
+		 &lt;&lt;set $town.terrain to &quot;tropical&quot;, $town.location to _townpotentiallocation[random(6, 13)]&gt;&gt;
+	 &lt;&lt;elseif _terrainroll is 5&gt;&gt;
+		 &lt;&lt;set $town.terrain to &quot;polar&quot;, $town.location to _townpotentiallocation[random(14, 21)]&gt;&gt;
+	 &lt;&lt;elseif _terrainroll is 6&gt;&gt;
+		 &lt;&lt;set $town.terrain to &quot;arid&quot;, $town.location to _townpotentiallocation[random(22, 29)]&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $town.wealthroll gt 100&gt;&gt;
-    &lt;&lt;set $town.wealthroll to 100&gt;&gt;
-  &lt;&lt;elseif $town.wealthroll lt 1&gt;&gt;
-    &lt;&lt;set $town.wealthroll to 1&gt;&gt;
+  &lt;&lt;set $town.wealthroll to 100&gt;&gt;
+ &lt;&lt;elseif $town.wealthroll lt 1&gt;&gt;
+  &lt;&lt;set $town.wealthroll to 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $town.sinroll gt 75 &amp;&amp; $town.population gt 300&gt;&gt;
 	&lt;&lt;include &quot;Brothel&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="TownLandmarks" tags="" position="100,1350">&lt;&lt;set $town.landmark to either([&quot;a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.&quot;, 
+&lt;&lt;/if&gt;&gt;
+/*
+&lt;&lt;switch $town.location&gt;&gt;
+		&lt;&lt;case &quot;seacoast&quot;&gt;&gt;
+				&lt;&lt;switch $town.terrain&gt;&gt;
+						&lt;&lt;case &quot;temperate&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;fish&quot;]&gt;&gt;
+						&lt;&lt;case &quot;tropical&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;fish&quot;]&gt;&gt;
+						&lt;&lt;case &quot;polar&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;fish&quot;]&gt;&gt;
+						&lt;&lt;case &quot;arid&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;fresh water&quot;, &quot;fish&quot;]&gt;&gt;
+				&lt;&lt;/switch&gt;&gt;
+		&lt;&lt;case &quot;forest&quot;&gt;&gt;
+				&lt;&lt;switch $town.terrain&gt;&gt;
+						&lt;&lt;case &quot;temperate&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;wood&quot;]&gt;&gt;
+						&lt;&lt;case &quot;tropical&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;wood&quot;, &quot;produce&quot;]&gt;&gt;
+						&lt;&lt;case &quot;polar&quot;&gt;&gt;
+								&lt;&lt;set $town.export to [&quot;hunted wildlife&quot;, &quot;pelts&quot;]&gt;&gt;
+				&lt;&lt;/switch&gt;&gt;
+		&lt;&lt;case &quot;hills&quot;&gt;&gt;
+		&lt;&lt;case &quot;plains&quot;&gt;&gt;
+		&lt;&lt;case &quot;mountains&quot;&gt;&gt;
+		&lt;&lt;case &quot;river coast&quot;&gt;&gt;
+		&lt;&lt;case &quot;tropical&quot;&gt;&gt;
+		&lt;&lt;case &quot;jungle&quot;&gt;&gt;
+		&lt;&lt;case &quot;volcanic field&quot;&gt;&gt;
+		&lt;&lt;case &quot;polar&quot;&gt;&gt;
+		&lt;&lt;case &quot;tundra&quot;&gt;&gt;
+		&lt;&lt;case &quot;ice sheet&quot;&gt;&gt;
+		&lt;&lt;case &quot;desert&quot;&gt;&gt;
+		&lt;&lt;case &quot;wasteland&quot;&gt;&gt;
+		&lt;&lt;case &quot;oasis&quot;&gt;&gt;
+&lt;&lt;/switch&gt;&gt;*/</tw-passagedata><tw-passagedata pid="102" name="TownLandmarks" tags="" position="225,1350">&lt;&lt;set $town.landmark to either([&quot;a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.&quot;, 
 &quot;a cave hidden deep in the forest, with walls and floors that seem to shine with a fortunes worth of priceless gems that sparkle without any light. These &#39;priceless gems&#39; immediately turn to useless stones once removed from the cave.&quot;,
 &quot;a large Cave system found in the middle of a jungle. The only known opening to the cave was found by a group of locals who were hunting in the jungle that day. The cave entrance spans an opening of roughly 100ft, and if seen from the sky looks like a large impact crater. The depth of the cave is unknown, and no one knows if it is inhabited by monsters.&quot;,
 &quot;a large tree that has a village of sprites living in it. The tree moves to one of three positions in the forest every week.&quot;,
@@ -7121,7 +7203,7 @@ $town.sizeroll.clamp(1, 100)
 &quot;a natural bridge of dirt that goes over a wide area of reed thicket marshes. The wind slowly sways the cat tails and tall grasses as squishing sounds and croaks can be heard from either side of the bridge.&quot;,
 &quot;a very large tree covered in clear stones. If a creature of good approaches the tree, the stones and the leaves will grow green and blue, and flowers bloom on the tree. Neutral creatures makes them turn brown and orange. An evil creature makes them turn dark purple and red. Unaligned creatures make them turn different shades of gray.&quot;,
 &quot;a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.&quot;,
-&quot;a cave full of phosphorescent mushrooms that glow at night.&quot;])&gt;&gt;</tw-passagedata><tw-passagedata pid="102" name="TownMicroEvents" tags="" position="225,1350">&lt;&lt;set $TownMicroEvents to [&quot;a gnarled old man offers to sell you a &#39;lucky&#39; trinket for a gold coin&quot;,
+&quot;a cave full of phosphorescent mushrooms that glow at night.&quot;])&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="TownMicroEvents" tags="" position="350,1350">&lt;&lt;set $TownMicroEvents to [&quot;a gnarled old man offers to sell you a &#39;lucky&#39; trinket for a gold coin&quot;,
  &quot;a young boy wants to see a demonstration of your weapon&quot;,
  &quot;a little girl is crying because she broke her favorite toy&quot;,
  &quot;a little gem falls out of the pocket of the man walking ahead of you&quot;,
@@ -7219,7 +7301,7 @@ $town.sizeroll.clamp(1, 100)
 &quot;a carnival is in town, showing off their newest ride: a vertical iron wheel with seats meant to let people see the whole town at once. They nicknamed it the &#39;ferric wheel&#39; due to it being made mostly of iron.&quot;,
 &quot;a merchant in a heavily corroded outfit tries to sell his dishwashing invention. (contains a black pudding)&quot;,
 &quot;you notice two thugs following a young woman from a distance, trying to look inconspicuous.&quot;,
-&quot;a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="TownRenders" tags="render" position="350,1350">&lt;&lt;if $town.population gt 3000&gt;&gt;
+&quot;a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="TownRenders" tags="render" position="475,1350">&lt;&lt;if $town.population gt 3000&gt;&gt;
     &lt;&lt;set $town.type to &quot;city&quot;&gt;&gt;
   &lt;&lt;elseif $town.population gt 1000&gt;&gt;
     &lt;&lt;set $town.type to &quot;town&quot;&gt;&gt;
@@ -7229,7 +7311,23 @@ $town.sizeroll.clamp(1, 100)
     &lt;&lt;set $town.type to &quot;hamlet&quot;&gt;&gt;
   &lt;&lt;elseif $town.population lte 30&gt;&gt;
     &lt;&lt;set $town.type to &quot;hamlet&quot;, $town.population to 30&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="TownRumours" tags="" position="475,1350">&lt;&lt;set $town.events to [
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $town.wealthroll gt 95&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;kingly&quot;&gt;&gt;
+	&lt;&lt;elseif $town.wealthroll gt 90&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;aristocratic&quot;&gt;&gt;
+	&lt;&lt;elseif $town.wealthroll gt 80&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;wealthy&quot;&gt;&gt;
+	&lt;&lt;elseif $town.wealthroll gt 70&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;comfortable&quot;&gt;&gt;
+	&lt;&lt;elseif $town.wealthroll gt 30&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;modest&quot;&gt;&gt;
+	&lt;&lt;elseif $town.wealthroll gt 25&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;poor&quot;&gt;&gt;
+	&lt;&lt;elseif $town.wealthroll lte 25&gt;&gt;
+		&lt;&lt;set $town.wealth to &quot;squalid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="TownRumours" tags="" position="600,1350">&lt;&lt;set $town.events to [
     {
       title: &quot;bodies being dug up&quot;,
       rumour: &quot;I heard that there were bodies being dug up out in the cemetary near $alchemist.road.&quot;,
@@ -7278,7 +7376,7 @@ $town.sizeroll.clamp(1, 100)
       dm: &quot;&quot;,
     },
     */
-]&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="WildernessEvents" tags="" position="600,1350">You see a gazebo squatting by the road. It has an arrow sticking from it.
+]&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="WildernessEvents" tags="" position="725,1350">You see a gazebo squatting by the road. It has an arrow sticking from it.
 
 12) There is a hanged corpse swaying in the wind. It seems he was tortured before being hanged. A sign around his neck says &quot;Looter of the dead&quot;.
 13) There is a badly written sign by the road saying &quot;Tresur hier&quot; with an arrow pointing to a dark, thick forest.
