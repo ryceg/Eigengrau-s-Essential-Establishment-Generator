@@ -276,7 +276,7 @@
 "loss of a random item",
 "curses",
 "1d8 damage",
-"weakness to <<print either('shocking', 'fire', 'ice', 'the opposite sex')",
+"weakness to <<print either('shocking', 'fire', 'ice', 'the opposite sex')>>",
 "weakness to physical damage",
 "feelings of guilt",
 "feelings of anxiety",
