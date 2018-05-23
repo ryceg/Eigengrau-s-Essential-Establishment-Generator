@@ -32,9 +32,9 @@ setup.createNPC = function(base) {
 				idle: idle,
 				reading: reading,
         skinColours: skinColours.random(),
-        rumourOrigin: ["a child", "a fat merchant", "a priest", "a sailor", "a soldier", "a magician", "a noble", "a rogue", "a crazy monk", "a drunken farmer", "the butcher", "the tailor"].random(),
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
+
     switch (npc.gender) {
         case "man":
             Object.assign(npc, {
