@@ -1,13 +1,19 @@
 
 :: Changelog
 
+v.1.1.5
+- Added background origins
+- Minor bug fixes with potions
+- Started work on town descriptors
+- Started work on "Starting Campaign" mode, for DMs starting a new campaign.
+
 v.1.1
 - Added NPC generator in the Tavern
 - Added plothooks for alchemist
 - Added the excellent Solbera fonts
 - Added JavaScript to force specfic attributes to creating NPCs
 - Added backgrounds relevant to NPC classes, and bonds
-- Added more stuff to be added later on.
+- Added more stuff to be added later on
 - Added brothel
 - Added marketplace
 
