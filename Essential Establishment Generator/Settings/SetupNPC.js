@@ -278,14 +278,16 @@ setup.createNPC = function(base) {
 
     switch (npc.background) {
         case "acolyte":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I ran away from home at a young age, and found refuge in a temple.", "My family gave me to a temple, since they were unable to care for me.", "I grew up in a household with strong religious convictions. Entering the service of the Gods seemed to be the natural progression.", "An impassioned sermon struck a chord deep in me, and compelled me to serve the faith.", "I followed a childhood friend into religious service because we made a pact to never be apart.", "I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life."].random();
             npc.bond = npc.bond || ["I would die to recover an ancient artifact of my faith that was lost long ago.",
                 "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.",
-                "I owe me life to the priest <<print $name.man.pluck()>> who took me in when my parents died.",
+                "I owe me life to the priest who took me in when my parents died.",
                 "Everything I do is for the common people.",
                 "I will do anything to protect the temple where I served.",
                 "I seek to preserve a sacred text that my enemies consider heretical and seek to destroy."].random();
             break;
         case "charlatan":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["As a youngster, I was left to my own devices. My knack for manipulating people helped me survive.", "I learned early on that people are easy to exploit, and are gullible and too trusting.", "I often got into trouble as a youngster, but talked my way out of it.", "I took up cheating as a hobby, then was sort of adopted by a local scam artist. It just sort of became a way of life for me.", "After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam."].random();
             npc.bond = npc.bond || ["I fleeced the wrong person, a lord called <<print $name.man.pluck()>>, and must work to ensure that he never crosses paths with me or those I care about.",
                 "I owe everything to my mentor <<print $name.man.pluck()>>--a horrible person who's probably rotting in jail somewhere.",
                 "Somewhere out there I have a child, litte <<print $name.man.pluck()>>, who doesn't know me. I'm going to try and make the world better for him.",
@@ -294,6 +296,7 @@ setup.createNPC = function(base) {
                 "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself."].random();
             break;
         case "criminal":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I resented authority in my younger days, and I saw a life of crime as a way to get back at those that I thought had wronged me.", "I resented authority as a youngster, and saw a life of crime as the best way to fight back against tyranny and oppression.", "I fell in with a gang of reprobates and ne’er-do- wells, and I learned my specialty from them.", "A relative taught me the trade to prepare me for the family trade.", "I left home at a relatively young age, and found refuge in a thieves' guild.", "I was always bored, so I started committing minor crimes to pass the time. The adrenaline rush was addictive, and soon I was going on to bigger and better heists."].random();
             npc.bond = npc.bond || ["I'm trying to pay off an old debt I owe to a generous benefactor.",
                 "My ill-gotten gains go to support my family.",
                 "Something important was taken from me, and I aim to steal it back.",
@@ -302,6 +305,7 @@ setup.createNPC = function(base) {
                 "Someone I loved died because of a mistake I made. That will never happen again."].random();
             break;
         case "entertainer":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["Members ofmy family made ends meet by per- forming, so it was fitting for me to follow their example", "I always had a keen insight into what made other people laugh and cry. A life as an entertainer seemed to be the natural continuation of that.", "I saw a bard perform once, and it inspired me so much that I decided to follow in his footsteps.", "I ran away from home to join a minstrel troupe.", "I earned extra coin by performing on the streets as a child, and I never seemed to stop.", "A traveling entertainer took me in to teach me the trade, and I learned to love it."].random();
             npc.bond = npc.bond || ["My instrument is my most treasured possession, and it reminds me of someone I love.",
                 "Someone stole my precious instrument, and someday I'll get it back.",
                 "I want to be famous, whatever it takes.",
@@ -310,6 +314,7 @@ setup.createNPC = function(base) {
                 "I would do anything for the other members of my old party."].random();
             break;
         case "folk hero":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I learned what was right and wrong from my family.", "I was always enamored by tales of heroes and wished I could be something more than ordinary.", "I hated my mundane life, so when it was time for someone to step up and do the right thing, I took my chance.", "One of my relatives was an adventurer, and l was inspired by that person’s courage.", "A mad old hermit spoke a prophecy when l was born, saying that I would accomplish great things.", "I have always stood up for those who are weaker than me."].random();
             npc.bond = npc.bond || ["I have a family, but I have no idea where they are.  One day, I hope to see them again.",
                 "I worked the land, I love the land, and I will protect the land.",
                 "A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.",
@@ -318,6 +323,7 @@ setup.createNPC = function(base) {
                 "I wish my childhood sweetheart had come with me to pursue my destiny."].random();
             break;
         case "guild artisan":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["l was apprenticed to a master who taught me the guild’s business.", "I helped a guild artisan keep a secret, and in return, I was taken on as an apprentice.", "One of my relatives who belonged to the guild made a place for me.", "I was always good with my hands, so I figured that I would make something of it.", "I wanted to get away from my home situation and start a new life, so I learned a trade in secret and ran away one night.", "I learned the essentials from an old mentor, but I had to join a guild to finish my learning once he passed away."].random();
             npc.bond = npc.bond || ["The workshop where I learned my trade is the most important place in the world to me.",
                 "I created a great work for someone, and then found them unworthy to receive it; I'm still looking for someone worthy.",
                 "I owe my guild a great debt for forging me into the person I am today.",
@@ -326,6 +332,7 @@ setup.createNPC = function(base) {
                 "I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood."].random();
             break;
         case "hermit":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["My enemy ruined my reputation, and I had to flee to a life of solitude to escape further disparagement.", "I am comfortable with isolation, as I seek inner peace.", "I find myself in love with nature, and prefer the company of the animals and plants to that of people.", "I never liked the people that I grew up with, so it was easy for me to leave it all behind and strike out a new life, alone.", "I felt compelled to forsake my past, and did so with great reluctane. Even now, I sometimes regret my decisions."].random();
             npc.bond = npc.bond || ["Nothing is more important than the other members of my hermitage, order, or association.",
                 "I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.",
                 "I'm still seeking the enlightenment I pursued in my seclusion, and it still eludes me.",
@@ -334,6 +341,7 @@ setup.createNPC = function(base) {
                 "My isolation gave me great insight into a great evil that only I can destroy."].random();
             break;
         case "noble":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["My family has been disgraced, and I intend to restore our once pristine reputation.", "I come from an old and storied family, and it fell to me to preserve the family name.", "My family recently came by its title, and that eleva— tion thrust us into a new and strange world.", "My family has a title, but none of my ancestors have done anything of note.", "My family is filled with remarkable people. I hope to live up to their reputation.", "I hope to increase my family's power and influence."].random();
             npc.bond = npc.bond || ["I will face any challenge to win the approval of my family.",
                 "My house's alliance with another noble family must be sustained at all costs.",
                 "Nothing is more important that the other members of my family.",
@@ -342,6 +350,7 @@ setup.createNPC = function(base) {
                 "The common folk must see me as a hero of the people."].random();
             break;
         case "outlander":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I spent a lot of time in the wilderness as a youngster, and I came to love that way of life.", "From a young age, I couldn't abide the stink of cities, and sought out the wilderness for respite from the chaos of people.", "I came to understand the darkness that lurks in the wilds, and l vowed to combat it.", "My people live on the edges of civilisation, and I learned the methods of survival from my family.", "After a personal tragedy, I retreated to the wilderness to be alone with my thoughts.", "My family moved away from civilisation, and I learnt to adapt with the harsh environment."].random();
             npc.bond = npc.bond || ["My family, clan, or tribe is the most important thing in my life, even when they are far from me.",
                 "An injury to the unspoiled wilderness of my home is an injury to me.",
                 "I will bring terrible wrath down on the evildoers who destroyed my homeland.",
@@ -350,6 +359,7 @@ setup.createNPC = function(base) {
                 "It is my duty to provide children to sustain my tribe."].random();
             break;
         case "sage":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I was naturally curious, so I packed up and went to a university to learn more about the world.", "My mentor’s teachings opened my mind to new possibilities in that field of study.", "I was always an avid reader, and became a sage to learn more from the thousands of books that I tended to.", "I discovered an old library and pored over the texts I found there. That experience awakened a hunger in me for knowledge that I still seek.", "I impressed a traveling wizard, who told me that I was squandering my talents and that I should seek out an education to take advantage of my gifts.", "My father gave me a basic education which whetted my appetite for more knowledge, and I left home to build on what I knew."].random();
             npc.bond = npc.bond || ["It is my duty to protect my students.",
                 "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.",
                 "I work to preserve a library, university, scriptorium, or monastery.",
@@ -358,6 +368,7 @@ setup.createNPC = function(base) {
                 "I sold my soul for knowledge; I hope to do great deeds and win it back."].random();
             break;
         case "sailor":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I was press-ganged by pirates and forced to serve as a deck-hand on their ship until I could escape from their clutches.", "I wanted to see the world, so I signed on as a deck- hand for a merchant ship.", "One of my relatives was a sailor, and took me to sea when I was young, which inspired a life-long love of the oceans and the water.", "I needed to escape from town quickly, so I stowed away on a ship. They found me out, and force me to work as a deck-hand as payment for my passage.", "Reavers attacked my village, and I found refuge in a ship.", "There were few prospects where I was living, so I hopped on board a boat, to seek my fortunes elsewhere."].random();
             npc.bond = npc.bond || ["I'm loyal to my captain first, everything else second.",
                 "The ship is most important--crewmates and captains come and go.",
                 "I'll always remember my first ship.",
@@ -366,6 +377,7 @@ setup.createNPC = function(base) {
                 "Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine."].random();
             break;
         case "soldier":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["I wanted fame and fortune, so I signed up to the militia to prove my mettle. I don't think I knew what I was doing, but my determination carried me through my contract, and I never stopped.", "I wanted to protect my village from monsters, so I learnt swordcraft and how to fight. Then I learnt that you could earn coin for it, too.", "I was forced to enlist in the local militia to fight for my lord. Many of my friends are dead because of him.", "Invaders attacked my village, and I vowed to never let my family be unprotected again, so I picked up the sword.", "I was always playing with a sword as a kid, and it wasn't until a visiting adventurer sparred with me for fun that I realised that I had a real talent."].random();
             npc.bond = npc.bond || ["I would lay down my life for the people I served with.",
                 "Someone saved my life on the battlefield. To this day, I will never leave a friend behind.",
                 "My honor is my life.",
@@ -374,6 +386,7 @@ setup.createNPC = function(base) {
                 "I fight for those who cannot fight for themselves."].random();
             break;
         case "urchin":
+            npc.backgroundOrigin = npc.bagroundOrigin || ["My parents died, leaving nobody to look after me, so I took care of myself.", "I had to escape my homelife. I lived off crumbs and scraps, but it was better than the alternative.", "Raiders attacked my village when I was a child, leaving me the only survivor. I had to walk for three days to the next town over, and begged to survive.", "My family was swindled, and we lost everything we had. I had to beg on the streets to look after my family.", "A thief took me in, and in exchange for food and shelter, I would keep an eye on the streets while he pulled off heists."].random();
             npc.bond = npc.bond || ["My town or city is my home, and I'll fight to defend it.",
                 "I sponsor an orphanage to keep others from enduring what I was forced to endure.",
                 "I owe my survival to another urchin who taught me to live on the streets.",

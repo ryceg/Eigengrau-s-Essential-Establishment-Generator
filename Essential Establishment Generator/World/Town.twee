@@ -44,21 +44,57 @@ $town.sizeroll.clamp(1, 100)
 <<set _townpotentiallocation to ["seacoast", "forest", "hills", "plains", "mountains", "river coast", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "jungle", "volcanic field", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "tundra", "ice sheet", "seacoast", "desert", "hills", "plains", "mountains", "river coast", "wasteland", "oasis"]>>
 <<set _terrainroll to random(1, 6)>>
 	<<if _terrainroll lte 3>>
-		  <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(0, 5)]>>
-	  <<elseif _terrainroll is 4>>
-		  <<set $town.terrain to "tropical", $town.location to _townpotentiallocation[random(6, 13)]>>
-	  <<elseif _terrainroll is 5>>
-		  <<set $town.terrain to "polar", $town.location to _townpotentiallocation[random(14, 21)]>>
-	  <<elseif _terrainroll is 6>>
-		  <<set $town.terrain to "arid", $town.location to _townpotentiallocation[random(22, 29)]>>
+		 <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(0, 5)]>>
+	 <<elseif _terrainroll is 4>>
+		 <<set $town.terrain to "tropical", $town.location to _townpotentiallocation[random(6, 13)]>>
+	 <<elseif _terrainroll is 5>>
+		 <<set $town.terrain to "polar", $town.location to _townpotentiallocation[random(14, 21)]>>
+	 <<elseif _terrainroll is 6>>
+		 <<set $town.terrain to "arid", $town.location to _townpotentiallocation[random(22, 29)]>>
 <</if>>
 
 <<if $town.wealthroll gt 100>>
-    <<set $town.wealthroll to 100>>
-  <<elseif $town.wealthroll lt 1>>
-    <<set $town.wealthroll to 1>>
+  <<set $town.wealthroll to 100>>
+ <<elseif $town.wealthroll lt 1>>
+  <<set $town.wealthroll to 1>>
 <</if>>
 
 <<if $town.sinroll gt 75 && $town.population gt 300>>
 	<<include "Brothel">>
 <</if>>
+/*
+<<switch $town.location>>
+		<<case "seacoast">>
+				<<switch $town.terrain>>
+						<<case "temperate">>
+								<<set $town.export to ["fish"]>>
+						<<case "tropical">>
+								<<set $town.export to ["fish"]>>
+						<<case "polar">>
+								<<set $town.export to ["fish"]>>
+						<<case "arid">>
+								<<set $town.export to ["fresh water", "fish"]>>
+				<</switch>>
+		<<case "forest">>
+				<<switch $town.terrain>>
+						<<case "temperate">>
+								<<set $town.export to ["wood"]>>
+						<<case "tropical">>
+								<<set $town.export to ["wood", "produce"]>>
+						<<case "polar">>
+								<<set $town.export to ["hunted wildlife", "pelts"]>>
+				<</switch>>
+		<<case "hills">>
+		<<case "plains">>
+		<<case "mountains">>
+		<<case "river coast">>
+		<<case "tropical">>
+		<<case "jungle">>
+		<<case "volcanic field">>
+		<<case "polar">>
+		<<case "tundra">>
+		<<case "ice sheet">>
+		<<case "desert">>
+		<<case "wasteland">>
+		<<case "oasis">>
+<</switch>>*/
