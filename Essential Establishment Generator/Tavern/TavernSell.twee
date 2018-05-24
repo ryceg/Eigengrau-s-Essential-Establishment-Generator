@@ -1,0 +1,62 @@
+:: TavernSell [tavern]
+<<nobr>><<linkreplace "<h4>Show me the menu!</h4>">><table>
+	<tr>
+		<th>Dish</th>
+		<th>Cost</th>
+	</tr>
+      <<if $tavern.wealthroll gt 60 && $tavern.roughnessroll lt 30 or $tavern.wealthroll gt 60 && $bartender.race is "elf">>
+      <<switch $town.type>>
+      	<<case "city">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "veg"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "town">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "veg"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "village">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2, item.type === "veg"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "hamlet">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1, item.type === "veg"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>><</switch>>
+<<elseif $tavern.wealthroll gt 60 && $tavern.roughnessroll gt 80>>
+      <<switch $town.type>>
+      	<<case "city">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "carni"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "town">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "carni"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "village">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2, item.type === "carni"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "hamlet">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1, item.type === "carni"; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>><</switch>>
+<<else>>
+      <<switch $town.type>>
+      	<<case "city">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "town">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "village">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>>
+      	<<case "hamlet">>
+      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })>><tr><td>_item.name</td>
+      <td><<money _item.cost>></td></tr>
+      	<</for>><</switch>>
+        </table><</linkreplace>>
+<</nobr>>
