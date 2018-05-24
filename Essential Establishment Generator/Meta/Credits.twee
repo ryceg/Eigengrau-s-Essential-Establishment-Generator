@@ -7,7 +7,7 @@ This software is provided on an as-is basis, and no warranty or guarantee that i
 
 This is still in development. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
 
-If you enjoy this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997 
+If you enjoy this, please consider supporting me on Patreon: https://www.patreon.com/user?u=399997
 
 We have a subreddit! www.reddit.com/r/EigengrausGenerator
 
@@ -15,6 +15,7 @@ We have a subreddit! www.reddit.com/r/EigengrausGenerator
 
 <<linkappend "Changelog:">>
 <<include "Changelog">><</linkappend>>
+<<include "PatreonSupporters">>
 
 The following user's content appears in this instance (i.e. only the content that is currently running is visible in the list below:
 
