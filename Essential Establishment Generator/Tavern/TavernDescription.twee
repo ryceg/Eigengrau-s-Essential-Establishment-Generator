@@ -36,7 +36,7 @@
 		<<set _tavernnotable to "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face.", $tavern.magicroll += 4>>
 	<<case "drunk wizard">>
 		<<set $drunkwizard to setup.createNPC({dndclass: "wizard"})>>
-		<<set _tavernnotable to "There's a $drunkwizard.racenote thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. $drunkwizard.heshe.toUpperFirst() looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'", $tavern.magicroll += 4>>
+		<<set _tavernnotable to "There's a $drunkwizard.racenote thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. <<print $drunkwizard.heshe.toUpperFirst()>> looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'", $tavern.magicroll += 4>>
 	<<case "huge fireplace">>
 		<<set _tavernnotable to "You see a huge fireplace in the centre of the $tavern.wordnoun, which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.">>
 	<<case "incredible view">>

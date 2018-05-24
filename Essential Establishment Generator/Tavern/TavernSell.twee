@@ -57,7 +57,6 @@
       	<<case "hamlet">>
       	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })>><tr><td>_item.name</td>
       <td><<money _item.cost>></td></tr>
-      	<</for>><</switch>>
-        </table><</if>><</linkreplace>>
+      	<</for>><</switch>></table><</if>><</linkreplace>>
 
 <</nobr>>
