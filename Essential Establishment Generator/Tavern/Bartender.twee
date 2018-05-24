@@ -1,7 +1,7 @@
 
 :: Bartender
 <<if _roll gt 2>>
-			<<set $bartender to $Birchbottom>>
+			<<set $Birchbottom to $bartender>>
 	<<else>>
 			<<set $bartender to setup.createNPC()>>
 <</if>>
