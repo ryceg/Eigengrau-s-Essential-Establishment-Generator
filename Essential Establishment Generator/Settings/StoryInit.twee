@@ -29,6 +29,8 @@
 
 <<include "NPC">>
 
+<<include "PatreonCharacters">>
+
 <<include "Bartender">>
 
 <<include "PlotHook">>
@@ -86,5 +88,3 @@
 <<include "Raiders">>
 
 <<include "Markets">>
-
-<<include "PatreonCharacters">>
