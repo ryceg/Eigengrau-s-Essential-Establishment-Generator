@@ -16,9 +16,9 @@
 
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
 
+<</nobr>>
 
-
-<</nobr>><<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
+<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 $town.name is located in the $town.terrain $town.location. The nearest landmark is $town.landmark A population of $town.population, the denizens live a $town.wealth existence.
 
@@ -26,22 +26,24 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-<<nobr>><<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>>
+<<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>>
 <<link "$tavern.name">>
     <<if $showSliders is true>>
         <<goto "InitTavern">>
-    <<else>>
+    <<elseif $showSliders is false>>
       <<set $currentPassage to $tavern>>
       <<set _roll to random(1, 3)>>
-          <<if _roll == 1>>
+          <<switch _roll>>
+          <<case 1>>
               <<goto "Output1">>
-          <<if _roll == 2>>
+          <<case 2>>
               <<goto "Output2">>
-          <<if _roll == 3>>
+          <<case 3>>
               <<goto "Output3">>
-          <</if>>
+          <</switch>>
     <</if>>
-<</link>><</nobr>>
+<</link>>
+
 Down from $tavern.road are the [[markets|MarketOutput]]
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>>[[$smithy.name|InitSmithy]]
