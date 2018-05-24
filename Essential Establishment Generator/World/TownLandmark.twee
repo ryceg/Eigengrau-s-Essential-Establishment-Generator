@@ -1,6 +1,6 @@
-:: TownLandmarks
+:: TownLandmark
 
-<<set $town.landmark to either(["a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.", 
+<<set $town.landmark to either(["a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.",
 "a cave hidden deep in the forest, with walls and floors that seem to shine with a fortunes worth of priceless gems that sparkle without any light. These 'priceless gems' immediately turn to useless stones once removed from the cave.",
 "a large Cave system found in the middle of a jungle. The only known opening to the cave was found by a group of locals who were hunting in the jungle that day. The cave entrance spans an opening of roughly 100ft, and if seen from the sky looks like a large impact crater. The depth of the cave is unknown, and no one knows if it is inhabited by monsters.",
 "a large tree that has a village of sprites living in it. The tree moves to one of three positions in the forest every week.",

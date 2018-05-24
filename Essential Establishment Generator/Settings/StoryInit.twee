@@ -77,6 +77,8 @@
 
 <<include "TownMicroEvents">>
 
+<<include "TownLandmark">>
+
 <<include "Mercenaries">>
 
 <<include "Lord">>
