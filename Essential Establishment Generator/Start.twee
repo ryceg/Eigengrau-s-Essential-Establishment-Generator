@@ -26,8 +26,22 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-<<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<if $showSliders is true>><<goto "InitTavern">><<else>><<set $currentPassage to $tavern>><<goto either("Output1", "Output2", "Output3")>><</if>><</link>>
-
+<<nobr>><<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>>
+<<link "$tavern.name">>
+    <<if $showSliders is true>>
+        <<goto "InitTavern">>
+    <<else>>
+      <<set $currentPassage to $tavern>>
+      <<set _roll to random(1, 3)>>
+          <<if _roll == 1>>
+              <<goto "Output1">>
+          <<if _roll == 2>>
+              <<goto "Output2">>
+          <<if _roll == 3>>
+              <<goto "Output3">>
+          <</if>>
+    <</if>>
+<</link>><</nobr>>
 Down from $tavern.road are the [[markets|MarketOutput]]
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>>[[$smithy.name|InitSmithy]]
