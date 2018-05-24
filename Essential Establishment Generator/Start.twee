@@ -15,8 +15,6 @@
 <</if>>
 <</nobr>><<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-$bartender.name
-
 $town.name is located in the $town.terrain $town.location. The nearest landmark is $town.landmark A population of $town.population, the denizens live a $town.wealth existence.
 
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
