@@ -46,7 +46,7 @@
 	<</if>>
 
 <<if $tavern.wealthroll gte 50>>
-	<div class='descriptive'><<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">></div>
+	<div class='descriptive'><h3>$specialbrew.name</h3><<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">></div>
 <</if>>The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to either($cheese.cost)>><<replace #cheese>> is <<money $cheese.costreadout>>, and is a  $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is <<money $cheese.costreadout>> and is a $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
  <</linkreplace>>
 <<include "TavernSell">>
