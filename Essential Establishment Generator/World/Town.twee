@@ -62,39 +62,3 @@ $town.sizeroll.clamp(1, 100)
 <<if $town.sinroll gt 75 && $town.population gt 300>>
 	<<include "Brothel">>
 <</if>>
-/*
-<<switch $town.location>>
-		<<case "seacoast">>
-				<<switch $town.terrain>>
-						<<case "temperate">>
-								<<set $town.export to ["fish"]>>
-						<<case "tropical">>
-								<<set $town.export to ["fish"]>>
-						<<case "polar">>
-								<<set $town.export to ["fish"]>>
-						<<case "arid">>
-								<<set $town.export to ["fresh water", "fish"]>>
-				<</switch>>
-		<<case "forest">>
-				<<switch $town.terrain>>
-						<<case "temperate">>
-								<<set $town.export to ["wood"]>>
-						<<case "tropical">>
-								<<set $town.export to ["wood", "produce"]>>
-						<<case "polar">>
-								<<set $town.export to ["hunted wildlife", "pelts"]>>
-				<</switch>>
-		<<case "hills">>
-		<<case "plains">>
-		<<case "mountains">>
-		<<case "river coast">>
-		<<case "tropical">>
-		<<case "jungle">>
-		<<case "volcanic field">>
-		<<case "polar">>
-		<<case "tundra">>
-		<<case "ice sheet">>
-		<<case "desert">>
-		<<case "wasteland">>
-		<<case "oasis">>
-<</switch>>*/

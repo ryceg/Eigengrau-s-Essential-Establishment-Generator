@@ -1,8 +1,59 @@
 :: TownLandmark
+<<nobr>>
+<<switch $town.terrain>>
+<<case "temperate">>
+  <<switch $town.location>>
+      <<case "seacoast">>
+      <<case "forest">>
+      <<case "hills">>
+      <<case "plains">>
+      <<case "mountains">>
+      <<case "river coast">>
+    <</switch>>
+<<case "tropical">>
+  <<switch $town.location>>
+      <<case "seacoast">>
+      <<case "forest">>
+      <<case "hills">>
+      <<case "plains">>
+      <<case "mountains">>
+      <<case "river coast">>
+      <<case "jungle">>
+      <<case "volcanic field">>
+    <</switch>>
+<<case "polar">>
+  <<switch $town.location>>
+      <<case "seacoast">>
+      <<case "forest">>
+      <<case "hills">>
+      <<case "plains">>
+      <<case "mountains">>
+      <<case "river coast">>
+      <<case "tundra">>
+      <<case "ice sheet">>
+    <</switch>>
+<<case "arid">>
+  <<switch $town.location>>
+      <<case "seacoast">>
+      <<case "desert">>
+      <<case "hills">>
+      <<case "plains">>
+      <<case "mountains">>
+      <<case "river coast">>
+      <<case "wasteland">>
+      <<case "oasis">>
+    <</switch>>
+<</switch>>
 
-<<set $town.landmark to either(["a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.",
+
+
+
+
+
+<<set $town.landmark to either([
+"a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.",
 "a cave hidden deep in the forest, with walls and floors that seem to shine with a fortunes worth of priceless gems that sparkle without any light. These 'priceless gems' immediately turn to useless stones once removed from the cave.",
-"a large Cave system found in the middle of a jungle. The only known opening to the cave was found by a group of locals who were hunting in the jungle that day. The cave entrance spans an opening of roughly 100ft, and if seen from the sky looks like a large impact crater. The depth of the cave is unknown, and no one knows if it is inhabited by monsters.",
+"a large cave system found in the middle of a jungle. The only known opening to the cave was found by a group of locals who were hunting in the jungle that day. The cave entrance spans an opening of roughly 100ft, and if seen from the sky looks like a large impact crater. The depth of the cave is unknown, and no one knows if it is inhabited by monsters.",
 "a large tree that has a village of sprites living in it. The tree moves to one of three positions in the forest every week.",
 "a tiny island in the center of a lake. There is a single bullywug sitting on the island eating fish on an improvised raft.",
 "a magical floating bush. It hovers around in circles.",
@@ -10,7 +61,7 @@
 "erosion has carved what appears to be a face into the side of a cliff.",
 "a giant skeleton sticking out of the ground. Looks like a triceratops, but larger.",
 "a giant flower with lots of bees surrounding it. Thousands of flowers similar to the giant one grow around it at a wide range of heights. Different kinds of fey live around it too.",
-"an overgrown, moss-covered, patinaed statue that looks just like elderly versions of the party.",
+"an overgrown, moss-covered, patinaed statue that looks oddly .",
 "a pond of sulphide water, with a geyser regularly rising at its centre.",
 "a cliff face with geometric crystal structures jutting out of the side.",
 "a cave entrance with several sharp rocks resembling the maw and teeth of a large beast.",
@@ -36,7 +87,6 @@
 "a series of miniature arches that is nearly always in the shadow of a larger arch.",
 "an extremely deep and narrow slot canyon. It’s easy to jump over, but if you fell in it would mean certain death.",
 "an enormous boulder balanced precariously on a thin, natural pillar.",
-"a wide, flat field completely covered in small holes… Something is living underground here.",
 "enormous bones are scattered densely in this area. It’s a graveyard where large beasts come to die.",
 "a set of standing stones with intricate carvings cut into them. When the wind blows a certain way, the stones make a low humming sound that can be heard from miles away. The sound fills anyone that can here it with dread and despair.",
 "a small dark cave with with an extremely narrow crack in the floor, with steam billowing out. Due to the nature of the steam and the shape of the cave, it creates a low whistling sound at all times of the day.",
@@ -98,3 +148,4 @@
 "a very large tree covered in clear stones. If a creature of good approaches the tree, the stones and the leaves will grow green and blue, and flowers bloom on the tree. Neutral creatures makes them turn brown and orange. An evil creature makes them turn dark purple and red. Unaligned creatures make them turn different shades of gray.",
 "a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.",
 "a cave full of phosphorescent mushrooms that glow at night."])>>
+<</nobr>>
