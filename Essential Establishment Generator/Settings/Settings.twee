@@ -1,0 +1,11 @@
+:: Settings
+
+Show Sliders Page <<checkbox "$showSliders" false true checked>>
+
+<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
+
+<<nobr>><<link "reroll">>
+    <<replace "#tavernname">>
+            \<<textbox "$tavern.name" $tavern.name>><<set $tavernname to setup.createTavernNameGen()>><<set $tavern.name to $tavernname.name>>
+    <</replace>><</link>>
+<span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
