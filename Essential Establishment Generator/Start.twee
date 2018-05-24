@@ -15,7 +15,7 @@
 <</if>>
 <</nobr>><<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-A $Birchbottom.racenote is currently <<print $Birchbottom.idle.random()>> in the corner. You strike up conversation with $Birchbottom.himher, and the $Birchbottom.weight $Birchbottom.race introduces $Birchbottom.himherself as $Birchbottom.name, a $Birchbottom.dndclass who is $Birchbottom.adventure. You talk about your backgrounds, and $Birchbottom.heshe says "I was a $Birchbottom.background before I was a $Birchbottom.dndclass. $Birchbottom.backgroundOrigin $Birchbottom.bond" <<print $Birchbottom.heshe.toUpperFirst()>> looks at you with $Birchbottom.hisher $Birchbottom.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"</div>
+$bartender.name
 
 $town.name is located in the $town.terrain $town.location. The nearest landmark is $town.landmark A population of $town.population, the denizens live a $town.wealth existence.
 
