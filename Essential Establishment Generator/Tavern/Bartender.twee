@@ -1,7 +1,7 @@
 
 :: Bartender
 <<set _roll to random(1, 3)>><<if _roll gt 2>>
-			<<set $bartender to $Birchbottom>>
+			<<set $Birchbottom to $bartender>>
 	<<else>>
 			<<set $bartender to setup.createNPC({idle: ["polishing a glass with $bartender.hisher hands", "reading a newspaper which says <<print $newspaperheadline>>", "pouring a drink for a customer", "taking an order from a customer", "talking with a customer", "picking $bartender.hisher nose", "playing a card game by $bartender.himher<<nobr>>self<</nobr>>", "checking the stock levels of the beer on tap", "shouting into the kitchen, annoyed", "yelling instructions into the kitchen", "leaning against a stool, surveying the work of one of the barmaids"], owner: either(["owner", "caretaker", "proud owner", "proprietor", "current owner", "manager", "manager", "acting manager"]), greeting: ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $bartender.heshe nods at you", "checks you out for just a moment before smiling at you"]})>>
 <</if>>
