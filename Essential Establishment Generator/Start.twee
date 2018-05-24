@@ -10,6 +10,8 @@
   <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator! </blockquote>
   <<elseif _roll gt 70>>
   <blockquote>Join the Discord server at https://discord.gg/4wYNwp2 </blockquote>
+  <<elseif _roll gt 65>>
+  <blockquote><<include "PatreonSupporters">></blockquote>
 <</if>>
 <</nobr>><<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
