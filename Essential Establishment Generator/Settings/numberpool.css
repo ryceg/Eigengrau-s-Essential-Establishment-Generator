@@ -42,7 +42,7 @@ div[id|="numberslider-body"] input {
 	-webkit-appearance: none;
 	cursor: pointer;
 	height: 1.25em;
-	min-width: auto;
+	min-width: 85vw;
 	vertical-align: middle;
 }
 div[id|="numberslider-body"] input:focus {
