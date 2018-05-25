@@ -3,3 +3,4 @@
 <<include "RandomNPC">>
 <<include "RandomPotion">>
 <<include "RandomRing">>
+The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain called $adventureVillain.name, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist

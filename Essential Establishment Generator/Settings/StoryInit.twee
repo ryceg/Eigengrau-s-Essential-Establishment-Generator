@@ -88,3 +88,5 @@
 <<include "Raiders">>
 
 <<include "Markets">>
+
+<<include "AdventureGenerator">>
