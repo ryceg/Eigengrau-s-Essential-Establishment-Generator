@@ -41,7 +41,7 @@ div[id|="numberslider-body"] input {
 	-webkit-appearance: none;
 	cursor: pointer;
 	height: 1.25em;
-	min-width: auto;
+	min-width: auto
 	vertical-align: middle;
 }
 div[id|="numberslider-body"] input:focus {
@@ -52,7 +52,7 @@ div[id|="numberslider-body"] input::-webkit-slider-runnable-track {
 	border: 1px solid #444;
 	border-radius: 0;
 	cursor: pointer;
-	height: 10px;
+	height: 0.556em;
 	width: 100%;
 }
 div[id|="numberslider-body"] input::-webkit-slider-thumb {
@@ -61,9 +61,9 @@ div[id|="numberslider-body"] input::-webkit-slider-thumb {
 	border: 1px solid #57c;
 	border-radius: 0;
 	cursor: pointer;
-	height: 18px;
-	margin-top: -5px;
-	width: 33px;
+	height: 1em;
+	margin-top: -0.278em;
+	width: 1.833em;
 }
 div[id|="numberslider-body"] input:focus::-webkit-slider-runnable-track {
 	background: #222;
@@ -73,7 +73,7 @@ div[id|="numberslider-body"] input::-moz-range-track {
 	border: 1px solid #444;
 	border-radius: 0;
 	cursor: pointer;
-	height: 10px;
+	height: 0.556em;
 	width: 100%;
 }
 div[id|="numberslider-body"] input::-moz-range-thumb {
@@ -81,15 +81,15 @@ div[id|="numberslider-body"] input::-moz-range-thumb {
 	border: 1px solid #57c;
 	border-radius: 0;
 	cursor: pointer;
-	height: 18px;
-	width: 33px;
+	height: 1em;
+	width: 1.833em;
 }
 div[id|="numberslider-body"] input::-ms-track {
 	background: transparent;
 	border-color: transparent;
 	color: transparent;
 	cursor: pointer;
-	height: 10px;
+	height: 0.556em;
 	width: 99%; /* fallback for MS browsers without support for calc() */
 	width: calc(100% - 1px);
 }
@@ -108,6 +108,6 @@ div[id|="numberslider-body"] input::-ms-thumb {
 	border: 1px solid #57c;
 	border-radius: 0;
 	cursor: pointer;
-	height: 16px;
-	width: 33px;
+	height: 0.889em;
+	width: 1.833em;
 }
