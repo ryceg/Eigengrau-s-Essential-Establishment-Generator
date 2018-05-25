@@ -23,7 +23,6 @@ switch (adventure.location) {
     break;
     case "other":
          adventure.goal = adventure.goal || ["seize control of a fortified location such as a fortress, town, or ship.", "defend a location from attackers.", "retrieve an object from inside a secure location in a settlement.", "retrieve an object from a caravan.", "salvage an object or goods from a lost vessel or caravan.", "break a prisoner out of a jail or prison camp.", "escape from a jail or prison camp.", "successfully travel through an obstacle course to gain recognition or reward.", "infiltrate a fortified location.", "find the source of strange occurrences in a haunted house or other location.", "interfere with the operation of a business.", "rescue a character, monster, or object from a natural or unnatural disaster."].random();
-    break;
  }
 
 switch (adventure.goal) {
@@ -82,7 +81,7 @@ switch (adventure.goal) {
               goalNPC: goalNPC,
               goal: "rescue " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who was caught in a natural disaster.",
           });
-          break;
+
 
 switch (adventure.villain) {
   case "giant bent on plunder":
@@ -169,7 +168,7 @@ switch (adventure.villain) {
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
-          break;
+
 
 switch (adventure.ally) {
     case "young adventurer":
@@ -301,7 +300,6 @@ switch (adventure.patron) {
       Object.assign(adventure, {
           adventurePatron: adventurePatron,
        });
-       break;
 }
     return adventure;
 }
