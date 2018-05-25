@@ -1,5 +1,5 @@
 /*! <<numberpool>> macro set for SugarCube v2 */
-input[type=range] { max-width: 100vw; }
+
 div[id|="numberbox-body"] {
 	display: inline-block;
 }
@@ -47,6 +47,10 @@ div[id|="numberslider-body"] input {
 }
 div[id|="numberslider-body"] input:focus {
 	outline: none;
+}
+
+div[id|="numberslider-body"] input {
+    max-width: 99vw;
 }
 div[id|="numberslider-body"] input::-webkit-slider-runnable-track {
 	background: #222;
