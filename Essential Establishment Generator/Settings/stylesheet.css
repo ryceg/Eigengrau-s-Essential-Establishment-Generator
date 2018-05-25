@@ -16,6 +16,7 @@ body {
 input[type=range] { max-width: 100vw; }
 img, embed, object, video {
     max-width: 100%;
+    min-width: auto;
 }
 
 
