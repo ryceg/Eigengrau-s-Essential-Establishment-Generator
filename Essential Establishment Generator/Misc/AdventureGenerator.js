@@ -119,7 +119,7 @@ switch (adventure.villain) {
           variables().adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
-                villain: $adventureVillain.racenote + " called " + adventureVillain.name + " hellbent on revenge.",
+                villain: adventureVillain.racenote + " called " + adventureVillain.name + " hellbent on revenge.",
           });
           break;
   case "humanoid schemer seeking to rule":
@@ -151,7 +151,7 @@ switch (adventure.villain) {
           variables().adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
-                villain: $adventureVillain.racenote + " called " + adventureVillain.name + " who was placed under a curse"
+                villain: adventureVillain.racenote + " called " + adventureVillain.name + " who was placed under a curse"
           });
           break;
   case "misguided humanoid zealot":
