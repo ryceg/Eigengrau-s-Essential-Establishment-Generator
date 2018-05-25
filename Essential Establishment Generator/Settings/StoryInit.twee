@@ -89,4 +89,4 @@
 
 <<include "Markets">>
 
-/*<<include "AdventureGenerator">>*/
+<<include "AdventureGenerator">>
