@@ -584,7 +584,7 @@ div[id|="numberslider-body"] input {
 	-webkit-appearance: none;
 	cursor: pointer;
 	height: 1.25em;
-	min-width: 20em;
+	/*min-width: 20em;*/
 	vertical-align: middle;
 }
 div[id|="numberslider-body"] input:focus {
