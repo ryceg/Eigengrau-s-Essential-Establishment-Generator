@@ -3,4 +3,20 @@
 <<include "RandomNPC">>
 <<include "RandomPotion">>
 <<include "RandomRing">>
+
 The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist
+
+
+<<nobr>><<linkreplace "<h4>Generate a campaign!</h4>">>
+<<set $adventure to setup.createAdventure()>>
+    <<replace "#adventure">>
+          <div class="descriptive">
+            <h3>Campaign</h3>
+            The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist</blockquote>
+    <</replace>><<link "<h4>Try another campaign!</h4>">><<set $adventure to setup.createAdventure()>>
+        <<replace "#adventure">>
+              <div class="descriptive">
+                <h3>Another campaign</h3>
+                The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist</blockquote><</replace>><</link>>
+<</linkreplace>>
+<span id="adventure"></span><</nobr>>

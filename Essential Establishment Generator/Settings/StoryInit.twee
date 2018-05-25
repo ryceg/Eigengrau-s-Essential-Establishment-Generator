@@ -1,7 +1,7 @@
 
 :: StoryInit
 
-<<set $versionnumber to "1.1.5">>
+<<set $versionnumber to "1.1.6">>
 
 <<include "Names">>
 
@@ -89,4 +89,4 @@
 
 <<include "Markets">>
 
-<<include "AdventureGenerator">>
+/*<<include "AdventureGenerator">>*/
