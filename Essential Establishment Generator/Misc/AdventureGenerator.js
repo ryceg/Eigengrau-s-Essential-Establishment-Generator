@@ -1,5 +1,5 @@
 setup.createAdventure = (function(base) {
-
+// Tables used later
       var location = ["dungeon", "wilderness", "other"];
       var introduction = ["While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.", "While traveling in the wilderness, the characters notice the entrance to the adventure location.", "While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.", "The adventurers find a map on a dead body. In addition to the map setting up the adventure, the $adventureVillain.name wants the map.", "A mysterious magic item (or $adventureVillain.name) teleports the characters to the adventure location.", "A stranger approaches the characters in a tavern and urges them toward the adventure location.", "$town.name needs volunteers to go to the adventure location.", "An NPC the characters care about needs them to go to the adventure location.", "An NPC the characters must obey orders them to go to the adventure location.", "An NPC the characters respect asks them to go to the adventure location.", "One night, the characters all dream about entering the adventure location.", "A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location."];
       var climax = ["The adventurers confront $adventureVillain.name and a group of minions in a bloody battle to the finish.", "The adventurers chase $adventureVillain.name while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventureVillain.firstname's refuge", "The actions of the adventurers or $adventureVillain.firstname result in a cataclysmic even that the adventurers must escape", "The adventurers race to the site where $adventureVillain.name is bringing a master plan to its conclusion, arriving just as that plan is about to be completed", "$adventureVillain.name and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ", "An ally betrays the adventurers as they're about to achieve their goal (use this climax carefully, and don't overuse it).", "A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with $adventureVillain.name at the same time.", "Traps, hazards, or animated objects turn against the adventurers while $adventureVillain.name attacks.", "The dungeon begins to collapse while the adventurers face $adventureVillain.name, who attempts to escape in the chaos. ", "A threat more powerful than the adventurers appears, destrops $adventureVillain.name, and then turns its attention on the characters. ", "The adventurers must choose whether to pursue the fleeing $adventureVillain.name or save an NPC they care about or a group of innocents. ", "The adventurers must discover $adventureVillain.firstname's secret weakness before they can hope to defeat $adventureVillain.himher"];
@@ -13,20 +13,20 @@ setup.createAdventure = (function(base) {
       var villainActions = ["by doing one big event", "by a crime spree", "by growing corruption throughout the land", "by serial crimes", "step by step"];
       var ally = ["skilled adventurer", "inexperienced adventurer", "enthusiastic commoner", "soldier", "priest", "sage", "revenge seeker", "raving lunatic adventurer", "celestial ally", "fey ally", "disguised monster", "villain posing as an ally"];
 
-var adventure = Object.assign({
-location: location.random(),
-introduction: introduction.random(),
-climax: climax.random(),
-otherGoal: otherGoal.random(),
-backdrop: backdrop.random(),
-quandary: quandary.random(),
-twist: twist.random(),
-sidequest: sidequest.random(),
-patron: patron.random(),
-villain: villain.random(),
-villainActions: villainActions.random(),
-ally: ally.random(),
-}, base);
+      var adventure = Object.assign({
+          location: location.random(),
+          introduction: introduction.random(),
+          climax: climax.random(),
+          otherGoal: otherGoal.random(),
+          backdrop: backdrop.random(),
+          quandary: quandary.random(),
+          twist: twist.random(),
+          sidequest: sidequest.random(),
+          patron: patron.random(),
+          villain: villain.random(),
+          villainActions: villainActions.random(),
+          ally: ally.random(),
+      }, base);
   /*var adventure = Object.assign({
       location: ["dungeon", "wilderness", "other"].random(),
       introduction: ["While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.", "While traveling in the wilderness, the characters notice the entrance to the adventure location.", "While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.", "The adventurers find a map on a dead body. In addition to the map setting up the adventure, the $adventureVillain.name wants the map.", "A mysterious magic item (or $adventureVillain.name) teleports the characters to the adventure location.", "A stranger approaches the characters in a tavern and urges them toward the adventure location.", "$town.name needs volunteers to go to the adventure location.", "An NPC the characters care about needs them to go to the adventure location.", "An NPC the characters must obey orders them to go to the adventure location.", "An NPC the characters respect asks them to go to the adventure location.", "One night, the characters all dream about entering the adventure location.", "A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location."].random(),
