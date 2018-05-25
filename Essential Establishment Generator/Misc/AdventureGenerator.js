@@ -232,74 +232,74 @@ switch (adventure.ally) {
 
 switch (adventure.patron) {
     case "retired adventurer":
-    var adventurePatron = setup.createNPC({adventure: "retired"});
+      var adventurePatron = setup.createNPC({adventure: "retired"});
+        variables().adventurePatron = Patron;
+          Object.assign(adventure, {
+              adventurePatron: adventurePatron,
+         });
+         break;
+    case "local ruler":
+      var adventurePatron = setup.createNPC({dndclass: "lord"});
       variables().adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
-       });
-       break;
-    case "local ruler":
-    var adventurePatron = setup.createNPC({dndclass: "lord"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+         });
+         break;
     case "military officer":
-    var adventurePatron = setup.createNPC({dndclass: either("fighter", "paladin"), background: "soldier"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({dndclass: either("fighter", "paladin"), background: "soldier"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     case "temple official":
-    var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     case "sage":
-    var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     case "respected elder":
-    var adventurePatron = setup.createNPC({age: "venerable"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({age: "venerable"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     case "deity or celestial":
-    var adventurePatron = setup.createNPC({race: "celestial being"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({race: "celestial being"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     case "mysterious fey":
-    var adventurePatron = setup.createNPC({race: "fey"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({race: "fey"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     case "former teacher":
-    var adventurePatron = setup.createNPC({age: "venerable"});
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
-       break;
+      var adventurePatron = setup.createNPC({age: "venerable"});
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
+         break;
     default:
-    var adventurePatron = setup.createNPC();
-    variables().adventurePatron = Patron;
-      Object.assign(adventure, {
-          adventurePatron: adventurePatron,
-       });
+      var adventurePatron = setup.createNPC();
+      variables().adventurePatron = Patron;
+        Object.assign(adventure, {
+            adventurePatron: adventurePatron,
+         });
 }
     return adventure;
 }}
