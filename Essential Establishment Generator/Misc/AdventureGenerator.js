@@ -303,3 +303,4 @@ switch (adventure.patron) {
 }
     return adventure;
 }
+}
