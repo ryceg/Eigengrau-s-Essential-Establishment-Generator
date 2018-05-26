@@ -17,25 +17,25 @@
 <<switch $adventure.goal>>
     <<case "rescue a captive.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "rescue $adventureGoalNPC.name, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue $<<profile adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
     <<case "discover the fate of a previous adventuring party.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "discover the fate of $adventureGoalNPC.name and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
+        <<set $adventure.goal to "discover the fate of $<<profile adventureGoalNPC>> and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
     <<case "find an npc who disappeared in the area.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "find $adventureGoalNPC.name, a $adventureGoalNPC.racenote who disappeared in the area.">>
+        <<set $adventure.goal to "find $<<profile adventureGoalNPC>>, a $adventureGoalNPC.racenote who disappeared in the area.">>
     <<case "escort an npc to a destination.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "escort $adventureGoalNPC.name, a $adventureGoalNPC.racenote who needs protection on the way to another place.">>
+        <<set $adventure.goal to "escort $<<profile adventureGoalNPC>>, a $adventureGoalNPC.racenote who needs protection on the way to another place.">>
     <<case "discover the fate of a missing group of explorers.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "discover the fate of $adventureGoalNPC.name and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
+        <<set $adventure.goal to "discover the fate of $<<profile adventureGoalNPC>> and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "rescue $adventureGoalNPC.name, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue $<<profile adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
-        <<set $adventure.goal to "rescue $adventureGoalNPC.name, a $adventureGoalNPC.racenote who was caught in a natural disaster.">>
+        <<set $adventure.goal to "rescue $<<profile adventureGoalNPC>>, a $adventureGoalNPC.racenote who was caught in a natural disaster.">>
 <</switch>>
 
 <<set $adventure.villain to either(["beast or monstrosity with no particular agenda", "terrible aberration bent on corruption or domination", "fiend bent on corruption or destruction", "dragon bent on domination and plunder", "giant bent on plunder", "horrible undead with any agenda", "fey with a mysterious goal", "humanoid cultist", "humanoid conqueror", "humanoid seeking revenge", "humanoid schemer seeking to rule", "humanoid criminal mastermind", "humanoid raider or ravager", "humanoid under a curse", "misguided humanoid zealot"])>>
@@ -152,7 +152,7 @@
 
 <<set $adventure.introduction to either(["While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.", "While traveling in the wilderness, the characters notice the entrance to the adventure location.", "While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.", "The adventurers find a map on a dead body. In addition to the map setting up the adventure, the <<profile $adventureVillain>> wants the map.", "A mysterious magic item (or <<profile $adventureVillain>>) teleports the characters to the adventure location.", "A stranger approaches the characters in a tavern and urges them toward the adventure location.", "$town.name needs volunteers to go to the adventure location.", "An NPC the characters care about needs them to go to the adventure location.", "An NPC the characters must obey orders them to go to the adventure location.", "An NPC the characters respect asks them to go to the adventure location.", "One night, the characters all dream about entering the adventure location.", "A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location."])>>
 
-<<set $adventure.climax to either(["The adventurers confront <<profile $adventureVillain>> and a group of minions in a bloody battle to the finish.", "The adventurers chase <<profile $adventureVillain>> while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventureVillain.firstname's refuge", "The actions of the adventurers or $adventureVillain.firstname result in a cataclysmic even that the adventurers must escape", "The adventurers race to the site where <<profile $adventureVillain>> is bringing a master plan to its conclusion, arriving just as that plan is about to be completed", "<<profile $adventureVillain>> and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ", "An ally betrays the adventurers as they're about to achieve their goal (use this climax carefully, and don't overuse it).", "A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with <<profile $adventureVillain>> at the same time.", "Traps, hazards, or animated objects turn against the adventurers while <<profile $adventureVillain>> attacks.", "The dungeon begins to collapse while the adventurers face <<profile $adventureVillain>>, who attempts to escape in the chaos. ", "A threat more powerful than the adventurers appears, destrops <<profile $adventureVillain>>, and then turns its attention on the characters. ", "The adventurers must choose whether to pursue the fleeing <<profile $adventureVillain>> or save an NPC they care about or a group of innocents. ", "The adventurers must discover $adventureVillain.firstname's secret weakness before they can hope to defeat $adventureVillain.himher"])>>
+<<set $adventure.climax to either(["The adventurers confront <<profile $adventureVillain>> and a group of minions in a bloody battle to the finish.", "The adventurers chase <<profile $adventureVillain>> while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventureVillain.firstname's refuge", "The actions of the adventurers or $adventureVillain.firstname result in a cataclysmic even that the adventurers must escape", "The adventurers race to the site where <<profile $adventureVillain>> is bringing a master plan to its conclusion, arriving just as that plan is about to be completed", "<<profile $adventureVillain>> and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ", "An ally betrays the adventurers as they're about to achieve their goal (use this climax carefully, and don't overuse it).", "A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with <<profile $adventureVillain>> at the same time.", "Traps, hazards, or animated objects turn against the adventurers while <<profile $adventureVillain>> attacks.", "The dungeon begins to collapse while the adventurers face <<profile $adventureVillain>>, who attempts to escape in the chaos. ", "A threat more powerful than the adventurers appears, destroys <<profile $adventureVillain>>, and then turns its attention on the characters. ", "The adventurers must choose whether to pursue the fleeing <<profile $adventureVillain>> or save an NPC they care about or a group of innocents. ", "The adventurers must discover $adventureVillain.firstname's secret weakness before they can hope to defeat $adventureVillain.himher"])>>
 
 
 
