@@ -1,0 +1,7 @@
+:: NPCProfile
+
+$currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes. The most notable physical trait of $currentNPC.firstname is $currentNPC.hisher $currentNPC.physicaltrait.
+
+$currentNPC.firstname is a $currentNPC.dndclass. <<print $currentNPC.hisher.toUpperFirst()>> background is $currentNPC.background. "$currentNPC.backgroundOrigin. $currentNPC.dndclassOrigin. That's how I became a $currentNPC.dndclass. $currentNPC.bond"
+
+<<return [Return]>>

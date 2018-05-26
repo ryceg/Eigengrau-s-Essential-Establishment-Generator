@@ -11,7 +11,7 @@ setup.createAdventure = (function(base) {
       var patron = ["retired adventurer", "local ruler", "military officer", "temple official", "sage", "respected elder", "deity or celestial", "mysterious fey", "old friend", "former teacher", "parent or other family member", "desperate commoner", "embattled merchant", "villain posing as a patron"];
       var villain = ["beast or monstrosity with no particular agenda", "terrible aberration bent on corruption or domination", "fiend bent on corruption or destruction", "dragon bent on domination and plunder", "giant bent on plunder", "horrible undead with any agenda", "fey with a mysterious goal", "humanoid cultist", "humanoid conqueror", "humanoid seeking revenge", "humanoid schemer seeking to rule", "humanoid criminal mastermind", "humanoid raider or ravager", "humanoid under a curse", "misguided humanoid zealot"];
       var villainActions = ["by doing one big event", "by a crime spree", "by growing corruption throughout the land", "by serial crimes", "step by step"];
-      var ally = ["skilled adventurer", "inexperienced adventurer", "enthusiastic commoner", "soldier", "priest", "sage", "revenge seeker", "raving lunatic adventurer", "celestial ally", "fey ally", "disguised monster", "villain posing as an ally"];
+      var allyDescription = ["skilled adventurer", "inexperienced adventurer", "enthusiastic commoner", "soldier", "priest", "sage", "revenge seeker", "raving lunatic adventurer", "celestial ally", "fey ally", "disguised monster", "villain posing as an ally"];
 
       var adventure = Object.assign({
           location: location.random(),
@@ -25,7 +25,7 @@ setup.createAdventure = (function(base) {
           patron: patron.random(),
           villain: villain.random(),
           villainActions: villainActions.random(),
-          ally: ally.random(),
+          allyDescription: allyDescription.random(),
       }, base);
   /*var adventure = Object.assign({
       location: ["dungeon", "wilderness", "other"].random(),

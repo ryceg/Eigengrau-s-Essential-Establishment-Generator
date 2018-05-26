@@ -44,22 +44,8 @@
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
-<<nobr>><<widget "heshe">>
-<<switch $args.gender>>
-	<<case "man">>
-		<<set $args.heshe to "he">>
-		<<set $args.himher to "him">>
-		<<set $args.hisher to "his">>
-		<<set $args.boygirl to "boy">>
-		<<set $args.manwoman to "man">>
-		<<set $args.menwomen to "men">>
-		<<set $args.guygirl to "guy">>
-	<<case "woman">>
-		<<set $args.heshe to "she">>
-		<<set $args.himher to "her">>
-		<<set $args.hisher to "her">>
-		<<set $args.boygirl to "girl">>
-		<<set $args.manwoman to "woman">>
-		<<set $args.menwomen to "women">>
-		<<set $args.guygirl to "girl">>
-<</switch>><</widget>><</nobr>>
+
+<<widget "profile">><<silently>>
+
+<</silently>>
+<</widget>>
