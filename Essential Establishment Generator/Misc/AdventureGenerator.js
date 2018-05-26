@@ -114,21 +114,21 @@ switch (adventure.goal) {
 switch (adventure.villain) {
   case "giant bent on plunder":
           var adventureVillain = setup.createNPC({height: "huge", race: "giant"});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
           break;
   case "fey with a mysterious goal":
           var adventureVillain = setup.createNPC({race: "fey"});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
           break;
   case "humanoid cultist":
           var adventureVillain = setup.createNPC({dndclass: either("cleric", "sorcerer", "wizard")});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "cultist called " + adventureVillain.name,
@@ -136,7 +136,7 @@ switch (adventure.villain) {
           break;
   case "humanoid conqueror":
           var adventureVillain = setup.createNPC({dndclass: either("barbarian", "fighter", "paladin")});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "fearsome conqueror called " + adventureVillain.name,
@@ -144,7 +144,7 @@ switch (adventure.villain) {
           break;
   case "humanoid seeking revenge":
           var adventureVillain = setup.createNPC();
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: adventureVillain.racenote + " called " + adventureVillain.name + " hellbent on revenge.",
@@ -152,7 +152,7 @@ switch (adventure.villain) {
           break;
   case "humanoid schemer seeking to rule":
           var adventureVillain = setup.createNPC({dndclass: either("sorcerer", "rogue")});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "conniving" + adventureVillain.racenote + "called " + adventureVillain.name + " who seeks power",
@@ -160,7 +160,7 @@ switch (adventure.villain) {
           break;
   case "humanoid criminal mastermind":
           var adventureVillain = setup.createNPC({dndclass: either("sorcerer", "rogue")});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "conniving" + adventureVillain.racenote + "called " + adventureVillain.name + " who seeks to build a criminal empire",
@@ -168,7 +168,7 @@ switch (adventure.villain) {
           break;
   case "humanoid raider or ravager":
           var adventureVillain = setup.createNPC({dndclass: either("barbarian", "fighter")});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "fearsome raider called " + adventureVillain.name,
@@ -176,7 +176,7 @@ switch (adventure.villain) {
           break;
   case "humanoid under a curse":
           var adventureVillain = setup.createNPC();
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: adventureVillain.racenote + " called " + adventureVillain.name + " who was placed under a curse"
@@ -184,7 +184,7 @@ switch (adventure.villain) {
           break;
   case "misguided humanoid zealot":
           var adventureVillain = setup.createNPC({dndclass: "cleric"});
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "misguided" + adventureVillain.racenote + "zealot called " + adventureVillain.name,
@@ -192,7 +192,7 @@ switch (adventure.villain) {
           break;
   default:
           var adventureVillain = setup.createNPC();
-          State.variables.adventureVillain = Villain;
+          State.variables.adventureVillain = villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
