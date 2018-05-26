@@ -177,4 +177,5 @@
         <<case "discover the fate of a missing npc.">>
             <<set $adventureSidequestNPC to setup.createNPC()>>
             <<set $adventure.sidequest to "discover the fate of <<profile $adventureSidequestNPC>>, who went missing in the area.">>
+    <</switch>>
 <</nobr>>
