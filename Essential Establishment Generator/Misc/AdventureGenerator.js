@@ -56,7 +56,7 @@ switch (adventure.location) {
 switch (adventure.goal) {
   case "rescue a captive.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "rescue " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who was captured and taken prisoner.",
@@ -64,7 +64,7 @@ switch (adventure.goal) {
           break;
   case "discover the fate of a previous adventuring party.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "rescue " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who was captured and taken prisoner.",
@@ -72,7 +72,7 @@ switch (adventure.goal) {
           break;
   case "find an npc who disappeared in the area.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "find " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who disappeared in the area.",
@@ -80,7 +80,7 @@ switch (adventure.goal) {
           break;
   case "escort an npc to a destination.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "escort " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who needs protection on the way to another place.",
@@ -88,7 +88,7 @@ switch (adventure.goal) {
           break;
   case "discover the fate of a missing group of explorers.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "discover the fate of " + adventureGoalNPC.name + " and " + adventureGoalNPC.hisher + " exploring party, who disappeared in the area.",
@@ -96,7 +96,7 @@ switch (adventure.goal) {
           break;
   case "break a prisoner out of a jail or prison camp.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "rescue " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who was captured and taken prisoner.",
@@ -104,7 +104,7 @@ switch (adventure.goal) {
           break;
   case "rescue a character, monster, or object from a natural or unnatural disaster.":
           var adventureGoalNPC = setup.createNPC();
-          variables().adventureGoalNPC = goalNPC;
+          State.variables.adventureGoalNPC = goalNPC;
           Object.assign(adventure, {
               goalNPC: goalNPC,
               goal: "rescue " + adventureGoalNPC.name + ", a " + adventureGoalNPC.racenote + " who was caught in a natural disaster.",
@@ -114,21 +114,21 @@ switch (adventure.goal) {
 switch (adventure.villain) {
   case "giant bent on plunder":
           var adventureVillain = setup.createNPC({height: "huge", race: "giant"});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
           break;
   case "fey with a mysterious goal":
           var adventureVillain = setup.createNPC({race: "fey"});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
           break;
   case "humanoid cultist":
           var adventureVillain = setup.createNPC({dndclass: either("cleric", "sorcerer", "wizard")});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "cultist called " + adventureVillain.name,
@@ -136,7 +136,7 @@ switch (adventure.villain) {
           break;
   case "humanoid conqueror":
           var adventureVillain = setup.createNPC({dndclass: either("barbarian", "fighter", "paladin")});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "fearsome conqueror called " + adventureVillain.name,
@@ -144,7 +144,7 @@ switch (adventure.villain) {
           break;
   case "humanoid seeking revenge":
           var adventureVillain = setup.createNPC();
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: adventureVillain.racenote + " called " + adventureVillain.name + " hellbent on revenge.",
@@ -152,7 +152,7 @@ switch (adventure.villain) {
           break;
   case "humanoid schemer seeking to rule":
           var adventureVillain = setup.createNPC({dndclass: either("sorcerer", "rogue")});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "conniving" + adventureVillain.racenote + "called " + adventureVillain.name + " who seeks power",
@@ -160,7 +160,7 @@ switch (adventure.villain) {
           break;
   case "humanoid criminal mastermind":
           var adventureVillain = setup.createNPC({dndclass: either("sorcerer", "rogue")});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "conniving" + adventureVillain.racenote + "called " + adventureVillain.name + " who seeks to build a criminal empire",
@@ -168,7 +168,7 @@ switch (adventure.villain) {
           break;
   case "humanoid raider or ravager":
           var adventureVillain = setup.createNPC({dndclass: either("barbarian", "fighter")});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "fearsome raider called " + adventureVillain.name,
@@ -176,7 +176,7 @@ switch (adventure.villain) {
           break;
   case "humanoid under a curse":
           var adventureVillain = setup.createNPC();
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: adventureVillain.racenote + " called " + adventureVillain.name + " who was placed under a curse"
@@ -184,7 +184,7 @@ switch (adventure.villain) {
           break;
   case "misguided humanoid zealot":
           var adventureVillain = setup.createNPC({dndclass: "cleric"});
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
                 villain: "misguided" + adventureVillain.racenote + "zealot called " + adventureVillain.name,
@@ -192,139 +192,139 @@ switch (adventure.villain) {
           break;
   default:
           var adventureVillain = setup.createNPC();
-          variables().adventureVillain = Villain;
+          State.variables.adventureVillain = Villain;
           Object.assign(adventure, {
                 adventureVillain: adventureVillain,
           });
 
 
 switch (adventure.ally) {
-    case "young adventurer":
-    var adventureAlly = setup.createNPC({age: "relatively young"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-         adventureAlly: adventureAlly,
-       });
-       break;
-    case "enthusiastic commoner":
-    var adventureAlly = setup.createNPC({dndclass: "peasant"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-         adventureAlly: adventureAlly,
-       });
-       break;
-    case "soldier":
-    var adventureAlly = setup.createNPC({dndclass: "fighter", background: "soldier"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-         adventureAlly: adventureAlly,
-       });
-       break;
-    case "priest":
-    var adventureAlly = setup.createNPC({dndclass: "cleric"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-           adventureAlly: adventureAlly,
-       });
-       break;
-    case "sage":
-    var adventureAlly = setup.createNPC({dndclass: either("cleric", "monk", "druid", "wizard"), background: "sage"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-           adventureAlly: adventureAlly,
-       });
-       break;
-    case "celestial ally":
-    var adventureAlly = setup.createNPC({race: "celestial being"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-           adventureAlly: adventureAlly,
-       });
-       break;
-    case "fey ally":
-    var adventureAlly = setup.createNPC({race: "fey"});
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-           adventureAlly: adventureAlly,
-       });
-       break;
-    default:
-    var adventureAlly = setup.createNPC();
-    variables().adventureAlly = Ally;
-      Object.assign(adventure, {
-           adventureAlly: adventureAlly,
-       });
-       break;
+          case "young adventurer":
+          var adventureAlly = setup.createNPC({age: "relatively young"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+               adventureAlly: adventureAlly,
+             });
+             break;
+          case "enthusiastic commoner":
+          var adventureAlly = setup.createNPC({dndclass: "peasant"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+               adventureAlly: adventureAlly,
+             });
+             break;
+          case "soldier":
+          var adventureAlly = setup.createNPC({dndclass: "fighter", background: "soldier"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+               adventureAlly: adventureAlly,
+             });
+             break;
+          case "priest":
+          var adventureAlly = setup.createNPC({dndclass: "cleric"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+                 adventureAlly: adventureAlly,
+             });
+             break;
+          case "sage":
+          var adventureAlly = setup.createNPC({dndclass: either("cleric", "monk", "druid", "wizard"), background: "sage"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+                 adventureAlly: adventureAlly,
+             });
+             break;
+          case "celestial ally":
+          var adventureAlly = setup.createNPC({race: "celestial being"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+                 adventureAlly: adventureAlly,
+             });
+             break;
+          case "fey ally":
+          var adventureAlly = setup.createNPC({race: "fey"});
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+                 adventureAlly: adventureAlly,
+             });
+             break;
+          default:
+          var adventureAlly = setup.createNPC();
+          State.variables.adventureAlly = Ally;
+            Object.assign(adventure, {
+                 adventureAlly: adventureAlly,
+             });
+             break;
  };
 
 
 switch (adventure.patron) {
     case "retired adventurer":
       var adventurePatron = setup.createNPC({adventure: "retired"});
-        variables().adventurePatron = Patron;
+        State.variables.adventurePatron = Patron;
           Object.assign(adventure, {
               adventurePatron: adventurePatron,
          });
          break;
     case "local ruler":
       var adventurePatron = setup.createNPC({dndclass: "lord"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "military officer":
       var adventurePatron = setup.createNPC({dndclass: either("fighter", "paladin"), background: "soldier"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "temple official":
       var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "sage":
       var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "respected elder":
       var adventurePatron = setup.createNPC({age: "venerable"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "deity or celestial":
       var adventurePatron = setup.createNPC({race: "celestial being"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "mysterious fey":
       var adventurePatron = setup.createNPC({race: "fey"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     case "former teacher":
       var adventurePatron = setup.createNPC({age: "venerable"});
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
          break;
     default:
       var adventurePatron = setup.createNPC();
-      variables().adventurePatron = Patron;
+      State.variables.adventurePatron = Patron;
         Object.assign(adventure, {
             adventurePatron: adventurePatron,
          });
