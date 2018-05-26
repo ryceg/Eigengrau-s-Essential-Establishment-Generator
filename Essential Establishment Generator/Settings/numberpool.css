@@ -28,10 +28,10 @@ div[id|="numberbox-body"] button[id|="numberbox-plus"] {
 }
 
 div[id|="numberslider-body"] {
-	display: inline-block;
+	display: inline;
 }
 div[id|="numberslider-body"] span {
-	display: inline-block;
+	display: inline;
 	/*font-size: 1.25em;*/
 	margin-left: 0.25em;
 	min-width: 3em;
