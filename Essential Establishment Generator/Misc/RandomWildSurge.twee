@@ -1,0 +1,11 @@
+:: RandomWildSurge
+
+<<nobr>><<linkreplace "<h4>Create a wild surge!</h4>">>
+<<set $surge to surge()>>
+    <<replace "#surge">>
+          $surge
+    <</replace>><<link "<h4>Another wild surge!</h4>">><<set $surge to surge()>>
+        <<replace "#surge">>
+              $surge<</replace>><</link>>
+<</linkreplace>>
+<span id="surge"></span><</nobr>>
