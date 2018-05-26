@@ -45,4 +45,4 @@
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
 
-<<widget "profile">><<silently>><<link "$args.name">><<set $currentNPC to $args>><<goto "NPCProfile">><</link>><</silently>><</widget>>
+<<widget "profile">><<link "$args.name">><<set $currentNPC to $args>><<goto "NPCProfile">><</link>><</widget>>
