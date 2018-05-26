@@ -167,4 +167,14 @@
 <<set $adventure.twist to either(["The adventurers are racing against other creatures with the same or opposite goal.", "The adventurers become responsible for the safety of a noncombatant NPC.", "The adventurers are prohibited from killing <<profile $adventureVillain>>, but $adventureVillain.heshe has no compunctions about killing them.", "The adventurers have a time limit.", "The adventurers have received false or extraneous information.", "Completing an adventure goal fulfills a prophecy or prevents the fulfillment of a prophecy.", "The adventurers have two different goals, but they can complete only one.", "Completing the goal secretly helps <<profile $adventureVillain>>.", "The adventurers must cooperate with a known enemy to achieve the goal.", "The adventurers are under magical compulsion (such as a geas spell) to complete their goal"])>>
 
 <<set $adventure.sidequest to either(["find a specific item rumored to be in the area.", "retrieve a stolen item in $adventureVillain.firstname's possession.", "receive information from an npc in the area.", "rescue a captive.", "discover the fate of a missing npc.", "slay a specific monster.", "discover the nature and origin of a strange phenomenon in the area.", "secure the aid of a character or creature in the area."])>>
+    <<switch $adventure.sidequest>>
+        <<case "receive information from an npc in the area.">>
+            <<set $adventureSidequestNPC to setup.createNPC()>>
+            <<set $adventure.sidequest to "receive information from <<profile $adventureSidequestNPC>> who is in the area.">>
+        <<case "rescue a captive.">>
+            <<set $adventureSidequestNPC to setup.createNPC()>>
+            <<set $adventure.sidequest to "rescue <<profile $adventureSidequestNPC>>, who is being held captive.">>
+        <<case "discover the fate of a missing npc.">>
+            <<set $adventureSidequestNPC to setup.createNPC()>>
+            <<set $adventure.sidequest to "discover the fate of <<profile $adventureSidequestNPC>>, who went missing in the area.">>
 <</nobr>>
