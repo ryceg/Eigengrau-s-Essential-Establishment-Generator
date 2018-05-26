@@ -7,4 +7,4 @@ $currentNPC.firstname $currentNPC.trait. When $currentNPC.heshe is relaxed, $cur
 $currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets.
 
 <div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div>
-<<link "Return">><<unset $currentNPC>><<back>><</link>>
+<<link "Return">><<back>><<unset $currentNPC>><</link>>
