@@ -1,11 +1,13 @@
 
 :: Changelog
-v.1.1.6
+v.1.2
 - Added the Patreon supporter Jasher Drake's halfling warlock <<linkappend "Tylien Birchbottom">>; captured by cultists as a young lad, he was almost sacrificed to 'The Beast of Shadows', but was rescued at the last minute. After his ordeal, Tylien found himself speaking in tongues and forgetting things. As his memory decayed, he discovered magical powers that he never had before... He now seeks to uncover the mystery of what happened, and what the beast that was summoned is. You might encounter him behind $tavern.name's bar!<</linkappend>>
 - Added an option in the sidebar called 'Toolkit'- a collection of random generators.
-- Added a random adventure generator (found in the toolbox)
+		- Added a random adventure generator (found in the toolbox)
 - Added town landmarks.
-- Added the ability to skip sliders
+- Added town current events.
+- Minor CSS changes to try and make things a little bit more bearable while I learn how to do CSS properly...
+- Added the ability to skip the sliders stage
 v.1.1.5
 - Added background origins
 - Minor bug fixes with potions
