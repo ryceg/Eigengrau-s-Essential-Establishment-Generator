@@ -46,6 +46,7 @@ setup.createNPC = function(base) {
                 boygirl: "boy",
                 manwoman: "man",
                 menwomen: "men",
+                malefemale: "male",
                 guygirl: "guy",
             });
             break;
@@ -59,6 +60,7 @@ setup.createNPC = function(base) {
                 boygirl: "girl",
                 manwoman: "woman",
                 menwomen: "women",
+                malefemale: "female",
                 guygirl: "girl",
             });
             break;
