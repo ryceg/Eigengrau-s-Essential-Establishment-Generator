@@ -1,5 +1,9 @@
 /*! <<numberpool>> macro set for SugarCube v2 */
 
+input[type=text] {
+    min-width: auto;
+}
+
 div[id|="numberbox-body"] {
 	display: inline-block;
 }
@@ -42,7 +46,8 @@ div[id|="numberslider-body"] input {
 	-webkit-appearance: none;
 	cursor: pointer;
 	height: 1.25em;
-	min-width: 65vw;
+	min-width: 60vw;
+	width: auto;
 	vertical-align: middle;
 }
 div[id|="numberslider-body"] input:focus {
