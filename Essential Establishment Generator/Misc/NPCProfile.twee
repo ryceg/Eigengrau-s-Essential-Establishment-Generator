@@ -2,9 +2,9 @@
 <h1>$currentNPC.name</h1>
 $currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes, with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstname is that $currentNPC.heshe has a $currentNPC.physicaltrait.
 
-When $currentNPC.firstname is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait. <<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.trait.
+$currentNPC.firstname $currentNPC.trait. When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait. 
 
-$currentNPC.firstname is a $currentNPC.dndclass. <<print $currentNPC.hisher.toUpperFirst()>> background is $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets.
+$currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets.
 
 <div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div>
 <<return [Return]>>
