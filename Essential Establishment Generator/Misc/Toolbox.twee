@@ -4,3 +4,16 @@
 <<include "RandomPotion">>
 <<include "RandomRing">>
 <<include "RandomAdventure">>
+
+<<nobr>><<linkreplace "<h4>Look at the ring!</h4>">>
+<<set $surge to surge()>>
+    <<replace "#ring">>
+          $surge
+    <</replace>><<link "<h4>Look at another ring</h4>">><<set $surge to surge()>>
+        <<replace "#ring">>
+              $surge<</replace>><</link>>
+<</linkreplace>>
+<span id="ring"></span><</nobr>>
+
+
+<<link "Wild Surge>>">>$surge<</link>>
