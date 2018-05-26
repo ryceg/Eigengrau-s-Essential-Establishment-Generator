@@ -338,7 +338,7 @@ setup.createNPC = function(base) {
                 "Someone I loved died because of a mistake I made. That will never happen again."].random();
             break;
         case "entertainer":
-            npc.backgroundOrigin = npc.backgroundOrigin || ["Members ofmy family made ends meet by per- forming, so it was fitting for me to follow their example", "I always had a keen insight into what made other people laugh and cry. A life as an entertainer seemed to be the natural continuation of that.", "I saw a bard perform once, and it inspired me so much that I decided to follow in his footsteps.", "I ran away from home to join a minstrel troupe.", "I earned extra coin by performing on the streets as a child, and I never seemed to stop.", "A traveling entertainer took me in to teach me the trade, and I learned to love it."].random();
+            npc.backgroundOrigin = npc.backgroundOrigin || ["Members of my family made ends meet by performing, so it was fitting for me to follow their example", "I always had a keen insight into what made other people laugh and cry. A life as an entertainer seemed to be the natural continuation of that.", "I saw a bard perform once, and it inspired me so much that I decided to follow in his footsteps.", "I ran away from home to join a minstrel troupe.", "I earned extra coin by performing on the streets as a child, and I never seemed to stop.", "A traveling entertainer took me in to teach me the trade, and I learned to love it."].random();
             npc.bond = npc.bond || ["My instrument is my most treasured possession, and it reminds me of someone I love.",
                 "Someone stole my precious instrument, and someday I'll get it back.",
                 "I want to be famous, whatever it takes.",
