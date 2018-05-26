@@ -1,14 +1,14 @@
 :: RandomAdventure
 <<nobr>><<linkreplace "<h4>Generate an adventure!</h4>">>
-<<set $adventure to setup.createAdventure()>>
+/*<<set $adventure to setup.createAdventure()>>*/
     <<replace "#adventure">>
           <blockquote>
             <h3>Campaign</h3>
-            The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist</blockquote>
+            The players must <<print either($adventure.goal)>> Their patron, a <<print either($adventure.patron)>> called <<print either($adventurePatron.name)>>, has also requested that they <<print either($adventure.sidequest)>> Acting against the party's interests is a <<print either($adventure.villain)>>, who will accomplish <<print either($adventureVillain.hisher)>> goal <<print either($adventure.villainActions)>>. The adventurers are aided by a <<print either($adventure.ally)>>, <<print either($adventureAlly.name)>>. They do this on the backdrop of a <<print either($adventure.backdrop)>>. <<print either($adventure.introduction)>> <<print either($adventure.climax)>> <<print either($adventure.twist)>></blockquote>
     <</replace>><<link "<h4>Try another adventure!</h4>">><<set $adventure to setup.createAdventure()>>
         <<replace "#adventure">>
               <blockquote>
                 <h3>Another campaign</h3>
-                The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist</blockquote><</replace>><</link>>
+                The players must <<print either($adventure.goal)>> Their patron, a <<print either($adventure.patron)>> called <<print either($adventurePatron.name)>>, has also requested that they <<print either($adventure.sidequest)>> Acting against the party's interests is a <<print either($adventure.villain)>>, who will accomplish <<print either($adventureVillain.hisher)>> goal <<print either($adventure.villainActions)>>. The adventurers are aided by a <<print either($adventure.ally)>>, <<print either($adventureAlly.name)>>. They do this on the backdrop of a <<print either($adventure.backdrop)>>. <<print either($adventure.introduction)>> <<print either($adventure.climax)>> <<print either($adventure.twist)>></blockquote><</replace>><</link>>
 <</linkreplace>>
 <span id="adventure"></span><</nobr>>
