@@ -1,5 +1,5 @@
 :: AdventureGenerator
-
+<<nobr>>
 /*The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain called $adventureVillain.name, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist*/
 <<unset $adventure>>
 <<set $adventure to {}>>
@@ -167,3 +167,4 @@
 <<set $adventure.twist to either(["The adventurers are racing against other creatures with the same or opposite goal.", "The adventurers become responsible for the safety of a noncombatant NPC.", "The adventurers are prohibited from killing $adventureVillain.name, but $adventureVillain.heshe has no compunctions about killing them.", "The adventurers have a time limit.", "The adventurers have received false or extraneous information.", "Completing an adventure goal fulfills a prophecy or prevents the fulfillment of a prophecy.", "The adventurers have two different goals, but they can complete only one.", "Completing the goal secretly helps $adventureVillain.name.", "The adventurers must cooperate with a known enemy to achieve the goal.", "The adventurers are under magical compulsion (such as a geas spell) to complete their goal"])>>
 
 <<set $adventure.sidequest to either(["find a specific item rumored to be in the area.", "retrieve a stolen item in $adventureVillain.firstname's possession.", "receive information from an npc in the area.", "rescue a captive.", "discover the fate of a missing npc.", "slay a specific monster.", "discover the nature and origin of a strange phenomenon in the area.", "secure the aid of a character or creature in the area."])>>
+<</nobr>>
