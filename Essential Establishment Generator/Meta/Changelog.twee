@@ -1,5 +1,9 @@
 
 :: Changelog
+v.1.2.1
+- Added link to randomize town landmark.
+- Added link to refresh town.
+- Fixed broken sidebar link to suggestions.
 <<include "ChangelogCurrent">>
 v.1.1.5
 - Added background origins
