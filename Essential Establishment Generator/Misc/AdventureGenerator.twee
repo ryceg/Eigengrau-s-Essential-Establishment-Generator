@@ -91,7 +91,7 @@
     <<case "young adventurer">>
         <<set $adventureAlly to setup.createNPC({age: "relatively young"})>>
     <<case "enthusiastic commoner">>
-        <<set $adventureAlly to setup.createNPC({dndclass: "peasant", "urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner"})>>
+        <<set $adventureAlly to setup.createNPC({dndclass: either("peasant", "urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner")})>>
     <<case "soldier">>
         <<set $adventureAlly to setup.createNPC({dndclass: "fighter", background: "soldier"})>>
     <<case "priest">>
