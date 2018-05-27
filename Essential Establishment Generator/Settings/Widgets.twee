@@ -45,4 +45,19 @@
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
 
-<<widget "profile">><<set _char = $args[0]>><<capture _char>><<link _char.name "NPCProfile">><<set $currentNPC to _char>><</link>><</capture>><</widget>>
+<<widget "profile">>
+		<<set _char = $args[0]>>
+		<<set _readout = $args[1]>>
+		<<capture _char>>
+		<<capture _readout>>
+				<<if $args[1] def>>
+							<<link _readout "NPCProfile">>
+								<<set $currentNPC to _char>>
+							<</link>>
+					<<else>>
+					<<link _char.name "NPCProfile">>
+							<<set $currentNPC to _char>>
+					<</link>>
+				<</if>>
+		<</capture>>
+<</widget>>
