@@ -16,7 +16,7 @@
 
 <<switch $adventure.goal>>
     <<case "rescue a captive.">>
-        <<set $adventureGoalNPC to setup.createNPC()>>
+        <<set $adventureGoalNPC to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble")})>>
         <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
     <<case "discover the fate of a previous adventuring party.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
@@ -31,7 +31,7 @@
         <<set $adventureGoalNPC to setup.createNPC()>>
         <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
-        <<set $adventureGoalNPC to setup.createNPC()>>
+        <<set $adventureGoalNPC to setup.createNPC({"urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"})>>
         <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
@@ -91,7 +91,7 @@
     <<case "young adventurer">>
         <<set $adventureAlly to setup.createNPC({age: "relatively young"})>>
     <<case "enthusiastic commoner">>
-        <<set $adventureAlly to setup.createNPC({dndclass: "peasant"})>>
+        <<set $adventureAlly to setup.createNPC({dndclass: "peasant", "urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner"})>>
     <<case "soldier">>
         <<set $adventureAlly to setup.createNPC({dndclass: "fighter", background: "soldier"})>>
     <<case "priest">>
@@ -99,7 +99,7 @@
     <<case "sage">>
         <<set $adventureAlly to setup.createNPC({dndclass: either("cleric", "monk", "druid", "wizard"), background: "sage"})>>
     <<case "revenge seeker">>
-        <<set $adventureAlly to setup.createNPC()>>
+        <<set $adventureAlly to setup.createNPC({"urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"})>>
     <<case "raving lunatic adventurer">>
         <<set $adventureAlly to setup.createNPC()>>
     <<case "celestial ally">>
@@ -120,7 +120,7 @@
     <<case "retired adventurer">>
         <<set $adventurePatron to setup.createNPC({adventure: "retired"})>>
     <<case "local ruler">>
-        <<set $adventurePatron to setup.createNPC({dndclass: "lord"})>>
+        <<set $adventurePatron to setup.createNPC({dndclass: "lord", background: "noble"})>>
     <<case "military officer">>
         <<set $adventurePatron to setup.createNPC({dndclass: either("fighter", "paladin"), background: "soldier"})>>
     <<case "temple official">>
