@@ -12,8 +12,8 @@
 "An over-sized brute is arm-wrestling crushing the hand of everyone in sight.",
 "Some goblins are throwing dice with some animated skeletons at a table in the corner.",
 "A goblin is doing a poor job at cheating at a dice game, while a skeleton is doing an excellent job at cheating.",
-"<<set $tavernFunPatron to setup.createNPC({race: "dragonborn", height: "over seven feet tall"})>>A <<profile $tavernFunPatron "7'2 red dragonborn with a 5' bastard sword">> is having a drinking contest with a dwarf. The dragonborn has a 4-pint tankard, and is almost managing to keep pace.",
-"<<set $tavernFunPatron to setup.createNPC({dndclass: "paladin"})>> A party sits in the corner booth playing cards. All of them are cheating, except the <<profile $tavernFunPatron "paladin">>, who, curiously, is winning.",
+"A 7'2 red dragonborn with a 5' bastard sword is having a drinking contest with a dwarf. The dragonborn has a 4-pint tankard, and is almost managing to keep pace.",
+"A party sits in the corner booth playing cards. All of them are cheating, except the paladin, who, curiously, is winning.",
 "A mountain of a man in barbarian leathers is arm wrestling a small dragon and winning.",
 "An awakened Roper is winning two games of billiards at once.",
 "A group of drunken pixies is playing hide and seek by hiding behind patrons.",
@@ -30,7 +30,7 @@
 	"A stirring rendition of 'The Lady and the Faerie Dragon' has the crowd calling for an encore from the minstrels.",
 	"The lute-player catches some undergarments from the crowd and drapes them across the ridiculous horned helm he wears.",
 	"On stage tonight: The Deep Tones. A quartet of dwarves with long beards and deep voices singing a capella favorites from places without light (or proper music).",
-	"<<set $tavernEntertainmentPatron to setup.createNPC({firstname: "Shaela", lastname: "Windspeaker", race: "elf", gender: "woman", dndclass: "bard", background: either("folk hero", "entertainer", "entertainer", "entertainer", "entertainer", "commoner", "commoner", "commoner", "noble")})>> On stage tonight: <<profile $tavernEntertainmentPatron>>. An elf-maid singer-songwriter with a bit of a whiny voice who is slowly making her way through her most recent song of protest against the previous and the present centuries of war.",
+	"On stage tonight: Shaela Windspeaker. An elf-maid singer-songwriter with a bit of a whiny voice who is slowly making her way through her most recent song of protest against the previous and the present centuries of war.",
 	"A nervous show-wizard on the small stage is doing tricks with Prestidigitation for the un-amused patrons.",
 	"There is a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously."]>>
 
