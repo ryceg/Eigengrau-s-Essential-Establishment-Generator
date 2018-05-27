@@ -2,7 +2,7 @@
 <<set $marketsellerA to setup.createNPC()>>
 <<set $marketsellerB to setup.createNPC()>>
 <<set $marketsellerC to setup.createNPC()>>
-<<set $marketsellerD to setup.createNPC()>>
+<<set $marketsellerD to setup.createNPC({background: either("commoner", "commoner", "commoner", "noble")})>>
 <<set $market to {
   selling: ["ale by the pint",
 "amulets and totems",

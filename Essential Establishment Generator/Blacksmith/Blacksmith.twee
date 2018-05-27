@@ -1,7 +1,7 @@
 
 :: Blacksmith
 
-<<set $blacksmith to setup.createNPC()>>
+<<set $blacksmith to setup.createNPC({background: either("guild artisan", "guild artisan", "guild artisan", "guild artisan", "commoner", "commoner", "commoner", "commoner")})>>
 
 <<set $blacksmith.idle to ["talking with a customer", "picking $blacksmith.hisher nose", "playing a card game by $blacksmith.himherself", "sharpening a knife", "stocking the forge with fresh coals", "lugging a piece of metal to be worked on", "wiping the sweat from $blacksmith.hisher brow", "taking a drink of water", "sweating profusely from exertion"],
 	$blacksmith.owner to either(["owner", "caretaker", "proud owner", "proprietor", "current owner", "chief owner", "master smith", "resident smith"]),
