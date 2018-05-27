@@ -22,11 +22,11 @@ Show Sliders Page <<checkbox "$showSliders" false true checked>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
-$town.name is located in the $town.terrain $town.location. The nearest landmark is <<nobr>><<link "$town.landmark">><<include "TownLandmark">>
+$town.name is located in the $town.terrain $town.location. The nearest <<nobr>><<link "landmark">><<include "TownLandmark">>
     <<replace "#random">>
             $town.landmark
     <</replace>><</link>>
-<span id="random"></span><</nobr>> A population of $town.population, the denizens live a $town.wealth existence. A $town.currentEvent is currently taking place.
+is <span id="random"></span><</nobr>> A population of $town.population, the denizens live a $town.wealth existence. A $town.currentEvent is currently taking place.
 
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
