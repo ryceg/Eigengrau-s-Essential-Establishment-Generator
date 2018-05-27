@@ -4,4 +4,4 @@
     <<replace "#random">>
             $town.landmark
     <</replace>><</link>>
-is <span id="random"></span><</nobr>>
+is <span id="random">$town.landmark</span><</nobr>>
