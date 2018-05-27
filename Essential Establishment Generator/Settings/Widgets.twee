@@ -45,7 +45,7 @@
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
 
-<<widget "profile">>
+<<widget "profile">><<nobr>>
 		<<set _char = $args[0]>>
 		<<set _readout = $args[1]>>
 		<<capture _char>>
@@ -61,4 +61,4 @@
 				<</if>>
 		<</capture>>
 		<</capture>>
-<</widget>>
+<</nobr>><</widget>>
