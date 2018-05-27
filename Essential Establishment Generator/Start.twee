@@ -17,8 +17,7 @@
 <</if>>
 
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
-
-<</nobr>>
+<</nobr>><<link "refresh">><<goto "Start">><</link>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
