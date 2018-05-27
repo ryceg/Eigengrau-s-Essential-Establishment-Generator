@@ -50,7 +50,7 @@
 		<<set _readout = $args[1]>>
 		<<capture _char>>
 		<<capture _readout>>
-				<<if $args[1] def>>
+				<<if def $args[1]>>
 							<<link _readout "NPCProfile">>
 								<<set $currentNPC to _char>>
 							<</link>>
