@@ -1,6 +1,6 @@
 :: GeneralStoreOutput [GeneralStore]
 
-<h1>$GeneralStore.name</h1><span class="firstcharacter">Y</span>ou make your way down $GeneralStore.road, and enter $GeneralStore.name and see that inside, the $GeneralStore.size $GeneralStore.material building is $GeneralStore.cleanliness. The shopkeep is <<print $shopkeep.idle.random()>>. The shopkeep <<print either($shopkeep.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $shopkeep.hisher feet over")>> to you, and introduces $shopkeep.himherself as <<link "$shopkeep.name">><<set $currentNPC to $shopkeep>><<goto "NPCProfile">><</link>>, the $shopkeep.owner of the General Store, and asks what $shopkeep.heshe can do for you.
+<h1>$GeneralStore.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $GeneralStore.road, and enter $GeneralStore.name and see that inside, the $GeneralStore.size $GeneralStore.material building is $GeneralStore.cleanliness. The shopkeep is <<print $shopkeep.idle.random()>>. The shopkeep <<print either($shopkeep.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $shopkeep.hisher feet over")>> to you, and introduces $shopkeep.himherself as <<link "$shopkeep.name">><<set $currentNPC to $shopkeep>><<goto "NPCProfile">><</link>>, the $shopkeep.owner of the General Store, and asks what $shopkeep.heshe can do for you.
 
 
 <<include "GeneralStoreSell">>
