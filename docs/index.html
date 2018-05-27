@@ -2625,7 +2625,7 @@ return {
 	&lt;&lt;elseif $alchemist.cleanlinessroll lte 20&gt;&gt;
     Looking around, $alchemist.name must have had an explosion the day before; there is no other possible reason that a shop that deals with magical, often volatile chemicals would be so cluttered, crowded, and blatantly a danger to itself and the half-mile radius surrounding it. There are pots and pans of mixtures that have already spilt over crowding the desk, with potions that are currently brewing strewn around the floor. There&#39;s little hope to walk through the shop without putting your boot in something that you probably would prefer not to put it in. Just as you try and hesitate, you hear the distinct sound of &quot;no, please don&#39;t go!&quot; come from the floorboards, which at first seemed to be sticky, but on closer inspection, was more... &#39;grabby&#39;.
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-Looking into a $brew.containerDescription, you see $brew.liquidDescription bubble away.</tw-passagedata><tw-passagedata pid="4" name="AlchemistModifiers" tags="" position="475,100">&lt;&lt;nobr&gt;&gt;
+Looking into a $brew.containerDescription, you see $brew.liquidDescription simmer away.</tw-passagedata><tw-passagedata pid="4" name="AlchemistModifiers" tags="" position="475,100">&lt;&lt;nobr&gt;&gt;
 /* ------------------------- SIZE -------------------------- */
 &lt;&lt;if $alchemist.sizeroll gt 80&gt;&gt;
 		&lt;&lt;set $alchemist.size to &quot;huge&quot;&gt;&gt;
@@ -4052,15 +4052,11 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
 		&lt;&lt;set $smithy.name to $smithy.adjective + &quot; &quot; + $smithy.noun&gt;&gt;
 &lt;&lt;default&gt;&gt;
     &lt;&lt;set $smithy.name to &quot;The &quot; + $smithy.adjective + &quot; Smithy&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="SmithyOutput" tags="smithy" position="225,350">&lt;h1&gt;$smithy.name&lt;/h1&gt;You make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is &lt;&lt;print $blacksmith.idle.random()&gt;&gt;. The blacksmith &lt;&lt;print either($blacksmith.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $blacksmith.hisher feet over&quot;)&gt;&gt; to you, and introduces $blacksmith.himherself as &lt;&lt;link &quot;$blacksmith.name&quot;&gt;&gt;&lt;&lt;set $currentNPC to $blacksmith&gt;&gt;&lt;&lt;goto &quot;NPCProfile&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
+&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="SmithyOutput" tags="smithy" position="225,350">&lt;h1&gt;$smithy.name&lt;/h1&gt;&lt;&lt;include &quot;TownMicroEventsOutput&quot;&gt;&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is &lt;&lt;print $blacksmith.idle.random()&gt;&gt;. The blacksmith &lt;&lt;print either($blacksmith.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $blacksmith.hisher feet over&quot;)&gt;&gt; to you, and introduces $blacksmith.himherself as &lt;&lt;link &quot;$blacksmith.name&quot;&gt;&gt;&lt;&lt;set $currentNPC to $blacksmith&gt;&gt;&lt;&lt;goto &quot;NPCProfile&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
 
 &lt;&lt;include &quot;SmithyLookAround&quot;&gt;&gt;
-
-
 &lt;&lt;include &quot;BlacksmithTalk&quot;&gt;&gt;
-
 &lt;&lt;include &quot;SmithySell&quot;&gt;&gt;
-
 &lt;&lt;linkreplace &quot;&lt;h4&gt;Talk with a customer&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;&lt;include &quot;SmithyCustomers&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="SmithyRenders" tags="render" position="350,350">/* ------------------------- SIZE -------------------------- */
 &lt;&lt;set _warmthroll to random(1, 100)&gt;&gt;
 &lt;&lt;if $smithy.sizeroll gt 80&gt;&gt;
@@ -4497,7 +4493,7 @@ When you&#39;re ready, here&#39;s the [[smithy|SmithyOutput]]
 		&lt;&lt;set $GeneralStore.name to $GeneralStore.adjective + &quot; &quot; + $GeneralStore.noun&gt;&gt;
 &lt;&lt;default&gt;&gt;
     &lt;&lt;set $GeneralStore.name to &quot;The &quot; + $GeneralStore.adjective + &quot; Adventurer&#39;s Store&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="GeneralStoreOutput" tags="GeneralStore" position="1100,350">&lt;h1&gt;$GeneralStore.name&lt;/h1&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $GeneralStore.road, and enter $GeneralStore.name and see that inside, the $GeneralStore.size $GeneralStore.material building is $GeneralStore.cleanliness. The shopkeep is &lt;&lt;print $shopkeep.idle.random()&gt;&gt;. The shopkeep &lt;&lt;print either($shopkeep.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $shopkeep.hisher feet over&quot;)&gt;&gt; to you, and introduces $shopkeep.himherself as &lt;&lt;link &quot;$shopkeep.name&quot;&gt;&gt;&lt;&lt;set $currentNPC to $shopkeep&gt;&gt;&lt;&lt;goto &quot;NPCProfile&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;, the $shopkeep.owner of the General Store, and asks what $shopkeep.heshe can do for you.
+&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="GeneralStoreOutput" tags="GeneralStore" position="1100,350">&lt;h1&gt;$GeneralStore.name&lt;/h1&gt;&lt;&lt;include &quot;TownMicroEventsOutput&quot;&gt;&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $GeneralStore.road, and enter $GeneralStore.name and see that inside, the $GeneralStore.size $GeneralStore.material building is $GeneralStore.cleanliness. The shopkeep is &lt;&lt;print $shopkeep.idle.random()&gt;&gt;. The shopkeep &lt;&lt;print either($shopkeep.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;, &quot;drags $shopkeep.hisher feet over&quot;)&gt;&gt; to you, and introduces $shopkeep.himherself as &lt;&lt;link &quot;$shopkeep.name&quot;&gt;&gt;&lt;&lt;set $currentNPC to $shopkeep&gt;&gt;&lt;&lt;goto &quot;NPCProfile&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;, the $shopkeep.owner of the General Store, and asks what $shopkeep.heshe can do for you.
 
 
 &lt;&lt;include &quot;GeneralStoreSell&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="GeneralStoreRenders" tags="render" position="1225,350">/* ------------------------- SIZE -------------------------- */
@@ -4744,7 +4740,11 @@ General Store Price Modifier: &lt;&lt;numberslider &quot;$GeneralStore.pricemodi
 
 
 When you&#39;re ready, here&#39;s the [[general store|GeneralStoreOutput]]
-&lt;&lt;set $currentpassage to $GeneralStore&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="" position="350,475">$specialbrew.author</tw-passagedata><tw-passagedata pid="34" name="Changelog" tags="" position="475,475">&lt;&lt;include &quot;ChangelogCurrent&quot;&gt;&gt;
+&lt;&lt;set $currentpassage to $GeneralStore&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="" position="350,475">$specialbrew.author</tw-passagedata><tw-passagedata pid="34" name="Changelog" tags="" position="475,475">v.1.2.1
+- Added link to randomize town landmark.
+- Added link to refresh town.
+- Fixed broken sidebar link to suggestions.
+&lt;&lt;include &quot;ChangelogCurrent&quot;&gt;&gt;
 v.1.1.5
 - Added background origins
 - Minor bug fixes with potions
@@ -4819,6 +4819,15 @@ either($potion.smell)
 
 &lt;div class=&#39;descriptive&#39;&gt;Test &lt;/div&gt;
 
+&lt;&lt;nobr&gt;&gt;&lt;&lt;linkreplace &quot;&lt;h4&gt;Generate one&lt;/h4&gt;&quot;&gt;&gt;
+    &lt;&lt;replace &quot;#random&quot;&gt;&gt;
+
+    &lt;&lt;/replace&gt;&gt;&lt;&lt;link &quot;&lt;h4&gt;Generate another&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $randomRing to setup.createRing()&gt;&gt;
+        &lt;&lt;replace &quot;#ring&quot;&gt;&gt;
+            &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;
+&lt;span id=&quot;random&quot;&gt;&lt;/span&gt;&lt;&lt;/nobr&gt;&gt;
+
 
 
 */</tw-passagedata><tw-passagedata pid="37" name="Credits" tags="output" position="850,475">Many thanks to /u/FamousHippopotamus and /u/OrkishBlade for their excellent tables and DMing advice over the years. Shoutout to /r/twinegames and the good folks in the Discord server who helped a total newb learn how to code in Twine.
@@ -4851,9 +4860,7 @@ TownRumours
 Raiders</tw-passagedata><tw-passagedata pid="39" name="PatreonSupporters" tags="" position="1100,475">Special thanks to my Patreon supporters!
 - Jasher Drake
 - Tyler Wies
-- Lane Watson</tw-passagedata><tw-passagedata pid="40" name="Submission Form" tags="" position="1225,475">&lt;&lt;include &quot;Bugs&quot;&gt;&gt;
-
-&lt;iframe src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSekxPe31_N0dzBiE_4CpqAXTQzJoH_XUQcxV2O1C35UsVXvEw/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;500&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="41" name="ToDo" tags="" position="100,600">- Implement Fairmath for some modifiers
+- Lane Watson</tw-passagedata><tw-passagedata pid="40" name="SubmissionForm" tags="" position="1225,475">&lt;iframe src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSekxPe31_N0dzBiE_4CpqAXTQzJoH_XUQcxV2O1C35UsVXvEw/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;500&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="41" name="ToDo" tags="" position="100,600">- Implement Fairmath for some modifiers
 - Implement neighbouring taverns
 - Implement overview of the town
 - Implement pickpocketing
@@ -6266,7 +6273,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 
 [[Credits]]
 
-&lt;&lt;link &quot;Submit a Suggestion&quot;&gt;&gt;&lt;&lt;include &quot;Submission Form&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+[[Submission Form|SubmissionForm]]
 
 
 /*&lt;&lt;link &quot;Check Variables&quot;&gt;&gt;&lt;&lt;checkvars&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -6399,7 +6406,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &quot;A man is selling hats. He&#39;s willing to trade for skins if anyone in the party has any.&quot;,
 &quot;The party sees a mild acquaintance. S/He offers to get lunch with them.&quot;, &quot;The party sees a mild annoyance. S/He flips them the bird before wandering off.&quot;, &quot;A pie eating contest is in progress. It looks like it&#39;s down to the blacksmith&#39;s son or the cowherd&#39;s daughter.&quot;, &quot;Two teenagers are walking down the street holding hands and blushing whenever one catches the other&#39;s eye.&quot;, &quot;The wizard steps in shit. Roll 1d4 to see what kind. 1- Cow, 2- Cow, 3- Cow, 4- Builette.&quot;, &quot;A group of bandits charge, but petter out before combat engages because the party looks too tough to take on.&quot;, &quot;Seven men in hooded robes are fumbling around. Overhead is: &#39;Hey John, I think I&#39;ve got your robes&#39; &#39;Damnit Sev, your wife swapped our hoods again.&#39; and &#39;Who&#39;s got my sash? It was the scarlet one.&#39;&quot;,&quot;A drow is hung over on the side of the road. A three empty bottles of dwarven ale are nearby. He&#39;s waving his hands about muttering &#39;Turn off the sun.&#39; Shortly after Dancing Lights twirl around his location as he lets out a groan of pain.&quot;, &quot;A dwarf is passed out in a puddle of his own drool on the side of the road. A half empty bottle of elven wine is nearby.&quot;, &quot;A friendly dog comes by and starts begging for treats from the most cleric-like party member.&quot;, &quot;An unfriendly dog attempts to pee on the most wizard-like party member.&quot;, &quot;Two old men are playing some sort of game on the side of the road talking mostly in murmurs, grunts, and chortles.&quot;, &quot;Two old women are gossiping nearby knitting scarves longer than they are tall that are growing by the inch as you watch.&quot;, &quot;A man is juggling torches nearby. Nothing goes amiss.&quot;, &quot;Two young teenagers are arguing about whether a dragon could be three owlbears if the owlbears had armor and magic wands and the dragon had a sword.&quot;, &quot;A local noble is in town collecting his due taxes.&quot;, &quot;The worst bandit in the world attempts to way-lay the party with a sharpened stick and a dented pot lit. If actually confronted he faints in shock.&quot;, &quot;The wizard discovers he has a sign pinned to the back of his robes reading &#39;Ass-zard&#39;. It is unknown when it was placed there or how long it&#39;s been there.&quot;, &quot;A dungeon is nearby, if investigated it turns out that it&#39;s still in the process of being excavated and won&#39;t be ready for several more years.&quot;, &quot;The thief find a socket puppet nestled amongst his belongings. It appears to be made from one of the wizards socks.&quot;, &quot;The fighter finds a flask of good booze they had forgot about amongst their belongings.&quot;, &quot;The cleric finds a bag of honeyed nuts amongst her belongings.&quot;
 */</tw-passagedata><tw-passagedata pid="79" name="Start" tags="output" position="1100,975">&lt;h1&gt;Eigengrau&#39;s Essential Establishment Generator&lt;/h1&gt;
-&lt;span class=&quot;firstcharacter&quot;&gt;W&lt;/span&gt;elcome to Eigengrau&#39;s Essential Establishment Generator, v$versionnumber! This is still in active development. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form]]
+&lt;span class=&quot;firstcharacter&quot;&gt;W&lt;/span&gt;elcome to Eigengrau&#39;s Essential Establishment Generator, v$versionnumber! This is still in active development. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form|SubmissionForm]]
 &lt;&lt;nobr&gt;&gt;&lt;&lt;linkappend &quot;&lt;h4&gt;Changelog&lt;/h4&gt;&quot; t8n&gt;&gt;
 &lt;&lt;include &quot;Changelog&quot;&gt;&gt;&lt;&lt;linkappend &quot;&lt;h5&gt;To Do List&lt;/h5&gt;&quot; t8n&gt;&gt;
 &lt;&lt;include &quot;ToDo&quot;&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
@@ -6416,12 +6423,12 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &lt;&lt;/if&gt;&gt;
 
 Show Sliders Page &lt;&lt;checkbox &quot;$showSliders&quot; false true checked&gt;&gt;
-
 &lt;&lt;/nobr&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Rename the $town.type &lt;strong&gt;$town.name&lt;/strong&gt;&quot;&gt;&gt;&lt;&lt;textbox &quot;$town.name&quot; $town.name&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;link &quot;refresh&quot;&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-$town.name is located in the $town.terrain $town.location. The nearest landmark is $town.landmark A population of $town.population, the denizens live a $town.wealth existence. A $town.currentEvent is currently taking place.
+$town.name is located in the $town.terrain $town.location. The nearest &lt;&lt;include &quot;TownLandmarkRandomizer&quot;&gt;&gt; A population of $town.population, the denizens live a $town.wealth existence. A $town.currentEvent is currently taking place.
 
 Town Wealth: &lt;&lt;numberslider &quot;$town.wealthroll&quot; $town.wealthroll 1 100 1&gt;&gt;
 
@@ -7805,7 +7812,7 @@ $tavern.magicroll.clamp(1, 100)
       	&lt;&lt;case &quot;hamlet&quot;&gt;&gt;
       	&lt;&lt;for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })&gt;&gt;&lt;tr&gt;&lt;td&gt;_item.name&lt;/td&gt;
       &lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
-      	&lt;&lt;/for&gt;&gt;&lt;&lt;/switch&gt;&gt;&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
+      	&lt;&lt;/for&gt;&gt;&lt;&lt;/switch&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/table&gt;&lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="Brothel" tags="" position="600,1350">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set $brothel to setup.createBuilding()&gt;&gt;
@@ -7908,7 +7915,7 @@ $tavern.magicroll.clamp(1, 100)
 
 
 &lt;&lt;set $pimp.greeting to [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $pimp.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;]&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="BrothelOutput" tags="brothel" position="725,1350">&lt;h1&gt;$brothel.name&lt;/h1&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="BrothelOutput" tags="brothel" position="725,1350">&lt;h1&gt;$brothel.name&lt;/h1&gt;&lt;&lt;include &quot;TownMicroEventsOutput&quot;&gt;&gt;&lt;span class=&quot;firstcharacter&quot;&gt;Y&lt;/span&gt;ou make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality.
 
 Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. You notice $brothel.notice. The $pimp.title is &lt;&lt;print $pimp.idle.random()&gt;&gt;. The $pimp.racenote &lt;&lt;print either($pimp.greeting)&gt;&gt;, and &lt;&lt;print either(&quot;saunters&quot;, &quot;walks&quot;, &quot;strolls&quot;, &quot;walks&quot;, &quot;slowly walks&quot;)&gt;&gt; to you, and introduces $pimp.himherself as &lt;&lt;link &quot;$pimp.name&quot;&gt;&gt;&lt;&lt;set $currentNPC to $pimp&gt;&gt;&lt;&lt;goto &quot;NPCProfile&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;, the $pimp.title of $brothel.name, and asks what $pimp.heshe can do for you.
 
@@ -8167,7 +8174,11 @@ $town.sizeroll.clamp(1, 100)
 &quot;a very large tree covered in clear stones. If a creature of good approaches the tree, the stones and the leaves will grow green and blue, and flowers bloom on the tree. Neutral creatures makes them turn brown and orange. An evil creature makes them turn dark purple and red. Unaligned creatures make them turn different shades of gray.&quot;,
 &quot;a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.&quot;,
 &quot;a cave full of phosphorescent mushrooms that glow at night.&quot;])&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="TownMicroEvents" tags="" position="475,1475">&lt;&lt;set $town.microevents to [&quot;a gnarled old man offers to sell you a &#39;lucky&#39; trinket for a gold coin&quot;,
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="TownLandmarkRandomizer" tags="" position="475,1475">&lt;&lt;nobr&gt;&gt;&lt;&lt;link &quot;landmark&quot;&gt;&gt;&lt;&lt;include &quot;TownLandmark&quot;&gt;&gt;
+    &lt;&lt;replace &quot;#random&quot;&gt;&gt;
+            $town.landmark
+    &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
+is &lt;span id=&quot;random&quot;&gt;$town.landmark&lt;/span&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="115" name="TownMicroEvents" tags="" position="600,1475">&lt;&lt;set $town.microevents to [&quot;a gnarled old man offers to sell you a &#39;lucky&#39; trinket for a gold coin&quot;,
  &quot;a young boy wants to see a demonstration of your weapon&quot;,
  &quot;a little girl is crying because she broke her favorite toy&quot;,
  &quot;a little gem falls out of the pocket of the man walking ahead of you&quot;,
@@ -8265,10 +8276,10 @@ $town.sizeroll.clamp(1, 100)
 &quot;a carnival is in town, showing off their newest ride: a vertical iron wheel with seats meant to let people see the whole town at once. They nicknamed it the &#39;ferric wheel&#39; due to it being made mostly of iron.&quot;,
 &quot;a merchant in a heavily corroded outfit tries to sell his dishwashing invention. (contains a black pudding)&quot;,
 &quot;you notice two thugs following a young woman from a distance, trying to look inconspicuous.&quot;,
-&quot;a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="115" name="TownMicroEventsOutput" tags="" position="600,1475">&lt;&lt;nobr&gt;&gt;
+&quot;a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.&quot;]&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="TownMicroEventsOutput" tags="" position="725,1475">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1, 99) gt 50&gt;&gt;
   &lt;blockquote&gt;As you make your way along $current.road, &lt;&lt;print $town.microevents.random()&gt;&gt;&lt;/blockquote&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="TownRenders" tags="render" position="725,1475">&lt;&lt;if $town.population gt 3000&gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="TownRenders" tags="render" position="850,1475">&lt;&lt;if $town.population gt 3000&gt;&gt;
     &lt;&lt;set $town.type to &quot;city&quot;&gt;&gt;
   &lt;&lt;elseif $town.population gt 1000&gt;&gt;
     &lt;&lt;set $town.type to &quot;town&quot;&gt;&gt;
@@ -8294,7 +8305,7 @@ $town.sizeroll.clamp(1, 100)
 		&lt;&lt;set $town.wealth to &quot;poor&quot;&gt;&gt;
 	&lt;&lt;elseif $town.wealthroll lte 25&gt;&gt;
 		&lt;&lt;set $town.wealth to &quot;squalid&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="TownRumours" tags="" position="850,1475">&lt;&lt;set $town.rumours to [
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="118" name="TownRumours" tags="" position="975,1475">&lt;&lt;set $town.rumours to [
     {
       title: &quot;bodies being dug up&quot;,
       rumour: &quot;I heard that there were bodies being dug up out in the cemetary near $alchemist.road.&quot;,
@@ -8343,7 +8354,7 @@ $town.sizeroll.clamp(1, 100)
       dm: &quot;&quot;,
     },
     */
-]&gt;&gt;</tw-passagedata><tw-passagedata pid="118" name="TownTravel" tags="" position="975,1475">&lt;&lt;set _pavingroll to random(1, 100)&gt;&gt;
+]&gt;&gt;</tw-passagedata><tw-passagedata pid="119" name="TownTravel" tags="" position="1100,1475">&lt;&lt;set _pavingroll to random(1, 100)&gt;&gt;
 
 &lt;&lt;if $town.population gt 5000&gt;&gt;
       &lt;&lt;set _pavingroll += 60&gt;&gt;
@@ -8389,7 +8400,7 @@ $town.sizeroll.clamp(1, 100)
       &lt;&lt;set $town.paving to &quot;desire path&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set $town.scenery to either(&quot;Children play in the street, calling after one another.&quot;, &quot;An old woman waves from her chair on the porch at you.&quot;, &quot;A young girl waves at you, before being shooed into her home by a doting mother.&quot;, &quot;The stench of curing leathers fills your nose as you pass the local tannery.&quot;, &quot;You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself.&quot;)&gt;&gt;</tw-passagedata><tw-passagedata pid="119" name="WildernessEvents" tags="" position="1100,1475">You see a gazebo squatting by the road. It has an arrow sticking from it.
+&lt;&lt;set $town.scenery to either(&quot;Children play in the street, calling after one another.&quot;, &quot;An old woman waves from her chair on the porch at you.&quot;, &quot;A young girl waves at you, before being shooed into her home by a doting mother.&quot;, &quot;The stench of curing leathers fills your nose as you pass the local tannery.&quot;, &quot;You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself.&quot;)&gt;&gt;</tw-passagedata><tw-passagedata pid="120" name="WildernessEvents" tags="" position="1225,1475">You see a gazebo squatting by the road. It has an arrow sticking from it.
 
 12) There is a hanged corpse swaying in the wind. It seems he was tortured before being hanged. A sign around his neck says &quot;Looter of the dead&quot;.
 13) There is a badly written sign by the road saying &quot;Tresur hier&quot; with an arrow pointing to a dark, thick forest.
