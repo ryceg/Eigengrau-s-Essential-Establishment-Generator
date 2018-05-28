@@ -12,8 +12,8 @@
   <<include "ChangelogCurrent">>
   <<elseif _roll gt 55>>
   <<include "PatreonSupporters">>
-  <<elseif _roll gt 50>>
-  If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form|SubmissionForm]]
+  <<elseif _roll lte 55>>
+  If you have any bug reports, please click here: [[Submission Form|SubmissionForm]]
 <</if>></blockquote>
 
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
