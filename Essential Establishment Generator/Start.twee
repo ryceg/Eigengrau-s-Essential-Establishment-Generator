@@ -1,20 +1,20 @@
 :: Start [output]
 <h1>Eigengrau's Essential Establishment Generator</h1>
-<span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in active development. If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form|SubmissionForm]]
-<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>>
-<<include "Changelog">><<linkappend "<h5>To Do List</h5>" t8n>>
-<<include "ToDo">><</linkappend>><</linkappend>>
-<<set _roll to random(1, 99)>><<if _roll gt 90>>
-  <blockquote>If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/bePatron?c=1709078 </blockquote>
+<span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in active development.
+<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
+<<set _roll to random(1, 99)>><blockquote><<if _roll gt 90>>
+  If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/bePatron?c=1709078
   <<elseif _roll gt 80>>
-  <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator! </blockquote>
+  Find us on Reddit at www.reddit.com/r/EigengrausGenerator!
   <<elseif _roll gt 70>>
-  <blockquote>Join the Discord server at https://discord.gg/4wYNwp2 </blockquote>
+  Join the Discord server at https://discord.gg/4wYNwp2
   <<elseif _roll gt 60>>
-  <blockquote><<include "ChangelogCurrent">></blockquote>
+  <<include "ChangelogCurrent">>
   <<elseif _roll gt 55>>
-  <blockquote><<include "PatreonSupporters">></blockquote>
-<</if>>
+  <<include "PatreonSupporters">>
+  <<elseif _roll gt 50>>
+  If you have any bug reports, suggestions, or submissions (in desperate need of more plot hooks!), please click here: [[Submission Form|SubmissionForm]]
+<</if>></blockquote>
 
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
 <</nobr>>
