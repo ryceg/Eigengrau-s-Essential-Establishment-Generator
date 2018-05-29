@@ -99,7 +99,7 @@
     <<case "sage">>
         <<set $adventureAlly to setup.createNPC({dndclass: either("cleric", "monk", "druid", "wizard"), background: "sage"})>>
     <<case "revenge seeker">>
-        <<set $adventureAlly to setup.createNPC({"urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"})>>
+        <<set $adventureAlly to setup.createNPC({either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble")})>>
     <<case "raving lunatic adventurer">>
         <<set $adventureAlly to setup.createNPC()>>
     <<case "celestial ally">>
