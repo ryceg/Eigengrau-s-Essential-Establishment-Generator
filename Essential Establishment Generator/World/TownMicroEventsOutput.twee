@@ -1,5 +1,5 @@
 :: TownMicroEventsOutput
 <<nobr>>
 <<if random(1, 99) gt 50>>
-  <blockquote>As you make your way along $current.road, <<print $town.microevents.random()>></blockquote>
+  <blockquote>As you make your way along $currentPassage.road, <<print $town.microevents.random()>></blockquote>
 <</if>><</nobr>>
