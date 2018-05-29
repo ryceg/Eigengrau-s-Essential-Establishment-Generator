@@ -28,7 +28,7 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-<<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>>
+<<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
     <<if $showSliders is true>>
         <<goto "InitTavern">>
     <<elseif $showSliders is false>>
@@ -47,7 +47,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
-<<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><<link "$smithy.name">><<silently>>
+<<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><<link "$smithy.name">><<silently>><<set $currentPassage to $smithy>>
     <<if $showSliders is true>>
         <<goto "InitSmithy">>
     <<elseif $showSliders is false>>
@@ -55,7 +55,7 @@ Down from $tavern.road are the [[markets|MarketOutput]]
     <</if>><</silently>>
   <</link>>
 
-<<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>><<link "$GeneralStore.name">><<silently>>
+<<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>><<link "$GeneralStore.name">><<silently>><<set $currentPassage to $GeneralStore>>
     <<if $showSliders is true>>
         <<goto "InitGeneralStore">>
     <<elseif $showSliders is false>>
@@ -63,7 +63,7 @@ Down from $tavern.road are the [[markets|MarketOutput]]
     <</if>><</silently>>
   <</link>>
 
-<<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And on $alchemist.road is the ")>><<link "$alchemist.name">><<silently>>
+<<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And on $alchemist.road is the ")>><<link "$alchemist.name">><<silently>><<set $currentPassage to $alchemist>>
     <<if $showSliders is true>>
         <<goto "InitAlchemist">>
     <<elseif $showSliders is false>>
