@@ -4,44 +4,76 @@
 <<case "temperate">>
   <<switch $town.location>>
       <<case "seacoast">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
+          <<set $town.plants to either(["shrubs", "bush", "windswept trees", "windswept trees", "windswept trees"])>>
       <<case "forest">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"])>>
+          <<set $town.plants to either(["oak trees", "oak trees", "oak trees"])>>
       <<case "hills">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "plains">>
+          <<set $town.vegetation to either(["sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "mountains">>
+          <<set $town.vegetation to either(["sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "river coast">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
     <</switch>>
 <<case "tropical">>
   <<switch $town.location>>
       <<case "seacoast">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "forest">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"])>>
       <<case "hills">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "plains">>
+          <<set $town.vegetation to either(["sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "mountains">>
+          <<set $town.vegetation to either(["sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "river coast">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "jungle">>
+          <<set $town.vegetation to either(["sparse", "lush", "thick", "thick", "thick", "thick", "thick", "thick", "thick", "thick", "thick"])>>
       <<case "volcanic field">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "lush"])>>
     <</switch>>
 <<case "polar">>
   <<switch $town.location>>
       <<case "seacoast">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "forest">>
+          <<set $town.vegetation to either(["desolate", "desolate", "sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"])>>
       <<case "hills">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "plains">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "mountains">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "river coast">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "tundra">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "lush"])>>
       <<case "ice sheet">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "lush"])>>
     <</switch>>
 <<case "arid">>
   <<switch $town.location>>
       <<case "seacoast">>
-      <<case "desert">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
+      <<case "forest">>
+          <<set $town.vegetation to either(["desolate", "desolate", "sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"])>>
       <<case "hills">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "plains">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "mountains">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"])>>
       <<case "river coast">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "wasteland">>
+          <<set $town.vegetation to either(["desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "desolate", "sparse", "sparse", "sparse", "lush"])>>
       <<case "oasis">>
+          <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
     <</switch>>
 <</switch>>
 
