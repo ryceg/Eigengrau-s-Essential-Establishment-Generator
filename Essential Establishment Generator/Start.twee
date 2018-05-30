@@ -5,8 +5,6 @@
 <<include "Popup">><</nobr>>
 
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
-
-
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 <<button "refresh">><<goto "Start">><</button>>
 
