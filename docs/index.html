@@ -4834,6 +4834,7 @@ When you&#39;re ready, here&#39;s the [[general store|GeneralStoreOutput]]
 - Minor additions.
 - Redid a couple wordings
 - Added vocal patterns
+- Added vegetation (more detail will be added in future!)
 - Added more to NPC Profile Pages
 
 v.1.2.1
@@ -5351,7 +5352,7 @@ The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and
     &lt;&lt;case &quot;sage&quot;&gt;&gt;
         &lt;&lt;set $adventureAlly to setup.createNPC({dndclass: either(&quot;cleric&quot;, &quot;monk&quot;, &quot;druid&quot;, &quot;wizard&quot;), background: &quot;sage&quot;})&gt;&gt;
     &lt;&lt;case &quot;revenge seeker&quot;&gt;&gt;
-        &lt;&lt;set $adventureAlly to setup.createNPC({either(&quot;urchin&quot;, &quot;urchin&quot;, &quot;urchin&quot;, &quot;commoner&quot;, &quot;commoner&quot;, &quot;commoner&quot;, &quot;commoner&quot;, &quot;noble&quot;, &quot;noble&quot;)})&gt;&gt;
+        &lt;&lt;set $adventureAlly to setup.createNPC({background: either(&quot;urchin&quot;, &quot;urchin&quot;, &quot;urchin&quot;, &quot;commoner&quot;, &quot;commoner&quot;, &quot;commoner&quot;, &quot;commoner&quot;, &quot;noble&quot;, &quot;noble&quot;)})&gt;&gt;
     &lt;&lt;case &quot;raving lunatic adventurer&quot;&gt;&gt;
         &lt;&lt;set $adventureAlly to setup.createNPC()&gt;&gt;
     &lt;&lt;case &quot;celestial ally&quot;&gt;&gt;
