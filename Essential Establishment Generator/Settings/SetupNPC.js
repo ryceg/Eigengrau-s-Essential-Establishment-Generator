@@ -269,7 +269,7 @@ setup.createNPC = function(base) {
                     npc.firstname + "only speaks draconic, but has a pet talking lizard that sits on " + npc.hisher + " shoulder and translates for them.",
                     npc.firstname + "treats all other species like biological specimens that should be studied and are taking extensive notes on " + npc.hisher + " observations.",
                     npc.firstname + "is overly vain about " + npc.hisher + " scales and teeth and spend a long time every morning polishing and shining them.",
-                    npc.firstname + "takes great pride in " + npc.hisher + " claws, and have intricate designs painted on them.",
+                    npc.firstname + "takes great pride in " + npc.hisher + " claws, and has intricate designs painted on them.",
                     npc.firstname + "is very elitist in terms of colour and classify other races into the dragon colour categories by hair colour, treating them accordingly.",
                     npc.firstname + "has a cold and keeps accidentally setting off a mild version of " + npc.hisher + " breath weapon every time " + npc.sheshe + " sneezes, which is often.",
                     "Whenever " + npc.sheshe + " uses " + npc.hisher + " breath attack, " + npc.hisher + " eyes shine bright white.",
