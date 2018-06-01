@@ -179,7 +179,7 @@ setup.createNPC = function(base) {
                 racelanguage: "Draconic",
                 height: ["rather average height", "slightly above average height", "tall", "tall", "tall"].random(),
                 weight: ["stocky", "beefy", "muscular", "slightly underweight", "extremely muscular", "slightly overweight"].random(),
-                note.push: (["$npc.firstname is covered in glimmering red scales, which seem to turn a slight orange color in the sunlight.",
+                note.push: [["$npc.firstname is covered in glimmering red scales, which seem to turn a slight orange color in the sunlight.",
                       "$npc.firstname has several scales missing and a long gash running along $npc.hisher face.",
                       "$npc.firstname has two long, spined and membranous ears.",
                       "$npc.firstname has a slightly off-center snout, akin to a poorly-reset broken nose.",
@@ -271,7 +271,7 @@ setup.createNPC = function(base) {
                       "$npc.firstname likes to cover themselves in mud constantly ‘to fight parasites’.",
                       "$npc.firstname has a bifurcated nose horn.",
                       "$npc.firstname has tiny useless T-Rex arms on $npc.hisher shoulder blades."
-                    ]).random(),
+                    ].random()],
             });
             npc.racenote = npc.race;
             if (npc.gender === "man") {
