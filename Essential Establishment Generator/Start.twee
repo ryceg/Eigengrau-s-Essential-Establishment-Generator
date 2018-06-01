@@ -13,7 +13,7 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-<<set $testNPC to setup.createNPC({race: dragonborn})>>
+<<set $testNPC to setup.createNPC({race: "dragonborn"})>>
 <<profile $testNPC>>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
