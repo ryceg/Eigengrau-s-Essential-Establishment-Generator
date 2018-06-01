@@ -9,3 +9,7 @@ Show Sliders Page <<checkbox "$showSliders" false true checked>>
             \<<textbox "$tavern.name" $tavern.name>><<set $tavernname to setup.createTavernNameGen()>><<set $tavern.name to $tavernname.name>>
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
+
+
+<<linkreplace "Load custom Patreon characters">><<set $bartender to $Birchbottom>>
+<<set $patreonContent to true>>Birchbottom is now the bartender!<</linkreplace>>
