@@ -31,7 +31,7 @@
         <<set $adventureGoalNPC to setup.createNPC()>>
         <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
-        <<set $adventureGoalNPC to setup.createNPC({"urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"})>>
+        <<set $adventureGoalNPC to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble")})>>
         <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
         <<set $adventureGoalNPC to setup.createNPC()>>
