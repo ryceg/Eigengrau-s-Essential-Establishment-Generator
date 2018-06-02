@@ -25,38 +25,49 @@
 
 
 
+
 <<switch $town.politicalSource>>
 		<<case "autocracy">>
 				<<set $town.welfareroll -= 25>>
 				<<set $town.economicsroll += 45>>
+        <<set $town.politicalSourceIC to "autocratic">>
 		<<case "meritocracy">>
 				<<set $town.arcanaroll += 15>>
 				<<set $town.economicsroll += 15>>
+        <<set $town.politicalSourceIC to "meritocratic">>
 		<<case "democracy">>
 				<<set $town.welfareroll += 25>>
 				<<set $town.lawroll += 15>>
 				<<set $town.economicsroll -= 15>>
+        <<set $town.politicalSourceIC to "democratic">>
 		<<case "kleptocracy">>
 				<<set $town.lawroll -= 30>>
 				<<set $town.militaryroll -= 50>>
 				<<set $town.economicsroll -= 35>>
+        <<set $town.politicalSourceIC to "kleptocratic">>
 		<<case "magocracy">>
 				<<set $town.arcanaroll += 50>>
 				<<set $town.magicroll += 20>>
+        <<set $town.politicalSourceIC to "magocratic">>
 		<<case "militocracy">>
 				<<set $town.militaryroll += 50>>
 				<<set $town.lawroll += 50>>
 				<<set $town.economicsroll += 25>>
+        <<set $town.politicalSourceIC to "militocratic">>
 		<<case "oligarchy">>
 				<<set $town.welfareroll -= 15>>
 				<<set $town.economicsroll += 15>>
+        <<set $town.politicalSourceIC to "oligarchic">>
 		<<case "pedocracy">>
 				<<set $town.welfareroll += 50>>
 				<<set $town.economicsroll -= 15>>
+        <<set $town.politicalSourceIC to "pedocratic">>
 		<<case "theocracy">>
 				<<set $town.welfareroll += 15>>
 				<<set $town.arcanaroll += 15>>
+        <<set $town.politicalSourceIC to "theocratic">>
 		<<case "technocracy">>
 				<<set $town.arcanaroll += 15>>
 				<<set $town.economicsroll += 35>>
+        <<set $town.politicalSourceIC to "technocratic">>
 	<</switch>>
