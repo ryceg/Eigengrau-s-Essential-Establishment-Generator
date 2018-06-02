@@ -22,15 +22,26 @@
     <<case "feudalism">>
         <<set $town.economicIdeologyIC to "feudalistic">>
         <<set $town.economicIdeologyIST to "feudalist">>
+        <<set $town.welfareroll -= 15>>
+				<<set $town.economicsroll += 15>>
+				<<set $town.lawroll += 15>>
     <<case "capitalism">>
         <<set $town.economicIdeologyIC to "capitalistic">>
         <<set $town.economicIdeologyIST to "capitalist">>
+        <<set $town.welfareroll -= 15>>
+				<<set $town.economicsroll -= 15>>
     <<case "syndicalism">>
         <<set $town.economicIdeologyIC to "syndicalistic">>
         <<set $town.economicIdeologyIST to "syndicalist">>
+        <<set $town.welfareroll += 25>>
+				<<set $town.economicsroll += 35>>
+				<<set $town.lawroll -= 10>>
     <<case "communism">>
         <<set $town.economicIdeologyIC to "communistic">>
         <<set $town.economicIdeologyIST to "communist">>
+        <<set $town.welfareroll += 25>>
+				<<set $town.economicsroll += 15>>
+				<<set $town.lawroll -= 15>>
 <</switch>>
 
 <<switch $town.politicalIdeology>>
