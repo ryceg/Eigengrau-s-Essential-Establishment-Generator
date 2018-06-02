@@ -326,6 +326,16 @@
           "a large oasis of water",
           "a water source and a well-traveled road"])>>
           <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
+        <<default>>
+          <<set $town.origin to either([
+          "a wide, navigable river",
+          "a river navigable by small craft",
+          "a road traveled by merchants on the way to another, larger city",
+          "a well maintained road",
+          "a road that connects two other cities",
+          "a well-traveled crossroads",
+          "a water source and a well-traveled road"])>>
+          <<set $town.vegetation to either(["sparse", "lush", "thick"])>>
     <</switch>>
 <</switch>>
 
