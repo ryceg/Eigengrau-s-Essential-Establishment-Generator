@@ -13,7 +13,7 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-$town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport. They are a $town.economicIdeology $town.politicalSource $town.politicalIdeology. $town.economics $town.welfare $town.military
+$town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport. They are a $town.economicIdeology $town.politicalSource $town.politicalIdeology. $town.economics $town.welfare $town.military $town.law $town.arcana
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
     <<if $showSliders is true>>
