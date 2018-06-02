@@ -14,53 +14,6 @@
 	arcanaroll: random(1, 100),
 }>>
 
-	<<set _governmentroll to random(1, 99)>>
-
-<<set $town.politicalIdeology to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
-	<<switch $town.politicalIdeology>>
-			<<case "republic", "anarchy">>
-					<<set $town.politicalSource to either(["meritocracy", "meritocracy", "democracy", "democracy", "democracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
-			<<default>>
-					<<set $town.politicalSource to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
-	<</switch>>
-<<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism", "primitivism"])>>
-
-<<switch $town.politicalSource>>
-		<<case "autocracy">>
-				<<set $town.welfareroll -= 25>>
-				<<set $town.economicsroll += 45>>
-		<<case "meritocracy">>
-				<<set $town.arcanaroll += 15>>
-				<<set $town.economicsroll += 15>>
-		<<case "democracy">>
-				<<set $town.welfareroll += 25>>
-				<<set $town.lawroll += 15>>
-				<<set $town.economicsroll -= 15>>
-		<<case "kleptocracy">>
-				<<set $town.lawroll -= 30>>
-				<<set $town.militaryroll -= 50>>
-				<<set $town.economicsroll -= 35>>
-		<<case "magocracy">>
-				<<set $town.arcanaroll += 50>>
-				<<set $town.magicroll += 20>>
-		<<case "militocracy">>
-				<<set $town.militaryroll += 50>>
-				<<set $town.lawroll += 50>>
-				<<set $town.economicsroll += 25>>
-		<<case "oligarchy">>
-				<<set $town.welfareroll -= 15>>
-				<<set $town.economicsroll += 15>>
-		<<case "pedocracy">>
-				<<set $town.welfareroll += 50>>
-				<<set $town.economicsroll -= 15>>
-		<<case "theocracy">>
-				<<set $town.welfareroll += 15>>
-				<<set $town.arcanaroll += 15>>
-		<<case "technocracy">>
-				<<set $town.arcanaroll += 15>>
-				<<set $town.economicsroll += 35>>
-	<</switch>>
-
 $town.wealthroll.clamp(1, 100)
 $town.reputationroll.clamp(1, 100)
 $town.sinroll.clamp(1, 100)
@@ -77,7 +30,6 @@ $town.sizeroll.clamp(1, 100)
 <<set $town.namesuffix to either("dale", "ten", "den", "ven", "gen", "len", "lun", "stun", "ville", "burn", "view", "nen", "lan", "sed", "folk", "ork", "len", "pan", "rel", "old", "ten", "tan", "lend", "vorn", "vant", "lid", "lin", "crest", "bridge", "run", "catch", "blade", "haven", "rise", "more", "light", "main", "blaze", "place", "tear", "fold", "rest", "host", "craft", "lair", "hollow", "vale", "hammer", "pike", "rail", "spike", "ring", "henge", "coil", "spring", "jaw", "mark", "hail", "loch", "child", "keep", "fort", "brook", "forth", "melt", "borourgh", "ford", "crawl", "moral", "combe", "glen", "garden", "wish", "fellow", "ridge", "ward")>>
 
 <<set $town.name to $town.nameprefix + $town.namesuffix>>
-
 
 
 /* Town Population Roller */
@@ -104,6 +56,9 @@ $town.sizeroll.clamp(1, 100)
 	 <<elseif _terrainroll is 6>>
 		 <<set $town.terrain to "arid", $town.location to _townpotentiallocation[random(22, 29)]>>
 <</if>>
+
+
+<<include "TownSocioPolitics">>
 
 <<if $town.wealthroll gt 100>>
   <<set $town.wealthroll to 100>>
