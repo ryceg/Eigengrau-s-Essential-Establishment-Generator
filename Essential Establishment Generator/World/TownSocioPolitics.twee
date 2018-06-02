@@ -22,7 +22,7 @@
     <<case "feudalism">>
         <<set $town.economicIdeologyIC to "feudalistic">>
         <<set $town.economicIdeologyIST to "feudalist">>
-        <<set $town.welfareroll -= 15>>
+        <<set $town.welfareroll -= 25>>
 				<<set $town.economicsroll += 15>>
 				<<set $town.lawroll += 15>>
     <<case "capitalism">>
