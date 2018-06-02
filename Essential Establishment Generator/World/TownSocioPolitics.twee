@@ -42,6 +42,12 @@
         <<set $town.welfareroll += 25>>
 				<<set $town.economicsroll += 45>>
 				<<set $town.lawroll -= 15>>
+    <<case "primitivism">>
+        <<set $town.economicIdeologyIC to "primitivistic">>
+        <<set $town.economicIdeologyIST to "primitivist">>
+        <<set $town.economicsroll += 40>>
+        <<set $town.lawroll -= 30>>
+        <<set $town.militaryroll -= 30>>
 <</switch>>
 
 <<switch $town.politicalIdeology>>
