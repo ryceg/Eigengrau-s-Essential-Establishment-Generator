@@ -73,7 +73,7 @@
   <<elseif $town.militaryroll gt 80>>
     <<set $town.military to "The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard is well armed, and brutality is common.">>
   <<elseif $town.militaryroll gt 70>>
-    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city to undergo background checks. The local guard is well armed, and brutality is not unheard of.">>
+    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard is well armed, and brutality is not unheard of.">>
   <<elseif $town.militaryroll gt 60>>
     <<set $town.military to "There's a decent military presence, and citizens know better than to step out of line, as the guards are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear.">>
   <<elseif $town.militaryroll gt 50>>
