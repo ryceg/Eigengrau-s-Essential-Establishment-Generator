@@ -1,6 +1,7 @@
 :: TownOutput
 
-<<linkreplace "Town Settings">><<button "refresh">><<goto "Start">><</button>>
+<<linkreplace "Edit $town.name">><<button "refresh">><<goto "Start">><</button>>
+<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 

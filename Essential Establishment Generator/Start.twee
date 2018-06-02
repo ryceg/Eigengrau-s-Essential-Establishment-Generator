@@ -4,10 +4,7 @@
 <<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">><</nobr>>
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
-<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
-
-
-<<link "$town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
+<<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
     <<if $showSliders is true>>
