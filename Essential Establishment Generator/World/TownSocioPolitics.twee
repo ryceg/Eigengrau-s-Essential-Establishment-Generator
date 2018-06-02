@@ -40,7 +40,7 @@
         <<set $town.economicIdeologyIC to "communistic">>
         <<set $town.economicIdeologyIST to "communist">>
         <<set $town.welfareroll += 25>>
-				<<set $town.economicsroll += 15>>
+				<<set $town.economicsroll += 45>>
 				<<set $town.lawroll -= 15>>
 <</switch>>
 
