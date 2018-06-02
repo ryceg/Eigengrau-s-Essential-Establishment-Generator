@@ -86,6 +86,7 @@
     <<set $town.military to "The military presence in $town.name is a militia; most of the guards are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.">>
   <<elseif $town.militaryroll lte 20>>
     <<set $town.military to "The military presence in $town.name is a militia; the guards are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.">>
+<</if>>
 
 <<if $town.lawroll gt 90>>
     <<set $town.law to "">>
