@@ -13,8 +13,25 @@
     <<case "city">>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism"])>>
         <<set $town.politicalIdeology to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
+    <<default>>
+        <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism"])>>
+        <<set $town.politicalIdeology to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
 <</switch>>
 
+<<switch $town.economicIdeology>>
+    <<case "feudalism">>
+        <<set $town.economicIdeologyIC to "feudalistic">>
+        <<set $town.economicIdeologyIST to "feudalist">>
+    <<case "capitalism">>
+        <<set $town.economicIdeologyIC to "capitalistic">>
+        <<set $town.economicIdeologyIST to "capitalist">>
+    <<case "syndicalism">>
+        <<set $town.economicIdeologyIC to "syndicalistic">>
+        <<set $town.economicIdeologyIST to "syndicalist">>
+    <<case "communism">>
+        <<set $town.economicIdeologyIC to "communistic">>
+        <<set $town.economicIdeologyIST to "communist">>
+<</switch>>
 
 <<switch $town.politicalIdeology>>
 		<<case "republic", "anarchy">>
