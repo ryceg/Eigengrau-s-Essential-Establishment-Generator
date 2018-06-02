@@ -6,8 +6,60 @@
 	sinroll: random(1, 100),
 	diversityroll: random(1, 100),
 	magicroll: random(0, 35),
-	sizeroll: random(0, 100)
+	sizeroll: random(0, 100),
+	economicsroll: random(1, 100),
+	welfareroll: random(1, 100),
+	militaryroll: random(1, 100),
+	lawroll: random(1, 100),
+	arcanaroll: random(1, 100),
 }>>
+
+	<<set _governmentroll to random(1, 99)>>
+
+<<set $town.politicalIdeology to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
+	<<switch $town.politicalIdeology>>
+			<<case "republic", "anarchy">>
+					<<set $town.politicalSource to either(["meritocracy", "meritocracy", "democracy", "democracy", "democracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+			<<default>>
+					<<set $town.politicalSource to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+	<</switch>>
+<<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism", "primitivism"])>>
+
+<<switch $town.politicalSource>>
+		<<case "autocracy">>
+				<<set $town.welfareroll -= 25>>
+				<<set $town.economicsroll += 45>>
+		<<case "meritocracy">>
+				<<set $town.arcanaroll += 15>>
+				<<set $town.economicsroll += 15>>
+		<<case "democracy">>
+				<<set $town.welfareroll += 25>>
+				<<set $town.lawroll += 15>>
+				<<set $town.economicsroll -= 15>>
+		<<case "kleptocracy">>
+				<<set $town.lawroll -= 30>>
+				<<set $town.militaryroll -= 50>>
+				<<set $town.economicsroll -= 35>>
+		<<case "magocracy">>
+				<<set $town.arcanaroll += 50>>
+				<<set $town.magicroll += 20>>
+		<<case "militocracy">>
+				<<set $town.militaryroll += 50>>
+				<<set $town.lawroll += 50>>
+				<<set $town.economicsroll += 25>>
+		<<case "oligarchy">>
+				<<set $town.welfareroll -= 15>>
+				<<set $town.economicsroll += 15>>
+		<<case "pedocracy">>
+				<<set $town.welfareroll += 50>>
+				<<set $town.economicsroll -= 15>>
+		<<case "theocracy">>
+				<<set $town.welfareroll += 15>>
+				<<set $town.arcanaroll += 15>>
+		<<case "technocracy">>
+				<<set $town.arcanaroll += 15>>
+				<<set $town.economicsroll += 35>>
+	<</switch>>
 
 $town.wealthroll.clamp(1, 100)
 $town.reputationroll.clamp(1, 100)
