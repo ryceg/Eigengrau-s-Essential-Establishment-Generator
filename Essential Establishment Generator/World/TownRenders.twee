@@ -48,12 +48,20 @@
     <<set $town.economics to "Caveat emptor is the guiding philosophy of $town.name. Without any taxes or regulations, the free market reigns supreme here.">>
 <</if>>
 
-<<if $town.welfareroll gt 90>>
+<<if $town.welfareroll gt 90 && $town.wealthroll gt 50>>
     <<set $town.welfare to "Welfare is excellent. Citizens can expect free healthcare, education, child care, death services, safety nets, and other programs beneficial to the health of the public.">>
-  <<elseif $town.welfareroll gt 80>>
+  <<elseif $town.welfareroll gt 90>>
+    <<set $town.welfare to "Welfare is as good as it possibly can be, given the wealth of $town.name. Citizens can expect healthcare, education, child care, and death services">>
+  <<elseif $town.welfareroll gt 80 && $town.wealthroll gt 50>>
     <<set $town.welfare to "Welfare is very good. Citizens can expect education, subsidised healthcare, death services, safety nets, and other programs beneficial to the health of the public.">>
-  <<elseif $town.welfareroll gt 70>>
+  <<elseif $town.welfareroll gt 80>>
+    <<set $town.welfare to "Welfare is very good, considering the wealth of $town.name. Citizens can expect education, somewhat subsidised healthcare, death services, and other programs beneficial to the health of the public.">>
+  <<elseif $town.welfareroll gt 70 && $town.wealthroll gt 50>>
     <<set $town.welfare to "Welfare is good. Citizens can expect death services, and other services such as healthcare and education, provided they are able to pay for it.">>
+  <<elseif $town.welfareroll gt 70>>
+    <<set $town.welfare to "Welfare is good, all things considered. Citizens can expect death services, and other services such as healthcare and education, provided they are able to pay for it.">>
+  <<elseif $town.welfareroll gt 60 && $town.wealthroll gt 40>>
+    <<set $town.welfare to "Welfare is above average, considering the $town.wealth quality of life. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded, though.">>
   <<elseif $town.welfareroll gt 60>>
     <<set $town.welfare to "Welfare is above average. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded.">>
   <<elseif $town.welfareroll gt 50>>
