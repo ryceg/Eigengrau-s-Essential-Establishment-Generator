@@ -1,0 +1,24 @@
+:: TownOutput
+
+<<linkreplace "Town Settings">><<button "refresh">><<goto "Start">><</button>>
+
+Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
+
+Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
+
+Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>>
+
+Welfare quality: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>>
+
+Military Strength: <<numberslider "$town.militaryroll" $town.militaryroll 1 100 1>>
+
+Restricted magic ---- Regulated magic: <<numberslider "$town.arcanaroll" $town.arcanaroll 1 100 1>>
+
+Reform-based law ---- Punishment-based law: <<numberslider "$town.lawroll" $town.lawroll 1 100 1>>
+<</linkreplace>>
+
+$town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live a $town.wealth existence. A $town.currentEvent is currently taking place.
+
+$town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport. They are a $town.economicIdeologyIST $town.politicalSourceIC $town.politicalIdeology. $town.economics $town.welfare $town.military $town.law $town.arcana
+
+<<return>>
