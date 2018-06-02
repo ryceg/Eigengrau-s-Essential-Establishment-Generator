@@ -411,6 +411,7 @@ setup.createNPC = function(base) {
             npc.background = npc.background || ["urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "noble", "noble", "noble"].random();
             break;
         case "commoner":
+            npc.dndclassOrigin = npc.dndclassOrigin || ["I was born into poverty. I've slowly worked my way to where I am today.", "I had a bad string of bets which left me with no other choice than to skip town.", "I was born into a lowly family, and that's where I'll likely stay.", "I was a soldier in the army, with a lot of potential. But then, I made a tactical mistake, which led to my dismissal.", "I was found guilty of a crime that I did not commit, and was sentenced to serfdom.", "I grew up in a loving household, but all the love in the world could not pay the debts which we had.", "I was one of seven children, and when I was old enough to work, my parents put me to it.", "I was one of eight children, and had to work from a young age to support my family.", "I was the eldest of four children, but when my father died, I had to leave school and work to support my family."].random();
             npc.background = npc.background || ["urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "noble", "noble", "noble"].random();
     }
 
