@@ -20,9 +20,9 @@ Reform-based law ---- Punishment-based law: <<numberslider "$town.lawroll" $town
 
 $town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live a $town.wealth existence. A $town.currentEvent is currently taking place.
 
-$town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
+$town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport. They are a $town.economicIdeologyIST $town.politicalSourceIC $town.politicalIdeology.
 
-<h3>Government</h3>They are a $town.economicIdeologyIST $town.politicalSourceIC $town.politicalIdeology.
+<h3>Government</h3>
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 
 <<return>>

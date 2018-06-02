@@ -136,5 +136,4 @@
       <<set $town.arcana to "Magic is reviled by the guards, and they look for any excuse to put away a magic user. It is coded into law as a restricted activity, so they have an easy time of doing it, too.">>
     <<elseif $town.arcanaroll lte 10>>
       <<set $town.arcana to "Magic is outlawed, and guards look for any excuse to put away anyone that looks like a magic user. It is coded into law as a tightly restricted activity.">>
-
   <</if>>
