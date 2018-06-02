@@ -9,9 +9,9 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
 Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>>
 
-Welfare quality: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>>
+Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>>
 
-Military Strength: <<numberslider "$town.militaryroll" $town.militaryroll 1 100 1>>
+Relaxed military ---- Strict military: <<numberslider "$town.militaryroll" $town.militaryroll 1 100 1>>
 
 Restricted magic ---- Regulated magic: <<numberslider "$town.arcanaroll" $town.arcanaroll 1 100 1>>
 
