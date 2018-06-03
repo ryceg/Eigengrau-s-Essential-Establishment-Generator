@@ -1,8 +1,8 @@
 :: Settings
 
-Show Sliders Page <<checkbox "$showSliders" false true checked>>
+Show Sliders Page <<checkbox "$showSliders" false true>>
 
-Show Welcome Page <<checkbox "$tutorial" false true checked>>
+Show Welcome Page <<checkbox "$tutorial" false true>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
@@ -19,4 +19,6 @@ Show Welcome Page <<checkbox "$tutorial" false true checked>>
 <<cyclinglink "$neverShowSliders" "show sliders" "never show sliders">>
 <<cyclinglink "$neverShowWelcome" "show tutorial" "never show tutorial">>
 
-<<button "Save and return">><<if $neverShowSliders is "never show sliders">><<remember $showSliders to false>><</if>><<if $neverShowWelcome is "never show tutorial">><<remember $tutorial to false>><</if>><<back>><</button>>
+<<link "Save these settings">><<if $neverShowSliders is "never show sliders">><<remember $showSliders to false>><</if>><<if $neverShowWelcome is "never show tutorial">><<remember $tutorial to false>><</if>><</link>>
+
+<<back>>
