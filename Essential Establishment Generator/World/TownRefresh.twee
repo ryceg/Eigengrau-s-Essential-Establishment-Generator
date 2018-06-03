@@ -1,7 +1,7 @@
 :: TownRefresh
 
 
-<<switch $town.economicIdeology>>
+<<switch $town.economicIdeologyIST>>
 <<case "feudalist">>
     <<set $town.economicIdeology to "feudalism">>
     <<set $town.economicIdeologyIC to "feudalistic">>
@@ -30,7 +30,7 @@
 <</switch>>
 
 
-<<switch $town.politicalSource>>
+<<switch $town.politicalSourceIC>>
 		<<case "autocratic">>
             <<switch $town.politicalIdeology>>
                 <<case "republic", "anarchy">>
