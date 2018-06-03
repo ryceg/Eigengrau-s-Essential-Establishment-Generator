@@ -23,6 +23,7 @@ $town.name is located in the $town.terrain $town.location, where the vegetation 
 $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport. They are a $town.economicIdeologyIST $town.politicalSourceIC $town.politicalIdeology.
 
 <h3>Government</h3>
+$town.economicIdeologyDescription $town.politicalIdeologyDescription
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 
 <<return>>
