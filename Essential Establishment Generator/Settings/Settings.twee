@@ -16,7 +16,7 @@ Show Welcome Page <<checkbox "$tutorial" false true checked>>
 <<nobr>><<linkreplace "Load custom Patreon characters">><<set $bartender to $Birchbottom>>
 <<set $patreonContent to true>>Birchbottom is now the bartender!<</linkreplace>><</nobr>>
 
-<<cyclinglink "$neverShowSliders" "show sliders", "never show sliders">>
-<<cyclinglink "$neverShowWelcome" "show tutorial", "never show tutorial">>
+<<cyclinglink "$neverShowSliders" "show sliders" "never show sliders">>
+<<cyclinglink "$neverShowWelcome" "show tutorial" "never show tutorial">>
 
 <<button "Save and return">><<if $neverShowSliders is "never show sliders">><<remember $showSliders false>><</if>><<if $neverShowWelcome is "never show tutorial">><<remember $tutorial is false>><</if>><<return>><</button>>
