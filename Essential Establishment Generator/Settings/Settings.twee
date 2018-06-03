@@ -2,6 +2,8 @@
 
 Show Sliders Page <<checkbox "$showSliders" false true checked>>
 
+Show Welcome Page <<checkbox "$tutorial" false true checked>>
+
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 <<nobr>><<link "reroll">>
@@ -13,3 +15,8 @@ Show Sliders Page <<checkbox "$showSliders" false true checked>>
 
 <<nobr>><<linkreplace "Load custom Patreon characters">><<set $bartender to $Birchbottom>>
 <<set $patreonContent to true>>Birchbottom is now the bartender!<</linkreplace>><</nobr>>
+
+Never show sliders: <<cyclinglink "$neverShowSliders" false, true>>
+Never show welcome:<<cyclinglink "$neverShowWelcome" false, true>>
+
+<<button "Save and return">><<if $neverShowSliders is true>><<remember $showSliders false>><</if>><<if $neverShowWelcome is true>><<remember $tutorial is false>><<return>><</button>>
