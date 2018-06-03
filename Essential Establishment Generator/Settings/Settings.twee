@@ -18,6 +18,6 @@
 
 
 
-<<link "Save these settings">><<if $neverShowSliders is "never show sliders">><<remember $showSliders to false>><</if>><<if $neverShowWelcome is "never show tutorial">><<remember $tutorial to false>><</if>><</link>>
+<<linkreplace "Save these settings">><<if $neverShowSliders is "never show sliders">><<remember $showSliders to false>><</if>><<if $neverShowWelcome is "never show tutorial">><<remember $tutorial to false>><</if>>Settings saved!<</linkreplace>>
 
 <<back>>
