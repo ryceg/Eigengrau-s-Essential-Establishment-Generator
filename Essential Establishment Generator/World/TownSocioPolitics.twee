@@ -147,7 +147,11 @@
       <<case "anarchy">>
           <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order.">>
       <<case "constitutional monarchy">>
-          <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by $town.leaderType.">>
+              <<switch $town.politicalSource>>
+                  <<case "autocracy">>
+                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by the prime minister, who controls all executive decisions.">>
+                  <<default>>
+                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType.">>
       <<case "absolute monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
