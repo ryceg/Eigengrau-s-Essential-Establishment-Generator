@@ -7,19 +7,13 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
-
-
-
-<<set $politicalSourceTypes to $town.politicalSourceIC>>\
-<<set $politicalIdeologyTypes to $town.politicalIdeology>>\
-<<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
-<<set $economicIdeologyTypes to $town.economicIdeologyIST.unshiftUnique()>>\
+<<nobr>><<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
 <<set $politicalSourceTypes to ["autocratic", "meritocratic", "democratic", "kleptocratic", "magocratic", "militocratic", "oligarchic", "pedocratic", "theocratic", "technocratic"]>>\
 <<set $politicalIdeologyTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
 <<dropdown "$town.economicIdeology" $economicIdeologyTypes>>\
 <<dropdown "$town.politicalSource" $politicalSourceTypes>>\
 <<dropdown "$town.politicalIdeology" $politicalIdeologyTypes>>\
-
+<</nobr>>
 
 Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>>
 
