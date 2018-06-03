@@ -13,7 +13,7 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 <<set $politicalSourceTypes to $town.politicalSourceIC>>\
 <<set $politicalIdeologyTypes to $town.politicalIdeology>>\
 <<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
-<<set $economicIdeologyTypes to $town.economicIdeologyIST.unshiftUnique("$town.economicIdeologyIST")>>\
+<<set $economicIdeologyTypes to $town.unshiftUnique("$town.economicIdeologyIST")>>\
 <<set $politicalSourceTypes to ["autocratic", "meritocratic", "democratic", "kleptocratic", "magocratic", "militocratic", "oligarchic", "pedocratic", "theocratic", "technocratic"]>>\
 <<set $politicalIdeologyTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
 <<dropdown "$town.economicIdeology" $economicIdeologyTypes>>\
