@@ -7,6 +7,11 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
+<<dropdown "$town.economicIdeology" $economicIdeologyTypes>>
+<<dropdown "$town.politicalIdeology" $politicalIdeologyTypes>>
+<<dropdown "$town.politicalSource" $politicalSourceTypes>>
+
+
 Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>>
 
 Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>>
