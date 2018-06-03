@@ -137,3 +137,46 @@
     <<elseif $town.arcanaroll lte 10>>
       <<set $town.arcana to "Magic is outlawed, and guards look for any excuse to put away anyone that looks like a magic user. It is coded into law as a tightly restricted activity.">>
   <</if>>
+
+
+  <<if $town.wealthroll gt 100>>
+    <<set $town.wealthroll to 100>>
+   <<elseif $town.wealthroll lt 1>>
+    <<set $town.wealthroll to 1>>
+  <</if>>
+
+  <<if $town.economicsroll gt 100>>
+    <<set $town.economicsroll to 100>>
+   <<elseif $town.economicsroll lt 1>>
+    <<set $town.economicsroll to 1>>
+  <</if>>
+
+  <<if $town.militaryroll gt 100>>
+    <<set $town.militaryroll to 100>>
+   <<elseif $town.militaryroll lt 1>>
+    <<set $town.militaryroll to 1>>
+  <</if>>
+
+  <<if $town.lawroll gt 100>>
+    <<set $town.lawroll to 100>>
+   <<elseif $town.lawroll lt 1>>
+    <<set $town.lawroll to 1>>
+  <</if>>
+
+  <<if $town.arcanaroll gt 100>>
+    <<set $town.arcanaroll to 100>>
+   <<elseif $town.arcanaroll lt 1>>
+    <<set $town.arcanaroll to 1>>
+  <</if>>
+
+  <<if $town.welfareroll gt 100>>
+    <<set $town.welfareroll to 100>>
+   <<elseif $town.welfareroll lt 1>>
+    <<set $town.welfareroll to 1>>
+  <</if>>
+
+  <<if $town.sinroll gt 75 && $town.population gt 300>>
+  			<<include "Brothel">>
+  	<<elseif $town.sinroll gt 20 && $town.population gt 1250>>
+  			<<include "Brothel">>
+  <</if>>
