@@ -3,6 +3,8 @@
 
 <<set $versionnumber to "1.2">>
 
+Config.passages.start = "Welcome"
+
 <<include "Names">>
 
 <<include "Town">>

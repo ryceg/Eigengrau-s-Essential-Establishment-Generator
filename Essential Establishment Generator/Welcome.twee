@@ -1,0 +1,5 @@
+:: Welcome
+
+Welcome! Is this your first time using Eigengrau's Essential Establishment Generator?
+
+<<button "no, and don't show me this again">><<set $tutorial to false>><<goto "Start">><</button>><<button "yes">><</button>>
