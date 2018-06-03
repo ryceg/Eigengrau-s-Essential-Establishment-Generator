@@ -1,8 +1,6 @@
 :: TownSocioPolitics
 
-<<set $economicIdeologyTypes to ["feudalism", "capitalism", "syndicalism", "communism", "primitivism"]>>
-<<set $politicalIdeologyTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>
-<<set $politicalSourceTypes to ["autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"]>>
+
 
 <<switch $town.type>>
     <<case "hamlet">>
