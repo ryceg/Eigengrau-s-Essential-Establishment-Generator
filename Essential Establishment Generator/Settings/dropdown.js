@@ -1,4 +1,4 @@
-/ dropdown macro, by chapel (with help from Thomas Michael Edwards); for SugarCube 2
+// dropdown macro, by chapel (with help from Thomas Michael Edwards); for SugarCube 2
 // version 1.2.0
 
 Macro.add('dropdown', {
