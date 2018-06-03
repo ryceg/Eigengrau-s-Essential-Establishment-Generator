@@ -19,4 +19,4 @@ Show Welcome Page <<checkbox "$tutorial" false true checked>>
 Never show sliders: <<cyclinglink "$neverShowSliders" false, true>>
 Never show welcome:<<cyclinglink "$neverShowWelcome" false, true>>
 
-<<button "Save and return">><<if $neverShowSliders is true>><<remember $showSliders false>><</if>><<if $neverShowWelcome is true>><<remember $tutorial is false>><<return>><</button>>
+<<button "Save and return">><<if $neverShowSliders is true>><<remember $showSliders false>><</if>><<if $neverShowWelcome is true>><<remember $tutorial is false>><</if>><<return>><</button>>
