@@ -1,0 +1,101 @@
+:: TownRefresh
+
+
+<<switch $town.economicIdeology>>
+<<case "feudalist">>
+    <<set $town.economicIdeology to "feudalism">>
+    <<set $town.economicIdeologyIC to "feudalistic">>
+    <<set $town.economicIdeologyIST to "feudalist">>
+    <<set $town.economicIdeologyDescription to "The people of $town.name work the land in exchange for working their lord's lands.">>
+<<case "capitalist">>
+    <<set $town.economicIdeology to "capitalism">>
+    <<set $town.economicIdeologyIC to "capitalistic">>
+    <<set $town.economicIdeologyIST to "capitalist">>
+    <<set $town.economicIdeologyDescription to "The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.">>
+<<case "syndicalist">>
+    <<set $town.economicIdeology to "syndicalism">>
+    <<set $town.economicIdeologyIC to "syndicalistic">>
+    <<set $town.economicIdeologyIST to "syndicalist">>
+    <<set $town.economicIdeologyDescription to "The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.">>
+<<case "communist">>
+    <<set $town.economicIdeology to "communism">>
+    <<set $town.economicIdeologyIC to "communistic">>
+    <<set $town.economicIdeologyIST to "communist">>
+    <<set $town.economicIdeologyDescription to "The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.">>
+<<case "primitivist">>
+    <<set $town.economicIdeology to "primitivism">>
+    <<set $town.economicIdeologyIC to "primitivistic">>
+    <<set $town.economicIdeologyIST to "primitivist">>
+    <<set $town.economicIdeologyDescription to "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the $town.type's citizens are hunter-gatherers.">>
+<</switch>>
+
+
+<<switch $town.politicalSource>>
+		<<case "autocratic">>
+            <<switch $town.politicalIdeology>>
+                <<case "republic", "anarchy">>
+                    <<set $town.politicalIdeology to "absolute monarchy">>
+            <</switch>>
+        <<set $town.leaderType to "the supreme leader">>
+				<<set $town.welfareroll -= 25>>
+				<<set $town.economicsroll += 45>>
+        <<set $town.politicalSourceIC to "autocratic">>
+        <<set $town.politicalSource to "autocracy">>
+		<<case "meritocratic">>
+        <<set $town.leaderType to "the competent">>
+				<<set $town.arcanaroll += 15>>
+				<<set $town.economicsroll += 15>>
+        <<set $town.politicalSourceIC to "meritocratic">>
+        <<set $town.politicalSource to "meritocracy">>
+		<<case "democratic">>
+        <<set $town.leaderType to "the people">>
+				<<set $town.welfareroll += 25>>
+				<<set $town.lawroll += 15>>
+				<<set $town.economicsroll -= 15>>
+        <<set $town.politicalSourceIC to "democratic">>
+        <<set $town.politicalSource to "democracy">>
+		<<case "kleptocratic">>
+        <<set $town.leaderType to "the Thieves' Guild">>
+				<<set $town.lawroll -= 30>>
+				<<set $town.militaryroll -= 50>>
+				<<set $town.economicsroll -= 35>>
+        <<set $town.politicalSourceIC to "kleptocratic">>
+        <<set $town.politicalSource to "kleptocracy">>
+		<<case "magocratic">>
+        <<set $town.leaderType to "the wizards">>
+				<<set $town.arcanaroll += 50>>
+				<<set $town.magicroll += 20>>
+        <<set $town.politicalSourceIC to "magocratic">>
+        <<set $town.politicalSource to "magocracy">>
+		<<case "militocratic">>
+        <<set $town.leaderType to "the military">>
+				<<set $town.militaryroll += 50>>
+				<<set $town.lawroll += 50>>
+				<<set $town.economicsroll += 25>>
+        <<set $town.politicalSourceIC to "militocratic">>
+        <<set $town.politicalSource to "militocracy">>
+		<<case "oligarchy">>
+        <<set $town.leaderType to "the powerful few">>
+				<<set $town.welfareroll -= 15>>
+				<<set $town.economicsroll += 15>>
+        <<set $town.politicalSourceIC to "oligarchic">>
+        <<set $town.politicalSource to "oligarchy">>
+		<<case "pedocratic">>
+        <<set $town.leaderType to "the scholars">>
+				<<set $town.welfareroll += 50>>
+				<<set $town.economicsroll -= 15>>
+        <<set $town.politicalSourceIC to "pedocratic">>
+        <<set $town.politicalSource to "pedocracy">>
+		<<case "theocratic">>
+        <<set $town.leaderType to "the holy">>
+				<<set $town.welfareroll += 15>>
+				<<set $town.arcanaroll += 15>>
+        <<set $town.politicalSourceIC to "theocratic">>
+        <<set $town.politicalSource to "theocracy">>
+		<<case "technocratic">>
+        <<set $town.politicalSource to "technocracy">>
+        <<set $town.leaderType to "the engineers">>
+				<<set $town.arcanaroll += 15>>
+				<<set $town.economicsroll += 35>>
+        <<set $town.politicalSourceIC to "technocratic">>
+	<</switch>>
