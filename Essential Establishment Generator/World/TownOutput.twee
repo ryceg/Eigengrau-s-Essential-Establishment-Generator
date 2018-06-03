@@ -10,9 +10,9 @@ Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 <<set $economicIdeologyTypes to ["feudalism", "capitalism", "syndicalism", "communism", "primitivism"]>>\
 <<set $politicalIdeologyTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
 <<set $politicalSourceTypes to ["autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"]>>\
-<<dropdown "$town.economicIdeology" $economicIdeologyTypes>>
-<<dropdown "$town.politicalIdeology" $politicalIdeologyTypes>>
-<<dropdown "$town.politicalSource" $politicalSourceTypes>>
+<<dropdown "$town.economicIdeology" $economicIdeologyTypes>>\
+<<dropdown "$town.politicalIdeology" $politicalIdeologyTypes>>\
+<<dropdown "$town.politicalSource" $politicalSourceTypes>>\
 
 
 Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>>
