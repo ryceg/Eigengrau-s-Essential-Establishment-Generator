@@ -152,6 +152,7 @@
                       <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by the prime minister, who controls all executive decisions.">>
                   <<default>>
                       <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType.">>
+              <</switch>>
       <<case "absolute monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
