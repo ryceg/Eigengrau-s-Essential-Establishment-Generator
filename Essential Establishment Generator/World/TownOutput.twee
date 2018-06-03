@@ -7,7 +7,10 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
 
-<<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
+<<set $economicIdeologyTypes to $town.economicIdeology>>\
+<<set $politicalSourceTypes to $town.politicalSource>>\
+<<set $politicalIdeologyTypes to $town.politicalIdeology>>\
+$economicIdeologyTypes.pushUnique("feudalist", "capitalist", "syndicalist", "communist", "primitivist")\
 <<set $politicalSourceTypes to ["autocratic", "meritocratic", "democratic", "kleptocratic", "magocratic", "militocratic", "oligarchic", "pedocratic", "theocratic", "technocratic"]>>\
 <<set $politicalIdeologyTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
 <<dropdown "$town.economicIdeology" $economicIdeologyTypes>>\
