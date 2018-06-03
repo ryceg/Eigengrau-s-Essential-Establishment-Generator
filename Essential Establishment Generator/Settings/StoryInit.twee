@@ -3,7 +3,11 @@
 
 <<set $versionnumber to "1.2">>
 
-<<set Config.passages.start = "Welcome">>
+<<if $tutorial is false>>
+    <<set Config.passages.start = "Start">>
+  <<else>>
+    <<set Config.passages.start = "Welcome">>
+<</if>>
 
 <<include "Names">>
 
