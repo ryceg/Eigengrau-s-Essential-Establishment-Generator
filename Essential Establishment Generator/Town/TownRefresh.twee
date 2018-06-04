@@ -59,24 +59,24 @@
                         <<set $town.leaderType to "the supreme leader">>
                     <</switch>>
             <<case "constitutional monarchy">>
+              <<switch $townRuler.gender>>
+                  <<case "man">>
+                      <<set $town.rulerType to "King">>
+                  <<case "woman">>
+                      <<set $town.rulerType to "Queen">>
+                  <<default>>
+                      <<set $town.rulerType to "the supreme leader">>
+                <</switch>>
                 <<if ndef $townRuler>>
-                          <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
+                    <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
                   <<else>>
-                          <<set $townRuler.title to "$townRuler.hisher Royal Highness", $townRuler.background to "noble">>
+                    <<set $townRuler.title to "$townRuler.hisher Royal Highness", $townRuler.background to "noble">>
                 <</if>>
-                      <<switch $townRuler.gender>>
-                          <<case "man">>
-                              <<set $town.rulerType to "King">>
-                          <<case "woman">>
-                              <<set $town.rulerType to "Queen">>
-                          <<default>>
-                              <<set $town.rulerType to "the supreme leader">>
-                        <</switch>>
-                  <<if ndef $townLeader>>
-                          <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
-                      <<else>>
-                          <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
-                  <</if>>
+                <<if ndef $townLeader>>
+                    <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
+                  <<else>>
+                    <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
+                <</if>>
             <<default>>
                   <<set $town.leaderType to "the supreme leader">>
                   <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
