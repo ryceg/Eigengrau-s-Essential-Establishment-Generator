@@ -81,6 +81,8 @@
 
 <<include "TavernGames">>
 
+<<include "TownSocioPolitics">>
+
 <<include "TownMicroEvents">>
 
 <<include "TownLandmark">>
