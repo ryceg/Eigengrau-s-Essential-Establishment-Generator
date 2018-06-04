@@ -42,9 +42,9 @@
 
 <<switch $adventure.villain>>
     <<case "beast or monstrosity with no particular agenda">>
-        <<set $adventureVillain to setup.createNPC()>>
+        <<set $adventureVillain to setup.createNPC({gender: "nonbinary"})>>
     <<case "terrible aberration bent on corruption or domination">>
-        <<set $adventureVillain to setup.createNPC()>>
+        <<set $adventureVillain to setup.createNPC({gender: "nonbinary"})>>
     <<case "fiend bent on corruption or destruction">>
         <<set $adventureVillain to setup.createNPC()>>
     <<case "dragon bent on domination and plunder">>
@@ -52,7 +52,7 @@
     <<case "giant bent on plunder">>
         <<set $adventureVillain to setup.createNPC({height: "huge", race: "giant"})>>
     <<case "horrible undead with any agenda">>
-        <<set $adventureVillain to setup.createNPC()>>
+        <<set $adventureVillain to setup.createNPC({gender: "nonbinary"})>>
     <<case "fey with a mysterious goal">>
         <<set $adventureVillain to setup.createNPC({race: "fey"})>>
     <<case "humanoid cultist">>

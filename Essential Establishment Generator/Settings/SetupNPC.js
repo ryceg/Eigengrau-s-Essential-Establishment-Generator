@@ -65,6 +65,20 @@ setup.createNPC = function(base) {
                 malefemale: "female",
                 guygirl: "girl",
             });
+        case "nonbinary":
+            Object.assign(npc, {
+                heshe: "they",
+                himher: "their",
+                himherself: "themself",
+                hisher: "their",
+                hisherself: "theirself",
+                boygirl: "child",
+                manwoman: "person",
+                menwomen: "people",
+                malefemale: "person",
+                guygirl: "person",
+                firstname: "Algoreth",
+            });
             break;
     }
 
