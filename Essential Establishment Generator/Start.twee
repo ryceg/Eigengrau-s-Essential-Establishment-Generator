@@ -23,7 +23,7 @@
     <</if>><</silently>>
 <</link>>
 
-<<profile "$testNPC" "Testing!" "$testesNPC" "dndclass: 'blacksmith'">>
+<<profile "$testNPC" "Testing!" "$testesNPC">>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
