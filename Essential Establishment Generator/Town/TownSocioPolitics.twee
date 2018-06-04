@@ -155,23 +155,23 @@
 
   <<switch $town.politicalIdeology>>
   		<<case "republic">>
-          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title $townLeader.name">>
+          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is <<profile "$townLeader" "$townLeader.title $townLeader.name">>">>
       <<case "anarchy">>
-          <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $townLeader.title $townLeader.name.">>
+          <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is <<profile "$townLeader" "$townLeader.title $townLeader.name">>.">>
       <<case "constitutional monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
                       <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by the prime minister, who controls all executive decisions.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title $townLeader.name.">>
+                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is <<profile "$townLeader" "$townLeader.title $townLeader.name">>.">>
               <</switch>>
       <<case "absolute monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
-                      <<set $town.politicalIdeologyDescription to "$townLeader.title $townLeader.name is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
+                      <<set $town.politicalIdeologyDescription to "<<profile "$townLeader" "$townLeader.title $townLeader.name">> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "The monarch is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title $townLeader.name.">>
+                      <<set $town.politicalIdeologyDescription to "The monarch is the head of state, but affairs are handled by $town.leaderType, the head of whom is <<profile "$townLeader" "$townLeader.title $townLeader.name">>.">>
               <</switch>>
       <<default>>
-          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title $townLeader.name.">>
+          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is <<profile "$townLeader" "$townLeader.title $townLeader.name">>.">>
   <</switch>>
