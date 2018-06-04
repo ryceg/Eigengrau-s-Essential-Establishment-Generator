@@ -1,7 +1,5 @@
 :: TownSocioPolitics
 
-
-
 <<switch $town.type>>
     <<case "hamlet">>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "feudalism", "capitalism", "syndicalism", "communism", "primitivism", "primitivism"])>>
