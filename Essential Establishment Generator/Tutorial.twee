@@ -1,26 +1,25 @@
 :: Tutorial
 
-<<fadein 500ms 1s>>\
-Eigengrau's Essential Establishment Generator is a system agnostic tool designed to create towns, taverns, and the people that populate them in an instant. This is most useful for Dungeon Masters in roleplaying games, such as Dungeons and Dragons.\
-<</fadein>>
 
-<<fadein 500ms 2s>>\
+Eigengrau's Essential Establishment Generator is a system agnostic tool designed to create towns, taverns, and the people that populate them in an instant. This is most useful for Dungeon Masters in roleplaying games, such as Dungeons and Dragons.
+
+<<fadein 1s 2s>>\
 This generator is different because it generates text that you can read out to players. Instead of "Dirty tavern, with a half orc bartender", you get whole paragraphs of text to immerse your players in the world that you've created.\
 <</fadein>>
 
-<<fadein 500ms 3s>>\
+<<fadein 1200ms 3s>>\
 The towns that it creates are also self-referential, and consistent; you won't have a tavern that's renowned for being a high-end dining club that caters to kings that's filthy. Similarly, a tavern that is terribly poor and disgusting isn't going to charge an arm and a leg.\
 <</fadein>>
 
-<<fadein 500ms 5s>>\
+<<fadein 1300ms 5s>>\
 You have control over these factors though; there are sliders to fine tune exactly how large, wealthy, disgusting, rough, seedy, popular, and pricey the various establishments are. If you would rather not have to deal with that, you can just untick this box: <<checkbox "$showSliders" false true checked>>\
 <</fadein>>
 
-<<fadein 500ms 7s>>\
+<<fadein 1400ms 7s>>\
 A lot of content is hidden behind hyperlinks, for ease of navigation. To reveal the text, simply click on any link that lets you<<linkreplace ". like this.">>. Good job!<</linkreplace>>\
 <</fadein>>
 
-<<fadein 500ms 10s>>\
+<<fadein 1500ms 10s>>\
 If you get lost, you can always click on the text in the top left corner, which currently reads "The $town.type of $town.name". That will take you to the homepage.\
 <</fadein>>
 
