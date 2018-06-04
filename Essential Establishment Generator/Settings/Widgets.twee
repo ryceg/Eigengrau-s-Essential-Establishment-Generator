@@ -69,12 +69,12 @@
 								<</link>>
 					<<elseif def $args[1]>>
 							<<run State.setVar(_creation, setup.createNPC())>>
-								<<link _creation "NPCProfile">>
+								<<link _creation.name "NPCProfile">>
 									<<set $currentNPC to _creation>>
 								<</link>>
 						<<else>>
 								<<run State.setVar(_creation, setup.createNPC())>>
-									<<link _creation "NPCProfile">>
+									<<link _creation.name "NPCProfile">>
 										<<set $currentNPC to _creation>>
 									<</link>>
 						<</if>>
