@@ -1,8 +1,8 @@
 :: Settings
 
-<<cyclinglink "$neverShowSliders" "show sliders" "never show sliders">>
-<<cyclinglink "$neverShowWelcome" "show tutorial" "never show tutorial" "show tutorial" "never show tutorial" "if you are reading this text then the text saying show tutorial means that you will see the tutorial if you boot it up again">>
 
+Show tutorial: <<checkbox "$showTutorial" true false>>
+Show sliders: <<checkbox "$showSliders" true false>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
@@ -16,8 +16,15 @@
 <<nobr>><<linkreplace "Load custom Patreon characters">><<set $bartender to $Birchbottom>>
 <<set $patreonContent to true>>Birchbottom is now the bartender!<</linkreplace>><</nobr>>
 
+<<linkreplace "Save changes">>Saved changes!
+    <<if $showTutorial is false>>
+        <<remember $showTutorial to false>>
+    <</if>>
+    <<if $showSliders is false>>
+        <<remember $showSliders to false>>
+    <</if>>
+<</linkreplace>>
 
 
-<<linkreplace "Save these settings">><<if $neverShowSliders is "never show sliders">><<remember $showSliders to false>><</if>><<if $neverShowWelcome is "never show tutorial">><<remember $tutorial to false>><</if>>Settings saved!<</linkreplace>>
 
 <<back>>
