@@ -29,8 +29,8 @@ $Dave.dndclass
 <<createNPC "$Charlie" "Chuck">>
 $Charlie.background
 
-<<createNPC "$Alice" "$Alice.name" '{gender: "woman"}'>>
-$Alice.bond
+<<createNPC "$Alice" "$Alice.name" '{gender: "woman"}' "test">>
+$Alice.bond $Alice.gender
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
