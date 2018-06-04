@@ -55,9 +55,9 @@
 		<<capture _creation>>
 		<<capture _attributes>>
 			<<if def $args[3]>>
-					<<set $args[2] to setup.createNPC({_attributes})>>
+					<<set _creation to setup.createNPC({_attributes})>>
 						<<link _readout "NPCProfile">>
-							<<set $currentNPC to $args[2]>>
+							<<set $currentNPC to _creation>>
 						<</link>>
 				<<elseif def $args[2]>>
 						<<set $args[2] to setup.createNPC()>>
