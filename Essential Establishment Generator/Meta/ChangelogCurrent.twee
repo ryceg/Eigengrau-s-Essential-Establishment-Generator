@@ -6,3 +6,5 @@ v.1.3
 - Added <<linkreplace "town political sources">>republics, constitutional monarchies, absolute monarchies, and anarchist political ideological sources<</linkreplace>>
 - Added <<linkreplace "town political ideologies">>autocratic, meritocratic, democratic, kleptocratic, magocratic, militocratic, oligarchic, pedocratic, theocratic, technocratic ideologies<</linkreplace>>
 - Added <<linkreplace "town economic policies">>feudalist, capitalist, syndicalist, communist, and primitivist economic policies<</linkreplace>>
+- Added town free trade, welfare, magic control, military, and punishment sliders.
+- Added what the town grew around, and their crops, and exports.
