@@ -1,7 +1,7 @@
 
 :: Guard
 
-<<set $guardcaptain to setup.createNPC()>>
+<<set $guardCaptain to setup.createNPC()>>
 <<set $guard to {}>>
 
 
