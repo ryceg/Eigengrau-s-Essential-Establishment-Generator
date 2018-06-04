@@ -48,8 +48,18 @@
 <<widget "profile">><<nobr>>
 		<<set _char = $args[0]>>
 		<<set _readout = $args[1]>>
+		<<set _creation = $args[2]>>
+		<<set _attributes = $args[3]>>
 		<<capture _char>>
 		<<capture _readout>>
+		<<capture _creation>>
+		<<capture _attributes>>
+			<<if def $args[2]>>
+					<<set $args[2] to setup.createNPC({$args[3]})>>
+					<<link _readout "NPCProfile">>
+						<<set $currentNPC to $args[2]>>
+					<</link>>
+			<</if>>
 				<<if def $args[1]>>
 							<<link _readout "NPCProfile">>
 								<<set $currentNPC to _char>>
@@ -59,6 +69,8 @@
 							<<set $currentNPC to _char>>
 					<</link>>
 				<</if>>
+		<</capture>>
+		<</capture>>
 		<</capture>>
 		<</capture>>
 <</nobr>><</widget>>
