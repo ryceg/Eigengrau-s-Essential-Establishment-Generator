@@ -16,14 +16,14 @@ Show sliders: <<checkbox "$showSliders" true false>>
 <<nobr>><<linkreplace "Load custom Patreon characters">><<set $bartender to $Birchbottom>>
 <<set $patreonContent to true>>Birchbottom is now the bartender!<</linkreplace>><</nobr>>
 
-<<linkreplace "Save changes">>Saved changes!
+<<nobr>><<linkreplace "Save changes">>Saved changes!
     <<if $showTutorial is false>>
         <<remember $showTutorial to false>>
     <</if>>
     <<if $showSliders is false>>
         <<remember $showSliders to false>>
     <</if>>
-<</linkreplace>>
+<</linkreplace>><</nobr>>
 
 
 
