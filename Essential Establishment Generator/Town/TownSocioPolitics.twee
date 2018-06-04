@@ -74,8 +74,10 @@
         <<set $town.lawroll -= 50>>
         <<set $town.militaryroll -= 60>>
     <<case "constitutional monarchy">>
+        <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
         <<set $town.politicalIdeology to either(["autocracy", "autocracy", "meritocracy", "democracy",  "democracy",  "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<case "absolute monarchy">>
+        <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
         <<set $town.politicalIdeology to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<default>>
 				<<set $town.politicalIdeology to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
