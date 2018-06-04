@@ -86,11 +86,41 @@
 
 <<switch $town.politicalSource>>
 		<<case "autocracy">>
-        <<set $town.leaderType to "the supreme leader">>
-				<<set $town.welfareroll -= 25>>
-				<<set $town.economicsroll += 45>>
-        <<set $town.politicalSourceIC to "autocratic">>
-        <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
+        <<switch $town.politicalIdeology>>
+            <<case "absolute monarchy">>
+                <<set $town.welfareroll -= 25>>
+                <<set $town.economicsroll += 45>>
+                <<set $town.politicalSourceIC to "autocratic">>
+                <<set $townLeader to setup.createNPC({title: "$townLeader.hisher Royal Highness", background: "noble"})>>
+                  <<switch $townLeader.gender>>
+                      <<case "man">>
+                        <<set $town.leaderType to "King">>
+                      <<case "woman">>
+                        <<set $town.leaderType to "Queen">>
+                      <<default>>
+                        <<set $town.leaderType to "the supreme leader">>
+                    <</switch>>
+            <<case "constitutional monarchy">>
+                <<set $town.welfareroll -= 25>>
+                <<set $town.economicsroll += 45>>
+                <<set $town.politicalSourceIC to "autocratic">>
+                <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
+                  <<switch $townRuler.gender>>
+                      <<case "man">>
+                        <<set $town.rulerType to "King">>
+                      <<case "woman">>
+                        <<set $town.rulerType to "Queen">>
+                      <<default>>
+                        <<set $town.rulerType to "the supreme leader">>
+                    <</switch>>
+                <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
+            <<default>>
+                <<set $town.leaderType to "the supreme leader">>
+        				<<set $town.welfareroll -= 25>>
+        				<<set $town.economicsroll += 45>>
+                <<set $town.politicalSourceIC to "autocratic">>
+                <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
+        <</switch>>
 		<<case "meritocracy">>
         <<set $town.leaderType to "the competent">>
 				<<set $town.arcanaroll += 15>>
@@ -159,16 +189,16 @@
       <<case "constitutional monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
-                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by the prime minister, who controls all executive decisions.">>
+                      <<set $town.politicalIdeologyDescription to "$townRuler.title <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                      <<set $town.politicalIdeologyDescription to "$townRuler.title <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
               <</switch>>
       <<case "absolute monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
                       <<set $town.politicalIdeologyDescription to "$townLeader.title <<profile $townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "The monarch is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                      <<set $town.politicalIdeologyDescription to "$townRuler.title <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
               <</switch>>
       <<default>>
           <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
