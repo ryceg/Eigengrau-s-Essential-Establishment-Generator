@@ -141,16 +141,16 @@
     <<case "constitutional monarchy">>
             <<switch $town.politicalSource>>
                 <<case "autocracy">>
-                    <<set $town.politicalIdeologyDescription to "$townRuler.title <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
+                    <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
                 <<default>>
-                    <<set $town.politicalIdeologyDescription to "$townRuler.title <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                    <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
             <</switch>>
     <<case "absolute monarchy">>
             <<switch $town.politicalSource>>
                 <<case "autocracy">>
-                    <<set $town.politicalIdeologyDescription to "$townLeader.title <<profile $townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
+                    <<set $town.politicalIdeologyDescription to "<<print $townLeader.title.toUpperFirst()>> <<profile $townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
                 <<default>>
-                    <<set $town.politicalIdeologyDescription to "$townRuler.title <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                    <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
             <</switch>>
     <<default>>
         <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
