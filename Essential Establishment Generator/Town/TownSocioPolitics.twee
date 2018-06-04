@@ -92,76 +92,86 @@
 				<<set $town.welfareroll -= 25>>
 				<<set $town.economicsroll += 45>>
         <<set $town.politicalSourceIC to "autocratic">>
+        <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
 		<<case "meritocracy">>
         <<set $town.leaderType to "the competent">>
 				<<set $town.arcanaroll += 15>>
 				<<set $town.economicsroll += 15>>
         <<set $town.politicalSourceIC to "meritocratic">>
+        <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
 		<<case "democracy">>
         <<set $town.leaderType to "the people">>
 				<<set $town.welfareroll += 25>>
 				<<set $town.lawroll += 15>>
 				<<set $town.economicsroll -= 15>>
         <<set $town.politicalSourceIC to "democratic">>
+        <<set $townLeader to setup.createNPC({title: "Lord", background: either("noble", "commoner", "commoner")})>>
 		<<case "kleptocracy">>
         <<set $town.leaderType to "the Thieves' Guild">>
 				<<set $town.lawroll -= 30>>
 				<<set $town.militaryroll -= 50>>
 				<<set $town.economicsroll -= 35>>
         <<set $town.politicalSourceIC to "kleptocratic">>
+        <<set $townLeader to setup.createNPC({title: "High Thief", dndclass: "rogue", background: either("charlatan", "criminal")})>>
 		<<case "magocracy">>
         <<set $town.leaderType to "the wizards">>
 				<<set $town.arcanaroll += 50>>
 				<<set $town.magicroll += 20>>
         <<set $town.politicalSourceIC to "magocratic">>
+        <<set $townLeader to setup.createNPC({title: "Archwizard", dndclass: either("wizard, "sorcerer", "warlock"), background: "sage"})>>
 		<<case "militocracy">>
         <<set $town.leaderType to "the military">>
 				<<set $town.militaryroll += 50>>
 				<<set $town.lawroll += 50>>
 				<<set $town.economicsroll += 25>>
         <<set $town.politicalSourceIC to "militocratic">>
+        <<set $townLeader to setup.createNPC({title: "Commander", dndclass: either("barbarian", "fighter", "fighter", "fighter", "paladin"), background: "soldier"})>>
 		<<case "oligarchy">>
         <<set $town.leaderType to "the powerful few">>
 				<<set $town.welfareroll -= 15>>
 				<<set $town.economicsroll += 15>>
         <<set $town.politicalSourceIC to "oligarchic">>
+        <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
 		<<case "pedocracy">>
         <<set $town.leaderType to "the scholars">>
 				<<set $town.welfareroll += 50>>
 				<<set $town.economicsroll -= 15>>
         <<set $town.politicalSourceIC to "pedocratic">>
+        <<set $townLeader to setup.createNPC({title: "Sir", background: "scholar"})>>
 		<<case "theocracy">>
         <<set $town.leaderType to "the holy">>
 				<<set $town.welfareroll += 15>>
 				<<set $town.arcanaroll += 15>>
         <<set $town.politicalSourceIC to "theocratic">>
+        <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndclass: "cleric", background: "acolyte"})>>
 		<<case "technocracy">>
         <<set $town.leaderType to "the engineers">>
 				<<set $town.arcanaroll += 15>>
 				<<set $town.economicsroll += 35>>
         <<set $town.politicalSourceIC to "technocratic">>
+        <<set $townLeader to setup.createNPC({title: "Architect"})>>
 	<</switch>>
 
 
   <<switch $town.politicalIdeology>>
   		<<case "republic">>
-          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType.">>
+          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title $townLeader.name">>
       <<case "anarchy">>
-          <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order.">>
+          <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $townLeader.title $townLeader.name.">>
       <<case "constitutional monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
                       <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by the prime minister, who controls all executive decisions.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType.">>
+                      <<set $town.politicalIdeologyDescription to "The monarch is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title $townLeader.name.">>
               <</switch>>
       <<case "absolute monarchy">>
               <<switch $town.politicalSource>>
                   <<case "autocracy">>
-                      <<set $town.politicalIdeologyDescription to "The monarch is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
+                      <<set $town.politicalIdeologyDescription to "$townLeader.title $townLeader.name is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "The monarch is the head of state, but affairs are handled by $town.leaderType.">>
+                      <<set $town.politicalIdeologyDescription to "The monarch is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title $townLeader.name.">>
               <</switch>>
       <<default>>
-          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType.">>
+          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title $townLeader.name.">>
   <</switch>>
