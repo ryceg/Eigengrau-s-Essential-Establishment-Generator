@@ -29,12 +29,12 @@
 <</switch>>
 
 
-<<switch $town.politicalSourceIC>>
+<<switch $town.politicalIdeologyIC>>
 		<<case "autocratic">>
       <<set $town.leaderType to "the supreme leader">>
-      <<set $town.politicalSourceIC to "autocratic">>
-      <<set $town.politicalSource to "autocracy">>
-        <<switch $town.politicalIdeology>>
+      <<set $town.politicalIdeologyIC to "autocratic">>
+      <<set $town.politicalIdeology to "autocracy">>
+        <<switch $town.politicalSource>>
             <<case "absolute monarchy">>
                 <<if ndef $townRuler>>
                           <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
@@ -81,77 +81,77 @@
                   <<set $town.leaderType to "the supreme leader">>
                   <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
         <</switch>>
-            <<switch $town.politicalIdeology>> /* This bit stops you from having an autocratic anarchy */
+            <<switch $town.politicalSource>> /* This bit stops you from having an autocratic anarchy */
                 <<case "republic", "anarchy">>
-                    <<set $town.politicalIdeology to "absolute monarchy">>
+                    <<set $town.politicalSource to "absolute monarchy">>
             <</switch>>
 		<<case "meritocratic">>
         <<set $town.leaderType to "the competent">>
-        <<set $town.politicalSourceIC to "meritocratic">>
-        <<set $town.politicalSource to "meritocracy">>
+        <<set $town.politicalIdeologyIC to "meritocratic">>
+        <<set $town.politicalIdeology to "meritocracy">>
         <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
 		<<case "democratic">>
         <<set $town.leaderType to "the people">>
-        <<set $town.politicalSourceIC to "democratic">>
-        <<set $town.politicalSource to "democracy">>
+        <<set $town.politicalIdeologyIC to "democratic">>
+        <<set $town.politicalIdeology to "democracy">>
         <<set $townLeader.title to "Lord", $townLeader.background to "commoner">>
 		<<case "kleptocratic">>
         <<set $town.leaderType to "the Thieves' Guild">>
-        <<set $town.politicalSourceIC to "kleptocratic">>
-        <<set $town.politicalSource to "kleptocracy">>
+        <<set $town.politicalIdeologyIC to "kleptocratic">>
+        <<set $town.politicalIdeology to "kleptocracy">>
         <<set $townLeader.title to "High Thief", $townLeader.dndclass to "rogue", $townLeader.background to "criminal">>
 		<<case "magocratic">>
         <<set $town.leaderType to "the wizards">>
-        <<set $town.politicalSourceIC to "magocratic">>
-        <<set $town.politicalSource to "magocracy">>
+        <<set $town.politicalIdeologyIC to "magocratic">>
+        <<set $town.politicalIdeology to "magocracy">>
         <<set $townLeader.title to "Archwizard", $townLeader.dndclass to "wizard", $townLeader.background to "sage">>
 		<<case "militocratic">>
         <<set $town.leaderType to "the military">>
-        <<set $town.politicalSourceIC to "militocratic">>
-        <<set $town.politicalSource to "militocracy">>
+        <<set $town.politicalIdeologyIC to "militocratic">>
+        <<set $town.politicalIdeology to "militocracy">>
         <<set $townLeader.title to "Commander", $townLeader.dndclass to "fighter", $townLeader.background to "soldier">>
 		<<case "oligarchy">>
         <<set $town.leaderType to "the powerful few">>
-        <<set $town.politicalSourceIC to "oligarchic">>
-        <<set $town.politicalSource to "oligarchy">>
+        <<set $town.politicalIdeologyIC to "oligarchic">>
+        <<set $town.politicalIdeology to "oligarchy">>
         <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
 		<<case "pedocratic">>
         <<set $town.leaderType to "the scholars">>
-        <<set $town.politicalSourceIC to "pedocratic">>
-        <<set $town.politicalSource to "pedocracy">>
+        <<set $town.politicalIdeologyIC to "pedocratic">>
+        <<set $town.politicalIdeology to "pedocracy">>
         <<set $townLeader.title to "Sir", $townLeader.background to "scholar">>
 		<<case "theocratic">>
         <<set $town.leaderType to "the holy">>
-        <<set $town.politicalSourceIC to "theocratic">>
-        <<set $town.politicalSource to "theocracy">>
+        <<set $town.politicalIdeologyIC to "theocratic">>
+        <<set $town.politicalIdeology to "theocracy">>
         <<set $townLeader.title to "Father", $townLeader.gender to "man", $townLeader.dndclass to "cleric", $townLeader.background to "acolyte">>
 		<<case "technocratic">>
-        <<set $town.politicalSource to "technocracy">>
+        <<set $town.politicalIdeology to "technocracy">>
         <<set $town.leaderType to "the engineers">>
-        <<set $town.politicalSourceIC to "technocratic">>
+        <<set $town.politicalIdeologyIC to "technocratic">>
         <<set $townLeader.title to "Architect">>
 	<</switch>>
 
 
-<<switch $town.politicalIdeology>>
+<<switch $town.politicalSource>>
 		<<case "republic">>
-        <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>">>
+        <<set $town.politicalSourceDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>">>
     <<case "anarchy">>
-        <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+        <<set $town.politicalSourceDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $townLeader.title <<profile $townLeader>>.">>
     <<case "constitutional monarchy">>
-            <<switch $town.politicalSource>>
+            <<switch $town.politicalIdeology>>
                 <<case "autocracy">>
-                    <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
+                    <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
                 <<default>>
-                    <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                    <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
             <</switch>>
     <<case "absolute monarchy">>
-            <<switch $town.politicalSource>>
+            <<switch $town.politicalIdeology>>
                 <<case "autocracy">>
-                    <<set $town.politicalIdeologyDescription to "<<print $townLeader.title.toUpperFirst()>> <<profile $townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
+                    <<set $town.politicalSourceDescription to "<<print $townLeader.title.toUpperFirst()>> <<profile $townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
                 <<default>>
-                    <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                    <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
             <</switch>>
     <<default>>
-        <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+        <<set $town.politicalSourceDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
 <</switch>>

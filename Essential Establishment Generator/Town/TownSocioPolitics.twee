@@ -3,19 +3,19 @@
 <<switch $town.type>>
     <<case "hamlet">>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "feudalism", "capitalism", "syndicalism", "communism", "primitivism", "primitivism"])>>
-        <<set $town.politicalIdeology to either(["absolute monarchy", "republic", "republic", "republic", "anarchy"])>>
+        <<set $town.politicalSource to either(["absolute monarchy", "republic", "republic", "republic", "anarchy"])>>
     <<case "village">>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "syndicalism", "communism", "primitivism", "primitivism"])>>
-        <<set $town.politicalIdeology to either(["constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
+        <<set $town.politicalSource to either(["constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
     <<case "town">>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism", "primitivism"])>>
-        <<set $town.politicalIdeology to either(["absolute monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
+        <<set $town.politicalSource to either(["absolute monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
     <<case "city">>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism"])>>
-        <<set $town.politicalIdeology to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
+        <<set $town.politicalSource to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "anarchy"])>>
     <<default>>
         <<set $town.economicIdeology to either(["feudalism", "feudalism", "feudalism", "capitalism", "capitalism", "capitalism", "capitalism", "syndicalism", "communism"])>>
-        <<set $town.politicalIdeology to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "republic", "anarchy"])>>
+        <<set $town.politicalSource to either(["absolute monarchy", "absolute monarchy", "absolute monarchy", "constitutional monarchy", "constitutional monarchy", "republic", "republic", "republic", "republic", "anarchy"])>>
 <</switch>>
 
 <<switch $town.economicIdeology>>
@@ -64,33 +64,33 @@
         <<set $town.militaryroll -= 60>>
 <</switch>>
 
-<<switch $town.politicalIdeology>>
+<<switch $town.politicalSource>>
 		<<case "republic">>
-        <<set $town.politicalSource to either(["meritocracy", "meritocracy", "democracy", "democracy", "democracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+        <<set $town.politicalIdeology to either(["meritocracy", "meritocracy", "democracy", "democracy", "democracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<case "anarchy">>
-				<<set $town.politicalSource to either(["meritocracy", "meritocracy", "democracy", "democracy", "democracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+				<<set $town.politicalIdeology to either(["meritocracy", "meritocracy", "democracy", "democracy", "democracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
         <<set $town.economicsroll -= 40>>
         <<set $town.welfareroll -= 45>>
         <<set $town.lawroll -= 50>>
         <<set $town.militaryroll -= 60>>
     <<case "constitutional monarchy">>
-        <<set $town.politicalSource to either(["autocracy", "autocracy", "meritocracy", "democracy",  "democracy",  "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+        <<set $town.politicalIdeology to either(["autocracy", "autocracy", "meritocracy", "democracy",  "democracy",  "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<case "absolute monarchy">>
-        <<set $town.politicalSource to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+        <<set $town.politicalIdeology to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<default>>
-				<<set $town.politicalSource to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
+				<<set $town.politicalIdeology to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
 <</switch>>
 
 
 
 
-<<switch $town.politicalSource>>
+<<switch $town.politicalIdeology>>
 		<<case "autocracy">>
-        <<switch $town.politicalIdeology>>
+        <<switch $town.politicalSource>>
             <<case "absolute monarchy">>
                 <<set $town.welfareroll -= 25>>
                 <<set $town.economicsroll += 45>>
-                <<set $town.politicalSourceIC to "autocratic">>
+                <<set $town.politicalIdeologyIC to "autocratic">>
                 <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
                   <<switch $townRuler.gender>>
                       <<case "man">>
@@ -113,7 +113,7 @@
             <<case "constitutional monarchy">>
                 <<set $town.welfareroll -= 25>>
                 <<set $town.economicsroll += 45>>
-                <<set $town.politicalSourceIC to "autocratic">>
+                <<set $town.politicalIdeologyIC to "autocratic">>
                 <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
                   <<switch $townRuler.gender>>
                       <<case "man">>
@@ -128,88 +128,88 @@
                 <<set $town.leaderType to "the supreme leader">>
         				<<set $town.welfareroll -= 25>>
         				<<set $town.economicsroll += 45>>
-                <<set $town.politicalSourceIC to "autocratic">>
+                <<set $town.politicalIdeologyIC to "autocratic">>
                 <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
         <</switch>>
 		<<case "meritocracy">>
         <<set $town.leaderType to "the competent">>
 				<<set $town.arcanaroll += 15>>
 				<<set $town.economicsroll += 15>>
-        <<set $town.politicalSourceIC to "meritocratic">>
+        <<set $town.politicalIdeologyIC to "meritocratic">>
         <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
 		<<case "democracy">>
         <<set $town.leaderType to "the people">>
 				<<set $town.welfareroll += 25>>
 				<<set $town.lawroll += 15>>
 				<<set $town.economicsroll -= 15>>
-        <<set $town.politicalSourceIC to "democratic">>
+        <<set $town.politicalIdeologyIC to "democratic">>
         <<set $townLeader to setup.createNPC({title: "Lord", background: "commoner"})>>
 		<<case "kleptocracy">>
         <<set $town.leaderType to "the Thieves' Guild">>
 				<<set $town.lawroll -= 30>>
 				<<set $town.militaryroll -= 50>>
 				<<set $town.economicsroll -= 35>>
-        <<set $town.politicalSourceIC to "kleptocratic">>
+        <<set $town.politicalIdeologyIC to "kleptocratic">>
         <<set $townLeader to setup.createNPC({title: "High Thief", dndclass: "rogue", background: "criminal"})>>
 		<<case "magocracy">>
         <<set $town.leaderType to "the wizards">>
 				<<set $town.arcanaroll += 50>>
 				<<set $town.magicroll += 20>>
-        <<set $town.politicalSourceIC to "magocratic">>
+        <<set $town.politicalIdeologyIC to "magocratic">>
         <<set $townLeader to setup.createNPC({title: "Archwizard", dndclass: "wizard", background: "sage"})>>
 		<<case "militocracy">>
         <<set $town.leaderType to "the military">>
 				<<set $town.militaryroll += 50>>
 				<<set $town.lawroll += 50>>
 				<<set $town.economicsroll += 25>>
-        <<set $town.politicalSourceIC to "militocratic">>
+        <<set $town.politicalIdeologyIC to "militocratic">>
         <<set $townLeader to setup.createNPC({title: "Commander", dndclass: "fighter", background: "soldier"})>>
 		<<case "oligarchy">>
         <<set $town.leaderType to "the powerful few">>
 				<<set $town.welfareroll -= 15>>
 				<<set $town.economicsroll += 15>>
-        <<set $town.politicalSourceIC to "oligarchic">>
+        <<set $town.politicalIdeologyIC to "oligarchic">>
         <<set $townLeader to setup.createNPC({title: "Lord", background: "noble"})>>
 		<<case "pedocracy">>
         <<set $town.leaderType to "the scholars">>
 				<<set $town.welfareroll += 50>>
 				<<set $town.economicsroll -= 15>>
-        <<set $town.politicalSourceIC to "pedocratic">>
+        <<set $town.politicalIdeologyIC to "pedocratic">>
         <<set $townLeader to setup.createNPC({title: "Sir", background: "scholar"})>>
 		<<case "theocracy">>
         <<set $town.leaderType to "the holy">>
 				<<set $town.welfareroll += 15>>
 				<<set $town.arcanaroll += 15>>
-        <<set $town.politicalSourceIC to "theocratic">>
+        <<set $town.politicalIdeologyIC to "theocratic">>
         <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndclass: "cleric", background: "acolyte"})>>
 		<<case "technocracy">>
         <<set $town.leaderType to "the engineers">>
 				<<set $town.arcanaroll += 15>>
 				<<set $town.economicsroll += 35>>
-        <<set $town.politicalSourceIC to "technocratic">>
+        <<set $town.politicalIdeologyIC to "technocratic">>
         <<set $townLeader to setup.createNPC({title: "Architect"})>>
 	<</switch>>
 
 
-  <<switch $town.politicalIdeology>>
+  <<switch $town.politicalSource>>
   		<<case "republic">>
-          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>">>
+          <<set $town.politicalSourceDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>">>
       <<case "anarchy">>
-          <<set $town.politicalIdeologyDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+          <<set $town.politicalSourceDescription to "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $townLeader.title <<profile $townLeader>>.">>
       <<case "constitutional monarchy">>
-              <<switch $town.politicalSource>>
+              <<switch $town.politicalIdeology>>
                   <<case "autocracy">>
-                      <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
+                      <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile $townLeader>>, who controls all executive decisions.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                      <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
               <</switch>>
       <<case "absolute monarchy">>
-              <<switch $town.politicalSource>>
+              <<switch $town.politicalIdeology>>
                   <<case "autocracy">>
-                      <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
+                      <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.">>
                   <<default>>
-                      <<set $town.politicalIdeologyDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+                      <<set $town.politicalSourceDescription to "<<print $townRuler.title.toUpperFirst()>> <<profile $townRuler>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
               <</switch>>
       <<default>>
-          <<set $town.politicalIdeologyDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
+          <<set $town.politicalSourceDescription to "Affairs are handled by $town.leaderType, the head of whom is $townLeader.title <<profile $townLeader>>.">>
   <</switch>>
