@@ -1,6 +1,6 @@
 :: NPCProfile
-<h1>$currentNPC.name</h1>
-$currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes, with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstname is that $currentNPC.heshe has $currentNPC.physicaltrait.
+<h1><<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name</h1>
+<<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes, with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstname is that $currentNPC.heshe has $currentNPC.physicaltrait.
 
 $currentNPC.firstname $currentNPC.trait. <<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait.
 

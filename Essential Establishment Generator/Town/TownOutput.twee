@@ -1,6 +1,6 @@
 :: TownOutput
 
-<<linkreplace "Edit $town.name">><<button "Save Changes">><<include "TownRefresh">><<goto "TownOutput">><</button>>
+<<linkreplace "Edit $town.name">><<button "Save Changes">><<include "TownRefresh">><<include "TownRenders">><<goto "TownOutput">><</button>>
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
