@@ -60,9 +60,9 @@
 							<<set $currentNPC to _creation>>
 						<</link>>
 				<<elseif def $args[2]>>
-						<<set $args[2] to setup.createNPC()>>
+						<<set _creation to setup.createNPC()>>
 							<<link _readout "NPCProfile">>
-								<<set $currentNPC to _char>>
+								<<set $currentNPC to _creation>>
 							<</link>>
 				<<elseif def $args[1]>>
 							<<link _readout "NPCProfile">>
