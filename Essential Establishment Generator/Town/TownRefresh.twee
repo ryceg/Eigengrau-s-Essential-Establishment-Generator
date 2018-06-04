@@ -36,15 +36,18 @@
       <<set $town.politicalSource to "autocracy">>
         <<switch $town.politicalIdeology>>
             <<case "absolute monarchy">>
-                <<set $townRuler.title to "$townRuler.hisher Royal Highness", $townRuler.background to "noble">>
-                  <<switch $townRuler.gender>>
-                      <<case "man">>
-                        <<set $town.rulerType to "King">>
-                      <<case "woman">>
-                        <<set $town.rulerType to "Queen">>
-                      <<default>>
-                        <<set $town.rulerType to "the supreme leader">>
-                    <</switch>>
+                <<if ndef $townRuler>>
+                          <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", $townRuler.background: "noble"})>>
+                  <<else>>
+                          <<set $townRuler.title to "$townRuler.hisher Royal Highness", $townRuler.background to "noble">>
+                      <<switch $townRuler.gender>>
+                          <<case "man">>
+                            <<set $town.rulerType to "King">>
+                          <<case "woman">>
+                            <<set $town.rulerType to "Queen">>
+                          <<default>>
+                            <<set $town.rulerType to "the supreme leader">>
+                        <</switch>>
                 <<set $townLeader.title to "$townLeader.hisher Royal Highness", $townLeader.background to "noble">>
                   <<switch $townLeader.gender>>
                       <<case "man">>
