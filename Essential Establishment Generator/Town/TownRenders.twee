@@ -29,23 +29,23 @@
 <</if>>
 
 <<if $town.economicsroll gt 90>>
-    <<set $town.economics to "Trade in $town.name is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the $town.type. The trade guild strictly enforces the rules, and costs of doing business in $town.name are high.">>
+    <<set $town.economics to "Trade in $town.name is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the $town.type, and people live a $town.wealth existence because of it. The trade guild strictly enforces the rules, and costs of doing business in $town.name are high.">>
   <<elseif $town.economicsroll gt 80>>
-    <<set $town.economics to "Trade in $town.name is regulated, with taxes and restrictions on what can be brought in and out of the $town.type. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.">>
+    <<set $town.economics to "Trade in $town.name is regulated, with taxes and restrictions on what can be brought in and out of the $town.type, and people live a $town.wealth existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.">>
   <<elseif $town.economicsroll gt 70>>
-    <<set $town.economics to "Trade in $town.name is regulated, with taxes applied to all goods and services rendered. The trade guild enforces rules, with penalties for rule-breakers.">>
+    <<set $town.economics to "Trade in $town.name is regulated, with taxes applied to all goods and services rendered, and people live a $town.wealth existence because of it. The trade guild enforces rules, with penalties for rule-breakers.">>
   <<elseif $town.economicsroll gt 60>>
-    <<set $town.economics to "Trade in $town.name is mostly free, with some taxes applied to goods and services rendered in the city.">>
+    <<set $town.economics to "Trade in $town.name is mostly free, with some taxes applied to goods and services rendered in the city. People live a $town.wealth existence because of it">>
   <<elseif $town.economicsroll gt 50>>
-    <<set $town.economics to "Trade is reasonable in $town.name; some taxes are applied to certain goods and services that are rendered in the city.">>
+    <<set $town.economics to "Trade is reasonable in $town.name, and people live a $town.wealth existence because of it; some taxes are applied to certain goods and services that are rendered in the city.">>
   <<elseif $town.economicsroll gt 40>>
-    <<set $town.economics to "Trade is reasonable in $town.name; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.">>
+    <<set $town.economics to "Trade is reasonable in $town.name, and people live a $town.wealth existence because of it; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.">>
   <<elseif $town.economicsroll gt 30>>
-    <<set $town.economics to "Trade is rather free in $town.name. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.">>
+    <<set $town.economics to "Trade is rather free in $town.name, and people live a $town.wealth existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.">>
   <<elseif $town.economicsroll gt 20>>
-    <<set $town.economics to "Trade is free in $town.name. There are no taxes or regulations to speak of.">>
+    <<set $town.economics to "Trade is free in $town.name, and people live a $town.wealth existence because of it. There are no taxes or regulations to speak of.">>
   <<elseif $town.economicsroll lte 20>>
-    <<set $town.economics to "Caveat emptor is the guiding philosophy of $town.name. Without any taxes or regulations, the free market reigns supreme here.">>
+    <<set $town.economics to "Caveat emptor is the guiding philosophy of $town.name, and people live a $town.wealth existence because of it. Without any taxes or regulations, the free market reigns supreme here.">>
 <</if>>
 
 <<if $town.welfareroll gt 90 && $town.wealthroll gt 50>>
