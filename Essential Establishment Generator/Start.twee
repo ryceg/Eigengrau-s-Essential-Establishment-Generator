@@ -25,6 +25,8 @@
 
 <<profile "$testNPC" "Testing!" "$testesNPC" "{dndclass: 'blacksmith'}">>
 
+<<profile "$testesNPC">>
+
 <<profile "$teta" "Testerino!" "$testicle">>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
