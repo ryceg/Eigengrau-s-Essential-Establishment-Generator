@@ -23,15 +23,6 @@
     <</if>><</silently>>
 <</link>>
 
-<<createNPC "$Dave">>
-$Dave.dndclass
-
-<<createNPC "$Charlie" "Chuck">>
-$Charlie.background
-
-<<createNPC "$Alice" "$Alice.name" '{gender: "man"}' "{gender: 'woman'}">>
-$Alice.bond $Alice.gender
-
 Down from $tavern.road are the [[markets|MarketOutput]]
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><<link "$smithy.name">><<silently>><<set $currentPassage to $smithy>>
