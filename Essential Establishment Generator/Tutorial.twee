@@ -2,19 +2,34 @@
 
 <<fadein 1s 500ms>>\
 Eigengrau's Essential Establishment Generator is a system agnostic tool designed to create towns, taverns, and the people that populate them in an instant. This is most useful for Dungeon Masters in roleplaying games, such as Dungeons and Dragons.\
-<</fadein>><<fadein 2s 500ms>>\
+<</fadein>>
+
+<<fadein 2s 500ms>>\
 This generator is different because it generates text that you can read out to players. Instead of "Dirty tavern, with a half orc bartender", you get whole paragraphs of text to immerse your players in the world that you've created.\
-<</fadein>><<fadein 3s 500ms>>\
+<</fadein>>
+
+<<fadein 3s 500ms>>\
 The towns that it creates are also self-referential, and consistent; you won't have a tavern that's renowned for being a high-end dining club that caters to kings that's filthy. Similarly, a tavern that is terribly poor and disgusting isn't going to charge an arm and a leg.\
-<</fadein>><<fadein 5s 500ms>>\
+<</fadein>>
+
+<<fadein 5s 500ms>>\
 You have control over these factors though; there are sliders to fine tune exactly how large, wealthy, disgusting, rough, seedy, popular, and pricey the various establishments are. If you would rather not have to deal with that, you can just untick this box: <<checkbox "$showSliders" false true checked>>\
-<</fadein>><<fadein 7s 500ms>>\
+<</fadein>>
+
+<<fadein 7s 500ms>>\
 A lot of content is hidden behind hyperlinks, for ease of navigation. To reveal the text, simply click on any link that lets you<<linkreplace ". like this.">>. Good job!<</linkreplace>>\
-<</fadein>><<fadein 10s 500ms>>\
+<</fadein>>
+
+<<fadein 10s 500ms>>\
 If you get lost, you can always click on the text in the top left corner, which currently reads "The $town.type of $town.name". That will take you to the homepage.\
-<</fadein>><<fadein 11s 500ms>>\
+<</fadein>>
+
+<<fadein 11s 500ms>>\
 If you enjoy using this tool, please consider supporting me on [[Patreon|"https://www.patreon.com/eigengrausgenerator"]]; I am but a poor student.\
-<</fadein>><<fadein 12s 500ms>>\
+<</fadein>>
+
+<<fadein 12s 500ms>>\
 Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|www.reddit.com/r/EigengrausGenerator]]!\
 <</fadein>>
+
  <<button "Start">><<goto "Start">><</button>>           <<button "Ok, never show me this again">><<remember $showTutorial to false>><<goto "Start">><</button>>
