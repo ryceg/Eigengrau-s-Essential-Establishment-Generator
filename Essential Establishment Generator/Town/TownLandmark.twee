@@ -107,7 +107,7 @@
           "a road traveled by merchants on the way to another, larger city",
           "a well maintained road",
           "a road that connects two other cities",
-          "a well-traveled crossroads">>
+          "a well-traveled crossroads"])>>
           <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"])>>
       <<case "plains">>
           <<set $town.origin to either([
