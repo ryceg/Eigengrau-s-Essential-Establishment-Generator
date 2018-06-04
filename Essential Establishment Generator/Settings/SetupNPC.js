@@ -482,7 +482,7 @@ setup.createNPC = function(base) {
                 "My isolation gave me great insight into a great evil that only I can destroy."].random();
             break;
         case "noble":
-            npc.backgroundOrigin = npc.backgroundOrigin || ["My family has been disgraced, and I intend to restore our once pristine reputation.", "I come from an old and storied family, and it fell to me to preserve the family name.", "My family recently came by its title, and that eleva— tion thrust us into a new and strange world.", "My family has a title, but none of my ancestors have done anything of note.", "My family is filled with remarkable people. I hope to live up to their reputation.", "I hope to increase my family's power and influence."].random();
+            npc.backgroundOrigin = npc.backgroundOrigin || ["My family has been disgraced, and I intend to restore our once pristine reputation.", "I come from an old and storied family, and it fell to me to preserve the family name.", "My family recently came by its title, and that elevation thrust us into a new and strange world.", "My family has a title, but none of my ancestors have done anything of note.", "My family is filled with remarkable people. I hope to live up to their reputation.", "I hope to increase my family's power and influence."].random();
             npc.bond = npc.bond || ["I will face any challenge to win the approval of my family.",
                 "My house's alliance with another noble family must be sustained at all costs.",
                 "Nothing is more important that the other members of my family.",
