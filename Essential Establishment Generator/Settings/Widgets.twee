@@ -52,7 +52,7 @@
 		<<capture _creation>>
 		<<capture _attributes>>
 			<<if def $args[3]>>
-					<<set _creation to setup.createNPC({_attributes})>>
+					<<set _creation to setup.createNPC(_attributes)>>
 						<<link _readout "NPCProfile">>
 							<<set $currentNPC to _creation>>
 						<</link>>
@@ -70,8 +70,4 @@
 									<<set $currentNPC to _char>>
 							<</link>>
 				<</if>>
-		<</capture>>
-		<</capture>>
-		<</capture>>
-		<</capture>>
-<</nobr>><</widget>>
+		<</capture>><</nobr>><</widget>>
