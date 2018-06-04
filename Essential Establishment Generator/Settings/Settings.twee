@@ -2,7 +2,7 @@
 
 
 Show tutorial: <<checkbox "$showTutorial" true false>>
-Show sliders: <<checkbox "$showSliders" true false>>
+Show sliders: <<checkbox "$showSliders" true false checked>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 

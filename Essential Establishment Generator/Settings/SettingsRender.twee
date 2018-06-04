@@ -1,0 +1,7 @@
+:: SettingsRender [render]
+<<if $showTutorial is false>>
+    <<remember $showTutorial to false>>
+<</if>>
+<<if $showSliders is false>>
+    <<remember $showSliders to false>>
+<</if>>
