@@ -25,9 +25,14 @@
 
 <<profile "$testNPC" "Testing!" "$testesNPC" '{dndclass: "blacksmith"}'>>
 
-<<profile "$testesNPC">>
+<<createNPC "Dave">>
+$Dave.dndclass
 
-<<profile "$teta" "Testerino!" "$testicle">>
+<<createNPC "Charlie" "Chuck">>
+$Charlie.background
+
+<<createNPC "Alice" "Allie" '{gender: "woman"}'>>
+$Alice.bond
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 

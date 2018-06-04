@@ -46,19 +46,9 @@
 */
 
 <<widget "profile">><<nobr>>
-		<<set _char = $args[0], _readout = $args[1], _creation = $args[2], _attributes = $args[3]>>
-		<<capture _char, _readout, _creation, _attributes>>
-			<<if def $args[3]>>
-					<<run State.setVar(_creation, setup.createNPC(_attributes))>>
-						<<link _readout "NPCProfile">>
-							<<set $currentNPC to _creation>>
-						<</link>>
-				<<elseif def $args[2]>>
-						<<run State.setVar(_creation, setup.createNPC())>>
-							<<link _readout "NPCProfile">>
-								<<set $currentNPC to _creation>>
-							<</link>>
-				<<elseif def $args[1]>>
+		<<set _char = $args[0], _readout = $args[1]>>
+		<<capture _char, _readout>>
+				<<if def $args[1]>>
 							<<link _readout "NPCProfile">>
 								<<set $currentNPC to _char>>
 							<</link>>
@@ -68,3 +58,24 @@
 							<</link>>
 				<</if>>
 		<</capture>><</nobr>><</widget>>
+
+		<<widget "createNPC">><<nobr>>
+				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>
+				<<capture _creation, _attributes, _readout>>
+					<<if def $args[2]>>
+							<<run State.setVar(_creation, setup.createNPC(_attributes))>>
+								<<link _readout "NPCProfile">>
+									<<set $currentNPC to _creation>>
+								<</link>>
+					<<elseif def $args[1]>>
+							<<run State.setVar(_creation, setup.createNPC())>>
+								<<link _creation "NPCProfile">>
+									<<set $currentNPC to _creation>>
+								<</link>>
+						<<else>>
+								<<run State.setVar(_creation, setup.createNPC())>>
+									<<link _creation "NPCProfile">>
+										<<set $currentNPC to _creation>>
+									<</link>>
+						<</if>>
+				<</capture>><</nobr>><</widget>>
