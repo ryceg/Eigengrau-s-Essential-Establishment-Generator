@@ -103,27 +103,27 @@
 				<<set $town.lawroll += 15>>
 				<<set $town.economicsroll -= 15>>
         <<set $town.politicalSourceIC to "democratic">>
-        <<set $townLeader to setup.createNPC({title: "Lord", background: either("noble", "commoner", "commoner")})>>
+        <<set $townLeader to setup.createNPC({title: "Lord", background: "commoner"})>>
 		<<case "kleptocracy">>
         <<set $town.leaderType to "the Thieves' Guild">>
 				<<set $town.lawroll -= 30>>
 				<<set $town.militaryroll -= 50>>
 				<<set $town.economicsroll -= 35>>
         <<set $town.politicalSourceIC to "kleptocratic">>
-        <<set $townLeader to setup.createNPC({title: "High Thief", dndclass: "rogue", background: either("charlatan", "criminal")})>>
+        <<set $townLeader to setup.createNPC({title: "High Thief", dndclass: "rogue", background: "criminal"})>>
 		<<case "magocracy">>
         <<set $town.leaderType to "the wizards">>
 				<<set $town.arcanaroll += 50>>
 				<<set $town.magicroll += 20>>
         <<set $town.politicalSourceIC to "magocratic">>
-        <<set $townLeader to setup.createNPC({title: "Archwizard", dndclass: either("wizard, "sorcerer", "warlock"), background: "sage"})>>
+        <<set $townLeader to setup.createNPC({title: "Archwizard", dndclass: "wizard", background: "sage"})>>
 		<<case "militocracy">>
         <<set $town.leaderType to "the military">>
 				<<set $town.militaryroll += 50>>
 				<<set $town.lawroll += 50>>
 				<<set $town.economicsroll += 25>>
         <<set $town.politicalSourceIC to "militocratic">>
-        <<set $townLeader to setup.createNPC({title: "Commander", dndclass: either("barbarian", "fighter", "fighter", "fighter", "paladin"), background: "soldier"})>>
+        <<set $townLeader to setup.createNPC({title: "Commander", dndclass: "fighter", background: "soldier"})>>
 		<<case "oligarchy">>
         <<set $town.leaderType to "the powerful few">>
 				<<set $town.welfareroll -= 15>>
