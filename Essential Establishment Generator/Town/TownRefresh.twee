@@ -37,7 +37,7 @@
         <<switch $town.politicalIdeology>>
             <<case "absolute monarchy">>
                 <<if ndef $townRuler>>
-                          <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", $townRuler.background: "noble"})>>
+                          <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
                   <<else>>
                           <<set $townRuler.title to "$townRuler.hisher Royal Highness", $townRuler.background to "noble">>
                 <</if>>
@@ -60,7 +60,7 @@
                     <</switch>>
             <<case "constitutional monarchy">>
                 <<if ndef $townRuler>>
-                          <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", $townRuler.background: "noble"})>>
+                          <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
                   <<else>>
                           <<set $townRuler.title to "$townRuler.hisher Royal Highness", $townRuler.background to "noble">>
                 <</if>>
