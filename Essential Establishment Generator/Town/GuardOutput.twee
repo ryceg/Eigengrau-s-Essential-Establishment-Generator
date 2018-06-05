@@ -1,0 +1,3 @@
+:: GuardOutput
+<h1>$guard.name</h1>
+$guard.name is led by <<profile $guardCaptain>>, a $guardCaptain.racenote. $guard.name is a $guard.size of $guard.population. 

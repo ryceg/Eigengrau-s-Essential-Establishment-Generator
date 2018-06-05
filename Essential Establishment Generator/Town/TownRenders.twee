@@ -77,23 +77,23 @@
 <</if>>
 
 <<if $town.militaryroll gt 90>>
-    <<set $town.military to "The military is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, $guard.name, is extremely well armed, and brutality is commonplace. They have a $guard.size of $guard.population">>
+    <<set $town.military to "The military is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, [[GuardOutput|$guard.name]], is extremely well armed, and brutality is commonplace.">>
   <<elseif $town.militaryroll gt 80>>
-    <<set $town.military to "The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard, $guard.name, is well armed, and brutality is common. They have a $guard.size of $guard.population">>
+    <<set $town.military to "The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard, [[GuardOutput|$guard.name]], is well armed, and brutality is common.">>
   <<elseif $town.militaryroll gt 70>>
-    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, $guard.name, is well armed, and brutality is not unheard of. They have a $guard.size of $guard.population">>
+    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, [[GuardOutput|$guard.name]], is well armed, and brutality is not unheard of.">>
   <<elseif $town.militaryroll gt 60>>
-    <<set $town.military to "There's a decent military presence, and citizens know better than to step out of line, as the guards are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear. They have a $guard.size of $guard.population">>
+    <<set $town.military to "There's a decent military presence, and citizens know better than to step out of line, as [[GuardOutput|$guard.name]] are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear.">>
   <<elseif $town.militaryroll gt 50>>
-    <<set $town.military to "There is a military presence in $town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from $guard.name. They have a $guard.size of $guard.population">>
+    <<set $town.military to "There is a military presence in $town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from [[GuardOutput|$guard.name]].">>
   <<elseif $town.militaryroll gt 40>>
-    <<set $town.military to "The military presence in $town.name is somewhat smaller than one would expect for its size. The local guard, $guard.name, are seen as friends and drinking buddies, rather than horrible tyrants. They have a $guard.size of $guard.population">>
+    <<set $town.military to "The military presence in $town.name is somewhat smaller than one would expect for its size. The local guard, [[GuardOutput|$guard.name]], are seen as friends and drinking buddies, rather than horrible tyrants.">>
   <<elseif $town.militaryroll gt 30>>
-    <<set $town.military to "The military presence in $town.name is more of a militia; some of the members of $guard.name are part time, and there is little need for the use of force outside of intruders. They have a $guard.size of $guard.population">>
+    <<set $town.military to "The military presence in $town.name is more of a militia; some of the members of [[GuardOutput|$guard.name]] are part time, and there is little need for the use of force outside of intruders.">>
   <<elseif $town.militaryroll gt 20>>
-    <<set $town.military to "The military presence in $town.name is a militia; most of the guards are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards. They have a $guard.size of $guard.population">>
+    <<set $town.military to "The military presence in $town.name is a militia; most of the guards of [[GuardOutput|$guard.name]] are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.">>
   <<elseif $town.militaryroll lte 20>>
-    <<set $town.military to "The military presence in $town.name is a militia; the guards are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals. They have a $guard.size of $guard.population">>
+    <<set $town.military to "The military presence in $town.name is a militia; the guards of [[GuardOutput|$guard.name]] are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.">>
 <</if>>
 
 <<if $town.lawroll gt 90>>
