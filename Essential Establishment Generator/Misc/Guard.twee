@@ -4,7 +4,8 @@
 <<set $guardCaptain to setup.createNPC()>>
 <<set $guard to {}>>
 	<<set _townPop to $town.population>>
-	<<set _guardpopulationroll to (random(-10, 20) + ($town.militaryroll -= 50))>>
+	<<set _militaryRoll to $town.militaryroll>>
+	<<set _guardpopulationroll to (random(-10, 20) + (_militaryRoll -= 50))>>
 	<<set $guard.population == (_townpop /= 150 + _guardpopulationroll)>>
 
 	<<if $guard.population gt 20>>
