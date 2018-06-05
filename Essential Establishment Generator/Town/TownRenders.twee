@@ -214,5 +214,5 @@
   								<<set $doctorCount to 0>>
               <</if>>
   		<<elseif _doctorRoll gt 1>>
-  				<<set $doctorCount to Math.trunc(_doctorRoll)>>
+  				<<set $doctorCount to _doctorRoll>>
   		<</if>>
