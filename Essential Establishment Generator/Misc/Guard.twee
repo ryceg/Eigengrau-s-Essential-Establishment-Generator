@@ -4,7 +4,7 @@
 <<set $guardCaptain to setup.createNPC()>>
 <<set $guard to {}>>
 
-<<set _guardnameA to either(["Regiment", "guard", "Officers", "guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
+<<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
 <<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
 <<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong"])>>
 <<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak"])>>
