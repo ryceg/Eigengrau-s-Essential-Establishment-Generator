@@ -6,20 +6,14 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-  <<set $tempTownPop to $town.population>>
-  <<set $tempDoctorRoll to ($tempTownPop /= 350)>>
-  		<<if $tempDoctorRoll lt 1>>
-  				<<set $tempDoctorRoll *= 100>>
-  				<<set $tempTestRoll random(1, 100)>>
-  						<<if $tempDoctorRoll gt $tempTestRoll>>
-  								<<set $doctorCount to 1>>
-  						<<else>>
-  								<<set $doctorCount to 0>>
-              <</if>>
-  		<<elseif $tempDoctorRoll gt 1>>
-  				<<set $doctorCount to $tempDoctorRoll>>
-  		<</if>>
-There are $doctorCount doctors in $town.name.
+
+<<if $doctorCount gt 1>>
+    There are $doctorCount doctors in $town.name.
+  <<elseif $doctorCount == 1>>
+    There is $doctorCount doctor in $town.name.
+  <<elseif $doctorCount lt 1>>
+    There are no doctors in $town.name.
+<</if>>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
     <<if $showSliders is true>>
