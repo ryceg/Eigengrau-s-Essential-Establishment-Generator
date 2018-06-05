@@ -1,11 +1,8 @@
 :: TownPopRender [render]
 
 <<set _townPop to $town.population>>
-<<set _militaryRoll to $town.militaryroll>>
-<<set _guardTempPop to random(-10, 20)>>
-<<set _guardpopulationroll to _guardTempPop += (_militaryRoll -= 50)>>
-<<set _guardPop to ((_townpop /= 150) + _guardpopulationroll)>>
-<<set $guard.population to _guardPop>>
+
+<<set $guard.population to (_townPop /= 150)>>
 <<if $guard.population gt 20>>
     <<set $guard.size to "batallion">>
   <<elseif $guard.population gt 10>>
