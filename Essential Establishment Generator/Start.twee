@@ -7,17 +7,17 @@
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
   <<set $tempTownPop to $town.population>>
-  <<set $tempDoctorRoll == ($tempTownPop /= 350)>>
+  <<set $tempDoctorRoll to ($tempTownPop /= 350)>>
   		<<if $tempDoctorRoll lt 1>>
   				<<set $tempDoctorRoll *= 100>>
   				<<set $tempTestRoll random(1, 100)>>
   						<<if $tempDoctorRoll gt $tempTestRoll>>
-  								<<set $doctorCount == 1>>
+  								<<set $doctorCount to 1>>
   						<<else>>
-  								<<set $doctorCount == 0>>
+  								<<set $doctorCount to 0>>
               <</if>>
   		<<elseif $tempDoctorRoll gt 1>>
-  				<<set $doctorCount == $tempDoctorRoll>>
+  				<<set $doctorCount to $tempDoctorRoll>>
   		<</if>>
 There are $doctorCount doctors in $town.name.
 
