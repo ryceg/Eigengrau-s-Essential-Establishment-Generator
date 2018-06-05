@@ -3,7 +3,7 @@
 <<set _townPop to $town.population>>
 <<set _militaryRoll to $town.militaryroll>>
 <<set _guardTempPop to random(-10, 20)>>
-<<set _guardpopulationroll to _guardTempPop += (_militaryRoll -= 50))>>
+<<set _guardpopulationroll to _guardTempPop += (_militaryRoll -= 50)>>
 <<set _guardPop to ((_townpop /= 150) + _guardpopulationroll)>>
 <<set $guard.population to _guardPop>>
 <<if $guard.population gt 20>>
