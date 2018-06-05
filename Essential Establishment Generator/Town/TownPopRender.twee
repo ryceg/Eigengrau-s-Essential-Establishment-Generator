@@ -1,7 +1,33 @@
 :: TownPopRender [render]
 
 <<set _townPop to $town.population>>
-<<set _doctorRoll to (_townPop /= 350)>>
+<<set _jewelerRoll to (_townPop /= 400)>>
+    <<if _jewelerRoll lt 1>>
+        <<set _jewelerRoll *= 100>>
+        <<set _roll to random(1, 100)>>
+            <<if _jewelerRoll gt _roll>>
+                <<set $jewelerCount to 1>>
+            <<else>>
+                <<set $jewelerCount to 0>>
+            <</if>>
+    <<elseif _jewelerRoll gt 1>>
+        <<set $jewelerCount to Math.trunc(_jewelerRoll)>>
+    <</if>>
+
+<<set _tailorRoll to (_townPop /= 400)>>
+    <<if _tailorRoll lt 1>>
+        <<set _tailorRoll *= 100>>
+        <<set _roll to random(1, 100)>>
+            <<if _tailorRoll gt _roll>>
+                <<set $tailorCount to 1>>
+            <<else>>
+                <<set $tailorCount to 0>>
+            <</if>>
+    <<elseif _tailorRoll gt 1>>
+        <<set $tailorCount to Math.trunc(_tailorRoll)>>
+    <</if>>
+
+<<set _doctorRoll to (_townPop /= 1700)>>
     <<if _doctorRoll lt 1>>
         <<set _doctorRoll *= 100>>
         <<set _roll to random(1, 100)>>

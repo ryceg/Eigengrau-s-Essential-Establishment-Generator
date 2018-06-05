@@ -6,6 +6,22 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
+<<nobr>>
+<<if $tailorCount gt 1>>
+    There are $tailorCount tailors in $town.name.
+  <<elseif $tailorCount == 1>>
+    There is $tailorCount tailor in $town.name.
+  <<elseif $tailorCount lt 1>>
+    There are no tailors in $town.name.
+<</if>>
+
+<<if $jewelerCount gt 1>>
+    There are $jewelerCount jewelers in $town.name.
+  <<elseif $jewelerCount == 1>>
+    There is $jewelerCount jeweler in $town.name.
+  <<elseif $jewelerCount lt 1>>
+    There are no jewelers in $town.name.
+<</if>>
 
 <<if $doctorCount gt 1>>
     There are $doctorCount doctors in $town.name.
@@ -13,7 +29,7 @@
     There is $doctorCount doctor in $town.name.
   <<elseif $doctorCount lt 1>>
     There are no doctors in $town.name.
-<</if>>
+<</if>><</nobr>>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
     <<if $showSliders is true>>
