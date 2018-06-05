@@ -4,7 +4,7 @@
 <<set _doctorRoll to (_townPop /= 350)>>
     <<if _doctorRoll lt 1>>
         <<set _doctorRoll *= 100>>
-        <<set _roll random(1, 100)>>
+        <<set _roll to random(1, 100)>>
             <<if _doctorRoll gt _roll>>
                 <<set $doctorCount to 1>>
             <<else>>
