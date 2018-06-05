@@ -6,6 +6,19 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
+  <<set _townpop to $town.population>>
+  <<set _doctorRoll == (_townpop /= 350)>>
+  		<<if _doctorRoll lt 1>>
+  				<<set _doctorRoll *= 100>>
+  				<<set _testRoll random(1, 100)>>
+  						<<if _doctorRoll gt _testRoll>>
+  								<<set $doctorCount to 1>>
+  						<<else>>
+  								<<set $doctorCount to 0>>
+              <</if>>
+  		<<elseif _doctorRoll gt 1>>
+  				<<set $doctorCount to _doctorRoll>>
+  		<</if>>
 There are $doctorCount doctors in $town.name.
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
