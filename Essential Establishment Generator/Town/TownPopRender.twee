@@ -1,8 +1,6 @@
 :: TownPopRender [render]
 
 <<set _townPop to $town.population>>
-
-
 <<set _guardpopulationroll to (random(-10, 20) + ($town.militaryroll -= 50))>>
 <<set $guard.population == (_townpop /= 150 + _guardpopulationroll)>>
 
