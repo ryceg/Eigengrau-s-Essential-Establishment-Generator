@@ -200,19 +200,3 @@
   	<<elseif $town.sinroll gt 20 && $town.population gt 1250>>
   			<<include "Brothel">>
   <</if>>
-
-
-
-  <<set _townpop to $town.population>>
-  <<set _doctorRoll == (_townpop /= 350)>>
-  		<<if _doctorRoll lt 1>>
-  				<<set _doctorRoll *= 100>>
-  				<<set _testRoll random(1, 100)>>
-  						<<if _doctorRoll gt _testRoll>>
-  								<<set $doctorCount to 1>>
-  						<<else>>
-  								<<set $doctorCount to 0>>
-              <</if>>
-  		<<elseif _doctorRoll gt 1>>
-  				<<set $doctorCount to _doctorRoll>>
-  		<</if>>
