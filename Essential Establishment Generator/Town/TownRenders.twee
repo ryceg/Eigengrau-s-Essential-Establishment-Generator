@@ -200,16 +200,3 @@
   	<<elseif $town.sinroll gt 20 && $town.population gt 1250>>
   			<<include "Brothel">>
   <</if>>
-
-  <<set _townPop to $town.population>>
-  <<set _militaryRoll to $town.militaryroll>>
-  <<set _guardpopulationroll to (random(-10, 20) + (_militaryRoll -= 50))>>
-  <<set $guard.population to (_townpop /= 150 + _guardpopulationroll)>>
-
-  <<if $guard.population gt 20>>
-      <<set $guard.size to "batallion">>
-    <<elseif $guard.population gt 10>>
-      <<set $guard.size to "squad">>
-    <<elseif $guard.population lte 10>>
-      <<set $guard.size to "militia">>
-  <</if>>
