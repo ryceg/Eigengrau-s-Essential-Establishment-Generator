@@ -1,6 +1,6 @@
 :: Alchemist
 
-<<set $chemist to setup.createNPC({background: either("sage", "sage", "sage", "guild artisan", "guild artisan", "guild artisan", "commoner", "commoner", "commoner")})>>
+<<set $chemist to setup.createNPC({dndclass: either("wizard", "wizard", "druid", "druid", "cleric", "warlock"), background: either("sage", "sage", "sage", "guild artisan", "guild artisan", "guild artisan", "commoner", "commoner", "commoner")})>>
 
 <<set $chemist.idle to ["talking with a customer", "picking $chemist.hisher nose", "playing a card game by $chemist.himherself", "looking over a recipe book", "carefully putting ingredients into a vial", "pouring ingredients into a tube", "throwing herbs into a cauldron", "taking a drink from a glass", "taking a drink from a glass of water", "stirring a pot which is bubbling happily", "stirring a cauldron which bubbles menacingly", "stirring a small pot with a glass spoon carefully"],
 	$chemist.owner to either(["owner", "caretaker", "proud owner", "proprietor", "current owner", "chief owner", "master chemist", "chief researcher"]),
