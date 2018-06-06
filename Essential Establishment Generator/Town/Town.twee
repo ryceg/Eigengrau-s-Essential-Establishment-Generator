@@ -111,4 +111,5 @@ $town.sizeroll.clamp(1, 100)
 			"a violent uprising",
 			"a wedding or wedding anniversary"])>>
 
-			<<include "TownOrigin">>
+<<include "TownOrigin">>
+<<include "TownTravel">>
