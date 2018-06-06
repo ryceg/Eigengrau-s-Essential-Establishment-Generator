@@ -25,10 +25,7 @@
 
 It is currently $weather.season, and is <<temp $weather.temperature>> degrees, and will be for the next $weather.temperatureTimer hours. There is currently $weather.precipitation, and will be so for the next $weather.precipitationTimer hours.
 
-$town.location
-$town.terrain
-$weather.precipitationintensity
-$weather.precipitationlevel
+<<button "Wait four hours">><<set $weather.precipitationTimer -= 4>><<set $weather.temperatureTimer -= 4>><<goto "Start">><</button>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
