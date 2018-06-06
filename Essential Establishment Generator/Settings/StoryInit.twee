@@ -15,7 +15,7 @@
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 
-<<include "Guard">>
+
 
 <<include "SpecialBrew">>
 
@@ -96,3 +96,5 @@
 <<include "Markets">>
 
 <<include "AdventureGenerator">>
+
+<<include "Guard">>
