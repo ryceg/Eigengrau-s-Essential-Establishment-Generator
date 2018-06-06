@@ -57,17 +57,17 @@
 									<<set $currentNPC to _char>>
 							<</link>>
 				<</if>>
-		<</capture>><</widget>>
+		<</capture>><</nobr>><</widget>>
 
-<<widget "temp">>
+<<widget "temp">><<nobr>>
 		<<set _temp = $args[0]>>
 		<<capture _temp>>
 			<<if $showCelsius is true>>
 				<<set _temp to ((_temp -= 32) *= 0.5556)>>
 			<</if>>
 		_temp
-		<</capture>><</widget>>
-<</nobr>>
+		<</capture>><</nobr>><</widget>>
+
 
 		<<widget "createNPC">>\
 				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
