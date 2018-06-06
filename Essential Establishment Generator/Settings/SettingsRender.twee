@@ -5,3 +5,8 @@
 <<if $showSliders is false>>
     <<remember $showSliders to false>>
 <</if>>
+<<if $showCelsius is false>>
+    <<remember $showCelsius to false>>
+  <<else>>
+    <<remember $showCelsius to true>>
+<</if>>
