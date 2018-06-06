@@ -199,7 +199,7 @@
     <<set $guard.funding to "The guard is underfunded, and their equipment is always in slight disrepair. Their officers are held accountable for their actions when public pressure fors for it, though $guard.name does not have the funding to perform training exercises.">>
   <<elseif _guardfundingroll gt 20>>
     <<set $guard.funding to "The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $guard.name does not have the funding to perform any training exercises.">>
-  <<elseif _guardfundingroll gt 20>>
+  <<elseif _guardfundingroll lte 20>>
     <<set $guard.funding to "The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.">>
 <</if>>
 
