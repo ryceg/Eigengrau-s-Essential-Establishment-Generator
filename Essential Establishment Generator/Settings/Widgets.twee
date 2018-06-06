@@ -63,7 +63,7 @@
 		<<set _temp = $args[0]>>
 		<<capture _temp>>
 			<<if $showCelsius is true>>
-				<<set _temp to ((_temp -= 32) *= 0.5556)>>_temp Celsius
+				<<set _temp ((_temp -= 32) *= 0.5556)>>_temp Celsius
 				<<else>>
 				_temp Fahrenheit
 			<</if>>
