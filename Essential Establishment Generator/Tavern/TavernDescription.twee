@@ -50,6 +50,7 @@
 					<<set _tavernnotable to "There's a member of [[$guard.name|GuardOutput]] chatting with a tavern patron.">>
 			<<else>>
 					<<set _tavernnotable to "There's two men sitting in the corner, very intent on a thumbwrestling match.">>
+			<</if>>
 	<</switch>>
 
 
