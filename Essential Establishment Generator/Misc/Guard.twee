@@ -57,7 +57,7 @@
 	<<case 1>>
 		<<set $guard.name to "The " + _guardnameA + " of " + $town.name>>
 	<<case 2>>
-		<<set $guard.name to "The " + $town.name + _guardnameA>>
+		<<set $guard.name to "The " + $town.name + " " + _guardnameA>>
 	<<case 3>>
 		<<set $guard.name to "The " + _guardnameA + " of " + _guardnameB>>
 	<<case 4>>
