@@ -63,9 +63,10 @@
 		<<set _temp = $args[0]>>
 		<<capture _temp>>
 			<<if $showCelsius is true>>
-				<<set _temp to ((_temp -= 32) *= 0.5556)>>
+				<<set _temp to ((_temp -= 32) *= 0.5556)>>_temp Celsius
+				<<else>>
+				_temp Fahrenheit
 			<</if>>
-		_temp
 		<</capture>><</nobr>><</widget>>
 
 
