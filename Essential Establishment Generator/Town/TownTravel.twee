@@ -319,6 +319,7 @@
                 <<set $weather.precipitation to "heavy fog">>
                 <<set $weather.precipitationTimer to random(1, 8)>>
             <</if>>
+          <</switch>>
 <<elseif _precipitation is true>>
     <<switch $weather.precipitationintensity>>
         <<case 1>>
@@ -407,6 +408,7 @@
                 <<set $weather.precipitation to "heavy fog">>
                 <<set $weather.precipitationTimer to random(1, 8)>>
             <</if>>
+          <</switch>>
     <<elseif _precipitation is false>>
         <<set $weather.precipitation to "none">>
         <<set $weather.precipitationTimer to random(1, 8)>>
