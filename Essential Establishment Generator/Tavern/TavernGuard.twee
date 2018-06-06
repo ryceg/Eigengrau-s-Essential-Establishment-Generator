@@ -4,7 +4,7 @@
 <<set _guard to random(1, 100)>>
 <<set _brawl to random(1, 100)>>
 
-<<if $guard.population gt 20>>
+/*<<if $guard.population gt 20>>
 	<<set _guard += 10>>
 <<elesif $guard.population gt 15>>
 	<<set _guard += 5>>
@@ -18,7 +18,7 @@
 		<<set _guard -= 15>>
 <<elseif $guard.population lte 5>>
 	<<set _guard -= 10>>
-<</if>>
+<</if>>*/
 
 <<if _guard gte 50>>
 		<<set $tavern.guardPresent to true, _brawl -= 20>>
