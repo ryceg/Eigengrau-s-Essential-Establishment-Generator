@@ -1,0 +1,19 @@
+
+/*
+	notify.min.css, by chapel; for use with notify.js
+	version 1.0.0
+ */
+#notify {
+	position : fixed;
+	display : block;
+	width : 16em;
+	right : -20em; top : 2em;
+	padding : 0.5em;
+	background-color : #fff;
+	color : #000;
+	-webkit-transition-duration : 0.3s;
+	-moz-transition-duration : 0.3s;
+	-o-transition-duration : 0.3s;
+	transition-duration : 0.3s;
+}
+#notify.open { right : 0; }
