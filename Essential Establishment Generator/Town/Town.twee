@@ -57,6 +57,9 @@ $town.sizeroll.clamp(1, 100)
 		 <<set $town.terrain to "arid", $town.location to _townpotentiallocation[random(22, 29)]>>
 <</if>>
 
+<<set $weather to {
+	season: either(["winter", "spring", "summer", "autumn"])
+	}>>
 
 <<include "TownSocioPolitics">>
 
