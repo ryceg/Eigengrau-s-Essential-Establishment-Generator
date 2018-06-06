@@ -116,3 +116,4 @@ $town.sizeroll.clamp(1, 100)
 
 <<include "TownOrigin">>
 <<include "TownTravel">>
+<<include "TownWeather">>
