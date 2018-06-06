@@ -240,6 +240,9 @@
             <<set _precipitation to true>>
         <</if>>
     <<default>>
+        <<if _precipitationroll lte 30>>
+            <<set _precipitation to true>>
+        <</if>>
 <</switch>>
 
 <<set _precipitationintensityroll to random(1, 100)>>
@@ -409,7 +412,7 @@
                 <<set $weather.precipitationTimer to random(1, 8)>>
             <</if>>
           <</switch>>
-    <<elseif _precipitation is false>>
-        <<set $weather.precipitation to "none">>
-        <<set $weather.precipitationTimer to random(1, 8)>>
+<<elseif _precipitation is false>>
+    <<set $weather.precipitation to "none">>
+    <<set $weather.precipitationTimer to random(1, 8)>>
 <</if>>
