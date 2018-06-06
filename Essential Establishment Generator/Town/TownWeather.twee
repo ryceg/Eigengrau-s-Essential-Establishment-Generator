@@ -7,8 +7,8 @@
         <<set $weather.precipitationintensity to 2>>
     <<case "hills", "mountains">>
         <<set $weather.precipitationintensity to 2>>
-    <<default>>
-        <<set $weather.precipitationintensity to 2>>
+    /*<<default>>
+        <<set $weather.precipitationintensity to 2>>*/
 <</switch>>
 
 

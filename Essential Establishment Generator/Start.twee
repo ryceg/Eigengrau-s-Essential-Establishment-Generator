@@ -25,12 +25,10 @@
 
 It is currently $weather.season, and is $weather.temperature degrees, and will be for the next $weather.temperatureTimer hours. There is currently $weather.precipitation, and will be so for the next $weather.precipitationTimer hours.
 
-<<set $testRoll to dice(2, 12)>>
-$testRoll
-
-_precipitation
-_precipitationroll
-_precipitationintensityroll
+$town.location
+$town.terrain
+$weather.precipitationintensity
+$weather.precipitationlevel
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
