@@ -32,5 +32,3 @@ $tavern.magicroll.clamp(1, 100)
 <<if $tavern.draw is "proximity to the brothel" && ndef $brothel>>
 		<<include "Brothel">>
 <</if>>
-
-<<include "TavernGuard">>

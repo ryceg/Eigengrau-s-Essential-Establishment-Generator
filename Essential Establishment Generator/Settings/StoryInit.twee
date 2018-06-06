@@ -93,6 +93,8 @@
 
 <<include "Raiders">>
 
+<<include "TavernGuard">>
+
 <<include "Markets">>
 
 <<include "AdventureGenerator">>
