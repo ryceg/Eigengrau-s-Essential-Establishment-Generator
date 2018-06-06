@@ -73,8 +73,8 @@
 			<<set $brawlInstigator to setup.createNPC({gender: either("man", "man", "man", "man", "woman")})>>
 			<<set $brawlResponder to setup.createNPC({gender: either("man", "man", "man", "man", "woman")})>>
 			<<set $tavernBrawl to {
-						start: either("It seems that the $brawlInstigator.racenote that is currently wrestling with the $brawlResponder.racenote because of ", "A $brawlInstigator.racenote has a $brawlResponder.racenote in a headlock. The cause seems to be ", "There's some shouting, and then a $brawlInstigator.racenote throws a punch at a $brawlResponder.racenote, shouting that the $brawlInstigator.weight $brawlInstigator.manwoman is a bastard. The cause seems to be "), 
-						reason: either("some silly misunderstanding between the two.", "a statement about a sports team that the other disagreed with.", "a secret affair has come out.", "a joke was taken way too far.", "a joke was misunderstood, much to the $brawlResponder.racenote's dismay.")
+						start: either("It seems that the $brawlInstigator.racenote that is currently wrestling with the $brawlResponder.racenote because of ", "A $brawlInstigator.racenote has a $brawlResponder.racenote in a headlock. The cause seems to be ", "There's some shouting, and then a $brawlInstigator.racenote throws a punch at a $brawlResponder.racenote, shouting that the $brawlInstigator.weight $brawlInstigator.manwoman is a bastard. The cause seems to be "),
+						reason: either("some silly misunderstanding between the two. ", "a statement about a sports team that the other disagreed with. ", "a secret affair has come out. ", "a joke was taken way too far. ", "a joke was misunderstood, much to the $brawlResponder.racenote's dismay. ")
 			}>>
 					<<if $tavern.guardPresent is true>>
 							<<set $tavernBrawl.end to either("A $tavernGuard.racenote wearing the $guard.livery signifying that they are a member of [[$guard.name|GuardOutput]] is currently pulling the $brawlInstigator.racenote off the $brawlResponder.racenote.", "A member of [[$guard.name|GuardOutput]] is currently trying to pull the two apart.")>>
