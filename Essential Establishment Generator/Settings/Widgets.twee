@@ -57,7 +57,7 @@
 									<<set $currentNPC to _char>>
 							<</link>>
 				<</if>>
-		<</capture>><</nobr>><</widget>>
+		<</capture>><</widget>>
 
 <<widget "temp">>
 		<<set _temp = $args[0]>>
@@ -67,7 +67,7 @@
 			<</if>>
 		_temp
 		<</capture>><</widget>>
-
+<</nobr>>
 
 		<<widget "createNPC">>\
 				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
