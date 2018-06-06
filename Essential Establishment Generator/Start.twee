@@ -23,7 +23,7 @@
     <</if>><</silently>>
 <</link>>
 
-It is currently $weather.season, and is $weather.temperature degrees, and will be for the next $weather.temperatureTimer hours. There is currently $weather.precipitation, and will be so for the next $weather.precipitationTimer hours.
+It is currently $weather.season, and is <<temp $weather.temperature>> degrees, and will be for the next $weather.temperatureTimer hours. There is currently $weather.precipitation, and will be so for the next $weather.precipitationTimer hours.
 
 $town.location
 $town.terrain

@@ -59,6 +59,16 @@
 				<</if>>
 		<</capture>><</nobr>><</widget>>
 
+<<widget "temp">>
+		<<set _temp = $args[0]>>
+		<<capture _temp>>
+			<<if $showCelsius is true>>
+				<<set _temp to ((_temp -= 32) *= 0.5556)>>
+			<</if>>
+		_temp
+		<</capture>><</widget>>
+
+
 		<<widget "createNPC">>\
 				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
 				<<capture _creation, _attributes, _readout>>\
