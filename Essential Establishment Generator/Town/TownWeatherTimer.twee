@@ -1,4 +1,4 @@
-:: TownPrecipitationTimer [render]
+:: TownWeatherTimer [render]
 
 <<if $weather.temperatureTimer lt 1>>
     <<set _tempvariation to random(1, 100)>> /* Making temperature variations i.e. 4 day forecast of temp */
@@ -92,7 +92,7 @@
 <</if>>
 
 
-<<if $weather.precipitationTimer is lt 1>>
+<<if $weather.precipitationTimer lt 1>>
     <<set _precipitationroll to random(1, 100)>> /* Rolling a d100 for precipitation frequency */
     <<switch $weather.precipitationlevel>>
         <<case 1>> /* drought */
