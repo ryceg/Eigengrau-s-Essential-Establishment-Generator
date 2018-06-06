@@ -44,7 +44,12 @@
 	<<case "nice view">>
 		<<set _tavernnotable to "You look out the window, and see that the view is indeed quite nice; the $tavern.wordnoun is situated on a hill which overlooks the sleepy $town.type of $town.name, and you can make out the specks of people walking about below. It's a nice location for an inn.">>
 	<<default>>
-		<<set _tavernnotable to "There's two men sitting in the corner, very intent on a thumbwrestling match.">>
+			<<if $tavern.hasBrawl is true>>
+					<<set _tavernnotable to $tavernBrawl.start + $tavernBrawl.reason + $tavernBrawl.end>>
+			<<elseif $tavern.guardPresent is true>>
+					<<set _tavernnotable to "There's a member of [[$guard.name|GuardOutput]] chatting with a tavern patron.">>
+			<<else>>
+					<<set _tavernnotable to "There's two men sitting in the corner, very intent on a thumbwrestling match.">>
 	<</switch>>
 
 
