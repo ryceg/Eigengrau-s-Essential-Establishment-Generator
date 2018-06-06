@@ -83,3 +83,4 @@
         <<set $weather.temperature -= random(8, 12)>>
         <<set $weather.precipitationlevel -= 1>>
 <</switch>>
+<<set $weather.temperatureTimer to 0, $weather.precipitationTimer to 0>>
