@@ -1,5 +1,7 @@
 :: TownRenders [render]
 
+<<set _guardfundingroll to 0>>
+
 <<if $town.population gt 3000>>
     <<set $town.type to "city">>
   <<elseif $town.population gt 1000>>

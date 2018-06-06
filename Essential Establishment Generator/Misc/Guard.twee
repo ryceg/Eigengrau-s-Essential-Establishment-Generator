@@ -2,7 +2,9 @@
 :: Guard
 
 <<set $guardCaptain to setup.createNPC()>>
-<<set $guard to {}>>
+<<set $guard to {
+	livery: either("Dragon", "Lion", "Manticor", "Rooser", "Eagle")
+	}>>
 
 <<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
 <<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
