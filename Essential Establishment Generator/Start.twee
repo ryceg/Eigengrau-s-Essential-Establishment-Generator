@@ -28,7 +28,7 @@
     <th>Number</th>
   </tr>
 <h3>Trades</h3>
-  <<for _i, _trade range $trade>><tr><td>_trade.type</td>
+  <<for _i, _trade range $trade.inventory(function (trade) { return; })>><tr><td>_trade.name</td>
 <td><<set _trade.roll to (_townPop /= _trade.sv)>>
         <<if _roll lt 1>>
             <<set _trade.roll *= 100>>
@@ -42,7 +42,7 @@
             <<set _trade.count to Math.trunc(_trade.roll)>>
         <</if>>
         <<if _trade.count gt 0>>
-            <tr><td>trade.type</td>
+            <tr><td>_trade.name</td>
             <td>_trade.count</td></tr>
   <</for>>
 </table>
