@@ -44,8 +44,10 @@
   <</if>>
   <<if _trade.count gt 0>>
       <tr>
-        <td>_trade.name</td>
         <td>_trade.count</td>
+      </tr>
+      <tr>
+        <td>_trade.name</td>
       </tr>
   <</if>>
   <</for>><</nobr>>
