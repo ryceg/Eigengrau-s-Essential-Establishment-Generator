@@ -9,7 +9,7 @@
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<silently>><<set $currentPassage to $tavern>>
     <<if $showSliders is true>>
         <<goto "InitTavern">>
-    <<elseif $showSliders is false>>
+    <<else>>
       <<set $currentPassage to $tavern>>
       <<set _roll to random(1, 3)>>
           <<switch _roll>>

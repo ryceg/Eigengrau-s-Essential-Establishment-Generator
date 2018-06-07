@@ -9,6 +9,14 @@
     <<set Config.passages.start = "Welcome">>
 <</if>>
 
+<<if $showSliders ndef>>
+    <<set $showSliders to true>>
+  <<elseif $showSliders is false>>
+    <<set $showSliders to false>>
+  <<else>>
+    <<set $showSliders to true>>
+<</if>>
+
 <<include "Names">>
 
 <<include "Town">>
