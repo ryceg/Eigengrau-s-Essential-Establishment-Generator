@@ -1,6 +1,20 @@
 
 :: StoryMenu
 
+<<link "Sliders for $currentPassage.name">>
+  <<switch $currentPassage>>
+      <<case "tavern">>
+          <<goto "InitTavern">>
+      <<case "smithy">>
+          <<goto "InitSmithy">>
+      <<case "alchemist">>
+          <<goto "InitAlchemist">>
+      <<case "GeneralStore">>
+          <<goto "InitGeneralStore">>
+      <<default>>
+          <<goto "TownOutput">>
+<</link>>
+
 [[Toolbox]]
 
 [[Settings]]
