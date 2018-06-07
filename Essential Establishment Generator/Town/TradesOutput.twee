@@ -5,7 +5,8 @@
     <th>Trade</th>
     <th>Number</th>
   </tr>
-  <<nobr>><<for _i, _trade range $trade.type.filter(function (trade) { return trade.availability === 1; })>>
+<<nobr>>
+<<for _i, _trade range $trade.type.filter(function (trade) { return trade.availability === 1; })>>
 <<set _townPop to $town.population>>
 <<set _trade.roll to (_townPop /= _trade.sv)>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
   <<if _trade.roll lt 1>>
