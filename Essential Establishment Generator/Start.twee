@@ -44,6 +44,7 @@
         <<if _trade.count gt 0>>
             <tr><td>_trade.name</td>
             <td>_trade.count</td></tr>
+        <</if>>
   <</for>>
 </table>
 Down from $tavern.road are the [[markets|MarketOutput]]
