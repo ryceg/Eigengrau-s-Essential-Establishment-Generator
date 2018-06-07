@@ -3,7 +3,7 @@
 <<set $trade to [
 {name: "Shoemakers", sv: 150},
 {name: "Butchers", sv: 1200},
-{name: "Furriers", sv: 250
+{name: "Furriers", sv: 250},
 {name: "Fishmongers", sv: 1200},
 ]>>
 
