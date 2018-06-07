@@ -27,7 +27,7 @@
     <th>Trade</th>
     <th>Number</th>
   </tr>
-  <<for _i, _trade range $trade.type{ return trade; }>><tr><td>_trade.name</td>
+  <<for _i, _trade range $trade.type() { return trade; }>><tr><td>_trade.name</td>
 <td><<set _trade.roll to (_townPop /= _trade.sv)>>
         <<if _roll lt 1>>
             <<set _trade.roll *= 100>>
