@@ -13,7 +13,7 @@
           <<goto "InitGeneralStore">>
       <<default>>
           <<goto "TownOutput">>
-<</link>><</link>><</nobr>>
+<</link>><</if>><</nobr>>
 
 [[Toolbox]]
 
