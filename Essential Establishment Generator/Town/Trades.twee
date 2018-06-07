@@ -5,7 +5,9 @@
 {name: "Butchers", sv: 1200},
 {name: "Furriers", sv: 250
 {name: "Fishmongers", sv: 1200},
-{name: "Maidservants", sv: 250},
+]>>
+
+/*{name: "Maidservants", sv: 250},
 {name: "Beer-Sellers", sv: 1400},
 {name: "Tailors", sv: 250},
 {name: "Buckle Makers", sv: 1400},
@@ -51,5 +53,4 @@
 {name: "Magic-Shops", sv: 2800},
 {name: "Booksellers", sv: 6300},
 {name: "Bookbinders", sv: 3000},
-{name: "Illuminators", sv: 3900},
-]>>
+{name: "Illuminators", sv: 3900}, */
