@@ -24,8 +24,8 @@
 <</link>>
 <table>
   <tr>
-    <th>Item</th>
-    <th>Cost</th>
+    <th>Trade</th>
+    <th>Number</th>
   </tr>
 <h3>Trades</h3>
   <<for _i, _trade range $trade>><tr><td>_trade.type</td>

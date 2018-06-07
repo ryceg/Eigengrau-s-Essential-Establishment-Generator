@@ -1,3 +1,5 @@
+:: Trades
+
 <<set $trade to [
 {type: "Shoemakers", sv: 150},
 {type: "Butchers", sv: 1200},
