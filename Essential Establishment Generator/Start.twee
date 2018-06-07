@@ -31,8 +31,7 @@
 <td><<set _trade.roll to (_townPop /= _trade.sv)>>
         <<if _roll lt 1>>
             <<set _trade.roll *= 100>>
-            <<set _roll to random(1, 100)>>
-                <<if _roll gt _trade.roll>>
+                <<if _trade.diceRoll gt _trade.roll>>
                     <<set _trade.count to 1>>
                 <<else>>
                     <<set _trade.count to 0>>
