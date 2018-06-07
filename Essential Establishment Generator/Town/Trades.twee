@@ -33,7 +33,7 @@
 {type: "Bakers", sv: 800},
 {type: "Copyists", sv: 200},
 {type: "Watercarriers", sv: 850},
-{type: "Sculptors", 200},
+{type: "Sculptors", sv: 200},
 {type: "Scabbardmakers", sv: 850},
 {type: "Rugmakers", sv: 200},
 {type: "Wine-Sellers", sv: 900},
