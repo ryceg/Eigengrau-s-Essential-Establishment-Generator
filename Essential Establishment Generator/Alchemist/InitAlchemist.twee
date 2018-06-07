@@ -11,7 +11,7 @@ Alchemist Reputation: <<numberslider "$alchemist.reputationroll" $alchemist.repu
 
 Alchemist Cleanliness: <<numberslider "$alchemist.cleanlinessroll" $alchemist.cleanlinessroll 1 100 1>>
 
-<<linkreplace "Alchemist Craftsmanship">>Alchemist Expertise: <<numberslider "$alchemist.expertiseroll" $alchemist.expertiseroll 1 100 1>>
+Alchemist Expertise: <<numberslider "$alchemist.expertiseroll" $alchemist.expertiseroll 1 100 1>>
 
 Alchemist Activity: <<numberslider "$alchemist.activityroll" $alchemist.activityroll 1 100 1>>
 
