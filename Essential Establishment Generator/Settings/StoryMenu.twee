@@ -1,7 +1,7 @@
 
 :: StoryMenu
 
-<<link "Sliders for $currentPassage.name">>
+<<nobr>><<if def $currentPassage>><<link "Sliders for $currentPassage.name">>
   <<switch $currentPassage>>
       <<case "tavern">>
           <<goto "InitTavern">>
@@ -13,7 +13,7 @@
           <<goto "InitGeneralStore">>
       <<default>>
           <<goto "TownOutput">>
-<</link>>
+<</link>><</link>><</nobr>>
 
 [[Toolbox]]
 

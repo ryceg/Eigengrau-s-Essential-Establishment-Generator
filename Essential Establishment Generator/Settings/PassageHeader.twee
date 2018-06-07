@@ -1,2 +1,2 @@
 :: PassageHeader
-<h5>The $town.type of [[$town.name|Start]]</h5>
+<h5><<link "The $town.type of $town.name">><<unset $currentPassage>><<goto "Start">><</link>></h5>
