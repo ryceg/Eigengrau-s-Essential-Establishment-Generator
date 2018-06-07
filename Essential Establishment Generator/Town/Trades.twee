@@ -7,9 +7,9 @@
 {name: "Fishmongers", sv: 1200},
 {name: "Maidservants", sv: 250},
 {name: "Beer-Sellers", sv: 1400},
-{name: "Tailors", sv: 250
+{name: "Tailors", sv: 250},
 {name: "Buckle Makers", sv: 1400},
-{name: "Barbers", sv: 350
+{name: "Barbers", sv: 350},
 {name: "Plasterers", sv: 1400},
 {name: "Jewelers", sv: 400},
 {name: "Spice Merchants", sv: 1400},
