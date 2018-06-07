@@ -23,7 +23,7 @@
     {name: "Roofers", sv: 1800, availability: 1, type: "workshop"},
     {name: "Carpenters", sv: 550, availability: 1},
     {name: "Locksmiths", sv: 1900, availability: 1, type: "workshop"},
-    {name: "Weavers", sv: 600, availability: 1}, type: "workshop",
+    {name: "Weavers", sv: 600, availability: 1, type: "workshop"},
     {name: "Bathers", sv: 1950, availability: 1},
     {name: "Chandlers", sv: 700, availability: 1},
     {name: "Ropemakers", sv: 1850, availability: 1, type: "workshop"},
