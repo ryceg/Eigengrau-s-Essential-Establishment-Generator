@@ -37,7 +37,7 @@
                 <<else>>
                     <<set _trade.count to 0>>
                 <</if>>
-        <<elseif _trade.roll gt 1>>
+        <<else>>
             <<set _trade.count to Math.trunc(_trade.roll)>>
         <</if>>
         <<if _trade.count gt 0>>

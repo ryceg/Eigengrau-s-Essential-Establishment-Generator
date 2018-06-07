@@ -3,7 +3,7 @@
 <<set $trade.type to [
     {name: "Shoemakers", sv: 150, availability: 1, count: 0},
     {name: "Butchers", sv: 1200, availability: 1, count: 0},
-    {name: "Furriers", sv: 250, availability: 0, count: 0},
+    {name: "Furriers", sv: 250, availability: 1, count: 0},
     {name: "Fishmongers", sv: 1200, availability: 1, count: 0},
 ]>>
 
