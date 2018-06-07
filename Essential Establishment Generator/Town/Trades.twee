@@ -1,10 +1,10 @@
 :: Trades
-
-<<set $trade to [
-{name: "Shoemakers", sv: 150},
-{name: "Butchers", sv: 1200},
-{name: "Furriers", sv: 250},
-{name: "Fishmongers", sv: 1200},
+<<set $trade to {}>>
+<<set $trade.type to [
+    {name: "Shoemakers", sv: 150, availability: 1},
+    {name: "Butchers", sv: 1200, availability: 1},
+    {name: "Furriers", sv: 250, availability: 1},
+    {name: "Fishmongers", sv: 1200, availability: 1},
 ]>>
 
 /*{name: "Maidservants", sv: 250},
