@@ -11,8 +11,6 @@
           <<goto "InitAlchemist">>
       <<case "GeneralStore">>
           <<goto "InitGeneralStore">>
-      <<default>>
-          <<goto "TownOutput">>
   <</switch>>
 <</link>><</if>><</nobr>>
 
