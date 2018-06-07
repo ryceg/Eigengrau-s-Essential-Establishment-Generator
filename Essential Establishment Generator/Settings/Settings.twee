@@ -2,8 +2,8 @@
 
 
 Show tutorial: <<checkbox "$showTutorial" true false>>
-Show sliders: <<checkbox "$showSliders" true false checked>>
-Show celsius: <<checkbox "$showCelsius" true false checked>>
+Show sliders: <<checkbox "$showSliders" true false>>
+Show celsius: <<checkbox "$showCelsius" true false>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
