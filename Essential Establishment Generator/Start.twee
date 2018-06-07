@@ -27,7 +27,7 @@
     <th>Trade</th>
     <th>Number</th>
   </tr>
-  <<for _i, _trade range $trade.type(function (trade) { return trade.availability === 1; })>><tr><td>_trade.name</td>
+  <<for _i, _trade range $trade.type.filter(function (trade) { return trade.availability === 1; })>><tr><td>_trade.name</td>
 <td><<set _trade.roll to (_townPop /= _trade.sv)>>
         <<if _trade.roll lt 1>>
             <<set _trade.roll *= 100>>
@@ -37,7 +37,7 @@
                 <<else>>
                     <<set _trade.count to 0>>
                 <</if>>
-          <<else>>
+        <<else>>
             <<set _trade.count to Math.trunc(_trade.roll)>>
         <</if>>
         <<if _trade.count gt 0>>
