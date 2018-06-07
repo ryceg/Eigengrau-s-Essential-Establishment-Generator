@@ -45,13 +45,14 @@
     "a vulture",
     "a wolf"]),
 	}>>
+<<set $guard.livery to $guard.primaryColours + " and " + $guard.secondaryColours + " livery adorned with an image of " + $guard.insignia>>
 
 <<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
 <<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
 <<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong"])>>
 <<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak"])>>
 
-<<set $guard.livery to $guard.primaryColours + " and " + $guard.secondaryColours + " livery adorned with an image of " + $guard.insignia>>
+
 <<set _guardnameroll to random(1, 6)>>
 <<switch _guardnameroll>>
 	<<case 1>>

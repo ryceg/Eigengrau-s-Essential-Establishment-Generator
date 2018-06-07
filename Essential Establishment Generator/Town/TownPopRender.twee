@@ -12,6 +12,8 @@
 <</if>>
 
 
+
+
 <<set _jewelerRoll to (_townPop /= 400)>>
     <<if _jewelerRoll lt 1>>
         <<set _jewelerRoll *= 100>>
