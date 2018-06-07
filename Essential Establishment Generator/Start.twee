@@ -22,34 +22,7 @@
           <</switch>>
     <</if>><</silently>>
 <</link>>
-<table>
-  <tr>
-    <th>Trade</th>
-    <th>Number</th>
-  </tr>
-  <<nobr>><<for _i, _trade range $trade.type.filter(function (trade) { return trade.availability === 1; })>>
-<<set _townPop to $town.population>>
-<<set _trade.roll to (_townPop /= _trade.sv)>>
-  <<if _trade.roll lt 1>>
-      <<set _trade.roll *= 100>>
-      <<set _roll to random(1, 100)>>
-          <<if _roll gt _trade.roll>>
-              <<set _trade.count to 1>>
-          <<else>>
-              <<set _trade.count to 0>>
-          <</if>>
-  <<else>>
-      <<set _trade.count to Math.trunc(_trade.roll)>>
-  <</if>>
-  <<if _trade.count gt 0>>
-  <tr><td>_trade.name</td>
-<td>
-      <tr>
-        <td>_trade.count</td>
-      </tr>
-  <</if>>
-  <</for>><</nobr>>
-</table>
+
 Down from $tavern.road are the [[markets|MarketOutput]]
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><<link "$smithy.name">><<silently>><<set $currentPassage to $smithy>>
