@@ -1,5 +1,5 @@
 
-:: InitAlchemist [output]
+:: InitAlchemist
 
 <<linkreplace "Rename <strong>$alchemist.name</strong>">><h3><<textbox "$alchemist.name" $alchemist.name>></h3><</linkreplace>>
 
