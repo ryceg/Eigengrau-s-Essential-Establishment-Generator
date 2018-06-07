@@ -28,7 +28,8 @@
     <th>Number</th>
   </tr>
   <<nobr>><<for _i, _trade range $trade.type.filter(function (trade) { return trade.availability === 1; })>><tr><td>_trade.name</td>
-<td><<set _trade.roll to (_townPop /= _trade.sv)>>
+<td><<set _townPop to $town.population>>
+<<set _trade.roll to (_townPop /= _trade.sv)>>
         <<if _trade.roll lt 1>>
             <<set _trade.roll *= 100>>
             <<set _roll to random(1, 100)>>
