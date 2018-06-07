@@ -24,8 +24,12 @@
   <tr><td>_trade.name</td>
 <td>
       <tr>
-        <td>_trade.count</td>
+        <td><<link "_trade.count">><<set $currentBuildingList to _trade.name>><<goto "BuildingList">><</link>></td>
       </tr>
   <</if>>
   <</for>><</nobr>>
 </table>
+
+<<for _i, _trade range $trade.type>>
+
+<</for>>
