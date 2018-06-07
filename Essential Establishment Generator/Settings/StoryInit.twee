@@ -9,7 +9,7 @@
     <<set Config.passages.start = "Welcome">>
 <</if>>
 
-<<if $showSliders ndef>>
+<<if ndef $showSliders>>
     <<set $showSliders to true>>
   <<elseif $showSliders is false>>
     <<set $showSliders to false>>
