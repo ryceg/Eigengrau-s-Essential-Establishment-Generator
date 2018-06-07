@@ -35,6 +35,7 @@ Show celsius: <<checkbox "$showCelsius" true false>>
 <</if>>
 <</linkreplace>><</nobr>>
 
+Setting.addHeader("Content Settings", "Settings controlling what content is made available in the game.");
 
 
 <<back>>
