@@ -25,7 +25,7 @@
     <td>  <tr>
         <td>
         <<link "_trade.count">>
-                <<set $currentBuildingList to _trade.name>>
+                <<set $currentBuildingList to _trade>>
                 <<goto "BuildingList">>
         <</link>>
         </td>
@@ -33,7 +33,3 @@
   <</if>>
   <</for>><</nobr>>
 </table>
-
-<<for _i, _trade range $trade.type>>
-
-<</for>>
