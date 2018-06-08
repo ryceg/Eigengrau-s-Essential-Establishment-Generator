@@ -20,7 +20,7 @@
   <<else>>
       <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
   <</if>>
-  <<if _trade.count gt 0>>
+  <<if _trade.count gte 1>>
   <tr><td>_trade.name</td>
 <td>
       <tr>
