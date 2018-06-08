@@ -29,7 +29,7 @@
                 <<goto "BuildingList">>
         <</link>>
         </td>
-      </tr></tr>
+      </tr>
   <</if>>
   <</for>><</nobr>>
 </table>
