@@ -3,7 +3,7 @@
 
 <<nobr>><<if def $currentPassage>><<link "Sliders for $currentPassage.name">>
   <<switch $currentPassage>>
-      <<case "tavern">>
+      <<case $tavern>>
           <<goto "InitTavern">>
       <<case "smithy">>
           <<goto "InitSmithy">>
