@@ -20,18 +20,10 @@ Setting.addToggle("showCelsius", {
 Setting.save();
 <</script>>
 
-<<if $showTutorial is false>>
+<<if settings.showTutorial is false>>
     <<set Config.passages.start = "Start">>
   <<else>>
     <<set Config.passages.start = "Welcome">>
-<</if>>
-
-<<if ndef $showSliders>>
-    <<set $showSliders to true>>
-  <<elseif $showSliders is false>>
-    <<set $showSliders to false>>
-  <<else>>
-    <<set $showSliders to true>>
 <</if>>
 
 <<include "Names">>

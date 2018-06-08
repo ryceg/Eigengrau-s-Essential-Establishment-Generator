@@ -1,9 +1,9 @@
 :: TownMicroEventsOutput
 <<nobr>>
-<<if $showSliders is false && random(1, 99) gt 50>>
-    <<notify 5000>>Looking for the sliders? They're currently set to $showSliders. You can change them in the [[Settings]].<</notify>>
-  <<elseif $showSliders is true && random(1, 99) gt 80>>
-    <<notify 5000>>Want to get straight to the action, sans slider screen? They're currently set to $showSliders. You can change them in the [[Settings]].<</notify>>
+<<if settings.showSliders is false && random(1, 99) gt 50>>
+    <<notify 5000>>Looking for the sliders? They're currently set to settings.showSliders. You can change them in the settings.<</notify>>
+  <<elseif settings.showSliders is true && random(1, 99) gt 80>>
+    <<notify 5000>>Want to get straight to the action, sans slider screen? They're currently set to settings.showSliders. You can change them in the settings.<</notify>>
 <</if>>
 <<if random(1, 99) gt 50>>
   <blockquote>As you make your way along $currentPassage.road, <<print $town.microevents.random()>></blockquote>
