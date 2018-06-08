@@ -22,14 +22,14 @@
   <</if>>
   <<if _trade.count gte 1>>
   <tr><td>_trade.name</td>
-      <tr>
+      <td>
 
         <<link "_trade.count">>
                 <<set $currentBuildingList to _trade.name>>
                 <<goto "BuildingList">>
-            <</link>>
+        <</link>>
 
-      </tr>
+      </td>
   <</if>>
   <</for>><</nobr>>
 </table>
