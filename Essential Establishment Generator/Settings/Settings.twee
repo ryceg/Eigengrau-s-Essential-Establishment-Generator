@@ -1,26 +1,6 @@
 :: Settings
 
-<<script>>
 
-
-
-Setting.addToggle("showSliders", {
-    label : "Show sliders?"
-    default: true
-});
-
-Setting.addToggle("showTutorial", {
-    label : "Show tutorial?"
-    default: true
-});
-
-Setting.addToggle("showCelsius", {
-    label : "Show celsius?"
-    default: true
-});
-
-Setting.save();
-<</script>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 

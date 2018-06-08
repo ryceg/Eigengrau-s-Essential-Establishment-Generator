@@ -7,17 +7,14 @@
 
 Setting.addToggle("showSliders", {
     label : "Show sliders?"
-    default
 });
 
 Setting.addToggle("showTutorial", {
     label : "Show tutorial?"
-    default
 });
 
 Setting.addToggle("showCelsius", {
     label : "Show celsius?"
-    default
 });
 
 Setting.save();
