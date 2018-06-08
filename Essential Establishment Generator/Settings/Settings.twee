@@ -6,17 +6,17 @@ Setting.addHeader("Content Settings");
 
 Setting.addToggle("showSliders", {
     label : "Show sliders?"
-    default: true,
+    default: true
 });
 
 Setting.addToggle("showTutorial", {
     label : "Show tutorial?"
-    default: true,
+    default: true
 });
 
-Setting.addToggle("$showCelsius", {
+Setting.addToggle("showCelsius", {
     label : "Show celsius?"
-    default: true,
+    default: true
 });
 <</script>>
 
