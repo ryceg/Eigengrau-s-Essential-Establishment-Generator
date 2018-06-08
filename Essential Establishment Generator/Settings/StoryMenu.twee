@@ -8,7 +8,7 @@
           <<goto "InitSmithy">>
       <<elseif $currentPassage is $alchemist>>
           <<goto "InitAlchemist">>
-      <<elseif $currentPassage is $GeneralStore>>
+      <<elseif $currentPassage === $GeneralStore>>
           <<goto "InitGeneralStore">>
     <</if>>
 <</link>><</if>><</nobr>>
