@@ -22,7 +22,6 @@
   <</if>>
   <<if _trade.count gte 1>>
   <tr><td>_trade.name</td>
-</td>
       <tr>
         <td>
         <<link "_trade.count">>
