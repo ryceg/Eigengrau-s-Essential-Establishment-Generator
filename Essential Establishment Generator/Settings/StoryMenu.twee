@@ -1,17 +1,17 @@
 
 :: StoryMenu
 
-<<nobr>><<if def $currentPassage>><<link "Sliders for $currentPassage.name">>
+/*<<nobr>><<if def $currentPassage>><<link "Sliders for $currentPassage.name">>
     <<if $currentPassage is $tavern>>
           <<goto "InitTavern">>
       <<elseif $currentPassage is $smithy>>
           <<goto "InitSmithy">>
       <<elseif $currentPassage is $alchemist>>
           <<goto "InitAlchemist">>
-      <<elseif $currentPassage === $GeneralStore>>
+      <<elseif $currentPassage is $GeneralStore>>
           <<goto "InitGeneralStore">>
     <</if>>
-<</link>><</if>><</nobr>>
+<</link>><</if>><</nobr>>*/
 
 [[Toolbox]]
 
