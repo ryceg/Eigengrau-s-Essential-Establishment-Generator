@@ -3,7 +3,25 @@
 
 <<set $versionnumber to "1.3">>
 
-<<script>>Setting.addHeader("Content Settings");<</script>>
+<<script>>Setting.addHeader("Content Settings");
+
+Setting.addToggle("showSliders", {
+    label : "Show sliders?"
+    default: true
+});
+
+Setting.addToggle("showTutorial", {
+    label : "Show tutorial?"
+    default: true
+});
+
+Setting.addToggle("showCelsius", {
+    label : "Show celsius?"
+    default: true
+});
+
+Setting.save();
+<</script>>
 
 <<if $showTutorial is false>>
     <<set Config.passages.start = "Start">>
