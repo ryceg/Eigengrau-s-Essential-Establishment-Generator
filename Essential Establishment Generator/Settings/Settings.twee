@@ -1,9 +1,24 @@
 :: Settings
 
+<<script>>
 
-Show tutorial: <<checkbox "$showTutorial" true false>>
-Show sliders: <<checkbox "$showSliders" true false>>
-Show celsius: <<checkbox "$showCelsius" true false>>
+Setting.addHeader("Content Settings");
+
+Setting.addToggle("showSliders", {
+    label : "Show sliders?"
+    default: true,
+});
+
+Setting.addToggle("showTutorial", {
+    label : "Show tutorial?"
+    default: true,
+});
+
+Setting.addToggle("$showCelsius", {
+    label : "Show celsius?"
+    default: true,
+});
+<</script>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
@@ -16,26 +31,5 @@ Show celsius: <<checkbox "$showCelsius" true false>>
 
 <<nobr>><<linkreplace "Load custom Patreon characters">><<set $bartender to $Birchbottom>>
 <<set $patreonContent to true>>Birchbottom is now the bartender!<</linkreplace>><</nobr>>
-
-<<nobr>><<linkreplace "Save changes">>Saved changes!
-<<if $showTutorial is false>>
-      <<remember $showTutorial to false>>
-    <<else>>
-      <<remember $showTutorial to true>>
-<</if>>
-<<if $showSliders is false>>
-      <<remember $showSliders to false>>
-    <<else>>
-      <<remember $showSliders to true>>
-<</if>>
-<<if $showCelsius is false>>
-    <<remember $showCelsius to false>>
-  <<else>>
-    <<remember $showCelsius to true>>
-<</if>>
-<</linkreplace>><</nobr>>
-
-Setting.addHeader("Content Settings", "Settings controlling what content is made available in the game.");
-
 
 <<back>>
