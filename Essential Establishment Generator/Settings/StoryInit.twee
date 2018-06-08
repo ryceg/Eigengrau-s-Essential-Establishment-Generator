@@ -3,6 +3,8 @@
 
 <<set $versionnumber to "1.3">>
 
+<<script>>Setting.addHeader("Content Settings");<</script>>
+
 <<if $showTutorial is false>>
     <<set Config.passages.start = "Start">>
   <<else>>

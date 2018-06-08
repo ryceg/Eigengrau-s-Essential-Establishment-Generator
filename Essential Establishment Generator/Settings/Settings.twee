@@ -2,7 +2,7 @@
 
 <<script>>
 
-Setting.addHeader("Content Settings");
+
 
 Setting.addToggle("showSliders", {
     label : "Show sliders?"
@@ -18,6 +18,8 @@ Setting.addToggle("showCelsius", {
     label : "Show celsius?"
     default: true
 });
+
+Setting.save();
 <</script>>
 
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
