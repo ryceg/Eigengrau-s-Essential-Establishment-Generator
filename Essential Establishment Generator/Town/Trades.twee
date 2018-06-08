@@ -1,6 +1,6 @@
 :: Trades
 <<set $trade to {}>>
-<<set $trade.type to [
+<<set $trade to [
     {name: "actor", sv: 2500, availability: 1, type: "profession"},
     {name: "advocate", sv: 3250, availability: 1, type: "profession"},
     {name: "advisor", sv: 780, availability: 1, type: "profession"},
@@ -11,7 +11,7 @@
     {name: "armorer", sv: 750, availability: 1, type: ""},
     {name: "astrologer", sv: 950, availability: 1, type: ""},
     {name: "baker", sv: 450, availability: 1, type: ""},
-    {name: "banker", sv: 2250, availability: 1, type: ""}, 
+    {name: "banker", sv: 2250, availability: 1, type: ""},
     {name: "barber", sv: 350, availability: 1, type: ""},
     {name: "barkeep", sv: 450, availability: 1, type: ""},
     {name: "blacksmith", sv: 750, availability: 1, type: ""},
