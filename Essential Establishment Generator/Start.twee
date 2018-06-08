@@ -23,8 +23,6 @@
     <</if>>
 <</link>>
 
-<<link "TAVERN">><<goto "InitTavern">><</link>>
-
 Down from $tavern.road are the [[markets|MarketOutput]]
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><<link "$smithy.name">><<set $currentPassage to $smithy>>
