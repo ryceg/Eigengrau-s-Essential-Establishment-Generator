@@ -17,7 +17,7 @@ Setting.addToggle("showCelsius", {
     label : "Show celsius?"
 });
 
-var PatreonContentHandler = function () {
+var settingPatreonContentHandler = function () {
   if (settings.patreonContent) { // is true
     State.variables.bartender = State.variables.Birchbottom;
   }
@@ -27,9 +27,9 @@ var PatreonContentHandler = function () {
 };
 
 Setting.addToggle("patreonContent", {
-    label : "Show Patreon content?"
-    onInit  : settingPatreonContentHandler = function () {
-
+    label : "Show Patreon content?",
+    onInit  : settingPatreonContentHandler,
+    onChange : settingPatreonContentHandler
 });
 
 
