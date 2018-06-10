@@ -1,5 +1,10 @@
 :: ChangelogFull
 
+v.1.3.1
+- I realised that I accidentally left in the half-baked code for population occupations, which doesn't quite work for small towns, but I've left it in anyways. It's in town descriptions.
+- Added Patreon Content slider reintroducing Jasher Drake's halfling warlock!
+- Minor text fixes
+
 v.1.2.2
 - Minor additions.
 - Redid a couple wordings
