@@ -5400,7 +5400,12 @@ When you&#39;re ready, here&#39;s the [[general store|GeneralStoreOutput]]
 - Added &lt;&lt;linkreplace &quot;town political ideologies&quot;&gt;&gt;autocratic, meritocratic, democratic, kleptocratic, magocratic, militocratic, oligarchic, pedocratic, theocratic, technocratic ideologies&lt;&lt;/linkreplace&gt;&gt;
 - Added &lt;&lt;linkreplace &quot;town economic policies&quot;&gt;&gt;feudalist, capitalist, syndicalist, communist, and primitivist economic policies&lt;&lt;/linkreplace&gt;&gt;
 - Added town free trade, welfare, magic control, military, and punishment sliders.
-- Added what the town grew around, and their crops, and exports.</tw-passagedata><tw-passagedata pid="36" name="ChangelogFull" tags="" position="725,475">v.1.2.2
+- Added what the town grew around, and their crops, and exports.</tw-passagedata><tw-passagedata pid="36" name="ChangelogFull" tags="" position="725,475">v.1.3.1
+- I realised that I accidentally left in the half-baked code for population occupations, which doesn&#39;t quite work for small towns, but I&#39;ve left it in anyways. It&#39;s in town descriptions.
+- Added Patreon Content slider reintroducing Jasher Drake&#39;s halfling warlock!
+- Minor text fixes
+
+v.1.2.2
 - Minor additions.
 - Redid a couple wordings
 - Added vocal patterns
@@ -6902,7 +6907,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &lt;&lt;nobr&gt;&gt;&lt;&lt;linkreplace &quot;Load custom Patreon characters&quot;&gt;&gt;&lt;&lt;set $bartender to $Birchbottom&gt;&gt;
 &lt;&lt;set $patreonContent to true&gt;&gt;Birchbottom is now the bartender!&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="76" name="StoryAuthor" tags="" position="725,975">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="77" name="StoryInit" tags="" position="850,975">&lt;&lt;set $versionnumber to &quot;1.3&quot;&gt;&gt;
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="76" name="StoryAuthor" tags="" position="725,975">Created by /u/rcgy</tw-passagedata><tw-passagedata pid="77" name="StoryInit" tags="" position="850,975">&lt;&lt;set $versionnumber to &quot;1.3.1&quot;&gt;&gt;
 
 &lt;&lt;script&gt;&gt;Setting.addHeader(&quot;Content Settings&quot;);
 
@@ -6917,6 +6922,24 @@ Setting.addToggle(&quot;showTutorial&quot;, {
 Setting.addToggle(&quot;showCelsius&quot;, {
     label : &quot;Show celsius?&quot;
 });
+
+var settingPatreonContentHandler = function () {
+  if (settings.patreonContent) { // is true
+    State.variables.bartender = State.variables.Birchbottom;
+  }
+  else { // is false
+    State.variables.bartender = State.variables.backupBartender;
+  }
+};
+
+Setting.addToggle(&quot;patreonContent&quot;, {
+    label : &quot;Show Patreon content?&quot;,
+    onInit  : settingPatreonContentHandler,
+    onChange : settingPatreonContentHandler
+});
+
+
+
 
 Setting.save();
 &lt;&lt;/script&gt;&gt;
@@ -7082,6 +7105,20 @@ Setting.save();
 		&lt;&lt;if _copper&gt;&gt;&lt;&lt;= _copper&gt;&gt; Copper&lt;&lt;/if&gt;&gt;&lt;&lt;/widget&gt;&gt;
 /*&lt;&lt;print Math.floor(($args * ((100 + passage()) / 100)) / 100)&gt;&gt; Gold, &lt;&lt;print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)&gt;&gt; Silver, and also &lt;&lt;print Math.floor($args % 10)&gt;&gt; Copper
 */
+
+&lt;&lt;widget &quot;buildingProfile&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+		&lt;&lt;set _build = $args[0], _readout = $args[1]&gt;&gt;
+		&lt;&lt;capture _build, _readout&gt;&gt;
+				&lt;&lt;if def $args[1]&gt;&gt;
+							&lt;&lt;link _readout &quot;BuildingProfile&quot;&gt;&gt;
+								&lt;&lt;set $currentBuilding to _build&gt;&gt;
+							&lt;&lt;/link&gt;&gt;
+					&lt;&lt;else&gt;&gt;
+							&lt;&lt;link _char.name &quot;BuildingProfile&quot;&gt;&gt;
+									&lt;&lt;set $currentBuilding to _build&gt;&gt;
+							&lt;&lt;/link&gt;&gt;
+				&lt;&lt;/if&gt;&gt;
+		&lt;&lt;/capture&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/widget&gt;&gt;
 
 &lt;&lt;widget &quot;profile&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 		&lt;&lt;set _char = $args[0], _readout = $args[1]&gt;&gt;
@@ -7263,10 +7300,11 @@ Down from $tavern.road are the [[markets|MarketOutput]]
 &lt;&lt;nobr&gt;&gt;&lt;&lt;if def $brothel&gt;&gt;
 &lt;&lt;print &quot;On $brothel.road is the whorehouse &quot;&gt;&gt;[[$brothel.name|BrothelOutput]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="Bartender" tags="" position="350,1100">&lt;&lt;set _roll to random(1, 100)&gt;&gt;&lt;&lt;if _roll gt 99&gt;&gt;
-			&lt;&lt;set $bartender to $Birchbottom&gt;&gt;
 			&lt;&lt;set $patreonContent to true&gt;&gt;
+			&lt;&lt;set $bartender to $Birchbottom&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 			&lt;&lt;set $bartender to setup.createNPC({idle: [&quot;polishing a glass with $bartender.hisher hands&quot;, &quot;reading a newspaper which says &lt;&lt;print $newspaperheadline&gt;&gt;&quot;, &quot;pouring a drink for a customer&quot;, &quot;taking an order from a customer&quot;, &quot;talking with a customer&quot;, &quot;picking $bartender.hisher nose&quot;, &quot;playing a card game by $bartender.himher&lt;&lt;nobr&gt;&gt;self&lt;&lt;/nobr&gt;&gt;&quot;, &quot;checking the stock levels of the beer on tap&quot;, &quot;shouting into the kitchen, annoyed&quot;, &quot;yelling instructions into the kitchen&quot;, &quot;leaning against a stool, surveying the work of one of the barmaids&quot;], owner: either([&quot;owner&quot;, &quot;caretaker&quot;, &quot;proud owner&quot;, &quot;proprietor&quot;, &quot;current owner&quot;, &quot;manager&quot;, &quot;manager&quot;, &quot;acting manager&quot;]), greeting: [&quot;nods at you&quot;, &quot;welcomes you warmly&quot;, &quot;smiles and greets you&quot;, &quot;raises a hand with a wave&quot;, &quot;sizes you up, before $bartender.heshe nods at you&quot;, &quot;checks you out for just a moment before smiling at you&quot;], dndclass: either(&quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;bartender&quot;, &quot;barbarian&quot;, &quot;bard&quot;, &quot;cleric&quot;, &quot;druid&quot;, &quot;fighter&quot;, &quot;monk&quot;, &quot;rogue&quot;, &quot;ranger&quot;, &quot;paladin&quot;, &quot;sorcerer&quot;, &quot;warlock&quot;, &quot;wizard&quot;)})&gt;&gt;
+			&lt;&lt;set $backupBartender to $bartender&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 
@@ -8617,7 +8655,10 @@ $tavern.magicroll.clamp(1, 100)
       &lt;td&gt;&lt;&lt;money _item.cost&gt;&gt;&lt;/td&gt;&lt;/tr&gt;
       	&lt;&lt;/for&gt;&gt;&lt;&lt;/switch&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/table&gt;&lt;&lt;/linkreplace&gt;&gt;
 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="BuildingList" tags="" position="975,1350"></tw-passagedata><tw-passagedata pid="109" name="BuildingProfile" tags="" position="1100,1350">On $currentBuilding.street, you come across a $currentBuilding.size $currentBuilding.material building. Inside, you see that it&#39;s $currentBuilding.lighting, and $currentBuilding.cleanliness.</tw-passagedata><tw-passagedata pid="110" name="Guard" tags="" position="1225,1350">&lt;&lt;set $guardCaptain to setup.createNPC({dndclass: &quot;fighter&quot;, background: &quot;soldier&quot;, gender: either(&quot;man&quot;, &quot;man&quot;, &quot;man&quot;, &quot;woman&quot;)})&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="BuildingList" tags="" position="975,1350">&lt;&lt;for _i, _trade range $currentBuildingList.count&gt;&gt;
+    &lt;&lt;set _trade to setup.createBuilding()&gt;&gt;
+    &lt;&lt;buildingProfile _trade&gt;&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="BuildingProfile" tags="" position="1100,1350">On $currentBuilding.street, you come across a $currentBuilding.size $currentBuilding.material building. Inside, you see that it&#39;s $currentBuilding.lighting, and $currentBuilding.cleanliness.</tw-passagedata><tw-passagedata pid="110" name="Guard" tags="" position="1225,1350">&lt;&lt;set $guardCaptain to setup.createNPC({dndclass: &quot;fighter&quot;, background: &quot;soldier&quot;, gender: either(&quot;man&quot;, &quot;man&quot;, &quot;man&quot;, &quot;woman&quot;)})&gt;&gt;
 &lt;&lt;set $guard to {
 	primaryColours: either([
     &quot;black&quot;,
@@ -10527,67 +10568,160 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
         &lt;&lt;set $weather.precipitationTimer to random(1, 8)&gt;&gt;
     &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="127" name="Trades" tags="" position="850,1600">&lt;&lt;set $trade to {}&gt;&gt;
-&lt;&lt;set $trade.type to [
-    {name: &quot;Shoemakers&quot;, sv: 150, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Butchers&quot;, sv: 1150, availability: 1},
-    {name: &quot;Furriers&quot;, sv: 250, availability: 1},
-    {name: &quot;(Unlicensed) Doctors&quot;, sv: 350, availability: 1},
-    {name: &quot;Fishmongers&quot;, sv: 1200, availability: 1},
-    {name: &quot;Maidservants&quot;, sv: 250, availability: 1},
-    {name: &quot;Beer-Sellers&quot;, sv: 1350, availability: 1},
-    {name: &quot;Tailors&quot;, sv: 250, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Buckle Makers&quot;, sv: 1450, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Barbers&quot;, sv: 350, availability: 1},
-    {name: &quot;Plasterers&quot;, sv: 1400, availability: 1},
-    {name: &quot;Jewelers&quot;, sv: 400, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Spice Merchants&quot;, sv: 1400, availability: 1},
-    {name: &quot;Taverns&quot;, sv: 400, availability: 1},
-    {name: &quot;Restaurants&quot;, sv: 475, availability: 1},
-    {name: &quot;Blacksmiths&quot;, sv: 1500, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Painters&quot;, sv: 1500, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Pastrycooks&quot;, sv: 500, availability: 1},
-    {name: &quot;(Licensed) Doctors&quot;, sv: 1700, availability: 1},
-    {name: &quot;Masons&quot;, sv: 500, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Roofers&quot;, sv: 1800, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Carpenters&quot;, sv: 550, availability: 1},
-    {name: &quot;Locksmiths&quot;, sv: 1900, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Weavers&quot;, sv: 600, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Bathers&quot;, sv: 1950, availability: 1},
-    {name: &quot;Chandlers&quot;, sv: 700, availability: 1},
-    {name: &quot;Ropemakers&quot;, sv: 1850, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Mercers&quot;, sv: 700, availability: 1},
-    {name: &quot;Inns&quot;, sv: 200, availability: 1},
-    {name: &quot;Coopers&quot;, sv: 700, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Tanners&quot;, sv: 200, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Bakers&quot;, sv: 750, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Copyists&quot;, sv: 200, availability: 1},
-    {name: &quot;Watercarriers&quot;, sv: 850, availability: 1},
-    {name: &quot;Sculptors&quot;, sv: 200, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Scabbardmakers&quot;, sv: 875, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Rugmakers&quot;, sv: 200, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Wine-Sellers&quot;, sv: 875, availability: 1},
-    {name: &quot;Harness-Makers&quot;, sv: 200, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Hatmakers&quot;, sv: 950, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Bleachers&quot;, sv: 2100, availability: 1},
-    {name: &quot;Saddlers&quot;, sv: 100, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Hay Merchants&quot;, sv: 2300, availability: 1},
-    {name: &quot;Chicken Butchers&quot;, sv: 100, availability: 1},
-    {name: &quot;Cutlers&quot;, sv: 2300, availability: 1},
-    {name: &quot;Pursemakers&quot;, sv: 1100, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Glovemakers&quot;, sv: 2400, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Woodsellers&quot;, sv: 2350, availability: 1},
-    {name: &quot;Woodcarvers&quot;, sv: 2325, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Magic-Shops&quot;, sv: 2800, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Booksellers&quot;, sv: 6300, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Bookbinders&quot;, sv: 3000, availability: 1, type: &quot;workshop&quot;},
-    {name: &quot;Illuminators&quot;, sv: 3900, availability: 1, type: &quot;workshop&quot;},
+&lt;&lt;set $trade to [
+    {name: &quot;actor&quot;, sv: 2500, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;advocate&quot;, sv: 3250, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;advisor&quot;, sv: 780, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;animal handler&quot;, sv: 250, availability: 1, type: &quot;&quot;},
+    {name: &quot;apothecarist&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;architect&quot;, sv: 550, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;archivist&quot;, sv: 2450, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;armorer&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;astrologer&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;baker&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;banker&quot;, sv: 2250, availability: 1, type: &quot;&quot;},
+    {name: &quot;barber&quot;, sv: 350, availability: 1, type: &quot;&quot;},
+    {name: &quot;barkeep&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;blacksmith&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;bookseller&quot;, sv: 6300, availability: 1, type: &quot;&quot;},
+    {name: &quot;brewer&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;bricklayer&quot;, sv: 650, availability: 1, type: &quot;&quot;},
+    {name: &quot;brothel keeper&quot;, sv: 850, availability: 1, type: &quot;&quot;},
+    {name: &quot;buccaneer&quot;, sv: 1350, availability: 1, type: &quot;&quot;},
+    {name: &quot;butcher&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;caravanner&quot;, sv: 1450, availability: 1, type: &quot;&quot;},
+    {name: &quot;carpenter&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;cartographer&quot;, sv: 1950, availability: 1, type: &quot;&quot;},
+    {name: &quot;chandler&quot;, sv: 700, availability: 1, type: &quot;&quot;},
+    {name: &quot;chef&quot;, sv: 1850, availability: 1, type: &quot;&quot;},
+    {name: &quot;clock maker&quot;, sv: 4550, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;cobbler&quot;, sv: 1550, availability: 1, type: &quot;&quot;},
+    {name: &quot;cook&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;counselor&quot;, sv: 1650, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;courtesan&quot;, sv: 1950, availability: 1, type: &quot;&quot;},
+    {name: &quot;courtier&quot;, sv: 1950, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;cowherd&quot;, sv: 250, availability: 1, type: &quot;&quot;},
+    {name: &quot;dancer&quot;, sv: 2250, availability: 1, type: &quot;&quot;},
+    {name: &quot;diplomat&quot;, sv: 3450, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;distiller&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;diver&quot;, sv: 3250, availability: 1, type: &quot;&quot;},
+    {name: &quot;farmer&quot;, sv: 150, availability: 1, type: &quot;&quot;},
+    {name: &quot;fisherman&quot;, sv: 170, availability: 1, type: &quot;&quot;},
+    {name: &quot;fishmonger&quot;, sv: 250, availability: 1, type: &quot;&quot;},
+    {name: &quot;gardener&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;general&quot;, sv: 2250, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;gladiator&quot;, sv: 3250, availability: 1, type: &quot;&quot;},
+    {name: &quot;glovemaker&quot;, sv: 2400, availability: 1, type: &quot;&quot;},
+    {name: &quot;goldsmith&quot;, sv: 6550, availability: 1, type: &quot;&quot;},
+    {name: &quot;grocer&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;guardsman&quot;, sv: 150, availability: 1, type: &quot;&quot;},
+    {name: &quot;guildmaster&quot;, sv: 4150, availability: 1, type: &quot;&quot;},
+    {name: &quot;hatmaker&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;healer&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;herald&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;herbalist&quot;, sv: 850, availability: 1, type: &quot;&quot;},
+    {name: &quot;hermit&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;historian&quot;, sv: 4150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;hunter&quot;, sv: 250, availability: 1, type: &quot;&quot;},
+    {name: &quot;ice seller&quot;, sv: 1950, availability: 1, type: &quot;&quot;},
+    {name: &quot;innkeeper&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;inventor&quot;, sv: 2250, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;jailer&quot;, sv: 1250, availability: 1, type: &quot;&quot;},
+    {name: &quot;jester&quot;, sv: 2250, availability: 1, type: &quot;&quot;},
+    {name: &quot;jeweler&quot;, sv: 400, availability: 1, type: &quot;&quot;},
+    {name: &quot;judge&quot;, sv: 850, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;knight&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;lady&quot;, sv: 1550, availability: 1, type: &quot;&quot;},
+    {name: &quot;leatherworker&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;librarian&quot;, sv: 3150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;linguist&quot;, sv: 5150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;locksmith&quot;, sv: 1900, availability: 1, type: &quot;&quot;},
+    {name: &quot;lord&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;lumberjack&quot;, sv: 350, availability: 1, type: &quot;&quot;},
+    {name: &quot;mason&quot;, sv: 500, availability: 1, type: &quot;&quot;},
+    {name: &quot;masseur&quot;, sv: 1550, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;merchant&quot;, sv: 650, availability: 1, type: &quot;&quot;},
+    {name: &quot;messenger&quot;, sv: 1250, availability: 1, type: &quot;&quot;},
+    {name: &quot;midwife&quot;, sv: 650, availability: 1, type: &quot;&quot;},
+    {name: &quot;miller&quot;, sv: 650, availability: 1, type: &quot;&quot;},
+    {name: &quot;miner&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;minister&quot;, sv: 950, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;minstrel&quot;, sv: 1450, availability: 1, type: &quot;&quot;},
+    {name: &quot;monk&quot;, sv: 1450, availability: 1, type: &quot;&quot;},
+    {name: &quot;mortician&quot;, sv: 650, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;necromancer&quot;, sv: 6150, availability: 1, type: &quot;&quot;},
+    {name: &quot;noble&quot;, sv: 3150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;nun&quot;, sv: 2150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;nurse&quot;, sv: 1150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;officer&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;painter&quot;, sv: 1500, availability: 1, type: &quot;&quot;},
+    {name: &quot;patissier&quot;, sv: 1500, availability: 1, type: &quot;&quot;},
+    {name: &quot;perfumer&quot;, sv: 3150, availability: 1, type: &quot;&quot;},
+    {name: &quot;philosopher&quot;, sv: 7150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;physician&quot;, sv: 4150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;pilgrim&quot;, sv: 5150, availability: 1, type: &quot;&quot;},
+    {name: &quot;potter&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;priest&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;privateer&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;professor&quot;, sv: 3150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;roofer&quot;, sv: 1800, availability: 1, type: &quot;&quot;},
+    {name: &quot;ropemaker&quot;, sv: 1850, availability: 1, type: &quot;&quot;},
+    {name: &quot;rugmaker&quot;, sv: 1850, availability: 1, type: &quot;&quot;},
+    {name: &quot;saddler&quot;, sv: 10, availability: 1, type: &quot;&quot;},
+    {name: &quot;sailor&quot;, sv: 150, availability: 1, type: &quot;&quot;},
+    {name: &quot;scabbard maker&quot;, sv: 875, availability: 1, type: &quot;&quot;},
+    {name: &quot;sculptor&quot;, sv: 250, availability: 1, type: &quot;&quot;},
+    {name: &quot;scavenger&quot;, sv: 350, availability: 1, type: &quot;&quot;},
+    {name: &quot;scholar&quot;, sv: 2250, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;seamstress&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;servant&quot;, sv: 350, availability: 1, type: &quot;&quot;},
+    {name: &quot;shaman&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;shepherd&quot;, sv: 150, availability: 1, type: &quot;&quot;},
+    {name: &quot;ship&#39;s captain&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;silversmith&quot;, sv: 1250, availability: 1, type: &quot;&quot;},
+    {name: &quot;slave&quot;, sv: 150, availability: 1, type: &quot;&quot;},
+    {name: &quot;slaver&quot;, sv: 650, availability: 1, type: &quot;&quot;},
+    {name: &quot;smith&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;soldier&quot;, sv: 1000, availability: 1, type: &quot;&quot;},
+    {name: &quot;spice merchant&quot;, sv: 1500, availability: 1, type: &quot;&quot;},
+    {name: &quot;squire&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;stablehand&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;stevedore&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;stonemason&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;steward&quot;, sv: 950, availability: 1, type: &quot;&quot;},
+    {name: &quot;street seller&quot;, sv: 550, availability: 1, type: &quot;&quot;},
+    {name: &quot;street sweeper&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;student&quot;, sv: 3150, availability: 1, type: &quot;&quot;},
+    {name: &quot;surgeon&quot;, sv: 4150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;surveyor&quot;, sv: 1150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;sailor&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;tanner&quot;, sv: 200, availability: 1, type: &quot;&quot;},
+    {name: &quot;tavernkeeper&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;tax collector&quot;, sv: 1850, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;teacher&quot;, sv: 1450, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;thatcher&quot;, sv: 350, availability: 1, type: &quot;&quot;},
+    {name: &quot;thief&quot;, sv: 850, availability: 1, type: &quot;&quot;},
+    {name: &quot;torturer&quot;, sv: 1850, availability: 1, type: &quot;&quot;},
+    {name: &quot;town crier&quot;, sv: 750, availability: 1, type: &quot;&quot;},
+    {name: &quot;toymaker&quot;, sv: 2150, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;vendor&quot;, sv: 1150, availability: 1, type: &quot;&quot;},
+    {name: &quot;veterinarian&quot;, sv: 1250, availability: 1, type: &quot;profession&quot;},
+    {name: &quot;vintner&quot;, sv: 850, availability: 1, type: &quot;&quot;},
+    {name: &quot;weaver&quot;, sv: 450, availability: 1, type: &quot;&quot;},
+    {name: &quot;wetnurse&quot;, sv: 350, availability: 1, type: &quot;&quot;},
+    {name: &quot;woodcarver&quot;, sv: 2450, availability: 1, type: &quot;&quot;},
+    {name: &quot;wood seller&quot;, sv: 2150, availability: 1, type: &quot;&quot;},
+    {name: &quot;wrestler&quot;, sv: 6150, availability: 1, type: &quot;&quot;},
+    {name: &quot;writer&quot;, sv: 7150, availability: 1, type: &quot;profession&quot;},
+
+
 ]&gt;&gt;</tw-passagedata><tw-passagedata pid="128" name="TradesOutput" tags="" position="975,1600">&lt;table&gt;
   &lt;tr&gt;
     &lt;th&gt;Trade&lt;/th&gt;
     &lt;th&gt;Number&lt;/th&gt;
   &lt;/tr&gt;
 &lt;&lt;nobr&gt;&gt;
-&lt;&lt;for _i, _trade range $trade.type.filter(function (trade) { return trade.availability === 1; })&gt;&gt;
+&lt;&lt;for _i, _trade range $trade&gt;&gt;
 &lt;&lt;set _townPop to $town.population&gt;&gt;
 &lt;&lt;set _trade.roll to (_townPop /= _trade.sv)&gt;&gt; /* Set the number of trades equal to the town&#39;s population divided by how many people are needed to support that type of business */
   &lt;&lt;if _trade.roll lt 1&gt;&gt;
@@ -10601,19 +10735,19 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
   &lt;&lt;else&gt;&gt;
       &lt;&lt;set _trade.count to Math.trunc(_trade.roll)&gt;&gt; /* Truncate the number to a whole number */
   &lt;&lt;/if&gt;&gt;
-  &lt;&lt;if _trade.count gt 0&gt;&gt;
+  &lt;&lt;if _trade.count gte 1&gt;&gt;
   &lt;tr&gt;&lt;td&gt;_trade.name&lt;/td&gt;
-&lt;td&gt;
-      &lt;tr&gt;
-        &lt;td&gt;&lt;&lt;link &quot;_trade.count&quot;&gt;&gt;&lt;&lt;set $currentBuildingList to _trade.name&gt;&gt;&lt;&lt;goto &quot;BuildingList&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
+    &lt;td&gt;  &lt;tr&gt;
+        &lt;td&gt;
+              _trade.count/*&lt;&lt;link &quot;_trade.count&quot;&gt;&gt;
+                  &lt;&lt;set $currentBuildingList to _trade&gt;&gt;
+                  &lt;&lt;goto &quot;BuildingList&quot;&gt;&gt;
+              &lt;&lt;/link&gt;&gt;*/
+        &lt;/td&gt;
       &lt;/tr&gt;
   &lt;&lt;/if&gt;&gt;
   &lt;&lt;/for&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;/table&gt;
-
-&lt;&lt;for _i, _trade range $trade.type&gt;&gt;
-
-&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="129" name="Tutorial" tags="" position="1100,1600">Eigengrau&#39;s Essential Establishment Generator is a system agnostic tool designed to create towns, taverns, and the people that populate them in an instant. This is most useful for Dungeon Masters in roleplaying games, such as Dungeons and Dragons.
+&lt;/table&gt;</tw-passagedata><tw-passagedata pid="129" name="Tutorial" tags="" position="1100,1600">Eigengrau&#39;s Essential Establishment Generator is a system agnostic tool designed to create towns, taverns, and the people that populate them in an instant. This is most useful for Dungeon Masters in roleplaying games, such as Dungeons and Dragons.
 
 &lt;&lt;fadein 1s 2s&gt;&gt;\
 This generator is different because it generates text that you can read out to players. Instead of &quot;Dirty tavern, with a half orc bartender&quot;, you get whole paragraphs of text to immerse your players in the world that you&#39;ve created.\
