@@ -24,15 +24,10 @@
   <tr><td>_trade.name</td>
     <td>  <tr>
         <td>
-        <<if _trade.count == 1>>
-                  <<link "_trade.count">>
-                  <<buildingProfile _trade>>
-          <<else>>
-              <<link "_trade.count">>
+              _trade.count/*<<link "_trade.count">>
                   <<set $currentBuildingList to _trade>>
                   <<goto "BuildingList">>
-              <</link>>
-        <</if>>
+              <</link>>*/
         </td>
       </tr>
   <</if>>

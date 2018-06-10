@@ -17,6 +17,24 @@ Setting.addToggle("showCelsius", {
     label : "Show celsius?"
 });
 
+var PatreonContentHandler = function () {
+  if (settings.patreonContent) { // is true
+    State.variables.bartender = State.variables.Birchbottom;
+  }
+  else { // is false
+    State.variables.bartender = State.variables.backupBartender;
+  }
+};
+
+Setting.addToggle("patreonContent", {
+    label : "Show Patreon content?"
+    onInit  : settingPatreonContentHandler = function () {
+
+});
+
+
+
+
 Setting.save();
 <</script>>
 
