@@ -42,7 +42,7 @@ setup.createNPC = function(base) {
 
 
         State.variables.NPCCount = State.variables.NPCCount + 1;
-        State.variables.NPCArray[State.variables.NPCCount].npc = npc;
+        State.variables.NPCArray[State.variables.NPCCount] = npc;
 
     switch (npc.gender) {
         case "man":
