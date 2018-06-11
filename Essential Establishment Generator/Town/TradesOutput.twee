@@ -22,12 +22,12 @@
       <</if>>
       <<if _trade.count gte 1>>
         <<set _trade.count to _trade.countTest>>
-            <<for _i, _tradeTest range _trade>>
+            /*<<for _i, _tradeTest range _trade>>
               <<if _trade.countTest gt 0>>
                 <<run State.setVar(_trade.name, setup.createNPC())>>
                 <<set _trade.countTest -= 1>>
               <</if>>
-          <</for>>
+          <</for>>*/
       <tr><td>_trade.name</td>
         <td>  <tr>
             <td>
