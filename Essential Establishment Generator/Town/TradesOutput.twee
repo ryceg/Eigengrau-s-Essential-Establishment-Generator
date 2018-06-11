@@ -24,9 +24,11 @@
   <tr><td>_trade.name</td>
     <td>  <tr>
         <td>
-              <<run State.setVar(_trade, setup.createNPC({profession: _trade}))>>_trade.bond
+              <<run State.setVar(_trade, setup.createNPC({profession: _trade}))>>
         </td>
       </tr>
   <</if>>
   <</for>><</nobr>>
 </table>
+
+$advocate.name
