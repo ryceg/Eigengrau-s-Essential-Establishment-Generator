@@ -32,6 +32,11 @@ array[1] = "test";
 ix = 1;
 <</script>>
 
+<<set $array to []>>
+<<set $ix to 0>>
+<<set $array[1] to "test">>
+<<set $ix to 1>>
+
 <<print $array[$ix]>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
