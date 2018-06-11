@@ -23,9 +23,8 @@
     <</if>>
 <</link>>
 
-<<print $NPCArray>> <<<< should be a number
-<<print $tavern>>
-<<print $bartender>>
+<<print $NPCArray.bartender>> <<<< should be a number
+
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
