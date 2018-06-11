@@ -23,7 +23,7 @@
     <</if>>
 <</link>>
 
-<<print $NPCArray[$NPCArray.length 3]>> <<<< should be a number
+<<print $NPCArray[$NPCArray.length][3]>> <<<< should be a number
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
