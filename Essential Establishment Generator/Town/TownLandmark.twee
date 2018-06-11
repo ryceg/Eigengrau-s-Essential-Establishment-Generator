@@ -1,33 +1,5 @@
 :: TownLandmark
 <<nobr>>
-<<set $town.primaryExport to either([
-"iron ore",
-"copper ore",
-"gold deposits",
-"silver deposits",
-"clay and granite deposits",
-"salt deposits",
-"quartz deposits",
-"coal deposits",
-"peat deposits",
-"hardwood lumber"])>>
-
-<<set $town.primaryCrop to either([
-"barley and oats",
-"beans and corn",
-"nuts and olives",
-"rice",
-"wheat",
-"potatoes and leeks",
-"sugar cane",
-"tobacco",
-"cotton",
-"fruit trees",
-"cabbages and beets",
-"cattle",
-"dairy cows",
-"sheep"])>>
-
 
 <<set $town.landmark to either([
 "a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.",
