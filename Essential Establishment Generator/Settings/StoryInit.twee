@@ -1,8 +1,8 @@
 
 :: StoryInit
 
-<<set $NPCCount to 0>>
-<<set $NPCArray to {}>>
+
+<<set $NPCArray to []>>
 
 <<set $versionnumber to "1.3.1">>
 
