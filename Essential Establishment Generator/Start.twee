@@ -25,7 +25,7 @@
 
 Rollcall:
 <<for _i, _NPCnames range $NPCArray>>
-<<print $NPCArray[_i].name>>
+<<profile $NPCArray[_i]>>
 <</for>>
 
 
