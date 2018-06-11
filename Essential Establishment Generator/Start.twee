@@ -25,7 +25,7 @@
 
 Rollcall:
 <<for _i, _NPCnames range $NPCArray>>
-<<profile $NPCArray[_i]>>
+<<profile $NPCArray[_i]>> - $NPCArray[_i].profession
 <</for>>
 
 
