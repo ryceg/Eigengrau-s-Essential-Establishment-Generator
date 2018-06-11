@@ -41,8 +41,8 @@ setup.createNPC = function(base) {
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
 
 
-        State.variables.NPCCount = State.variables.NPCCount + 1;
-        State.variables.NPCArray[State.variables.NPCCount] = npc;
+        var State.variables.NPCCount = State.variables.NPCCount + 1;
+        var State.variables.NPCArray[State.variables.NPCCount] = npc;
 
     switch (npc.gender) {
         case "man":
