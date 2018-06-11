@@ -41,8 +41,8 @@ setup.createNPC = function(base) {
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
 
 
-        var State.variables.NPCCount = State.variables.NPCCount + 1;
-        var State.variables.NPCArray[State.variables.NPCCount] = npc;
+        State.variables.NPCCount = State.variables.NPCCount + 1;
+        State.variables.NPCArray[State.variables.NPCCount] = npc;
 
     switch (npc.gender) {
         case "man":
@@ -288,7 +288,7 @@ setup.createNPC = function(base) {
                     npc.firstname + "has a bifurcated nose horn.",
                     npc.firstname + "has tiny useless T-Rex arms on " + npc.hisher + " shoulder blades."
                   ].random()],
-            })
+            });
             break;
         case "tiefling":
             Object.assign(npc, {
