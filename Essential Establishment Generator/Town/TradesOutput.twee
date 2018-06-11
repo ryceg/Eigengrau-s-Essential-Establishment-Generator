@@ -24,7 +24,7 @@
   <tr><td>_trade.name</td>
     <td>  <tr>
         <td>
-              <<run State.setVar(_trade, setup.createNPC({profession: _trade}))>><<profile _trade _trade.name>>
+              <<run State.setVar(_trade, setup.createNPC({profession: _trade}))>>_trade.name
         </td>
       </tr>
   <</if>>
