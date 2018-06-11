@@ -23,7 +23,7 @@
     <</if>>
 <</link>>
 
-<<print $NPCArray[NPCArray.length -1]>> test
+<<print $NPCArray[$NPCArray.length -1]>> test
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
