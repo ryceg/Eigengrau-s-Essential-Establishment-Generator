@@ -1,3 +1,5 @@
+
+
 setup.createNPC = function(base) {
     // Tables used later
     var skinColours   = ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"];
@@ -8,6 +10,7 @@ setup.createNPC = function(base) {
     var currentmood = ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"];
     var note;
     var title;
+
 
     // Base random variables first - those that don't depend on others
     var npc = Object.assign({
@@ -36,6 +39,10 @@ setup.createNPC = function(base) {
         skinColours: skinColours.random(),
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
+
+
+        State.variables.NPCCount = NPCCount + 1;
+        State.variables.NPCArray[State.variables.NPCCount].npc = npc;
 
     switch (npc.gender) {
         case "man":
