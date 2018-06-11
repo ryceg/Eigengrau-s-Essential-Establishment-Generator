@@ -23,20 +23,6 @@
     <</if>>
 <</link>>
 
-<<set $test to ["foo", "bar", "bah"]>>
-<<for _i, _test range $test>>
-    <<run State.setVar("testies", setup.createNPC())>>
-    _test
-<</for>>
-
-$testies.name
-
-$foo.name
-
-$bar.background
-
-<<profile $bah>>
-
 <<linkreplace "List of citizens">>Rollcall:
 <<for _i, _NPCnames range $NPCArray>>
 <<profile $NPCArray[_i]>> - $NPCArray[_i].profession
