@@ -4,7 +4,7 @@
 
 <<set $NPCArray to []>>
 
-<<set $versionnumber to "1.3.1">>
+<<set $versionnumber to "1.3.2">>
 
 <<script>>Setting.addHeader("Content Settings");
 
