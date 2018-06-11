@@ -12,10 +12,10 @@
           <<if _trade.roll lt 1>>
               <<set _trade.roll *= 100>>
               <<set _roll to random(1, 100)>> /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them anyway */
-                  <<if _roll gt _trade.roll>>
-                      <<set _trade.count to 1>>
-                  <<else>>
+                  <<if _trade.roll gte _roll>>
                       <<set _trade.count to 0>>
+                  <<else>>
+                      <<set _trade.count to 1>>
                   <</if>>
           <<else>>
               <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
