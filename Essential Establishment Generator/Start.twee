@@ -25,9 +25,11 @@
 
 <<set $test to ["foo", "bar", "bah"]>>
 <<for _i, _test range $test>>
-    <<run State.setVar(_test, setup.createNPC())>>
+    <<run State.setVar(testies, setup.createNPC())>>
     _test
 <</for>>
+
+$testies.name
 
 $foo.name
 
