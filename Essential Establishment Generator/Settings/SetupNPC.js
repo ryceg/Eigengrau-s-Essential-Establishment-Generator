@@ -10,6 +10,7 @@ setup.createNPC = function(base) {
     var currentmood = ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"];
     var note;
     var title;
+    var hasClass;
 
 
     // Base random variables first - those that don't depend on others
@@ -40,8 +41,9 @@ setup.createNPC = function(base) {
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
 
-
-
+        if (hasClass == false){
+        dndclass = profession;
+}
 
     switch (npc.gender) {
         case "man":
@@ -435,6 +437,11 @@ setup.createNPC = function(base) {
             npc.dndclassOrigin = npc.dndclassOrigin || ["I was born into poverty. I've slowly worked my way to where I am today.", "I had a bad string of bets which left me with no other choice than to skip town.", "I was born into a lowly family, and that's where I'll likely stay.", "I was a soldier in the army, with a lot of potential. But then, I made a tactical mistake, which led to my dismissal.", "I was found guilty of a crime that I did not commit, and was sentenced to serfdom.", "I grew up in a loving household, but all the love in the world could not pay the debts which we had.", "I was one of seven children, and when I was old enough to work, my parents put me to it.", "I was one of eight children, and had to work from a young age to support my family.", "I was the eldest of four children, but when my father died, I had to leave school and work to support my family."].random();
             npc.background = npc.background || ["urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "noble", "noble", "noble"].random();
             npc.weapon = npc.weapon || ["a crossbow", "a quarterstaff", "a quarterstaff", "a longsword", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger"].random();
+            break;
+        default:
+            npc.dndclassOrigin = npc.dndclassOrigin || ["I was born into poverty. I've slowly worked my way to where I am today.", "I had a bad string of bets which left me with no other choice than to skip town.", "I was born into a lowly family, and that's where I'll likely stay.", "I was a soldier in the army, with a lot of potential. But then, I made a tactical mistake, which led to my dismissal.", "I was found guilty of a crime that I did not commit, and was sentenced to serfdom.", "I grew up in a loving household, but all the love in the world could not pay the debts which we had.", "I was one of seven children, and when I was old enough to work, my parents put me to it.", "I was one of eight children, and had to work from a young age to support my family.", "I was the eldest of four children, but when my father died, I had to leave school and work to support my family."].random();
+            npc.background = npc.background || ["urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "commoner", "noble", "noble", "noble"].random();
+            npc.weapon = npc.weapon || ["a crossbow", "a quarterstaff", "a quarterstaff", "a longsword", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger"].random();
     }
 
 
@@ -557,6 +564,43 @@ setup.createNPC = function(base) {
                 "No one else is going to have to endure the hardships I've been through."].random();
             break;
         case "commoner":
+            npc.backgroundOrigin = npc.backgroundOrigin || ["I was born into poverty. I've slowly worked my way to where I am today.", "I had a bad string of bets which left me with no other choice than to skip town.", "I was born into a lowly family, and that's where I'll likely stay.", "I was a soldier in the army, with a lot of potential. But then, I made a tactical mistake, which led to my dismissal.", "I was found guilty of a crime that I did not commit, and was sentenced to serfdom.", "I grew up in a loving household, but all the love in the world could not pay the debts which we had.", "I was one of seven children, and when I was old enough to work, my parents put me to it.", "I was one of eight children, and had to work from a young age to support my family.", "I was the eldest of four children, but when my father died, I had to leave school and work to support my family."].random();
+            npc.bond = npc.bond || ["I am trying to pay off a debt that I inherited from my father.",
+                "I was swindled out of a large inheritance, and had to go into hiding to keep my family safe.",
+                "I was a nobleman once, but made the wrong man an enemy.",
+                "I had to sell a magical heirloom to pay off a debt. Now I want to buy it back.",
+                "When wandering through a forest, I found a portal to another realm. When I took others to it, it had disappeared. One day I'll find it again.",
+                "I followed my beloved here, and we made a life together, until raiders took them in the night. One day, I'll have my revenge.",
+                "A witch-doctor had claimed to be able to cure my baby. The bastard had lied, and he died at just six weeks. I'll find him one day, and make him wish he had never been born.",
+                "I live for the sea; nothing gives me more pleasure than fishing off my boat.",
+                "My home was a simple one, but it had a certain charm about it. An arsonist burnt it down, and I intend to catch them.",
+                "The lord that took my daughter as a guarantee for my debt never intended to return her. I intend to make him.",
+                "I love the quiet life. Nothing disturbs me more than a disturbance of the peace.",
+                "My friends are my world. If my life consists of working for five days, then going to the tavern with my buddies, I will be content.",
+                "I know my lot in life; feudalism dictates that one should serve the other. I disagree, and will fight to my dying breath to change the system.",
+                "I can't change the past, but I can change my future. I'll work harder and better to provide a better life for my children.",
+                "My father was a drunkard, a gambler, and an abusive man. I will break the cycle.",
+                "I want to perfect my craft. Nothing gives me more satisfaction than someone praising my work.",
+                "When my mother died, I found a list of men in her possessions. One of them is my father. I'll find him.",
+                "When I was young, my parents died, and the church took me in. I'll spread the good word, and the work that they do.",
+                "My father taught me how to read. All I want to do in life is to further my knowledge on how the world works.",
+                "I never learnt how to read. One day, I will be able to tell my son what the words on parchment mean.",
+                "I have a tendency to gamble away my earnings. This is the third town I've moved to to escape debtors.",
+                "My livelihood depended on a horse, which an adventurer took off with. I'll make him pay.",
+                "I used to fear anyone who didn't look like me until some adventurers from distant lands saved my life. Now I want to see the whole world and the planes beyond.",
+                "My lord raised the taxes to absurd levels so he could conscript people as punishment. I broke into my lord's manor one night, took a string of pearls, and sold it. I'll never forget that thrill.",
+                "I have a knack for magic but my parents couldn't afford a tutor. I want to become the mage I knew I could be.",
+                "I am the fifth child and will not inherit anything. I need to find somewhere I can settle down.",
+                "I was a farmer, got conscripted, went off to war, and came back broken. I want my grandchildren to have peaceful lives.",
+                "I got really drunk, fell asleep in a box that got loaded on a boat, and wound up in a big city I've never heard of. My village is so small and secluded I don't even know what country it's in! How do I get home?",
+                "I was the cook for a band of thieves who lived in a forest and stole from the rich to give to the poor. They all got arrested. I need another job I guess.",
+                "I was an ordinary maid in a vampire's castle. Some adventurers staked my former boss. I have to readjust to living with the living.",
+                "I was the village priest but lost my church when a charismatic preacher moved in and converted all my worshipers. I need a sign from heaven to restore my faith.",
+                "I love haggling, meeting new folks, and helping people find what they need. My dream is to build the finest tavern and shop.",
+                "I was petrified 1000 years ago by a medusa while foraging for mushrooms. A wizard found and cured me but left without explaining anything. I must readjust and relearn everything!",
+                ].random();
+            break;
+        default:
             npc.backgroundOrigin = npc.backgroundOrigin || ["I was born into poverty. I've slowly worked my way to where I am today.", "I had a bad string of bets which left me with no other choice than to skip town.", "I was born into a lowly family, and that's where I'll likely stay.", "I was a soldier in the army, with a lot of potential. But then, I made a tactical mistake, which led to my dismissal.", "I was found guilty of a crime that I did not commit, and was sentenced to serfdom.", "I grew up in a loving household, but all the love in the world could not pay the debts which we had.", "I was one of seven children, and when I was old enough to work, my parents put me to it.", "I was one of eight children, and had to work from a young age to support my family.", "I was the eldest of four children, but when my father died, I had to leave school and work to support my family."].random();
             npc.bond = npc.bond || ["I am trying to pay off a debt that I inherited from my father.",
                 "I was swindled out of a large inheritance, and had to go into hiding to keep my family safe.",

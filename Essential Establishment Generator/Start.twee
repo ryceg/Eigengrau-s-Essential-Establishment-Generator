@@ -56,5 +56,5 @@ Down from $tavern.road are the [[markets|MarketOutput]]
   <</link>>
 
 <<nobr>><<if def $brothel>>
-<<print "On $brothel.road is the whorehouse ">>[[$brothel.name|BrothelOutput]]<</if>>
+<<print "On $brothel.road is the whorehouse">><<link $brothel.name>><<set $currentPassage to $brothel>><<goto "BrothelOutput">><</link>><</if>>
 <</nobr>>
