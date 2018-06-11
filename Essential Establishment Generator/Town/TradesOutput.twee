@@ -21,8 +21,12 @@
           <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
       <</if>>
       <<if _trade.count gte 1>>
-            <<for _i, _tradeTest range _trade.count>>
-              <<run State.setVar(_trade.name, setup.createNPC())>>
+            <<for _i, _tradeTest range _trade>>
+              <<set _trade.count to _trade.countTest>>
+              <<if _trade.countTest gt 0>>
+                <<run State.setVar(_trade.name, setup.createNPC())>>
+                <<set _trade.countTest -= 1>>
+              <</if>>
           <</for>>
       <tr><td>_trade.name</td>
         <td>  <tr>
