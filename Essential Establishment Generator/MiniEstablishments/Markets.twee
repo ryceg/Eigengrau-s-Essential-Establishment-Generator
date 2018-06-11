@@ -1,8 +1,8 @@
 :: Markets
-<<set $marketsellerA to setup.createNPC()>>
-<<set $marketsellerB to setup.createNPC()>>
-<<set $marketsellerC to setup.createNPC()>>
-<<set $marketsellerD to setup.createNPC({background: either("commoner", "commoner", "commoner", "noble")})>>
+<<set $marketsellerA to setup.createNPC({profession: "merchant"})>>
+<<set $marketsellerB to setup.createNPC({profession: "merchant"})>>
+<<set $marketsellerC to setup.createNPC({profession: "merchant"})>>
+<<set $marketsellerD to setup.createNPC({background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>>
 <<set $market to {
   selling: ["ale by the pint",
 "amulets and totems",

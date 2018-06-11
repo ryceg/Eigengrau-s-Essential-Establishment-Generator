@@ -76,26 +76,26 @@
 
 <<switch $brothel.owner>>
     <<case "a mean old madam">>
-        <<set $pimp to setup.createNPC({age: "venerable", gender: "woman", demeanour: "mean"})>>
+        <<set $pimp to setup.createNPC({age: "venerable", gender: "woman", demeanour: "mean", profession: "pimp"})>>
     <<case "a large madam with a no-nonsense attitude">>
-        <<set $pimp to setup.createNPC({gender: "woman", weight: "plump", demeanour: "sensible"})>>
+        <<set $pimp to setup.createNPC({gender: "woman", weight: "plump", demeanour: "sensible", profession: "pimp"})>>
     <<case "a warm motherly figure">>
-        <<set $pimp to setup.createNPC({gender: "woman", weight: "plump", demeanour: "kind"})>>
+        <<set $pimp to setup.createNPC({gender: "woman", weight: "plump", demeanour: "kind", profession: "pimp"})>>
     <<case "a surly brute">>
-        <<set $pimp to setup.createNPC({gender: "man", weight: "muscular", demeanour: "mean"})>>
+        <<set $pimp to setup.createNPC({gender: "man", weight: "muscular", demeanour: "mean", profession: "pimp"})>>
     <<case "a tyrannical and cruel fellow">>
-        <<set $pimp to setup.createNPC({gender: "man", age: "middle-aged", demeanour: "mean"})>>
+        <<set $pimp to setup.createNPC({gender: "man", age: "middle-aged", demeanour: "mean", profession: "pimp"})>>
     <<case "a sultry seductress">>
-        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", demeanour: "flirtatious"})>>
+        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", demeanour: "flirtatious", profession: "pimp"})>>
     <<case "a charming witch">>
-        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", dndclass: "sorcerer"})>>
+        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", dndclass: "sorcerer", profession: "pimp"})>>
 <</switch>>
 
 <<switch $pimp.gender>>
     <<case "man">>
-        <<set $pimp.title to "pimp">>
+        <<set $pimp.title to "Master">>
     <<case "woman">>
-        <<set $pimp.title to "mistress">>
+        <<set $pimp.title to "Mistress">>
 <</switch>>
 
 
