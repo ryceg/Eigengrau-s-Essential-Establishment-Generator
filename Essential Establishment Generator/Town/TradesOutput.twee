@@ -9,17 +9,17 @@
 <<for _i, _trade range $trade>>
     <<set _townPop to $town.population>>
     <<set _trade.roll to (_townPop /= _trade.sv)>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
-      <<if _trade.roll lt 1>>
-          <<set _trade.roll *= 100>>
-          <<set _roll to random(1, 100)>> /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them anyway */
-              <<if _roll gt _trade.roll>>
-                  <<set _trade.count to 1>>
-              <<else>>
-                  <<set _trade.count to 0>>
-              <</if>>
-      <<else>>
-          <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
-      <</if>>
+          <<if _trade.roll lt 1>>
+              <<set _trade.roll *= 100>>
+              <<set _roll to random(1, 100)>> /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them anyway */
+                  <<if _roll gt _trade.roll>>
+                      <<set _trade.count to 1>>
+                  <<else>>
+                      <<set _trade.count to 0>>
+                  <</if>>
+          <<else>>
+              <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
+          <</if>>
       <<if _trade.count gte 1>>
         /*<<set _trade.count to _trade.countTest>>
             <<for _i, _tradeTest range _trade>>
@@ -28,14 +28,8 @@
                 <<set _trade.countTest -= 1>>
               <</if>>
           <</for>>*/
-      <tr><td>_trade.name</td>
-        <td>  <tr>
-            <td>
-            _trade.count
-            </td>
-          </tr>
+          <tr><td>_trade.name</td>
+        <td>_trade.count</td></tr>
       <</if>>
       <</for>><</nobr>>
 </table>
-<<profile $advocate>>
-$farmer.name
