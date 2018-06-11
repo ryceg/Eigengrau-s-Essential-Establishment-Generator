@@ -24,6 +24,8 @@
 <</link>>
 
 <<print $NPCArray>> <<<< should be a number
+<<print $tavern>>
+<<print $bartender>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
