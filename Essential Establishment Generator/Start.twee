@@ -23,11 +23,22 @@
     <</if>>
 <</link>>
 
-Rollcall:
+<<set $test to ["foo", "bar", "bah"]>>
+<<for _i, _test range $test>>
+    <<run State.setVar(_test.name, setup.createNPC())>>
+<</for>>
+
+$foo.name
+
+$bar.background
+
+<<profile $bah>>
+
+<<linkreplace "List of citizens">>Rollcall:
 <<for _i, _NPCnames range $NPCArray>>
 <<profile $NPCArray[_i]>> - $NPCArray[_i].profession
 <</for>>
-
+<</linkreplace>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 

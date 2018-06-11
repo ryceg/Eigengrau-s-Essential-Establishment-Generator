@@ -11,7 +11,7 @@
     <<set _trade.roll to (_townPop /= _trade.sv)>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
           <<if _trade.roll lt 1>>
               <<set _trade.roll *= 100>>
-              <<set _roll to random(1, 100)>> /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them anyway */
+              <<set _roll to random(1, 100)>> /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them */
                   <<if _trade.roll gte _roll>>
                       <<set _trade.count to 0>>
                   <<else>>
