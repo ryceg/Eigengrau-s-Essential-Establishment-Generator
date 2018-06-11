@@ -41,7 +41,7 @@ setup.createNPC = function(base) {
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
 
 
-        State.variables.NPCArray.push(npc);
+
 
     switch (npc.gender) {
         case "man":
@@ -595,6 +595,7 @@ setup.createNPC = function(base) {
     }
 
     npc.name = npc.firstname + " " + npc.lastname;
-
+    State.variables.NPCArray.push(npc);
     return npc;
+
 };
