@@ -23,8 +23,8 @@
     <</if>>
 <</link>>
 
-<<print $NPCArray[$NPCCount]>>count
-<<print $NPCArray[$bartender]>>Bartender test
+<<print $NPCArray[$NPCCount.bartender]>>test
+<<print $NPCArray[$bartender.count]>>Bartender test
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
