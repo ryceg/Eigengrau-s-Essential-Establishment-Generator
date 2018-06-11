@@ -32,7 +32,7 @@ array[1] = "test";
 ix = 1;
 <</script>>
 
-<<print $array[ix]>>
+<<print $array[$ix]>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
