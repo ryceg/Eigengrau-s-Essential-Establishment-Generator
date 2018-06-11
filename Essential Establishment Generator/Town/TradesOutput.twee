@@ -24,10 +24,7 @@
   <tr><td>_trade.name</td>
     <td>  <tr>
         <td>
-              _trade.count/*<<link "_trade.count">>
-                  <<set $currentBuildingList to _trade>>
-                  <<goto "BuildingList">>
-              <</link>>*/
+              <<run State.setVar(_trade, setup.createNPC({profession: _trade}))>><<profile _trade _trade.name>>
         </td>
       </tr>
   <</if>>
