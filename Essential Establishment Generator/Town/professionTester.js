@@ -15,9 +15,9 @@ setup.getNPCProfession = function(profession) {
         for(var i = npc.length - professionCount; i > 0; -- i) {
             setup.createNPC({profession: profession.profession});
         }
-    } else if {npc.length > professionCount) {
+    } else if (npc.length > professionCount) {
         // if there's more than there should be, remove then add just the right amount back
         V.NPCArray = V.NPCArray.filter(function(npc) { return npc.profession !== profession.profession; });
         Array.prototype.push.apply(V.NPCArray, npcs.splice(0, professionCount));
-    }
+    }}
 }
