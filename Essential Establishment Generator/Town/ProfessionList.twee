@@ -1,0 +1,10 @@
+:: ProfessionList
+
+<span id="_trade.profession">
+  <<link _trade.count>>
+      <<run setup.getNPCProfession(_trade)>>
+      <<replace "#_trade.profession">>
+          <<profile _trade>>
+      <</replace>>
+  <</link>>
+</span>
