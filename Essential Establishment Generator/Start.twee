@@ -37,6 +37,8 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <</link>><span id="list"></span>
 
 
+<<script>> var result = setup.createNPC()<</script>>
+<<profile $result>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 

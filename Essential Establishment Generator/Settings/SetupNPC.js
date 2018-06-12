@@ -1,5 +1,3 @@
-
-
 setup.createNPC = function(base) {
     // Tables used later
     var skinColours   = ["translucent", "white", "pale", "fair", "light", "light tan", "tan", "pale", "fair", "light", "light tan", "tan", "dark tan", "brown"];
