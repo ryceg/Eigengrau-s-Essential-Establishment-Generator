@@ -23,11 +23,19 @@
     <</if>>
 <</link>>
 
+<<for _i, _trade range $trade>>
+<<run setup.getNPCProfession({_trade.profession})>>
+<</for>>
+
+Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
+
 <<linkreplace "List of citizens">>Rollcall:
 <<for _i, _NPCnames range $NPCArray>>
 <<profile $NPCArray[_i]>> - $NPCArray[_i].profession
 <</for>>
 <</linkreplace>>
+
+<<button "Refresh">><<goto "Start">><</button>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
