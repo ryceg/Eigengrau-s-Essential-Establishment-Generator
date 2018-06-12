@@ -10,7 +10,7 @@ setup.getNPCProfession = function(profession) {
     // If there's at least one person
     if(npcs.length < professionCount) {
         // Create the missing NPCs
-        for(var i = npc.length - professionCount; i > 0; -- i) {
+        for(var i = npcs.length - professionCount; i > 0; -- i) {
             setup.createNPC({profession: profession.profession});
         }
     } else if (npcs.length > professionCount) {
