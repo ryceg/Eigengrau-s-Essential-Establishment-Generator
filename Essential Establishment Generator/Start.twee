@@ -24,7 +24,7 @@
 <</link>>
 
 <<button "Run refresh">><<nobr>><<for _i, _trade range $trade>>
-<<run setup.getNPCProfession($trade)>>
+<<run setup.getNPCProfession(_trade)>>
 <</for>><<goto "Start">><</nobr>><</button>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
