@@ -6,20 +6,17 @@ setup.getNPCProfession = function(base) {
   var professionCount;
   var creationInstances;
 
-
-
-  if (roll < 1){ /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them */
-
-        if (rollRandom > rollPercentage){
+  if (roll > 1){ /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them */
+      professionCount = Math.trunc(roll);
+    }
+    else{
+      if (rollRandom > rollPercentage){
             professionCount = 1;
-          else{
+        } else{
             professionCount = 0;
-          }
         }
-  }
-  else{
-    professionCount = Math.trunc(roll);
-  }
+      }
+  };
 
   if (professionCount >= 1){
       if (State.variables.NPCArray.profession.count < professionCount){
