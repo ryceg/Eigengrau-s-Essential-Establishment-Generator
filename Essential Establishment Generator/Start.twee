@@ -24,7 +24,7 @@
 <</link>>
 
 <<for _i, _trade range $trade>>
-<<run setup.getNPCProfession({_trade.profession})>>
+<<run getNPCProfession({_trade.profession})>>
 <</for>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
