@@ -23,9 +23,9 @@
     <</if>>
 <</link>>
 
-<<for _i, _trade range $trade>>
+<<button "Run refresh">><<nobr>><<for _i, _trade range $trade>>
 <<run setup.getNPCProfession($trade)>>
-<</for>>
+<</for>><<goto "Start">><</nobr>><</button>>
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
@@ -35,7 +35,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <</for>>
 <</linkreplace>>
 
-<<button "Refresh">><<goto "Start">><</button>>
+
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
