@@ -29,11 +29,11 @@
 
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
-<<link"List of citizens">>Rollcall:
+<<link "List of citizens">><<replace "#list">>Rollcall:
 <<for _i, _NPCnames range $NPCArray>>
 <<profile $NPCArray[_i]>> - $NPCArray[_i].profession
-<</for>>
-<</link>>
+<</for>><</replace>>
+<</link>><span id="list"></span>
 
 
 
