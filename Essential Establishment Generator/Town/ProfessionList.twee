@@ -1,9 +1,8 @@
 :: ProfessionList
-
-<span id="_trade">
+<<nobr>><span id="_trade">
   <<link _trade.count>>
-      <<run setup.getNPCProfession(_trade)>>
+      <<run State.setVar(_trade, setup.getNPCProfession(_trade))>>
       <<set $currentNPC to _trade>>
       <<goto "NPCProfile">>
   <</link>>
-</span>
+</span><</nobr>>
