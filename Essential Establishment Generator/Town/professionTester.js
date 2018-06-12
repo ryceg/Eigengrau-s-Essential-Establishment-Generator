@@ -3,7 +3,7 @@ setup.getNPCProfession = function(base) {
   var roll    = (State.variables.town.population / profession.sv); /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
 
   if (roll < 1){ /* if the population cannot support 1, then it's converted into a percentage chance that there's one of them */
-    var rollPercentage = (roll *= 100); 
+    var rollPercentage = (roll *= 100);
     var rollRandom = Math.random(1, 100);
         if (rollRandom > rollPercentage){
             var professionCount = 1;
@@ -12,7 +12,7 @@ setup.getNPCProfession = function(base) {
           }
         }
   }
-  else;{
+  else{
     var professionCount = Math.trunc(roll);
   }
 
