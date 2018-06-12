@@ -1,4 +1,4 @@
-setup.getNPCProfession = function(profession) { // I'm not really sure how
+getNPCProfession = function(profession) { // I'm not really sure how
   var roll    = (State.variables.town.population / profession.sv); /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
   var rollPercentage = (roll * 100);
   var rollRandom = random(1, 100);
