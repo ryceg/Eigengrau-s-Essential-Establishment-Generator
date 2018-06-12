@@ -3,7 +3,7 @@ setup.getNPCProfession = function(profession) {
   var V = State.variables;
   var roll    = (V.town.population / profession.sv);
   var professionCount = (roll >= 1 ? Math.trunc(roll) : Number(random(1, 100) <= roll * 100));
-  var creationInstances;
+
 
   if (professionCount >= 1){
     // If there's at least one person

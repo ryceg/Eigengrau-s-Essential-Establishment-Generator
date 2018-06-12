@@ -3,8 +3,7 @@
 <span id="_trade">
   <<link _trade.count>>
       <<run setup.getNPCProfession(_trade)>>
-      <<replace "#_trade">>
-      _trade.name
-      <</replace>>
+      <<set $currentNPC to _trade>>
+      <<goto "NPCProfile">>
   <</link>>
 </span>
