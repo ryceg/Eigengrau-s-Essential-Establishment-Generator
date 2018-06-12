@@ -10,7 +10,7 @@ setup.getNPCProfession = function(profession) { // I'm not really sure how
       if (npcs < professionCount){ // Test to see if the number of people that match that profession in the indexed array is less than the number that should be created
           creationInstances = (professionCount - npcs; // if there are less people, define the deficit
           while (creationInstances > 0) { // and use that deficit in a while loop to create NPCs
-            creationInstances--
+            creationInstances--;
             State.setVar(profession, setup.createNPC({profession: profession})); // Using the setup.createNPC function, with the profession. I don't know if I'm going to run into issues with State.setVar
           }
       }
