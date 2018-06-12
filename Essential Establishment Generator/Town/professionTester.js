@@ -8,7 +8,6 @@ setup.getNPCProfession = function(profession) {
 
   if (professionCount >= 1){
     // If there's at least one person
-    var npcs = V.NPCArray.filter(function(npc) { return npc.profession === profession.profession; });
     if(npcs.length < professionCount) {
         // Create the missing NPCs
         for(var i = npc.length - professionCount; i > 0; -- i) {
