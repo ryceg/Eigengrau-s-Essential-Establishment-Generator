@@ -4,7 +4,7 @@
   <<link _trade.count>>
       <<run setup.getNPCProfession(_trade)>>
       <<replace "#_trade">>
-          <<profile _trade>>
+      _trade.name
       <</replace>>
   <</link>>
 </span>
