@@ -45,7 +45,9 @@ setup.createNPC = function(base) {
 
         if (npc.hasClass == false){
         npc.dndclass = npc.profession;
-}
+        }
+
+
 
     switch (npc.gender) {
         case "man":
@@ -74,6 +76,20 @@ setup.createNPC = function(base) {
                 menwomen: "women",
                 malefemale: "female",
                 guygirl: "girl",
+            });
+            break;
+        case "nonbinary":
+            Object.assign(npc, {
+                heshe: "they",
+                himher: "their",
+                himherself: "themself",
+                hisher: "their",
+                hisherself: "theirself",
+                boygirl: "child",
+                manwoman: "person",
+                menwomen: "people",
+                malefemale: "person",
+                guygirl: "child",
             });
             break;
     }
@@ -208,7 +224,7 @@ setup.createNPC = function(base) {
                     npc.firstname + "has long overly curled horns.",
                     npc.firstname + "has a heart that glows bright enough to be seen beneath the scales.",
                     npc.firstname + "has spines that stick out from every joint.",
-                    "Smoke is always slowly rising from $npc.firstname’s nose and mouth.",
+                    "Smoke is always slowly rising from " + npc.firstname + "’s nose and mouth.",
                     npc.firstname + "'s scales are prismatic.",
                     npc.firstname + "has a tiny pair of unusable wings.",
                     npc.firstname + "has 2 inch retractable nail/talons on " + npc.hisher + " fingers and toes.",
@@ -276,7 +292,7 @@ setup.createNPC = function(base) {
                     npc.firstname + "can move " + npc.hisher + " eyes independently of one another.",
                     npc.firstname + "'s scales are of a much lighter tone than the skin, making them stand out even more.",
                     npc.firstname + "is overly formal and insists you call " + npc.himher + " by " + npc.hisher + " full name and title at all times.",
-                    npc.firstname + "is covered in a sparkly paint that magically changes colour every few minutes, making it impossible to tell what " + npc.hisher + " natural colour is. " + npc.firstname + " is not particularly clever and has covered $npc.himherself in glitter thinking it will make " + npc.himher + " look metallic.",
+                    npc.firstname + "is covered in a sparkly paint that magically changes colour every few minutes, making it impossible to tell what " + npc.hisher + " natural colour is. " + npc.firstname + " is not particularly clever and has covered " + npc.himherself + " in glitter thinking it will make " + npc.himher + " look metallic.",
                     npc.firstname + "only speaks draconic, but has a pet talking lizard that sits on " + npc.hisher + " shoulder and translates for them.",
                     npc.firstname + "treats all other species like biological specimens that should be studied and are taking extensive notes on " + npc.hisher + " observations.",
                     npc.firstname + "is overly vain about " + npc.hisher + " scales and teeth and spend a long time every morning polishing and shining them.",
