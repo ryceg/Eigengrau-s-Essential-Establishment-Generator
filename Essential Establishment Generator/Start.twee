@@ -32,7 +32,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <<link "List of citizens">><<replace "#list">>
 <h4>Rollcall: <<print $npcs.length>></h4>
 <<for _i, _NPCnames range $npcs>>
-<<profile $npcs.get(_i)>> - $npcs.get(_i).profession
+<<profile _NPCnames.get(_i)>> - _NPCnames.get(_i).profession
 <</for>><</replace>>
 <</link>><span id="list"></span>
 
