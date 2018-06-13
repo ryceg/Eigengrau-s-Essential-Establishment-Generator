@@ -4,5 +4,5 @@ setup.getNPCProfessionNumber = function(profession) {
   var roll    = (V.town.population / profession.sv);
   var professionCount = (roll >= 1 ? Math.trunc(roll) : Number(random(1, 100) <= roll * 100));
 
-  document.getElementById("demo").innerHTML = professionCount
+console.log(professionCount);
 };
