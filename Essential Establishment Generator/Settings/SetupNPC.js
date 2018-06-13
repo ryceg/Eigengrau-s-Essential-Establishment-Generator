@@ -638,7 +638,6 @@ setup.createNPC = function(base) {
     }
 
     npc.name = npc.firstname + " " + npc.lastname;
-    State.variables.NPCArray.push(npc);
     State.variables.NPCArray.set(base + ++index, npc);
     return npc;
 
