@@ -30,15 +30,13 @@
 Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 
 <<link "List of citizens">><<replace "#list">>
-<h4>Rollcall: <<print $NPCArray.length>></h4>
-<<for _i, _NPCnames range $NPCArray>>
-<<profile $NPCArray[_i]>> - $NPCArray[_i].profession
+<h4>Rollcall: <<print $npcs.length>></h4>
+<<for _i, _NPCnames range $npcs>>
+<<profile $npcs[_i]>> - $npcs[_i].profession
 <</for>><</replace>>
 <</link>><span id="list"></span>
 
 
-<<script>> var result = setup.createNPC()<</script>>
-<<profile $result>>
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
