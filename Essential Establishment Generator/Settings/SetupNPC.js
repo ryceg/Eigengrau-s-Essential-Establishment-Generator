@@ -43,8 +43,8 @@ setup.createNPC = function(base) {
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
 
-        if (hasClass == false){
-        dndclass = profession;
+        if (npc.hasClass == false){
+        npc.dndclass = npc.profession;
 }
 
     switch (npc.gender) {
