@@ -4,7 +4,7 @@
     <<if $NPCArray.filter(function (npc) { return npc.profession === _trade.profession; }) gte 1>>
 
       <<else>>
-        <<run setup.getNPCProfession({profession: _trade.profession})>>
+        <<run setup.getNPCProfession(_trade)>>
         <<set $currentNPC to _trade>>
         <<goto "NPCProfile">>
     <</if>>

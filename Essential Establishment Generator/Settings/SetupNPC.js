@@ -10,7 +10,6 @@ setup.createNPC = function(base) {
     var title;
     var hasClass;
 
-
     // Base random variables first - those that don't depend on others
     var npc = Object.assign({
         gender: ["man", "woman"].random(),
