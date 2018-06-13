@@ -10,6 +10,7 @@ setup.createNPC = function(base) {
     var currentmood = ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"];
     var note;
     var title;
+    var owner;
     var hasClass;
 
     // Base random variables first - those that don't depend on others
