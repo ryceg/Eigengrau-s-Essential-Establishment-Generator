@@ -36,6 +36,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <</for>><</replace>>
 <</link>><span id="list"></span>
 
+<<run setup.getNPCProfessionNumber($trade[1])>>
 
 
 Down from $tavern.road are the [[markets|MarketOutput]]
