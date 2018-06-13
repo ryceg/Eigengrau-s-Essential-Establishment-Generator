@@ -204,6 +204,6 @@ setup.createBuilding = function() {
         activity          : activity,
         hardinessroll     : hardinessroll,
         hardiness         : hardiness,
-        note:             : note
+        note              : note
     };
 };
