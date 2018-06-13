@@ -33,6 +33,7 @@ setup.createBuilding = function() {
     var activity;
     var hardinessroll     = random(1, 100);
     var hardiness;
+    var note;
 
     sinroll.clamp(1, 100);
     wealthroll.clamp(1, 100);
@@ -202,6 +203,7 @@ setup.createBuilding = function() {
         activityroll      : activityroll,
         activity          : activity,
         hardinessroll     : hardinessroll,
-        hardiness         : hardiness
+        hardiness         : hardiness,
+        note:             : note
     };
 };
