@@ -90,6 +90,7 @@ setup.createNPC = function(base) {
                 menwomen: "people",
                 malefemale: "person",
                 guygirl: "child",
+                firstname: setup.createName(npc.race),
             });
             break;
     }
