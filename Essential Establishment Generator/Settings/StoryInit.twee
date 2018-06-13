@@ -2,7 +2,7 @@
 :: StoryInit
 
 
-<<set $NPCArray to []>>
+<<script>>State.variables.NPCArray = new Map();<</script>>
 
 <<set $versionnumber to "1.3.2">>
 
