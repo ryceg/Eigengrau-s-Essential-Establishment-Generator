@@ -7,7 +7,7 @@ setup.getNPCProfession = function(profession) {
 
   if (professionCount >= 1){
     // If there's at least one person
-    var npcs = V.NPCArray.filter(function(npc) { return npc.profession === profession.profession; });
+    var npcs = V.npcs.filter(function(npc) { return npc.profession === profession.profession; });
     if(npcs.length < professionCount) {
         // Create the missing NPCs
         for(var i = professionCount - npcs.length; i > 0; -- i) {
@@ -15,7 +15,7 @@ setup.getNPCProfession = function(profession) {
         }
     } else if (npcs.length > professionCount) {
         // if there's more than there should be, remove then add just the right amount back
-        V.NPCArray = V.NPCArray.filter(function(npc) { return npc.profession !== profession.profession; });
-        Array.prototype.push.apply(V.NPCArray, npcs.splice(0, professionCount));
+        V.npcs = V.npcs.filter(function(npc) { return npc.profession !== profession.profession; });
+        Array.prototype.push.apply(V.npcs, npcs.splice(0, professionCount));
     }}
 };
