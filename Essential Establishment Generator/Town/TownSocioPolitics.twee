@@ -116,7 +116,7 @@
                 <<set $town.welfareroll -= 25>>
                 <<set $town.economicsroll += 45>>
                 <<set $town.politicalIdeologyIC to "autocratic">>
-                <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
+                <<set $townRuler to setup.createNPC({title: "<<print $townRuler.hisher.toUpperFirst()>> Royal Highness", background: "noble"})>>
                   <<switch $townRuler.gender>>
                       <<case "man">>
                         <<set $town.rulerType to "King">>
