@@ -4,7 +4,7 @@
 
 <<include "AlchemistLookAround">>
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
-<h3>$chemist.name</h3><<include "ChemistTalk">><</linkreplace>>
+<h3>$chemist.name</h3><<include "ChemistTalk">>
 
 <<include "RandomPotion">>
 
