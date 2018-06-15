@@ -86,7 +86,7 @@ setup.createAlchemy = function(base) {
         potionTitle: potionTitle[potionTitleRoll],
         potionEffect: potionEffect[potionTitleRoll],
       };
-      temp.titleReadout = temp.potionContainer + " of " + temp.potionTitle;
+      temp.titleReadout = temp.liquidTitle.toUpperFirst() + " of " + temp.potionTitle;
       temp.descriptionReadout = "The potion is in a " + temp.potionContainer + ", and has a label showing " + temp.potionLabel + ". It looks " + temp.liquidColour + " with " + temp.liquidSecondary + ". " + "It is " + temp.liquidTexture + " and smells of " + temp.smell + " but tastes of " + temp.taste + ".";
           switch (temp.potionStrength) {
             case "regular with no side effect":
@@ -111,7 +111,7 @@ setup.createAlchemy = function(base) {
                break;
             default:
               Object.assign(output, {
-                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and " + temp.potionEffect + " with the side effect of " + temp.potionSideEffect + "."
+                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and " + temp.potionEffect + ", with the side effect of " + temp.potionSideEffect + "."
                });
                break;
           }
