@@ -85,7 +85,7 @@ setup.createAlchemy = function(base) {
         potionTitleRoll: potionTitleRoll,
         potionTitle: potionTitle[potionTitleRoll],
         potionEffect: potionEffect[potionTitleRoll],
-      });
+      };
       temp.titleReadout = temp.potionContainer + " of " + temp.potionTitle;
       temp.descriptionReadout = "The potion is in a " + temp.potionContainer + ", and has a label showing " + temp.potionLabel + ". It looks " + temp.liquidColour + " with " + temp.liquidSecondary + ". " + "It is " + temp.liquidTexture + " and smells of " + temp.smell + " but tastes of " + temp.taste + ".";
           switch (temp.potionStrength) {
