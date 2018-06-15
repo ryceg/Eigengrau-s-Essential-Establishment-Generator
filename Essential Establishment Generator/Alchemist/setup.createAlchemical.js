@@ -1,5 +1,6 @@
 setup.createAlchemy = function(base) {
   var type = ["alchemical ingredient", "body part", "substance", "preserved herb", "brewing potion", "potion"];
+  var inInventory;
   var smallThing = ["bats", "bees", "beetles", "blossoms", "flowers", "brains", "cats", "centipedes", "crabs", "dragonflies", "earwigs", "eels", "eels", "feathers", "frogs", "gallstones", "geckos", "hornets", "imps", "jellyfish", "lamprey", "leeches", "locusts", "mice", "mold", "lichen", "moths", "mushrooms", "truffles", "newts", "octopus-creatures", "ooze-globules", "piranha", "praying mantises", "rats", "roaches", "scarab beetles", "shrews", "slugs", "snails", "snakes", "songbirds", "spiders", "stinkbugs", "tapeworms", "tentacles", "ticks", "toads", "turtles", "vines", "wasps", "worms"];
   var preservationMethod = ["distilled", "dried", "ground-up", "jellied", "pickled", "powdered", "smoked", "salt-cured", "smoke-cured", "stewed"];
   var bodyPart = ["ankle-bone", "bladder", "blood", "brain", "dung", "ears", "entrails", "eye", "face", "finger", "fingernail", "foot", "gallstone", "hair", "hand", "heart", "intestine", "kidney", "kidney stone", "knee bone", "knuckle bone", "liver", "lung", "rib", "shin-bone", "skin", "skin", "skin", "skull", "spittle", "stomach", "teeth", "teeth", "thumbs", "toenail", "tongue", "tongue"];
@@ -114,5 +115,9 @@ setup.createAlchemy = function(base) {
           }
       break;
   }
+  if (inInventory !== undefined){
+    State.variables.inInventory.push(output);
+  }
+
   return output;
 };
