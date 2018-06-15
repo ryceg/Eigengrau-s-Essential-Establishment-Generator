@@ -91,27 +91,27 @@ setup.createAlchemy = function(base) {
           switch (temp.potionStrength) {
             case "regular with no side effect":
               Object.assign(output, {
-                 effectReadout: "The potion's strength is " + potionStrength + ", and " + potionEffect + "."
+                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and " + temp.potionEffect + "."
                });
                break;
             case "temporary, but strong and wears off quickly":
               Object.assign(output, {
-                 effectReadout: "The potion's strength is " + potionStrength + ", and " + potionEffect + "."
+                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and " + temp.potionEffect + "."
                });
                break;
             case "seemingly permanent":
               Object.assign(output, {
-                 effectReadout: "The potion's strength is " + potionStrength + ", and " + potionEffect + "."
+                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and " + temp.potionEffect + "."
                });
                break;
             case "poisonous. Almost no positive effect and is all side effect":
               Object.assign(output, {
-                 effectReadout: "The potion's strength is " + potionStrength + ", and allegedly " + potionEffect + " but has the strong side effect of " + potionSideEffect + "."
+                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and allegedly " + temp.potionEffect + " but has the strong side effect of " + temp.potionSideEffect + "."
                });
                break;
             default:
               Object.assign(output, {
-                 effectReadout: "The potion's strength is " + potionStrength + ", and " + potionEffect + " with the side effect of " + potionSideEffect + "."
+                 effectReadout: "The potion's strength is " + temp.potionStrength + ", and " + temp.potionEffect + " with the side effect of " + temp.potionSideEffect + "."
                });
                break;
           }
