@@ -1,5 +1,5 @@
 :: ChemistTalk
 
-$chemist.firstname looks $chemist.currentmood, and idly shifts a box of <<print either($chemist.ingredients)>> as $chemist.heshe talks. The $chemist.racenote <<print either($chemist.chitchat)>> as you peruse the shop. $chemist.firstname tells you that $chemist.heshe is working on a $brew.potionPurpose, and points to the <<linkappend $brew.containerDescription>>. Looking inside the $brew.vesselType, you see a $brew.liquidDescription bubbling away<</linkappend>>.
+$chemist.firstname looks $chemist.currentmood, and idly shifts a box of <<print either($chemist.ingredients)>> as $chemist.heshe talks. The $chemist.racenote <<print $chemist.chitchat.random()>> as you peruse the shop. $chemist.firstname tells you that $chemist.heshe is working on a $brew.potionPurpose, and points to the <<linkappend $brew.containerDescription>>. Looking inside the $brew.vesselType, you see a $brew.liquidDescription bubbling away<</linkappend>>.
 
-When you say that you're adventurers, $chemist.hisher $chemist.eyes eyes light up, and $chemist.heshe says "<<print either($chemist.calltoaction)>>"
+When you say that you're adventurers, $chemist.hisher $chemist.eyes eyes light up, and $chemist.heshe says "<<print $chemist.calltoaction.random()>>"
