@@ -6,6 +6,11 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
+<<set $testPotion to setup.createAlchemy({type: "potion"})>>
+$testPotion.titleReadout
+$testPotion.descriptionReadout
+$testPotion.effectReadout
+
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
         <<set $currentPassage to $tavern>>
@@ -22,7 +27,7 @@
         <<goto "InitTavern">>
     <</if>>
 <</link>>
-
+/*
 <<button "Run refresh">><<nobr>><<for _i, _trade range $trade>>
 <<run setup.getNPCProfession(_trade)>>
 <</for>><<goto "Start">><</nobr>><</button>>
@@ -37,7 +42,7 @@ Town Population: <<numberslider "$town.population" $town.population 30 6000 10>>
 <</link>><span id="list"></span>
 
 <<run setup.getNPCProfessionNumber($trade[1])>>
-
+ */
 
 Down from $tavern.road are the [[markets|MarketOutput]]
 
