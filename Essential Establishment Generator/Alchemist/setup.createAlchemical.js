@@ -66,8 +66,8 @@ setup.createAlchemy = function(base) {
         liquidSecondary: liquidSecondary.random(),
         potionPurpose: potionPurpose.random(),
       });
-      output.containerDescription = "a " + vesselDescriptor + " " + vesselMaterial + " " + vesselType;
-      output.liquidDescription = liquidTexture + " " + liquidColour + " liquid with " + liquidSecondary;
+      output.containerDescription = "a " + output.vesselDescriptor + " " + output.vesselMaterial + " " + output.vesselType;
+      output.liquidDescription = output.liquidTexture + " " + output.liquidColour + " liquid with " + output.liquidSecondary;
       break;
     case "potion":
       Object.assign(output, {
@@ -85,8 +85,8 @@ setup.createAlchemy = function(base) {
         potionTitle: potionTitle[potionTitleRoll],
         potionEffect: potionEffect[potionTitleRoll],
       });
-      output.titleReadout = potionContainer + " of " + potionTitle;
-      output.descriptionReadout = "The potion is in a " + potionContainer + ", and has a label showing " + potionLabel + ". It looks " + liquidColour + " with " + liquidSecondary + ". " + "It is " + liquidTexture + " and smells of " + smell + " but tastes of " + taste + ".";
+      output.titleReadout = output.potionContainer + " of " + output.potionTitle;
+      output.descriptionReadout = "The potion is in a " + output.potionContainer + ", and has a label showing " + output.potionLabel + ". It looks " + output.liquidColour + " with " + output.liquidSecondary + ". " + "It is " + output.liquidTexture + " and smells of " + output.smell + " but tastes of " + output.taste + ".";
           switch (output.potionStrength) {
             case "regular with no side effect":
               Object.assign(output, {
