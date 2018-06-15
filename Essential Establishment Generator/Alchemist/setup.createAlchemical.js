@@ -66,7 +66,7 @@ setup.createAlchemy = function(base) {
         liquidSecondary: liquidSecondary.random(),
         potionPurpose: potionPurpose.random(),
       };
-      temp.containerDescription = "a " + temp.vesselDescriptor + " " + temp.vesselMaterial + " " + temp.vesselType;
+      temp.containerDescription = temp.vesselDescriptor + " " + temp.vesselMaterial + " " + temp.vesselType;
       temp.liquidDescription = temp.liquidTexture + " " + temp.liquidColour + " liquid with " + temp.liquidSecondary;
       Object.assign(output, temp);
       break;
