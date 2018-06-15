@@ -57,7 +57,7 @@ setup.createAlchemy = function(base) {
       });
       break;
     case "brewing potion":
-      Object.assign(output, {
+      var temp = {
         vesselDescriptor: vesselDescriptor.random(),
         vesselMaterial: vesselMaterial.random(),
         vesselType: vesselType.random(),
@@ -65,12 +65,13 @@ setup.createAlchemy = function(base) {
         liquidColour: liquidColour.random(),
         liquidSecondary: liquidSecondary.random(),
         potionPurpose: potionPurpose.random(),
-      });
-      output.containerDescription = "a " + output.vesselDescriptor + " " + output.vesselMaterial + " " + output.vesselType;
-      output.liquidDescription = output.liquidTexture + " " + output.liquidColour + " liquid with " + output.liquidSecondary;
+      };
+      temp.containerDescription = "a " + temp.vesselDescriptor + " " + temp.vesselMaterial + " " + temp.vesselType;
+      temp.liquidDescription = temp.liquidTexture + " " + temp.liquidColour + " liquid with " + temp.liquidSecondary;
+      Object.assign(output, temp);
       break;
     case "potion":
-      Object.assign(output, {
+      var temp = {
         potionContainer: potionContainer.random(),
         potionLabel: potionLabel.random(),
         potionStrength: potionStrength.random(),
@@ -85,9 +86,9 @@ setup.createAlchemy = function(base) {
         potionTitle: potionTitle[potionTitleRoll],
         potionEffect: potionEffect[potionTitleRoll],
       });
-      output.titleReadout = output.potionContainer + " of " + output.potionTitle;
-      output.descriptionReadout = "The potion is in a " + output.potionContainer + ", and has a label showing " + output.potionLabel + ". It looks " + output.liquidColour + " with " + output.liquidSecondary + ". " + "It is " + output.liquidTexture + " and smells of " + output.smell + " but tastes of " + output.taste + ".";
-          switch (output.potionStrength) {
+      temp.titleReadout = temp.potionContainer + " of " + temp.potionTitle;
+      temp.descriptionReadout = "The potion is in a " + temp.potionContainer + ", and has a label showing " + temp.potionLabel + ". It looks " + temp.liquidColour + " with " + temp.liquidSecondary + ". " + "It is " + temp.liquidTexture + " and smells of " + temp.smell + " but tastes of " + temp.taste + ".";
+          switch (temp.potionStrength) {
             case "regular with no side effect":
               Object.assign(output, {
                  effectReadout: "The potion's strength is " + potionStrength + ", and " + potionEffect + "."
@@ -114,6 +115,7 @@ setup.createAlchemy = function(base) {
                });
                break;
           }
+      Object.assign(output, temp);
       break;
   }
   if (inInventory !== undefined){
