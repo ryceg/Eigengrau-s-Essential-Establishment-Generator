@@ -1,6 +1,6 @@
 :: MathClamp [render]
 
-<<if $smithy.pricemodifier gt 10>>
+<<if $smithy.pricemodifier gt 100>>
     <<set $smithy.pricemodifier to 100>>
   <<elseif $smithy.pricemodifier lt -10>>
     <<set $smithy.pricemodifier to -10>>
