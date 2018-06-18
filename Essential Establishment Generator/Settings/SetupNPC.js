@@ -46,6 +46,11 @@ setup.createNPC = function(base) {
         trait: trait.random(),
 				currentmood: currentmood.random(),
 				idle: idle,
+        currentproject: currentproject,
+        mundane: mundane,
+        hasClass: hasClass,
+        owner: owner,
+        title: title,
 				reading: reading,
         skinColours: skinColours.random(),
     }, base);
