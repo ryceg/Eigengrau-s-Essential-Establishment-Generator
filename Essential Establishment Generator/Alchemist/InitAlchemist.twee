@@ -16,7 +16,7 @@ Alchemist Expertise: <<numberslider "$alchemist.expertiseroll" $alchemist.expert
 Alchemist Activity: <<numberslider "$alchemist.activityroll" $alchemist.activityroll 1 100 1>>
 
 Alchemist Magic: <<numberslider "$alchemist.magicroll" $alchemist.magicroll 1 100 1>>
-<</linkreplace>>
+
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]
 <<set $currentpassage to $alchemist>>
