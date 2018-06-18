@@ -1,4 +1,4 @@
-avsetup.createNPC = function(base) {
+setup.createNPC = function(base) {
     // Tables used later
     var index = State.variables.npcs.size;
     var base = "NPC";
