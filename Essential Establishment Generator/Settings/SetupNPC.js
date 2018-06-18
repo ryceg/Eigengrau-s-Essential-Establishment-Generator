@@ -511,7 +511,7 @@ setup.createNPC = function(base) {
     }
 
 
-    availableLanguages = [...allLanguages - ...npc.knownLanguages];
+    availableLanguages = [allLanguages - npc.knownLanguages];
 
 
     switch (npc.background) {
