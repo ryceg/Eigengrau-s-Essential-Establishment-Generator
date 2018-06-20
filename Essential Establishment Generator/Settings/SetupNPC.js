@@ -714,6 +714,7 @@ setup.createNPC = function(base) {
 
     npc.name = npc.firstname + " " + npc.lastname;
     State.variables.npcs.set(baseName + ++index, npc);
+    console.log(npc);
     return npc;
-console.log(npc)
+
 };
