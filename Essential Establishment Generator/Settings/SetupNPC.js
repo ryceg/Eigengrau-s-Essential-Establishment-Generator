@@ -22,7 +22,6 @@ setup.createNPC = function(base) {
     var mundane;
     var note;
     var owner;
-    var hasClass = true;
 
     if (npc.hasClass === false){
     npc.dndclass = npc.profession;
@@ -52,7 +51,7 @@ setup.createNPC = function(base) {
 				idle: idle,
         currentproject: currentproject,
         mundane: mundane,
-        hasClass: hasClass,
+        hasClass: true,
         owner: owner,
         title: title,
 				reading: reading,
