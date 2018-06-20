@@ -20,6 +20,8 @@ setup.createNPC = function(base) {
     var allLanguages = standardLanguages + exoticLanguages;
     var inventory;
     var mundane;
+    var firstname;
+    var name;
     var note;
     var owner;
 
@@ -27,6 +29,7 @@ setup.createNPC = function(base) {
     var npc = Object.assign({
         gender: ["man", "woman"].random(),
         race: ["human", "human", "human", "human", "human", "human", "half-elf", "half-elf", "elf", "elf", "dwarf", "dwarf", "gnome", "halfling", "half-orc", "dragonborn", "tiefling"].random(),
+        firstname: firstname,
         lastname: State.variables.name.last.random(),
         age: ["childlike", "rather young", "eighteen year old", "surprisingly young", "relatively young", "relatively young", "middle aged", "middle aged", "middle aged", "middle aged", "middle aged", "relatively old", "sun wizened", "quite old", "ancient"].random(),
         /*currentmood: ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"],*/
