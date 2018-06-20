@@ -100,7 +100,7 @@ setup.createNPC = function(base) {
                 menwomen: "people",
                 malefemale: "person",
                 guygirl: "child",
-                firstname: setup.createName(npc.race),
+                firstname: ["Azogroth", "Azkil", "Agarth", "Bokra", "Bulphane", "Dalakan", "Karradin", "Karadin", "Morkon", "Egreth"].random(),
             });
             break;
     }
