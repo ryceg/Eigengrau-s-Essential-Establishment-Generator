@@ -23,11 +23,6 @@ setup.createNPC = function(base) {
     var note;
     var owner;
 
-    if (npc.hasClass === false){
-    npc.dndclass = npc.profession;
-    }
-
-
     // Base random variables first - those that don't depend on others
     var npc = Object.assign({
         gender: ["man", "woman"].random(),
@@ -58,6 +53,11 @@ setup.createNPC = function(base) {
         skinColours: skinColours.random(),
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
+
+
+        if (npc.hasClass === false){
+        npc.dndclass = npc.profession;
+        }
 
 
 
