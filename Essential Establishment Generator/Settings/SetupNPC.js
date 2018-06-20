@@ -21,9 +21,8 @@ setup.createNPC = function(base) {
     var inventory;
     var mundane;
     var note;
-    var title;
     var owner;
-    var hasClass;
+    var hasClass = true;
 
     if (npc.hasClass === false){
     npc.dndclass = npc.profession;
