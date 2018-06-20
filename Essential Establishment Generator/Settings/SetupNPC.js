@@ -59,7 +59,7 @@ setup.createNPC = function(base) {
         npc.dndclass = npc.profession;
         }
 
-
+console.log(npc)
 
 
     switch (npc.gender) {
