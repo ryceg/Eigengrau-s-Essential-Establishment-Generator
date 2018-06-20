@@ -59,9 +59,6 @@ setup.createNPC = function(base) {
         npc.dndclass = npc.profession;
         }
 
-console.log(npc)
-
-
     switch (npc.gender) {
         case "man":
             Object.assign(npc, {
@@ -718,5 +715,5 @@ console.log(npc)
     npc.name = npc.firstname + " " + npc.lastname;
     State.variables.npcs.set(baseName + ++index, npc);
     return npc;
-
+console.log(npc)
 };
