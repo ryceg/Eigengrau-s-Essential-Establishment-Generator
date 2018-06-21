@@ -24,6 +24,10 @@ img, embed, object, video {
   width: 95%;
 }
 
+img {
+  width: 95%;
+}
+
 .firstcharacter {
   float: left;
   font-family: Solbera Imitation;
