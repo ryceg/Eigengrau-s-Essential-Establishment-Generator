@@ -19,7 +19,10 @@ img, embed, object, video {
     min-width: auto;
 }
 
-
+.patreon {
+  padding: 0 1.5em;
+  object-fit: scale-down;
+}
 
 .firstcharacter {
   float: left;
