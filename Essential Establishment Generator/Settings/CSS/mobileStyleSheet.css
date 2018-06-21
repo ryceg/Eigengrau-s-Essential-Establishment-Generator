@@ -3,12 +3,23 @@
      user-scalable=0;" />
 
     @media screen and (min-width: 321px) and (max-width: 480px) {
-        div { width: 100px; }
+        div { max-width: 90%; }
+        img, embed, object, video {
+            max-width: 100%;
+            min-width: auto;
+        }
 }
     @media screen and (min-width: 481px) and (max-width: 720px) {
-        div { width: 200px; }
+        div { max-width: 90%; }
+
+        img, embed, object, video {
+            max-width: 100%;
+            min-width: auto;
 }
 
     not (orientation)  {
        div { width: 50px; }
+       img, embed, object, video {
+           max-width: 100%;
+           min-width: auto;
 }
