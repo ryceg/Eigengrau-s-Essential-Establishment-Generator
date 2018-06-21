@@ -12,7 +12,7 @@ The towns that it creates are also self-referential, and consistent; you won't h
 <</fadein>>
 
 <<fadein 1300ms 5s>>\
-You have control over these factors though; there are sliders to fine tune exactly how large, wealthy, disgusting, rough, seedy, popular, and pricey the various establishments are. If you would rather not have to deal with that, you can just untick this box: <<checkbox "settings.showSliders" false true checked>>\
+You have control over these factors though; there are sliders to fine tune exactly how large, wealthy, disgusting, rough, seedy, popular, and pricey the various establishments are. If you would rather not have to deal with that, you can toggle this in the settings page in the sidebar.\
 <</fadein>>
 
 <<fadein 1400ms 7s>>\
