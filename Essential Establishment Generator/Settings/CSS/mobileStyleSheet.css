@@ -1,0 +1,14 @@
+<meta name="viewport"
+     content="width=device-width; initial-scale=1.0; maximum-scale=1.0;
+     user-scalable=0;" />
+
+    @media screen and (min-width: 321px) and (max-width: 480px) {
+        div { width: 100px; }
+}
+    @media screen and (min-width: 481px) and (max-width: 720px) {
+        div { width: 200px; }
+}
+
+    not (orientation)  {
+       div { width: 50px; }
+}
