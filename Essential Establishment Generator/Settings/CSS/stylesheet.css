@@ -21,7 +21,7 @@ img, embed, object, video {
 
 .patreon {
   padding: 0 1.5em;
-  object-fit: scale-down;
+  width: 95%;
 }
 
 .firstcharacter {
