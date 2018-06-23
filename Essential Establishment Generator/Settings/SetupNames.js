@@ -4,10 +4,10 @@ setup.createName = function(npc) {
   var lastname;
   var isVillain;
   var npc = Object.assign({
-      race: race,
-      gender: gender,
-      isVillain: isVillain,
-  }, base);
+          race: race,
+          gender: gender,
+          isVillain: isVillain,
+  }, npc);
 
   switch (npc.race) {
     case "human":
