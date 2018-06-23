@@ -1,7 +1,8 @@
-setup.createName = function(base) {
+setup.createName = function(npc) {
 	var name;
   var firstname;
   var lastname;
+  var isVillain;
   var npc = Object.assign({
       race: race,
       gender: gender,
