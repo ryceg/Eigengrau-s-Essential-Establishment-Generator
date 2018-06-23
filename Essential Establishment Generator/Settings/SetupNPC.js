@@ -66,6 +66,7 @@ setup.createNPC = function(base) {
         }
 
     setup.createName(npc);
+    npc.name = npc.firstname + " " + npc.lastname;
 
     switch (npc.gender) {
         case "man":

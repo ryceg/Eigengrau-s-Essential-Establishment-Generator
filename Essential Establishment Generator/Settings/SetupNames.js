@@ -178,7 +178,6 @@ setup.createName = function(npc) {
     }
     npc.lastname = npc.lastname || ["Azule", "Berius", "Callan", "Duhma", "Etoile", "Falam", "Goultar", "Hysiris", "Iolten", "Jelard", "Kaam", "Landal", "Muzul", "Nuterus", "Osstin", "Perol", "Qintz", "Rahmsas", "Selar", "Typhos", "Ulbras", "Valis", "Wordis", "Ximack", "Yahoon", "Zanbas"].random(),
 
-  npc.name = npc.firstname + " " + npc.lastname;
   return npc;
   }
 };
