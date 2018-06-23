@@ -7,7 +7,7 @@
 		<<print either(
 			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. $bartender.name proudly tells you that there are no stinkin' vegetables, and that $tavern.name stocks only the finest meats.",
 			"The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's available to drink, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The <<print $npc.weight.random()>> <<print either("man", "woman")>> then tells you that while $tavern.name is proud of its menu, it caters to an exclusively carnivorous diet.")>>
-	<<elseif $tavern.wealthroll gt 80, $tavern.roughnessroll lt 30>>
+	<<elseif $tavern.wealthroll gt 80 && $tavern.roughnessroll lt 30>>
 		<<print either(
 			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that $tavern.name is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire $tavern.wordnoun<<nobr>>.<</nobr>>",
 			"The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that $tavern.name is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire $tavern.wordnoun.")>>
@@ -46,30 +46,8 @@
 	<</if>>
 
 <<if $tavern.wealthroll gte 50>>
-	<<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">>
-<</if>>The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to $cheese.cost>><<replace #cheese>> is <<money $cheese.costreadout>>, and is a  $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is <<money $cheese.costreadout>> and is a $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
+	<div class='descriptive'><h3>$specialbrew.name</h3><<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">></div>
+<</if>>The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to either($cheese.cost)>><<replace #cheese>> is <<money $cheese.costreadout>>, and is a  $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is <<money $cheese.costreadout>> and is a $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
  <</linkreplace>>
-<<linkreplace "<h4>Show me the menu!</h4>">><table>
-	<tr>
-		<th>Dish</th>
-		<th>Cost</th>
-	</tr>
-<<switch $town.type>>
-	<<case "city">>
-	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-	<</for>>
-	<<case "town">>
-	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-	<</for>>
-	<<case "village">>
-	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-	<</for>>
-	<<case "hamlet">>
-	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-	<</for>></table>
-<</switch>><</linkreplace>>
+<<include "TavernSell">>
 <</nobr>>

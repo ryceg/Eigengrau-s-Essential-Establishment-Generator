@@ -11,9 +11,10 @@
 
 <<include "TavernDescription">>
 
-<h3>The Bar</h3>Behind the $tavern.material bar is a $bartender.racenote who you assume is the owner of the establishment; $bartender.heshe is currently <<print $bartender.idle.pluck()>>. You walk up to the bar, and introduce yourselves, and $bartender.heshe reciprocates; $bartender.heshe is $bartender.name, the $bartender.owner of $tavern.name.
+<h3>The Bar</h3>Behind the $tavern.material bar is a $bartender.racenote who you assume is the owner of the establishment; $bartender.heshe is currently <<print $bartender.idle.pluck()>>. You walk up to the bar, and introduce yourselves, and $bartender.heshe reciprocates; $bartender.heshe is <<link "$bartender.name">><<set $currentNPC to $bartender>><<goto "NPCProfile">><</link>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">><<include "Menu">><h3>The Tavern</h3><<include "LookAround">><<include "TavernGames">>
 <<print $tavern.entertainment.pluck()>>
 
 <<include "Intrigue">>
 <<include "Rooms">>
+<<include "TavernBrothel">>

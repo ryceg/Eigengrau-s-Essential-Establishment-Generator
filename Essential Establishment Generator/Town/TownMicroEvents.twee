@@ -1,6 +1,6 @@
 :: TownMicroEvents
 
- <<set $TownMicroEvents to ["a gnarled old man offers to sell you a 'lucky' trinket for a gold coin",
+ <<set $town.microevents to ["a gnarled old man offers to sell you a 'lucky' trinket for a gold coin",
  "a young boy wants to see a demonstration of your weapon",
  "a little girl is crying because she broke her favorite toy",
  "a little gem falls out of the pocket of the man walking ahead of you",

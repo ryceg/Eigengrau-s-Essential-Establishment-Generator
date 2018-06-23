@@ -1,6 +1,6 @@
 :: TownRumours
 
-<<set $town.events to [
+<<set $town.rumours to [
     {
       title: "bodies being dug up",
       rumour: "I heard that there were bodies being dug up out in the cemetary near $alchemist.road.",

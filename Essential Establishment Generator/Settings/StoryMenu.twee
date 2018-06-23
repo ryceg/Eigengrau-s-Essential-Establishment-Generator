@@ -1,9 +1,23 @@
 
 :: StoryMenu
 
+/*<<nobr>><<if def $currentPassage>><<link "Sliders for $currentPassage.name">>
+    <<if $currentPassage is $tavern>>
+          <<goto "InitTavern">>
+      <<elseif $currentPassage is $smithy>>
+          <<goto "InitSmithy">>
+      <<elseif $currentPassage is $alchemist>>
+          <<goto "InitAlchemist">>
+      <<elseif $currentPassage is $GeneralStore>>
+          <<goto "InitGeneralStore">>
+    <</if>>
+<</link>><</if>><</nobr>>*/
+
+[[Toolbox]]
+
 [[Credits]]
 
-<<link "Submit a Suggestion">><<include "Submission Form">><</link>>
+[[Submit a bug or suggestion|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose]]
 
 
 /*<<link "Check Variables">><<checkvars>><</link>>

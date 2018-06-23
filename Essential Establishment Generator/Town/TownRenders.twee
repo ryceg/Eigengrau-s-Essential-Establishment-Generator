@@ -1,0 +1,248 @@
+:: TownRenders [render]
+
+<<set _guardfundingroll to 0>>
+
+<<if $town.population gt 3000>>
+    <<set $town.type to "city">>
+  <<elseif $town.population gt 1000>>
+    <<set $town.type to "town">>
+  <<elseif $town.population gt 300>>
+    <<set $town.type to "village">>
+  <<elseif $town.population gt 30>>
+    <<set $town.type to "hamlet">>
+  <<elseif $town.population lte 30>>
+    <<set $town.type to "hamlet", $town.population to 30>>
+<</if>>
+
+<<if $town.wealthroll gt 95>>
+		<<set $town.wealth to "kingly">>
+	<<elseif $town.wealthroll gt 90>>
+		<<set $town.wealth to "aristocratic">>
+	<<elseif $town.wealthroll gt 80>>
+		<<set $town.wealth to "wealthy">>
+	<<elseif $town.wealthroll gt 70>>
+		<<set $town.wealth to "comfortable">>
+	<<elseif $town.wealthroll gt 30>>
+		<<set $town.wealth to "modest">>
+	<<elseif $town.wealthroll gt 25>>
+		<<set $town.wealth to "poor">>
+	<<elseif $town.wealthroll lte 25>>
+		<<set $town.wealth to "squalid">>
+<</if>>
+
+<<if $town.economicsroll gt 90>>
+    <<set $town.economics to "Trade in $town.name is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the $town.type, and people live a $town.wealth existence because of it. The trade guild strictly enforces the rules, and costs of doing business in $town.name are high.">>
+  <<elseif $town.economicsroll gt 80>>
+    <<set $town.economics to "Trade in $town.name is regulated, with taxes and restrictions on what can be brought in and out of the $town.type, and people live a $town.wealth existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.">>
+  <<elseif $town.economicsroll gt 70>>
+    <<set $town.economics to "Trade in $town.name is regulated, with taxes applied to all goods and services rendered, and people live a $town.wealth existence because of it. The trade guild enforces rules, with penalties for rule-breakers.">>
+  <<elseif $town.economicsroll gt 60>>
+    <<set $town.economics to "Trade in $town.name is mostly free, with some taxes applied to goods and services rendered in the city. People live a $town.wealth existence because of it">>
+  <<elseif $town.economicsroll gt 50>>
+    <<set $town.economics to "Trade is reasonable in $town.name, and people live a $town.wealth existence because of it; some taxes are applied to certain goods and services that are rendered in the city.">>
+  <<elseif $town.economicsroll gt 40>>
+    <<set $town.economics to "Trade is reasonable in $town.name, and people live a $town.wealth existence because of it; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.">>
+  <<elseif $town.economicsroll gt 30>>
+    <<set $town.economics to "Trade is rather free in $town.name, and people live a $town.wealth existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.">>
+  <<elseif $town.economicsroll gt 20>>
+    <<set $town.economics to "Trade is free in $town.name, and people live a $town.wealth existence because of it. There are no taxes or regulations to speak of.">>
+  <<elseif $town.economicsroll lte 20>>
+    <<set $town.economics to "Caveat emptor is the guiding philosophy of $town.name, and people live a $town.wealth existence because of it. Without any taxes or regulations, the free market reigns supreme here.">>
+<</if>>
+
+<<if $town.welfareroll gt 90 && $town.wealthroll gt 50>>
+    <<set $town.welfare to "Welfare is excellent. Citizens can expect free healthcare, education, child care, death services, safety nets, and other programs beneficial to the health of the public.">>
+  <<elseif $town.welfareroll gt 90>>
+    <<set $town.welfare to "Welfare is as good as it possibly can be, given the wealth of $town.name. Citizens can expect healthcare, education, child care, and death services">>
+  <<elseif $town.welfareroll gt 80 && $town.wealthroll gt 50>>
+    <<set $town.welfare to "Welfare is very good. Citizens can expect education, subsidised healthcare, death services, safety nets, and other programs beneficial to the health of the public.">>
+  <<elseif $town.welfareroll gt 80>>
+    <<set $town.welfare to "Welfare is very good, considering the wealth of $town.name. Citizens can expect education, somewhat subsidised healthcare, death services, and other programs beneficial to the health of the public.">>
+  <<elseif $town.welfareroll gt 70 && $town.wealthroll gt 50>>
+    <<set $town.welfare to "Welfare is good. Citizens can expect death services, and other services such as healthcare and education, provided they are able to pay for it.">>
+  <<elseif $town.welfareroll gt 70>>
+    <<set $town.welfare to "Welfare is good, all things considered. Citizens can expect death services, and other services such as healthcare and education, provided they are able to pay for it.">>
+  <<elseif $town.welfareroll gt 60 && $town.wealthroll gt 40>>
+    <<set $town.welfare to "Welfare is above average, considering the $town.wealth quality of life. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded, though.">>
+  <<elseif $town.welfareroll gt 60>>
+    <<set $town.welfare to "Welfare is above average. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded.">>
+  <<elseif $town.welfareroll gt 50>>
+    <<set $town.welfare to "Welfare is average. Citizens can find an education, provided they can pay for it. Healthcare is overtaxed and underfunded, and the government hides behind layers of bureaucracy to dodge complaints.">>
+  <<elseif $town.welfareroll gt 40>>
+    <<set $town.welfare to "Welfare is below average. Citizens are largely left to their own fate except in extreme cases. Healthcare is neglected, and education is an afterthought. Most citizens would have better luck from private benefactors or the church than relying on the government.">>
+  <<elseif $town.welfareroll gt 30>>
+    <<set $town.welfare to "Welfare is bad. Citizens can expect the bare minimum of death services. Healthcare and education are fringe cases, and citizens would do better to seek a private benefactor than try and receive treatment from the government.">>
+  <<elseif $town.welfareroll gt 20>>
+    <<set $town.welfare to "Welfare is terrible. Citizens can expect the absolute bare minimum of death services. Healthcare and education are ignored, and those unable to fend for themselves would go hungry if it weren't for private benefactors.">>
+  <<elseif $town.welfareroll lte 20>>
+    <<set $town.welfare to "Welfare is non existent. Citizens can expect the absolute bare minimum of death services. Healthcare and education are totally ignored, and those unable to fend for themselves starve.">>
+<</if>>
+
+<<if $town.militaryroll gt 90>>
+    <<set _guardfundingroll += 60>>
+    <<set $town.military to "The military is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, [[$guard.name|GuardOutput]], is extremely well armed, and brutality is commonplace.">>
+  <<elseif $town.militaryroll gt 80>>
+    <<set _guardfundingroll += 50>>
+    <<set $town.military to "The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard, [[$guard.name|GuardOutput]], is well armed, and brutality is common.">>
+  <<elseif $town.militaryroll gt 70>>
+    <<set _guardfundingroll += 40>>
+    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, [[$guard.name|GuardOutput]], is well armed, and brutality is not unheard of.">>
+  <<elseif $town.militaryroll gt 60>>
+    <<set _guardfundingroll += 30>>
+    <<set $town.military to "There's a decent military presence, and citizens know better than to step out of line, as [[$guard.name|GuardOutput]] are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear.">>
+  <<elseif $town.militaryroll gt 50>>
+    <<set _guardfundingroll += 30>>
+    <<set $town.military to "There is a military presence in $town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from [[$guard.name|GuardOutput]].">>
+  <<elseif $town.militaryroll gt 40>>
+    <<set _guardfundingroll += 25>>
+    <<set $town.military to "The military presence in $town.name is somewhat smaller than one would expect for its size. The local guard, [[$guard.name|GuardOutput]], are seen as friends and drinking buddies, rather than horrible tyrants.">>
+  <<elseif $town.militaryroll gt 30>>
+    <<set _guardfundingroll += 25>>
+    <<set $town.military to "The military presence in $town.name is more of a militia; some of the members of [[$guard.name|GuardOutput]] are part time, and there is little need for the use of force outside of intruders.">>
+  <<elseif $town.militaryroll gt 20>>
+    <<set _guardfundingroll += 15>>
+    <<set $town.military to "The military presence in $town.name is a militia; most of the guards of [[$guard.name|GuardOutput]] are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.">>
+  <<elseif $town.militaryroll lte 20>>
+    <<set _guardfundingroll += 10>>
+    <<set $town.military to "The military presence in $town.name is a militia; the guards of [[$guard.name|GuardOutput]] are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.">>
+<</if>>
+
+<<if $town.lawroll gt 90>>
+    <<set _guardfundingroll += 25>>
+    <<set $town.law to "Law in $town.name is overwhelmingly punitive, and those that breach the complex and codified list of laws can expect hard labor, incarceration, or public execution. Crime is seen as a stain, which cannot be erased, and only through retribution can it be redeemed.">>
+  <<elseif $town.lawroll gt 80>>
+    <<set _guardfundingroll += 20>>
+    <<set $town.law to "Law in $town.name is extremely punitive, and those that breach the complex list of laws can expect hard labor, incarceration, or sometimes public execution. Crime is an ugly stain on humanity, to be punished wherever possible.">>
+  <<elseif $town.lawroll gt 70>>
+    <<set _guardfundingroll += 15>>
+    <<set $town.law to "Law in $town.name is very much punitive based, and those that breach the laws can expect hard labor, incarceration, or sometimes public execution. Crime is an ugly stain on humanity, to be punished.">>
+  <<elseif $town.lawroll gt 60>>
+    <<set _guardfundingroll += 15>>
+    <<set $town.law to "Law in $town.name is punitive based , and those that breach the laws can expect hard labor, incarceration, fines, or, in some instances, public execution. Crime is an ugly stain on humanity, to be removed wherever possible.">>
+  <<elseif $town.lawroll gt 50>>
+    <<set _guardfundingroll += 15>>
+    <<set $town.law to "Law in $town.name is punitive, and those that breach the laws can expect hard labor, incarceration, fines, or, in rare instances, execution.">>
+  <<elseif $town.lawroll gt 40>>
+    <<set _guardfundingroll += 10>>
+    <<set $town.law to "Law in $town.name is somewhat reform-based, and those that breach the laws can expect hard labor, incarceration, or fines. The death penalty is typically reserved for traitors to the state.">>
+  <<elseif $town.lawroll gt 30>>
+    <<set _guardfundingroll += 10>>
+    <<set $town.law to "Law in $town.name is reform-based, and those that breach the laws can expect incarceration, fines, or going to an asylum for reform. The death penalty is reserved only for traitors to the state.">>
+  <<elseif $town.lawroll gt 20>>
+    <<set _guardfundingroll += 5>>
+    <<set $town.law to "Law in $town.name is reform-based, and those that breach the laws can expect incarceration, fines, asylums, or work-release programs to provide them with the chance to not become a recidivist. The death penalty is reserved only for traitors to the state.">>
+  <<elseif $town.lawroll lte 20>>
+    <<set $town.law to "Law in $town.name is reform-based, and those that breach the laws can expect fines, penalties, or work-release programs to provide them with the best possible chance to not become a recidivist.">>
+<</if>>
+
+  <<if $town.arcanaroll gt 90 && $town.politicalSource == "magocracy">>
+    <<set _guardfundingroll += 15>>
+      <<set $town.arcana to "Magic is reserved for the ruling class of mages, who govern $town.name. Those found practicing magic without a license are considered to be undermining the council of wizards' authority.">>
+    <<elseif $town.arcana gt 90>>
+      <<set $town.arcana to "Magic is reserved only for those with a license, which is a relatively simple form to fill out, stating what type of magic you wish to practice, your contact details, a non-refundable bond to cover public liability, and whether it's for commercial or personal use.">>
+    <<elseif $town.arcanaroll gt 80 && $town.politicalSource == "magocracy">>
+      <<set _guardfundingroll += 10>>
+      <<set $town.arcana to "Magic is reserved only for the ruling class of mages and those who manage to procure a license, which is an intentionally confusing affair of different forms that need signatures from the council of wizards that govern $town.name.">>
+    <<elseif $town.arcanaroll gt 80>>
+      <<set $town.arcana to "Magic is reserved only for those with a license, which is a relatively simple form to fill out, stating what type of magic you wish to practice, a public liability bond, and whether it's for commercial or personal use.">>
+    <<elseif $town.arcanaroll gt 70 && $town.politicalSource == "magocracy">>
+      <<set _guardfundingroll += 5>>
+      <<set $town.arcana to "Magic is typically only for the ruling class of mages who govern $town.name. Those who cast spells within $town.name are seen as politicians more than awe-inspiring heroes.">>
+    <<elseif $town.arcanaroll gt 70>>
+      <<set $town.arcana to "Magic is typically reserved for those with a license. There is some magic, but is mostly for personal use, and sometimes commercial.">>
+    <<elseif $town.arcanaroll gt 60 && $town.politicalSource == "magocracy">>
+      <<set $town.arcana to "Magic is not codified into the laws, though the wizard council that governs $town.name have instructed the local guards would be more likely to treat it as a threat rather than not.">>
+    <<elseif $town.arcanaroll gt 60>>
+      <<set $town.arcana to "Magic is not codified into the laws, though the local guards would be more likely to treat it as a threat rather than not.">>
+    <<elseif $town.arcanaroll gt 50 && $town.politicalSource == "magocracy">>
+      <<set $town.arcana to "Magic has not been codified into the laws by the wizard council to keep the powers that allow them to rule to be open to all.">>
+    <<elseif $town.arcanaroll gt 50>>
+      <<set $town.arcana to "Magic has not been codified into the laws.">>
+    <<elseif $town.arcanaroll gt 40 && $town.politicalSource == "magocracy">>
+      <<set $town.arcana to "Magic is not codified into the laws as anything specific, though the wizard council that governs $town.name have instructed the local guards would be more likely to treat it as a threat rather than not.">>
+    <<elseif $town.arcanaroll gt 40>>
+      <<set $town.arcana to "Magic is not codified into the laws as anything specific, though the local guards would be more likely to treat it as a threat rather than not.">>
+    <<elseif $town.arcanaroll gt 30 && $town.politicalSource == "magocracy">>
+      <<set $town.arcana to "Magic is treated with suspicion, and the wizard council that governs $town.name treat anybody practicing magic as a threat to their rule.">>
+    <<elseif $town.arcanaroll gt 30>>
+      <<set $town.arcana to "Magic is treated with suspicion, and guards look for any excuse to put a magic user away behind bars.">>
+    <<elseif $town.arcanaroll gt 20 && $town.politicalSource == "magocracy">>
+      <<set _guardfundingroll += 5>>
+      <<set $town.arcana to "Magic is treated with suspicion and fear, and the people of $town.name trust only the wizard council with magic.">>
+    <<elseif $town.arcanaroll gt 20>>
+      <<set $town.arcana to "Magic is treated with extreme suspicion, and is coded into law as a restricted activity.">>
+    <<elseif $town.arcanaroll gt 10 && $town.politicalSource == "magocracy">>
+      <<set _guardfundingroll += 10>>
+      <<set $town.arcana to "Those that do not sit on the wizard council that governs $town.name are not permitted to cast magic. It is coded into law as a restricted activity.">>
+    <<elseif $town.arcanaroll gt 10>>
+      <<set $town.arcana to "Magic is reviled by the guards, and they look for any excuse to put away a magic user. It is coded into law as a restricted activity, so they have an easy time of doing it, too.">>
+    <<elseif $town.arcanaroll lte 10 && $town.politicalSource == "magocracy">>
+      <<set _guardfundingroll += 25>>
+      <<set $town.arcana to "Magic is outlawed. Only the wizards that govern $town.name are permitted to cast any spells beyond a cantrip level.">>
+    <<elseif $town.arcanaroll lte 10>>
+      <<set $town.arcana to "Magic is outlawed, and guards look for any excuse to put away anyone that looks like a magic user. It is coded into law as a tightly restricted activity.">>
+  <</if>>
+
+<<if _guardfundingroll gt 90>>
+    <<set $guard.funding to "The guards are extremely well funded, and are extensively armed. They regularly have training exercises, and their officers are held to extremely high standards.">>
+  <<elseif _guardfundingroll gt 80>>
+    <<set $guard.funding to "The guards are well funded, and are armed more than adequately. They regularly have training exercises, and their officers are held to high standards.">>
+  <<elseif _guardfundingroll gt 70>>
+    <<set $guard.funding to "The guards are well funded, and are armed. They perform annual training exercises, and their officers are held to high standards.">>
+  <<elseif _guardfundingroll gt 60>>
+    <<set $guard.funding to "The guard is well funded, and armed according to budget. They have training exercises, and their officers are held accountable for their actions.">>
+  <<elseif _guardfundingroll gt 50>>
+    <<set $guard.funding to "The guard is funded and armed according to the town budget. Their officers are held accountable for their actions.">>
+  <<elseif _guardfundingroll gt 40>>
+    <<set $guard.funding to "The guard is slightly underfunded, and their equipment sometimes falls into slight disrepair. Their officers are held accountable for their actions, though $guard.name does not have the funding to perform regular training exercises.">>
+  <<elseif _guardfundingroll gt 30>>
+    <<set $guard.funding to "The guard is underfunded, and their equipment is always in slight disrepair. Their officers are held accountable for their actions when public pressure fors for it, though $guard.name does not have the funding to perform training exercises.">>
+  <<elseif _guardfundingroll gt 20>>
+    <<set $guard.funding to "The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $guard.name does not have the funding to perform any training exercises.">>
+  <<elseif _guardfundingroll lte 20>>
+    <<set $guard.funding to "The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.">>
+<</if>>
+
+
+
+  <<if $town.wealthroll gt 100>>
+    <<set $town.wealthroll to 100>>
+   <<elseif $town.wealthroll lt 1>>
+    <<set $town.wealthroll to 1>>
+  <</if>>
+
+  <<if $town.economicsroll gt 100>>
+    <<set $town.economicsroll to 100>>
+   <<elseif $town.economicsroll lt 1>>
+    <<set $town.economicsroll to 1>>
+  <</if>>
+
+  <<if $town.militaryroll gt 100>>
+    <<set $town.militaryroll to 100>>
+   <<elseif $town.militaryroll lt 1>>
+    <<set $town.militaryroll to 1>>
+  <</if>>
+
+  <<if $town.lawroll gt 100>>
+    <<set $town.lawroll to 100>>
+   <<elseif $town.lawroll lt 1>>
+    <<set $town.lawroll to 1>>
+  <</if>>
+
+  <<if $town.arcanaroll gt 100>>
+    <<set $town.arcanaroll to 100>>
+   <<elseif $town.arcanaroll lt 1>>
+    <<set $town.arcanaroll to 1>>
+  <</if>>
+
+  <<if $town.welfareroll gt 100>>
+    <<set $town.welfareroll to 100>>
+   <<elseif $town.welfareroll lt 1>>
+    <<set $town.welfareroll to 1>>
+  <</if>>
+
+  <<if $town.sinroll gt 75 && $town.population gt 300>>
+  			<<include "Brothel">>
+  	<<elseif $town.sinroll gt 20 && $town.population gt 1250>>
+  			<<include "Brothel">>
+  <</if>>

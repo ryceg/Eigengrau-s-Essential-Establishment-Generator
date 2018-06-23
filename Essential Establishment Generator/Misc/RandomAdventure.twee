@@ -1,0 +1,18 @@
+:: RandomAdventure
+<<nobr>><<linkreplace "<h4>Generate an adventure!</h4>">>
+<<include "AdventureGenerator">>
+    <<replace "#adventure">>
+          <blockquote>
+            <h3>Campaign</h3>
+            The players must $adventure.goal Their patron, a $adventure.patron called <<profile $adventurePatron>>, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, <<profile $adventureAlly>>. They do this on the backdrop of a $adventure.backdrop.
+
+            $adventure.introduction $adventure.climax $adventure.twist</blockquote>
+    <</replace>><<link "<h4>Try another adventure!</h4>">><<include "AdventureGenerator">>
+        <<replace "#adventure">>
+              <blockquote>
+                <h3>Another campaign</h3>
+                The players must $adventure.goal Their patron, a $adventure.patron called <<profile $adventurePatron>>, has also requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, <<profile $adventureAlly>>. They do this on the backdrop of a $adventure.backdrop.
+
+                $adventure.introduction $adventure.climax $adventure.twist</blockquote><</replace>><</link>>
+<</linkreplace>>
+<span id="adventure"></span><</nobr>>

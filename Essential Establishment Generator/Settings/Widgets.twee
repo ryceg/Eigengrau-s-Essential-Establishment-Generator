@@ -44,22 +44,64 @@
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 /*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
 */
-<<nobr>><<widget "heshe">>
-<<switch $args.gender>>
-	<<case "man">>
-		<<set $args.heshe to "he">>
-		<<set $args.himher to "him">>
-		<<set $args.hisher to "his">>
-		<<set $args.boygirl to "boy">>
-		<<set $args.manwoman to "man">>
-		<<set $args.menwomen to "men">>
-		<<set $args.guygirl to "guy">>
-	<<case "woman">>
-		<<set $args.heshe to "she">>
-		<<set $args.himher to "her">>
-		<<set $args.hisher to "her">>
-		<<set $args.boygirl to "girl">>
-		<<set $args.manwoman to "woman">>
-		<<set $args.menwomen to "women">>
-		<<set $args.guygirl to "girl">>
-<</switch>><</widget>><</nobr>>
+
+<<widget "buildingProfile">><<nobr>>
+		<<set _build = $args[0], _readout = $args[1]>>
+		<<capture _build, _readout>>
+				<<if def $args[1]>>
+							<<link _readout "BuildingProfile">>
+								<<set $currentBuilding to _build>>
+							<</link>>
+					<<else>>
+							<<link _char.name "BuildingProfile">>
+									<<set $currentBuilding to _build>>
+							<</link>>
+				<</if>>
+		<</capture>><</nobr>><</widget>>
+
+<<widget "profile">><<nobr>>
+		<<set _char = $args[0], _readout = $args[1]>>
+		<<capture _char, _readout>>
+				<<if def $args[1]>>
+							<<link _readout "NPCProfile">>
+								<<set $currentNPC to _char>>
+							<</link>>
+					<<else>>
+							<<link _char.name "NPCProfile">>
+									<<set $currentNPC to _char>>
+							<</link>>
+				<</if>>
+		<</capture>><</nobr>><</widget>>
+
+<<widget "temp">><<nobr>>
+		<<set _temp = $args[0]>>
+		<<capture _temp>>
+			<<if $showCelsius is true>>
+					<<set _temp -= 32>>
+					<<set _temp to Math.trunc(_temp *= 0.5556)>>_temp Celsius
+				<<else>>
+				_temp Fahrenheit
+			<</if>>
+		<</capture>><</nobr>><</widget>>
+
+
+		<<widget "createNPC">>\
+				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
+				<<capture _creation, _attributes, _readout>>\
+					<<if def $args[2]>>\
+							<<run State.setVar(_creation, setup.createNPC(_attributes))>>\
+								<<link _readout "NPCProfile">>\
+									<<set $currentNPC to _creation>>\
+								<</link>>\
+					<<elseif def $args[1]>>\
+							<<run State.setVar(_creation, setup.createNPC())>>\
+								<<link _creation.name "NPCProfile">>\
+									<<set $currentNPC to _creation>>\
+								<</link>>\
+						<<else>>\
+								<<run State.setVar(_creation, setup.createNPC())>>\
+									<<link _creation.name "NPCProfile">>\
+										<<set $currentNPC to _creation>>\
+									<</link>>\
+						<</if>>\
+				<</capture>><</widget>>

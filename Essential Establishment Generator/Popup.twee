@@ -1,0 +1,20 @@
+:: Popup
+<<nobr>><<set _roll to random(1, 99)>>
+<<if $patronContent is true>>
+      <div type='descriptive'>The bartender in this instance is a Patron's character!</div>
+  <<else>>
+      <<if _roll gt 90>>
+            <blockquote>If you enjoy using this, please consider supporting me on Patreon: https://www.patreon.com/bePatron?c=1709078 </blockquote>
+        <<elseif _roll gt 80>>
+            <blockquote>Find us on Reddit at www.reddit.com/r/EigengrausGenerator! </blockquote>
+        <<elseif _roll gt 70>>
+            <blockquote>Join the Discord server at https://discord.gg/4wYNwp2 </blockquote>
+        <<elseif _roll gt 60>>
+            <blockquote><<include "ChangelogCurrent">> </blockquote>
+        <<elseif _roll gt 55>>
+            <blockquote><<include "PatreonSupporters">> </blockquote>
+        <<elseif _roll lte 55>>
+            If you have any bug reports, please click here: [[Submission Form|SubmissionForm]]
+      <</if>>
+<</if>>
+<</nobr>>

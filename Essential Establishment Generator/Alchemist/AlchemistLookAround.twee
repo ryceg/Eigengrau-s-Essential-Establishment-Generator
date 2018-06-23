@@ -17,3 +17,4 @@
 	<<elseif $alchemist.cleanlinessroll lte 20>>
     Looking around, $alchemist.name must have had an explosion the day before; there is no other possible reason that a shop that deals with magical, often volatile chemicals would be so cluttered, crowded, and blatantly a danger to itself and the half-mile radius surrounding it. There are pots and pans of mixtures that have already spilt over crowding the desk, with potions that are currently brewing strewn around the floor. There's little hope to walk through the shop without putting your boot in something that you probably would prefer not to put it in. Just as you try and hesitate, you hear the distinct sound of "no, please don't go!" come from the floorboards, which at first seemed to be sticky, but on closer inspection, was more... 'grabby'.
 <</if>><</nobr>>
+Looking into a $brew.containerDescription, you see $brew.liquidDescription simmer away.

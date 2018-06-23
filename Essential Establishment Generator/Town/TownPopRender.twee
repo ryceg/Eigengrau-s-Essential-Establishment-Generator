@@ -1,0 +1,12 @@
+:: TownPopRender [render]
+
+<<set _townPop to $town.population>>
+
+<<set $guard.population to Math.trunc(_townPop /= 150)>>
+<<if $guard.population gt 20>>
+    <<set $guard.size to "batallion">>
+  <<elseif $guard.population gt 10>>
+    <<set $guard.size to "squad">>
+  <<elseif $guard.population lte 10>>
+    <<set $guard.size to "militia">>
+<</if>>

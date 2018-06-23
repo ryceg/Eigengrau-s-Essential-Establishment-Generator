@@ -1,36 +1,5 @@
-
 :: Changelog
 
-v.1.0
-- Added Alchemist
-- Added Blacksmith
-- Added General Store
-- Added significant CSS changes
-- Thousands of lines of code all over the place
-- JavaScript creator for NPCs
-- Huge code cleanup as a result of JS.
+<<include "ChangelogCurrent">>
 
-
-<<linkappend "v.0.3">>
-- Added ability to rename town & tavern
-- Modified room cost formula to mirror the recommended prices
-- CSS Style update
-- Drop caps!
-- Added exclusions for the brothels' main attractions being near the church...
-- Minor code cleanup behind the scenes
-
-<<linkappend "v.0.2.0">>
-- Added vegetarian & carnivorous menus based on tavern's roughness.
-- Replaced attribute buttons with sliders (that actually work)
-- Added races
-	<i>Bartender's race will impact the tavern's roughness, cleanliness, etc.</i>
-- Added special brews
-	<i>Stolen from the /r/DnDBehindTheScreen 10000 Drinks thread</i>
-- Added bonds
-	<i>These are kinda hamfisted in, but it's just in case your PCs are really into talking with the bartender, and you need to make up more stuff to keep them interested.</i>
-- Added descriptions of taverns based on size and draw.
-- Made room availability dependent on size, and current population of the tavern.
-
-<<linkappend "v.0.1.0">>
-* First release
-<</linkappend>><</linkappend>><</linkappend>>
+<<link "Full changelog">><<goto "ChangelogFull">><</link>>

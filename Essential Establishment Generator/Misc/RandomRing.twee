@@ -1,0 +1,14 @@
+:: RandomRing
+<<nobr>><<linkreplace "<h4>Look at the ring!</h4>">>
+<<set $randomRing to setup.createRing()>>
+    <<replace "#ring">>
+          <div class="descriptive">
+            <h3>A $randomRing.material ring</h3>
+            This ring is a $randomRing.material ring which is decorated with a $randomRing.decoration. In the centre is a $randomRing.gemstone. It was intended for $randomRing.intendedowner, and it grants the power to $randomRing.power</div><blockquote>This ring works $randomRing.works, and works best $randomRing.activation. It grants the power to $randomRing.power, but $randomRing.cost</blockquote>
+    <</replace>><<link "<h4>Look at another ring</h4>">><<set $randomRing to setup.createRing()>>
+        <<replace "#ring">>
+              <div class="descriptive">
+                <h3>A $randomRing.material ring</h3>
+                This one's a $randomRing.material ring which is decorated with a $randomRing.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $randomRing.gemstone. It was intended for $randomRing.intendedowner, and it grants the power to $randomRing.power</div><blockquote>This ring works $randomRing.works, and works best $randomRing.activation. It grants the power to $randomRing.power, but $randomRing.cost</blockquote><</replace>><</link>>
+<</linkreplace>>
+<span id="ring"></span><</nobr>>

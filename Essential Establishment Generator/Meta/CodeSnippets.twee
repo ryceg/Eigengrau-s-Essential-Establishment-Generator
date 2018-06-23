@@ -2,9 +2,13 @@
 
 
 /*
-tweego -o EEEG.html github/Eigengrau
 
 export TWEEGO_PATH=/Users/admin/Documents/Twine/story-formats/
+
+tweego -o EEEG.html github/Eigengrau/Essential\ Establishment\ Generator/
+
+
+$tavernNPC.heshe.toUpperFirst()
 
 <<set $npctest to setup.createNPC()>>
 
@@ -15,5 +19,16 @@ export TWEEGO_PATH=/Users/admin/Documents/Twine/story-formats/
 either($potion.smell)
 
 <div class='descriptive'>Test </div>
+
+<<nobr>><<linkreplace "<h4>Generate one</h4>">>
+    <<replace "#random">>
+
+    <</replace>><<link "<h4>Generate another</h4>">><<set $randomRing to setup.createRing()>>
+        <<replace "#ring">>
+            <</replace>><</link>>
+<</linkreplace>>
+<span id="random"></span><</nobr>>
+
+
 
 */

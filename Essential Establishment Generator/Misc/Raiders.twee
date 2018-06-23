@@ -1,8 +1,10 @@
 
 :: Raiders
 
+<<set $raidedvillager to setup.createNPC()>>
+<<set $raiderleader to setup.createNPC({dndclass: "barbarian", gender: "male"})>>
 <<set $raiders to {
-  exorting: either([
+  extort: either([
     "<<print random(2, 10)>> CP per week from each family",
     "<<print random(5, 12)>> CP per from from each family",
     "<<print random(2, 5)>> SP per month from from each family",
@@ -76,7 +78,7 @@
     "A second group of raiders has recently arrived, and they, too, demand tribute! We can't possibly pay both.",
     "A stranger passed through town recently, and ended up killing several raiders in a tavern fight. He has already left, and we now fear retaliation.",
     "The raiders have a new leader, now, and this one is even more demanding and cruel than the last. We can't take this anymore!",
-    "In spite of their abuses, these raiders are a mere annoyance. They spend more time backstabbing each other than enforcing their threats upon us.",
+    "In spite of their abuses, they seem to spend more time backstabbing each other than enforcing their threats upon us. I can only imagine what it would be like without their in-fighting dividing them.",
     "These raiders are ruthless. Even though we've never defied them, they parade the mutilated remains of travellers through town just to remind us what they're capable of.",
     "There are many among their group who are actually decent folk. They try to keep the abuses from their comrades to a minimum, but can only do so much. If we could bring those few to our defense, it could make all the difference.",
     "So long as we pay on time, the abuses are kept to a minimum. We should really just be thankful that they aren't asking for more.",
@@ -86,3 +88,5 @@
     "Just when we thought things couldn't get worse, one of our daughters was found murdered and brutalized. Enough is enough!"
     ])
     }>>
+
+    /*A $raidedvillager.racenote runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. <<print $raidedvillager.heshe.toUpperFirst()>> continues, saying "they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally"*/

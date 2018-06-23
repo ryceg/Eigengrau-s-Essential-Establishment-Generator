@@ -3,27 +3,28 @@
 
 <<set _guard to random(1, 100)>>
 <<set _brawl to random(1, 100)>>
-	<<if $guard.population gt 20>>
-		<<set _guard += 10>>
-	<<elesif $guard.population gt 15>>
-		<<set _guard += 5>>
-	<<elseif $guard.population gt 10>>
-		<<set _guard += 1>>
-	<<elseif $guard.population gt 5 && $tavern.sizeroll gt 60>>
-		<<set _guard -= 7>>
-	<<elseif $guard.population gt 5>>
-			<<set _guard -= 5>>
-	<<elseif $guard.population lte 5 && $tavern.sizeroll gt 60>>
-			<<set _guard -= 15>>
-	<<elseif $guard.population lte 5>>
-		<<set _guard -= 10>>
-		<</if>>
+
+/*<<if $guard.population gt 20>>
+	<<set _guard += 10>>
+<<elesif $guard.population gt 15>>
+	<<set _guard += 5>>
+<<elseif $guard.population gt 10>>
+	<<set _guard += 1>>
+<<elseif $guard.population gt 5 && $tavern.sizeroll gt 60>>
+	<<set _guard -= 7>>
+<<elseif $guard.population gt 5>>
+		<<set _guard -= 5>>
+<<elseif $guard.population lte 5 && $tavern.sizeroll gt 60>>
+		<<set _guard -= 15>>
+<<elseif $guard.population lte 5>>
+	<<set _guard -= 10>>
+<</if>>*/
 
 <<if _guard gte 50>>
-		<<set $tavern.guardpresent to true, _brawl -= 20>>
-		<<set $TavernGuard to setup.createNPC()>>
-	<<elseif _guard lt 50>>
-		<<set $tavern.guardpresent to false>>
+		<<set $tavern.guardPresent to true, _brawl -= 20>>
+		<<set $tavernGuard to setup.createNPC({dndclass: "fighter", background: "soldier", gender: either("man", "man", "man", "woman")})>>
+	<<else>>
+		<<set $tavern.guardPresent to false>>
 	<</if>>
 
 
@@ -46,22 +47,40 @@
 	<<elseif $tavern.populationroll lte 20>>
 		<<set _brawl -= 40>>
 <</if>>
-	<<if $tavern.roughnessroll gt 80>>
-		<<set _brawl += 15>>
-	<<elseif $tavern.roughnessroll gt 70>>
-		<<set _brawl += 13>>
-	<<elseif $tavern.roughnessroll gt 60>>
-		<<set _brawl += 11>>
-	<<elseif $tavern.roughnessroll gt 60>>
-		<<set _brawl += 8>>
-	<<elseif $tavern.roughnessroll gt 50>>
-		<<set _brawl += 0>>
-	<<elseif $tavern.roughnessroll gt 40>>
-		<<set _brawl -= 5>>
-	<<elseif $tavern.roughnessroll gt 30>>
-		<<set _brawl -= 15>>
-	<<elseif $tavern.roughnessroll gt 20>>
-		<<set _brawl -= 20>>
-	<<elseif $tavern.roughnessroll lte 20>>
-		<<set _brawl -= 40>>
+
+<<if $tavern.roughnessroll gt 80>>
+	<<set _brawl += 15>>
+<<elseif $tavern.roughnessroll gt 70>>
+	<<set _brawl += 13>>
+<<elseif $tavern.roughnessroll gt 60>>
+	<<set _brawl += 11>>
+<<elseif $tavern.roughnessroll gt 60>>
+	<<set _brawl += 8>>
+<<elseif $tavern.roughnessroll gt 50>>
+	<<set _brawl += 0>>
+<<elseif $tavern.roughnessroll gt 40>>
+	<<set _brawl -= 5>>
+<<elseif $tavern.roughnessroll gt 30>>
+	<<set _brawl -= 15>>
+<<elseif $tavern.roughnessroll gt 20>>
+	<<set _brawl -= 20>>
+<<elseif $tavern.roughnessroll lte 20>>
+	<<set _brawl -= 40>>
+<</if>>
+
+<<if _brawl gt 50>>
+			<<set $tavern.hasBrawl to true>>
+			<<set $brawlInstigator to setup.createNPC({gender: either("man", "man", "man", "man", "woman")})>>
+			<<set $brawlResponder to setup.createNPC({gender: either("man", "man", "man", "man", "woman")})>>
+			<<set $tavernBrawl to {
+						start: either("It seems that the $brawlInstigator.racenote that is currently wrestling with the $brawlResponder.racenote because of ", "A $brawlInstigator.racenote has a $brawlResponder.racenote in a headlock. The cause seems to be ", "There's some shouting, and then a $brawlInstigator.racenote throws a punch at a $brawlResponder.racenote, shouting that the $brawlInstigator.weight $brawlInstigator.manwoman is a bastard. The cause seems to be "),
+						reason: either("some silly misunderstanding between the two. ", "a statement about a sports team that the other disagreed with. ", "a secret affair has come out. ", "a joke was taken way too far. ", "a joke was misunderstood, much to the $brawlResponder.racenote's dismay. ")
+			}>>
+					<<if $tavern.guardPresent is true>>
+							<<set $tavernBrawl.end to either("A $tavernGuard.racenote wearing the $guard.livery signifying that they are a member of [[$guard.name|GuardOutput]] is currently pulling the $brawlInstigator.racenote off the $brawlResponder.racenote.", "A member of [[$guard.name|GuardOutput]] is currently trying to pull the two apart.")>>
+						<<else>>
+							<<set $tavernBrawl.end to either("It seems that the $brawlInstigator.racenote is winning.", "It seems that the $brawlResponder.racenote is winning.")>>
+					<</if>>
+	<<else>>
+			<<set $tavern.hasBrawl to false>>
 <</if>>

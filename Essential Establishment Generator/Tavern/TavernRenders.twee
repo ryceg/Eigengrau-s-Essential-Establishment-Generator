@@ -5,17 +5,17 @@
 /* ------------------------- WEALTH -------------------------- */
 <<if $tavern.wealthroll gt 95>>
 		<<set $tavern.wealth to "kingly">>
-	<<elseif $tavernwealthroll gt 80>>
+	<<elseif $tavern.wealthroll gt 80>>
 		<<set $tavern.wealth to "aristocratic">>
-	<<elseif $tavernwealthroll gt 70>>
+	<<elseif $tavern.wealthroll gt 70>>
 		<<set $tavern.wealth to "wealthy">>
-	<<elseif $tavernwealthroll gt 60>>
+	<<elseif $tavern.wealthroll gt 60>>
 		<<set $tavern.wealth to "comfortable">>
-	<<elseif $tavernwealthroll gt 50>>
+	<<elseif $tavern.wealthroll gt 50>>
 		<<set $tavern.wealth to "modest">>
-	<<elseif $tavernwealthroll gt 25>>
+	<<elseif $tavern.wealthroll gt 25>>
 		<<set $tavern.wealth to "poor">>
-	<<elseif $tavernwealthroll lte 25>>
+	<<elseif $tavern.wealthroll lte 25>>
 		<<set $tavern.wealth to "squalid">>
 <</if>>
 
@@ -104,15 +104,15 @@
 		<<set $tavern.sin to "sleazy">>
 	<<elseif $tavern.sinroll gt 50>>
 		<<set $tavern.sin to "seedy">>
-	<<elseif $tavern.sinroll gt 40 && $tavern.roughness gt 60>>
+	<<elseif $tavern.sinroll gt 40 && $tavern.roughnessroll gt 60>>
 		<<set $tavern.sin to "surprisingly trustworthy">>
 	<<elseif $tavern.sinroll gt 40>>
 		<<set $tavern.sin to "trustworthy">>
-	<<elseif $tavern.sinroll gt 30 && $tavern.roughness gt 60>>
+	<<elseif $tavern.sinroll gt 30 && $tavern.roughnessroll gt 60>>
 		<<set $tavern.sin to "surprisingly reliable">>
 	<<elseif $tavern.sinroll gt 30>>
 		<<set $tavern.sin to "reliable">>
-	<<elseif $tavern.sinroll lte 20 && $tavern.roughness gt 60>>
+	<<elseif $tavern.sinroll lte 20 && $tavern.roughnessroll gt 60>>
 		<<set $tavern.sin to "surprisingly honest">>
 	<<elseif $tavern.sinroll lte 20>>
 		<<set $tavern.sin to "honest">>

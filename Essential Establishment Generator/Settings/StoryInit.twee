@@ -1,18 +1,56 @@
 
 :: StoryInit
 
-<<set $versionnumber to "1.0">>
+<<set $versionnumber to "1.3.1">>
+
+<<script>>Setting.addHeader("Content Settings");
+
+Setting.addToggle("showSliders", {
+    label : "Show sliders?"
+});
+
+Setting.addToggle("showTutorial", {
+    label : "Show tutorial?"
+});
+
+Setting.addToggle("showCelsius", {
+    label : "Show celsius?"
+});
+
+var settingPatreonContentHandler = function () {
+  if (settings.patreonContent) { // is true
+    State.variables.bartender = State.variables.Birchbottom;
+  }
+  else { // is false
+    State.variables.bartender = State.variables.backupBartender;
+  }
+};
+
+Setting.addToggle("patreonContent", {
+    label : "Show Patreon content?",
+    onInit  : settingPatreonContentHandler,
+    onChange : settingPatreonContentHandler
+});
 
 
-<<include "Town">>
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
-<<include "Building">>
+
+
+Setting.save();
+<</script>>
+
+<<if settings.showTutorial is false>>
+    <<set Config.passages.start = "Start">>
+  <<else>>
+    <<set Config.passages.start = "Welcome">>
+<</if>>
 
 <<include "Names">>
 
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Names ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+<<include "Town">>
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
-<<include "Guard">>
+
+
 
 <<include "SpecialBrew">>
 
@@ -20,7 +58,7 @@
 
 <<include "Tavern">>
 
-<<include "TavernNameGen">>
+/*<<include "TavernNameGen">>*/
 
 <<include "TavernFlavour">>
 
@@ -30,15 +68,13 @@
 
 <<include "TavernModifiers">>
 
-<<include "NPC">>
+<<include "PatreonCharacters">>
 
 <<include "Bartender">>
 
 <<include "PlotHook">>
 
 <<include "ShitPlotHooks">>
-
-<<include "Bonds">>
 
 <<include "TavernRenders">>
 
@@ -80,6 +116,22 @@
 
 <<include "TavernGames">>
 
+<<include "TownSocioPolitics">>
+
 <<include "TownMicroEvents">>
 
+<<include "TownLandmark">>
+
 <<include "Mercenaries">>
+
+<<include "Lord">>
+
+<<include "Raiders">>
+
+<<include "TavernGuard">>
+
+<<include "Markets">>
+
+<<include "AdventureGenerator">>
+
+<<include "Guard">>

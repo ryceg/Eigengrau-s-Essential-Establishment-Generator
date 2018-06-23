@@ -15,6 +15,8 @@ General Store Activity: <<numberslider "$GeneralStore.activityroll" $GeneralStor
 
 General Store Magic: <<numberslider "$GeneralStore.magicroll" $GeneralStore.magicroll 1 100 1>>
 
+General Store Price Modifier: <<numberslider "$GeneralStore.pricemodifier" $GeneralStore.pricemodifier -10 10 1>>
+
 
 When you're ready, here's the [[general store|GeneralStoreOutput]]
 <<set $currentpassage to $GeneralStore>>

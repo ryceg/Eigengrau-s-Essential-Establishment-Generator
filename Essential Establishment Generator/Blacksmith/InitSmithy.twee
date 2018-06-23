@@ -15,6 +15,8 @@ Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1
 
 Smithy Activity: <<numberslider "$smithy.activityroll" $smithy.activityroll 1 100 1>>
 
+Smithy Price Modifier: <<numberslider "$smithy.pricemodifier" $smithy.pricemodifier -10 10 1>>
+
 When you're ready, here's the [[smithy|SmithyOutput]]
 <<set $currentpassage to $smithy>>
 <<include "SmithyModifiers">>
