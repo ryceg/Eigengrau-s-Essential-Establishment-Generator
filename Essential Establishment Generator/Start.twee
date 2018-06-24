@@ -6,8 +6,8 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-<<set $testRumour to setup.createRumour()>>
-$testRumour
+<<link "New rumour">><<set $testRumour to setup.createRumour()>><<replace "#rumour">>$testRumour<</replace>><</link>>
+<span id="rumour">$testRumour</span>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>

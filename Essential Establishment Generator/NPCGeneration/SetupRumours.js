@@ -14,30 +14,28 @@ setup.createRumour = function() {
     }
 
   // A - Personal Information
-
-  // A - Personal Information
   function PersonalInformation() {
         return ["gives a secret about " + MinorBoon(),
         "a family emergency; " + Emergency(),
-        "passes along a rumor (check Ladder) about the PC as told by a friend or Enemy (Q)(R)",
+        "passes along a rumor (check Ladder) about the PC as told by a " + ["friend", "friend", MinorEnemy()],
         "gives information that confirms a suspicion held by the PC or the Party",
         "It will concern you that " + Warning(),
         "gives Exact Knowledge about information the PC or Party has been investigating",
         "passes along knowledge of a Major Warning (W) to the PC"].random();
   }
 
-  // B – Local Information – d20
+  // B – Local Information
   function LocalInformation() {
         return ["tells of " + MajorBoon() + " concerning the area",
         "tells of emergency " + Emergency(),
         "passes along knowledge of a " + SocialEvents(),
-        "gives information about an " + [MinorEnemy(), MajorEnemy()].random() + " threat",
+        "gives information about " + [MinorEnemy(), MajorEnemy()].random() + " threat",
         "passes along information of a " + PoliticalEvents(),
         "gives information about a " + ReligiousEvents(),
         "tells of " + MajorBane()].random();
   }
 
-  // C – Item information – d20
+  // C – Item information
   function ItemInformation() {
       return [
         ["artifact"],
@@ -184,13 +182,13 @@ setup.createRumour = function() {
 
   // Q – Minor Enemy
   function MinorEnemy() {
-        return ["snubbed ex-friend",
-        "school bully",
-        "business rival",
-        "local thug",
-        "romantic rival",
-        "spiteful boss or teacher",
-        "family member"].random();
+        return ["a snubbed ex-friend",
+        "a school bully",
+        "a business rival",
+        "a local thug",
+        "a romantic rival",
+        "a spiteful boss or teacher",
+        "a family member"].random();
   }
 
   // R – Major Enemy
@@ -288,7 +286,7 @@ setup.createRumour = function() {
         "new edict/sanction is announced, causing a radical shift in the local population's mood",
         "an expedition to the heathen lands has been announced",
         "temple leaders have declared a peace agreement and a summit of faith is announced.",
-        "an artifact or holy relic has been found/destroyed and a call to the faithful has gone out",
+        "an artifact or holy relic has been " + ["destroyed", "found", "found"] + " and a call to the faithful has gone out",
         "avatar appears and denounces/blesses the faithful and punishes/rewards with a bane/boon"].random();
   }
 
@@ -309,7 +307,7 @@ setup.createRumour = function() {
         "all skills relating to the practice of the arcane mysteries are more easily accomplished. +1",
         "time and space are on vacation here. Non-causality is a possibility. Dimensionally weird. Non-euclidian geometry abounds.",
         "all arcane objects are recharged here, but can only be used once per item per location",
-        "astral and ethereal creatures are feeding from this bountiful font. they are hostile",
+        "astral and ethereal creatures are feeding from this bountiful font. They are hostile",
         "all arcane spells are cast here as if the caster were 1 level higher",
         "wild magic regularly spawns here, bathing the area with random level spells and duration"].random();
   }
