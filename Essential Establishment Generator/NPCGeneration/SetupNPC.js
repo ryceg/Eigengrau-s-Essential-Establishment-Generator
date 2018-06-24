@@ -487,9 +487,7 @@ setup.createNPC = function(base) {
             npc.weapon = npc.weapon || ["a crossbow", "a quarterstaff", "a quarterstaff", "a longsword", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger"].random();
     }
 
-
     availableLanguages = [allLanguages - npc.knownLanguages];
-
 
     switch (npc.background) {
         case "acolyte":
