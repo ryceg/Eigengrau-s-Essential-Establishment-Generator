@@ -1,13 +1,13 @@
 var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, MinorBoon, MinorQuest, MinorEnemy, MajorBane, MajorBoon, MajorQuest, MajorEnemy, OnTheRun, Vendetta, BuyingOrSelling, GoodDeeds, EvilDeeds, Haunted, Cursed, Treasure, Emergency, Warning, SocialEvents, PoliticalEvents, ReligiousEvents, FaithTouched, WeaveTouched, MysteryCult;
 
-setup.createRumour = function(base) {
-    var Rnd = random(1, 2), Txt;
+setup.createRumour = function() {
+    var Rnd = random(1, 2), Rumour;
     switch(Rnd) {
         case 1:
-            Txt = PersonalInformation();
+            Rumour = PersonalInformation();
             break;
         case 2:
-            Txt = LocalInformation();
+            Rumour = LocalInformation();
     }
 };
 
@@ -346,6 +346,6 @@ function MysteryCult() {
     return MysteryCult;
 }
 
-return Txt;
+return Rumour;
 
 };
