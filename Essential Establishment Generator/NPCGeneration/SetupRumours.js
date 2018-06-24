@@ -1,11 +1,22 @@
 var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, MinorBoon, MinorQuest, MinorEnemy, MajorBane, MajorBoon, MajorQuest, MajorEnemy, OnTheRun, Vendetta, BuyingOrSelling, GoodDeeds, EvilDeeds, Haunted, Cursed, Treasure, Emergency, Warning, SocialEvents, PoliticalEvents, ReligiousEvents, FaithTouched, WeaveTouched, MysteryCult;
 
-setup.createRumour = function(base) {
-    var rumour = Object.assign({
-      start: PersonalInformation()
-      // start: [PersonalInformation(), LocalInformation(), ItemInformation()].random();
-    }, base);
+// setup.createRumour = function(base) {
+//     var rumour = Object.assign({
+//       start: PersonalInformation()
+//       // start: [PersonalInformation(), LocalInformation(), ItemInformation()].random();
+//     }, base);
 
+    setup.createRumour = function(base) {
+        var Rnd = random(1, 2), Txt;
+        switch(Rnd) {
+            case 1:
+                Txt = PersonalInformation();
+                break;
+            case 2:
+                Txt = LocalInformation();
+        }
+        return Txt;
+    };
 
 // A - Personal Information
 function PersonalInformation() {
