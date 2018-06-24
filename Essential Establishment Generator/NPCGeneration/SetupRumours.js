@@ -4,14 +4,26 @@ setup.createRumour = function() {
     var Rnd = random(1, 2), Rumour;
     switch(Rnd) {
         case 1:
-            Rumour = PersonalInformation();
+            Rumour = Motivations() + PersonalInformation();
             break;
         case 2:
-            Rumour = LocalInformation();
+            Rumour = Motivations() + LocalInformation();
             break;
         default:
-            Rumour = PersonalInformation();
+            Rumour = Motivations() + PersonalInformation();
     }
+
+  function Motivations() {
+      return [OnTheRun() + " from " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random() + " for " + [GoodDeeds(), GoodDeeds(), GoodDeeds(), EvilDeeds(), EvilDeeds()].random(),
+          "On a vendetta- " + Vendetta() " against " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random(),
+          "I'm searching for information pertaining to " + [PersonalInformation(), LocalInformation(), ItemInformation()].random(),
+          ["I'm ", "I'm ", "I was "].random() + ["buying", "selling"].random() + BuyingOrSelling() + ["at ", "near ", "quite a ways from ", "at " ].random() + State.variables.town.name,
+          "I'm on a quest to " + MinorQuest(),
+          "I'm on a quest to " + [MinorQuest(), MinorQuest(), MajorQuest()].random() + " for " + MinorEnemy(),
+          "I'm on a great quest, to " + MajorQuest()
+        ].random()
+  }
+
 
   // A - Personal Information
   function PersonalInformation() {
@@ -144,9 +156,9 @@ setup.createRumour = function() {
         return ["commune with avatar",
         "map a location",
         "deliver a message",
-        "recover a minor treasure" + Treasure(),
+        "recover a minor treasure " + Treasure(),
         "deliver a package",
-        "destroy a minor monster/cleanse a tainted area",
+        ["destroy a minor monster", "cleanse a tainted area"].random(),
         "rediscover a local forgotten place"].random();
   }
 
