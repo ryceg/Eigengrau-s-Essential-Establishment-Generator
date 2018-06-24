@@ -8,8 +8,12 @@ setup.createRumour = function() {
             break;
         case 2:
             Rumour = LocalInformation();
+            break;
+        default:
+            Rumour = PersonalInformation();
     }
-};
+
+  // A - Personal Information
 
   // A - Personal Information
   function PersonalInformation() {
