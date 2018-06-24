@@ -165,11 +165,11 @@ setup.createRumour = function() {
 
   // N – Major Quest
   function MajorQuest() {
-        return ["awaken a sleeping NPC called " + State.setVar(Quest, setup.createNPC()),
+        return ["awaken a sleeping NPC called " + State.setVar("Quest", setup.createNPC()),
         ["recover", "destroy"].random() + " an artifact " + ItemInformation(),
-        ["aid", "slay"] + State.setVar(Quest, setup.createNPC()),
+        ["aid", "slay"] + State.setVar("Quest", setup.createNPC()),
         "slay a monster",
-        ["liberate", "enslave"] + State.setVar(Quest, setup.createNPC()),
+        ["liberate", "enslave"] + State.setVar("Quest", setup.createNPC()),
         "discover a lost foreign land",
         "save or destroy the world"].random();
   }
