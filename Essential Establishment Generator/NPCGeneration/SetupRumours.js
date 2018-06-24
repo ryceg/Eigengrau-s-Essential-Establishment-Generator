@@ -4,19 +4,19 @@ setup.createRumour = function() {
     var Rnd = random(1, 2), Rumour;
     switch(Rnd) {
         case 1:
-            Rumour = Motivations() + PersonalInformation();
+            Rumour = Motivations() + ". " + PersonalInformation();
             break;
         case 2:
-            Rumour = Motivations() + LocalInformation();
+            Rumour = Motivations() + ". " + LocalInformation();
             break;
         default:
-            Rumour = Motivations() + PersonalInformation();
+            Rumour = Motivations() + ". " + PersonalInformation();
     }
 
   function Motivations() {
       return [
           "I " + OnTheRun() + " from " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random() + " for " + [GoodDeeds(), GoodDeeds(), GoodDeeds(), EvilDeeds(), EvilDeeds()].random(),
-          "On a vendetta- " + Vendetta() + " against " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random(),
+          "I have a vendetta- " + Vendetta() + " against " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random(),
           "I'm searching for information pertaining to " + [PersonalInformation(), LocalInformation(), ItemInformation()].random(),
           ["I'm ", "I'm ", "I was "].random() + ["buying", "selling"].random() + BuyingOrSelling() + ["at ", "near ", "quite a ways from ", "at " ].random() + State.variables.town.name,
           "I'm on a quest to " + MinorQuest(),
@@ -145,7 +145,7 @@ setup.createRumour = function() {
   function BuyingOrSelling() {
         return ["cloth: raw or finished",
         "wood: raw, finished, furniture, containers, paper",
-        "food: random types (air, sea, land) from random culture",
+        "food",
         "beverages: brewed (ales), distilled (spirits), raw (juice) or water",
         "spice: salt, random spice, random herb, il(legal) drugs, or medicine",
         "minerals: raw or refined or gems",
