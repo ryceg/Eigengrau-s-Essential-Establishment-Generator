@@ -14,14 +14,15 @@ setup.createRumour = function() {
     }
 
   function Motivations() {
-      return [OnTheRun() + " from " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random() + " for " + [GoodDeeds(), GoodDeeds(), GoodDeeds(), EvilDeeds(), EvilDeeds()].random(),
-          "On a vendetta- " + Vendetta() " against " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random(),
+      return [
+          "I " + OnTheRun() + " from " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random() + " for " + [GoodDeeds(), GoodDeeds(), GoodDeeds(), EvilDeeds(), EvilDeeds()].random(),
+          "On a vendetta- " + Vendetta() + " against " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random(),
           "I'm searching for information pertaining to " + [PersonalInformation(), LocalInformation(), ItemInformation()].random(),
           ["I'm ", "I'm ", "I was "].random() + ["buying", "selling"].random() + BuyingOrSelling() + ["at ", "near ", "quite a ways from ", "at " ].random() + State.variables.town.name,
           "I'm on a quest to " + MinorQuest(),
           "I'm on a quest to " + [MinorQuest(), MinorQuest(), MajorQuest()].random() + " for " + MinorEnemy(),
           "I'm on a great quest, to " + MajorQuest()
-        ].random()
+        ].random();
   }
 
 
