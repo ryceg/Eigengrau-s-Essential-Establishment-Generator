@@ -2,10 +2,10 @@ var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, 
 
 setup.createRumour = function(base) {
     var rumour = Object.assign({
-      start: PersonalInformation();
+      start: PersonalInformation()
       // start: [PersonalInformation(), LocalInformation(), ItemInformation()].random();
-    )};
-}
+    }, base);
+
 
 // A - Personal Information
 function PersonalInformation() {
@@ -182,7 +182,7 @@ function EvilDeeds() {
       "badly beat or kill a rival",
       "destroy a business, financially or physically",
       "agitate a harmful " + ["political message", "religious doctrine"].random(),
-      "spread lies and rumors against an individual or group of a shocking nature"].random()
+      "spread lies and rumors against an individual or group of a shocking nature"].random();
     return EvilDeeds;
 }
 // Q – Minor Enemy
@@ -344,4 +344,4 @@ function MysteryCult() {
 
 
 return rumour;
-}
+};
