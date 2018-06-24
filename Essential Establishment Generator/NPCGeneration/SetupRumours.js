@@ -353,6 +353,4 @@ function MysteryCult() {
     return MysteryCult;
 }
 
-
-return rumour;
 };
