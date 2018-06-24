@@ -18,7 +18,7 @@ setup.createRumour = function() {
           "I " + OnTheRun() + " from " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random() + " for " + [GoodDeeds(), GoodDeeds(), GoodDeeds(), EvilDeeds(), EvilDeeds()].random(),
           "I have a vendetta- " + Vendetta() + " against " + [MinorEnemy(), MinorEnemy(), MajorEnemy()].random(),
           "I'm searching for information pertaining to " + [PersonalInformation(), LocalInformation(), ItemInformation()].random(),
-          ["I'm ", "I'm ", "I was "].random() + ["buying", "selling"].random() + BuyingOrSelling() + ["at ", "near ", "quite a ways from ", "at " ].random() + State.variables.town.name,
+          ["I'm ", "I'm ", "I was "].random() + ["buying ", "selling "].random() + BuyingOrSelling() + [" at ", " near ", " quite a ways from ", " at "].random() + State.variables.town.name,
           "I'm on a quest to " + MinorQuest(),
           "I'm on a quest to " + [MinorQuest(), MinorQuest(), MajorQuest()].random() + " for " + MinorEnemy(),
           "I'm on a great quest, to " + MajorQuest()
@@ -31,9 +31,9 @@ setup.createRumour = function() {
         return ["gives a secret about " + MinorBoon(),
         "a family emergency; " + Emergency(),
         "passes along a rumor (check Ladder) about the PC as told by a " + ["friend", "friend", MinorEnemy()].random(),
-        "gives information that confirms a suspicion held by the PC or the Party",
+        "</blockquote>Gives information that confirms a suspicion held by the PC or the Party</blockquote>",
         "It will concern you that " + Warning(),
-        "gives Exact Knowledge about information the PC or Party has been investigating",
+        "<blockquote>Gives Exact Knowledge about information the PC or Party has been investigating</blockquote>",
         "It will concern you greatly that " + Warning()].random();
   }
 
