@@ -1,0 +1,104 @@
+:: TownWeatherDescriptions [render]
+
+<<if $weather.temperature gt 95>>
+    <<set $weather.temperatureReadout to "swelteringly hot.">>
+  <<elseif $weather.temperature gt 90>>
+    <<set $weather.temperatureReadout to "very hot.">>
+  <<elseif $weather.temperature gt 85>>
+    <<set $weather.temperatureReadout to "quite hot.">>
+  <<elseif $weather.temperature gt 80>>
+    <<set $weather.temperatureReadout to "quite warm.">>
+  <<elseif $weather.temperature gt 75>>
+    <<set $weather.temperatureReadout to "pleasant and warm.">>
+  <<elseif $weather.temperature gt 70>>
+    <<set $weather.temperatureReadout to "quite pleasant.">>
+  <<elseif $weather.temperature gt 65>>
+    <<set $weather.temperatureReadout to "quite pleasant.">>
+  <<elseif $weather.temperature gt 60>>
+    <<set $weather.temperatureReadout to "pleasant and cool.">>
+  <<elseif $weather.temperature gt 55>>
+    <<set $weather.temperatureReadout to "cool.">>
+  <<elseif $weather.temperature gt 50>>
+    <<set $weather.temperatureReadout to "a bit chilly.">>
+  <<elseif $weather.temperature gt 45>>
+    <<set $weather.temperatureReadout to "chilly.">>
+  <<elseif $weather.temperature gt 40>>
+    <<set $weather.temperatureReadout to "quite cold.">>
+  <<elseif $weather.temperature gt 35>>
+    <<set $weather.temperatureReadout to "very cold.">>
+  <<elseif $weather.temperature gt 30>>
+    <<set $weather.temperatureReadout to "extremely cold.">>
+<</if>>
+
+<<switch $weather.precipitation>>
+  <<case "none">>
+      <<set $weather.precipitationReadout to either(
+        "There's not a cloud in sight",
+        "There are no clouds on the horizon, and it's fair weather",
+        "There are no clouds in the sky",
+        "There's a couple clouds in the sky",
+        "There are a couple cumulonimbus clouds lazily drifting across the sky",
+        "There are a couple clouds, but it's not quite overcast",
+      )>>
+  <<case "light fog">>
+      <<set $weather.precipitationReadout to either(
+        "There's a light fog, although it doesn't obscure much",
+        "There's a fresh fog which hazes the view slightly",
+        "There's a light fog dusting the horizon",
+      )>>
+  <<case "medium fog">>
+      <<set $weather.precipitationReadout to either(
+        "There's a bit of fog that obscures the horizon a little",
+        "There's some fog on the horizon",
+        )>>
+  <<case "heavy fog">>
+      <<set $weather.precipitationReadout to either(
+        "There's a heavy fog, which obscures everything further than some fifty feet ahead of you",
+        "There's a thick fog looming in the air",
+        "It's extremely foggy, and it's difficult to see things further than fifty feet ahead of you",
+        "There's a thick blanket of fog which covers the area",
+        )>>
+  <<case "light rain">>
+      <<set $weather.precipitationReadout to either(
+        "There's a light rain falling from the few clouds that are in the sky",
+        "There's a slight bit of rain falling from the sky",
+        )>>
+  <<case "drizzle">>
+      <<set $weather.precipitationReadout to either(
+        "There's a steady drizzle streaming down",
+        "There's a bit of a drizzle of rain",
+        )>>
+  <<case "rain">>
+      <<set $weather.precipitationReadout to either(
+        "It's currently raining",
+        "There's some rain at the moment",
+        )>>
+  <<case "heavy rain">>
+      <<set $weather.precipitationReadout to either(
+        "There's a heavy rain going at the moment",
+        "There's a steady and quite heavy drizzle of rain going on at the moment",
+        "There's a heavy downpour, which seems to have no end in sight",
+        )>>
+  <<case "light snow">>
+      <<set $weather.precipitationReadout to either(
+        "There's a light dusting of snow covering the ground, and you see some flakes falling down",
+        "It's snowing- just a little bit, but enough to make a satisfying crunch underneath your feet",
+        "It's currently snowing lightly, with a cool breeze carrying the snowflakes a fair distance",
+        )>>
+  <<case "medium snow">>
+      <<set $weather.precipitationReadout to either(
+        "It's snowing, bringing the unique silence that comes with a dusting of snow on everything",
+        "It's currently snowing",
+        "You can see your breath, and the crunch of snow underfoot is satisfying",
+        )>>
+  <<case "heavy snow">>
+      <<set $weather.precipitationReadout to either(
+        "It's snowing quite heavily at the moment, and trekking through the snow is a little difficult",
+        "The heavy snowfall makes movement a little difficult. The wind which carries the snow is $weather.temperatureReadout, and stings your eyes",
+        )>>
+  <<case "thunderstorm">>
+      <<set $weather.precipitationReadout to either(
+        "Dark clouds loom overhead, and the ominous booms of thunder go off in the distance",
+        "There's a flash of bright, white light, and several seconds later, there's a low boom in the distance",
+        )>>
+<</switch>>
