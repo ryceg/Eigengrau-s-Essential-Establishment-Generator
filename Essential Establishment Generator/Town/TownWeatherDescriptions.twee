@@ -1,33 +1,35 @@
 :: TownWeatherDescriptions [render]
 
 <<if $weather.temperature gt 95>>
-    <<set $weather.temperatureReadout to "swelteringly hot.">>
+    <<set $weather.temperatureReadout to "swelteringly hot">>
   <<elseif $weather.temperature gt 90>>
-    <<set $weather.temperatureReadout to "very hot.">>
+    <<set $weather.temperatureReadout to "very hot">>
   <<elseif $weather.temperature gt 85>>
-    <<set $weather.temperatureReadout to "quite hot.">>
+    <<set $weather.temperatureReadout to "quite hot">>
   <<elseif $weather.temperature gt 80>>
-    <<set $weather.temperatureReadout to "quite warm.">>
+    <<set $weather.temperatureReadout to "quite warm">>
   <<elseif $weather.temperature gt 75>>
-    <<set $weather.temperatureReadout to "pleasant and warm.">>
+    <<set $weather.temperatureReadout to "pleasant and warm">>
   <<elseif $weather.temperature gt 70>>
-    <<set $weather.temperatureReadout to "quite pleasant.">>
+    <<set $weather.temperatureReadout to "quite pleasant">>
   <<elseif $weather.temperature gt 65>>
-    <<set $weather.temperatureReadout to "quite pleasant.">>
+    <<set $weather.temperatureReadout to "quite pleasant">>
   <<elseif $weather.temperature gt 60>>
-    <<set $weather.temperatureReadout to "pleasant and cool.">>
+    <<set $weather.temperatureReadout to "pleasant and cool">>
   <<elseif $weather.temperature gt 55>>
-    <<set $weather.temperatureReadout to "cool.">>
+    <<set $weather.temperatureReadout to "cool">>
   <<elseif $weather.temperature gt 50>>
-    <<set $weather.temperatureReadout to "a bit chilly.">>
+    <<set $weather.temperatureReadout to "a bit chilly">>
   <<elseif $weather.temperature gt 45>>
-    <<set $weather.temperatureReadout to "chilly.">>
+    <<set $weather.temperatureReadout to "chilly">>
   <<elseif $weather.temperature gt 40>>
-    <<set $weather.temperatureReadout to "quite cold.">>
+    <<set $weather.temperatureReadout to "quite cold">>
   <<elseif $weather.temperature gt 35>>
-    <<set $weather.temperatureReadout to "very cold.">>
-  <<elseif $weather.temperature gt 30>>
-    <<set $weather.temperatureReadout to "extremely cold.">>
+    <<set $weather.temperatureReadout to "very cold">>
+  <<elseif $weather.temperature lt 35>>
+    <<set $weather.temperatureReadout to "extremely cold">>
+  <<else>>
+    <<set $weather.temperatureReadout to "mild">>
 <</if>>
 
 <<switch $weather.precipitation>>
