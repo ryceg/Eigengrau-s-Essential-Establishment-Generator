@@ -21,7 +21,7 @@ setup.createRumour = function() {
         "gives information that confirms a suspicion held by the PC or the Party",
         "It will concern you that " + Warning(),
         "gives Exact Knowledge about information the PC or Party has been investigating",
-        "passes along knowledge of a Major Warning (W) to the PC"].random();
+        "It will concern you greatly that " + Warning()].random();
   }
 
   // B – Local Information
@@ -102,7 +102,7 @@ setup.createRumour = function() {
         "large amount of monetary wealth is granted",
         "an existing skill or knowledge is improved (+1) or a new skill is obtained",
         "a personal relationship is improved",
-        "a major property is awarded or an improvement to a major property is granted",
+        ["a major property is awarded ", "an improvement to a major property is granted"].random(),
         "PC or party is pointed towards an artifact " + ItemInformation() + " ('specific' on the rumor ladder)"].random();
   }
 
