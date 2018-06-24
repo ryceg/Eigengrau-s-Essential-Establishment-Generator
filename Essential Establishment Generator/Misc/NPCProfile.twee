@@ -9,5 +9,4 @@ $currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $c
 <div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div>
 
 <<if def $currentNPC.note >>$currentNPC.note<</if>>
-
 <<return>>

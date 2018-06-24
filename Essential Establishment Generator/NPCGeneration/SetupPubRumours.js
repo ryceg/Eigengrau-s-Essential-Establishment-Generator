@@ -1,5 +1,5 @@
-/*setup.createRumour = function(base) {
-    var rumour = Object.assign({
+setup.createPubRumour = function(base) {
+    var pubRumour = Object.assign({
     origin:["a child",
             "a fat merchant",
             "a priest",
@@ -31,8 +31,6 @@
                          "walked off into the forest",
                          "stole a loaf of bread from the hermit"
                          ].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a fat merchant":
@@ -52,8 +50,6 @@
                       "was sleepwalking",
                       "walked off into the forest",
                     ].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a priest":
@@ -74,8 +70,6 @@
                       "saw a ghost",
                       "was sleepwalking",
                       "walked off into the forest"].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a sailor":
@@ -99,8 +93,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a soldier":
@@ -122,8 +114,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a magician":
@@ -145,8 +135,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a noble":
@@ -167,8 +155,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a rogue":
@@ -193,8 +179,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a crazy monk":
@@ -213,8 +197,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "a drunken farmer":
@@ -233,8 +215,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "the butcher":
@@ -256,8 +236,6 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
                   });
                   break;
               case "the tailor":
@@ -276,8 +254,8 @@
                       "found a magic item",
                       "was sleepwalking",
                       "walked off into the forest",].random(),
-                      discovery: [].random(),
-                      result: [].random(),
+
+
                   });
                   break;
     }
