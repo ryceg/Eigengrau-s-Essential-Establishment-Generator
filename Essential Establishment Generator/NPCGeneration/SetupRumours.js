@@ -17,7 +17,7 @@ setup.createRumour = function() {
 
   // A - Personal Information
   function PersonalInformation() {
-        return ["gives a secret about " + minorBoon(),
+        return ["gives a secret about " + MinorBoon(),
         "a family emergency; " + Emergency(),
         "passes along a rumor (check Ladder) about the PC as told by a friend or Enemy (Q)(R)",
         "gives information that confirms a suspicion held by the PC or the Party",
