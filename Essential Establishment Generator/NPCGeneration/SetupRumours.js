@@ -17,7 +17,7 @@ setup.createRumour = function() {
   function PersonalInformation() {
         return ["gives a secret about " + MinorBoon(),
         "a family emergency; " + Emergency(),
-        "passes along a rumor (check Ladder) about the PC as told by a " + ["friend", "friend", MinorEnemy()],
+        "passes along a rumor (check Ladder) about the PC as told by a " + ["friend", "friend", MinorEnemy()].random(),
         "gives information that confirms a suspicion held by the PC or the Party",
         "It will concern you that " + Warning(),
         "gives Exact Knowledge about information the PC or Party has been investigating",
@@ -51,19 +51,22 @@ setup.createRumour = function() {
   // D – Faction
   function Faction() {
         return ["mystery cult that " + MysteryCult(),
-        "slavers or brutal overlords",
-        "religious warriors or clerics",
+        "slavers",
+        "brutal overlords",
+        "religious warriors",
+        "clerics",
         "law and justice officers or warriors",
-        "corrupt mercenaries or rogues",
-        "merchants collective or guild",
+        "corrupt mercenaries",
+        "rogues",
+        "merchants guild",
         "cabal of mages"].random();
   }
 
   // E – Minor Bane
   function MinorBane() {
-        return ["disease or pestilence",
+        return ["disease and pestilence",
         "buildings destroyed",
-        "enemy (q) (r) of the pc or party is actively opposing them",
+        "a " + [MinorEnemy(), MajorEnemy()].random() + " of the party is actively opposing them",
         "loss of items of value",
         "a curse of " + Curse() + " has been activated",
         "people have been injured",
@@ -78,7 +81,7 @@ setup.createRumour = function() {
         "many items of value have been lost or destroyed",
         "many buildings have been damaged or the land has been damaged",
         "many people have been killed",
-        "pc or party has attracted the attention of an enemy (q) (r)"].random();
+        "pc or party has attracted the attention of " + [MinorEnemy(), MajorEnemy()].random()].random();
   }
 
   // G – Minor Boon
@@ -98,7 +101,7 @@ setup.createRumour = function() {
         "true knowledge of a treasure " + Treasure() + " location is obtained",
         "large amount of monetary wealth is granted",
         "an existing skill or knowledge is improved (+1) or a new skill is obtained",
-        "a personal relationship is improved to 100%",
+        "a personal relationship is improved",
         "a major property is awarded or an improvement to a major property is granted",
         "PC or party is pointed towards an artifact " + ItemInformation() + " ('specific' on the rumor ladder)"].random();
   }
@@ -119,7 +122,7 @@ setup.createRumour = function() {
         return ["committed political crime",
         "escaped from detention for crime",
         "committed minor crime of theft, fraud or assualt",
-        "committed major crime of theft, murder or rape (or this can be substituted with anarchy)",
+        "committed major crime of theft, murder or rape",
         "committed religious crime",
         "got tangled up with a mystery cult " + MysteryCult(),
         "unjustly accused"].random();
@@ -232,7 +235,7 @@ setup.createRumour = function() {
         "coins",
         "wands, rods, and staves",
         "clothing",
-        "artifact (c)"].random();
+        "artifact " + ItemInformation()].random();
   }
 
   // V – Emergency
@@ -251,19 +254,19 @@ setup.createRumour = function() {
         return ["a powerful enemy is coming for you",
         "an enemy is plotting against you",
         "the government is investigating you",
-        "a friend or lover or spouse is lying to you",
-        "a co-worker or business partner is stealing from you",
+        "a " + ["friend", "lover", "ally", "friend"].random() + " is lying to you",
+        "a " + ["friend", "co-worker", "ally", "friend"].random() + " is stealing from you",
         "a rival is spreading terrible lies and rumors",
         "an avatar is coming"].random();
   }
 
   // X – Social Events
   function SocialEvents() {
-        return ["an invitation to an upcoming event (party, play, etc..) given by a mysterious stranger.",
-        "a local revival of (insert deity) followers is nearby, and drawing crowds",
+        return ["an invitation to an upcoming " + ["party", "play", "banquet", "festival", "party", "dinner"].random() + " given by a mysterious stranger.",
+        "a local revival of religious followers is nearby, and drawing crowds",
         "a challenge has been issued by " + State.variables.townLeader + ", calling for feats of " + ["strength", "wit", "creativity", "genius", "dexterity", "constitution"].random(),
         "the (guild-house) is permitting new members to join, decided by a contest",
-        "a circus has come to town. rumors are they are taking on workers/performers",
+        "a circus has come to town. Rumors are they are taking on workers and performers",
         "a fancy dress party for " + State.variables.townLeader + "has drawn all the wealthy in the area",
         "the marriage/birth/death/divorce/something else of (local ruler) or (ruler's family/spouse)"].random();
   }
@@ -283,7 +286,7 @@ setup.createRumour = function() {
   function ReligiousEvents() {
         return ["avatar issues sanctions",
         "open warfare against temple enemies is now public knowledge",
-        "new edict/sanction is announced, causing a radical shift in the local population's mood",
+        "new " + ["edict", "sanction"].random() + " is announced, causing a radical shift in the local population's mood",
         "an expedition to the heathen lands has been announced",
         "temple leaders have declared a peace agreement and a summit of faith is announced.",
         "an artifact or holy relic has been " + ["destroyed", "found", "found"] + " and a call to the faithful has gone out",
