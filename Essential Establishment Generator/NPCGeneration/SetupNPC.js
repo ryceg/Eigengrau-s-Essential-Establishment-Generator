@@ -21,6 +21,7 @@ setup.createNPC = function(base) {
     var inventory;
     var mundane;
     var isVillain;
+    var title;
     var hasClass;
     var firstname;
     var name;
