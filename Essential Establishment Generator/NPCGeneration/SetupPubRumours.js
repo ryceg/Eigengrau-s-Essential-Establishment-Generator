@@ -1,4 +1,4 @@
-setup.createPubRumour = function(base) {
+/* setup.createPubRumour = function(base) {
     var pubRumour = Object.assign({
     origin:["a child",
             "a fat merchant",
