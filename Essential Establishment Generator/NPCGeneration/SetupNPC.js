@@ -14,6 +14,7 @@ setup.createNPC = function(base) {
     var beardRoll   = random(1, 99);
     var currentproject;
     var knownLanguages;
+    var descriptors;
     var availableLanguages;
     var standardLanguages = ["Common", "Dwarvish", "Elvish", "Gnomish", "Giant", "Goblin", "Halfling", "Orc"];
     var exoticLanguages = ["Abyssal", "Celestial", "Draconic", "Deep Speech", "Infernal", "Primordial", "Sylvan", "Undercommon"];
@@ -54,6 +55,7 @@ setup.createNPC = function(base) {
         mundane: mundane,
         hasClass: hasClass,
         isVillain: isVillain,
+        descriptors: descriptors,
         owner: owner,
         title: title,
 				reading: reading,
@@ -133,19 +135,22 @@ setup.createNPC = function(base) {
         case "human":
             Object.assign(npc, {
                 eyes: ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random(),
-                racesingular: "person",
                 raceplural: "humans",
                 raceadjective: "man",
                 racelanguage: "Common",
                 knownLanguages: ["Common"],
-                height: ["tiny", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random(),
+                height: ["tiny", "short", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random(),
                 weight: ["waif-like", "thin", "skinny", "skinny", "wiry", "thin", "stocky", "beefy", "muscular", "slightly underweight", "slightly overweight", "slightly overweight", "round", "tubby", "portly"].random(),
             });
             npc.racenote = npc.height + " " + npc.gender;
             if (npc.gender === "man") {
+              npc.racesingular = "man";
                 if (npc.beardRoll >= 27) {
                   npc.beard = ["scraggly beard", "long, flowing beard", "five o clock shadow", "neckbeard", "well-groomed moustache", "goatee", "well-loved beard, with ornamental beads woven into it", "sideburns", "smattering of hairs on his face", "bit of peach fuzz on his chin", "long, luxurious beard", "long, well-kempt beard", "rather wild, unkempt beard", "dreadful beard"].random();
                 }
+              }
+              else {
+              npc.racesingular = "woman";
               }
             break;
         case "elf":
@@ -684,6 +689,14 @@ setup.createNPC = function(base) {
                 "I was petrified 1000 years ago by a medusa while foraging for mushrooms. A wizard found and cured me but left without explaining anything. I must readjust and relearn everything!",
                 ].random();
     }
+    npc.descriptors = [npc.age + " " + npc.racesingular, npc.height + " " + npc.racesingular, npc.weight + " " + npc.racesingular, npc.height + " " + npc.gender + " with " + npc.physicaltrait];
+    if (typeof beard !== 'undefined') {
+      npc.descriptors.push(npc.racesingular + " with a " + npc.beard);
+    }
+    if (npc.hasClass == true) {
+      npc.descriptors.push(npc.dndclass);
+    }
+
 
     State.variables.npcs.set(baseName + ++index, npc);
     return npc;
