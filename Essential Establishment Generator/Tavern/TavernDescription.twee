@@ -4,14 +4,14 @@
 <<nobr>>
 <<switch $tavern.draw>>
 	<<case "attractive waitstaff">>
-		<<set _tavernnotable to "You see one of the barmaids talking to a patron, and it's difficult to convince your eyes there's a more pleasant sight in the room, until you see another equally attractive $barmaid.racenote barmaid pulling a pint at the bar.">>
+		<<set _tavernnotable to "You see one of the barmaids talking to a patron, and it's difficult to convince your eyes there's a more pleasant sight in the room, until you see another equally attractive <<print either($barmaid.descriptor)>> barmaid pulling a pint at the bar.">>
 	<<case "resident bard">>
 		<<set _tavernnotable to "You see a bard singing a love song in the corner of the room, and are drawn to his pure, melifluous voice. He's quite a good singer, and the patrons are nodding along to the song appreciatively.">>
 	<<case "witty banter with the waitstaff">>
 		<<set _tavernnotable to "You see a gruff looking man catcall after one of the barmaids, and she looks over her shoulder, and replies something that you can't quite make out. Despite this, it's clear that whatever she said destroyed the man, as his friends burst into laughter while he deflates rather rapidly.">>
 	<<case "crude jokes the bartender makes">>
 		<<set $tavernPatron to setup.createNPC()>>
-		<<set _tavernnotable to "You see the bartender is talking to a $tavernPatron.age $tavernPatron.racenote. <<print $bartender.heshe.toUpperFirst()>> smiles, and then says something, making the $tavernPatron.racenote go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle $tavern.name'.">>
+		<<set _tavernnotable to "You see the bartender is talking to a $tavernPatron.age <<print either($tavernPatron.descriptor)>>. <<print $bartender.heshe.toUpperFirst()>> smiles, and then says something, making the <<print either($tavernPatron.descriptor)>> go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle $tavern.name'.">>
 	<<case "proximity to the thieves' guild headquarters">>
 		<<set _tavernnotable to "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, $tavern.name has an issue with the nearby thieves' guild.">>
 	<<case "warmth inside">>
@@ -36,7 +36,7 @@
 		<<set _tavernnotable to "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face.", $tavern.magicroll += 4>>
 	<<case "drunk wizard">>
 		<<set $drunkwizard to setup.createNPC({dndclass: "wizard"})>>
-		<<set _tavernnotable to "There's a $drunkwizard.racenote thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. <<print $drunkwizard.heshe.toUpperFirst()>> looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'", $tavern.magicroll += 4>>
+		<<set _tavernnotable to "There's a <<print either($drunkwizard.descriptor)>> thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. <<print $drunkwizard.heshe.toUpperFirst()>> looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'", $tavern.magicroll += 4>>
 	<<case "huge fireplace">>
 		<<set _tavernnotable to "You see a huge fireplace in the centre of the $tavern.wordnoun, which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.">>
 	<<case "incredible view">>
