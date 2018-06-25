@@ -349,9 +349,12 @@
             <<elseif _cloudRoll gt 50>>
                 <<set $weather.cloudIntensity to "light clouds">>
                 <<set $weather.cloudTimer to random(6, 10)>>
-            <<elseif _cloudRoll lte 50>>
+            <<elseif _cloudRoll lte 50 && _precipitation is false>>
                 <<set $weather.cloudIntensity to "clear">>
                 <<set $weather.cloudTimer to random(8, 12)>>
+            <<else>>
+                <<set $weather.cloudIntensity to "light clouds">>
+                <<set $weather.cloudTimer to random(6, 10)>>
             <</if>>
         <</switch>>
 <</if>>
