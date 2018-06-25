@@ -110,7 +110,7 @@
         )>>
     <<case "overcast">>
       <<set $weather.cloudReadout to either(
-        "the stratus clouds hang overhead, resembling a thick fog clinging to the horizon, instead of the ground",
+        "stratus clouds hang overhead, resembling a thick fog clinging to the horizon, instead of the ground",
         )>>
     <<case "thick clouds">>
       <<set $weather.cloudReadout to either(
