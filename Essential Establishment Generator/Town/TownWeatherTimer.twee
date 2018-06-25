@@ -353,6 +353,7 @@
                 <<set $weather.cloudIntensity to "clear">>
                 <<set $weather.cloudTimer to random(8, 12)>>
             <</if>>
+        <</switch>>
 <</if>>
 
 

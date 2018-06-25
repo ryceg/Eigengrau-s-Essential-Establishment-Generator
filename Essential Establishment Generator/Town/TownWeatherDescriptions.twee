@@ -35,7 +35,8 @@
 <<switch $weather.precipitation>>
   <<case "none">>
       <<set $weather.precipitationReadout to either(
-
+        "It's a fine day",
+        "It's a fair day",
       )>>
   <<case "light fog">>
       <<set $weather.precipitationReadout to either(
