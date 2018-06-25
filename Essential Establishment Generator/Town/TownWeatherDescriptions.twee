@@ -134,7 +134,7 @@
         "there are a couple cumulonimbus clouds lazily drifting across the sky",
         "there are a couple clouds, but it's not quite overcast",
         )>>
-    <<case "clear">>
+    <<default>>
       <<set $weather.cloudReadout to either(
         "there's not a cloud in sight",
         "there are no clouds on the horizon",
