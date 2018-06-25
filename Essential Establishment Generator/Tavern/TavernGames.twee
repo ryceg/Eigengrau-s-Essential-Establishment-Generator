@@ -1,5 +1,5 @@
 :: TavernGames
-<<nobr>><<set $NPCgamer to setup.createNPC()>><<set $NPCgamebanker to setup.createNPC()>>
+<<nobr>><<set $NPCgamer to setup.createNPC({hasClass: true})>><<set $NPCgamebanker to setup.createNPC({hasClass: false})>>
 <<set $taverngames to either([
 	{
 	name: "Passe-dix",
