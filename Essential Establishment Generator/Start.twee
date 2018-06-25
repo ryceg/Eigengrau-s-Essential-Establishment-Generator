@@ -6,9 +6,9 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-<<link "Describe the weather">><<set $weather.temperatureTimer -= 4, $weather.precipitationTimer -= 4>><<replace "#weather">>It's currently $weather.temperatureReadout. $weather.precipitationReadout.<</replace>><</link>>
+<<link "Describe the weather">><<set $weather.temperatureTimer -= 4, $weather.precipitationTimer -= 4, $weather.cloudTimer>><<replace "#weather">>It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>>
 
-<span id="weather">It's currently $weather.temperatureReadout. $weather.precipitationReadout.</span>
+<span id="weather">It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.</span>
 
 <<link "New rumour">><<set $testRumour to setup.createRumour()>><<replace "#rumour">>$testRumour<</replace>><</link>>
 <span id="rumour">$testRumour</span>

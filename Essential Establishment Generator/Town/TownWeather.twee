@@ -2,13 +2,13 @@
 
 <<switch $town.location>> /* setting precipitation intensity based on height */
     <<case "seacoast", "volcanic field", "ice sheet">>
-        <<set $weather.precipitationintensity to 3>>
+        <<set $weather.precipitationIntensity to 3>>
     <<case "river coast", "forest", "plains", "jungle", "tundra", "desert", "wasteland">>
-        <<set $weather.precipitationintensity to 2>>
+        <<set $weather.precipitationIntensity to 2>>
     <<case "hills", "mountains">>
-        <<set $weather.precipitationintensity to 2>>
+        <<set $weather.precipitationIntensity to 2>>
     <<default>>
-        <<set $weather.precipitationintensity to 2>>
+        <<set $weather.precipitationIntensity to 2>>
 <</switch>>
 
 
@@ -83,4 +83,4 @@
         <<set $weather.temperature -= random(8, 12)>>
         <<set $weather.precipitationlevel -= 1>>
 <</switch>>
-<<set $weather.temperatureTimer to 0, $weather.precipitationTimer to 0>>
+<<set $weather.temperatureTimer to 0, $weather.precipitationTimer to 0, $weather.cloudTimer to 0>>

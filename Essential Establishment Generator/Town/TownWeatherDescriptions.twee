@@ -35,12 +35,7 @@
 <<switch $weather.precipitation>>
   <<case "none">>
       <<set $weather.precipitationReadout to either(
-        "There's not a cloud in sight",
-        "There are no clouds on the horizon, and it's fair weather",
-        "There are no clouds in the sky",
-        "There's a couple clouds in the sky",
-        "There are a couple cumulonimbus clouds lazily drifting across the sky",
-        "There are a couple clouds, but it's not quite overcast",
+
       )>>
   <<case "light fog">>
       <<set $weather.precipitationReadout to either(
@@ -100,7 +95,48 @@
         )>>
   <<case "thunderstorm">>
       <<set $weather.precipitationReadout to either(
-        "Dark clouds loom overhead, and the ominous booms of thunder go off in the distance",
+        "The ominous booms of thunder go off in the distance",
         "There's a flash of bright, white light, and several seconds later, there's a low boom in the distance",
+        )>>
+<</switch>>
+
+
+<<switch $weather.cloudIntensity>>
+    <<case "extremely overcast">>
+      <<set $weather.cloudReadout to either(
+        "above your heads, there is not a bit of sky not covered by the dark clouds",
+        "you cannot see the sky for the thick blanket of cloudcover",
+        )>>
+    <<case "overcast">>
+      <<set $weather.cloudReadout to either(
+        "the stratus clouds hang overhead, resembling a thick fog clinging to the horizon, instead of the ground",
+        )>>
+    <<case "thick clouds">>
+      <<set $weather.cloudReadout to either(
+        "a sheet of dark, threatening clouds are on the horizon"
+        "a dark blanket of clouds cover the sky, blotting out the sun",
+        )>>
+    <<case "heavy clouds">>
+      <<set $weather.cloudReadout to either(
+        "dark nimbostratus clouds cover the horizon, looming threateningly",
+        "a dark blanket of clouds cover the sky, blotting out the sun",
+        )>>
+    <<case "medium clouds">>
+      <<set $weather.cloudReadout to either(
+        "there are low, puffy, dark grey clumps of clouds in the sky",
+        "there are some clouds similar to the wool of a sheep floating abovehead",
+        "the clouds in the sky overhead have a similar resemblance to the scales of a mackerel fish",
+        )>>
+    <<case "light clouds">>
+      <<set $weather.cloudReadout to either(
+        "there's a couple clouds in the sky",
+        "there are a couple cumulonimbus clouds lazily drifting across the sky",
+        "there are a couple clouds, but it's not quite overcast",
+        )>>
+    <<case "clear">>
+      <<set $weather.cloudReadout to either(
+        "there's not a cloud in sight",
+        "there are no clouds on the horizon",
+        "there are no clouds in the sky",
         )>>
 <</switch>>

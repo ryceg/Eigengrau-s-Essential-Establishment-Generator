@@ -26,7 +26,7 @@
                   <<set $weather.temperatureTimer to random(24, 48)>>
             <</if>>
         <<case "tropical">>
-          <<set $weather.precipitationlevel += 1, $weather.precipitationintensity += 1>>
+          <<set $weather.precipitationlevel += 1, $weather.precipitationIntensity += 1>>
             <<if _tempvariation gt 85>>
                 <<set $weather.temperature += dice(2, 10)>>
                 <<set $weather.temperatureTimer to random(24, 48)>>
@@ -43,7 +43,7 @@
                   <<set $weather.temperatureTimer to random(24, 48)>>
             <</if>>
         <<case "polar">>
-          <<set $weather.precipitationlevel -= 1, $weather.precipitationintensity -= 1>>
+          <<set $weather.precipitationlevel -= 1, $weather.precipitationIntensity -= 1>>
             <<if _tempvariation is 100>>
                 <<set $weather.temperature += dice(3, 10)>>
                 <<set $weather.temperatureTimer to random(24, 48)>>
@@ -121,189 +121,189 @@
             <</if>>
     <</switch>>
 
-    <<set _precipitationintensityroll to random(1, 100)>> /* rolling for how intense the rain is */
+    <<set _precipitationIntensityroll to random(1, 100)>> /* rolling for how intense the rain is */
     <<if _precipitation is true && $weather.temperature lte 32>> /* testing for whether the precipitation should be on the freezing table or not */
-        <<switch $weather.precipitationintensity>>
+        <<switch $weather.precipitationIntensity>>
             <<case 1>> /* light precipitation */
-                <<if _precipitationintensityroll gt 75>>
+                <<if _precipitationIntensityroll gt 75>>
                     <<set $weather.precipitation to "light snow">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 60>>
+                <<elseif _precipitationIntensityroll gt 60>>
                     <<set $weather.precipitation to "light snow">>
                     <<set $weather.precipitationTimer to dice(1, 4)>>
-                <<elseif _precipitationintensityroll gt 50>>
+                <<elseif _precipitationIntensityroll gt 50>>
                     <<set $weather.precipitation to "light snow">>
                     <<set $weather.precipitationTimer to 1>>
-                <<elseif _precipitationintensityroll gt 40>>
+                <<elseif _precipitationIntensityroll gt 40>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 20>>
+                <<elseif _precipitationIntensityroll gt 20>>
                     <<set $weather.precipitation to "light fog">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
-                <<elseif _precipitationintensityroll lte 20>>
+                <<elseif _precipitationIntensityroll lte 20>>
                     <<set $weather.precipitation to "light snow">>
                     <<set $weather.precipitationTimer to random(1, 6)>>
                 <</if>>
             <<case 2>> /* medium precipitation */
-                <<if _precipitationintensityroll gt 90>>
+                <<if _precipitationIntensityroll gt 90>>
                     <<set $weather.precipitation to "medium snow">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 50>>
+                <<elseif _precipitationIntensityroll gt 50>>
                     <<set $weather.precipitation to "medium snow">>
                     <<set $weather.precipitationTimer to dice(1, 8)>>
-                <<elseif _precipitationintensityroll gt 30>>
+                <<elseif _precipitationIntensityroll gt 30>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 20>>
+                <<elseif _precipitationIntensityroll gt 20>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 10>>
+                <<elseif _precipitationIntensityroll gt 10>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
-                <<elseif _precipitationintensityroll lte 10>>
+                <<elseif _precipitationIntensityroll lte 10>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 6)>>
                 <</if>>
             <<case 3>> /* heavy precipitation */
-                <<if _precipitationintensityroll gt 90>>
+                <<if _precipitationIntensityroll gt 90>>
                     <<set $weather.precipitation to "heavy snow">>
                     <<set $weather.precipitationTimer to random(1, 6)>>
-                <<elseif _precipitationintensityroll gt 60>>
+                <<elseif _precipitationIntensityroll gt 60>>
                     <<set $weather.precipitation to "medium snow">>
                     <<set $weather.precipitationTimer to dice(1, 8)>>
-                <<elseif _precipitationintensityroll gt 20>>
+                <<elseif _precipitationIntensityroll gt 20>>
                     <<set $weather.precipitation to "light snow">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 10>>
+                <<elseif _precipitationIntensityroll gt 10>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to dice(2, 6)>>
-                <<elseif _precipitationintensityroll lte 10>>
+                <<elseif _precipitationIntensityroll lte 10>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 6)>>
                 <</if>>
             <<case 4>> /* torrential precipitation */
-                <<if _precipitationintensityroll gt 90>>
+                <<if _precipitationIntensityroll gt 90>>
                     <<set $weather.precipitation to "heavy snow">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 50>>
+                <<elseif _precipitationIntensityroll gt 50>>
                     <<set $weather.precipitation to "heavy snow">>
                     <<set $weather.precipitationTimer to dice(1, 8)>>
-                <<elseif _precipitationintensityroll gt 10>>
+                <<elseif _precipitationIntensityroll gt 10>>
                     <<set $weather.precipitation to "heavy snow">>
                     <<set $weather.precipitationTimer to dice(1, 4)>>
-                <<elseif _precipitationintensityroll gt 5>>
+                <<elseif _precipitationIntensityroll gt 5>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to dice(2, 6)>>
-                <<elseif _precipitationintensityroll lte 5>>
+                <<elseif _precipitationIntensityroll lte 5>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
                 <</if>>
               <</switch>>
     <<elseif _precipitation is true>>
-        <<switch $weather.precipitationintensity>>
+        <<switch $weather.precipitationIntensity>>
             <<case 1>> /* light precipitation */
-                <<if _precipitationintensityroll gt 90>>
+                <<if _precipitationIntensityroll gt 90>>
                     <<set $weather.precipitation to "light rain">>
                     <<set $weather.precipitationTimer to 1>>
-                <<elseif _precipitationintensityroll gt 75>>
+                <<elseif _precipitationIntensityroll gt 75>>
                     <<set $weather.precipitation to "light rain">>
                     <<set $weather.precipitationTimer to dice(1, 4)>>
-                <<elseif _precipitationintensityroll gt 50>>
+                <<elseif _precipitationIntensityroll gt 50>>
                     <<set $weather.precipitation to "drizzle">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 40>>
+                <<elseif _precipitationIntensityroll gt 40>>
                     <<set $weather.precipitation to "drizzle">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 20>>
+                <<elseif _precipitationIntensityroll gt 20>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 6)>>
-                <<elseif _precipitationintensityroll lte 20>>
+                <<elseif _precipitationIntensityroll lte 20>>
                     <<set $weather.precipitation to "light fog">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
                 <</if>>
             <<case 2>> /* medium precipitation */
-                <<if _precipitationintensityroll gt 90>>
+                <<if _precipitationIntensityroll gt 90>>
                     <<set $weather.precipitation to "rain">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 70>>
+                <<elseif _precipitationIntensityroll gt 70>>
                     <<set $weather.precipitation to "rain">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 35>>
+                <<elseif _precipitationIntensityroll gt 35>>
                     <<set $weather.precipitation to "rain">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 20>>
+                <<elseif _precipitationIntensityroll gt 20>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to random(1, 4)>>
-                <<elseif _precipitationintensityroll gt 10>>
+                <<elseif _precipitationIntensityroll gt 10>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 12)>>
-                <<elseif _precipitationintensityroll lte 10>>
+                <<elseif _precipitationIntensityroll lte 10>>
                     <<set $weather.precipitation to "medium fog">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
                 <</if>>
             <<case 3>> /* heavy precipitation */
-                <<if _precipitationintensityroll gt 90>>
+                <<if _precipitationIntensityroll gt 90>>
                     <<set $weather.precipitation to "thunderstorm">>
                     <<set $weather.precipitationTimer to random(1, 3)>>
-                <<elseif _precipitationintensityroll gt 85>>
+                <<elseif _precipitationIntensityroll gt 85>>
                     <<set $weather.precipitation to "thunderstorm">>
                     <<set $weather.precipitationTimer to 1>>
-                <<elseif _precipitationintensityroll gt 70>>
+                <<elseif _precipitationIntensityroll gt 70>>
                     <<set $weather.precipitation to "heavy rain">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
-                <<elseif _precipitationintensityroll gt 50>>
+                <<elseif _precipitationIntensityroll gt 50>>
                     <<set $weather.precipitation to "heavy rain">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 20>>
+                <<elseif _precipitationIntensityroll gt 20>>
                     <<set $weather.precipitation to "heavy rain">>
                     <<set $weather.precipitationTimer to dice(1, 12)>>
-                <<elseif _precipitationintensityroll gt 10>>
+                <<elseif _precipitationIntensityroll gt 10>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to dice(2, 6)>>
-                <<elseif _precipitationintensityroll lte 10>>
+                <<elseif _precipitationIntensityroll lte 10>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to random(1, 6)>>
                 <</if>>
             <<case 4>> /* torrential precipitation */
-                <<if _precipitationintensityroll gt 95>>
+                <<if _precipitationIntensityroll gt 95>>
                     <<set $weather.precipitation to "thunderstorm">>
                     <<set $weather.precipitationTimer to dice(1, 6)>>
-                <<elseif _precipitationintensityroll gt 80>>
+                <<elseif _precipitationIntensityroll gt 80>>
                     <<set $weather.precipitation to "thunderstorm">>
                     <<set $weather.precipitationTimer to dice(1, 3)>>
-                <<elseif _precipitationintensityroll gt 60>>
+                <<elseif _precipitationIntensityroll gt 60>>
                     <<set $weather.precipitation to "heavy rain">>
                     <<set $weather.precipitationTimer to dice(2, 6)>>
-                <<elseif _precipitationintensityroll gt 30>>
+                <<elseif _precipitationIntensityroll gt 30>>
                     <<set $weather.precipitation to "heavy rain">>
                     <<set $weather.precipitationTimer to dice(2, 12)>>
-                <<elseif _precipitationintensityroll gt 10>>
+                <<elseif _precipitationIntensityroll gt 10>>
                     <<set $weather.precipitation to "heavy rain">>
                     <<set $weather.precipitationTimer to dice(2, 6)>>
-                <<elseif _precipitationintensityroll gt 5>>
+                <<elseif _precipitationIntensityroll gt 5>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to dice(2, 6)>>
-                <<elseif _precipitationintensityroll lte 5>>
+                <<elseif _precipitationIntensityroll lte 5>>
                     <<set $weather.precipitation to "heavy fog">>
                     <<set $weather.precipitationTimer to random(1, 8)>>
                 <</if>>
             <<default>> /* just in case precipitation */
-                    <<if _precipitationintensityroll gt 90>>
+                    <<if _precipitationIntensityroll gt 90>>
                         <<set $weather.precipitation to "rain">>
                         <<set $weather.precipitationTimer to random(1, 4)>>
-                    <<elseif _precipitationintensityroll gt 70>>
+                    <<elseif _precipitationIntensityroll gt 70>>
                         <<set $weather.precipitation to "rain">>
                         <<set $weather.precipitationTimer to dice(2, 12)>>
-                    <<elseif _precipitationintensityroll gt 35>>
+                    <<elseif _precipitationIntensityroll gt 35>>
                         <<set $weather.precipitation to "rain">>
                         <<set $weather.precipitationTimer to random(1, 4)>>
-                    <<elseif _precipitationintensityroll gt 20>>
+                    <<elseif _precipitationIntensityroll gt 20>>
                         <<set $weather.precipitation to "heavy fog">>
                         <<set $weather.precipitationTimer to random(1, 4)>>
-                    <<elseif _precipitationintensityroll gt 10>>
+                    <<elseif _precipitationIntensityroll gt 10>>
                         <<set $weather.precipitation to "medium fog">>
                         <<set $weather.precipitationTimer to random(1, 12)>>
-                    <<elseif _precipitationintensityroll lte 10>>
+                    <<elseif _precipitationIntensityroll lte 10>>
                         <<set $weather.precipitation to "medium fog">>
                         <<set $weather.precipitationTimer to random(1, 8)>>
                     <</if>>
@@ -313,3 +313,60 @@
         <<set $weather.precipitationTimer to random(1, 8)>>
     <</if>>
 <</if>>
+
+<<if $weather.cloudTimer lt 1>>
+    <<set _cloudRoll to random(1, 100)>>
+    <<switch $weather.precipitationIntensity>>
+        <<case 4>>
+            <<if _cloudRoll gt 35>>
+                <<set $weather.cloudIntensity to "extremely overcast">>
+                <<set $weather.cloudTimer to random(8, 12)>>
+            <<elseif _cloudRoll gt 10>>
+                <<set $weather.cloudIntensity to "thick clouds">>
+                <<set $weather.cloudTimer to random(8, 16)>>
+            <<elseif _cloudRoll lte 10>>
+                <<set $weather.cloudIntensity to "heavy clouds">>
+                <<set $weather.cloudTimer to random(6, 10)>>
+            <</if>>
+        <<case 3>>
+            <<if _cloudRoll gt 35>>
+                <<set $weather.cloudIntensity to "extremely overcase">>
+                <<set $weather.cloudTimer to random(8, 12)>>
+            <<elseif _cloudRoll gt 10>>
+                <<set $weather.cloudIntensity to "thick clouds">>
+                <<set $weather.cloudTimer to random(8, 16)>>
+            <<elseif _cloudRoll lte 10>>
+                <<set $weather.cloudIntensity to "heavy clouds">>
+                <<set $weather.cloudTimer to random(6, 10)>>
+            <</if>>
+        <<default>>
+            <<if _cloudRoll gt 85>>
+                <<set $weather.cloudIntensity to "overcast">>
+                <<set $weather.cloudTimer to random(8, 12)>>
+            <<elseif _cloudRoll gt 70>>
+                <<set $weather.cloudIntensity to "medium clouds">>
+                <<set $weather.cloudTimer to random(8, 16)>>
+            <<elseif _cloudRoll gt 50>>
+                <<set $weather.cloudIntensity to "light clouds">>
+                <<set $weather.cloudTimer to random(6, 10)>>
+            <<elseif _cloudRoll lte 50>>
+                <<set $weather.cloudIntensity to "clear">>
+                <<set $weather.cloudTimer to random(8, 12)>>
+            <</if>>
+<</if>>
+
+
+    /* <<switch $weather.precipitation>>
+        <<case "none">>
+        <<case "light fog">>
+        <<case "medium fog">>
+        <<case "heavy fog">>
+        <<case "light rain">>
+        <<case "drizzle">>
+        <<case "rain">>
+        <<case "heavy rain">>
+        <<case "light snow">>
+        <<case "medium snow">>
+        <<case "heavy snow">>
+        <<case "thunderstorm">>
+  <</switch>> */
