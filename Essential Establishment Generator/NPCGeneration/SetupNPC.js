@@ -14,7 +14,7 @@ setup.createNPC = function(base) {
     var beardRoll   = random(1, 99);
     var currentproject;
     var knownLanguages;
-    var descriptors;
+    var descriptor;
     var availableLanguages;
     var standardLanguages = ["Common", "Dwarvish", "Elvish", "Gnomish", "Giant", "Goblin", "Halfling", "Orc"];
     var exoticLanguages = ["Abyssal", "Celestial", "Draconic", "Deep Speech", "Infernal", "Primordial", "Sylvan", "Undercommon"];
@@ -55,7 +55,7 @@ setup.createNPC = function(base) {
         mundane: mundane,
         hasClass: hasClass,
         isVillain: isVillain,
-        descriptors: descriptors,
+        descriptor: descriptor,
         owner: owner,
         title: title,
 				reading: reading,
@@ -689,12 +689,12 @@ setup.createNPC = function(base) {
                 "I was petrified 1000 years ago by a medusa while foraging for mushrooms. A wizard found and cured me but left without explaining anything. I must readjust and relearn everything!",
                 ].random();
     }
-    npc.descriptors = [npc.age + " " + npc.racesingular, npc.height + " " + npc.racesingular, npc.weight + " " + npc.racesingular, npc.height + " " + npc.gender + " with " + npc.physicaltrait];
+    npc.descriptor = [npc.age + " " + npc.racesingular, npc.height + " " + npc.racesingular, npc.weight + " " + npc.racesingular, npc.height + " " + npc.gender + " with " + npc.physicaltrait];
     if (typeof beard !== 'undefined') {
-      npc.descriptors.push(npc.racesingular + " with a " + npc.beard);
+      npc.descriptor.push(npc.racesingular + " with a " + npc.beard);
     }
     if (npc.hasClass == true) {
-      npc.descriptors.push(npc.dndclass);
+      npc.descriptor.push(npc.dndclass);
     }
 
 
