@@ -6,7 +6,7 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-<<link "Create a rumour">><<set $testmission to setup.createMission()>><<replace "#pub">>$testmission<</replace>><</link>>
+<<link "Create a rumour">><<set $testmission to setup.createMission({type: "blackmail"})>><<replace "#pub">>$testmission<</replace>><</link>>
 <span id="pub">$testmission</span>
 
 
