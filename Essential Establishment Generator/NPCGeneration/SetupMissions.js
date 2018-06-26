@@ -631,5 +631,5 @@ setup.createMission = function(base) {
 
 mission.readout = ["I've got a job for you.", "Got a job for you to do.", "There's a job I need you to do.", "There's something I need you to do."].random() + " " + mission.difficultyText + " " + ["This one's a ", "It's a ", "This is a "].random() + mission.type + "job. " + ["Don't fuck it up.", "Don't let me down.", "Don't disappoint me."].random();
 
-return mission;
+return mission.readout;
 };
