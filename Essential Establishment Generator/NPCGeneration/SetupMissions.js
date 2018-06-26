@@ -16,7 +16,7 @@ setup.createMission = function(base) {
       targetNPC: targetNPC,
       targetLocation: targetLocation,
   }, base);
-};
+
 
   switch (mission.type) {
       case "alchemy":
