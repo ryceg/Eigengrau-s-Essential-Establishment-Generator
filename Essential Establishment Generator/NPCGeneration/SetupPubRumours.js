@@ -706,9 +706,9 @@ setup.createPubRumour = function() {
                 break;
           }
 
-};
+
 
 pubRumour = ["Did you hear?", "Did you hear the news?", "Did you hear about the news?", "Did you hear?"].random() + " " + tempRumour.origin.toUpperFirst() + " " + tempRumour.complication + " and " + tempRumour.discovery + ", and now " + tempRumour.result;
 
 return pubRumour;
-}
+};
