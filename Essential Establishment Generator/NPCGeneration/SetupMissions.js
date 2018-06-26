@@ -629,7 +629,7 @@ setup.createMission = function(base) {
     "It might be a tad tricky."].random();
   }
 
-mission.readout = ["I've got a job for you.", "Got a job for you to do.", "There's a job I need you to do.", "There's something I need you to do."].random() + " " + mission.difficultyText + " " + ["This one's a ", "It's a ", "This is a "].random() + mission.type + "job. " + ["Don't fuck it up.", "Don't let me down.", "Don't disappoint me."].random();
+mission.readout = ["I've got a job for you.", "Got a job for you to do.", "There's a job I need you to do.", "There's something I need you to do."].random() + " " + mission.difficultyText + " " + ["This one's a ", "It's a ", "This is a "].random() + mission.type + " job. I need you to " + mission.details + ["Don't fuck it up.", "Don't let me down.", "Don't disappoint me."].random();
 
 return mission.readout;
 };
