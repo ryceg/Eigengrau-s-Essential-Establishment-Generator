@@ -28,6 +28,7 @@ setup.createNPC = function(base) {
     var name;
     var note;
     var owner;
+    var pubRumour = setup.createPubRumour();
 
     // Base random variables first - those that don't depend on others
     var npc = Object.assign({
