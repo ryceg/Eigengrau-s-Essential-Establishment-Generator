@@ -59,19 +59,19 @@
 				<</if>>
 		<</capture>><</nobr>><</widget>>
 
-<<widget "profile">>\
-<<set _char = $args[0], _readout = $args[1]>>\
-<<capture _char, _readout>>\
-		<<if def $args[1]>>\
-					<<link _readout "NPCProfile">>\
-						<<set $currentNPC to _char>>\
-					<</link>>\
-			<<else>>\
-					<<link _char.name "NPCProfile">>\
-							<<set $currentNPC to _char>>\
-					<</link>>\
-		<</if>>\
-<</capture>><</widget>>\
+<<widget "profile">>
+\<<set _char = $args[0], _readout = $args[1]>>
+\<<capture _char, _readout>>
+		\<<if def $args[1]>>
+					\<<link _readout "NPCProfile">>
+						\<<set $currentNPC to _char>>
+					\<</link>>
+			\<<else>>
+					\<<link _char.name "NPCProfile">>
+							\<<set $currentNPC to _char>>
+					\<</link>>
+		\<</if>>
+\<</capture>><</widget>>
 
 <<widget "temp">><<nobr>>
 		<<set _temp = $args[0]>>
