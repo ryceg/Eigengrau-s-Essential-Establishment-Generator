@@ -114,7 +114,7 @@
         )>>
     <<case "thick clouds">>
       <<set $weather.cloudReadout to either(
-        "a sheet of dark, threatening clouds are on the horizon"
+        "a sheet of dark, threatening clouds are on the horizon",
         "a dark blanket of clouds cover the sky, blotting out the sun",
         )>>
     <<case "heavy clouds">>
