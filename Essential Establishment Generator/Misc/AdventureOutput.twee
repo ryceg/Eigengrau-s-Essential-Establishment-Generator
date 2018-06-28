@@ -1,6 +1,6 @@
 :: AdventureOutput
 <<set $adventureMerchant to setup.createNPC({gender: "man", hasClass: false, profession: "merchant"})>>
-<<set $adventureMadameBeaudry to setup.createNPC({gender: "woman", lastname: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged"})>>
+<<set $adventureMadameBeaudry to setup.createNPC({gender: "woman", race: "human", lastname: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged"})>>
 <<set $adventureMurderer to setup.createNPC({gender: "man", hasClass: false, profession: "apothecarist"})>>
 You come across the body of a woman lying in one of the back alleys near $tavern.name. She's well dressed, very pale, and roughly 45 years of age. It is not exactly clear how she died, but her eyes are bulging.
 
