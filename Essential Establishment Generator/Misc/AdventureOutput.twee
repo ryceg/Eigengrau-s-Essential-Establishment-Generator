@@ -1,5 +1,5 @@
 :: AdventureOutput
-
+<<set $adventure.merchant to setup.createNPC({gender: "male", hasClass: false, profession: "merchant"})>>
 You come across the body of a woman lying in one of the back alleys near $tavern.name. She's well dressed, very pale, and roughly 45 years of age. It is not exactly clear how she died, but her eyes are bulging.
 
 <<linkreplace "<h4>Inspect the body (Medicine (Wis) DC 10 Check)</h4>">><h4>Clue #1 - The Woman's Body</h4>It looks as though she was gagging before dying.<</linkreplace>>
@@ -10,33 +10,30 @@ You come across the body of a woman lying in one of the back alleys near $tavern
 
 <h4>Clue #4 - The Empty Coin Purse</h4>Badly hidden on a bush nearby you find an empty woman's purse. Looks fairly expensive with a gold-leaf embroidery. There is a ledger crumpled up inside with an address to a merchant: 39 $tavern.street.
 
-<<linkreplace "Look near the bodies (Perception (Wis) DC 10)">>Sitting between the two bodies you see a glass bottle with traces of a red liquid. It has no label.<</linkreplace>>
+<<linkreplace "Look near the bodies (Perception (Wis) DC 10)">><h4>Clue #5 - The Glass Vial</h4>Sitting between the two bodies you see a glass bottle with traces of a red liquid. It has no label.<</linkreplace>>
 
-<<linkreplace "Look near the bodies (Perception (Wis) DC 14)">>A few feet away from the woman's body you see droplets of a strange red liquid.
+<<linkreplace "Look near the bodies (Perception (Wis) DC 14)">><h4>Clue #6 - Drops of Red Liquid</h4>A few feet away from the woman's body you see droplets of a strange red liquid.
 <<linkreplace "Inspect the liquid (Medicine (Wis) DC 10)">>The liquid smells like a harsh medicinal tonic of some sort.<</linkreplace>>
 <<linkreplace "Compare it to the glass vial (Investigation (Int) DC 10)">>The red liquid is the same in both cases.<</linkreplace>><</linkreplace>>
 
 <<linkreplace "If your players get lost">>On your way to the crime scene, you remember that you passed through a merchant stall that had really cheap healing potions for sale and it was located on a street with the same name as the one found in the ledger.<</linkreplace>>
 
 <h3>Merchant Stall</h3>
-This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items.
+This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a $adventure.merchant.descriptor manning the stall. He introduces himself as <<profile $adventure.merchant>>, and asks what he can do for you.
 
 <h4>Clue #1 - Purses</h4> There are numerous purses for sale, though some are rather expensive. Looks like they use the same gold-leaf embroidery technique as the dead woman's purse.
 
-<h4>Clue #2 - Tonics and medicine</h4>There is a variety of tonics for sale, including healing potions.
+<h4>Clue #2 - Tonics and medicine</h4>There is a variety of tonics for sale, including healing potions for just 25gp!
 
-The healing potions here have a base price of 25 gp and heals 1d8-1. Each time the characters drinks this potion the modifier decreases by 1. If the modifier is greater than the number rolled on the dice, the character loses health proportinal to the result.
-Example: If a character drinks this potion 4 times, he's gonna "heal" 1d8-4 if he rolls 2 on the dice, he's gonna lose 2 HP instead of healing.
+<blockquote>The healing potions here have a base price of 25 gp and heals 1d8-1. Each time the characters drinks this potion the modifier decreases by 1. If the modifier is greater than the number rolled on the dice, the character loses health proportinal to the result.
+Example: If a character drinks this potion 4 times, he's gonna "heal" 1d8-4 if he rolls 2 on the dice, he's gonna lose 2 HP instead of healing.</blockquote>
 
 <h4>Clue #3 - Tonic bottle</h4>An exact match to the bottle that you've found at the crime scene except it's sealed. You can't tell the color of the contents inside.
 
 <h4>Clue #4 - Merchant's statment*</h4>
-<<linkreplace "About the purse:">>"The purse belonged to my boss, Madame Beaudry."<</linkreplace>>
-
-<<linkreplace "About his boss:">>She hasn't come into work yet.<</linkreplace>>
-
+<<linkreplace "About the purse:">>Inspecting the purse, <<print $adventure.merchant.name>> says "This purse belonged to my boss, Madame Beaudry."<</linkreplace>>
+<<linkreplace "About his boss:">>"She hasn't come into work yet."<</linkreplace>>
 <<linkreplace "About a possible enemy of Madame Beaudry:">>Her and Samuel, the apothecary... I'd say hateful would be a mild way to sum up their relationship.<</linkreplace>>
-
 <<linkreplace "About the bottle:">>We sell plenty of potion, but without the label I can't tell you if this one is ours.<</linkreplace>>
 
 <<linkreplace "About someone who could know more about the bottle:">>Our alchemist Nicholas would know if it's ours or you could talk to Samuel Maran, the apothecary. He sells the same potion. I'll write you their addresses.<</linkreplace>>
@@ -47,7 +44,7 @@ The critical clue that the characters need to solve the whole mystery is at the 
 
 
 
-<h4>Place #3 - Apothecary Stand</h4>This stand is relatively bigger than the first one but the items on display here are more focused on potions and concoctions.
+<h3>Place #3 - Apothecary Stand</h3>This stand is relatively bigger than the first one but the items on display here are more focused on potions and concoctions.
 
 <h4>Clue #1 - Pestle and mortar</h4>A pestle and mortar set to pulverize ingredients.
 
