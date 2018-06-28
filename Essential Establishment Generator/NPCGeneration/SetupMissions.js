@@ -1,5 +1,5 @@
 setup.createMission = function(base) {
-  var category = ["thieves", "wizards"];
+  var category = ["thieves", "wizards", "bartender"];
   var type = ["alchemy", "assassination", "blackmail", "burglary", "swindle", "fence", "fraud", "gambling", "kidnapping", "narcotics", "prostitution", "protection", "slavery", "smuggling", "street"];
   var difficulty = ["easy", "easy", "easy", "medium", "medium", "hard"];
   var difficultyText;

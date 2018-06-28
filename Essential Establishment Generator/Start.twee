@@ -12,6 +12,7 @@
 <<link "Create a mission">><<set $testmission to setup.createMission({type: "blackmail"})>><<replace "#pub">>$testmission<</replace>><</link>>
 <span id="pub">$testmission</span>
 
+[[AdventureOutput]]
 
 <<link "Describe the weather">><<set $weather.temperatureTimer -= 4, $weather.precipitationTimer -= 4, $weather.cloudTimer>><<nobr>><<include "TownWeatherDescriptions">><<include "TownWeatherTimer">><</nobr>><<replace "#weather">>$weather.temperatureTimer - It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>>
 
