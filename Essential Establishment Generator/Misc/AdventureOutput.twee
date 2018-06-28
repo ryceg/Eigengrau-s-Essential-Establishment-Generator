@@ -13,7 +13,7 @@ You come across the body of a woman lying in one of the back alleys near $tavern
 <h4>Clue #3 - The Man's Body</h4>A few feet away from the woman's body you notice an unidentified dead man who looks to have been homeless. His clothes are ratty and reek of alcohol. The body itself clearly hasn't been dead long enough to smell so putrid. No clear signs of how he died though his eyes are bulging wide.
 <<linkreplace "If the players ask anyone about the man">><blockquote>The man is a homeless drunkard, who drank the potion thinking it to be alcohol. Purely a red herring, if players get too distracted by him, you can have any NPC recognise poor old Frogtoe Bill, and suggest that he met his end by drinking something stronger than what he could handle.</blockquote><</linkreplace>>
 
-<h4>Clue #4 - The Empty Coin Purse</h4>Badly hidden on a bush nearby you find an empty woman's purse. Looks fairly expensive with a gold-leaf embroidery. There is a ledger crumpled up inside with an address to a merchant: 39 $tavern.street.
+<h4>Clue #4 - The Empty Coin Purse</h4>Badly hidden on a bush nearby you find an empty woman's purse. Looks fairly expensive with a gold-leaf embroidery. There is a ledger crumpled up inside with an address to a merchant: 39 Mayfern Street.
 
 <<linkreplace "Look near the bodies (Perception (Wis) DC 10)">><h4>Clue #5 - The Glass Vial</h4>Sitting between the two bodies you see a glass bottle with traces of a red liquid. It has no label.<</linkreplace>>
 
@@ -66,7 +66,7 @@ The critical clue that the characters need to solve the whole mystery is at the 
 If not, he says that before confessing his murder.
 
 
-<h3>Place #4 - The Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventureAlchemist>> is preparing a box of $adventureHerbs when you arrive, and welcomes you.
+<h3>Place #4 - The Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventureAlchemist>> is preparing a box of $adventureHerbs.output when you arrive, and welcomes you.
 <h4>Clue #1 - Pestle and mortar</h4>A pestle and mortar set to pulverize ingredients.
 <<linkreplace "On an Investigation (Int) DC 10 check:">>It seems like they were freshly used.<</linkreplace>>
 
