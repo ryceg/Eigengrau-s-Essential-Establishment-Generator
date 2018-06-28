@@ -57,7 +57,7 @@ The critical clue that the characters need to solve the whole mystery is at the 
 <h4>Clue #5 - $adventureMurderer.name's statment</h4><<linkreplace "About the bottle:">>"That's not my tonic. You see the cork there? I always mark mine when counting stock. No mark means it's Madame Beaudry's."<</linkreplace>>
 <<linkreplace "If the players don't give a hint that they know that Mme. Beaudry is dead and if $adventureMurderer.firstname thinks that the players are trustworthy, or if they convince him that they are only asking this because they had a problem with one of the Mme. Beaudry's products. $adventureMurderer.firstname confesses this to them:">>"That wretched merchant dilutes her potions with all sorts of ingredients to keep her prices down. It's putting me out of business! You take too much of that poison and you'll be a dead man."<</linkreplace>>
 
-<h3>Place #4 - Madame Beaudry's Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventureAlchemist>> is preparing a box of <<print $adventureHerbs.output>> when you arrive, and welcomes you.
+<h3>Place #4 - Madame Beaudry's Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventureAlchemist>> is stacking some boxes when you arrive, and welcomes you.
 
 <h4>Clue #1 - Pestle and mortar</h4>A pestle and mortar set to pulverize ingredients.
 <<linkreplace "On an Investigation (Int) DC 10 check:">>It seems like they were freshly used.<</linkreplace>>
