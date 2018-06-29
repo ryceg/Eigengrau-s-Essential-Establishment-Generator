@@ -1,16 +1,19 @@
 :: TownWeatherTimer [render]
 
 <<if def $weather.seasonChange && $weather.seasonChange !== $weather.season>>
+  <<set $weather.season to $weather.seasonChange>>
   <<include "TownWeather">>
   /* <<unset $weather.seasonChange>> */
 <</if>>
 
 <<if def $town.terrainChange && $town.terrainChange !== $town.terrain>>
+  <<set $town.terrain to $town.terrainChange>>
   <<include "TownWeather">>
   /* <<unset $town.terrainChange>> */
 <</if>>
 
 <<if def $town.locationChange && $town.locationChange !== $town.location>>
+  <<set $town.location to $town.locationChange>>
   <<include "TownWeather">>
   /* <<unset $town.locationChange>> */
 <</if>>
