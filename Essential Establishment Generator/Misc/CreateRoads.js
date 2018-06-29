@@ -5,7 +5,7 @@ setup.createRoad = function(base) {
   var noEncounter;
   var road = Object.assign({
     type: type.random(),
-  });
+  }, base);
 
   switch (road.type) {
     case "trail":
