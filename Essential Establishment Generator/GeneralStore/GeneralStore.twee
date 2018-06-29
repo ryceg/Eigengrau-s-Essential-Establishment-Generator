@@ -51,7 +51,7 @@
     	owner: either(["owner", "caretaker", "proud owner", "proprietor", "current owner", "manager", "manager", "acting manager"])
       })>>
 
-<<set $GeneralStore.crud to ["rusty knives", 
+/* <<set $GeneralStore.crud to ["rusty knives",
 "dull knives",
 "mismatched armor",
 "shattered shields",
@@ -150,4 +150,4 @@
 "bent and broken wands",
 "cracked and broken orbs",
 "saintly relics and pungent incense",
-"brushes of various sorts"]>>
+"brushes of various sorts"]>> */
