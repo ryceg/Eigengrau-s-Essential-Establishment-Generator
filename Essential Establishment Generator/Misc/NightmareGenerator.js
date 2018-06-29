@@ -95,4 +95,3 @@ nightmare.readout = "You find yourself in " + nightmare.location + ". You see " 
 
 return nightmare.readout;
 };
-}
