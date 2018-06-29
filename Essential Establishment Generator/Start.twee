@@ -14,6 +14,7 @@
 
 [[AdventureOutput]]
 
+<<link "Generate a nightmare">><<set $testNightmare to setup.createNightmare()>><<replace "#nightmare">>$testNightmare<</replace>><</link>>$testNightmare
 
 <<link "Describe the weather">><<set $weather.temperatureTimer -= 4, $weather.precipitationTimer -= 4, $weather.cloudTimer>><<nobr>><<include "TownWeatherDescriptions">><<include "TownWeatherTimer">><</nobr>><<replace "#weather">>$weather.temperatureTimer - It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>>
 
