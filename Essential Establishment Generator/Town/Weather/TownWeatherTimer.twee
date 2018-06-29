@@ -1,5 +1,20 @@
 :: TownWeatherTimer [render]
 
+<<if def $weather.seasonChange && $weather.seasonChange !== $weather.season>>
+  <<include "TownWeather">>
+  <<unset $weather.seasonChange>>
+<</if>>
+
+<<if def $town.terrainChange && $town.terrainChange !== $town.terrain>>
+  <<include "TownWeather">>
+  <<unset $town.terrainChange>>
+<</if>>
+
+<<if def $town.locationChange && $town.locationChange !== $town.location>>
+  <<include "TownWeather">>
+  <<unset $town.locationChange>>
+<</if>>
+
 <<if $weather.temperatureTimer lt 1>>
     <<set _tempvariation to random(1, 100)>> /* Making temperature variations i.e. 4 day forecast of temp */
     <<switch $town.terrain>>
@@ -26,7 +41,6 @@
                   <<set $weather.temperatureTimer to random(24, 48)>>
             <</if>>
         <<case "tropical">>
-          <<set $weather.precipitationlevel += 1, $weather.precipitationIntensity += 1>>
             <<if _tempvariation gt 85>>
                 <<set $weather.temperature += dice(2, 10)>>
                 <<set $weather.temperatureTimer to random(24, 48)>>
@@ -43,7 +57,6 @@
                   <<set $weather.temperatureTimer to random(24, 48)>>
             <</if>>
         <<case "polar">>
-          <<set $weather.precipitationlevel -= 1, $weather.precipitationIntensity -= 1>>
             <<if _tempvariation is 100>>
                 <<set $weather.temperature += dice(3, 10)>>
                 <<set $weather.temperatureTimer to random(24, 48)>>
@@ -66,7 +79,6 @@
                   <<set $weather.temperatureTimer to random(24, 48)>>
             <</if>>
         <<case "arid">>
-          <<set $weather.precipitationlevel -= 1>>
             <<if _tempvariation gt 95>>
                 <<set $weather.temperature += dice(3, 10)>>
                 <<set $weather.temperatureTimer to random(24, 48)>>

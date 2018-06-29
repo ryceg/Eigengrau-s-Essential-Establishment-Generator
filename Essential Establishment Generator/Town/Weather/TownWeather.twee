@@ -11,6 +11,17 @@
         <<set $weather.precipitationIntensity to 2>>
 <</switch>>
 
+<<switch $town.terrain>>
+    <<case "temperate">>
+      <<set $weather.precipitationlevel += 1, $weather.precipitationIntensity += 1>>
+    <<case "tropical">>
+      <<set $weather.precipitationlevel -= 1, $weather.precipitationIntensity += 1>>
+    <<case "polar">>
+      <<set $weather.precipitationlevel += 1>>
+    <<case "arid">>
+      <<set $weather.precipitationlevel -= 1, $weather.precipitationIntensity -= 1>>
+<</switch>>
+
 
 <<switch $weather.season>> /* testing which season it is, and assigning temperature and precipitation frequency based off that */
     <<case "summer">>
