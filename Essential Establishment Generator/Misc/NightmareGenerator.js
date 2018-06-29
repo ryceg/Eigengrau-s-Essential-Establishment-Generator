@@ -10,17 +10,21 @@ setup.createNightmare = function(base) {
   "a long hallway with a door at the end. The door doesn't get closer as you approach",
   "knee deep swamp water. You can feel something touching your leg under the surface",];
   var figure = [
-    ["boy", "girl"].random(),
-    "young " + ["man", "woman"].random(),
-    "elderly " + ["man", "woman"].random(),
+    ["boy",
+    "girl",
+    "young man",
+    "young woman",
+    "elderly man",
+    "elderly woman",
     "copy of yourself",
     "large dog",
     "large mangy cat",
-    ["father", "mother"].random(),
+    "father",
+    "mother",
     "shadowy figure",
     "small toy doll, standing upright",
     "large wolf standing on its hind legs"];
-  var figurePrefix = ["a ", "a ", "an ", "", "a ", "a ", "your ", "a ", "a ", "a "];
+  var figurePrefix = ["a ", "a ", "a ", "a ", "an ", "an ", "", "a ", "a ", "your ", "your ", "a ", "a ", "a "];
   var figureGender;
   var readout;
   var descriptor;
@@ -82,7 +86,7 @@ Object.assign(nightmare, {
     wake: [
         "inches from your face is the " + nightmare.figure,
         "in the darkness you can see the outline of the " + nightmare.figure,
-        "the " + nightmare.figure + " is sprinting towards you, roll initiative. [Player wakes as soon as the figure reaches them. All spells fail and attacks miss against [figure]]",
+        "the " + nightmare.figure + " is sprinting towards you, roll initiative. [Player wakes as soon as the figure reaches them. All spells fail and attacks miss against the monster.]",
         "the door to the room opens slowly and the " + nightmare.figure + " walks in",
         "the party member closest to them is replaced with the " + nightmare.figure,
         "standing over you is the " + nightmare.figure,
@@ -91,7 +95,7 @@ Object.assign(nightmare, {
         "the " + nightmare.figure + " is dragging away a party member. It looks up and makes eye contact with you"].random(),
 });
 
-nightmare.readout = "You find yourself in " + nightmare.location + ". You see " + nightmare.figurePrefix + nightmare.figure + "which " + nightmare.descriptor + ". The " + nightmare.figure + " " + nightmare.action + ". You wake up in a cold sweat. " + nightmare.wake.toUpperFirst();
+nightmare.readout = "You find yourself in " + nightmare.location + ". You see " + nightmare.figurePrefix + nightmare.figure + " which " + nightmare.descriptor + ". The " + nightmare.figure + " " + nightmare.action + ". You wake up in a cold sweat. " + nightmare.wake.toUpperFirst();
 
 return nightmare.readout;
 };
