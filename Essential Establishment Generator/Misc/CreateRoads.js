@@ -16,14 +16,14 @@ setup.createRoad = function(base) {
       });
     break;
     case "path":
-      Obect.assign(road, {
+      Object.assign(road, {
         descriptiveType: ["simple path", "overgrown dirt path", "riding path"].random(),
         traffic: ["which looks to be desolate and abandoned", "dotted with hoofprints", "with heavy bootprints in the dirt", "with the occassional burnt out campfire on the side"].random(),
         encounter: ["the road wardens", "a merchant caravan", "a work gang heading home", "another adventuring party", "some escaped convicts", "some of the local militia", "a pair of travelling clerics", "some graverobbers", "a traveling peddler", "some farmers", "a plague-infested cabin", "a hunting party", "some farmers", "some bandits", "an adventurer on a horse", "a band of mercenaries", "a solitary troubador", "a mounted messenger", "some beserkers", "some robbers", "[monster encounter]", "some tribesmen", "a caravan of gypsies", "the undead", "some raiders"].random(),
       });
     break;
     case "road":
-      Obect.assign(road, {
+      Object.assign(road, {
         descriptiveType: ["crossroads", "droveway", "patrol road", "dirt road", "busy droveway", "busy dirt road", "military road", "cobblestone road", "busy cobblestone road", "crumbling cobblestone road", "paved road", "busy paved road", "crumbling paved road"].random(),
         traffic: ["which is dotted with dead campsites where many a weary traveler has mad camp for the night", ", occassionally passing a patrol shack", "that has plenty of wheel tracks", "that has road markers and signage dotted every now and then", "that has checkpoints or guard posts every couple of miles", "which seems to have been marred by time or, perhaps warfare", "which passes a tavern that seems to be doing very well"].random(),
         encounter: ["a marching army", "a merchant caravan", "a wedding party", "another adventuring party", "a group of pilgrims", "some escaped convicts", "a funeral procession", "a plague cart", "some farmers", "a knight errant", "a wounded knight", "a lone horse, trotting the other way", "a band of mercenaries", "a traveling theatre troupe", "a courier", "some beggars", "a caravan of slavers", "a traveling lady", "some robbers", "a caravan of gypsies", "a lone zombie"].random(),
