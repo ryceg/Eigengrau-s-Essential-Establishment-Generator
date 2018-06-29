@@ -22,7 +22,7 @@ setup.createNightmare = function(base) {
     "father",
     "mother",
     "shadowy figure",
-    "small toy doll, standing upright",
+    "small toy doll",
     "large wolf standing on its hind legs"];
   var figurePrefix = ["a ", "a ", "a ", "a ", "an ", "an ", "", "a ", "a ", "your ", "your ", "a ", "a ", "a "];
   var figureGender;
