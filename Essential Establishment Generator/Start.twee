@@ -6,23 +6,6 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-<<link "Create a rumour">><<set $testPubRumour to setup.createPubRumour()>><<replace "#pub">>$testPubRumour<</replace>><</link>>
-<span id="pub">$testPubRumour</span>
-
-<<link "Create a mission">><<set $testmission to setup.createMission({type: "blackmail"})>><<replace "#pub">>$testmission<</replace>><</link>>
-<span id="pub">$testmission</span>
-
-[[AdventureOutput]]
-
-<<link "Generate a nightmare">><<set $testNightmare to setup.createNightmare()>><<replace "#nightmare">>$testNightmare<</replace>><</link>><span id="nightmare">$testNightmare</span>
-
-<<link "Describe the weather">><<set $weather.temperatureTimer -= 4, $weather.precipitationTimer -= 4, $weather.cloudTimer>><<nobr>><<include "TownWeatherDescriptions">><<include "TownWeatherTimer">><</nobr>><<replace "#weather">>$weather.temperatureTimer - It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>>
-<<dropdown "$weather.seasonChange" $weather.seasonPool>> <<dropdown "$town.terrainChange" $town.terrainPool>> <<dropdown "$town.locationChange" $town.locationPool>>
-<span id="weather">$weather.temperatureTimer - It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.</span>
-
-<<link "New rumour">><<set $testRumour to setup.createRumour()>><<replace "#rumour">>$testRumour<</replace>><</link>>
-<span id="rumour">$testRumour</span>
-
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
         <<set $currentPassage to $tavern>>
