@@ -10,7 +10,7 @@ setup.createNightmare = function(base) {
   "a long hallway with a door at the end. The door doesn't get closer as you approach",
   "knee deep swamp water. You can feel something touching your leg under the surface",];
   var figure = [
-    ["boy",
+    "boy",
     "girl",
     "young man",
     "young woman",
