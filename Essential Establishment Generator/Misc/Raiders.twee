@@ -1,4 +1,3 @@
-
 :: Raiders
 <<set $raidedvillager to setup.createNPC()>>
 <<set $raiderleader to setup.createNPC({dndclass: "barbarian", gender: "male"})>>
