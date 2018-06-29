@@ -2,17 +2,17 @@
 
 <<if def $weather.seasonChange && $weather.seasonChange !== $weather.season>>
   <<include "TownWeather">>
-  <<unset $weather.seasonChange>>
+  /* <<unset $weather.seasonChange>> */
 <</if>>
 
 <<if def $town.terrainChange && $town.terrainChange !== $town.terrain>>
   <<include "TownWeather">>
-  <<unset $town.terrainChange>>
+  /* <<unset $town.terrainChange>> */
 <</if>>
 
 <<if def $town.locationChange && $town.locationChange !== $town.location>>
   <<include "TownWeather">>
-  <<unset $town.locationChange>>
+  /* <<unset $town.locationChange>> */
 <</if>>
 
 <<if $weather.temperatureTimer lt 1>>
