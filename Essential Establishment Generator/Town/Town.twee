@@ -61,7 +61,8 @@ $town.sizeroll.clamp(1, 100)
 <</if>>
 
 <<set $weather to {
-	season: either(["winter", "spring", "summer", "autumn"])
+	season: either(["winter", "spring", "summer", "autumn"]),
+	seasonPool: ["winter", "spring", "summer", "autumn"]
 	}>>
 
 <<include "TownSocioPolitics">>
