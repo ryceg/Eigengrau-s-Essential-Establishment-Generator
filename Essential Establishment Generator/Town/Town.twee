@@ -47,6 +47,9 @@ $town.sizeroll.clamp(1, 100)
 /* Town Location Roller */
 <<set _townpotentiallocation to ["seacoast", "forest", "hills", "plains", "mountains", "river coast", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "jungle", "volcanic field", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "tundra", "ice sheet", "seacoast", "desert", "hills", "plains", "mountains", "river coast", "wasteland", "oasis"]>>
 <<set _terrainroll to random(1, 6)>>
+<<set $town.terrainPool to ["temperate", "tropical", "polar", "arid"]>>
+<<set $town.locationPool to ["seacoast", "volcanic field", "ice sheet", "river coast", "forest", "plains", "jungle", "tundra", "desert", "wasteland", "hills", "mountains"]>>
+
 	<<if _terrainroll lte 3>>
 		 <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(0, 5)]>>
 	 <<elseif _terrainroll is 4>>
