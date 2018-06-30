@@ -1,6 +1,6 @@
 :: NPCProfile
 <h1><<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name</h1>
-<<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes, with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstname is that $currentNPC.heshe has $currentNPC.physicaltrait.
+<<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes<<if $currentNPC.beard def>>and a $currentNPC.beard,<</if>> with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstname is that $currentNPC.heshe has $currentNPC.physicaltrait.
 
 $currentNPC.firstname $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstname knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1]<<elseif $currentNPC.knownLanguages.length gt 2>>$currentNPC.firstname knows many languages, including $currentNPC.knownLanguages.<</if>>
 
