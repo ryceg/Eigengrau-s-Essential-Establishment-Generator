@@ -1,10 +1,14 @@
 :: ChangelogCurrent
 
 v.1.3.5
+- Added racial last names (at long last! No more dragonborns with the last name "Johnston"!)
 - Added pub rumours, rogue missions, nightmares, raiders, and weather generation to the [[Toolbox]].
 - Added the one-shot murder mystery [[The Poisoned Potioner|AdventureOutput]]; a self-contained murder to keep your PCs occupied for an hour!
 - Added beards
+- Added languages
 - Changed the way indirect referencing works- instead of solely "the tall man", "the slightly shorter than average woman", or "the dwarf", different attributes are stitched together and put into an array, drawing from the array randomly- NPCs with beards will sometimes be referenced indirectly as "the half elf with a scraggly beard", etc.
 - Added support for future adventure modules. I am trying to keep things so there's no way you can write yourself into a corner by just reading out what's generated, so all default text is largely cosmetic- there's never going to be "you walk into a tavern, and they decide to rob you for all you're worth". This means that adventure modules will only run if loaded, so you'll never have witches turning the players into ducks if you're just looking for an application to spit out a description of a tavern.
 - Behind the scenes work on adding temples, wizard councils, and thieve's guilds, complete with missions (the rogue missions being an example of the sort of stuff that will be generated)!
+- Added a Patreon button to the sidebar
+- Couple of loose ends
 - Minor code cleanup
