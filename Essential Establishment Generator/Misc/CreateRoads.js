@@ -36,7 +36,7 @@ setup.createRoad = function(base) {
       road.output = ["You walk along the ", "You trudge along the", "Making your way across the countryside on the ", "You make your way along the ", "You walk along the "].random() + road.descriptiveType + " " + road.traffic + ".";
   }
   else {
-      road.output = ["You walk along the ", "You trudge along the", "Making your way across the countryside on the ", "You make your way along the ", "You walk along the "].random() + road.descriptiveType + " " + road.traffic + [[" until you come across ", " and encounter ", " and cross paths with ", " and come across ", " and see in the distance ", " and spy in the distance "].random(), ". " + ["Turning the corner, you come across ", "Then, in the distance, you see ", "You walk for a while, and then come across ", "You walk for a few more minutes, until you come across ", "You walk along for a while, and then encounter "].random()].random() + road.encounter + ".";
+      road.output = ["You walk along the ", "You trudge along the ", "Making your way across the countryside on the ", "You make your way along the ", "You walk along the "].random() + road.descriptiveType + " " + road.traffic + [[" until you come across ", " and encounter ", " and cross paths with ", " and come across ", " and see in the distance ", " and spy in the distance "].random(), ". " + ["Turning the corner, you come across ", "Then, in the distance, you see ", "You walk for a while, and then come across ", "You walk for a few more minutes, until you come across ", "You walk along for a while, and then encounter "].random()].random() + road.encounter + ".";
   }
 
   return road.output;
