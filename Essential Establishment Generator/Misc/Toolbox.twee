@@ -4,12 +4,14 @@
 <<include "RandomPotion">>
 <<include "RandomRing">>
 <<include "RandomAdventure">>
+
 [[One Shot - The Poisoned Potioner|AdventureOutput]]
+
 <<link "<h4>Create a pub rumour</h4>">><<set $testPubRumour to setup.createPubRumour()>><<replace "#pub">>$testPubRumour<</replace>><</link>><span id="pub"></span>
 <<link "<h4>Create a rumour (WIP)</h4>">><<set $testRumour to setup.createRumour()>><<replace "#rumour">>$testRumour<</replace>><</link>><span id="rumour"></span>
 <<link "<h4>Create a mission</h4>">><<set $testmission to setup.createMission()>><<replace "#mission">>$testmission<</replace>><</link>><span id="mission"></span>
 <<link "<h4>Generate a nightmare</h4>">><<set $testNightmare to setup.createNightmare()>><<replace "#nightmare">>$testNightmare<</replace>><</link>><span id="nightmare"></span>
-<<link "<h4>Describe the weather</h4>">><<set $weather.temperatureTimer -= 16, $weather.precipitationTimer -= 8, $weather.cloudTimer>><<nobr>><<include "TownWeatherDescriptions">><<include "TownWeatherTimer">><</nobr>><<replace "#weather">>It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>>
-<<dropdown "$weather.seasonChange" $weather.seasonPool>> <<dropdown "$town.terrainChange" $town.terrainPool>> <<dropdown "$town.locationChange" $town.locationPool>><span id="weather"></span>
+<<link "<h4>Describe the weather</h4>">><<set $weather.temperatureTimer -= 16, $weather.precipitationTimer -= 8, $weather.cloudTimer>><<nobr>><<include "TownWeatherDescriptions">><<include "TownWeatherTimer">><</nobr>><<replace "#weather">>It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>><<dropdown "$weather.seasonChange" $weather.seasonPool>> <<dropdown "$town.terrainChange" $town.terrainPool>> <<dropdown "$town.locationChange" $town.locationPool>>
+<span id="weather"></span>
 <<link "<h4>Generate a road</h4>">><<set $testRoad to setup.createRoad()>><<replace "#road">>$testRoad<</replace>><</link>><span id="road"></span>
 <<link "<h4>Generate some raiders</h4>">><<nobr>><<include "Raiders">><</nobr>><<replace "#raiders">>A <<profile $raidedvillager $raidedvillager.racenote>> runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. <<print $raidedvillager.heshe.toUpperFirst()>> continues, saying "they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally"<</replace>><</link>><span id="raiders"></span>
