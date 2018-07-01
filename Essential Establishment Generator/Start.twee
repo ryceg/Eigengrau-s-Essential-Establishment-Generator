@@ -5,19 +5,11 @@
 <<include "Popup">><</nobr>>
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
-<script>
-testFunc = function() {
-  var name = Story.get("Names").text;
-  var lastname = JSON.parse(name).human.lastname.random();
-  return name;
-};
-</script>
 
 <<set $testname to setup.testnames()>>
-<<set $testFunc to testFunc()>>
-$testFunc
+
 $testname
-$testname.lastname
+
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
