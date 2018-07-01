@@ -2,7 +2,7 @@
 <h1><<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name</h1>
 <<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name is a $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height and $currentNPC.weight, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>>and a $currentNPC.beard,<</if>> with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstname is that $currentNPC.heshe has $currentNPC.physicaltrait.
 
-$currentNPC.firstname $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstname knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
+$currentNPC.firstname $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst() $currentNPC.vocalPattern.>><</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstname knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
 
 $currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets. In combat, $currentNPC.heshe uses $currentNPC.weapon.
 
