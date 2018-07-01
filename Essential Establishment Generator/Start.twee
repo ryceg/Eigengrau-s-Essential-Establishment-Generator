@@ -5,7 +5,17 @@
 <<include "Popup">><</nobr>>
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
+<script>
+testFunc = function() {
+  var name = Story.get("Names").text;
+  var lastname = JSON.parse(name).human.lastname.random();
+  return lastname;
+};
+</script>
+
 <<set $testname to setup.testnames()>>
+<<set $testFunc to testFunc()>>
+$testFunc
 $testname
 $testname.lastname
 
