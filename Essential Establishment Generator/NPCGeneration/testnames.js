@@ -1,4 +1,4 @@
 setup.testnames = function() {
-var name = Story.get("Names.human.lastname.random").text;
-return name;
+var name = Story.get(...).text;
+return name.human.lastname.random();
 };
