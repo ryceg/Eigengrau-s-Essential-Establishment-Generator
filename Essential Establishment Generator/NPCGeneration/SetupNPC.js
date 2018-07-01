@@ -63,6 +63,7 @@ setup.createNPC = function(base) {
         title: title,
 				reading: reading,
         skinColours: skinColours.random(),
+        pubRumour: pubRumour,
     }, base);
     npc.hair = npc.hairtype + " " + npc.haircolour + " hair";
 
