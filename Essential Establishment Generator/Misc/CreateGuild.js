@@ -1,0 +1,3 @@
+// setup.createGuild = function(base) {
+//
+// }

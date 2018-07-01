@@ -24,6 +24,7 @@ setup.createNPC = function(base) {
     var isVillain;
     var title;
     var hasClass;
+    var isThrowaway;
     var firstname;
     var name;
     var note;
@@ -56,6 +57,7 @@ setup.createNPC = function(base) {
         mundane: mundane,
         hasClass: hasClass,
         isVillain: isVillain,
+        isThrowaway: isThrowaway,
         descriptor: descriptor,
         owner: owner,
         title: title,
@@ -698,8 +700,8 @@ setup.createNPC = function(base) {
       npc.descriptor.push(npc.dndclass);
     }
 
-
-    State.variables.npcs.set(baseName + ++index, npc);
+    if (npc.isThrowaway == 'undefined') {
+    State.variables.npcs.set(baseName + ++index, npc)};
     return npc;
 
 };
