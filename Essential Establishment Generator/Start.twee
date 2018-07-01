@@ -8,23 +8,6 @@
 <<set $testname to setup.testnames()>>
 $testname
 
-<script>
-          d3.select(“body”).append(“p”).text(“Hello1 D3”);
-          d3.select(“body”).append(“p”).text(“Hello2 D3”);
-          d3.select(“body”).append(“p”).text(“Hello3 D3”);
-          d3.select(“body”).append(“p”).text(“Hello4 D3”);
-          d3.selectAll(“p”).style(“color”, “red”);
-
-          var theData = [1,2,3,4,5];
-               var paras = d3.select(“body”)
-                             .selectAll(“p”)
-                             .data(theData)
-                             .enter()
-                             .append(“p”)
-                             .text(“D3 “);
-
-           d3.select(“body”).append(“paras”);
-</script>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
