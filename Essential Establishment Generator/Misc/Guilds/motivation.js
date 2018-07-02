@@ -1,4 +1,6 @@
 setup.motivation = function(guild) {
+  var guild = guild;
+
   switch (guild.type) {
     case "thieves":
       Object.assign(guild, {
