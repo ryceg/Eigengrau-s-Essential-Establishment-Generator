@@ -14,6 +14,7 @@ setup.createNPC = function(base) {
     var beardRoll   = random(1, 99);
     var currentproject;
     var knownLanguages;
+    var vocalPattern;
     var descriptor;
     var availableLanguages;
     var standardLanguages = ["Common", "Dwarvish", "Elvish", "Gnomish", "Giant", "Goblin", "Halfling", "Orc"];
