@@ -6,6 +6,10 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
+<<set $guildTest to setup.createGuild>>
+$guildTest.type
+$guildTest.motivation
+
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
         <<set $currentPassage to $tavern>>

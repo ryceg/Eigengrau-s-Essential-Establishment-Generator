@@ -43,5 +43,7 @@ setup.createGuild = function(base) {
     resources: resources,
   }, base);
 
+    guild.motivation = setup.motivation(guild);
+
   return guild;
-}
+};
