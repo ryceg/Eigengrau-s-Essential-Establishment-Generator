@@ -1,4 +1,4 @@
-setup.createGuild = function(base) {
+setup.createGuild = function(guild) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles"];
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "group"];
@@ -41,7 +41,7 @@ setup.createGuild = function(base) {
     size: size,
     stability: stability,
     resources: resources,
-  }, base);
+  }, guild);
 
     guild.motivation = setup.motivation(guild);
 

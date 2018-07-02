@@ -66,7 +66,6 @@ setup.motivation = function(guild) {
       Object.assign(guild, {
         motivation: ["money", "money", "money", "money", "money", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics"].random(),
       });
-      break;
 
     // case "thieves":
     //   Object.assign(guild, {
