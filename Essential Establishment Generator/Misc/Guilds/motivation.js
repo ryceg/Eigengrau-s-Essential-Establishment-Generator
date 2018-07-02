@@ -75,5 +75,5 @@ setup.motivation = function(guild) {
 
 
   }
-  return guild;
+  return guild.motivation;
 };
