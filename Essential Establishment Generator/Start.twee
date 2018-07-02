@@ -6,7 +6,7 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-<<set $guildTest to setup.createGuild>>
+<<set $guildTest to setup.createGuild()>>
 $guildTest.type
 $guildTest.motivation
 
