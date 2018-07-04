@@ -1,4 +1,4 @@
-setup.motivation = function(guild) {
+setup.motivationGuild = function(guild) {
   var guild = guild;
 
   switch (guild.type) {

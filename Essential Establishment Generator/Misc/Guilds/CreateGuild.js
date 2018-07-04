@@ -1,11 +1,11 @@
 setup.createGuild = function(guild) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles"];
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
-  var leadershipType = ["individual", "group"];
+  var leadershipType = ["individual", "individual", "individual", "group"];
 
   var leaderQualification = ["most skilled", "rose to power through nepotism", "completed an ordeal"];
-  var leaderBribes = random(1, 50) + random(1, 50);
-  var leaderCompetence = random(1, 50) + random(1, 50);
+  var leaderBribesRoll = random(1, 50) + random(1, 50);
+  var leaderCompetenceRoll = random(1, 50) + random(1, 50);
 
   var joiningFeeRoll = random(1, 50) + random(1, 50);
   var joiningRequirementRoll = random(1, 50) + random(1, 50);
@@ -29,6 +29,8 @@ setup.createGuild = function(guild) {
 
   var guild = Object.assign({
     type: type.random(),
+    motivation: setup.motivation(guild),
+    leadershipType: leadershipType.random(),
     influenceRoll: influenceRoll,
     reputationRoll : reputationRoll,
     ageRoll: ageRoll,
@@ -43,7 +45,78 @@ setup.createGuild = function(guild) {
     resources: resources,
   }, guild);
 
-    guild.motivation = setup.motivation(guild);
+  guild.age = setup.ageGuild(guild);
+  guild.reputation = setup.reputationGuild(guild);
+  guild.size = setup.sizeGuild(guild);
+  guild.influence = setup.influenceGuild(guild);
+  guild.resources = setup.resourcesGuild(guild);
+  guild.stability = setup.stabilityGuild(guild);
+
+
+
+
+
+    //
+    // if (guild.placeholderRoll > 95){
+    //   guild.placeholder = "excellent";
+    // } else if (guild.placeholderRoll > 90){
+    //   guild.placeholder = "very good";
+    // } else if (guild.placeholderRoll > 80){
+    //   guild.placeholder = "quite good";
+    // } else if (guild.placeholderRoll > 70){
+    //   guild.placeholder = "good";
+    // } else if (guild.placeholderRoll > 60){
+    //   guild.placeholder = "above average";
+    // } else if (guild.placeholderRoll > 55){
+    //   guild.placeholder = "slightly above average";
+    // } else if (guild.placeholderRoll > 50){
+    //   guild.placeholder = "average";
+    // } else if (guild.placeholderRoll > 45){
+    //   guild.placeholder = "slightly below average";
+    // } else if (guild.placeholderRoll > 40){
+    //   guild.placeholder = "poor";
+    // } else if (guild.placeholderRoll > 30){
+    //   guild.placeholder = "quite poor";
+    // } else if (guild.placeholderRoll > 20){
+    //   guild.placeholder = "very poor";
+    // } else if (guild.placeholderRoll > 10){
+    //   guild.placeholder = "extremely poor";
+    // } else if (guild.placeholderRoll <= 5){
+    //   guild.placeholder = "abysmal";
+    // } else {
+    //   guild.placeholder = "average";
+    // }
+    //
+    //
+    // if (guild.placeholderRoll > 95){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 15);
+    // } else if (guild.placeholderRoll > 90){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 10);
+    // } else if (guild.placeholderRoll > 80){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 8);
+    // } else if (guild.placeholderRoll > 70){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 6);
+    // } else if (guild.placeholderRoll > 60){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 4);
+    // } else if (guild.placeholderRoll > 55){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 2);
+    // } else if (guild.placeholderRoll > 50){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 1);
+    // } else if (guild.placeholderRoll > 45){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, -1);
+    // } else if (guild.placeholderRoll > 40){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, -2);
+    // } else if (guild.placeholderRoll > 30){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, -4);
+    // } else if (guild.placeholderRoll > 20){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, -6);
+    // } else if (guild.placeholderRoll > 10){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, -8);
+    // } else if (guild.placeholderRoll <= 5){
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, -10);
+    // } else {
+    //   guild.influenceRoll += Math.fm(guild.influenceRoll, 10);
+    // }
 
   return guild;
 };
