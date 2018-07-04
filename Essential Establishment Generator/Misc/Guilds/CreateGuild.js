@@ -1,5 +1,5 @@
 setup.createGuild = function(guild) {
-  var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"];
+  var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
 
@@ -28,7 +28,7 @@ setup.createGuild = function(guild) {
   var resources;
 
   var guild = Object.assign({
-    type: type.random(),
+    type: type,
     motivation: setup.motivationGuild(guild),
     leadershipType: leadershipType.random(),
     influenceRoll: influenceRoll,
