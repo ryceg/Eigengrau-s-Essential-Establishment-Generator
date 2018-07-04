@@ -106,7 +106,7 @@ switch (guild.type) {
     });
   }
 
-  name = [
+  guild.name = [
     "The " + temp.group + " of " + temp.adjective + " " + temp.main,
     "The " + temp.group + " of " + temp.main,
     "The " + temp.adjective + " " + temp.group,
@@ -114,5 +114,5 @@ switch (guild.type) {
     "The " + State.town.name + " " + temp.main,
   ].random();
 
- return name;
+ return guild.name;
 };
