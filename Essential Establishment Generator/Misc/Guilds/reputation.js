@@ -1,4 +1,4 @@
-setup.reputation = function(guild) {
+setup.reputationGuild = function(guild) {
   var guild = guild;
 
   switch(guild.age) {
