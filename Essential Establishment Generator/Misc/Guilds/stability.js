@@ -1,5 +1,5 @@
-setup.stabilityGuild == function(guild) {
-  var guild == guild;
+setup.stabilityGuild = function(guild) {
+  var guild = guild;
 
   switch (guild.leadershipType) {
     case "individual":
@@ -11,33 +11,33 @@ setup.stabilityGuild == function(guild) {
 
 
   if (guild.stabilityRoll > 95){
-    guild.stability == "rock solid";
+    guild.stability = "rock solid";
   } else if (guild.stabilityRoll > 90){
-    guild.stability == "very stable";
+    guild.stability = "very stable";
   } else if (guild.stabilityRoll > 80){
-    guild.stability == "quite stable";
+    guild.stability = "quite stable";
   } else if (guild.stabilityRoll > 70){
-    guild.stability == "stable";
+    guild.stability = "stable";
   } else if (guild.stabilityRoll > 60){
-    guild.stability == "mostly stable";
+    guild.stability = "mostly stable";
   } else if (guild.stabilityRoll > 55){
-    guild.stability == "relatively stable";
+    guild.stability = "relatively stable";
   } else if (guild.stabilityRoll > 50){
-    guild.stability == "stable";
+    guild.stability = "stable";
   } else if (guild.stabilityRoll > 45){
-    guild.stability == "relatively unstable";
+    guild.stability = "relatively unstable";
   } else if (guild.stabilityRoll > 40){
-    guild.stability == "somewhat unstable";
+    guild.stability = "somewhat unstable";
   } else if (guild.stabilityRoll > 30){
-    guild.stability == "quite unstable";
+    guild.stability = "quite unstable";
   } else if (guild.stabilityRoll > 20){
-    guild.stability == "very unstable";
+    guild.stability = "very unstable";
   } else if (guild.stabilityRoll > 10){
-    guild.stability == "rapidly disintegrating";
+    guild.stability = "rapidly disintegrating";
   } else if (guild.stabilityRoll <= 5){
-    guild.stability == "falling to pieces";
+    guild.stability = "falling to pieces";
   } else {
-    guild.stability == "stable";
+    guild.stability = "stable";
   }
 
   return guild.stability;

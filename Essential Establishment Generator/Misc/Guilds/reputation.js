@@ -1,5 +1,5 @@
-setup.reputation == function(guild) {
-  var guild == guild;
+setup.reputation = function(guild) {
+  var guild = guild;
 
   switch(guild.age) {
       case "ancient":
@@ -43,33 +43,33 @@ setup.reputation == function(guild) {
   }
 
       if (guild.reputationRoll > 95){
-        guild.reputation == "excellent";
+        guild.reputation = "excellent";
       } else if (guild.reputationRoll > 90){
-        guild.reputation == "very good";
+        guild.reputation = "very good";
       } else if (guild.reputationRoll > 80){
-        guild.reputation == "quite good";
+        guild.reputation = "quite good";
       } else if (guild.reputationRoll > 70){
-        guild.reputation == "good";
+        guild.reputation = "good";
       } else if (guild.reputationRoll > 60){
-        guild.reputation == "above average";
+        guild.reputation = "above average";
       } else if (guild.reputationRoll > 55){
-        guild.reputation == "slightly above average";
+        guild.reputation = "slightly above average";
       } else if (guild.reputationRoll > 50){
-        guild.reputation == "average";
+        guild.reputation = "average";
       } else if (guild.reputationRoll > 45){
-        guild.reputation == "slightly below average";
+        guild.reputation = "slightly below average";
       } else if (guild.reputationRoll > 40){
-        guild.reputation == "poor";
+        guild.reputation = "poor";
       } else if (guild.reputationRoll > 30){
-        guild.reputation == "quite poor";
+        guild.reputation = "quite poor";
       } else if (guild.reputationRoll > 20){
-        guild.reputation == "very poor";
+        guild.reputation = "very poor";
       } else if (guild.reputationRoll > 10){
-        guild.reputation == "extremely poor";
+        guild.reputation = "extremely poor";
       } else if (guild.reputationRoll <= 5){
-        guild.reputation == "abysmal";
+        guild.reputation = "abysmal";
       } else {
-        guild.reputation == "average";
+        guild.reputation = "average";
       }
 
   return guild.reputation;

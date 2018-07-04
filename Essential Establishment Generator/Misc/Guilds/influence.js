@@ -1,5 +1,5 @@
-setup.influenceGuild == function(guild) {
-  var guild == guild;
+setup.influenceGuild = function(guild) {
+  var guild = guild;
 
 
   if (guild.ageRoll > 95){
@@ -34,33 +34,33 @@ setup.influenceGuild == function(guild) {
 
 
   if (guild.influenceRoll > 95){
-    guild.influence == "excellent";
+    guild.influence = "excellent";
   } else if (guild.influenceRoll > 90){
-    guild.influence == "very good";
+    guild.influence = "very good";
   } else if (guild.influenceRoll > 80){
-    guild.influence == "quite good";
+    guild.influence = "quite good";
   } else if (guild.influenceRoll > 70){
-    guild.influence == "good";
+    guild.influence = "good";
   } else if (guild.influenceRoll > 60){
-    guild.influence == "above average";
+    guild.influence = "above average";
   } else if (guild.influenceRoll > 55){
-    guild.influence == "slightly above average";
+    guild.influence = "slightly above average";
   } else if (guild.influenceRoll > 50){
-    guild.influence == "average";
+    guild.influence = "average";
   } else if (guild.influenceRoll > 45){
-    guild.influence == "slightly below average";
+    guild.influence = "slightly below average";
   } else if (guild.influenceRoll > 40){
-    guild.influence == "poor";
+    guild.influence = "poor";
   } else if (guild.influenceRoll > 30){
-    guild.influence == "quite poor";
+    guild.influence = "quite poor";
   } else if (guild.influenceRoll > 20){
-    guild.influence == "very poor";
+    guild.influence = "very poor";
   } else if (guild.influenceRoll > 10){
-    guild.influence == "extremely poor";
+    guild.influence = "extremely poor";
   } else if (guild.influenceRoll <= 5){
-    guild.influence == "abysmal";
+    guild.influence = "abysmal";
   } else {
-    guild.influence == "average";
+    guild.influence = "average";
   }
 
   return guild.influence;

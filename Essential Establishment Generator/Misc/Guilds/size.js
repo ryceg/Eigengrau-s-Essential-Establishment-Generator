@@ -1,4 +1,4 @@
-setup.sizeGuild == function(guild) {
+setup.sizeGuild = function(guild) {
   if (guild.ageRoll > 95){
     guild.sizeRoll += Math.fm(guild.sizeRoll, 7);
   } else if (guild.ageRoll > 90){
@@ -32,33 +32,33 @@ setup.sizeGuild == function(guild) {
 
 
   if (guild.sizeRoll > 95){
-    guild.size == "huge";
+    guild.size = "huge";
   } else if (guild.sizeRoll > 90){
-    guild.size == "very large";
+    guild.size = "very large";
   } else if (guild.sizeRoll > 80){
-    guild.size == "quite large";
+    guild.size = "quite large";
   } else if (guild.sizeRoll > 70){
-    guild.size == "large";
+    guild.size = "large";
   } else if (guild.sizeRoll > 60){
-    guild.size == "above average sized";
+    guild.size = "above average sized";
   } else if (guild.sizeRoll > 55){
-    guild.size == "slightly above average sized";
+    guild.size = "slightly above average sized";
   } else if (guild.sizeRoll > 50){
-    guild.size == "average sized";
+    guild.size = "average sized";
   } else if (guild.sizeRoll > 45){
-    guild.size == "slightly below average sized";
+    guild.size = "slightly below average sized";
   } else if (guild.sizeRoll > 40){
-    guild.size == "somewhat small";
+    guild.size = "somewhat small";
   } else if (guild.sizeRoll > 30){
-    guild.size == "quite small";
+    guild.size = "quite small";
   } else if (guild.sizeRoll > 20){
-    guild.size == "very small";
+    guild.size = "very small";
   } else if (guild.sizeRoll > 10){
-    guild.size == "tiny";
+    guild.size = "tiny";
   } else if (guild.sizeRoll <= 5){
-    guild.size == "a handful of members";
+    guild.size = "a handful of members";
   } else {
-    guild.size == "average";
+    guild.size = "average";
   }
 
   return guild.size;

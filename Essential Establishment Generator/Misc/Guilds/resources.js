@@ -1,5 +1,5 @@
-setup.resourcesGuild == function(guild) {
-  var guild == guild;
+setup.resourcesGuild = function(guild) {
+  var guild = guild;
 
   if (guild.ageRoll > 95){
     guild.resourcesRoll += Math.fm(guild.resourcesRoll, 15);
@@ -33,33 +33,33 @@ setup.resourcesGuild == function(guild) {
 
 
   if (guild.resourcesRoll > 95){
-    guild.resources == "limitless";
+    guild.resources = "limitless";
   } else if (guild.resourcesRoll > 90){
-    guild.resources == "near limitless";
+    guild.resources = "near limitless";
   } else if (guild.resourcesRoll > 80){
-    guild.resources == "extensive";
+    guild.resources = "extensive";
   } else if (guild.resourcesRoll > 70){
-    guild.resources == "significant";
+    guild.resources = "significant";
   } else if (guild.resourcesRoll > 60){
-    guild.resources == "many";
+    guild.resources = "many";
   } else if (guild.resourcesRoll > 55){
-    guild.resources == "decent";
+    guild.resources = "decent";
   } else if (guild.resourcesRoll > 50){
-    guild.resources == "average";
+    guild.resources = "average";
   } else if (guild.resourcesRoll > 45){
-    guild.resources == "slightly below average";
+    guild.resources = "slightly below average";
   } else if (guild.resourcesRoll > 40){
-    guild.resources == "somewhat limited";
+    guild.resources = "somewhat limited";
   } else if (guild.resourcesRoll > 30){
-    guild.resources == "limited";
+    guild.resources = "limited";
   } else if (guild.resourcesRoll > 20){
-    guild.resources == "quite poor";
+    guild.resources = "quite poor";
   } else if (guild.resourcesRoll > 10){
-    guild.resources == "extremely poor";
+    guild.resources = "extremely poor";
   } else if (guild.resourcesRoll <= 5){
-    guild.resources == "destitute";
+    guild.resources = "destitute";
   } else {
-    guild.resources == "average";
+    guild.resources = "average";
   }
 
   return guild.resources;
