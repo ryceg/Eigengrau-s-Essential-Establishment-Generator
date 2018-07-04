@@ -56,6 +56,12 @@ setup.motivationGuild = function(guild) {
       });
       break;
 
+    case "bards":
+      Object.assign(guild, {
+        motivation: ["money", "money", "money", "fame", "fame",  "fame", "fame", "fame", "glory", "glory", "glory", "politics"].random(),
+      });
+      break;
+
     case "nobles":
       Object.assign(guild, {
         motivation: ["money", "money", "money", "fame", "power", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics", "politics", "politics", "politics", "politics"].random(),

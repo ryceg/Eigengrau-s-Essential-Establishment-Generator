@@ -1,5 +1,5 @@
 setup.createGuild = function(guild) {
-  var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles"];
+  var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"];
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
 
@@ -45,6 +45,7 @@ setup.createGuild = function(guild) {
     resources: resources,
   }, guild);
 
+  guild.name = setup.nameGuild(guild);
   guild.age = setup.ageGuild(guild);
   guild.reputation = setup.reputationGuild(guild);
   guild.size = setup.sizeGuild(guild);
@@ -53,6 +54,10 @@ setup.createGuild = function(guild) {
   guild.stability = setup.stabilityGuild(guild);
 
 
+  // switch (guild.leadershipType) {
+  //   case: "individual":
+  //     State.setVar
+  // }
 
 
 
