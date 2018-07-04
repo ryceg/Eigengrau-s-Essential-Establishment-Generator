@@ -29,7 +29,7 @@ setup.createGuild = function(guild) {
 
   var guild = Object.assign({
     type: type.random(),
-    motivation: setup.motivation(guild),
+    motivation: setup.motivationGuild(guild),
     leadershipType: leadershipType.random(),
     influenceRoll: influenceRoll,
     reputationRoll : reputationRoll,
