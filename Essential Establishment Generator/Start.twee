@@ -6,7 +6,7 @@
 
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
-<<set $guildTest to setup.createGuild()>>
+<<set $guildTest to setup.createGuild({type: "wizards"})>>
 The $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
 
 
