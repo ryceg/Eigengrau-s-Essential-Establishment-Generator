@@ -3,7 +3,7 @@ var main;
 var adjective;
 var group;
 var unique;
-var temp;
+var temp = {};
 var name;
 switch (guild.type) {
   case "thieves":

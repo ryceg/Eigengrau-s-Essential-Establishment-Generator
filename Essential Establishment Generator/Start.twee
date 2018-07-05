@@ -8,8 +8,8 @@
 
 <<set $guildTest to setup.createGuild({type: "wizards"})>>
 The $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
-
-<<button "Print PDF">><<run genPDF()>><</button>>
+/* 
+<<button "Print PDF">><<run genPDF()>><</button>> */
 
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
