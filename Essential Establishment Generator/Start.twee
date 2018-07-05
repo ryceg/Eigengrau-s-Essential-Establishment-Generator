@@ -12,6 +12,8 @@ $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTes
 <<button "Print PDF">><<run setup.genPDF()>><</button>>
 
 <<profile $guildLeader>>
+$guildLeader.name
+$guildLeader.profession
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
