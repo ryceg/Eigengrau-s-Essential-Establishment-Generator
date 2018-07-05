@@ -1,4 +1,4 @@
-genPDF = function() {
+setup.genPDF = function() {
   // var doc = new jsPDF();
   //
   // doc.fromHTML($('#testdiv').get(0), 20, 20,{
