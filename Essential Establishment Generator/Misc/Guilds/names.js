@@ -112,7 +112,7 @@ switch (guild.type) {
     "The " + temp.adjective + " " + temp.group,
     "The " + temp.main + " of " + State.variables.town.name,
     "The " + State.variables.town.name + " " + temp.main,
-  ].random(),
+  ].random();
 
  return name;
 };
