@@ -28,7 +28,8 @@ setup.createGuild = function(base) {
   var resources;
 
   var guild = Object.assign({
-    type: ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random(),
+    // type: ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random(),
+    type: type,
     motivation: setup.motivationGuild(guild),
     leadershipType: leadershipType.random(),
     influenceRoll: influenceRoll,
