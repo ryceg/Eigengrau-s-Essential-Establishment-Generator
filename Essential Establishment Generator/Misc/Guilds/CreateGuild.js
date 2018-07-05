@@ -45,14 +45,14 @@ setup.createGuild = function(guild) {
     resources: resources,
   }, guild);
 
-  guild.name = setup.nameGuild(guild);
+
   guild.age = setup.ageGuild(guild);
   guild.reputation = setup.reputationGuild(guild);
   guild.size = setup.sizeGuild(guild);
   guild.influence = setup.influenceGuild(guild);
   guild.resources = setup.resourcesGuild(guild);
   guild.stability = setup.stabilityGuild(guild);
-
+  guild.name = setup.nameGuild(guild);
 
   // switch (guild.leadershipType) {
   //   case: "individual":
