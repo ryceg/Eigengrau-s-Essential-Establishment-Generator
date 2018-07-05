@@ -32,7 +32,8 @@ setup.createGuild = function(base) {
     // type: ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random(),
     type: "wizards",
     motivation: setup.motivationGuild(guild),
-    leadershipType: leadershipType.random(),
+    leadershipType: "individual",
+    // leadershipType: leadershipType.random(),
     influenceRoll: influenceRoll,
     reputationRoll : reputationRoll,
     ageRoll: ageRoll,
@@ -56,10 +57,10 @@ setup.createGuild = function(base) {
   guild.stability = setup.stabilityGuild(guild);
 
 
-  // switch (guild.leadershipType) {
-  //   case: "individual":
-  //     State.setVar
-  // }
+  switch (guild.leadershipType) {
+    case "individual":
+      State.setVar("guildLeader", setup.createNPC());
+  }
 
 
 
