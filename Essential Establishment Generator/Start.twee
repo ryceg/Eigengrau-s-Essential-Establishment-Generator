@@ -9,7 +9,7 @@
 <<set $guildTest to setup.createGuild()>>
 The $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
-<<button "Print PDF">><<run genPDF()>><</button>>
+<<button "Print PDF">><script>genPDF()</script><</button>>
 
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
