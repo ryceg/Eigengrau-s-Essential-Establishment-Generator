@@ -1,4 +1,4 @@
-setup.createGuild = function(guild) {
+setup.createGuild = function(base) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
@@ -43,7 +43,7 @@ setup.createGuild = function(guild) {
     size: size,
     stability: stability,
     resources: resources,
-  }, guild);
+  }, base);
 
 
   guild.age = setup.ageGuild(guild);
