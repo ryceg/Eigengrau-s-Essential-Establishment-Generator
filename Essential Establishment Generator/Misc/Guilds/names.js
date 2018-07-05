@@ -1,4 +1,4 @@
-setup.nameGuild = function(guild) { return "Test Name";
+setup.nameGuild = function(guild) { return "Test Name";}
 // var main;
 // var adjective;
 // var group;
