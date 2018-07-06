@@ -3,7 +3,7 @@
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in active development.
 <<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">><</nobr>>
-</div>
+
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
 <<set $guildTest to setup.createGuild()>>
@@ -74,3 +74,4 @@ Down from $tavern.road are the [[markets|MarketOutput]]
 <<nobr>><<if def $brothel && $town.hasBrothel is true>>
 <<print "On $brothel.road is the whorehouse">><<link $brothel.name>><<set $currentPassage to $brothel>><<goto "BrothelOutput">><</link>><</if>>
 <</nobr>>
+</div>
