@@ -3,7 +3,7 @@ setup.genPDF = function() {
   var doc = new jsPDF();
 
   doc.fromHTML($('#testdiv').get(0), 20, 20,{
-          'width': 400 });
+          'width': 500 });
 
   doc.setProperties({
    title: "Eigengrau's Generator Output",
