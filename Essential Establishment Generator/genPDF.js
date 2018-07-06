@@ -1,13 +1,12 @@
-setup.genPDF = function() {
-  function genPDF() {
-    var doc = new jsPDF();
 
-    doc.fromHTML($('#testdiv').get(0), 20, 20,{
-            'width': 500 });
+function genPDF() {
+  var doc = new jsPDF();
 
-    doc.save('Test.pdf');
-  }
-};
+  doc.fromHTML($('#testdiv').get(0), 20, 20,{
+          'width': 500 });
+
+  doc.save('Test.pdf');
+}
 
   // html2canvas(document.body, {
   //   onrendered: function (canvas) {
