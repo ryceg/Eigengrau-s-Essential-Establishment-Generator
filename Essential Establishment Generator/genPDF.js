@@ -14,5 +14,5 @@ setup.genPDF = function() {
    creator: '/u/rcgy'
   });
 
-  doc.save('Test.pdf');
+  doc.save(State.variables.town.name + '.pdf');
 };
