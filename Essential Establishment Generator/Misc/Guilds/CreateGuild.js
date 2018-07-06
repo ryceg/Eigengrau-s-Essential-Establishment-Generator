@@ -57,11 +57,11 @@ setup.createGuild = function(base) {
   guild.resources = setup.resourcesGuild(guild);
   guild.stability = setup.stabilityGuild(guild);
 
-
-  switch (guild.leadershipType) {
-    case "individual":
-      State.setVar("guildLeader", setup.createNPC());
-  }
+  //
+  // switch (guild.leadershipType) {
+  //   case "individual":
+  //     State.setVar("guildLeader", setup.createNPC());
+  // }
 
 
 
