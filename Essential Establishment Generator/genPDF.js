@@ -7,7 +7,7 @@
 //
 //   doc.save('Test.pdf');
 // }
-setup.gendPDF = function() {
+setup.genPDF = function() {
   html2canvas(document.getElementById("testdiv"), {
     onrendered: function (canvas) {
       var img = canvas.toDataURL("image/png");
