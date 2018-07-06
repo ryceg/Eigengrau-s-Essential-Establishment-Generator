@@ -5,13 +5,13 @@ setup.genPDF = function() {
   doc.fromHTML($('#testdiv').get(0), 20, 20,{
           'width': 500 });
 
-  doc.setProperties({
-   title: "Eigengrau's Generator Output",
-   subject: 'Generator Output',
-   author: '/u/rcgy',
-   keywords: 'generated, javascript, dnd, dungeons and dragons, eigengrau, generator, random',
-   creator: '/u/rcgy'
-  });
+  // doc.setProperties({
+  //  title: "Eigengrau's Generator Output",
+  //  subject: 'Generator Output',
+  //  author: '/u/rcgy',
+  //  keywords: 'generated, javascript, dnd, dungeons and dragons, eigengrau, generator, random',
+  //  creator: '/u/rcgy'
+  // });
 
   doc.save('Test.pdf');
 };
