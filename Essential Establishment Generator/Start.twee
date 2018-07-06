@@ -9,8 +9,6 @@
 <<set $guildTest to setup.createGuild()>>
 $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
 
-<<button "Print PDF">><<run setup.genPDF()>><</button>>
-
 <<profile $guildLeader>>
 $guildLeader.name
 $guildLeader.profession
