@@ -14,7 +14,7 @@ setup.genPDF = function() {
   });
 
   doc.save('Test.pdf');
-}
+};
 
 
 
