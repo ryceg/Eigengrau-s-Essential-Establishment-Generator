@@ -1,5 +1,6 @@
 setup.createGuild = function(base) {
   var guild = {};
+  var baseName = "Guild"
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
@@ -125,6 +126,8 @@ setup.createGuild = function(base) {
     // } else {
     //   guild.influenceRoll += Math.fm(guild.influenceRoll, 10);
     // }
+
+  State.variables.guilds.set(baseName + ++index, guild)};
 
   return guild;
 };
