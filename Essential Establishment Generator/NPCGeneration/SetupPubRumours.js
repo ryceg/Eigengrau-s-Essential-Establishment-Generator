@@ -1,7 +1,7 @@
 setup.createPubRumour = function() {
     var pubRumour;
     var tempRumour = Object.assign({
-    origin:["a child",
+    origin: ["a child",
             "a fat merchant",
             "a priest",
             "a sailor",
