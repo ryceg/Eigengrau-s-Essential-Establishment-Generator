@@ -60,7 +60,7 @@ setup.createGuild = function(base) {
 
   switch (guild.leadershipType) {
     case "individual":
-      State.setVar("guildLeader", setup.createNPC());
+      setVar("guildLeader", setup.createNPC());
   }
 
 
