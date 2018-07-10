@@ -6,34 +6,4 @@ $guard.funding
 
 $town.law
 
-_guardPool
-_guardLowly
-_guardNightwatch
-_guardHigher
-<<nobr>>
-<<set _guardPool to $guard.population>>
-<<set _guardLowly to (_guardPool %= 70)>>
-  <<set _guardPool -= _guardLowly>>
-<<set _guardNightwatch to (_guardPool %= 20)>>
-  <<set _guardPool -= _guardNightwatch>>
-<<set _guardHigher to (_guardPool %= 10)>>
-  <<set _guardPool -= _guardHigher>>
-
-<table>
-  <tr>
-    <th>Trade</th>
-    <th>Number</th>
-  </tr>
-<<for _i, _pop range $guard.population>>
-  <<if _pop lte _guardHigher>><tr><td>Sergeants</td>
-  <td>_pop</td></tr>
-  <<elseif _pop lte _guardNightwatch>><tr><td>Night Watchment</td>
-  <td>_pop</td></tr>
-  <<elseif _pop lte _guardLowly>>tr><td>Guards</td>
-  <td>_pop</td></tr>
-  <</if>>
-  <<set _pop -= 1>>
-</table>
-<</for>><</nobr>>
-
 <<return>>
