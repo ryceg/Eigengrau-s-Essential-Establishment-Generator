@@ -3,7 +3,7 @@
 
 There's a $marketsellerA.racenote selling <<print either($market.selling)>> from a <<print either($market.tent)>>, a $marketsellerB.racenote selling <<print either($market.selling)>> from a <<print either($market.tent)>>, a $marketsellerC.racenote selling <<print either($market.selling)>>, and a $marketsellerD.racenote selling magical trinkets from a  <<print either($market.tent)>>. Or, at least, they're supposedly magical trinkets.
 
-The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and introduces $marketsellerD.himherself as <<link "$marketsellerD.name">><<set $currentNPC to $marketsellerD>><<goto "NPCProfile">><</link>>, a purveyor of fine goods. The $marketsellerD.racenote asks you for your ring size, and then $marketsellerD.heshe reaches below $marketsellerD.hisher table, and procures a ring...
+The $marketsellerD.manwoman beckons you over to $marketsellerD.hisher stall, and introduces $marketsellerD.himherself as <<profile $marketsellerD>>, a purveyor of fine goods. The $marketsellerD.racenote asks you for your ring size, and then $marketsellerD.heshe reaches below $marketsellerD.hisher table, and procures a ring...
 
 <<nobr>><<linkreplace "<h4>Look at the ring!</h4>">>
 <<set $marketRing to setup.createRing()>>

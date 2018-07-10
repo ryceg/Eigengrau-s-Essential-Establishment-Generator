@@ -4,7 +4,7 @@
     <<replace "#NPC">>
           \<div class="descriptive">
             \<h3>$tavernNPC.name</h3>
-            \ A <<print either($tavernNPC.descriptor)>> is currently <<print $tavernNPC.idle.random()>> in the corner. You strike up conversation with $tavernNPC.himher, and the $tavernNPC.weight $tavernNPC.race introduces $tavernNPC.himherself as <<link "$tavernNPC.name">><<set $currentNPC to $tavernNPC>><<goto "NPCProfile">><</link>>, a $tavernNPC.dndclass who is $tavernNPC.adventure. You talk about your backgrounds, and $tavernNPC.heshe says "I was a $tavernNPC.background before I was a $tavernNPC.dndclass. $tavernNPC.backgroundOrigin $tavernNPC.bond" <<print $tavernNPC.heshe.toUpperFirst()>> looks at you with $tavernNPC.hisher $tavernNPC.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"</div>
+            \ A <<print either($tavernNPC.descriptor)>> is currently <<print $tavernNPC.idle.random()>> in the corner. You strike up conversation with $tavernNPC.himher, and the $tavernNPC.weight $tavernNPC.race introduces $tavernNPC.himherself as <<profile $tavernNPC>>, a $tavernNPC.dndclass who is $tavernNPC.adventure. You talk about your backgrounds, and $tavernNPC.heshe says "I was a $tavernNPC.background before I was a $tavernNPC.dndclass. $tavernNPC.backgroundOrigin $tavernNPC.bond" <<print $tavernNPC.heshe.toUpperFirst()>> looks at you with $tavernNPC.hisher $tavernNPC.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"</div>
     <</replace>>
 <</link>>\
 <span id="NPC"></span>
