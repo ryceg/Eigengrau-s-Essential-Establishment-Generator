@@ -11,3 +11,4 @@
 <<include "Intrigue">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
+<<run setup.tippy(".btn")>>
