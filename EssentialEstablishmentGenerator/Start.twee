@@ -12,9 +12,9 @@ $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTes
 <<profile $guildLeader>>
 $guildLeader.name
 $guildLeader.profession
-<script>tippy('.btn');</script>
-<button class="btn" title="I'm a tooltip!">Text</button>
 
+<button class="btn" title="I'm a tooltip!">Text</button>
+<<run jQuery(function() { tippy('.btn');  })>>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
