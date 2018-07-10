@@ -81,6 +81,7 @@
     \<<capture _char>>
         \<span @id="_id" class="tip"><<link _readout "NPCProfile">><<set $currentNPC to _char>><</link>></span>
         \<<run setup.profileTooltip(_id, _char)>>
+				\<<run setup.tippy(".btn")>>
     \<</capture>>
 \<</widget>>
 
