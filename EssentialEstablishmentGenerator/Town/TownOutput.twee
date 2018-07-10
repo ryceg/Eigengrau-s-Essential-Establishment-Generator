@@ -1,5 +1,14 @@
 :: TownOutput
-
+<<script>>
+    jQuery(function() {
+        if(tippy) {
+            tippy(".btn");
+        } else {
+            importScripts("https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js")
+                .then(function() { tippy(".btn"); });
+        }
+    });
+<</script>>
 <<linkreplace "Edit $town.name">><<button "Save Changes">><<include "TownRefresh">><<include "TownRenders">><<goto "TownOutput">><</button>>
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
@@ -37,13 +46,3 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
 <<linkappend "<h3>Businesses in $town.name</h3>">><<include "TradesOutput">><</linkappend>>
 
 <<return>>
-<<script>>
-    jQuery(function() {
-        if(tippy) {
-            tippy(".btn");
-        } else {
-            importScripts("https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js")
-                .then(function() { tippy(".btn"); });
-        }
-    });
-<</script>>
