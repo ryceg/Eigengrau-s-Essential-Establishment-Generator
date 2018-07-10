@@ -24,7 +24,8 @@ $guildLeader.dndclass
     });
 <</script>>
 <button class="btn" title="I'm a tooltip!">Text</button>
-
+<div class="tip" title="I'm a DIV tooltip!">blah</div>
+<span class="tip" title="I'm a SPAN tooltip!">blah</span>
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>

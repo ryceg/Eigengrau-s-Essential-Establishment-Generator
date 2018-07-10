@@ -4,3 +4,10 @@ setup.tippy = function (selector) {
         tippy(selector);
     });
 }
+
+tippy.browser.onUserInputChange = type => {
+  const method = type === 'touch' ? 'disable' : 'enable'
+  for (const tooltip of tip.tooltips) {
+    tooltip[method]()
+  }
+}
