@@ -3,13 +3,3 @@
 Welcome! Is this your first time using Eigengrau's Essential Establishment Generator?
 
 <<button "yes">><<goto "Tutorial">><</button>>             <<button "no, and don't show me this again">><<remember settings.showTutorial to false>><<goto "Start">><</button>>
-<<script>>
-    jQuery(function() {
-        if(tippy) {
-            tippy(".btn");
-        } else {
-            importScripts("https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js")
-                .then(function() { tippy(".btn"); });
-        }
-    });
-<</script>>
