@@ -59,7 +59,7 @@
 				<</if>>
 		<</capture>><</nobr>><</widget>>
 
-<<widget "profile">>
+/* <<widget "profile">>
 \<<set _char = $args[0], _readout = $args[1]>>
 \<<capture _char, _readout>>
 		\<<if def $args[1]>>
@@ -72,7 +72,17 @@
 					\<</link>>
 		\<</if>>
 \<<run setup.profileTooltip(_char)>>
-\<</capture>><</widget>>
+\<</capture>><</widget>> */
+
+<<widget "profile">>
+    <<set _char = $args[0],
+        _readout = $args[1] || _char.name,
+        _id = "tip-" + Util.slugify(_char.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+    <<capture _char>>
+        <span @id="_id" class="tip"><<link _readout "NPCProfile">><<set $currentNPC to _char>><</link>></span>
+        <<run setup.profileTooltip(_id, _char)>>
+    <</capture>>
+<</widget>>
 
 <<widget "temp">><<nobr>>
 		<<set _temp = $args[0]>>
