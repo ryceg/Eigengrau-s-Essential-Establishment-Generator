@@ -1,11 +1,11 @@
-setup.nameGuild = function(guild) {
+setup.nameFaction = function(faction) {
 var main;
 var adjective;
 var group;
 var unique;
 var temp = {};
 var name;
-switch (guild.type) {
+switch (faction.type) {
   case "thieves":
     temp = {
       adjective: ["Clever", "Sneaky", "Cunning", "Conniving", "Honest", "Black", "Invisible", "Silent"].random(),
@@ -29,7 +29,7 @@ switch (guild.type) {
       main: ["Prestidigitators", "Illusionists", "Casters", "Magic Users", "Diviners", "Evokers", "Necromancers", "Abjurers", "Scroll Keepers", "Book Keepers", "Collectors", "Librarians"].random(),
       adjective: ["Arcane", "Magical", "Scholarly", "Absent Minded", "Knowledgeable", "Intelligent", "Unknown", "Eldritch", "Memorized"].random(),
       group: ["Society", "Academy", "University", "Club", "Scholarly Group", "League", "Collective", "Brothers", "Brotherhood", "Order"].random(),
-      unique: ["We Make Magic!", "The Academy", "The Arcane Order", "Adepts Anonymous", "The Callers Club", "The Union of Universal Magic", "The University of the Unusual and Unexplained", "The College of Conjurers", "Necromancers' Network", "The Evokers' League", "The Nation of Abjuration", "Seers' and Company", "The Illusory Guild", "Spellcasters Anonymous"].random(),
+      unique: ["We Make Magic!", "The Academy", "The Arcane Order", "Adepts Anonymous", "The Callers Club", "The Union of Universal Magic", "The University of the Unusual and Unexplained", "The College of Conjurers", "Necromancers' Network", "The Evokers' League", "The Nation of Abjuration", "Seers' and Company", "The Illusory Faction", "Spellcasters Anonymous"].random(),
       };
     break;
 
@@ -70,7 +70,7 @@ switch (guild.type) {
       main: ["Dagger", "Knife", "Executioners", "Hangmen", "Hitmen", "Killers", "Doctors"].random(),
       adjective: ["Cunning", "Discreet", "Quiet", "Bloody", "Rusted", "Poisoned", "Defiled"].random(),
       group: ["Society", "Group", "League", "Collective", "Brothers", "Brotherhood", "Order"].random(),
-      unique: ["Dead Is Dead", "The Killers", "The Slayers", "The Big Game Players", "The Blood Club", "The League of Silence", "The Silencers", "The Whispers", "The Shadow Guild", "Shadowfront"].random(),
+      unique: ["Dead Is Dead", "The Killers", "The Slayers", "The Big Game Players", "The Blood Club", "The League of Silence", "The Silencers", "The Whispers", "The Shadow Faction", "Shadowfront"].random(),
       };
     break;
 
