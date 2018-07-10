@@ -1,6 +1,6 @@
 setup.createGuild = function(base) {
   var guild = {};
-  var baseName = "Guild"
+  var baseName = "Guild";
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
