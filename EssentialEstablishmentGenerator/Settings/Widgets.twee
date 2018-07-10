@@ -79,10 +79,10 @@
         _readout = $args[1] || _char.name,
         _id = "tip-" + Util.slugify(_char.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
     \<<capture _char>>
-        <span @id="_id" class="tip"><<link _readout "NPCProfile">><<set $currentNPC to _char>><</link>></span>
+        \<span @id="_id" class="tip"><<link _readout "NPCProfile">><<set $currentNPC to _char>><</link>></span>
         \<<run setup.profileTooltip(_id, _char)>>
     \<</capture>>
-<</widget>>
+\<</widget>>
 
 <<widget "temp">><<nobr>>
 		<<set _temp = $args[0]>>
