@@ -62,7 +62,7 @@
 <<widget "profile">>
 \<<set _char = $args[0], _readout = $args[1]>>
 \<<capture _char, _readout>>
-<<run setup.profileTooltip(_char)>>
+/* <<run setup.profileTooltip(_char)>> */<<script>>document.getElementById("tip").title = State.temporary.char.descriptor.random() + " " + State.temporary.char.dndclass + " called " + State.temporary.char.name;<</script>>
 		\<<if def $args[1]>>
 					\<span class="tip" title=""><<link _readout "NPCProfile">></span>
 						\<<set $currentNPC to _char>>
