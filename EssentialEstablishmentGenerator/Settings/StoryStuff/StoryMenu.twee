@@ -12,7 +12,6 @@
           <<goto "InitGeneralStore">>
     <</if>>
 <</link>><</if>><</nobr>>*/
-<<link "PDF of Current Page">><<run setup.genPDF()>><</link>>
 
 [[Toolbox]]
 
