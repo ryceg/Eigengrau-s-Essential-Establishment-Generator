@@ -26,13 +26,13 @@ Restricted magic ---- Regulated magic: <<numberslider "$town.arcanaroll" $town.a
 Reform-based law ---- Punishment-based law: <<numberslider "$town.lawroll" $town.lawroll 1 100 1>>
 <</linkreplace>>
 
-<div id="printdiv">$town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
+$town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
 
 They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSource. The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live a $town.wealth existence. <<print $town.currentEvent.toUpperFirst()>> is currently taking place.
 
 <h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
-</div>
+
 <<linkappend "<h3>Businesses in $town.name</h3>">><<include "TradesOutput">><</linkappend>>
 
 <<return>>

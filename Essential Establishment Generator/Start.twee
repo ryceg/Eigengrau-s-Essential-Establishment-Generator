@@ -1,14 +1,14 @@
 :: Start [output]
-<div id="testdiv"><h1>Eigengrau's Essential Establishment Generator</h1>
+<h1>Eigengrau's Essential Establishment Generator</h1>
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in active development.
 <<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">><</nobr>>
-</div>
+
 <<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>>
 
 <<set $guildTest to setup.createGuild()>>
 $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
-<<button "PDF">><<run setup.genPDF()>><</button>>
+
 <<profile $guildLeader>>
 $guildLeader.name
 $guildLeader.profession
