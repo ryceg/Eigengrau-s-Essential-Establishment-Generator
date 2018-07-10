@@ -4,7 +4,7 @@ setup.createGuild = function(base) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
-  var leadershipGeneration;
+  var leadershipGeneration = [];
 
   var leaderQualification = ["most skilled", "rose to power through nepotism", "completed an ordeal"];
   var leaderBribesRoll = random(1, 50) + random(1, 50);
