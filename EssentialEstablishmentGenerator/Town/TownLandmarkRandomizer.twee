@@ -1,7 +1,7 @@
 :: TownLandmarkRandomizer
 
-<<nobr>><<link "landmark">><<include "TownLandmark">>
+<<nobr>><span class="tip" title="This changes each time you click."><<link "landmark">><<include "TownLandmark">>
     <<replace "#random">>
             $town.landmark
-    <</replace>><</link>>
+    <</replace>><</link>></span>
 is <span id="random">$town.landmark</span><</nobr>>
