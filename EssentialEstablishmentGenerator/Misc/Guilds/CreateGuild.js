@@ -57,6 +57,20 @@ setup.createGuild = function(base) {
   guild.resources = setup.resourcesGuild(guild);
   guild.stability = setup.stabilityGuild(guild);
 
+  switch (guild.type) {
+    case "thieves": 
+    case "merchants":
+    case "wizards":
+    case "rangers":
+    case "seers":
+    case "priests":
+    case "monks":
+    case "assassins":
+    case "artisans":
+    case "nobles":
+    case "bards":
+    default:
+  }
 
   switch (guild.leadershipType) {
     case "individual":
