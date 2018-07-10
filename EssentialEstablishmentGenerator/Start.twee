@@ -11,7 +11,7 @@ $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTes
 
 <<profile $guildLeader>>
 $guildLeader.name
-$guildLeader.profession
+$guildLeader.dndclass
 
 <<script>>
     jQuery(function() {
