@@ -6,4 +6,5 @@ setup.profileTooltip = function(id, ch) {
             span.title = char.descriptor.random() + " " + char.dndclass + " called " + char.name;
         }
     });
+  setup.tippy();
 };
