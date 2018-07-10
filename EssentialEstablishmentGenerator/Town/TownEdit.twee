@@ -1,0 +1,28 @@
+:: TownEdit
+
+<<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
+
+<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 6000 10>></span>
+
+<span class="tip" title="How wealthy is the town?">Town Wealth: </span><<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
+
+<<run setup.tippy(".btn")>>
+<<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
+<<set $politicalIdeologyTypes to ["autocratic", "meritocratic", "democratic", "kleptocratic", "magocratic", "militocratic", "oligarchic", "pedocratic", "theocratic", "technocratic"]>>\
+<<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
+<<dropdown "$town.economicIdeologyIST" $economicIdeologyTypes>>\
+<<dropdown "$town.politicalIdeologyIC" $politicalIdeologyTypes>>\
+<<dropdown "$town.politicalSource" $politicalSourceTypes>>\
+
+
+<span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>></span>
+
+<span class="tip" title="How does $town.name treat its less fortunate citizens?">Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>></span>
+
+<span class="tip" title="How heavy is the armed presence here?">Relaxed military ---- Strict military: <<numberslider "$town.militaryroll" $town.militaryroll 1 100 1>></span>
+
+<span class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic ---- Regulated magic: <<numberslider "$town.arcanaroll" $town.arcanaroll 1 100 1>></span>
+
+<span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.lawroll" $town.lawroll 1 100 1>></span>
+
+<<button "Save Changes">><<include "TownRefresh">><<include "TownRenders">><<goto "TownOutput">><</button>>
