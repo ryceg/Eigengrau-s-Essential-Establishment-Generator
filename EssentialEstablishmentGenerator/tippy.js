@@ -11,3 +11,7 @@ tippy.browser.onUserInputChange = type => {
     tooltip[method]()
   }
 }
+
+$(document).on(':passageend', function (ev) {
+    tippy('.tip');
+});
