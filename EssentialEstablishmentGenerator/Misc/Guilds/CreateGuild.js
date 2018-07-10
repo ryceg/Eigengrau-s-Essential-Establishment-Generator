@@ -4,6 +4,7 @@ setup.createGuild = function(base) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
+  var leadershipGeneration;
 
   var leaderQualification = ["most skilled", "rose to power through nepotism", "completed an ordeal"];
   var leaderBribesRoll = random(1, 50) + random(1, 50);
@@ -58,23 +59,34 @@ setup.createGuild = function(base) {
   guild.stability = setup.stabilityGuild(guild);
 
   switch (guild.type) {
-    case "thieves": 
+    case "thieves":
+      leadershipGeneration.push(dndclass: "rogue",);
     case "merchants":
+      leadershipGeneration.push(profession: "merchant", background: "noble");
     case "wizards":
+      leadershipGeneration.push(dndclass: "wizard",);
     case "rangers":
+      leadershipGeneration.push(dndclass: "ranger",);
     case "seers":
+      leadershipGeneration.push(dndclass: "cleric",);
     case "priests":
+      leadershipGeneration.push(dndclass: "cleric",);
     case "monks":
+      leadershipGeneration.push(dndclass: "monk",);
     case "assassins":
+      leadershipGeneration.push(dndclass: "rogue", background: "charlatan");
     case "artisans":
+      leadershipGeneration.push(background: "guild artisan",);
     case "nobles":
+      leadershipGeneration.push(background: "noble",);
     case "bards":
+      leadershipGeneration.push(dndclass: "bard", background: "entertainer");
     default:
   }
 
   switch (guild.leadershipType) {
     case "individual":
-      State.setVar("$guildLeader", setup.createNPC());
+      State.setVar("$guildLeader", setup.createNPC({leadershipGeneration}));
   }
 
 
