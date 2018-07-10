@@ -1,7 +1,6 @@
 :: TownOutput
 
-[[Edit $town.name|TownEdit]]
-
+[[Edit <<print$town.name>>|TownEdit]]
 
 $town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
 

@@ -10,9 +10,9 @@
 <<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
 <<set $politicalIdeologyTypes to ["autocratic", "meritocratic", "democratic", "kleptocratic", "magocratic", "militocratic", "oligarchic", "pedocratic", "theocratic", "technocratic"]>>\
 <<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
-<<dropdown "$town.economicIdeologyIST" $economicIdeologyTypes>>\
-<<dropdown "$town.politicalIdeologyIC" $politicalIdeologyTypes>>\
-<<dropdown "$town.politicalSource" $politicalSourceTypes>>\
+<span class="tip" title="How does the economy work?"><<dropdown "$town.economicIdeologyIST" $economicIdeologyTypes>></span>\
+<span class="tip" title="Who leads the people?"><<dropdown "$town.politicalIdeologyIC" $politicalIdeologyTypes>></span>\
+<span class="tip" title="Why do they rule? Are they elected, or born into power?"><<dropdown "$town.politicalSource" $politicalSourceTypes>></span>\
 
 
 <span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>></span>
