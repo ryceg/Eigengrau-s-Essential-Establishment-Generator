@@ -60,28 +60,39 @@ setup.createGuild = function(base) {
 
   switch (guild.type) {
     case "thieves":
-      leadershipGeneration = 'dndclass: "rogue",';
+      leadershipGeneration.push('dndclass: "rogue",');
+      break;
     case "merchants":
-      leadershipGeneration = 'profession: "merchant", background: "noble",';
+      leadershipGeneration.push('profession: "merchant", background: "noble",');
+      break;
     case "wizards":
-      leadershipGeneration = 'dndclass: "wizard",';
+      leadershipGeneration.push('dndclass: "wizard",');
+      break;
     case "rangers":
-      leadershipGeneration = 'dndclass: "ranger",';
+      leadershipGeneration.push('dndclass: "ranger",');
+      break;
     case "seers":
-      leadershipGeneration = 'dndclass: "cleric",';
+      leadershipGeneration.push('dndclass: "cleric",');
+      break;
     case "priests":
-      leadershipGeneration = 'dndclass: "cleric",';
+      leadershipGeneration.push('dndclass: "cleric",');
+      break;
     case "monks":
-      leadershipGeneration = 'dndclass: "monk",';
+      leadershipGeneration.push('dndclass: "monk",');
+      break;
     case "assassins":
-      leadershipGeneration = 'dndclass: "rogue", background: "charlatan",';
+      leadershipGeneration.push('dndclass: "rogue", background: "charlatan",');
+      break;
     case "artisans":
-      leadershipGeneration = 'background: "guild artisan",';
+      leadershipGeneration.push('background: "guild artisan",');
+      break;
     case "nobles":
-      leadershipGeneration = 'background: "noble",';
+      leadershipGeneration.push('background: "noble",');
+      break;
     case "bards":
-      leadershipGeneration = 'dndclass: "bard", background: "entertainer",';
-    default:
+      leadershipGeneration.push('dndclass: "bard", background: "entertainer",');
+      break;
+    // default:
   }
 
   switch (guild.leadershipType) {
