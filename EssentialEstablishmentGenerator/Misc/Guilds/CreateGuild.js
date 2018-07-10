@@ -60,7 +60,7 @@ setup.createGuild = function(base) {
 
   switch (guild.leadershipType) {
     case "individual":
-      State.setVar(State.variables.guildLeader, setup.createNPC());
+      State.setVar("$guildLeader", setup.createNPC());
   }
 
 
@@ -127,7 +127,7 @@ setup.createGuild = function(base) {
     //   guild.influenceRoll += Math.fm(guild.influenceRoll, 10);
     // }
 
-  // State.variables.guilds.set(baseName + ++index, guild)};
+  State.variables.guilds.set(baseName + ++index, guild)};
 
   return guild;
 };
