@@ -4,7 +4,7 @@
 <<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">><</nobr>>
 
-<span id="btn" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
+<span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
 
 <<set $guildTest to setup.createGuild()>>
 $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
