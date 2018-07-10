@@ -145,7 +145,7 @@ setup.createNPC = function(base) {
             Object.assign(npc, {
                 eyes: ["yellow", "amber", "brown", "hazel", "green", "blue", "gray", "aqua", "brown", "hazel", "green", "blue", "gray", "aqua", "purple", "pale brown", "pale blue", "pale green", "ash gray"].random(),
                 raceplural: "humans",
-                raceadjective: "man",
+                raceadjective: "human",
                 racelanguage: "Common",
                 knownLanguages: ["Common"],
                 height: ["tiny", "short", "short", "slightly below average height", "rather average height", "slightly above average height", "tall", "tall", "tall", "giraffe-like"].random(),
