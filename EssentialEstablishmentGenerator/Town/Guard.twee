@@ -65,6 +65,6 @@
 		<<set $guard.name to "The " + _guardnameC + " " + _guardnameA>>
 	<<case 5>>
 		<<set $guard.name to "The " + _guardnameC + " " + _guardnameD>>
-	<<case 6>>
+	<<default>>
 			<<set $guard.name to "The " + _guardnameC + " " + _guardnameD + " of " + _guardnameB>>
 <</switch>>
