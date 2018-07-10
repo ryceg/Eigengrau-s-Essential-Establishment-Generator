@@ -12,7 +12,17 @@ $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTes
 <<profile $guildLeader>>
 $guildLeader.name
 $guildLeader.profession
-<<run jQuery(function() { tippy('.btn');  })>>
+
+<<script>>
+    jQuery(function() {
+        if(tippy) {
+            tippy(".btn");
+        } else {
+            importScripts("https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js")
+                .then(function() { tippy(".btn"); });
+        }
+    });
+<</script>>
 <button class="btn" title="I'm a tooltip!">Text</button>
 
 
