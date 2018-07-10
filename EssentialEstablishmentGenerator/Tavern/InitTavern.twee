@@ -13,11 +13,11 @@
 
 <span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$tavern.sizeroll" $tavern.sizeroll 1 100 1>></span>
 
-<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Reputation: <<numberslider "$tavern.reputationroll" $tavern.reputationroll 1 100 1>></span>
+<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$tavern.reputationroll" $tavern.reputationroll 1 100 1>></span>
 
 <span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$tavern.roughnessroll" $tavern.roughnessroll 1 100 1>></span>
 
-<span class="tip" title="Do you need to watch your wallet? Your drink? How likely is it to find someone that's working for the Thieve's Guild here?">Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>></span>
+<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>></span>
 
 <span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanlinessroll 1 100 1>></span>
 

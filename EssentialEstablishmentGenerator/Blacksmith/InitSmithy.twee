@@ -3,19 +3,19 @@
 
 <<linkreplace "Rename <strong>$smithy.name</strong>">><h3><<textbox "$smithy.name" $smithy.name>></h3><</linkreplace>>
 
-Smithy Wealth: <<numberslider "$smithy.wealthroll" $smithy.wealthroll 1 100 1>>
+<span class="tip" title="How wealthy is the patronage?">Smithy Wealth: <<numberslider "$smithy.wealthroll" $smithy.wealthroll 1 100 1>></span>
 
-Smithy Size: <<numberslider "$smithy.sizeroll" $smithy.sizeroll 1 100 1>>
+<span class="tip" title="How large is the smithy?">Smithy Size: <<numberslider "$smithy.sizeroll" $smithy.sizeroll 1 100 1>></span>
 
-Smithy Reputation: <<numberslider "$smithy.reputationroll" $smithy.reputationroll 1 100 1>>
+<span class="tip" title="Is it well known, or does the guy just shoe horses?">Smithy Reputation: <<numberslider "$smithy.reputationroll" $smithy.reputationroll 1 100 1>></span>
 
-Smithy Cleanliness: <<numberslider "$smithy.cleanlinessroll" $smithy.cleanlinessroll 1 100 1>>
+<span class="tip" title="How clean is the smithy?">Smithy Cleanliness: <<numberslider "$smithy.cleanlinessroll" $smithy.cleanlinessroll 1 100 1>></span>
 
-Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1 100 1>>
+<span class="tip" title="How skilled is the blacksmith?">Smithy Expertise: <<numberslider "$smithy.expertiseroll" $smithy.expertiseroll 1 100 1>></span>
 
-Smithy Activity: <<numberslider "$smithy.activityroll" $smithy.activityroll 1 100 1>>
+<span class="tip" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?">Smithy Activity: <<numberslider "$smithy.activityroll" $smithy.activityroll 1 100 1>></span>
 
-Smithy Price Modifier: <<numberslider "$smithy.pricemodifier" $smithy.pricemodifier -10 10 1>>
+<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$smithy.pricemodifier" $smithy.pricemodifier -10 10 1>></span>
 
 When you're ready, here's the [[smithy|SmithyOutput]]
 <<set $currentpassage to $smithy>>
