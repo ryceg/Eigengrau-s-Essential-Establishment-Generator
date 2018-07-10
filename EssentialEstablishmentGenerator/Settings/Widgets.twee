@@ -70,8 +70,8 @@
 					\<span class="tip" title=""><<link _char.name "NPCProfile">></span>
 							\<<set $currentNPC to _char>>
 					\<</link>>
-		\<<run setup.profileTooltip(_char)>>
 		\<</if>>
+\<<run setup.profileTooltip(_char)>>
 \<</capture>><</widget>>
 
 <<widget "temp">><<nobr>>
