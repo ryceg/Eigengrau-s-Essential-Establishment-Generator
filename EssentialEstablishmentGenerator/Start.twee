@@ -13,10 +13,16 @@ $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTes
 $guildLeader.name
 $guildLeader.dndclass
 
-<<run setup.tippy(".btn")>> 
+<<run setup.tippy(".btn")>>
 <button class="btn" title="I'm a tooltip!">Text</button>
 <div class="tip" title="I'm a DIV tooltip!">blah</div>
 <span class="tip" title="I'm a SPAN tooltip!">blah</span>
+
+
+<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 6000 10>></span>
+
+<span class="tip" title="How wealthy is the town?">Town Wealth: </span><<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>>
+
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
