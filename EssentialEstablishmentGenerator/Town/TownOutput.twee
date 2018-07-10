@@ -16,6 +16,7 @@
         }
     });
 <</script>>
+<<run setup.tippy(".btn")>> 
 <<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
 <<set $politicalIdeologyTypes to ["autocratic", "meritocratic", "democratic", "kleptocratic", "magocratic", "militocratic", "oligarchic", "pedocratic", "theocratic", "technocratic"]>>\
 <<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
