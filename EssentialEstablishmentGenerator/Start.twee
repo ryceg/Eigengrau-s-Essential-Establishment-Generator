@@ -13,6 +13,9 @@ $guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTes
 $guildLeader.name
 $guildLeader.profession
 
+<button class="btn" title="I'm a tooltip!">Text</button>
+<script>tippy('.btn');</script>
+
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
         <<set $currentPassage to $tavern>>
