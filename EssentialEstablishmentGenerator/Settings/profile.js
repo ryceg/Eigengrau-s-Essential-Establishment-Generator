@@ -3,7 +3,7 @@ setup.profileTooltip = function(id, ch) {
     jQuery(function() {
         var span = document.getElementById(id)
         if(span) {
-            span.title = "A " + char.descriptor.random() + " " + char.dndclass + " called " + char.name;
+            span.title = "A " + char.weight + char.racenote + " " + char.dndclass + " with " + char.physicaltrait + " called " + char.name;
             tippy("#" + span.id);
         }
     });
