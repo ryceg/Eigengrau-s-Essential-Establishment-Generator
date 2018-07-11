@@ -18,7 +18,7 @@
 			<<set $tavern.hasBrothel to true>><<include "Brothel">>
 <</if>>
 
-/* <<set $tavern.sinroll to $tavern.sinroll.clamp(1, 100),
+<<set $tavern.sinroll to $tavern.sinroll.clamp(1, 100),
 		$tavern.wealthroll to $tavern.wealthroll.clamp(1, 100),
 		$tavern.reputationroll to $tavern.reputationroll.clamp(1, 100),
 		$tavern.cleanlinessroll to $tavern.cleanlinessroll.clamp(1, 100),
@@ -26,7 +26,7 @@
 		$tavern.roughnessroll to $tavern.roughnessroll.clamp(1, 100),
 		$tavern.diversityroll to $tavern.diversityroll.clamp(1, 100),
 		$tavern.sizeroll to $tavern.sizeroll.clamp(1, 100),
-		$tavern.magicroll to $tavern.magicroll.clamp(1, 100)>> */
+		$tavern.magicroll to $tavern.magicroll.clamp(1, 100)>>
 
 <<set $tavernname to setup.createTavernNameGen()>>
 <<set $tavern.name to $tavernname.name>>
