@@ -1,4 +1,4 @@
-setupBackground = function(npc) {
+setup.createBackground = function(npc) {
   switch (npc.background) {
       case "acolyte":
           npc.knownLanguages = npc.knownLanguages + availableLanguages.push(availableLanguages.random());

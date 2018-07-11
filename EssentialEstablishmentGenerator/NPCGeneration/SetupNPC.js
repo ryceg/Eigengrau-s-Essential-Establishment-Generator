@@ -506,7 +506,8 @@ setup.createNPC = function(base) {
 
     availableLanguages = [allLanguages - npc.knownLanguages];
 
-    
+    setup.createBackground(npc);
+
     npc.descriptor = [npc.age + " " + npc.racesingular, npc.height + " " + npc.racesingular, npc.weight + " " + npc.racesingular, npc.height + " " + npc.gender + " with " + npc.physicaltrait];
     if (typeof beard !== 'undefined') {
       npc.descriptor.push(npc.racesingular + " with a " + npc.beard);
