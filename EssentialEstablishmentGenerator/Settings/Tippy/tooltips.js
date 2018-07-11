@@ -8,3 +8,15 @@ setup.profileTooltip = function(id, ch) {
         }
     });
 };
+
+
+setup.buildingTooltip = function(id, ch) {
+    var char = ch;
+    jQuery(function() {
+        var span = document.getElementById(id)
+        if(span) {
+            span.title = "A " + building.size + ", " + building.cleanliness + " building.";
+            tippy("#" + span.id);
+        }
+    });
+};

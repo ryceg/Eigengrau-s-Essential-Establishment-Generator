@@ -161,9 +161,9 @@ setup.createBuilding = function() {
     	else if (reputationroll > 60){
     		 reputation = "well known";}
     	else if (reputationroll > 40){
-    		 reputation = "famous-ish";}
+    		 reputation = "relatively well known";}
     	else if (reputationroll > 20){
-    		 reputation = "reviled";}
+    		 reputation = "somewhat unknown";}
     	else if (reputationroll <= 20){
     		 reputation = "infamous";}
 
