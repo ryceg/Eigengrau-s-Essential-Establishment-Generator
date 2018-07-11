@@ -216,7 +216,7 @@ setup.createHistory = function(npc) {
         npc.familyHome = "no real permanent address";
       } else if (familyHomeRoll >= 1){
         npc.familyHome = "a rundown shack";
-      } else if (familyHomeRoll > 1){
+      } else if (familyHomeRoll < 1){
         npc.familyHome = "on the streets";
       }
 
