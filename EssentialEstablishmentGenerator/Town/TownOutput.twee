@@ -11,4 +11,4 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
 
 <<linkappend "<h3>Businesses in $town.name</h3>">><<include "TradesOutput">><</linkappend>>
 
-<<return>>
+<<back>>

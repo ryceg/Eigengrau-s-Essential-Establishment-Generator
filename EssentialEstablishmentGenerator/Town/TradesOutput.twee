@@ -1,10 +1,4 @@
 :: TradesOutput
-
-<table>
-  <tr>
-    <th>Trade</th>
-    <th>Number</th>
-  </tr>
 <<nobr>>
 <<for _i, _trade range $trade>>
     <<set _townPop to $town.population>>
@@ -18,6 +12,11 @@
           <<else>>
               <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
           <</if>>
+          <table>
+            <tr>
+              <th>Trade</th>
+              <th>Number</th>
+            </tr>
       <<if _trade.count gte 1>>
           <tr><td><<print _trade.profession.toUpperFirst()>></td>
         /* <td><<include "ProfessionList">></td></tr> */
