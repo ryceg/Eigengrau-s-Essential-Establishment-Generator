@@ -13,7 +13,9 @@ setup.createHistory = function(npc) {
   var wealthmodifier;
 
   if (random(1, 100) > 95){
-    npc.knewParents = "parents are not known";
+    npc.knewParents = false;
+  } else {
+    npc.knewParents = true;
   }
 
   switch (npc.race){
