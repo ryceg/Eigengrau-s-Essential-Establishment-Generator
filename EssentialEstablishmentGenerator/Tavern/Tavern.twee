@@ -9,22 +9,24 @@
 
 /* Exclusion code for brothels + churches */
 <<if ($tavern.type is "gambling den" && $tavern.draw is "proximity to the church")>>
-		<<set $tavern.draw to "proximity to the brothel">>
+			<<set $tavern.draw to "proximity to the brothel">>
 	<<elseif ($tavern.type is "brothel" && $tavern.draw is "proximity to the church")>>
-		<<set $tavern.draw to "proximity to the brothel">>
+			<<set $tavern.draw to "proximity to the brothel">>
 	<<elseif ($tavern.type is "raucous dive" && $tavern.draw is "proximity to the church")>>
-		<<set $tavern.draw to "proximity to the brothel">>
+			<<set $tavern.draw to "proximity to the brothel">>
+	<<elseif $tavern.type is "brothel">>
+			<<set $brothel.isTavern to true>><<include "Brothel">>
 <</if>>
 
-<<set $tavern.sinroll to $tavern.sinroll.clamp(1, 100),
-$tavern.wealthroll to $tavern.wealthroll.clamp(1, 100),
-$tavern.reputationroll to $tavern.reputationroll.clamp(1, 100),
-$tavern.cleanlinessroll to $tavern.cleanlinessroll.clamp(1, 100),
-$tavern.populationroll to $tavern.populationroll.clamp(1, 100),
-$tavern.roughnessroll to $tavern.roughnessroll.clamp(1, 100),
-$tavern.diversityroll to $tavern.diversityroll.clamp(1, 100),
-$tavern.sizeroll to $tavern.sizeroll.clamp(1, 100),
-$tavern.magicroll to $tavern.magicroll.clamp(1, 100)>>
+/* <<set $tavern.sinroll to $tavern.sinroll.clamp(1, 100),
+		$tavern.wealthroll to $tavern.wealthroll.clamp(1, 100),
+		$tavern.reputationroll to $tavern.reputationroll.clamp(1, 100),
+		$tavern.cleanlinessroll to $tavern.cleanlinessroll.clamp(1, 100),
+		$tavern.populationroll to $tavern.populationroll.clamp(1, 100),
+		$tavern.roughnessroll to $tavern.roughnessroll.clamp(1, 100),
+		$tavern.diversityroll to $tavern.diversityroll.clamp(1, 100),
+		$tavern.sizeroll to $tavern.sizeroll.clamp(1, 100),
+		$tavern.magicroll to $tavern.magicroll.clamp(1, 100)>> */
 
 <<set $tavernname to setup.createTavernNameGen()>>
 <<set $tavern.name to $tavernname.name>>

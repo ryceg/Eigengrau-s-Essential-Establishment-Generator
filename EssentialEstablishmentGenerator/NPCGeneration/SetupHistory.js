@@ -137,13 +137,20 @@ setup.createHistory = function(npc) {
       npc.siblingNumber = random(4, 11);
       break;
   }
-  // for npc.siblingNumber
-  //   if (random(1, 6) + random(1, 6) == 2){
-  //     npc.siblingTwin += 1;
-  //   } else if (random(1, 6) + random(1, 6) < 8){
-  //     npc.siblingOlder += 1;
-  //   } else if (random(1, 6) + random(1, 6) >= 8){
-  //     npc.siblingYounger += 1;
+
+
+  // for (i = npc.siblingNumber; i > 0; i--){
+  // var siblingPlaceRoll = random(1, 6) + random(1, 6);
+  //     if siblingPlaceRoll == 2){
+  //       npc.siblingTwin += 1;
+  //     } else if siblingPlaceRoll < 8){
+  //       npc.siblingOlder += 1;
+  //     } else if siblingPlaceRoll >= 8){
+  //       npc.siblingYounger += 1;
+  //     }
+  // }
+
+
 
     if (parentRoll >= 76){
       npc.familyUnit = "my mother and father";
