@@ -28,13 +28,25 @@ setup.createClass = function(npc) {
               npc.wealth = npc.wealth += (dice('2d4') * 1000);
               break;
           case "fighter":
-              npc.dndclassOrigin = npc.dndclassOrigin || ["i wanted to hone my combat skills, and so I joined a war college", "I  grew up fighting, and I refined my talents by defending myself against people who crossed me.", "I squired for a knight, who taught me how to fight, care for my steed, and conduct myself with honor. I decided to take up that path for myself.", "Monster attacks led me to believe that there was no other way for me to be able to defend my family.", "I joined the army, and learnt how to fight in a group as a team against a common enemy.", "I always had a knack for just about any weapon which I picked up."].random();
+              npc.dndclassOrigin = npc.dndclassOrigin || [
+                "I wanted to hone my combat skills, and so I joined a war college",
+                "I  grew up fighting, and I refined my talents by defending myself against people who crossed me.",
+                "I squired for a knight, who taught me how to fight, care for my steed, and conduct myself with honor. I decided to take up that path for myself.",
+                "Monster attacks led me to believe that there was no other way for me to be able to defend my family.",
+                "I joined the army, and learnt how to fight in a group as a team against a common enemy.",
+                "I always had a knack for just about any weapon which I picked up."].random();
               npc.background = npc.background || ["acolyte", "charlatan", "criminal", "criminal", "criminal", "entertainer", "folk hero", "folk hero", "folk hero", "guild artisan", "hermit", "noble", "outlander", "outlander", "sage", "sailor", "sailor", "sailor", "soldier", "soldier", "soldier", "soldier", "soldier", "soldier", "urchin"].random();
               npc.weapon = npc.weapon || ["a huge greataxe", "a battleaxe", "a greatsword", "a long sword", "a long sword", "a long sword", "a long sword", "a long bow", "a short sword", "a war pick", "a falcheon", "a halberdier"].random();
               npc.wealth = npc.wealth += (dice('5d4') * 1000);
               break;
           case "monk":
-              npc.dndclassOrigin = npc.dndclassOrigin || ["I stumbled into a portal and took refuge in a strange monastery, where I learned how to defend mysel fagainst the forces of darkness.", "I was chosen to study at a secluded monastery, where I learnt the fundamental techniques to set me on the path to eventual mastery.", "I sought out the instruction of a monk to gain a greater understanding of my world, and my purpose in it.", "I was overwhelmed with grief when I lost my sister, and found solace in meditation with the monks.", "I always felt a power within me, and sought out an order of monks to help me understand it and harness that energy for good.", "I was wild, and undisciplined as a child, until I realised the error of my ways. I sought out the monks to atone for my sins."].random();
+              npc.dndclassOrigin = npc.dndclassOrigin || [
+                "I stumbled into a portal and took refuge in a strange monastery, where I learned how to defend mysel fagainst the forces of darkness.",
+                "I was chosen to study at a secluded monastery, where I learnt the fundamental techniques to set me on the path to eventual mastery.",
+                "I sought out the instruction of a monk to gain a greater understanding of my world, and my purpose in it.",
+                "I was overwhelmed with grief when I lost my sister, and found solace in meditation with the monks.",
+                "I always felt a power within me, and sought out an order of monks to help me understand it and harness that energy for good.",
+                "I was wild, and undisciplined as a child, until I realised the error of my ways. I sought out the monks to atone for my sins."].random();
               npc.background = npc.background || ["acolyte", "acolyte", "acolyte", "acolyte", "charlatan", "criminal", "folk hero", "guild artisan", "hermit", "hermit", "hermit", "noble", "noble", "outlander", "sage", "sage", "sage", "soldier", "urchin"].random();
               npc.weapon = npc.weapon || ["fists", "fists", "fists", "a quarterstaff", "a quarterstaff"].random();
               npc.wealth = npc.wealth += (dice('5d4') * 100);
@@ -46,13 +58,27 @@ setup.createClass = function(npc) {
               npc.wealth = npc.wealth += (dice('5d4') * 1000);
               break;
           case "rogue":
-              npc.dndclassOrigin = npc.dndclassOrigin || ["I've always been nimble and quick of wit, so I decided to use those talents to help me make my way in the world.", "A thief wronged me, so I focused my training on mastering those skills to better combat foes of that sort.", "Know thy enemy. I aim to learn everything there is to know about the Thieves' guild, and then I'll bring it all tumbling down.", "An experienced rogue saw something in me, and taught me several useful tricks.", "I took up with a group of ruffians, that taught me how to get what I want without direct confrontation.", "I'm a sucker for a shiny bauble or bag of coins, as long as I can get it without risking life and limb.", "I just love the thrill of the heist. There's nothing that makes me feel more alive than taking something from right under someone's nose."].random();
+              npc.dndclassOrigin = npc.dndclassOrigin || [
+                "I've always been nimble and quick of wit, so I decided to use those talents to help me make my way in the world.",
+                "A thief wronged me, so I focused my training on mastering those skills to better combat foes of that sort.",
+                "Know thy enemy. I aim to learn everything there is to know about the Thieves' guild, and then I'll bring it all tumbling down.",
+                "An experienced rogue saw something in me, and taught me several useful tricks.",
+                "I took up with a group of ruffians, that taught me how to get what I want without direct confrontation.",
+                "I'm a sucker for a shiny bauble or bag of coins, as long as I can get it without risking life and limb.",
+                "I just love the thrill of the heist. There's nothing that makes me feel more alive than taking something from right under someone's nose."
+              ].random();
               npc.background = npc.background || ["charlatan", "charlatan", "charlatan", "criminal", "criminal", "criminal", "criminal", "criminal", "criminal", "folk hero", "folk hero", "guild artisan", "guild artisan", "hermit", "noble", "noble", "outlander", "sailor", "soldier", "urchin", "urchin", "urchin", "urchin", "urchin"].random();
               npc.weapon = npc.weapon || ["a long sword", "a long sword", "two daggers", "two daggers", "two daggers", "two daggers", "a crossbow", "a crossbow", "a crossbow"].random();
               npc.wealth = npc.wealth += (dice('4d4') * 1000);
               break;
           case "ranger":
-              npc.dndclassOrigin = npc.dndclassOrigin || ["I always had a way with animals, and was able to calm them with a gentle touch and soothing word.", "I found purpose while I was honing my hunting skills by bringing dangerous beasts down from the outskirts of civilisation.", "I suffer from wanderlust, so I found the life of the ranger to be freeing; to me, wandering without a fixed home is freeing.", "I met a grizzled ranger who taught me the secrets of woodcraft and surviving in the wild.", "I served in the army, and led my division by scouting ahead, blazing trails and tracking our enemies."].random();
+              npc.dndclassOrigin = npc.dndclassOrigin || [
+                "I always had a way with animals, and was able to calm them with a gentle touch and soothing word.",
+                "I found purpose while I was honing my hunting skills by bringing dangerous beasts down from the outskirts of civilisation.",
+                "I suffer from wanderlust, so I found the life of the ranger to be freeing; to me, wandering without a fixed home is freeing.",
+                "I met a grizzled ranger who taught me the secrets of woodcraft and surviving in the wild.",
+                "I served in the army, and led my division by scouting ahead, blazing trails and tracking our enemies."
+              ].random();
               npc.background = npc.background || ["acolyte", "acolyte", "charlatan", "criminal", "entertainer", "folk hero", "folk hero", "folk hero", "folk hero", "guild artisan", "hermit", "hermit", "hermit", "hermit", "outlander", "outlander", "outlander", "outlander", "sage", "sailor", "soldier", "soldier", "soldier", "urchin"].random();
               npc.weapon = npc.weapon || ["a crossbow", "a longsword", "a longsword", "a longsword", "a long bow", "a long bow", "a long bow", "two daggers"].random();
               npc.wealth = npc.wealth += (dice('5d4') * 1000);
