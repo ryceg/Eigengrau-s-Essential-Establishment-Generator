@@ -1,5 +1,5 @@
 :: Brothel
-<<if $brothel.isTavern is true>>
+<<if $tavern.hasBrothel is true>>
     <<set $brothel to $tavern>>
   <<else>>
     <<set $brothel to setup.createBuilding()>>

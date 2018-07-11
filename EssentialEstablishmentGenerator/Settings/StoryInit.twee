@@ -64,8 +64,6 @@ Setting.save();
 
 <<include "TavernInventory">>
 
-/*<<include "fairmath">>*/
-
 <<include "TavernModifiers">>
 
 <<include "PatreonCharacters">>

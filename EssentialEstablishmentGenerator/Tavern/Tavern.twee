@@ -15,7 +15,7 @@
 	<<elseif ($tavern.type is "raucous dive" && $tavern.draw is "proximity to the church")>>
 			<<set $tavern.draw to "proximity to the brothel">>
 	<<elseif $tavern.type is "brothel">>
-			<<set $brothel.isTavern to true>><<include "Brothel">>
+			<<set $tavern.hasBrothel to true>><<include "Brothel">>
 <</if>>
 
 /* <<set $tavern.sinroll to $tavern.sinroll.clamp(1, 100),
