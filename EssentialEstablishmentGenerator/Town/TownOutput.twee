@@ -9,7 +9,8 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
 <h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 
-/* <<linkappend "<h3>Businesses in $town.name</h3>">><<nobr>> */
+/* <<linkappend "<h3>Businesses in $town.name</h3>">> */
+<<nobr>>
 <table>
   <tr>
     <th>Trade</th>
