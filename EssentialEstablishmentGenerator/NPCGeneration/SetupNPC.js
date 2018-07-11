@@ -703,12 +703,14 @@ setup.createNPC = function(base) {
     if (typeof beard !== 'undefined') {
       npc.descriptor.push(npc.racesingular + " with a " + npc.beard);
     }
-    if (npc.hasClass == true) {
+
+    if (npc.hasClass === true) {
       npc.descriptor.push(npc.dndclass);
     }
 
     if (npc.isThrowaway == 'undefined') {
-    State.variables.npcs.set(baseName + ++index, npc)};
+    State.variables.npcs.set(baseName + ++index, npc);
+    }
     return npc;
 
 };
