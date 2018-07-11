@@ -139,7 +139,7 @@ setup.createHistory = function(npc) {
   }
 
 
-  for (i = npc.siblingNumber; i > 0; i--){
+  for (var i = npc.siblingNumber; i > 0; i--){
   var siblingPlaceRoll = random(1, 6) + random(1, 6);
       if (siblingPlaceRoll == 2){
         npc.siblingTwin += 1;
