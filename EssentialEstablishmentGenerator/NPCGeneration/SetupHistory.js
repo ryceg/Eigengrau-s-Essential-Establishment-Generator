@@ -218,6 +218,8 @@ setup.createHistory = function(npc) {
         npc.familyHome = "a rundown shack";
       } else if (familyHomeRoll < 1){
         npc.familyHome = "on the streets";
+      } else {
+        npc.familyHome = "a small house";
       }
 
       if (childhoodMemoriesRoll >= 18){
