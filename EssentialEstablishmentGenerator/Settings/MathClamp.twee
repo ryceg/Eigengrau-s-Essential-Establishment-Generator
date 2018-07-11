@@ -1,7 +1,7 @@
 :: MathClamp [render]
 
-<<if $smithy.pricemodifier gt 100>>
-    <<set $smithy.pricemodifier to 100>>
+<<if $smithy.pricemodifier gt 10>>
+    <<set $smithy.pricemodifier to 10>>
   <<elseif $smithy.pricemodifier lt -10>>
     <<set $smithy.pricemodifier to -10>>
 <</if>>
@@ -73,7 +73,7 @@
 <</if>>
 
 <<if $alchemist.pricemodifier gt 10>>
-    <<set $alchemist.pricemodifier to 100>>
+    <<set $alchemist.pricemodifier to 10>>
   <<elseif $alchemist.pricemodifier lt -10>>
     <<set $alchemist.pricemodifier to -10>>
 <</if>>
@@ -145,7 +145,7 @@
 <</if>>
 
 <<if $tavern.pricemodifier gt 10>>
-    <<set $tavern.pricemodifier to 100>>
+    <<set $tavern.pricemodifier to 10>>
   <<elseif $tavern.pricemodifier lt -10>>
     <<set $tavern.pricemodifier to -10>>
 <</if>>
@@ -217,7 +217,7 @@
 <</if>>
 
 <<if $GeneralStore.pricemodifier gt 10>>
-    <<set $GeneralStore.pricemodifier to 100>>
+    <<set $GeneralStore.pricemodifier to 10>>
   <<elseif $GeneralStore.pricemodifier lt -10>>
     <<set $GeneralStore.pricemodifier to -10>>
 <</if>>
