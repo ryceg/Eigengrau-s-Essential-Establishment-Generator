@@ -162,8 +162,6 @@ setup.createFaction = function(base) {
   switch (faction.leadershipType) {
     case "individual":
       State.setVar("$factionLeader", setup.createNPC({leadershipGeneration}));
-    case "group":
-      
   }
 
 
@@ -233,4 +231,5 @@ setup.createFaction = function(base) {
   // State.variables.factions.set(baseName + ++index, faction)};
 
   return faction;
+  }
 };
