@@ -1,5 +1,4 @@
 setup.createHistory = function(npc) {
-  var npc = npc;
   var parentalLineageRoll = random(1, 8);
   var birthplaceRoll = random(1, 100);
   var parentRoll = random(1, 100);
