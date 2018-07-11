@@ -139,16 +139,16 @@ setup.createHistory = function(npc) {
   }
 
 
-  // for (i = npc.siblingNumber; i > 0; i--){
-  // var siblingPlaceRoll = random(1, 6) + random(1, 6);
-  //     if siblingPlaceRoll == 2){
-  //       npc.siblingTwin += 1;
-  //     } else if siblingPlaceRoll < 8){
-  //       npc.siblingOlder += 1;
-  //     } else if siblingPlaceRoll >= 8){
-  //       npc.siblingYounger += 1;
-  //     }
-  // }
+  for (i = npc.siblingNumber; i > 0; i--){
+  var siblingPlaceRoll = random(1, 6) + random(1, 6);
+      if (siblingPlaceRoll == 2){
+        npc.siblingTwin += 1;
+      } else if (siblingPlaceRoll < 8){
+        npc.siblingOlder += 1;
+      } else if (siblingPlaceRoll >= 8){
+        npc.siblingYounger += 1;
+      }
+  }
 
 
 
