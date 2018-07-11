@@ -1,5 +1,5 @@
 :: TradesOutput
-<<nobr>>
+/* <<nobr>>
 <table>
   <tr>
     <th>Trade</th>
@@ -24,4 +24,4 @@
         <td>_trade.count</td></tr>
       <</if>>
       <</for>>
-</table><</nobr>>
+</table><</nobr>> */
