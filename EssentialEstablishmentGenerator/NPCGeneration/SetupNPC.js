@@ -25,7 +25,7 @@ setup.createNPC = function(base) {
     var isVillain;
     var title;
     var hasClass;
-    var wealth;
+    var wealth = random(6, 26);
     var isThrowaway;
     var firstname;
     var name;
