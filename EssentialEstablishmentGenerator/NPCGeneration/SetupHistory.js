@@ -166,13 +166,13 @@ setup.createHistory = function(npc) {
     } else if (parentRoll >= 6){
       npc.familyUnit = "guardian";
     } else if (parentRoll >= 4){
-      npc.familyUnit = "orphanage";
+      npc.familyUnit = "the orphanage";
     } else if (parentRoll >= 3){
-      npc.familyUnit = "temple";
+      npc.familyUnit = "the temple";
     } else if (parentRoll >= 2){
-      npc.familyUnit = "institution";
+      npc.familyUnit = "the institution";
     } else if (parentRoll < 2){
-      npc.familyUnit = "none";
+      npc.familyUnit = "the streets";
     }
 
     if (familyLifestyleRoll == 18){
