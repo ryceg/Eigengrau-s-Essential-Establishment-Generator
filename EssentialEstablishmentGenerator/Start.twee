@@ -15,8 +15,9 @@ $factionTest.name is $factionTest.age, and the $factionTest.size faction has a $
 $factionLeader.name
 $factionLeader.dndclass
 $factionLeader.parentalLineage
-I was born $factionLeader.birthplace, and had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. I grew up with $factionLeader.familyUnit<<if $factionLeader.siblingNumber == 0>> alone.<<elseif $factionLeader.siblingNumber == 1>> with my brother.<<else>>, along with my $factionLeader.siblingNumber siblings.<</if>> $factionLeader.childhoodMemories. I had .
-When I was younger, and more foolish, I went on an adventure, and $factionLeader.adventureResults. I have <<money $factionLeader.wealth>> to my name. factionLeader.wealth
+I was born $factionLeader.birthplace, and grew up with $factionLeader.familyUnit<<if $factionLeader.siblingNumber == 0>> alone.<<elseif $factionLeader.siblingNumber == 1>> with my brother.<<else>>, along with my $factionLeader.siblingNumber siblings.<</if>> I had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. I $factionLeader.childhoodMemories.
+
+When I left home and started working as a $factionLeader.dndclass, I went on an adventure, and $factionLeader.adventureResults. I have <<money $factionLeader.wealth>> to my name.
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
