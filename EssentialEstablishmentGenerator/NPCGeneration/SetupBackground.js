@@ -1,7 +1,7 @@
 setup.createBackground = function(npc) {
   switch (npc.background) {
       case "acolyte":
-          npc.knownLanguages = npc.knownLanguages + availableLanguages.push(availableLanguages.random());
+          npc.knownLanguages = npc.knownLanguages + npc.availableLanguages.pop();
           npc.backgroundOrigin = npc.backgroundOrigin || ["I ran away from home at a young age, and found refuge in a temple.", "My family gave me to a temple, since they were unable to care for me.", "I grew up in a household with strong religious convictions. Entering the service of the Gods seemed to be the natural progression.", "An impassioned sermon struck a chord deep in me, and compelled me to serve the faith.", "I followed a childhood friend into religious service because we made a pact to never be apart.", "I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life."].random();
           npc.bond = npc.bond || ["I would die to recover an ancient artifact of my faith that was lost long ago.",
               "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.",
@@ -72,7 +72,7 @@ setup.createBackground = function(npc) {
           npc.wealth = npc.wealth += 500;
           break;
       case "noble":
-          npc.knownLanguages = npc.knownLanguages + availableLanguages.push(availableLanguages.random());
+          npc.knownLanguages = npc.knownLanguages + npc.availableLanguages.pop();
           npc.backgroundOrigin = npc.backgroundOrigin || ["My family has been disgraced, and I intend to restore our once pristine reputation.", "I come from an old and storied family, and it fell to me to preserve the family name.", "My family recently came by its title, and that elevation thrust us into a new and strange world.", "My family has a title, but none of my ancestors have done anything of note.", "My family is filled with remarkable people. I hope to live up to their reputation.", "I hope to increase my family's power and influence."].random();
           npc.bond = npc.bond || ["I will face any challenge to win the approval of my family.",
               "My house's alliance with another noble family must be sustained at all costs.",
@@ -93,7 +93,7 @@ setup.createBackground = function(npc) {
           npc.wealth = npc.wealth += 1000;
           break;
       case "sage":
-          npc.knownLanguages = npc.knownLanguages + availableLanguages.push(availableLanguages.random());
+          npc.knownLanguages = npc.knownLanguages + npc.availableLanguages.pop();
           npc.backgroundOrigin = npc.backgroundOrigin || ["I was naturally curious, so I packed up and went to a university to learn more about the world.", "My mentor’s teachings opened my mind to new possibilities in that field of study.", "I was always an avid reader, and became a sage to learn more from the thousands of books that I tended to.", "I discovered an old library and pored over the texts I found there. That experience awakened a hunger in me for knowledge that I still seek.", "I impressed a traveling wizard, who told me that I was squandering my talents and that I should seek out an education to take advantage of my gifts.", "My father gave me a basic education which whetted my appetite for more knowledge, and I left home to build on what I knew."].random();
           npc.bond = npc.bond || ["It is my duty to protect my students.",
               "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.",
