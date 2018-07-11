@@ -9,6 +9,8 @@
 <<set $factionTest to setup.createFaction()>>
 $factionTest.name is $factionTest.age, and the $factionTest.size faction has a $factionTest.reputation reputation. Its resources are $factionTest.resources, and it is motivated by $factionTest.motivation. It's ruled by a $factionTest.leadershipType, whose position is $factionTest.stability.
 
+<<money 4056>>
+
 <<profile $factionLeader>>
 $factionLeader.name
 $factionLeader.dndclass
