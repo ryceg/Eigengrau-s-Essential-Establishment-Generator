@@ -6,12 +6,14 @@
 
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
 
-<<set $guildTest to setup.createGuild()>>
-$guildTest.name is $guildTest.age, and the $guildTest.size guild has a $guildTest.reputation reputation. Its resources are $guildTest.resources, and it is motivated by $guildTest.motivation. It's ruled by a $guildTest.leadershipType, whose position is $guildTest.stability.
+<<set $factionTest to setup.createFaction()>>
+$factionTest.name is $factionTest.age, and the $factionTest.size faction has a $factionTest.reputation reputation. Its resources are $factionTest.resources, and it is motivated by $factionTest.motivation. It's ruled by a $factionTest.leadershipType, whose position is $factionTest.stability.
 
-<<profile $guildLeader>>
-$guildLeader.name
-$guildLeader.dndclass
+<<profile $factionLeader>>
+$factionLeader.name
+$factionLeader.dndclass
+$factionLeader.parentalLineage
+I was born $factionLeader.birthplace, and had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. I grew up with $factionLeader.familyUnit. $factionLeader.childhoodMemories. I had $factionLeader.siblingNumber siblings.
 
 
 <<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><<link "$tavern.name">><<set $currentPassage to $tavern>>
