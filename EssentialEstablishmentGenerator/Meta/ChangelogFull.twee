@@ -1,6 +1,6 @@
 :: ChangelogFull
 
-<h4>v.1.3.5</h4>* Added racial last names (at long last! No more dragonborns with the last name "Johnston"!)
+<h4>v.1.3.5</h4> * Added racial last names (at long last! No more dragonborns with the last name "Johnston"!)
 * Added pub rumours, rogue missions, nightmares, raiders, and weather generation to the [[Toolbox]].
 * Added the one-shot murder mystery [[The Poisoned Potioner|AdventureOutput]]; a self-contained murder to keep your PCs occupied for an hour!
 * <span class="tip" title="I'm aware that it is ridiculous that this was not a feature">Added beards</span>
@@ -12,13 +12,13 @@
 * Couple of loose ends
 * Minor code cleanup
 
-<h4>v.1.3.2</h4>* Fixed an issue where a pimp was being created every single passage change, resulting in LOTS of pimps, and TERRIBLE performance. Things should hopefully be a bit snappier, now that there's not a linearly growing pimp population...
+<h4>v.1.3.2</h4> * Fixed an issue where a pimp was being created every single passage change, resulting in LOTS of pimps, and TERRIBLE performance. Things should hopefully be a bit snappier, now that there's not a linearly growing pimp population...
 
-<h4>v.1.3.1</h4>* I realised that I accidentally left in the half-baked code for population occupations, which doesn't quite work for small towns, but I've left it in anyways. It's in town descriptions.
+<h4>v.1.3.1</h4> * I realised that I accidentally left in the half-baked code for population occupations, which doesn't quite work for small towns, but I've left it in anyways. It's in town descriptions.
 * Added Patreon Content slider reintroducing Jasher Drake's halfling warlock!
 * Minor text fixes
 
-<h4>v.1.3</h4>* Added tutorial
+<h4>v.1.3</h4> * Added tutorial
 * Added popups to remind people of the settings page
 * Added guards
 * Added tavern brawls
@@ -29,17 +29,17 @@
 * Added town free trade, welfare, magic control, military, and punishment sliders.
 * Added what the town grew around, and their crops, and exports.
 
-<h4>v.1.2.2</h4>* Minor additions.
+<h4>v.1.2.2</h4> * Minor additions.
 * Redid a couple wordings
 * Added vocal patterns
 * Added vegetation (more detail will be added in future!)
 * Added more to NPC Profile Pages
 
-<h4>v.1.2.1</h4>* Added link to randomize town landmark.
+<h4>v.1.2.1</h4> * Added link to randomize town landmark.
 * Added link to refresh town.
 * Fixed broken sidebar link to suggestions.
 
-<h4>v.1.2</h4>* Added the Patreon supporter Jasher Drake's halfling warlock <<linkappend "Tylien Birchbottom">>; captured by cultists as a young lad, he was almost sacrificed to 'The Beast of Shadows', but was rescued at the last minute. After his ordeal, Tylien found himself speaking in tongues and forgetting things. As his memory decayed, he discovered magical powers that he never had before... He now seeks to uncover the mystery of what happened, and what the beast that was summoned is. You might encounter him behind $tavern.name's bar!<</linkappend>>
+<h4>v.1.2</h4> * Added the Patreon supporter Jasher Drake's halfling warlock <<linkappend "Tylien Birchbottom">>; captured by cultists as a young lad, he was almost sacrificed to 'The Beast of Shadows', but was rescued at the last minute. After his ordeal, Tylien found himself speaking in tongues and forgetting things. As his memory decayed, he discovered magical powers that he never had before... He now seeks to uncover the mystery of what happened, and what the beast that was summoned is. You might encounter him behind $tavern.name's bar!<</linkappend>>
 * Added 'Profile pages' for each NPC for roleplay.
 * Added an option in the sidebar called 'Toolkit'* a collection of random generators.
 		* Added a random adventure generator (found in the toolbox)
@@ -48,12 +48,12 @@
 * Minor CSS changes to try and make things a little bit more bearable while I learn how to do CSS properly...
 * Added the ability to skip the sliders stage
 
-<h4>v.1.1.5</h4>* Added background origins
+<h4>v.1.1.5</h4> * Added background origins
 * Minor bug fixes with potions
 * Started work on town descriptors
 * Started work on "Starting Campaign" mode, for DMs starting a new campaign.
 
-<h4>v.1.1</h4>* Added NPC generator in the Tavern
+<h4>v.1.1</h4> * Added NPC generator in the Tavern
 * Added plothooks for alchemist
 * Added the excellent Solbera fonts
 * Added JavaScript to force specfic attributes to creating NPCs
@@ -62,7 +62,7 @@
 * Added brothel
 * Added marketplace
 
-<h4>v.1.0</h4>* Added Alchemist
+<h4>v.1.0</h4> * Added Alchemist
 * Added Blacksmith
 * Added General Store
 * Added significant CSS changes
@@ -71,14 +71,14 @@
 * Huge code cleanup as a result of JS.
 
 
-<h4>v.0.3</h4>* Added ability to rename town & tavern
+<h4>v.0.3</h4> * Added ability to rename town & tavern
 * Modified room cost formula to mirror the recommended prices
 * CSS Style update
 * Drop caps!
 * Added exclusions for the brothels' main attractions being near the church...
 * Minor code cleanup behind the scenes
 
-<h4>v.0.2</h4>* Added vegetarian & carnivorous menus based on tavern's roughness.
+<h4>v.0.2</h4> * Added vegetarian & carnivorous menus based on tavern's roughness.
 * Replaced attribute buttons with sliders (that actually work)
 * Added races
 	<i>Bartender's race will impact the tavern's roughness, cleanliness, etc.</i>
@@ -89,4 +89,4 @@
 * Added descriptions of taverns based on size and draw.
 * Made room availability dependent on size, and current population of the tavern.
 
-<h4>v.0.1</h4>* First release
+<h4>v.0.1</h4> * First release
