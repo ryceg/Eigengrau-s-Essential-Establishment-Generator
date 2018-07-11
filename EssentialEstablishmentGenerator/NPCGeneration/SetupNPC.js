@@ -60,6 +60,8 @@ setup.createNPC = function(base) {
         hasClass: hasClass,
         isVillain: isVillain,
         isThrowaway: isThrowaway,
+        availableLanguages: availableLanguages,
+        knownLanguages: knownLanguages,
         descriptor: descriptor,
         owner: owner,
         title: title,
@@ -504,7 +506,7 @@ setup.createNPC = function(base) {
     //         npc.weapon = npc.weapon || ["a crossbow", "a quarterstaff", "a quarterstaff", "a longsword", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger", "a dagger"].random();
     // }
 
-    availableLanguages = [allLanguages - npc.knownLanguages];
+    npc.availableLanguages = [allLanguages - npc.knownLanguages];
 
     setup.createBackground(npc);
 
