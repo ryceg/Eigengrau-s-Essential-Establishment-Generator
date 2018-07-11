@@ -25,6 +25,7 @@ setup.createNPC = function(base) {
     var isVillain;
     var title;
     var hasClass;
+    var wealth;
     var isThrowaway;
     var firstname;
     var name;
@@ -62,6 +63,7 @@ setup.createNPC = function(base) {
         descriptor: descriptor,
         owner: owner,
         title: title,
+        wealth: wealth,
 				reading: reading,
         skinColours: skinColours.random(),
         pubRumour: pubRumour,
