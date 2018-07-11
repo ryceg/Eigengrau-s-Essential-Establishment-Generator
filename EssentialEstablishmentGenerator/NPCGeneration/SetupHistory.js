@@ -10,6 +10,7 @@ setup.createHistory = function(npc) {
   var childhoodMemoriesRoll = random(1, 6) + random(1, 6) + random(1, 6);
   var childhoodMemories;
   var wealthmodifier;
+  var adventureRoll = random(1, 100);
 
   if (random(1, 100) > 95){
     npc.knewParents = false;
@@ -233,6 +234,37 @@ setup.createHistory = function(npc) {
         npc.childhoodMemories = "I spent most of my childhood alone, and had no close friends";
       } else if (childhoodMemoriesRoll < 4){
         npc.childhoodMemories = "I am still haunted by my childhood, where I was treated badly by my peers";
+      }
+
+      if (adventureRoll == 100){
+        npc.adventureResults = "came across a magical item";
+      } else if (adventureRoll >= 91){
+        npc.adventureResults = "found a considerable amount of treasure";
+      } else if (adventureRoll >= 91){
+        npc.adventureResults = "found a considerable amount of treasure";
+        npc.wealth += random(5100, 7150);
+      } else if (adventureRoll >= 91){
+        npc.adventureResults = "found some treasure";
+        npc.wealth += random(0, 600);
+        npc.wealth += random(0, 600);
+      } else if (adventureRoll >= 71){
+        npc.adventureResults = "learnt a great deal about myself";
+      } else if (adventureRoll >= 61){
+        npc.adventureResults = "came across something terrifying that still stalks the lands";
+      } else if (adventureRoll >= 51){
+        npc.adventureResults = "lost something of sentimental value to me";
+      } else if (adventureRoll >= 41){
+        npc.adventureResults = "was poisoned by a " + ("monster", "trap", "monster").random() + ", but recovered in due time";
+      } else if (adventureRoll >= 31){
+        npc.adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right";
+        npc.physicaltrait = ("pockmarked face", "grey hair").random();
+      } else if (adventureRoll >= 21){
+        npc.adventureResults = "was wounded, but recovered in time";
+      } else if (adventureRoll >= 11){
+        npc.adventureResults = "was greivously wounded, but recovered in time. It still hurts, from time to time";
+      } else if (adventureRoll >= 91){
+        npc.adventureResults = "nearly died- that's how I got the scars.";
+        npc.physicaltrait = ("a missing ear", "a missing finger", "two missing fingers").random();
       }
 
   return npc;
