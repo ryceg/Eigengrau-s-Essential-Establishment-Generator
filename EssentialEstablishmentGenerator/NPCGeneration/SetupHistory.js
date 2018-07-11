@@ -254,7 +254,7 @@ setup.createHistory = function(npc) {
       } else if (adventureRoll >= 51){
         npc.adventureResults = "lost something of sentimental value to me";
       } else if (adventureRoll >= 41){
-        npc.adventureResults = "was poisoned by a " + ("monster", "trap", "monster").random() + ", but recovered in due time";
+        npc.adventureResults = "was poisoned by a " + ["monster", "trap", "monster"].random() + ", but recovered in due time";
       } else if (adventureRoll >= 31){
         npc.adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right";
         npc.physicaltrait = ["pockmarked face", "grey hair"].random();
@@ -264,7 +264,7 @@ setup.createHistory = function(npc) {
         npc.adventureResults = "was greivously wounded, but recovered in time. It still hurts, from time to time";
       } else if (adventureRoll >= 91){
         npc.adventureResults = "nearly died- that's how I got the scars.";
-        npc.physicaltrait = ("a missing ear", "a missing finger", "two missing fingers").random();
+        npc.physicaltrait = ["a missing ear", "a missing finger", "two missing fingers"].random();
       }
 
   return npc;
