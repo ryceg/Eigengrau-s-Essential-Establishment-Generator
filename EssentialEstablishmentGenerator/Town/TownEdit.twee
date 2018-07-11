@@ -17,7 +17,7 @@
 
 <span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>></span>
 
-<span class="tip" title="How do they treat its less fortunate citizens?">Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>></span>
+<span class="tip" title="How do they treat their less fortunate citizens?">Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>></span>
 
 <span class="tip" title="How heavy is the armed presence here?">Relaxed military ---- Strict military: <<numberslider "$town.militaryroll" $town.militaryroll 1 100 1>></span>
 

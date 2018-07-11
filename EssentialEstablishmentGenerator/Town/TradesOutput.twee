@@ -20,7 +20,8 @@
           <</if>>
       <<if _trade.count gte 1>>
           <tr><td><<print _trade.profession.toUpperFirst()>></td>
-        <td><<include "ProfessionList">></td></tr>
+        /* <td><<include "ProfessionList">></td></tr> */
+        <td>_trade.count</td></tr>
       <</if>>
       <</for>><</nobr>>
 </table>
