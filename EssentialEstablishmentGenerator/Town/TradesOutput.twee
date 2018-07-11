@@ -23,5 +23,5 @@
         /* <td><<include "ProfessionList">></td></tr> */
         <td>_trade.count</td></tr>
       <</if>>
-      <</for>><</nobr>>
-</table>
+      <</for>>
+</table><</nobr>>
