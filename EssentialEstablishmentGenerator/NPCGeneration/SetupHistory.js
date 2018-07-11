@@ -240,8 +240,6 @@ setup.createHistory = function(npc) {
         npc.adventureResults = "came across a magical item";
       } else if (adventureRoll >= 91){
         npc.adventureResults = "found a considerable amount of treasure";
-      } else if (adventureRoll >= 91){
-        npc.adventureResults = "found a considerable amount of treasure";
         npc.wealth += random(5100, 7150);
       } else if (adventureRoll >= 91){
         npc.adventureResults = "found some treasure";
@@ -262,7 +260,7 @@ setup.createHistory = function(npc) {
         npc.adventureResults = "was wounded, but recovered in time";
       } else if (adventureRoll >= 11){
         npc.adventureResults = "was greivously wounded, but recovered in time. It still hurts, from time to time";
-      } else if (adventureRoll >= 91){
+      } else if (adventureRoll < 11){
         npc.adventureResults = "nearly died- that's how I got the scars.";
         npc.physicaltrait = ["a missing ear", "a missing finger", "two missing fingers"].random();
       }
