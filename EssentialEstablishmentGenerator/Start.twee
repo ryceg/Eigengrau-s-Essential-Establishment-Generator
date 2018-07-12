@@ -14,6 +14,13 @@ $factionTest.name is $factionTest.age, and the $factionTest.size faction has a $
 $factionLeader.parentalLineage
 I was born $factionLeader.birthplace, and was raised by $factionLeader.familyUnit<<if $factionLeader.siblingNumber == 0>> as an only child.<<elseif $factionLeader.siblingNumber == 1>> with my brother.<<else>>, along with my $factionLeader.siblingNumber siblings.<</if>> I had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. $factionLeader.childhoodMemories.
 
+<<script>>
+d3.select(“body”).append(“p”).text(“Hello1 D3”);
+          d3.select(“body”).append(“p”).text(“Hello2 D3”);
+          d3.select(“body”).append(“p”).text(“Hello3 D3”);
+          d3.select(“body”).append(“p”).text(“Hello4 D3”);
+          d3.selectAll(“p”).style(“color”, “red”);
+<</script>>
 
 
 When I left home and started working as a $factionLeader.dndclass, I went on an adventure, and $factionLeader.adventureResults. I have <<money $factionLeader.wealth>> to my name.
