@@ -1,7 +1,12 @@
 :: Start [output]
 <h1>Eigengrau's Essential Establishment Generator</h1>
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in active development.
-<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
+<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><h4>v.1.4</h4>- <span class="tip" title="Ooooh! Neat!">Added popups!</span>
+- <span class="tip" title="Will be expanded out from just guilds to raiders, mercenaries, and other factions!">Added factions</span>
+- <span class="tip" title="Will add more significant events later on">Added NPC history</span>
+- <span class="tip" title="...I hope">Fixed tavern/brothel combos being kinda wacky</span>
+- <span class="tip" title="Will eventually be expanded into being able to visit each person (but not yet!)">Fixed town population to be reliable</span>
+[[Full changelog|ChangelogFull]]<</linkappend>>
 <<include "Popup">><</nobr>>
 
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
