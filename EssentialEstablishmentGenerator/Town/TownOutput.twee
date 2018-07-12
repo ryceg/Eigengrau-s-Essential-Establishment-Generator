@@ -18,9 +18,9 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
   </tr>
 <<for _i, _trade range $trade>>
     <<set _townPop to $town.population>>
-    <<set _trade.roll to _townPop /= _trade.sv>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
+    <<set _trade.roll to (_townPop / _trade.sv)>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
           <<if _trade.roll lt 1>>
-              <<set _trade.roll *= 100, _trade.rollPercentage to random(1, 100)>>
+              <<set _trade.roll * 100, _trade.rollPercentage to random(1, 100)>>
               <<if _trade.roll gte _trade.rollPercentage>>
                   <<set _trade.count to 1>>
               <<else>>
