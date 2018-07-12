@@ -1,9 +1,9 @@
 setup.testd3 = function() {
 var width=600, height=400, circle1;
     var drag = d3.behavior.drag()
-                 .on(‘dragstart’, dragStart)
-                 .on(‘drag’,      dragElement)
-                 .on(‘dragend’,   dragEnd);
+                 .on('dragstart', dragStart)
+                 .on('drag',      dragElement)
+                 .on('dragend',   dragEnd);
     d3.select("#circle1").call(drag);
     function dragStart(d, i) { }
     function dragElement(d, i) {
