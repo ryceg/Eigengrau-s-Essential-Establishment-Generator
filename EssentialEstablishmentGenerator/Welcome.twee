@@ -3,6 +3,3 @@
 Welcome! Is this your first time using Eigengrau's Essential Establishment Generator?
 
 <<button "yes">><<goto "Tutorial">><</button>>             <<button "no, and don't show me this again">><<remember settings.showTutorial to false>><<goto "Start">><</button>>
-
-
-<<run setup.testd3()>>
