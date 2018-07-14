@@ -95,7 +95,7 @@ setup.createFaction = function(base) {
       break;
     case "bards":
       Object.assign(leadershipGeneration, { dndclass: "bard", background: "entertainer" });
-      // break;
+      break;
     // default:
   }
 
@@ -107,5 +107,5 @@ setup.createFaction = function(base) {
   // State.variables.factions.set(baseName + ++index, faction)};
 
   return faction;
-  };
+  }
 };
