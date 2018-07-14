@@ -107,5 +107,5 @@ setup.createFaction = function(base) {
   // State.variables.factions.set(baseName + ++index, faction)};
 
   return faction;
-  };
+  }
 };
