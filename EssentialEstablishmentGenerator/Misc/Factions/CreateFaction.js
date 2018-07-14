@@ -4,7 +4,7 @@ setup.createFaction = function(base) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards", "mercenaries", "bandits"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
-  var leadershipGeneration;
+  var leadershipGeneration = {};
 
   var meetingAccessibility;
   var meetingRegularity;
@@ -161,7 +161,7 @@ setup.createFaction = function(base) {
 
   switch (faction.leadershipType) {
     case "individual":
-      State.setVar("$factionLeader", setup.createNPC({leadershipGeneration}));
+      State.variables.factionLeader = setup.createNPC(leadershipGeneration);
   }
 
 
