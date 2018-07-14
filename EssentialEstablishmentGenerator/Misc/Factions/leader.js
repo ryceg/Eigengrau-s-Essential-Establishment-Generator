@@ -59,6 +59,7 @@ setup.leaderFaction = function(faction) {
   } else {
     faction.leaderCompetence = "of mild competence";
   }
-  
+
   return faction;
 }
+};
