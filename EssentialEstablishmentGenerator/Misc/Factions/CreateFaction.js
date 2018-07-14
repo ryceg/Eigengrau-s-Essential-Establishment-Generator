@@ -61,43 +61,43 @@ setup.createFaction = function(base) {
   faction.influence = setup.influenceFaction(faction);
   faction.resources = setup.resourcesFaction(faction);
   faction.stability = setup.stabilityFaction(faction);
-
-  switch (faction.type) {
-    case "thieves":
-      Object.assign(leadershipGeneration, { dndclass: "rogue" });
-      break;
-    case "merchants":
-      Object.assign(leadershipGeneration, { profession: "merchant", background: "noble" });
-      break;
-    case "wizards":
-      Object.assign(leadershipGeneration, { dndclass: "wizard" });
-      break;
-    case "rangers":
-      Object.assign(leadershipGeneration, { dndclass: "ranger" });
-      break;
-    case "seers":
-      Object.assign(leadershipGeneration, { dndclass: "cleric" });
-      break;
-    case "priests":
-      Object.assign(leadershipGeneration, { dndclass: "cleric" });
-      break;
-    case "monks":
-      Object.assign(leadershipGeneration, { dndclass: "monk" });
-      break;
-    case "assassins":
-      Object.assign(leadershipGeneration, { dndclass: "rogue", background: "charlatan" });
-      break;
-    case "artisans":
-      Object.assign(leadershipGeneration, { background: "faction artisan" });
-      break;
-    case "nobles":
-      Object.assign(leadershipGeneration, { background: "noble" });
-      break;
-    case "bards":
-      Object.assign(leadershipGeneration, { dndclass: "bard", background: "entertainer" });
-      // break;
-    // default:
-  }
+  //
+  // switch (faction.type) {
+  //   case "thieves":
+  //     Object.assign(leadershipGeneration, { dndclass: "rogue" });
+  //     break;
+  //   case "merchants":
+  //     Object.assign(leadershipGeneration, { profession: "merchant", background: "noble" });
+  //     break;
+  //   case "wizards":
+  //     Object.assign(leadershipGeneration, { dndclass: "wizard" });
+  //     break;
+  //   case "rangers":
+  //     Object.assign(leadershipGeneration, { dndclass: "ranger" });
+  //     break;
+  //   case "seers":
+  //     Object.assign(leadershipGeneration, { dndclass: "cleric" });
+  //     break;
+  //   case "priests":
+  //     Object.assign(leadershipGeneration, { dndclass: "cleric" });
+  //     break;
+  //   case "monks":
+  //     Object.assign(leadershipGeneration, { dndclass: "monk" });
+  //     break;
+  //   case "assassins":
+  //     Object.assign(leadershipGeneration, { dndclass: "rogue", background: "charlatan" });
+  //     break;
+  //   case "artisans":
+  //     Object.assign(leadershipGeneration, { background: "faction artisan" });
+  //     break;
+  //   case "nobles":
+  //     Object.assign(leadershipGeneration, { background: "noble" });
+  //     break;
+  //   case "bards":
+  //     Object.assign(leadershipGeneration, { dndclass: "bard", background: "entertainer" });
+  //     // break;
+  //   // default:
+  // }
 
   switch (faction.leadershipType) {
     case "individual":
