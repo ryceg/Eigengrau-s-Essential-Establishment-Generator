@@ -64,37 +64,37 @@ setup.createFaction = function(base) {
 
   switch (faction.type) {
     case "thieves":
-      leadershipGeneration.apply(dndclass: "rogue");
+      leadershipGeneration.push(dndclass: "rogue",);
       break;
     case "merchants":
-      leadershipGeneration.apply(profession: "merchant", background: "noble");
+      leadershipGeneration.push(profession: "merchant", background: "noble",);
       break;
     case "wizards":
-      leadershipGeneration.apply(dndclass: "wizard");
+      leadershipGeneration.push(dndclass: "wizard",);
       break;
     case "rangers":
-      leadershipGeneration.apply(dndclass: "ranger");
+      leadershipGeneration.push(dndclass: "ranger",);
       break;
     case "seers":
-      leadershipGeneration.apply(dndclass: "cleric");
+      leadershipGeneration.push(dndclass: "cleric",);
       break;
     case "priests":
-      leadershipGeneration.apply(dndclass: "cleric");
+      leadershipGeneration.push(dndclass: "cleric",);
       break;
     case "monks":
-      leadershipGeneration.apply(dndclass: "monk");
+      leadershipGeneration.push(dndclass: "monk",);
       break;
     case "assassins":
-      leadershipGeneration.apply(dndclass: "rogue", background: "charlatan");
+      leadershipGeneration.push(dndclass: "rogue", background: "charlatan",);
       break;
     case "artisans":
-      leadershipGeneration.apply(background: "faction artisan");
+      leadershipGeneration.push(background: "faction artisan",);
       break;
     case "nobles":
-      leadershipGeneration.apply(background: "noble");
+      leadershipGeneration.push(background: "noble",);
       break;
     case "bards":
-      leadershipGeneration.apply(dndclass: "bard", background: "entertainer");
+      leadershipGeneration.push(dndclass: "bard", background: "entertainer",);
       break;
     // default:
   }
