@@ -6,7 +6,7 @@ $currentNPC.firstname $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<pr
 
 $currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $factionLeader.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon.
 
-<<linkreplace "Early Life">><div class='descriptive'>I was born $factionLeader.birthplace, and was raised by $factionLeader.familyUnit<<if $factionLeader.siblingNumber == 0>> as an only child.<<elseif $factionLeader.siblingNumber == 1>> with my brother.<<else>>, along with my $factionLeader.siblingNumber siblings.<</if>> I had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. $factionLeader.childhoodMemories.<</linkreplace>>
+<<linkreplace "Early Life">><div class='descriptive'>I was born $factionLeader.birthplace, and was raised by $factionLeader.familyUnit<<if $factionLeader.siblingNumber == 0>> as an only child.<<elseif $factionLeader.siblingNumber == 1>> with my brother.<<else>>, along with my $factionLeader.siblingNumber siblings.<</if>> I had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. $factionLeader.childhoodMemories.</div><</linkreplace>>
 
 <<linkreplace "Becoming a $currentNPC.dndclass">><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div><</linkreplace>>
 
