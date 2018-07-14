@@ -99,13 +99,13 @@ setup.createFaction = function(base) {
   //   // default:
   // }
 
-  switch (faction.leadershipType) {
-    case "individual":
-      State.variables.factionLeader = setup.createNPC(leadershipGeneration);
-  }
+  // switch (faction.leadershipType) {
+  //   case "individual":
+  //     State.variables.factionLeader = setup.createNPC(leadershipGeneration);
+  // }
 
   // State.variables.factions.set(baseName + ++index, faction)};
 
   return faction;
-  }
+};
 };
