@@ -4,7 +4,7 @@ setup.createFaction = function(base) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards", "mercenaries", "bandits"].random();
   var motivation = ["money", "fame", "power", "glory", "vengeance", "politics"];
   var leadershipType = ["individual", "individual", "individual", "group"];
-  var leadershipGeneration;
+  var leadershipGeneration = [];
 
   var meetingAccessibility;
   var meetingRegularity;
@@ -64,37 +64,37 @@ setup.createFaction = function(base) {
 
   switch (faction.type) {
     case "thieves":
-      Object.assign(leadershipGeneration, { dndclass: "rogue" });
+      leadershipGeneration.apply(dndclass: "rogue");
       break;
     case "merchants":
-      Object.assign(leadershipGeneration, { profession: "merchant", background: "noble" });
+      leadershipGeneration.apply(profession: "merchant", background: "noble");
       break;
     case "wizards":
-      Object.assign(leadershipGeneration, { dndclass: "wizard" });
+      leadershipGeneration.apply(dndclass: "wizard");
       break;
     case "rangers":
-      Object.assign(leadershipGeneration, { dndclass: "ranger" });
+      leadershipGeneration.apply(dndclass: "ranger");
       break;
     case "seers":
-      Object.assign(leadershipGeneration, { dndclass: "cleric" });
+      leadershipGeneration.apply(dndclass: "cleric");
       break;
     case "priests":
-      Object.assign(leadershipGeneration, { dndclass: "cleric" });
+      leadershipGeneration.apply(dndclass: "cleric");
       break;
     case "monks":
-      Object.assign(leadershipGeneration, { dndclass: "monk" });
+      leadershipGeneration.apply(dndclass: "monk");
       break;
     case "assassins":
-      Object.assign(leadershipGeneration, { dndclass: "rogue", background: "charlatan" });
+      leadershipGeneration.apply(dndclass: "rogue", background: "charlatan");
       break;
     case "artisans":
-      Object.assign(leadershipGeneration, { background: "faction artisan" });
+      leadershipGeneration.apply(background: "faction artisan");
       break;
     case "nobles":
-      Object.assign(leadershipGeneration, { background: "noble" });
+      leadershipGeneration.apply(background: "noble");
       break;
     case "bards":
-      Object.assign(leadershipGeneration, { dndclass: "bard", background: "entertainer" });
+      leadershipGeneration.apply(dndclass: "bard", background: "entertainer");
       break;
     // default:
   }
