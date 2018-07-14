@@ -4,11 +4,9 @@
 
 $currentNPC.firstname $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmtrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stresstrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstname knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
 
-$currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $factionLeader.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon.
+$currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets. In combat, $currentNPC.heshe uses $currentNPC.weapon.
 
-<<linkreplace "Early Life">><div class='descriptive'>I was born $factionLeader.birthplace, and was raised by $factionLeader.familyUnit<<if $factionLeader.siblingNumber == 0>> as an only child.<<elseif $factionLeader.siblingNumber == 1>> with my brother.<<else>>, along with my $factionLeader.siblingNumber siblings.<</if>> I had a $factionLeader.familyLifestyle upbringing in $factionLeader.familyHome. $factionLeader.childhoodMemories.<</linkreplace>>
-
-<<linkreplace "Becoming a $currentNPC.dndclass">><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div><</linkreplace>>
+<div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div>
 
 <<if def $currentNPC.note >>$currentNPC.note<</if>>
 <<return>>
