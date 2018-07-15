@@ -1,0 +1,16 @@
+:: FactionProfile
+<h1>$currentFaction.name</h1>$currentFaction.name is a $currentFaction.type guild. It's $currentFaction.age, and the $currentFaction.size faction has a $currentFaction.reputation reputation. Its resources are $currentFaction.resources, and it is motivated by $currentFaction.motivation.
+
+<h3>Governance</h3>It's ruled by <<nobr>>
+<<switch $currentFaction.leadershipType>>
+  <<case "group">>
+  $currentFaction.leaderGroupTitle of $currentFaction.leaderGroupSizeRoll, who were $currentFaction.leaderQualification. They are $currentFaction.leaderCompetencem, and their meetings are held $currentFaction.meetingRegularity, and are $currentFaction.meetingAccessibility. Bribes to the $currentFaction.leaderGroupTitle $currentFaction.leaderBribes.
+  <<default>>
+  a $currentFaction.leadershipType, who was $currentFaction.leaderQualification. They are $currentFaction.leaderCompetence, and their position is $currentFaction.stability. Bribes $currentFaction.leaderBribes.
+<</switch>>
+<</nobr>>
+<h3>Members</h3>
+Members of $currentFaction.name are
+
+
+<<back>>

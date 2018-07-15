@@ -1,23 +1,5 @@
-setup.createMission = function(base) {
-  var category = ["thieves", "wizards", "bartender"];
-  var type = ["alchemy", "assassination", "blackmail", "burglary", "swindle", "fence", "fraud", "gambling", "kidnapping", "narcotics", "prostitution", "protection", "slavery", "smuggling", "street"];
-  var difficulty = ["easy", "easy", "easy", "medium", "medium", "hard"];
-  var difficultyText;
-  var details;
-  var readout;
-  var targetNPC;
-  var targetLocation;
-  var mission = Object.assign({
-      category: "thieves",
-      type: type.random(),
-      difficulty: difficulty.random(),
-      readout: readout,
-      details: details,
-      targetNPC: targetNPC,
-      targetLocation: targetLocation,
-  }, base);
-
-
+setup.thievesMission = function(mission) {
+mission.type = ["alchemy", "assassination", "blackmail", "burglary", "swindle", "fence", "fraud", "gambling", "kidnapping", "narcotics", "prostitution", "protection", "slavery", "smuggling", "street"].random();
   switch (mission.type) {
       case "alchemy":
           switch (mission.difficulty) {
@@ -25,10 +7,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "go and pick up some basic reagents and return to the Guild without getting caught.",
-                	"deliver a poisoned weapon without getting caught.",
-                	"create a basic poison in quantity, and deliver it to a customer, get paid, and return without getting caught.",
-                	"create a basic potion in quantity and deliver it into enemy territory. Return with the money.",
-                	"create a previously unknown potion or potion in your skill level.",
+                  "deliver a poisoned weapon without getting caught.",
+                  "create a basic poison in quantity, and deliver it to a customer, get paid, and return without getting caught.",
+                  "create a basic potion in quantity and deliver it into enemy territory. Return with the money.",
+                  "create a previously unknown potion or potion in your skill level.",
                 ].random(),
               });
             break;
@@ -36,10 +18,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "harvest intermediate reagents in enemy territory and escape.",
-                	"create a previously unknown potion or potion in your skill level.",
-                	"steal a shipment of enemy alchemical goods worth at least 500gp.",
-                	"create an intermediate potion in quantity and deliver it into enemy territory. Return with the money.",
-                	"destroy an enemy's alchemical laboratory and escape.",
+                  "create a previously unknown potion or potion in your skill level.",
+                  "steal a shipment of enemy alchemical goods worth at least 500gp.",
+                  "create an intermediate potion in quantity and deliver it into enemy territory. Return with the money.",
+                  "destroy an enemy's alchemical laboratory and escape.",
                 ].random(),
               });
             break;
@@ -47,10 +29,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "create a previously unknown potion or potion in your skill level.",
-                	"successfully mix two advanced potions and get a favorable result.",
-                	"create an advanced potion in quantity and deliver it into enemy territory. Return with the money.",
-                	"oversee the successful application of at least 40 poisoned weapons with an advanced poison.",
-                	"successfully reduce your creation time by 25%.",
+                  "successfully mix two advanced potions and get a favorable result.",
+                  "create an advanced potion in quantity and deliver it into enemy territory. Return with the money.",
+                  "oversee the successful application of at least 40 poisoned weapons with an advanced poison.",
+                  "successfully reduce the creation time of a potion by 25%.",
                 ].random(),
               });
             break;
@@ -62,10 +44,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "track a target to a location and observe for 4 hours. Do not get caught or be seen. Signal a contact and return.",
-                	"kill a target in ambush, through a fixed killzone and escape. Claim credit for it.",
-                	"deliver a contact poison to a target in a crowded location. Escape.",
-                	"track a target to a location and observe for 1 hour. Trigger a fixed trap and escape.",
-                	"deliver ingested poison to a target in an public area. Escape.",
+                  "kill a target in ambush, through a fixed killzone and escape. Claim credit for it.",
+                  "deliver a contact poison to a target in a crowded location. Escape.",
+                  "track a target to a location and observe for 1 hour. Trigger a fixed trap and escape.",
+                  "deliver ingested poison to a target in an public area. Escape.",
                 ].random(),
               });
             break;
@@ -73,10 +55,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "kill a political target. Escape.",
-                	"kill a target in his own home and steal goods worth at least 500gp.",
-                	"kill a target with ingested poison only, at a specific time and date.",
-                	"kill a group of targets with a fixed trap.",
-                	"kill a group of targets in a public location and claim credit for it.",
+                  "kill a target in his own home and steal goods worth at least 500gp.",
+                  "kill a target with ingested poison only, at a specific time and date.",
+                  "kill a group of targets with a fixed trap.",
+                  "kill a group of targets in a public location and claim credit for it.",
                 ].random(),
               });
             break;
@@ -84,10 +66,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "kill a royal target in a moving vehicle. Escape and claim credit for it.",
-                	"kill a political target at a public function with contact poison. Escape.",
-                	"kill a group of targets spread across several locations on the same day. Claim credit for it.",
-                	"kill a group of targets with ingested poison only, at a specific time and date.",
-                	"kill a group of targets with no visible means of assassination on the corpse.",
+                  "kill a political target at a public function with contact poison. Escape.",
+                  "kill a group of targets spread across several locations on the same day. Claim credit for it.",
+                  "kill a group of targets with ingested poison only, at a specific time and date.",
+                  "kill a group of targets with no visible means of assassination on the corpse.",
                 ].random(),
               });
             break;
@@ -99,10 +81,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "pick up a payment from a dead drop without being seen. Return to the Guild.",
-                	"follow target and observe for 4 hours without being seen. Obtain 'dirt' on the target. Present blackmail terms worth at least 10gp/month. Escape.",
-                	"pick up a payment from a target in enemy territory. Escape and return to the Guild.",
-                	"collect evidence against a target in enemy territory. Escape.",
-                	"collect evidence on a target in a public location without being seen. Return to the Guild.",
+                  "follow target and observe for 4 hours without being seen. Obtain 'dirt' on the target. Present blackmail terms worth at least 10gp/month. Escape.",
+                  "pick up a payment from a target in enemy territory. Escape and return to the Guild.",
+                  "collect evidence against a target in enemy territory. Escape.",
+                  "collect evidence on a target in a public location without being seen. Return to the Guild.",
                 ].random(),
               });
             break;
@@ -110,10 +92,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "collect evidence on a political target without being seen.",
-                	"collect payment from a target, in public, and escape without being identified.",
-                	"follow target and observe for 24 hours without being seen. Present blackmail terms worth at least 100gp/month. successfully blackmail for 6 months.",
-                	"pick up a payment from a political target in enemy territory. Escape and return to the Guild.",
-                	"collect enough evidence to blackmail 3 targets in one month.",
+                  "collect payment from a target, in public, and escape without being identified.",
+                  "follow target and observe for 24 hours without being seen. Present blackmail terms worth at least 100gp/month. successfully blackmail for 6 months.",
+                  "pick up a payment from a political target in enemy territory. Escape and return to the Guild.",
+                  "collect enough evidence to blackmail 3 targets in one month.",
                 ].random(),
               });
             break;
@@ -121,10 +103,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "collect evidence on a royal target without being identified. Blackmail for at least 1000gp/month. successfully blackmail for at least 3 months.",
-                	"maintain a group of at least 3 targets successfully for at least 1 year. Blackmail must be at least 500gp/month.",
-                	"successfully blackmail 1 target for 750gp/month. maintain for at least 3 months.",
-                	"collect evidence to blackmail 3 political targets in one month.",
-                	"collect enough evidence on your allies to ensure a clean exit strategy, if needed.",
+                  "maintain a group of at least 3 targets successfully for at least 1 year. Blackmail must be at least 500gp/month.",
+                  "successfully blackmail 1 target for 750gp/month. maintain for at least 3 months.",
+                  "collect evidence to blackmail 3 political targets in one month.",
+                  "collect enough evidence on your allies to ensure a clean exit strategy, if needed.",
                 ].random(),
               });
             break;
@@ -136,10 +118,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "steal 10gp worth of goods from a home.",
-                	"steal 20gp worth of goods from a business.",
-                	"break into a safe and escape with goods worth at least 20gp.",
-                	"disarm 3 traps and retreive the package. Escape.",
-                	"place a target location under surveillance without being seen for 4 hours. Return to the Guild.",
+                  "steal 20gp worth of goods from a business.",
+                  "break into a safe and escape with goods worth at least 20gp.",
+                  "disarm 3 traps and retreive the package. Escape.",
+                  "place a target location under surveillance without being seen for 4 hours. Return to the Guild.",
                   ].random(),
               });
             break;
@@ -147,10 +129,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "break into a shop with magical defenses. steal at least 500gp worth of goods. Return to the Guild.",
-                	"steal 250gp worth of goods from a home or business.",
-                	"break into a vault and escape with goods worth at least 500gp.",
-                	"steal an object guarded by constant physical survelliance. Object should be worth at least 250gp.",
-                	"steal an object from a political or royal location and escape. Object can be worth anything, but should be unique and memorable.",
+                  "steal 250gp worth of goods from a home or business.",
+                  "break into a vault and escape with goods worth at least 500gp.",
+                  "steal an object guarded by constant physical survelliance. Object should be worth at least 250gp.",
+                  "steal an object from a political or royal location and escape. Object can be worth anything, but should be unique and memorable.",
                 ].random(),
               });
             break;
@@ -158,10 +140,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "break into a royal location and steal goods worth at least 1000gp.",
-                	"break into a location with physical and magical defenses, as well as constant physical survelliance. steal an object worth at least 5000gp.",
-                	"steal an artefact from any location. Escape and keep in your possession for at least 48 hours.",
-                	"rob a moving vehicle of goods worth at least 1000gp and escape.",
-                	"break into a Guild House and steal an object that is unique and memorable. Keep it for at least 48 hours.",
+                  "break into a location with physical and magical defenses, as well as constant physical survelliance. steal an object worth at least 5000gp.",
+                  "steal an artefact from any location. Escape and keep in your possession for at least 48 hours.",
+                  "rob a moving vehicle of goods worth at least 1000gp and escape.",
+                  "break into a Guild House and steal an object that is unique and memorable. Keep it for at least 48 hours.",
                 ].random(),
               });
             break;
@@ -173,10 +155,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "swindle a target out of 10gp or equivalent goods. Escape.",
-                	"swindle a target out of 20gp or equivalent goods. Escape.",
-                	"swindle a target and get the target to promise an additional 10gp later.",
-                	"swindle a target and retreive your original investment back as well as keeping the target's money. Escape.",
-                	"swindle 3 targets in one day. Any amount over 5gp.",
+                  "swindle a target out of 20gp or equivalent goods. Escape.",
+                  "swindle a target and get the target to promise an additional 10gp later.",
+                  "swindle a target and retreive your original investment back as well as keeping the target's money. Escape.",
+                  "swindle 3 targets in one day. Any amount over 5gp.",
                 ].random(),
               });
             break;
@@ -184,10 +166,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "grift a target out of 500gp or equivalent goods.",
-                	"grift a target out of 500gp or equivalent goods and get the target to promise an additional 100gp later.",
-                	"swindle a target and get the target arrested before you escape.",
-                	"grift a target and retreive your initial investment back as well as keeping the target's money. Escape.",
-                	"run a grift that takes 3 months to finalize and take at least 1000gp or equivalent goods from the target.",
+                  "grift a target out of 500gp or equivalent goods and get the target to promise an additional 100gp later.",
+                  "swindle a target and get the target arrested before you escape.",
+                  "grift a target and retreive your initial investment back as well as keeping the target's money. Escape.",
+                  "run a grift that takes 3 months to finalize and take at least 1000gp or equivalent goods from the target.",
                 ].random(),
               });
             break;
@@ -195,10 +177,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "grift a target out of 1000gp or equivalent goods and get the target arrested before you escape.",
-                	"grift a political or royal target for at least 500gp or equivalent goods.",
-                	"run 3 successful grifts in 1 month for at least 250gp or equivalent goods each.",
-                	"swindle a target out of at least 1000gp or equivalent goods and escape without using a distraction.",
-                	"become accepted as a legitimate agent in the commercial/political/royal world in a Life grift.",
+                  "grift a political or royal target for at least 500gp or equivalent goods.",
+                  "run 3 successful grifts in 1 month for at least 250gp or equivalent goods each.",
+                  "swindle a target out of at least 1000gp or equivalent goods and escape without using a distraction.",
+                  "become accepted as a legitimate agent in the commercial/political/royal world in a Life grift.",
                 ].random(),
               });
             break;
@@ -210,10 +192,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "successfully identify and evaluate goods worth at least 10gp.",
-                	"successfully identify and evaluate a minor magical item.",
-                	"successfully identify a minor cursed item.",
-                	"identify 3 counterfeit items.",
-                	"sell onwards goods worth at least 20gp.",
+                  "successfully identify and evaluate a minor magical item.",
+                  "successfully identify a minor cursed item.",
+                  "identify 3 counterfeit items.",
+                  "sell onwards goods worth at least 20gp.",
                 ].random(),
               });
             break;
@@ -221,10 +203,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "successfully identify and evaluate goods worth at least 500gp.",
-                	"successfully identify and evaluate a major magical item.",
-                	"successfully identify a major cursed item.",
-                	"Identify 3 counterfeit items and 3 forgeries in 1 month.",
-                	"sell onwards goods worth at least 500gp.",
+                  "successfully identify and evaluate a major magical item.",
+                  "successfully identify a major cursed item.",
+                  "Identify 3 counterfeit items and 3 forgeries in 1 month.",
+                  "sell onwards goods worth at least 500gp.",
                 ].random(),
               });
             break;
@@ -232,9 +214,9 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "successfully identify and evaluate goods worth at least 1000gp.",
-                	"successfully identify and evaluate an artefact.",
-                	"successfully sell onwards a set of linked magical items.",
-                	"successfully identify and evaluate goods in enemy territory and return with the goods to the Guild.",
+                  "successfully identify and evaluate an artefact.",
+                  "successfully sell onwards a set of linked magical items.",
+                  "successfully identify and evaluate goods in enemy territory and return with the goods to the Guild.",
                   "sell onwards goods worth at least 1000gp.",
                 ].random(),
               });
@@ -247,10 +229,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "steal an official paper without getting caught. Return to the Guild.",
-                	"steal an official paper in enemy territory without getting caught. Return to the Guild.",
-                	"create a forgery or counterfeit item and successfully use it without getting caught.",
-                	"create 3 forgeries or counterfeit items worth at least 20gp.",
-                	"successfully use a forgery or counterfeit item 3 times.",
+                  "steal an official paper in enemy territory without getting caught. Return to the Guild.",
+                  "create a forgery or counterfeit item and successfully use it without getting caught.",
+                  "create 3 forgeries or counterfeit items worth at least 20gp.",
+                  "successfully use a forgery or counterfeit item 3 times.",
                 ].random(),
               });
             break;
@@ -258,10 +240,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "create a royal or political forgery/counterfeit and sell it for at least 500gp.",
-                	"create a forgery/counterfeit object of artistic merit and sell it for at least 500gp.",
-                	"steal polticial or royal papers and use them to create at least 3 forgeries.",
-                	"create 3 forgery/counterfeit objects worth at least 250gp each.",
-                	"create travel documents for a secondary political body. (like another Kingdom)",
+                  "create a forgery/counterfeit object of artistic merit and sell it for at least 500gp.",
+                  "steal polticial or royal papers and use them to create at least 3 forgeries.",
+                  "create 3 forgery/counterfeit objects worth at least 250gp each.",
+                  "create travel documents for a secondary political body. (like another Kingdom)",
                 ].random(),
               });
             break;
@@ -269,10 +251,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "create a royal or political forgery/counterfeit and sell it for at least 1000gp.",
-                	"create forgeries for at least 20 people to be used in one transaction.",
-                	"create royal identification papers.",
-                	"steal supplies to create travel, identity and official documents for at least 3 other political bodies.",
-                	"create a counterfeit that for an object that is normally displayed in a public location and switch them.",
+                  "create forgeries for at least 20 people to be used in one transaction.",
+                  "create royal identification papers.",
+                  "steal supplies to create travel, identity and official documents for at least 3 other political bodies.",
+                  "create a counterfeit that for an object that is normally displayed in a public location and switch them.",
                   ].random(),
               });
             break;
@@ -284,10 +266,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "win at least 10gp in one day.",
-                	"win at least 5gp from 3 different targets in one day.",
-                	"successfully cheat and win at least 10gp.",
-                	"successfully bankrupt all opponents in one game.",
-                	"successfully cheat and win at least 20gp.",
+                  "win at least 5gp from 3 different targets in one day.",
+                  "successfully cheat and win at least 10gp.",
+                  "successfully bankrupt all opponents in one game.",
+                  "successfully cheat and win at least 20gp.",
                 ].random(),
               });
             break;
@@ -295,10 +277,10 @@ setup.createMission = function(base) {
               Object.assign(mission, {
                 details: [
                   "win at least 250gp in one day",
-                	"win at least 50gp from 3 different targets in one day",
-                	"successfully cheat and win at least 500gp.",
-                	"successfully bankrupt all opponents in one game and get the losers to agree to another game tomorrow.",
-                	"successfully cheat a professional gambler and win at least 100gp.",
+                  "win at least 50gp from 3 different targets in one day",
+                  "successfully cheat and win at least 500gp.",
+                  "successfully bankrupt all opponents in one game and get the losers to agree to another game tomorrow.",
+                  "successfully cheat a professional gambler and win at least 100gp.",
                 ].random(),
               });
             break;
@@ -630,10 +612,11 @@ setup.createMission = function(base) {
   }
   else {mission.difficultyText = ""};
 
-mission.readout = [
+  mission.readout = [
                     ["I've got a job for you.", "Got a job for you to do.", "There's a job I need you to do.", "There's something I need you to do."].random() + " " + mission.difficultyText + " " + ["This one's a ", "It's a ", "This is a "].random() + mission.type + " job. I need you to ",
                     ["I've got a " + mission.type + " job for you.", "Got a " + mission.type + " job for you to do.", "There's a " + mission.type + " job I need you to do.", "There's a " + mission.type + " job I need you to do."].random() + " " + mission.difficultyText + " " + " I need you to ",
                 ].random() + mission.details + " " + ["Don't fuck it up.", "Don't let me down.", "Don't disappoint me."].random();
 
-return mission.readout;
+
+  return mission;
 };

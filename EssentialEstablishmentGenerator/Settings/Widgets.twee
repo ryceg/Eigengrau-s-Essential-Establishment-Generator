@@ -1,26 +1,5 @@
 
 :: Widgets [widget widgets]
-/*
-<<nobr>><<widget "money">>
-<<if Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor($args / 100)>> Gold, <<print Math.floor(($args / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
-	<<elseif Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor($args / 100)>> Gold, and <<print Math.floor($args % 10)>> Copper
-	<<elseif Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) lt 1>>
-		<<print Math.floor($args / 100)>> Gold, and <<print Math.floor(($args / 10) % 10)>> Silver
-	<<elseif Math.floor($args / 100) gte 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) lt 1>>
-		<<print Math.floor($args / 100)>> Gold
-	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor(($args / 10) % 10)>> Silver, and <<print Math.floor($args % 10)>> Copper
-	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) gte 1 && Math.floor($args % 10) lt 1>>
-		<<print Math.floor(($args / 10) % 10)>> Silver
-	<<elseif Math.floor($args / 100) lt 1 && Math.floor(($args / 10) % 10) lt 1 && Math.floor($args % 10) gte 1>>
-		<<print Math.floor($args % 10)>> Copper
-	<</if>>
-<</widget>><</nobr>>
-*/
-
-/*(($args * ((100 + $currentpassage.pricemodifier) / 100)))>>*/
 
 <<widget "money">><<silently>>
 		<<set _copper to Number($args)>>\
@@ -42,8 +21,7 @@
 		<<if _gold>><<= _gold>> Gold <</if>>\
 		<<if _silver>><<= _silver>> Silver <</if>>\
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
-/*<<print Math.floor(($args * ((100 + passage()) / 100)) / 100)>> Gold, <<print Math.floor((($args * ((100 + passage()) / 100)) / 10) % 10)>> Silver, and also <<print Math.floor($args % 10)>> Copper
-*/
+
 
 <<widget "buildingProfile">><<nobr>>
 		<<set _build = $args[0], _readout = $args[1]>>
@@ -58,21 +36,6 @@
 							<</link>>
 				<</if>>
 		<</capture>><</nobr>><</widget>>
-
-/* <<widget "profile">>
-\<<set _char = $args[0], _readout = $args[1]>>
-\<<capture _char, _readout>>
-		\<<if def $args[1]>>
-					\<span class="tip" title=""><<link _readout "NPCProfile">></span>
-						\<<set $currentNPC to _char>>
-					\<</link>>
-			\<<else>>
-					\<span class="tip" title=""><<link _char.name "NPCProfile">></span>
-							\<<set $currentNPC to _char>>
-					\<</link>>
-		\<</if>>
-\<<run setup.profileTooltip(_char)>>
-\<</capture>><</widget>> */
 
 <<widget "profile">>
     \<<set _char = $args[0],
@@ -96,7 +59,7 @@
 			<</if>>
 		<</capture>><</nobr>><</widget>>
 
-
+/*
 		<<widget "createNPC">>\
 				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
 				<<capture _creation, _attributes, _readout>>\
@@ -116,4 +79,4 @@
 										<<set $currentNPC to _creation>>\
 									<</link>>\
 						<</if>>\
-				<</capture>><</widget>>
+				<</capture>><</widget>> */

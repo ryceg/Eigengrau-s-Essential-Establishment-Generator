@@ -133,3 +133,5 @@ Setting.save();
 <<include "AdventureGenerator">>
 
 <<include "Guard">>
+
+<<include "Markets">>

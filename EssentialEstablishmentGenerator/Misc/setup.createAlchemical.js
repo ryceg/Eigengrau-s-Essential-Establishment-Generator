@@ -55,6 +55,7 @@ setup.createAlchemy = function(base) {
       Object.assign(output, {
         herbPreservation: herbPreservation.random(),
         herb: herb.random(),
+        readout: herbPreservation.random() + " " + herb.random(),
       });
       break;
     case "brewing potion":

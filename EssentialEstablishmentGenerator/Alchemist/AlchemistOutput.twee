@@ -5,7 +5,6 @@
 <<include "AlchemistLookAround">>
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
 <h3>$chemist.name</h3><<include "ChemistTalk">><</linkreplace>>
-
+<<link "<h4>Generate plothook</h4>">><<set $chemistPlot to setup.createMission({category: "alchemist"})>><<replace "#chemistMission">><<print either("When you say that you're adventurers, $chemist.hisher $chemist.eyes eyes light up, and $chemist.heshe says", "You chat for a while, and then $chemist.firstname says ", "You discuss business, and when you talk about your adventures, $chemist.firstname asks ")>> "$chemistPlot.readout"<</replace>><</link>><span id="chemistMission"></span>
 <<include "RandomPotion">>
-
 <<include "AlchemistSell">>
