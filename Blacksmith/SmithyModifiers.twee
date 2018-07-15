@@ -1,0 +1,129 @@
+
+:: SmithyModifiers
+<<nobr>>
+/* ------------------------- SIZE -------------------------- */
+<<if $smithy.sizeroll gt 80>>
+		<<set $smithy.size to "huge">>
+		<<set $smithy.activityroll -= 4>>
+	<<elseif $smithy.sizeroll gt 70>>
+		<<set $smithy.size to "quite large">>
+		<<set $smithy.activityroll -= 3>>
+	<<elseif $smithy.sizeroll gt 60>>
+		<<set $smithy.size to "large">>
+		<<set $smithy.activityroll -= 1>>
+	<<elseif $smithy.sizeroll gt 50>>
+		<<set $smithy.size to "spacious">>
+	<<elseif $smithy.sizeroll gt 40>>
+		<<set $smithy.size to "medium">>
+	<<elseif $smithy.sizeroll gt 30>>
+		<<set $smithy.size to "slightly cramped">>
+		<<set $smithy.activityroll += 1>>
+	<<elseif $smithy.sizeroll gt 20>>
+		<<set $smithy.size to "small">>
+		<<set $smithy.activityroll += 1>>
+	<<elseif $smithy.sizeroll lte 20>>
+		<<set $smithy.size to "tiny">>
+		<<set $smithy.activityroll += 3>>
+<</if>>
+
+/*
+	reputationroll: random(1, 100),
+	cleanlinessroll: random(1, 100),
+	expertiseroll: random(1, 100),
+	activityroll: random(1, 100),
+	hardinessroll: random(1, 100),
+	magicroll:
+*/
+
+<<switch $smithy.material>>
+	<<case "hewn rock">>
+		<<set $smithy.roughnessroll += 3>>
+	<<case "chiseled stone">>
+		<<set $smithy.roughnessroll -= 1>>
+	<<case "marble">>
+		<<set $smithy.cleanlinessroll += 5, $smithy.wealthroll += 6>>
+<</switch>>
+
+/* ------------------------- CLEANLINESS -------------------------- */
+<<if $smithy.cleanlinessroll gt 80>>
+		<<set $smithy.expertiseroll += 10,
+		$smithy.activityroll += 6,
+		$smithy.hardinessroll += 8,
+		$smithy.cleanliness to "fastidious">>
+	<<elseif $smithy.cleanlinessroll gt 70>>
+		<<set $smithy.expertiseroll += 7,
+		$smithy.activityroll += 4,
+		$smithy.hardinessroll += 6,
+		$smithy.cleanliness to "very tidy">>
+	<<elseif $smithy.cleanlinessroll gt 60>>
+		<<set $smithy.expertiseroll += 3,
+		$smithy.activityroll += 3,
+		$smithy.hardinessroll += 4,
+		$smithy.cleanliness to "tidy">>
+	<<elseif $smithy.cleanlinessroll gt 50>>
+		<<set $smithy.expertiseroll += 1,
+		$smithy.hardinessroll += 2,
+		$smithy.cleanliness to "reasonably tidy">>
+	<<elseif $smithy.cleanlinessroll gt 40>>
+		<<set $smithy.expertiseroll -= 1,
+		$smithy.hardinessroll -= 2,
+		$smithy.cleanliness to "somewhat messy">>
+	<<elseif $smithy.cleanlinessroll gt 30>>
+		<<set $smithy.expertiseroll -= 3,
+		$smithy.hardinessroll -= 4,
+		$smithy.activityroll -= 2,
+		$smithy.cleanliness to "rather messy">>
+	<<elseif $smithy.cleanlinessroll gt 20>>
+		<<set $smithy.expertiseroll -= 5,
+		$smithy.hardinessroll -= 6,
+		$smithy.activityroll -= 6,
+		$smithy.cleanliness to "very messy">>
+	<<elseif $smithy.cleanlinessroll lte 20>>
+		<<set $smithy.expertiseroll -= 7,
+		$smithy.hardinessroll -= 8,
+		$smithy.activityroll -= 10,
+		$smithy.cleanliness to "filthy">>
+<</if>>
+
+<<if $smithy.wealthroll gt 95>>
+	<<set $smithy.pricemodifier += 4, $smithy.sizeroll += 3, $smithy.cleanlinessroll += 15, $smithy.reputation += 10>>
+<<elseif $smithy.wealthroll gt 80>>
+	<<set $smithy.pricemodifier += 3, $smithy.cleanlinessroll += 10, $smithy.reputation += 7>>
+<<elseif $smithy.wealthroll gt 70>>
+	<<set $smithy.pricemodifier += 2, $smithy.cleanlinessroll += 6, $smithy.reputation += 4>>
+<<elseif $smithy.wealthroll gt 60>>
+	<<set $smithy.pricemodifier += 1, $smithy.populationroll += 5, $smithy.cleanlinessroll += 4>>
+<<elseif $smithy.wealthroll gt 50>>
+	<<set $smithy.populationroll += 5, $smithy.reputation -= 5, $smithy.cleanlinessroll += 2>>
+<<elseif $smithy.wealthroll gt 30>>
+	<<set $smithy.pricemodifier -= 1, $smithy.reputation -= 7, $smithy.cleanlinessroll -= 15>>
+<<elseif $smithy.wealthroll lte 30>>
+	<<set $smithy.pricemodifier -= 2, $smithy.reputation -= 10, $smithy.cleanlinessroll -= 25>>
+<</if>>
+
+<<if $smithy.activityroll gt 80>>
+		<<set $smithy.activity to "extremely busy">>
+		<<set $smithy.reputation += 5, $smithy.cleanlinessroll -= 5>>
+	<<elseif $smithy.activityroll gt 70>>
+		<<set $smithy.activity to "very busy">>
+		<<set $smithy.reputation += 3, $smithy.cleanlinessroll -= 3>>
+	<<elseif $smithy.activityroll gt 60>>
+		<<set $smithy.activity to "rather busy">>
+		<<set $smithy.reputation += 2, $smithy.cleanlinessroll -= 2>>
+	<<elseif $smithy.activityroll gt 50>>
+		<<set $smithy.activity to "reasonably busy">>
+		<<set $smithy.reputation += 1, $smithy.cleanlinessroll -= 1>>
+	<<elseif $smithy.activityroll gt 40>>
+		<<set $smithy.activity to "not terribly busy">>
+		<<set $smithy.reputation -= 1, $smithy.cleanlinessroll += 1>>
+	<<elseif $smithy.activityroll gt 30>>
+		<<set $smithy.activity to "not busy">>
+		<<set $smithy.reputation -= 2, $smithy.cleanlinessroll += 2>>
+	<<elseif $smithy.activityroll gt 20>>
+		<<set $smithy.activity to "rather quiet">>
+		<<set $smithy.reputation -= 3, $smithy.cleanlinessroll += 3>>
+	<<elseif $smithy.activityroll lte 20>>
+		<<set $smithy.activity to "very quiet">>
+		<<set $smithy.reputation -= 5, $smithy.cleanlinessroll += 5>>
+<</if>>
+<</nobr>>
