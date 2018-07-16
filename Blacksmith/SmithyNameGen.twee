@@ -1,0 +1,27 @@
+
+:: SmithyNameGen
+
+<<set _smithynameroll to random(1, 5)>>
+
+<<set $smithy.adjective to either("Hard", "Sharp", "Pointy", "Well-worn", "Rusted", "Shiny", "Cold", "Glowing", "Heated", "Golden", "Silvered", "Bronzed", "Polished", "Engraved", "Jeweled", "Plated", "Eternal", "Long-Lasting", "Famed")>>
+
+<<set $smithy.noun to either("Iron", "Metal", "Gold", "Silver", "Bronze", "Copper", "Platinum", "Electrum", "Ingot", "Tongs", "Pliers", "Anvil", "Hammer", "Forge", "Bellows", "Bucket", "Steam", "Smoke", "Chimney", "Flame", "Fire", "Magma", "Coal", "Crucible")>>
+
+<<set $smithy.family to either("Son", "Daughter", "Brother", "Sister", "Uncle", "Aunt", "Father", "Friends", "Family", "Fool")>>
+
+<<set $smithy.rider to either("Shop", "Blacksmith", "Fabricator", "Smith", "Smithy", "Farrier", "Metalsmith", "Swordsmith")>>
+
+<<switch _smithynameroll>>
+	<<case 1>>
+		<<set $smithy.name to "The " + $smithy.adjective + " " + $smithy.noun>>
+	<<case 2>>
+		<<set $smithy.name to $blacksmith.firstname + " and " + $smithy.family>>
+	<<case 3>>
+		<<set $smithy.name to $smithy.noun + " and " + $smithy.family>>
+	<<case 4>>
+		<<set $smithy.name to "The " + $smithy.adjective + " " + $smithy.rider>>
+	<<case 5>>
+		<<set $smithy.name to $smithy.adjective + " " + $smithy.noun>>
+<<default>>
+    <<set $smithy.name to "The " + $smithy.adjective + " Smithy">>
+<</switch>>
