@@ -25,6 +25,7 @@ setup.createNPC = function(base) {
     var isVillain;
     var title;
     var hasClass;
+    var partnerID;
     var wealth = random(6, 26);
     var isThrowaway;
     var firstname;
@@ -60,6 +61,7 @@ setup.createNPC = function(base) {
         hasClass: hasClass,
         isVillain: isVillain,
         isThrowaway: isThrowaway,
+        partnerID: partnerID,
         availableLanguages: availableLanguages,
         knownLanguages: knownLanguages,
         descriptor: descriptor,
@@ -522,6 +524,11 @@ setup.createNPC = function(base) {
     if (npc.isThrowaway == 'undefined') {
     State.variables.npcs.set(baseName + ++index, npc);
     }
+
+    if(npc.partnerID) {
+      setup.setAsPartners(npc, npcs[npc.partnerID]);
+    }
+
     return npc;
 
 };
