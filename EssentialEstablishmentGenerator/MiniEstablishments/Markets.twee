@@ -104,7 +104,24 @@
 "wooden-soled shoes",
 "wool shirts and caps",
 "woven baskets",
-"young horses and ponies"]
+"young horses and ponies",
+"low tier enchanted items",
+"knockoff enchanted items",
+"oddly shaped vials of unknown liquids",
+"ancient tomes",
+"copper sculptures",
+"aged cheeses",
+"spiced meats",
+"hand painted pottery",
+"carpets and tapestrys",
+"backpacks, pouches, and other bags",
+"silver and gold jewelry",
+"jewel encrusted knives, forks, and spoons",
+"strange and exotic pets",
+"preserved jams and jellies",
+"ancient trinkets and knick knacks",
+"palm readings",
+"fortune tellings"]
 }>>
 
 <<set $market.shouts to ["Tasty meat pies, baked into the shape of otters! Delicious!",
@@ -188,7 +205,8 @@
 "a sprawling maze of small alleyways",
 "a sprawling maze of tunnels beneath the city streets",
 "a huge pavilion with a solid roof overhead",
-"a disorganized series of large tents")>>
+"a disorganized series of large tents",
+"a single long, wide, road stretching through the town")>>
 
 <<set $market.organisation to either("type of merchandise",
 "nation of origin of the merchandise",

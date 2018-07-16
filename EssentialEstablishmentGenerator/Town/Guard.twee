@@ -9,6 +9,9 @@
     "scarlet",
     "forest green",
     "royal blue",
+		"light blue",
+		"magenta",
+		"pale yellow"
     "brown",
     "dark grey",
     "gunmetal",
@@ -25,6 +28,12 @@
 		"purple"]),
   insignia: either([
     "a skull",
+		"a bow & arrow",
+		"an eagle",
+		"a star",
+		"an axe",
+		"a set of crossed spears",
+		"a shield"
     "a ghost",
     "a clenched fist",
     "a flame",
@@ -47,10 +56,10 @@
 	}>>
 <<set $guard.livery to $guard.primaryColours + " and " + $guard.secondaryColours + " livery adorned with an image of " + $guard.insignia>>
 
-<<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters"])>>
+<<set _guardnameA to either(["Regiment", "Guard", "Officers", "Guardsmen", "Protectors", "Protectorate", "Defenders", "Watch", "Watchers", "Watchmen", "Police", "Peacemen", "Axemen", "Swordsmen", "Pikesmen", "Squad", "Batallion", "Battlesquad", "Fighters", "Keepers"])>>
 <<set _guardnameB to either(["Justice", "Righteousness", "Law", "Order", "Safety", "Strength", "$town.name", "$town.name", "$town.name"])>>
-<<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong"])>>
-<<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak"])>>
+<<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong", "Mighty", "Lawful"])>>
+<<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak", "Dagger", "Mace", "Sword"])>>
 
 
 <<set _guardnameroll to random(1, 6)>>

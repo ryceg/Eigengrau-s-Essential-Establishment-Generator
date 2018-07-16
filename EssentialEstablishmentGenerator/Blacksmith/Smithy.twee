@@ -2,5 +2,5 @@
 :: Smithy
 
 <<set $smithy to setup.createBuilding()>>
-<<set $smithy.weapons to ["dagger", "long sword", "short sword", "morning star", "mace", "axe", "greataxe", "spear", "falcheon"]>>
-<<set $smithy.mundane to ["plows", "rabbit traps", "horseshoes", "shovels", "lamps", "fire pokers", "axes", "hammers", "pliers", "steel couplings", "trays", "wheelbarrows"]>>
+<<set $smithy.weapons to ["dagger", "long sword", "short sword", "morning star", "mace", "axe", "greataxe", "spear", "falcheon", "bastard sword", "warhammer", "iron crossbow", "claymore", "flail", "broad sword", "pike", "scimitar", "dart", "rapier", "trident", "halberd", "glaive", "lance", "war pick"]>>
+<<set $smithy.mundane to ["plows", "rabbit traps", "horseshoes", "shovels", "lamps", "fire pokers", "axes", "hammers", "pliers", "steel couplings", "trays", "wheelbarrows", "nails", "pickaxes", "hatchets", "locks and keys", "lockpicks"]>>

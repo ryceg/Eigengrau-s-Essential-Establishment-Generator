@@ -116,11 +116,15 @@ $town.sizeroll.clamp(1, 100)
 			"a tournament",
 			"a trial",
 			"a violent uprising",
-			"a wedding or wedding anniversary"])>>
+			"a wedding or wedding anniversary",
+			"a travelling carnival"])>>
 
 			<<set $town.primaryExport to either([
 			"iron ore",
 			"copper ore",
+			"cobalt ore",
+			"nickel ore",
+			"bauxite deposits",
 			"gold deposits",
 			"silver deposits",
 			"clay and granite deposits",
@@ -128,7 +132,17 @@ $town.sizeroll.clamp(1, 100)
 			"quartz deposits",
 			"coal deposits",
 			"peat deposits",
-			"hardwood lumber"])>>
+			"hardwood lumber",
+			"softwood lumber",
+			"ruby deposits",
+			"sapphire deposits",
+			"emerald deposits",
+			"opal deposits",
+			"amethyst deposits",
+			"wild game",
+			"common fauna used in alchemy",
+			"rare fauna used in alchemy"
+			])>>
 
 			<<set $town.primaryCrop to either([
 			"barley and oats",
@@ -144,7 +158,12 @@ $town.sizeroll.clamp(1, 100)
 			"cabbages and beets",
 			"cattle",
 			"dairy cows",
-			"sheep"])>>
+			"sheep"
+			"carrots and cucumbers"
+			"leeks"
+			"corn"
+			"watermelon"
+			"fish"])>>
 
 
 
