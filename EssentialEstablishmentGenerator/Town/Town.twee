@@ -158,11 +158,11 @@ $town.sizeroll.clamp(1, 100)
 			"cabbages and beets",
 			"cattle",
 			"dairy cows",
-			"sheep"
-			"carrots and cucumbers"
-			"leeks"
-			"corn"
-			"watermelon"
+			"sheep",
+			"carrots and cucumbers",
+			"leeks",
+			"corn",
+			"watermelon",
 			"fish"])>>
 
 

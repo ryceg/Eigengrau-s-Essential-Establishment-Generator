@@ -9,9 +9,9 @@
     "scarlet",
     "forest green",
     "royal blue",
-    "light blue",
-    "magenta",
-    "pale yellow"
+		"light blue",
+		"magenta",
+		"pale yellow",
     "brown",
     "dark grey",
     "gunmetal",
@@ -33,7 +33,7 @@
 		"a star",
 		"an axe",
 		"a set of crossed spears",
-		"a shield"
+		"a shield",
     "a ghost",
     "a clenched fist",
     "a flame",
