@@ -1,6 +1,6 @@
 
 :: SmithyOutput [smithy]
-<h1>$smithy.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is <<print $blacksmith.idle.random()>>. The blacksmith <<print either($blacksmith.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $blacksmith.hisher feet over")>> to you, and introduces $blacksmith.himherself as <<profile $blacksmith>>, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
+<h1>$smithy.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.size $smithy.material building is $smithy.warmth. The blacksmith is <<print $blacksmith.idle.random()>>. The blacksmith <<print either($blacksmith.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $blacksmith.hisher feet", "swaggers", "quickly walks", "stomps", "shuffles", "comes")>>over to you, and introduces $blacksmith.himherself as <<profile $blacksmith>>, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
 
 <<include "SmithyLookAround">>
 <<include "BlacksmithTalk">>

@@ -1,6 +1,6 @@
 
 :: AlchemistOutput [alchemist]
-<h1>$alchemist.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou enter $alchemist.name and see the <<print either($chemist.descriptor)>> chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist <<print either($chemist.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet")>> over to you and introduces $chemist.himherself as <<profile $chemist>>, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
+<h1>$alchemist.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou enter $alchemist.name and see the <<print either($chemist.descriptor)>> chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist <<print either($chemist.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet, swaggers, shuffles, quickly walks, struts, comes")>> over to you and introduces $chemist.himherself as <<profile $chemist>>, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
 
 <<include "AlchemistLookAround">>
 <<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
