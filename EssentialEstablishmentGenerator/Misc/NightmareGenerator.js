@@ -8,7 +8,12 @@ setup.createNightmare = function(base) {
   "a dark cave. A low, rhythmic chanting echoes around you",
   "a prison cell. The walls are scratched and your fingernails are bloodied",
   "a long hallway with a door at the end. The door doesn't get closer as you approach",
-  "knee deep swamp water. You can feel something touching your leg under the surface",];
+  "knee deep swamp water. You can feel something touching your leg under the surface",
+  "the top of a tall tower. The world below is nothing but blackness",
+  "an endless desert. The sand dunes at the edges of your vision keep twisting and moving",
+  "a dank murky swamp. Vines from above hiss all around you",
+  "a mountain peak. The snow below you shifts to reveal bodies hidden below"
+];
   var figure = [
     "boy",
     "girl",
@@ -71,7 +76,11 @@ Object.assign(nightmare, {
         "has mismatching limbs. It looks to be sewn together using mismatching pieces",
         "has the lower body of an arachnid",
         "has fingernails that continue to grow. They look sharp",
-        "is starting to crumble away as if made of ash",].random(),
+        "is starting to crumble away as if made of ash",
+        "is melting as its body slowly turns to goo like warm wax",
+        "has glowing yellow eyes and" + nightmare.figureGender.toUpperFirst() + "head has menacing black horns",
+        "has black, sunken holes where there should be eyes. Drooping eyelids still blink over the barren holes",
+        ].random(),
     action: [
         "sprints at you",
         "begins walking slowly toward you",
