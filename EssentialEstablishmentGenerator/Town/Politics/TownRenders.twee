@@ -81,31 +81,31 @@
 
 <<if $town.militaryroll gt 90>>
     <<set _guardfundingroll += 60>>
-    <<set $town.military to "The military is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, [[$guard.name|GuardOutput]], is extremely well armed, and brutality is commonplace.">>
+    <<set $town.military to "The military is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, <<link '$guard.name'>><<goto 'GuardOutput'>><</link>>, is extremely well armed, and brutality is commonplace.">>
   <<elseif $town.militaryroll gt 80>>
     <<set _guardfundingroll += 50>>
-    <<set $town.military to "The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard, [[$guard.name|GuardOutput]], is well armed, and brutality is common.">>
+    <<set $town.military to "The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard, <<link '$guard.name'>><<goto 'GuardOutput'>><</link>>, is well armed, and brutality is common.">>
   <<elseif $town.militaryroll gt 70>>
     <<set _guardfundingroll += 40>>
-    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, [[$guard.name|GuardOutput]], is well armed, and brutality is not unheard of.">>
+    <<set $town.military to "There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, <<link '$guard.name'>><<goto 'GuardOutput'>><</link>>, is well armed, and brutality is not unheard of.">>
   <<elseif $town.militaryroll gt 60>>
     <<set _guardfundingroll += 30>>
-    <<set $town.military to "There's a decent military presence, and citizens know better than to step out of line, as [[$guard.name|GuardOutput]] are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear.">>
+    <<set $town.military to "There's a decent military presence, and citizens know better than to step out of line, as <<link '$guard.name'>><<goto 'GuardOutput'>><</link>> are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear.">>
   <<elseif $town.militaryroll gt 50>>
     <<set _guardfundingroll += 30>>
-    <<set $town.military to "There is a military presence in $town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from [[$guard.name|GuardOutput]].">>
+    <<set $town.military to "There is a military presence in $town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<link '$guard.name'>><<goto 'GuardOutput'>><</link>>.">>
   <<elseif $town.militaryroll gt 40>>
     <<set _guardfundingroll += 25>>
-    <<set $town.military to "The military presence in $town.name is somewhat smaller than one would expect for its size. The local guard, [[$guard.name|GuardOutput]], are seen as friends and drinking buddies, rather than horrible tyrants.">>
+    <<set $town.military to "The military presence in $town.name is somewhat smaller than one would expect for its size. The local guard, <<link '$guard.name'>><<goto 'GuardOutput'>><</link>>, are seen as friends and drinking buddies, rather than horrible tyrants.">>
   <<elseif $town.militaryroll gt 30>>
     <<set _guardfundingroll += 25>>
-    <<set $town.military to "The military presence in $town.name is more of a militia; some of the members of [[$guard.name|GuardOutput]] are part time, and there is little need for the use of force outside of intruders.">>
+    <<set $town.military to "The military presence in $town.name is more of a militia; some of the members of <<link '$guard.name'>><<goto 'GuardOutput'>><</link>> are part time, and there is little need for the use of force outside of intruders.">>
   <<elseif $town.militaryroll gt 20>>
     <<set _guardfundingroll += 15>>
-    <<set $town.military to "The military presence in $town.name is a militia; most of the guards of [[$guard.name|GuardOutput]] are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.">>
+    <<set $town.military to "The military presence in $town.name is a militia; most of the guards of <<link '$guard.name'>><<goto 'GuardOutput'>><</link>> are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.">>
   <<elseif $town.militaryroll lte 20>>
     <<set _guardfundingroll += 10>>
-    <<set $town.military to "The military presence in $town.name is a militia; the guards of [[$guard.name|GuardOutput]] are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.">>
+    <<set $town.military to "The military presence in $town.name is a militia; the guards of <<link '$guard.name'>><<goto 'GuardOutput'>><</link>> are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.">>
 <</if>>
 
 <<switch $town.politicalIdeology>>
