@@ -78,7 +78,7 @@ Object.assign(nightmare, {
         "has fingernails that continue to grow. They look sharp",
         "is starting to crumble away as if made of ash",
         "is melting as its body slowly turns to goo like warm wax",
-        "has glowing yellow eyes and" + nightmare.figureGender.toUpperFirst() + "head has menacing black horns",
+        "has glowing yellow eyes and " + nightmare.figureGender + " head has menacing black horns",
         "has black, sunken holes where there should be eyes. Drooping eyelids still blink over the barren holes",
         ].random(),
     action: [
