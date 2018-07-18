@@ -12,6 +12,6 @@ $currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $c
 
 <<if def $currentNPC.note >>$currentNPC.note<</if>>
 
-$currentNPC.firstname has a partner, <<profile $currentNPC.partnerID>>
+<<if $currentNPC.partnerID>>$currentNPC.firstname has a partner, <<profile $currentNPC.partnerID>><</if>>
 
 <<return>>

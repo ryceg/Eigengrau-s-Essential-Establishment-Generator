@@ -4,20 +4,12 @@ setup.createFaction = function(base) {
   var type = ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards", "mercenaries", "bandits"].random();
   var leadershipType = ["individual", "individual", "individual", "group", "group"];
   var isPoliticalPower;
+  var leaders = [];
   var leadershipGeneration = {};
 
 
-  var leaderBribesRoll = dice(2, 50);
-  var leaderCompetenceRoll = dice(2, 50);
-
-  var joiningFeeRoll = dice(2, 50);
-  var joiningRequirementRoll = dice(2, 50);
-  var joiningInitiationRoll = dice(2, 50);
-  var joiningRequirement = ["social status", "reputation", "a favour to be done", "to be called on for a favour", "referral by an existing member", "referral by several members", "endorsement by the current leader"];
-  var joiningInitiation = ["a task to be done", "a secret task", "a mission", "a simple form to be filled", "nothing", "an oath to be taken", "a display of loyalty", "a display of skill", "a display of bravery"];
 
 
-  var influenceRoll = dice(2, 50);
   var influence;
   var reputationRoll = dice(2, 50);
   var reputation;
@@ -60,6 +52,7 @@ setup.createFaction = function(base) {
   faction.stability = setup.stabilityFaction(faction);
 
   setup.leaderFaction(faction);
+  setup.joinFaction(faction);
 
   // State.variables.factions.set(baseName + ++index, faction)};
 

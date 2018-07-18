@@ -526,7 +526,7 @@ setup.createNPC = function(base) {
     }
 
     if(npc.partnerID) {
-      setup.setAsPartners(npc, npcs[npc.partnerID]);
+      setup.setAsPartners(npc, State.variables.npcs[npc.partnerID]);
     }
 
     return npc;
