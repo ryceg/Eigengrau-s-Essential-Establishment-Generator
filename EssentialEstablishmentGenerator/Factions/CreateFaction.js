@@ -25,7 +25,7 @@ setup.createFaction = function(base) {
   var faction = Object.assign({
     isPoliticalPower: isPoliticalPower,
     // type: ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random(),
-    type: "wizards",
+    type: type,
     motivation: setup.motivationFaction(faction),
     leadershipType: "individual",
     // leadershipType: leadershipType.random(),

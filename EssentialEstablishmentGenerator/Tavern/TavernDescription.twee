@@ -13,7 +13,8 @@
 		<<set $tavernPatron to setup.createNPC()>>
 		<<set _tavernnotable to "You see the bartender is talking to a $tavernPatron.age <<print either($tavernPatron.descriptor)>>. <<print $bartender.heshe.toUpperFirst()>> smiles, and then says something, making the <<print either($tavernPatron.descriptor)>> go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle $tavern.name'.">>
 	<<case "proximity to the thieves' guild headquarters">>
-		<<set _tavernnotable to "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, $tavern.name has an issue with the nearby thieves' guild.">>
+		<<set $factionThieves to setup.createFaction({type: "thieves"})>>
+		<<set _tavernnotable to "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, $tavern.name has an issue with <<link '$factionThieves.name'>><<set $currentFaction to $factionThieves>><<goto 'FactionProfile'>><</link>>.">>
 	<<case "warmth inside">>
 		<<set _tavernnotable to "$tavern.name is kept wonderfully toasty, and the warm air makes you comfortable and sleepy">>
 	<<case "magic incense which is constantly burning">>

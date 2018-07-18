@@ -5,7 +5,7 @@ setup.joinFaction = function(faction) {
 
   var joiningRequirement = ["social status", "reputation", "a favour to be done", "to be called on for a favour", "referral by an existing member", "referral by several members", "endorsement by the current leader"];
   var joiningInitiation = ["a task to be done", "a secret task", "a mission", "a simple form to be filled", "nothing", "an oath to be taken", "a display of loyalty", "a display of skill", "a display of bravery"];
-
+// still to do: creating tasks for each type of guild, plus requirement
 
   if (faction.joiningFeeRoll > 95){
     faction.joiningFee = "a single copper, as a show of faith";

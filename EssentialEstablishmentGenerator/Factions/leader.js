@@ -3,54 +3,58 @@ setup.leaderFaction = function(faction) {
   faction.leaderBribesRoll = dice(2, 50);
   faction.leaderCompetenceRoll = dice(2, 50);
 
-
-  switch (faction.type) {
-    case "thieves":
-      // Object.assign(leadershipGeneration, { dndclass: "rogue" });
-      faction.leaderQualification = ["the most skilled of the group", "able to rise to power by completing an ordeal", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to oust the previous leadership", "able to oust the previous leadership", "able to rise to power through nepotism", "rose to power through nepotism", "rose to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "merchants":
-      // Object.assign(leadershipGeneration, { profession: "merchant", background: "noble" });
-      faction.leaderQualification = ["the wealthiest of the group", "the wealthiest of the group", "the wealthiest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "wizards":
-      // Object.assign(leadershipGeneration, { dndclass: "wizard" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "rangers":
-      // Object.assign(leadershipGeneration, { dndclass: "ranger" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "able to rise to power by completing an ordeal", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "seers":
-      // Object.assign(leadershipGeneration, { dndclass: "cleric" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "priests":
-      // Object.assign(leadershipGeneration, { dndclass: "cleric" });
-      faction.leaderQualification = ["the wealthiest of the group", "the holiest of the group", "the holiest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "monks":
-      // Object.assign(leadershipGeneration, { dndclass: "monk" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "assassins":
-      // Object.assign(leadershipGeneration, { dndclass: "rogue", background: "charlatan" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to oust the previous leadership", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group", "promoted by being the most powerful in the group", "promoted by being the most powerful in the group"].random();
-      break;
-    case "artisans":
-      // Object.assign(leadershipGeneration, { background: "faction artisan" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "able to rise to power by completing a masterpiece", "able to rise to power by completing a masterpiece", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "nobles":
-      // Object.assign(leadershipGeneration, { background: "noble" });
-      faction.leaderQualification = ["the wealthiest of the group", "the wealthiest of the group", "the wealthiest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    case "bards":
-      // Object.assign(leadershipGeneration, { dndclass: "bard", background: "entertainer" });
-      faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "able to rise to power by completing a masterpiece", "able to rise to power by completing a masterpiece", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
-      break;
-    // default:
+  if (faction.age == "brand new") {
+    faction.leaderQualification = ["the original founder", "the original founder", "the first appointed leader of " + faction.name].random();
+  } else {
+      switch (faction.type) {
+        case "thieves":
+          // Object.assign(leadershipGeneration, { dndclass: "rogue" });
+          faction.leaderQualification = ["the most skilled of the group", "able to rise to power by completing an ordeal", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to oust the previous leadership", "able to oust the previous leadership", "able to rise to power through nepotism", "rose to power through nepotism", "rose to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "merchants":
+          // Object.assign(leadershipGeneration, { profession: "merchant", background: "noble" });
+          faction.leaderQualification = ["the wealthiest of the group", "the wealthiest of the group", "the wealthiest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "wizards":
+          // Object.assign(leadershipGeneration, { dndclass: "wizard" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "rangers":
+          // Object.assign(leadershipGeneration, { dndclass: "ranger" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "able to rise to power by completing an ordeal", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "seers":
+          // Object.assign(leadershipGeneration, { dndclass: "cleric" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "priests":
+          // Object.assign(leadershipGeneration, { dndclass: "cleric" });
+          faction.leaderQualification = ["the wealthiest of the group", "the holiest of the group", "the holiest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "monks":
+          // Object.assign(leadershipGeneration, { dndclass: "monk" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "assassins":
+          // Object.assign(leadershipGeneration, { dndclass: "rogue", background: "charlatan" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "the strongest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to oust the previous leadership", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group", "promoted by being the most powerful in the group", "promoted by being the most powerful in the group"].random();
+          break;
+        case "artisans":
+          // Object.assign(leadershipGeneration, { background: "faction artisan" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "able to rise to power by completing a masterpiece", "able to rise to power by completing a masterpiece", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "nobles":
+          // Object.assign(leadershipGeneration, { background: "noble" });
+          faction.leaderQualification = ["the wealthiest of the group", "the wealthiest of the group", "the wealthiest of the group", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        case "bards":
+          // Object.assign(leadershipGeneration, { dndclass: "bard", background: "entertainer" });
+          faction.leaderQualification = ["the wealthiest of the group", "the strongest of the group", "able to rise to power by completing a masterpiece", "able to rise to power by completing a masterpiece", "able to rise to power by completing an ordeal", "the most charismatic of the group", "democratically elected", "able to oust the previous leadership", "able to rise to power through nepotism", "able to rise to power through nepotism", "able to rise to power through nepotism", "promoted by being the most powerful in the group"].random();
+          break;
+        // default:
+      }
   }
+
 
   if (faction.leaderBribesRoll > 95){
     faction.leaderBribes = "will never, under any circumstances be accepted";
