@@ -1,6 +1,5 @@
 setup.influenceFaction = function(faction) {
-  var faction = faction;
-  faction.influenceRoll = dice(2, 50);
+
   if (faction.ageRoll > 95){
     faction.influenceRoll += Math.fm(faction.influenceRoll, 15);
   } else if (faction.ageRoll > 90){

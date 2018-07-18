@@ -1,5 +1,4 @@
 setup.ageFaction = function(faction) {
-  var faction = faction;
 
       if (faction.ageRoll > 95){
         faction.age = "ancient";

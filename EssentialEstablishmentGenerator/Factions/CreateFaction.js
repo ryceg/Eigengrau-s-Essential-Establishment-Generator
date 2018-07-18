@@ -7,12 +7,10 @@ setup.createFaction = function(base) {
   var leaders = [];
   var leadershipGeneration = {};
 
-
-
-
-  var influence;
   var reputationRoll = dice(2, 50);
   var reputation;
+  var influenceRoll = dice(2, 50);
+  var influence;
   var ageRoll = dice(2, 50);
   var age;
   var sizeRoll = dice(2, 50);
