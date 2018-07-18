@@ -20,6 +20,8 @@ setup.createFaction = function(base) {
   var resourcesRoll = dice(2, 50);
   var resources;
 
+  // Rolls are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise SizeRoll in the size.js function if it's being used in "reputation.js")
+
   var faction = Object.assign({
     isPoliticalPower: isPoliticalPower,
     // type: ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random(),

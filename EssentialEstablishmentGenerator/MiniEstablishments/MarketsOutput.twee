@@ -1,7 +1,11 @@
 :: MarketOutput [market]
 <h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation.
 
-There's a <<profile $marketSellerA $marketSellerA.racenote>> selling <<print either($market.selling)>> from a <<print either($market.tent)>>, and a <<profile $marketSellerB $marketSellerB.racenote>> shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>. Nearby, a <<profile $marketSellerC $marketSellerC.racenote>> is selling <<print either($market.selling)>>, a <<profile $marketSellerE $marketSellerE.racenote>> is shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>, and a <<profile $marketSellerD $marketSellerD.racenote>> is selling magical trinkets from a  <<print either($market.tent)>>. Or, at least, they're supposedly magical trinkets.
+There's a <<profile $marketSellerA $marketSellerA.racenote>> selling <<print either($market.selling)>> from a <<print either($market.tent)>>
+A <<profile $marketSellerB $marketSellerB.racenote>> shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>.
+Nearby, a <<profile $marketSellerC $marketSellerC.racenote>> is selling <<print either($market.selling)>>
+A <<profile $marketSellerE $marketSellerE.racenote>> is shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>,
+And a <<profile $marketSellerD $marketSellerD.racenote>> is selling magical trinkets from a  <<print either($market.tent)>>. Or, at least, they're supposedly magical trinkets.
 
 <<linkreplace "Magical trinket seller">>The $marketSellerD.manwoman beckons you over to $marketSellerD.hisher stall, and introduces $marketSellerD.himherself as <<profile $marketSellerD>>, a purveyor of fine goods. The $marketSellerD.racenote asks you for your ring size, and then $marketSellerD.heshe reaches below $marketSellerD.hisher table, and procures a ring...
 

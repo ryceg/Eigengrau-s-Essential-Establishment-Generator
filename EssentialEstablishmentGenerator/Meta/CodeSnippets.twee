@@ -29,6 +29,7 @@ either($potion.smell)
 <</linkreplace>>
 <span id="random"></span><</nobr>>
 
+<<set $guard.name = "The Knights of <<= setup.Town.get('" + $townID + "').name>>">>
 
 
 */

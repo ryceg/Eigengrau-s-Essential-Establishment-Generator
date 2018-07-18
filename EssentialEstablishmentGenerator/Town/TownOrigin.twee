@@ -29,7 +29,7 @@
           "a road that passes through the forests",
           "a water source and a well-traveled road leading through the forest"])>>
           <<set $town.vegetation to either(["sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"])>>
-          <<set $town.plants to either(["oak trees", "oak trees", "oak trees"])>>
+          <<set $town.plants to either(["oak trees", "oak trees", "oak trees", "pine trees", "maple trees", "birch trees", "ash trees", "elm trees", "fir trees", "spruce trees", "sycamore trees", "alder trees", "cypress trees", "yew trees"])>>
       <<case "hills">>
           <<set $town.origin to either([
           "a large freshwater lake",

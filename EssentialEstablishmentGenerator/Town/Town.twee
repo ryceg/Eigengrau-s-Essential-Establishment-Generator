@@ -141,7 +141,7 @@ $town.sizeroll.clamp(1, 100)
 			"amethyst deposits",
 			"wild game",
 			"common fauna used in alchemy",
-			"rare fauna used in alchemy"
+			"rare fauna used in alchemy",
 			])>>
 
 			<<set $town.primaryCrop to either([
