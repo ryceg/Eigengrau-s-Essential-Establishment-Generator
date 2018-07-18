@@ -64,3 +64,12 @@
 <<set $alchemist to setup.createBuilding()>>
 <<set $alchemist.magicroll to random(40, 100)>>
 <<set $brew to setup.createAlchemy({type: "brewing potion"})>>
+<<set $alchemist.sinroll to $alchemist.sinroll.clamp(1, 100),
+		$alchemist.wealthroll to $alchemist.wealthroll.clamp(1, 100),
+		$alchemist.reputationroll to $alchemist.reputationroll.clamp(1, 100),
+		$alchemist.cleanlinessroll to $alchemist.cleanlinessroll.clamp(1, 100),
+		$alchemist.populationroll to $alchemist.populationroll.clamp(1, 100),
+		$alchemist.roughnessroll to $alchemist.roughnessroll.clamp(1, 100),
+		$alchemist.diversityroll to $alchemist.diversityroll.clamp(1, 100),
+		$alchemist.sizeroll to $alchemist.sizeroll.clamp(1, 100),
+		$alchemist.magicroll to $alchemist.magicroll.clamp(1, 100)>>

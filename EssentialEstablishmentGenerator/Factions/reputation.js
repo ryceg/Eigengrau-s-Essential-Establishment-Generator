@@ -3,40 +3,40 @@ setup.reputationFaction = function(faction) {
 
   switch(faction.age) {
       case "ancient":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, 10);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, 30);
         break;
       case "extremely old":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, 8);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, 25);
         break;
       case "very old":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, 6);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, 20);
         break;
       case "quite old":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, 4);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, 15);
         break;
       case "well established":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, 2);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, 10);
         break;
       case "somewhat old":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, 1);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, 5);
         break;
       case "relatively new":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, -1);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, -5);
         break;
       case "recently established":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, -2);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, -10);
         break;
       case "new":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, -4);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, -15);
         break;
       case "quite new":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, -6);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, -20);
         break;
       case "very new":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, -8);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, -25);
         break;
       case "brand new":
-        faction.reputationRoll += Math.fm(faction.reputationRoll, -10);
+        faction.reputationRoll += Math.fm(faction.reputationRoll, -25);
         break;
       case "unknown":
         faction.reputationRoll += Math.fm(faction.reputationRoll, 15);

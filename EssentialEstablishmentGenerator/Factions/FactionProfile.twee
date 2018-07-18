@@ -10,7 +10,7 @@
 <</switch>>
 <</nobr>>
 <h3>Members</h3>
-Members of $currentFaction.name are
+Members of $currentFaction.name are identifiable by $currentFaction.membersTrait. Joining costs $currentFaction.joiningFee.
 
 
 <<back>>

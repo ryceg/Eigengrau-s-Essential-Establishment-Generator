@@ -4,3 +4,12 @@
 <<set $smithy to setup.createBuilding()>>
 <<set $smithy.weapons to ["dagger", "long sword", "short sword", "morning star", "mace", "axe", "greataxe", "spear", "falcheon", "bastard sword", "warhammer", "iron crossbow", "claymore", "flail", "broad sword", "pike", "scimitar", "dart", "rapier", "trident", "halberd", "glaive", "lance", "war pick"]>>
 <<set $smithy.mundane to ["plows", "rabbit traps", "horseshoes", "shovels", "lamps", "fire pokers", "axes", "hammers", "pliers", "steel couplings", "trays", "wheelbarrows", "nails", "pickaxes", "hatchets", "locks and keys", "lockpicks"]>>
+<<set $smithy.sinroll to $smithy.sinroll.clamp(1, 100),
+		$smithy.wealthroll to $smithy.wealthroll.clamp(1, 100),
+		$smithy.reputationroll to $smithy.reputationroll.clamp(1, 100),
+		$smithy.cleanlinessroll to $smithy.cleanlinessroll.clamp(1, 100),
+		$smithy.populationroll to $smithy.populationroll.clamp(1, 100),
+		$smithy.roughnessroll to $smithy.roughnessroll.clamp(1, 100),
+		$smithy.diversityroll to $smithy.diversityroll.clamp(1, 100),
+		$smithy.sizeroll to $smithy.sizeroll.clamp(1, 100),
+		$smithy.magicroll to $smithy.magicroll.clamp(1, 100)>>

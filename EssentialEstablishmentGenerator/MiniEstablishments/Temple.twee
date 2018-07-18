@@ -23,3 +23,12 @@
 <<elseif $town.wealthroll lte 20>>
   <<set $temple.wealthroll -= 5, $temple.sinroll += 3, $temple.populationroll -= 3>>
 <</if>>
+<<set $temple.sinroll to $temple.sinroll.clamp(1, 100),
+		$temple.wealthroll to $temple.wealthroll.clamp(1, 100),
+		$temple.reputationroll to $temple.reputationroll.clamp(1, 100),
+		$temple.cleanlinessroll to $temple.cleanlinessroll.clamp(1, 100),
+		$temple.populationroll to $temple.populationroll.clamp(1, 100),
+		$temple.roughnessroll to $temple.roughnessroll.clamp(1, 100),
+		$temple.diversityroll to $temple.diversityroll.clamp(1, 100),
+		$temple.sizeroll to $temple.sizeroll.clamp(1, 100),
+		$temple.magicroll to $temple.magicroll.clamp(1, 100)>>

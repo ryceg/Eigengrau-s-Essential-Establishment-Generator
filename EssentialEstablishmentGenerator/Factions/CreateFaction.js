@@ -53,6 +53,7 @@ setup.createFaction = function(base) {
 
   setup.leaderFaction(faction);
   setup.joinFaction(faction);
+  setup.membersFaction(faction);
 
   // State.variables.factions.set(baseName + ++index, faction)};
 
