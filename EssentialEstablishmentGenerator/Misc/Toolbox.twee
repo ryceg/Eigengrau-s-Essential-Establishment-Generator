@@ -1,15 +1,20 @@
 :: Toolbox
 
 <<include "RandomNPC">>
-<<include "RandomPotion">>
-<<include "RandomRing">>
 <<include "RandomAdventure">>
 
 [[One Shot - The Poisoned Potioner|AdventureOutput]]
 
+<<include "RandomPotion">>
+<<include "RandomRing">>
+<<link "<h4>Create a magic weapon</h4>">><<set $testWeapon to setup.createMagicWeapon()>><<replace "#Weapon">><div class='descriptive'><h3>$testWeapon.name</h3>$testWeapon.description</div><</replace>><</link>><span id="Weapon"></span>
+<<link "<h4>Create magic armour</h4>">><<set $testArmour to setup.createMagicArmour()>><<replace "#Armour">><div class='descriptive'><h3>$testArmour.name</h3>$testArmour.description</div><</replace>><</link>><span id="Armour"></span>
+<<link "<h4>Create a magic trinket</h4>">><<set $testTrinket to setup.createMagicTrinket()>><<replace "#Trinket">><div class='descriptive'><h3>$testTrinket.name</h3>$testTrinket.description</div><</replace>><</link>><span id="Trinket"></span>
+
+
 <<link "<h4>Create a pub rumour</h4>">><<set $testPubRumour to setup.createPubRumour()>><<replace "#pub">>$testPubRumour<</replace>><</link>><span id="pub"></span>
 <<link "<h4>Create a rumour (WIP)</h4>">><<set $testRumour to setup.createRumour()>><<replace "#rumour">>$testRumour<</replace>><</link>><span id="rumour"></span>
-<<link "<h4>Create a mission</h4>">><<set $testmission to setup.createMission()>><<replace "#mission">>$testmission<</replace>><</link>><span id="mission"></span>
+/* <<link "<h4>Create a mission</h4>">><<set $testmission to setup.createMission()>><<replace "#mission">>$testmission<</replace>><</link>><span id="mission"></span> */
 <<link "<h4>Generate a nightmare</h4>">><<set $testNightmare to setup.createNightmare()>><<replace "#nightmare">>$testNightmare<</replace>><</link>><span id="nightmare"></span>
 <<link "<h4>Describe the weather</h4>">><<set $weather.temperatureTimer -= 16, $weather.precipitationTimer -= 8, $weather.cloudTimer>><<nobr>><<include "TownWeatherDescriptions">><<include "TownWeatherTimer">><</nobr>><<replace "#weather">>It's currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.<</replace>><</link>><<dropdown "$weather.seasonChange" $weather.seasonPool>> <<dropdown "$town.terrainChange" $town.terrainPool>> <<dropdown "$town.locationChange" $town.locationPool>>
 <span id="weather"></span>
