@@ -103,27 +103,27 @@
 
 <<if $GeneralStore.activityRoll gt 80>>
 		<<set $GeneralStore.activity to "extremely busy">>
-		<<set $GeneralStore.reputation += 5, $GeneralStore.cleanlinessRoll -= 5>>
+		<<set $GeneralStore.reputationRoll += 5, $GeneralStore.cleanlinessRoll -= 5>>
 	<<elseif $GeneralStore.activityRoll gt 70>>
 		<<set $GeneralStore.activity to "very busy">>
-		<<set $GeneralStore.reputation += 3, $GeneralStore.cleanlinessRoll -= 3>>
+		<<set $GeneralStore.reputationRoll += 3, $GeneralStore.cleanlinessRoll -= 3>>
 	<<elseif $GeneralStore.activityRoll gt 60>>
 		<<set $GeneralStore.activity to "rather busy">>
-		<<set $GeneralStore.reputation += 2, $GeneralStore.cleanlinessRoll -= 2>>
+		<<set $GeneralStore.reputationRoll += 2, $GeneralStore.cleanlinessRoll -= 2>>
 	<<elseif $GeneralStore.activityRoll gt 50>>
 		<<set $GeneralStore.activity to "reasonably busy">>
-		<<set $GeneralStore.reputation += 1, $GeneralStore.cleanlinessRoll -= 1>>
+		<<set $GeneralStore.reputationRoll += 1, $GeneralStore.cleanlinessRoll -= 1>>
 	<<elseif $GeneralStore.activityRoll gt 40>>
 		<<set $GeneralStore.activity to "not terribly busy">>
-		<<set $GeneralStore.reputation -= 1, $GeneralStore.cleanlinessRoll += 1>>
+		<<set $GeneralStore.reputationRoll -= 1, $GeneralStore.cleanlinessRoll += 1>>
 	<<elseif $GeneralStore.activityRoll gt 30>>
 		<<set $GeneralStore.activity to "not busy">>
-		<<set $GeneralStore.reputation -= 2, $GeneralStore.cleanlinessRoll += 2>>
+		<<set $GeneralStore.reputationRoll -= 2, $GeneralStore.cleanlinessRoll += 2>>
 	<<elseif $GeneralStore.activityRoll gt 20>>
 		<<set $GeneralStore.activity to "rather quiet">>
-		<<set $GeneralStore.reputation -= 3, $GeneralStore.cleanlinessRoll += 3>>
+		<<set $GeneralStore.reputationRoll -= 3, $GeneralStore.cleanlinessRoll += 3>>
 	<<elseif $GeneralStore.activityRoll lte 20>>
 		<<set $GeneralStore.activity to "very quiet">>
-		<<set $GeneralStore.reputation -= 5, $GeneralStore.cleanlinessRoll += 5>>
+		<<set $GeneralStore.reputationRoll -= 5, $GeneralStore.cleanlinessRoll += 5>>
 <</if>>
 <</nobr>>

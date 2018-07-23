@@ -10,7 +10,7 @@
         <<elseif _roll gt 70>>
             <blockquote>Join the Discord server at https://discord.gg/4wYNwp2 </blockquote>
         <<elseif _roll gt 60>>
-            <blockquote><<include "Changelog">> </blockquote>
+            <<include "Changelog">>
         <<elseif _roll gt 55>>
             <blockquote><<include "PatreonSupporters">> </blockquote>
         <<elseif _roll lte 55>>
