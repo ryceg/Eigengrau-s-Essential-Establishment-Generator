@@ -1,5 +1,4 @@
 setup.createClass = function (npc) {
-  var npc = npc
 
   switch (npc.dndclass) {
     case 'barbarian':

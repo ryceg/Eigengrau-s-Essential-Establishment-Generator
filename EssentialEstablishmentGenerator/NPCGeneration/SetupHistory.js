@@ -10,7 +10,6 @@ setup.createHistory = function (npc) {
   var childhoodMemoriesRoll = random(1, 6) + random(1, 6) + random(1, 6)
   var childhoodMemories
   var wealthmodifier
-  var adventureRoll = random(1, 100)
 
   if (random(1, 100) > 95) {
     npc.knewParents = false
@@ -20,7 +19,7 @@ setup.createHistory = function (npc) {
 
   switch (npc.race) {
     case 'half-orc':
-      if (parentalLineageRoll == 8) {
+      if (parentalLineageRoll === 8) {
         npc.parentalLineage = 'Both parents were half-orcs'
       } else if (parentalLineageRoll >= 6) {
         npc.parentalLineage = 'One parent was a human, the other was a half orc'
@@ -31,20 +30,20 @@ setup.createHistory = function (npc) {
       }
       break
     case 'half-elf':
-      if (parentalLineageRoll == 8) {
+      if (parentalLineageRoll === 8) {
         npc.parentalLineage = 'Both parents were half-elves'
-      } else if (parentalLineageRoll == 7) {
+      } else if (parentalLineageRoll === 7) {
         npc.parentalLineage = 'One parent was a human, the other was a half elf'
-      } else if (parentalLineageRoll == 6) {
+      } else if (parentalLineageRoll === 6) {
         npc.parentalLineage = 'One parent was a half-elf, the other was an elf'
       } else if (parentalLineageRoll < 6) {
         npc.parentalLineage = 'One parent was a human, the other was an elf'
       }
       break
     case 'tiefling':
-      if (parentalLineageRoll == 8) {
+      if (parentalLineageRoll === 8) {
         npc.parentalLineage = 'One parent was a human, the other was a devil'
-      } else if (parentalLineageRoll == 7) {
+      } else if (parentalLineageRoll === 7) {
         npc.parentalLineage = 'One parent was a tiefling, the other was a devil'
       } else if (parentalLineageRoll >= 4) {
         npc.parentalLineage = 'One parent was a human, the other was a tiefling'
@@ -54,45 +53,45 @@ setup.createHistory = function (npc) {
       break
   }
 
-  if (birthplaceRoll == 100) {
+  if (birthplaceRoll === 100) {
     npc.birthplace = 'an Outer Plane'
-  } else if (birthplaceRoll == 99) {
+  } else if (birthplaceRoll === 99) {
     npc.birthplace = 'an Inner Plane'
-  } else if (birthplaceRoll == 98) {
+  } else if (birthplaceRoll === 98) {
     npc.birthplace = 'on the Astral Plane'
-  } else if (birthplaceRoll == 97) {
+  } else if (birthplaceRoll === 97) {
     npc.birthplace = 'in the Shadowfell'
-  } else if (birthplaceRoll == 96) {
+  } else if (birthplaceRoll === 96) {
     npc.birthplace = 'in the Feywild'
-  } else if (birthplaceRoll == 95) {
+  } else if (birthplaceRoll === 95) {
     npc.birthplace = 'on the Ethereal Plane'
-  } else if (birthplaceRoll == 94) {
+  } else if (birthplaceRoll === 94) {
     npc.birthplace = "in a sage's laboratory"
-  } else if (birthplaceRoll == 93) {
+  } else if (birthplaceRoll === 93) {
     npc.birthplace = 'in the headquarters of a secret organisation'
-  } else if (birthplaceRoll == 92) {
+  } else if (birthplaceRoll === 92) {
     npc.birthplace = 'in a prison'
-  } else if (birthplaceRoll == 91) {
+  } else if (birthplaceRoll === 91) {
     npc.birthplace = 'on a ship'
   } else if (birthplaceRoll >= 89) {
     npc.birthplace = 'on a boat'
   } else if (birthplaceRoll >= 86) {
     npc.birthplace = 'among people of a different race'
-  } else if (birthplaceRoll == 85) {
+  } else if (birthplaceRoll === 85) {
     npc.birthplace = 'in a rubbish heap'
-  } else if (birthplaceRoll == 84) {
+  } else if (birthplaceRoll === 84) {
     npc.birthplace = 'in a castle'
-  } else if (birthplaceRoll == 83) {
+  } else if (birthplaceRoll === 83) {
     npc.birthplace = 'in a tower'
-  } else if (birthplaceRoll == 82) {
+  } else if (birthplaceRoll === 82) {
     npc.birthplace = 'in a brothel'
-  } else if (birthplaceRoll == 81) {
+  } else if (birthplaceRoll === 81) {
     npc.birthplace = 'in a tavern'
-  } else if (birthplaceRoll == 80) {
+  } else if (birthplaceRoll === 80) {
     npc.birthplace = 'in an alley'
-  } else if (birthplaceRoll == 79) {
+  } else if (birthplaceRoll === 79) {
     npc.birthplace = 'in a street'
-  } else if (birthplaceRoll == 78) {
+  } else if (birthplaceRoll === 78) {
     npc.birthplace = 'on a battlefield'
   } else if (birthplaceRoll >= 75) {
     npc.birthplace = 'in a temple'
@@ -102,13 +101,13 @@ setup.createHistory = function (npc) {
     npc.birthplace = 'in a field'
   } else if (birthplaceRoll >= 69) {
     npc.birthplace = 'in a cave'
-  } else if (birthplaceRoll == 68) {
+  } else if (birthplaceRoll === 68) {
     npc.birthplace = 'in a barn'
-  } else if (birthplaceRoll == 67) {
+  } else if (birthplaceRoll === 67) {
     npc.birthplace = 'in a shed'
-  } else if (birthplaceRoll == 66) {
+  } else if (birthplaceRoll === 66) {
     npc.birthplace = 'in a cart'
-  } else if (birthplaceRoll == 65) {
+  } else if (birthplaceRoll === 65) {
     npc.birthplace = 'on a wagon'
   } else if (birthplaceRoll >= 56) {
     npc.birthplace = 'in the home of a midwife'
@@ -168,18 +167,18 @@ setup.createHistory = function (npc) {
   } else if (parentRoll >= 8) {
     npc.familyUnit = 'my extended family'
   } else if (parentRoll >= 6) {
-      npc.familyUnit = 'my guardian'
-    } else if (parentRoll >= 4) {
-      npc.familyUnit = 'the orphanage'
-    } else if (parentRoll >= 3) {
-      npc.familyUnit = 'the temple'
-    } else if (parentRoll >= 2) {
-      npc.familyUnit = 'the institution'
-    } else if (parentRoll < 2) {
-      npc.familyUnit = 'the streets'
-    }
+    npc.familyUnit = 'my guardian'
+  } else if (parentRoll >= 4) {
+    npc.familyUnit = 'the orphanage'
+  } else if (parentRoll >= 3) {
+    npc.familyUnit = 'the temple'
+  } else if (parentRoll >= 2) {
+    npc.familyUnit = 'the institution'
+  } else if (parentRoll < 2) {
+    npc.familyUnit = 'the streets'
+  }
 
-  if (familyLifestyleRoll == 18) {
+  if (familyLifestyleRoll === 18) {
     npc.familyLifestyle = 'aristocratic'
     wealthmodifier = 40
   } else if (familyLifestyleRoll >= 16) {
@@ -221,10 +220,10 @@ setup.createHistory = function (npc) {
   } else if (familyHomeRoll >= 1) {
     npc.familyHome = 'a rundown shack'
   } else if (familyHomeRoll < 1) {
-        npc.familyHome = 'on the streets'
-      } else {
-        npc.familyHome = 'a small house'
-      }
+    npc.familyHome = 'on the streets'
+  } else {
+    npc.familyHome = 'a small house'
+  }
 
   if (childhoodMemoriesRoll >= 18) {
     npc.childhoodMemories = 'Everyone knew who I was, and I had friends everywhere I went'
@@ -241,35 +240,6 @@ setup.createHistory = function (npc) {
   } else if (childhoodMemoriesRoll < 4) {
     npc.childhoodMemories = 'I am still haunted by my childhood, where I was treated badly by my peers'
   }
-
-  if (adventureRoll == 100) {
-    npc.adventureResults = 'came across a magical item'
-  } else if (adventureRoll >= 91) {
-    npc.adventureResults = 'found a considerable amount of treasure'
-    npc.wealth += random(5100, 7150)
-  } else if (adventureRoll >= 91) {
-    npc.adventureResults = 'found some treasure'
-    npc.wealth += random(0, 600)
-    npc.wealth += random(0, 600)
-  } else if (adventureRoll >= 71) {
-    npc.adventureResults = 'learnt a great deal about myself'
-  } else if (adventureRoll >= 61) {
-    npc.adventureResults = 'came across something terrifying that still stalks the lands'
-  } else if (adventureRoll >= 51) {
-    npc.adventureResults = 'lost something of sentimental value to me'
-  } else if (adventureRoll >= 41) {
-    npc.adventureResults = 'was poisoned by a ' + ['monster', 'trap', 'monster'].random() + ', but recovered in due time'
-  } else if (adventureRoll >= 31) {
-    npc.adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right"
-    npc.physicaltrait = ['pockmarked face', 'grey hair'].random()
-  } else if (adventureRoll >= 21) {
-    npc.adventureResults = 'was wounded, but recovered in time'
-  } else if (adventureRoll >= 11) {
-        npc.adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time'
-      } else if (adventureRoll < 11) {
-        npc.adventureResults = "nearly died- that's how I got the scars."
-        npc.physicaltrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
-      }
 
   return npc
 }

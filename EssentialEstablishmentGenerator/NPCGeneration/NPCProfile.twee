@@ -6,12 +6,18 @@ $currentNPC.firstname $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<pr
 
 $currentNPC.firstname is a $currentNPC.dndclass, with a background of being a $currentNPC.background. $currentNPC.firstname currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon.
 
+<<if def $currentNPC.note >>$currentNPC.note<</if>>
+
 <<linkreplace "Early Life">><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. $currentNPC.childhoodMemories.</div><</linkreplace>>
 
 <<linkreplace "Becoming a $currentNPC.dndclass">><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div><</linkreplace>>
 
-<<if def $currentNPC.note >>$currentNPC.note<</if>>
+<<linkreplace "Life events">><div class='descriptive'>Well, I certainly have a tale or two...
 
-<<if $currentNPC.partnerID>>$currentNPC.firstname has a partner, <<profile $currentNPC.partnerID>><</if>>
+<<for _i, _lifeEvents range $currentNPC.lifeEvents>>_lifeEvents.
 
-<<return>>
+<</for>></div><</linkreplace>>
+
+<<if def $currentNPC.partnerID>>$currentNPC.firstname has a partner, <<profile $currentNPC.partnerID>><</if>>
+
+<<back>>

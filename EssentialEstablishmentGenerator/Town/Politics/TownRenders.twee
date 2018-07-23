@@ -232,43 +232,12 @@
     <<set $guard.funding to "The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.">>
 <</if>>
 
-
-
-  <<if $town.wealthroll gt 100>>
-    <<set $town.wealthroll to 100>>
-   <<elseif $town.wealthroll lt 1>>
-    <<set $town.wealthroll to 1>>
-  <</if>>
-
-  <<if $town.economicsroll gt 100>>
-    <<set $town.economicsroll to 100>>
-   <<elseif $town.economicsroll lt 1>>
-    <<set $town.economicsroll to 1>>
-  <</if>>
-
-  <<if $town.militaryroll gt 100>>
-    <<set $town.militaryroll to 100>>
-   <<elseif $town.militaryroll lt 1>>
-    <<set $town.militaryroll to 1>>
-  <</if>>
-
-  <<if $town.lawroll gt 100>>
-    <<set $town.lawroll to 100>>
-   <<elseif $town.lawroll lt 1>>
-    <<set $town.lawroll to 1>>
-  <</if>>
-
-  <<if $town.arcanaroll gt 100>>
-    <<set $town.arcanaroll to 100>>
-   <<elseif $town.arcanaroll lt 1>>
-    <<set $town.arcanaroll to 1>>
-  <</if>>
-
-  <<if $town.welfareroll gt 100>>
-    <<set $town.welfareroll to 100>>
-   <<elseif $town.welfareroll lt 1>>
-    <<set $town.welfareroll to 1>>
-  <</if>>
+<<set $town.wealthroll to $town.wealthroll.clamp(1, 100)>>
+<<set $town.economicsroll to $town.economicsroll.clamp(1, 100)>>
+<<set $town.militaryroll to $town.militaryroll.clamp(1, 100)>>
+<<set $town.lawroll to $town.lawroll.clamp(1, 100)>>
+<<set $town.arcanaroll to $town.arcanaroll.clamp(1, 100)>>
+<<set $town.welfareroll to $town.welfareroll.clamp(1, 100)>>
 
   <<if $town.sinroll gt 75 && $town.population gt 300>>
   			<<set $town.hasBrothel to true>>

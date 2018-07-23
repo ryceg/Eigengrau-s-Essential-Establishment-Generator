@@ -15,7 +15,7 @@ setup.merchantMission = function(mission) {
         readout: ["a recent venture with a " + ["supplier", "rival", "local official"].random() + " has turned out bad, delaying the processing of materials.",
                   "a trade blockade has to be resolved.",
                   "a thieves’ guild is targeting us, but may be convinced to look somewhere else.",
-                  "a master using it frivolously, you must go out to harvest a sufficient replacement amount.",
+                  "a master is using materials frivolously, you must go out to harvest a sufficient replacement amount.",
                   "a city official is giving us trouble, and needs to get off our backs.",
         ].random(),
       });

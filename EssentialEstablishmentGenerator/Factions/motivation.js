@@ -1,97 +1,87 @@
-setup.motivationFaction = function(faction) {
-  var faction = faction;
-
+setup.motivationFaction = function (faction) {
   switch (faction.type) {
-    case "thieves":
+    case 'thieves':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "money", "money", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'].random()
+      })
+      break
 
-    case "merchants":
+    case 'merchants':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "money", "money", "power", "glory", "vengeance", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'money', 'money', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "wizards":
+    case 'wizards':
       Object.assign(faction, {
-        motivation: ["money", "money", "fame", "fame", "fame", "knowledge", "knowledge", "knowledge", "knowledge", "power", "power", "power", "glory", "vengeance", "vengeance", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'fame', 'fame', 'fame', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'politics', 'politics'].random()
+      })
+      break
 
-    case "rangers":
+    case 'rangers':
       Object.assign(faction, {
-        motivation: ["money", "knowledge", "knowledge", "knowledge", "fame", "power", "power", "power", "glory", "glory", "glory", "vengeance", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'knowledge', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'glory', 'glory', 'vengeance', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "seers":
+    case 'seers':
       Object.assign(faction, {
-        motivation: ["money", "money", "knowledge", "knowledge", "knowledge", "knowledge", "fame", "power", "power", "glory", "vengeance", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "priests":
+    case 'priests':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "knowledge", "knowledge", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "monks":
+    case 'monks':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "knowledge", "knowledge", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics'].random()
+      })
+      break
 
-    case "assassins":
+    case 'assassins':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "artisans":
+    case 'artisans':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "money", "money", "fame", "fame", "fame", "glory", "glory", "glory", "vengeance", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'money', 'money', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'vengeance', 'politics'].random()
+      })
+      break
 
-    case "bards":
+    case 'bards':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "fame", "fame",  "fame", "fame", "fame", "glory", "glory", "glory", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'fame', 'fame', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'politics'].random()
+      })
+      break
 
-    case "nobles":
+    case 'nobles':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "fame", "power", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics", "politics", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "bandits":
+    case 'bandits':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics", "politics", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics'].random()
+      })
+      break
 
-    case "mercenaries":
+    case 'mercenaries':
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "money", "money", "money", "fame","power", "glory", "politics"].random(),
-      });
-      break;
+        motivation: ['money', 'money', 'money', 'money', 'money', 'money', 'fame', 'power', 'glory', 'politics'].random()
+      })
+      break
 
     default:
       Object.assign(faction, {
-        motivation: ["money", "money", "money", "money", "money", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics"].random(),
-      });
-
-    // case "thieves":
-    //   Object.assign(faction, {
-    //     motivation: ["money", "money", "money", "money", "money", "fame", "power", "power", "power", "glory", "vengeance", "vengeance", "vengeance", "politics"].random(),
-    //   });
-    //   break;
-
-
+        motivation: ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'].random()
+      })
   }
-  return faction.motivation;
-};
+  return faction.motivation
+}

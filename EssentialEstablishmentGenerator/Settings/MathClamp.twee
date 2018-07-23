@@ -1,5 +1,5 @@
 :: MathClamp [render]
-/*
+
 <<if $smithy.pricemodifier gt 10>>
     <<set $smithy.pricemodifier to 10>>
   <<elseif $smithy.pricemodifier lt -10>>
@@ -286,4 +286,4 @@
     <<set $GeneralStore.activityroll to 100>>
   <<elseif $GeneralStore.activityroll lt 1>>
     <<set $GeneralStore.activityroll to 1>>
-<</if>> */
+<</if>>

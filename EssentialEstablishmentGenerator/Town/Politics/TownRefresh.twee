@@ -124,6 +124,9 @@
         <<set $town.leaderType to "the holy">>
         <<set $town.politicalIdeologyIC to "theocratic">>
         <<set $town.politicalIdeology to "theocracy">>
+        <<if $townLeader.gender isnot "man">>
+          <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndclass: "cleric", background: "acolyte"})>>
+        <</if>>
         <<set $townLeader.title to "Father", $townLeader.gender to "man", $townLeader.dndclass to "cleric", $townLeader.background to "acolyte">>
 		<<case "technocratic">>
         <<set $town.politicalIdeology to "technocracy">>
@@ -131,6 +134,38 @@
         <<set $town.politicalIdeologyIC to "technocratic">>
         <<set $townLeader.title to "Architect">>
 	<</switch>>
+
+<<switch $town.politicalIdeologyIC>>
+  <<case "pedocratic">>
+    <<if ndef $townPoliticalFaction>>
+      <<set $townPoliticalFaction to setup.createFaction({type: "monks"})>>
+    <</if>>
+  <<case "kleptocratic">>
+    <<if ndef $townPoliticalFaction>>
+      <<set $townPoliticalFaction to setup.createFaction({type: "thieves"})>>
+    <</if>>
+  <<case "theocratic">>
+    <<if ndef $townPoliticalFaction>>
+      <<set $townPoliticalFaction to setup.createFaction({type: "priests"})>>
+    <</if>>
+  <<case "magocratic">>
+    <<if ndef $townPoliticalFaction>>
+      <<set $townPoliticalFaction to setup.createFaction({type: "wizards"})>>
+    <</if>>
+  <<case "technocratic">>
+    <<if ndef $townPoliticalFaction>>
+      <<set $townPoliticalFaction to setup.createFaction({type: "craftsmen"})>>
+    <</if>>
+  <<default>>
+    <<if def $townPoliticalFaction>>
+      <<unset $townPoliticalFaction>>
+    <</if>>
+<</switch>>
+
+<<switch $town.politicalIdeologyIC>>
+  <<case "pedocratic", "kleptocratic", "theocratic", "magocratic", "technocratic">>
+    <<set $town.leaderType to "<<link '$townPoliticalFaction.name'>><<set $currentFaction to $townPoliticalFaction>><<goto 'FactionProfile'>><</link>>">>
+<</switch>>
 
 
 <<switch $town.politicalSource>>

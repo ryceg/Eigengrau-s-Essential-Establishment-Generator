@@ -1,6 +1,7 @@
 :: GeneralStore
 
-<<set $GeneralStore to setup.createBuilding({note: either(["It looks like $shopkeep.firstname lives in a room attached to the shop",
+<<set $GeneralStore to setup.createBuilding()>>
+<<set $GeneralStore.note to either(["It looks like $shopkeep.firstname lives in a room attached to the shop",
 "$shopkeep.firstname does not seem to belong there, and looks very uncomfortable",
 "A bell rings every time someone enters the shop",
 "$shopkeep.firstname is unusually friendly",
@@ -27,7 +28,7 @@
 "$shopkeep.firstname's young children are trying unsuccessfully at a hard sale",
 "Items change when you're not looking",
 "Music is playing throughout the shop",
-"$shopkeep.firstname can tell a story behind everything he sells",
+"$shopkeep.firstname can tell a story behind everything $shopkeep.heshe sells",
 "Some of the items appear stolen",
 "The shop is only open at night",
 "The shop is closed for the day",
@@ -39,10 +40,10 @@
 "$shopkeep.firstname is a rather forceful salesman",
 "A legendary weapon is on display, but not for sale",
 "Murals line the walls",
-"$shopkeep.firstname insists he is from an ancient line of powerful merchants",
+"$shopkeep.firstname insists $shopkeep.heshe is from an ancient line of powerful merchants",
 "$shopkeep.firstname dresses much better than expected",
 "$shopkeep.firstname looks like a beggar",
-"Constables of the local guard, $guard.name are interviewing everyone in the shop"])})>>
+"Constables of the local guard, $guard.name are interviewing everyone in the shop"])>>
 
 <<set $shopkeep to setup.createNPC({
       profession: "merchant",
