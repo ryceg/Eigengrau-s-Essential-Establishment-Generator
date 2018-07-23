@@ -18,11 +18,11 @@
 	<<case "warmth inside">>
 		<<set _tavernnotable to "$tavern.name is kept wonderfully toasty, and the warm air makes you comfortable and sleepy">>
 	<<case "magic incense which is constantly burning">>
-		<<set _tavernnotable to "You smell a peculiar aroma, which you can't quite place, only that it reminds you of the fond days of your childhood, until you see wafts of smoke trailing from behind the bar; there's a stick of incense burning, clearly at least somewhat magical.", $tavern.magicroll += 4>>
+		<<set _tavernnotable to "You smell a peculiar aroma, which you can't quite place, only that it reminds you of the fond days of your childhood, until you see wafts of smoke trailing from behind the bar; there's a stick of incense burning, clearly at least somewhat magical.", $tavern.magicRoll += 4>>
 	<<case "proximity to the brothel">>
 		<<set _tavernnotable to "You saw a sign outside which read 'No Soliciting', but inside, you see a much larger, more insistent sign which read 'NO SOLICITING. OF EITHER SORT'. Clearly, $tavern.name has an issue with the nearby whorehouse, [[$brothel.name|BrothelOutput]].">>
 	<<case "proximity to the church">>
-		<<set _tavernnotable to "You see a sign by the door which reads 'No proselytising'. Clearly, $tavern.name has an issue with the nearby church.", $tavern.magicroll += 1>>
+		<<set _tavernnotable to "You see a sign by the door which reads 'No proselytising'. Clearly, $tavern.name has an issue with the nearby church.", $tavern.magicRoll += 1>>
 	<<case "location by the river">>
 		<<set _tavernnotable to "$tavern.name overlooks a gorgeous river, which you can hear gently rushing by the $tavern.material $tavern.wordnoun inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating.">>
 	<<case "wooden-chopping competition held weekly">>
@@ -34,10 +34,10 @@
 	<<case "lack of bedbugs">>
 		<<set _tavernnotable to "You see a patron enter the bar from the sleeping quarters. The bartender asks if she slept well, and she nods at the $bartender.weight $bartender.manwoman, saying that she slept very well.">>
 	<<case "magic bedbugs">>
-		<<set _tavernnotable to "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face.", $tavern.magicroll += 4>>
+		<<set _tavernnotable to "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face.", $tavern.magicRoll += 4>>
 	<<case "drunk wizard">>
 		<<set $drunkwizard to setup.createNPC({dndclass: "wizard"})>>
-		<<set _tavernnotable to "There's a <<print either($drunkwizard.descriptor)>> thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. <<print $drunkwizard.heshe.toUpperFirst()>> looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'", $tavern.magicroll += 4>>
+		<<set _tavernnotable to "There's a <<print either($drunkwizard.descriptor)>> thaumaturgist in the corner, who is practising cantrips as $drunkwizard.heshe downs another pint. <<print $drunkwizard.heshe.toUpperFirst()>> looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'", $tavern.magicRoll += 4>>
 	<<case "huge fireplace">>
 		<<set _tavernnotable to "You see a huge fireplace in the centre of the $tavern.wordnoun, which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.">>
 	<<case "incredible view">>

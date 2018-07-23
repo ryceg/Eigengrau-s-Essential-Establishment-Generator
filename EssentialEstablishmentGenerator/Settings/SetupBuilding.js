@@ -7,123 +7,123 @@ setup.createBuilding = function() {
     var road1             = ["Castle", "Keep", "Kings", "Queens", "Prince", "Princess", "Lords", "Ladies", "Noble", "Duke", "Duchess", "Rogue", "Priest", "Abbott", "Pope", "Spring", "Winter", "Summer", "Autumn", "Butcher", "Tailor", "Smith", "Potter", "Baker", "Farrier", "Old", "New", "Common", "Main", "High", "Low", "Butcher", "Tailor", "Smith", "Potter", "Baker", "Farrier", "Old", "New", "Common", "Main", "High", "Low", "North", "South", "West", "East"].random();
     var road2             = ["Street", "Street", "Street", "Street", "Lane", "Lane", "Lane", "Road", "Road", "Road", "Road", "Square", "Square", "Market", "Way", "Crescent", "Close", "Wynd", "Row"].random();
     var road              = road1 + " " + road2;
-    var magicroll         = Math.floor(Math.random() * 80) + 20;
+    var magicRoll         = Math.floor(Math.random() * 80) + 20;
     var magic;
     var pricemodifier     = random(-10, 10);
-    var sizeroll          = Math.floor(Math.random() * 80) + 20;
+    var sizeRoll          = Math.floor(Math.random() * 80) + 20;
     var size;
-    var diversityroll     = Math.floor(Math.random() * 80) + 20;
+    var diversityRoll     = Math.floor(Math.random() * 80) + 20;
     var diversity;
-    var wealthroll        = random(1, 100);
+    var wealthRoll        = random(1, 100);
     var wealth;
-    var populationroll    = random(1, 100);
+    var populationRoll    = random(1, 100);
     var population;
-    var reputationroll    = random(1, 100);
+    var reputationRoll    = random(1, 100);
     var reputation;
-    var sinroll           = random(1, 100);
+    var sinRoll           = random(1, 100);
     var sin;
-    var roughnessroll     = random(1, 100);
+    var roughnessRoll     = random(1, 100);
     var roughness;
-    var cleanlinessroll   = random(1, 100);
+    var cleanlinessRoll   = random(1, 100);
     var cleanliness;
     var bedcleanliness;
-    var expertiseroll     = random(1, 100);
+    var expertiseRoll     = random(1, 100);
     var expertise;
-    var activityroll      = random(1, 100);
+    var activityRoll      = random(1, 100);
     var activity;
-    var hardinessroll     = random(1, 100);
+    var hardinessRoll     = random(1, 100);
     var hardiness;
     var note;
 
-    sinroll.clamp(1, 100);
-    wealthroll.clamp(1, 100);
-    reputationroll.clamp(1, 100);
-    cleanlinessroll.clamp(1, 100);
-    populationroll.clamp(1, 100);
-    roughnessroll.clamp(1, 100);
-    diversityroll.clamp(1, 100);
-    sizeroll.clamp(1, 100);
-    magicroll.clamp(1, 100);
+    sinRoll.clamp(1, 100);
+    wealthRoll.clamp(1, 100);
+    reputationRoll.clamp(1, 100);
+    cleanlinessRoll.clamp(1, 100);
+    populationRoll.clamp(1, 100);
+    roughnessRoll.clamp(1, 100);
+    diversityRoll.clamp(1, 100);
+    sizeRoll.clamp(1, 100);
+    magicRoll.clamp(1, 100);
 
 
     /* ------------------------- WEALTH -------------------------- */
-    if (wealthroll > 95){
+    if (wealthRoll > 95){
     		 wealth = "kingly";}
-    	else if (wealthroll > 80){
+    	else if (wealthRoll > 80){
     		 wealth = "aristocratic";}
-    	else if (wealthroll > 70){
+    	else if (wealthRoll > 70){
     		 wealth = "wealthy";}
-    	else if (wealthroll > 60){
+    	else if (wealthRoll > 60){
     		 wealth = "comfortable";}
-    	else if (wealthroll > 50){
+    	else if (wealthRoll > 50){
     		 wealth = "modest";}
-    	else if (wealthroll > 25){
+    	else if (wealthRoll > 25){
     		 wealth = "poor";}
-    	else if (wealthroll <= 25){
+    	else if (wealthRoll <= 25){
     		 wealth = "squalid";}
 
 
     /* ------------------------- SIZE -------------------------- */
-    if (sizeroll > 80){
+    if (sizeRoll > 80){
     		 size = "huge";}
-    	else if (sizeroll > 70){
+    	else if (sizeRoll > 70){
     		 size = "quite large";}
-    	else if (sizeroll > 60){
+    	else if (sizeRoll > 60){
     		 size = "large";}
-    	else if (sizeroll > 50){
+    	else if (sizeRoll > 50){
     		 size = "spacious";}
-    	else if (sizeroll > 40){
+    	else if (sizeRoll > 40){
     		 size = "medium";}
-    	else if (sizeroll > 30){
+    	else if (sizeRoll > 30){
     		 size = "slightly cramped";}
-    	else if (sizeroll > 20){
+    	else if (sizeRoll > 20){
     		 size = "small";}
-    	else if (sizeroll <= 20){
+    	else if (sizeRoll <= 20){
     		 size = "tiny";}
 
 
     /* ------------------------- ROUGHNESS -------------------------- */
 
-    	if (roughnessroll > 80){
+    	if (roughnessRoll > 80){
     		 roughness = "bloodthirsty";}
-    	else if (roughnessroll > 60){
+    	else if (roughnessRoll > 60){
     		 roughness = "rough";}
-    	else if (roughnessroll > 50){
+    	else if (roughnessRoll > 50){
     		 roughness = "alright";}
-    	else if (roughnessroll > 40){
+    	else if (roughnessRoll > 40){
     		 roughness = "placid";}
-    	else if (roughnessroll > 30){
+    	else if (roughnessRoll > 30){
     		 roughness = "calm";}
-    	else if (roughnessroll > 20){
+    	else if (roughnessRoll > 20){
     		 roughness = "tranquil";}
-    	else if (roughnessroll <= 20){
+    	else if (roughnessRoll <= 20){
     		 roughness = "utterly serene";}
 
 
     /* ------------------------- CLEANLINESS -------------------------- */
 
-    	if (cleanlinessroll > 80){
+    	if (cleanlinessRoll > 80){
     		 cleanliness = "absolutely spotless";
          bedcleanliness = "perfectly prepared, with fresh sheets and a lemon scent in the air of the room";}
-    	else if (cleanlinessroll > 70){
+    	else if (cleanlinessRoll > 70){
     		 cleanliness = "spotless";
          bedcleanliness = "freshly cleaned and neat";}
-    	else if (cleanlinessroll > 60){
+    	else if (cleanlinessRoll > 60){
     		 cleanliness = "hygienic";
          bedcleanliness = "tidy and neat";}
-    	else if (cleanlinessroll > 50){
+    	else if (cleanlinessRoll > 50){
     		 cleanliness = "decently hygienic";
          bedcleanliness = "reasonably clean";}
-    	else if (cleanlinessroll > 40){
+    	else if (cleanlinessRoll > 40){
     		 cleanliness = "slightly grubby";
          bedcleanliness = "somewhat tidy";}
-    	else if (cleanlinessroll > 30){
+    	else if (cleanlinessRoll > 30){
     		 cleanliness = "quite dirty";
          bedcleanliness = "disgusting";}
-    	else if (cleanlinessroll > 20){
+    	else if (cleanlinessRoll > 20){
     		 cleanliness = "rather filthy";
          bedcleanliness = "teeming with rats";}
-    	else if (cleanlinessroll <= 20){
+    	else if (cleanlinessRoll <= 20){
     		 cleanliness = "absolutely putrid";
          bedcleanliness = "festering with bugs";}
 
@@ -131,40 +131,40 @@ setup.createBuilding = function() {
 
     /* ------------------------- SIN -------------------------- */
 
-    	if (sinroll > 80){
+    	if (sinRoll > 80){
     		 sin = "corrupt";}
-    	else if (sinroll > 70){
+    	else if (sinRoll > 70){
     		 sin = "venal";}
-    	else if (sinroll > 60){
+    	else if (sinRoll > 60){
     		 sin = "sleazy";}
-    	else if (sinroll > 50){
+    	else if (sinRoll > 50){
     		 sin = "seedy";}
-    	else if (sinroll > 40 && roughnessroll > 60){
+    	else if (sinRoll > 40 && roughnessRoll > 60){
     		 sin = "surprisingly trustworthy";}
-    	else if (sinroll > 40){
+    	else if (sinRoll > 40){
     		 sin = "trustworthy";}
-    	else if (sinroll > 30 && roughnessroll > 60){
+    	else if (sinRoll > 30 && roughnessRoll > 60){
     		 sin = "surprisingly reliable";}
-    	else if (sinroll > 30){
+    	else if (sinRoll > 30){
     		 sin = "reliable";}
-    	else if (sinroll <= 20 && roughnessroll > 60){
+    	else if (sinRoll <= 20 && roughnessRoll > 60){
     		 sin = "surprisingly honest";}
-    	else if (sinroll <= 20){
+    	else if (sinRoll <= 20){
     		 sin = "honest";}
 
 
 
     /* ------------------------- REPUTATION -------------------------- */
 
-    if (reputationroll > 80){
+    if (reputationRoll > 80){
     		 reputation = "famous";}
-    	else if (reputationroll > 60){
+    	else if (reputationRoll > 60){
     		 reputation = "well known";}
-    	else if (reputationroll > 40){
+    	else if (reputationRoll > 40){
     		 reputation = "relatively well known";}
-    	else if (reputationroll > 20){
+    	else if (reputationRoll > 20){
     		 reputation = "somewhat unknown";}
-    	else if (reputationroll <= 20){
+    	else if (reputationRoll <= 20){
     		 reputation = "infamous";}
 
 
@@ -178,31 +178,31 @@ setup.createBuilding = function() {
         road1             : road1,
         road2             : road2,
         road              : road,
-        wealthroll        : wealthroll,
+        wealthRoll        : wealthRoll,
         wealthy           : wealth,
-        magicroll         : magicroll,
+        magicRoll         : magicRoll,
         magic             : magic,
         pricemodifier     : pricemodifier,
-        sizeroll          : sizeroll,
+        sizeRoll          : sizeRoll,
         size              : size,
-        diversityroll     : diversityroll,
+        diversityRoll     : diversityRoll,
         diversity         : diversity,
-        populationroll    : populationroll,
+        populationRoll    : populationRoll,
         population        : population,
-        reputationroll    : reputationroll,
+        reputationRoll    : reputationRoll,
         reputation        : reputation,
-        sinroll           : sinroll,
+        sinRoll           : sinRoll,
         sin               : sin,
-        roughnessroll     : roughnessroll,
+        roughnessRoll     : roughnessRoll,
         roughness         : roughness,
-        cleanlinessroll   : cleanlinessroll,
+        cleanlinessRoll   : cleanlinessRoll,
         cleanliness       : cleanliness,
         bedcleanliness    : bedcleanliness,
-        expertiseroll     : expertiseroll,
+        expertiseRoll     : expertiseRoll,
         expertise         : expertise,
-        activityroll      : activityroll,
+        activityRoll      : activityRoll,
         activity          : activity,
-        hardinessroll     : hardinessroll,
+        hardinessRoll     : hardinessRoll,
         hardiness         : hardiness,
         note              : note
     };

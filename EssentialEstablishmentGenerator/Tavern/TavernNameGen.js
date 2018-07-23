@@ -5,9 +5,9 @@ setup.createTavernNameGen = function () {
   var adjective
   var verb
   var name
-  var tavernnameroll = Math.floor(Math.random() * 5) + 1
+  var tavernNameRoll = Math.floor(Math.random() * 5) + 1
 
-  switch (tavernnameroll) {
+  switch (tavernNameRoll) {
     case 1:
       adjective = ['Wayward', 'Quiet', 'Jolly', 'Good', 'Crooked', 'White', 'Gray', 'Blackened', 'Harried', 'Crimson', 'Silver', 'Golden', 'Disturbed', 'Filthy', 'Ugly', 'Bastard', 'Faltering', 'Glorious', 'Beautiful', 'Handsome', 'Wrinkled', 'Unhappy', 'Intelligent', 'Lovely', 'Ignorant', 'Senile', 'Sour', 'Sweet', 'Lonely', 'Green', 'Blind', 'Hungry', 'Worried', 'Educated', 'Stupid', 'Emboldened', 'Honorary', 'Stinky', 'Bottomless', 'Greasy', 'Sloppy', 'Stylish', 'Distressed', 'Harrowed', 'Tormented', 'Mortified', 'Lopsided', 'Broken', 'Moldy', 'Gooey', 'Fermented', 'Blighted', 'Ornate', 'Drowned', 'Murdered', 'Widowed', 'Hanged', 'Angry', 'Lusty', 'Haunted', 'Strong', 'Withered', 'Comely', 'Pious', 'Penitent', 'Patient', 'Drunk', 'Worthy', 'Wealthy', 'Loathsome', 'Weak', 'Miniscule', 'Miniature', 'Enormous', 'Enlarged', 'Engorged', 'Lecherous', 'Despicable', 'Lewd', 'Portly', 'Violent', 'Bumbling', 'Faulty', 'Pristine', 'Cleanly', 'Cracked', 'Splintered', 'Jeweled', 'Superior', 'Flawless', 'Common', 'Exquisite', 'Elegant', 'Fine', 'Dull', 'Brittle', 'Fragile', 'Effeminate', 'Masculine', 'Supine'].random()
       break
@@ -27,7 +27,7 @@ setup.createTavernNameGen = function () {
 
   }
 
-  switch (tavernnameroll) {
+  switch (tavernNameRoll) {
     case 1:
 		  name = 'The ' + adjective + ' ' + nounA
       break
@@ -48,7 +48,7 @@ setup.createTavernNameGen = function () {
 
   return {
     name: name,
-    tavernnameroll: tavernnameroll,
+    tavernNameRoll: tavernNameRoll,
     nounA: nounA,
     nounB: nounB,
     nounC: nounC,

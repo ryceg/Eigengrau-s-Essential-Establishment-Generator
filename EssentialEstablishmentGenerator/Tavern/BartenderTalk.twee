@@ -2,25 +2,25 @@
 <<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><<nobr>>
 
 <<set _shortage to random(1, 10)>>
-	<<if $tavern.wealthroll gt 80>>
+	<<if $tavern.wealthRoll gt 80>>
 		<<set _shortage += 4>>
-	<<elseif $tavern.wealthroll gt 70>>
+	<<elseif $tavern.wealthRoll gt 70>>
 		<<set _shortage += 3>>
-	<<elseif $tavern.wealthroll gt 60>>
+	<<elseif $tavern.wealthRoll gt 60>>
 		<<set _shortage += 2>>
-	<<elseif $tavern.wealthroll gt 50>>
+	<<elseif $tavern.wealthRoll gt 50>>
 		<<set _shortage += 1>>
-	<<elseif $tavern.wealthroll gt 40>>
+	<<elseif $tavern.wealthRoll gt 40>>
 		<<set _shortage -= 1>>
-	<<elseif $tavern.wealthroll gt 30>>
+	<<elseif $tavern.wealthRoll gt 30>>
 		<<set _shortage -= 2>>
-	<<elseif $tavern.wealthroll gt 20>>
+	<<elseif $tavern.wealthRoll gt 20>>
 		<<set _shortage -= 3>>
-	<<elseif $tavern.wealthroll lte 20>>
+	<<elseif $tavern.wealthRoll lte 20>>
 		<<set _shortage -= 4>>
 <</if>>
 
-<<if _shortage gt 7, $tavern.populationroll gt 70>>
+<<if _shortage gt 7, $tavern.populationRoll gt 70>>
 		<<set _talk to either("We're lucky that I bought that extra case of grog... I get the feeling that we're gonna need it.",
 		"I'm glad that Breiga kept an eye on the stock levels, otherwise we'd have sold out of <<print $tavern.shortages.pluck()>>.")>>
 	<<elseif _shortage gt 7>>
@@ -34,7 +34,7 @@
 	<<elseif _shortage lte 4, $tavern.population gt 70>>
 		<<set _talk to either("Things are honestly in a mess at the moment around the $tavern.name, we've got a full house, and I'm low on <<print $tavern.shortages.pluck()>> AND <<print $tavern.shortages.pluck()>>! How does that even happen!?",
 		"You can tell that business is booming, but there's only one more case of <<print $tavern.shortages.pluck()>>, and we're completely out of <<print $tavern.shortages.pluck()>>!")>>
-	<<elseif _shortage lte 4, $tavern.populationroll lt 40>>
+	<<elseif _shortage lte 4, $tavern.populationRoll lt 40>>
 		<<set _talk to either("Well, you can probably guess that business isn't the best right at this moment. Maybe the lack of <<print $tavern.shortages.pluck()>> has something to do with it...",
 		"Business is slow, I'm not gonna lie. We've had no cartments of <<print $tavern.shortages.pluck()>> for almost a week, certainly isn't helping things.")>>
 	<<elseif _shortage lte 4>>

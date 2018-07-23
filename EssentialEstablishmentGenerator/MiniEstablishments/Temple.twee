@@ -1,34 +1,34 @@
-:: Temple
+Roll:: Temple
 
 <<set $temple to setup.createBuilding()>>
 <<set $priest to setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "cleric", "druid"), background: either("acolyte", "acolyte", "acolyte", "acolyte", "sage", "sage", "sage"), profession: "priest"})>>
 
-<<if $town.wealthroll gt 95>>
-  <<set $temple.wealthroll += 7>>
+<<if $town.wealthRoll gt 95>>
+  <<set $temple.wealthRoll += 7>>
   /*<<set $temple.lodging *= 1.1, $specialbrew.cost *= 1.2, $temple.food *= 1.2>>*/
-<<elseif $town.wealthroll gt 80>>
-  <<set $temple.wealthroll += 5>>
-<<elseif $town.wealthroll gt 70>>
-  <<set $temple.wealthroll += 3>>
-<<elseif $town.wealthroll gt 60>>
-  <<set $temple.wealthroll += 2, $temple.populationroll += 1>>
-<<elseif $town.wealthroll gt 50>>
-  <<set $temple.wealthroll += 2, $temple.populationroll += 3>>
-<<elseif $town.wealthroll gt 40>>
-  <<set $temple.wealthroll += 1, $temple.populationroll += 2>>
-<<elseif $town.wealthroll gt 30>>
-  <<set $temple.wealthroll -= 2>>
-<<elseif $town.wealthroll gt 20>>
-  <<set $temple.wealthroll -= 3, $temple.sinroll += 1>>
-<<elseif $town.wealthroll lte 20>>
-  <<set $temple.wealthroll -= 5, $temple.sinroll += 3, $temple.populationroll -= 3>>
+<<elseif $town.wealthRoll gt 80>>
+  <<set $temple.wealthRoll += 5>>
+<<elseif $town.wealthRoll gt 70>>
+  <<set $temple.wealthRoll += 3>>
+<<elseif $town.wealthRoll gt 60>>
+  <<set $temple.wealthRoll += 2, $temple.populationRoll += 1>>
+<<elseif $town.wealthRoll gt 50>>
+  <<set $temple.wealthRoll += 2, $temple.populationRoll += 3>>
+<<elseif $town.wealthRoll gt 40>>
+  <<set $temple.wealthRoll += 1, $temple.populationRoll += 2>>
+<<elseif $town.wealthRoll gt 30>>
+  <<set $temple.wealthRoll -= 2>>
+<<elseif $town.wealthRoll gt 20>>
+  <<set $temple.wealthRoll -= 3, $temple.sinRoll += 1>>
+<<elseif $town.wealthRoll lte 20>>
+  <<set $temple.wealthRoll -= 5, $temple.sinRoll += 3, $temple.populationRoll -= 3>>
 <</if>>
-<<set $temple.sinroll to $temple.sinroll.clamp(1, 100),
-		$temple.wealthroll to $temple.wealthroll.clamp(1, 100),
-		$temple.reputationroll to $temple.reputationroll.clamp(1, 100),
-		$temple.cleanlinessroll to $temple.cleanlinessroll.clamp(1, 100),
-		$temple.populationroll to $temple.populationroll.clamp(1, 100),
-		$temple.roughnessroll to $temple.roughnessroll.clamp(1, 100),
-		$temple.diversityroll to $temple.diversityroll.clamp(1, 100),
-		$temple.sizeroll to $temple.sizeroll.clamp(1, 100),
-		$temple.magicroll to $temple.magicroll.clamp(1, 100)>>
+<<set $temple.sinRoll to $temple.sinRoll.clamp(1, 100),
+		$temple.wealthRoll to $temple.wealthRoll.clamp(1, 100),
+		$temple.reputationRoll to $temple.reputationRoll.clamp(1, 100),
+		$temple.cleanlinessRoll to $temple.cleanlinessRoll.clamp(1, 100),
+		$temple.populationRoll to $temple.populationRoll.clamp(1, 100),
+		$temple.roughnessRoll to $temple.roughnessRoll.clamp(1, 100),
+		$temple.diversityRoll to $temple.diversityRoll.clamp(1, 100),
+		$temple.sizeRoll to $temple.sizeRoll.clamp(1, 100),
+		$temple.magicRoll to $temple.magicRoll.clamp(1, 100)>>

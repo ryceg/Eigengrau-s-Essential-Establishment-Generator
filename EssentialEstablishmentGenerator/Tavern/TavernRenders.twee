@@ -3,19 +3,19 @@
 
 <<nobr>>
 /* ------------------------- WEALTH -------------------------- */
-<<if $tavern.wealthroll gt 95>>
+<<if $tavern.wealthRoll gt 95>>
 		<<set $tavern.wealth to "kingly">>
-	<<elseif $tavern.wealthroll gt 80>>
+	<<elseif $tavern.wealthRoll gt 80>>
 		<<set $tavern.wealth to "aristocratic">>
-	<<elseif $tavern.wealthroll gt 70>>
+	<<elseif $tavern.wealthRoll gt 70>>
 		<<set $tavern.wealth to "wealthy">>
-	<<elseif $tavern.wealthroll gt 60>>
+	<<elseif $tavern.wealthRoll gt 60>>
 		<<set $tavern.wealth to "comfortable">>
-	<<elseif $tavern.wealthroll gt 50>>
+	<<elseif $tavern.wealthRoll gt 50>>
 		<<set $tavern.wealth to "modest">>
-	<<elseif $tavern.wealthroll gt 25>>
+	<<elseif $tavern.wealthRoll gt 25>>
 		<<set $tavern.wealth to "poor">>
-	<<elseif $tavern.wealthroll lte 25>>
+	<<elseif $tavern.wealthRoll lte 25>>
 		<<set $tavern.wealth to "squalid">>
 <</if>>
 
@@ -37,84 +37,84 @@
 <</switch>>
 
 /* ------------------------- SIZE -------------------------- */
-<<if $tavern.sizeroll gt 80>>
+<<if $tavern.sizeRoll gt 80>>
 		<<set $tavern.size to "huge">>
-	<<elseif $tavern.sizeroll gt 70>>
+	<<elseif $tavern.sizeRoll gt 70>>
 		<<set $tavern.size to "quite large">>
-	<<elseif $tavern.sizeroll gt 60>>
+	<<elseif $tavern.sizeRoll gt 60>>
 		<<set $tavern.size to "large">>
-	<<elseif $tavern.sizeroll gt 50>>
+	<<elseif $tavern.sizeRoll gt 50>>
 		<<set $tavern.size to "spacious">>
-	<<elseif $tavern.sizeroll gt 40>>
+	<<elseif $tavern.sizeRoll gt 40>>
 		<<set $tavern.size to "medium">>
-	<<elseif $tavern.sizeroll gt 30>>
+	<<elseif $tavern.sizeRoll gt 30>>
 		<<set $tavern.size to "slightly cramped">>
-	<<elseif $tavern.sizeroll gt 20>>
+	<<elseif $tavern.sizeRoll gt 20>>
 		<<set $tavern.size to "small">>
-	<<elseif $tavern.sizeroll lte 20>>
+	<<elseif $tavern.sizeRoll lte 20>>
 		<<set $tavern.size to "tiny">>
 <</if>>
 
 /* ------------------------- ROUGHNESS -------------------------- */
 
-	<<if $tavern.roughnessroll gt 80>>
+	<<if $tavern.roughnessRoll gt 80>>
 		<<set $tavern.roughness to "bloodthirsty">>
-	<<elseif $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.roughnessRoll gt 60>>
 		<<set $tavern.roughness to "rough">>
-	<<elseif $tavern.roughnessroll gt 50>>
+	<<elseif $tavern.roughnessRoll gt 50>>
 		<<set $tavern.roughness to "alright">>
-	<<elseif $tavern.roughnessroll gt 40>>
+	<<elseif $tavern.roughnessRoll gt 40>>
 		<<set $tavern.roughness to "placid">>
-	<<elseif $tavern.roughnessroll gt 30>>
+	<<elseif $tavern.roughnessRoll gt 30>>
 		<<set $tavern.roughness to "calm">>
-	<<elseif $tavern.roughnessroll gt 20>>
+	<<elseif $tavern.roughnessRoll gt 20>>
 		<<set $tavern.roughness to "tranquil">>
-	<<elseif $tavern.roughnessroll lte 20>>
+	<<elseif $tavern.roughnessRoll lte 20>>
 		<<set $tavern.roughness to "utterly serene">>
 <</if>>
 
 /* ------------------------- CLEANLINESS -------------------------- */
 
-	<<if $tavern.cleanlinessroll gt 80>>
+	<<if $tavern.cleanlinessRoll gt 80>>
 		<<set $tavern.cleanliness to "absolutely spotless", $tavern.bedcleanliness to "perfectly prepared, with fresh sheets and a lemon scent in the air of the room">>
-	<<elseif $tavern.cleanlinessroll gt 70>>
+	<<elseif $tavern.cleanlinessRoll gt 70>>
 		<<set $tavern.cleanliness to "spotless", $tavern.bedcleanliness to "freshly cleaned and neat">>
-	<<elseif $tavern.cleanlinessroll gt 60>>
+	<<elseif $tavern.cleanlinessRoll gt 60>>
 		<<set $tavern.cleanliness to "hygienic", $tavern.bedcleanliness to "tidy and neat">>
-	<<elseif $tavern.cleanlinessroll gt 50>>
+	<<elseif $tavern.cleanlinessRoll gt 50>>
 		<<set $tavern.cleanliness to "decently hygienic", $tavern.bedcleanliness to "reasonably clean">>
-	<<elseif $tavern.cleanlinessroll gt 40>>
+	<<elseif $tavern.cleanlinessRoll gt 40>>
 		<<set $tavern.cleanliness to "slightly grubby", $tavern.bedcleanliness to "somewhat tidy">>
-	<<elseif $tavern.cleanlinessroll gt 30>>
+	<<elseif $tavern.cleanlinessRoll gt 30>>
 		<<set $tavern.cleanliness to "quite dirty", $tavern.bedcleanliness to "disgusting">>
-	<<elseif $tavern.cleanlinessroll gt 20>>
+	<<elseif $tavern.cleanlinessRoll gt 20>>
 		<<set $tavern.cleanliness to "rather filthy", $tavern.bedcleanliness to "teeming with rats">>
-	<<elseif $tavern.cleanlinessroll lte 20>>
+	<<elseif $tavern.cleanlinessRoll lte 20>>
 		<<set $tavern.cleanliness to "absolutely putrid", $tavern.bedcleanliness to "festering with bugs">>
 <</if>>
 
 
 /* ------------------------- SIN -------------------------- */
 
-	<<if $tavern.sinroll gt 80>>
+	<<if $tavern.sinRoll gt 80>>
 		<<set $tavern.sin to "corrupt">>
-	<<elseif $tavern.sinroll gt 70>>
+	<<elseif $tavern.sinRoll gt 70>>
 		<<set $tavern.sin to "venal">>
-	<<elseif $tavern.sinroll gt 60>>
+	<<elseif $tavern.sinRoll gt 60>>
 		<<set $tavern.sin to "sleazy">>
-	<<elseif $tavern.sinroll gt 50>>
+	<<elseif $tavern.sinRoll gt 50>>
 		<<set $tavern.sin to "seedy">>
-	<<elseif $tavern.sinroll gt 40 && $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.sinRoll gt 40 && $tavern.roughnessRoll gt 60>>
 		<<set $tavern.sin to "surprisingly trustworthy">>
-	<<elseif $tavern.sinroll gt 40>>
+	<<elseif $tavern.sinRoll gt 40>>
 		<<set $tavern.sin to "trustworthy">>
-	<<elseif $tavern.sinroll gt 30 && $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.sinRoll gt 30 && $tavern.roughnessRoll gt 60>>
 		<<set $tavern.sin to "surprisingly reliable">>
-	<<elseif $tavern.sinroll gt 30>>
+	<<elseif $tavern.sinRoll gt 30>>
 		<<set $tavern.sin to "reliable">>
-	<<elseif $tavern.sinroll lte 20 && $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.sinRoll lte 20 && $tavern.roughnessRoll gt 60>>
 		<<set $tavern.sin to "surprisingly honest">>
-	<<elseif $tavern.sinroll lte 20>>
+	<<elseif $tavern.sinRoll lte 20>>
 		<<set $tavern.sin to "honest">>
 	<<else>>
 		<<set $tavern.sin to "reasonably trustworthy">>
@@ -123,44 +123,44 @@
 
 /* ------------------------- DIVERSITY -------------------------- */
 
-	<<if $tavern.diversityroll gt 80>>
+	<<if $tavern.diversityRoll gt 80>>
 		<<set $tavern.diversity to "a very diverse crowd, with no clear majority of one race">>
-	<<elseif $tavern.diversityroll gt 70 && $tavern.roughnessroll gt 70>>
+	<<elseif $tavern.diversityRoll gt 70 && $tavern.roughnessRoll gt 70>>
 		<<set $tavern.diversity to "a rather diverse crowd, the only common factor being their love of weaponry">>
-	<<elseif $tavern.diversityroll gt 70>>
+	<<elseif $tavern.diversityRoll gt 70>>
 		<<set $tavern.diversity to "a rather diverse crowd">>
-	<<elseif $tavern.diversityroll gt 60>>
+	<<elseif $tavern.diversityRoll gt 60>>
 		<<set $tavern.diversity to "a pretty diverse crowd, the majority being $bartender.raceplural">>
-	<<elseif $tavern.diversityroll gt 50>>
+	<<elseif $tavern.diversityRoll gt 50>>
 		<<set $tavern.diversity to "a relatively diverse crowd, the majority being $bartender.raceplural">>
-	<<elseif $tavern.diversityroll gt 40>>
+	<<elseif $tavern.diversityRoll gt 40>>
 		<<set $tavern.diversity to "a pretty diverse crowd, most being $bartender.raceplural">>
-	<<elseif $tavern.diversityroll gt 30 && $tavern.roughnessroll gt 70>>
+	<<elseif $tavern.diversityRoll gt 30 && $tavern.roughnessRoll gt 70>>
 		<<set $tavern.diversity to "$bartender.raceplural, mostly, and it's clear that they like it that way">>
-	<<elseif $tavern.diversityroll gt 30>>
+	<<elseif $tavern.diversityRoll gt 30>>
 		<<set $tavern.diversity to "$bartender.raceplural for the most part">>
-	<<elseif $tavern.diversityroll gt 20 && $tavern.roughnessroll gt 70>>
+	<<elseif $tavern.diversityRoll gt 20 && $tavern.roughnessRoll gt 70>>
 		<<set $tavern.diversity to "mostly $bartender.raceplural, and it's very obvious that they like it that way">>
-	<<elseif $tavern.diversityroll gt 20>>
+	<<elseif $tavern.diversityRoll gt 20>>
 		<<set $tavern.diversity to "mostly $bartender.raceplural">>
-	<<elseif $tavern.diversityroll lte 20 && $tavern.roughnessroll gt 70>>
+	<<elseif $tavern.diversityRoll lte 20 && $tavern.roughnessRoll gt 70>>
 		<<set $tavern.diversity to "almost all $bartender.raceplural, and they are extremely hostile to non-$bartender.raceplural">>
-	<<elseif $tavern.diversityroll lte 20>>
+	<<elseif $tavern.diversityRoll lte 20>>
 		<<set $tavern.diversity to "next to all are $bartender.raceplural">>
 <</if>>
 
 
 /* ------------------------- REPUTATION -------------------------- */
 
-<<if $tavern.reputationroll gt 80>>
+<<if $tavern.reputationRoll gt 80>>
 		<<set $tavern.reputation to "famous">>
-	<<elseif $tavern.reputationroll gt 60>>
+	<<elseif $tavern.reputationRoll gt 60>>
 		<<set $tavern.reputation to "well known">>
-	<<elseif $tavern.reputationroll gt 40>>
+	<<elseif $tavern.reputationRoll gt 40>>
 		<<set $tavern.reputation to "famous-ish">>
-	<<elseif $tavern.reputationroll gt 20>>
+	<<elseif $tavern.reputationRoll gt 20>>
 		<<set $tavern.reputation to "reviled">>
-	<<elseif $tavern.reputationroll lte 20>>
+	<<elseif $tavern.reputationRoll lte 20>>
 		<<set $tavern.reputation to "infamous">>
 <</if>>
 <</nobr>>

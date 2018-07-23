@@ -3,17 +3,17 @@
 
 <<linkreplace "Rename <strong>$GeneralStore.name</strong>">><h3><<textbox "$GeneralStore.name" $GeneralStore.name>></h3><</linkreplace>>
 
-<span class="tip" title="How wealthy is the patronage?">General Store Wealth: <<numberslider "$GeneralStore.wealthroll" $GeneralStore.wealthroll 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">General Store Wealth: <<numberslider "$GeneralStore.wealthRoll" $GeneralStore.wealthRoll 1 100 1>></span>
 
-<span class="tip" title="How large is it?">General Store Size: <<numberslider "$GeneralStore.sizeroll" $GeneralStore.sizeroll 1 100 1>></span>
+<span class="tip" title="How large is it?">General Store Size: <<numberslider "$GeneralStore.sizeRoll" $GeneralStore.sizeRoll 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or another no-name shop?">General Store Reputation: <<numberslider "$GeneralStore.reputationroll" $GeneralStore.reputationroll 1 100 1>></span>
+<span class="tip" title="Is it well known, or another no-name shop?">General Store Reputation: <<numberslider "$GeneralStore.reputationRoll" $GeneralStore.reputationRoll 1 100 1>></span>
 
-<span class="tip" title="How clean is it?">General Store Cleanliness: <<numberslider "$GeneralStore.cleanlinessroll" $GeneralStore.cleanlinessroll 1 100 1>></span>
+<span class="tip" title="How clean is it?">General Store Cleanliness: <<numberslider "$GeneralStore.cleanlinessRoll" $GeneralStore.cleanlinessRoll 1 100 1>></span>
 
-<span class="tip" title="How busy is it? Are they getting much custom at the moment?">General Store Activity: <<numberslider "$GeneralStore.activityroll" $GeneralStore.activityroll 1 100 1>></span>
+<span class="tip" title="How busy is it? Are they getting much custom at the moment?">General Store Activity: <<numberslider "$GeneralStore.activityRoll" $GeneralStore.activityRoll 1 100 1>></span>
 
-<span class="tip" title="How likely is it to find magic here?">General Store Magic: <<numberslider "$GeneralStore.magicroll" $GeneralStore.magicroll 1 100 1>></span>
+<span class="tip" title="How likely is it to find magic here?">General Store Magic: <<numberslider "$GeneralStore.magicRoll" $GeneralStore.magicRoll 1 100 1>></span>
 
 <span class="tip" title="How much cheaper or more expensive than average is it?">General Store Price Modifier: <<numberslider "$GeneralStore.pricemodifier" $GeneralStore.pricemodifier -10 10 1>></span>
 

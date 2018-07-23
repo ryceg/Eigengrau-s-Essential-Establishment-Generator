@@ -2,128 +2,128 @@
 :: GeneralStoreModifiers
 <<nobr>>
 /* ------------------------- SIZE -------------------------- */
-<<if $GeneralStore.sizeroll gt 80>>
+<<if $GeneralStore.sizeRoll gt 80>>
 		<<set $GeneralStore.size to "huge">>
-		<<set $GeneralStore.activityroll -= 4>>
-	<<elseif $GeneralStore.sizeroll gt 70>>
+		<<set $GeneralStore.activityRoll -= 4>>
+	<<elseif $GeneralStore.sizeRoll gt 70>>
 		<<set $GeneralStore.size to "quite large">>
-		<<set $GeneralStore.activityroll -= 3>>
-	<<elseif $GeneralStore.sizeroll gt 60>>
+		<<set $GeneralStore.activityRoll -= 3>>
+	<<elseif $GeneralStore.sizeRoll gt 60>>
 		<<set $GeneralStore.size to "large">>
-		<<set $GeneralStore.activityroll -= 1>>
-	<<elseif $GeneralStore.sizeroll gt 50>>
+		<<set $GeneralStore.activityRoll -= 1>>
+	<<elseif $GeneralStore.sizeRoll gt 50>>
 		<<set $GeneralStore.size to "spacious">>
-	<<elseif $GeneralStore.sizeroll gt 40>>
+	<<elseif $GeneralStore.sizeRoll gt 40>>
 		<<set $GeneralStore.size to "medium">>
-	<<elseif $GeneralStore.sizeroll gt 30>>
+	<<elseif $GeneralStore.sizeRoll gt 30>>
 		<<set $GeneralStore.size to "slightly cramped">>
-		<<set $GeneralStore.activityroll += 1>>
-	<<elseif $GeneralStore.sizeroll gt 20>>
+		<<set $GeneralStore.activityRoll += 1>>
+	<<elseif $GeneralStore.sizeRoll gt 20>>
 		<<set $GeneralStore.size to "small">>
-		<<set $GeneralStore.activityroll += 1>>
-	<<elseif $GeneralStore.sizeroll lte 20>>
+		<<set $GeneralStore.activityRoll += 1>>
+	<<elseif $GeneralStore.sizeRoll lte 20>>
 		<<set $GeneralStore.size to "tiny">>
-		<<set $GeneralStore.activityroll += 3>>
+		<<set $GeneralStore.activityRoll += 3>>
 <</if>>
 
 /*
-	reputationroll: random(1, 100),
-	cleanlinessroll: random(1, 100),
-	expertiseroll: random(1, 100),
-	activityroll: random(1, 100),
-	hardinessroll: random(1, 100),
-	magicroll:
+	reputationRoll: random(1, 100),
+	cleanlinessRoll: random(1, 100),
+	expertiseRoll: random(1, 100),
+	activityRoll: random(1, 100),
+	hardinessRoll: random(1, 100),
+	magicRoll:
 */
 
 <<switch $GeneralStore.material>>
 	<<case "hewn rock">>
-		<<set $GeneralStore.roughnessroll += 3>>
+		<<set $GeneralStore.roughnessRoll += 3>>
 	<<case "chiseled stone">>
-		<<set $GeneralStore.roughnessroll -= 1>>
+		<<set $GeneralStore.roughnessRoll -= 1>>
 	<<case "marble">>
-		<<set $GeneralStore.cleanlinessroll += 5, $GeneralStore.wealthroll += 6>>
+		<<set $GeneralStore.cleanlinessRoll += 5, $GeneralStore.wealthRoll += 6>>
 <</switch>>
 
 /* ------------------------- CLEANLINESS -------------------------- */
-<<if $GeneralStore.cleanlinessroll gt 80>>
-		<<set $GeneralStore.expertiseroll += 10,
-		$GeneralStore.activityroll += 6,
-		$GeneralStore.hardinessroll += 8,
+<<if $GeneralStore.cleanlinessRoll gt 80>>
+		<<set $GeneralStore.expertiseRoll += 10,
+		$GeneralStore.activityRoll += 6,
+		$GeneralStore.hardinessRoll += 8,
 		$GeneralStore.cleanliness to "fastidious">>
-	<<elseif $GeneralStore.cleanlinessroll gt 70>>
-		<<set $GeneralStore.expertiseroll += 7,
-		$GeneralStore.activityroll += 4,
-		$GeneralStore.hardinessroll += 6,
+	<<elseif $GeneralStore.cleanlinessRoll gt 70>>
+		<<set $GeneralStore.expertiseRoll += 7,
+		$GeneralStore.activityRoll += 4,
+		$GeneralStore.hardinessRoll += 6,
 		$GeneralStore.cleanliness to "very tidy">>
-	<<elseif $GeneralStore.cleanlinessroll gt 60>>
-		<<set $GeneralStore.expertiseroll += 3,
-		$GeneralStore.activityroll += 3,
-		$GeneralStore.hardinessroll += 4,
+	<<elseif $GeneralStore.cleanlinessRoll gt 60>>
+		<<set $GeneralStore.expertiseRoll += 3,
+		$GeneralStore.activityRoll += 3,
+		$GeneralStore.hardinessRoll += 4,
 		$GeneralStore.cleanliness to "tidy">>
-	<<elseif $GeneralStore.cleanlinessroll gt 50>>
-		<<set $GeneralStore.expertiseroll += 1,
-		$GeneralStore.hardinessroll += 2,
+	<<elseif $GeneralStore.cleanlinessRoll gt 50>>
+		<<set $GeneralStore.expertiseRoll += 1,
+		$GeneralStore.hardinessRoll += 2,
 		$GeneralStore.cleanliness to "reasonably tidy">>
-	<<elseif $GeneralStore.cleanlinessroll gt 40>>
-		<<set $GeneralStore.expertiseroll -= 1,
-		$GeneralStore.hardinessroll -= 2,
+	<<elseif $GeneralStore.cleanlinessRoll gt 40>>
+		<<set $GeneralStore.expertiseRoll -= 1,
+		$GeneralStore.hardinessRoll -= 2,
 		$GeneralStore.cleanliness to "somewhat messy">>
-	<<elseif $GeneralStore.cleanlinessroll gt 30>>
-		<<set $GeneralStore.expertiseroll -= 3,
-		$GeneralStore.hardinessroll -= 4,
-		$GeneralStore.activityroll -= 2,
+	<<elseif $GeneralStore.cleanlinessRoll gt 30>>
+		<<set $GeneralStore.expertiseRoll -= 3,
+		$GeneralStore.hardinessRoll -= 4,
+		$GeneralStore.activityRoll -= 2,
 		$GeneralStore.cleanliness to "rather messy">>
-	<<elseif $GeneralStore.cleanlinessroll gt 20>>
-		<<set $GeneralStore.expertiseroll -= 5,
-		$GeneralStore.hardinessroll -= 6,
-		$GeneralStore.activityroll -= 6,
+	<<elseif $GeneralStore.cleanlinessRoll gt 20>>
+		<<set $GeneralStore.expertiseRoll -= 5,
+		$GeneralStore.hardinessRoll -= 6,
+		$GeneralStore.activityRoll -= 6,
 		$GeneralStore.cleanliness to "very messy">>
-	<<elseif $GeneralStore.cleanlinessroll lte 20>>
-		<<set $GeneralStore.expertiseroll -= 7,
-		$GeneralStore.hardinessroll -= 8,
-		$GeneralStore.activityroll -= 10,
+	<<elseif $GeneralStore.cleanlinessRoll lte 20>>
+		<<set $GeneralStore.expertiseRoll -= 7,
+		$GeneralStore.hardinessRoll -= 8,
+		$GeneralStore.activityRoll -= 10,
 		$GeneralStore.cleanliness to "filthy">>
 <</if>>
 
-<<if $GeneralStore.wealthroll gt 95>>
-	<<set $GeneralStore.pricemodifier += 4, $GeneralStore.sizeroll += 3, $GeneralStore.cleanlinessroll += 15, $GeneralStore.reputation += 10>>
-<<elseif $GeneralStore.wealthroll gt 80>>
-	<<set $GeneralStore.pricemodifier += 3, $GeneralStore.cleanlinessroll += 10, $GeneralStore.reputation += 7>>
-<<elseif $GeneralStore.wealthroll gt 70>>
-	<<set $GeneralStore.pricemodifier += 2, $GeneralStore.cleanlinessroll += 6, $GeneralStore.reputation += 4>>
-<<elseif $GeneralStore.wealthroll gt 60>>
-	<<set $GeneralStore.pricemodifier += 1, $GeneralStore.populationroll += 5, $GeneralStore.cleanlinessroll += 4>>
-<<elseif $GeneralStore.wealthroll gt 50>>
-	<<set $GeneralStore.populationroll += 5, $GeneralStore.reputation -= 5, $GeneralStore.cleanlinessroll += 2>>
-<<elseif $GeneralStore.wealthroll gt 30>>
-	<<set $GeneralStore.pricemodifier -= 1, $GeneralStore.reputation -= 7, $GeneralStore.cleanlinessroll -= 15>>
-<<elseif $GeneralStore.wealthroll lte 30>>
-	<<set $GeneralStore.pricemodifier -= 2, $GeneralStore.reputation -= 10, $GeneralStore.cleanlinessroll -= 25>>
+<<if $GeneralStore.wealthRoll gt 95>>
+	<<set $GeneralStore.pricemodifier += 4, $GeneralStore.sizeRoll += 3, $GeneralStore.cleanlinessRoll += 15, $GeneralStore.reputationRoll += 10>>
+<<elseif $GeneralStore.wealthRoll gt 80>>
+	<<set $GeneralStore.pricemodifier += 3, $GeneralStore.cleanlinessRoll += 10, $GeneralStore.reputationRoll += 7>>
+<<elseif $GeneralStore.wealthRoll gt 70>>
+	<<set $GeneralStore.pricemodifier += 2, $GeneralStore.cleanlinessRoll += 6, $GeneralStore.reputationRoll += 4>>
+<<elseif $GeneralStore.wealthRoll gt 60>>
+	<<set $GeneralStore.pricemodifier += 1, $GeneralStore.populationRoll += 5, $GeneralStore.cleanlinessRoll += 4>>
+<<elseif $GeneralStore.wealthRoll gt 50>>
+	<<set $GeneralStore.populationRoll += 5, $GeneralStore.reputationRoll -= 5, $GeneralStore.cleanlinessRoll += 2>>
+<<elseif $GeneralStore.wealthRoll gt 30>>
+	<<set $GeneralStore.pricemodifier -= 1, $GeneralStore.reputationRoll -= 7, $GeneralStore.cleanlinessRoll -= 15>>
+<<elseif $GeneralStore.wealthRoll lte 30>>
+	<<set $GeneralStore.pricemodifier -= 2, $GeneralStore.reputationRoll -= 10, $GeneralStore.cleanlinessRoll -= 25>>
 <</if>>
 
-<<if $GeneralStore.activityroll gt 80>>
+<<if $GeneralStore.activityRoll gt 80>>
 		<<set $GeneralStore.activity to "extremely busy">>
-		<<set $GeneralStore.reputation += 5, $GeneralStore.cleanlinessroll -= 5>>
-	<<elseif $GeneralStore.activityroll gt 70>>
+		<<set $GeneralStore.reputation += 5, $GeneralStore.cleanlinessRoll -= 5>>
+	<<elseif $GeneralStore.activityRoll gt 70>>
 		<<set $GeneralStore.activity to "very busy">>
-		<<set $GeneralStore.reputation += 3, $GeneralStore.cleanlinessroll -= 3>>
-	<<elseif $GeneralStore.activityroll gt 60>>
+		<<set $GeneralStore.reputation += 3, $GeneralStore.cleanlinessRoll -= 3>>
+	<<elseif $GeneralStore.activityRoll gt 60>>
 		<<set $GeneralStore.activity to "rather busy">>
-		<<set $GeneralStore.reputation += 2, $GeneralStore.cleanlinessroll -= 2>>
-	<<elseif $GeneralStore.activityroll gt 50>>
+		<<set $GeneralStore.reputation += 2, $GeneralStore.cleanlinessRoll -= 2>>
+	<<elseif $GeneralStore.activityRoll gt 50>>
 		<<set $GeneralStore.activity to "reasonably busy">>
-		<<set $GeneralStore.reputation += 1, $GeneralStore.cleanlinessroll -= 1>>
-	<<elseif $GeneralStore.activityroll gt 40>>
+		<<set $GeneralStore.reputation += 1, $GeneralStore.cleanlinessRoll -= 1>>
+	<<elseif $GeneralStore.activityRoll gt 40>>
 		<<set $GeneralStore.activity to "not terribly busy">>
-		<<set $GeneralStore.reputation -= 1, $GeneralStore.cleanlinessroll += 1>>
-	<<elseif $GeneralStore.activityroll gt 30>>
+		<<set $GeneralStore.reputation -= 1, $GeneralStore.cleanlinessRoll += 1>>
+	<<elseif $GeneralStore.activityRoll gt 30>>
 		<<set $GeneralStore.activity to "not busy">>
-		<<set $GeneralStore.reputation -= 2, $GeneralStore.cleanlinessroll += 2>>
-	<<elseif $GeneralStore.activityroll gt 20>>
+		<<set $GeneralStore.reputation -= 2, $GeneralStore.cleanlinessRoll += 2>>
+	<<elseif $GeneralStore.activityRoll gt 20>>
 		<<set $GeneralStore.activity to "rather quiet">>
-		<<set $GeneralStore.reputation -= 3, $GeneralStore.cleanlinessroll += 3>>
-	<<elseif $GeneralStore.activityroll lte 20>>
+		<<set $GeneralStore.reputation -= 3, $GeneralStore.cleanlinessRoll += 3>>
+	<<elseif $GeneralStore.activityRoll lte 20>>
 		<<set $GeneralStore.activity to "very quiet">>
-		<<set $GeneralStore.reputation -= 5, $GeneralStore.cleanlinessroll += 5>>
+		<<set $GeneralStore.reputation -= 5, $GeneralStore.cleanlinessRoll += 5>>
 <</if>>
 <</nobr>>

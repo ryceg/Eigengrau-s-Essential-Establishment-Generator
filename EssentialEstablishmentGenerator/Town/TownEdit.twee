@@ -4,7 +4,7 @@
 
 <span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 6000 10>></span>
 
-<span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$town.wealthroll" $town.wealthroll 1 100 1>></span>
+<span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$town.wealthRoll" $town.wealthRoll 1 100 1>></span>
 
 <<run setup.tippy(".btn")>>
 <<set $economicIdeologyTypes to ["feudalist", "capitalist", "syndicalist", "communist", "primitivist"]>>\
@@ -15,14 +15,14 @@
 <span class="tip" title="Why do they rule? Are they elected, or born into power?"><<dropdown "$town.politicalSource" $politicalSourceTypes>></span>\
 
 
-<span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.economicsroll" $town.economicsroll 1 100 1>></span>
+<span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.economicsRoll" $town.economicsRoll 1 100 1>></span>
 
-<span class="tip" title="How do they treat their less fortunate citizens?">Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareroll" $town.welfareroll 1 100 1>></span>
+<span class="tip" title="How do they treat their less fortunate citizens?">Indifferent welfare ---- Benevolent Welfare: <<numberslider "$town.welfareRoll" $town.welfareRoll 1 100 1>></span>
 
-<span class="tip" title="How heavy is the armed presence here?">Relaxed military ---- Strict military: <<numberslider "$town.militaryroll" $town.militaryroll 1 100 1>></span>
+<span class="tip" title="How heavy is the armed presence here?">Relaxed military ---- Strict military: <<numberslider "$town.militaryRoll" $town.militaryRoll 1 100 1>></span>
 
-<span class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic ---- Regulated magic: <<numberslider "$town.arcanaroll" $town.arcanaroll 1 100 1>></span>
+<span class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic ---- Regulated magic: <<numberslider "$town.arcanaRoll" $town.arcanaRoll 1 100 1>></span>
 
-<span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.lawroll" $town.lawroll 1 100 1>></span>
+<span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.lawRoll" $town.lawRoll 1 100 1>></span>
 
 <<button "Save Changes">><<include "TownRefresh">><<include "TownRenders">><<goto "TownOutput">><</button>>

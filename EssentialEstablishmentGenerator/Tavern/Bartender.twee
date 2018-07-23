@@ -28,25 +28,25 @@
 /*
 <<switch $bartender.race>>
 	<<case "human">>
-		<<set $tavern.diversityroll -= 10>>
+		<<set $tavern.diversityRoll -= 10>>
 	<<case "half-elf">>
-		<<set $tavern.diversityroll += 5, $tavern.roughnessroll -= 5, $tavern.magicroll += 2>>
+		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll -= 5, $tavern.magicRoll += 2>>
 	<<case "elf">>
-		<<set $tavern.diversityroll += 5, $tavern.roughnessroll -= 10, $tavern.wealthroll += 5, $tavern.magicroll += 4>>
+		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll -= 10, $tavern.wealthRoll += 5, $tavern.magicRoll += 4>>
 	<<case "dwarf">>
-		<<set $tavern.diversityroll += 5, $tavern.roughnessroll += 5, $tavern.wealthroll += 5, $tavern.magicroll += 1>>
+		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll += 5, $tavern.wealthRoll += 5, $tavern.magicRoll += 1>>
 	<<case "gnome">>
-		<<set $tavern.diversityroll += 10, $tavern.roughnessroll -= 5, $tavern.magicroll += 1>>
+		<<set $tavern.diversityRoll += 10, $tavern.roughnessRoll -= 5, $tavern.magicRoll += 1>>
 	<<case "halfling">>
-		<<set $tavern.diversityroll += 5, $tavern.roughnessroll -= 5, $tavern.magicroll += 1>>
+		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll -= 5, $tavern.magicRoll += 1>>
 	<<case "half-orc">>
-		<<set $tavern.diversityroll += 10, $tavern.roughnessroll += 15>>
+		<<set $tavern.diversityRoll += 10, $tavern.roughnessRoll += 15>>
 	<<case "dragonborn">>
-		<<set $tavern.diversityroll += 10, $tavern.roughnessroll += 5, $tavern.wealthroll += 5, $tavern.magicroll += 5>>
+		<<set $tavern.diversityRoll += 10, $tavern.roughnessRoll += 5, $tavern.wealthRoll += 5, $tavern.magicRoll += 5>>
 	<<case "tiefling">>
-		<<set $tavern.diversityroll += 15, $tavern.roughnessroll += 5, $tavern.sinroll += 15, $tavern.wealthroll += 10, $tavern.magicroll += 7>>
+		<<set $tavern.diversityRoll += 15, $tavern.roughnessRoll += 5, $tavern.sinRoll += 15, $tavern.wealthRoll += 10, $tavern.magicRoll += 7>>
 	<<default>>
-		<<set $tavern.diversityroll -= 10>>
+		<<set $tavern.diversityRoll -= 10>>
 <</switch>>
 */
 

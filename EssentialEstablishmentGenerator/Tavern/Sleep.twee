@@ -16,23 +16,23 @@
 	<<elseif $tavern.wealth is "squalid">>
 		<<set _restfulness -= 10, _sleepeasy -= 3>>
 <</if>>
-<<if $tavern.cleanlinessroll gt 90>>
+<<if $tavern.cleanlinessRoll gt 90>>
   <<set _restfulness += 30>>
-	  <<elseif $tavern.cleanlinessroll gt 80>>
+	  <<elseif $tavern.cleanlinessRoll gt 80>>
 		  <<set _restfulness += 15, _sleepeasy += 3>>
-	  <<elseif $tavern.cleanlinessroll gt 70>>
+	  <<elseif $tavern.cleanlinessRoll gt 70>>
 		  <<set _restfulness += 5, _sleepeasy += 2>>
-	  <<elseif $tavern.cleanlinessroll gt 60>>
+	  <<elseif $tavern.cleanlinessRoll gt 60>>
 		  <<set _restfulness += 3, _sleepeasy += 1>>
-	  <<elseif $tavern.cleanlinessroll gt 50>>
+	  <<elseif $tavern.cleanlinessRoll gt 50>>
 		  <<set _restfulness -= 2>>
-	  <<elseif $tavern.cleanlinessroll gt 40>>
+	  <<elseif $tavern.cleanlinessRoll gt 40>>
 		  <<set _restfulness -= 5>>
-	  <<elseif $tavern.cleanlinessroll gt 30>>
+	  <<elseif $tavern.cleanlinessRoll gt 30>>
 		  <<set _restfulness -= 10, _sleepeasy -= 1>>
-	  <<elseif $tavern.cleanlinessroll gt 20>>
+	  <<elseif $tavern.cleanlinessRoll gt 20>>
 		  <<set _restfulness -= 15, _sleepeasy -= 2>>
-	  <<elseif $tavern.cleanlinessroll lte 20>>
+	  <<elseif $tavern.cleanlinessRoll lte 20>>
 		  <<set _restfulness -= 20, _sleepeasy -= 3>>
 <</if>>
 

@@ -1,32 +1,32 @@
 
 :: LookAround
 <<nobr>>
-	<<if $tavern.populationroll gt 80 && $tavern.roughnessroll gt 60>>
+	<<if $tavern.populationRoll gt 80 && $tavern.roughnessRoll gt 60>>
 			<<print either("You can barely hear each other over the din of the other patrons, who are pretty rowdy. One elbows you in the ribs as they try to get around you to the bar.",
 			"You find it difficult to hear each other over the din of the crowds that are drunkenly cavorting around.")>>
-	<<elseif $tavern.populationroll gt 80>>
+	<<elseif $tavern.populationRoll gt 80>>
 			<<print either("There's barely enough room to stand, let alone find a seat in the $tavern.lighting $tavern.wordnoun.",
 			"The $tavern.wordnoun is packed, and the patrons are clamouring to find the few barmaids that are on staff.")>>
-	<<elseif $tavern.populationroll gt 60 && $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.populationRoll gt 60 && $tavern.roughnessRoll gt 60>>
 			<<print either("The $tavern.wordnoun is packed with patrons, and you're pushed to the side as somebody makes for the latrine in a hurry.",
 			"It's peak hour for $tavern.name and you can tell that $bartender.name is concerned about a fight breaking out. ")>>
-	<<elseif $tavern.populationroll gt 60>>
+	<<elseif $tavern.populationRoll gt 60>>
 			<<print either("The $tavern.wordnoun is pretty packed with patrons, and it's difficult for you to find a seat in the $tavern.lighting tavern.",
 			"The $tavern.wordnoun is quite full, and the owner is clearly enjoying the amount of business $bartender.hisher $tavern.wordnoun is receiving.",
 			"It must be peak hour for the $tavern.wordnoun. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.")>>
-	<<elseif $tavern.populationroll gt 40 && $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.populationRoll gt 40 && $tavern.roughnessRoll gt 60>>
 			<<print either("The clientele is pretty rough, and might have scared off some of the less rambunctious potential customers.",
 			"There's a fair number of people in the $tavern.wordnoun with quite a few swords on display.")>>
-	<<elseif $tavern.populationroll gt 40>>
+	<<elseif $tavern.populationRoll gt 40>>
 			<<print either("There's a reasonable amount of customers in the $tavern.wordnoun. $tavern.name's barmaid is happily walking back and forth from the kitchen, taking out plates as they are delivered.",
 			"There's a decent number of people in $tavern.name, and you manage to find a seat without too much trouble.")>>
-	<<elseif $tavern.populationroll lte 40 && $tavern.roughnessroll gt 60>>
+	<<elseif $tavern.populationRoll lte 40 && $tavern.roughnessRoll gt 60>>
 			<<print either("The few people that are in the tavern bear scars, and openly talk of their violent exploits. It's pretty clear that they have scared away any regular clientele.",
 			"There are basically no people in the tavern, save for a few battle-hardened men talking in the corner.",
 			"There's not very many customers in $tavern.name at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele.")>>
-	<<elseif $tavern.populationroll gt 30>>
+	<<elseif $tavern.populationRoll gt 30>>
 			<<print "$tavern.name is basically empty, and there's not much for the $tavern.wordnoun<<nobr>>'s<</nobr>> barmaid to do. The $barmaid.height woman settles for polishing a glass.">>
-	<<elseif $tavern.populationroll lte 30>>
+	<<elseif $tavern.populationRoll lte 30>>
 			<<print "It's almost just you and the bartender in here.">>
 <</if>><</nobr>><<print $tavern.patrons.pluck()>>
 

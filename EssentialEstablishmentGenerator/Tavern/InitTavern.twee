@@ -7,19 +7,19 @@
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
 
-<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$tavern.wealthroll" $tavern.wealthroll 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$tavern.wealthRoll" $tavern.wealthRoll 1 100 1>></span>
 
-<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$tavern.populationroll" $tavern.populationroll 1 100 1>></span>
+<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$tavern.populationRoll" $tavern.populationRoll 1 100 1>></span>
 
-<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$tavern.sizeroll" $tavern.sizeroll 1 100 1>></span>
+<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$tavern.sizeRoll" $tavern.sizeRoll 1 100 1>></span>
 
-<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$tavern.reputationroll" $tavern.reputationroll 1 100 1>></span>
+<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$tavern.reputationRoll" $tavern.reputationRoll 1 100 1>></span>
 
-<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$tavern.roughnessroll" $tavern.roughnessroll 1 100 1>></span>
+<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$tavern.roughnessRoll" $tavern.roughnessRoll 1 100 1>></span>
 
-<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$tavern.sinroll" $tavern.sinroll 1 100 1>></span>
+<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$tavern.sinRoll" $tavern.sinRoll 1 100 1>></span>
 
-<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$tavern.cleanlinessroll" $tavern.cleanlinessroll 1 100 1>></span>
+<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$tavern.cleanlinessRoll" $tavern.cleanlinessRoll 1 100 1>></span>
 
 <span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$tavern.pricemodifier" $tavern.pricemodifier -10 10 1>></span>
 

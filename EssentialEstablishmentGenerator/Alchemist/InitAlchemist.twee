@@ -3,17 +3,17 @@
 
 <<linkreplace "Rename <strong>$alchemist.name</strong>">><h3><<textbox "$alchemist.name" $alchemist.name>></h3><</linkreplace>>
 
-<span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$alchemist.wealthroll" $alchemist.wealthroll 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$alchemist.wealthRoll" $alchemist.wealthRoll 1 100 1>></span>
 
-<span class="tip" title="How large is the shop?">Alchemist Size: <<numberslider "$alchemist.sizeroll" $alchemist.sizeroll 1 100 1>></span>
+<span class="tip" title="How large is the shop?">Alchemist Size: <<numberslider "$alchemist.sizeRoll" $alchemist.sizeRoll 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or is it a hobby shop?">Alchemist Reputation: <<numberslider "$alchemist.reputationroll" $alchemist.reputationroll 1 100 1>></span>
+<span class="tip" title="Is it well known, or is it a hobby shop?">Alchemist Reputation: <<numberslider "$alchemist.reputationRoll" $alchemist.reputationRoll 1 100 1>></span>
 
-<span class="tip" title="How clean is the alchemist?">Alchemist Cleanliness: <<numberslider "$alchemist.cleanlinessroll" $alchemist.cleanlinessroll 1 100 1>></span>
+<span class="tip" title="How clean is the alchemist?">Alchemist Cleanliness: <<numberslider "$alchemist.cleanlinessRoll" $alchemist.cleanlinessRoll 1 100 1>></span>
 
-<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?">Alchemist Expertise: <<numberslider "$alchemist.expertiseroll" $alchemist.expertiseroll 1 100 1>></span>
+<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?">Alchemist Expertise: <<numberslider "$alchemist.expertiseRoll" $alchemist.expertiseRoll 1 100 1>></span>
 
-<span class="tip" title="How busy is the alchemist?">Alchemist Activity: <<numberslider "$alchemist.activityroll" $alchemist.activityroll 1 100 1>></span>
+<span class="tip" title="How busy is the alchemist?">Alchemist Activity: <<numberslider "$alchemist.activityRoll" $alchemist.activityRoll 1 100 1>></span>
 
 <span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist Price Modifier: <<numberslider "$alchemist.pricemodifier" $alchemist.pricemodifier -10 10 1>></span>
 

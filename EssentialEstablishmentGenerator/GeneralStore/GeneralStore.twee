@@ -153,12 +153,12 @@
 "saintly relics and pungent incense",
 "brushes of various sorts"]>> */
 
-<<set $GeneralStore.sinroll to $GeneralStore.sinroll.clamp(1, 100),
-		$GeneralStore.wealthroll to $GeneralStore.wealthroll.clamp(1, 100),
-		$GeneralStore.reputationroll to $GeneralStore.reputationroll.clamp(1, 100),
-		$GeneralStore.cleanlinessroll to $GeneralStore.cleanlinessroll.clamp(1, 100),
-		$GeneralStore.populationroll to $GeneralStore.populationroll.clamp(1, 100),
-		$GeneralStore.roughnessroll to $GeneralStore.roughnessroll.clamp(1, 100),
-		$GeneralStore.diversityroll to $GeneralStore.diversityroll.clamp(1, 100),
-		$GeneralStore.sizeroll to $GeneralStore.sizeroll.clamp(1, 100),
-		$GeneralStore.magicroll to $GeneralStore.magicroll.clamp(1, 100)>>
+<<set $GeneralStore.sinRoll to $GeneralStore.sinRoll.clamp(1, 100),
+		$GeneralStore.wealthRoll to $GeneralStore.wealthRoll.clamp(1, 100),
+		$GeneralStore.reputationRoll to $GeneralStore.reputationRoll.clamp(1, 100),
+		$GeneralStore.cleanlinessRoll to $GeneralStore.cleanlinessRoll.clamp(1, 100),
+		$GeneralStore.populationRoll to $GeneralStore.populationRoll.clamp(1, 100),
+		$GeneralStore.roughnessRoll to $GeneralStore.roughnessRoll.clamp(1, 100),
+		$GeneralStore.diversityRoll to $GeneralStore.diversityRoll.clamp(1, 100),
+		$GeneralStore.sizeRoll to $GeneralStore.sizeRoll.clamp(1, 100),
+		$GeneralStore.magicRoll to $GeneralStore.magicRoll.clamp(1, 100)>>

@@ -4,7 +4,7 @@
 		<th>Dish</th>
 		<th>Cost</th>
 	</tr>
-      <<if $tavern.wealthroll gt 60 && $tavern.roughnessroll lt 30 or $tavern.wealthroll gt 60 && $bartender.race is "elf">>
+      <<if $tavern.wealthRoll gt 60 && $tavern.roughnessRoll lt 30 or $tavern.wealthRoll gt 60 && $bartender.race is "elf">>
       <<switch $town.type>>
       	<<case "city">>
       	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "veg"; })>><tr><td>_item.name</td>
@@ -22,7 +22,7 @@
       	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1, item.type === "veg"; })>><tr><td>_item.name</td>
       <td><<money _item.cost>></td></tr>
       	<</for>><</switch>>
-<<elseif $tavern.wealthroll gt 60 && $tavern.roughnessroll gt 80>>
+<<elseif $tavern.wealthRoll gt 60 && $tavern.roughnessRoll gt 80>>
       <<switch $town.type>>
       	<<case "city">>
       	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "carni"; })>><tr><td>_item.name</td>

@@ -1,7 +1,7 @@
 
 :: SmithyNameGen
 
-<<set _smithynameroll to random(1, 5)>>
+<<set _smithynameRoll to random(1, 5)>>
 
 <<set $smithy.adjective to either("Hard", "Sharp", "Pointy", "Well-worn", "Rusted", "Shiny", "Cold", "Glowing", "Heated", "Golden", "Silvered", "Bronzed", "Polished", "Engraved", "Jeweled", "Plated", "Eternal", "Long-Lasting", "Famed")>>
 
@@ -11,7 +11,7 @@
 
 <<set $smithy.rider to either("Shop", "Blacksmith", "Fabricator", "Smith", "Smithy", "Farrier", "Metalsmith", "Swordsmith")>>
 
-<<switch _smithynameroll>>
+<<switch _smithynameRoll>>
 	<<case 1>>
 		<<set $smithy.name to "The " + $smithy.adjective + " " + $smithy.noun>>
 	<<case 2>>

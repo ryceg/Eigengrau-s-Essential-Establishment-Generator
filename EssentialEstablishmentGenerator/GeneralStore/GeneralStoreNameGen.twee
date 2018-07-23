@@ -1,7 +1,7 @@
-
+Roll
 :: GeneralStoreNameGen
 
-<<set _GeneralStorenameroll to random(1, 5)>>
+<<set _GeneralStorenameRoll to random(1, 5)>>
 
 <<set $GeneralStore.adjective to either("Dependable", "Reliable", "Expendable", "Indispensible", "Incomparable", "Incredible", "Excellent", "Important", "Cheap", "Affordable", "Affable", "Discount", "Low-Cost")>>
 
@@ -11,7 +11,7 @@
 
 <<set $GeneralStore.rider to either("Shop", "Bazaar", "Convenience Store", "Trading Post", "Warehouse", "Antiquerie", "Adventure Supplier", "Supplier", "Goods", "Goods and Bads", "Stock Shop", "Wares")>>
 
-<<switch _GeneralStorenameroll>>
+<<switch _GeneralStorenameRoll>>
 	<<case 1>>
 		<<set $GeneralStore.name to "The " + $GeneralStore.adjective + " " + $GeneralStore.noun>>
 	<<case 2>>

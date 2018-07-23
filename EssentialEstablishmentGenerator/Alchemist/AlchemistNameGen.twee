@@ -1,7 +1,7 @@
 
 :: AlchemistNameGen
 
-<<set _alchemistnameroll to random(1, 5)>>
+<<set _alchemistnameRoll to random(1, 5)>>
 
 <<set $alchemist.adjective to either("Bubbling", "Spicy", "Soggy", "Fizzy", "Liquid", "Fluorescent", "Clear", "Alcoholic", "Abyssal", "Angelic", "Elven", "Measured", "Marked", "Glass", "Glass", "Copper", "Corked", "Burning", "Red", "Blue", "Green", "Gold", "Yellow", "Vile", "Genuine", "Original")>>
 
@@ -11,7 +11,7 @@
 
 <<set $alchemist.rider to either("Chemist", "Alchemist", "Potion Shop", "Potionery", "Ointmentary", "Juice Bar", "Lab", "Laboratory", "Secret Lair")>>
 
-<<switch _alchemistnameroll>>
+<<switch _alchemistnameRoll>>
 	<<case 1>>
 		<<set $alchemist.name to "The " + $alchemist.adjective + " " + $alchemist.noun>>
 	<<case 2>>
