@@ -15,7 +15,7 @@
 
 <span class="tip" title="How likely is it to find magic here?">General Store Magic: <<numberslider "$GeneralStore.magicRoll" $GeneralStore.magicRoll 1 100 1>></span>
 
-<span class="tip" title="How much cheaper or more expensive than average is it?">General Store Price Modifier: <<numberslider "$GeneralStore.pricemodifier" $GeneralStore.pricemodifier -10 10 1>></span>
+<span class="tip" title="How much cheaper or more expensive than average is it?">General Store Price Modifier: <<numberslider "$GeneralStore.priceModifier" $GeneralStore.priceModifier -10 10 1>></span>
 
 
 When you're ready, here's the [[general store|GeneralStoreOutput]]

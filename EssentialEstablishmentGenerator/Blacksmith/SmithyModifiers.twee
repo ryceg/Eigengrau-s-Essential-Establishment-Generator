@@ -86,19 +86,19 @@
 <</if>>
 
 <<if $smithy.wealthRoll gt 95>>
-	<<set $smithy.pricemodifier += 4, $smithy.sizeRoll += 3, $smithy.cleanlinessRoll += 15, $smithy.reputationRoll += 10>>
+	<<set $smithy.priceModifier += 4, $smithy.sizeRoll += 3, $smithy.cleanlinessRoll += 15, $smithy.reputationRoll += 10>>
 <<elseif $smithy.wealthRoll gt 80>>
-	<<set $smithy.pricemodifier += 3, $smithy.cleanlinessRoll += 10, $smithy.reputationRoll += 7>>
+	<<set $smithy.priceModifier += 3, $smithy.cleanlinessRoll += 10, $smithy.reputationRoll += 7>>
 <<elseif $smithy.wealthRoll gt 70>>
-	<<set $smithy.pricemodifier += 2, $smithy.cleanlinessRoll += 6, $smithy.reputationRoll += 4>>
+	<<set $smithy.priceModifier += 2, $smithy.cleanlinessRoll += 6, $smithy.reputationRoll += 4>>
 <<elseif $smithy.wealthRoll gt 60>>
-	<<set $smithy.pricemodifier += 1, $smithy.populationRoll += 5, $smithy.cleanlinessRoll += 4>>
+	<<set $smithy.priceModifier += 1, $smithy.populationRoll += 5, $smithy.cleanlinessRoll += 4>>
 <<elseif $smithy.wealthRoll gt 50>>
 	<<set $smithy.populationRoll += 5, $smithy.reputationRoll -= 5, $smithy.cleanlinessRoll += 2>>
 <<elseif $smithy.wealthRoll gt 30>>
-	<<set $smithy.pricemodifier -= 1, $smithy.reputationRoll -= 7, $smithy.cleanlinessRoll -= 15>>
+	<<set $smithy.priceModifier -= 1, $smithy.reputationRoll -= 7, $smithy.cleanlinessRoll -= 15>>
 <<elseif $smithy.wealthRoll lte 30>>
-	<<set $smithy.pricemodifier -= 2, $smithy.reputationRoll -= 10, $smithy.cleanlinessRoll -= 25>>
+	<<set $smithy.priceModifier -= 2, $smithy.reputationRoll -= 10, $smithy.cleanlinessRoll -= 25>>
 <</if>>
 
 <<if $smithy.activityRoll gt 80>>

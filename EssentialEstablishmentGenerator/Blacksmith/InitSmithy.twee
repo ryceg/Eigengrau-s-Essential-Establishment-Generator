@@ -15,7 +15,7 @@
 
 <span class="tip" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?">Smithy Activity: <<numberslider "$smithy.activityRoll" $smithy.activityRoll 1 100 1>></span>
 
-<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$smithy.pricemodifier" $smithy.pricemodifier -10 10 1>></span>
+<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$smithy.priceModifier" $smithy.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[smithy|SmithyOutput]]
 <<set $currentpassage to $smithy>>

@@ -25,7 +25,8 @@ setup.createNPC = function (base) {
   var title
   var hasClass
   var partnerID
-  var wealth = random(6, 26)
+  var id
+  var wealth = random(60, 260)
   var isThrowaway
   var firstname
   var lastname
@@ -69,6 +70,7 @@ setup.createNPC = function (base) {
     title: title,
     wealth: wealth,
     reading: reading,
+    id: id,
     skinColours: skinColours.random(),
     pubRumour: pubRumour
   }, base)

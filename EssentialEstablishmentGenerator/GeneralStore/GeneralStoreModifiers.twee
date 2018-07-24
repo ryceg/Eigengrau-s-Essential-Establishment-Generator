@@ -86,19 +86,19 @@
 <</if>>
 
 <<if $GeneralStore.wealthRoll gt 95>>
-	<<set $GeneralStore.pricemodifier += 4, $GeneralStore.sizeRoll += 3, $GeneralStore.cleanlinessRoll += 15, $GeneralStore.reputationRoll += 10>>
+	<<set $GeneralStore.priceModifier += 4, $GeneralStore.sizeRoll += 3, $GeneralStore.cleanlinessRoll += 15, $GeneralStore.reputationRoll += 10>>
 <<elseif $GeneralStore.wealthRoll gt 80>>
-	<<set $GeneralStore.pricemodifier += 3, $GeneralStore.cleanlinessRoll += 10, $GeneralStore.reputationRoll += 7>>
+	<<set $GeneralStore.priceModifier += 3, $GeneralStore.cleanlinessRoll += 10, $GeneralStore.reputationRoll += 7>>
 <<elseif $GeneralStore.wealthRoll gt 70>>
-	<<set $GeneralStore.pricemodifier += 2, $GeneralStore.cleanlinessRoll += 6, $GeneralStore.reputationRoll += 4>>
+	<<set $GeneralStore.priceModifier += 2, $GeneralStore.cleanlinessRoll += 6, $GeneralStore.reputationRoll += 4>>
 <<elseif $GeneralStore.wealthRoll gt 60>>
-	<<set $GeneralStore.pricemodifier += 1, $GeneralStore.populationRoll += 5, $GeneralStore.cleanlinessRoll += 4>>
+	<<set $GeneralStore.priceModifier += 1, $GeneralStore.populationRoll += 5, $GeneralStore.cleanlinessRoll += 4>>
 <<elseif $GeneralStore.wealthRoll gt 50>>
 	<<set $GeneralStore.populationRoll += 5, $GeneralStore.reputationRoll -= 5, $GeneralStore.cleanlinessRoll += 2>>
 <<elseif $GeneralStore.wealthRoll gt 30>>
-	<<set $GeneralStore.pricemodifier -= 1, $GeneralStore.reputationRoll -= 7, $GeneralStore.cleanlinessRoll -= 15>>
+	<<set $GeneralStore.priceModifier -= 1, $GeneralStore.reputationRoll -= 7, $GeneralStore.cleanlinessRoll -= 15>>
 <<elseif $GeneralStore.wealthRoll lte 30>>
-	<<set $GeneralStore.pricemodifier -= 2, $GeneralStore.reputationRoll -= 10, $GeneralStore.cleanlinessRoll -= 25>>
+	<<set $GeneralStore.priceModifier -= 2, $GeneralStore.reputationRoll -= 10, $GeneralStore.cleanlinessRoll -= 25>>
 <</if>>
 
 <<if $GeneralStore.activityRoll gt 80>>

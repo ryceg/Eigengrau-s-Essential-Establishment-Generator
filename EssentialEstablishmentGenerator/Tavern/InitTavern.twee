@@ -21,7 +21,7 @@
 
 <span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$tavern.cleanlinessRoll" $tavern.cleanlinessRoll 1 100 1>></span>
 
-<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$tavern.pricemodifier" $tavern.pricemodifier -10 10 1>></span>
+<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$tavern.priceModifier" $tavern.priceModifier -10 10 1>></span>
 
 When you're ready, here's the <<nobr>><<set _output to random(1, 3)>>
 	<<switch _output>>

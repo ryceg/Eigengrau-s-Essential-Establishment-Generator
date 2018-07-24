@@ -77,19 +77,19 @@
 <</if>>
 
 <<if $alchemist.wealthRoll gt 95>>
-	<<set $alchemist.pricemodifier += 4, $alchemist.sizeRoll += 3, $alchemist.cleanlinessRoll += 15, $alchemist.reputationRoll += 10>>
+	<<set $alchemist.priceModifier += 4, $alchemist.sizeRoll += 3, $alchemist.cleanlinessRoll += 15, $alchemist.reputationRoll += 10>>
 <<elseif $alchemist.wealthRoll gt 80>>
-	<<set $alchemist.pricemodifier += 3, $alchemist.cleanlinessRoll += 10, $alchemist.reputationRoll += 7>>
+	<<set $alchemist.priceModifier += 3, $alchemist.cleanlinessRoll += 10, $alchemist.reputationRoll += 7>>
 <<elseif $alchemist.wealthRoll gt 70>>
-	<<set $alchemist.pricemodifier += 2, $alchemist.cleanlinessRoll += 6, $alchemist.reputationRoll += 4>>
+	<<set $alchemist.priceModifier += 2, $alchemist.cleanlinessRoll += 6, $alchemist.reputationRoll += 4>>
 <<elseif $alchemist.wealthRoll gt 60>>
-	<<set $alchemist.pricemodifier += 1, $alchemist.populationRoll += 5, $alchemist.cleanlinessRoll += 4>>
+	<<set $alchemist.priceModifier += 1, $alchemist.populationRoll += 5, $alchemist.cleanlinessRoll += 4>>
 <<elseif $alchemist.wealthRoll gt 50>>
 	<<set $alchemist.populationRoll += 5, $alchemist.reputationRoll -= 5, $alchemist.cleanlinessRoll += 2>>
 <<elseif $alchemist.wealthRoll gt 30>>
-	<<set $alchemist.pricemodifier -= 1, $alchemist.reputationRoll -= 7, $alchemist.cleanlinessRoll -= 15>>
+	<<set $alchemist.priceModifier -= 1, $alchemist.reputationRoll -= 7, $alchemist.cleanlinessRoll -= 15>>
 <<elseif $alchemist.wealthRoll lte 30>>
-	<<set $alchemist.pricemodifier -= 2, $alchemist.reputationRoll -= 10, $alchemist.cleanlinessRoll -= 25>>
+	<<set $alchemist.priceModifier -= 2, $alchemist.reputationRoll -= 10, $alchemist.cleanlinessRoll -= 25>>
 <</if>>
 
 <<if $alchemist.activityRoll gt 80>>

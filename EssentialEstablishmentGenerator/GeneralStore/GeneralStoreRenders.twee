@@ -106,28 +106,28 @@
 		<<set $GeneralStore.activity to "very quiet">>
 <</if>>
 
-<<if $GeneralStore.pricemodifier gt 5 && $GeneralStore.wealthRoll gt 80>>
+<<if $GeneralStore.priceModifier gt 5 && $GeneralStore.wealthRoll gt 80>>
     <<set $GeneralStore.pricetalk to "Be warned, these prices might be... out of your range">>
-  <<elseif $GeneralStore.pricemodifier gt 5 && $GeneralStore.wealthRoll lt 30>>
+  <<elseif $GeneralStore.priceModifier gt 5 && $GeneralStore.wealthRoll lt 30>>
     <<set $GeneralStore.pricetalk to "I'm afraid that times are tough, there's a bit of a surcharge on the fun stuff.">>
-  <<elseif $GeneralStore.pricemodifier gt 5>>
+  <<elseif $GeneralStore.priceModifier gt 5>>
     <<set $GeneralStore.pricetalk to "Fair warning; the prices ain't what they used to be, by a long shot.">>
-  <<elseif $GeneralStore.pricemodifier gt 2 && $GeneralStore.wealthRoll gt 80>>
+  <<elseif $GeneralStore.priceModifier gt 2 && $GeneralStore.wealthRoll gt 80>>
     <<set $GeneralStore.pricetalk to "Fair warning, premium products come with a premium price.">>
-  <<elseif $GeneralStore.pricemodifier gt 2 && $GeneralStore.wealthRoll lt 30>>
+  <<elseif $GeneralStore.priceModifier gt 2 && $GeneralStore.wealthRoll lt 30>>
     <<set $GeneralStore.pricetalk to "Things might be a wee bit more expensive than you're used to, but that's the cost of doing business at the moment.">>
-  <<elseif $GeneralStore.pricemodifier gt 2>>
+  <<elseif $GeneralStore.priceModifier gt 2>>
     <<set $GeneralStore.pricetalk to "Fair warning; the prices ain't what they used to be.">>
-  <<elseif $GeneralStore.pricemodifier gt -2 && $GeneralStore.wealthRoll gt 80>>
+  <<elseif $GeneralStore.priceModifier gt -2 && $GeneralStore.wealthRoll gt 80>>
     <<set $GeneralStore.pricetalk to "These are priced to move, so I can make some space and get some new stock in.">>
-  <<elseif $GeneralStore.pricemodifier gt -2 && $GeneralStore.wealthRoll lt 30>>
+  <<elseif $GeneralStore.priceModifier gt -2 && $GeneralStore.wealthRoll lt 30>>
     <<set $GeneralStore.pricetalk to "Priced to sell, so I can afford some new stock!">>"
-  <<elseif $GeneralStore.pricemodifier gt -2>>
+  <<elseif $GeneralStore.priceModifier gt -2>>
     <<set $GeneralStore.pricetalk to "Priced to move!">>
-  <<elseif $GeneralStore.pricemodifier gt -4 && $GeneralStore.wealthRoll gt 80>>
+  <<elseif $GeneralStore.priceModifier gt -4 && $GeneralStore.wealthRoll gt 80>>
     <<set $GeneralStore.pricetalk to "Everything must go! I'm getting in entirely new, custom stock in a couple day's time, and need the space clear.">>
-  <<elseif $GeneralStore.pricemodifier gt -4 && $GeneralStore.wealthRoll lt 30>>
+  <<elseif $GeneralStore.priceModifier gt -4 && $GeneralStore.wealthRoll lt 30>>
     <<set $GeneralStore.pricetalk to "Everything must go- can't afford to keep $GeneralStore.name open much longer, so I'm getting rid of the final stock.">>
-  <<elseif $GeneralStore.pricemodifier gt -4>>
+  <<elseif $GeneralStore.priceModifier gt -4>>
     <<set $GeneralStore.pricetalk to "I've got a massive sale going on at the moment!">>
     <</if>>
