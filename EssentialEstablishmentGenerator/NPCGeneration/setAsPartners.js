@@ -15,7 +15,7 @@ setup.setAsPartners = function (npc1, npc2) {
   }
   /* Remove "old" partners first */
   npcsToClean.forEach(function (n) {
-    delete n.partnerID
+    n.partnerID = ''
   })
   /* Link the two */
   npc1.partnerID = npc2.id

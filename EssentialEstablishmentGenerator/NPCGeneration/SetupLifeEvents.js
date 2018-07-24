@@ -1,6 +1,7 @@
 setup.createLifeEvents = function (npc) {
   var lifeEventsNumber
   var lifeEventsRoll
+  var lifeEventsAge
   npc.lifeEvents = []
   if (npc.ageRoll > 60) {
     lifeEventsNumber = dice(2, 6)
@@ -12,11 +13,19 @@ setup.createLifeEvents = function (npc) {
     lifeEventsNumber = random(1, 6)
   } else if (npc.ageRoll > 20) {
     lifeEventsNumber = random(1, 4)
-  } else if (npc.ageRoll > 10) {
+  } else if (npc.ageRoll > 15) {
     lifeEventsNumber = 1
-  } else if (npc.ageRoll <= 10) {
+  } else if (npc.ageRoll <= 15) {
     lifeEventsNumber = 0
   }
+
+  // this is meant to assign an age for when the NPC had the life event. Still haven't decided how I'll handle distribution of events.
+  // lifeEventsAgeNumber = ((npc.ageRoll - 15) / lifeEventsNumber)
+  // var e
+  // npc.lifeEventsAge = []
+  // for (e = 0; e < lifeEventsNumber; e++) {
+  //   npc.lifeEventsAge.push()
+  // }
 
   var i
   for (i = 0; i < lifeEventsNumber; i++) {
@@ -50,19 +59,32 @@ setup.createLifeEvents = function (npc) {
 
   function trinket () {
     var trinket = setup.createMagicTrinket()
-    return "I was given a magical trinket- it's a " + trinket.name + '<div id="descriptive">(' + trinket.description + ')</div>'
+    return [
+      "I was given a magical trinket- it's a ",
+      'I happened across a ',
+      'I was gifted a ',
+      "I saved a wizard's life, and as a token of his thanks, he gave me a ",
+      "I came across a trinket in a field- It's a "
+    ].random() + trinket.name + '<blockquote>(' + trinket.description + ')</blockquote>'
   }
 
   function meetFriendNPC () {
     // npc.friend = setup.createNPC()
     // return 'I made a friend for life in my travels- ' + '<<profile ' + npc.friend + '>>'
-    return 'I made a friend for life in my travels'
+    return [
+      'I made a friend for life in my travels',
+      'I was poor as a churchmouse, but then the priest helped me get a job. I owe everything I am today to his compassion',
+      'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser',
+      "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my best friend"
+    ].random()
   }
 
   function meetImportantNPC () {
     // npc.important = setup.createNPC()
     // return 'in my travels, I met the illustrious ' + '<<profile ' + npc.important + '>>'
-    return 'I met a famous wizard in my travels'
+    return [
+      'I met a famous ' + ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].random() + ' in my travels'
+    ].random()
   }
 
   function meetPartnerNPC () {
@@ -97,7 +119,7 @@ setup.createLifeEvents = function (npc) {
 
   function backgroundWork () {
     npc.wealth += (dice('2d6') * 1000)
-    return 'I spent some time working as a ' + npc.background
+    return ['I spent some time working as a ', 'I did a stint as a ', 'To pay off a debt, I spent some time as a ', 'To pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()
   }
 
   function war () {

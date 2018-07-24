@@ -70,4 +70,3 @@
 		<</linkreplace>>
 		<span id="room-cost"><<print "$tavern.name has _freerooms available rooms, which are $tavern.size and $tavern.bedcleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
 <</if>><</nobr>>
-Roll

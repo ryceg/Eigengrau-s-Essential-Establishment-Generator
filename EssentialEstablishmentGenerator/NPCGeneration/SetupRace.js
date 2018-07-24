@@ -5,7 +5,7 @@ setup.createRace = function (npc) {
   var weightModifier
   var heightRoll
   var weightRoll
-  
+
   switch (npc.race) {
     case 'human':
       switch (npc.gender) {
@@ -158,9 +158,56 @@ setup.createRace = function (npc) {
       }
   }
 
-  npc.heightRoll = baseHeight + heightModifier
-  npc.weightRoll = baseWeight + (heightModifier * weightModifier)
-  npc.bmi = (npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * 703
+  Object.assign(npc, {
+    heightRoll: baseHeight + heightModifier,
+    weightRoll: baseWeight + (heightModifier * weightModifier)
+  })
+
+  // bmiReadout will eventually replace 'weight'. So, when all that stuff is done, plus athleticism is coded in, I'll do a big ol' Cmd + F on 'bmiReadout' and replace it. For now, it's just bug-testing.
+  npc.bmi = (Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * 703))
+  if (npc.bmi > 40) {
+    npc.bmiReadout = 'morbidly obese'
+  } else if (npc.bmi >= 35) {
+    npc.bmiReadout = 'extremely obese'
+  } else if (npc.bmi >= 28) {
+    npc.bmiReadout = 'beer-bellied'
+  } else if (npc.bmi >= 32) {
+    npc.bmiReadout = 'round'
+  } else if (npc.bmi >= 30) {
+    npc.bmiReadout = 'obese'
+  } else if (npc.bmi >= 29) {
+    npc.bmiReadout = 'chubby'
+  } else if (npc.bmi >= 28) {
+    npc.bmiReadout = 'fat'
+  } else if (npc.bmi >= 27) {
+    npc.bmiReadout = 'overweight'
+  } else if (npc.bmi >= 26) {
+    npc.bmiReadout = 'thick'
+  } else if (npc.bmi >= 25) {
+    npc.bmiReadout = 'chunky'
+  } else if (npc.bmi >= 24) {
+    npc.bmiReadout = 'broad'
+  } else if (npc.bmi >= 23) {
+    npc.bmiReadout = 'healthy'
+  } else if (npc.bmi >= 22) {
+    npc.bmiReadout = 'lean'
+  } else if (npc.bmi >= 21) {
+    npc.bmiReadout = 'thin'
+  } else if (npc.bmi >= 20) {
+    npc.bmiReadout = 'rather thin'
+  } else if (npc.bmi >= 19) {
+    npc.bmiReadout = 'skinny'
+  } else if (npc.bmi >= 18) {
+    npc.bmiReadout = 'lithe'
+  } else if (npc.bmi >= 17) {
+    npc.bmiReadout = 'scrawny'
+  } else if (npc.bmi >= 16) {
+    npc.bmiReadout = 'weedy'
+  } else if (npc.bmi >= 15) {
+    npc.bmiReadout = 'gaunt'
+  } else if (npc.bmi < 15) {
+    npc.bmiReadout = 'bony'
+  }
 
   switch (npc.race) {
     case 'human':
