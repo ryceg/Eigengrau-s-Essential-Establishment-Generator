@@ -45,5 +45,5 @@ setup.stabilityFaction = function (faction) {
     faction.stabilityCause = ['their much-loved ' + faction.leaderGroupTitle, 'the lack of infighting for the leadership roles'].random()
   }
 
-  return faction.stability
+  return faction
 }

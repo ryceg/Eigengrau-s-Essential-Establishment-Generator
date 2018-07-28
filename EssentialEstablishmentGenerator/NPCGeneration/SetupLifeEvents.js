@@ -1,7 +1,7 @@
 setup.createLifeEvents = function (npc) {
   var lifeEventsNumber
   var lifeEventsRoll
-  var lifeEventsAge
+
   npc.lifeEvents = []
   if (npc.ageRoll > 60) {
     lifeEventsNumber = dice(2, 6)
@@ -83,7 +83,7 @@ setup.createLifeEvents = function (npc) {
     // npc.important = setup.createNPC()
     // return 'in my travels, I met the illustrious ' + '<<profile ' + npc.important + '>>'
     return [
-      'I met a famous ' + ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].random() + ' in my travels'
+      ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].random() + ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].random() + [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].random()
     ].random()
   }
 
@@ -92,18 +92,37 @@ setup.createLifeEvents = function (npc) {
       return 'I had a child with my dear partner'
     } else {
       if (npc.gender === 'man') {
-        npc.partnerID = setup.createNPC({gender: 'woman', partnerID: npc.id})
+        npc.partnerID = setup.createNPC({gender: 'woman'})
       } else {
-        npc.partnerID = setup.createNPC({gender: 'man', partnerID: npc.id})
+        npc.partnerID = setup.createNPC({gender: 'man'})
       }
-      return 'I met the love of my life- ' + '<<profile "' + npc.partnerID + '">>'
+      return 'I met the love of my life- ' + npc.partnerID
     }
   }
 
   function meetEnemyNPC () {
     // npc.enemy = setup.createNPC()
     // return 'I made an enemy for life in my travels- ' + '<<profile ' + npc.enemy + '>> still hunts me'
-    return 'I made an enemy for life in my travels- it was a misunderstanding, but I cannot convince him, and he hunts me to this day'
+    return [
+      'I made an enemy for life in my travels- ',
+      'I met a man, and we played cards. He decided that I was cheating- ',
+      'I was a guest in the court of a lord, and made an embarassment of him- ',
+      'I used to play cards in a pub, ' + State.variables.tavern.name + ', and one time supposedly cheated a man out of his winnings; '
+    ].random() + [
+      'it was a misunderstanding, but I cannot convince him otherwise. ',
+      'I admit that I am at least partially at fault. ',
+      "I suppose that I'm at least partially to blame. ",
+      "I'll freely admit that I'm to blame. ",
+      "I'm ashamed to admit that I'm to blame. "
+    ].random() + [
+      'He hunts me to this day',
+      'I hope to apologise to him if I ever encounter him again',
+      "I don't exactly care to run into him again",
+      "I couldn't care less if he tries to do anything about it",
+      "I'll gut him like a fish if he crosses my path again",
+      "I'm afraid that he'll kill me in my sleep",
+      'I would rather have backup the next time that I face him'
+    ].random()
   }
 
   function supernatural () {
@@ -119,17 +138,21 @@ setup.createLifeEvents = function (npc) {
 
   function backgroundWork () {
     npc.wealth += (dice('2d6') * 1000)
-    return ['I spent some time working as a ', 'I did a stint as a ', 'To pay off a debt, I spent some time as a ', 'To pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()
+    return [
+      'I spent some time working as a ',
+      'I did a stint as a ',
+      'to pay off a debt, I spent some time as a ',
+      'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()
   }
 
   function war () {
     var warRoll = random(1, 12)
     var warStart = [
       'there was a minor skirmish with some orcs that I was involved with.',
-      'There was a small skirmish with a rivaling faction that I was drafted into.',
-      'There was a small war between a rival lord that I was forced to take part with.',
-      'There were some goblin raids which I had to defend my town from.',
-      'There was a pretty nasty zombie outbreak which I had to defend my town against.'
+      'there was a small skirmish with a rivaling faction that I was drafted into.',
+      'there was a small war between a rival lord that I was forced to take part with.',
+      'there were some goblin raids which I had to defend my town from.',
+      'there was a pretty nasty zombie outbreak which I had to defend my town against.'
     ].random()
     var warResults
     var warDescription
@@ -158,7 +181,7 @@ setup.createLifeEvents = function (npc) {
       'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].random() + ' and lived to tell the tale',
       'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion',
       'I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold',
-      "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now!",
+      "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest",
       'some bloody dragon held me as prisoner for a couple months. I was forced to polish all its gold! Luckily, I managed to escape when it tried to torch the nearby village',
       'believe it or not, I was a stone statue for quite a while; I only recently was released. I still feel pretty stiff, to be honest'
     ].random()
@@ -198,7 +221,7 @@ setup.createLifeEvents = function (npc) {
       'I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ',
       'I had a spur of the moment whim to go on an adventure, and on my journeys, I ',
       'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
-      'There was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
+      'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
     if (adventureRoll === 100) {
       var weapon = setup.createMagicWeapon()
       adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + ' (' + weapon.description + ')'

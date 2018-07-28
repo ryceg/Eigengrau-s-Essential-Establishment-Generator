@@ -31,6 +31,7 @@ setup.createNPC = function (base) {
   var firstname
   var lastname
   var name
+  var formalname
   var note
   var owner
   var pubRumour = setup.createPubRumour()
@@ -41,6 +42,8 @@ setup.createNPC = function (base) {
     race: ['human', 'human', 'human', 'human', 'human', 'human', 'half-elf', 'half-elf', 'elf', 'elf', 'dwarf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling'].random(),
     firstname: firstname,
     lastname: lastname,
+    name: name,
+    formalname: formalname,
     age: ['childlike', 'rather young', 'eighteen year old', 'surprisingly young', 'relatively young', 'relatively young', 'middle aged', 'middle aged', 'middle aged', 'middle aged', 'middle aged', 'relatively old', 'sun wizened', 'quite old', 'ancient'].random(),
     /* currentmood: ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"], */
     demeanour: ['calm', 'moody', 'kind', 'conceited', 'cruel', 'mean', 'careful', 'polite', 'happy'].random(),

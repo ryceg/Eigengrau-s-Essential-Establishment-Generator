@@ -84,10 +84,10 @@ setup.sizeFaction = function (faction) {
   } else if (faction.sizeRoll > 10) {
     faction.size = 'tiny'
   } else if (faction.sizeRoll <= 5) {
-    faction.size = 'a handful of members'
+    faction.size = 'miniscule'
   } else {
     faction.size = 'average'
   }
 
-  return faction.size
+  return faction
 }

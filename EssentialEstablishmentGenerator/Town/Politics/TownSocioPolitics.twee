@@ -85,9 +85,17 @@
 
 
 <<switch $town.politicalIdeology>>
-  <<case "theocracy", "kleptocracy", "magocracy">>
+  <<case "theocracy">>
     <<if ndef $townLeaderGuild>>
-      <<set $townLeaderGuild to setup.createFaction({type: either("priests", "wizards", "thieves")})>>
+      <<set $townLeaderGuild to setup.createFaction({type: "priests"})>>
+    <</if>>
+  <<case "kleptocracy">>
+    <<if ndef $townLeaderGuild>>
+      <<set $townLeaderGuild to setup.createFaction({type: "thieves"})>>
+    <</if>>
+  <<case "magocracy">>
+    <<if ndef $townLeaderGuild>>
+      <<set $townLeaderGuild to setup.createFaction({type: "wizards"})>>
     <</if>>
   <<default>>
     <<unset $townLeaderGuild>>
@@ -110,20 +118,11 @@
                         <<set $town.rulerType to "the supreme leader">>
                     <</switch>>
                   <<set $townLeader to $townRuler>>
-                /*<<set $townLeader to setup.createNPC({title: "$townLeader.hisher Royal Highness", background: "noble"})>>
-                  <<switch $townLeader.gender>>
-                      <<case "man">>
-                        <<set $town.leaderType to "King">>
-                      <<case "woman">>
-                        <<set $town.leaderType to "Queen">>
-                      <<default>>
-                        <<set $town.leaderType to "the supreme leader">>
-                    <</switch>>*/
             <<case "constitutional monarchy">>
                 <<set $town.welfareRoll -= 25>>
                 <<set $town.economicsRoll += 45>>
                 <<set $town.politicalIdeologyIC to "autocratic">>
-                <<set $townRuler to setup.createNPC({title: "<<print $townRuler.hisher.toUpperFirst()>> Royal Highness", background: "noble"})>>
+                <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
                   <<switch $townRuler.gender>>
                       <<case "man">>
                         <<set $town.rulerType to "King">>

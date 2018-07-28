@@ -28,5 +28,5 @@ setup.ageFaction = function (faction) {
   } else {
     faction.age = 'well established'
   }
-  return faction.age
+  return faction
 }
