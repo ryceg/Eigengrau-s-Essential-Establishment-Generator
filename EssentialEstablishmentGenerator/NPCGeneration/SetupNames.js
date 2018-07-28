@@ -2,7 +2,7 @@ setup.createName = function (npc) {
   switch (npc.gender) {
     case 'woman':
       Object.assign(npc, {
-        firstName: npcJSON.raceTraits[npc.race].femaleLastName.random()
+        firstName: npcJSON.raceTraits[npc.race].femaleFirstName.random()
       })
       break
     default:
