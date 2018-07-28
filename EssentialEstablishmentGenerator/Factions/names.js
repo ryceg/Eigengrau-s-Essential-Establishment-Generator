@@ -102,7 +102,7 @@ setup.nameFaction = function (faction) {
       }
   }
 
-  name = [
+  faction.name = [
     'The ' + temp.group + ' of ' + temp.adjective + ' ' + temp.main,
     'The ' + temp.group + ' of ' + temp.main,
     'The ' + temp.adjective + ' ' + temp.group,
@@ -110,5 +110,5 @@ setup.nameFaction = function (faction) {
     'The ' + State.variables.town.name + ' ' + temp.main
   ].random()
 
-  return name
+  return faction
 }

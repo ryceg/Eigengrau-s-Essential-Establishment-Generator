@@ -15,7 +15,7 @@
 	<<case 1>>
 		<<set $smithy.name to "The " + $smithy.adjective + " " + $smithy.noun>>
 	<<case 2>>
-		<<set $smithy.name to $blacksmith.firstname + " and " + $smithy.family>>
+		<<set $smithy.name to $blacksmith.firstName + " and " + $smithy.family>>
 	<<case 3>>
 		<<set $smithy.name to $smithy.noun + " and " + $smithy.family>>
 	<<case 4>>

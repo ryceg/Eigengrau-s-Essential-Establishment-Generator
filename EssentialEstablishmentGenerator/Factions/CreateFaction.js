@@ -24,11 +24,9 @@ setup.createFaction = function (base) {
 
   var faction = Object.assign({
     isPoliticalPower: isPoliticalPower,
-    // type: ["thieves", "merchants", "wizards", "rangers", "seers", "priests", "monks", "assassins", "artisans", "nobles", "bards"].random(),
     type: type,
     motivation: setup.motivationFaction(faction),
     leadershipType: leadershipType,
-    // leadershipType: leadershipType.random(),
     influenceRoll: influenceRoll,
     reputationRoll: reputationRoll,
     ageRoll: ageRoll,
@@ -43,17 +41,18 @@ setup.createFaction = function (base) {
     resources: resources
   }, base)
 
-  faction.name = setup.nameFaction(faction)
-  faction.age = setup.ageFaction(faction)
-  faction.reputation = setup.reputationFaction(faction)
-  faction.size = setup.sizeFaction(faction)
-  faction.influence = setup.influenceFaction(faction)
-  faction.resources = setup.resourcesFaction(faction)
-  faction.stability = setup.stabilityFaction(faction)
+  setup.nameFaction(faction)
+  setup.ageFaction(faction)
+  setup.reputationFaction(faction)
+  setup.sizeFaction(faction)
+  setup.influenceFaction(faction)
+  setup.resourcesFaction(faction)
+  setup.stabilityFaction(faction)
 
   setup.leaderFaction(faction)
   setup.joinFaction(faction)
   setup.membersFaction(faction)
+  setup.createAllies(faction)
 
   State.variables.factions.set(++index, faction)
 

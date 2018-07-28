@@ -32,8 +32,8 @@
 			"There's your standard beers, with the $tavern.wordnoun specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton.")>>
 	<<elseif $tavern.wealthRoll gt 40 && $tavern.sinRoll gt 60>>
 		<<print either(
-			"There's the usual house-brewed ale on tap, but it is warm and undercarbonated. You suspect that $bartender.firstname has watered it down. As far as food is concerned, there is the usual mutton and breads available.",
-			"$bartender.firstname says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated.")>>
+			"There's the usual house-brewed ale on tap, but it is warm and undercarbonated. You suspect that $bartender.firstName has watered it down. As far as food is concerned, there is the usual mutton and breads available.",
+			"$bartender.firstName says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated.")>>
 	<<elseif $tavern.wealthRoll gt 40>>
 		<<print either(
 			"There's the usual house-brewed ale on tap, but it is warm and undercarbonated. As far as food is concerned, there is the usual mutton and breads available.",

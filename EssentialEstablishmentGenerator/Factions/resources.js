@@ -89,5 +89,5 @@ setup.resourcesFaction = function (faction) {
     faction.resources = 'average'
   }
 
-  return faction.resources
+  return faction
 }

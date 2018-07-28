@@ -48,7 +48,7 @@ setup.createHistory = function (npc) {
       } else if (parentalLineageRoll >= 4) {
         npc.parentalLineage = 'One parent was a human, the other was a tiefling'
       } else if (parentalLineageRoll < 4) {
-        npc.parentalLineage = 'Both parents were human, with their infernal ancestry manifesting in ' + npc.firstname + ' later in life'
+        npc.parentalLineage = 'Both parents were human, with their infernal ancestry manifesting in ' + npc.firstName + ' later in life'
       }
       break
   }

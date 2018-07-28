@@ -15,7 +15,7 @@
 
     {
       title: "escaped children",
-      rumour: "<<set $apothecaryNPC to setup.createNPC>>I heard that the apothecarist $apothecaryNPC.name's boy recently went missing. The word was that he just skipped town, but then, Lord $lord.lastname's son just last night was reported missing.",
+      rumour: "<<set $apothecaryNPC to setup.createNPC>>I heard that the apothecarist $apothecaryNPC.name's boy recently went missing. The word was that he just skipped town, but then, Lord $lord.lastName's son just last night was reported missing.",
       dm: "Children are being drawn into the woods by a monster, where they are summarily eaten.",
     },
 

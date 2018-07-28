@@ -109,10 +109,10 @@
 		<<print "You head down after packing your things, and see that $bartender.name is sitting at one of the benches, chewing on a hunk of bread with cheese. The $bartender.weight $bartender.manwoman nods at you, and pauses, finishing chewing. When $bartender.heshe does finish, $bartender.heshe tells you that there's some bread and cheese left, if you want to pay the three copper for it.">>
 	<<elseif $tavern.wealth is "poor">>
 		<<print either("You make your way down out of the $tavern.wordnoun and see $bartender.name has fallen asleep at a bowl of porridge. From the kitchen, you can smell something burning",
-		"You make your way down, and as you're leaving $tavern.name, you accidentally knock a cup over. From behind the bar, you hear $bartender.firstname yell out obscenities at you for disturbing $bartender.hisher slumber.",
+		"You make your way down, and as you're leaving $tavern.name, you accidentally knock a cup over. From behind the bar, you hear $bartender.firstName yell out obscenities at you for disturbing $bartender.hisher slumber.",
 		"You start to make your way out of $tavern.name, careful not to disturb the patrons that have fallen asleep at their tables.",
-		"You smell something burning, and make your way down to check; when you get down to the kitchen of $tavern.name, you find $bartender.firstname sitting, chewing angrily over a bowl of burnt porridge.")>>
+		"You smell something burning, and make your way down to check; when you get down to the kitchen of $tavern.name, you find $bartender.firstName sitting, chewing angrily over a bowl of burnt porridge.")>>
 	<<elseif $tavern.wealth is "squalid">>
-		<<print either("You start to make your way out of the $tavern.cleanliness $tavern.wordnoun, and smell something burning, and make your way down to check; when you get down to the kitchen of $tavern.name, you find $bartender.firstname sitting, chewing angrily over a bowl of burnt porridge.", "You can't help but shake the feeling that there's a smell clinging to your clothes after staying the night at $tavern.name.")>>
+		<<print either("You start to make your way out of the $tavern.cleanliness $tavern.wordnoun, and smell something burning, and make your way down to check; when you get down to the kitchen of $tavern.name, you find $bartender.firstName sitting, chewing angrily over a bowl of burnt porridge.", "You can't help but shake the feeling that there's a smell clinging to your clothes after staying the night at $tavern.name.")>>
 <</if>>
 <</nobr>>

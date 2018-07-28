@@ -8,3 +8,7 @@ Welcome! Is this your first time using Eigengrau's Essential Establishment Gener
 <<profile $testNPC>>
 $testNPC.bmi
 $testNPC.bmiReadout */
+/* <<link "Create faction">><<set $testFaction to setup.createFaction()>><</link>>
+$testFaction.allies
+
+<<link "FactionProfile">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>> */

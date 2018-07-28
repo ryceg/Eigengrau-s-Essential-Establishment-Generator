@@ -1,5 +1,5 @@
 :: AdventureAlternate
-<<set $adventureGorn to setup.createNPC({age: "venerable", firstname: "Gorn"})>>
+<<set $adventureGorn to setup.createNPC({age: "venerable", firstName: "Gorn"})>>
 <<set $adventureBandit to setup.createNPC({gender: "man", profession: "bandit", dndclass: "fighter", note: "$adventureBandit is currently drunk."})>>
 
 <blockquote><h3>The Premise</h3>

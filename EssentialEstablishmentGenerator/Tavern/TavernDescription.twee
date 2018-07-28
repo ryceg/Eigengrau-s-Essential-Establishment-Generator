@@ -11,7 +11,7 @@
 		<<set _tavernnotable to "You see a gruff looking man catcall after one of the barmaids, and she looks over her shoulder, and replies something that you can't quite make out. Despite this, it's clear that whatever she said destroyed the man, as his friends burst into laughter while he deflates rather rapidly.">>
 	<<case "crude jokes the bartender makes">>
 		<<set $tavernPatron to setup.createNPC()>>
-		<<set _tavernnotable to "You see the bartender is talking to a $tavernPatron.age <<print either($tavernPatron.descriptor)>>. <<print $bartender.heshe.toUpperFirst()>> smiles, and then says something, making the <<print either($tavernPatron.descriptor)>> go white as a sheet, and immediately leave the establishment, with $bartender.firstname laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle $tavern.name'.">>
+		<<set _tavernnotable to "You see the bartender is talking to a $tavernPatron.age <<print either($tavernPatron.descriptor)>>. <<print $bartender.heshe.toUpperFirst()>> smiles, and then says something, making the <<print either($tavernPatron.descriptor)>> go white as a sheet, and immediately leave the establishment, with $bartender.firstName laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle $tavern.name'.">>
 	<<case "proximity to the thieves' guild headquarters">>
 		<<set $factionThieves to setup.createFaction({type: "thieves"})>>
 		<<set _tavernnotable to "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, $tavern.name has an issue with <<link '$factionThieves.name'>><<set $currentFaction to $factionThieves>><<goto 'FactionProfile'>><</link>>.">>
@@ -61,11 +61,11 @@
 		<<print either("$tavern.name is just one huge, $tavern.lighting $tavern.cleanliness room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.",
 		"$tavern.name is huge, $tavern.lighting, and $tavern.cleanliness. There are several large $tavern.material tables.")>>
 	<<case "quite large">>
-			$tavern.name is quite large, $tavern.cleanliness, and $tavern.lighting. The ceiling is unusually high, and the amount of wood that $bartender.firstname must go through would be immense. The dining hall has several large $tavern.material tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.
+			$tavern.name is quite large, $tavern.cleanliness, and $tavern.lighting. The ceiling is unusually high, and the amount of wood that $bartender.firstName must go through would be immense. The dining hall has several large $tavern.material tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.
 	<<case "large">>
 		$tavern.name is a large building, with the $tavern.cleanliness bar occupying the ground floor, and the beds for patrons are on the floor directly above you. It's $tavern.lighting.
 	<<case "spacious">>
-		$tavern.name is nice and spacious. The bar is roomy and $tavern.lighting, with several stools in front of it for patrons that wish to while away the evening talking to $bartender.firstname. There's a couple large $tavern.material tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.
+		$tavern.name is nice and spacious. The bar is roomy and $tavern.lighting, with several stools in front of it for patrons that wish to while away the evening talking to $bartender.firstName. There's a couple large $tavern.material tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.
 	<<case "medium">>
 		<<print either("$tavern.name is a tall building, but not particularly spacious; the $tavern.cleanliness bar occupies the ground floor which is $tavern.lighting, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the $tavern.material building.",
 		"$tavern.name is a reasonably spacious building that is $tavern.lighting, and very similar to the countless other taverns that you've come across in your times, right down to the specials board being somewhat battered with so many uses, and the dart board with many holes constantly seeing use.",

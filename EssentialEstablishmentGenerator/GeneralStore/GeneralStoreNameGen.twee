@@ -15,7 +15,7 @@ Roll
 	<<case 1>>
 		<<set $GeneralStore.name to "The " + $GeneralStore.adjective + " " + $GeneralStore.noun>>
 	<<case 2>>
-		<<set $GeneralStore.name to $blacksmith.firstname + " and " + $GeneralStore.family>>
+		<<set $GeneralStore.name to $blacksmith.firstName + " and " + $GeneralStore.family>>
 	<<case 3>>
 		<<set $GeneralStore.name to $GeneralStore.noun + " and " + $GeneralStore.family>>
 	<<case 4>>
