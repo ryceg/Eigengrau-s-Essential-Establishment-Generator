@@ -42,19 +42,19 @@
 
 <<switch $adventure.villain>>
     <<case "beast or monstrosity with no particular agenda">>
-        <<set $adventureVillain to setup.createNPC({gender: "nonbinary", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
     <<case "terrible aberration bent on corruption or domination">>
-        <<set $adventureVillain to setup.createNPC({gender: "nonbinary", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
     <<case "fiend bent on corruption or destruction">>
         <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
     <<case "dragon bent on domination and plunder">>
         <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
     <<case "giant bent on plunder">>
-        <<set $adventureVillain to setup.createNPC({height: "huge", race: "giant", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC({height: "huge", race: "human", isThrowaway: true})>>
     <<case "horrible undead with any agenda">>
-        <<set $adventureVillain to setup.createNPC({gender: "nonbinary", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
     <<case "fey with a mysterious goal">>
-        <<set $adventureVillain to setup.createNPC({race: "fey", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC({race: "elf", isThrowaway: true})>>
     <<case "humanoid cultist">>
         <<set $adventureVillain to setup.createNPC({dndclass: either("cleric", "sorcerer", "wizard"), isThrowaway: true})>>
         <<set $adventure.villain to "cultist called <<profile $adventureVillain>>">>
@@ -103,9 +103,9 @@
     <<case "raving lunatic adventurer">>
         <<set $adventureAlly to setup.createNPC()>>
     <<case "celestial ally">>
-        <<set $adventureAlly to setup.createNPC({race: "celestial being", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC({race: "elf", isThrowaway: true})>>
     <<case "fey ally">>
-        <<set $adventureAlly to setup.createNPC({race: "fey", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC({race: "elf", isThrowaway: true})>>
     <<case "disguised monster">>
         <<set $adventureAlly to setup.createNPC()>>
     <<case "villain posing as an ally">>
@@ -130,9 +130,9 @@
     <<case "respected elder">>
         <<set $adventurePatron to setup.createNPC({age: "venerable", isThrowaway: true})>>
     <<case "deity or celestial">>
-        <<set $adventurePatron to setup.createNPC({race: "celestial being", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC({race: "elf", isThrowaway: true})>>
     <<case "mysterious fey">>
-        <<set $adventurePatron to setup.createNPC({race: "fey", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC({race: "elf", isThrowaway: true})>>
     <<case "old friend">>
         <<set $adventurePatron to setup.createNPC()>>
     <<case "former teacher">>

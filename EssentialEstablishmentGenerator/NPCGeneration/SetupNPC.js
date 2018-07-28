@@ -50,7 +50,7 @@ setup.createNPC = function (base) {
     profession: npcJSON.profession.random(),
     trait: npcJSON.trait.random(),
     currentmood: npcJSON.currentMood.random(),
-    idle: npcJSON.idle.random(),
+    idle: npcJSON.idle,
     eyes: npcJSON.raceTraits[race].eyes.random(),
     racePlural: npcJSON.raceTraits[race].racePlural,
     raceAdjective: npcJSON.raceTraits[race].raceAdjective,

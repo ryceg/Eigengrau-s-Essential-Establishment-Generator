@@ -212,11 +212,6 @@ setup.createRace = function (npc) {
   switch (npc.race) {
     case 'human':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'].random(),
-        raceplural: 'humans',
-        raceadjective: 'human',
-        racelanguage: 'Common',
-        knownLanguages: ['Common'],
         height: ['tiny', 'short', 'short', 'slightly below average height', 'rather average height', 'slightly above average height', 'tall', 'tall', 'tall', 'giraffe-like'].random(),
         weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight', 'slightly overweight', 'slightly overweight', 'round', 'tubby', 'portly'].random()
       })
@@ -232,12 +227,6 @@ setup.createRace = function (npc) {
       break
     case 'elf':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'].random(),
-        racesingular: 'elf',
-        raceplural: 'elves',
-        raceadjective: 'elfish',
-        racelanguage: 'Elvish',
-        knownLanguages: ['Common', 'Elvish'],
         height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'tall'].random(),
         weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'slightly underweight'].random()
       })
@@ -250,12 +239,6 @@ setup.createRace = function (npc) {
       break
     case 'dwarf':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'dark brown', 'hazel', 'green', 'blue', 'gray', 'brown', 'dark brown', 'hazel', 'green', 'blue', 'gray', 'aqua'].random(),
-        racesingular: 'dwarf',
-        raceplural: 'dwarves',
-        raceadjective: 'dwarven',
-        racelanguage: 'Dwarven',
-        knownLanguages: ['Common', 'Dwarvish'],
         height: ['short', 'squat'].random(),
         weight: ['stocky', 'beefy', 'muscular', 'slightly underweight', 'slightly overweight', 'slightly overweight', 'round', 'tubby', 'portly'].random()
       })
@@ -268,12 +251,6 @@ setup.createRace = function (npc) {
       break
     case 'halfling':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'].random(),
-        racesingular: 'halfling',
-        raceplural: 'hobbits',
-        raceadjective: 'halfling',
-        racelanguage: 'Halfling',
-        knownLanguages: ['Common', 'Halfling'],
         height: ['short', 'tiny', 'diminuitive', 'little'].random(),
         weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight'].random()
       })
@@ -286,12 +263,6 @@ setup.createRace = function (npc) {
       break
     case 'half-orc':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'orange', 'brown', 'hazel', 'yellow', 'amber', 'orange', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red'].random(),
-        racesingular: 'half-orc',
-        raceplural: 'half-orcs',
-        raceadjective: 'half-orcish',
-        racelanguage: 'Orcish',
-        knownLanguages: ['Common', 'Orc'],
         height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'intimidatingly tall'].random(),
         weight: ['slightly underweight', 'stocky', 'beefy', 'muscular', 'extremely muscular', 'slightly overweight'].random()
       })
@@ -304,12 +275,6 @@ setup.createRace = function (npc) {
       break
     case 'dragonborn':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'aqua', 'red', 'purple', 'gold', 'gold'].random(),
-        racesingular: 'drake',
-        raceplural: 'drakes',
-        raceadjective: 'draconian',
-        racelanguage: 'Draconic',
-        knownLanguages: ['Common', 'Draconic'],
         height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'tall'].random(),
         weight: ['stocky', 'beefy', 'muscular', 'slightly underweight', 'extremely muscular', 'slightly overweight'].random()
       })
@@ -413,12 +378,6 @@ setup.createRace = function (npc) {
       break
     case 'tiefling':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray', 'violet red', 'aquamarine', 'deep blue', 'spring green', 'sea green', 'emerald green'].random(),
-        racesingular: 'tiefling',
-        raceplural: 'tieflings',
-        raceadjective: 'devilish',
-        racelanguage: 'Infernal',
-        knownLanguages: ['Common', 'Infernal'],
         height: ['tiny', 'short', 'slightly below average height', 'rather average height', 'slightly above average height', 'tall', 'tall', 'tall', 'giraffe-like'].random(),
         weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight'].random()
       })
@@ -431,12 +390,6 @@ setup.createRace = function (npc) {
       break
     case 'half-elf':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'].random(),
-        racesingular: 'half-elf',
-        raceplural: 'half-elves',
-        raceadjective: 'elfish',
-        racelanguage: 'Elven',
-        knownLanguages: ['Common', 'Elvish'],
         height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'tall'].random(),
         weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight'].random()
       })
@@ -449,12 +402,6 @@ setup.createRace = function (npc) {
       break
     case 'gnome':
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'].random(),
-        racesingular: 'gnome',
-        raceplural: 'gnomes',
-        raceadjective: 'gnomish',
-        racelanguage: 'Gnomish',
-        knownLanguages: ['Common', 'Gnomish'],
         height: ['short', 'tiny'].random(),
         weight: ['slightly underweight', 'stocky', 'beefy', 'slightly overweight', 'slightly overweight', 'round', 'tubby'].random()
       })
@@ -467,11 +414,6 @@ setup.createRace = function (npc) {
       break
     default:
       Object.assign(npc, {
-        eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'].random(),
-        racesingular: 'person',
-        raceplural: 'people',
-        raceadjective: 'man',
-        racelanguage: 'Common',
         height: ['tiny', 'short', 'slightly below average height', 'rather average height', 'slightly above average height', 'tall', 'tall', 'tall', 'giraffe-like'].random(),
         weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight', 'slightly overweight', 'slightly overweight', 'round', 'tubby', 'portly'].random()
       })

@@ -65,7 +65,7 @@ setup.createLifeEvents = function (npc) {
       'I was gifted a ',
       "I saved a wizard's life, and as a token of his thanks, he gave me a ",
       "I came across a trinket in a field- It's a "
-    ].random() + trinket.name + '<blockquote>(' + trinket.description + ')</blockquote>'
+    ].random() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
   }
 
   function meetFriendNPC () {
@@ -96,7 +96,7 @@ setup.createLifeEvents = function (npc) {
       } else {
         npc.partnerID = setup.createNPC({gender: 'man'})
       }
-      return 'I met the love of my life- ' + npc.partnerID
+      return 'I met the love of my life.'
     }
   }
 
@@ -224,7 +224,7 @@ setup.createLifeEvents = function (npc) {
       'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
     if (adventureRoll === 100) {
       var weapon = setup.createMagicWeapon()
-      adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + ' (' + weapon.description + ')'
+      adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + '<blockquote>' + '<h4>' + weapon.name + '</h4>' + weapon.description + '</blockquote>'
     } else if (adventureRoll >= 91) {
       adventureResults = 'found a considerable amount of treasure'
       npc.wealth += random(5100, 7150)
