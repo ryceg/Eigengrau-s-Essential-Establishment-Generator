@@ -111,5 +111,5 @@ setup.reputationFaction = function (faction) {
     faction.reputation = 'average'
   }
 
-  return faction
+  return faction.reputation
 }

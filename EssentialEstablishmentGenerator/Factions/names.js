@@ -1,7 +1,7 @@
-setup.nameFaction = function (faction) {
+setup.nameFaction = function (type) {
   var temp = {}
   var name
-  switch (faction.type) {
+  switch (type) {
     case 'thieves':
       temp = {
         adjective: ['Clever', 'Sneaky', 'Cunning', 'Conniving', 'Honest', 'Black', 'Invisible', 'Silent'].random(),
@@ -15,8 +15,8 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Merchants', 'Company', 'Sellers and Buyers', 'Traders', 'Dealers', 'Brokers', 'Pedlars', 'Hawkers', 'Distributors'].random(),
         adjective: ['Shrewd', 'Thrifty', 'Golden Spoon', 'Rich', 'Miserly'].random(),
-        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random()
-
+        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random(),
+        unique: ['Amazang', 'Goodest Purchase', 'Nasduq Traders', 'Fence Street Bets', 'Personal Financers'].random()
       }
       break
 
@@ -33,7 +33,8 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Wilderness', 'Woods', 'Lands', 'Forests', 'Trees', 'Animals'].random(),
         adjective: ['Tree Loving', 'Padfoot', 'Barefoot', 'Protective', 'Watchful', 'Careful', 'Honest'].random(),
-        group: ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order', 'Protectors', 'Defenders', 'Conservationists', 'Guardians'].random()
+        group: ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order', 'Protectors', 'Defenders', 'Conservationists', 'Guardians'].random(),
+        unique: ['Feathers, Fur and Friends', 'Boy Scouts', 'Primitive Technologists'].random()
       }
       break
 
@@ -41,7 +42,8 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Seers', 'Predictionists', 'Future Seers', 'Observers', 'Eyes', 'Historians'].random(),
         adjective: ['All Seeing', 'All Knowing', 'Watchful', 'Future'].random(),
-        group: ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random()
+        group: ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random(),
+        unique: ['We Looked Into The Future To Find Our Name And This Was The Name So I Guess This Is The Name', 'Seers of the Obscene', 'Seers of the Scenic'].random()
       }
       break
 
@@ -49,7 +51,8 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Priests', 'Clergy', 'Churchpeople', 'People of the Cloth', 'Robes', 'Incense', 'Elders', 'Preachers'].random(),
         adjective: ['Holy', 'Faithful', 'Caring', 'Civil', 'Devout', 'Devoted', 'Compassionate'].random(),
-        group: ['Society', 'Group', 'League', 'Servants', 'Collective', 'Brothers', 'Brotherhood', 'Brotherhood', 'Priesthood', 'Order'].random()
+        group: ['Society', 'Group', 'League', 'Servants', 'Collective', 'Brothers', 'Brotherhood', 'Brotherhood', 'Priesthood', 'Order'].random(),
+        unique: ['Definitely Not A Tax Haven', 'Repent Now', 'The Church of the Real God Unlike Those Fake Gods', 'The Church of the Real God', 'The Gods'].random()
       }
       break
 
@@ -57,7 +60,8 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Monks', 'Robes', 'Stone', 'Rock'].random(),
         adjective: ['Understanding', 'Meditating', 'Calm', 'Unmoving'].random(),
-        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random()
+        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random(),
+        unique: ['Ommmm', 'The Holy Loincloth', 'The Purposely Unwashed'].random()
       }
       break
 
@@ -74,7 +78,8 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Creators', 'Visionaries', 'Artisans', 'Artists'].random(),
         adjective: ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'].random(),
-        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random()
+        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random(),
+        unique: ['The Cubists', 'The Impressionables', 'The Impressionists', 'The Romanticists', 'The Dirty Paintings', 'The Dirty Painters', 'The Dirty Paint Club'].random()
       }
       break
 
@@ -82,33 +87,37 @@ setup.nameFaction = function (faction) {
       temp = {
         main: ['Rehearsals', 'Musicians', 'Bards', 'Harmonies', 'Poems', 'Ballads', 'Arias', 'Lutes', 'Minstrels'].random(),
         adjective: ['Tuneful', 'Melodious', 'Inspired', 'Twelve Tone', 'Busking'].random(),
-        group: ['Symphony', 'Quartet', 'Ensemble', 'Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random()
+        group: ['Symphony', 'Quartet', 'Ensemble', 'Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random(),
+        unique: ['Copperback', 'The Tumbling Pebbles', 'King', 'Megabeggars', 'The Wu Tang Clang', 'Earth, Wind and Shire', 'Iron Wench', 'Sex Crossbows', 'Def leprechaun'].random()
       }
       break
 
     case 'nobles':
       temp = {
-        main: ['People of Taste', 'Land Owners', 'Barons', 'Tycoons', 'Nobles', 'Gentlemen'].random(),
+        main: ['People', 'Men', 'Lords', 'Heirs', 'Land Owners', 'Barons', 'Tycoons', 'Nobles', 'Gentlemen'].random(),
         adjective: ['Sophisticated', 'Intelligent', 'Refined', 'Cultured', 'Wealthy', 'Distinguished'].random(),
-        group: ['Society', 'Group', 'Dinner Club', 'League', 'Club'].random()
+        group: ['Society', 'Group', 'Dinner Club', 'League', 'Club'].random(),
+        unique: ['The People Hunters', 'The Fur Coat Enthusiasts', 'The Heir Apparents', 'The Dead Parents Club', 'The High Horse'].random()
       }
       break
 
     default:
       temp = {
         main: ['People', 'Men', 'Citizens'].random(),
-        adjective: ['Watchful', 'Careful'].random(),
-        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random()
+        adjective: ['Watchful', 'Careful', 'Concerned'].random(),
+        group: ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'].random(),
+        unique: ['Not Just Commoners', 'The Disillusioned Squires'].random()
       }
   }
 
-  faction.name = [
+  name = [
     'The ' + temp.group + ' of ' + temp.adjective + ' ' + temp.main,
     'The ' + temp.group + ' of ' + temp.main,
     'The ' + temp.adjective + ' ' + temp.group,
     'The ' + temp.main + ' of ' + State.variables.town.name,
-    'The ' + State.variables.town.name + ' ' + temp.main
+    'The ' + State.variables.town.name + ' ' + temp.main,
+    temp.unique
   ].random()
-
-  return faction
+  console.log(name + ' loaded')
+  return name
 }

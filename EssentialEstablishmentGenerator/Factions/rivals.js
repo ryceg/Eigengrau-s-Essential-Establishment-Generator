@@ -1,42 +1,42 @@
-setup.createAllies = function (faction) {
+setup.createRivals = function (faction) {
   var sizeRoll = dice(2, 50)
   var group
   var groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
-  var groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.sizeRoll - 50)))
+  var groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.influenceRoll - 50)))
   var alliedGroups = []
-  var allies = []
+  var rivals = []
   var i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  setup.createAlliesList(groupList, faction)
+  setup.createRivalsList(groupList, faction)
 
   if (sizeRoll >= 90) {
-    faction.alliesDescription = 'an immense number of people to rely on for aid'
+    faction.rivalsDescription = 'managed to become almost universally disliked'
     for (i = 1; i <= 6; ++i) { getGroup(20) }
   } else if (sizeRoll >= 80) {
-    faction.alliesDescription = 'many allies'
+    faction.rivalsDescription = 'enemies around every corner'
     for (i = 1; i <= 5; ++i) { getGroup(25) }
   } else if (sizeRoll >= 70) {
-    faction.alliesDescription = 'a considerable number of allies'
+    faction.rivalsDescription = 'a considerable number of groups that wish them ill'
     for (i = 1; i <= 4; ++i) { getGroup(20) }
   } else if (sizeRoll >= 60) {
-    faction.alliesDescription = 'a decent number of allies'
+    faction.rivalsDescription = 'more enemies than one would expect'
     for (i = 1; i <= 3; ++i) { getGroup(15) }
   } else if (sizeRoll >= 50) {
-    faction.alliesDescription = 'some strong allies'
+    faction.rivalsDescription = 'some fearsome enemies'
     for (i = 1; i <= 2; ++i) { getGroup(10) }
   } else if (sizeRoll >= 40) {
-    faction.alliesDescription = 'a handful of trusted allies'
+    faction.rivalsDescription = 'a handful of rivals'
     getGroup(10)
     getGroup(-10)
   } else if (sizeRoll >= 30) {
-    faction.alliesDescription = 'a couple trusted allies'
+    faction.rivalsDescription = 'a couple enemies'
     getGroup(-15)
   } else if (sizeRoll >= 20) {
-    faction.alliesDescription = 'few allies'
+    faction.rivalsDescription = 'few rivals'
     getGroup(10)
   } else if (sizeRoll < 20) {
-    faction.alliesDescription = 'barely any allies'
+    faction.rivalsDescription = 'barely any rivals'
     getGroup(10)
   }
 
@@ -69,14 +69,10 @@ setup.createAllies = function (faction) {
     tempGroup = groupList.pluck()
     groupList.delete(tempGroup)
 
-    // while (alliedGroups.indexOf(tempGroup) !== -1) {
-    //   tempGroup = groupList.pluck()
-    // }
-    // alliedGroups.push(tempGroup)
     group = tempGroupSize + tempGroup
-    allies.push(group)
-    return allies
+    rivals.push(group)
+    return rivals
   }
-  faction.allies = allies
+  faction.rivals = rivals
   return faction
 }

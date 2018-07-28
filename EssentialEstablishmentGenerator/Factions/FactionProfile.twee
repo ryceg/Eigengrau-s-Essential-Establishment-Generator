@@ -29,4 +29,20 @@
     and <<print $currentFaction.allies[$currentFaction.allies.length - 1]>>
 <</if>><</nobr>>
 
+\<<if $currentFaction.rivals.length == 2>>
+    \<<print $currentFaction.rivals[0].toUpperFirst()>> and $currentFaction.rivals[1] are the only that wish $currentFaction.name ill.
+  \<<elseif $currentFaction.rivals.length == 1>>
+    $currentFaction.rivals are the enemies of $currentFaction.name.
+  \<<else>>
+    \<<print $currentFaction.rivals[0].toUpperFirst()>>
+    \<<print either(
+        "are enemies of $currentFaction.name, as are ",
+        "wish ill of $currentFaction.name. Their other enemies also include ",
+        "are rivals. Other enemies include "
+    )>>
+    \<<for _rivals range $currentFaction.rivals.slice(1, -1)>>
+        _rivals,
+    \<</for>> and <<print $currentFaction.rivals[$currentFaction.rivals.length - 1]>>
+\<</if>>
+
 <<back>>

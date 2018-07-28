@@ -89,5 +89,5 @@ setup.influenceFaction = function (faction) {
     faction.influence = 'average'
   }
 
-  return faction
+  return faction.influence
 }
