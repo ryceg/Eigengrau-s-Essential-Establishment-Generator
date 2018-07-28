@@ -8,7 +8,7 @@ This generator is different because it generates text that you can read out to p
 <</fadein>>
 
 <<fadein 1200ms 3s>>\
-The towns that it creates are also self-referential, and consistent; you won't have a tavern that's renowned for being a high-end dining club that caters to kings that's filthy. Similarly, a tavern that is terribly poor and disgusting isn't going to charge an arm and a leg.\
+The towns that it creates are also self-referential, and consistent; you won't have a tavern that's filthy, but is renowned for being a high-end dining club that caters to kings. Similarly, a tavern that is terribly poor and disgusting isn't going to charge an arm and a leg.\
 <</fadein>>
 
 <<fadein 1300ms 5s>>\
@@ -16,7 +16,7 @@ You have control over these factors though; there are sliders to fine tune exact
 <</fadein>>
 
 <<fadein 1400ms 7s>>\
-A lot of content is hidden behind hyperlinks, for ease of navigation. To reveal the text, simply click on any link that lets you<<linkreplace ". like this.">>. Good job!<</linkreplace>>\
+A lot of content is hidden behind hyperlinks, for ease of navigation. To reveal the text, simply click on any link that lets you<span class="tip" title="there are also popups!"><<linkreplace ". like this.">>. Good job!<</linkreplace>></span>\
 <</fadein>>
 
 <<fadein 1500ms 10s>>\

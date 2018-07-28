@@ -51,19 +51,18 @@ setup.createBuilding = function (base) {
     bedcleanliness: bedcleanliness,
     expertise: expertise,
     activity: activity,
-    magicRoll: Math.floor(Math.random() * 80) + 20,
+    magicRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
     priceModifier: random(-10, 10),
-    sizeRoll: Math.floor(Math.random() * 80) + 20,
-    diversityRoll: Math.floor(Math.random() * 80) + 20,
-    wealthRoll: random(1, 100),
-    populationRoll: random(1, 100),
-    reputationRoll: random(1, 100),
-    sinRoll: random(1, 100),
-    roughnessRoll: random(1, 100),
-    cleanlinessRoll: random(1, 100),
-    bedcleanlinessRoll: random(1, 100),
-    expertiseRoll: random(1, 100),
-    activityRoll: random(1, 100)
+    sizeRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
+    diversityRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
+    wealthRoll: random(1, 100).clamp(1, 100),
+    populationRoll: random(1, 100).clamp(1, 100),
+    reputationRoll: random(1, 100).clamp(1, 100),
+    sinRoll: random(1, 100).clamp(1, 100),
+    roughnessRoll: random(1, 100).clamp(1, 100),
+    cleanlinessRoll: random(1, 100).clamp(1, 100),
+    expertiseRoll: random(1, 100).clamp(1, 100),
+    activityRoll: random(1, 100).clamp(1, 100)
   }, base)
 
   building.sinRoll.clamp(1, 100)
