@@ -176,7 +176,7 @@ setup.createLifeEvents = function (npc) {
       warResults = 'I suffered only minor injuries, and the wounds all healed without leaving any scars'
     } else if (warRoll >= 2) {
       warResults = 'I suffered some serious injuries, and had to be carried off the field'
-      npc.physicaltrait = ['a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'].random()
+      npc.physicalTrait = ['a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'].random()
     } else if (warRoll === 1) {
       warResults = 'I was knocked out, and left for dead. I woke up hours later, after the battle was over, and had to walk injured for days to find aid'
     }
@@ -263,14 +263,14 @@ setup.createLifeEvents = function (npc) {
         adventureResults = 'was poisoned by a ' + ['monster', 'trap', 'monster'].random() + ', but recovered in due time'
       } else if (adventureRoll >= 31) {
         adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right"
-        npc.physicaltrait = ['pockmarked face', 'grey hair'].random()
+        npc.physicalTrait = ['pockmarked face', 'grey hair'].random()
       } else if (adventureRoll >= 21) {
         adventureResults = 'was wounded, but recovered in time'
       } else if (adventureRoll >= 11) {
         adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time'
       } else if (adventureRoll < 11) {
         adventureResults = "nearly died- that's how I got the scars."
-        npc.physicaltrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
+        npc.physicalTrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
       }
     }
     return adventurePrefix + adventureResults

@@ -36,12 +36,12 @@ setup.createNPC = function (base) {
     age: age,
     /* currentmood: ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"], */
     demeanour: npcJSON.demeanour.random(),
-    calmtrait: npcJSON.calmTrait.random(),
-    stresstrait: npcJSON.stressTrait.random(),
+    calmTrait: npcJSON.calmTrait.random(),
+    stressTrait: npcJSON.stressTrait.random(),
     vocalPattern: vocalPattern,
     adventure: npcJSON.adventure.random(),
-    haircolour: npcJSON.hairColour.random(),
-    hairtype: npcJSON.hairType.random(),
+    hairColour: npcJSON.hairColour.random(),
+    hairType: npcJSON.hairType.random(),
     dndclass: npcJSON.dndClass.random(),
     background: npcJSON.background.random(),
     pockets: npcJSON.pockets.random(),
@@ -50,11 +50,11 @@ setup.createNPC = function (base) {
     belief: npcJSON.belief.random(),
     profession: npcJSON.profession.random(),
     trait: npcJSON.trait.random(),
-    currentmood: npcJSON.currentMood.random(),
+    currentMood: npcJSON.currentMood.random(),
     idle: npcJSON.idle,
     eyes: npcJSON.raceTraits[race].eyes.random(),
     racePlural: npcJSON.raceTraits[race].racePlural,
-    raceadjective: npcJSON.raceTraits[race].raceAdjective,
+    raceAdjective: npcJSON.raceTraits[race].raceAdjective,
     raceLanguage: npcJSON.raceTraits[race].raceLanguage,
     currentproject: currentproject,
     mundane: mundane,
@@ -73,7 +73,7 @@ setup.createNPC = function (base) {
     skinColours: npcJSON.skinColours.random(),
     pubRumour: pubRumour
   }, base)
-  npc.hair = npc.hairtype + ' ' + npc.haircolour + ' hair'
+  npc.hair = npc.hairType + ' ' + npc.hairColour + ' hair'
 
   if (npc.hasClass === false) {
     npc.dndclass = npc.profession
@@ -134,13 +134,13 @@ setup.createNPC = function (base) {
       break
   }
 
-  var physicaltraitRoll = Math.floor(Math.random() * 10) + 1
-  if (physicaltraitRoll > 8) {
-    npc.physicaltrait = npcJSON.scar.random()
-  } else if (physicaltraitRoll > 6) {
-    npc.physicaltrait = npcJSON.tattoo.random()
-  } else if (physicaltraitRoll <= 6) {
-    npc.physicaltrait = npc.hair
+  var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
+  if (physicalTraitRoll > 8) {
+    npc.physicalTrait = npcJSON.scar.random()
+  } else if (physicalTraitRoll > 6) {
+    npc.physicalTrait = npcJSON.tattoo.random()
+  } else if (physicalTraitRoll <= 6) {
+    npc.physicalTrait = npc.hair
   }
 
   setup.createHistory(npc)
@@ -152,7 +152,7 @@ setup.createNPC = function (base) {
   npc.availableLanguages = [allLanguages - npc.knownLanguages]
 
   setup.createBackground(npc)
-  npc.descriptor = [npc.age + ' ' + npc.racesingular, npc.height + ' ' + npc.racesingular, npc.weight + ' ' + npc.racesingular, npc.height + ' ' + npc.gender + ' with ' + npc.physicaltrait]
+  npc.descriptor = [npc.age + ' ' + npc.racesingular, npc.height + ' ' + npc.racesingular, npc.weight + ' ' + npc.racesingular, npc.height + ' ' + npc.gender + ' with ' + npc.physicalTrait]
   if (typeof beard !== 'undefined') {
     npc.descriptor.push(npc.racesingular + ' with a ' + npc.beard)
   }
