@@ -3,8 +3,6 @@ setup.createRace = function (npc) {
   var baseWeight
   var heightModifier
   var weightModifier
-  var heightRoll
-  var weightRoll
 
   switch (npc.race) {
     case 'human':
@@ -166,55 +164,127 @@ setup.createRace = function (npc) {
   // bmiReadout will eventually replace 'weight'. So, when all that stuff is done, plus athleticism is coded in, I'll do a big ol' Cmd + F on 'bmiReadout' and replace it. For now, it's just bug-testing.
   npc.bmi = (Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * 703))
   if (npc.bmi > 40) {
-    npc.bmiReadout = 'morbidly obese'
+    npc.weight = 'morbidly obese'
   } else if (npc.bmi >= 35) {
-    npc.bmiReadout = 'extremely obese'
+    npc.weight = 'extremely obese'
   } else if (npc.bmi >= 28) {
-    npc.bmiReadout = 'beer-bellied'
+    npc.weight = 'beer-bellied'
   } else if (npc.bmi >= 32) {
-    npc.bmiReadout = 'round'
+    npc.weight = 'round'
   } else if (npc.bmi >= 30) {
-    npc.bmiReadout = 'obese'
+    npc.weight = 'obese'
   } else if (npc.bmi >= 29) {
-    npc.bmiReadout = 'chubby'
+    npc.weight = 'chubby'
   } else if (npc.bmi >= 28) {
-    npc.bmiReadout = 'fat'
+    npc.weight = 'fat'
   } else if (npc.bmi >= 27) {
-    npc.bmiReadout = 'overweight'
+    npc.weight = 'overweight'
   } else if (npc.bmi >= 26) {
-    npc.bmiReadout = 'thick'
+    npc.weight = 'thick'
   } else if (npc.bmi >= 25) {
-    npc.bmiReadout = 'chunky'
+    npc.weight = 'chunky'
   } else if (npc.bmi >= 24) {
-    npc.bmiReadout = 'broad'
+    npc.weight = 'broad'
   } else if (npc.bmi >= 23) {
-    npc.bmiReadout = 'healthy'
+    npc.weight = 'healthy'
   } else if (npc.bmi >= 22) {
-    npc.bmiReadout = 'lean'
+    npc.weight = 'lean'
   } else if (npc.bmi >= 21) {
-    npc.bmiReadout = 'thin'
+    npc.weight = 'thin'
   } else if (npc.bmi >= 20) {
-    npc.bmiReadout = 'rather thin'
+    npc.weight = 'rather thin'
   } else if (npc.bmi >= 19) {
-    npc.bmiReadout = 'skinny'
+    npc.weight = 'skinny'
   } else if (npc.bmi >= 18) {
-    npc.bmiReadout = 'lithe'
+    npc.weight = 'lithe'
   } else if (npc.bmi >= 17) {
-    npc.bmiReadout = 'scrawny'
+    npc.weight = 'scrawny'
   } else if (npc.bmi >= 16) {
-    npc.bmiReadout = 'weedy'
+    npc.weight = 'weedy'
   } else if (npc.bmi >= 15) {
-    npc.bmiReadout = 'gaunt'
+    npc.weight = 'gaunt'
   } else if (npc.bmi < 15) {
-    npc.bmiReadout = 'bony'
+    npc.weight = 'bony'
+  }
+
+  if (npc.heightRoll > 78) {
+    npc.height = 'giraffe-like'
+  } else if (npc.heightRoll > 77) {
+    npc.height = 'extremely tall'
+  } else if (npc.heightRoll > 76) {
+    npc.height = 'very tall'
+  } else if (npc.heightRoll > 75) {
+    npc.height = 'rather tall'
+  } else if (npc.heightRoll > 74) {
+    npc.height = 'quite tall'
+  } else if (npc.heightRoll > 73) {
+    npc.height = 'reasonably tall'
+  } else if (npc.heightRoll > 72) {
+    npc.height = 'tall'
+  } else if (npc.heightRoll > 71) {
+    npc.height = 'taller than average'
+  } else if (npc.heightRoll > 70) {
+    npc.height = 'average sized'
+  } else if (npc.heightRoll > 69) {
+    npc.height = 'average sized'
+  } else if (npc.heightRoll > 68) {
+    npc.height = 'on the short side'
+  } else if (npc.heightRoll > 67) {
+    npc.height = 'somewhat short'
+  } else if (npc.heightRoll > 66) {
+    npc.height = 'relatively short'
+  } else if (npc.heightRoll > 65) {
+    npc.height = 'short-ish'
+  } else if (npc.heightRoll > 64) {
+    npc.height = 'short'
+  } else if (npc.heightRoll > 63) {
+    npc.height = 'short'
+  } else if (npc.heightRoll > 62) {
+    npc.height = 'rather short'
+  } else if (npc.heightRoll > 61) {
+    npc.height = 'barely five foot'
+  } else if (npc.heightRoll > 60) {
+    npc.height = 'short'
+  } else if (npc.heightRoll > 59) {
+    npc.height = 'quite short'
+  } else if (npc.heightRoll > 58) {
+    npc.height = 'rather short'
+  } else if (npc.heightRoll > 57) {
+    npc.height = 'pint sized'
+  } else if (npc.heightRoll > 56) {
+    npc.height = 'quite small'
+  } else if (npc.heightRoll > 55) {
+    npc.height = 'small'
+  } else if (npc.heightRoll > 54) {
+    npc.height = 'squat'
+  } else if (npc.heightRoll > 52) {
+    npc.height = 'quite squat'
+  } else if (npc.heightRoll > 50) {
+    npc.height = 'rather squat'
+  } else if (npc.heightRoll > 48) {
+    npc.height = 'somewhat tiny'
+  } else if (npc.heightRoll > 46) {
+    npc.height = 'tiny'
+  } else if (npc.heightRoll > 44) {
+    npc.height = 'rather tall (compared to a halfling)'
+  } else if (npc.heightRoll > 42) {
+    npc.height = 'tall (for a halfling)'
+  } else if (npc.heightRoll > 40) {
+    npc.height = 'barely a metre'
+  } else if (npc.heightRoll > 38) {
+    npc.height = 'diminuitive'
+  } else if (npc.heightRoll > 36) {
+    npc.height = 'quite diminuitive'
+  } else if (npc.heightRoll > 34) {
+    npc.height = 'adorably short'
+  } else if (npc.heightRoll > 32) {
+    npc.height = 'tiny'
+  } else if (npc.heightRoll > 30) {
+    npc.height = 'so so tiny'
   }
 
   switch (npc.race) {
     case 'human':
-      Object.assign(npc, {
-        height: ['tiny', 'short', 'short', 'slightly below average height', 'rather average height', 'slightly above average height', 'tall', 'tall', 'tall', 'giraffe-like'].random(),
-        weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight', 'slightly overweight', 'slightly overweight', 'round', 'tubby', 'portly'].random()
-      })
       npc.racenote = npc.height + ' ' + npc.gender
       if (npc.gender === 'man') {
         npc.racesingular = 'man'
@@ -226,10 +296,6 @@ setup.createRace = function (npc) {
       }
       break
     case 'elf':
-      Object.assign(npc, {
-        height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'tall'].random(),
-        weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'slightly underweight'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 87) {
@@ -238,10 +304,6 @@ setup.createRace = function (npc) {
       }
       break
     case 'dwarf':
-      Object.assign(npc, {
-        height: ['short', 'squat'].random(),
-        weight: ['stocky', 'beefy', 'muscular', 'slightly underweight', 'slightly overweight', 'slightly overweight', 'round', 'tubby', 'portly'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 2) {
@@ -250,10 +312,6 @@ setup.createRace = function (npc) {
       }
       break
     case 'halfling':
-      Object.assign(npc, {
-        height: ['short', 'tiny', 'diminuitive', 'little'].random(),
-        weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 92) {
@@ -262,10 +320,6 @@ setup.createRace = function (npc) {
       }
       break
     case 'half-orc':
-      Object.assign(npc, {
-        height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'intimidatingly tall'].random(),
-        weight: ['slightly underweight', 'stocky', 'beefy', 'muscular', 'extremely muscular', 'slightly overweight'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 75) {
@@ -274,113 +328,9 @@ setup.createRace = function (npc) {
       }
       break
     case 'dragonborn':
-      Object.assign(npc, {
-        height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'tall'].random(),
-        weight: ['stocky', 'beefy', 'muscular', 'slightly underweight', 'extremely muscular', 'slightly overweight'].random()
-      })
       npc.racenote = npc.race
-
-      Object.assign(npc, {
-        note: [[npc.firstName + ' is covered in glimmering red scales, which seem to turn a slight orange color in the sunlight.',
-          npc.firstName + ' has several scales missing and a long gash running along ' + npc.hisher + ' face.',
-          npc.firstName + ' has two long, spined and membranous ears.',
-          npc.firstName + ' has a slightly off-center snout, akin to a poorly-reset broken nose.',
-          npc.firstName + ' has two small bony nubs at ' + npc.hisher + ' shoulder blades- vestigial wings.',
-          npc.firstName + ' has poor control over ' + npc.hisher + ' breath weapon, and when ' + npc.sheshe + ' is agitated, ' + npc.hisher + ' nostrils and mouth crackle with lightning/exude a green gas/smoke like chimneys drip green acid/breath puffs of frosty white air.',
-          npc.firstName + ' has highly acidic saliva.',
-          npc.firstName + ' has long overly curled horns.',
-          npc.firstName + ' has a heart that glows bright enough to be seen beneath the scales.',
-          npc.firstName + ' has spines that stick out from every joint.',
-          'Smoke is always slowly rising from ' + npc.firstName + '’s nose and mouth.',
-          npc.firstName + "'s scales are prismatic.",
-          npc.firstName + ' has a tiny pair of unusable wings.',
-          npc.firstName + ' has 2 inch retractable nail/talons on ' + npc.hisher + ' fingers and toes.',
-          npc.firstName + ' has eyes that change color depending on ' + npc.hisher + ' emotions.',
-          npc.firstName + ' appears to have had ' + npc.hisher + ' claws torn off, so a leather bound brace of daggers serves as their replacement.',
-          npc.firstName + ' has random different colored scales glistening blue and white.',
-          npc.firstName + ' has a crest of multicolored feathers atop ' + npc.hisher + ' head, resembling a hairdo.',
-          npc.firstName + ' is branded on ' + npc.hisher + ' forehead with a strange, unknown symbol.',
-          npc.firstName + ' only refers to themselves by a number emblazoned on ' + npc.hisher + ' gear (necklace, scabbard, belt, etc.).',
-          npc.firstName + "'s acid breath clearly went wrong, as the flesh on the right side of " + npc.hisher + ' face, from the middle of ' + npc.hisher + ' neck to the top of ' + npc.hisher + ' mouth is burned off.',
-          npc.firstName + ' is missing all of ' + npc.hisher + ' scales, revealing the pale skin beneath. The colour is only identified by a small patch of scales on ' + npc.hisher + ' cheek.',
-          npc.firstName + ' has one or more hidden paths on ' + npc.hisher + ' skin where scales never developed.',
-          npc.firstName + ' has traces of another colour (for example, little splotches of black scales on a green dragonborn).',
-          npc.firstName + '‘s voice seems to come from within, rather than from ' + npc.hisher + ' lips and mouth moving when ' + npc.sheshe + ' talks.',
-          npc.firstName + "'s eyes gleam red while in combat.",
-          npc.firstName + ' is constantly drawn to live as a dragon and hoard all the loot.. for safe keeping of course.',
-          npc.firstName + "'s fangs grow in the presents of injured enemies.",
-          npc.firstName + ' has a cracked or broken snout horn.',
-          npc.firstName + ' has a fake, steel nose horn.',
-          npc.firstName + ' has transluscent or transparent patches of scales.',
-          npc.firstName + ' has a frill running down the chin and neck.',
-          npc.firstName + ' has a frill running up the snout, head, and the back of the neck.',
-          npc.firstName + ' has 3 eyelids: 2 normal ones, and a thin, almost transparent one underneath that moves in a perpendicular direction to the other two.',
-          npc.firstName + ' tends to hiss when speaking.',
-          npc.firstName + ' has shiny blue scales. The darkness of the color is determined by the temperature.',
-          npc.firstName + "'s breath weapon is always accompanied by a horrific, sickly sweet stench.",
-          npc.firstName + ' has two large (possibly colorful) frills instead of horns.',
-          npc.firstName + ' has albinism, making it hard to tell what exact kind of dragonborn ' + npc.sheshe + ' is.',
-          npc.firstName + ' has a small patch of scales etched with scratches. It’s become a nervous habit to trace over them or scratch even more.',
-          npc.firstName + "'s breath weapon is unusually colored (blue fire, red acid, green lightning, etc).",
-          npc.firstName + "'s horns originate in the back of " + npc.hisher + ' head and curl around to face forward.',
-          npc.firstName + ' has ears. They look elven in nature.',
-          npc.firstName + "'s eyes have two pupils, with different colored irises.",
-          npc.firstName + ' has a habit of chewing on gemstones, jewelry, and precious metals.',
-          npc.firstName + ' has pits in ' + npc.hisher + ' face instead of an actual nose, similar to a snake’s.',
-          npc.firstName + "'s scales are a dull, matte color.",
-          npc.firstName + ' has 5 fingers and 5 toes, as opposed to the standard 3.',
-          npc.firstName + ' has a long, serpentine tongue.',
-          npc.firstName + "'s scales are bumpy, thick, and loose on " + npc.hisher + ' skin (think a gila monster).',
-          npc.firstName + "'s scales are sleek and uniform, like a snake.",
-          npc.firstName + "'s scales are incredibly uneven. Some are huge, others are tiny. This isn’t uncomfortable, just making interesting patterns on " + npc.hisher + ' skin.',
-          npc.firstName + ' has a third eye. Doesn’t actually see but can distinguish changing levels of light above them.',
-          npc.firstName + "'s mouth is brimming with bacteria that can kill in 5-7 days without treatment from a bite.",
-          npc.firstName + ' has tail spikes like a stegosaurus.',
-          npc.firstName + "'s scales are a dull faded red color, but glow bright red when " + npc.sheshe + ' is aroused or in love.',
-          npc.firstName + ' has the power to make ' + npc.hisher + ' scales shine with bright neon colors on command.',
-          npc.firstName + "'s singing voice is the exact opposite tone of " + npc.hisher + ' speaking voice (for example, if ' + npc.firstName + ' is female and has a higher voice, ' + npc.sheshe + ' will sing in a deep bass-baritone). It’s always a beautiful voice regardless, making them better performers.',
-          npc.firstName + "'s scales are incredibly flexible, allowing " + npc.himher + ' to bend in near impossible positions (think contortionist).',
-          npc.firstName + "'s hiccups are powerful bursts of freezing air.",
-          npc.firstName + "'s scales shimmer like a rainbow in moonlight.",
-          npc.firstName + ' has flaps of skin under ' + npc.hisher + ' armpits, almost like wings but they don’t do anything.',
-          npc.firstName + ' has two frills on top of his head. Keeps ' + npc.himher + ' cool in hot temperatures.',
-          npc.firstName + ' has scaly human-like ears.',
-          npc.firstName + "'s breath weapon is incredibly uncomfortable, even painful, like puking. A few dry heaves beforehand, with a bit of tears and snot afterwards.",
-          npc.firstName + "'s form was not made for the human world. Clawed fingers get in the way of delicate tasks; a head bumped on a low doorway will take some effort in order to pull the horns out. ",
-          npc.firstName + ' has an above average sized tail to compensate for ' + npc.hisher + ' vestigial legs.',
-          npc.firstName + ' has shorn horn stubs on the side of ' + npc.hisher + ' head- the horns were stolen by alchemists.',
-          npc.firstName + ' has an odd scale discoloration that looks eerily similar to the crest of a very well known Elven god.',
-          npc.firstName + ' can clean ' + npc.hisher + ' eyelids with ' + npc.hisher + ' forked tongue, but only does this as a party trick.',
-          npc.firstName + ' can gallop quadrupedally by using ' + npc.hisher + ' tail for balance, and are also an effective climber.',
-          npc.firstName + ' has impressive face whiskers like a carp.',
-          npc.firstName + ' hates sweets, but is fond of anything that makes a satisfying loud crunch. Bananas are only tolerated with the peel still on.',
-          npc.firstName + ' is patient to a fault and sometimes forgets that children and grandchildren cannot be judged by the actions of their parents.',
-          npc.firstName + ' has a colorful dewlap on ' + npc.hisher + ' chin and neck.',
-          npc.firstName + ' can move ' + npc.hisher + ' eyes independently of one another.',
-          npc.firstName + "'s scales are of a much lighter tone than the skin, making them stand out even more.",
-          npc.firstName + ' is overly formal and insists you call ' + npc.himher + ' by ' + npc.hisher + ' full name and title at all times.',
-          npc.firstName + ' is covered in a sparkly paint that magically changes colour every few minutes, making it impossible to tell what ' + npc.hisher + ' natural colour is. ' + npc.firstName + ' is not particularly clever and has covered ' + npc.himherself + ' in glitter thinking it will make ' + npc.himher + ' look metallic.',
-          npc.firstName + ' only speaks draconic, but has a pet talking lizard that sits on ' + npc.hisher + ' shoulder and translates for them.',
-          npc.firstName + ' treats all other species like biological specimens that should be studied and are taking extensive notes on ' + npc.hisher + ' observations.',
-          npc.firstName + ' is overly vain about ' + npc.hisher + ' scales and teeth and spend a long time every morning polishing and shining them.',
-          npc.firstName + ' takes great pride in ' + npc.hisher + ' claws, and has intricate designs painted on them.',
-          npc.firstName + ' is very elitist in terms of colour and classify other races into the dragon colour categories by hair colour, treating them accordingly.',
-          npc.firstName + ' has a cold and keeps accidentally setting off a mild version of ' + npc.hisher + ' breath weapon every time ' + npc.sheshe + ' sneezes, which is often.',
-          'Whenever ' + npc.sheshe + ' uses ' + npc.hisher + ' breath attack, ' + npc.hisher + ' eyes shine bright white.',
-          npc.firstName + ' has weak and useless vestigial wings coming out of ' + npc.hisher + ' shoulders that ' + npc.sheshe + ' tries to keep hidden.',
-          'When sleeping, ' + npc.sheshe + ' exhale harmless clouds of smoke from ' + npc.hisher + ' nostrils.',
-          npc.firstName + ' refuses to eat any meat that isn’t cooked past well done.',
-          npc.firstName + ' likes to cover themselves in mud constantly ‘to fight parasites’.',
-          npc.firstName + ' has a bifurcated nose horn.',
-          npc.firstName + ' has tiny useless T-Rex arms on ' + npc.hisher + ' shoulder blades.'
-        ].random()]
-      })
       break
     case 'tiefling':
-      Object.assign(npc, {
-        height: ['tiny', 'short', 'slightly below average height', 'rather average height', 'slightly above average height', 'tall', 'tall', 'tall', 'giraffe-like'].random(),
-        weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 70) {
@@ -389,10 +339,6 @@ setup.createRace = function (npc) {
       }
       break
     case 'half-elf':
-      Object.assign(npc, {
-        height: ['rather average height', 'slightly above average height', 'tall', 'tall', 'tall'].random(),
-        weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 57) {
@@ -401,10 +347,6 @@ setup.createRace = function (npc) {
       }
       break
     case 'gnome':
-      Object.assign(npc, {
-        height: ['short', 'tiny'].random(),
-        weight: ['slightly underweight', 'stocky', 'beefy', 'slightly overweight', 'slightly overweight', 'round', 'tubby'].random()
-      })
       npc.racenote = npc.race
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 37) {
@@ -413,10 +355,6 @@ setup.createRace = function (npc) {
       }
       break
     default:
-      Object.assign(npc, {
-        height: ['tiny', 'short', 'slightly below average height', 'rather average height', 'slightly above average height', 'tall', 'tall', 'tall', 'giraffe-like'].random(),
-        weight: ['waif-like', 'thin', 'skinny', 'skinny', 'wiry', 'thin', 'stocky', 'beefy', 'muscular', 'slightly underweight', 'slightly overweight', 'slightly overweight', 'round', 'tubby', 'portly'].random()
-      })
       npc.racenote = npc.height + ' ' + npc.gender
       if (npc.gender === 'man') {
         if (npc.beardRoll >= 27) {
