@@ -31,27 +31,27 @@ setup.createLifeEvents = function (npc) {
   for (i = 0; i < lifeEventsNumber; i++) {
     lifeEventsRoll = random(1, 100)
     if (lifeEventsRoll === 100) {
-      npc.lifeEvents.push(weirdStuff())
+      npc.lifeEvents.push(weirdStuff(npc))
     } else if (lifeEventsRoll >= 96) {
-      npc.lifeEvents.push(arcaneMatters())
+      npc.lifeEvents.push(arcaneMatters(npc))
     } else if (lifeEventsRoll >= 91) {
       npc.lifeEvents.push(crime())
     } else if (lifeEventsRoll >= 86) {
       npc.lifeEvents.push(war())
     } else if (lifeEventsRoll >= 81) {
-      npc.lifeEvents.push(supernatural())
+      npc.lifeEvents.push(supernatural(npc))
     } else if (lifeEventsRoll >= 76) {
-      npc.lifeEvents.push(adventure())
+      npc.lifeEvents.push(adventure(npc))
     } else if (lifeEventsRoll >= 71) {
-      npc.lifeEvents.push(meetImportantNPC())
+      npc.lifeEvents.push(meetImportantNPC(npc))
     } else if (lifeEventsRoll >= 51) {
       npc.lifeEvents.push(backgroundWork())
     } else if (lifeEventsRoll >= 41) {
       npc.lifeEvents.push(meetPartnerNPC())
     } else if (lifeEventsRoll >= 31) {
-      npc.lifeEvents.push(meetEnemyNPC())
+      npc.lifeEvents.push(meetEnemyNPC(npc))
     } else if (lifeEventsRoll >= 21) {
-      npc.lifeEvents.push(meetFriendNPC())
+      npc.lifeEvents.push(meetFriendNPC(npc))
     } else if (lifeEventsRoll >= 11) {
       npc.lifeEvents.push(trinket())
     }
@@ -68,23 +68,27 @@ setup.createLifeEvents = function (npc) {
     ].random() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
   }
 
-  function meetFriendNPC () {
-    // npc.friend = setup.createNPC()
-    // return 'I made a friend for life in my travels- ' + '<<profile ' + npc.friend + '>>'
-    return [
-      'I made a friend for life in my travels',
-      'I was poor as a churchmouse, but then the priest helped me get a job. I owe everything I am today to his compassion',
-      'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser',
-      "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my best friend"
-    ].random()
+  function meetFriendNPC (npc) {
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      return [
+        'I made a friend for life in my travels',
+        'I was poor as a churchmouse, but then the priest helped me get a job. I owe everything I am today to his compassion',
+        'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser',
+        "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my best friend"
+      ].random()
+    }
   }
 
-  function meetImportantNPC () {
-    // npc.important = setup.createNPC()
-    // return 'in my travels, I met the illustrious ' + '<<profile ' + npc.important + '>>'
-    return [
-      ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].random() + ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].random() + [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].random()
-    ].random()
+  function meetImportantNPC (npc) {
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      return [
+        ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].random() + ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].random() + [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].random()
+      ].random()
+    }
   }
 
   function meetPartnerNPC () {
@@ -100,40 +104,46 @@ setup.createLifeEvents = function (npc) {
     }
   }
 
-  function meetEnemyNPC () {
-    // npc.enemy = setup.createNPC()
-    // return 'I made an enemy for life in my travels- ' + '<<profile ' + npc.enemy + '>> still hunts me'
-    return [
-      'I made an enemy for life in my travels- ',
-      'I met a man, and we played cards. He decided that I was cheating- ',
-      'I was a guest in the court of a lord, and made an embarassment of him- ',
-      'I used to play cards in a pub, ' + State.variables.tavern.name + ', and one time supposedly cheated a man out of his winnings; '
-    ].random() + [
-      'it was a misunderstanding, but I cannot convince him otherwise. ',
-      'I admit that I am at least partially at fault. ',
-      "I suppose that I'm at least partially to blame. ",
-      "I'll freely admit that I'm to blame. ",
-      "I'm ashamed to admit that I'm to blame. "
-    ].random() + [
-      'He hunts me to this day',
-      'I hope to apologise to him if I ever encounter him again',
-      "I don't exactly care to run into him again",
-      "I couldn't care less if he tries to do anything about it",
-      "I'll gut him like a fish if he crosses my path again",
-      "I'm afraid that he'll kill me in my sleep",
-      'I would rather have backup the next time that I face him'
-    ].random()
+  function meetEnemyNPC (npc) {
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      return [
+        'I made an enemy for life in my travels- ',
+        'I met a man, and we played cards. He decided that I was cheating- ',
+        'I was a guest in the court of a lord, and made an embarassment of him- ',
+        'I used to play cards in a pub, ' + State.variables.tavern.name + ', and one time supposedly cheated a man out of his winnings; '
+      ].random() + [
+        'it was a misunderstanding, but I cannot convince him otherwise. ',
+        'I admit that I am at least partially at fault. ',
+        "I suppose that I'm at least partially to blame. ",
+        "I'll freely admit that I'm to blame. ",
+        "I'm ashamed to admit that I'm to blame. "
+      ].random() + [
+        'He hunts me to this day',
+        'I hope to apologise to him if I ever encounter him again',
+        "I don't exactly care to run into him again",
+        "I couldn't care less if he tries to do anything about it",
+        "I'll gut him like a fish if he crosses my path again",
+        "I'm afraid that he'll kill me in my sleep",
+        'I would rather have backup the next time that I face him'
+      ].random()
+    }
   }
 
-  function supernatural () {
-    return [
-      'I came across a horde of ghouls feasting on a dead body in my youth',
-      'I was ensorcelled by a fey for a year. It played tricks on my mind, making me see things which were not there, and not see things which were there',
-      "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since",
-      'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls',
-      'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later',
-      'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, he vanished'
-    ].random()
+  function supernatural (npc) {
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      return [
+        'I came across a horde of ghouls feasting on a dead body in my youth',
+        'I was ensorcelled by a fey for a year. It played tricks on my mind, making me see things which were not there, and not see things which were there',
+        "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since",
+        'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls',
+        'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later',
+        'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, he vanished'
+      ].random()
+    }
   }
 
   function backgroundWork () {
@@ -174,27 +184,35 @@ setup.createLifeEvents = function (npc) {
     return warDescription
   }
 
-  function weirdStuff () {
-    return [
-      'I came across a genie, but squandered the wish on an ex lover',
-      'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out',
-      'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].random() + ' and lived to tell the tale',
-      'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion',
-      'I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold',
-      "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest",
-      'some bloody dragon held me as prisoner for a couple months. I was forced to polish all its gold! Luckily, I managed to escape when it tried to torch the nearby village',
-      'believe it or not, I was a stone statue for quite a while; I only recently was released. I still feel pretty stiff, to be honest'
-    ].random()
+  function weirdStuff (npc) {
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      return [
+        'I came across a genie, but squandered the wish on an ex lover',
+        'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out',
+        'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].random() + ' and lived to tell the tale',
+        'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion',
+        'I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold',
+        "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest",
+        'some bloody dragon held me as prisoner for a couple months. I was forced to polish all its gold! Luckily, I managed to escape when it tried to torch the nearby village',
+        'believe it or not, I was a stone statue for quite a while; I only recently was released. I still feel pretty stiff, to be honest'
+      ].random()
+    }
   }
 
-  function arcaneMatters () {
-    return [
-      'I once saw a demon',
-      'I once saw a powerful wizard enchanting a weapon',
-      'I once got caught in the cross-fires between two dueling wizards',
-      'I had a mishap with a charm spell- an old friend tried to force me to hand over all my money, but I luckily managed to resist the spell',
-      'I once drank a really strong potion- I swear to god, I could taste colours'
-    ].random()
+  function arcaneMatters (npc) {
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      return [
+        'I once saw a demon',
+        'I once saw a powerful wizard enchanting a weapon',
+        'I once got caught in the cross-fires between two dueling wizards',
+        'I had a mishap with a charm spell- an old friend tried to force me to hand over all my money, but I luckily managed to resist the spell',
+        'I once drank a really strong potion- I swear to god, I could taste colours'
+      ].random()
+    }
   }
 
   function crime () {
@@ -213,43 +231,47 @@ setup.createLifeEvents = function (npc) {
     return crimeReadout
   }
 
-  function adventure () {
+  function adventure (npc) {
     var adventureRoll = random(1, 100)
     var adventureResults
-    var adventurePrefix = [
-      'I went on an adventure, and ',
-      'I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ',
-      'I had a spur of the moment whim to go on an adventure, and on my journeys, I ',
-      'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
-      'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
-    if (adventureRoll === 100) {
-      var weapon = setup.createMagicWeapon()
-      adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + '<blockquote>' + '<h4>' + weapon.name + '</h4>' + weapon.description + '</blockquote>'
-    } else if (adventureRoll >= 91) {
-      adventureResults = 'found a considerable amount of treasure'
-      npc.wealth += random(5100, 7150)
-    } else if (adventureRoll >= 91) {
-      adventureResults = 'found some treasure'
-      npc.wealth += random(0, 600)
-      npc.wealth += random(0, 600)
-    } else if (adventureRoll >= 71) {
-      adventureResults = 'learnt a great deal about myself'
-    } else if (adventureRoll >= 61) {
-      adventureResults = 'came across something terrifying that still stalks the lands'
-    } else if (adventureRoll >= 51) {
-      adventureResults = 'lost something of sentimental value to me'
-    } else if (adventureRoll >= 41) {
-      adventureResults = 'was poisoned by a ' + ['monster', 'trap', 'monster'].random() + ', but recovered in due time'
-    } else if (adventureRoll >= 31) {
-      adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right"
-      npc.physicaltrait = ['pockmarked face', 'grey hair'].random()
-    } else if (adventureRoll >= 21) {
-      adventureResults = 'was wounded, but recovered in time'
-    } else if (adventureRoll >= 11) {
-      adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time'
-    } else if (adventureRoll < 11) {
-      adventureResults = "nearly died- that's how I got the scars."
-      npc.physicaltrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
+    if (npc.hasClass === false) {
+      // Descriptions and stuff goes here
+    } else {
+      var adventurePrefix = [
+        'I went on an adventure, and ',
+        'I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ',
+        'I had a spur of the moment whim to go on an adventure, and on my journeys, I ',
+        'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
+        'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
+      if (adventureRoll === 100) {
+        var weapon = setup.createMagicWeapon()
+        adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + '<blockquote>' + '<h4>' + weapon.name + '</h4>' + weapon.description + '</blockquote>'
+      } else if (adventureRoll >= 91) {
+        adventureResults = 'found a considerable amount of treasure'
+        npc.wealth += random(5100, 7150)
+      } else if (adventureRoll >= 91) {
+        adventureResults = 'found some treasure'
+        npc.wealth += random(0, 600)
+        npc.wealth += random(0, 600)
+      } else if (adventureRoll >= 71) {
+        adventureResults = 'learnt a great deal about myself'
+      } else if (adventureRoll >= 61) {
+        adventureResults = 'came across something terrifying that still stalks the lands'
+      } else if (adventureRoll >= 51) {
+        adventureResults = 'lost something of sentimental value to me'
+      } else if (adventureRoll >= 41) {
+        adventureResults = 'was poisoned by a ' + ['monster', 'trap', 'monster'].random() + ', but recovered in due time'
+      } else if (adventureRoll >= 31) {
+        adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right"
+        npc.physicaltrait = ['pockmarked face', 'grey hair'].random()
+      } else if (adventureRoll >= 21) {
+        adventureResults = 'was wounded, but recovered in time'
+      } else if (adventureRoll >= 11) {
+        adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time'
+      } else if (adventureRoll < 11) {
+        adventureResults = "nearly died- that's how I got the scars."
+        npc.physicaltrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
+      }
     }
     return adventurePrefix + adventureResults
   }

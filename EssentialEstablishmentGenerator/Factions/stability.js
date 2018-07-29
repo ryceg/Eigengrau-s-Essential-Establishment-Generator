@@ -37,13 +37,5 @@ setup.stabilityFaction = function (faction) {
     faction.stability = 'stable'
   }
 
-  if (faction.stabilityRoll <= 30) {
-    faction.stabilityCause = ['internal power struggles', 'conflicts with rivaling factions'].random()
-  } else if (faction.stabilityRoll >= 70 && faction.leadershipType === 'individual') {
-    faction.stabilityCause = ['their much-loved leader', 'the lack of infighting for the leadership role'].random()
-  } else if (faction.stabilityRoll >= 70 && faction.leadershipType === 'group') {
-    faction.stabilityCause = ['their much-loved ' + faction.leaderGroupTitle, 'the lack of infighting for the leadership roles'].random()
-  }
-
-  return faction
+  return faction.stability
 }
