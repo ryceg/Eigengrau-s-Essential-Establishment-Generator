@@ -4,7 +4,20 @@
 <<widget "money">><<silently>>
 		<<set _copper to Number($args)>>\
 		<<set _copper to (_copper + Math.round(_copper * setup.getPriceMod()))>>\
-\
+\		<<if settings.silverStandard is true>>
+			<<if _copper gte 10000>>\
+					<<set _gold to Math.trunc(_copper / 10000)>>\
+					<<set _copper %= 10000>>\
+				<<else>>\
+					<<set _gold to 0>>\
+			<</if>>\
+			<<if _copper gte 100>>\
+					<<set _silver to Math.trunc(_copper / 100)>>\
+					<<set _copper %= 100>>\
+				<<else>>\
+					<<set _silver to 0>>\
+				<</if>>\
+		<<else>>
 			<<if _copper gte 100>>\
 					<<set _gold to Math.trunc(_copper / 100)>>\
 					<<set _copper %= 100>>\
@@ -17,6 +30,7 @@
 				<<else>>\
 					<<set _silver to 0>>\
 				<</if>>\
+	<</if>>
 		<</silently>>\
 		<<if _gold>><<= _gold>> Gold <</if>>\
 		<<if _silver>><<= _silver>> Silver <</if>>\

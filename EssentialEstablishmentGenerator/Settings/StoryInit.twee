@@ -17,6 +17,14 @@ Setting.addToggle("showCelsius", {
     label : "Show celsius?"
 });
 
+Setting.addToggle("showMetric", {
+    label : "Show metric?"
+});
+
+Setting.addToggle("silverStandard", {
+    label : "Silver Standard?"
+});
+
 var settingPatreonContentHandler = function () {
   if (settings.patreonContent) { // is true
     State.variables.bartender = State.variables.Birchbottom;

@@ -48,7 +48,7 @@
 			<<if $tavern.hasBrawl is true>>
 					<<set _tavernnotable to $tavernBrawl.start + $tavernBrawl.reason + $tavernBrawl.end>>
 			<<elseif $tavern.guardPresent is true>>
-					<<set _tavernnotable to "There's a member of [[$guard.name|GuardOutput]] chatting with a tavern patron.">>
+					<<set _tavernnotable to "There's a member of <<link '$guard.name'>><<goto 'GuardOutput'>><</link>> chatting with a tavern patron.">>
 			<<else>>
 					<<set _tavernnotable to "There's two men sitting in the corner, very intent on a thumbwrestling match.">>
 			<</if>>
