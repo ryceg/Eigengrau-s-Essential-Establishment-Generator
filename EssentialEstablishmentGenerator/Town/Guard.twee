@@ -61,7 +61,7 @@
 <<set _guardnameC to either(["Black", "White", "Shining", "Just", "Tall", "Impenetrable", "Unbreakable", "Brass", "Bronze", "Blue", "Strong", "Mighty", "Lawful"])>>
 <<set _guardnameD to either(["Hand", "Fist", "Gauntlet", "Glove", "Hammer", "Shield", "Cloak", "Dagger", "Mace", "Sword"])>>
 
-
+<<set $guard.passageName to "GuardOutput">>
 <<set _guardnameRoll to random(1, 6)>>
 <<switch _guardnameRoll>>
 	<<case 1>>

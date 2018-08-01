@@ -14,6 +14,5 @@ setup.getPriceMod = function () {
 
   var V = State.variables
 
-  return Number(V[loc].priceModifier + 'e-2')
-      || 0
+  return Number(V[loc].priceModifier + 'e-2') || 0
 }

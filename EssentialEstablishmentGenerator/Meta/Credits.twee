@@ -11,15 +11,15 @@ If you enjoy this, please consider supporting me on [[Patreon|https://www.patreo
 
 We have a [[subreddit!|www.reddit.com/r/EigengrausGenerator]]
 
+[[Sign up to the newsletter to be notified about updates|EmailSignUp]]
+
 <strong>Version: $versionnumber</strong>
 
 <<linkappend "Changelog:">>
 <<include "Changelog">><</linkappend>>
 <<include "PatreonSupporters">>
 
-The following user's content appears in this instance (i.e. only the content that is currently running is visible in the list below:
-
-$specialbrew.author
+Thanks to ArchAngelZero and WishingOnAWendy for their contributions.
 
 <<linkappend "To Do List">>
 <<include "ToDo">><</linkappend>>

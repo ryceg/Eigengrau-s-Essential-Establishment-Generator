@@ -1,5 +1,5 @@
 :: MarketOutput [market]
-<h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation.
+<h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
 
 There's a <<profile $marketSellerA $marketSellerA.racenote>> selling <<print either($market.selling)>> from a <<print either($market.tent)>>.
 

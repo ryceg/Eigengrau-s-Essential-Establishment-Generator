@@ -2,7 +2,7 @@
 
 <<include "RandomNPC">>
 <<include "RandomAdventure">>
-<<link "<h4>Generate Random Faction</h4>">><<set $testFaction to setup.createFaction()>><<replace "#faction">> - <<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><</replace>><</link>><span id="faction"></span>
+<<link "<h4>Generate Random Faction</h4>">><<set $testFaction to setup.createFaction({isThrowaway: true})>><<replace "#faction">> - <<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><</replace>><</link>><span id="faction"></span>
 
 [[One Shot - The Poisoned Potioner|AdventureOutput]]
 

@@ -31,11 +31,10 @@ setup.profileHeightTooltip = function (id, ch) {
       } else {
         var feet = Math.trunc(char.heightRoll / 12)
         var inches = Math.round(char.heightRoll - (Math.trunc(feet * 12)))
-        console.log(feet, inches)
         if (inches === 0) {
           span.title = feet + 'ft. '
         } else {
-          span.title = feet + 'ft. '+ inches + '"'
+          span.title = feet + 'ft. ' + inches + '"'
         }
 
         tippy('#' + span.id)
@@ -62,12 +61,32 @@ setup.profileWeightTooltip = function (id, ch) {
   )
 }
 
-setup.buildingTooltip = function (id, ch) {
-  var char = ch
+setup.buildingTooltip = function (id, building, type) {
   jQuery(function () {
     var span = document.getElementById(id)
+    var notableFeature
+    switch (type) {
+      case 'tavern':
+        notableFeature = 'its ' + building.draw
+        break
+      case 'smithy':
+        notableFeature = 'its ' + building.expertise + ' armour and weapons'
+        break
+      case 'alchemist':
+        notableFeature = ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].random()
+        break
+      case 'general store':
+        notableFeature = 'its wide range of goods on sale'
+        break
+      case 'brothel':
+        notableFeature = building.specialty + ' and being owned by ' + building.owner
+        break
+      case 'market':
+        notableFeature = 'its ' + building.draw
+        break
+    }
     if (span) {
-      span.title = 'A ' + building.size + ', ' + building.cleanliness + ' building.'
+      span.title = 'A ' + building.size + ' ' + type + " that's " + building.cleanliness + ', and is known for ' + notableFeature + '.'
       tippy('#' + span.id)
     }
   })

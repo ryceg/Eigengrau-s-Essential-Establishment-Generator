@@ -5,5 +5,5 @@ $guard.name is led by <<profile $guardCaptain>>, a $guardCaptain.racenote. $guar
 $guard.funding
 
 $town.law
-
+<<set $currentPassage to $guard>>
 <<back>>

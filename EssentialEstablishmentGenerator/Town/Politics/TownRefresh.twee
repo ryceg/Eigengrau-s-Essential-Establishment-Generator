@@ -5,7 +5,7 @@
         <<set $town.economicIdeology to "feudalism">>
         <<set $town.economicIdeologyIC to "feudalistic">>
         <<set $town.economicIdeologyIST to "feudalist">>
-        <<set $town.economicIdeologyDescription to "The people of $town.name work the land in exchange for working their lord's lands.">>
+        <<set $town.economicIdeologyDescription to "The people of $town.name live and work their lord's lands in exchange for tithes and military service.">>
     <<case "capitalist">>
         <<set $town.economicIdeology to "capitalism">>
         <<set $town.economicIdeologyIC to "capitalistic">>
@@ -124,7 +124,7 @@
         <<set $town.leaderType to "the holy">>
         <<set $town.politicalIdeologyIC to "theocratic">>
         <<set $town.politicalIdeology to "theocracy">>
-        <<if $townLeader.gender isnot "man">>
+        <<if $townLeader.gender != "man">>
           <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndclass: "cleric", background: "acolyte"})>>
         <</if>>
         <<set $townLeader.title to "Father", $townLeader.gender to "man", $townLeader.dndclass to "cleric", $townLeader.background to "acolyte">>
@@ -138,23 +138,33 @@
 <<switch $town.politicalIdeologyIC>>
   <<case "pedocratic">>
     <<if ndef $townPoliticalFaction>>
-      <<set $townPoliticalFaction to setup.createFaction({type: "monks"})>>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "monks"})>>
+      <<elseif $townPoliticalFaction.type != "monks">>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "monks"})>>
     <</if>>
   <<case "kleptocratic">>
     <<if ndef $townPoliticalFaction>>
-      <<set $townPoliticalFaction to setup.createFaction({type: "thieves"})>>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "thieves"})>>
+      <<elseif $townPoliticalFaction.type != "thieves">>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "thieves"})>>
     <</if>>
   <<case "theocratic">>
     <<if ndef $townPoliticalFaction>>
-      <<set $townPoliticalFaction to setup.createFaction({type: "priests"})>>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "priests"})>>
+      <<elseif $townPoliticalFaction.type != "priests">>
+          <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "priests"})>>
     <</if>>
   <<case "magocratic">>
     <<if ndef $townPoliticalFaction>>
-      <<set $townPoliticalFaction to setup.createFaction({type: "wizards"})>>
+          <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "wizards"})>>
+        <<elseif $townPoliticalFaction.type != "wizards">>
+          <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "wizards"})>>
     <</if>>
   <<case "technocratic">>
     <<if ndef $townPoliticalFaction>>
-      <<set $townPoliticalFaction to setup.createFaction({type: "craftsmen"})>>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "craftsmen"})>>
+      <<elseif $townPoliticalFaction.type != "craftsmen">>
+        <<set $townPoliticalFaction to setup.createFaction({leadershipType: "individual", type: "craftsmen"})>>
     <</if>>
   <<default>>
     <<if def $townPoliticalFaction>>

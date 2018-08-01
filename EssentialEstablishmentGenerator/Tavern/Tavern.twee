@@ -50,7 +50,7 @@
 		"nice view"]),
 	$tavern.shortages to ["wine", "booze", "grog", "whiskey", "mutton", "lamb", "carrots", "mugs", "forks", "frogs", "bread", "mushrooms", "salt", "silver pieces", "chairs", "eggs", "potatoes"]
 >>
-
+<<set $tavern.passageName to "TavernOutput">>
 /* Exclusion code for brothels + churches */
 <<if ($tavern.type is "gambling den" && $tavern.draw is "proximity to the church")>>
 			<<set $tavern.draw to "proximity to the brothel">>

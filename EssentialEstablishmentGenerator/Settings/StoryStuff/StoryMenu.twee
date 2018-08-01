@@ -13,9 +13,9 @@
     <</if>>
 <</link>><</if>><</nobr>>*/
 
-[[Toolbox]]
+<<link "Toolbox">><<goto "Toolbox">><</link>>
 
-[[Credits]]
+<<link "Credits">><<goto "Credits">><</link>>
 
 [[Submit a bug or suggestion|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/]]
 

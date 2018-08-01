@@ -123,7 +123,7 @@
 "palm readings",
 "fortune tellings"]
 }>>
-
+<<set $market.passageName to "MarketsOutput">>
 <<set $market.shouts to ["Tasty meat pies, baked into the shape of otters! Delicious!",
 "Bows carved into the likeness of swans! Everyone's buying them!",
 "Giant spider silk role! Ideal for adventuring! <blockquote>This is just spider silk in a bag, which is incredibly sticky.</blockquote>",
@@ -198,15 +198,54 @@
 "Buy it now!",
 "I've got kids to feed, buy it!"]>>
 
-<<set $market.location to either("a wide, rectangular plaza",
-"a large, circular plaza",
-"a large plaza in a pentagon shape",
-"an intersection of two wide roads",
-"a sprawling maze of small alleyways",
-"a sprawling maze of tunnels beneath the city streets",
-"a huge pavilion with a solid roof overhead",
-"a disorganized series of large tents",
-"a single long, wide, road stretching through the town")>>
+<<set $market.location to either("wide, rectangular plaza",
+"large, circular plaza",
+"large plaza in a pentagon shape",
+"the intersection of two wide roads",
+"sprawling maze of small alleyways",
+"sprawling maze of tunnels beneath the city streets",
+"huge pavilion with a solid roof overhead",
+"disorganized series of large tents",
+"single long, wide, road stretching through the town")>>
+
+<<set $market.size to either(
+  "large and bustling",
+  "somewhat cramped",
+  "rather packed",
+  "relatively large",
+  "cacophonous space with no room to think"
+)>>
+
+<<set $market.cleanliness to either(
+  "rather dirty",
+  "somewhat dirty",
+  "riddled with refuse",
+  "overflowing with detritus",
+  "surprisingly clean",
+  "astonishingly well-kempt",
+  "surprisingly tidy",
+  "a victim to the chaos that is so common in markets",
+  )>>
+
+<<set $market.draw to either(
+  "the hot mead",
+  "the delicious spiced wines",
+  "cutthroat merchants",
+  "having either absolute trash, or total bargains",
+  "rather pushy merchants",
+  "being a pickpocketing hotspot",
+  "the outrageous prices some of the vendors charge",
+  "the hilarious stuff that vendors will do to get a sale",
+  "having all sorts of knick-knacks",
+  "having some really great magical stuff",
+  "having exotic pets running about",
+  "being a popular place for a first date",
+  "being open at practically all hours",
+  "being open once in a blue moon",
+  "the fights that break out",
+  "the merchants fighting each other for your business",
+  "the interesting things you can find"
+  )>>
 
 <<set $market.organisation to either("type of merchandise",
 "nation of origin of the merchandise",

@@ -14,7 +14,7 @@
 	arcanaRoll: random(1, 100),
 }>>
 
-
+<<set $townLeader to {}>>
 
 <<set $town.wealthRoll to $town.wealthRoll.clamp(1, 100),
 $town.reputationRoll to $town.reputationRoll.clamp(1, 100),
@@ -24,8 +24,8 @@ $town.magicRoll to $town.magicRoll.clamp(1, 100),
 $town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
 
 <<set $town.name to setup.createTown()>>
-
-<<set $merchantGuild to setup.createFaction()>>
+<<set $town.passageName to "TownOutput">>
+<<set $merchantGuild to setup.createFaction({type: "merchants"})>>
 
 /* Town Population Roller */
 <<set _townPopulationRoll to random(1, 10)>>

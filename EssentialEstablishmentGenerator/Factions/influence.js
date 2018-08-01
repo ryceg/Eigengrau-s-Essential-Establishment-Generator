@@ -1,63 +1,63 @@
 setup.influenceFaction = function (faction) {
-  // if (faction.ageRoll > 95) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 15)
-  // } else if (faction.ageRoll > 90) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 10)
-  // } else if (faction.ageRoll > 80) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 8)
-  // } else if (faction.ageRoll > 70) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 6)
-  // } else if (faction.ageRoll > 60) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 4)
-  // } else if (faction.ageRoll > 55) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 2)
-  // } else if (faction.ageRoll > 50) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 1)
-  // } else if (faction.ageRoll > 45) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, -1)
-  // } else if (faction.ageRoll > 40) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, -2)
-  // } else if (faction.ageRoll > 30) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, -4)
-  // } else if (faction.ageRoll > 20) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, -6)
-  // } else if (faction.ageRoll > 10) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, -8)
-  // } else if (faction.ageRoll <= 5) {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, -10)
-  // } else {
-  //   faction.influenceRoll += Math.fm(faction.influenceRoll, 10)
-  // }
-
   if (faction.ageRoll > 95) {
-    faction.influenceRoll += 15
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 15)
   } else if (faction.ageRoll > 90) {
-    faction.influenceRoll += 10
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 10)
   } else if (faction.ageRoll > 80) {
-    faction.influenceRoll += 8
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 8)
   } else if (faction.ageRoll > 70) {
-    faction.influenceRoll += 6
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 6)
   } else if (faction.ageRoll > 60) {
-    faction.influenceRoll += 4
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 4)
   } else if (faction.ageRoll > 55) {
-    faction.influenceRoll += 2
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 2)
   } else if (faction.ageRoll > 50) {
-    faction.influenceRoll += 1
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 1)
   } else if (faction.ageRoll > 45) {
-    faction.influenceRoll += -1
+    faction.influenceRoll += Math.fm(faction.influenceRoll, -1)
   } else if (faction.ageRoll > 40) {
-    faction.influenceRoll += -2
+    faction.influenceRoll += Math.fm(faction.influenceRoll, -2)
   } else if (faction.ageRoll > 30) {
-    faction.influenceRoll += -4
+    faction.influenceRoll += Math.fm(faction.influenceRoll, -4)
   } else if (faction.ageRoll > 20) {
-    faction.influenceRoll += -6
+    faction.influenceRoll += Math.fm(faction.influenceRoll, -6)
   } else if (faction.ageRoll > 10) {
-    faction.influenceRoll += -8
+    faction.influenceRoll += Math.fm(faction.influenceRoll, -8)
   } else if (faction.ageRoll <= 5) {
-    faction.influenceRoll += -10
+    faction.influenceRoll += Math.fm(faction.influenceRoll, -10)
   } else {
-    faction.influenceRoll += 10
+    faction.influenceRoll += Math.fm(faction.influenceRoll, 10)
   }
+
+  // if (faction.ageRoll > 95) {
+  //   faction.influenceRoll += 15
+  // } else if (faction.ageRoll > 90) {
+  //   faction.influenceRoll += 10
+  // } else if (faction.ageRoll > 80) {
+  //   faction.influenceRoll += 8
+  // } else if (faction.ageRoll > 70) {
+  //   faction.influenceRoll += 6
+  // } else if (faction.ageRoll > 60) {
+  //   faction.influenceRoll += 4
+  // } else if (faction.ageRoll > 55) {
+  //   faction.influenceRoll += 2
+  // } else if (faction.ageRoll > 50) {
+  //   faction.influenceRoll += 1
+  // } else if (faction.ageRoll > 45) {
+  //   faction.influenceRoll += -1
+  // } else if (faction.ageRoll > 40) {
+  //   faction.influenceRoll += -2
+  // } else if (faction.ageRoll > 30) {
+  //   faction.influenceRoll += -4
+  // } else if (faction.ageRoll > 20) {
+  //   faction.influenceRoll += -6
+  // } else if (faction.ageRoll > 10) {
+  //   faction.influenceRoll += -8
+  // } else if (faction.ageRoll <= 5) {
+  //   faction.influenceRoll += -10
+  // } else {
+  //   faction.influenceRoll += 10
+  // }
 
   if (faction.influenceRoll > 95) {
     faction.influence = 'excellent'

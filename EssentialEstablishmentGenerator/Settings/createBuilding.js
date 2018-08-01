@@ -189,5 +189,7 @@ setup.createBuilding = function (base) {
     State.variables.buildings.set(++index, building)
   }
 
+  building.id = State.variables.buildings[State.variables.buildings.length - 1]
+
   return building
 }

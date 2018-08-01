@@ -1,8 +1,8 @@
 :: NPCProfile
 <h1><<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name</h1>
 \<<set _age = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<set _weight = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<run setup.profileWeightTooltip(_weight, $currentNPC)>>
+\<<set _weight = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileWeightTooltip(_weight, $currentNPC)>>
+\<<set _height = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
 <<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name is a <span @id="_age" class="tip">$currentNPC.age</span>
 \<<run setup.profileAgeTooltip(_age, $currentNPC)>> $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is <span @id="_height" class="tip">$currentNPC.height</span>
 \<<run setup.profileHeightTooltip(_height, $currentNPC)>> and <span @id="_weight" class="tip">$currentNPC.weight</span>, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>>and a $currentNPC.beard,<</if>> with $currentNPC.skinColours skin. The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.
@@ -13,7 +13,7 @@ $currentNPC.firstName is a $currentNPC.dndclass, with a background of being a $c
 
 <<if def $currentNPC.note >>$currentNPC.note<</if>>
 
-<<linkreplace "Early Life">><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. $currentNPC.childhoodMemories.</div><</linkreplace>>
+<<linkreplace "Early Life">><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
 
 <<linkreplace "Becoming a $currentNPC.dndclass">><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndclassOrigin That's how I became a $currentNPC.dndclass. $currentNPC.bond"</div><</linkreplace>>
 
@@ -38,6 +38,6 @@ $currentNPC.firstName is a $currentNPC.dndclass, with a background of being a $c
     Then last year, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
 
-<<if def $currentNPC.partnerID>>$currentNPC.firstname has a partner, <<profile $currentNPC.partnerID>><</if>>
+<<if def $currentNPC.partnerID>>$currentNPC.firstName has a partner, <<profile $currentNPC.partnerID>><</if>>
 
 <<back>>

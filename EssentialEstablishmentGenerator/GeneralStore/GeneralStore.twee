@@ -1,6 +1,7 @@
 :: GeneralStore
 
 <<set $GeneralStore to setup.createBuilding()>>
+<<set $GeneralStore.passageName to "GeneralStoreOutput">>
 <<set $GeneralStore.note to either(["It looks like $shopkeep.firstName lives in a room attached to the shop",
 "$shopkeep.firstName does not seem to belong there, and looks very uncomfortable",
 "A bell rings every time someone enters the shop",

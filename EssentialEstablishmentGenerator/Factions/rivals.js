@@ -1,51 +1,51 @@
 setup.createRivals = function (faction) {
-  var sizeRoll = dice(2, 50)
-  var group
-  var groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
-  var groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.influenceRoll - 50)))
-  var alliedGroups = []
-  var rivals = []
-  var i
+  let sizeRoll = dice(2, 50)
+  let group
+  let groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
+  let groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.influenceRoll - 50)))
+  let rivals = []
+  let type = faction.type
+  let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  setup.createRivalsList(groupList, faction)
+  groupList.concat(factionData.type[type].rivalsList)
 
   if (sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'
-    for (i = 1; i <= 6; ++i) { getGroup(20) }
+    for (i = 1; i <= 6; ++i) { getRivalGroup(20) }
   } else if (sizeRoll >= 80) {
     faction.rivalsDescription = 'enemies around every corner'
-    for (i = 1; i <= 5; ++i) { getGroup(25) }
+    for (i = 1; i <= 5; ++i) { getRivalGroup(25) }
   } else if (sizeRoll >= 70) {
-    faction.rivalsDescription = 'a considerable number of groups that wish them ill'
-    for (i = 1; i <= 4; ++i) { getGroup(20) }
+    faction.rivalsDescription = 'some fearsome enemies'
+    for (i = 1; i <= 4; ++i) { getRivalGroup(20) }
   } else if (sizeRoll >= 60) {
     faction.rivalsDescription = 'more enemies than one would expect'
-    for (i = 1; i <= 3; ++i) { getGroup(15) }
+    for (i = 1; i <= 3; ++i) { getRivalGroup(15) }
   } else if (sizeRoll >= 50) {
-    faction.rivalsDescription = 'some fearsome enemies'
-    for (i = 1; i <= 2; ++i) { getGroup(10) }
+    faction.rivalsDescription = 'some enemies'
+    for (i = 1; i <= 2; ++i) { getRivalGroup(10) }
   } else if (sizeRoll >= 40) {
     faction.rivalsDescription = 'a handful of rivals'
-    getGroup(10)
-    getGroup(-10)
+    getRivalGroup(10)
+    getRivalGroup(-10)
   } else if (sizeRoll >= 30) {
     faction.rivalsDescription = 'a couple enemies'
-    getGroup(-15)
+    getRivalGroup(-15)
   } else if (sizeRoll >= 20) {
     faction.rivalsDescription = 'few rivals'
-    getGroup(10)
+    getRivalGroup(10)
   } else if (sizeRoll < 20) {
     faction.rivalsDescription = 'barely any rivals'
-    getGroup(10)
+    getRivalGroup(10)
   }
 
-  function getGroup (bonus) {
-    var tempGroup
-    var tempGroupSize
-    var groupSizeRoll = (dice(2, 50)).fairmath(groupSizeModifier + bonus)
+  function getRivalGroup (bonus) {
+    let tempGroup
+    let tempGroupSize
+    let groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
-      tempGroupSize = 'an entire guild of '
+      tempGroupSize = 'a guild of '
     } else if (groupSizeRoll >= 80) {
       tempGroupSize = 'a veritable army of '
     } else if (groupSizeRoll >= 70) {
@@ -67,10 +67,15 @@ setup.createRivals = function (faction) {
     }
 
     tempGroup = groupList.pluck()
+    // console.log('rival tempGroup - ' + tempGroup)
     groupList.delete(tempGroup)
-
+    if (tempGroup == faction.type) {
+      tempGroup = 'rival ' + tempGroup
+    }
     group = tempGroupSize + tempGroup
+    // console.log('rival group - ' + group)
     rivals.push(group)
+    // console.log('rivals - ' + rivals)
     return rivals
   }
   faction.rivals = rivals

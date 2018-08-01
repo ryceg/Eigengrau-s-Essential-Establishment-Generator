@@ -77,7 +77,7 @@
 						reason: either("some silly misunderstanding between the two. ", "a statement about a sports team that the other disagreed with. ", "a secret affair has come out. ", "a joke was taken way too far. ", "a joke was misunderstood, much to the <<print either($brawlResponder.descriptor)>>'s dismay. ")
 			}>>
 					<<if $tavern.guardPresent is true>>
-							<<set $tavernBrawl.end to either("A <<print either($tavernGuard.descriptor)>> wearing the $guard.livery signifying that they are a member of [[$guard.name|GuardOutput]] is currently pulling the <<print either($brawlInstigator.descriptor)>> off the <<print either($brawlResponder.descriptor)>>.", "A member of [[$guard.name|GuardOutput]] is currently trying to pull the two apart.")>>
+							<<set $tavernBrawl.end to either("A <<print either($tavernGuard.descriptor)>> wearing the $guard.livery signifying that they are a member of <<link '$guard.name'>><<set $currentPassage to $guard>><<goto 'GuardOutput'>><</link>> is currently pulling the <<print either($brawlInstigator.descriptor)>> off the <<print either($brawlResponder.descriptor)>>.", "A member of <<link '$guard.name'>><<set $currentPassage to $guard>><<goto 'GuardOutput'>><</link>> is currently trying to pull the two apart.")>>
 						<<else>>
 							<<set $tavernBrawl.end to either("It seems that the <<print either($brawlInstigator.descriptor)>> is winning.", "It seems that the <<print either($brawlResponder.descriptor)>> is winning.")>>
 					<</if>>

@@ -1,6 +1,8 @@
 
 :: Widgets [widget widgets]
 
+<<widget "descriptor">><<print either($args[0].descriptor)>><</widget>>
+
 <<widget "money">><<silently>>
 		<<set _copper to Number($args)>>\
 		<<set _copper to (_copper + Math.round(_copper * setup.getPriceMod()))>>\

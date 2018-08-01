@@ -4,6 +4,7 @@ setup.createFaction = function (base) {
   var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
   var leadershipType = ['individual', 'individual', 'individual', 'group', 'group'].random()
   var isPoliticalPower
+  var isThrowaway
   var leaders = []
   var leadershipGeneration = {}
 
@@ -24,8 +25,10 @@ setup.createFaction = function (base) {
 
   var faction = Object.assign({
     isPoliticalPower: isPoliticalPower,
+    isThrowaway: isThrowaway,
     type: type,
-    motivation: setup.motivationFaction(faction),
+    factionNoun: factionData.type[type].factionNoun,
+    motivation: factionData.type[type].motivation.random(),
     name: setup.nameFaction(type),
     leadershipType: leadershipType,
     influenceRoll: influenceRoll,
@@ -51,11 +54,15 @@ setup.createFaction = function (base) {
 
   setup.leaderFaction(faction)
   setup.joinFaction(faction)
-  setup.membersFaction(faction)
+  // setup.membersFaction(faction)
+  faction.membersTrait = factionData.type[type].membersTrait.random()
   setup.createAllies(faction)
   setup.createRivals(faction)
+  setup.createMisc(faction)
 
+  if (faction.isThrowaway === undefined) {
   State.variables.factions.set(++index, faction)
+}
 
   return faction
 }

@@ -62,6 +62,7 @@
 
 
 <<set $alchemist to setup.createBuilding()>>
+<<set $alchemist.passageName to "AlchemistOutput">>
 <<set $alchemist.magicRoll to random(40, 100)>>
 <<set $brew to setup.createAlchemy({type: "brewing potion"})>>
 <<set $alchemist.sinRoll to $alchemist.sinRoll.clamp(1, 100),
