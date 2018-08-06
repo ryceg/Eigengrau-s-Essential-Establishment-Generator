@@ -35,22 +35,31 @@ setup.createRing = (function () {
   }
   const works = [
     'perfectly, every time',
+    'every time its used',
     'most of the time with infrequent mishaps',
+    'almost always, but sometimes with side effects',
     'as expected about half the time',
+    'only half the time',
     'occasionally, when the proper conditions are met',
+    'infrequently, but well when it does',
     'rarely and unpredictably',
+    'almost never, and only when it feels like it',
     'only the first time the wearer uses the power',
     'well, but at a cost'
   ]
   const materials = [
     'gold',
     'white gold',
+    'rose gold',
     'tarnished silver',
     'polished silver',
+    'sterling silver',
     'gold-plated brass',
     'silver-plated brass',
     'gold-plated steel',
     'silver-plated steel',
+    'rhodium',
+    'black rhodium',
     'brass',
     'black steel',
     'bone',
@@ -58,11 +67,25 @@ setup.createRing = (function () {
     'ebony',
     'mahogany',
     'walnut',
+    'birch',
+    'maple',
+    'pine',
+    'oak',
+    'ash',
     'turquoise',
     'jade',
     'iron',
     'copper',
-    'platinum'
+    'platinum',
+    'bronze',
+    'tungsten',
+    'cobalt',
+    'titanium',
+    'palladium',
+    'zirconium',
+    'obsidian',
+    'quartz'
+
   ]
   const decorations = [
     'handful of small gemstones arrayed around the band',
@@ -88,9 +111,7 @@ setup.createRing = (function () {
   ]
   const gemstones = [
     'diamond',
-    'blue diamond',
-    'pink diamond',
-    'yelllow diamond',
+    ['yellow', 'pink', 'champagne', 'green', 'blue', 'orange', 'red', 'chameleon', 'argyle', 'purple', 'violet', 'black', 'gray', 'white'].random() + ' diamond'
     'ruby',
     'fire opal',
     'white opal',
