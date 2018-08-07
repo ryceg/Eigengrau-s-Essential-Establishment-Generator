@@ -136,7 +136,7 @@ setup.createRing = (function () {
     'tanzanite',
     'turquoise',
     'zircon',
-    [].random('blue', 'red', 'green', 'yellow', 'pink', 'brown', 'black') + ' tourmaline'
+    ['blue', 'red', 'green', 'yellow', 'pink', 'brown', 'black'].random() + ' tourmaline'
 
   ]
   const intendedowner = [
