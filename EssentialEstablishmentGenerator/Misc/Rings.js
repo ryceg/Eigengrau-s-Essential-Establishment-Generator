@@ -105,7 +105,7 @@ setup.createRing = (function () {
     ["snake's", "dragon's", "lion's", "tiger's", "demon's", "devil's", "wolf's", "bear's", "monkey's", "crow's", "eagle's", "hawk's", "vulture's", "fox's", "horse's", "bat's", "rabbit's", "boar's", "medusa's"].random() + ' head with gemstones set in its eyes',
     'skull with gemstones set in its eyes',
     ['floral', 'leafy', 'thorny', 'hexagonal', 'wavy', 'spider-web', 'cross-hatching', "vine", "geometric", 'spiral', 'rune', 'starry', 'swirling'].random() + ' ' + ['pattern', 'motif', 'design', 'marking', 'ornamentation'].random(),
-    'band like weaving vines',
+    'band like ' + ['twisting vines', 'rough waves', 'stag horns', 'tree branches', 'rose thorns', 'a craggy mountainside', 'the body of a snake', 'a twisting rope'].random(),
     'phrase written in ' + ['a Dwarvish script', 'an Elvish script', 'an Infernal script', 'a Draconic script', 'a Celestial script', 'a Common script'].random() + 'wrapping around the band',
     'handful of arcane runes'
   ]
