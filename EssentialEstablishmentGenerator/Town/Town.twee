@@ -74,7 +74,7 @@ $town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
 			"an arrival of marching modrons",
 			"an artistic performance",
 			"an athletic event",
-			"a birth of a child",
+			"a birth of an important child",
 			"a birthday of an important npc",
 			"a civic festival",
 			"a comet appearance",
@@ -115,26 +115,12 @@ $town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
 			"a travelling carnival"])>>
 
 			<<set $town.primaryExport to either([
-			"iron ore",
-			"copper ore",
-			"cobalt ore",
-			"nickel ore",
-			"bauxite deposits",
-			"gold deposits",
-			"silver deposits",
-			"clay and granite deposits",
-			"salt deposits",
-			"quartz deposits",
-			"coal deposits",
-			"peat deposits",
+			either(["iron", "copper", "cobalt", "nickel", "gold", "lead", "silver"]) " ore",
+			either(["bauxite", "gold", "silver", "clay and granite", "salt", "quartz", "coal", "peat", "ruby", "sapphire", "emerald", "opal", "amethyst", "coal", "marble", "galena", "limestone", "gravel"]) " deposits",
 			"hardwood lumber",
 			"softwood lumber",
-			"ruby deposits",
-			"sapphire deposits",
-			"emerald deposits",
-			"opal deposits",
-			"amethyst deposits",
 			"wild game",
+			"wild fruits",
 			"common fauna used in alchemy",
 			"rare fauna used in alchemy",
 			])>>
@@ -144,7 +130,7 @@ $town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
 			"beans and corn",
 			"nuts and olives",
 			"rice",
-			"wheat",
+			"wheat and rye",
 			"potatoes and leeks",
 			"sugar cane",
 			"tobacco",
@@ -157,7 +143,10 @@ $town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
 			"carrots and cucumbers",
 			"leeks",
 			"corn",
-			"fish"])>>
+			"fish",
+			"peas",
+			"watermelon",
+			"mangos"])>>
 
 
 
