@@ -1,0 +1,120 @@
+
+:: AlchemistModifiers
+<<nobr>>
+/* ------------------------- SIZE -------------------------- */
+<<if $alchemist.sizeRoll gt 80>>
+		<<set $alchemist.size to "huge">>
+		<<set $alchemist.activityRoll -= 4>>
+	<<elseif $alchemist.sizeRoll gt 70>>
+		<<set $alchemist.size to "quite large">>
+		<<set $alchemist.activityRoll -= 3>>
+	<<elseif $alchemist.sizeRoll gt 60>>
+		<<set $alchemist.size to "large">>
+		<<set $alchemist.activityRoll -= 1>>
+	<<elseif $alchemist.sizeRoll gt 50>>
+		<<set $alchemist.size to "spacious">>
+	<<elseif $alchemist.sizeRoll gt 40>>
+		<<set $alchemist.size to "medium">>
+	<<elseif $alchemist.sizeRoll gt 30>>
+		<<set $alchemist.size to "slightly cramped">>
+		<<set $alchemist.activityRoll += 1>>
+	<<elseif $alchemist.sizeRoll gt 20>>
+		<<set $alchemist.size to "small">>
+		<<set $alchemist.activityRoll += 1>>
+	<<elseif $alchemist.sizeRoll lte 20>>
+		<<set $alchemist.size to "tiny">>
+		<<set $alchemist.activityRoll += 3>>
+<</if>>
+
+<<switch $alchemist.material>>
+	<<case "hewn rock">>
+		<<set $alchemist.roughnessRoll += 3>>
+	<<case "chiseled stone">>
+		<<set $alchemist.roughnessRoll -= 1>>
+	<<case "marble">>
+		<<set $alchemist.cleanlinessRoll += 5, $alchemist.wealthRoll += 6>>
+<</switch>>
+
+/* ------------------------- CLEANLINESS -------------------------- */
+<<if $alchemist.cleanlinessRoll gt 80>>
+		<<set $alchemist.expertiseRoll += 10,
+		$alchemist.activityRoll += 6,
+		$alchemist.hardinessRoll += 8,
+		$alchemist.cleanliness to "fastidious">>
+	<<elseif $alchemist.cleanlinessRoll gt 70>>
+		<<set $alchemist.expertiseRoll += 7,
+		$alchemist.activityRoll += 4,
+		$alchemist.hardinessRoll += 6,
+		$alchemist.cleanliness to "very tidy">>
+	<<elseif $alchemist.cleanlinessRoll gt 60>>
+		<<set $alchemist.expertiseRoll += 3,
+		$alchemist.activityRoll += 3,
+		$alchemist.hardinessRoll += 4,
+		$alchemist.cleanliness to "tidy">>
+	<<elseif $alchemist.cleanlinessRoll gt 50>>
+		<<set $alchemist.expertiseRoll += 1,
+		$alchemist.hardinessRoll += 2,
+		$alchemist.cleanliness to "reasonably tidy">>
+	<<elseif $alchemist.cleanlinessRoll gt 40>>
+		<<set $alchemist.expertiseRoll -= 1,
+		$alchemist.hardinessRoll -= 2,
+		$alchemist.cleanliness to "somewhat messy">>
+	<<elseif $alchemist.cleanlinessRoll gt 30>>
+		<<set $alchemist.expertiseRoll -= 3,
+		$alchemist.hardinessRoll -= 4,
+		$alchemist.activityRoll -= 2,
+		$alchemist.cleanliness to "rather messy">>
+	<<elseif $alchemist.cleanlinessRoll gt 20>>
+		<<set $alchemist.expertiseRoll -= 5,
+		$alchemist.hardinessRoll -= 6,
+		$alchemist.activityRoll -= 6,
+		$alchemist.cleanliness to "very messy">>
+	<<elseif $alchemist.cleanlinessRoll lte 20>>
+		<<set $alchemist.expertiseRoll -= 7,
+		$alchemist.hardinessRoll -= 8,
+		$alchemist.activityRoll -= 10,
+		$alchemist.cleanliness to "filthy">>
+<</if>>
+
+<<if $alchemist.wealthRoll gt 95>>
+	<<set $alchemist.priceModifier += 4, $alchemist.sizeRoll += 3, $alchemist.cleanlinessRoll += 15, $alchemist.reputationRoll += 10>>
+<<elseif $alchemist.wealthRoll gt 80>>
+	<<set $alchemist.priceModifier += 3, $alchemist.cleanlinessRoll += 10, $alchemist.reputationRoll += 7>>
+<<elseif $alchemist.wealthRoll gt 70>>
+	<<set $alchemist.priceModifier += 2, $alchemist.cleanlinessRoll += 6, $alchemist.reputationRoll += 4>>
+<<elseif $alchemist.wealthRoll gt 60>>
+	<<set $alchemist.priceModifier += 1, $alchemist.populationRoll += 5, $alchemist.cleanlinessRoll += 4>>
+<<elseif $alchemist.wealthRoll gt 50>>
+	<<set $alchemist.populationRoll += 5, $alchemist.reputationRoll -= 5, $alchemist.cleanlinessRoll += 2>>
+<<elseif $alchemist.wealthRoll gt 30>>
+	<<set $alchemist.priceModifier -= 1, $alchemist.reputationRoll -= 7, $alchemist.cleanlinessRoll -= 15>>
+<<elseif $alchemist.wealthRoll lte 30>>
+	<<set $alchemist.priceModifier -= 2, $alchemist.reputationRoll -= 10, $alchemist.cleanlinessRoll -= 25>>
+<</if>>
+
+<<if $alchemist.activityRoll gt 80>>
+		<<set $alchemist.activity to "extremely busy">>
+		<<set $alchemist.reputationRoll += 5, $alchemist.cleanlinessRoll -= 5>>
+	<<elseif $alchemist.activityRoll gt 70>>
+		<<set $alchemist.activity to "very busy">>
+		<<set $alchemist.reputationRoll += 3, $alchemist.cleanlinessRoll -= 3>>
+	<<elseif $alchemist.activityRoll gt 60>>
+		<<set $alchemist.activity to "rather busy">>
+		<<set $alchemist.reputationRoll += 2, $alchemist.cleanlinessRoll -= 2>>
+	<<elseif $alchemist.activityRoll gt 50>>
+		<<set $alchemist.activity to "reasonably busy">>
+		<<set $alchemist.reputationRoll += 1, $alchemist.cleanlinessRoll -= 1>>
+	<<elseif $alchemist.activityRoll gt 40>>
+		<<set $alchemist.activity to "not terribly busy">>
+		<<set $alchemist.reputationRoll -= 1, $alchemist.cleanlinessRoll += 1>>
+	<<elseif $alchemist.activityRoll gt 30>>
+		<<set $alchemist.activity to "not busy">>
+		<<set $alchemist.reputationRoll -= 2, $alchemist.cleanlinessRoll += 2>>
+	<<elseif $alchemist.activityRoll gt 20>>
+		<<set $alchemist.activity to "rather quiet">>
+		<<set $alchemist.reputationRoll -= 3, $alchemist.cleanlinessRoll += 3>>
+	<<elseif $alchemist.activityRoll lte 20>>
+		<<set $alchemist.activity to "very quiet">>
+		<<set $alchemist.reputationRoll -= 5, $alchemist.cleanlinessRoll += 5>>
+<</if>>
+<</nobr>>

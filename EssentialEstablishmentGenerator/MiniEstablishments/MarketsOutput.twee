@@ -1,0 +1,28 @@
+:: MarketOutput [market]
+<h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
+
+There's a <<profile $marketSellerA $marketSellerA.racenote>> selling <<print either($market.selling)>> from a <<print either($market.tent)>>.
+
+A <<profile $marketSellerB $marketSellerB.racenote>> shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>.
+
+Nearby, a <<profile $marketSellerC $marketSellerC.racenote>> is selling <<print either($market.selling)>>.
+
+A <<profile $marketSellerE $marketSellerE.racenote>> is shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>.
+
+And a <<profile $marketSellerD $marketSellerD.racenote>> is selling magical trinkets from a  <<print either($market.tent)>>. Or, at least, they're supposedly magical trinkets.
+
+<<linkreplace "Magical trinket seller">>The $marketSellerD.manwoman beckons you over to $marketSellerD.hisher stall, and introduces $marketSellerD.himherself as <<profile $marketSellerD>>, a purveyor of fine goods. The $marketSellerD.racenote asks you for your ring size, and then $marketSellerD.heshe reaches below $marketSellerD.hisher table, and procures a ring...
+
+<<nobr>><<linkreplace "<h4>Look at the ring!</h4>">>
+<<set $marketRing to setup.createRing()>>
+    <<replace "#ring">>
+          <div class="descriptive">
+            <h3>A $marketRing.material ring</h3>
+            The $marketSellerD.racenote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone. $marketSellerD.firstName says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote>
+    <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketRing to setup.createRing()>>
+        <<replace "#ring">>
+              <div class="descriptive">
+                <h3>A $marketRing.material ring</h3>
+                <<print either("The $marketSellerD.racenote", "$marketSellerD.firstName")>> <<print either("hands you", "passes you", "procures another ring, this one")>> a $marketRing.material ring which is decorated with a $marketRing.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $marketRing.gemstone. $marketSellerD.firstName says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote><</replace>><</link>>
+<</linkreplace>>
+<span id="ring"></span><</nobr>><</linkreplace>>

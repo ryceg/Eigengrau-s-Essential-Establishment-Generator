@@ -1,0 +1,65 @@
+:: FactionProfile
+<h1>$currentFaction.name</h1>$currentFaction.name is a $currentFaction.type $currentFaction.factionNoun. It's $currentFaction.age, and the $currentFaction.size faction has a $currentFaction.reputation reputation, and is motivated by $currentFaction.motivation. They are $currentFaction.misc.
+<<set _leader to $currentFaction.leader>>
+<h3>Governance</h3>It's ruled by <<nobr>>
+<<switch $currentFaction.leadershipType>>
+  <<case "group">>
+  a $currentFaction.leaderGroupTitle of $currentFaction.leaderGroupSizeRoll, who were $currentFaction.leaderQualification. They are $currentFaction.leaderCompetence, and their positions on the $currentFaction.leaderGroupTitle are $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Their meetings are held $currentFaction.meetingRegularity, and are $currentFaction.meetingAccessibility. Bribes to the $currentFaction.leaderGroupTitle $currentFaction.leaderBribes.
+  <<default>>
+  <<profile $currentFaction.leader>>, who was $currentFaction.leaderQualification. <<print _leader.heshe.toUpperFirst()>> is $currentFaction.leaderCompetence, and _leader.hisher position is $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Bribes $currentFaction.leaderBribes.
+<</switch>>
+<</nobr>><h3>Resources</h3><<nobr>>
+They have $currentFaction.resourcesDescription resources. <<if $currentFaction.resources.length == 2>>
+    <<print $currentFaction.resources[0].toUpperFirst()>> and $currentFaction.resources[1] are their only significant resources.
+  <<elseif $currentFaction.resources.length == 1>>
+    <<print $currentFaction.resources[0].toUpperFirst()>> are their only significant resources.
+  <<else>>
+    <<print $currentFaction.resources[0].toUpperFirst()>>
+    <<print either(
+        "are jealously guarded, as are ",
+        "are part of those resources. Also at their disposal are ",
+        "are in their warchest, as are "
+    )>>
+    <<for _resources range $currentFaction.resources.slice(1, -1)>>
+        _resources,
+    <</for>>
+    and <<print $currentFaction.resources[$currentFaction.resources.length - 1]>>.
+<</if>><</nobr>>
+<h3>Members</h3>Members of $currentFaction.name are identifiable by $currentFaction.membersTrait. Membership requires $currentFaction.joiningRequirement, and costs $currentFaction.joiningFee. The initiation into $currentFaction.name involves $currentFaction.joiningInitiation.
+<h3>Politics</h3>$currentFaction.name have $currentFaction.alliesDescription; <<nobr>>
+
+<<if $currentFaction.allies.length == 2>>
+    <<print $currentFaction.allies[0].toUpperFirst()>> and $currentFaction.allies[1] can be called on for aid.
+  <<elseif $currentFaction.allies.length == 1>>
+    <<print $currentFaction.allies[0].toUpperFirst()>> are the only others they can rely on.
+  <<else>>
+    <<print $currentFaction.allies[0].toUpperFirst()>>
+    <<print either(
+        "will answer a call for aid, as will ",
+        "regularly assist $currentFaction.name. At their disposal, they also have ",
+        "will help if called upon, as will "
+    )>>
+    <<for _allies range $currentFaction.allies.slice(1, -1)>>
+        _allies,
+    <</for>>
+    and <<print $currentFaction.allies[$currentFaction.allies.length - 1]>>.
+<</if>><</nobr>>
+
+$currentFaction.name have $currentFaction.rivalsDescription; <<nobr>><<if $currentFaction.rivals.length == 2>>
+    <<print $currentFaction.rivals[0].toUpperFirst()>> and $currentFaction.rivals[1] are the only that wish $currentFaction.name ill.
+  <<elseif $currentFaction.rivals.length == 1>>
+    <<print $currentFaction.rivals[0].toUpperFirst()>> are the enemies of $currentFaction.name.
+  <<else>>
+    <<print $currentFaction.rivals[0].toUpperFirst()>>
+    <<print either(
+        "are enemies of $currentFaction.name, as are ",
+        "wish ill of $currentFaction.name. Their other enemies also include ",
+        "are rivals. Other enemies include "
+    )>>
+    <<for _rivals range $currentFaction.rivals.slice(1, -1)>>
+        _rivals,
+    <</for>>
+    and <<print $currentFaction.rivals[$currentFaction.rivals.length - 1]>>.
+<</if>><</nobr>>
+
+<<back>>

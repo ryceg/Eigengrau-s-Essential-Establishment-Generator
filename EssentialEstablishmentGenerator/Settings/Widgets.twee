@@ -1,0 +1,98 @@
+
+:: Widgets [widget widgets]
+
+<<widget "descriptor">><<print either($args[0].descriptor)>><</widget>>
+
+<<widget "money">><<silently>>
+		<<set _copper to Number($args)>>\
+		<<set _copper to (_copper + Math.round(_copper * setup.getPriceMod()))>>\
+\		<<if settings.silverStandard is true>>
+			<<if _copper gte 10000>>\
+					<<set _gold to Math.trunc(_copper / 10000)>>\
+					<<set _copper %= 10000>>\
+				<<else>>\
+					<<set _gold to 0>>\
+			<</if>>\
+			<<if _copper gte 100>>\
+					<<set _silver to Math.trunc(_copper / 100)>>\
+					<<set _copper %= 100>>\
+				<<else>>\
+					<<set _silver to 0>>\
+				<</if>>\
+		<<else>>
+			<<if _copper gte 100>>\
+					<<set _gold to Math.trunc(_copper / 100)>>\
+					<<set _copper %= 100>>\
+				<<else>>\
+					<<set _gold to 0>>\
+			<</if>>\
+			<<if _copper gte 10>>\
+					<<set _silver to Math.trunc(_copper / 10)>>\
+					<<set _copper %= 10>>\
+				<<else>>\
+					<<set _silver to 0>>\
+				<</if>>\
+	<</if>>
+		<</silently>>\
+		<<if _gold>><<= _gold>> Gold <</if>>\
+		<<if _silver>><<= _silver>> Silver <</if>>\
+		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
+
+
+<<widget "buildingProfile">><<nobr>>
+		<<set _build = $args[0], _readout = $args[1]>>
+		<<capture _build, _readout>>
+				<<if def $args[1]>>
+							<<link _readout "BuildingProfile">>
+								<<set $currentBuilding to _build>>
+							<</link>>
+					<<else>>
+							<<link _char.name "BuildingProfile">>
+									<<set $currentBuilding to _build>>
+							<</link>>
+				<</if>>
+		<</capture>><</nobr>><</widget>>
+
+<<widget "profile">>
+    \<<set _char = $args[0],
+        _readout = $args[1] || _char.name,
+        _id = "tip-" + Util.slugify(_char.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+    \<<capture _char>>
+        \<span @id="_id" class="tip"><<link _readout "NPCProfile">><<set $currentNPC to _char>><</link>></span>
+        \<<run setup.profileTooltip(_id, _char)>>
+				\<<run setup.tippy(".btn")>>
+    \<</capture>>
+\<</widget>>
+
+<<widget "temp">><<nobr>>
+		<<set _temp = $args[0]>>
+		<<capture _temp>>
+			<<if $showCelsius is true>>
+					<<set _temp -= 32>>
+					<<set _temp to Math.trunc(_temp *= 0.5556)>>_temp Celsius
+				<<else>>
+				_temp Fahrenheit
+			<</if>>
+		<</capture>><</nobr>><</widget>>
+
+/*
+		<<widget "createNPC">>\
+				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
+				<<capture _creation, _attributes, _readout>>\
+					<<if def $args[2]>>\
+							<<run State.setVar(_creation, setup.createNPC(_attributes))>>\
+								<<link _readout "NPCProfile">>\
+									<<set $currentNPC to _creation>>\
+								<</link>>\
+					<<elseif def $args[1]>>\
+							<<run State.setVar(_creation, setup.createNPC())>>\
+								<<link _creation.name "NPCProfile">>\
+									<<set $currentNPC to _creation>>\
+								<</link>>\
+						<<else>>\
+								<<run State.setVar(_creation, setup.createNPC())>>\
+									<<link _creation.name "NPCProfile">>\
+										<<set $currentNPC to _creation>>\
+									<</link>>\
+						<</if>>\
+				<</capture>><</widget>> */

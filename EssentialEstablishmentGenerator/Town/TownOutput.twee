@@ -1,0 +1,45 @@
+:: TownOutput
+
+<<link "Edit $town.name">><<goto "TownEdit">><</link>>
+
+$town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
+
+They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSource. The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live a $town.wealth existence. <<print $town.currentEvent.toUpperFirst()>> is currently taking place.
+
+<h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
+<h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
+<h3>Factions</h3><<for _i, _faction range $factions>>
+<<link "_faction.name">><<set $currentFaction to _faction>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type guild
+<</for>>
+
+<<linkappend "<h3>Businesses in $town.name</h3>">>
+<<nobr>>
+<table>
+  <tr>
+    <th>Trade</th>
+    <th>Number</th>
+  </tr>
+<<for _i, _trade range $trade>>
+    <<set _townPop to $town.population>>
+    <<set _trade.roll to (_townPop / _trade.sv)>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
+          <<if _trade.roll lt 1>>
+              <<set _trade.roll * 100, _trade.rollPercentage to random(1, 100)>>
+              <<if _trade.roll gte _trade.rollPercentage>>
+                  <<set _trade.count to 1>>
+              <<else>>
+                  <<set _trade.count to 0>>
+              <</if>>
+          <<else>>
+              <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
+          <</if>>
+
+      <<if _trade.count gte 1>>
+          <tr><td><<print _trade.profession.toUpperFirst()>></td>
+        /* <td><<include "ProfessionList">></td></tr> */
+        <td>_trade.count</td></tr>
+      <</if>>
+      <</for>>
+</table><</nobr>>
+<</linkappend>>
+
+<<back>>

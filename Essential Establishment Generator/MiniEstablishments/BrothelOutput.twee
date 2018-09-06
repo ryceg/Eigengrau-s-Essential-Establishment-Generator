@@ -1,7 +1,0 @@
-:: BrothelOutput [brothel]
-
-<h1>$brothel.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality.
-
-Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. You notice $brothel.notice. The $pimp.title is <<print $pimp.idle.random()>>. The $pimp.racenote <<print either($pimp.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks")>> to you, and introduces $pimp.himherself as <<link "$pimp.name">><<set $currentNPC to $pimp>><<goto "NPCProfile">><</link>>, the $pimp.title of $brothel.name, and asks what $pimp.heshe can do for you.
-
-Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour

@@ -1,0 +1,27 @@
+Roll
+:: GeneralStoreNameGen
+
+<<set _GeneralStorenameRoll to random(1, 5)>>
+
+<<set $GeneralStore.adjective to either("Dependable", "Reliable", "Expendable", "Indispensible", "Incomparable", "Incredible", "Excellent", "Important", "Cheap", "Affordable", "Affable", "Discount", "Low-Cost")>>
+
+<<set $GeneralStore.noun to either("Mount", "Saddle", "Guild", "Fangs", "Man", "Pardon", "Pleasure", "Belt", "Staff", "Shield", "Prince", "Master", "Servant", "Meal", "Prince", "Favor", "Love", "Word", "Scribe", "Apprentice", "Acolyte", "Dress", "Goddess", "God", "Gold", "Purse", "Trap", "King", "Son", "Sister", "Mother", "Daughter", "Cry", "Shout", "Cupboard", "Pantry", "Queen", "Wealth", "Star", "Void", "Woman", "Man", "Whore", "Butcher", "Anvil", "Tome", "Sacrifice","Armor", "Cup", "Pot", "Stove", "Stool", "Princess", "Chain", "Sword", "Pork", "Grain", "Tooth", "Lance", "Axe", "Scabbard", "Knife", "Dagger", "Spear", "Bow", "Crossbow", "Quarterstaff", "Staff", "Fire", "Ice", "Wind", "Earth", "Water", "Stone", "Ladle", "Monastery", "Chalice", "Goblet", "Dungeon", "Lust", "Lantern", "Bone", "Life", "Stone", "Mistress", "Mind", "Treasure", "Barter", "Armorer", "Butler", "Page", "Tome", "Feather", "Shadow", "Friend", "Labyrinth", "Mountain", "Hope", "Boot", "Gauntlet")>>
+
+<<set $GeneralStore.family to either("Son", "Daughter", "Brother", "Sister", "Uncle", "Aunt", "Father", "Friends", "Family", "Fool")>>
+
+<<set $GeneralStore.rider to either("Shop", "Bazaar", "Convenience Store", "Trading Post", "Warehouse", "Antiquerie", "Adventure Supplier", "Supplier", "Goods", "Goods and Bads", "Stock Shop", "Wares")>>
+
+<<switch _GeneralStorenameRoll>>
+	<<case 1>>
+		<<set $GeneralStore.name to "The " + $GeneralStore.adjective + " " + $GeneralStore.noun>>
+	<<case 2>>
+		<<set $GeneralStore.name to $blacksmith.firstName + " and " + $GeneralStore.family>>
+	<<case 3>>
+		<<set $GeneralStore.name to $GeneralStore.noun + " and " + $GeneralStore.family>>
+	<<case 4>>
+		<<set $GeneralStore.name to "The " + $GeneralStore.adjective + " " + $GeneralStore.rider>>
+	<<case 5>>
+		<<set $GeneralStore.name to $GeneralStore.adjective + " " + $GeneralStore.noun>>
+<<default>>
+    <<set $GeneralStore.name to "The " + $GeneralStore.adjective + " Adventurer's Store">>
+<</switch>>

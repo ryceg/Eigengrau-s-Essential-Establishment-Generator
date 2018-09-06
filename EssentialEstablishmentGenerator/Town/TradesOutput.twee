@@ -1,0 +1,27 @@
+:: TradesOutput
+/* <<nobr>>
+<table>
+  <tr>
+    <th>Trade</th>
+    <th>Number</th>
+  </tr>
+<<for _i, _trade range $trade>>
+    <<set _townPop to $town.population>>
+    <<set _trade.roll to _townPop /= _trade.sv>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
+    <<set _trade.rollPercentage to _townPop /= _trade.sv *= 100>>
+    <<set _trade.rollHundred to random(1, 100)>>
+          <<if _trade.roll lt 1 && _trade.rollPercentage gte _trade.rollHundred>>
+              <<set _trade.count to 1>>
+          <<elseif _trade.roll lt 1 && _trade.rollPercentage lt _trade.rollHundred>>
+              <<set _trade.count to 0>>
+          <<else>>
+              <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
+          <</if>>
+
+      <<if _trade.count gte 1>>
+          <tr><td><<print _trade.profession.toUpperFirst()>></td>
+        /* <td><<include "ProfessionList">></td></tr> */
+        <td>_trade.count</td></tr>
+      <</if>>
+      <</for>>
+</table><</nobr>> */

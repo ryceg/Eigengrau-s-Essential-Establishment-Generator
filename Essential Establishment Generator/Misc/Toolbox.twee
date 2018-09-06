@@ -1,6 +1,0 @@
-:: Toolbox
-
-<<include "RandomNPC">>
-<<include "RandomPotion">>
-<<include "RandomRing">>
-<<include "RandomAdventure">>

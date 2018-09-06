@@ -1,2 +1,0 @@
-:: PassageHeader
-<h5><<link "The $town.type of $town.name">><<unset $currentPassage>><<goto "Start">><</link>></h5>

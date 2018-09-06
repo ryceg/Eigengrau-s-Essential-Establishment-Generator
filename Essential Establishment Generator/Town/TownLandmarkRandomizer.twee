@@ -1,7 +1,0 @@
-:: TownLandmarkRandomizer
-
-<<nobr>><<link "landmark">><<include "TownLandmark">>
-    <<replace "#random">>
-            $town.landmark
-    <</replace>><</link>>
-is <span id="random">$town.landmark</span><</nobr>>

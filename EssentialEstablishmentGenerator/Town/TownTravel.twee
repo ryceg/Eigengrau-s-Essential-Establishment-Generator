@@ -1,0 +1,47 @@
+:: TownTravel
+
+<<set _pavingRoll to random(1, 100)>>
+
+<<if $town.population gt 5000>>
+      <<set _pavingRoll += 60>>
+    <<elseif $town.population gt 3000>>
+      <<set _pavingRoll += 50>>
+    <<elseif $town.population gt 2000>>
+      <<set _pavingRoll += 30>>
+    <<elseif $town.population gt 1000>>
+      <<set _pavingRoll += 25>>
+    <<elseif $town.population gt 500>>
+      <<set _pavingRoll += 20>>
+    <<elseif $town.population gt 200>>
+      <<set _pavingRoll += 15>>
+    <<elseif $town.population lte 200>>
+      <<set _pavingRoll += 10>>
+<</if>>
+
+<<if $town.wealthRoll gt 80>>
+      <<set _pavingRoll += 60>>
+    <<elseif $town.wealthRoll gt 70>>
+      <<set _pavingRoll += 50>>
+    <<elseif $town.wealthRoll gt 60>>
+      <<set _pavingRoll += 30>>
+    <<elseif $town.wealthRoll gt 50>>
+      <<set _pavingRoll += 25>>
+    <<elseif $town.wealthRoll gt 40>>
+      <<set _pavingRoll += 20>>
+    <<elseif $town.wealthRoll gt 30>>
+      <<set _pavingRoll += 15>>
+    <<elseif $town.wealthRoll lte 30>>
+      <<set _pavingRoll += 10>>
+<</if>>
+
+<<if _pavingRoll gt 80>>
+      <<set $town.paving to "paved">>
+    <<elseif _pavingRoll gt 60>>
+      <<set $town.paving to "cobblestone">>
+    <<elseif _pavingRoll gt 50>>
+      <<set $town.paving to "packed dirt">>
+    <<elseif _pavingRoll gt 30>>
+      <<set $town.paving to "loosely packed dirt">>
+    <<elseif _pavingRoll lte 30>>
+      <<set $town.paving to "desire path that acts as a ">>
+<</if>>

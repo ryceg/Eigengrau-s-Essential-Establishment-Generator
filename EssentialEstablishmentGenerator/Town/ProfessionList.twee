@@ -1,0 +1,15 @@
+:: ProfessionList
+<<nobr>><span id="_trade">
+  <<link _trade.count>>
+    <<if $NPCArray.filter(function (npc) { return npc.profession === _trade.profession; }) gte 1>>
+        <<set _found to $NPCArray.filter(function (npc) { return npc.profession === _trade.profession; })>>\
+            <<if _found.length gte 1>>
+              <<profile _found>>
+            <</if>>
+      <<else>>
+        <<run setup.createNPC({profession: _trade.profession, hasClass: false})>>
+        <<set $currentNPC to _trade>>
+        <<profile _trade>>
+    <</if>>
+  <</link>>
+</span><</nobr>>

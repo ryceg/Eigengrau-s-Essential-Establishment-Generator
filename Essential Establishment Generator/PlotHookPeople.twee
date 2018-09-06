@@ -1,3 +1,0 @@
-
-:: PlotHookPeople
-<<set $plotguy to setup.createNPC()>>You wander around the $tavern.wordnoun, and eventually find yourself in conversation with a $plotguy.height, $plotguy.weight $plotguy.gender who introduces $plotguy.himher<<nobr>>self<</nobr>> as $plotguy.firstname $plotguy.lastname<<nobr>>.<</nobr>> You can't help but notice $plotguy.firstname has a <<print $plotguy.physicaltrait>>. You explain that you are adventurers, looking for work or otherwise profitable endeavours, and $plotguy.hisher $plotguy.eyes eyes light up, and $plotguy.firstname draws you closer, and whispers in a hushed tone 'I may have something of interest for you, in that case; <<print $plothook.people.random()>>'

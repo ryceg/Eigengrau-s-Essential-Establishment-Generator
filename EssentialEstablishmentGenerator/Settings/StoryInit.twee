@@ -1,0 +1,98 @@
+
+:: StoryInit
+
+<<set $versionnumber to "1.4">>
+
+<<include "Names">>
+
+<<include "Town">>
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+
+
+
+<<include "SpecialBrew">>
+
+<<include "Cheese">>
+
+<<include "Tavern">>
+
+/*<<include "TavernNameGen">>*/
+
+<<include "TavernFlavour">>
+
+<<include "TavernInventory">>
+
+<<include "TavernModifiers">>
+
+<<include "PatreonCharacters">>
+
+<<include "Bartender">>
+
+<<include "PlotHook">>
+
+<<include "ShitPlotHooks">>
+
+<<include "TavernRenders">>
+
+<<include "Newspaper">>
+
+<<include "Alchemist">>
+
+<<include "AlchemistModifiers">>
+
+<<include "AlchemistNameGen">>
+
+<<include "Potions">>
+
+<<include "AlchemistInventory">>
+
+<<include "Blacksmith">>
+
+<<include "Smithy">>
+
+<<include "SmithyInventory">>
+
+<<include "SmithyModifiers">>
+
+<<include "SmithyRenders">>
+
+<<include "SmithyNameGen">>
+
+<<include "GeneralStore">>
+
+<<include "GeneralStoreInventory">>
+
+<<include "GeneralStoreModifiers">>
+
+<<include "GeneralStoreNameGen">>
+
+<<include "GeneralStoreRenders">>
+
+<<include "Books">>
+
+<<include "TavernGames">>
+
+<<include "TownSocioPolitics">>
+
+<<include "TownRefresh">>
+
+<<include "TownMicroEvents">>
+
+<<include "TownLandmark">>
+
+<<include "Mercenaries">>
+
+<<include "Lord">>
+
+<<include "Raiders">>
+
+<<include "TavernGuard">>
+
+<<include "Markets">>
+
+<<include "AdventureGenerator">>
+
+<<include "Guard">>
+
+<<include "Markets">>

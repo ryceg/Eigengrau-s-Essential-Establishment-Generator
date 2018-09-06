@@ -1,0 +1,27 @@
+
+:: AlchemistNameGen
+
+<<set _alchemistnameRoll to random(1, 5)>>
+
+<<set $alchemist.adjective to either("Bubbling", "Spicy", "Soggy", "Fizzy", "Liquid", "Fluorescent", "Clear", "Alcoholic", "Abyssal", "Angelic", "Elven", "Measured", "Marked", "Glass", "Glass", "Copper", "Corked", "Burning", "Red", "Blue", "Green", "Gold", "Yellow", "Vile", "Genuine", "Original")>>
+
+<<set $alchemist.noun to either("Potion", "Liquid", "Fumes", "Bottle", "Vial", "Firewater", "Mortar and Pestle", "Lab", "Laboratory", "Chemist", "Alchemist", "Brewer", "Lotion", "Wishes")>>
+
+<<set $alchemist.adjective2 to either("Bubbling", "Spicy", "Soggy", "Fizzy", "Liquid", "Fluorescent", "Clear", "Alcoholic", "Abyssal", "Angelic", "Elven", "Measured", "Marked", "Glass", "Glass", "Copper", "Corked", "Burning", "Red", "Blue", "Green", "Gold", "Yellow", "Vile", "Genuine", "Original")>>
+
+<<set $alchemist.rider to either("Chemist", "Alchemist", "Potion Shop", "Potionery", "Ointmentary", "Juice Bar", "Lab", "Laboratory", "Secret Lair")>>
+
+<<switch _alchemistnameRoll>>
+	<<case 1>>
+		<<set $alchemist.name to "The " + $alchemist.adjective + " " + $alchemist.noun>>
+	<<case 2>>
+		<<set $alchemist.name to $chemist.firstName + " and " + $alchemist.adjective2>>
+	<<case 3>>
+		<<set $alchemist.name to "The " + $alchemist.noun + " and " + $alchemist.adjective2>>
+	<<case 4>>
+		<<set $alchemist.name to "The " + $alchemist.adjective + " " + $alchemist.rider>>
+	<<case 5>>
+		<<set $alchemist.name to $alchemist.adjective + " " + $alchemist.noun>>
+<<default>>
+    <<set $alchemist.name to "The " + $alchemist.adjective + " alchemist">>
+<</switch>>

@@ -1,0 +1,289 @@
+:: MathClamp [render]
+
+<<if $smithy.pricemodifier gt 10>>
+    <<set $smithy.pricemodifier to 10>>
+  <<elseif $smithy.pricemodifier lt -10>>
+    <<set $smithy.pricemodifier to -10>>
+<</if>>
+
+<<if $smithy.magicRoll gt 100>>
+    <<set $smithy.magicRoll to 100>>
+  <<elseif $smithy.magicRoll lt 1>>
+    <<set $smithy.magicRoll to 1>>
+<</if>>
+
+<<if $smithy.sizeRoll gt 100>>
+    <<set $smithy.sizeRoll to 100>>
+  <<elseif $smithy.sizeRoll lt 1>>
+    <<set $smithy.sizeRoll to 1>>
+<</if>>
+
+<<if $smithy.diversityRoll gt 100>>
+    <<set $smithy.diversityRoll to 100>>
+  <<elseif $smithy.diversityRoll lt 1>>
+    <<set $smithy.diversityRoll to 1>>
+<</if>>
+
+<<if $smithy.wealthRoll gt 100>>
+    <<set $smithy.wealthRoll to 100>>
+  <<elseif $smithy.wealthRoll lt 1>>
+    <<set $smithy.wealthRoll to 1>>
+<</if>>
+
+<<if $smithy.populationRoll gt 100>>
+    <<set $smithy.populationRoll to 100>>
+  <<elseif $smithy.populationRoll lt 1>>
+    <<set $smithy.populationRoll to 1>>
+<</if>>
+
+<<if $smithy.reputationRoll gt 100>>
+    <<set $smithy.reputationRoll to 100>>
+  <<elseif $smithy.reputationRoll lt 1>>
+    <<set $smithy.reputationRoll to 1>>
+<</if>>
+
+<<if $smithy.sinRoll gt 100>>
+    <<set $smithy.sinRoll to 100>>
+  <<elseif $smithy.sinRoll lt 1>>
+    <<set $smithy.sinRoll to 1>>
+<</if>>
+
+<<if $smithy.roughnessRoll gt 100>>
+    <<set $smithy.roughnessRoll to 100>>
+  <<elseif $smithy.roughnessRoll lt 1>>
+    <<set $smithy.roughnessRoll to 1>>
+<</if>>
+
+<<if $smithy.cleanlinessRoll gt 100>>
+    <<set $smithy.cleanlinessRoll to 100>>
+  <<elseif $smithy.cleanlinessRoll lt 1>>
+    <<set $smithy.cleanlinessRoll to 1>>
+<</if>>
+
+<<if $smithy.expertiseRoll gt 100>>
+    <<set $smithy.expertiseRoll to 100>>
+  <<elseif $smithy.expertiseRoll lt 1>>
+    <<set $smithy.expertiseRoll to 1>>
+<</if>>
+
+<<if $smithy.activityRoll gt 100>>
+    <<set $smithy.activityRoll to 100>>
+  <<elseif $smithy.activityRoll lt 1>>
+    <<set $smithy.activityRoll to 1>>
+<</if>>
+
+<<if $alchemist.pricemodifier gt 10>>
+    <<set $alchemist.pricemodifier to 10>>
+  <<elseif $alchemist.pricemodifier lt -10>>
+    <<set $alchemist.pricemodifier to -10>>
+<</if>>
+
+<<if $alchemist.magicRoll gt 100>>
+    <<set $alchemist.magicRoll to 100>>
+  <<elseif $alchemist.magicRoll lt 1>>
+    <<set $alchemist.magicRoll to 1>>
+<</if>>
+
+<<if $alchemist.sizeRoll gt 100>>
+    <<set $alchemist.sizeRoll to 100>>
+  <<elseif $alchemist.sizeRoll lt 1>>
+    <<set $alchemist.sizeRoll to 1>>
+<</if>>
+
+<<if $alchemist.diversityRoll gt 100>>
+    <<set $alchemist.diversityRoll to 100>>
+  <<elseif $alchemist.diversityRoll lt 1>>
+    <<set $alchemist.diversityRoll to 1>>
+<</if>>
+
+<<if $alchemist.wealthRoll gt 100>>
+    <<set $alchemist.wealthRoll to 100>>
+  <<elseif $alchemist.wealthRoll lt 1>>
+    <<set $alchemist.wealthRoll to 1>>
+<</if>>
+
+<<if $alchemist.populationRoll gt 100>>
+    <<set $alchemist.populationRoll to 100>>
+  <<elseif $alchemist.populationRoll lt 1>>
+    <<set $alchemist.populationRoll to 1>>
+<</if>>
+
+<<if $alchemist.reputationRoll gt 100>>
+    <<set $alchemist.reputationRoll to 100>>
+  <<elseif $alchemist.reputationRoll lt 1>>
+    <<set $alchemist.reputationRoll to 1>>
+<</if>>
+
+<<if $alchemist.sinRoll gt 100>>
+    <<set $alchemist.sinRoll to 100>>
+  <<elseif $alchemist.sinRoll lt 1>>
+    <<set $alchemist.sinRoll to 1>>
+<</if>>
+
+<<if $alchemist.roughnessRoll gt 100>>
+    <<set $alchemist.roughnessRoll to 100>>
+  <<elseif $alchemist.roughnessRoll lt 1>>
+    <<set $alchemist.roughnessRoll to 1>>
+<</if>>
+
+<<if $alchemist.cleanlinessRoll gt 100>>
+    <<set $alchemist.cleanlinessRoll to 100>>
+  <<elseif $alchemist.cleanlinessRoll lt 1>>
+    <<set $alchemist.cleanlinessRoll to 1>>
+<</if>>
+
+<<if $alchemist.expertiseRoll gt 100>>
+    <<set $alchemist.expertiseRoll to 100>>
+  <<elseif $alchemist.expertiseRoll lt 1>>
+    <<set $alchemist.expertiseRoll to 1>>
+<</if>>
+
+<<if $alchemist.activityRoll gt 100>>
+    <<set $alchemist.activityRoll to 100>>
+  <<elseif $alchemist.activityRoll lt 1>>
+    <<set $alchemist.activityRoll to 1>>
+<</if>>
+
+<<if $tavern.pricemodifier gt 10>>
+    <<set $tavern.pricemodifier to 10>>
+  <<elseif $tavern.pricemodifier lt -10>>
+    <<set $tavern.pricemodifier to -10>>
+<</if>>
+
+<<if $tavern.magicRoll gt 100>>
+    <<set $tavern.magicRoll to 100>>
+  <<elseif $tavern.magicRoll lt 1>>
+    <<set $tavern.magicRoll to 1>>
+<</if>>
+
+<<if $tavern.sizeRoll gt 100>>
+    <<set $tavern.sizeRoll to 100>>
+  <<elseif $tavern.sizeRoll lt 1>>
+    <<set $tavern.sizeRoll to 1>>
+<</if>>
+
+<<if $tavern.diversityRoll gt 100>>
+    <<set $tavern.diversityRoll to 100>>
+  <<elseif $tavern.diversityRoll lt 1>>
+    <<set $tavern.diversityRoll to 1>>
+<</if>>
+
+<<if $tavern.wealthRoll gt 100>>
+    <<set $tavern.wealthRoll to 100>>
+  <<elseif $tavern.wealthRoll lt 1>>
+    <<set $tavern.wealthRoll to 1>>
+<</if>>
+
+<<if $tavern.populationRoll gt 100>>
+    <<set $tavern.populationRoll to 100>>
+  <<elseif $tavern.populationRoll lt 1>>
+    <<set $tavern.populationRoll to 1>>
+<</if>>
+
+<<if $tavern.reputationRoll gt 100>>
+    <<set $tavern.reputationRoll to 100>>
+  <<elseif $tavern.reputationRoll lt 1>>
+    <<set $tavern.reputationRoll to 1>>
+<</if>>
+
+<<if $tavern.sinRoll gt 100>>
+    <<set $tavern.sinRoll to 100>>
+  <<elseif $tavern.sinRoll lt 1>>
+    <<set $tavern.sinRoll to 1>>
+<</if>>
+
+<<if $tavern.roughnessRoll gt 100>>
+    <<set $tavern.roughnessRoll to 100>>
+  <<elseif $tavern.roughnessRoll lt 1>>
+    <<set $tavern.roughnessRoll to 1>>
+<</if>>
+
+<<if $tavern.cleanlinessRoll gt 100>>
+    <<set $tavern.cleanlinessRoll to 100>>
+  <<elseif $tavern.cleanlinessRoll lt 1>>
+    <<set $tavern.cleanlinessRoll to 1>>
+<</if>>
+
+<<if $tavern.expertiseRoll gt 100>>
+    <<set $tavern.expertiseRoll to 100>>
+  <<elseif $tavern.expertiseRoll lt 1>>
+    <<set $tavern.expertiseRoll to 1>>
+<</if>>
+
+<<if $tavern.activityRoll gt 100>>
+    <<set $tavern.activityRoll to 100>>
+  <<elseif $tavern.activityRoll lt 1>>
+    <<set $tavern.activityRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.pricemodifier gt 10>>
+    <<set $GeneralStore.pricemodifier to 10>>
+  <<elseif $GeneralStore.pricemodifier lt -10>>
+    <<set $GeneralStore.pricemodifier to -10>>
+<</if>>
+
+<<if $GeneralStore.magicRoll gt 100>>
+    <<set $GeneralStore.magicRoll to 100>>
+  <<elseif $GeneralStore.magicRoll lt 1>>
+    <<set $GeneralStore.magicRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.sizeRoll gt 100>>
+    <<set $GeneralStore.sizeRoll to 100>>
+  <<elseif $GeneralStore.sizeRoll lt 1>>
+    <<set $GeneralStore.sizeRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.diversityRoll gt 100>>
+    <<set $GeneralStore.diversityRoll to 100>>
+  <<elseif $GeneralStore.diversityRoll lt 1>>
+    <<set $GeneralStore.diversityRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.wealthRoll gt 100>>
+    <<set $GeneralStore.wealthRoll to 100>>
+  <<elseif $GeneralStore.wealthRoll lt 1>>
+    <<set $GeneralStore.wealthRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.populationRoll gt 100>>
+    <<set $GeneralStore.populationRoll to 100>>
+  <<elseif $GeneralStore.populationRoll lt 1>>
+    <<set $GeneralStore.populationRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.reputationRoll gt 100>>
+    <<set $GeneralStore.reputationRoll to 100>>
+  <<elseif $GeneralStore.reputationRoll lt 1>>
+    <<set $GeneralStore.reputationRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.sinRoll gt 100>>
+    <<set $GeneralStore.sinRoll to 100>>
+  <<elseif $GeneralStore.sinRoll lt 1>>
+    <<set $GeneralStore.sinRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.roughnessRoll gt 100>>
+    <<set $GeneralStore.roughnessRoll to 100>>
+  <<elseif $GeneralStore.roughnessRoll lt 1>>
+    <<set $GeneralStore.roughnessRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.cleanlinessRoll gt 100>>
+    <<set $GeneralStore.cleanlinessRoll to 100>>
+  <<elseif $GeneralStore.cleanlinessRoll lt 1>>
+    <<set $GeneralStore.cleanlinessRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.expertiseRoll gt 100>>
+    <<set $GeneralStore.expertiseRoll to 100>>
+  <<elseif $GeneralStore.expertiseRoll lt 1>>
+    <<set $GeneralStore.expertiseRoll to 1>>
+<</if>>
+
+<<if $GeneralStore.activityRoll gt 100>>
+    <<set $GeneralStore.activityRoll to 100>>
+  <<elseif $GeneralStore.activityRoll lt 1>>
+    <<set $GeneralStore.activityRoll to 1>>
+<</if>>

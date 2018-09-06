@@ -1,0 +1,156 @@
+:: Town
+
+<<set $town to {
+	wealthRoll: random(1, 100),
+	reputationRoll: random(1, 100),
+	sinRoll: random(1, 100),
+	diversityRoll: random(1, 100),
+	magicRoll: random(0, 35),
+	sizeRoll: random(0, 100),
+	economicsRoll: random(1, 100),
+	welfareRoll: random(1, 100),
+	militaryRoll: random(1, 100),
+	lawRoll: random(1, 100),
+	arcanaRoll: random(1, 100),
+}>>
+
+<<set $townLeader to {}>>
+
+<<set $town.wealthRoll to $town.wealthRoll.clamp(1, 100),
+$town.reputationRoll to $town.reputationRoll.clamp(1, 100),
+$town.sinRoll to $town.sinRoll.clamp(1, 100),
+$town.diversityRoll to $town.diversityRoll.clamp(1, 100),
+$town.magicRoll to $town.magicRoll.clamp(1, 100),
+$town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
+
+<<set $town.name to setup.createTown()>>
+<<set $town.passageName to "TownOutput">>
+<<set $merchantGuild to setup.createFaction({type: "merchants"})>>
+
+/* Town Population Roller */
+<<set _townPopulationRoll to random(1, 10)>>
+	<<if _townPopulationRoll gt 8>>
+		<<set $town.population to random(3001, 6000), $town.type to "city", $town.wealthRoll += 5, $town.reputationRoll += 5, $town.sinRoll += 15, $town.diversityRoll += 10>>
+	<<elseif _townPopulationRoll gt 5>>
+		<<set $town.population to random(1001, 3000), $town.type to "town", $town.wealthRoll += 3, $town.reputationRoll += 2, $town.sinRoll += 5, $town.diversityRoll += 4>>
+	<<elseif _townPopulationRoll gt 2>>
+		<<set $town.population to random(301, 1000), $town.type to "village", $town.wealthRoll += 2, $town.reputationRoll -= 2, $town.sinRoll -= 3, $town.diversityRoll -= 4>>
+	<<elseif _townPopulationRoll lte 2>>
+		<<set $town.population to random(30, 300), $town.type to "hamlet", $town.wealthRoll -= 2, $town.reputationRoll -= 12, $town.sinRoll -= 15, $town.diversityRoll -= 12>>
+	<</if>>
+
+/* Town Location Roller */
+<<set _townpotentiallocation to ["seacoast", "forest", "hills", "plains", "mountains", "river coast", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "jungle", "volcanic field", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "tundra", "ice sheet", "seacoast", "desert", "hills", "plains", "mountains", "river coast", "wasteland", "oasis"]>>
+<<set _terrainRoll to random(1, 6)>>
+<<set $town.terrainPool to ["temperate", "tropical", "polar", "arid"]>>
+<<set $town.locationPool to ["seacoast", "volcanic field", "ice sheet", "river coast", "forest", "plains", "jungle", "tundra", "desert", "wasteland", "hills", "mountains"]>>
+
+	<<if _terrainRoll lte 3>>
+		 <<set $town.terrain to "temperate", $town.location to _townpotentiallocation[random(0, 5)]>>
+	 <<elseif _terrainRoll is 4>>
+		 <<set $town.terrain to "tropical", $town.location to _townpotentiallocation[random(6, 13)]>>
+	 <<elseif _terrainRoll is 5>>
+		 <<set $town.terrain to "polar", $town.location to _townpotentiallocation[random(14, 21)]>>
+	 <<elseif _terrainRoll is 6>>
+		 <<set $town.terrain to "arid", $town.location to _townpotentiallocation[random(22, 29)]>>
+<</if>>
+
+<<set $weather to {
+	season: either(["winter", "spring", "summer", "autumn"]),
+	seasonPool: ["winter", "spring", "summer", "autumn"]
+	}>>
+
+
+
+
+<<set $town.scenery to either(["Children play in the street, calling after one another.", "An old woman waves from her chair on the porch at you.", "A young girl waves at you, before being shooed into her home by a doting mother.", "The stench of curing leathers fills your nose as you pass the local tannery.", "You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself."])>>
+<<set $town.currentEvent to either([
+			"an anniversary of a monarch's reign",
+			"an anniversary of an important event",
+			"an arena event",
+			"an arrival of a caravan or ship",
+			"an arrival of a circus",
+			"an arrival of an important npc",
+			"an arrival of marching modrons",
+			"an artistic performance",
+			"an athletic event",
+			"a birth of an important child",
+			"a birthday of an important npc",
+			"a civic festival",
+			"a comet appearance",
+			"a commemoration of a past tragedy",
+			"a consecration of a new temple",
+			"a coronation",
+			"a council meeting",
+			"a equinox or solstice",
+			"an execution",
+			"a fertility festival",
+			"a full moon",
+			"a funeral",
+			"a graduation of cadets or wizards",
+			"a harvest festival",
+			"a holy day",
+			"an investiture of a knight or other noble",
+			"a lunar eclipse",
+			"a midsummer festival",
+			"a midwinter festival",
+			"a migration of monsters",
+			"a monarch's ball",
+			"a new moon",
+			"a new year",
+			"a pardoning of a prisoner",
+			"a planar conjunction",
+			"a planetary alignment",
+			"a priestly investiture",
+			"a procession of ghosts",
+			"a remembrance for soldiers lost in war",
+			"a royal address or proclamation",
+			"a royal audience day",
+			"a signing of a treaty",
+			"a solar eclipse",
+			"a tournament",
+			"a trial",
+			"a violent uprising",
+			"a wedding or wedding anniversary",
+			"a travelling carnival"])>>
+
+			<<set $town.primaryExport to either([
+			either(["iron", "copper", "cobalt", "nickel", "gold", "lead", "silver"]) " ore",
+			either(["bauxite", "gold", "silver", "clay and granite", "salt", "quartz", "coal", "peat", "ruby", "sapphire", "emerald", "opal", "amethyst", "coal", "marble", "galena", "limestone", "gravel"]) " deposits",
+			"hardwood lumber",
+			"softwood lumber",
+			"wild game",
+			"wild fruits",
+			"common fauna used in alchemy",
+			"rare fauna used in alchemy",
+			])>>
+
+			<<set $town.primaryCrop to either([
+			"barley and oats",
+			"beans and corn",
+			"nuts and olives",
+			"rice",
+			"wheat and rye",
+			"potatoes and leeks",
+			"sugar cane",
+			"tobacco",
+			"cotton",
+			"fruit trees",
+			"cabbages and beets",
+			"cattle",
+			"dairy cows",
+			"sheep",
+			"carrots and cucumbers",
+			"leeks",
+			"corn",
+			"fish",
+			"peas",
+			"watermelon",
+			"mangos"])>>
+
+
+
+<<include "TownOrigin">>
+<<include "TownTravel">>
+<<include "TownWeather">>
+<<include "Trades">>

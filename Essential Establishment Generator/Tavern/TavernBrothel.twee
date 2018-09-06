@@ -1,5 +1,0 @@
-:: TavernBrothel
-<<nobr>><<if $tavern.type == "brothel">><<include "Brothel">>
-  <<set $brothel to $tavern>>
-<<linkreplace "Go upstairs to the brothel">><h3>The Brothel</h3>When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality. You go up the $tavern.material staircase to the brothel section, and up there, you notice $brothel.notice. Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour
-<</linkreplace>><</if>><</nobr>>

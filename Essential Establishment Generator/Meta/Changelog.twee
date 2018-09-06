@@ -1,5 +1,0 @@
-:: Changelog
-
-<<include "ChangelogCurrent">>
-
-<<link "Full changelog">><<goto "ChangelogFull">><</link>>

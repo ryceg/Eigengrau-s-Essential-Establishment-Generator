@@ -1,0 +1,86 @@
+
+:: TavernGuard
+
+<<set _guard to random(1, 100)>>
+<<set _brawl to random(1, 100)>>
+
+/*<<if $guard.population gt 20>>
+	<<set _guard += 10>>
+<<elesif $guard.population gt 15>>
+	<<set _guard += 5>>
+<<elseif $guard.population gt 10>>
+	<<set _guard += 1>>
+<<elseif $guard.population gt 5 && $tavern.sizeRoll gt 60>>
+	<<set _guard -= 7>>
+<<elseif $guard.population gt 5>>
+		<<set _guard -= 5>>
+<<elseif $guard.population lte 5 && $tavern.sizeRoll gt 60>>
+		<<set _guard -= 15>>
+<<elseif $guard.population lte 5>>
+	<<set _guard -= 10>>
+<</if>>*/
+
+<<if _guard gte 50>>
+		<<set $tavern.guardPresent to true, _brawl -= 20>>
+		<<set $tavernGuard to setup.createNPC({dndclass: "fighter", background: "soldier", gender: either("man", "man", "man", "woman")})>>
+	<<else>>
+		<<set $tavern.guardPresent to false>>
+	<</if>>
+
+
+	<<if $tavern.populationRoll gt 80>>
+		<<set _brawl += 15>>
+	<<elseif $tavern.populationRoll gt 70>>
+		<<set _brawl += 13>>
+	<<elseif $tavern.populationRoll gt 60>>
+		<<set _brawl += 11>>
+	<<elseif $tavern.populationRoll gt 60>>
+		<<set _brawl += 8>>
+	<<elseif $tavern.populationRoll gt 50>>
+		<<set _brawl += 0>>
+	<<elseif $tavern.populationRoll gt 40>>
+		<<set _brawl -= 5>>
+	<<elseif $tavern.populationRoll gt 30>>
+		<<set _brawl -= 15>>
+	<<elseif $tavern.populationRoll gt 20>>
+		<<set _brawl -= 20>>
+	<<elseif $tavern.populationRoll lte 20>>
+		<<set _brawl -= 40>>
+<</if>>
+
+<<if $tavern.roughnessRoll gt 80>>
+	<<set _brawl += 15>>
+<<elseif $tavern.roughnessRoll gt 70>>
+	<<set _brawl += 13>>
+<<elseif $tavern.roughnessRoll gt 60>>
+	<<set _brawl += 11>>
+<<elseif $tavern.roughnessRoll gt 60>>
+	<<set _brawl += 8>>
+<<elseif $tavern.roughnessRoll gt 50>>
+	<<set _brawl += 0>>
+<<elseif $tavern.roughnessRoll gt 40>>
+	<<set _brawl -= 5>>
+<<elseif $tavern.roughnessRoll gt 30>>
+	<<set _brawl -= 15>>
+<<elseif $tavern.roughnessRoll gt 20>>
+	<<set _brawl -= 20>>
+<<elseif $tavern.roughnessRoll lte 20>>
+	<<set _brawl -= 40>>
+<</if>>
+
+<<if _brawl gt 50>>
+			<<set $tavern.hasBrawl to true>>
+			<<set $brawlInstigator to setup.createNPC({gender: either("man", "man", "man", "man", "woman")})>>
+			<<set $brawlResponder to setup.createNPC({gender: either("man", "man", "man", "man", "woman")})>>
+			<<set $tavernBrawl to {
+						start: either("It seems that the <<print either($brawlInstigator.descriptor)>> that is currently wrestling with the <<print either($brawlResponder.descriptor)>> because of ", "A <<print either($brawlInstigator.descriptor)>> has a <<print either($brawlResponder.descriptor)>> in a headlock. The cause seems to be ", "There's some shouting, and then a <<print either($brawlInstigator.descriptor)>> throws a punch at a <<print either($brawlResponder.descriptor)>>, shouting that the $brawlInstigator.weight $brawlInstigator.manwoman is a bastard. The cause seems to be "),
+						reason: either("some silly misunderstanding between the two. ", "a statement about a sports team that the other disagreed with. ", "a secret affair has come out. ", "a joke was taken way too far. ", "a joke was misunderstood, much to the <<print either($brawlResponder.descriptor)>>'s dismay. ")
+			}>>
+					<<if $tavern.guardPresent is true>>
+							<<set $tavernBrawl.end to either("A <<print either($tavernGuard.descriptor)>> wearing the $guard.livery signifying that they are a member of <<link '$guard.name'>><<set $currentPassage to $guard>><<goto 'GuardOutput'>><</link>> is currently pulling the <<print either($brawlInstigator.descriptor)>> off the <<print either($brawlResponder.descriptor)>>.", "A member of <<link '$guard.name'>><<set $currentPassage to $guard>><<goto 'GuardOutput'>><</link>> is currently trying to pull the two apart.")>>
+						<<else>>
+							<<set $tavernBrawl.end to either("It seems that the <<print either($brawlInstigator.descriptor)>> is winning.", "It seems that the <<print either($brawlResponder.descriptor)>> is winning.")>>
+					<</if>>
+	<<else>>
+			<<set $tavern.hasBrawl to false>>
+<</if>>
