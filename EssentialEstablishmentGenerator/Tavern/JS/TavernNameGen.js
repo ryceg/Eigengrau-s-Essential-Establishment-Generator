@@ -24,26 +24,24 @@ setup.createTavernNameGen = function () {
       nounC = ['Mount', 'Saddle', 'Guild', 'Fangs', 'Man', 'Pardon', 'Pleasure', 'Belt', 'Staff', 'Shield', 'Prince', 'Master', 'Servant', 'Meal', 'Prince', 'Favor', 'Love', 'Word', 'Scribe', 'Apprentice', 'Acolyte', 'Dress', 'Goddess', 'God', 'Gold', 'Purse', 'Trap', 'King', 'Son', 'Sister', 'Mother', 'Daughter', 'Cry', 'Shout', 'Cupboard', 'Pantry', 'Queen', 'Wealth', 'Star', 'Void', 'Woman', 'Man', 'Whore', 'Butcher', 'Anvil', 'Tome', 'Sacrifice', 'Armor', 'Cup', 'Pot', 'Stove', 'Stool', 'Princess', 'Chain', 'Sword', 'Pork', 'Grain', 'Tooth', 'Lance', 'Axe', 'Scabbard', 'Knife', 'Dagger', 'Spear', 'Bow', 'Crossbow', 'Quarterstaff', 'Staff', 'Fire', 'Ice', 'Wind', 'Earth', 'Water', 'Stone', 'Ladle', 'Monastery', 'Chalice', 'Goblet', 'Dungeon', 'Lust', 'Lantern', 'Bone', 'Life', 'Stone', 'Mistress', 'Mind', 'Treasure', 'Barter', 'Armorer', 'Butler', 'Page', 'Tome', 'Feather', 'Shadow', 'Friend', 'Labyrinth', 'Mountain', 'Hope', 'Boot', 'Gauntlet'].random()
       verb = ['Moping', 'Drowning', 'Hanging', 'Belching', 'Running', 'Walking', 'Hunting', 'Fighting', 'Swinging', 'Breaking', 'Working', 'Fermenting', 'Flowering', 'Worrying', 'Following', 'Flowing', 'Complaining', 'Standing', 'Joking', 'Laughing', 'Panting', 'Boarding', 'Lounging', 'Cutting', 'Singing', 'Staring', 'Goading', 'Disappointing', 'Faltering', 'Binding', 'Winding', 'Sundering', 'Longing', 'Fumbling', 'Bumbling', 'Stumbling', 'Pining', 'Whining', 'Flying', 'Hoarding', 'Whoring', 'Warring', 'Winking', 'Skittering', 'Slithering', 'Snoring', 'Snorting', 'Playing', 'Practicing', 'Grappling', 'Burning', 'Flaming', 'Freezing', 'Poisoning', 'Burying', 'Throwing', 'Sparking', 'Steaming', 'Smiting', 'Chittering', 'Chattering', 'Mumbling', 'Grating', 'Plowing', 'Biting', 'Howling', 'Roaring', 'Shouting', 'Pouring', 'Squeaking', 'Stinging', 'Charging', 'Bleating', 'Stabbing', 'Goring', 'Poking', 'Swallowing', 'Sucking', 'Drinking', 'Sneaking', 'Hiding', 'Slashing', 'Limping', 'Tripping', 'Shifting', 'Sliding', 'Blinding', 'Piercing', 'Bludgeoning', 'Crushing', 'Hopping', 'Thundering', 'Hushing', 'Crying', 'Wailing', 'Mourning', 'Darkening', 'Piling', 'Digging', 'Flinging'].random()
       break
-
   }
 
   switch (tavernNameRoll) {
     case 1:
-		  name = 'The ' + adjective + ' ' + nounA
+      name = 'The ' + adjective + ' ' + nounA
       break
     case 2:
-    	name = 'The ' + nounA + ' and ' + nounB
+      name = 'The ' + nounA + ' and ' + nounB
       break
     case 3:
-		  name = 'The ' + nounA + ' and the ' + nounB
+      name = 'The ' + nounA + ' and the ' + nounB
       break
     case 4:
-    	name = 'The ' + verb + ' ' + nounA
+      name = 'The ' + verb + ' ' + nounA
       break
     case 5:
-    	name = 'The ' + verb + ' ' + nounA + ' and the ' + nounC
+      name = 'The ' + verb + ' ' + nounA + ' and the ' + nounC
       break
-
   }
 
   return {

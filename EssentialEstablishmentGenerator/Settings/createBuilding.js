@@ -1,4 +1,4 @@
-setup.createBuilding = function (base) {
+setup.createBuilding = function (type, base) {
   // Tables used later
   var index = State.variables.buildings.size
   var isThrowaway
@@ -29,7 +29,7 @@ setup.createBuilding = function (base) {
   var sin
   var roughness
   var cleanliness
-  var bedcleanliness
+  var bedCleanliness
   var expertise
   var activity
   var building = Object.assign({
@@ -48,7 +48,7 @@ setup.createBuilding = function (base) {
     sin: sin,
     roughness: roughness,
     cleanliness: cleanliness,
-    bedcleanliness: bedcleanliness,
+    bedCleanliness: bedCleanliness,
     expertise: expertise,
     activity: activity,
     magicRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
@@ -78,22 +78,33 @@ setup.createBuilding = function (base) {
   if (!building.size) {
     if (building.sizeRoll > 80) {
       building.size = 'huge'
+      building.floorPlan = dice(3, 6)
     } else if (building.sizeRoll > 70) {
       building.size = 'quite large'
+      building.floorPlan = dice(3, 3)
     } else if (building.sizeRoll > 60) {
       building.size = 'large'
+      building.floorPlan = dice(2, 3)
     } else if (building.sizeRoll > 50) {
       building.size = 'spacious'
+      building.floorPlan = dice(2, 2)
     } else if (building.sizeRoll > 40) {
       building.size = 'medium'
+      building.floorPlan = random(1, 3)
     } else if (building.sizeRoll > 30) {
       building.size = 'slightly cramped'
+      building.floorPlan = random(1, 2)
     } else if (building.sizeRoll > 20) {
       building.size = 'small'
+      building.floorPlan = random(1, 2)
     } else if (building.sizeRoll <= 20) {
       building.size = 'tiny'
+      building.floorPlan = 1
     }
   }
+
+  // building.rooms = setup.createRooms(building)
+
   if (!building.wealth) {
     if (building.wealthRoll > 95) {
       building.wealth = 'kingly'
@@ -112,31 +123,31 @@ setup.createBuilding = function (base) {
     }
   }
 
-  if (!building.cleanliness || !building.bedcleanliness) {
+  if (!building.cleanliness || !building.bedCleanliness) {
     if (building.cleanlinessRoll > 80) {
       building.cleanliness = 'absolutely spotless'
-      building.bedcleanliness = 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'
+      building.bedCleanliness = 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'
     } else if (building.cleanlinessRoll > 70) {
       building.cleanliness = 'spotless'
-      building.bedcleanliness = 'freshly cleaned and neat'
+      building.bedCleanliness = 'freshly cleaned and neat'
     } else if (building.cleanlinessRoll > 60) {
       building.cleanliness = 'hygienic'
-      building.bedcleanliness = 'tidy and neat'
+      building.bedCleanliness = 'tidy and neat'
     } else if (building.cleanlinessRoll > 50) {
       building.cleanliness = 'decently hygienic'
-      building.bedcleanliness = 'reasonably clean'
+      building.bedCleanliness = 'reasonably clean'
     } else if (building.cleanlinessRoll > 40) {
       building.cleanliness = 'slightly grubby'
-      building.bedcleanliness = 'somewhat tidy'
+      building.bedCleanliness = 'somewhat tidy'
     } else if (building.cleanlinessRoll > 30) {
       building.cleanliness = 'quite dirty'
-      building.bedcleanliness = 'disgusting'
+      building.bedCleanliness = 'disgusting'
     } else if (building.cleanlinessRoll > 20) {
       building.cleanliness = 'rather filthy'
-      building.bedcleanliness = 'teeming with rats'
+      building.bedCleanliness = 'teeming with rats'
     } else if (building.cleanlinessRoll <= 20) {
       building.cleanliness = 'absolutely putrid'
-      building.bedcleanliness = 'festering with bugs'
+      building.bedCleanliness = 'festering with bugs'
     }
   }
   if (!building.sin) {

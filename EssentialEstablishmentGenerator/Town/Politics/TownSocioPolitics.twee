@@ -154,7 +154,7 @@
         <<set $townLeader to setup.createNPC({title: "Lord", background: "commoner"})>>
 		<<case "kleptocracy">>
         <<set $town.leaderType to "the Thieves' Guild">>
-        /* <<set $townLeader to setup.createNPC({title: "High Thief", dndclass: "rogue", background: "criminal"})>> */
+        /* <<set $townLeader to setup.createNPC({title: "High Thief", dndClass: "rogue", background: "criminal"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "thieves", leadershipType: "individual"})>>
 				<<set $town.lawRoll -= 30>>
 				<<set $town.militaryRoll -= 50>>
@@ -163,7 +163,7 @@
 
 		<<case "magocracy">>
         <<set $town.leaderType to "the wizards">>
-        /* <<set $townLeader to setup.createNPC({title: "Archwizard", dndclass: "wizard", background: "sage"})>> */
+        /* <<set $townLeader to setup.createNPC({title: "Archwizard", dndClass: "wizard", background: "sage"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "wizards", leadershipType: "individual"})>>
 				<<set $town.arcanaRoll += 50>>
 				<<set $town.magicRoll += 20>>
@@ -175,7 +175,7 @@
 				<<set $town.lawRoll += 50>>
 				<<set $town.economicsRoll += 25>>
         <<set $town.politicalIdeologyIC to "militocratic">>
-        <<set $townLeader to setup.createNPC({title: "Commander", dndclass: "fighter", background: "soldier"})>>
+        <<set $townLeader to setup.createNPC({title: "Commander", dndClass: "fighter", background: "soldier"})>>
 		<<case "oligarchy">>
         <<set $town.leaderType to "the powerful few">>
 				<<set $town.welfareRoll -= 15>>
@@ -191,7 +191,7 @@
         <<set $townLeaderGuild to setup.createFaction({type: "scholars", leadershipType: "individual"})>>
 		<<case "theocracy">>
         <<set $town.leaderType to "the holy">>
-        /* <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndclass: "cleric", background: "acolyte"})>> */
+        /* <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndClass: "cleric", background: "acolyte"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "priests", leadershipType: "individual", isPoliticalPower: true})>>
 				<<set $town.welfareRoll += 15>>
 				<<set $town.arcanaRoll += 15>>

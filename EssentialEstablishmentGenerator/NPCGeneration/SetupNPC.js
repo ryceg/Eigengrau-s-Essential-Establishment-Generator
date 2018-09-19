@@ -8,7 +8,7 @@ setup.createNPC = function (base) {
   var vocalPattern
   var descriptor = []
   var availableLanguages
-  var allLanguages = npcData.standardLanguages + npcData.exoticLanguages
+  var allLanguages = setup.npcData.standardLanguages + setup.npcData.exoticLanguages
   var inventory
   var mundane
   var isVillain
@@ -24,39 +24,39 @@ setup.createNPC = function (base) {
   var note
   var owner
   var pubRumour = setup.createPubRumour()
-  var race = npcData.race.random()
+  var race = setup.npcData.race.random()
   var age
 
   // Base random variables first - those that don't depend on others
   var npc = Object.assign({
-    gender: npcData.gender.random(),
+    gender: setup.npcData.gender.random(),
     race: race,
     firstName: firstName,
     lastName: lastName,
     age: age,
     /* currentmood: ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"], */
-    demeanour: npcData.demeanour.random(),
-    calmTrait: npcData.calmTrait.random(),
-    stressTrait: npcData.stressTrait.random(),
+    demeanour: setup.npcData.demeanour.random(),
+    calmTrait: setup.npcData.calmTrait.random(),
+    stressTrait: setup.npcData.stressTrait.random(),
     vocalPattern: vocalPattern,
-    adventure: npcData.adventure.random(),
-    hairColour: npcData.hairColour.random(),
-    hairType: npcData.hairType.random(),
-    dndclass: npcData.dndClass.random(),
-    background: npcData.background.random(),
-    pockets: npcData.pockets.random(),
-    value: npcData.value.random(),
-    drive: npcData.drive.random(),
-    belief: npcData.belief.random(),
-    profession: npcData.profession.random(),
-    trait: npcData.trait.random(),
-    currentMood: npcData.currentMood.random(),
-    idle: npcData.idle,
-    eyes: npcData.raceTraits[race].eyes.random(),
-    racePlural: npcData.raceTraits[race].racePlural,
-    raceName: npcData.raceTraits[race].raceName,
-    raceAdjective: npcData.raceTraits[race].raceAdjective,
-    raceLanguage: npcData.raceTraits[race].raceLanguage,
+    adventure: setup.npcData.adventure.random(),
+    hairColour: setup.npcData.hairColour.random(),
+    hairType: setup.npcData.hairType.random(),
+    dndClass: setup.npcData.dndClass.random(),
+    background: setup.npcData.background.random(),
+    pockets: setup.npcData.pockets.random(),
+    value: setup.npcData.value.random(),
+    drive: setup.npcData.drive.random(),
+    belief: setup.npcData.belief.random(),
+    profession: setup.npcData.profession.random(),
+    trait: setup.npcData.trait.random(),
+    currentMood: setup.npcData.currentMood.random(),
+    idle: setup.npcData.idle,
+    eyes: setup.npcData.raceTraits[race].eyes.random(),
+    racePlural: setup.npcData.raceTraits[race].racePlural,
+    raceName: setup.npcData.raceTraits[race].raceName,
+    raceAdjective: setup.npcData.raceTraits[race].raceAdjective,
+    raceLanguage: setup.npcData.raceTraits[race].raceLanguage,
     currentproject: currentproject,
     mundane: mundane,
     hasClass: hasClass,
@@ -64,20 +64,20 @@ setup.createNPC = function (base) {
     isThrowaway: isThrowaway,
     partnerID: partnerID,
     availableLanguages: availableLanguages,
-    knownLanguages: npcData.raceTraits[race].knownLanguages,
+    knownLanguages: setup.npcData.raceTraits[race].knownLanguages,
     descriptor: descriptor,
     owner: owner,
     title: title,
     wealth: wealth,
-    reading: npcData.reading.random(),
+    reading: setup.npcData.reading.random(),
     id: id,
-    skinColours: npcData.skinColours.random(),
+    skinColours: setup.npcData.skinColours.random(),
     pubRumour: pubRumour
   }, base)
   npc.hair = npc.hairType + ' ' + npc.hairColour + ' hair'
 
   if (npc.hasClass === false) {
-    npc.dndclass = npc.profession
+    npc.dndClass = npc.profession
   }
 
   if (random(1, 100) >= 60) {
@@ -137,9 +137,9 @@ setup.createNPC = function (base) {
 
   var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
   if (physicalTraitRoll > 8) {
-    npc.physicalTrait = npcData.scar.random()
+    npc.physicalTrait = setup.npcData.scar.random()
   } else if (physicalTraitRoll > 6) {
-    npc.physicalTrait = npcData.tattoo.random()
+    npc.physicalTrait = setup.npcData.tattoo.random()
   } else if (physicalTraitRoll <= 6) {
     npc.physicalTrait = npc.hair
   }
@@ -159,7 +159,7 @@ setup.createNPC = function (base) {
   }
 
   if (npc.hasClass === true) {
-    npc.descriptor.push(npc.dndclass)
+    npc.descriptor.push(npc.dndClass)
   }
 
   if (npc.isThrowaway === undefined) {

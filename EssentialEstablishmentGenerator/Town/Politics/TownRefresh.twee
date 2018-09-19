@@ -99,17 +99,17 @@
         <<set $town.leaderType to "the Thieves' Guild">>
         <<set $town.politicalIdeologyIC to "kleptocratic">>
         <<set $town.politicalIdeology to "kleptocracy">>
-        <<set $townLeader.title to "High Thief", $townLeader.dndclass to "rogue", $townLeader.background to "criminal">>
+        <<set $townLeader.title to "High Thief", $townLeader.dndClass to "rogue", $townLeader.background to "criminal">>
 		<<case "magocratic">>
         <<set $town.leaderType to "the wizards">>
         <<set $town.politicalIdeologyIC to "magocratic">>
         <<set $town.politicalIdeology to "magocracy">>
-        <<set $townLeader.title to "Archwizard", $townLeader.dndclass to "wizard", $townLeader.background to "sage">>
+        <<set $townLeader.title to "Archwizard", $townLeader.dndClass to "wizard", $townLeader.background to "sage">>
 		<<case "militocratic">>
         <<set $town.leaderType to "the military">>
         <<set $town.politicalIdeologyIC to "militocratic">>
         <<set $town.politicalIdeology to "militocracy">>
-        <<set $townLeader.title to "Commander", $townLeader.dndclass to "fighter", $townLeader.background to "soldier">>
+        <<set $townLeader.title to "Commander", $townLeader.dndClass to "fighter", $townLeader.background to "soldier">>
 		<<case "oligarchy">>
         <<set $town.leaderType to "the powerful few">>
         <<set $town.politicalIdeologyIC to "oligarchic">>
@@ -125,9 +125,9 @@
         <<set $town.politicalIdeologyIC to "theocratic">>
         <<set $town.politicalIdeology to "theocracy">>
         <<if $townLeader.gender != "man">>
-          <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndclass: "cleric", background: "acolyte"})>>
+          <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndClass: "cleric", background: "acolyte"})>>
         <</if>>
-        <<set $townLeader.title to "Father", $townLeader.gender to "man", $townLeader.dndclass to "cleric", $townLeader.background to "acolyte">>
+        <<set $townLeader.title to "Father", $townLeader.gender to "man", $townLeader.dndClass to "cleric", $townLeader.background to "acolyte">>
 		<<case "technocratic">>
         <<set $town.politicalIdeology to "technocracy">>
         <<set $town.leaderType to "the engineers">>

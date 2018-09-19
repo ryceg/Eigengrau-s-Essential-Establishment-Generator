@@ -1,7 +1,7 @@
 :: Alchemist
 
 <<set $chemist to setup.createNPC({
-	dndclass: either("wizard", "wizard", "druid", "druid", "cleric", "warlock"),
+	dndClass: either("wizard", "wizard", "druid", "druid", "cleric", "warlock"),
 	background: either("sage", "sage", "sage", "guild artisan", "guild artisan", "guild artisan", "commoner", "commoner", "commoner"),
 	profession: "alchemist",
 	idle: [

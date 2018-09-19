@@ -36,7 +36,7 @@
 		  <<set _restfulness -= 20, _sleepeasy -= 3>>
 <</if>>
 
-	<<switch $tavern.bedcleanliness>>
+	<<switch $tavern.bedCleanliness>>
 		<<case "perfectly prepared, with fresh sheets and a lemon scent in the air of the room">>
 		  <<set _restfulness += 30, _sleepeasy += 3>>
 	  <<case "freshly cleaned and neat">>

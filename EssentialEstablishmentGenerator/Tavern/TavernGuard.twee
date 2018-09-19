@@ -22,7 +22,7 @@
 
 <<if _guard gte 50>>
 		<<set $tavern.guardPresent to true, _brawl -= 20>>
-		<<set $tavernGuard to setup.createNPC({dndclass: "fighter", background: "soldier", gender: either("man", "man", "man", "woman")})>>
+		<<set $tavernGuard to setup.createNPC({dndClass: "fighter", background: "soldier", gender: either("man", "man", "man", "woman")})>>
 	<<else>>
 		<<set $tavern.guardPresent to false>>
 	<</if>>

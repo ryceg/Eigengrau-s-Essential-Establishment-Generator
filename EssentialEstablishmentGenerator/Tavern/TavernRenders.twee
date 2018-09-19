@@ -76,21 +76,21 @@
 /* ------------------------- CLEANLINESS -------------------------- */
 
 	<<if $tavern.cleanlinessRoll gt 80>>
-		<<set $tavern.cleanliness to "absolutely spotless", $tavern.bedcleanliness to "perfectly prepared, with fresh sheets and a lemon scent in the air of the room">>
+		<<set $tavern.cleanliness to "absolutely spotless", $tavern.bedCleanliness to "perfectly prepared, with fresh sheets and a lemon scent in the air of the room">>
 	<<elseif $tavern.cleanlinessRoll gt 70>>
-		<<set $tavern.cleanliness to "spotless", $tavern.bedcleanliness to "freshly cleaned and neat">>
+		<<set $tavern.cleanliness to "spotless", $tavern.bedCleanliness to "freshly cleaned and neat">>
 	<<elseif $tavern.cleanlinessRoll gt 60>>
-		<<set $tavern.cleanliness to "hygienic", $tavern.bedcleanliness to "tidy and neat">>
+		<<set $tavern.cleanliness to "hygienic", $tavern.bedCleanliness to "tidy and neat">>
 	<<elseif $tavern.cleanlinessRoll gt 50>>
-		<<set $tavern.cleanliness to "decently hygienic", $tavern.bedcleanliness to "reasonably clean">>
+		<<set $tavern.cleanliness to "decently hygienic", $tavern.bedCleanliness to "reasonably clean">>
 	<<elseif $tavern.cleanlinessRoll gt 40>>
-		<<set $tavern.cleanliness to "slightly grubby", $tavern.bedcleanliness to "somewhat tidy">>
+		<<set $tavern.cleanliness to "slightly grubby", $tavern.bedCleanliness to "somewhat tidy">>
 	<<elseif $tavern.cleanlinessRoll gt 30>>
-		<<set $tavern.cleanliness to "quite dirty", $tavern.bedcleanliness to "disgusting">>
+		<<set $tavern.cleanliness to "quite dirty", $tavern.bedCleanliness to "disgusting">>
 	<<elseif $tavern.cleanlinessRoll gt 20>>
-		<<set $tavern.cleanliness to "rather filthy", $tavern.bedcleanliness to "teeming with rats">>
+		<<set $tavern.cleanliness to "rather filthy", $tavern.bedCleanliness to "teeming with rats">>
 	<<elseif $tavern.cleanlinessRoll lte 20>>
-		<<set $tavern.cleanliness to "absolutely putrid", $tavern.bedcleanliness to "festering with bugs">>
+		<<set $tavern.cleanliness to "absolutely putrid", $tavern.bedCleanliness to "festering with bugs">>
 <</if>>
 
 
@@ -130,23 +130,23 @@
 	<<elseif $tavern.diversityRoll gt 70>>
 		<<set $tavern.diversity to "a rather diverse crowd">>
 	<<elseif $tavern.diversityRoll gt 60>>
-		<<set $tavern.diversity to "a pretty diverse crowd, the majority being $bartender.raceplural">>
+		<<set $tavern.diversity to "a pretty diverse crowd, the majority being $bartender.racePlural">>
 	<<elseif $tavern.diversityRoll gt 50>>
-		<<set $tavern.diversity to "a relatively diverse crowd, the majority being $bartender.raceplural">>
+		<<set $tavern.diversity to "a relatively diverse crowd, the majority being $bartender.racePlural">>
 	<<elseif $tavern.diversityRoll gt 40>>
-		<<set $tavern.diversity to "a pretty diverse crowd, most being $bartender.raceplural">>
+		<<set $tavern.diversity to "a pretty diverse crowd, most being $bartender.racePlural">>
 	<<elseif $tavern.diversityRoll gt 30 && $tavern.roughnessRoll gt 70>>
-		<<set $tavern.diversity to "$bartender.raceplural, mostly, and it's clear that they like it that way">>
+		<<set $tavern.diversity to "$bartender.racePlural, mostly, and it's clear that they like it that way">>
 	<<elseif $tavern.diversityRoll gt 30>>
-		<<set $tavern.diversity to "$bartender.raceplural for the most part">>
+		<<set $tavern.diversity to "$bartender.racePlural for the most part">>
 	<<elseif $tavern.diversityRoll gt 20 && $tavern.roughnessRoll gt 70>>
-		<<set $tavern.diversity to "mostly $bartender.raceplural, and it's very obvious that they like it that way">>
+		<<set $tavern.diversity to "mostly $bartender.racePlural, and it's very obvious that they like it that way">>
 	<<elseif $tavern.diversityRoll gt 20>>
-		<<set $tavern.diversity to "mostly $bartender.raceplural">>
+		<<set $tavern.diversity to "mostly $bartender.racePlural">>
 	<<elseif $tavern.diversityRoll lte 20 && $tavern.roughnessRoll gt 70>>
-		<<set $tavern.diversity to "almost all $bartender.raceplural, and they are extremely hostile to non-$bartender.raceplural">>
+		<<set $tavern.diversity to "almost all $bartender.racePlural, and they are extremely hostile to non-$bartender.racePlural">>
 	<<elseif $tavern.diversityRoll lte 20>>
-		<<set $tavern.diversity to "next to all are $bartender.raceplural">>
+		<<set $tavern.diversity to "next to all are $bartender.racePlural">>
 <</if>>
 
 

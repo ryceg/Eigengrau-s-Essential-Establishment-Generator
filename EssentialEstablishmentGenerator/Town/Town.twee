@@ -115,8 +115,8 @@ $town.sizeRoll to $town.sizeRoll.clamp(1, 100)>>
 			"a travelling carnival"])>>
 
 			<<set $town.primaryExport to either([
-			either(["iron", "copper", "cobalt", "nickel", "gold", "lead", "silver"]) " ore",
-			either(["bauxite", "gold", "silver", "clay and granite", "salt", "quartz", "coal", "peat", "ruby", "sapphire", "emerald", "opal", "amethyst", "coal", "marble", "galena", "limestone", "gravel"]) " deposits",
+			either(["iron", "copper", "cobalt", "nickel", "gold", "lead", "silver"]) + " ore",
+			either(["bauxite", "gold", "silver", "clay and granite", "salt", "quartz", "coal", "peat", "ruby", "sapphire", "emerald", "opal", "amethyst", "coal", "marble", "galena", "limestone", "gravel"]) + " deposits",
 			"hardwood lumber",
 			"softwood lumber",
 			"wild game",
