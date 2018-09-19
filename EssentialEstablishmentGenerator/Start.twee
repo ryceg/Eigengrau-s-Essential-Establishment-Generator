@@ -6,17 +6,6 @@
 /* <<button "Show Dialog">><<run Dialog.setup("Dialog title")>><<run Dialog.wiki("Dialog text.")>><<run Dialog.open()>><</button>> */
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
 
-/* <<link "New description">>
-<<set $testArray to {
-  wealth: random(0, 100),
-  cleanliness: random(0, 100)
-}>>
-<<replace "#testArray">>
-<<set $displayArray to setup.roomDescriptions.find(function (ob) { return ob.wealth === $testArray.wealth && ob.cleanliness === $testArray.cleanliness; })>>
-$displayArray.note
-<</replace>>
-<</link>>
-<div id="testArray"></div> */
 \<<set _tavern = "tip-" + Util.slugify($tavern.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
 \<<set _markets = "tip-" + Util.slugify($market.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
 \<<set _smithy = "tip-" + Util.slugify($smithy.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
@@ -38,7 +27,8 @@ $displayArray.note
         <<goto "InitTavern">>
     <</if>>
 <</link>></span>
-
+/* <<set _test = setup.closestMatch(setup.roomDescriptions, 'note', 'wealthRoll', 'cleanlinessRoll', $tavern.wealthRoll, $tavern.cleanlinessRoll)>>
+<<print _test>> */
 Down from $tavern.road are the <span @id="_markets" class="tip">[[markets|MarketOutput]]</span>
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><span @id="_smithy" class="tip"><<link "$smithy.name">><<set $currentPassage to $smithy>>

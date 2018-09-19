@@ -1,7 +1,3 @@
-setup.defineArrays = function () {
-  return array
-}
-
 setup.roomDescriptions = [
   {wealthRoll: 20, cleanlinessRoll: 20, note: 'This is a disgusting, poverty stricken den of filth.'},
   {wealthRoll: 20, cleanlinessRoll: 40, note: 'This is a dirty room with no personal possessions.'},

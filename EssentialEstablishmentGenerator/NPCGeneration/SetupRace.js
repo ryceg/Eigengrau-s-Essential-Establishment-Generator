@@ -160,52 +160,53 @@ setup.createRace = function (npc) {
     heightRoll: baseHeight + heightModifier,
     weightRoll: baseWeight + (heightModifier * weightModifier)
   })
-
-  // bmiReadout will eventually replace 'weight'. So, when all that stuff is done, plus athleticism is coded in, I'll do a big ol' Cmd + F on 'bmiReadout' and replace it. For now, it's just bug-testing.
   npc.bmi = (Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * 703))
-  if (npc.bmi > 40) {
-    npc.weight = 'morbidly obese'
-  } else if (npc.bmi >= 35) {
-    npc.weight = 'extremely obese'
-  } else if (npc.bmi >= 28) {
-    npc.weight = 'beer-bellied'
-  } else if (npc.bmi >= 32) {
-    npc.weight = 'round'
-  } else if (npc.bmi >= 30) {
-    npc.weight = 'obese'
-  } else if (npc.bmi >= 29) {
-    npc.weight = 'chubby'
-  } else if (npc.bmi >= 28) {
-    npc.weight = 'fat'
-  } else if (npc.bmi >= 27) {
-    npc.weight = 'overweight'
-  } else if (npc.bmi >= 26) {
-    npc.weight = 'thick'
-  } else if (npc.bmi >= 25) {
-    npc.weight = 'chunky'
-  } else if (npc.bmi >= 24) {
-    npc.weight = 'broad'
-  } else if (npc.bmi >= 23) {
-    npc.weight = 'healthy'
-  } else if (npc.bmi >= 22) {
-    npc.weight = 'lean'
-  } else if (npc.bmi >= 21) {
-    npc.weight = 'thin'
-  } else if (npc.bmi >= 20) {
-    npc.weight = 'rather thin'
-  } else if (npc.bmi >= 19) {
-    npc.weight = 'skinny'
-  } else if (npc.bmi >= 18) {
-    npc.weight = 'lithe'
-  } else if (npc.bmi >= 17) {
-    npc.weight = 'scrawny'
-  } else if (npc.bmi >= 16) {
-    npc.weight = 'weedy'
-  } else if (npc.bmi >= 15) {
-    npc.weight = 'gaunt'
-  } else if (npc.bmi < 15) {
-    npc.weight = 'bony'
-  }
+
+  npc.weight = setup.closestMatch(setup.bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
+
+  // if (npc.bmi > 40) {
+  //   npc.weight = 'morbidly obese'
+  // } else if (npc.bmi >= 35) {
+  //   npc.weight = 'extremely obese'
+  // } else if (npc.bmi >= 28) {
+  //   npc.weight = 'beer-bellied'
+  // } else if (npc.bmi >= 32) {
+  //   npc.weight = 'round'
+  // } else if (npc.bmi >= 30) {
+  //   npc.weight = 'obese'
+  // } else if (npc.bmi >= 29) {
+  //   npc.weight = 'chubby'
+  // } else if (npc.bmi >= 28) {
+  //   npc.weight = 'fat'
+  // } else if (npc.bmi >= 27) {
+  //   npc.weight = 'overweight'
+  // } else if (npc.bmi >= 26) {
+  //   npc.weight = 'thick'
+  // } else if (npc.bmi >= 25) {
+  //   npc.weight = 'chunky'
+  // } else if (npc.bmi >= 24) {
+  //   npc.weight = 'broad'
+  // } else if (npc.bmi >= 23) {
+  //   npc.weight = 'healthy'
+  // } else if (npc.bmi >= 22) {
+  //   npc.weight = 'lean'
+  // } else if (npc.bmi >= 21) {
+  //   npc.weight = 'thin'
+  // } else if (npc.bmi >= 20) {
+  //   npc.weight = 'rather thin'
+  // } else if (npc.bmi >= 19) {
+  //   npc.weight = 'skinny'
+  // } else if (npc.bmi >= 18) {
+  //   npc.weight = 'lithe'
+  // } else if (npc.bmi >= 17) {
+  //   npc.weight = 'scrawny'
+  // } else if (npc.bmi >= 16) {
+  //   npc.weight = 'weedy'
+  // } else if (npc.bmi >= 15) {
+  //   npc.weight = 'gaunt'
+  // } else if (npc.bmi < 15) {
+  //   npc.weight = 'bony'
+  // }
 
   if (npc.heightRoll > 78) {
     npc.height = 'giraffe-like'

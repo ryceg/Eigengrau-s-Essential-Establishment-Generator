@@ -26,6 +26,8 @@ setup.createNPC = function (base) {
   var pubRumour = setup.createPubRumour()
   var race = setup.npcData.race.random()
   var age
+  var bmi
+  var muscleMass
 
   // Base random variables first - those that don't depend on others
   var npc = Object.assign({
@@ -34,6 +36,8 @@ setup.createNPC = function (base) {
     firstName: firstName,
     lastName: lastName,
     age: age,
+    bmi: bmi,
+    muscleMass: setup.npcData.raceTraits[race].muscleMass + dice(5, 4) - 12,
     /* currentmood: ["annoyed", "scared", "relaxed", "concerned", "bemused", "stressed", "amused", "content", "distracted"], */
     demeanour: setup.npcData.demeanour.random(),
     calmTrait: setup.npcData.calmTrait.random(),
