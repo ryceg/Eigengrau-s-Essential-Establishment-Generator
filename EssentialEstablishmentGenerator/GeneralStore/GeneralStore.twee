@@ -154,7 +154,7 @@
 "saintly relics and pungent incense",
 "brushes of various sorts"]>> */
 
-<<set $GeneralStore.sinRoll to $GeneralStore.sinRoll.clamp(1, 100),
+/* <<set $GeneralStore.sinRoll to $GeneralStore.sinRoll.clamp(1, 100),
 		$GeneralStore.wealthRoll to $GeneralStore.wealthRoll.clamp(1, 100),
 		$GeneralStore.reputationRoll to $GeneralStore.reputationRoll.clamp(1, 100),
 		$GeneralStore.cleanlinessRoll to $GeneralStore.cleanlinessRoll.clamp(1, 100),
@@ -162,4 +162,4 @@
 		$GeneralStore.roughnessRoll to $GeneralStore.roughnessRoll.clamp(1, 100),
 		$GeneralStore.diversityRoll to $GeneralStore.diversityRoll.clamp(1, 100),
 		$GeneralStore.sizeRoll to $GeneralStore.sizeRoll.clamp(1, 100),
-		$GeneralStore.magicRoll to $GeneralStore.magicRoll.clamp(1, 100)>>
+		$GeneralStore.magicRoll to $GeneralStore.magicRoll.clamp(1, 100)>> */

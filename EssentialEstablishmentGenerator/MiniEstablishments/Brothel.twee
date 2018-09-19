@@ -113,7 +113,7 @@
     <<case "a sultry seductress">>
         <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", demeanour: "flirtatious", profession: "pimp"})>>
     <<case "a charming witch">>
-        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", dndclass: "sorcerer", profession: "pimp"})>>
+        <<set $pimp to setup.createNPC({gender: "woman", age: "relatively young", dndClass: "sorcerer", profession: "pimp"})>>
 <</switch>>
 
 <<switch $pimp.gender>>

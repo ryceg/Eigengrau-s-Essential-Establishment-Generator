@@ -83,7 +83,7 @@ setup.leaderFaction = function (faction) {
           faction.leader = setup.createNPC({
             hasClass: factionData.type[type].hasClass,
             profession: factionData.type[type].profession,
-            dndclass: factionData.type[type].dndclass
+            dndClass: factionData.type[type].dndClass
           })
           State.variables.townLeader = faction.leader
           // faction.leader = State.variables.townLeader
@@ -92,7 +92,7 @@ setup.leaderFaction = function (faction) {
         faction.leader = setup.createNPC({
           hasClass: factionData.type[type].hasClass,
           profession: factionData.type[type].profession,
-          dndclass: factionData.type[type].dndclass
+          dndClass: factionData.type[type].dndClass
         })
       }
       break

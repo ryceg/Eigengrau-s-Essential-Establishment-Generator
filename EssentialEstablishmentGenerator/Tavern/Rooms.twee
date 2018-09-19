@@ -63,10 +63,10 @@
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<include "Sleep">><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has just one available room, which is $tavern.size and $tavern.bedcleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$tavern.name has just one available room, which is $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
 	<<elseif _freerooms gt 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<include "Sleep">><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has _freerooms available rooms, which are $tavern.size and $tavern.bedcleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$tavern.name has _freerooms available rooms, which are $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
 <</if>><</nobr>>

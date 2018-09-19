@@ -3,7 +3,7 @@ var factionData = {
     'thieves': {
       'factionNoun': 'guild',
       'hasClass': true,
-      'dndclass': 'rogue',
+      'dndClass': 'rogue',
       'profession': 'thief',
       'background': ['charlatan', 'criminal'],
       'leaderQualification': ['the most skilled of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -22,7 +22,7 @@ var factionData = {
     'merchants': {
       'factionNoun': 'guild',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'merchant',
       'background': 'merchant',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -41,7 +41,7 @@ var factionData = {
     'wizards': {
       'factionNoun': 'college',
       'hasClass': true,
-      'dndclass': 'wizard',
+      'dndClass': 'wizard',
       'profession': 'magic user',
       'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -60,7 +60,7 @@ var factionData = {
     'rangers': {
       'factionNoun': 'guild',
       'hasClass': true,
-      'dndclass': 'ranger',
+      'dndClass': 'ranger',
       'profession': 'trapper',
       'background': ['outlander', 'hermit'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -79,7 +79,7 @@ var factionData = {
     'seers': {
       'factionNoun': 'guild',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'seer',
       'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -98,7 +98,7 @@ var factionData = {
     'priests': {
       'factionNoun': 'college',
       'hasClass': true,
-      'dndclass': 'cleric',
+      'dndClass': 'cleric',
       'profession': 'priest',
       'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the holiest of the group', 'the holiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -117,7 +117,7 @@ var factionData = {
     'monks': {
       'factionNoun': 'group',
       'hasClass': true,
-      'dndclass': 'monk',
+      'dndClass': 'monk',
       'profession': 'monk',
       'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -136,7 +136,7 @@ var factionData = {
     'assassins': {
       'factionNoun': 'company',
       'hasClass': true,
-      'dndclass': 'rogue',
+      'dndClass': 'rogue',
       'profession': 'thief',
       'background': ['charlatan', 'soldier', 'criminal'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group'],
@@ -155,7 +155,7 @@ var factionData = {
     'artisans': {
       'factionNoun': 'guild',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'artisan',
       'background': 'guild artisan',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -174,7 +174,7 @@ var factionData = {
     'nobles': {
       'factionNoun': 'society',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'nobleman',
       'background': 'noble',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -193,7 +193,7 @@ var factionData = {
     'bards': {
       'factionNoun': 'college',
       'hasClass': true,
-      'dndclass': 'bard',
+      'dndClass': 'bard',
       'profession': 'musician',
       'background': 'entertainer',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -212,7 +212,7 @@ var factionData = {
     'mercenaries': {
       'factionNoun': 'company',
       'hasClass': true,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'soldier',
       'background': 'soldier',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -231,7 +231,7 @@ var factionData = {
     'bandits': {
       'factionNoun': 'gang',
       'hasClass': true,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'soldier',
       'background': ['soldier', 'charlatan', 'criminal'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -250,7 +250,7 @@ var factionData = {
     'craftsmen': {
       'factionNoun': 'guild',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'craftsman',
       'background': 'guild artisan',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -269,7 +269,7 @@ var factionData = {
     'scholars': {
       'factionNoun': 'guild',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'professor',
       'background': ['sage', 'acolyte'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -288,7 +288,7 @@ var factionData = {
     'backup': {
       'factionNoun': 'guild',
       'hasClass': false,
-      'dndclass': 'fighter',
+      'dndClass': 'fighter',
       'profession': 'merchant',
       'background': 'merchant',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],

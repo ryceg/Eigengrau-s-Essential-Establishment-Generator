@@ -28,9 +28,9 @@
 	$tavern.draw to either([
 		"attractive waitstaff",
 		"resident bard",
-		"<<print $tavern.roughness>> atmosphere",
-		"<<print $tavern.roughness>> atmosphere",
-		"<<print $tavern.roughness>> atmosphere",
+		"$tavern.roughness atmosphere",
+		"$tavern.roughness atmosphere",
+		"$tavern.roughness atmosphere",
 		"witty banter with the waitstaff",
 		"crude jokes the bartender makes",
 		"proximity to the thieves' guild headquarters",

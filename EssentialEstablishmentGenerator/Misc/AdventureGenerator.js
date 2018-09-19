@@ -127,7 +127,7 @@
 //           });
 //           break;
 //   case "humanoid cultist":
-//           var adventureVillain = setup.createNPC({dndclass: either("cleric", "sorcerer", "wizard")});
+//           var adventureVillain = setup.createNPC({dndClass: either("cleric", "sorcerer", "wizard")});
 //           State.variables.adventureVillain = villain;
 //           Object.assign(adventure, {
 //                 adventureVillain: adventureVillain,
@@ -135,7 +135,7 @@
 //           });
 //           break;
 //   case "humanoid conqueror":
-//           var adventureVillain = setup.createNPC({dndclass: either("barbarian", "fighter", "paladin")});
+//           var adventureVillain = setup.createNPC({dndClass: either("barbarian", "fighter", "paladin")});
 //           State.variables.adventureVillain = villain;
 //           Object.assign(adventure, {
 //                 adventureVillain: adventureVillain,
@@ -151,7 +151,7 @@
 //           });
 //           break;
 //   case "humanoid schemer seeking to rule":
-//           var adventureVillain = setup.createNPC({dndclass: either("sorcerer", "rogue")});
+//           var adventureVillain = setup.createNPC({dndClass: either("sorcerer", "rogue")});
 //           State.variables.adventureVillain = villain;
 //           Object.assign(adventure, {
 //                 adventureVillain: adventureVillain,
@@ -159,7 +159,7 @@
 //           });
 //           break;
 //   case "humanoid criminal mastermind":
-//           var adventureVillain = setup.createNPC({dndclass: either("sorcerer", "rogue")});
+//           var adventureVillain = setup.createNPC({dndClass: either("sorcerer", "rogue")});
 //           State.variables.adventureVillain = villain;
 //           Object.assign(adventure, {
 //                 adventureVillain: adventureVillain,
@@ -167,7 +167,7 @@
 //           });
 //           break;
 //   case "humanoid raider or ravager":
-//           var adventureVillain = setup.createNPC({dndclass: either("barbarian", "fighter")});
+//           var adventureVillain = setup.createNPC({dndClass: either("barbarian", "fighter")});
 //           State.variables.adventureVillain = villain;
 //           Object.assign(adventure, {
 //                 adventureVillain: adventureVillain,
@@ -183,7 +183,7 @@
 //           });
 //           break;
 //   case "misguided humanoid zealot":
-//           var adventureVillain = setup.createNPC({dndclass: "cleric"});
+//           var adventureVillain = setup.createNPC({dndClass: "cleric"});
 //           State.variables.adventureVillain = villain;
 //           Object.assign(adventure, {
 //                 adventureVillain: adventureVillain,
@@ -207,28 +207,28 @@
 //              });
 //              break;
 //           case "enthusiastic commoner":
-//           var adventureAlly = setup.createNPC({dndclass: "peasant"});
+//           var adventureAlly = setup.createNPC({dndClass: "peasant"});
 //           State.variables.adventureAlly = Ally;
 //             Object.assign(adventure, {
 //                adventureAlly: adventureAlly,
 //              });
 //              break;
 //           case "soldier":
-//           var adventureAlly = setup.createNPC({dndclass: "fighter", background: "soldier"});
+//           var adventureAlly = setup.createNPC({dndClass: "fighter", background: "soldier"});
 //           State.variables.adventureAlly = Ally;
 //             Object.assign(adventure, {
 //                adventureAlly: adventureAlly,
 //              });
 //              break;
 //           case "priest":
-//           var adventureAlly = setup.createNPC({dndclass: "cleric"});
+//           var adventureAlly = setup.createNPC({dndClass: "cleric"});
 //           State.variables.adventureAlly = Ally;
 //             Object.assign(adventure, {
 //                  adventureAlly: adventureAlly,
 //              });
 //              break;
 //           case "sage":
-//           var adventureAlly = setup.createNPC({dndclass: either("cleric", "monk", "druid", "wizard"), background: "sage"});
+//           var adventureAlly = setup.createNPC({dndClass: either("cleric", "monk", "druid", "wizard"), background: "sage"});
 //           State.variables.adventureAlly = Ally;
 //             Object.assign(adventure, {
 //                  adventureAlly: adventureAlly,
@@ -267,28 +267,28 @@
 //          });
 //          break;
 //     case "local ruler":
-//       var adventurePatron = setup.createNPC({dndclass: "lord"});
+//       var adventurePatron = setup.createNPC({dndClass: "lord"});
 //       State.variables.adventurePatron = Patron;
 //         Object.assign(adventure, {
 //             adventurePatron: adventurePatron,
 //          });
 //          break;
 //     case "military officer":
-//       var adventurePatron = setup.createNPC({dndclass: either("fighter", "paladin"), background: "soldier"});
+//       var adventurePatron = setup.createNPC({dndClass: either("fighter", "paladin"), background: "soldier"});
 //       State.variables.adventurePatron = Patron;
 //         Object.assign(adventure, {
 //             adventurePatron: adventurePatron,
 //          });
 //          break;
 //     case "temple official":
-//       var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
+//       var adventurePatron = setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
 //       State.variables.adventurePatron = Patron;
 //         Object.assign(adventure, {
 //             adventurePatron: adventurePatron,
 //          });
 //          break;
 //     case "sage":
-//       var adventurePatron = setup.createNPC({dndclass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
+//       var adventurePatron = setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "paladin"), background: "sage"});
 //       State.variables.adventurePatron = Patron;
 //         Object.assign(adventure, {
 //             adventurePatron: adventurePatron,

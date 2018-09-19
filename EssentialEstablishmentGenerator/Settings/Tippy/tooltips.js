@@ -3,7 +3,7 @@ setup.profileTooltip = function (id, ch) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
-      span.title = 'A ' + char.weight + ' ' + char.malefemale + ' ' + char.raceAdjective + ' ' + char.dndclass + ' with ' + char.physicalTrait + ' called ' + char.name
+      span.title = 'A ' + char.weight + ' ' + char.malefemale + ' ' + char.raceAdjective + ' ' + char.dndClass + ' with ' + char.physicalTrait + ' called ' + char.name
       tippy('#' + span.id)
     }
   })
@@ -67,7 +67,13 @@ setup.buildingTooltip = function (id, building, type) {
     var notableFeature
     switch (type) {
       case 'tavern':
-        notableFeature = 'its ' + building.draw
+        switch (building.draw) {
+          case '$tavern.roughness atmosphere':
+            // notableFeature = 'its ' + building.roughness + ' atmosphere'
+            break
+          default:
+            // notableFeature = 'its ' + building.draw
+        }
         break
       case 'smithy':
         notableFeature = 'its ' + building.expertise + ' armour and weapons'
