@@ -1,72 +1,16 @@
 
 :: Rooms
-<<nobr>>
-
-<<if $tavern.wealthRoll gt 95>>
-		<<set $tavern.wealth to "kingly">>
-	<<elseif $tavern.wealthRoll gt 80>>
-		<<set $tavern.wealth to "aristocratic">>
-	<<elseif $tavern.wealthRoll gt 70>>
-		<<set $tavern.wealth to "wealthy">>
-	<<elseif $tavern.wealthRoll gt 60>>
-		<<set $tavern.wealth to "comfortable">>
-	<<elseif $tavern.wealthRoll gt 50>>
-		<<set $tavern.wealth to "modest">>
-	<<elseif $tavern.wealthRoll gt 25>>
-		<<set $tavern.wealth to "poor">>
-	<<elseif $tavern.wealthRoll lte 25>>
-		<<set $tavern.wealth to "squalid">>
-<</if>>
-
-<<switch $tavern.wealth>>
-	<<case "kingly">>
-		<<set $tavern.lodging to 800, $tavern.food to 400>>
-<<case "aristocratic">>
-		<<set $tavern.lodging to 400, $tavern.food to 200>>
-<<case "wealthy">>
-		<<set $tavern.lodging to 200, $tavern.food to 80>>
-<<case "comfortable">>
-		<<set $tavern.lodging to 50, $tavern.food to 40>>
-<<case "modest">>
-		<<set $tavern.lodging to 30, $tavern.food to 30>>
-<<case "poor">>
-		<<set $tavern.lodging to 10, $tavern.food to 6>>
-<<case "squalid">>
-		<<set $tavern.lodging to 7, $tavern.food to 3>>
-<</switch>>
-
-<<if $tavern.sizeRoll gt 80>>
-		<<set _freerooms to random(6, 10)>>
-	<<elseif $tavern.sizeRoll gt 60>>
-		<<set _freerooms to random(5, 9)>>
-	<<elseif $tavern.sizeRoll gt 40>>
-		<<set _freerooms to random(4, 8)>>
-	<<elseif $tavern.sizeRoll gt 20>>
-		<<set _freerooms to random(3, 6)>>
-	<<elseif $tavern.sizeRoll lte 20>>
-		<<set _freerooms to random(2, 4)>>
-<</if>>
-<<if $tavern.populationRoll gt 80>>
-		<<set _freerooms -= 3>>
-	<<elseif $tavern.populationRoll gt 60>>
-		<<set _freerooms -= 2>>
-	<<elseif $tavern.populationRoll gt 40>>
-		<<set _freerooms -= 1>>
-	<<elseif $tavern.populationRoll gt 20>>
-		<<set _freerooms += 2>>
-	<<elseif $tavern.populationRoll lte 20>>
-		<<set _freerooms += 3>>
-<</if>>
-<<if _freerooms lte 0>>
+<<nobr>><<set $tavern.freeRooms to setup.tavernRooms($tavern)>>
+<<if $tavern.freeRooms lte 0>>
 		<span id="room-cost"><<print "You talk with the barmaid about lodgings, and she says that there are no free rooms in $tavern.name at the moment...">></span>
-	<<elseif _freerooms == 1>>
+	<<elseif $tavern.freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<include "Sleep">><</replace>>
 		<</linkreplace>>
 		<span id="room-cost"><<print "$tavern.name has just one available room, which is $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
-	<<elseif _freerooms gt 1>>
+	<<elseif $tavern.freeRooms gt 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<include "Sleep">><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has _freerooms available rooms, which are $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$tavern.name has $tavern.freeRooms available rooms, which are $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
 <</if>><</nobr>>

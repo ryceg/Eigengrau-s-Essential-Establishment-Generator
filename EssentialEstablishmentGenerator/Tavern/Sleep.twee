@@ -1,6 +1,7 @@
 
 :: Sleep
-<<nobr>>
+<<print setup.tavernSleep($tavern, $bartender)>>
+/* <<nobr>>
 <<set _restfulness to random(1, 100)>>
 <<set _sleepeasy to 0>>
 	<<if $tavern.wealth is "kingly">>
@@ -115,4 +116,4 @@
 	<<elseif $tavern.wealth is "squalid">>
 		<<print either("You start to make your way out of the $tavern.cleanliness $tavern.wordnoun, and smell something burning, and make your way down to check; when you get down to the kitchen of $tavern.name, you find $bartender.firstName sitting, chewing angrily over a bowl of burnt porridge.", "You can't help but shake the feeling that there's a smell clinging to your clothes after staying the night at $tavern.name.")>>
 <</if>>
-<</nobr>>
+<</nobr>> */

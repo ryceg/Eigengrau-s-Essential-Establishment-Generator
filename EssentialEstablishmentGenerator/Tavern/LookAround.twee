@@ -1,4 +1,4 @@
-
+/*
 :: LookAround
 <<nobr>>
 	<<if $tavern.populationRoll gt 80 && $tavern.roughnessRoll gt 60>>
@@ -28,5 +28,4 @@
 			<<print "$tavern.name is basically empty, and there's not much for the $tavern.wordnoun<<nobr>>'s<</nobr>> barmaid to do. The $barmaid.height woman settles for polishing a glass.">>
 	<<elseif $tavern.populationRoll lte 30>>
 			<<print "It's almost just you and the bartender in here.">>
-<</if>><</nobr>><<print $tavern.patrons.pluck()>>
-<<include "RandomNPC">>
+<</if>><</nobr>> */

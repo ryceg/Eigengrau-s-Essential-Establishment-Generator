@@ -27,8 +27,7 @@
         <<goto "InitTavern">>
     <</if>>
 <</link>></span>
-/* <<set _test = setup.closestMatch(setup.roomDescriptions, 'note', 'wealthRoll', 'cleanlinessRoll', $tavern.wealthRoll, $tavern.cleanlinessRoll)>>
-<<print _test>> */
+
 Down from $tavern.road are the <span @id="_markets" class="tip">[[markets|MarketOutput]]</span>
 
 <<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><span @id="_smithy" class="tip"><<link "$smithy.name">><<set $currentPassage to $smithy>>

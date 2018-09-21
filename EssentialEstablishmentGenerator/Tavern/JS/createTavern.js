@@ -1,4 +1,5 @@
-setup.createTavern = function () {
+setup.createTavern = function (bartender) {
+  var tavern = setup.createBuilding()
   var shortages = ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes']
   var fun = ['A group of commoners is playing horse shoes out back.',
     'The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.',
@@ -53,22 +54,22 @@ setup.createTavern = function () {
     'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.',
     "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"].random()
 
-  var tavern = {
+  Object.assign(tavern, {
     name: setup.createTavernNameGen(),
     wordnoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: shortages,
     fun: fun,
     entertainment: entertainment,
     patrons: patrons
-  }
+  })
 
   if (['Silver', 'Golden', 'Glorious', 'Beautiful', 'Handsome', 'Lovely', 'Educated', 'Ornate', 'Wealthy', 'Cleanly', 'Jeweled', 'Superior', 'Flawless', 'Exquisite', 'Elegant', 'Fine'].includes(tavern.adjective)) {
     tavern.wealthRoll += 5
-  } else if (['Blighted', 'Withered', 'Lecherous', 'Faulty', 'Cracked', 'Common'].includes($tavern.adjective)) {
+  } else if (['Blighted', 'Withered', 'Lecherous', 'Faulty', 'Cracked', 'Common'].includes(tavern.adjective)) {
     tavern.wealthRoll -= 5
   }
 
-  tavern.type = ['attractive waitstaff',
+  tavern.draw = ['attractive waitstaff',
     'resident bard',
     tavern.roughness + ' atmosphere',
     tavern.roughness + ' atmosphere',
@@ -89,6 +90,29 @@ setup.createTavern = function () {
     'huge fireplace',
     'incredible view',
     'nice view'].random()
+
+  tavern.type = [
+    'quiet and low-key bar',
+    'regular',
+    'regular',
+    'regular',
+    'regular',
+    'raucous dive',
+    'raucous dive',
+    'raucous dive',
+    'raucous dive',
+    "thieves' guild hangout",
+    'gathering place for a secret society',
+    'high-end dining club',
+    'high-end dining club',
+    'gambling den',
+    'gambling den',
+    bartender.race + ' only club',
+    "guild-member's only club",
+    "guild-member's only club",
+    'members-only club',
+    'brothel',
+    'brothel'].random()
 
   if (tavern.draw === 'proximity to the church') {
     if (tavern.type.indexOf(['gambling den', 'proximity to the brothel', 'raucous dive']) !== -1) {
