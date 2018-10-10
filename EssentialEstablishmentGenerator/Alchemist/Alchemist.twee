@@ -1,6 +1,8 @@
 :: Alchemist
-
-<<set $chemist to setup.createNPC({
+<<set $alchemist to setup.createAlchemist()>>
+<<set $chemist to $alchemist.chemist>>
+<<set $brew to setup.createAlchemy({type: "brewing potion"})>>
+/* <<set $chemist to setup.createNPC({
 	dndClass: either("wizard", "wizard", "druid", "druid", "cleric", "warlock"),
 	background: either("sage", "sage", "sage", "guild artisan", "guild artisan", "guild artisan", "commoner", "commoner", "commoner"),
 	profession: "alchemist",
@@ -63,14 +65,4 @@
 
 <<set $alchemist to setup.createBuilding()>>
 <<set $alchemist.passageName to "AlchemistOutput">>
-<<set $alchemist.magicRoll to random(40, 100)>>
-<<set $brew to setup.createAlchemy({type: "brewing potion"})>>
-<<set $alchemist.sinRoll to $alchemist.sinRoll.clamp(1, 100),
-		$alchemist.wealthRoll to $alchemist.wealthRoll.clamp(1, 100),
-		$alchemist.reputationRoll to $alchemist.reputationRoll.clamp(1, 100),
-		$alchemist.cleanlinessRoll to $alchemist.cleanlinessRoll.clamp(1, 100),
-		$alchemist.populationRoll to $alchemist.populationRoll.clamp(1, 100),
-		$alchemist.roughnessRoll to $alchemist.roughnessRoll.clamp(1, 100),
-		$alchemist.diversityRoll to $alchemist.diversityRoll.clamp(1, 100),
-		$alchemist.sizeRoll to $alchemist.sizeRoll.clamp(1, 100),
-		$alchemist.magicRoll to $alchemist.magicRoll.clamp(1, 100)>>
+<<set $alchemist.magicRoll to random(40, 100)>> */

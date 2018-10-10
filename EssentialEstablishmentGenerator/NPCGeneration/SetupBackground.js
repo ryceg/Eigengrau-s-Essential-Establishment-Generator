@@ -13,11 +13,11 @@ setup.createBackground = function (npc) {
       break
     case 'charlatan':
       npc.backgroundOrigin = npc.backgroundOrigin || ['As a youngster, I was left to my own devices. My knack for manipulating people helped me survive.', 'I learned early on that people are easy to exploit, and are gullible and too trusting.', 'I often got into trouble as a youngster, but talked my way out of it.', 'I took up cheating as a hobby, then was sort of adopted by a local scam artist. It just sort of became a way of life for me.', 'After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam.'].random()
-      npc.bond = npc.bond || ['I fleeced the wrong person, a lord called <<print $name.man.pluck()>>, and must work to ensure that he never crosses paths with me or those I care about.',
-        "I owe everything to my mentor <<print $name.man.pluck()>>--a horrible person who's probably rotting in jail somewhere.",
-        "Somewhere out there I have a child, litte <<print $name.man.pluck()>>, who doesn't know me. I'm going to try and make the world better for him.",
+      npc.bond = npc.bond || ['I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, and must work to ensure that he never crosses paths with me or those I care about.',
+        "I owe everything to my mentor <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>--a horrible person who's probably rotting in jail somewhere.",
+        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, who doesn't know me. I'm going to try and make the world better for him.",
         "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
-        "A powerful person, Lord <<print $name.man.pluck()>>, killed someone I love. Some day soon, I'll have my revenge.",
+        "A powerful person, Lord <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, killed someone I love. Some day soon, I'll have my revenge.",
         "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself."].random()
       npc.wealth = npc.wealth += 1500
       break

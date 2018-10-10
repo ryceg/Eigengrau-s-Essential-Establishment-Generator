@@ -1,7 +1,7 @@
 
 :: SmithyModifiers
-<<nobr>>
-/* ------------------------- SIZE -------------------------- */
+/* <<nobr>>
+
 <<if $smithy.sizeRoll gt 80>>
 		<<set $smithy.size to "huge">>
 		<<set $smithy.activityRoll -= 4>>
@@ -26,14 +26,7 @@
 		<<set $smithy.activityRoll += 3>>
 <</if>>
 
-/*
-	reputationRoll: random(1, 100),
-	cleanlinessRoll: random(1, 100),
-	expertiseRoll: random(1, 100),
-	activityRoll: random(1, 100),
-	hardinessRoll: random(1, 100),
-	magicRoll:
-*/
+
 
 <<switch $smithy.material>>
 	<<case "hewn rock">>
@@ -44,7 +37,6 @@
 		<<set $smithy.cleanlinessRoll += 5, $smithy.wealthRoll += 6>>
 <</switch>>
 
-/* ------------------------- CLEANLINESS -------------------------- */
 <<if $smithy.cleanlinessRoll gt 80>>
 		<<set $smithy.expertiseRoll += 10,
 		$smithy.activityRoll += 6,
@@ -126,4 +118,4 @@
 		<<set $smithy.activity to "very quiet">>
 		<<set $smithy.reputationRoll -= 5, $smithy.cleanlinessRoll += 5>>
 <</if>>
-<</nobr>>
+<</nobr>> */

@@ -17,7 +17,7 @@ setup.createMisc = function (faction) {
     'rumoured to employ dangerous criminals',
     'rumoured to help lucky commoners'
   ]
-  // miscList.concat(factionData.type[type].misc)
+  // miscList.concat(setup.factionData.type[type].misc)
   faction.misc = miscList.pluck()
   return faction
 }

@@ -1,4 +1,4 @@
-var factionData = {
+setup.factionData = {
   'type': {
     'thieves': {
       'factionNoun': 'guild',

@@ -10,7 +10,7 @@
   $chemist.name says "Sure, what are you after? <<print $chemist.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>
   $chemist.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $chemist.ingredients.randomMany(2)>>, you name it!
-<</switch>><<print $alchemist.pricetalk>>"</div>
+<</switch>><<print setup.closestMatch(setup.getAlchemistPriceTalk($alchemist), 'priceTalk', 'priceModifier', 'wealthRoll', 'priceModifier', 'wealthRoll')>>"</div>
 <table>
   <tr>
     <th>Item</th>

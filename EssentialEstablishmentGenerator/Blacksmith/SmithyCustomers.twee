@@ -1,5 +1,5 @@
 :: SmithyCustomers
-<<nobr>>
+/* <<nobr>>
 <<set _customer to random(1, 100)>>
 <<if $smithy.reputationRoll gt 80>>
     <<set _customer += 15>>
@@ -50,4 +50,4 @@
 <</if>>
 
 <span id="smithy-customer-name"><h3>$smithycustomer.name</h3></span>
-<</nobr>>A $smithycustomer.racenote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himherself as $smithycustomer.name, _notablecustomer and you notice $smithycustomer.heshe has $smithycustomer.physicalTrait. $smithycustomer.firstName tells you that $smithycustomer.heshe _tense a $smithycustomer.dndClass, and $smithycustomer.adventure. <<print $smithycustomer.heshe.toUpperFirst()>> looks at you with $smithycustomer.hisher $smithycustomer.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>"
+<</nobr>>A $smithycustomer.raceNote is <<print $smithycustomer.idle.random()>> as they browse the shop, and you strike up a conversation with $smithycustomer.himher. <<print $smithycustomer.heshe.toUpperFirst()>> introduces $smithycustomer.himherself as $smithycustomer.name, _notablecustomer and you notice $smithycustomer.heshe has $smithycustomer.physicalTrait. $smithycustomer.firstName tells you that $smithycustomer.heshe _tense a $smithycustomer.dndClass, and $smithycustomer.adventure. <<print $smithycustomer.heshe.toUpperFirst()>> looks at you with $smithycustomer.hisher $smithycustomer.eyes eyes for a moment, and says "Actually, you might be interested; <<print either("<<print $plothook.people.random()>>", "<<print $plothook.rumour.random()>>")>>" */

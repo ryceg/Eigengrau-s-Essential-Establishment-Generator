@@ -18,4 +18,4 @@
 <span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist Price Modifier: <<numberslider "$alchemist.priceModifier" $alchemist.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]
-<<set $currentpassage to $alchemist>>
+<<set $currentPassage to $alchemist>>

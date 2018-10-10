@@ -1,5 +1,4 @@
 setup.createClass = function (npc) {
-
   switch (npc.dndClass) {
     case 'barbarian':
       npc.dndClassOrigin = npc.dndClassOrigin || ['My devotion to my people lifted me in battle, and I learned to control my bloodlust.', 'The spirits of my ancestors called out to me to complete a task, so I took up the way of the barbarian.', 'I lost control in battle one day, as if something else was guiding me as I slaughtered my enemies.', 'I went on a spiritual journey to find myself, and discovered the inner rage that I had could be tamed, used, and controlled.', "I was struck by lightning, but miraculously lived. Ever since that day, I've been stronger, faster, and able to push through any struggle.", 'I needed an outlet to channel my anger, otherwise I would have snapped, and killed an innocent person.'].random()

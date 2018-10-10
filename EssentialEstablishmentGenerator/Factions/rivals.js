@@ -8,7 +8,7 @@ setup.createRivals = function (faction) {
   let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  groupList.concat(factionData.type[type].rivalsList)
+  groupList.concat(setup.factionData.type[type].rivalsList)
 
   if (sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'

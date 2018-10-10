@@ -1,8 +1,7 @@
 
 :: SmithyRenders [render]
 
-/* ------------------------- SIZE -------------------------- */
-<<set _warmthRoll to random(1, 100)>>
+/* <<set _warmthRoll to random(1, 100)>>
 <<if $smithy.sizeRoll gt 80>>
 		<<set $smithy.size to "huge">>
 		<<set _warmthRoll -= 20>>
@@ -46,8 +45,6 @@
 		<<set $smithy.warmth to "cold">>
 <</if>>
 
-/* ------------------------- CLEANLINESS -------------------------- */
-
 
 <<if $smithy.cleanlinessRoll gt 80>>
 		<<set $smithy.cleanliness to "fastidious">>
@@ -66,9 +63,6 @@
 	<<elseif $smithy.cleanlinessRoll lte 20>>
 		<<set $smithy.cleanliness to "filthy">>
 <</if>>
-
-
-/* ------------------------- Expertise -------------------------- */
 
 <<if $smithy.expertiseRoll gt 80>>
 		<<set $smithy.expertise to "masterful">>
@@ -104,4 +98,4 @@
 		<<set $smithy.activity to "rather quiet">>
 	<<elseif $smithy.activityRoll lte 20>>
 		<<set $smithy.activity to "very quiet">>
-<</if>>
+<</if>> */

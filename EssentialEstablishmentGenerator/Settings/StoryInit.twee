@@ -1,53 +1,49 @@
 
 :: StoryInit
 
-<<set $versionnumber to "1.4">>
+<<set $versionnumber to "1.5">>
 
-<<include "Names">>
-
+/* <<include "Names">> */
+<<run console.log('got here 1')>>
 <<include "Town">>
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
+<<include "TownSocioPolitics">>
+<<include "TownRefresh">>
 
-
+<<run console.log('got here 2')>>
 
 <<include "SpecialBrew">>
-
 <<include "Cheese">>
-
 <<include "Tavern">>
 
-/*<<include "TavernNameGen">>*/
-
-<<include "TavernFlavour">>
+<<run console.log('got here 3')>>
 
 <<include "TavernInventory">>
 
-<<include "TavernModifiers">>
+/* <<include "TavernModifiers">> */
+
+<<include "TavernGames">>
 
 <<include "PatreonCharacters">>
 
-<<include "Bartender">>
+/* <<include "TavernGuard">> */
 
 <<include "PlotHook">>
 
 <<include "ShitPlotHooks">>
 
-<<include "TavernRenders">>
+/* <<include "TavernRenders">> */
 
 <<include "Newspaper">>
 
+<<run console.log('got here 4')>>
 <<include "Alchemist">>
 
 <<include "AlchemistModifiers">>
 
-<<include "AlchemistNameGen">>
-
-<<include "Potions">>
-
 <<include "AlchemistInventory">>
 
-<<include "Blacksmith">>
+<<run console.log('got here 5')>>
 
 <<include "Smithy">>
 
@@ -57,42 +53,30 @@
 
 <<include "SmithyRenders">>
 
-<<include "SmithyNameGen">>
 
 <<include "GeneralStore">>
 
 <<include "GeneralStoreInventory">>
 
 <<include "GeneralStoreModifiers">>
-
-<<include "GeneralStoreNameGen">>
-
+<<run console.log('got here 7')>>
 <<include "GeneralStoreRenders">>
 
 <<include "Books">>
 
-<<include "TavernGames">>
 
-<<include "TownSocioPolitics">>
+<<run console.log('got here 6')>>
 
-<<include "TownRefresh">>
 
-<<include "TownMicroEvents">>
 
-<<include "TownLandmark">>
+<<run console.log('got here 8')>>
 
 <<include "Mercenaries">>
 
 <<include "Lord">>
 
-<<include "Raiders">>
-
-<<include "TavernGuard">>
-
 <<include "Markets">>
-
-<<include "AdventureGenerator">>
 
 <<include "Guard">>
 
-<<include "Markets">>
+<<run console.log('got here 9')>>

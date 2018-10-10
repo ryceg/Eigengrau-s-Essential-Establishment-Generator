@@ -1,7 +1,6 @@
 
 :: GeneralStoreModifiers
-<<nobr>>
-/* ------------------------- SIZE -------------------------- */
+/* <<nobr>>
 <<if $GeneralStore.sizeRoll gt 80>>
 		<<set $GeneralStore.size to "huge">>
 		<<set $GeneralStore.activityRoll -= 4>>
@@ -26,14 +25,6 @@
 		<<set $GeneralStore.activityRoll += 3>>
 <</if>>
 
-/*
-	reputationRoll: random(1, 100),
-	cleanlinessRoll: random(1, 100),
-	expertiseRoll: random(1, 100),
-	activityRoll: random(1, 100),
-	hardinessRoll: random(1, 100),
-	magicRoll:
-*/
 
 <<switch $GeneralStore.material>>
 	<<case "hewn rock">>
@@ -44,7 +35,6 @@
 		<<set $GeneralStore.cleanlinessRoll += 5, $GeneralStore.wealthRoll += 6>>
 <</switch>>
 
-/* ------------------------- CLEANLINESS -------------------------- */
 <<if $GeneralStore.cleanlinessRoll gt 80>>
 		<<set $GeneralStore.expertiseRoll += 10,
 		$GeneralStore.activityRoll += 6,
@@ -126,4 +116,4 @@
 		<<set $GeneralStore.activity to "very quiet">>
 		<<set $GeneralStore.reputationRoll -= 5, $GeneralStore.cleanlinessRoll += 5>>
 <</if>>
-<</nobr>>
+<</nobr>> */

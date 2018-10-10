@@ -9,7 +9,7 @@
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a <<print either($bartender.descriptor)>> who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<profile $bartender>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">><<include "Menu">>
 <<include "TavernGames">>
-<<print $tavern.entertainment.pluck()>>
+<<print $tavern.entertainment.random()>>
 
 <<include "Intrigue">>
 <<include "Rooms">>

@@ -19,4 +19,4 @@
 
 
 When you're ready, here's the [[general store|GeneralStoreOutput]]
-<<set $currentpassage to $GeneralStore>>
+<<set $currentPassage to $GeneralStore>>

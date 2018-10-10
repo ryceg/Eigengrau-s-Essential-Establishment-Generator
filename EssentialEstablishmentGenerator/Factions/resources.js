@@ -5,7 +5,7 @@ setup.resourcesFaction = function (faction) {
   var resources = []
   var i
   // this is where weighting different groups happens. Needs updating with each new faction.
-  resourcesList.concat(factionData.type[type].resources)
+  resourcesList.concat(setup.factionData.type[type].resources)
 
   if (faction.ageRoll > 95) {
     faction.resourcesRoll += Math.fm(faction.resourcesRoll, 15)

@@ -1,5 +1,4 @@
-setup.profileTooltip = function (id, ch) {
-  var char = ch
+setup.profileTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
@@ -9,19 +8,17 @@ setup.profileTooltip = function (id, ch) {
   })
 }
 
-setup.profileAgeTooltip = function (id, ch) {
-  var char = ch
+setup.profileAgeTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
-      span.title = char.ageRoll + ' years, to be exact.'
+      span.title = char.ageYears + ' years, to be exact.'
       tippy('#' + span.id)
     }
   })
 }
 
-setup.profileHeightTooltip = function (id, ch) {
-  var char = ch
+setup.profileHeightTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
@@ -36,15 +33,13 @@ setup.profileHeightTooltip = function (id, ch) {
         } else {
           span.title = feet + 'ft. ' + inches + '"'
         }
-
         tippy('#' + span.id)
       }
     }
   })
 }
 
-setup.profileWeightTooltip = function (id, ch) {
-  var char = ch
+setup.profileWeightTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
@@ -68,11 +63,11 @@ setup.buildingTooltip = function (id, building, type) {
     switch (type) {
       case 'tavern':
         switch (building.draw) {
-          case '$tavern.roughness atmosphere':
-            // notableFeature = 'its ' + building.roughness + ' atmosphere'
+          case "tavern.roughness + ' atmosphere'":
+            notableFeature = 'its ' + building.roughness + ' atmosphere'
             break
           default:
-            // notableFeature = 'its ' + building.draw
+            notableFeature = 'its ' + building.draw
         }
         break
       case 'smithy':

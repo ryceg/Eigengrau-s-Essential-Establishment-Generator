@@ -1,8 +1,6 @@
 :: GeneralStoreRenders [render]
 
-
-/* ------------------------- SIZE -------------------------- */
-<<set _warmthRoll to random(1, 100)>>
+/* <<set _warmthRoll to random(1, 100)>>
 <<if $GeneralStore.sizeRoll gt 80>>
 		<<set $GeneralStore.size to "huge">>
 		<<set _warmthRoll -= 20>>
@@ -46,9 +44,6 @@
 		<<set $GeneralStore.warmth to "cold">>
 <</if>>
 
-/* ------------------------- CLEANLINESS -------------------------- */
-
-
 <<if $GeneralStore.cleanlinessRoll gt 80>>
 		<<set $GeneralStore.cleanliness to "fastidious">>
 	<<elseif $GeneralStore.cleanlinessRoll gt 70>>
@@ -66,9 +61,6 @@
 	<<elseif $GeneralStore.cleanlinessRoll lte 20>>
 		<<set $GeneralStore.cleanliness to "filthy">>
 <</if>>
-
-
-/* ------------------------- Expertise -------------------------- */
 
 <<if $GeneralStore.expertiseRoll gt 80>>
 		<<set $GeneralStore.expertise to "masterful">>
@@ -104,30 +96,6 @@
 		<<set $GeneralStore.activity to "rather quiet">>
 	<<elseif $GeneralStore.activityRoll lte 20>>
 		<<set $GeneralStore.activity to "very quiet">>
-<</if>>
+<</if>> */
 
-<<if $GeneralStore.priceModifier gt 5 && $GeneralStore.wealthRoll gt 80>>
-    <<set $GeneralStore.pricetalk to "Be warned, these prices might be... out of your range">>
-  <<elseif $GeneralStore.priceModifier gt 5 && $GeneralStore.wealthRoll lt 30>>
-    <<set $GeneralStore.pricetalk to "I'm afraid that times are tough, there's a bit of a surcharge on the fun stuff.">>
-  <<elseif $GeneralStore.priceModifier gt 5>>
-    <<set $GeneralStore.pricetalk to "Fair warning; the prices ain't what they used to be, by a long shot.">>
-  <<elseif $GeneralStore.priceModifier gt 2 && $GeneralStore.wealthRoll gt 80>>
-    <<set $GeneralStore.pricetalk to "Fair warning, premium products come with a premium price.">>
-  <<elseif $GeneralStore.priceModifier gt 2 && $GeneralStore.wealthRoll lt 30>>
-    <<set $GeneralStore.pricetalk to "Things might be a wee bit more expensive than you're used to, but that's the cost of doing business at the moment.">>
-  <<elseif $GeneralStore.priceModifier gt 2>>
-    <<set $GeneralStore.pricetalk to "Fair warning; the prices ain't what they used to be.">>
-  <<elseif $GeneralStore.priceModifier gt -2 && $GeneralStore.wealthRoll gt 80>>
-    <<set $GeneralStore.pricetalk to "These are priced to move, so I can make some space and get some new stock in.">>
-  <<elseif $GeneralStore.priceModifier gt -2 && $GeneralStore.wealthRoll lt 30>>
-    <<set $GeneralStore.pricetalk to "Priced to sell, so I can afford some new stock!">>"
-  <<elseif $GeneralStore.priceModifier gt -2>>
-    <<set $GeneralStore.pricetalk to "Priced to move!">>
-  <<elseif $GeneralStore.priceModifier gt -4 && $GeneralStore.wealthRoll gt 80>>
-    <<set $GeneralStore.pricetalk to "Everything must go! I'm getting in entirely new, custom stock in a couple day's time, and need the space clear.">>
-  <<elseif $GeneralStore.priceModifier gt -4 && $GeneralStore.wealthRoll lt 30>>
-    <<set $GeneralStore.pricetalk to "Everything must go- can't afford to keep $GeneralStore.name open much longer, so I'm getting rid of the final stock.">>
-  <<elseif $GeneralStore.priceModifier gt -4>>
-    <<set $GeneralStore.pricetalk to "I've got a massive sale going on at the moment!">>
-    <</if>>
+<<set $GeneralStore.priceTalk to setup.closestMatch(setup.getGeneralStorePriceTalk($GeneralStore), 'priceTalk', 'priceModifier', 'wealthRoll', 'priceModifier', 'wealthRoll')>>

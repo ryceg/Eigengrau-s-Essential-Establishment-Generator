@@ -8,7 +8,7 @@ setup.createAllies = function (faction) {
   let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  groupList.concat(factionData.type[type].alliesList)
+  groupList.concat(setup.factionData.type[type].alliesList)
 
   if (sizeRoll >= 90) {
     faction.alliesDescription = 'an immense number of people to rely on for aid'

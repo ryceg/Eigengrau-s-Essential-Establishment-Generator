@@ -1,11 +1,10 @@
 Roll:: Temple
 
-<<set $temple to setup.createBuilding()>>
+<<set $temple to setup.createTemple()>>
 <<set $priest to setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "cleric", "druid"), background: either("acolyte", "acolyte", "acolyte", "acolyte", "sage", "sage", "sage"), profession: "priest"})>>
 
 <<if $town.wealthRoll gt 95>>
   <<set $temple.wealthRoll += 7>>
-  /*<<set $temple.lodging *= 1.1, $specialbrew.cost *= 1.2, $temple.food *= 1.2>>*/
 <<elseif $town.wealthRoll gt 80>>
   <<set $temple.wealthRoll += 5>>
 <<elseif $town.wealthRoll gt 70>>
@@ -23,12 +22,3 @@ Roll:: Temple
 <<elseif $town.wealthRoll lte 20>>
   <<set $temple.wealthRoll -= 5, $temple.sinRoll += 3, $temple.populationRoll -= 3>>
 <</if>>
-<<set $temple.sinRoll to $temple.sinRoll.clamp(1, 100),
-		$temple.wealthRoll to $temple.wealthRoll.clamp(1, 100),
-		$temple.reputationRoll to $temple.reputationRoll.clamp(1, 100),
-		$temple.cleanlinessRoll to $temple.cleanlinessRoll.clamp(1, 100),
-		$temple.populationRoll to $temple.populationRoll.clamp(1, 100),
-		$temple.roughnessRoll to $temple.roughnessRoll.clamp(1, 100),
-		$temple.diversityRoll to $temple.diversityRoll.clamp(1, 100),
-		$temple.sizeRoll to $temple.sizeRoll.clamp(1, 100),
-		$temple.magicRoll to $temple.magicRoll.clamp(1, 100)>>

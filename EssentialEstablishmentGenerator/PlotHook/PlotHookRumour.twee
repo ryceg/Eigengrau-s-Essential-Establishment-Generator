@@ -1,8 +1,8 @@
 
 :: PlotHookRumour
-<<nobr>><<set _PlotHookRumourRoll to random(1, 2)>><<set $tavernPatron to setup.createNPC()>>
+<<nobr>><<set _bartender to $testPub.bartender>><<set _tavern to $testPub>><<set _PlotHookRumourRoll to random(1, 2)>><<set _tavernPatron to setup.createNPC()>>
 <<if _PlotHookRumourRoll is 1>>
-You make your way around the $tavern.wordnoun, and chat with a couple of the locals. They are friendly enough for simple $town.type folk, and are happy to share a drink with you, and gossip easily- apparently, $bartender.name $bartender.trait<<nobr>>.<</nobr>> When you steer the conversation towards rumours that they've heard, the half-drunk $tavernPatron.racenote looks around, and in a hushed voice, whispers
+You make your way around the _tavern.wordnoun, and chat with a couple of the locals. They are friendly enough for simple $town.type folk, and are happy to share a drink with you, and gossip easily- apparently, $bartender.name $bartender.trait<<nobr>>.<</nobr>> When you steer the conversation towards rumours that they've heard, the half-drunk _tavernPatron.raceNote looks around, and in a hushed voice, whispers
 	<<elseif _PlotHookRumourRoll is 2>>
-You talk amongst the good folk of $town.name, who seem pleasant enough. They gossip easily, and reckon that $tavern.name is only known for its $tavern.draw, and that the pub across the road is totally way better. You steer the conversation towards topics that are more interesting to adventurers such as yourselves, and the drunk $tavernPatron.racenote looks around, and whispers in a hushed voice
+You talk amongst the good folk of $town.name, who seem pleasant enough. They gossip easily, and reckon that _tavern.name is only known for its _tavern.draw, and that the pub across the road is totally way better. You steer the conversation towards topics that are more interesting to adventurers such as yourselves, and the drunk _tavernPatron.raceNote looks around, and whispers in a hushed voice
 <</if>>"<<print $plothook.rumour.pluck()>>"<</nobr>>

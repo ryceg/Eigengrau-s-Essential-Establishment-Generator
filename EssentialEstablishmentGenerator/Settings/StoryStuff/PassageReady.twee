@@ -1,5 +1,5 @@
 :: PassageReady
 
-<<for _passage range Story.lookup("tags", "render")>>
+/* <<for _passage range Story.lookup("tags", "render")>>
     <<include _passage.title>>
-<</for>>
+<</for>> */

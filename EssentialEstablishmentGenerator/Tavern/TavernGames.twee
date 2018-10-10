@@ -1,5 +1,6 @@
 :: TavernGames
-<<nobr>><<set $NPCgamer to setup.createNPC({hasClass: true})>><<set $NPCgamebanker to setup.createNPC({hasClass: false})>>
+<<nobr>>
+<<set $NPCgamer to setup.createNPC({hasClass: true})>><<set $NPCgamebanker to setup.createNPC({hasClass: false})>>
 <<set $taverngames to either([
 	{
 	name: "Passe-dix",
@@ -28,7 +29,7 @@
 	{
 	name: "Thimble Rig",
 	type: "guessing game",
-	description: "A <<print either($NPCgamebanker.descriptor)>>'s quick hands, a pair of $NPCgamer.eyes eyes belonging to a $NPCgamer.racenote watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.racenote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
+	description: "A <<print either($NPCgamebanker.descriptor)>>'s quick hands, a pair of $NPCgamer.eyes eyes belonging to a $NPCgamer.raceNote watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
 	rules: "The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.",
 	bet: random(4, 9)
 	},
@@ -48,4 +49,4 @@
 	rules: "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
 	bet: 10
 	}
-	])>><</nobr>><div class="descriptive"><h3>$taverngames.name</h3>$taverngames.description <<linkreplace "Ask how to play">> The $NPCgamer.racenote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>></div>
+	])>><</nobr>><div class="descriptive"><h3>$taverngames.name</h3>$taverngames.description <<linkreplace "Ask to play">> The $NPCgamer.raceNote that was playing says "$taverngames.rules The current bet is <<money $taverngames.bet>>."<</linkreplace>></div>

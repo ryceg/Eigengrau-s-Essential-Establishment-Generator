@@ -10,7 +10,7 @@ setup.leaderFaction = function (faction) {
       faction.leaderQualification = ['the original founder', 'the original founder', 'the first appointed leader'].random()
     }
   } else {
-    faction.leaderQualification = factionData.type[type].leaderQualification.random()
+    faction.leaderQualification = setup.factionData.type[type].leaderQualification.random()
   }
 
   if (faction.leaderBribesRoll > 95) {
@@ -81,18 +81,18 @@ setup.leaderFaction = function (faction) {
           faction.leader = State.variables.townLeader
         } else {
           faction.leader = setup.createNPC({
-            hasClass: factionData.type[type].hasClass,
-            profession: factionData.type[type].profession,
-            dndClass: factionData.type[type].dndClass
+            hasClass: setup.factionData.type[type].hasClass,
+            profession: setup.factionData.type[type].profession,
+            dndClass: setup.factionData.type[type].dndClass
           })
           State.variables.townLeader = faction.leader
           // faction.leader = State.variables.townLeader
         }
       } else {
         faction.leader = setup.createNPC({
-          hasClass: factionData.type[type].hasClass,
-          profession: factionData.type[type].profession,
-          dndClass: factionData.type[type].dndClass
+          hasClass: setup.factionData.type[type].hasClass,
+          profession: setup.factionData.type[type].profession,
+          dndClass: setup.factionData.type[type].dndClass
         })
       }
       break

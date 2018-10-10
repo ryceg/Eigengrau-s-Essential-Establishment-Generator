@@ -1,7 +1,7 @@
 
 :: AlchemistModifiers
-<<nobr>>
-/* ------------------------- SIZE -------------------------- */
+/* <<nobr>>
+
 <<if $alchemist.sizeRoll gt 80>>
 		<<set $alchemist.size to "huge">>
 		<<set $alchemist.activityRoll -= 4>>
@@ -35,7 +35,7 @@
 		<<set $alchemist.cleanlinessRoll += 5, $alchemist.wealthRoll += 6>>
 <</switch>>
 
-/* ------------------------- CLEANLINESS -------------------------- */
+
 <<if $alchemist.cleanlinessRoll gt 80>>
 		<<set $alchemist.expertiseRoll += 10,
 		$alchemist.activityRoll += 6,
@@ -117,4 +117,4 @@
 		<<set $alchemist.activity to "very quiet">>
 		<<set $alchemist.reputationRoll -= 5, $alchemist.cleanlinessRoll += 5>>
 <</if>>
-<</nobr>>
+<</nobr>> */

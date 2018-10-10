@@ -1,6 +1,6 @@
 
 :: Output3 [tavern]
-<h1>$tavern.name</h1>
+/* <h1>$tavern.name</h1>
 <span class="firstcharacter">Y</span>ou walk through the $town.type of $town.name, and eventually come to <strong>$tavern.name</strong>; a $tavern.material $tavern.wordnoun which is known in the area for its $tavern.draw, and <<nobr>>
 
 <<if $tavern.type is "regular">>
@@ -18,4 +18,4 @@
 <<include "Intrigue">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
-<<run setup.tippy(".btn")>>
+<<run setup.tippy(".btn")>> */

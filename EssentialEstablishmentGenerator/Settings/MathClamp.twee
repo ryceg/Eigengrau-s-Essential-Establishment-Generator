@@ -1,9 +1,9 @@
 :: MathClamp [render]
 
-<<if $smithy.pricemodifier gt 10>>
-    <<set $smithy.pricemodifier to 10>>
-  <<elseif $smithy.pricemodifier lt -10>>
-    <<set $smithy.pricemodifier to -10>>
+/* <<if $smithy.priceModifier gt 10>>
+    <<set $smithy.priceModifier to 10>>
+  <<elseif $smithy.priceModifier lt -10>>
+    <<set $smithy.priceModifier to -10>>
 <</if>>
 
 <<if $smithy.magicRoll gt 100>>
@@ -72,10 +72,10 @@
     <<set $smithy.activityRoll to 1>>
 <</if>>
 
-<<if $alchemist.pricemodifier gt 10>>
-    <<set $alchemist.pricemodifier to 10>>
-  <<elseif $alchemist.pricemodifier lt -10>>
-    <<set $alchemist.pricemodifier to -10>>
+<<if $alchemist.priceModifier gt 10>>
+    <<set $alchemist.priceModifier to 10>>
+  <<elseif $alchemist.priceModifier lt -10>>
+    <<set $alchemist.priceModifier to -10>>
 <</if>>
 
 <<if $alchemist.magicRoll gt 100>>
@@ -144,10 +144,10 @@
     <<set $alchemist.activityRoll to 1>>
 <</if>>
 
-<<if $tavern.pricemodifier gt 10>>
-    <<set $tavern.pricemodifier to 10>>
-  <<elseif $tavern.pricemodifier lt -10>>
-    <<set $tavern.pricemodifier to -10>>
+<<if $tavern.priceModifier gt 10>>
+    <<set $tavern.priceModifier to 10>>
+  <<elseif $tavern.priceModifier lt -10>>
+    <<set $tavern.priceModifier to -10>>
 <</if>>
 
 <<if $tavern.magicRoll gt 100>>
@@ -216,10 +216,10 @@
     <<set $tavern.activityRoll to 1>>
 <</if>>
 
-<<if $GeneralStore.pricemodifier gt 10>>
-    <<set $GeneralStore.pricemodifier to 10>>
-  <<elseif $GeneralStore.pricemodifier lt -10>>
-    <<set $GeneralStore.pricemodifier to -10>>
+<<if $GeneralStore.priceModifier gt 10>>
+    <<set $GeneralStore.priceModifier to 10>>
+  <<elseif $GeneralStore.priceModifier lt -10>>
+    <<set $GeneralStore.priceModifier to -10>>
 <</if>>
 
 <<if $GeneralStore.magicRoll gt 100>>
@@ -286,4 +286,4 @@
     <<set $GeneralStore.activityRoll to 100>>
   <<elseif $GeneralStore.activityRoll lt 1>>
     <<set $GeneralStore.activityRoll to 1>>
-<</if>>
+<</if>> */

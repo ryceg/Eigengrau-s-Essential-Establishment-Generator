@@ -1,7 +1,8 @@
 
 :: Guard
 
-<<set $guardCaptain to setup.createNPC({dndClass: "fighter", background: "soldier", gender: either("man", "man", "man", "woman")})>>
+<<set $guard to setup.createGuard($town)>>
+/* <<set $guardCaptain to setup.createNPC({dndClass: "fighter", background: "soldier", gender: either("man", "man", "man", "woman")})>>
 <<set $guard to {
 	primaryColours: either([
     "black",
@@ -76,4 +77,4 @@
 		<<set $guard.name to "The " + _guardnameC + " " + _guardnameD>>
 	<<default>>
 			<<set $guard.name to "The " + _guardnameC + " " + _guardnameD + " of " + _guardnameB>>
-<</switch>>
+<</switch>> */

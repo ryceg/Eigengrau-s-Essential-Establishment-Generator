@@ -27,10 +27,11 @@ setup.createRumour = function () {
 
   // A - Personal Information
   function PersonalInformation () {
-    return ['gives a secret about ' + MinorBoon(),
+    return [
+      'gives a secret about ' + MinorBoon(),
       'a family emergency; ' + Emergency(),
       'passes along a rumor (check Ladder) about the PC as told by a ' + ['friend', 'friend', MinorEnemy()].random(),
-      '</blockquote>Gives information that confirms a suspicion held by the PC or the Party</blockquote>',
+      '<blockquote>Gives information that confirms a suspicion held by the PC or the Party</blockquote>',
       'It will concern you that ' + Warning(),
       '<blockquote>Gives Exact Knowledge about information the PC or Party has been investigating</blockquote>',
       'It will concern you greatly that ' + Warning()].random()
@@ -38,7 +39,8 @@ setup.createRumour = function () {
 
   // B – Local Information
   function LocalInformation () {
-    return ['tells of ' + MajorBoon() + ' concerning the area',
+    return [
+      'tells of ' + MajorBoon() + ' concerning the area',
       'tells of emergency ' + Emergency(),
       'passes along knowledge of a ' + SocialEvents(),
       'gives information about ' + [MinorEnemy(), MajorEnemy()].random() + ' threat',
@@ -62,7 +64,8 @@ setup.createRumour = function () {
 
   // D – Faction
   function Faction () {
-    return ['mystery cult that ' + MysteryCult(),
+    return [
+      'mystery cult that ' + MysteryCult(),
       'slavers',
       'brutal overlords',
       'religious warriors',
@@ -76,7 +79,8 @@ setup.createRumour = function () {
 
   // E – Minor Bane
   function MinorBane () {
-    return ['disease and pestilence',
+    return [
+      'disease and pestilence',
       'buildings destroyed',
       'a ' + [MinorEnemy(), MajorEnemy()].random() + ' of the party is actively opposing them',
       'loss of items of value',
@@ -87,7 +91,8 @@ setup.createRumour = function () {
 
   // F – Major Bane
   function MajorBane () {
-    return ['bad luck (random penalties[disadvantage] to random die rolls) for 1 month or 10 combats',
+    return [
+      'bad luck (random penalties[disadvantage] to random die rolls) for 1 month or 10 combats',
       'outbreak of large plague or pestilence',
       'a large loss of monetary wealth',
       'many items of value have been lost or destroyed',
@@ -98,7 +103,8 @@ setup.createRumour = function () {
 
   // G – Minor Boon
   function MinorBoon () {
-    return ['enemy (q) (r) has been temporarily thwarted',
+    return [
+      'enemy (q) (r) has been temporarily thwarted',
       'minor magic item obtained',
       'small amount of money or resources obtained',
       'magicked gemstone obtained (use 0-level or cantrip effect, 1/day, as level 1 caster)',
@@ -109,7 +115,8 @@ setup.createRumour = function () {
 
   // H – Major Boon
   function MajorBoon () {
-    return ['divine intervention grants a ' + Treasure(),
+    return [
+      'divine intervention grants a ' + Treasure(),
       'true knowledge of a treasure ' + Treasure() + ' location is obtained',
       'large amount of monetary wealth is granted',
       'an existing skill or knowledge is improved (+1) or a new skill is obtained',
@@ -120,7 +127,8 @@ setup.createRumour = function () {
 
   // I – Vendetta
   function Vendetta () {
-    return ['wrongfully jailed or persecuted',
+    return [
+      'wrongfully jailed or persecuted',
       'racial crusade',
       'revenge for theft or deception',
       'revenge for personal death(s)',
@@ -131,7 +139,8 @@ setup.createRumour = function () {
 
   // J – On The Run
   function OnTheRun () {
-    return ['committed political crime',
+    return [
+      'committed political crime',
       'escaped from detention for crime',
       'committed minor crime of theft, fraud or assualt',
       'committed major crime of theft, murder or rape',
@@ -142,7 +151,8 @@ setup.createRumour = function () {
 
   // K – Buying Or Selling
   function BuyingOrSelling () {
-    return ['cloth: raw or finished',
+    return [
+      'cloth: raw or finished',
       'wood: raw, finished, furniture, containers, paper',
       'food',
       'beverages: brewed (ales), distilled (spirits), raw (juice) or water',
@@ -153,7 +163,8 @@ setup.createRumour = function () {
 
   // M – Minor Quest
   function MinorQuest () {
-    return ['commune with avatar',
+    return [
+      'commune with avatar',
       'map a location',
       'deliver a message',
       'recover a minor treasure ' + Treasure(),
@@ -164,7 +175,8 @@ setup.createRumour = function () {
 
   // N – Major Quest
   function MajorQuest () {
-    return ['awaken a sleeping NPC called ' + State.setVar('Quest', setup.createNPC()),
+    return [
+      'awaken a sleeping NPC called ' + State.setVar('Quest', setup.createNPC()),
       ['recover', 'destroy'].random() + ' an artifact ' + ItemInformation(),
       ['aid', 'slay'] + State.setVar('Quest', setup.createNPC()),
       'slay a monster',
@@ -175,7 +187,8 @@ setup.createRumour = function () {
 
   // O – Good Deeds
   function GoodDeeds () {
-    return ['freeing an innocent from imprisonment',
+    return [
+      'freeing an innocent from imprisonment',
       'correct a long-standing error',
       'helping unfortunates with financial aid',
       'spreading a charitable political message or religious doctrine',
@@ -186,7 +199,8 @@ setup.createRumour = function () {
 
   // P – Evil Deeds
   function EvilDeeds () {
-    return ['humiliate and torture a rival',
+    return [
+      'humiliate and torture a rival',
       "collect an extortion's payoff and punish the offender",
       'steal from friends or family',
       'badly beat or kill a rival',
@@ -197,7 +211,8 @@ setup.createRumour = function () {
 
   // Q – Minor Enemy
   function MinorEnemy () {
-    return ['a snubbed ex-friend',
+    return [
+      'a snubbed ex-friend',
       'a school bully',
       'a business rival',
       'a local thug',
@@ -208,18 +223,20 @@ setup.createRumour = function () {
 
   // R – Major Enemy
   function MajorEnemy () {
-    return ['a politician or political group',
+    return [
+      'a politician or political group',
       'a powerful rogue/thug/assassin',
       "a noble's family",
       'a religious ' + ['cult', 'sect', 'group', 'temple'].random(),
       'a powerful ' + ['mage', 'cabal'],
       'a mercenary group',
-      'a mysterious stranger named ' + setup.createNPC()].random()
+      'a mysterious stranger named Morgoleth'].random()
   }
 
   // S – Haunted
   function Haunted () {
-    return ['spirits locked in battle',
+    return [
+      'spirits locked in battle',
       'a tortured revenant who must relive its brutal murder',
       'a benign phantom who provides small comforts and messages',
       'a crazed banshee',

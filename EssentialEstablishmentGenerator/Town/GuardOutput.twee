@@ -1,6 +1,7 @@
 :: GuardOutput
 <h1>$guard.name</h1>
-$guard.name is led by <<profile $guardCaptain>>, a $guardCaptain.racenote. $guard.name is a $guard.size of $guard.population. One can recognise a member of $guard.name by the $guard.primaryColours and $guard.secondaryColours livery adorned with an image of $guard.insignia.
+<<set _guardCaptain to $guard.captain>>
+$guard.name is led by <<profile _guardCaptain>>, a <<print either(_guardCaptain.descriptor)>>. $guard.name is a $guard.size of $guard.population. One can recognise a member of $guard.name by the $guard.primaryColours and $guard.secondaryColours livery adorned with an image of $guard.insignia.
 
 $guard.funding
 

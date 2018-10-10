@@ -1,6 +1,6 @@
 
 :: Output1 [tavern]
-<h1>$tavern.name</h1>
+/* <h1>$tavern.name</h1>
 <span class="firstcharacter">T</span>he $tavern.wordnoun is called <strong>$tavern.name</strong>, and is <<nobr>><<if $tavern.type == "regular">>
 		just a regular inn, known
 	<<else>>
@@ -24,4 +24,4 @@
 <<include "Intrigue">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
-<<run setup.tippy(".btn")>>
+<<run setup.tippy(".btn")>> */

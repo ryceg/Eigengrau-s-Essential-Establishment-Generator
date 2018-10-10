@@ -1,6 +1,6 @@
 
 :: Bartender
-<<set _roll to random(1, 100)>><<if _roll gt 99>>
+/* <<set _roll to random(1, 100)>><<if _roll gt 99>>
 			<<set $patreonContent to true>>
 			<<set $bartender to $Birchbottom>>
 	<<else>>
@@ -18,8 +18,9 @@
 <<set $barmaid to setup.createNPC({
 	gender: "woman",
 	background: "commoner",
+	hasClass: false,
 	profession: "barmaid"
-	})>>
+	})>> */
 
 /* ------------------------- BARTENDER RACE -------------------------- */
 /*
@@ -51,8 +52,8 @@
 */
 
 /* Brothel Code - so the bartender is the Master or Madame of the brothel */
-<<if $tavern.draw is "brothel" && $bartender.gender is "man">>
+/* <<if $tavern.draw is "brothel" && $bartender.gender is "man">>
 		<<set $bartender.owner to "master">>
 	<<elseif $tavern.draw is "brothel" && $bartender.gender is "woman">>
 		<<set $bartender.owner to "madame">>
-<</if>>
+<</if>> */
