@@ -44,7 +44,7 @@ setup.createBuilding = function (town, type) {
 
   // switch (type) {
   //   case 'tavern':
-  //     building.name = setup.createTavernNameGen()
+  //     building.name = setup.createTavernName()
   // }
 
   // building.sinRoll.clamp(1, 100)

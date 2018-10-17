@@ -1,9 +1,38 @@
 :: TavernSell [tavern]
-<<nobr>><<linkreplace "<h4>Show me the menu!</h4>">><table>
+<<nobr>><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>><<linkreplace "<h4>Show me the menu!</h4>">><table>
 	<tr>
 		<th>Dish</th>
 		<th>Cost</th>
 	</tr>
+	<<if _tavern.wealthRoll > 60 && _tavern.roughnessRoll < 30 or _tavern.wealthRoll > 60 && _bartender.race === "elf">>
+			<<set _dietary to "veg">>
+		<<elseif _tavern.wealthRoll > 60 && _tavern.roughnessRoll > 80 or _tavern.wealthRoll > 60 && _bartender.race === "half-orc">>
+			<<set _dietary to "carni">>
+		<<else>>
+			<<set _dietary to ["omni", "veg", "carni"]>>
+			/* <<set _dietary to "omni">> */
+	<</if>>
+	<<switch $town.type>>
+		<<case "city">>
+			<<set _availability to 4>>
+		<<case "town">>
+			<<set _availability to 3>>
+		<<case "village">>
+			<<set _availability to 2>>
+		<<case "hamlet">>
+			<<set _availability to 1>>
+		<<default>>
+			<<set _availability to 3>>
+	<</switch>>
+
+	<<for _i, _item range setup.inventory.filter(function (item) {
+		return item.availability <= _availability,
+		item.availabilityLocation === "tavern",
+		item.dietary == _dietary; 
+		})>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+	<</for>>
+/*
       <<if $tavern.wealthRoll gt 60 && $tavern.roughnessRoll lt 30 or $tavern.wealthRoll gt 60 && $bartender.race is "elf">>
       <<switch $town.type>>
       	<<case "city">>
@@ -57,6 +86,8 @@
       	<<case "hamlet">>
       	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })>><tr><td>_item.name</td>
       <td><<money _item.cost>></td></tr>
-      	<</for>><</switch>><</if>></table><</linkreplace>>
+      	<</for>><</switch>><</if>> */
+
+				</table><</linkreplace>>
 
 <</nobr>>

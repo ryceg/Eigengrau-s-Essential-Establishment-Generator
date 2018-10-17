@@ -1,5 +1,5 @@
 :: TavernInventory
-<<set $tavern.inventory to [
+/* <<set $tavern.inventory to [
     {name: "Crisped Worm and Potatoes", cost: 3, availability: 1, type: "omni"},
     {name: "Frogs on Skewers", cost: 4, availability: 1, type: "carni"},
     {name: "Green Chili Stew", cost: 3, availability: 1, type: "veg"},
@@ -37,4 +37,4 @@
     {name: "Pork Chop and Curds", cost: 92, availability: 3, type: "carni"},
     {name: "Rack of Lamb Platter", cost: 95, availability: 3, type: "carni"},
     {name: "Barbecued Tiger Fish and Papaya", cost: 200, availability: 4, type: "omni"},
-]>>
+]>> */

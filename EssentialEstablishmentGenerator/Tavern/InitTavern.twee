@@ -3,7 +3,7 @@
 
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<set $tavern.name to setup.createTavernNameGen()>>>><<textbox "$tavern.name" $tavern.name>>
+            \<<set $tavern.name to setup.createTavernName()>>>><<textbox "$tavern.name" $tavern.name>>
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
 
@@ -23,5 +23,5 @@
 
 <span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$tavern.priceModifier" $tavern.priceModifier -10 10 1>></span>
 
-When you're ready, here's the [[output|TavernNewOutput]]
+When you're ready, here's the [[output|TavernOutput]]
 <<set $currentPassage to $tavern>>

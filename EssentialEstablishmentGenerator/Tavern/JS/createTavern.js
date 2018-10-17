@@ -46,7 +46,7 @@ setup.createTavern = function (town, opts) {
   //
   // // switch (type) {
   // //   case 'tavern':
-  // //     tavern.name = setup.createTavernNameGen()
+  // //     tavern.name = setup.createTavernName()
   // // }
   //
   // // tavern.sinRoll.clamp(1, 100)
@@ -215,7 +215,7 @@ setup.createTavern = function (town, opts) {
   //
   // tavern.id = State.variables.buildings[State.variables.buildings.length - 1]
 
-  tavern.name = setup.createTavernNameGen()
+  tavern.name = setup.createTavernName()
   console.log('tavern test 3')
   console.log(tavern)
   var bartender = (opts['newBartender'] || setup.createBartender)(town.name, tavern.name)

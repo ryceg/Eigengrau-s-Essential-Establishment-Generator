@@ -1,6 +1,5 @@
 setup.createRoad = function (base) {
   var type = ['trail', 'path', 'path', 'road', 'road', 'road']
-  var output
   var noEncounter
   var road = Object.assign({
     type: type.random()

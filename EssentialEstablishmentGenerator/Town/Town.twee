@@ -29,7 +29,7 @@ $town.militaryRoll to $town.militaryRoll.clamp(1, 100),
 $town.lawRoll to $town.lawRoll.clamp(1, 100),
 $town.arcanaRoll to $town.arcanaRoll.clamp(1, 100)>>
 
-<<set $town.name to setup.createTown()>>
+<<set $town.name to setup.createTownName()>>
 
 /* <<set $town.name to "The Placeholder Town">> */
 <<set $town.passageName to "TownOutput">>

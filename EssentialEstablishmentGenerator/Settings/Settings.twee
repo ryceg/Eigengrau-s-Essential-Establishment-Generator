@@ -6,7 +6,7 @@
 
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<textbox "$tavern.name" $tavern.name>><<set $tavernname to setup.createTavernNameGen()>><<set $tavern.name to $tavernname.name>>
+            \<<textbox "$tavern.name" $tavern.name>><<set $tavernname to setup.createTavernName()>><<set $tavern.name to $tavernname.name>>
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
 

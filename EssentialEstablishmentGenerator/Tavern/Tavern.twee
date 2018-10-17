@@ -89,7 +89,7 @@
 		$tavern.sizeRoll to $tavern.sizeRoll.clamp(1, 100),
 		$tavern.magicRoll to $tavern.magicRoll.clamp(1, 100)>>
 
-<<set $tavernname to setup.createTavernNameGen()>>
+<<set $tavernname to setup.createTavernName()>>
 <<set $tavern.name to $tavernname.name>>
 */
 <<if $tavern.draw is "proximity to the brothel" && ndef $brothel>>

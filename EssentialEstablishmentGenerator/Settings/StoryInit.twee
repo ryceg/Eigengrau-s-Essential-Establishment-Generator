@@ -31,19 +31,13 @@
 
 <<include "TavernInventory">>
 
-/* <<include "TavernModifiers">> */
-
 <<include "TavernGames">>
 
 <<include "PatreonCharacters">>
 
-/* <<include "TavernGuard">> */
-
 <<include "PlotHook">>
 
 <<include "ShitPlotHooks">>
-
-/* <<include "TavernRenders">> */
 
 <<include "Newspaper">>
 
@@ -67,9 +61,7 @@
 
 <<include "GeneralStoreInventory">>
 
-<<include "GeneralStoreModifiers">>
 <<run console.log('got here 6')>>
-<<include "GeneralStoreRenders">>
 
 <<include "Books">>
 
