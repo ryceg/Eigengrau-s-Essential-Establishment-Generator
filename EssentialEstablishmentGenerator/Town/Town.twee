@@ -1,5 +1,19 @@
 :: Town
+/* <<set $merchantGuild to setup.createFaction({type: "merchants"})>> */
+<<set $town to setup.createTown()>>
 
+<<set $weather to {
+	season: either(["winter", "spring", "summer", "autumn"]),
+	seasonPool: ["winter", "spring", "summer", "autumn"]
+	}>>
+	<<set $town.scenery to either([
+		"Children play in the street, calling after one another.",
+		"An old woman waves from her chair on the porch at you.",
+		"A young girl waves at you, before being shooed into her home by a doting mother.",
+		"The stench of curing leathers fills your nose as you pass the local tannery.",
+		"You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself."
+		])>>
+/*
 <<set $town to {
 	wealthRoll: random(1, 100),
 	reputationRoll: random(1, 100),
@@ -31,11 +45,11 @@ $town.arcanaRoll to $town.arcanaRoll.clamp(1, 100)>>
 
 <<set $town.name to setup.createTownName()>>
 
-/* <<set $town.name to "The Placeholder Town">> */
-<<set $town.passageName to "TownOutput">>
-/* <<set $merchantGuild to setup.createFaction({type: "merchants"})>> */
 
-/* Town Population Roller */
+<<set $town.passageName to "TownOutput">>
+
+
+
 <<set _townPopulationRoll to random(1, 10)>>
 	<<if _townPopulationRoll gt 8>>
 		<<set $town.population to random(3001, 6000), $town.type to "city", $town.wealthRoll += 5, $town.reputationRoll += 5, $town.sinRoll += 15, $town.diversityRoll += 10>>
@@ -47,7 +61,7 @@ $town.arcanaRoll to $town.arcanaRoll.clamp(1, 100)>>
 		<<set $town.population to random(30, 300), $town.type to "hamlet", $town.wealthRoll -= 2, $town.reputationRoll -= 12, $town.sinRoll -= 15, $town.diversityRoll -= 12>>
 	<</if>>
 
-/* Town Location Roller */
+
 <<set _townpotentiallocation to ["seacoast", "forest", "hills", "plains", "mountains", "river coast", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "jungle", "volcanic field", "seacoast", "forest", "hills", "plains", "mountains", "river coast", "tundra", "ice sheet", "seacoast", "desert", "hills", "plains", "mountains", "river coast", "wasteland", "oasis"]>>
 <<set _terrainRoll to random(1, 6)>>
 <<set $town.terrainPool to ["temperate", "tropical", "polar", "arid"]>>
@@ -63,15 +77,11 @@ $town.arcanaRoll to $town.arcanaRoll.clamp(1, 100)>>
 		 <<set $town.terrain to "arid", $town.location to _townpotentiallocation[random(22, 29)]>>
 <</if>>
 
-<<set $weather to {
-	season: either(["winter", "spring", "summer", "autumn"]),
-	seasonPool: ["winter", "spring", "summer", "autumn"]
-	}>>
 
 
 
 
-<<set $town.scenery to either(["Children play in the street, calling after one another.", "An old woman waves from her chair on the porch at you.", "A young girl waves at you, before being shooed into her home by a doting mother.", "The stench of curing leathers fills your nose as you pass the local tannery.", "You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself."])>>
+
 <<set $town.currentEvent to setup.townCurrentEvent.random()>>
 
 			<<set $town.primaryExport to either([
@@ -110,7 +120,7 @@ $town.arcanaRoll to $town.arcanaRoll.clamp(1, 100)>>
 
 
 
-<<include "TownOrigin">>
-<<include "TownTravel">>
+<<include "TownOrigin">> */
+/* <<include "TownTravel">> */
 <<include "TownWeather">>
 <<include "Trades">>
