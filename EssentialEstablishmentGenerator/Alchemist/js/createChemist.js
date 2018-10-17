@@ -1,5 +1,6 @@
-setup.createChemist = function () {
+setup.createChemist = function (town) {
   var chemist = setup.createNPC({
+    associatedTown: town,
     dndClass: ['wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].random(),
     background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].random(),
     profession: 'alchemist',
