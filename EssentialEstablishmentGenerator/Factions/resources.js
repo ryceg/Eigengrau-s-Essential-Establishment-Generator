@@ -1,11 +1,10 @@
 setup.resourcesFaction = function (faction) {
   var resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']
   var groupSizeModifier = ((faction.resourcesRoll - 50) + ((faction.reputationRoll - 50) + (faction.sizeRoll - 50)) / 2)
-  var type = faction.type
   var resources = []
   var i
   // this is where weighting different groups happens. Needs updating with each new faction.
-  resourcesList.concat(setup.factionData.type[type].resources)
+  resourcesList.concat(setup.factionData.type[faction.type].resources)
 
   if (faction.ageRoll > 95) {
     faction.resourcesRoll += Math.fm(faction.resourcesRoll, 15)

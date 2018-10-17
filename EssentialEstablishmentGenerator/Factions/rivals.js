@@ -4,11 +4,10 @@ setup.createRivals = function (faction) {
   let groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
   let groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.influenceRoll - 50)))
   let rivals = []
-  let type = faction.type
   let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  groupList.concat(setup.factionData.type[type].rivalsList)
+  groupList.concat(setup.factionData.type[faction.type].rivalsList)
 
   if (sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'

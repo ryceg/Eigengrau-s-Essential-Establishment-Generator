@@ -1,7 +1,6 @@
-setup.leaderFaction = function (faction) {
+setup.leaderFaction = function (town, faction) {
   faction.leaderBribesRoll = dice(2, 50)
   faction.leaderCompetenceRoll = dice(2, 50)
-  var type = faction.type
 
   if (faction.age === 'brand new' || faction.age === 'very new') {
     if (faction.leadershipType === 'group') {
@@ -10,7 +9,7 @@ setup.leaderFaction = function (faction) {
       faction.leaderQualification = ['the original founder', 'the original founder', 'the first appointed leader'].random()
     }
   } else {
-    faction.leaderQualification = setup.factionData.type[type].leaderQualification.random()
+    faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.random()
   }
 
   if (faction.leaderBribesRoll > 95) {
@@ -75,25 +74,13 @@ setup.leaderFaction = function (faction) {
 
   switch (faction.leadershipType) {
     case 'individual':
+      faction.leader = setup.createNPC({
+        hasClass: setup.factionData.type[faction.type].hasClass,
+        profession: setup.factionData.type[faction.type].profession,
+        dndClass: setup.factionData.type[faction.type].dndClass
+      })
       if (faction.isPoliticalPower === true) {
-        if (State.variables.townLeader) {
-          // State.variables.townLeader = faction.leader
-          faction.leader = State.variables.townLeader
-        } else {
-          faction.leader = setup.createNPC({
-            hasClass: setup.factionData.type[type].hasClass,
-            profession: setup.factionData.type[type].profession,
-            dndClass: setup.factionData.type[type].dndClass
-          })
-          State.variables.townLeader = faction.leader
-          // faction.leader = State.variables.townLeader
-        }
-      } else {
-        faction.leader = setup.createNPC({
-          hasClass: setup.factionData.type[type].hasClass,
-          profession: setup.factionData.type[type].profession,
-          dndClass: setup.factionData.type[type].dndClass
-        })
+        town.leader = faction.leader
       }
       break
     case 'group':

@@ -4,11 +4,10 @@ setup.createAllies = function (faction) {
   let groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
   let groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.sizeRoll - 50)))
   let allies = []
-  let type = faction.type
   let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  groupList.concat(setup.factionData.type[type].alliesList)
+  groupList.concat(setup.factionData.type[faction.type].alliesList)
 
   if (sizeRoll >= 90) {
     faction.alliesDescription = 'an immense number of people to rely on for aid'
