@@ -119,143 +119,171 @@ setup.townData = {
   },
   'politicalIdeology': {
     'autocracy': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'Lord',
+        'background': 'noble',
+        'title': 'Lord'
+      },
       'economicsRoll': 45,
       'welfareRoll': -25,
       'lawRoll': 15,
       'militaryRoll': 25,
       'arcanaRoll': -5,
+      'isFaction': false,
       'leaderType': 'the supreme leader',
       'type': 'nobles',
-      'hasClass': false,
-      'dndClass': 'noble',
-      'background': 'noble',
-      'title': 'Lord',
       'politicalIdeologyIC': 'autocratic'
 
     },
     'meritocracy': {
+      'leaderTraits': {
+        'hasClass': false,
+        'background': 'noble',
+        'title': 'Lord'
+      },
       'economicsRoll': 15,
       'welfareRoll': 5,
       'lawRoll': -5,
       'militaryRoll': -5,
       'arcanaRoll': 15,
+      'isFaction': false,
       'leaderType': 'the competent',
       'type': 'commoners',
-      'hasClass': false,
-      'dndClass': 'noble',
-      'background': 'noble',
-      'title': 'Lord',
       'politicalIdeologyIC': 'meritocratic'
     },
     'democracy': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'Prime Minister',
+        'background': 'commoner',
+        'title': 'Lord'
+      },
       'economicsRoll': -15,
       'welfareRoll': 25,
       'lawRoll': 15,
       'militaryRoll': -5,
       'arcanaRoll': 15,
+      'isFaction': false,
       'leaderType': 'the people',
       'type': 'commoners',
-      'hasClass': false,
-      'dndClass': 'commoner',
-      'background': 'commoner',
-      'title': 'Lord',
       'politicalIdeologyIC': 'democratic'
     },
     'kleptocracy': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'rogue',
+        'background': 'criminal',
+        'title': 'High Thief'
+      },
       'economicsRoll': -35,
       'welfareRoll': -25,
       'lawRoll': -30,
       'militaryRoll': -5,
       'arcanaRoll': 15,
+      'isFaction': true,
       'leaderType': "the Thieves' Guild",
       'type': 'thieves',
-      'hasClass': true,
-      'dndClass': 'rogue',
-      'background': 'criminal',
-      'title': 'High Thief',
       'politicalIdeologyIC': 'kleptocratic'
     },
     'magocracy': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'wizard',
+        'background': 'scholar',
+        'title': 'Archchancellor'
+      },
       'economicsRoll': 2,
       'welfareRoll': 5,
       'lawRoll': -5,
       'militaryRoll': -5,
       'arcanaRoll': 50,
+      'isFaction': true,
       'leaderType': 'the wizards',
       'type': 'wizards',
-      'hasClass': true,
-      'dndClass': 'wizard',
-      'background': 'scholar',
-      'title': 'Archchancellor',
       'politicalIdeologyIC': 'magocratic'
     },
     'militocracy': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'fighter',
+        'background': 'soldier',
+        'title': 'Commander'
+      },
       'economicsRoll': 25,
       'welfareRoll': -5,
       'lawRoll': 30,
       'militaryRoll': 50,
       'arcanaRoll': -15,
+      'isFaction': true,
       'leaderType': 'the military',
-      'hasClass': true,
-      'dndClass': 'fighter',
-      'background': 'soldier',
-      'title': 'Commander',
       'politicalIdeologyIC': 'militocratic'
     },
     'oligarchy': {
+      'leaderTraits': {
+        'hasClass': false,
+        'background': 'noble',
+        'title': 'Lord'
+      },
       'economicsRoll': 15,
       'welfareRoll': -15,
       'lawRoll': 5,
       'militaryRoll': 5,
       'arcanaRoll': -5,
+      'isFaction': false,
       'leaderType': 'the powerful few',
       'type': 'nobles',
-      'hasClass': false,
-      'dndClass': 'noble',
-      'background': 'noble',
-      'title': 'Lord',
       'politicalIdeologyIC': 'oligarchic'
     },
     'pedocracy': {
+      'leaderTraits': {
+        'hasClass': false,
+        'background': 'scholar',
+        'title': 'Sir'
+      },
       'economicsRoll': 15,
       'welfareRoll': 50,
       'lawRoll': -5,
       'militaryRoll': -5,
       'arcanaRoll': 15,
+      'isFaction': true,
       'leaderType': 'the scholars',
       'type': 'monks',
-      'hasClass': false,
-      'dndClass': 'scholar',
-      'background': 'scholar',
-      'title': 'Sir',
       'politicalIdeologyIC': 'pedocratic'
     },
     'theocracy': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'cleric',
+        'background': 'acolyte',
+        'title': 'High Priest',
+        'gender': 'man'
+      },
       'economicsRoll': 15,
       'welfareRoll': 30,
       'lawRoll': 15,
       'militaryRoll': -15,
       'arcanaRoll': 35,
+      'isFaction': true,
       'leaderType': 'the holy',
       'type': 'priests',
-      'hasClass': true,
-      'dndClass': 'cleric',
-      'background': 'acolyte',
-      'title': 'High Priest',
       'politicalIdeologyIC': 'theocratic'
     },
     'technocracy': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'architect',
+        'background': 'guild artisan',
+        'title': 'Architect'
+      },
       'economicsRoll': 35,
       'welfareRoll': 15,
       'lawRoll': -15,
       'militaryRoll': -5,
       'arcanaRoll': 25,
+      'isFaction': false,
       'leaderType': 'the engineers',
       'type': 'craftsmen',
-      'hasClass': false,
-      'dndClass': 'guild artisan',
-      'background': 'guild artisan',
-      'title': 'Architect',
       'politicalIdeologyIC': 'technocratic'
     }
   },
