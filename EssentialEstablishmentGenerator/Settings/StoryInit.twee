@@ -18,18 +18,14 @@
 <<run console.log('got here 1')>>
 <<include "Town">>
 
-<<include "TownSocioPolitics">>
-<<include "TownRefresh">>
+/* <<include "TownSocioPolitics">> */
+/* <<include "TownRefresh">> */
 
 <<run console.log('got here 2')>>
 
 <<include "SpecialBrew">>
 <<include "Cheese">>
 <<include "Tavern">>
-
-<<run console.log('got here 3')>>
-
-<<include "TavernInventory">>
 
 <<include "TavernGames">>
 
@@ -44,22 +40,11 @@
 <<run console.log('got here 4')>>
 <<include "Alchemist">>
 
-<<include "AlchemistInventory">>
-
 <<run console.log('got here 5')>>
 
 <<include "Smithy">>
 
-<<include "SmithyInventory">>
-
-<<include "SmithyModifiers">>
-
-<<include "SmithyRenders">>
-
-
 <<include "GeneralStore">>
-
-<<include "GeneralStoreInventory">>
 
 <<run console.log('got here 6')>>
 
