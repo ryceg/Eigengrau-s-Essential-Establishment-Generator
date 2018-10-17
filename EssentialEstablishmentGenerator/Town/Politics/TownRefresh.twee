@@ -28,7 +28,7 @@
         <<set $town.economicIdeologyDescription to "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the $town.type's citizens are hunter-gatherers.">>
 <</switch>>
 
-
+/* 
 <<switch $town.politicalIdeologyIC>>
 		<<case "autocratic">>
       <<set $town.leaderType to "the supreme leader">>
@@ -81,7 +81,7 @@
                   <<set $town.leaderType to "the supreme leader">>
                   <<set $townLeader.title to "Lord", $townLeader.background to "noble">>
         <</switch>>
-            <<switch $town.politicalSource>> /* This bit stops you from having an autocratic anarchy */
+            <<switch $town.politicalSource>>
                 <<case "republic", "anarchy">>
                     <<set $town.politicalSource to "absolute monarchy">>
             <</switch>>
@@ -133,7 +133,7 @@
         <<set $town.leaderType to "the engineers">>
         <<set $town.politicalIdeologyIC to "technocratic">>
         <<set $townLeader.title to "Architect">>
-	<</switch>>
+	<</switch>> */
 
 <<switch $town.politicalIdeologyIC>>
   <<case "pedocratic">>

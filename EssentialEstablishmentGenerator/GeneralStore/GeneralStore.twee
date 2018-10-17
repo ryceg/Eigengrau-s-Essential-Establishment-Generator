@@ -1,6 +1,7 @@
 :: GeneralStore
-
-<<set $GeneralStore to setup.createGeneralStore()>>
+/* <<set $GeneralStore to setup.createBuilding()>> */
+/* <<set $GeneralStore to setup.createGeneralStore($town, $GeneralStore)>> */
+<<set $GeneralStore to setup.createGeneralStore($town)>>
 <<set $shopkeep to $GeneralStore.shopkeep>>
 /* <<set $GeneralStore.passageName to "GeneralStoreOutput">>
 <<set $shopkeep to setup.createNPC({

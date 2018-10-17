@@ -1,7 +1,18 @@
 
 :: StoryInit
 
-<<set $versionnumber to "1.5">>
+<<set $versionNumber to "1.5">>
+/* <<set $npcs to new Map()>>
+
+<<set $factions = new Map()>>
+
+<<set $buildings = new Map()>> */
+<<run State.variables.npcs = new Map()>>
+
+<<run State.variables.factions = new Map()>>
+
+<<run State.variables.buildings = new Map()>>
+
 
 /* <<include "Names">> */
 <<run console.log('got here 1')>>
@@ -39,8 +50,6 @@
 <<run console.log('got here 4')>>
 <<include "Alchemist">>
 
-<<include "AlchemistModifiers">>
-
 <<include "AlchemistInventory">>
 
 <<run console.log('got here 5')>>
@@ -59,19 +68,14 @@
 <<include "GeneralStoreInventory">>
 
 <<include "GeneralStoreModifiers">>
-<<run console.log('got here 7')>>
+<<run console.log('got here 6')>>
 <<include "GeneralStoreRenders">>
 
 <<include "Books">>
 
 
-<<run console.log('got here 6')>>
+<<run console.log('got here 7')>>
 
-
-
-<<run console.log('got here 8')>>
-
-<<include "Mercenaries">>
 
 <<include "Lord">>
 
@@ -79,4 +83,4 @@
 
 <<include "Guard">>
 
-<<run console.log('got here 9')>>
+<<run console.log('got here 8')>>

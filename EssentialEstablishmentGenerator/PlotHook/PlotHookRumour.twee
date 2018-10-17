@@ -1,6 +1,6 @@
 
 :: PlotHookRumour
-<<nobr>><<set _bartender to $testPub.bartender>><<set _tavern to $testPub>><<set _PlotHookRumourRoll to random(1, 2)>><<set _tavernPatron to setup.createNPC()>>
+<<nobr>><<set _bartender to _tavern.bartender>><<set _tavern to $currentPassage>><<set _PlotHookRumourRoll to random(1, 2)>><<set _tavernPatron to setup.createNPC()>>
 <<if _PlotHookRumourRoll is 1>>
 You make your way around the _tavern.wordnoun, and chat with a couple of the locals. They are friendly enough for simple $town.type folk, and are happy to share a drink with you, and gossip easily- apparently, $bartender.name $bartender.trait<<nobr>>.<</nobr>> When you steer the conversation towards rumours that they've heard, the half-drunk _tavernPatron.raceNote looks around, and in a hushed voice, whispers
 	<<elseif _PlotHookRumourRoll is 2>>

@@ -74,10 +74,10 @@
         <<set $town.lawRoll -= 50>>
         <<set $town.militaryRoll -= 60>>
     <<case "constitutional monarchy">>
-        <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
+        <<set $townRuler to setup.createNPC({title: "Royal Highness", background: "noble"})>>
         <<set $town.politicalIdeology to either(["autocracy", "autocracy", "meritocracy", "democracy",  "democracy",  "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<case "absolute monarchy">>
-        <<set $townRuler to setup.createNPC({title: "$townRuler.hisher Royal Highness", background: "noble"})>>
+        <<set $townRuler to setup.createNPC({title: "Royal Highness", background: "noble"})>>
         <<set $town.politicalIdeology to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
     <<default>>
 				<<set $town.politicalIdeology to either(["autocracy", "autocracy", "autocracy", "meritocracy", "democracy", "kleptocracy", "magocracy", "militocracy", "oligarchy", "pedocracy", "theocracy", "technocracy"])>>
@@ -100,7 +100,7 @@
   <<default>>
     <<unset $townLeaderGuild>>
 <</switch>> */
-
+/*
 <<switch $town.politicalIdeology>>
 		<<case "autocracy">>
         <<switch $town.politicalSource>>
@@ -154,7 +154,6 @@
         <<set $townLeader to setup.createNPC({title: "Lord", background: "commoner"})>>
 		<<case "kleptocracy">>
         <<set $town.leaderType to "the Thieves' Guild">>
-        /* <<set $townLeader to setup.createNPC({title: "High Thief", dndClass: "rogue", background: "criminal"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "thieves", leadershipType: "individual"})>>
 				<<set $town.lawRoll -= 30>>
 				<<set $town.militaryRoll -= 50>>
@@ -163,7 +162,6 @@
 
 		<<case "magocracy">>
         <<set $town.leaderType to "the wizards">>
-        /* <<set $townLeader to setup.createNPC({title: "Archwizard", dndClass: "wizard", background: "sage"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "wizards", leadershipType: "individual"})>>
 				<<set $town.arcanaRoll += 50>>
 				<<set $town.magicRoll += 20>>
@@ -187,11 +185,9 @@
 				<<set $town.welfareRoll += 50>>
 				<<set $town.economicsRoll -= 15>>
         <<set $town.politicalIdeologyIC to "pedocratic">>
-        /* <<set $townLeader to setup.createNPC({title: "Sir", background: "scholar"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "scholars", leadershipType: "individual"})>>
 		<<case "theocracy">>
         <<set $town.leaderType to "the holy">>
-        /* <<set $townLeader to setup.createNPC({title: "Father", gender: "man", dndClass: "cleric", background: "acolyte"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "priests", leadershipType: "individual", isPoliticalPower: true})>>
 				<<set $town.welfareRoll += 15>>
 				<<set $town.arcanaRoll += 15>>
@@ -199,12 +195,11 @@
 
 		<<case "technocracy">>
         <<set $town.leaderType to "the engineers">>
-        /* <<set $townLeader to setup.createNPC({title: "Architect"})>> */
         <<set $townLeaderGuild to setup.createFaction({type: "craftsmen", leadershipType: "individual"})>>
 				<<set $town.arcanaRoll += 15>>
 				<<set $town.economicsRoll += 35>>
         <<set $town.politicalIdeologyIC to "technocratic">>
-	<</switch>>
+	<</switch>> */
 
 
   <<switch $town.politicalSource>>

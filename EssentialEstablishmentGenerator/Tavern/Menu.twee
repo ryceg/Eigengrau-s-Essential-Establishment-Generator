@@ -1,6 +1,6 @@
 
 :: Menu
-<<nobr>><<set _bartender to $testPub.bartender>><<set _tavern to $testPub>>
+<<nobr>><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>>
 <<linkreplace "<h4>What's good?</h4>" t8n>>
 	<h3>On offer today...</h3>
 	<<print setup.closestMatch(setup.getTavernMenu(_tavern), 'note', 'wealthRoll', 'roughnessRoll', _tavern.wealthRoll, _tavern.roughnessRoll)>>

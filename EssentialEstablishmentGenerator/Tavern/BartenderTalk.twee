@@ -1,5 +1,5 @@
 :: BartenderTalk
-<<linkreplace "<h4>Talk with _bartender.name</h4>" t8n>><<nobr>><<set _tavern to $testPub>><<set _bartender to $testPub.bartender>>
+<<linkreplace "<h4>Talk with _bartender.name</h4>" t8n>><<nobr>><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>>
 
 <<set _shortage to random(1, 10)>>
 	<<if _tavern.wealthRoll gt 80>>
@@ -43,7 +43,7 @@
 _bartender.name looks _bartender.currentMood.random(), but seems pleased with the welcome distraction from the patrons, who _bartender.heshe tells you are for the most part a _tavern.sin lot. _bartender.firstName pours _bartender.himherself a drink while you talk with the _bartender.weight _bartender.manwoman about the regular goings on in $town.name, and _tavern.name, and _bartender.firstName says "_talk"
 
 <<linkreplace "Talk more with _bartender.name" t8n>>
-_bartender.firstName tells you that the patrons are _tavern.diversity, and that _bartender.heshe <<print either("loves working in _tavern.name", "hates working in _tavern.name", "finds working in the _tavern.wordnoun boring", "finds working in the _tavern.wordnoun fun")>>. _bartender.firstName says "Before I took over _tavern.name, I was a _bartender.background. _bartender.backgroundOrigin <<if _bartender.dndClass isnot "bartender">>Then, I took up adventuring as a _bartender.dndClass;<</if>> _bartender.dndClassOrigin
+_bartender.firstName tells you that _bartender.heshe <<print either("loves working in _tavern.name", "hates working in _tavern.name", "finds working in the _tavern.wordnoun boring", "finds working in the _tavern.wordnoun fun")>>. _bartender.firstName says "Before I took over _tavern.name, I was a _bartender.background. _bartender.backgroundOrigin <<if _bartender.dndClass isnot "bartender">>Then, I took up adventuring as a _bartender.dndClass;<</if>> _bartender.dndClassOrigin
 <</linkreplace>>
 <<linkreplace "Anything interesting been happening lately?" t8n>>
 'Well...<<print $plothook.rumour.pluck()>>'

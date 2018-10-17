@@ -5,7 +5,8 @@ setup.createRace = function (npc) {
 
   npc.heightRoll = setup.npcData.raceTraits[npc.race].genderTraits[npc.gender].baseHeight += setup.npcData.raceTraits[npc.race].genderTraits[npc.gender].heightModifier()
   npc.weightRoll = setup.npcData.raceTraits[npc.race].genderTraits[npc.gender].baseWeight += (setup.npcData.raceTraits[npc.race].genderTraits[npc.gender].heightModifier() * setup.npcData.raceTraits[npc.race].genderTraits[npc.gender].weightModifier())
-  npc.bmi = (Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * 703))
+  npc.bmi = (Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * setup.npcData.raceTraits[npc.race].bmiModifier))
+  // npc.bmi = (Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * 703))
   npc.weight = npc.weight || setup.closestMatch(setup.bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
   // switch (npc.race) {

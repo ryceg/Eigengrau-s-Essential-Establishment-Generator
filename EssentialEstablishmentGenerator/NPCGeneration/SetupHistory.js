@@ -3,13 +3,13 @@ setup.createHistory = function (npc) {
   var birthplaceRoll = random(1, 100)
   var parentRoll = random(1, 100)
   var siblingRoll = random(1, 5)
-  var familyLifestyleRoll = random(1, 6) + random(1, 6) + random(1, 6)
+  var familyLifestyleRoll = dice(3, 6)
   var familyLifestyle
   var familyHomeRoll = random(1, 100)
   var familyHome
-  var childhoodMemoriesRoll = random(1, 6) + random(1, 6) + random(1, 6)
+  var childhoodMemoriesRoll = dice(3, 6)
   var childhoodMemories
-  var wealthmodifier
+  var wealthModifier
 
   if (random(1, 100) > 95) {
     npc.knewParents = false
@@ -180,27 +180,27 @@ setup.createHistory = function (npc) {
 
   if (familyLifestyleRoll === 18) {
     npc.familyLifestyle = 'aristocratic'
-    wealthmodifier = 40
+    wealthModifier = 40
   } else if (familyLifestyleRoll >= 16) {
     npc.familyLifestyle = 'wealthy'
-    wealthmodifier = 20
+    wealthModifier = 20
   } else if (familyLifestyleRoll >= 13) {
     npc.familyLifestyle = 'comfortable'
-    wealthmodifier = 10
+    wealthModifier = 10
   } else if (familyLifestyleRoll >= 9) {
     npc.familyLifestyle = 'modest'
   } else if (familyLifestyleRoll >= 6) {
     npc.familyLifestyle = 'poor'
-    wealthmodifier = -10
+    wealthModifier = -10
   } else if (familyLifestyleRoll >= 4) {
     npc.familyLifestyle = 'squalid'
-    wealthmodifier = -20
+    wealthModifier = -20
   } else if (familyLifestyleRoll < 4) {
     npc.familyLifestyle = 'wretched'
-    wealthmodifier = -40
+    wealthModifier = -40
   }
 
-  familyHomeRoll = familyHomeRoll += wealthmodifier
+  familyHomeRoll = familyHomeRoll += wealthModifier
   if (familyHomeRoll >= 111) {
     npc.familyHome = 'a palace'
   } else if (familyHomeRoll >= 91) {

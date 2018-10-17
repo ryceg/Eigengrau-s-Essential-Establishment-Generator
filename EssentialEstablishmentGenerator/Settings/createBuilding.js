@@ -22,11 +22,12 @@ setup.createBuilding = function (town, type) {
     index: index,
     isThrowaway: isThrowaway,
     road: road,
+    associatedTown: town,
     lighting: lighting,
     outside: outside,
     material: material,
     magicRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
-    priceModifier: random(-10, 10),
+    priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random()).clamp(-10, 10),
     sizeRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
     diversityRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
     wealthRoll: dice(1, 100).clamp(1, 100),
@@ -41,10 +42,10 @@ setup.createBuilding = function (town, type) {
 
   // console.log(building.sizeRoll + ' is the sizeRoll')
 
-  switch (type) {
-    case 'tavern':
-      building.name = setup.createTavernNameGen()
-  }
+  // switch (type) {
+  //   case 'tavern':
+  //     building.name = setup.createTavernNameGen()
+  // }
 
   // building.sinRoll.clamp(1, 100)
   // building.wealthRoll.clamp(1, 100)
@@ -203,12 +204,12 @@ setup.createBuilding = function (town, type) {
   } else if (building.activityRoll <= 20) {
     building.activity = 'very quiet'
   }
-
+  // console.log(building)
   if (building.isThrowaway === undefined) {
     State.variables.buildings.set(++index, building)
   }
 
   building.id = State.variables.buildings[State.variables.buildings.length - 1]
-
+  // console.log(building)
   return building
 }

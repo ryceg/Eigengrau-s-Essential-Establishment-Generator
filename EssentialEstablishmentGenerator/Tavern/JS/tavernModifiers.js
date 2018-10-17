@@ -34,6 +34,9 @@ setup.tavernModifiers = function (town, tavern) {
       tavern.lodging = 7
       tavern.food = 3
       break
+    default:
+      tavern.lodging = 30
+      tavern.food = 30
   }
 
   if (town.wealthRoll > 95) {

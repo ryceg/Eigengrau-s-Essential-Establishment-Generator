@@ -1,0 +1,18 @@
+:: TavernOutput [tavern]
+<<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>>
+<h1>_tavern.name</h1>
+<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a _tavern.wordnoun, which is called <strong>_tavern.name</strong>, a _tavern.size _tavern.material tavern that the locals know best for its _tavern.draw.
+<h3>The Tavern</h3>
+<<print setup.closestMatch(setup.getTavernDescription(_tavern), 'note', 'sizeRoll', 'wealthRoll', _tavern.sizeRoll, _tavern.wealthRoll)>>
+<<print setup.closestMatch(setup.getTavernLookAround(_tavern), 'note', 'populationRoll', 'roughnessRoll', _tavern.populationRoll, _tavern.roughnessRoll)>>
+<<print either(_tavern.patrons)>>
+<<include "RandomNPC">>
+<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a <<print either(_bartender.descriptor)>> who is currently <<print _bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the _bartender.manwoman, who introduces _bartender.himherself as <<profile _bartender>>, the _bartender.owner of _tavern.name.
+<<include "BartenderTalk">><<include "Menu">>
+<<include "TavernGames">>
+<<print either(_tavern.entertainment)>>
+
+<<include "Intrigue">>
+<<include "Rooms">>
+<<include "TavernBrothel">>
+<<run setup.tippy(".btn")>>

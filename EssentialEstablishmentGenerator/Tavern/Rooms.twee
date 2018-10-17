@@ -1,16 +1,16 @@
 
 :: Rooms
-<<nobr>><<set _tavern to $testPub>><<set _tavern.freeRooms to setup.tavernRooms(_tavern)>>
+<<nobr>><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>><<set _tavern.freeRooms to setup.tavernRooms(_tavern)>>
 <<if _tavern.freeRooms lte 0>>
 		<span id="room-cost"><<print "You talk with the barmaid about lodgings, and she says that there are no free rooms in _tavern.name at the moment...">></span>
 	<<elseif _tavern.freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
-		<<replace "#room-cost">><<set _tavern to $testPub>><<print setup.tavernSleep(_tavern)>><</replace>>
+		<<replace "#room-cost">><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>><<print setup.tavernSleep(_tavern)>><</replace>>
 		<</linkreplace>>
 		<span id="room-cost"><<print "_tavern.name has just one available room, which is _tavern.size and _tavern.bedCleanliness. Because this _tavern.wordnoun is priced for _tavern.wealth patrons, it will cost <<money _tavern.lodging>> to stay here for the night.">></span>
 	<<elseif _tavern.freeRooms gt 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
-		<<replace "#room-cost">><<set _tavern to $testPub>><<print setup.tavernSleep(_tavern)>><</replace>>
+		<<replace "#room-cost">><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>><<print setup.tavernSleep(_tavern)>><</replace>>
 		<</linkreplace>>
 		<span id="room-cost"><<print "_tavern.name has _tavern.freeRooms available rooms, which are _tavern.size and _tavern.bedCleanliness. Because this _tavern.wordnoun is priced for _tavern.wealth patrons, it will cost <<money _tavern.lodging>> to stay here for the night.">></span>
 <</if>><</nobr>>

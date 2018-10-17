@@ -1,4 +1,4 @@
-setup.tavernLookAround = function (tavern) {
+setup.getTavernLookAround = function (tavern) {
   var bartender = tavern.bartender
   setup.lookAroundData = [
     {

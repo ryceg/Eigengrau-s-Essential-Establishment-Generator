@@ -13,7 +13,7 @@ We have a [[subreddit!|www.reddit.com/r/EigengrausGenerator]]
 
 [[Sign up to the newsletter to be notified about updates|EmailSignUp]]
 
-<strong>Version: $versionnumber</strong>
+<strong>Version: $versionNumber</strong>
 
 <<linkappend "Changelog:">>
 <<include "Changelog">><</linkappend>>
