@@ -27,7 +27,6 @@
     <<set _availability to 3>>
 <</switch>>
 
-
 <table>
   <tr>
     <th>Item</th>
@@ -35,111 +34,39 @@
   </tr>
 <h3>Weapons</h3>
 <<for _i, _item range setup.inventory.filter(function (item) {
-  return item.availability <= _availability,
-  item.type === "weapon",
-  item.availabilityLocation === "general store";
+  return item.availability <= _availability
+  && item.type === "weapon"
+  && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 <</for>>
-/*
-<<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 4, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 3, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 2, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 1, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>> */
 
 <h3>Armour</h3>
 <<for _i, _item range setup.inventory.filter(function (item) {
-  return item.availability <= _availability,
-  item.type === "armour",
-  item.availabilityLocation === "general store";
+  return item.availability <= _availability
+  && item.type === "armour"
+  && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 <</for>>
-/* <<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 4, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 3, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 2, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 1, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>> */
 
 <h3>Adventuring Gear</h3>
 <<for _i, _item range setup.inventory.filter(function (item) {
-  return item.availability <= _availability,
-  item.type === "adventuring gear",
-  item.availabilityLocation === "general store";
+  return item.availability <= _availability
+  && item.type === "adventuring gear"
+  && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 <</for>>
-/* <<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 4, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 3, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 2, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 1, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>> */
 
 <h3>Tools</h3>
 <<for _i, _item range setup.inventory.filter(function (item) {
-  return item.availability <= _availability,
-  item.type === "tools",
-  item.availabilityLocation === "general store";
+  return item.availability <= _availability
+  && item.type === "tools"
+  && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 <</for>>
-/* <<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 4, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 3, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 2, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $GeneralStore.inventory.filter(function (item) { return item.availability <= 1, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>> */
+
 </table>
 <</nobr>><</linkappend>>

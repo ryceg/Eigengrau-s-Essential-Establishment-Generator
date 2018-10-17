@@ -11,6 +11,18 @@
   $blacksmith.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $smithy.mundane.randomMany(4)>>, you name it!"
 <</switch>></div>
 
+<<switch $town.type>>
+  <<case "city">>
+    <<set _availability to 4>>
+  <<case "town">>
+    <<set _availability to 3>>
+  <<case "village">>
+    <<set _availability to 2>>
+  <<case "hamlet">>
+    <<set _availability to 1>>
+  <<default>>
+    <<set _availability to 3>>
+<</switch>>
 
 <table>
   <tr>
@@ -18,83 +30,40 @@
     <th>Cost</th>
   </tr>
 <h3>Weapons</h3>
-<<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "weapon"; })>><tr><td>_item.name</td>
+<h3>Weapons</h3>
+<<for _i, _item range setup.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === "weapon"
+  && item.availabilityLocation.includes("smithy");
+  })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "weapon"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>>
+<</for>>
 
 <h3>Armour</h3>
-<<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "armour"; })>><tr><td>_item.name</td>
+<<for _i, _item range setup.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === "armour"
+  && item.availabilityLocation.includes("smithy");
+  })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "armour"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>>
+<</for>>
 
 <h3>Adventuring Gear</h3>
-<<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
+<<for _i, _item range setup.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === "adventuring gear"
+  && item.availabilityLocation.includes("smithy");
+  })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "adventuring gear"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>>
+<</for>>
 
 <h3>Tools</h3>
-<<switch $town.type>>
-  <<case "city">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 4, item.type == "tools"; })>><tr><td>_item.name</td>
+<<for _i, _item range setup.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === "tools"
+  && item.availabilityLocation.includes("smithy");
+  })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "town">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 3, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "village">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 2, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-  <<case "hamlet">>
-  <<for _i, _item range $smithy.inventory.filter(function (item) { return item.availability <= 1, item.type == "tools"; })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
-  <</for>>
-<</switch>>
+<</for>>
 </table>
 <</nobr>><</linkappend>>
