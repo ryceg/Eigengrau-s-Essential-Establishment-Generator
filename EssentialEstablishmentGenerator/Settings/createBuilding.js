@@ -26,19 +26,32 @@ setup.createBuilding = function (town, type) {
     lighting: lighting,
     outside: outside,
     material: material,
-    magicRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
-    priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random()).clamp(-10, 10),
-    sizeRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
-    diversityRoll: (Math.floor(Math.random() * 80) + 20).clamp(1, 100),
-    wealthRoll: dice(1, 100).clamp(1, 100),
-    populationRoll: dice(1, 100).clamp(1, 100),
-    reputationRoll: dice(1, 100).clamp(1, 100),
-    sinRoll: dice(1, 100).clamp(1, 100),
-    roughnessRoll: dice(1, 100).clamp(1, 100),
-    cleanlinessRoll: dice(1, 100).clamp(1, 100),
-    expertiseRoll: dice(1, 100).clamp(1, 100),
-    activityRoll: dice(1, 100).clamp(1, 100)
+    magicRoll: (Math.floor(Math.random() * 80) + 20),
+    priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random()),
+    sizeRoll: (Math.floor(Math.random() * 80) + 20),
+    diversityRoll: (Math.floor(Math.random() * 80) + 20),
+    wealthRoll: dice(1, 100),
+    populationRoll: dice(1, 100),
+    reputationRoll: dice(1, 100),
+    sinRoll: dice(1, 100),
+    roughnessRoll: dice(1, 100),
+    cleanlinessRoll: dice(1, 100),
+    expertiseRoll: dice(1, 100),
+    activityRoll: dice(1, 100)
   }
+
+  building.wealthRoll = Math.clamp(building.wealthRoll, 1, 100)
+  building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
+  building.reputationRoll = Math.clamp(building.reputationRoll, 1, 100)
+  building.sinRoll = Math.clamp(building.sinRoll, 1, 100)
+  building.diversityRoll = Math.clamp(building.diversityRoll, 1, 100)
+  building.magicRoll = Math.clamp(building.magicRoll, 1, 100)
+  building.sizeRoll = Math.clamp(building.sizeRoll, 1, 100)
+  building.populationRoll = Math.clamp(building.populationRoll, 1, 100)
+  building.roughnessRoll = Math.clamp(building.roughnessRoll, 1, 100)
+  building.cleanlinessRoll = Math.clamp(building.cleanlinessRoll, 1, 100)
+  building.expertiseRoll = Math.clamp(building.expertiseRoll, 1, 100)
+  building.activityRoll = Math.clamp(building.activityRoll, 1, 100)
 
   // console.log(building.sizeRoll + ' is the sizeRoll')
 
@@ -47,15 +60,15 @@ setup.createBuilding = function (town, type) {
   //     building.name = setup.createTavernName()
   // }
 
-  // building.sinRoll.clamp(1, 100)
-  // building.wealthRoll.clamp(1, 100)
-  // building.reputationRoll.clamp(1, 100)
-  // building.cleanlinessRoll.clamp(1, 100)
-  // building.populationRoll.clamp(1, 100)
-  // building.roughnessRoll.clamp(1, 100)
-  // building.diversityRoll.clamp(1, 100)
-  // building.sizeRoll.clamp(1, 100)
-  // building.magicRoll.clamp(1, 100)
+  // building.sinRoll
+  // building.wealthRoll
+  // building.reputationRoll
+  // building.cleanlinessRoll
+  // building.populationRoll
+  // building.roughnessRoll
+  // building.diversityRoll
+  // building.sizeRoll
+  // building.magicRoll
 
   if (building.sizeRoll > 80) {
     building.size = 'huge'
