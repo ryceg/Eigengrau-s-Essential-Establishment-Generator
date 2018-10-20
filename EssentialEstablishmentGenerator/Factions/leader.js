@@ -74,11 +74,7 @@ setup.leaderFaction = function (town, faction) {
 
   switch (faction.leadershipType) {
     case 'individual':
-      faction.leader = setup.createNPC({
-        hasClass: setup.factionData.type[faction.type].hasClass,
-        profession: setup.factionData.type[faction.type].profession,
-        dndClass: setup.factionData.type[faction.type].dndClass
-      })
+      faction.leader = setup.createNPC(setup.factionData.type[faction.type].leaderTraits)
       if (faction.isPoliticalPower === true) {
         town.leader = faction.leader
       }

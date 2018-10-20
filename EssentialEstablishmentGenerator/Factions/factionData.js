@@ -1,11 +1,13 @@
 setup.factionData = {
   'type': {
     'thieves': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'rogue',
+        'profession': 'thief',
+        'background': ['charlatan', 'criminal'].random()
+      },
       'factionNoun': 'guild',
-      'hasClass': true,
-      'dndClass': 'rogue',
-      'profession': 'thief',
-      'background': ['charlatan', 'criminal'],
       'leaderQualification': ['the most skilled of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['thieves', 'thieves', 'thieves', 'urchins', 'hitmen', 'hitmen', 'urchins', 'urchins', 'assassins', 'assassins', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['priests', 'priests', 'priests', 'commoners', 'commoners', 'commoners', 'commoners'],
@@ -20,11 +22,12 @@ setup.factionData = {
       'resources': ['bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'contacts', 'contacts', 'contacts']
     },
     'merchants': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'merchant',
+        'background': ['merchant', 'charlatan', 'noble'].random()
+      },
       'factionNoun': 'guild',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'merchant',
-      'background': 'merchant',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
       'rivalsList': ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
@@ -39,11 +42,13 @@ setup.factionData = {
       'resources': ['trade goods', 'trade goods', 'trade goods', 'trade goods', 'trade goods', 'chests of gold', 'chests of gold', 'chests of gold', 'chests of gold', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors']
     },
     'wizards': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'wizard',
+        'profession': 'magic user',
+        'background': ['acolyte', 'sage'].random(),
+      },
       'factionNoun': 'college',
-      'hasClass': true,
-      'dndClass': 'wizard',
-      'profession': 'magic user',
-      'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['nobles', 'nobles', 'artisans', 'artisans', 'seers'],
       'rivalsList': ['seers', 'priests', 'priests', 'priests', 'priests', 'assassins', 'assassins'],
@@ -58,11 +63,13 @@ setup.factionData = {
       'resources': ['magic scrolls', 'magic scrolls', 'magic scrolls', 'magic scrolls', 'magic trinkets', 'magic trinkets', 'magic trinkets', 'magic trinkets']
     },
     'rangers': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'ranger',
+        'profession': 'trapper',
+        'background': ['outlander', 'hermit'].random()
+      },
       'factionNoun': 'guild',
-      'hasClass': true,
-      'dndClass': 'ranger',
-      'profession': 'trapper',
-      'background': ['outlander', 'hermit'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'nobles', 'nobles', 'seers', 'seers'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries'],
@@ -77,11 +84,12 @@ setup.factionData = {
       'resources': ['old favours', 'old favours', 'old favours', 'old favours', 'tame animals', 'tame animals', 'tame animals', 'tame animals', 'contacts', 'contacts', 'contacts']
     },
     'seers': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'seer',
+        'background': ['acolyte', 'sage'].random()
+      },
       'factionNoun': 'guild',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'seer',
-      'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'priests', 'priests', 'nobles', 'nobles', 'nobles', 'nobles'],
       'rivalsList': ['scholars', 'scholars', 'scholars', 'scholars'],
@@ -96,11 +104,13 @@ setup.factionData = {
       'resources': ['artifacts', 'artifacts', 'artifacts', 'artifacts', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material']
     },
     'priests': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'cleric',
+        'profession': 'priest',
+        'background': ['acolyte', 'sage'].random()
+      },
       'factionNoun': 'college',
-      'hasClass': true,
-      'dndClass': 'cleric',
-      'profession': 'priest',
-      'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the holiest of the group', 'the holiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['nobles', 'nobles', 'nobles', 'artisans', 'artisans'],
       'rivalsList': ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
@@ -115,11 +125,13 @@ setup.factionData = {
       'resources': ['artifacts', 'artifacts', 'artifacts', 'holy relics', 'holy relics', 'holy relics', 'chests of gold', 'chests of gold', 'chests of gold', 'sacred texts', 'sacred texts', 'sacred texts', 'sacred texts']
     },
     'monks': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'monk',
+        'profession': 'monk',
+        'background': ['acolyte', 'sage'].random()
+      },
       'factionNoun': 'group',
-      'hasClass': true,
-      'dndClass': 'monk',
-      'profession': 'monk',
-      'background': ['acolyte', 'sage'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'priests', 'priests', 'artisans', 'artisans'],
       'rivalsList': ['artisans', 'priests', 'priests', 'bandits', 'bandits', 'bandits'],
@@ -134,11 +146,13 @@ setup.factionData = {
       'resources': ['artifacts', 'artifacts', 'artifacts', 'holy relics', 'holy relics', 'holy relics', 'chests of gold', 'chests of gold', 'chests of gold', 'sacred texts', 'sacred texts', 'sacred texts', 'sacred texts']
     },
     'assassins': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'rogue',
+        'profession': 'thief',
+        'background': ['charlatan', 'soldier', 'criminal'].random()
+      },
       'factionNoun': 'company',
-      'hasClass': true,
-      'dndClass': 'rogue',
-      'profession': 'thief',
-      'background': ['charlatan', 'soldier', 'criminal'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group'],
       'alliesList': ['thieves', 'thieves', 'thieves', 'urchins', 'urchins', 'urchins', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['scholars', 'scholars', 'mercenaries', 'mercenaries', 'mercenaries'],
@@ -153,11 +167,12 @@ setup.factionData = {
       'resources': ['bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'contacts', 'contacts', 'contacts']
     },
     'artisans': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'artisan',
+        'background': 'guild artisan'
+      },
       'factionNoun': 'guild',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'artisan',
-      'background': 'guild artisan',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles'],
       'rivalsList': ['nobles', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
@@ -172,11 +187,12 @@ setup.factionData = {
       'resources': ['artifacts', 'artifacts', 'artifacts', 'magical trinkets', 'magical trinkets', 'magical trinkets', 'masterpieces', 'masterpieces', 'masterpieces']
     },
     'nobles': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'nobleman',
+        'background': 'noble'
+      },
       'factionNoun': 'society',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'nobleman',
-      'background': 'noble',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'seers', 'seers', 'seers'],
       'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
@@ -191,11 +207,13 @@ setup.factionData = {
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces']
     },
     'bards': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'bard',
+        'profession': 'musician',
+        'background': 'entertainer'
+      },
       'factionNoun': 'college',
-      'hasClass': true,
-      'dndClass': 'bard',
-      'profession': 'musician',
-      'background': 'entertainer',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'urchins', 'urchins', 'nobles', 'nobles', 'nobles'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'bandits'],
@@ -210,11 +228,13 @@ setup.factionData = {
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'magical instruments', 'magical instruments', 'magical instruments']
     },
     'mercenaries': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'fighter',
+        'profession': 'soldier',
+        'background': 'soldier'
+      },
       'factionNoun': 'company',
-      'hasClass': true,
-      'dndClass': 'fighter',
-      'profession': 'soldier',
-      'background': 'soldier',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
@@ -229,11 +249,13 @@ setup.factionData = {
       'resources': ['magical weapons', 'magical weapons', 'magical weapons', 'chests of gold', 'chests of gold', 'chests of gold', 'old favours', 'old favours', 'old favours']
     },
     'bandits': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'fighter',
+        'profession': 'soldier',
+        'background': ['soldier', 'charlatan', 'criminal'].random()
+      },
       'factionNoun': 'gang',
-      'hasClass': true,
-      'dndClass': 'fighter',
-      'profession': 'soldier',
-      'background': ['soldier', 'charlatan', 'criminal'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'urchins', 'urchins'],
       'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries'],
@@ -248,11 +270,12 @@ setup.factionData = {
       'resources': ['magical weapons', 'magical weapons', 'magical weapons', 'chests of gold', 'chests of gold', 'chests of gold', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods']
     },
     'craftsmen': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'craftsman',
+        'background': 'guild artisan'
+      },
       'factionNoun': 'guild',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'craftsman',
-      'background': 'guild artisan',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'seers', 'commoners', 'commoners', 'commoners'],
       'rivalsList': ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
@@ -267,11 +290,12 @@ setup.factionData = {
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'artifacts', 'artifacts', 'artifacts', 'magical contraptions', 'magical contraptions', 'magical contraptions']
     },
     'scholars': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'professor',
+        'background': ['sage', 'acolyte'].random()
+      },
       'factionNoun': 'guild',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'professor',
-      'background': ['sage', 'acolyte'],
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'priests', 'nobles', 'nobles', 'artisans', 'artisans', 'seers'],
       'rivalsList': ['seers', 'priests', 'priests', 'priests', 'commoners', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
@@ -286,11 +310,12 @@ setup.factionData = {
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts']
     },
     'backup': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'merchant',
+        'background': 'merchant'
+      },
       'factionNoun': 'guild',
-      'hasClass': false,
-      'dndClass': 'fighter',
-      'profession': 'merchant',
-      'background': 'merchant',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
       'rivalsList': ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
