@@ -2,99 +2,112 @@ setup.createSocioPolitics = function (town) {
   // assign economic ideology and political source
   town.economicIdeology = setup.townData.type[town.type].economicIdeology.random()
   town.politicalSource = setup.townData.type[town.type].politicalSource.random()
-  // give those ideologies some descriptions
-  town.economicIdeologyIC = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIC
-  town.economicIdeologyIST = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIST
-  town.economicIdeologyDescription = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyDescription
-
-  // ideology attribute modifiers
-  town.economicsRoll += setup.townData.economicIdeology[town.economicIdeology].economicsRoll
-  town.welfareRoll += setup.townData.economicIdeology[town.economicIdeology].welfareRoll
-  town.lawRoll += setup.townData.economicIdeology[town.economicIdeology].lawRoll
-  town.militaryRoll += setup.townData.economicIdeology[town.economicIdeology].militaryRoll
-
-  // console.log(town.economicIdeologyDescription)
-  switch (town.politicalIdeology) {
-    case 'pedocracy', 'kleptocracy', 'theocracy', 'magocracy', 'technocracy':
-      town.leaderType = "<<link '_townPoliticalFaction.name'>><<set $currentFaction to _townPoliticalFaction>><<goto 'FactionProfile'>><</link>>"
-      town.leaderFaction = setup.createFaction({leadershipType: "individual", isPoliticalPower: true, type: setup.townData.politicalIdeology[town.politicalIdeology].type})
-  }
-  // autocratic monarchies / constitutional monarchies
-  if (town.politicalSource === 'absolute monarchy') {
-    if (town.politicalIdeology === 'autocracy') {
-      town.politicalSourceDescription = '<<print _townRuler.title.toUpperFirst()>> <<profile _townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _townLeader>>, who controls all executive decisions.'
-    } else {
-      town.politicalSourceDescription = '<<print _townRuler.title.toUpperFirst()>> <<profile _townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of ' + town.leaderType + ', the head of whom is _townLeader.title <<profile _townLeader>>.'
-    }
-  } else if (town.politicalSource === 'constitutional monarchy') {
-    if (town.politicalIdeology === 'autocracy') {
-      town.politicalSourceDescription = "<<print _townLeader.title.toUpperFirst()>> <<profile _townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
-    } else {
-      town.politicalSourceDescription = '<<print _townRuler.title.toUpperFirst()>> <<profile _townRuler>> is the head of state, but affairs are handled by ' + town.leaderType + ', the head of whom is _townLeader.title <<profile _townLeader>>.'
-    }
-  } else {
-    town.politicalSourceDescription = setup.townData.politicalSource[town.politicalSource].politicalSourceDescription
-  }
-
   town.politicalIdeology = setup.townData.politicalSource[town.politicalSource].politicalIdeology.random()
-
+  // give those ideologies some descriptions
+  Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
+  // data
+  Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
+  // economic ideology attribute modifiers
+  Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].modifiers)
   // political ideology modifiers
-  town.economicsRoll += setup.townData.politicalIdeology[town.politicalIdeology].economicsRoll
-  town.welfareRoll += setup.townData.politicalIdeology[town.politicalIdeology].welfareRoll
-  town.lawRoll += setup.townData.politicalIdeology[town.politicalIdeology].lawRoll
-  town.militaryRoll += setup.townData.politicalIdeology[town.politicalIdeology].militaryRoll
-  town.arcanaRoll += setup.townData.politicalIdeology[town.politicalIdeology].arcanaRoll
+  Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
-  switch (town.politicalIdeology) {
-    case 'autocracy':
-      switch (town.politicalSource) {
-        case 'absolute monarchy':
-          town.ruler = setup.createNPC({title: 'Royal Highness', background: 'noble'})
-          var townRuler = town.ruler
-          switch (townRuler.gender) {
-            case 'man':
-              town.rulerType = 'King'
-              break
-            case 'woman':
-              town.rulerType = 'Queen'
-              break
-            default:
-              town.rulerType = 'the supreme leader'
-          }
-          State.variables.townLeader = townRuler
-          break
-        case 'constitutional monarchy':
-          town.ruler = setup.createNPC({title: 'Royal Highness', background: 'noble'})
-          var townRuler = town.ruler
-          switch (townRuler.gender) {
-            case 'man':
-              town.rulerType = 'King'
-              break
-            case 'woman':
-              town.rulerType = 'Queen'
-              break
-            default:
-              town.rulerType = 'the supreme leader'
-          }
-          town.leader = setup.createNPC({title: 'Lord', background: 'noble'})
-          var townLeader = town.leader
-          break
-        default:
-          town.leaderType = 'the supreme leader'
-          town.leader = setup.createNPC({title: 'Lord', background: 'noble'})
-          var townLeader = town.leader
-      }
-      break
-    default:
-      town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].leaderType
-      town.leader = setup.createNPC({
-        title: setup.townData.politicalIdeology[town.politicalIdeology].title,
-        hasClass: setup.townData.politicalIdeology[town.politicalIdeology].hasClass,
-        dndClass: setup.townData.politicalIdeology[town.politicalIdeology].dndClass,
-        background: setup.townData.politicalIdeology[town.politicalIdeology].background
-      })
-      var townLeader = town.leader
-  }
+  var leaderTraits = setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits
+  // setup.leaderTraits = {
+  //   'grunts': {
+  //     'dndClass': 'barbarian',
+  //     'firstName': 'Bruce'
+  //   },
+  //   'smarts': {
+  //     'dndClass': 'wizard',
+  //     'firstName': 'Chester'
+  //   }
+  // }
+  // var test = ['grunts', 'smarts'].random()
+  // var leaderTraits = setup.leaderTraits[test]
+  console.log('these are the leaderTraits:')
+  console.log(leaderTraits)
+  town.leader = setup.createNPC()
 
+  console.log('town got up here 2')
+
+  console.log('Town leader is ')
+  // console.log(town.leader)
+  var description
+  console.log('political source is ' + town.politicalSource + ', and the ideology is ' + town.politicalIdeology)
+
+  // if (typeof setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription === 'string') {
+  //   description = setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription
+  // } else if (typeof setup.townData.politicalSource[town.politicalSource].default.politicalSourceDescription === 'string') {
+  //   description = setup.townData.politicalSource[town.politicalSource].default.politicalSourceDescription
+  // } else {
+  //   description = setup.townData.politicalSource[town.politicalSource].politicalSourceDescription
+  // }
+  //
+  // console.log(description)
+  // town.politicalSourceDescription = description
+  // political source description: tries to access autocratic in case it's a monarchy, then access the default source, then the rest.
+  // town.politicalSourceDescription = setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription ||
+  // setup.townData.politicalSource[town.politicalSource].default.politicalSourceDescription ||
+  // setup.townData.politicalSource[town.politicalSource].politicalSourceDescription ||
+  // setup.townData.politicalSource['republic'].politicalSourceDescription
+
+  // switch (town.politicalIdeology) {
+  //   case 'autocracy':
+  //     switch (town.politicalSource) {
+  //       case 'absolute monarchy':
+  //         town.dualLeaders = false
+  //         town.ruler = setup.createNPC({title: 'Royal Highness', background: 'noble'})
+  //         town.leader = town.ruler
+  //         town.politicalSourceDescription = '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _town.leader>>, who controls all executive decisions.'
+  //         switch (town.ruler.gender) {
+  //           case 'woman':
+  //             town.rulerType = 'Queen'
+  //             break
+  //           default:
+  //             town.rulerType = 'King'
+  //             break
+  //         }
+  //         break
+  //       case 'constitutional monarchy':
+  //         town.dualLeaders = true
+  //         town.ruler = setup.createNPC({title: 'Royal Highness', background: 'noble'})
+  //         town.leader = setup.createNPC({title: 'Lord', background: 'noble'})
+  //         town.politicalSourceDescription = "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
+  //         switch (town.ruler.gender) {
+  //           case 'man':
+  //             town.rulerType = 'King'
+  //             break
+  //           case 'woman':
+  //             town.rulerType = 'Queen'
+  //             break
+  //           default:
+  //             town.rulerType = 'the supreme leader'
+  //         }
+  //
+  //         break
+  //       default:
+  //         town.leaderType = 'the supreme leader'
+  //         town.dualLeaders = false
+  //         town.leader = setup.createNPC({title: 'Lord', background: 'noble'})
+  //     }
+  //     break
+  //   default:
+  //     town.dualLeaders = false
+  //     town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].leaderType
+  //     town.leader = setup.createNPC(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
+  // }
+  // console.log('town got up here 3')
+  // if (setup.townData.politicalIdeology[town.politicalIdeology].isFaction === true) {
+  //   town.leaderFaction = setup.createFaction(town, {
+  //     leadershipType: 'individual',
+  //     isPoliticalPower: true,
+  //     type: setup.townData.politicalIdeology[town.politicalIdeology].type
+  //   })
+  //   town.leaderType = "<<link '_town.leaderFaction.name'>><<set $currentFaction to _town.leaderFaction>><<goto 'FactionProfile'>><</link>>"
+  // }
+  // console.log('town got up here 4')
+
+  console.log('town got up here 5')
   return town
 }
