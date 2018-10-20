@@ -1,4 +1,4 @@
-setup.sizeFaction = function (faction) {
+setup.sizeFaction = function (town, faction) {
   // if (faction.ageRoll > 95) {
   //   Math.fm(faction.sizeRoll, 30)
   // } else if (faction.ageRoll > 90) {
@@ -29,31 +29,31 @@ setup.sizeFaction = function (faction) {
   //   Math.fm(faction.sizeRoll, 2)
   // }
   //
-  // if (State.variables.town.population > 6000) {
+  // if (town.population > 6000) {
   //   Math.fm(faction.sizeRoll, 25)
-  // } else if (State.variables.town.population > 5800) {
+  // } else if (town.population > 5800) {
   //   Math.fm(faction.sizeRoll, 22)
-  // } else if (State.variables.town.population > 5400) {
+  // } else if (town.population > 5400) {
   //   Math.fm(faction.sizeRoll, 20)
-  // } else if (State.variables.town.population > 5000) {
+  // } else if (town.population > 5000) {
   //   Math.fm(faction.sizeRoll, 15)
-  // } else if (State.variables.town.population > 4500) {
+  // } else if (town.population > 4500) {
   //   Math.fm(faction.sizeRoll, 10)
-  // } else if (State.variables.town.population > 4000) {
+  // } else if (town.population > 4000) {
   //   Math.fm(faction.sizeRoll, 5)
-  // } else if (State.variables.town.population > 3500) {
+  // } else if (town.population > 3500) {
   //   Math.fm(faction.sizeRoll, 5)
-  // } else if (State.variables.town.population > 3000) {
+  // } else if (town.population > 3000) {
   //   Math.fm(faction.sizeRoll, 5)
-  // } else if (State.variables.town.population > 2500) {
+  // } else if (town.population > 2500) {
   //   Math.fm(faction.sizeRoll, 5)
-  // } else if (State.variables.town.population > 2000) {
+  // } else if (town.population > 2000) {
   //   Math.fm(faction.sizeRoll, -5)
-  // } else if (State.variables.town.population > 1500) {
+  // } else if (town.population > 1500) {
   //   Math.fm(faction.sizeRoll, -15)
-  // } else if (State.variables.town.population > 1000) {
+  // } else if (town.population > 1000) {
   //   Math.fm(faction.sizeRoll, -25)
-  // } else if (State.variables.town.population <= 1000) {
+  // } else if (town.population <= 1000) {
   //   Math.fm(faction.sizeRoll, -30)
   // } else {
   //   Math.fm(faction.sizeRoll, -10)
@@ -89,31 +89,31 @@ setup.sizeFaction = function (faction) {
     faction.sizeRoll += 2
   }
 
-  if (State.variables.town.population > 6000) {
+  if (town.population > 6000) {
     faction.sizeRoll += 25
-  } else if (State.variables.town.population > 5800) {
+  } else if (town.population > 5800) {
     faction.sizeRoll += 22
-  } else if (State.variables.town.population > 5400) {
+  } else if (town.population > 5400) {
     faction.sizeRoll += 20
-  } else if (State.variables.town.population > 5000) {
+  } else if (town.population > 5000) {
     faction.sizeRoll += 15
-  } else if (State.variables.town.population > 4500) {
+  } else if (town.population > 4500) {
     faction.sizeRoll += 10
-  } else if (State.variables.town.population > 4000) {
+  } else if (town.population > 4000) {
     faction.sizeRoll += 5
-  } else if (State.variables.town.population > 3500) {
+  } else if (town.population > 3500) {
     faction.sizeRoll += 5
-  } else if (State.variables.town.population > 3000) {
+  } else if (town.population > 3000) {
     faction.sizeRoll += 5
-  } else if (State.variables.town.population > 2500) {
+  } else if (town.population > 2500) {
     faction.sizeRoll += 5
-  } else if (State.variables.town.population > 2000) {
+  } else if (town.population > 2000) {
     faction.sizeRoll += -5
-  } else if (State.variables.town.population > 1500) {
+  } else if (town.population > 1500) {
     faction.sizeRoll += -15
-  } else if (State.variables.town.population > 1000) {
+  } else if (town.population > 1000) {
     faction.sizeRoll += -25
-  } else if (State.variables.town.population <= 1000) {
+  } else if (town.population <= 1000) {
     faction.sizeRoll += -30
   } else {
     faction.sizeRoll += -10
