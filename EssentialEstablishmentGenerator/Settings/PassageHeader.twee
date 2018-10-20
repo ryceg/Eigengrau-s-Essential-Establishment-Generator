@@ -15,9 +15,9 @@
   > $currentFaction.name
 <</if>>
 
-<<if $currentPassage is $guard && passage() is "GuardOutput">>
-  > $guard.name
-  <<elseif $currentPassage is $guard && passage() isnot "GuardOutput">>
+<<if $currentPassage is $town.guard && passage() is "GuardOutput">>
+  > $town.guard.name
+  <<elseif $currentPassage is $town.guard && passage() isnot "GuardOutput">>
   > <<link $currentPassage.name>><<goto $currentPassage.passageName>><</link>>
 <</if>>
 

@@ -6,13 +6,13 @@
 	season: either(["winter", "spring", "summer", "autumn"]),
 	seasonPool: ["winter", "spring", "summer", "autumn"]
 	}>>
-	<<set $town.scenery to either([
-		"Children play in the street, calling after one another.",
-		"An old woman waves from her chair on the porch at you.",
-		"A young girl waves at you, before being shooed into her home by a doting mother.",
-		"The stench of curing leathers fills your nose as you pass the local tannery.",
-		"You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself."
-		])>>
+<<set $town.scenery to either([
+	"Children play in the street, calling after one another.",
+	"An old woman waves from her chair on the porch at you.",
+	"A young girl waves at you, before being shooed into her home by a doting mother.",
+	"The stench of curing leathers fills your nose as you pass the local tannery.",
+	"You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself."
+	])>>
 /*
 <<set $town to {
 	wealthRoll: random(1, 100),

@@ -1,5 +1,10 @@
 :: TownEdit
-
+<<set $town.wealthRoll to $town.wealthRoll.clamp(1, 100),
+  $town.economicsRoll to $town.economicsRoll.clamp(1, 100),
+  $town.welfareRoll to $town.welfareRoll.clamp(1, 100),
+  $town.militaryRoll to $town.militaryRoll.clamp(1, 100),
+  $town.arcanaRoll to $town.arcanaRoll.clamp(1, 100),
+  $town.lawRoll to $town.lawRoll.clamp(1, 100)>>
 <<linkreplace "Rename the $town.type <strong>$town.name</strong>">><<textbox "$town.name" $town.name>><</linkreplace>>
 
 <span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 6000 10>></span>
