@@ -29,7 +29,7 @@ setup.createSmithy = function () {
       smithy.name = adjective + ' ' + noun
       break
     default:
-      smithy.name = 'The ' + adjective + ' Alchemist'
+      smithy.name = 'The ' + adjective + ' Smithy'
   }
   return smithy
 }
