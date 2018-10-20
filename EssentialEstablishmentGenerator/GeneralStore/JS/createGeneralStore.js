@@ -10,6 +10,7 @@ setup.createGeneralStore = function (town, opts) {
   GeneralStore.shopkeep = shopkeep
   // var GeneralStore = setup.createBuilding()
   GeneralStore.passageName = 'GeneralStoreOutput'
+  GeneralStore.associatedTown = town || ''
 
 
   GeneralStore.note = setup.getGeneralStoreNote(GeneralStore)
