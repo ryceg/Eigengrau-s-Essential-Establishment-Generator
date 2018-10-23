@@ -12,29 +12,12 @@ setup.createSocioPolitics = function (town) {
   // political ideology modifiers
   Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
-  var leaderTraits = setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits
-  // setup.leaderTraits = {
-  //   'grunts': {
-  //     'dndClass': 'barbarian',
-  //     'firstName': 'Bruce'
-  //   },
-  //   'smarts': {
-  //     'dndClass': 'wizard',
-  //     'firstName': 'Chester'
-  //   }
-  // }
-  // var test = ['grunts', 'smarts'].random()
-  // var leaderTraits = setup.leaderTraits[test]
-  console.log('these are the leaderTraits:')
-  console.log(leaderTraits)
-  town.leader = setup.createNPC()
-
-  console.log('town got up here 2')
-
-  console.log('Town leader is ')
-  // console.log(town.leader)
-  
-  console.log('political source is ' + town.politicalSource + ', and the ideology is ' + town.politicalIdeology)
+  if (typeof setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits !== 'undefined') {
+    town.leader = setup.createNPC(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
+  } else {
+    console.log('Invalid political ideology. Leader defaulting to random NPC...')
+    town.leader = setup.createNPC()
+  }
 
   // if (typeof setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription === 'string') {
   //   description = setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription
