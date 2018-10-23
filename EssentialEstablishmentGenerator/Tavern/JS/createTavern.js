@@ -3,8 +3,6 @@ setup.createTavern = function (town, opts) {
   var tavern = (opts['newBuilding'] || setup.createBuilding)(town.name, 'tavern')
 
   tavern.name = setup.createTavernName()
-  console.log('tavern test 3')
-  console.log(tavern)
   var bartender = (opts['newBartender'] || setup.createBartender)(town.name, tavern.name)
   var barmaid = setup.createNPC({
     gender: 'woman',
@@ -24,12 +22,8 @@ setup.createTavern = function (town, opts) {
     entertainment: setup.tavernEntertainment,
     patrons: setup.tavernPatrons
   })
-  // console.log(tavern)
   Object.assign(tavern, setup.getTavernDraws(town, tavern))
-  // tavern.draw = 'the incredible view'
-  // tavern.drawFeature = 'the really incredible view'
-  console.log('tavern test 4')
-  console.log(tavern)
+  // console.log(tavern)
   tavern.type = [
     'quiet and low-key bar',
     'regular',

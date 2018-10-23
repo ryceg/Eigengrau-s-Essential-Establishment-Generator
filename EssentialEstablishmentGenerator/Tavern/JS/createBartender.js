@@ -35,6 +35,5 @@ setup.createBartender = function (town, associatedBuilding) {
       'barking orders at one of the barmaids',
       'breaking up a fight in front of the bar']
   })
-  console.log(bartender.associatedBuilding + ' is the associated building.')
   return bartender
 }
