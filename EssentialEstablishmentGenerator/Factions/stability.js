@@ -37,5 +37,5 @@ setup.stabilityFaction = function (faction) {
     faction.stability = 'stable'
   }
 
-  return faction.stability
+  return faction
 }

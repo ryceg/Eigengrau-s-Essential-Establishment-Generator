@@ -1,8 +1,6 @@
 setup.createFaction = function (town, base) {
   var index = State.variables.factions.size
   var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
-  var isPoliticalPower
-  var isThrowaway
   // Rolls are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise SizeRoll in the size.js function if it's being used in "reputation.js")
 
   var faction = Object.assign({
@@ -26,7 +24,7 @@ setup.createFaction = function (town, base) {
   setup.influenceFaction(faction)
   setup.resourcesFaction(faction)
   setup.stabilityFaction(faction)
-
+  console.log(faction.name + ' the ' + faction.type + ' have loaded.')
   setup.leaderFaction(town, faction)
   setup.joinFaction(faction)
   // setup.membersFaction(faction)

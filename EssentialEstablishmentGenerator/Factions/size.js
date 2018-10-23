@@ -149,5 +149,5 @@ setup.sizeFaction = function (town, faction) {
     faction.size = 'average'
   }
 
-  return faction.size
+  return faction
 }
