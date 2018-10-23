@@ -1,24 +1,9 @@
 setup.townRender = function (town) {
   town.economicIdeologyIC = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIC
   town.economicIdeologyIST = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIST
-  town.economicIdeologyDescription = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyDescription
   town.politicalIdeologyIC = setup.townData.politicalIdeology[town.politicalIdeology].politicalIdeologyIC
-
-  if (town.politicalSource === 'absolute monarchy') {
-    if (town.politicalIdeology === 'autocracy') {
-      town.politicalSourceDescription = '<<print _townRuler.title.toUpperFirst()>> <<profile _townRuler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _townLeader>>, who controls all executive decisions.'
-    } else {
-      town.politicalSourceDescription = '<<print _townRuler.title.toUpperFirst()>> <<profile _townRuler>> is technically the head of state, but affairs are handled by a parliamentary consisting of ' + town.leaderType + ', the head of whom is _townLeader.title <<profile _townLeader>>.'
-    }
-  } else if (town.politicalSource === 'constitutional monarchy') {
-    if (town.politicalIdeology === 'autocracy') {
-      town.politicalSourceDescription = "<<print _townLeader.title.toUpperFirst()>> <<profile _townLeader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
-    } else {
-      town.politicalSourceDescription = '<<print _townRuler.title.toUpperFirst()>> <<profile _townRuler>> is the head of state, but affairs are handled by ' + town.leaderType + ', the head of whom is _townLeader.title <<profile _townLeader>>.'
-    }
-  } else {
-    town.politicalSourceDescription = setup.townData.politicalSource[town.politicalSource].politicalSourceDescription
-  }
+  town.economicIdeologyDescription = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyDescription
+  town.politicalSourceDescription = setup.getPoliticalSourceDescription(town)
 
   var guardfundingRoll = 0
 
