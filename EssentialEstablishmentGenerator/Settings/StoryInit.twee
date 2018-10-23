@@ -13,15 +13,7 @@
 
 <<run State.variables.buildings = new Map()>>
 
-
-/* <<include "Names">> */
-<<run console.log('got here 1')>>
 <<include "Town">>
-
-/* <<include "TownSocioPolitics">> */
-/* <<include "TownRefresh">> */
-
-<<run console.log('got here 2')>>
 
 <<include "SpecialBrew">>
 <<include "Cheese">>
@@ -37,25 +29,12 @@
 
 <<include "Newspaper">>
 
-<<run console.log('got here 4')>>
 <<include "Alchemist">>
-
-<<run console.log('got here 5')>>
 
 <<include "Smithy">>
 
 <<include "GeneralStore">>
 
-<<run console.log('got here 6')>>
-
 <<include "Books">>
 
-
-<<run console.log('got here 7')>>
-
-
-<<include "Lord">>
-
 <<include "Markets">>
-
-<<run console.log('got here 8')>>
