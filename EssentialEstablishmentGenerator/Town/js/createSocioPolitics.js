@@ -40,7 +40,7 @@ setup.createSocioPolitics = function (town) {
   //     switch (town.politicalSource) {
   //       case 'absolute monarchy':
   //         town.dualLeaders = false
-  //         town.ruler = setup.createNPC({title: 'Royal Highness', background: 'noble'})
+  //         town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble' })
   //         town.leader = town.ruler
   //         town.politicalSourceDescription = '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _town.leader>>, who controls all executive decisions.'
   //         switch (town.ruler.gender) {
@@ -54,8 +54,8 @@ setup.createSocioPolitics = function (town) {
   //         break
   //       case 'constitutional monarchy':
   //         town.dualLeaders = true
-  //         town.ruler = setup.createNPC({title: 'Royal Highness', background: 'noble'})
-  //         town.leader = setup.createNPC({title: 'Lord', background: 'noble'})
+  //         town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble' })
+  //         town.leader = setup.createNPC({ title: 'Lord', background: 'noble' })
   //         town.politicalSourceDescription = "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
   //         switch (town.ruler.gender) {
   //           case 'man':
@@ -72,16 +72,17 @@ setup.createSocioPolitics = function (town) {
   //       default:
   //         town.leaderType = 'the supreme leader'
   //         town.dualLeaders = false
-  //         town.leader = setup.createNPC({title: 'Lord', background: 'noble'})
+  //         town.leader = setup.createNPC({ title: 'Lord', background: 'noble' })
   //     }
   //     break
   //   default:
   //     town.dualLeaders = false
-  //     town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].leaderType
+  //     town.leaderType = town.leaderType || setup.townData.politicalIdeology[town.politicalIdeology].leaderType
   //     town.leader = setup.createNPC(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
   // }
-  // console.log('town got up here 3')
+  //
   // if (setup.townData.politicalIdeology[town.politicalIdeology].isFaction === true) {
+  //   console.log('Loading ruling faction...')
   //   town.leaderFaction = setup.createFaction(town, {
   //     leadershipType: 'individual',
   //     isPoliticalPower: true,
@@ -90,7 +91,5 @@ setup.createSocioPolitics = function (town) {
   //   town.leaderType = "<<link '_town.leaderFaction.name'>><<set $currentFaction to _town.leaderFaction>><<goto 'FactionProfile'>><</link>>"
   // }
   // console.log('town got up here 4')
-
-  console.log('town got up here 5')
   return town
 }
