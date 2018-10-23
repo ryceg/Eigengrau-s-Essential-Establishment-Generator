@@ -4,7 +4,7 @@ setup.createAlchemist = function (town, opts) {
   alchemist.chemist = (opts['newBartender'] || setup.createChemist)(town.name)
   alchemist.associatedTown = town
   alchemist.passageName = 'AlchemistOutput'
-  alchemist.name = setup.createAlchexmistName(alchemist.chemist.firstName)
+  alchemist.name = setup.createAlchemistName(alchemist.chemist.firstName)
   setup.alchemistModifiers(alchemist)
   setup.alchemistRenders(alchemist)
 
