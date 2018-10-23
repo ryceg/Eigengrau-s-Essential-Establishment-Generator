@@ -1,11 +1,18 @@
 setup.createBackground = function (npc) {
-  var backgroundOrigin = Array.isArray(setup.npcData.backgroundTraits[npc.background].backgroundOrigin)
+  var backgroundOrigin
+  var bond
+  if (typeof setup.npcData.backgroundTraits[npc.background] !== 'undefined') {
+    backgroundOrigin = Array.isArray(setup.npcData.backgroundTraits[npc.background].backgroundOrigin)
     ? setup.npcData.backgroundTraits[npc.background].backgroundOrigin.random()
     : setup.npcData.backgroundTraits['commoner'].backgroundOrigin.random()
-  var bond = Array.isArray(setup.npcData.backgroundTraits[npc.background].bond)
+    bond = Array.isArray(setup.npcData.backgroundTraits[npc.background].bond)
     ? setup.npcData.backgroundTraits[npc.background].bond.random()
     : setup.npcData.backgroundTraits['commoner'].bond.random()
-
+  } else {
+    console.log(npc.name + "'s background of " + npc.background + ' was not valid.')
+    backgroundOrigin = setup.npcData.backgroundTraits['commoner'].backgroundOrigin.random()
+    bond = setup.npcData.backgroundTraits['commoner'].bond.random()
+  }
   npc.backgroundOrigin = npc.backgroundOrigin || backgroundOrigin
   npc.bond = npc.bond || bond
   npc.wealth += dice(2, 50)
