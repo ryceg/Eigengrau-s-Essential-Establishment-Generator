@@ -39,7 +39,15 @@
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 
 <<widget "guard">><<nobr>>
-<<link '$args.name'>><<set $currentPassage to $guard>><<set $currentGuard to $args>><<goto 'GuardOutput'>><</link>>
+<<link $args[0].name>>
+	<<if _town>>
+		<<set $currentPassage to _town.guard>>
+		<<set $currentGuard to $args>>
+	<<elseif ndef _town>>
+		<<run console.log("town not defined for guard widget. Please report this bug!")>>
+		<<set $currentPassage to $town.guard>>
+		<<set $currentGuard to $args[0]>>
+		<<goto 'GuardOutput'>><</link>>
 <</nobr>><</widget>>
 
 <<widget "buildingProfile">><<nobr>>
