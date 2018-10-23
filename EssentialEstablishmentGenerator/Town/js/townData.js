@@ -190,7 +190,7 @@ setup.townData = {
     'democracy': {
       'leaderTraits': {
         'hasClass': false,
-        'profession': 'prime pinister',
+        'profession': 'prime minister',
         'background': 'commoner',
         'title': 'Lord'
       },
@@ -233,7 +233,7 @@ setup.townData = {
       'leaderTraits': {
         'hasClass': true,
         'dndClass': 'wizard',
-        'background': 'scholar',
+        'background': 'sage',
         'title': 'Archchancellor'
       },
       'modifiers': {
