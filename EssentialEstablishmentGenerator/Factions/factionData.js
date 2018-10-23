@@ -46,7 +46,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'wizard',
         'profession': 'magic user',
-        'background': ['acolyte', 'sage'].random(),
+        'background': ['acolyte', 'sage'].random()
       },
       'factionNoun': 'college',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
