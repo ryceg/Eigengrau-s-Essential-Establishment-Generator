@@ -1,7 +1,7 @@
 setup.createSocioPolitics = function (town) {
   // assign economic ideology and political source
-  town.economicIdeology = setup.townData.type[town.type].economicIdeology.random()
-  town.politicalSource = setup.townData.type[town.type].politicalSource.random()
+  // town.economicIdeology = setup.townData.type[town.type].economicIdeology.random()
+  // town.politicalSource = setup.townData.type[town.type].politicalSource.random()
   town.politicalIdeology = setup.townData.politicalSource[town.politicalSource].politicalIdeology.random()
   // give those ideologies some descriptions
   Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
@@ -33,7 +33,7 @@ setup.createSocioPolitics = function (town) {
 
   console.log('Town leader is ')
   // console.log(town.leader)
-  var description
+  
   console.log('political source is ' + town.politicalSource + ', and the ideology is ' + town.politicalIdeology)
 
   // if (typeof setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription === 'string') {

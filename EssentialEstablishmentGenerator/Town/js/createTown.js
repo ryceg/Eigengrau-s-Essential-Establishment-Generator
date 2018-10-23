@@ -9,6 +9,8 @@ setup.createTown = function (base) {
     type: type,
     terrain: terrain,
     population: setup.townData.type[type].population(),
+    economicIdeology: setup.townData.type[type].economicIdeology.random(),
+    politicalSource: setup.townData.type[type].politicalSource.random(),
     location: setup.townData.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
     primaryExport: setup.townData.misc.primaryExport.random(),
