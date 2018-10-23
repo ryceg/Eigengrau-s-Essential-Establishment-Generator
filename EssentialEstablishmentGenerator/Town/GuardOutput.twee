@@ -1,10 +1,10 @@
 :: GuardOutput
-<h1>$guard.name</h1>
-<<set _guardCaptain to $guard.captain>>
-$guard.name is led by <<profile _guardCaptain>>, a <<print either(_guardCaptain.descriptor)>>. $guard.name is a $guard.size of $guard.population. One can recognise a member of $guard.name by the $guard.primaryColours and $guard.secondaryColours livery adorned with an image of $guard.insignia.
+<<set _town to $town>><<set _guard to _town.guard>><h1>_guard.name</h1>
+<<set _guardCaptain to _guard.captain>>
+_guard.name is led by <<profile _guardCaptain>>, a <<print either(_guardCaptain.descriptor)>>. _guard.name is a _guard.size of _guard.population. One can recognise a member of _guard.name by the _guard.primaryColours and _guard.secondaryColours livery adorned with an image of _guard.insignia.
 
-$guard.funding
+_guard.funding
 
-$town.law
-<<set $currentPassage to $guard>>
+_town.law
+<<set $currentPassage to _guard>>
 <<back>>
