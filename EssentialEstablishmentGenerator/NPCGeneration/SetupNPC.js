@@ -56,7 +56,7 @@ setup.createNPC = function (base) {
   // npc.availableLanguages = [setup.npcData.standardLanguages.concat(setup.npcData.exoticLanguages) - npc.knownLanguages]
   Object.assign(npc, setup.npcData.gender[npc.gender])
 
-  if (npc.hasClass === false) {
+  if (!npc.hasClass) {
     npc.dndClass = npc.profession
   }
 
