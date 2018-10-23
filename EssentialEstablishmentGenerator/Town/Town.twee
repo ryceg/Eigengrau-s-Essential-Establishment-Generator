@@ -1,6 +1,8 @@
 :: Town
 /* <<set $merchantGuild to setup.createFaction({type: "merchants"})>> */
 <<set $town to setup.createTown()>>
+<<set $guard to $town.guard>>
+<<set $lord to setup.createNPC({background: "noble"})>>
 
 <<set $weather to {
 	season: either(["winter", "spring", "summer", "autumn"]),
