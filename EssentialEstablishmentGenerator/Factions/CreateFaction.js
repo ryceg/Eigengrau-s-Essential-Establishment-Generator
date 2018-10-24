@@ -1,9 +1,10 @@
-setup.createFaction = function (town, base) {
-  var index = State.variables.factions.size
+setup.createFaction = function (town, opts) {
+  opts = opts || {}
   var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
   // Rolls are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise SizeRoll in the size.js function if it's being used in "reputation.js")
 
-  var faction = Object.assign({
+  var faction = (opts['newFaction'] || Object.assign({
+    index: State.variables.factions.size,
     associatedTown: town,
     type: type,
     factionNoun: setup.factionData.type[type].factionNoun,
@@ -16,7 +17,7 @@ setup.createFaction = function (town, base) {
     sizeRoll: dice(2, 50).clamp(1, 100),
     stabilityRoll: dice(2, 50).clamp(1, 100),
     resourcesRoll: dice(2, 50).clamp(1, 100)
-  }, base)
+  }, opts))
 
   setup.ageFaction(faction)
   setup.reputationFaction(faction)
@@ -34,7 +35,7 @@ setup.createFaction = function (town, base) {
   setup.createMisc(faction)
 
   if (faction.isThrowaway === undefined) {
-    State.variables.factions.set(++index, faction)
+    State.variables.factions.set(++faction.index, faction)
   }
 
   return faction
