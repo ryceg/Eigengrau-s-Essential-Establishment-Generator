@@ -1,14 +1,11 @@
+/* global setup random */
 setup.createHistory = function (npc) {
   var parentalLineageRoll = random(1, 8)
   var birthplaceRoll = random(1, 100)
   var parentRoll = random(1, 100)
   var siblingRoll = random(1, 5)
   var familyLifestyleRoll = dice(3, 6)
-  var familyLifestyle
-  var familyHomeRoll = random(1, 100)
-  var familyHome
   var childhoodMemoriesRoll = dice(3, 6)
-  var childhoodMemories
   var wealthModifier
 
   if (random(1, 100) > 95) {
@@ -113,8 +110,6 @@ setup.createHistory = function (npc) {
     npc.birthplace = 'in the home of a midwife'
   } else if (birthplaceRoll >= 51) {
     npc.birthplace = 'in the home of a friend'
-  } else if (birthplaceRoll <= 50) {
-    npc.birthplace = 'at home'
   } else {
     npc.birthplace = 'at home'
   }
@@ -200,7 +195,8 @@ setup.createHistory = function (npc) {
     wealthModifier = -40
   }
 
-  familyHomeRoll = familyHomeRoll += wealthModifier
+  var familyHomeRoll = random(1, 100)
+  familyHomeRoll += wealthModifier
   if (familyHomeRoll >= 111) {
     npc.familyHome = 'a palace'
   } else if (familyHomeRoll >= 91) {
