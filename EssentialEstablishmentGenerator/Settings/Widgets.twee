@@ -47,8 +47,9 @@
 		<<run console.log("town not defined for guard widget. Please report this bug!")>>
 		<<set $currentPassage to $town.guard>>
 		<<set $currentGuard to $args[0]>>
-		<<goto 'GuardOutput'>><</link>>
 	<</if>>
+		<<goto 'GuardOutput'>><</link>>
+
 <</nobr>><</widget>>
 
 <<widget "buildingProfile">><<nobr>>
