@@ -121,7 +121,7 @@ setup.townData = {
     'absolute monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _town.leader>>, who controls all executive decisions.'
+        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
       },
       'default': {
         'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile _town.leader>>.'
@@ -130,7 +130,7 @@ setup.townData = {
     'constitutional monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _town.leader>>, who controls all executive decisions.'
       },
       'default': {
         'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile _town.leader>>.'
