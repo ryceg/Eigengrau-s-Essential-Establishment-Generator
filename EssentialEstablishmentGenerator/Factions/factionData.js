@@ -1,149 +1,24 @@
 setup.factionData = {
   'type': {
-    'thieves': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'rogue',
-        'profession': 'thief',
-        'background': ['charlatan', 'criminal'].random()
-      },
-      'factionNoun': 'guild',
-      'leaderQualification': ['the most skilled of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['thieves', 'thieves', 'thieves', 'urchins', 'hitmen', 'hitmen', 'urchins', 'urchins', 'assassins', 'assassins', 'bandits', 'bandits', 'bandits'],
-      'rivalsList': ['priests', 'priests', 'priests', 'commoners', 'commoners', 'commoners', 'commoners'],
-      'joiningRequirement': ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
-      'joiningInitiation': ['a heist', 'a secret task', 'a secret ritual', 'a secret ritual'],
-      'membersTrait': ['a missing earlobe', "absolutely nothing; they're completely anonymous", 'a dagger given to ever member', 'a ring given to every member', 'a grey hood', 'their lack of manners', 'their bad stench', 'their rabble-rousing tendencies'],
-      'adjective': ['Clever', 'Sneaky', 'Cunning', 'Conniving', 'Honest', 'Black', 'Invisible', 'Silent'],
-      'main': ['Cutpurses', 'Pilferers', 'Thieves', 'Rogues', 'Property Reappropriaters'],
-      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      'unique': ['Silent Movers', 'Silent Partners', 'The Tip-Toe Club', 'Good Fences', 'League of Lifters and Grifters', 'The Neighborhood Watch', 'The Unseen Hand', 'The Kleptocrats', 'The Riverside Raiders', 'Black Market Mayhem', 'The Boondock Burglars', 'The Dock Workers', 'Pickpockets Anonymous'],
-      'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
-      'resources': ['bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'contacts', 'contacts', 'contacts']
-    },
-    'merchants': {
+    'artisans': {
       'leaderTraits': {
         'hasClass': false,
-        'profession': 'merchant',
-        'background': ['merchant', 'charlatan', 'noble'].random()
+        'profession': 'artisan',
+        'background': 'guild artisan'
       },
       'factionNoun': 'guild',
-      'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
-      'rivalsList': ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
-      'joiningRequirement': ['some social status', 'an excellent reputation', 'some social status', 'an excellent reputation'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their purple robes', 'their gaudy jewelry', 'the fact that a member is always closely followed by a boy carrying a chest'],
-      'main': ['Merchants', 'Company', 'Sellers and Buyers', 'Traders', 'Dealers', 'Brokers', 'Pedlars', 'Hawkers', 'Distributors'],
-      'adjective': ['Shrewd', 'Thrifty', 'Golden Spoon', 'Rich', 'Miserly'],
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles'],
+      'rivalsList': ['nobles', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
+      'joiningRequirement': ['a display of skill', 'a display of skill', 'a display of skill', 'some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
+      'main': ['Creators', 'Visionaries', 'Artisans', 'Artists'],
+      'adjective': ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
       'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      'unique': ['Amazang', 'Goodest Purchase', 'Nasduq Traders', 'Fence Street Bets', 'Personal Financers'],
-      'motivation': ['money', 'money', 'money', 'money', 'money', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
-      'resources': ['trade goods', 'trade goods', 'trade goods', 'trade goods', 'trade goods', 'chests of gold', 'chests of gold', 'chests of gold', 'chests of gold', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors']
-    },
-    'wizards': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'wizard',
-        'profession': 'magic user',
-        'background': ['acolyte', 'sage'].random()
-      },
-      'factionNoun': 'college',
-      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['nobles', 'nobles', 'artisans', 'artisans', 'seers'],
-      'rivalsList': ['seers', 'priests', 'priests', 'priests', 'priests', 'assassins', 'assassins'],
-      'joiningRequirement': ['some social status', 'a display of skill', 'a display of skill', 'a display of skill'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['their lack of table manners', 'their extreme interest in the oddities of the arcane', 'the blue robes they wear', 'the sash that members are given', 'the ring that members are given', 'their excessively bureaucratic tendencies'],
-      'main': ['Prestidigitators', 'Illusionists', 'Casters', 'Magic Users', 'Diviners', 'Evokers', 'Necromancers', 'Abjurers', 'Scroll Keepers', 'Book Keepers', 'Collectors', 'Librarians'],
-      'adjective': ['Arcane', 'Magical', 'Scholarly', 'Absent Minded', 'Knowledgeable', 'Intelligent', 'Unknown', 'Eldritch', 'Memorized'],
-      'group': ['Society', 'Academy', 'University', 'Club', 'Scholarly Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      'unique': ['We Make Magic!', 'The Academy', 'The Arcane Order', 'Adepts Anonymous', 'The Callers Club', 'The Union of Universal Magic', 'The University of the Unusual and Unexplained', 'The College of Conjurers', "Necromancers' Network", "The Evokers' League", 'The Nation of Abjuration', "Seers' and Company", 'The Illusory Faction', 'Spellcasters Anonymous'],
-      'motivation': ['money', 'money', 'fame', 'fame', 'fame', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'politics', 'politics'],
-      'resources': ['magic scrolls', 'magic scrolls', 'magic scrolls', 'magic scrolls', 'magic trinkets', 'magic trinkets', 'magic trinkets', 'magic trinkets']
-    },
-    'rangers': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'ranger',
-        'profession': 'trapper',
-        'background': ['outlander', 'hermit'].random()
-      },
-      'factionNoun': 'guild',
-      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['priests', 'priests', 'nobles', 'nobles', 'seers', 'seers'],
-      'rivalsList': ['bandits', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries'],
-      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of bravery', 'a display of bravery'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their pet ferrets', 'their pet sparrows', 'the twigs that are strewn throughout their hair', 'their terrible smell', 'the lack of footwear'],
-      'main': ['Wilderness', 'Woods', 'Lands', 'Forests', 'Trees', 'Animals'],
-      'adjective': ['Tree Loving', 'Padfoot', 'Barefoot', 'Protective', 'Watchful', 'Careful', 'Honest'],
-      'group': ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order', 'Protectors', 'Defenders', 'Conservationists', 'Guardians'],
-      'unique': ['Feathers, Fur and Friends', 'Boy Scouts', 'Primitive Technologists'],
-      'motivation': ['money', 'knowledge', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'glory', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
-      'resources': ['old favours', 'old favours', 'old favours', 'old favours', 'tame animals', 'tame animals', 'tame animals', 'tame animals', 'contacts', 'contacts', 'contacts']
-    },
-    'seers': {
-      'leaderTraits': {
-        'hasClass': false,
-        'profession': 'seer',
-        'background': ['acolyte', 'sage'].random()
-      },
-      'factionNoun': 'guild',
-      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['priests', 'priests', 'priests', 'priests', 'nobles', 'nobles', 'nobles', 'nobles'],
-      'rivalsList': ['scholars', 'scholars', 'scholars', 'scholars'],
-      'joiningRequirement': ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the vacant look that members have', 'the vacant stare that members pull (in order to fit in with the others)', 'the plain robes they wear', 'the bright blue coloured sashes they wear'],
-      'main': ['Seers', 'Predictionists', 'Future Seers', 'Observers', 'Eyes', 'Historians'],
-      'adjective': ['All Seeing', 'All Knowing', 'Watchful', 'Future'],
-      'group': ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      'unique': ['We Looked Into The Future To Find Our Name And This Was The Name So I Guess This Is The Name', 'Seers of the Obscene', 'Seers of the Scenic'],
-      'motivation': ['money', 'money', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
-      'resources': ['artifacts', 'artifacts', 'artifacts', 'artifacts', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material']
-    },
-    'priests': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'cleric',
-        'profession': 'priest',
-        'background': ['acolyte', 'sage'].random()
-      },
-      'factionNoun': 'college',
-      'leaderQualification': ['the wealthiest of the group', 'the holiest of the group', 'the holiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['nobles', 'nobles', 'nobles', 'artisans', 'artisans'],
-      'rivalsList': ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
-      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of skill', 'a display of skill'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the walking sticks that all members carry', 'the beards that they grow', 'the grey robes they wear', 'the amulet they wear'],
-      'main': ['Priests', 'Clergy', 'Churchpeople', 'People of the Cloth', 'Robes', 'Incense', 'Elders', 'Preachers'],
-      'adjective': ['Holy', 'Faithful', 'Caring', 'Civil', 'Devout', 'Devoted', 'Compassionate'],
-      'group': ['Society', 'Group', 'League', 'Servants', 'Collective', 'Brothers', 'Brotherhood', 'Brotherhood', 'Priesthood', 'Order'],
-      'unique': ['Definitely Not A Tax Haven', 'Repent Now', 'The Church of the Real God Unlike Those Fake Gods', 'The Church of the Real God', 'The Gods'],
-      'motivation': ['money', 'money', 'money', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics', 'politics'],
-      'resources': ['artifacts', 'artifacts', 'artifacts', 'holy relics', 'holy relics', 'holy relics', 'chests of gold', 'chests of gold', 'chests of gold', 'sacred texts', 'sacred texts', 'sacred texts', 'sacred texts']
-    },
-    'monks': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'monk',
-        'profession': 'monk',
-        'background': ['acolyte', 'sage'].random()
-      },
-      'factionNoun': 'group',
-      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['priests', 'priests', 'priests', 'priests', 'artisans', 'artisans'],
-      'rivalsList': ['artisans', 'priests', 'priests', 'bandits', 'bandits', 'bandits'],
-      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of skill', 'a display of skill'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their shaved heads', 'their malnutrition', 'their calm presence', 'their know-it-all answers', 'their terrible jokes', 'their amazing beer', 'the tankard that all members carry'],
-      'main': ['Monks', 'Robes', 'Stone', 'Rock'],
-      'adjective': ['Understanding', 'Meditating', 'Calm', 'Unmoving'],
-      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      'unique': ['Ommmm', 'The Holy Loincloth', 'The Purposely Unwashed'],
-      'motivation': ['money', 'money', 'money', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics'],
-      'resources': ['artifacts', 'artifacts', 'artifacts', 'holy relics', 'holy relics', 'holy relics', 'chests of gold', 'chests of gold', 'chests of gold', 'sacred texts', 'sacred texts', 'sacred texts', 'sacred texts']
+      'unique': ['The Cubists', 'The Impressionables', 'The Impressionists', 'The Romanticists', 'The Dirty Paintings', 'The Dirty Painters', 'The Dirty Paint Club'],
+      'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'vengeance', 'politics'],
+      'resources': ['artifacts', 'artifacts', 'artifacts', 'magical trinkets', 'magical trinkets', 'magical trinkets', 'masterpieces', 'masterpieces', 'masterpieces']
     },
     'assassins': {
       'leaderTraits': {
@@ -166,45 +41,26 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics'],
       'resources': ['bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'contacts', 'contacts', 'contacts']
     },
-    'artisans': {
+    'bandits': {
       'leaderTraits': {
-        'hasClass': false,
-        'profession': 'artisan',
-        'background': 'guild artisan'
+        'hasClass': true,
+        'dndClass': 'fighter',
+        'profession': 'soldier',
+        'background': ['soldier', 'charlatan', 'criminal'].random()
       },
-      'factionNoun': 'guild',
-      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles'],
-      'rivalsList': ['nobles', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
-      'joiningRequirement': ['a display of skill', 'a display of skill', 'a display of skill', 'some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
-      'main': ['Creators', 'Visionaries', 'Artisans', 'Artists'],
-      'adjective': ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
-      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      'unique': ['The Cubists', 'The Impressionables', 'The Impressionists', 'The Romanticists', 'The Dirty Paintings', 'The Dirty Painters', 'The Dirty Paint Club'],
-      'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'vengeance', 'politics'],
-      'resources': ['artifacts', 'artifacts', 'artifacts', 'magical trinkets', 'magical trinkets', 'magical trinkets', 'masterpieces', 'masterpieces', 'masterpieces']
-    },
-    'nobles': {
-      'leaderTraits': {
-        'hasClass': false,
-        'profession': 'nobleman',
-        'background': 'noble'
-      },
-      'factionNoun': 'society',
-      'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'seers', 'seers', 'seers'],
-      'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
-      'joiningRequirement': ['some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
-      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
-      'main': ['Ladies', 'People', 'Men', 'Lords', 'Heirs', 'Land Owners', 'Barons', 'Tycoons', 'Nobles', 'Gentlemen'],
-      'adjective': ['Sophisticated', 'Intelligent', 'Refined', 'Cultured', 'Wealthy', 'Distinguished'],
-      'group': ['Society', 'Group', 'Dinner Club', 'League', 'Club'],
-      'unique': ['The People Hunters', 'The Fur Coat Enthusiasts', 'The Heir Apparents', 'The Dead Parents Club', 'The High Horse'],
-      'motivation': ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics', 'politics', 'politics'],
-      'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces']
+      'factionNoun': 'gang',
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'urchins', 'urchins'],
+      'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries'],
+      'joiningRequirement': ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
+      'joiningInitiation': ['a secret task', 'an oath to be taken', 'a secret ritual', 'a secret task', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
+      'main': ['Ravens', 'Crows', 'Jackals', 'Flesh', 'Knife', 'Club', 'Axe', 'Sword', 'Vultures', 'Dingoes', 'Tigers'],
+      'adjective': ['Cutthroat', 'Backstabbing', 'Two Timing', 'Orphaned', 'Dead', 'Brutal', 'Bleeding', 'Bloodied', 'Razor', 'Serrated'],
+      'group': ['Gang', 'Sons', 'Clan', 'Vassals'],
+      'unique': ['Tunnel Snakes', 'Moonrunners', 'The Orphans', 'Turnbull ACs', 'VanCortlandt Rangers', 'The Destroyers', 'The Jones Street Boys', 'Saracens', "Satan's Mothers", 'The Warriors', 'Baseball Furies', 'Boppers', 'Electric Eliminators', 'Gramercy Riffs', 'Hi-Hats', 'Hurricanes', 'Lizzies', 'Panzers', 'Punks', 'Rogues', 'Savage Huns', 'The VanBuren Boys'],
+      'motivation': ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics'],
+      'resources': ['magical weapons', 'magical weapons', 'magical weapons', 'chests of gold', 'chests of gold', 'chests of gold', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods']
     },
     'bards': {
       'leaderTraits': {
@@ -227,6 +83,26 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'fame', 'fame', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'politics'],
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'magical instruments', 'magical instruments', 'magical instruments']
     },
+    'craftsmen': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'craftsman',
+        'background': 'guild artisan'
+      },
+      'factionNoun': 'guild',
+      'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['priests', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'seers', 'commoners', 'commoners', 'commoners'],
+      'rivalsList': ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
+      'joiningRequirement': ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
+      'main': ['Creators', 'Visionaries', 'Crafters', 'Craftsmen'],
+      'adjective': ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
+      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order', 'Workshop', 'Factory'],
+      'unique': ['The Clicks of the Spring', 'The Offerman Order', 'The Blessed Workshop', 'The Factory'],
+      'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
+      'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'artifacts', 'artifacts', 'artifacts', 'magical contraptions', 'magical contraptions', 'magical contraptions']
+    },
     'mercenaries': {
       'leaderTraits': {
         'hasClass': true,
@@ -248,46 +124,108 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'money', 'money', 'money', 'fame', 'power', 'glory', 'politics'],
       'resources': ['magical weapons', 'magical weapons', 'magical weapons', 'chests of gold', 'chests of gold', 'chests of gold', 'old favours', 'old favours', 'old favours']
     },
-    'bandits': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'fighter',
-        'profession': 'soldier',
-        'background': ['soldier', 'charlatan', 'criminal'].random()
-      },
-      'factionNoun': 'gang',
-      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'urchins', 'urchins'],
-      'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries'],
-      'joiningRequirement': ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
-      'joiningInitiation': ['a secret task', 'an oath to be taken', 'a secret ritual', 'a secret task', 'an oath to be taken', 'a secret ritual'],
-      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
-      'main': ['Ravens', 'Crows', 'Jackals', 'Flesh', 'Knife', 'Club', 'Axe', 'Sword', 'Vultures', 'Dingoes', 'Tigers'],
-      'adjective': ['Cutthroat', 'Backstabbing', 'Two Timing', 'Orphaned', 'Dead', 'Brutal', 'Bleeding', 'Bloodied', 'Razor', 'Serrated'],
-      'group': ['Gang', 'Sons', 'Clan', 'Vassals'],
-      'unique': ['Tunnel Snakes', 'Moonrunners', 'The Orphans', 'Turnbull ACs', 'VanCortlandt Rangers', 'The Destroyers', 'The Jones Street Boys', 'Saracens', "Satan's Mothers", 'The Warriors', 'Baseball Furies', 'Boppers', 'Electric Eliminators', 'Gramercy Riffs', 'Hi-Hats', 'Hurricanes', 'Lizzies', 'Panzers', 'Punks', 'Rogues', 'Savage Huns', 'The VanBuren Boys'],
-      'motivation': ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics'],
-      'resources': ['magical weapons', 'magical weapons', 'magical weapons', 'chests of gold', 'chests of gold', 'chests of gold', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods']
-    },
-    'craftsmen': {
+    'merchants': {
       'leaderTraits': {
         'hasClass': false,
-        'profession': 'craftsman',
-        'background': 'guild artisan'
+        'profession': 'merchant',
+        'background': ['merchant', 'charlatan', 'noble'].random()
       },
       'factionNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      'alliesList': ['priests', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'seers', 'commoners', 'commoners', 'commoners'],
-      'rivalsList': ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
-      'joiningRequirement': ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
+      'alliesList': ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
+      'rivalsList': ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
+      'joiningRequirement': ['some social status', 'an excellent reputation', 'some social status', 'an excellent reputation'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their purple robes', 'their gaudy jewelry', 'the fact that a member is always closely followed by a boy carrying a chest'],
+      'main': ['Merchants', 'Company', 'Sellers and Buyers', 'Traders', 'Dealers', 'Brokers', 'Pedlars', 'Hawkers', 'Distributors'],
+      'adjective': ['Shrewd', 'Thrifty', 'Golden Spoon', 'Rich', 'Miserly'],
+      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
+      'unique': ['Amazang', 'Goodest Purchase', 'Nasduq Traders', 'Fence Street Bets', 'Personal Financers'],
+      'motivation': ['money', 'money', 'money', 'money', 'money', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
+      'resources': ['trade goods', 'trade goods', 'trade goods', 'trade goods', 'trade goods', 'chests of gold', 'chests of gold', 'chests of gold', 'chests of gold', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors']
+    },
+    'monks': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'monk',
+        'profession': 'monk',
+        'background': ['acolyte', 'sage'].random()
+      },
+      'factionNoun': 'group',
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['priests', 'priests', 'priests', 'priests', 'artisans', 'artisans'],
+      'rivalsList': ['artisans', 'priests', 'priests', 'bandits', 'bandits', 'bandits'],
+      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of skill', 'a display of skill'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their shaved heads', 'their malnutrition', 'their calm presence', 'their know-it-all answers', 'their terrible jokes', 'their amazing beer', 'the tankard that all members carry'],
+      'main': ['Monks', 'Robes', 'Stone', 'Rock'],
+      'adjective': ['Understanding', 'Meditating', 'Calm', 'Unmoving'],
+      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
+      'unique': ['Ommmm', 'The Holy Loincloth', 'The Purposely Unwashed'],
+      'motivation': ['money', 'money', 'money', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics'],
+      'resources': ['artifacts', 'artifacts', 'artifacts', 'holy relics', 'holy relics', 'holy relics', 'chests of gold', 'chests of gold', 'chests of gold', 'sacred texts', 'sacred texts', 'sacred texts', 'sacred texts']
+    },
+    'nobles': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'nobleman',
+        'background': 'noble'
+      },
+      'factionNoun': 'society',
+      'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'seers', 'seers', 'seers'],
+      'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
+      'joiningRequirement': ['some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
       'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
       'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
-      'main': ['Creators', 'Visionaries', 'Crafters', 'Craftsmen'],
-      'adjective': ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
-      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order', 'Workshop', 'Factory'],
-      'unique': ['The Clicks of the Spring', 'The Offerman Order', 'The Blessed Workshop', 'The Factory'],
-      'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
-      'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'artifacts', 'artifacts', 'artifacts', 'magical contraptions', 'magical contraptions', 'magical contraptions']
+      'main': ['Ladies', 'People', 'Men', 'Lords', 'Heirs', 'Land Owners', 'Barons', 'Tycoons', 'Nobles', 'Gentlemen'],
+      'adjective': ['Sophisticated', 'Intelligent', 'Refined', 'Cultured', 'Wealthy', 'Distinguished'],
+      'group': ['Society', 'Group', 'Dinner Club', 'League', 'Club'],
+      'unique': ['The People Hunters', 'The Fur Coat Enthusiasts', 'The Heir Apparents', 'The Dead Parents Club', 'The High Horse'],
+      'motivation': ['money', 'money', 'money', 'fame', 'power', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics', 'politics', 'politics'],
+      'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces']
+    },
+    'priests': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'cleric',
+        'profession': 'priest',
+        'background': ['acolyte', 'sage'].random()
+      },
+      'factionNoun': 'college',
+      'leaderQualification': ['the wealthiest of the group', 'the holiest of the group', 'the holiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['nobles', 'nobles', 'nobles', 'artisans', 'artisans'],
+      'rivalsList': ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
+      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of skill', 'a display of skill'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the walking sticks that all members carry', 'the beards that they grow', 'the grey robes they wear', 'the amulet they wear'],
+      'main': ['Priests', 'Clergy', 'Churchpeople', 'People of the Cloth', 'Robes', 'Incense', 'Elders', 'Preachers'],
+      'adjective': ['Holy', 'Faithful', 'Caring', 'Civil', 'Devout', 'Devoted', 'Compassionate'],
+      'group': ['Society', 'Group', 'League', 'Servants', 'Collective', 'Brothers', 'Brotherhood', 'Brotherhood', 'Priesthood', 'Order'],
+      'unique': ['Definitely Not A Tax Haven', 'Repent Now', 'The Church of the Real God Unlike Those Fake Gods', 'The Church of the Real God', 'The Gods'],
+      'motivation': ['money', 'money', 'money', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics', 'politics', 'politics', 'politics'],
+      'resources': ['artifacts', 'artifacts', 'artifacts', 'holy relics', 'holy relics', 'holy relics', 'chests of gold', 'chests of gold', 'chests of gold', 'sacred texts', 'sacred texts', 'sacred texts', 'sacred texts']
+    },
+    'rangers': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'ranger',
+        'profession': 'trapper',
+        'background': ['outlander', 'hermit'].random()
+      },
+      'factionNoun': 'guild',
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['priests', 'priests', 'nobles', 'nobles', 'seers', 'seers'],
+      'rivalsList': ['bandits', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries'],
+      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of bravery', 'a display of bravery'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their pet ferrets', 'their pet sparrows', 'the twigs that are strewn throughout their hair', 'their terrible smell', 'the lack of footwear'],
+      'main': ['Wilderness', 'Woods', 'Lands', 'Forests', 'Trees', 'Animals'],
+      'adjective': ['Tree Loving', 'Padfoot', 'Barefoot', 'Protective', 'Watchful', 'Careful', 'Honest'],
+      'group': ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order', 'Protectors', 'Defenders', 'Conservationists', 'Guardians'],
+      'unique': ['Feathers, Fur and Friends', 'Boy Scouts', 'Primitive Technologists'],
+      'motivation': ['money', 'knowledge', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'power', 'glory', 'glory', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
+      'resources': ['old favours', 'old favours', 'old favours', 'old favours', 'tame animals', 'tame animals', 'tame animals', 'tame animals', 'contacts', 'contacts', 'contacts']
     },
     'scholars': {
       'leaderTraits': {
@@ -308,6 +246,68 @@ setup.factionData = {
       'unique': ['Citation Needed', 'Indentured Candidates', 'The Cultists of Weekee', 'Encyclopaedia Uninformatica'],
       'motivation': ['money', 'money', 'fame', 'fame', 'fame', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'politics', 'politics'],
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts']
+    },
+    'seers': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'seer',
+        'background': ['acolyte', 'sage'].random()
+      },
+      'factionNoun': 'guild',
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['priests', 'priests', 'priests', 'priests', 'nobles', 'nobles', 'nobles', 'nobles'],
+      'rivalsList': ['scholars', 'scholars', 'scholars', 'scholars'],
+      'joiningRequirement': ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the vacant look that members have', 'the vacant stare that members pull (in order to fit in with the others)', 'the plain robes they wear', 'the bright blue coloured sashes they wear'],
+      'main': ['Seers', 'Predictionists', 'Future Seers', 'Observers', 'Eyes', 'Historians'],
+      'adjective': ['All Seeing', 'All Knowing', 'Watchful', 'Future'],
+      'group': ['Society', 'Group', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
+      'unique': ['We Looked Into The Future To Find Our Name And This Was The Name So I Guess This Is The Name', 'Seers of the Obscene', 'Seers of the Scenic'],
+      'motivation': ['money', 'money', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'fame', 'power', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
+      'resources': ['artifacts', 'artifacts', 'artifacts', 'artifacts', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material']
+    },
+    'thieves': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'rogue',
+        'profession': 'thief',
+        'background': ['charlatan', 'criminal'].random()
+      },
+      'factionNoun': 'guild',
+      'leaderQualification': ['the most skilled of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['thieves', 'thieves', 'thieves', 'urchins', 'hitmen', 'hitmen', 'urchins', 'urchins', 'assassins', 'assassins', 'bandits', 'bandits', 'bandits'],
+      'rivalsList': ['priests', 'priests', 'priests', 'commoners', 'commoners', 'commoners', 'commoners'],
+      'joiningRequirement': ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
+      'joiningInitiation': ['a heist', 'a secret task', 'a secret ritual', 'a secret ritual'],
+      'membersTrait': ['a missing earlobe', "absolutely nothing; they're completely anonymous", 'a dagger given to ever member', 'a ring given to every member', 'a grey hood', 'their lack of manners', 'their bad stench', 'their rabble-rousing tendencies'],
+      'adjective': ['Clever', 'Sneaky', 'Cunning', 'Conniving', 'Honest', 'Black', 'Invisible', 'Silent'],
+      'main': ['Cutpurses', 'Pilferers', 'Thieves', 'Rogues', 'Property Reappropriaters'],
+      'group': ['Society', 'Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
+      'unique': ['Silent Movers', 'Silent Partners', 'The Tip-Toe Club', 'Good Fences', 'League of Lifters and Grifters', 'The Neighborhood Watch', 'The Unseen Hand', 'The Kleptocrats', 'The Riverside Raiders', 'Black Market Mayhem', 'The Boondock Burglars', 'The Dock Workers', 'Pickpockets Anonymous'],
+      'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
+      'resources': ['bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'bits of blackmail material', 'stolen goods', 'stolen goods', 'stolen goods', 'stolen goods', 'contacts', 'contacts', 'contacts']
+    },
+    'wizards': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'wizard',
+        'profession': 'magic user',
+        'background': ['acolyte', 'sage'].random()
+      },
+      'factionNoun': 'college',
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['nobles', 'nobles', 'artisans', 'artisans', 'seers'],
+      'rivalsList': ['seers', 'priests', 'priests', 'priests', 'priests', 'assassins', 'assassins'],
+      'joiningRequirement': ['some social status', 'a display of skill', 'a display of skill', 'a display of skill'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['their lack of table manners', 'their extreme interest in the oddities of the arcane', 'the blue robes they wear', 'the sash that members are given', 'the ring that members are given', 'their excessively bureaucratic tendencies'],
+      'main': ['Prestidigitators', 'Illusionists', 'Casters', 'Magic Users', 'Diviners', 'Evokers', 'Necromancers', 'Abjurers', 'Scroll Keepers', 'Book Keepers', 'Collectors', 'Librarians'],
+      'adjective': ['Arcane', 'Magical', 'Scholarly', 'Absent Minded', 'Knowledgeable', 'Intelligent', 'Unknown', 'Eldritch', 'Memorized'],
+      'group': ['Society', 'Academy', 'University', 'Club', 'Scholarly Group', 'League', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
+      'unique': ['We Make Magic!', 'The Academy', 'The Arcane Order', 'Adepts Anonymous', 'The Callers Club', 'The Union of Universal Magic', 'The University of the Unusual and Unexplained', 'The College of Conjurers', "Necromancers' Network", "The Evokers' League", 'The Nation of Abjuration', "Seers' and Company", 'The Illusory Faction', 'Spellcasters Anonymous'],
+      'motivation': ['money', 'money', 'fame', 'fame', 'fame', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'politics', 'politics'],
+      'resources': ['magic scrolls', 'magic scrolls', 'magic scrolls', 'magic scrolls', 'magic trinkets', 'magic trinkets', 'magic trinkets', 'magic trinkets']
     },
     'backup': {
       'leaderTraits': {
