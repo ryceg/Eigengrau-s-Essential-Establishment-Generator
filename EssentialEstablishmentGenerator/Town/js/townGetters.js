@@ -1,8 +1,13 @@
 setup.getPoliticalSourceDescription = function (town) {
-  return setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription ||
-  setup.townData.politicalSource[town.politicalSource].default.politicalSourceDescription ||
-  setup.townData.politicalSource[town.politicalSource].politicalSourceDescription ||
-  setup.townData.politicalSource['republic'].politicalSourceDescription
+  if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
+    if (town.politicalIdeology === 'autocracy') {
+      return setup.townData.politicalSource[town.politicalSource].autocracy.politicalSourceDescription
+    } else {
+      return setup.townData.politicalSource[town.politicalSource].default.politicalSourceDescription
+    }
+  } else {
+    return setup.townData.politicalSource[town.politicalSource].politicalSourceDescription
+  }
 }
 
 setup.getEconomicIdeologyDescription = function (town) {
