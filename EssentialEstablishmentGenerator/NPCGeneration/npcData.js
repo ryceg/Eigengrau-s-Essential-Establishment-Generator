@@ -1,6 +1,7 @@
 setup.npcData = {
   'gender': {
     'man': {
+      'title': 'Mr',
       'heshe': 'he',
       'himher': 'him',
       'himherself': 'himself',
@@ -13,6 +14,7 @@ setup.npcData = {
       'guygirl': 'guy'
     },
     'woman': {
+      'title': 'Ms',
       'heshe': 'she',
       'himher': 'her',
       'himherself': 'herself',
