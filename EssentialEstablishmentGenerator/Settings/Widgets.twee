@@ -48,6 +48,7 @@
 		<<set $currentPassage to $town.guard>>
 		<<set $currentGuard to $args[0]>>
 		<<goto 'GuardOutput'>><</link>>
+	<</if>>
 <</nobr>><</widget>>
 
 <<widget "buildingProfile">><<nobr>>
