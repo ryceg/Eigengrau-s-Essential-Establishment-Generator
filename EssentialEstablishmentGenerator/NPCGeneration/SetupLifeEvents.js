@@ -1,3 +1,4 @@
+/* global setup random dice */
 setup.createLifeEvents = function (npc) {
   var lifeEventsNumber
   var lifeEventsRoll
@@ -30,6 +31,7 @@ setup.createLifeEvents = function (npc) {
   var i
   for (i = 0; i < lifeEventsNumber; i++) {
     lifeEventsRoll = random(1, 100)
+    console.log('rolling for a life event resulted in a ' + lifeEventsRoll)
     if (lifeEventsRoll === 100) {
       npc.lifeEvents.push(weirdStuff(npc))
     } else if (lifeEventsRoll >= 96) {
@@ -37,7 +39,7 @@ setup.createLifeEvents = function (npc) {
     } else if (lifeEventsRoll >= 91) {
       npc.lifeEvents.push(crime())
     } else if (lifeEventsRoll >= 86) {
-      npc.lifeEvents.push(war())
+      npc.lifeEvents.push(war(npc))
     } else if (lifeEventsRoll >= 81) {
       npc.lifeEvents.push(supernatural(npc))
     } else if (lifeEventsRoll >= 76) {
@@ -45,9 +47,9 @@ setup.createLifeEvents = function (npc) {
     } else if (lifeEventsRoll >= 71) {
       npc.lifeEvents.push(meetImportantNPC(npc))
     } else if (lifeEventsRoll >= 51) {
-      npc.lifeEvents.push(backgroundWork())
+      npc.lifeEvents.push(backgroundWork(npc))
     } else if (lifeEventsRoll >= 41) {
-      npc.lifeEvents.push(meetPartnerNPC())
+      npc.lifeEvents.push(meetPartnerNPC(npc))
     } else if (lifeEventsRoll >= 31) {
       npc.lifeEvents.push(meetEnemyNPC(npc))
     } else if (lifeEventsRoll >= 21) {
@@ -59,6 +61,7 @@ setup.createLifeEvents = function (npc) {
 
   function trinket () {
     var trinket = setup.createMagicTrinket()
+    console.log('called trinket function')
     return [
       "I was given a magical trinket- it's a ",
       'I happened across a ',
@@ -99,14 +102,14 @@ setup.createLifeEvents = function (npc) {
     // }
   }
 
-  function meetPartnerNPC () {
+  function meetPartnerNPC (npc) {
     if (npc.partnerID !== undefined) {
       return 'I had a child with my dear partner.'
-    } else {
+    } else if (npc.partnerID === undefined) {
       if (npc.gender === 'man') {
-        npc.partnerID = setup.createNPC({gender: 'woman', partnerID: npc.id})
+        npc.partnerID = setup.createNPC({ gender: 'woman', partnerID: npc.id })
       } else {
-        npc.partnerID = setup.createNPC({gender: 'man', partnerID: npc.id})
+        npc.partnerID = setup.createNPC({ gender: 'man', partnerID: npc.id })
       }
       return 'I met the love of my life.'
     }
@@ -120,7 +123,7 @@ setup.createLifeEvents = function (npc) {
       'I made an enemy for life in my travels- ',
       'I met a man, and we played cards. He decided that I was cheating- ',
       'I was a guest in the court of a lord, and made an embarassment of him- ',
-      'I used to play cards in a pub, ' + State.variables.tavern.name + ', and one time supposedly cheated a man out of his winnings; '
+      'I used to play cards in a pub, and one time supposedly cheated a man out of his winnings; '
     ].random() + [
       'it was a misunderstanding, but I cannot convince him otherwise. ',
       'I admit that I am at least partially at fault. ',
@@ -154,7 +157,7 @@ setup.createLifeEvents = function (npc) {
     // }
   }
 
-  function backgroundWork () {
+  function backgroundWork (npc) {
     npc.wealth += (dice('2d6') * 1000)
     return [
       'I spent some time working as a ',
@@ -163,7 +166,7 @@ setup.createLifeEvents = function (npc) {
       'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()
   }
 
-  function war () {
+  function war (npc) {
     var warRoll = random(1, 12)
     var warStart = [
       'there was a minor skirmish with some orcs that I was involved with.',
@@ -254,14 +257,14 @@ setup.createLifeEvents = function (npc) {
         'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
       if (adventureRoll === 100) {
         var weapon = setup.createMagicWeapon()
+        console.log('Called weapon function.')
         adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + '<blockquote>' + '<h4>' + weapon.name + '</h4>' + weapon.description + '</blockquote>'
       } else if (adventureRoll >= 91) {
         adventureResults = 'found a considerable amount of treasure.'
         npc.wealth += random(5100, 7150)
-      } else if (adventureRoll >= 91) {
+      } else if (adventureRoll >= 81) {
         adventureResults = 'found some treasure.'
-        npc.wealth += random(0, 600)
-        npc.wealth += random(0, 600)
+        npc.wealth += dice(2, 600)
       } else if (adventureRoll >= 71) {
         adventureResults = 'learnt a great deal about myself.'
       } else if (adventureRoll >= 61) {
@@ -284,5 +287,6 @@ setup.createLifeEvents = function (npc) {
     }
     return adventurePrefix + adventureResults
   }
+  console.groupEnd();
   return npc
 }
