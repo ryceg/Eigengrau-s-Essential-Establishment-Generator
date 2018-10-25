@@ -21,8 +21,10 @@ setup.createTavern = function (town, opts) {
     wordnoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: shortages,
     fun: setup.tavernData.fun.random(),
-    entertainment: setup.tavernData.entertainment.random(),
-    patrons: setup.tavernData.patrons.random()
+    // entertainment: setup.tavernData.entertainment.random(),
+    // patrons: setup.tavernData.patrons.random(),
+    game: setup.tavernData.games.random()
+    // specialBrew: setup.tavernData.specialBrew.random()
   })
   Object.assign(tavern, setup.getTavernDraws(town, tavern))
   // console.log(tavern)

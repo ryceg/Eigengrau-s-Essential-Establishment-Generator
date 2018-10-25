@@ -1,3 +1,4 @@
+/* global setup random */
 setup.getTavernLookAround = function (tavern) {
   var bartender = tavern.bartender
   setup.lookAroundData = [
@@ -101,59 +102,220 @@ setup.getTavernLookAround = function (tavern) {
   ]
   return setup.lookAroundData
 }
+setup.tavernData = {
+  'games': [
+    {
+      'name': 'Passe-dix',
+      'type': 'chance game',
+      'description': "You see a <<profile $NPCgamer $NPCgamer.raceNote>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $NPCgamer.hisher winnings from a <<profile $NPCgamebanker $NPCgamebanker.raceNote>> who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight <<print $NPCgamebanker.raceSingular>> with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print either ('boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing')>>.",
+      'rules': 'Passe-dix is played with three dice. There’s always a banker, and the number of players is unlimited. The first gamer rolls: every time he throws UNDER ten he (and all the other players in the game) lose the specified stake, which goes to the banker. Every time he rolls ABOVE ten (or PASSES TEN–whence the name of the game), the banker must return double the stake to all the players in the game. After three losses of the roller (no matter how many wins), the roller position is passed to another gamer in the circle. The banker changes after each roll.',
+      'bet': random(15, 25)
+    },
+    {
+      'name': 'Highest Points',
+      'type': 'chance game',
+      'description': 'A <<profile $NPCgamebanker $NPCgamebanker.raceNote>>, and a <<profile $NPCgamer $NPCgamer.raceNote>> are sitting in the middle of the room with two whittled dice each. They chuck <<money $taverngames.bet>> on the table, then roll, and the one that rolled higher grins as they grab the copper.',
+      'rules': '2 six-sided dice, 2 players: each roll both dice and the highest sum wins.',
+      'bet': random(2, 5)
+    },
+    {
+      'name': 'Cross and Pile',
+      'type': 'chance game',
+      'description': 'A <<profile $NPCgamer $NPCgamer.raceNote>> and a <<profile $NPCgamebanker $NPCgamebanker.raceNote>> sit around a large table, and take turns flipping a coin. As the coin flies mid-air, the $NPCgamer.weight $NPCgamer.race calls out the result, and guesses correctly, grabbing $NPCgamer.hisher meager winnings.',
+      'rules': 'Two players choose each side of a coin, and then the coin is flipped. The top side after flipping the coin is the one that wins.',
+      'bet': random(7, 14)
+    },
+    {
+      'name': 'Thimble Rig',
+      'type': 'guessing game',
+      'description': "A <<profile $NPCgamebanker $NPCgamebanker.raceNote>>'s quick hands, a pair of $NPCgamer.eyes eyes belonging to a $NPCgamer.raceNote watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
+      'rules': 'The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.',
+      'bet': random(4, 9)
+    },
+    {
+      'name': 'Arm Wrestling',
+      'type': 'strength game',
+      'description': "A $NPCgamer.dndClass and a <<profile $NPCgamebanker $NPCgamebanker.raceNote>> sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
+      'rules': '<blockquote> <<print random(12, 25)>> DC Athletics Check</blockquote>',
+      'bet': random(6, 12)
+    },
+    {
+      'name': 'Two-Up',
+      'type': 'gambling game',
+      'description': 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $NPCgamer $NPCgamer.raceNote>> groaning whenever they both turned heads, and another <<profile $NPCgamebanker $NPCgamebanker.raceNote>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
+      'rules': "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
+      'bet': 10
+    }
+  ],
+  'fun': [
+    'A group of commoners is playing horse shoes out back.',
+    'The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.',
+    'A group of Hill Dwarves are in the middle of a drinking contest, and two of them are passed out already. The Prize is a solid platinum stein.',
+    'Wet Chainmail contest!',
+    'A shy teenage girl is reciting bad poetry in a corner. No one is paying the slightest bit of attention to her.',
+    "It's trivia night! Those scholars from the School of History and the Arts at the University always win, but tonight, we represent and the School of Alchemy will show those smug book-snobs what it means to be a nerd.",
+    'A promoter is working his way around the tables looking for challengers to fight the local champion pugilist.',
+    "It's a sausage fest! The place is packed with dwarves eager to devour the all-you-can-eat sausage special.",
+    'An over-sized brute is arm-wrestling crushing the hand of everyone in sight.',
+    'Some goblins are throwing dice with some animated skeletons at a table in the corner.',
+    'A goblin is doing a poor job at cheating at a dice game, while a skeleton is doing an excellent job at cheating.',
+    "A 7'2 red dragonborn with a 5' bastard sword is having a drinking contest with a dwarf. The dragonborn has a 4-pint tankard, and is almost managing to keep pace.",
+    'A party sits in the corner booth playing cards. All of them are cheating, except the paladin, who, curiously, is winning.',
+    'A mountain of a man in barbarian leathers is arm wrestling a small dragon and winning.',
+    'An awakened Roper is winning two games of billiards at once.',
+    'A group of drunken pixies is playing hide and seek by hiding behind patrons.',
+    'The players have stumbled into a regional card championship being held that night. The buy in is huge but so is the pot.',
+    'A shady looking gnomish inventor is proudly showing off his latest invention. He calls it a one armed bandit.',
+    "A grey haired story teller is sitting near the fire holding a contest. He'll give a large purse for a story he hasn't heard yet, but so far no one has won."
+  ],
+  'entertainment': [
+    'A bard is telling a story about the player’s latest act of daring do. He’s embellishing quite a bit. When he recognizes the party he makes a big spectacle.',
+    'A bard is telling the story of the player’s latest exploit. It’s an obvious character assassination.',
+    'A local bardic group, The Rolling Boulders, are performing, and a large crowd of drunken groupies will not stop screaming.',
+    "A beggar offers to sing for a few coppers. You heard him singing to the last table. He's awful.",
+    'A sassy fortune teller has set up shop in a corner booth. She informs you that she sees a hangover in your near future.',
+    "A stirring rendition of 'The Lady and the Faerie Dragon' has the crowd calling for an encore from the minstrels.",
+    'The lute-player catches some undergarments from the crowd and drapes them across the ridiculous horned helm he wears.',
+    'On stage tonight: The Deep Tones. A quartet of dwarves with long beards and deep voices singing a capella favorites from places without light (or proper music).',
+    'On stage tonight: Shaela Windspeaker. An elf-maid singer-songwriter with a bit of a whiny voice who is slowly making her way through her most recent song of protest against the previous and the present centuries of war.',
+    'A nervous show-wizard on the small stage is doing tricks with Prestidigitation for the un-amused patrons.',
+    'There is a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously.'
+  ],
+  'patrons': [
+    'A poor farmer is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.',
+    'A sea captain has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.',
+    'A ranger sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.',
+    'A lone Troll is drinking at the end of the bar and softly crying and singing one country ballad after another.',
+    'A stoned magician is fumbling his way through one awful card trick after another.',
+    'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. One has an obsidian bow strapped to her back.',
+    'Two guards are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.',
+    'A sad clown is drinking a beer alone.',
+    'A handsome young woman is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.',
+    'Some idiot is having a stag night. His friends are loud and obnoxiously harassing the barmaid.',
+    "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town librarian.",
+    'A surly old witch is drinking sherry while stroking the fat grey cat sitting on her lap.',
+    'The barmaid is a marilith, mixing up four drinks at a time.',
+    'The barmaid is a succubus, she seems to be making great tips.',
+    'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.',
+    'Behind the bar is a gnomish alchemist with a penchant for mixology experiments.',
+    "The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.",
+    'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.',
+    "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
+  ],
+  'specialBrew': [
+    {
+      name: 'Gnollblood',
+      type: 'non-magical mead',
+      cost: 30,
+      description: "While the inventor of this recipe is said to have been human, anyone is welcome to make it- if they can survive the trial of getting the ingredients. True to its name, after the mead is sweetened with honey and boiled with a blend of spices, the maker stirs in just enough gnoll's blood to give the brew a salty, rusty undertone. This conveys no magical benefit, but it's still quite popular among the wealthy citizens of the local cities. Brewers within the city limits will pay handsomely for fresh gnoll carcasses to keep their blood supply in check.",
+      author: 'Jasperine'
+    },
 
-setup.tavernFun = ['A group of commoners is playing horse shoes out back.',
-  'The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.',
-  'A group of Hill Dwarves are in the middle of a drinking contest, and two of them are passed out already. The Prize is a solid platinum stein.',
-  'Wet Chainmail contest!',
-  'A shy teenage girl is reciting bad poetry in a corner. No one is paying the slightest bit of attention to her.',
-  "It's trivia night! Those scholars from the School of History and the Arts at the University always win, but tonight, we represent and the School of Alchemy will show those smug book-snobs what it means to be a nerd.",
-  'A promoter is working his way around the tables looking for challengers to fight the local champion pugilist.',
-  "It's a sausage fest! The place is packed with dwarves eager to devour the all-you-can-eat sausage special.",
-  'An over-sized brute is arm-wrestling crushing the hand of everyone in sight.',
-  'Some goblins are throwing dice with some animated skeletons at a table in the corner.',
-  'A goblin is doing a poor job at cheating at a dice game, while a skeleton is doing an excellent job at cheating.',
-  "A 7'2 red dragonborn with a 5' bastard sword is having a drinking contest with a dwarf. The dragonborn has a 4-pint tankard, and is almost managing to keep pace.",
-  'A party sits in the corner booth playing cards. All of them are cheating, except the paladin, who, curiously, is winning.',
-  'A mountain of a man in barbarian leathers is arm wrestling a small dragon and winning.',
-  'An awakened Roper is winning two games of billiards at once.',
-  'A group of drunken pixies is playing hide and seek by hiding behind patrons.',
-  'The players have stumbled into a regional card championship being held that night. The buy in is huge but so is the pot.',
-  'A shady looking gnomish inventor is proudly showing off his latest invention. He calls it a one armed bandit.',
-  "A grey haired story teller is sitting near the fire holding a contest. He'll give a large purse for a story he hasn't heard yet, but so far no one has won."]
+    {
+      name: 'Bragget',
+      type: "goblin 'wine'",
+      cost: 34,
+      description: "Made from fermented, often rotting cave mushrooms, bragget is the favored drink of any goblin who wants to quickly lose their inhibition. There's no real recipe to follow- simply throw a handful of fresh mushrooms into a vat of water, forget it for several months, rediscover the vat after a crew of adventurers break into your cave system, and drink it. Effects range from a gleeful, giddy state of inebriation to death from dysentery. Or both.",
+      author: 'Jasperine'
+    },
 
-setup.tavernEntertainment = [
-  'A bard is telling a story about the player’s latest act of daring do. He’s embellishing quite a bit. When he recognizes the party he makes a big spectacle.',
-  'A bard is telling the story of the player’s latest exploit. It’s an obvious character assassination.',
-  'A local bardic group, The Rolling Boulders, are performing, and a large crowd of drunken groupies will not stop screaming.',
-  "A beggar offers to sing for a few coppers. You heard him singing to the last table. He's awful.",
-  'A sassy fortune teller has set up shop in a corner booth. She informs you that she sees a hangover in your near future.',
-  "A stirring rendition of 'The Lady and the Faerie Dragon' has the crowd calling for an encore from the minstrels.",
-  'The lute-player catches some undergarments from the crowd and drapes them across the ridiculous horned helm he wears.',
-  'On stage tonight: The Deep Tones. A quartet of dwarves with long beards and deep voices singing a capella favorites from places without light (or proper music).',
-  'On stage tonight: Shaela Windspeaker. An elf-maid singer-songwriter with a bit of a whiny voice who is slowly making her way through her most recent song of protest against the previous and the present centuries of war.',
-  'A nervous show-wizard on the small stage is doing tricks with Prestidigitation for the un-amused patrons.',
-  'There is a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously.'].random()
+    {
+      name: "Cobbler's cream",
+      type: 'rotgut',
+      cost: 26,
+      description: "Gnomes who dwell along the forest's edge often send their young to forage for meals in dense, semi-cultivated plots filled with berries, brambles, succulent flowers and herbs of all varieties. Having not yet developed a callous thick enough to endure the thorns, prickles and stings, many young Gnomes often wear carved wooden shoes and heavy leather gaiters to protect themselves. When a young Gnome reaches maturity, however, they are expected to retire their shoes back to the cobbler, where the toes are stuffed full of harvested berries, leaves, mushrooms and whatever else comes to hand. The shoes are then hung from the rafters over a large vat, where steam, time, and the natural yeasts in the porous wood allow droplets of alcoholic liquid to seep through the shoe, and fall into the roiling mixture below. Mixed with rainwater, and served in usually cleaned wooden shoes, the resulting beverage is incredibly potent, with a flavor profile that ranges from incredibly profane to lavender, with notes of sweet sap. Gnomes who consume it often do so in celebratory contexts, and in small quantities. Most others experience temporary blindness and an intense hatred for Gnomes.",
+      author: 'MrKHackworth'
+    },
 
-setup.tavernPatrons = ['A poor farmer is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.',
-  'A sea captain has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.',
-  'A ranger sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.',
-  'A lone Troll is drinking at the end of the bar and softly crying and singing one country ballad after another.',
-  'A stoned magician is fumbling his way through one awful card trick after another.',
-  'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. One has an obsidian bow strapped to her back.',
-  'Two guards are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.',
-  'A sad clown is drinking a beer alone.',
-  'A handsome young woman is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.',
-  'Some idiot is having a stag night. His friends are loud and obnoxiously harassing the barmaid.',
-  "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town librarian.",
-  'A surly old witch is drinking sherry while stroking the fat grey cat sitting on her lap.',
-  'The barmaid is a marilith, mixing up four drinks at a time.',
-  'The barmaid is a succubus, she seems to be making great tips.',
-  'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.',
-  'Behind the bar is a gnomish alchemist with a penchant for mixology experiments.',
-  "The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.",
-  'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.',
-  "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"]
+    {
+      name: 'Blood clot',
+      type: 'Dwarven sludge',
+      cost: 42,
+      description: 'This bizarre concoction is a favorite among Dwarves looking to make a dare. Thick and red, it contains a congealed glob of fermented goat milk about the size of a golf ball. An acquired taste, it is reminiscent of fortified wine with a strong hint of copper.',
+      author: 'Melance'
+    },
+
+    {
+      name: 'Axegrinder Ale',
+      type: 'Dwarvish ale',
+      cost: 34,
+      description: 'In the right light, this ale takes on a blood red hue. It gives off a strong scent like a floral meadow covered in dew and tastes slightly sour on the way down with a sweaty finish. Dwarves who consume it often become mildly belligerent and take offense the smallest slights. Most others who consume it experience a noticeable uptick in their spirits. Except trolls, who just get angry.',
+      author: 'OrkishBlade'
+    },
+
+    {
+      name: 'Bitterbeard Ale',
+      type: 'Dwarvish ale',
+      cost: 36,
+      description: "This translucent gold ale is topped with a clean white foam and tastes a little pungent and bitter with hints of citrus. Dwarves who consume it tend to brood over hated foes, especially 'the one that got away.' Non-dwarves who consume it typically experience a pleasant evening followed by a poor night's sleep.",
+      author: 'OrkishBlade'
+    },
+
+    {
+      name: 'Meadowlark',
+      type: 'Human wheat beer',
+      cost: 30,
+      description: "In a world full of 750,000-proof Elven cordials and Dwarven stouts so thick you'd think they were bottled mud, sometimes you just need a good beer. Mild, refreshing, and flavorful, Meadowlark is a beer by humans, for humans, which means that just about every halfling from here to the Drypeak Mountains is drinking it. The noble think it crude, the elves think it unimaginative, the dwarves find it cowardly, but the farmers who drop themselves down at a tavern table at the end of the day wouldn't have anything else.",
+      author: 'Val_Ritz'
+    },
+
+    {
+      name: 'Frostbomb',
+      type: 'Pale ale',
+      cost: 66,
+      description: "The life's work of a dragonborn brewmaster. Frostbomb is somewhat disconcerting, for a couple of reasons. One, it's blue. For those who prefer not to consume things that are the color of their cousin Clyde that one time he tried to swallow a carrot whole, that might be a bit of a turn-off. Two, it is absolutely frigid. The steel bottles that it's shipped in are often coated in a thick rime of frost that must be hacked off before serving, and the cold magic in the brew must be allowed to sit for at least four minutes before it's warm enough to not be painful going down. All that being said, there isn't a traveler alive who doesn't hope to stumble upon a bottle under the counter in a desert bar.",
+      author: 'Val_Ritz'
+    },
+
+    {
+      name: "Steve's Mead",
+      type: 'Mead',
+      cost: 35,
+      description: "This bottle of mead might have had a label, once, but it appears to have been torn off. In its place, painted directly on the bottle, are the words 'STEVE'S MEAD' in blocky, crude letters. Clearly, Steve is not around to claim his mead, but in his absence the cork appears to be permanently and irrevocably stuck in the mouth of the bottle.",
+      author: 'Val_Ritz'
+    },
+
+    {
+      name: 'Self-important Prick',
+      type: 'Brown ale',
+      cost: 36,
+      description: "The ale inside this bottle isn't terribly unusual, aside from being harsh and bitter. The true draw is the printing on the bottle, which reads 'Self-Important Prick' in white letters. Under the lettering is a rendition of a face--a rendition that changes to reflect whoever the drinker dislikes the most at that particular time. There are allegations that drinking the ale results in heightened animosity toward the depicted person, but it might just be a result of reminding them that that person exists in the first place.",
+      author: 'Val_Ritz'
+    },
+
+    {
+      name: 'Deep Grog',
+      type: 'Blackest Tot',
+      cost: 44,
+      description: "The darkest of naval rum taken from sunken sips mixed with saltwater taken from the pelagic depths of the Elemental Plane of Water. Black and cold, with a syrupy mouth feel. Tastes of brine and molasses with a distinct bitterness. Reserved for first time travelers to The City of Glass, and served as a shot with a still beating fish heart. Also disparagingly known as Aboleth's Piss.",
+      author: 'twocalf'
+    },
+
+    {
+      name: 'Old Polder Genever Gin',
+      type: "Spirit's Spirits",
+      cost: 49,
+      description: "The recipe for this liquor was pulled from the ruins of the necropolis of Polder. Clear or just faintly brown, sweet with juniper and malt. More like a whiskey than a gin. Purportedly aged in oak barrels with a single golden coin taken from the dead city, luck be damned. Said to be able to distract hungry dead by offering shots. Popular gift on Spirt's Eve.",
+      author: 'twocalf'
+    },
+
+    {
+      name: 'Hyperborean Cider',
+      type: 'Bottled Sunshine',
+      cost: 46,
+      description: 'Fermented with juice made from apples collected from the Celestial Plane. Gloriously, radiantly golden, no head, ever, and never sours. Sweet and warm, with hints of clove, cinnamon, and sunrises. You can still get a hangover, don’t believe that myth, and there are few things in the multiverse worse than being hungover on the Celestial Plane. Everyone is singing and everything IS SO VERY BRIGHT.',
+      author: 'twocalf'
+    },
+
+    {
+      name: 'Airak',
+      type: 'Djinn and Juice',
+      cost: 88,
+      description: 'Distilled on the Elemental Plane of Air by the Djinn in a process that uses no machinery, but by captive air elementals controlling the temperatures and pressures while the liquid free floats in the air. Clear when poured but will louche when exposed to normal air pressure. Tastes of licorice, anise, and a warm breeze with a slight bitter aftertaste. Makes you lightheaded, maybe literally. Best mixed.',
+      author: 'twocalf'
+    }
+  ]
+}
 
 setup.getTavernMenu = function (tavern) {
   var bartender = tavern.bartender
@@ -215,10 +377,12 @@ setup.getTavernMenu = function (tavern) {
     },
     { wealthRoll: 20,
       roughnessRoll: 30,
-      note: "There's what can only be described as piss available to drink, and the food isn't much better; other patrons can be seen chewing away at stale pieces of bread."},
+      note: "There's what can only be described as piss available to drink, and the food isn't much better; other patrons can be seen chewing away at stale pieces of bread."
+    },
     { wealthRoll: 10,
       roughnessRoll: 30,
-      note: "There's what can only be described as piss available to drink, and the food isn't much better; other patrons can be seen chewing away at stale pieces of bread."}
+      note: "There's what can only be described as piss available to drink, and the food isn't much better; other patrons can be seen chewing away at stale pieces of bread."
+    }
   ]
   return setup.tavernMenu
 }
@@ -340,7 +504,7 @@ setup.getTavernDraws = function (town, tavern) {
     },
     {
       draw: "proximity to the thieves' guild headquarters",
-      // drawFunction: setup.createFaction({type: "thieves"}),
+      // drawFunction: setup.createFaction({'type': "thieves"}),
       drawFeature: "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, " + tavern.name + " has an issue with <<link '$factionThieves.name'>><<set $currentFaction to $factionThieves>><<goto 'FactionProfile'>><</link>>."
     },
     {

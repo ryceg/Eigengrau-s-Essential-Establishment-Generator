@@ -2,7 +2,6 @@
 <<nobr>>
 <<set $NPCgamer to setup.createNPC()>>
 <<set $NPCgamebanker to setup.createNPC()>>
-<<set $tavern.game to setup.tavernGames.random()>>
 <div class="descriptive">
 <h3>$tavern.game.name</h3>
 $tavern.game.description

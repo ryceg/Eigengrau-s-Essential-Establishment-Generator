@@ -1,5 +1,8 @@
 :: TavernSell [tavern]
-<<nobr>><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>><<linkreplace "<h4>Show me the menu!</h4>">><table>
+<<nobr>>
+<<set _tavern to $currentPassage>>
+<<set _bartender to _tavern.bartender>>
+<<linkreplace "<h4>Show me the menu!</h4>">><table>
 
 	<<if _tavern.wealthRoll > 60 && _tavern.roughnessRoll < 30 or _tavern.wealthRoll > 60 && _bartender.race === "elf">>
 			<<set _dietary to ["veg"]>>
@@ -7,7 +10,6 @@
 			<<set _dietary to ["carni"]>>
 		<<else>>
 			<<set _dietary to ["omni", "veg", "carni"]>>
-			/* <<set _dietary to "omni">> */
 	<</if>>
 	<<switch $town.type>>
 		<<case "city">>
@@ -28,62 +30,7 @@
 	<<for _i, _item range setup.inventory.filter(function (item) { return item.availability <= _availability && item.availabilityLocation.includes("tavern") && _dietary.includes(item.dietary); })>><tr><td>_item.name</td>
 <td><<money _item.cost>></td></tr>
 	<</for>>
-/*
-      <<if $tavern.wealthRoll gt 60 && $tavern.roughnessRoll lt 30 or $tavern.wealthRoll gt 60 && $bartender.race is "elf">>
-      <<switch $town.type>>
-      	<<case "city">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "veg"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "town">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "veg"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "village">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2, item.type === "veg"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "hamlet">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1, item.type === "veg"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>><</switch>>
-<<elseif $tavern.wealthRoll gt 60 && $tavern.roughnessRoll gt 80>>
-      <<switch $town.type>>
-      	<<case "city">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "carni"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "town">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3, item.type === "carni"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "village">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2, item.type === "carni"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "hamlet">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1, item.type === "carni"; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>><</switch>>
-<<else>>
-      <<switch $town.type>>
-      	<<case "city">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "town">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 3; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "village">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 2; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>>
-      	<<case "hamlet">>
-      	<<for _i, _item range $tavern.inventory.filter(function (item) { return item.availability === 1; })>><tr><td>_item.name</td>
-      <td><<money _item.cost>></td></tr>
-      	<</for>><</switch>><</if>> */
-
-				</table><</linkreplace>>
+</table>
+<</linkreplace>>
 
 <</nobr>>
