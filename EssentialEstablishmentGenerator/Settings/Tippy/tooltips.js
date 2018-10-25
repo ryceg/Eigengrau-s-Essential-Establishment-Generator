@@ -8,6 +8,16 @@ setup.profileTooltip = function (id, char) {
   })
 }
 
+setup.itemTooltip = function (id, item) {
+  jQuery(function () {
+    var span = document.getElementById(id)
+    if (span) {
+      span.title = item.description
+      tippy('#' + span.id)
+    }
+  })
+}
+
 setup.profileAgeTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
