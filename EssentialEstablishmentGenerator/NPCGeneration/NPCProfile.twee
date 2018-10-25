@@ -1,5 +1,5 @@
 :: NPCProfile
-<h1><<if def $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name</h1>
+<h1><<if $currentNPC.title>>$currentNPC.title <</if>>$currentNPC.name</h1>
 \<<set _age = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
 \<<set _weight = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileWeightTooltip(_weight, $currentNPC)>>
 \<<set _height = "tip-" + Util.slugify($currentNPC.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
