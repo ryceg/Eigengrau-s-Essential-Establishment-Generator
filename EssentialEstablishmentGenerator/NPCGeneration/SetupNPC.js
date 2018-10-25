@@ -1,3 +1,4 @@
+/* global setup random State dice */
 setup.createNPC = function (base) {
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   var index = State.variables.npcs.size
@@ -43,6 +44,8 @@ setup.createNPC = function (base) {
     wealth: dice(2, 50),
     trait: setup.npcData.trait.random(),
     currentMood: setup.npcData.currentMood,
+    id: Math.floor(Math.random() * 0x100000000),
+    // id: State.variables.npcs.length,
     idle: setup.npcData.idle,
     racePlural: setup.npcData.raceTraits[race].racePlural,
     raceName: setup.npcData.raceTraits[race].raceName,
@@ -52,6 +55,8 @@ setup.createNPC = function (base) {
     reading: setup.npcData.reading.random(),
     pubRumour: setup.createPubRumour()
   }, base)
+  console.groupCollapsed(npc.name)
+
   npc.hair = npc.hairType + ' ' + npc.hairColour + ' hair'
   // npc.availableLanguages = [setup.npcData.standardLanguages.concat(setup.npcData.exoticLanguages) - npc.knownLanguages]
   Object.assign(npc, setup.npcData.gender[npc.gender])
@@ -65,12 +70,11 @@ setup.createNPC = function (base) {
   }
 
   // setup.createName(npc)
-
+  console.log('ageing ' + npc.name + '...')
   setup.createAge(npc)
 
+  console.log('assigning racial traits to ' + npc.name + '...')
   setup.createRace(npc)
-
-
 
   var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
   if (physicalTraitRoll > 8) {
@@ -81,10 +85,13 @@ setup.createNPC = function (base) {
     npc.physicalTrait = npc.hair
   }
 
+  console.log('creating history for ' + npc.name + '...')
   setup.createHistory(npc)
 
+  console.groupCollapsed('creating life events for ' + npc.name + '...')
   setup.createLifeEvents(npc)
 
+  console.log('assigning class traits to ' + npc.name + '...')
   setup.createClass(npc)
   // npc.background = 'sage'
 
@@ -110,6 +117,7 @@ setup.createNPC = function (base) {
   // }
   // var allLanguages = setup.npcData.standardLanguages + setup.npcData.exoticLanguages
 
+  console.log('assigning background traits to ' + npc.name + '...')
   setup.createBackground(npc)
 
   npc.descriptor = [
@@ -131,12 +139,14 @@ setup.createNPC = function (base) {
     State.variables.npcs.set(++index, npc)
   }
 
-  npc.id = State.variables.npcs[State.variables.npcs.length - 1]
-  // npc.id = State.variables.npcs[Math.floor(Math.random() * 0x10000).toString(16)]
+  // npc.id = State.variables.npcs[State.variables.npcs.length - 1]
 
   if (npc.partnerID) {
-    setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
+    console.log('assigning ' + npc.name + ' a partner...')
+    // setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
+    setup.setAsPartners(npc, npc.partnerID)
   }
-
+  console.log(npc)
+  console.groupEnd();
   return npc
 }
