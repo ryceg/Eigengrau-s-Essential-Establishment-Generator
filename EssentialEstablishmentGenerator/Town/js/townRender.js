@@ -1,4 +1,5 @@
 setup.townRender = function (town) {
+  console.log('Rendering ' + town.name + '...')
   town.economicIdeologyIC = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIC
   town.economicIdeologyIST = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIST
   town.politicalIdeologyIC = setup.townData.politicalIdeology[town.politicalIdeology].politicalIdeologyIC

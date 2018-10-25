@@ -2,11 +2,7 @@
 :: StoryInit
 
 <<set $versionNumber to "1.5">>
-/* <<set $npcs to new Map()>>
 
-<<set $factions = new Map()>>
-
-<<set $buildings = new Map()>> */
 <<run State.variables.npcs = new Map()>>
 
 <<run State.variables.factions = new Map()>>
@@ -17,6 +13,37 @@
 
 <<include "SpecialBrew">>
 <<include "Cheese">>
+/*
+<<set $tavern to {
+  name: "Test Tavern",
+  draw: "resident bard",
+  id: 1123,
+  type: "test type"
+}>>
+
+<<set $smithy to {
+  name: "Test Smithy",
+  id: 1125,
+  type: "test type"
+}>>
+<<set $alchemist to {
+  name: "Test Alchemist",
+  id: 112356,
+  type: "test type"
+}>>
+
+<<set $GeneralStore to {
+  name: "Test Store",
+  id: 345761,
+  type: "test type"
+}>>
+<<set $markets to {
+  name: "Test Markets",
+  id: 145634,
+  draw: "fun",
+  type: "test type"
+}>> */
+
 <<include "Tavern">>
 
 <<include "TavernGames">>

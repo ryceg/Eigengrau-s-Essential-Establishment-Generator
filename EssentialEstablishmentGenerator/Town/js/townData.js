@@ -307,7 +307,7 @@ setup.townData = {
       'data': {
         'isFaction': true,
         'leaderType': 'the scholars',
-        'governmentType': 'monks',
+        'governmentType': 'scholars',
         'politicalIdeologyIC': 'pedocratic'
       }
     },
@@ -357,7 +357,7 @@ setup.townData = {
   },
 
   'misc': {
-    'primaryExport': [
+    'primaryCrop': [
       'barley and oats',
       'beans and corn',
       'nuts and olives',
@@ -376,7 +376,7 @@ setup.townData = {
       'leeks',
       'corn',
       'fish'],
-    'primaryCrop': [
+    'primaryExport': [
       'iron ore',
       'copper ore',
       'cobalt ore',

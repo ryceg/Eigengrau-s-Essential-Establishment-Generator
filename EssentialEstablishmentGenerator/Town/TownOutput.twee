@@ -6,7 +6,7 @@ $town.name is located in the $town.terrain $town.location, where the vegetation 
 
 They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSource. The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live a $town.wealth existence. <<print $town.currentEvent.toUpperFirst()>> is currently taking place.
 
-<h3>Government in $town.name</h3><<print setup.getEconomicIdeologyDescription(_town)>> <<print setup.getPoliticalSourceDescription(_town)>>
+<h3>Government in $town.name</h3><<print setup.getEconomicIdeologyDescription($town)>> <<print setup.getPoliticalSourceDescription($town)>>
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 <h3>Factions</h3><<for _i, _faction range $factions>>
 <<link "_faction.name">><<set $currentFaction to _faction>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type guild

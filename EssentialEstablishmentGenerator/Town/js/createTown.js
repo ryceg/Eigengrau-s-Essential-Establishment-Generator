@@ -1,16 +1,26 @@
+/* global setup random */
 setup.createTown = function (base) {
   var type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   var terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
-  var name = setup.createTownName()
-
-  var town = Object.assign({
+  var townName = setup.createTownName()
+  var economicIdeology = setup.townData.type[type].economicIdeology.random()
+  var politicalSource = setup.townData.type[type].politicalSource.random()
+  var politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.random()
+  let town = Object.assign({
     passageName: 'TownOutput',
-    name: name,
+    name: townName,
     type: type,
     terrain: terrain,
     population: setup.townData.type[type].population(),
-    economicIdeology: setup.townData.type[type].economicIdeology.random(),
-    politicalSource: setup.townData.type[type].politicalSource.random(),
+    economicIdeology: economicIdeology,
+    politicalSource: politicalSource,
+    politicalIdeology: politicalIdeology,
+    // get economicIdeologyIC () {
+    //   return setup.townData.type[this.type].economicIdeology[this.economicIdeology].descriptors.economicIdeologyIC
+    // },
+    // set economicIdeologyIC (value) {
+    //   this.economicIdeologyIC = setup.townData.type[this.type].economicIdeology[value].descriptors.economicIdeologyIC
+    // },
     location: setup.townData.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
     primaryExport: setup.townData.misc.primaryExport.random(),
@@ -29,7 +39,7 @@ setup.createTown = function (base) {
     lawRoll: random(1, 100),
     arcanaRoll: random(1, 100)
   }, base)
-
+  console.groupCollapsed(town.name + ' is loading...')
   town.wealthRoll = Math.clamp(town.wealthRoll, 1, 100)
   town.reputationRoll = Math.clamp(town.reputationRoll, 1, 100)
   town.sinRoll = Math.clamp(town.sinRoll, 1, 100)
@@ -46,10 +56,26 @@ setup.createTown = function (base) {
   town.vegetation = setup.townData.terrain[town.terrain][town.location].vegetation.random()
   Object.assign(town, setup.townData.type[town.type].modifiers)
 
-  // town.guard = setup.createGuard(town)
+  console.groupCollapsed('creating the guard...')
+  town.guard = setup.createGuard(town.name)
+  // var guard = {
+  //   name: 'Test Guard'
+  // }
+  // town.guard = guard
+
+  console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
+  // economic ideology attribute modifiers
+  town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].modifiers)
+  // political ideology modifiers
+  console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
+  town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
+
   setup.createSocioPolitics(town)
 
-  // setup.townRender(town)
+  setup.townRender(town)
+
   console.log(town)
+  console.groupEnd()
+  console.log(town.name + ' has loaded.')
   return town
 }
