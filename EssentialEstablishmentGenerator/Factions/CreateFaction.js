@@ -9,6 +9,7 @@ setup.createFaction = function (town, opts) {
     type: type,
     factionNoun: setup.factionData.type[type].factionNoun,
     motivation: setup.factionData.type[type].motivation.random(),
+    membersTrait: setup.factionData.type[type].membersTrait.random(),
     name: setup.nameFaction(town.name, type),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
     influenceRoll: dice(2, 50).clamp(1, 100),
@@ -18,25 +19,37 @@ setup.createFaction = function (town, opts) {
     stabilityRoll: dice(2, 50).clamp(1, 100),
     resourcesRoll: dice(2, 50).clamp(1, 100)
   }, opts))
+  console.groupCollapsed(faction.name + ' the ' + faction.type + ' have loaded.')
 
+  console.log('ageing...')
   setup.ageFaction(faction)
+  console.log('assigning a reputation...')
   setup.reputationFaction(faction)
+  console.log('giving it a size...')
   setup.sizeFaction(town, faction)
+  console.log('assigning influence...')
   setup.influenceFaction(faction)
+  console.log('assigning resources...')
   setup.resourcesFaction(faction)
+  console.log('determining stability...')
   setup.stabilityFaction(faction)
-  console.log(faction.name + ' the ' + faction.type + ' have loaded.')
+  console.log('determining leaders...')
   setup.leaderFaction(town, faction)
+  console.log('determining joining...')
   setup.joinFaction(faction)
-  // setup.membersFaction(faction)
-  faction.membersTrait = setup.factionData.type[faction.type].membersTrait.random()
+  console.log('finding allies...')
   setup.createAllies(faction)
+  console.log('accruing enemies...')
   setup.createRivals(faction)
+  console.log('other cool bits...')
   setup.createMisc(faction)
 
   if (faction.isThrowaway === undefined) {
+    console.log('and finally assigning to the faction roster.')
     State.variables.factions.set(++faction.index, faction)
+  } else {
+    console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
   }
-
+  console.groupEnd()
   return faction
 }

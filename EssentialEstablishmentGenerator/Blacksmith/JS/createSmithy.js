@@ -1,5 +1,6 @@
 setup.createSmithy = function () {
   var smithy = setup.createBuilding()
+  console.groupCollapsed('Smithy loading...')
   smithy.blacksmith = setup.createBlacksmith()
   var blacksmith = smithy.blacksmith
   smithy.passageName = 'SmithyOutput'
@@ -31,5 +32,6 @@ setup.createSmithy = function () {
     default:
       smithy.name = 'The ' + adjective + ' Smithy'
   }
+  console.groupEnd()
   return smithy
 }

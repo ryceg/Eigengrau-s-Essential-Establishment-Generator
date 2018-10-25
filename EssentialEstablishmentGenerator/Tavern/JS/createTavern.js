@@ -1,8 +1,10 @@
+/* global setup */
 setup.createTavern = function (town, opts) {
   opts = opts || {}
   var tavern = (opts['newBuilding'] || setup.createBuilding)(town.name, 'tavern')
 
   tavern.name = setup.createTavernName()
+  console.groupCollapsed(tavern.name)
   var bartender = (opts['newBartender'] || setup.createBartender)(town.name, tavern.name)
   var barmaid = setup.createNPC({
     gender: 'woman',
@@ -18,9 +20,9 @@ setup.createTavern = function (town, opts) {
     passageName: 'TavernOutput',
     wordnoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: shortages,
-    fun: setup.tavernFun,
-    entertainment: setup.tavernEntertainment,
-    patrons: setup.tavernPatrons
+    fun: setup.tavernData.fun.random(),
+    entertainment: setup.tavernData.entertainment.random(),
+    patrons: setup.tavernData.patrons.random()
   })
   Object.assign(tavern, setup.getTavernDraws(town, tavern))
   // console.log(tavern)
@@ -58,5 +60,6 @@ setup.createTavern = function (town, opts) {
   }
   setup.tavernModifiers(town, tavern)
   setup.tavernRender(tavern)
+  console.groupEnd()
   return tavern
 }

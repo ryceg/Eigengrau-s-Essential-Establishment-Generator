@@ -1,6 +1,7 @@
 setup.createGeneralStore = function (town, opts) {
   opts = opts || {}
   var GeneralStore = (opts['newBuilding'] || setup.createBuilding)(town, 'GeneralStore')
+  console.groupCollapsed('General Store loading...')
   var shopkeep = (opts['newShopkeep'] || setup.createNPC)({
     profession: 'merchant',
     mundane: ['pliers', 'tins', 'twine', 'cups', 'spoons', 'pans', 'chairs', 'cushions'],
@@ -11,12 +12,11 @@ setup.createGeneralStore = function (town, opts) {
   // var GeneralStore = setup.createBuilding()
   GeneralStore.passageName = 'GeneralStoreOutput'
   GeneralStore.associatedTown = town || ''
-
-
   GeneralStore.note = setup.getGeneralStoreNote(GeneralStore)
   GeneralStore.crud = setup.GeneralStoreCrud
   GeneralStore.name = setup.createGeneralStoreName(shopkeep)
   setup.GeneralStoreModifiers(town, GeneralStore)
   setup.GeneralStoreRenders(GeneralStore)
+  console.groupEnd()
   return GeneralStore
 }
