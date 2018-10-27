@@ -1,7 +1,7 @@
 /* global setup State dice */
 setup.createBuilding = function (town, type) {
 // Tables used later
-  var index = State.variables.buildings.size
+  var index = State.variables.buildings.length
 
   var road1 = ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'].random()
   var road2 = ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row'].random()
@@ -22,6 +22,7 @@ setup.createBuilding = function (town, type) {
     index: index,
     road: road,
     associatedTown: town,
+    type: type,
     lighting: lighting,
     outside: outside,
     material: material,
@@ -51,23 +52,6 @@ setup.createBuilding = function (town, type) {
   building.cleanlinessRoll = Math.clamp(building.cleanlinessRoll, 1, 100)
   building.expertiseRoll = Math.clamp(building.expertiseRoll, 1, 100)
   building.activityRoll = Math.clamp(building.activityRoll, 1, 100)
-
-  // console.log(building.sizeRoll + ' is the sizeRoll')
-
-  // switch (type) {
-  //   case 'tavern':
-  //     building.name = setup.createTavernName()
-  // }
-
-  // building.sinRoll
-  // building.wealthRoll
-  // building.reputationRoll
-  // building.cleanlinessRoll
-  // building.populationRoll
-  // building.roughnessRoll
-  // building.diversityRoll
-  // building.sizeRoll
-  // building.magicRoll
 
   if (building.sizeRoll > 80) {
     building.size = 'huge'
@@ -218,10 +202,11 @@ setup.createBuilding = function (town, type) {
   }
   // console.log(building)
   if (building.isThrowaway === undefined) {
-    State.variables.buildings.set(++index, building)
+    // State.variables.buildings.set(++index, building)
+    State.variables.buildings.push(building)
   }
 
-  building.id = State.variables.buildings[State.variables.buildings.length - 1]
+  // building.id = State.variables.buildings[State.variables.buildings.length - 1]
   // console.log(building)
   return building
 }
