@@ -448,7 +448,8 @@ setup.townData = {
       'a violent uprising',
       'a wedding or wedding anniversary',
       'a travelling carnival'],
-    'microEvent': ["a gnarled old man offers to sell you a 'lucky' trinket for a gold coin",
+    'microEvent': [
+      "a gnarled old man offers to sell you a 'lucky' trinket for a gold coin",
       'a young boy wants to see a demonstration of your weapon',
       'a little girl is crying because she broke her favorite toy',
       'a little gem falls out of the pocket of the man walking ahead of you',
