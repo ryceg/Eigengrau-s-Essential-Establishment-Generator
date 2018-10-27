@@ -1,7 +1,7 @@
 :: TavernGames
 <<nobr>>
-<<set $NPCgamer to setup.createNPC()>>
-<<set $NPCgamebanker to setup.createNPC()>>
+<<set $NPCgamer to setup.createShallow()>>
+<<set $NPCgamebanker to setup.createShallow()>>
 <div class="descriptive">
 <h3>$tavern.game.name</h3>
 $tavern.game.description

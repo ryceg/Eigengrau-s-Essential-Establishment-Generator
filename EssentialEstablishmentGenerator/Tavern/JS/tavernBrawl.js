@@ -21,7 +21,7 @@ guardRoll -= 10
   if (guardRoll >= 50) {
     tavern.guardPresent = true
     brawlRoll -= 20
-    var tavernGuard = setup.createNPC({dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random()})
+    var tavernGuard = setup.createShallow({dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random()})
   } else {
     tavern.guardPresent = false
   }
@@ -32,7 +32,7 @@ guardRoll -= 10
     brawlRoll += 13
   } else if (tavern.populationRoll > 60) {
     brawlRoll += 11
-  } else if (tavern.populationRoll > 60) {
+  } else if (tavern.populationRoll > 55) {
     brawlRoll += 8
   } else if (tavern.populationRoll > 50) {
     brawlRoll += 0
@@ -52,7 +52,7 @@ guardRoll -= 10
     brawlRoll += 13
   } else if (tavern.roughnessRoll > 60) {
     brawlRoll += 11
-  } else if (tavern.roughnessRoll > 60) {
+  } else if (tavern.roughnessRoll > 55) {
     brawlRoll += 8
   } else if (tavern.roughnessRoll > 50) {
     brawlRoll += 0
@@ -68,8 +68,8 @@ guardRoll -= 10
 
   if (brawlRoll > 50) {
     tavern.hasBrawl = true
-    var brawlInstigator = setup.createNPC({gender: ['man', 'man', 'man', 'woman'].random()})
-    var brawlResponder = setup.createNPC({gender: ['man', 'man', 'man', 'woman'].random()})
+    var brawlInstigator = setup.createShallow({gender: ['man', 'man', 'man', 'woman'].random()})
+    var brawlResponder = setup.createShallow({gender: ['man', 'man', 'man', 'woman'].random()})
     tavern.brawl = {
       start: [
         'It seems that the ' + brawlInstigator.descriptor.random() + ' that is currently wrestling with the ' + brawlResponder.descriptor.random() + ' because of ',

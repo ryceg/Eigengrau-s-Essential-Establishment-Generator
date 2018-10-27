@@ -1,12 +1,12 @@
 /* global setup */
 setup.createTavern = function (town, opts) {
   opts = opts || {}
-  var tavern = (opts['newBuilding'] || setup.createBuilding)(town.name, 'tavern')
+  var tavern = (opts['newBuilding'] || setup.createBuilding)(town, 'tavern')
 
   tavern.name = setup.createTavernName()
   console.groupCollapsed(tavern.name)
   var bartender = (opts['newBartender'] || setup.createBartender)(town.name, tavern.name)
-  var barmaid = setup.createNPC({
+  var barmaid = setup.createShallow({
     gender: 'woman',
     background: 'commoner',
     hasClass: false,
