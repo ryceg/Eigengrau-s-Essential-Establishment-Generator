@@ -1,3 +1,4 @@
+/* global setup State */
 setup.createAdventure = function (base) {
 // Tables used later
 
@@ -105,21 +106,21 @@ setup.createAdventure = function (base) {
 
       switch (adventure.villain) {
         case 'giant bent on plunder':
-          adventureVillain = setup.createNPC({height: 'huge', race: 'giant'})
+          adventureVillain = setup.createNPC({ height: 'huge', race: 'giant' })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain
           })
           break
         case 'fey with a mysterious goal':
-          adventureVillain = setup.createNPC({race: 'fey'})
+          adventureVillain = setup.createNPC({ race: 'fey' })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain
           })
           break
         case 'humanoid cultist':
-          adventureVillain = setup.createNPC({dndClass: ['cleric', 'sorcerer', 'wizard'].random()})
+          adventureVillain = setup.createNPC({ dndClass: ['cleric', 'sorcerer', 'wizard'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain,
@@ -127,7 +128,7 @@ setup.createAdventure = function (base) {
           })
           break
         case 'humanoid conqueror':
-          adventureVillain = setup.createNPC({dndClass: ['barbarian', 'fighter', 'paladin'].random()})
+          adventureVillain = setup.createNPC({ dndClass: ['barbarian', 'fighter', 'paladin'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain,
@@ -143,7 +144,7 @@ setup.createAdventure = function (base) {
           })
           break
         case 'humanoid schemer seeking to rule':
-          adventureVillain = setup.createNPC({dndClass: ['sorcerer', 'rogue'].random()})
+          adventureVillain = setup.createNPC({ dndClass: ['sorcerer', 'rogue'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain,
@@ -151,7 +152,7 @@ setup.createAdventure = function (base) {
           })
           break
         case 'humanoid criminal mastermind':
-          adventureVillain = setup.createNPC({dndClass: ['sorcerer', 'rogue'].random()})
+          adventureVillain = setup.createNPC({ dndClass: ['sorcerer', 'rogue'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain,
@@ -159,7 +160,7 @@ setup.createAdventure = function (base) {
           })
           break
         case 'humanoid raider or ravager':
-          adventureVillain = setup.createNPC({dndClass: ['barbarian', 'fighter'].random()})
+          adventureVillain = setup.createNPC({ dndClass: ['barbarian', 'fighter'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain,
@@ -175,7 +176,7 @@ setup.createAdventure = function (base) {
           })
           break
         case 'misguided humanoid zealot':
-          adventureVillain = setup.createNPC({dndClass: 'cleric'})
+          adventureVillain = setup.createNPC({ dndClass: 'cleric' })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain: adventureVillain,
@@ -191,49 +192,49 @@ setup.createAdventure = function (base) {
 
           switch (adventure.ally) {
             case 'young adventurer':
-              adventureAlly = setup.createNPC({age: 'relatively young'})
+              adventureAlly = setup.createNPC({ age: 'relatively young' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
               })
               break
             case 'enthusiastic commoner':
-              adventureAlly = setup.createNPC({dndClass: 'peasant'})
+              adventureAlly = setup.createNPC({ dndClass: 'peasant' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
               })
               break
             case 'soldier':
-              adventureAlly = setup.createNPC({dndClass: 'fighter', background: 'soldier'})
+              adventureAlly = setup.createNPC({ dndClass: 'fighter', background: 'soldier' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
               })
               break
             case 'priest':
-              adventureAlly = setup.createNPC({dndClass: 'cleric'})
+              adventureAlly = setup.createNPC({ dndClass: 'cleric' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
               })
               break
             case 'sage':
-              adventureAlly = setup.createNPC({dndClass: ['cleric', 'monk', 'druid', 'wizard'].random(), background: 'sage'})
+              adventureAlly = setup.createNPC({ dndClass: ['cleric', 'monk', 'druid', 'wizard'].random(), background: 'sage' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
               })
               break
             case 'celestial ally':
-              adventureAlly = setup.createNPC({race: 'celestial being'})
+              adventureAlly = setup.createNPC({ race: 'celestial being' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
               })
               break
             case 'fey ally':
-              adventureAlly = setup.createNPC({race: 'fey'})
+              adventureAlly = setup.createNPC({ race: 'fey' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly: adventureAlly
@@ -250,63 +251,63 @@ setup.createAdventure = function (base) {
 
           switch (adventure.patron) {
             case 'retired adventurer':
-              adventurePatron = setup.createNPC({adventure: 'retired'})
+              adventurePatron = setup.createNPC({ adventure: 'retired' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'local ruler':
-              adventurePatron = setup.createNPC({dndClass: 'lord'})
+              adventurePatron = setup.createNPC({ dndClass: 'lord' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'military officer':
-              adventurePatron = setup.createNPC({dndClass: ['fighter', 'paladin'].random(), background: 'soldier'})
+              adventurePatron = setup.createNPC({ dndClass: ['fighter', 'paladin'].random(), background: 'soldier' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'temple official':
-              adventurePatron = setup.createNPC({dndClass: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage'})
+              adventurePatron = setup.createNPC({ dndClass: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'sage':
-              adventurePatron = setup.createNPC({dndClass: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage'})
+              adventurePatron = setup.createNPC({ dndClass: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'respected elder':
-              adventurePatron = setup.createNPC({age: 'venerable'})
+              adventurePatron = setup.createNPC({ age: 'venerable' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'deity or celestial':
-              adventurePatron = setup.createNPC({race: 'celestial being'})
+              adventurePatron = setup.createNPC({ race: 'celestial being' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'mysterious fey':
-              adventurePatron = setup.createNPC({race: 'fey'})
+              adventurePatron = setup.createNPC({ race: 'fey' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
               })
               break
             case 'former teacher':
-              adventurePatron = setup.createNPC({age: 'venerable'})
+              adventurePatron = setup.createNPC({ age: 'venerable' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron: adventurePatron
