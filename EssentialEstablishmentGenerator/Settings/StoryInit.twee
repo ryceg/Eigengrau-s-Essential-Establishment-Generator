@@ -2,16 +2,15 @@
 :: StoryInit
 
 <<set $versionNumber to "1.5">>
+<<set Config.history.maxStates to 50>>
 
-<<run State.variables.npcs = new Map()>>
-
-<<run State.variables.factions = new Map()>>
-
-<<run State.variables.buildings = new Map()>>
+<<set $towns to []>>
+<<set $factions to []>>
+<<set $buildings to []>>
+<<set $npcs to []>>
 
 <<include "Town">>
 
-<<include "SpecialBrew">>
 <<include "Cheese">>
 /*
 <<set $tavern to {
@@ -43,10 +42,7 @@
   draw: "fun",
   type: "test type"
 }>> */
-
-<<include "Tavern">>
-
-<<include "TavernGames">>
+<<include "Books">>
 
 <<include "PatreonCharacters">>
 
@@ -56,12 +52,12 @@
 
 <<include "Newspaper">>
 
+<<include "Tavern">>
+
 <<include "Alchemist">>
 
 <<include "Smithy">>
 
 <<include "GeneralStore">>
-
-<<include "Books">>
 
 <<include "Markets">>
