@@ -1,4 +1,0 @@
-:: Mercenaries
-
-<<set $mercenary to setup.createMercenaries()>>
-<<set $mercenaryCaptain to $mercenary.captain>>

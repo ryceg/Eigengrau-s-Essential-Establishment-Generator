@@ -1,4 +1,4 @@
-Roll:: Temple
+:: Temple
 
 <<set $temple to setup.createTemple()>>
 <<set $priest to setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "cleric", "druid"), background: either("acolyte", "acolyte", "acolyte", "acolyte", "sage", "sage", "sage"), profession: "priest"})>>

@@ -1,5 +1,6 @@
 /* global setup */
 setup.createGuard = function (townName) {
+  console.groupCollapsed('creating the guard...')
   // console.log(townName + ' is the townName passed to the guard.')
   var guard = {
     captain: setup.createNPC({
@@ -9,7 +10,6 @@ setup.createGuard = function (townName) {
     passageName: 'GuardOutput',
     livery: setup.guardData.primaryColours.random() + ' and ' + setup.guardData.secondaryColours.random() + ' livery adorned with an image of ' + setup.guardData.insignia.random()
   }
-  console.log(guard)
 
   var nameRoll = random(1, 8)
   console.log('nameRoll is ' + nameRoll)
@@ -31,6 +31,6 @@ setup.createGuard = function (townName) {
     guard.name = 'The ' + setup.guardData.name.group.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + townName
   }
   console.log(guard.name + ' is the name of the guard.')
-  console.groupEnd()
+  console.groupEnd();
   return guard
 }

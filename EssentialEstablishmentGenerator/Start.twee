@@ -6,8 +6,8 @@
 <<include "StartTippy">>
 <</nobr>>
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
-
-<<if $tavern.type is "brothel">><<print "Along $tavern.road is the tavern and brothel, ">><<else>><<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><</if>><span @id="$testPub" class="tip"><<link "$tavern.name">><<set $currentPassage to $tavern>>
+<<set _town to $town>>
+<<if $tavern.type is "brothel">><<print "Along $tavern.road is the tavern and brothel, ">><<else>><<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><</if>><span @id="$tavern" class="tip"><<link "$tavern.name">><<set $currentPassage to $tavern>>
     <<if settings.showSliders is false>>
         <<set $currentPassage to $tavern>>
         <<goto "TavernOutput">>
@@ -17,14 +17,21 @@
 <</link>></span>
 
 Down from $tavern.road are the <span @id="_markets" class="tip">[[markets|MarketOutput]]</span>
-
-<<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><span @id="_smithy" class="tip"><<link "$smithy.name">><<set $currentPassage to $smithy>>
+<<for _i, _smithy range $buildings.filter(function (smithy) { return smithy.type.includes('smithy')})>>
+<<print either(
+  "On " + _smithy.road + " is the blacksmith ",
+  "Along " + _smithy.road + " is the blacksmithery ",
+  "Over on " + _smithy.road + " is the smith ")>>
+  <span @id="_smithy" class="tip">
+  <<link "_smithy.name">><<set $currentPassage to _smithy>>
     <<if settings.showSliders is false>>
-        <<set $currentPassage to $smithy>><<goto "SmithyOutput">>
+        <<set $currentPassage to _smithy>>
+        <<goto "SmithyOutput">>
       <<else>>
         <<goto "InitSmithy">>
     <</if>>
   <</link>></span>
+  <</for>>
 
 <<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>><span @id="_generalStore" class="tip"><<link "$GeneralStore.name">><<set $currentPassage to $GeneralStore>>
     <<if settings.showSliders is true>>
