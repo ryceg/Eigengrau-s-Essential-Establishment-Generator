@@ -1,5 +1,6 @@
+/* global setup */
 setup.createAlchemist = function (town, opts) {
-  opts = opts || {};
+  opts = opts || {}
   var alchemist = (opts['newBuilding'] || setup.createBuilding)(town.name, 'alchemist')
   console.groupCollapsed('Alchemist loading...')
   alchemist.chemist = (opts['newBartender'] || setup.createChemist)(town.name)
@@ -10,4 +11,4 @@ setup.createAlchemist = function (town, opts) {
   setup.alchemistRenders(alchemist)
   console.groupEnd()
   return alchemist
-};
+}

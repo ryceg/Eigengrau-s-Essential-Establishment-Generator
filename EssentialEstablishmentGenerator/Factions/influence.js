@@ -1,3 +1,4 @@
+/* global setup */
 setup.influenceFaction = function (faction) {
   if (faction.ageRoll > 95) {
     faction.influenceRoll += Math.fm(faction.influenceRoll, 15)

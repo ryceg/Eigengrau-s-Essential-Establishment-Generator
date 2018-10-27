@@ -1,3 +1,4 @@
+/* global setup tippy jQuery settings */
 setup.profileTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)

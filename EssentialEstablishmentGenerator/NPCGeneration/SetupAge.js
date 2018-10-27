@@ -1,5 +1,20 @@
+/* global setup */
 setup.createAge = function (npc) {
   // npc.ageYears = setup.npcData.ageTraits[npc.ageStage].baseAge + setup.npcData.ageTraits[npc.ageStage].ageModifier()
+  console.log('ageing ' + npc.name + '...')
+  // npc.age = 'test'
+  // setup.getAge = function (npc) {
+  //   if (npc.ageYears >= setup.npcData.raceTraits[npc.race].ageTraits.ageDescriptors[0]) {
+  //     return setup.npcData.raceTraits[npc.race].ageTraits.ageDescriptors[1]
+  //   }
+  // }
+  //
+  // if (typeof setup.npcData.raceTraits[npc.race].ageTraits.ageDescriptors !== 'undefined') {
+  //   var descriptors = setup.npcData.raceTraits[npc.race].ageTraits.ageDescriptors
+  //   descriptors.forEach(setup.getAge(npc))
+  // } else {
+  //   console.log('Called age descriptor without a valid array.')
+  // }
 
   switch (npc.race) {
     case 'human':

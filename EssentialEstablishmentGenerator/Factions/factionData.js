@@ -1,3 +1,4 @@
+/* global setup */
 setup.factionData = {
   'type': {
     'artisans': {

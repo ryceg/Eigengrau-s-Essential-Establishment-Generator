@@ -1,3 +1,4 @@
+/* global setup */
 setup.getSmithyLookAround = function (smithy) {
   var blacksmith = smithy.blacksmith
   setup.smithyLookAround = [
@@ -46,7 +47,6 @@ setup.getSmithyLookAround = function (smithy) {
 }
 
 setup.getSmithyExpertise = function (smithy) {
-  var blacksmith = smithy.blacksmith
   setup.smithyExpertise = [
     {
       expertiseRoll: 80,

@@ -1,3 +1,4 @@
+/* global setup */
 setup.alchemistRenders = function (alchemist) {
   if (alchemist.wealthRoll > 95) {
     alchemist.wealth = 'kingly'

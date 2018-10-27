@@ -1,3 +1,4 @@
+/* global setup */
 setup.createTemple = function (base) {
   var prayerSubject = [
     'one god and only one god',

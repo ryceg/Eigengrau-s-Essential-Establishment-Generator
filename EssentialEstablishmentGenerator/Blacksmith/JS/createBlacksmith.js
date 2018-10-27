@@ -1,3 +1,4 @@
+/* global setup */
 setup.createBlacksmith = function () {
   var blacksmith = setup.createNPC({
     dndClass: 'blacksmith',

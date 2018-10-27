@@ -1,5 +1,5 @@
+/* global setup */
 setup.createShallow = function (base) {
-
   var gender = ['man', 'woman'].random()
   var race = setup.npcData.race.random()
   var firstName = setup.npcData.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()

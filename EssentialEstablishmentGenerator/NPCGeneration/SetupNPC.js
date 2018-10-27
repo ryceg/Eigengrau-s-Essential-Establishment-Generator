@@ -1,9 +1,10 @@
-/* global setup random State dice */
+/* global setup State dice */
 setup.createNPC = function (base) {
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
-  var index = State.variables.npcs.size
-  var gender = ['man', 'woman'].random()
-  var race = setup.npcData.race.random()
+  var genderStart = ['man', 'woman'].random()
+  var gender = genderStart /* to make the setters and getters work. Change in future.  */
+  var raceName = setup.npcData.race.random()
+  var race = raceName
   var firstName = setup.npcData.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   var lastName = setup.npcData.raceTraits[race].lastName.random().toUpperFirst()
   var ageStage = ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
@@ -11,8 +12,8 @@ setup.createNPC = function (base) {
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   var npc = Object.assign({
-    gender: gender,
-    race: race,
+    genderStart: genderStart,
+    raceName: raceName,
     firstName: firstName,
     lastName: lastName,
     get name () {
@@ -24,13 +25,30 @@ setup.createNPC = function (base) {
       this.lastName = words[1] || ''
     },
     ageYears: setup.npcData.raceTraits[race].ageTraits[ageStage].baseAge + setup.npcData.raceTraits[race].ageTraits[ageStage].ageModifier(),
+    // get age () {
+    //     if (typeof setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors !== 'undefined') {
+    //       var descriptors = setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors
+    //       descriptors.forEach(getAge)
+    //     } else {
+    //       console.log('Called age descriptor without a valid array.')
+    //     }
+    //   }
+    // },
+    // set age (ageYears) {
+    //   if (typeof setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors !== 'undefined') {
+    //     var descriptors = setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors
+    //     descriptors.forEach(getAge)
+    //   } else {
+    //     console.log('Called age descriptor without a valid array.')
+    //   }
+    // },
     muscleMass: setup.npcData.raceTraits[race].muscleMass + dice(5, 4) - 12,
-    demeanour: setup.npcData.demeanour.random(),
+    // demeanour: setup.npcData.demeanour.random(),
     calmTrait: setup.npcData.calmTrait.random(),
     stressTrait: setup.npcData.stressTrait.random(),
-    value: setup.npcData.value.random(),
-    drive: setup.npcData.drive.random(),
-    belief: setup.npcData.belief.random(),
+    // value: setup.npcData.value.random(),
+    // drive: setup.npcData.drive.random(),
+    // belief: setup.npcData.belief.random(),
     adventure: setup.npcData.adventure.random(),
     hairColour: setup.npcData.hairColour.random(),
     hairType: setup.npcData.hairType.random(),
@@ -43,14 +61,30 @@ setup.createNPC = function (base) {
     pockets: setup.npcData.pockets.random(),
     wealth: dice(2, 50),
     trait: setup.npcData.trait.random(),
-    currentMood: setup.npcData.currentMood,
-    id: Math.floor(Math.random() * 0x100000000),
+    // currentMood: setup.npcData.currentMood,
+    id: State.variables.npcs[State.variables.npcs.length - 1],
+    shallow: false,
     // id: State.variables.npcs.length,
     idle: setup.npcData.idle,
-    racePlural: setup.npcData.raceTraits[race].racePlural,
-    raceName: setup.npcData.raceTraits[race].raceName,
-    raceAdjective: setup.npcData.raceTraits[race].raceAdjective,
-    raceLanguage: setup.npcData.raceTraits[race].raceLanguage,
+    get gender () {
+      return this.genderStart
+    },
+    set gender (gender) {
+      Object.assign(npc, setup.npcData.gender[gender])
+    },
+    get race () {
+      return this.raceName
+    },
+    set race (race) {
+      this.racePlural = setup.npcData.raceTraits[race].racePlural
+      this.raceName = setup.npcData.raceTraits[race].raceName
+      this.raceAdjective = setup.npcData.raceTraits[race].raceAdjective
+      this.raceLanguage = setup.npcData.raceTraits[race].raceLanguage
+    },
+    // racePlural: setup.npcData.raceTraits[race].racePlural,
+    // raceName: setup.npcData.raceTraits[race].raceName,
+    // raceAdjective: setup.npcData.raceTraits[race].raceAdjective,
+    // raceLanguage: setup.npcData.raceTraits[race].raceLanguage,
     knownLanguages: setup.npcData.raceTraits[race].knownLanguages,
     reading: setup.npcData.reading.random(),
     pubRumour: setup.createPubRumour()
@@ -59,7 +93,6 @@ setup.createNPC = function (base) {
 
   npc.hair = npc.hairType + ' ' + npc.hairColour + ' hair'
   // npc.availableLanguages = [setup.npcData.standardLanguages.concat(setup.npcData.exoticLanguages) - npc.knownLanguages]
-  Object.assign(npc, setup.npcData.gender[npc.gender])
 
   if (!npc.hasClass) {
     npc.dndClass = npc.profession
@@ -70,10 +103,9 @@ setup.createNPC = function (base) {
   }
 
   // setup.createName(npc)
-  console.log('ageing ' + npc.name + '...')
+
   setup.createAge(npc)
 
-  console.log('assigning racial traits to ' + npc.name + '...')
   setup.createRace(npc)
 
   var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
@@ -85,59 +117,15 @@ setup.createNPC = function (base) {
     npc.physicalTrait = npc.hair
   }
 
-  console.log('creating history for ' + npc.name + '...')
   setup.createHistory(npc)
 
-  console.groupCollapsed('creating life events for ' + npc.name + '...')
   setup.createLifeEvents(npc)
 
-  console.log('assigning class traits to ' + npc.name + '...')
   setup.createClass(npc)
-  // npc.background = 'sage'
 
-  // setup.newLanguage = function (npc) {
-  //   var allLanguages = setup.npcData.standardLanguages + setup.npcData.exoticLanguages
-  //   console.log(allLanguages + ' is all the languages')
-  //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
-  //   console.log(availableLanguages + ' are available languages for ' + npc.name)
-  //   // console.log('Invoked new language for ' + npc.name + ' who knows ' + npc.knownLanguages)
-  //   return availableLanguages.pluck()
-  // }
-  //
-  // if (setup.npcData.backgroundTraits[npc.background].extraLanguage === true) {
-  //   console.log(npc.name + ' knows ' + npc.knownLanguages)
-  //   var langLength = npc.knownLanguages.length
-  //   npc.knownLanguages.pushUnique(setup.newLanguage(npc))
-  //   while (npc.langLength >= npc.knownLanguages.length) {
-  //     console.log('Fetching a new language for ' + npc.name + '...')
-  //     npc.knownLanguages.pushUnique(setup.newLanguage(npc))
-  //   }
-  //   console.log('New language for ' + npc.name + '! Now they know ' + npc.knownLanguages)
-  //   console.log(npc)
-  // }
-  // var allLanguages = setup.npcData.standardLanguages + setup.npcData.exoticLanguages
-
-  console.log('assigning background traits to ' + npc.name + '...')
   setup.createBackground(npc)
 
-  npc.descriptor = [
-    npc.age + ' ' + npc.raceName,
-    npc.height + ' ' + npc.raceName,
-    npc.weight + ' ' + npc.raceName,
-    npc.height + ' ' + npc.gender + ' with ' + npc.physicalTrait
-  ]
-
-  if (typeof beard !== 'undefined') {
-    npc.descriptor.push(npc.raceName + ' with a ' + npc.beard)
-  }
-
-  if (npc.hasClass === true) {
-    npc.descriptor.push(npc.dndClass)
-  }
-
-  if (npc.isThrowaway === undefined) {
-    State.variables.npcs.set(++index, npc)
-  }
+  setup.createDescriptors(npc)
 
   // npc.id = State.variables.npcs[State.variables.npcs.length - 1]
 
@@ -145,6 +133,11 @@ setup.createNPC = function (base) {
     console.log('assigning ' + npc.name + ' a partner...')
     // setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
     setup.setAsPartners(npc, npc.partnerID)
+  }
+
+  if (npc.isThrowaway === undefined) {
+    // State.variables.npcs.set(++index, npc)
+    State.variables.npcs.push(npc)
   }
   console.log(npc)
   console.groupEnd();

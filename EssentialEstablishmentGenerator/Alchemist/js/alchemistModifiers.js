@@ -1,3 +1,4 @@
+/* global setup */
 setup.alchemistModifiers = function (alchemist) {
   if (alchemist.sizeRoll > 80) {
     alchemist.size = 'huge'

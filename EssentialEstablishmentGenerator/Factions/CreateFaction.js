@@ -1,3 +1,4 @@
+/* global setup dice State */
 setup.createFaction = function (town, opts) {
   opts = opts || {}
   var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()

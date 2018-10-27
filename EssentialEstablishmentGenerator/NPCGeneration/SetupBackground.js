@@ -1,14 +1,15 @@
+/* global setup */
 setup.createBackground = function (npc) {
   console.log('assigning background traits to ' + npc.name + '...')
   var backgroundOrigin
   var bond
   if (typeof setup.npcData.backgroundTraits[npc.background] !== 'undefined') {
     backgroundOrigin = Array.isArray(setup.npcData.backgroundTraits[npc.background].backgroundOrigin)
-    ? setup.npcData.backgroundTraits[npc.background].backgroundOrigin.random()
-    : setup.npcData.backgroundTraits['commoner'].backgroundOrigin.random()
+      ? setup.npcData.backgroundTraits[npc.background].backgroundOrigin.random()
+      : setup.npcData.backgroundTraits['commoner'].backgroundOrigin.random()
     bond = Array.isArray(setup.npcData.backgroundTraits[npc.background].bond)
-    ? setup.npcData.backgroundTraits[npc.background].bond.random()
-    : setup.npcData.backgroundTraits['commoner'].bond.random()
+      ? setup.npcData.backgroundTraits[npc.background].bond.random()
+      : setup.npcData.backgroundTraits['commoner'].bond.random()
   } else {
     console.log(npc.name + "'s background of " + npc.background + ' was not valid.')
     backgroundOrigin = setup.npcData.backgroundTraits['commoner'].backgroundOrigin.random()

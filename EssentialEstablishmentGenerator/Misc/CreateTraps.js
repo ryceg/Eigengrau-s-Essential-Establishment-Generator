@@ -1,15 +1,16 @@
+/* global setup */
 setup.createTrap = function (base) {
   var type = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
-  var twist = ['trap was never reset. Nothing dangerous happens',
-    'the trap does multiple things, roll twice on the effect table',
-    'enemies in the room knowingly trigger the trap and then run from it',
-    'enemies can be overheard talking about how useless the trap is',
-    'an enemy has a list of traps and how to avoid them',
-    'there is a dummy trigger, drawing attention away from the real trigger',
-    'illusion magic is used to disguise all of the triggers',
-    'enemies are foolish enough to be lured into their own traps',
-    'the trap fails, but not before scaring the pants off the party',
-    'delay of ten seconds. Count out loud' ].random()
+  // var twist = ['trap was never reset. Nothing dangerous happens',
+  //   'the trap does multiple things, roll twice on the effect table',
+  //   'enemies in the room knowingly trigger the trap and then run from it',
+  //   'enemies can be overheard talking about how useless the trap is',
+  //   'an enemy has a list of traps and how to avoid them',
+  //   'there is a dummy trigger, drawing attention away from the real trigger',
+  //   'illusion magic is used to disguise all of the triggers',
+  //   'enemies are foolish enough to be lured into their own traps',
+  //   'the trap fails, but not before scaring the pants off the party',
+  //   'delay of ten seconds. Count out loud' ].random()
 
   var trap = Object.assign({
     type: type.random()

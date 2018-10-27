@@ -1,3 +1,4 @@
+/* global setup */
 setup.getAlchemistPriceTalk = function (alchemist) {
   setup.alchemistPriceTalk = [
     {

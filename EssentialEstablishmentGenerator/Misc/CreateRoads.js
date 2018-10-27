@@ -1,8 +1,10 @@
+/* global setup */
 setup.createRoad = function (base) {
   var type = ['trail', 'path', 'path', 'road', 'road', 'road']
-  var noEncounter
+  var noEncounter = [true, true, true, false, false].random()
   var road = Object.assign({
-    type: type.random()
+    type: type.random(),
+    noEncounter: noEncounter
   }, base)
 
   switch (road.type) {
@@ -28,9 +30,7 @@ setup.createRoad = function (base) {
       })
   }
 
-  if (typeof noEncounter === 'undefined') {
-    road.output = ['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.descriptiveType + ', ' + road.traffic + [[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), '. ' + ['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()].random() + road.encounter + '.'
-  } else if (noEncounter === true) {
+  if (noEncounter === true) {
     road.output = ['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.descriptiveType + ', ' + road.traffic + '.'
   } else {
     road.output = ['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.descriptiveType + ', ' + road.traffic + [[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), '. ' + ['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()].random() + road.encounter + '.'

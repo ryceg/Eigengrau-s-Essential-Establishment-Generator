@@ -1,3 +1,4 @@
+/* global setup dice */
 setup.createAlchemistName = function (chemistFirstName) {
   var alchemistNameRoll = dice(1, 5)
   var name
@@ -10,7 +11,7 @@ setup.createAlchemistName = function (chemistFirstName) {
       name = 'The ' + adjective + ' ' + noun
       break
     case 2:
-      name = chemistFirstName + ' and ' + adjective2 || 'The ' + noun + ' and ' + adjective2
+      name = chemistFirstName + ' and ' + adjective2
       // name = 'The ' + adjective + ' ' + noun
       break
     case 3:
