@@ -6,5 +6,5 @@
     <<notify 5000>>Want to get straight to the action, sans slider screen? They're currently set to <<print settings.showSliders>>. You can change them in the settings.<</notify>>
 <</if>>
 <<if random(1, 99) gt 50>>
-  <blockquote>As you make your way along $currentPassage.road, <<print setup.townMicroEvents.random()>></blockquote>
+  <blockquote>As you make your way along $currentPassage.road, <<print setup.townData.misc.microEvent.random()>></blockquote>
 <</if>><</nobr>>
