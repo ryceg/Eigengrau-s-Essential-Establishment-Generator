@@ -46,7 +46,7 @@ setup.createFaction = function (town, opts) {
 
   if (faction.isThrowaway === undefined) {
     console.log('and finally assigning to the faction roster.')
-    State.variables.factions.set(++faction.index, faction)
+    State.variables.factions.push(faction)
   } else {
     console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
   }
