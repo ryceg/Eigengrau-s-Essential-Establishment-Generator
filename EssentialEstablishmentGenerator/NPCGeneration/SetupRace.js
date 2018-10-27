@@ -1,4 +1,5 @@
 setup.createRace = function (npc) {
+  console.log('assigning racial traits to ' + npc.name + '...')
   if (random(1, 100) >= setup.npcData.raceTraits[npc.race].genderTraits[npc.gender].beardProbability) {
     npc.beard = setup.npcData.raceTraits[npc.race].beard.random()
   }

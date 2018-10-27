@@ -1,4 +1,5 @@
 setup.createBackground = function (npc) {
+  console.log('assigning background traits to ' + npc.name + '...')
   var backgroundOrigin
   var bond
   if (typeof setup.npcData.backgroundTraits[npc.background] !== 'undefined') {
@@ -15,11 +16,11 @@ setup.createBackground = function (npc) {
   }
   npc.backgroundOrigin = npc.backgroundOrigin || backgroundOrigin
   npc.bond = npc.bond || bond
-  npc.wealth += dice(2, 50)
+  // npc.wealth += dice(2, 50)
   // npc.wealth += typeof setup.npcData.classTraits[npc.background].wealth === 'function'
   //   ? setup.npcData.backgroundTraits[npc.background].wealth()
   //   : dice(2, 50)
-
+  //
   // npc.knownLanguages += typeof setup.npcData.classTraits[npc.background].knownLanguages === 'function'
   //   ? setup.npcData.backgroundTraits[npc.background].knownLanguages()
   //   : dice(2, 50)
