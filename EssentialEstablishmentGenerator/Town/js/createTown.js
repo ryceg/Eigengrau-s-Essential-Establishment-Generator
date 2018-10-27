@@ -56,12 +56,7 @@ setup.createTown = function (base) {
   town.vegetation = setup.townData.terrain[town.terrain][town.location].vegetation.random()
   Object.assign(town, setup.townData.type[town.type].modifiers)
 
-  console.groupCollapsed('creating the guard...')
   town.guard = setup.createGuard(town.name)
-  // var guard = {
-  //   name: 'Test Guard'
-  // }
-  // town.guard = guard
 
   console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
   // economic ideology attribute modifiers
@@ -75,7 +70,7 @@ setup.createTown = function (base) {
   setup.townRender(town)
 
   console.log(town)
-  console.groupEnd()
+  console.groupEnd();
   console.log(town.name + ' has loaded.')
   return town
 }
