@@ -112,7 +112,7 @@ setup.createLifeEvents = function (npc) {
       } else {
         npc.partnerID = setup.createShallow({ gender: 'man', partnerID: npc.id })
       }
-      return 'I met the love of my life.'
+      return 'I met the love of my life, <<profile ' + npc.partnerID + '>>.'
     }
   }
 
