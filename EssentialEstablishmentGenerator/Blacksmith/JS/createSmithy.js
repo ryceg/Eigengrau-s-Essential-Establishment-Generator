@@ -1,5 +1,6 @@
-setup.createSmithy = function () {
-  var smithy = setup.createBuilding()
+/* global setup random */
+setup.createSmithy = function (town) {
+  var smithy = setup.createBuilding(town, 'smithy')
   console.groupCollapsed('Smithy loading...')
   smithy.blacksmith = setup.createBlacksmith()
   var blacksmith = smithy.blacksmith
@@ -32,6 +33,7 @@ setup.createSmithy = function () {
     default:
       smithy.name = 'The ' + adjective + ' Smithy'
   }
+  // setup.townBinder(town, smithy, 'smithy')
   console.groupEnd()
   return smithy
 }

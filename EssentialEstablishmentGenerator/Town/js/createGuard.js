@@ -1,4 +1,4 @@
-/* global setup */
+/* global setup random */
 setup.createGuard = function (townName) {
   console.groupCollapsed('creating the guard...')
   // console.log(townName + ' is the townName passed to the guard.')
