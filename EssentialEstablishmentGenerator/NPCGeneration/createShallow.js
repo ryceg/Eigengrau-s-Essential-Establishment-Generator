@@ -1,7 +1,10 @@
 /* global setup */
 setup.createShallow = function (base) {
-  var gender = ['man', 'woman'].random()
-  var race = setup.npcData.race.random()
+  var data = setup.npcData
+  var genderStart = ['man', 'woman'].random()
+  var gender = genderStart
+  var raceStart = setup.npcData.race.random()
+  var race = raceStart
   var firstName = setup.npcData.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   var lastName = setup.npcData.raceTraits[race].lastName.random().toUpperFirst()
   console.groupCollapsed('creating a shallow called ' + firstName + '...')
@@ -9,8 +12,22 @@ setup.createShallow = function (base) {
   var dndClass = setup.npcData.dndClass.random()
   var npc = Object.assign({
     shallow: true,
-    gender: gender,
-    race: race,
+    genderStart: gender,
+    get gender () {
+      return this.gender || this.genderStart
+    },
+    set gender (gender) {
+      Object.assign(npc, data.gender[gender])
+    },
+    get race () {
+      return this.raceName
+    },
+    set race (race) {
+      this.racePlural = data.raceTraits[race].racePlural
+      this.raceName = data.raceTraits[race].raceName
+      this.raceAdjective = data.raceTraits[race].raceAdjective
+      this.raceLanguage = data.raceTraits[race].raceLanguage
+    },
     firstName: firstName,
     lastName: lastName,
     get name () {
@@ -30,6 +47,8 @@ setup.createShallow = function (base) {
     raceAdjective: setup.npcData.raceTraits[race].raceAdjective
   }, base)
   Object.assign(npc, setup.npcData.gender[npc.gender])
+  npc.gender = npc.gender || npc.genderStart
+  npc.race = npc.race || npc.raceStart
 
   var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
   if (physicalTraitRoll > 8) {
@@ -46,6 +65,6 @@ setup.createShallow = function (base) {
 
   setup.createRace(npc)
   setup.createDescriptors(npc)
-  console.groupEnd()
+  console.groupEnd();
   return npc
 }

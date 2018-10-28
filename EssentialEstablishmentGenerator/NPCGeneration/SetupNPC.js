@@ -1,19 +1,20 @@
 /* global setup State dice */
 setup.createNPC = function (base) {
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
+  var data = setup.npcData
   var genderStart = ['man', 'woman'].random()
   var gender = genderStart /* to make the setters and getters work. Change in future.  */
-  var raceName = setup.npcData.race.random()
+  var raceName = data.race.random()
   var race = raceName
-  var firstName = setup.npcData.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
-  var lastName = setup.npcData.raceTraits[race].lastName.random().toUpperFirst()
+  var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
+  var lastName = data.raceTraits[race].lastName.random().toUpperFirst()
   var ageStage = ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
-  var dndClass = setup.npcData.dndClass.random()
+  var dndClass = data.dndClass.random()
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   var npc = Object.assign({
-    genderStart: genderStart,
-    raceName: raceName,
+    genderStart: gender,
+    raceName: race,
     firstName: firstName,
     lastName: lastName,
     get name () {
@@ -24,82 +25,84 @@ setup.createNPC = function (base) {
       this.firstName = words[0] || ''
       this.lastName = words[1] || ''
     },
-    ageYears: setup.npcData.raceTraits[race].ageTraits[ageStage].baseAge + setup.npcData.raceTraits[race].ageTraits[ageStage].ageModifier(),
+    ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
     // get age () {
-    //     if (typeof setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors !== 'undefined') {
-    //       var descriptors = setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors
-    //       descriptors.forEach(getAge)
-    //     } else {
-    //       console.log('Called age descriptor without a valid array.')
-    //     }
-    //   }
-    // },
-    // set age (ageYears) {
     //   if (typeof setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors !== 'undefined') {
-    //     var descriptors = setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors
-    //     descriptors.forEach(getAge)
+    //     console.log(setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors)
+    //     this.age = setup.npcData.raceTraits[this.race].ageTraits.ageDescriptors.find(function (descriptor) {
+    //       return descriptor[0] <= this.ageYears
+    //     })[1]
     //   } else {
     //     console.log('Called age descriptor without a valid array.')
     //   }
     // },
-    muscleMass: setup.npcData.raceTraits[race].muscleMass + dice(5, 4) - 12,
-    // demeanour: setup.npcData.demeanour.random(),
-    calmTrait: setup.npcData.calmTrait.random(),
-    stressTrait: setup.npcData.stressTrait.random(),
-    // value: setup.npcData.value.random(),
-    // drive: setup.npcData.drive.random(),
-    // belief: setup.npcData.belief.random(),
-    adventure: setup.npcData.adventure.random(),
-    hairColour: setup.npcData.hairColour.random(),
-    hairType: setup.npcData.hairType.random(),
-    eyes: setup.npcData.raceTraits[race].eyes.random(),
-    skinColours: setup.npcData.skinColours.random(),
+    // set aged (ageYears) {
+    //   this.age = ageYears
+    // },
+    muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
+    // demeanour: data.demeanour.random(),
+    calmTrait: data.calmTrait.random(),
+    stressTrait: data.stressTrait.random(),
+    // value: data.value.random(),
+    // drive: data.drive.random(),
+    // belief: data.belief.random(),
+    adventure: data.adventure.random(),
+    hairColour: data.hairColour.random(),
+    hairType: data.hairType.random(),
+    get hair () {
+      return this.hairType + ' ' + this.hairColour + ' hair'
+    },
+    set hair (hair) {
+      var hairs = hair.toString().split(' ')
+      this.hairType = hairs[0] || ''
+      this.hairColour = hairs[1] || ''
+    },
+    eyes: data.raceTraits[race].eyes.random(),
+    skinColours: data.skinColours.random(),
     dndClass: dndClass,
-    // background: setup.npcData.background.random(),
-    // background: setup.npcData.classTraits[dndClass].background.random() || 'commoner',
-    profession: setup.npcData.profession.random(),
-    pockets: setup.npcData.pockets.random(),
+    // background: data.background.random(),
+    // background: data.classTraits[dndClass].background.random() || 'commoner',
+    profession: data.profession.random(),
+    pockets: data.pockets.random(),
     wealth: dice(2, 50),
-    trait: setup.npcData.trait.random(),
-    // currentMood: setup.npcData.currentMood,
-    id: State.variables.npcs[State.variables.npcs.length - 1],
+    trait: data.trait.random(),
+    currentMood: data.currentMood,
+    // id: State.variables.npcs[State.variables.npcs.length - 1],
+    id: State.variables.npcs.length - 1,
     shallow: false,
     // id: State.variables.npcs.length,
-    idle: setup.npcData.idle,
+    idle: data.idle,
     get gender () {
-      return this.genderStart
+      return this.gender || this.genderStart
     },
     set gender (gender) {
-      Object.assign(npc, setup.npcData.gender[gender])
+      Object.assign(npc, data.gender[gender])
     },
     get race () {
       return this.raceName
     },
     set race (race) {
-      this.racePlural = setup.npcData.raceTraits[race].racePlural
-      this.raceName = setup.npcData.raceTraits[race].raceName
-      this.raceAdjective = setup.npcData.raceTraits[race].raceAdjective
-      this.raceLanguage = setup.npcData.raceTraits[race].raceLanguage
+      this.racePlural = data.raceTraits[race].racePlural
+      this.raceName = data.raceTraits[race].raceName
+      this.raceAdjective = data.raceTraits[race].raceAdjective
+      this.raceLanguage = data.raceTraits[race].raceLanguage
     },
-    // racePlural: setup.npcData.raceTraits[race].racePlural,
-    // raceName: setup.npcData.raceTraits[race].raceName,
-    // raceAdjective: setup.npcData.raceTraits[race].raceAdjective,
-    // raceLanguage: setup.npcData.raceTraits[race].raceLanguage,
-    knownLanguages: setup.npcData.raceTraits[race].knownLanguages,
-    reading: setup.npcData.reading.random(),
+    knownLanguages: data.raceTraits[race].knownLanguages,
+    reading: data.reading.random(),
     pubRumour: setup.createPubRumour()
   }, base)
   console.groupCollapsed(npc.name)
+  npc.gender = npc.gender || npc.genderStart
+  npc.race = npc.race || npc.raceName
 
-  npc.hair = npc.hairType + ' ' + npc.hairColour + ' hair'
-  // npc.availableLanguages = [setup.npcData.standardLanguages.concat(setup.npcData.exoticLanguages) - npc.knownLanguages]
+  // npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
   if (!npc.hasClass) {
     npc.dndClass = npc.profession
   }
 
   if (dice(2, 50) >= 75) {
-    npc.vocalPattern = setup.npcData.vocalPattern.random()
+    npc.vocalPattern = data.vocalPattern.random()
   }
 
   // setup.createName(npc)
@@ -110,16 +113,16 @@ setup.createNPC = function (base) {
 
   var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
   if (physicalTraitRoll > 8) {
-    npc.physicalTrait = setup.npcData.scar.random()
+    npc.physicalTrait = data.scar.random()
   } else if (physicalTraitRoll > 6) {
-    npc.physicalTrait = setup.npcData.tattoo.random()
+    npc.physicalTrait = data.tattoo.random()
   } else if (physicalTraitRoll <= 6) {
     npc.physicalTrait = npc.hair
   }
 
-  setup.createHistory(npc)
+  // setup.createHistory(npc)
 
-  setup.createLifeEvents(npc)
+  // setup.createLifeEvents(npc)
 
   setup.createClass(npc)
 
@@ -135,9 +138,9 @@ setup.createNPC = function (base) {
     setup.setAsPartners(npc, npc.partnerID)
   }
 
-  if (npc.isThrowaway === undefined) {
-    // State.variables.npcs.set(++index, npc)
-    State.variables.npcs.push(npc)
+  if (!npc.isThrowaway) {
+    // temporarily pushing just the id
+    State.variables.npcs.push(npc.id)
   }
   console.log(npc)
   console.groupEnd();

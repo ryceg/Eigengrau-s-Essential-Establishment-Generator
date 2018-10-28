@@ -1,7 +1,6 @@
-/* global setup State dice */
+/* global setup State random */
 setup.createBuilding = function (town, type) {
 // Tables used later
-  var index = State.variables.buildings.length
 
   var road1 = ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'].random()
   var road2 = ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row'].random()
@@ -19,8 +18,15 @@ setup.createBuilding = function (town, type) {
   ].random()
   var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   var building = {
-    index: index,
-    road: road,
+    index: [State.variables.buildings.length - 1],
+    get road () {
+      return this.road1 + ' ' + this.road2
+    },
+    set road (road) {
+      var roads = road.toString().split(' ')
+      this.road1 = roads[0] || ''
+      this.road2 = roads[1] || ''
+    },
     associatedTown: town,
     type: type,
     lighting: lighting,
@@ -30,14 +36,14 @@ setup.createBuilding = function (town, type) {
     priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random()),
     sizeRoll: (Math.floor(Math.random() * 80) + 20),
     diversityRoll: (Math.floor(Math.random() * 80) + 20),
-    wealthRoll: dice(1, 100),
-    populationRoll: dice(1, 100),
-    reputationRoll: dice(1, 100),
-    sinRoll: dice(1, 100),
-    roughnessRoll: dice(1, 100),
-    cleanlinessRoll: dice(1, 100),
-    expertiseRoll: dice(1, 100),
-    activityRoll: dice(1, 100)
+    wealthRoll: random(1, 100),
+    populationRoll: random(1, 100),
+    reputationRoll: random(1, 100),
+    sinRoll: random(1, 100),
+    roughnessRoll: random(1, 100),
+    cleanlinessRoll: random(1, 100),
+    expertiseRoll: random(1, 100),
+    activityRoll: random(1, 100)
   }
 
   building.wealthRoll = Math.clamp(building.wealthRoll, 1, 100)
@@ -201,7 +207,7 @@ setup.createBuilding = function (town, type) {
     building.activity = 'very quiet'
   }
   // console.log(building)
-  if (building.isThrowaway === undefined) {
+  if (!building.isThrowaway) {
     // State.variables.buildings.set(++index, building)
     State.variables.buildings.push(building)
   }
