@@ -1,9 +1,4 @@
 :: Markets
-<<set $marketSellerA to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerB to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerC to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerE to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerD to setup.createShallow({background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>>
 <<set $market to {
   selling: ["ale by the pint",
 "amulets and totems",
