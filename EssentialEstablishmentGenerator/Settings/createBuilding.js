@@ -4,7 +4,6 @@ setup.createBuilding = function (town, type) {
 
   var road1 = ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'].random()
   var road2 = ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row'].random()
-  var road = road1 + ' ' + road2
 
   var lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
   var outside = [
@@ -18,7 +17,10 @@ setup.createBuilding = function (town, type) {
   ].random()
   var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   var building = {
-    index: [State.variables.buildings.length - 1],
+    // index: State.variables.buildings.length - 1,
+    index: Math.floor(Math.random() * 0x10000),
+    road1: road1,
+    road2: road2,
     get road () {
       return this.road1 + ' ' + this.road2
     },
@@ -27,7 +29,7 @@ setup.createBuilding = function (town, type) {
       this.road1 = roads[0] || ''
       this.road2 = roads[1] || ''
     },
-    associatedTown: town,
+    associatedTown: town.name,
     type: type,
     lighting: lighting,
     outside: outside,
@@ -208,8 +210,8 @@ setup.createBuilding = function (town, type) {
   }
   // console.log(building)
   if (!building.isThrowaway) {
-    // State.variables.buildings.set(++index, building)
     State.variables.buildings.push(building)
+    // setup.townBinder(town, building, type)
   }
 
   // building.id = State.variables.buildings[State.variables.buildings.length - 1]
