@@ -11,12 +11,14 @@ setup.createGeneralStore = function (town, opts) {
   GeneralStore.shopkeep = shopkeep
   // var GeneralStore = setup.createBuilding()
   GeneralStore.passageName = 'GeneralStoreOutput'
+  GeneralStore.initPassage: 'InitGeneralStore'
   GeneralStore.associatedTown = town || ''
   GeneralStore.note = setup.getGeneralStoreNote(GeneralStore)
   GeneralStore.crud = setup.GeneralStoreCrud
   GeneralStore.name = setup.createGeneralStoreName(shopkeep)
   setup.GeneralStoreModifiers(town, GeneralStore)
   setup.GeneralStoreRenders(GeneralStore)
+  console.log(GeneralStore)
   console.groupEnd()
   return GeneralStore
 }

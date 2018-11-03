@@ -5,9 +5,10 @@ setup.createSmithy = function (town) {
   smithy.blacksmith = setup.createBlacksmith()
   var blacksmith = smithy.blacksmith
   smithy.passageName = 'SmithyOutput'
+  smithy.initPassage = 'InitSmithy'
   smithy.weapons = ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick']
   smithy.mundane = ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
-
+  smithy.id = Math.floor(Math.random() * 0x10000)
   var smithyNameRoll = random(1, 5)
   var adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].random()
   var noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].random()
@@ -33,7 +34,8 @@ setup.createSmithy = function (town) {
     default:
       smithy.name = 'The ' + adjective + ' Smithy'
   }
-  // setup.townBinder(town, smithy, 'smithy')
+
+  console.log(smithy)
   console.groupEnd()
   return smithy
 }

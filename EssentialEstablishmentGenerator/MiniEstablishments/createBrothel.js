@@ -1,5 +1,6 @@
 /* global setup */
 setup.createBrothel = function (town, tavern) {
+  console.log('Creating a brothel...')
   var brothel
   if (tavern.hasBrothel === true) {
     brothel = tavern
@@ -9,6 +10,7 @@ setup.createBrothel = function (town, tavern) {
   Object.assign(brothel, {
     name: setup.brothelData.name.random(),
     passageName: 'BrothelOutput',
+    initPassage: 'BrothelOutput',
     brothelSpecialty: setup.brothelData.specialty.random(),
     brothelTalk: setup.brothelData.talk.random(),
     brothelRumour: setup.brothelData.rumour.random(),
@@ -45,4 +47,6 @@ setup.createBrothel = function (town, tavern) {
     case 'a charming witch':
       brothel.pimp = setup.createNPC({ gender: 'woman', title: 'Mistress', age: 'relatively young', dndClass: 'sorcerer', profession: 'pimp' })
   }
+  console.log(brothel)
+  return brothel
 }
