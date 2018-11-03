@@ -1,3 +1,4 @@
+/* global setup */
 setup.createGeneralStore = function (town, opts) {
   opts = opts || {}
   var GeneralStore = (opts['newBuilding'] || setup.createBuilding)(town, 'GeneralStore')
@@ -11,7 +12,12 @@ setup.createGeneralStore = function (town, opts) {
   GeneralStore.shopkeep = shopkeep
   // var GeneralStore = setup.createBuilding()
   GeneralStore.passageName = 'GeneralStoreOutput'
-  GeneralStore.initPassage: 'InitGeneralStore'
+  GeneralStore.initPassage = 'InitGeneralStore'
+  Object.defineProperty(GeneralStore, 'wordNoun', {
+    get: function () {
+      return ['general store', 'shop'].random()
+    }
+  })
   GeneralStore.associatedTown = town || ''
   GeneralStore.note = setup.getGeneralStoreNote(GeneralStore)
   GeneralStore.crud = setup.GeneralStoreCrud

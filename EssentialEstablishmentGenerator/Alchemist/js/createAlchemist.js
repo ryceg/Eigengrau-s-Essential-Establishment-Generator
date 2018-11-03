@@ -8,6 +8,11 @@ setup.createAlchemist = function (town, opts) {
   alchemist.passageName = 'AlchemistOutput'
   alchemist.initPassage = 'InitAlchemist'
   alchemist.name = setup.createAlchemistName(alchemist.chemist.firstName)
+  Object.defineProperty(alchemist, 'wordNoun', {
+    get: function () {
+      return ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random()
+    }
+  })
   setup.alchemistModifiers(alchemist)
   setup.alchemistRenders(alchemist)
   console.log(alchemist)

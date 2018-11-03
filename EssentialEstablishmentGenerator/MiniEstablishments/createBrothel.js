@@ -11,6 +11,9 @@ setup.createBrothel = function (town, tavern) {
     name: setup.brothelData.name.random(),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
+    get wordNoun () {
+      return ['brothel', 'whorehouse', "gentleman's club"].random()
+    },
     brothelSpecialty: setup.brothelData.specialty.random(),
     brothelTalk: setup.brothelData.talk.random(),
     brothelRumour: setup.brothelData.rumour.random(),
