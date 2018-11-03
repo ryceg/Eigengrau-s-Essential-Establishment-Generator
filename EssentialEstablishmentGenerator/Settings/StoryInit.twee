@@ -11,8 +11,13 @@
 
 <<include "Town">>
 
-<<include "Cheese">>
 /*
+<<set $town to {
+  name: "Test Town",
+  type: "city",
+  wealthRoll: 99
+}>>
+
 <<set $tavern to {
   name: "Test Tavern",
   draw: "resident bard",
@@ -42,6 +47,9 @@
   draw: "fun",
   type: "test type"
 }>> */
+
+<<include "Cheese">>
+
 <<include "Books">>
 
 <<include "PatreonCharacters">>
@@ -61,3 +69,5 @@
 <<include "GeneralStore">>
 
 <<include "Markets">>
+
+<<run console.log($town)>>
