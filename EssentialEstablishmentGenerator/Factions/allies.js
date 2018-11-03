@@ -1,3 +1,4 @@
+/* global setup random dice */
 setup.createAllies = function (faction) {
   let sizeRoll = dice(2, 50)
   let group
@@ -68,7 +69,7 @@ setup.createAllies = function (faction) {
     tempGroup = groupList.pluck()
     // console.log('tempGroup - ' + tempGroup)
     groupList.delete(tempGroup)
-    if (tempGroup == faction.type) {
+    if (tempGroup === faction.type) {
       tempGroup = 'fellow ' + tempGroup
     }
     // while (alliedGroups.indexOf(tempGroup) !== -1) {

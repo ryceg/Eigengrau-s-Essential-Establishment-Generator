@@ -68,7 +68,7 @@ setup.createRivals = function (faction) {
     tempGroup = groupList.pluck()
     // console.log('rival tempGroup - ' + tempGroup)
     groupList.delete(tempGroup)
-    if (tempGroup == faction.type) {
+    if (tempGroup === faction.type) {
       tempGroup = 'rival ' + tempGroup
     }
     group = tempGroupSize + tempGroup
