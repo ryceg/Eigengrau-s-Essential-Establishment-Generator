@@ -1,10 +1,10 @@
 :: MarketOutput [market]
 <h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
-<<nobr>><<set $marketSellerA to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerB to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerC to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerE to setup.createShallow({profession: "merchant", hasClass: false})>>
-<<set $marketSellerD to setup.createShallow({background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>><</nobr>>
+<<nobr>><<set $marketSellerA to setup.createNPC({ isShallow: true, profession: "merchant", hasClass: false })>>
+<<set $marketSellerB to setup.createNPC({ isShallow: true, profession: "merchant", hasClass: false })>>
+<<set $marketSellerC to setup.createNPC({ isShallow: true, profession: "merchant", hasClass: false })>>
+<<set $marketSellerE to setup.createNPC({ isShallow: true, profession: "merchant", hasClass: false })>>
+<<set $marketSellerD to setup.createNPC({background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>><</nobr>>
 There's a <<profile $marketSellerA $marketSellerA.raceNote>> selling <<print either($market.selling)>> from a <<print either($market.tent)>>.
 
 A <<profile $marketSellerB $marketSellerB.raceNote>> shouting out "<<print either($market.shouts)>> <<print either($market.suffix)>>" from a <<print either($market.tent)>>.
