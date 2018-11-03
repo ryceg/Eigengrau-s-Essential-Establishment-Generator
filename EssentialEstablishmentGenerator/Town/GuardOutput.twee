@@ -1,7 +1,7 @@
 :: GuardOutput
 <<set _town to $town>><<set _guard to _town.guard>><h1>_guard.name</h1>
 <<set _guardCaptain to _guard.captain>>
-_guard.name is led by <<profile _guardCaptain>>, a <<print either(_guardCaptain.descriptor)>>. _guard.name is a _guard.size of _guard.population. One can recognise a member of _guard.name by the _guard.primaryColours and _guard.secondaryColours livery adorned with an image of _guard.insignia.
+_guard.name is led by <<profile _guardCaptain>>, a _guardCaptain.descriptor. _guard.name is a _guard.size of _guard.population. One can recognise a member of _guard.name by the _guard.livery.
 
 _guard.funding
 

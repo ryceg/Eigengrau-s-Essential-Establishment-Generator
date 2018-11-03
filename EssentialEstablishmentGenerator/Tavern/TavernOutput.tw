@@ -7,7 +7,7 @@
 <<print setup.closestMatch(setup.getTavernLookAround(_tavern), 'note', 'populationRoll', 'roughnessRoll', _tavern.populationRoll, _tavern.roughnessRoll)>>
 <<print either(setup.tavernData.patrons)>>
 <<include "RandomNPC">>
-<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a <<print either(_bartender.descriptor)>> who is currently <<print _bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the _bartender.manwoman, who introduces _bartender.himherself as <<profile _bartender>>, the _bartender.owner of _tavern.name.
+<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a _bartender.descriptor who is currently <<print _bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the _bartender.manwoman, who introduces _bartender.himherself as <<profile _bartender>>, the _bartender.owner of _tavern.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">>

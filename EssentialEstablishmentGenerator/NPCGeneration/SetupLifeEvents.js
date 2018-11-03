@@ -107,10 +107,11 @@ setup.createLifeEvents = function (npc) {
     if (npc.partnerID !== undefined) {
       return 'I had a child with my dear partner.'
     } else if (npc.partnerID === undefined) {
+      console.log(npc.name + ' met somebody!')
       if (npc.gender === 'man') {
-        npc.partnerID = setup.createShallow({ gender: 'woman', partnerID: npc.id })
+        npc.partnerID = setup.createNPC({ isShallow: true, gender: 'woman', partnerID: npc.id })
       } else {
-        npc.partnerID = setup.createShallow({ gender: 'man', partnerID: npc.id })
+        npc.partnerID = setup.createNPC({ isShallow: true, gender: 'man', partnerID: npc.id })
       }
       return 'I met the love of my life, <<profile ' + npc.partnerID + '>>.'
     }

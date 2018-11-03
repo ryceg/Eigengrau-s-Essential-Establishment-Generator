@@ -22,7 +22,7 @@ guardRoll -= 10
   if (guardRoll >= 50) {
     tavern.guardPresent = true
     brawlRoll -= 20
-    var tavernGuard = setup.createShallow({ dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random() })
+    var tavernGuard = setup.createNPC({ isShallow: true,dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random() })
   } else {
     tavern.guardPresent = false
   }
@@ -69,13 +69,13 @@ guardRoll -= 10
 
   if (brawlRoll > 50) {
     tavern.hasBrawl = true
-    var brawlInstigator = setup.createShallow({ gender: ['man', 'man', 'man', 'woman'].random() })
-    var brawlResponder = setup.createShallow({ gender: ['man', 'man', 'man', 'woman'].random() })
+    var brawlInstigator = setup.createNPC({ isShallow: true,gender: ['man', 'man', 'man', 'woman'].random() })
+    var brawlResponder = setup.createNPC({ isShallow: true,gender: ['man', 'man', 'man', 'woman'].random() })
     tavern.brawl = {
       start: [
-        'It seems that the ' + brawlInstigator.descriptor.random() + ' that is currently wrestling with the ' + brawlResponder.descriptor.random() + ' because of ',
-        'A ' + brawlInstigator.descriptor.random() + ' has a ' + brawlResponder.descriptor.random() + ' in a headlock. The cause seems to be ',
-        "There's some shouting, and then a " + brawlInstigator.descriptor.random() + ' throws a punch at a ' + brawlResponder.descriptor.random() + ', shouting that the  ' + brawlInstigator.descriptor.random() + ' is a bastard. The cause seems to be '
+        'It seems that the ' + brawlInstigator.descriptor + ' that is currently wrestling with the ' + brawlResponder.descriptor + ' because of ',
+        'A ' + brawlInstigator.descriptor + ' has a ' + brawlResponder.descriptor + ' in a headlock. The cause seems to be ',
+        "There's some shouting, and then a " + brawlInstigator.descriptor + ' throws a punch at a ' + brawlResponder.descriptor + ', shouting that the  ' + brawlInstigator.descriptor + ' is a bastard. The cause seems to be '
       ].random(),
       reason: [
         'some silly misunderstanding between the two. ',
@@ -84,18 +84,18 @@ guardRoll -= 10
         'a business deal',
         'a secret affair has come out. ',
         'a joke was taken way too far. ',
-        'a joke was misunderstood, much to the ' + brawlResponder.descriptor.random() + "'s dismay. "
+        'a joke was misunderstood, much to the ' + brawlResponder.descriptor + "'s dismay. "
       ].random()
     }
     if (tavern.guardPresent === true) {
       tavern.brawlEnd = [
-        'A ' + tavernGuard.descriptor.random() + ' wearing the $guard.livery signifying that they are a member of <<guard $guard>> is currently pulling the ' + brawlInstigator.descriptor.random() + ' off the ' + brawlResponder.descriptor.random() + '.',
+        'A ' + tavernGuard.descriptor + ' wearing the $guard.livery signifying that they are a member of <<guard $guard>> is currently pulling the ' + brawlInstigator.descriptor + ' off the ' + brawlResponder.descriptor + '.',
         'A member of <<guard $guard>> is currently trying to pull the two apart.'
       ].random()
     } else {
       tavern.brawlEnd = [
-        'It seems that the ' + brawlInstigator.descriptor.random() + ' is winning.',
-        'It seems that the ' + brawlResponder.descriptor.random() + ' is winning.'
+        'It seems that the ' + brawlInstigator.descriptor + ' is winning.',
+        'It seems that the ' + brawlResponder.descriptor + ' is winning.'
       ].random()
     }
   } else {

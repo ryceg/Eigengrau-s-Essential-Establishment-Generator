@@ -31,6 +31,7 @@ setup.tavernRender = function (tavern) {
   }
 
   /* ------------------------- SIZE -------------------------- */
+  
   if (tavern.sizeRoll > 80) {
     tavern.size = 'huge'
   } else if (tavern.sizeRoll > 70) {

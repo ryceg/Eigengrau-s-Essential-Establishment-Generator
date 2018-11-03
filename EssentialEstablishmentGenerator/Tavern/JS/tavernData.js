@@ -103,6 +103,20 @@ setup.getTavernLookAround = function (tavern) {
   return setup.lookAroundData
 }
 setup.tavernData = {
+  'descriptors': {
+    'size': [
+      [90, 'massive'],
+      [80, 'huge'],
+      [70, 'quite large'],
+      [60, 'large'],
+      [50, 'spacious'],
+      [40, 'average sized'],
+      [30, 'slightly cramped'],
+      [20, 'tiny'],
+      [10, 'miniscule'],
+      [0, 'impossibly cramped']
+    ]
+  },
   'games': [
     {
       'name': 'Passe-dix',
@@ -128,7 +142,7 @@ setup.tavernData = {
     {
       'name': 'Thimble Rig',
       'type': 'guessing game',
-      'description': "A <<profile $NPCgamebanker $NPCgamebanker.raceNote>>'s quick hands, a pair of $NPCgamer.eyes eyes belonging to a $NPCgamer.raceNote watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
+      'description': "A <<profile $NPCgamebanker $NPCgamebanker.raceNote>>'s quick hands, a pair of eyes belonging to a $NPCgamer.raceNote watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
       'rules': 'The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.',
       'bet': random(4, 9)
     },
@@ -500,7 +514,7 @@ setup.getTavernDraws = function (town, tavern) {
     },
     {
       draw: 'crude jokes the bartender makes',
-      drawFeature: 'You see the bartender is talking to a $tavernPatron.age <<print either($tavernPatron.descriptor)>>. ' + bartender.heshe.toUpperFirst() + ' smiles, and then says something, making the <<print either($tavernPatron.descriptor)>> go white as a sheet, and immediately leave the establishment, with ' + bartender.firstName + " laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle " + tavern.name + '.'
+      drawFeature: 'You see the bartender is talking to a $tavernPatron.age $tavernPatron.descriptor. ' + bartender.heshe.toUpperFirst() + ' smiles, and then says something, making the $tavernPatron.descriptor go white as a sheet, and immediately leave the establishment, with ' + bartender.firstName + " laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle " + tavern.name + '.'
     },
     {
       draw: "proximity to the thieves' guild headquarters",
@@ -569,7 +583,7 @@ setup.getTavernDraws = function (town, tavern) {
     //       tavern: tavern
     //     }
     //   },
-    //   drawFeature: "There's a " + drunkWizard.descriptor.random() + ' thaumaturgist in the corner, who is practising cantrips as ' + drunkWizard.heshe + ' downs another pint. ' + drunkWizard.heshe.toUpperFirst() + " looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'"
+    //   drawFeature: "There's a " + drunkWizard.descriptor + ' thaumaturgist in the corner, who is practising cantrips as ' + drunkWizard.heshe + ' downs another pint. ' + drunkWizard.heshe.toUpperFirst() + " looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'"
     // },
     {
       draw: 'huge fireplace',

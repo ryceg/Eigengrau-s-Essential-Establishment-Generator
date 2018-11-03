@@ -6,7 +6,8 @@ setup.createTavern = function (town, opts) {
   tavern.name = setup.createTavernName()
   console.groupCollapsed(tavern.name)
   var bartender = (opts['newBartender'] || setup.createBartender)(town.name, tavern.name)
-  var barmaid = setup.createShallow({
+  var barmaid = setup.createNPC({
+    isShallow: true,
     gender: 'woman',
     background: 'commoner',
     hasClass: false,
@@ -18,14 +19,28 @@ setup.createTavern = function (town, opts) {
 
   Object.assign(tavern, {
     passageName: 'TavernOutput',
+    initPassage: 'InitTavern',
     wordnoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: shortages,
     fun: setup.tavernData.fun.random(),
     // entertainment: setup.tavernData.entertainment.random(),
     // patrons: setup.tavernData.patrons.random(),
     game: setup.tavernData.games.random()
-    // specialBrew: setup.tavernData.specialBrew.random()
+    // get size () {
+    //   this.size = setup.tavernData.descriptors['size'].find(function (descriptor) {
+    //     return descriptor[0] <= this.sizeRoll
+    //   })[1] || this._size
+    // },
+    // set size (value) {
+    //   this._size = value
+    //   if (setup.tavernData.descriptors['size'].includes(value)) {
+    //     this.sizeRoll = setup.tavernData.descriptors['size'].find(function (descriptor) {
+    //       return descriptor[0] === value
+    //     })[0]
+    //   }
+    // }
   })
+
   Object.assign(tavern, setup.getTavernDraws(town, tavern))
   // console.log(tavern)
   tavern.type = [
@@ -62,6 +77,7 @@ setup.createTavern = function (town, opts) {
   }
   setup.tavernModifiers(town, tavern)
   setup.tavernRender(tavern)
-  console.groupEnd()
+  console.log(tavern)
+  console.groupEnd();
   return tavern
 }

@@ -1,8 +1,9 @@
 /* global setup random */
-setup.createGuard = function (townName) {
+setup.createGuard = function (town) {
   console.groupCollapsed('creating the guard...')
   // console.log(townName + ' is the townName passed to the guard.')
   var guard = {
+    associatedTown: town,
     captain: setup.createNPC({
       dndClass: 'fighter',
       background: 'soldier'
@@ -14,9 +15,9 @@ setup.createGuard = function (townName) {
   var nameRoll = random(1, 8)
   console.log('nameRoll is ' + nameRoll)
   if (nameRoll === 1) {
-    guard.name = 'The ' + setup.guardData.name.group.random() + ' of ' + townName
+    guard.name = 'The ' + setup.guardData.name.group.random() + ' of ' + town
   } else if (nameRoll === 2) {
-    guard.name = 'The ' + townName + ' ' + setup.guardData.name.group.random()
+    guard.name = 'The ' + town + ' ' + setup.guardData.name.group.random()
   } else if (nameRoll === 3) {
     guard.name = 'The ' + setup.guardData.name.group.random() + ' of ' + setup.guardData.name.alternateAdjective.random()
   } else if (nameRoll === 4) {
@@ -26,9 +27,9 @@ setup.createGuard = function (townName) {
   } else if (nameRoll === 6) {
     guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + setup.guardData.name.alternateAdjective.random()
   } else if (nameRoll === 7) {
-    guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + townName
+    guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + town
   } else if (nameRoll === 8) {
-    guard.name = 'The ' + setup.guardData.name.group.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + townName
+    guard.name = 'The ' + setup.guardData.name.group.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + town
   }
   console.log(guard.name + ' is the name of the guard.')
   console.groupEnd();

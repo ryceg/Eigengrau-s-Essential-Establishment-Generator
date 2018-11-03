@@ -3,10 +3,10 @@ setup.createSocioPolitics = function (town) {
   console.groupCollapsed('Creating sociopolitics!')
   // ecoIde and polSource are now set in the createTown.js function
   var polIde = setup.townData.politicalIdeology[town.politicalIdeology]
-  // give those ideologies some descriptions
-  town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
-  // data
-  town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
+  // // give those ideologies some descriptions
+  // town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
+  // // data
+  // town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
 
   setup.createTownLeader = function (town) {
     var leader
