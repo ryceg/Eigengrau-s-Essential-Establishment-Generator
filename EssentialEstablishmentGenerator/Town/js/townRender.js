@@ -1,25 +1,23 @@
 setup.townRender = function (town) {
   console.log('Rendering ' + town.name + '...')
-  town.economicIdeologyIC = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIC
-  town.economicIdeologyIST = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyIST
-  town.politicalIdeologyIC = setup.townData.politicalIdeology[town.politicalIdeology].politicalIdeologyIC
-  town.economicIdeologyDescription = setup.townData.economicIdeology[town.economicIdeology].economicIdeologyDescription
-  town.politicalSourceDescription = setup.getPoliticalSourceDescription(town)
+  // town.economicIdeologyIC = setup.townData.economicIdeology[town._economicIdeology].descriptors.economicIdeologyIC
+  // town.economicIdeologyIST = setup.townData.economicIdeology[town._economicIdeology].descriptors.economicIdeologyIST
+  // town.politicalIdeologyIC = setup.townData.politicalIdeology[town._politicalIdeology].data.politicalIdeologyIC
 
   var guardfundingRoll = 0
 
-  if (town.population > 3000) {
-    town.type = 'city'
-  } else if (town.population > 1000) {
-    town.type = 'town'
-  } else if (town.population > 300) {
-    town.type = 'village'
-  } else if (town.population > 30) {
-    town.type = 'hamlet'
-  } else if (town.population <= 30) {
-    town.type = 'hamlet'
-    town.population = 30
-  }
+  // if (town.population > 3000) {
+  //   town.type = 'city'
+  // } else if (town.population > 1000) {
+  //   town.type = 'town'
+  // } else if (town.population > 300) {
+  //   town.type = 'village'
+  // } else if (town.population > 30) {
+  //   town.type = 'hamlet'
+  // } else if (town.population <= 30) {
+  //   town.type = 'hamlet'
+  //   town.population = 30
+  // }
 
   if (town.wealthRoll > 95) {
     town.wealth = 'kingly'

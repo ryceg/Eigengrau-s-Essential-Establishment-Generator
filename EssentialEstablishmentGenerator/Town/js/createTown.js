@@ -9,18 +9,64 @@ setup.createTown = function (base) {
   let town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
-    type: type,
+    get type () {
+      if (this.population > 3000) {
+        return 'city'
+      } else if (this.population > 1000) {
+        return 'town'
+      } else if (this.population > 300) {
+        return 'village'
+      } else if (this.population > 30) {
+        return 'hamlet'
+      } else if (this.population <= 30) {
+        this.population = 30
+        return 'hamlet'
+      }
+    },
+    // type: type,
     terrain: terrain,
+    buildings: {
+      'smithy': [],
+      'tavern': [],
+      'alchemist': [],
+      'brothel': [],
+      'GeneralStore': []
+    },
     population: setup.townData.type[type].population(),
-    economicIdeology: economicIdeology,
-    politicalSource: politicalSource,
-    politicalIdeology: politicalIdeology,
-    // get economicIdeologyIC () {
-    //   return setup.townData.type[this.type].economicIdeology[this.economicIdeology].descriptors.economicIdeologyIC
-    // },
-    // set economicIdeologyIC (value) {
-    //   this.economicIdeologyIC = setup.townData.type[this.type].economicIdeology[value].descriptors.economicIdeologyIC
-    // },
+    _economicIdeology: economicIdeology,
+    _politicalSource: politicalSource,
+    _politicalIdeology: politicalIdeology,
+    get economicIdeology () {
+      return this._economicIdeology
+    },
+    set economicIdeology (value) {
+      this._economicIdeology = value
+      Object.assign(this, setup.townData.economicIdeology[this._economicIdeology].descriptors)
+    },
+    get politicalSource () {
+      return this._politicalSource
+    },
+    set politicalSource (value) {
+      this._politicalSource = value
+    },
+    get politicalIdeology () {
+      return this._politicalIdeology
+    },
+    set politicalIdeology (value) {
+      this._politicalIdeology = value
+      Object.assign(this, setup.townData.politicalIdeology[this._politicalIdeology].data)
+    },
+    get politicalSourceDescription () {
+      if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
+        if (this.politicalIdeology === 'autocracy') {
+          return setup.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
+        } else {
+          return setup.townData.politicalSource[this._politicalSource].default.politicalSourceDescription
+        }
+      } else {
+        return setup.townData.politicalSource[this._politicalSource].politicalSourceDescription
+      }
+    },
     location: setup.townData.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
     primaryExport: setup.townData.misc.primaryExport.random(),
@@ -39,6 +85,10 @@ setup.createTown = function (base) {
     lawRoll: random(1, 100),
     arcanaRoll: random(1, 100)
   }, base)
+  town.economicIdeology = town.economicIdeology || town._economicIdeology
+  town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
+  town.politicalSource = town.politicalSource || town._politicalSource
+
   console.groupCollapsed(town.name + ' is loading...')
   town.wealthRoll = Math.clamp(town.wealthRoll, 1, 100)
   town.reputationRoll = Math.clamp(town.reputationRoll, 1, 100)
@@ -60,10 +110,10 @@ setup.createTown = function (base) {
 
   console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
   // economic ideology attribute modifiers
-  town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].modifiers)
+  Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].modifiers)
   // political ideology modifiers
   console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
-  town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
+  Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
   setup.createSocioPolitics(town)
 
