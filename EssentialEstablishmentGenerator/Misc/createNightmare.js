@@ -25,13 +25,7 @@ setup.createNightmare = function (base) {
     'small toy doll',
     'large wolf standing on its hind legs']
   var figurePrefix = ['a ', 'a ', 'a ', 'a ', 'an ', 'an ', '', 'a ', 'a ', 'your ', 'your ', 'a ', 'a ', 'a ']
-  var figureGender
-  var readout
-  var descriptor
-  var action
-  var wake
   var nightmare = Object.assign({
-    readout: readout,
     location: location.random()
   }, base)
 
@@ -42,12 +36,18 @@ setup.createNightmare = function (base) {
   })
 
   switch (nightmare.figure) {
-    case 'boy', 'young man', 'elderly man', 'father':
+    case 'boy':
+    case 'young man':
+    case 'elderly man':
+    case 'father':
       Object.assign(nightmare, {
         figureGender: 'his'
       })
       break
-    case 'girl', 'young woman', 'elderly woman', 'mother':
+    case 'girl':
+    case 'young woman':
+    case 'elderly woman':
+    case 'mother':
       Object.assign(nightmare, {
         figureGender: 'her'
       })

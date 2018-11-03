@@ -21,7 +21,7 @@
 <<linkreplace "Compare it to the glass vial (Investigation (Int) DC 10)">>The red liquid is the same in both cases.<</linkreplace>><</linkreplace>>
 <<linkreplace "If your players get lost">>On your way to the crime scene, you remember that you passed through a merchant stall that had really cheap healing potions for sale and it was located on a street with the same name as the one found in the ledger.<</linkreplace>>
 
-<h3>Place #2 - Merchant Stall</h3>This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a <<print $adventureMerchant.descriptor.random()>> manning the stall that matches the address you found. He introduces himself as <<profile $adventureMerchant>>, and asks what he can do for you.
+<h3>Place #2 - Merchant Stall</h3>This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a $adventureMerchant.descriptor manning the stall that matches the address you found. He introduces himself as <<profile $adventureMerchant>>, and asks what he can do for you.
 
 <h4>Clue #1 - Purses</h4> There are numerous purses for sale, though some are rather expensive. Looks like they use the same gold-leaf embroidery technique as the dead woman's purse.
 
