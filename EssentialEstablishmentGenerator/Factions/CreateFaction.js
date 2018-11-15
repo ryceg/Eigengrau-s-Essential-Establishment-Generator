@@ -5,8 +5,8 @@ setup.createFaction = function (town, opts) {
   // Rolls are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise SizeRoll in the size.js function if it's being used in "reputation.js")
 
   var faction = (opts['newFaction'] || Object.assign({
-    index: State.variables.factions.size,
-    associatedTown: town,
+    id: [State.variables.factions.length - 1],
+    associatedTown: town.name,
     type: type,
     factionNoun: setup.factionData.type[type].factionNoun,
     motivation: setup.factionData.type[type].motivation.random(),
@@ -47,7 +47,7 @@ setup.createFaction = function (town, opts) {
 
   if (faction.isThrowaway === undefined) {
     console.log('and finally assigning to the faction roster.')
-    State.variables.factions.push(faction)
+    State.variables.factions.push(faction.id)
   } else {
     console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
   }
