@@ -1,8 +1,6 @@
 
 :: Widgets [widget widgets]
 
-<<widget "descriptor">><<print either($args[0].descriptor)>><</widget>>
-
 <<widget "money">><<silently>>
 		<<set _copper to Number($args)>>\
 		<<set _copper to (_copper + Math.round(_copper * setup.getPriceMod()))>>\
@@ -69,13 +67,70 @@
 <<widget "profile">>
     \<<set _char = $args[0],
         _readout = $args[1] || _char.name,
-        _id = "tip-" + Util.slugify(_char.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+        _id = "tip-" + Util.slugify($args[0].id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
     \<<capture _char>>
-        \<span @id="_id" class="tip"><<link _readout "NPCProfile">><<set $currentNPC to _char>><</link>></span>
+        \<span @id="_id" class="tip"><<link _readout>>
+				<<set $currentNPC to $args[0]>>
+				<<if $args[0].shallow === true>>
+					<<set $args[0] to setup.createNPC($args[0])>>
+					<<set $args[0].shallow to false>>
+					<<goto "NPCProfile">>
+				<<else>>
+					<<goto "NPCProfile">>
+				<</if>>
+				<</link>></span>
         \<<run setup.profileTooltip(_id, _char)>>
 				\<<run setup.tippy(".btn")>>
     \<</capture>>
 \<</widget>>
+
+/* <<widget "profile">> */
+/* expected arguments: variable, readout, variable type */
+    /* \<<set _char = $args[0], _readout = $args[1] || _char.name,
+        _id = "tip-" + Util.slugify(_char.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+    \<<capture _char>>
+        \<span @id="_id" class="tip">
+				<<link _readout>>
+	        <<set $currentNPC to clone($args[0])>>
+	        <<set $currentNPC.sourceVar to $args[0]>>
+					\<<if def $args[2]>>
+						\<<set $currentNPC.sourceType = $args[2]>>
+					\<<elseif def State.variables[$args[0]]>>
+						\<<set $currentNPC.sourceType = "variables">>
+					\<<elseif def State.temporary[$args[0]]>>
+						\<<set $currentNPC.sourceType = "temporary">>
+					\<<else>>
+						\<<run console.warn("Couldn't set the sourceType properly. Editing will not work.")>>
+					\<</if>>
+					\<<run console.log($currentNPC)>>
+	        \<<goto "NPCProfile">>
+        \<</link>></span>
+				\<<run setup.profileTooltip(_id, _char)>>
+        \<<run setup.tippy(".btn")>>
+    \<</capture>>
+\<</widget>> */
+
+/* <<widget "profile">> */
+/* expected arguments: variable, readout, variable type (defaults to "variables") */
+    /* \<<if (ndef $args[2]) or ($args[2] == "variables")>>
+        \<<set _varType = "variables">>
+    \<<else>>
+        \<<set _varType = "temporary">>
+    \<</if>>
+    \<<set _varName = $args[0], _char = State[_varType][_varName]>><<set _readout = $args[1] || _char.name,
+        _id = "tip-" + Util.slugify(_char.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+    \<<capture _char, _varName, _varType>>
+        \<span @id="_id" class="tip">
+            <<link _readout>>
+                <<set $currentNPC = clone(_char)>>
+                <<set $currentNPC.sourceVar = _varName>>
+                <<set $currentNPC.sourceType =_varType>>
+                <<goto "NPCProfile">>
+            <</link>></span>
+        \<<run setup.profileTooltip(_id, _char)>>
+        \<<run setup.tippy(".btn")>>
+    \<</capture>>
+\<</widget>> */
 
 <<widget "temp">><<nobr>>
 		<<set _temp = $args[0]>>
@@ -87,25 +142,3 @@
 				_temp Fahrenheit
 			<</if>>
 		<</capture>><</nobr>><</widget>>
-
-/*
-		<<widget "createNPC">>\
-				<<set _creation = $args[0], _attributes = $args[1], _readout = $args[2]>>\
-				<<capture _creation, _attributes, _readout>>\
-					<<if def $args[2]>>\
-							<<run State.setVar(_creation, setup.createNPC(_attributes))>>\
-								<<link _readout "NPCProfile">>\
-									<<set $currentNPC to _creation>>\
-								<</link>>\
-					<<elseif def $args[1]>>\
-							<<run State.setVar(_creation, setup.createNPC())>>\
-								<<link _creation.name "NPCProfile">>\
-									<<set $currentNPC to _creation>>\
-								<</link>>\
-						<<else>>\
-								<<run State.setVar(_creation, setup.createNPC())>>\
-									<<link _creation.name "NPCProfile">>\
-										<<set $currentNPC to _creation>>\
-									<</link>>\
-						<</if>>\
-				<</capture>><</widget>> */
