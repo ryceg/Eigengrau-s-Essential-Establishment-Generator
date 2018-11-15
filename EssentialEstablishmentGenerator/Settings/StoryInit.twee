@@ -11,8 +11,7 @@
 
 <<include "Town">>
 
-/*
-<<set $town to {
+/* <<set $town to {
   name: "Test Town",
   type: "city",
   wealthRoll: 99
@@ -44,6 +43,7 @@
 <<set $markets to {
   name: "Test Markets",
   id: 145634,
+  size: "large",
   draw: "fun",
   type: "test type"
 }>> */
@@ -60,14 +60,15 @@
 
 <<include "Newspaper">>
 
-<<include "Tavern">>
 
-<<include "Alchemist">>
+/* <<include "Tavern">> */
 
-<<include "Smithy">>
+/* <<include "Alchemist">> */
 
-<<include "GeneralStore">>
+/* <<include "Smithy">> */
 
-<<include "Markets">>
+/* <<include "GeneralStore">> */
+
+/* <<include "Markets">> */
 
 <<run console.log($town)>>
