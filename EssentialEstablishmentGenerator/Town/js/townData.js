@@ -4,6 +4,33 @@ setup.townData = {
     'prefix': ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
     'suffix': ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
   },
+  'roads': {
+    'name': ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'],
+    'type': ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row']
+  },
+  'rollData': {
+    'wealth': [
+      [95, 'kingly'],
+      [80, 'aristocratic'],
+      [70, 'wealthy'],
+      [60, 'comfortable'],
+      [50, 'modest'],
+      [25, 'poor'],
+      [15, 'squalid'],
+      [0, 'destitute']
+    ],
+    // 'economics': [
+    //   [90, 'Trade in ' + this.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + this.name + ' are high.'],
+    //   [80, 'Trade in ' + this.name + ' is regulated, with taxes and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.'],
+    //   [70, 'Trade in ' + this.name + ' is regulated, with taxes applied to all goods and services rendered, and people live a ' + this.wealth + ' existence because of it. The trade guild enforces rules, with penalties for rule-breakers.'],
+    //   [60, 'Trade in ' + this.name + ' is mostly free, with some taxes applied to goods and services rendered in the city. People live a ' + this.wealth + ' existence because of it.'],
+    //   [50, 'Trade is reasonable in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it; some taxes are applied to certain goods and services that are rendered in the city.'],
+    //   [40, 'Trade is reasonable in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.'],
+    //   [30, 'Trade is rather free in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.'],
+    //   [20, 'Trade is free in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. There are no taxes or regulations to speak of.'],
+    //   [0, 'Caveat emptor is the guiding philosophy of ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. Without any taxes or regulations, the free market reigns supreme here.']
+    // ]
+  },
   'type': {
     'hamlet': {
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
@@ -50,7 +77,6 @@ setup.townData = {
       }
     }
   },
-
   'economicIdeology': {
     'feudalism': {
       'modifiers': {
@@ -62,7 +88,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'feudalistic',
         'economicIdeologyIST': 'feudalist',
-        'economicIdeologyDescription': "The people of _town.name work the land in exchange for working their lord's lands."
+        'economicIdeologyDescription': "The people of _this.name work the land in exchange for working their lord's lands."
       }
     },
     'capitalism': {
@@ -75,7 +101,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'capitalistic',
         'economicIdeologyIST': 'capitalist',
-        'economicIdeologyDescription': 'The people of _town.name work in exchange for payment from their employers, which they use to buy the necessities.'
+        'economicIdeologyDescription': 'The people of _this.name work in exchange for payment from their employers, which they use to buy the necessities.'
       }
     },
     'syndicalism': {
@@ -88,7 +114,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'syndicalistic',
         'economicIdeologyIST': 'syndicalist',
-        'economicIdeologyDescription': 'The people of _town.name own the lands they work on collectively, and together benefit from its prosperity.'
+        'economicIdeologyDescription': 'The people of _this.name own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
     'communism': {
@@ -101,7 +127,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'communistic',
         'economicIdeologyIST': 'communist',
-        'economicIdeologyDescription': 'The people of _town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
+        'economicIdeologyDescription': 'The people of _this.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
     'primitivism': {
@@ -114,7 +140,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'primitivistic',
         'economicIdeologyIST': 'primitivist',
-        'economicIdeologyDescription': "The people of _town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers."
+        'economicIdeologyDescription': "The people of _this.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _this.type's citizens are hunter-gatherers."
       }
     }
   },
@@ -143,7 +169,7 @@ setup.townData = {
     },
     'anarchy': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile _town.leader>>.'
+      'politicalSourceDescription': 'None take responsibility for the stewardship of _this.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile _town.leader>>.'
     }
   },
   'politicalIdeology': {
