@@ -29,7 +29,7 @@
     <th>Item</th>
     <th>Cost</th>
   </tr>
-<h3>Weapons</h3>
+
 <h3>Weapons</h3>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
