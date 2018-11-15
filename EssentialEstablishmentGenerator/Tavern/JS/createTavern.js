@@ -17,7 +17,8 @@ setup.createTavern = function (town, opts) {
   Object.assign(tavern, {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
-    wordnoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
+    BuildingType: 'tavern',
+    wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
     fun: setup.tavernData.fun.random(),
     type: [
@@ -46,20 +47,87 @@ setup.createTavern = function (town, opts) {
     // entertainment: setup.tavernData.entertainment.random(),
     // patrons: setup.tavernData.patrons.random(),
     game: setup.tavernData.games.random()
-    // get size () {
-    //   this.size = setup.tavernData.descriptors['size'].find(function (descriptor) {
-    //     return descriptor[0] <= this.sizeRoll
-    //   })[1] || this._size
-    // },
-    // set size (value) {
-    //   this._size = value
-    //   if (setup.tavernData.descriptors['size'].includes(value)) {
-    //     this.sizeRoll = setup.tavernData.descriptors['size'].find(function (descriptor) {
-    //       return descriptor[0] === value
-    //     })[0]
-    //   }
-    // }
   })
+  var rollData = setup.tavernData.rollData
+  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
+  rollDataVariables.forEach(function (propName) {
+    setup.defineRollDataGetter(tavern, setup.tavernData.rollData, propName)
+  })
+
+  Object.defineProperty(tavern, 'lodging', {
+    get: function () {
+      console.log('Fetching ' + tavern.name + ' lodging.')
+      var lodging = rollData.wealth.find(function (descriptor) {
+        return descriptor[0] <= this.wealthRoll
+      }, this)
+      if (lodging === undefined) {
+        lodging = rollData.wealth[rollData.wealth.length - 1]
+      }
+      this._lodging = lodging[2]
+      return this._lodging
+    }
+  })
+  Object.defineProperty(tavern, 'food', {
+    get: function () {
+      console.log('Fetching ' + tavern.name + ' food.')
+      var food = rollData.wealth.find(function (descriptor) {
+        return descriptor[0] <= this.wealthRoll
+      }, this)
+      if (food === undefined) {
+        food = rollData.wealth[rollData.wealth.length - 1]
+      }
+      this._food = food[2]
+      return this._food
+    }
+  })
+
+  Object.defineProperty(tavern, 'bedCleanliness', {
+    get: function () {
+      console.log('Fetching ' + tavern.name + ' bed cleanliness.')
+      var bedCleanliness = rollData.cleanliness.find(function (descriptor) {
+        return descriptor[0] <= this.cleanlinessRoll
+      }, this)
+      if (bedCleanliness === undefined) {
+        bedCleanliness = rollData.cleanliness[rollData.cleanliness.length - 1]
+      }
+      this._bedCleanliness = bedCleanliness[1]
+      return this._bedCleanliness
+    }
+  })
+
+  Object.defineProperty(tavern, 'sin', {
+    get: function () {
+      console.log('Fetching ' + tavern.name + ' sin.')
+      if (this.sinRoll > 80) {
+        this._sin = 'corrupt'
+      } else if (this.sinRoll > 70) {
+        this._sin = 'venal'
+      } else if (this.sinRoll > 60) {
+        this._sin = 'sleazy'
+      } else if (this.sinRoll > 50) {
+        this._sin = 'seedy'
+      } else if (this.sinRoll > 40 && this.reputationRoll > 60) {
+        this._sin = 'surprisingly trustworthy'
+      } else if (this.sinRoll > 40) {
+        this._sin = 'trustworthy'
+      } else if (this.sinRoll > 30 && this.reputationRoll > 60) {
+        this._sin = 'surprisingly reliable'
+      } else if (this.sinRoll > 30) {
+        this._sin = 'reliable'
+      } else if (this.sinRoll <= 20 && this.reputationRoll > 60) {
+        this._sin = 'surprisingly honest'
+      } else if (this.sinRoll <= 20) {
+        this._sin = 'honest'
+      } else {
+        this._sin = 'reasonably trustworthy'
+      }
+      return this._sin
+    }
+  })
+
+  tavern.wealth = ''
+  tavern.size = ''
+  tavern.cleanliness = ''
 
   Object.assign(tavern, setup.getTavernDraws(town, tavern))
   // console.log(tavern)
@@ -72,8 +140,16 @@ setup.createTavern = function (town, opts) {
       tavern.hasBrothel = true
     }
   }
+  switch (tavern.draw) {
+    case "tavern.reputation + ' atmosphere'":
+      tavern.notableFeature = 'its ' + tavern.reputation + ' atmosphere'
+      break
+    default:
+      tavern.notableFeature = 'its ' + tavern.draw
+  }
   setup.tavernModifiers(town, tavern)
-  setup.tavernRender(tavern)
+  // setup.tavernRender(tavern)
+  // setup.townBinder(town, tavern, 'tavern')
   console.log(tavern)
   console.groupEnd();
   return tavern

@@ -1,6 +1,7 @@
 /* global setup */
-setup.createBlacksmith = function () {
+setup.createBlacksmith = function (smithy) {
   var blacksmith = setup.createNPC({
+    // associatedBuilding: smithy,
     dndClass: 'blacksmith',
     hasClass: false,
     profession: 'blacksmith',
