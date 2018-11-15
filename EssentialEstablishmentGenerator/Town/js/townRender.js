@@ -19,21 +19,21 @@ setup.townRender = function (town) {
   //   town.population = 30
   // }
 
-  if (town.wealthRoll > 95) {
-    town.wealth = 'kingly'
-  } else if (town.wealthRoll > 90) {
-    town.wealth = 'aristocratic'
-  } else if (town.wealthRoll > 80) {
-    town.wealth = 'wealthy'
-  } else if (town.wealthRoll > 70) {
-    town.wealth = 'comfortable'
-  } else if (town.wealthRoll > 30) {
-    town.wealth = 'modest'
-  } else if (town.wealthRoll > 25) {
-    town.wealth = 'poor'
-  } else if (town.wealthRoll <= 25) {
-    town.wealth = 'squalid'
-  }
+  // if (town.wealthRoll > 95) {
+  //   town.wealth = 'kingly'
+  // } else if (town.wealthRoll > 90) {
+  //   town.wealth = 'aristocratic'
+  // } else if (town.wealthRoll > 80) {
+  //   town.wealth = 'wealthy'
+  // } else if (town.wealthRoll > 70) {
+  //   town.wealth = 'comfortable'
+  // } else if (town.wealthRoll > 30) {
+  //   town.wealth = 'modest'
+  // } else if (town.wealthRoll > 25) {
+  //   town.wealth = 'poor'
+  // } else if (town.wealthRoll <= 25) {
+  //   town.wealth = 'squalid'
+  // }
 
   if (town.economicsRoll > 90) {
     town.economics = 'Trade in ' + town.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + town.type + ', and people live a ' + town.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + town.name + ' are high.'
