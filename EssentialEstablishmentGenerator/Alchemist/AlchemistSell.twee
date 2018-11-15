@@ -1,15 +1,15 @@
 :: AlchemistSell
-<<linkreplace "<h4>Buy something</h4>">><<set _chemist to $alchemist.chemist>><h3>$alchemist.name's Potions and Wares</h3><<nobr>>
+<<linkreplace "<h4>Buy something</h4>">><h3>$alchemist.name's Potions and Wares</h3><<nobr>>
 <div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
-  _chemist.name smiles, and says "You're looking to buy something? Name it, here at $alchemist.name, we stock everything the average adventurer could possibly need!
+  $chemist.name smiles, and says "You're looking to buy something? Name it, here at $alchemist.name, we stock everything the average adventurer could possibly need!
   <<case "town">>
-  _chemist.name says "Well, what is it you need? We specialise in <<print either("healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major")>> potions, but can do just about anything for you.
+  $chemist.name says "Well, what is it you need? We specialise in <<print either("healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major")>> potions, but can do just about anything for you.
   <<case "village">>
-  _chemist.name says "Sure, what are you after? <<print _chemist.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
+  $chemist.name says "Sure, what are you after? <<print $chemist.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>
-  _chemist.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print _chemist.ingredients.randomMany(2)>>, you name it!
+  $chemist.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $chemist.ingredients.randomMany(2)>>, you name it!
 <</switch>><<print setup.closestMatch(setup.getAlchemistPriceTalk($alchemist), 'priceTalk', 'priceModifier', 'wealthRoll', '$alchemist.priceModifier', '$alchemist.wealthRoll')>>"</div>
 <<switch $town.type>>
   <<case "city">>

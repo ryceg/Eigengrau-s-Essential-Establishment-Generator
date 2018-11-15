@@ -1,10 +1,10 @@
 
 :: AlchemistOutput [alchemist]
-<<set _chemist to $alchemist.chemist>><h1>$alchemist.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou enter $alchemist.name and see the _chemist.descriptor chemist is <<print _chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The _chemist.weight chemist <<print either(_chemist.greeting)>>, and <<print ["saunters", "walks", "strolls", "walks", "slowly walks", "drags _chemist.hisher feet, swaggers, shuffles, quickly walks, struts, comes"].random()>> over to you and introduces _chemist.himherself as <<profile _chemist>>, the _chemist.owner of the shop, and asks what _chemist.heshe can do for you.
+<<unset $selectedBuilding>><<set $alchemist to $town.buildings[$selected.key][$selected.index]>><h1>$alchemist.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou enter $alchemist.name and see the $chemist.descriptor chemist is <<print $chemist.idle.random()>>. The $alchemist.size room is $alchemist.cleanliness. The $chemist.weight chemist <<print either($chemist.greeting)>>, and <<print ["saunters", "walks", "strolls", "walks", "slowly walks", "drags $chemist.hisher feet, swaggers, shuffles, quickly walks, struts, comes"].random()>> over to you and introduces $chemist.himherself as <<profile $chemist>>, the $chemist.owner of the shop, and asks what $chemist.heshe can do for you.
 
 <<print setup.closestMatch(setup.getAlchemistLookAround($alchemist), 'note', 'cleanlinessRoll', 'wealthRoll', $alchemist.cleanlinessRoll, $alchemist.wealthRoll)>>
-<<linkreplace "<h4>Talk with _chemist.name</h4>" t8n>>
-<h3>_chemist.name</h3><<include "ChemistTalk">><</linkreplace>>
-<<link "<h4>Generate plothook</h4>">><<set _chemistPlot to setup.createMission({category: "alchemist"})>><<replace "#chemistMission">><<print either("When you say that you're adventurers, _chemist.hisher _chemist.eyes eyes light up, and _chemist.heshe says", "You chat for a while, and then _chemist.firstName says ", "You discuss business, and when you talk about your adventures, _chemist.firstName asks ")>> "_chemistPlot.readout"<</replace>><</link>><span id="chemistMission"></span>
+<<linkreplace "<h4>Talk with $chemist.name</h4>" t8n>>
+<h3>$chemist.name</h3><<include "ChemistTalk">><</linkreplace>>
+<<link "<h4>Generate plothook</h4>">><<set $chemistPlot to setup.createMission({category: "alchemist"})>><<replace "#chemistMission">><<print either("When you say that you're adventurers, $chemist.hisher $chemist.eyes eyes light up, and $chemist.heshe says", "You chat for a while, and then $chemist.firstName says ", "You discuss business, and when you talk about your adventures, $chemist.firstName asks ")>> "$chemistPlot.readout"<</replace>><</link>><span id="chemistMission"></span>
 <<include "RandomPotion">>
 <<include "AlchemistSell">>

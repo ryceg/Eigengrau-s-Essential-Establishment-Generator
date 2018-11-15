@@ -1,13 +1,13 @@
 :: TavernOutput [tavern]
-<<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>>
-<h1>_tavern.name</h1>
-<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a _tavern.wordnoun, which is called <strong>_tavern.name</strong>, a _tavern.size _tavern.material tavern that the locals know best for its _tavern.draw.
+<<unset $selectedBuilding>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>>
+<h1>$tavern.name</h1>
+<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 <h3>The Tavern</h3>
-<<print setup.closestMatch(setup.getTavernDescription(_tavern), 'note', 'sizeRoll', 'wealthRoll', _tavern.sizeRoll, _tavern.wealthRoll)>>
-<<print setup.closestMatch(setup.getTavernLookAround(_tavern), 'note', 'populationRoll', 'roughnessRoll', _tavern.populationRoll, _tavern.roughnessRoll)>>
+<<print setup.closestMatch(setup.getTavernDescription($tavern), 'note', 'sizeRoll', 'wealthRoll', $tavern.sizeRoll, $tavern.wealthRoll)>>
+<<print setup.closestMatch(setup.getTavernLookAround($tavern), 'note', 'populationRoll', 'roughnessRoll', $tavern.populationRoll, $tavern.roughnessRoll)>>
 <<print either(setup.tavernData.patrons)>>
 <<include "RandomNPC">>
-<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a _bartender.descriptor who is currently <<print _bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the _bartender.manwoman, who introduces _bartender.himherself as <<profile _bartender>>, the _bartender.owner of _tavern.name.
+<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<profile $bartender>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">>

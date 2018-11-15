@@ -1,6 +1,6 @@
 :: Alchemist
 <<set $alchemist to setup.createAlchemist($town)>>
-/* <<set $chemist to $alchemist.chemist>> */
+/*  */
 <<set $brew to setup.createAlchemy({type: "brewing potion"})>>
 /* <<set $chemist to setup.createNPC({
 	dndClass: either("wizard", "wizard", "druid", "druid", "cleric", "warlock"),

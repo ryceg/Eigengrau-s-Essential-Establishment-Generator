@@ -1,21 +1,20 @@
 
 :: InitAlchemist [output]
+<<set $selectedBuilding to $town.buildings[$selected.key][$selected.index]>>
+<<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
-<<linkreplace "Rename <strong>$alchemist.name</strong>">><h3><<textbox "$alchemist.name" $alchemist.name>></h3><</linkreplace>>
+<span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$selectedBuilding.wealthRoll" $selectedBuilding.wealthRoll 1 100 1>></span>
 
-<span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$alchemist.wealthRoll" $alchemist.wealthRoll 1 100 1>></span>
+<span class="tip" title="How large is the shop?">Alchemist Size: <<numberslider "$selectedBuilding.sizeRoll" $selectedBuilding.sizeRoll 1 100 1>></span>
 
-<span class="tip" title="How large is the shop?">Alchemist Size: <<numberslider "$alchemist.sizeRoll" $alchemist.sizeRoll 1 100 1>></span>
+<span class="tip" title="Is it well known, or is it a hobby shop?">Alchemist Reputation: <<numberslider "$selectedBuilding.reputationRoll" $selectedBuilding.reputationRoll 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or is it a hobby shop?">Alchemist Reputation: <<numberslider "$alchemist.reputationRoll" $alchemist.reputationRoll 1 100 1>></span>
+<span class="tip" title="How clean is the alchemist?">Alchemist Cleanliness: <<numberslider "$selectedBuilding.cleanlinessRoll" $selectedBuilding.cleanlinessRoll 1 100 1>></span>
 
-<span class="tip" title="How clean is the alchemist?">Alchemist Cleanliness: <<numberslider "$alchemist.cleanlinessRoll" $alchemist.cleanlinessRoll 1 100 1>></span>
+<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?">Alchemist Expertise: <<numberslider "$selectedBuilding.expertiseRoll" $selectedBuilding.expertiseRoll 1 100 1>></span>
 
-<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?">Alchemist Expertise: <<numberslider "$alchemist.expertiseRoll" $alchemist.expertiseRoll 1 100 1>></span>
+<span class="tip" title="How busy is the alchemist?">Alchemist Activity: <<numberslider "$selectedBuilding.activityRoll" $selectedBuilding.activityRoll 1 100 1>></span>
 
-<span class="tip" title="How busy is the alchemist?">Alchemist Activity: <<numberslider "$alchemist.activityRoll" $alchemist.activityRoll 1 100 1>></span>
-
-<span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist Price Modifier: <<numberslider "$alchemist.priceModifier" $alchemist.priceModifier -10 10 1>></span>
+<span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist Price Modifier: <<numberslider "$selectedBuilding.priceModifier" $selectedBuilding.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]
-<<set $currentPassage to $alchemist>>

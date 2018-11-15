@@ -1,15 +1,15 @@
 
 :: Menu
-<<nobr>><<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>>
+<<nobr>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>>
 <<linkreplace "<h4>What's good?</h4>" t8n>>
 	<h3>On offer today...</h3>
-	<<print setup.closestMatch(setup.getTavernMenu(_tavern), 'note', 'wealthRoll', 'roughnessRoll', _tavern.wealthRoll, _tavern.roughnessRoll)>>
+	<<print setup.closestMatch(setup.getTavernMenu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.wealthRoll, $tavern.roughnessRoll)>>
 
-<<if _tavern.wealthRoll gte 50>>
-<<set _tavern.specialBrew to setup.tavernData.specialBrew.random()>>
+<<if $tavern.wealthRoll gte 50>>
+<<set $tavern.specialBrew to setup.tavernData.specialBrew.random()>>
 	<div class='descriptive'>
-	<h3>_tavern.specialBrew.name</h3>
-	The special brew of the week is a _tavern.specialBrew.type called _tavern.specialBrew.name, selling for <<money _tavern.specialBrew.cost>>. _tavern.specialBrew.description
+	<h3>$tavern.specialBrew.name</h3>
+	The special brew of the week is a $tavern.specialBrew.type called $tavern.specialBrew.name, selling for <<money $tavern.specialBrew.cost>>. $tavern.specialBrew.description
 	</div>
 <</if>>
 

@@ -1,27 +1,26 @@
 
 :: InitTavern [output]
-
+<<set $selectedBuilding to $town.buildings[$selected.key][$selected.index]>>
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<set $tavern.name to setup.createTavernName()>>>><<textbox "$tavern.name" $tavern.name>>
+            \<<set $selectedBuilding.name to setup.createTavernName()>>>><<textbox "$selectedBuilding.name" $selectedBuilding.name>>
     <</replace>><</link>>
-<span id="tavernname"><<textbox "$tavern.name" $tavern.name>></span><</nobr>>
+<span id="tavernname"><<textbox "$selectedBuilding.name" $selectedBuilding.name>></span><</nobr>>
 
-<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$tavern.wealthRoll" $tavern.wealthRoll 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$selectedBuilding.wealthRoll" $selectedBuilding.wealthRoll 1 100 1>></span>
 
-<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$tavern.populationRoll" $tavern.populationRoll 1 100 1>></span>
+<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$selectedBuilding.populationRoll" $selectedBuilding.populationRoll 1 100 1>></span>
 
-<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$tavern.sizeRoll" $tavern.sizeRoll 1 100 1>></span>
+<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$selectedBuilding.sizeRoll" $selectedBuilding.sizeRoll 1 100 1>></span>
 
-<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$tavern.reputationRoll" $tavern.reputationRoll 1 100 1>></span>
+<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$selectedBuilding.reputationRoll" $selectedBuilding.reputationRoll 1 100 1>></span>
 
-<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$tavern.roughnessRoll" $tavern.roughnessRoll 1 100 1>></span>
+<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$selectedBuilding.roughnessRoll" $selectedBuilding.roughnessRoll 1 100 1>></span>
 
-<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$tavern.sinRoll" $tavern.sinRoll 1 100 1>></span>
+<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$selectedBuilding.sinRoll" $selectedBuilding.sinRoll 1 100 1>></span>
 
-<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$tavern.cleanlinessRoll" $tavern.cleanlinessRoll 1 100 1>></span>
+<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$selectedBuilding.cleanlinessRoll" $selectedBuilding.cleanlinessRoll 1 100 1>></span>
 
-<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$tavern.priceModifier" $tavern.priceModifier -10 10 1>></span>
+<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$selectedBuilding.priceModifier" $selectedBuilding.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[output|TavernOutput]]
-<<set $currentPassage to $tavern>>

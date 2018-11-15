@@ -16,22 +16,22 @@ setup.getTavernLookAround = function (tavern) {
       populationRoll: 80,
       roughnessRoll: 50,
       note:
-      'It must be peak hour for the ' + tavern.wordnoun + '. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.'
+      'It must be peak hour for the ' + tavern.wordNoun + '. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.'
     },
     {
       populationRoll: 80,
       roughnessRoll: 40,
-      note: 'The ' + tavern.wordnoun + ' is packed, and the patrons are clamouring to find the few barmaids that are on staff.'
+      note: 'The ' + tavern.wordNoun + ' is packed, and the patrons are clamouring to find the few barmaids that are on staff.'
     },
     {
       populationRoll: 80,
       roughnessRoll: 20,
-      note: "There's barely enough room to stand, let alone find a seat in the " + tavern.lighting + ' ' + tavern.wordnoun + '.'
+      note: "There's barely enough room to stand, let alone find a seat in the " + tavern.lighting + ' ' + tavern.wordNoun + '.'
     },
     {
       populationRoll: 60,
       roughnessRoll: 60,
-      note: 'The ' + tavern.wordnoun + " is packed with patrons, and you're pushed to the side as somebody makes for the latrine in a hurry."
+      note: 'The ' + tavern.wordNoun + " is packed with patrons, and you're pushed to the side as somebody makes for the latrine in a hurry."
     },
     {
       populationRoll: 70,
@@ -42,19 +42,19 @@ setup.getTavernLookAround = function (tavern) {
     {
       populationRoll: 70,
       roughnessRoll: 20,
-      note: 'The ' + tavern.wordnoun + " is pretty packed with patrons, and it's difficult for you to find a seat."
+      note: 'The ' + tavern.wordNoun + " is pretty packed with patrons, and it's difficult for you to find a seat."
     },
     {
       populationRoll: 60,
       roughnessRoll: 20,
       note:
-      'The ' + tavern.wordnoun + ' is quite full, and the owner is clearly enjoying the amount of business ' + bartender.hisher + tavern.wordnoun + ' is receiving.'
+      'The ' + tavern.wordNoun + ' is quite full, and the owner is clearly enjoying the amount of business ' + bartender.hisher + tavern.wordNoun + ' is receiving.'
     },
     {
       populationRoll: 50,
       roughnessRoll: 60,
       note:
-      "There's a fair number of people in the " + tavern.wordnoun + ' with quite a few swords on display.'
+      "There's a fair number of people in the " + tavern.wordNoun + ' with quite a few swords on display.'
     },
     {
       populationRoll: 50,
@@ -70,7 +70,7 @@ setup.getTavernLookAround = function (tavern) {
     {
       populationRoll: 40,
       roughnessRoll: 20,
-      note: "There's a reasonable amount of customers in the " + tavern.wordnoun + '. The barmaid is happily walking back and forth from the kitchen, taking out plates as they are delivered.'
+      note: "There's a reasonable amount of customers in the " + tavern.wordNoun + '. The barmaid is happily walking back and forth from the kitchen, taking out plates as they are delivered.'
     },
     {
       populationRoll: 30,
@@ -103,18 +103,80 @@ setup.getTavernLookAround = function (tavern) {
   return setup.lookAroundData
 }
 setup.tavernData = {
-  'descriptors': {
+  'rollData': {
+    'wealth': [
+      [95, 'kingly', 800, 400],
+      [80, 'aristocratic', 400, 200],
+      [70, 'wealthy', 200, 80],
+      [60, 'comfortable', 50, 40],
+      [50, 'modest', 30, 30],
+      [25, 'poor', 10, 6],
+      [15, 'squalid', 7, 3],
+      [0, 'destitute', 6, 2]
+    ],
     'size': [
-      [90, 'massive'],
+      [95, 'cavernous'],
       [80, 'huge'],
       [70, 'quite large'],
       [60, 'large'],
       [50, 'spacious'],
       [40, 'average sized'],
-      [30, 'slightly cramped'],
-      [20, 'tiny'],
-      [10, 'miniscule'],
-      [0, 'impossibly cramped']
+      [30, 'somewhat cramped'],
+      [20, 'small'],
+      [10, 'tiny'],
+      [0, 'extremely cramped']
+    ],
+    'cleanliness': [
+      [80, 'absolutely spotless'],
+      [75, 'spotless'],
+      [70, 'nice and well cleaned'],
+      [60, 'hygienic'],
+      [50, 'decently hygienic'],
+      [40, 'slightly grubby'],
+      [30, 'quite dirty'],
+      [20, 'filthy'],
+      [10, 'rather filthy'],
+      [0, 'absolutely putrid']
+    ],
+    'bedCleanliness': [
+      [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
+      [75, 'recently prepared and well cleaned'],
+      [70, 'freshly cleaned and neat'],
+      [60, 'tidy and neat'],
+      [50, 'reasonably clean'],
+      [40, 'somewhat tidy'],
+      [30, 'disgusting'],
+      [20, 'teeming with rats'],
+      [10, 'rather filthy'],
+      [0, 'festering with bugs']
+    ],
+    'expertise': [
+      [80, 'masterful'],
+      [70, 'exceptional'],
+      [60, 'superior quality'],
+      [50, 'finely crafted'],
+      [40, 'well crafted'],
+      [30, 'sloppily made'],
+      [20, 'somewhat amateur'],
+      [10, 'amateur'],
+      [0, 'blatantly amateur']
+    ],
+    'roughness': [
+      [80, 'bloodthirsty'],
+      [60, 'rough'],
+      [50, 'alright'],
+      [40, 'placid'],
+      [30, 'calm'],
+      [20, 'tranquil'],
+      [10, 'serene'],
+      [0, 'utterly serene']
+    ],
+    'reputation': [
+      [80, 'famous'],
+      [60, 'well known'],
+      [40, 'famoush-ish'],
+      [20, 'reviled'],
+      [0, 'infamous']
     ]
   },
   'games': [
@@ -343,8 +405,8 @@ setup.getTavernMenu = function (tavern) {
     { wealthRoll: 80,
       roughnessRoll: 30,
       note:
-      ["There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordnoun + '.',
-        "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordnoun + '.'].random()
+      ["There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordNoun + '.',
+        "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordNoun + '.'].random()
     },
     { wealthRoll: 80,
       roughnessRoll: 50,
@@ -356,13 +418,13 @@ setup.getTavernMenu = function (tavern) {
       roughnessRoll: 80,
       note:
       ["There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food, but curiously no vegetables. " + bartender.name + " spits when you mention this, and says 'no stinkin' veggies around here. We eat meat and we like it, so if you don't like it, yer not eatin'.",
-        "There's your standard beers, with the " + tavern.wordnoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in " + tavern.name + '.'].random()
+        "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in " + tavern.name + '.'].random()
     },
     { wealthRoll: 60,
       roughnessRoll: 30,
       note:
       ["There's ales available. The food is a peculiarly limited menu; roast vegetables, breads, cheeses, but no meats, despite " + tavern.name + ' clearly being able to afford it.',
-        "There's your standard beers, with the " + tavern.wordnoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's breads, cheeses, and all the vegetables you could ever ask for, but not a single bone of meat is available.",
+        "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's breads, cheeses, and all the vegetables you could ever ask for, but not a single bone of meat is available.",
         'Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask ' + bartender.name + ' about it, ' + bartender.heshe + ' smiles, and says that ' + bartender.heshe + " is an animal lover, and wouldn't be able to forgive " + bartender.himherself + ' if an animal came to harm due to ' + bartender.hisher + ' business.'].random()
     },
     { wealthRoll: 60,
@@ -374,7 +436,7 @@ setup.getTavernMenu = function (tavern) {
       roughnessRoll: 30,
       note:
       ["There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food.",
-        "There's your standard beers, with the " + tavern.wordnoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton."].random()
+        "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton."].random()
     },
     { wealthRoll: 40,
       roughnessRoll: 60,
@@ -547,7 +609,7 @@ setup.getTavernDraws = function (town, tavern) {
     },
     {
       draw: 'location by the river',
-      drawFeature: tavern.name + ' overlooks a gorgeous river, which you can hear gently rushing by the ' + tavern.material + ' ' + tavern.wordnoun + " inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating."
+      drawFeature: tavern.name + ' overlooks a gorgeous river, which you can hear gently rushing by the ' + tavern.material + ' ' + tavern.wordNoun + " inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating."
     },
     {
       draw: 'wooden-chopping competition held weekly',
@@ -559,7 +621,7 @@ setup.getTavernDraws = function (town, tavern) {
     },
     {
       draw: 'clean beds',
-      drawFeature: "You see that the bar has been recently cleaned, and there's a surprising lack of spittle on the floor of the " + tavern.wordnoun + '.'
+      drawFeature: "You see that the bar has been recently cleaned, and there's a surprising lack of spittle on the floor of the " + tavern.wordNoun + '.'
     },
     {
       draw: 'lack of bedbugs',
@@ -587,15 +649,15 @@ setup.getTavernDraws = function (town, tavern) {
     // },
     {
       draw: 'huge fireplace',
-      drawFeature: 'You see a huge fireplace in the centre of the ' + tavern.wordnoun + ', which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.'
+      drawFeature: 'You see a huge fireplace in the centre of the ' + tavern.wordNoun + ', which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.'
     },
     {
       draw: 'incredible view',
-      drawFeature: 'You look out the window, and see that the view is indeed nothing to scoff at; the ' + tavern.wordnoun + ' is situated on a hill which overlooks the sleepy ' + town.type + ' of ' + town.name + ", and you can make out the specks of people walking about below. It's an unbelievable location for an inn."
+      drawFeature: 'You look out the window, and see that the view is indeed nothing to scoff at; the ' + tavern.wordNoun + ' is situated on a hill which overlooks the sleepy ' + town.type + ' of ' + town.name + ", and you can make out the specks of people walking about below. It's an unbelievable location for an inn."
     },
     {
       draw: 'nice view',
-      drawFeature: 'You look out the window, and see that the view is indeed quite nice; the ' + tavern.wordnoun + ' is situated on a hill which overlooks the sleepy ' + town.type + ' of ' + town.name + ", and you can make out the specks of people walking about below. It's a nice location for an inn."
+      drawFeature: 'You look out the window, and see that the view is indeed quite nice; the ' + tavern.wordNoun + ' is situated on a hill which overlooks the sleepy ' + town.type + ' of ' + town.name + ", and you can make out the specks of people walking about below. It's a nice location for an inn."
     }
   ]
   return setup.tavernDraw.random()
@@ -656,7 +718,7 @@ setup.getTavernDescription = function (tavern) {
     {
       sizeRoll: 20,
       wealthRoll: 10,
-      note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordnoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.material + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
+      note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordNoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.material + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
       ].random()
     }
 

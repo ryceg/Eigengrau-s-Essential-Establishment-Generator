@@ -1,10 +1,10 @@
 :: GuardOutput
-<<set _town to $town>><<set _guard to _town.guard>><h1>_guard.name</h1>
-<<set _guardCaptain to _guard.captain>>
-_guard.name is led by <<profile _guardCaptain>>, a _guardCaptain.descriptor. _guard.name is a _guard.size of _guard.population. One can recognise a member of _guard.name by the _guard.livery.
+<<set $guard to $town.guard>><h1>$guard.name</h1>
+<<set $guardCaptain to $guard.captain>>
+$guard.name is led by <<profile $guardCaptain>>, a $guardCaptain.descriptor. $guard.name is a $guard.size of $guard.population. One can recognise a member of $guard.name by the $guard.livery.
 
-_guard.funding
+$guard.funding
 
-_town.law
-<<set $currentPassage to _guard>>
+$town.law
+<<set $currentPassage to $guard>>
 <<back>>

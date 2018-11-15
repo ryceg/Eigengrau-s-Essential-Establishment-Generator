@@ -1,5 +1,5 @@
 :: Intrigue
-<<set _tavern to $currentPassage>><<set _bartender to _tavern.bartender>><<linkreplace "<h4>Anything interesting in _tavern.name?</h4>" t8n>><h4>Interesting things in _tavern.name...</h4><<nobr>>
+<<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>><<linkreplace "<h4>Anything interesting in $tavern.name?</h4>" t8n>><h4>Interesting things in $tavern.name...</h4><<nobr>>
 <<set _rollintrigue to random(1, 4)>>
 		<<if _rollintrigue is 1>>
 			<<include "PlotHookRumour">>
