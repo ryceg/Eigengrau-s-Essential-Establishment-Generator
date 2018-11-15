@@ -10,6 +10,7 @@ setup.createTown = function (base) {
     passageName: 'TownOutput',
     name: townName,
     get type () {
+      console.log('Fetching town type.')
       if (this.population > 3000) {
         return 'city'
       } else if (this.population > 1000) {
@@ -19,6 +20,7 @@ setup.createTown = function (base) {
       } else if (this.population > 30) {
         return 'hamlet'
       } else if (this.population <= 30) {
+        console.log('Population is less than 30. Setting to 30.')
         this.population = 30
         return 'hamlet'
       }
@@ -30,6 +32,7 @@ setup.createTown = function (base) {
       'tavern': [],
       'alchemist': [],
       'brothel': [],
+      'market': [],
       'GeneralStore': []
     },
     population: setup.townData.type[type].population(),
@@ -37,26 +40,33 @@ setup.createTown = function (base) {
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
     get economicIdeology () {
+      console.log('Fetching town economic ideology.')
       return this._economicIdeology
     },
     set economicIdeology (value) {
+      console.log('Setting town economic ideology.')
       this._economicIdeology = value
       Object.assign(this, setup.townData.economicIdeology[this._economicIdeology].descriptors)
     },
     get politicalSource () {
+      console.log('Fetching town political source.')
       return this._politicalSource
     },
     set politicalSource (value) {
+      console.log('Setting town political source.')
       this._politicalSource = value
     },
     get politicalIdeology () {
+      console.log('Fetching town political ideology.')
       return this._politicalIdeology
     },
     set politicalIdeology (value) {
+      console.log('Setting town political ideology.')
       this._politicalIdeology = value
       Object.assign(this, setup.townData.politicalIdeology[this._politicalIdeology].data)
     },
     get politicalSourceDescription () {
+      console.log('Fetching town political source description.')
       if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
         if (this.politicalIdeology === 'autocracy') {
           return setup.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
@@ -66,6 +76,18 @@ setup.createTown = function (base) {
       } else {
         return setup.townData.politicalSource[this._politicalSource].politicalSourceDescription
       }
+    },
+    get wealth () {
+      console.log('Fetching town wealth.')
+      var wealth = setup.townData.rollData.wealth.find(function (descriptor) {
+        return descriptor[0] <= this.wealthRoll
+      }, this)
+      if (wealth === undefined) {
+        console.log('Could not find a wealthRoll descriptor that was appropriate for a roll of ' + this.wealthRoll + ' for ' + this.name)
+        wealth = setup.townData.rollData.wealth[setup.townData.rollData.wealth.length - 1]
+      }
+      this._wealth = wealth[1]
+      return this._wealth
     },
     location: setup.townData.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
@@ -90,20 +112,11 @@ setup.createTown = function (base) {
   town.politicalSource = town.politicalSource || town._politicalSource
 
   console.groupCollapsed(town.name + ' is loading...')
-  town.wealthRoll = Math.clamp(town.wealthRoll, 1, 100)
-  town.reputationRoll = Math.clamp(town.reputationRoll, 1, 100)
-  town.sinRoll = Math.clamp(town.sinRoll, 1, 100)
-  town.diversityRoll = Math.clamp(town.diversityRoll, 1, 100)
-  town.magicRoll = Math.clamp(town.magicRoll, 1, 100)
-  town.sizeRoll = Math.clamp(town.sizeRoll, 1, 100)
-  town.economicsRoll = Math.clamp(town.economicsRoll, 1, 100)
-  town.welfareRoll = Math.clamp(town.welfareRoll, 1, 100)
-  town.militaryRoll = Math.clamp(town.militaryRoll, 1, 100)
-  town.lawRoll = Math.clamp(town.lawRoll, 1, 100)
-  town.arcanaRoll = Math.clamp(town.arcanaRoll, 1, 100)
 
   town.origin = setup.townData.terrain[town.terrain][town.location].origin.random()
   town.vegetation = setup.townData.terrain[town.terrain][town.location].vegetation.random()
+
+  console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
   Object.assign(town, setup.townData.type[town.type].modifiers)
 
   town.guard = setup.createGuard(town.name)
@@ -117,10 +130,22 @@ setup.createTown = function (base) {
 
   setup.createSocioPolitics(town)
 
+  town.wealthRoll.clamp(1, 100)
+  town.reputationRoll.clamp(1, 100)
+  town.sinRoll.clamp(1, 100)
+  town.diversityRoll.clamp(1, 100)
+  town.magicRoll.clamp(1, 100)
+  town.sizeRoll.clamp(1, 100)
+  town.economicsRoll.clamp(1, 100)
+  town.welfareRoll.clamp(1, 100)
+  town.militaryRoll.clamp(1, 100)
+  town.lawRoll.clamp(1, 100)
+  town.arcanaRoll.clamp(1, 100)
   setup.townRender(town)
+  setup.createStartBuildings(town)
 
   console.log(town)
-  console.groupEnd();
+  console.groupEnd()
   console.log(town.name + ' has loaded.')
   return town
 }

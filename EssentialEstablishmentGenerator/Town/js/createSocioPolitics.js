@@ -9,20 +9,16 @@ setup.createSocioPolitics = function (town) {
   // town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
 
   setup.createTownLeader = function (town) {
-    var leader
-    town.dualLeaders = false
     town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].data.leaderType || 'commoners'
     if (typeof polIde.leaderTraits !== 'undefined') {
-      leader = setup.createNPC(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
-      town.leader = leader
+      town.leader = setup.createNPC(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
     } else {
       console.log('Invalid political ideology of ' + town.politicalIdeology + '. Leader defaulting to random NPC...')
-      leader = setup.createNPC()
-      town.leader = leader
+      town.leader = setup.createNPC()
     }
     return town
   }
-  // console.log(setup.factionData.type[setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType])
+
   switch (town.politicalSource) {
     case 'absolute monarchy':
       switch (town.politicalIdeology) {
@@ -40,7 +36,10 @@ setup.createSocioPolitics = function (town) {
           // }
           break
         default:
+          console.log('Loaded a ' + town.politicalIdeologyIC + ' absolute monarchy')
           setup.createTownLeader(town)
+          town.dualLeaders = true
+          town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble', profession: 'noble' })
       }
       break
     case 'constitutional monarchy':
@@ -60,11 +59,15 @@ setup.createSocioPolitics = function (town) {
           // }
           break
         default:
+          console.log('Loaded a ' + town.politicalIdeologyIC + ' constitutional monarchy')
+          town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble', profession: 'noble' })
           setup.createTownLeader(town)
       }
       break
     default:
+      console.log('Loaded a ' + town.politicalIdeologyIC + ' ' + town.politicalSource)
       setup.createTownLeader(town)
+      town.dualLeaders = false
   }
 
   // switch (town.politicalIdeology) {
