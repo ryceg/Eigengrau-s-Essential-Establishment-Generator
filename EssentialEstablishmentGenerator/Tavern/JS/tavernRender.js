@@ -1,5 +1,4 @@
 setup.tavernRender = function (tavern) {
-  var bartender = tavern.bartender
   if (tavern.wealthRoll > 95) {
     tavern.wealth = 'kingly'
     tavern.lodging = 800
@@ -31,7 +30,7 @@ setup.tavernRender = function (tavern) {
   }
 
   /* ------------------------- SIZE -------------------------- */
-  
+
   if (tavern.sizeRoll > 80) {
     tavern.size = 'huge'
   } else if (tavern.sizeRoll > 70) {
@@ -67,6 +66,7 @@ setup.tavernRender = function (tavern) {
   } else if (tavern.roughnessRoll <= 20) {
     tavern.roughness = 'utterly serene'
   }
+
 
   /* ------------------------- CLEANLINESS -------------------------- */
 

@@ -1,26 +1,16 @@
 /* global setup */
 setup.alchemistModifiers = function (alchemist) {
   if (alchemist.sizeRoll > 80) {
-    alchemist.size = 'huge'
     alchemist.activityRoll -= 4
   } else if (alchemist.sizeRoll > 70) {
-    alchemist.size = 'quite large'
     alchemist.activityRoll -= 3
   } else if (alchemist.sizeRoll > 60) {
-    alchemist.size = 'large'
     alchemist.activityRoll -= 1
-  } else if (alchemist.sizeRoll > 50) {
-    alchemist.size = 'spacious'
-  } else if (alchemist.sizeRoll > 40) {
-    alchemist.size = 'medium'
   } else if (alchemist.sizeRoll > 30) {
-    alchemist.size = 'slightly cramped'
     alchemist.activityRoll += 1
   } else if (alchemist.sizeRoll > 20) {
-    alchemist.size = 'small'
     alchemist.activityRoll += 1
   } else if (alchemist.sizeRoll <= 20) {
-    alchemist.size = 'tiny'
     alchemist.activityRoll += 3
   }
 
@@ -41,40 +31,32 @@ setup.alchemistModifiers = function (alchemist) {
     alchemist.expertiseRoll += 10
     alchemist.activityRoll += 6
     alchemist.hardinessRoll += 8
-    alchemist.cleanliness = 'fastidious'
   } else if (alchemist.cleanlinessRoll > 70) {
     alchemist.expertiseRoll += 7
     alchemist.activityRoll += 4
     alchemist.hardinessRoll += 6
-    alchemist.cleanliness = 'very tidy'
   } else if (alchemist.cleanlinessRoll > 60) {
     alchemist.expertiseRoll += 3
     alchemist.activityRoll += 3
     alchemist.hardinessRoll += 4
-    alchemist.cleanliness = 'tidy'
   } else if (alchemist.cleanlinessRoll > 50) {
     alchemist.expertiseRoll += 1
     alchemist.hardinessRoll += 2
-    alchemist.cleanliness = 'reasonably tidy'
   } else if (alchemist.cleanlinessRoll > 40) {
     alchemist.expertiseRoll -= 1
     alchemist.hardinessRoll -= 2
-    alchemist.cleanliness = 'somewhat messy'
   } else if (alchemist.cleanlinessRoll > 30) {
     alchemist.expertiseRoll -= 3
     alchemist.hardinessRoll -= 4
     alchemist.activityRoll -= 2
-    alchemist.cleanliness = 'rather messy'
   } else if (alchemist.cleanlinessRoll > 20) {
     alchemist.expertiseRoll -= 5
     alchemist.hardinessRoll -= 6
     alchemist.activityRoll -= 6
-    alchemist.cleanliness = 'very messy'
   } else if (alchemist.cleanlinessRoll <= 20) {
     alchemist.expertiseRoll -= 7
     alchemist.hardinessRoll -= 8
     alchemist.activityRoll -= 10
-    alchemist.cleanliness = 'filthy'
   }
 
   if (alchemist.wealthRoll > 95) {

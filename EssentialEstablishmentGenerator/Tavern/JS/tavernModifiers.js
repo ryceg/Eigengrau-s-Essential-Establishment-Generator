@@ -5,40 +5,6 @@ setup.tavernModifiers = function (town, tavern) {
   //   tavern.wealthRoll -= 5
   // }
 
-  switch (tavern.wealth) {
-    case 'kingly':
-      tavern.lodging = 800
-      tavern.food = 400
-      break
-    case 'aristocratic':
-      tavern.lodging = 400
-      tavern.food = 200
-      break
-    case 'wealthy':
-      tavern.lodging = 200
-      tavern.food = 80
-      break
-    case 'comfortable':
-      tavern.lodging = 50
-      tavern.food = 40
-      break
-    case 'modest':
-      tavern.lodging = 30
-      tavern.food = 30
-      break
-    case 'poor':
-      tavern.lodging = 10
-      tavern.food = 6
-      break
-    case 'squalid':
-      tavern.lodging = 7
-      tavern.food = 3
-      break
-    default:
-      tavern.lodging = 30
-      tavern.food = 30
-  }
-
   if (town.wealthRoll > 95) {
     tavern.wealthRoll += 5
   } else if (town.wealthRoll > 80) {
@@ -70,13 +36,11 @@ setup.tavernModifiers = function (town, tavern) {
       tavern.sinRoll += 20
       tavern.roughnessRoll += 4
       tavern.cleanlinessRoll -= 5
-      /* tavern.lodging *= 1.3 */
       break
     case 'gambling den':
       tavern.sinRoll += 20
       tavern.roughnessRoll += 4
       tavern.cleanlinessRoll -= 5
-      /* tavern.lodging *= 1.3 */
       break
     case 'quiet and low-key bar':
       tavern.sinRoll -= 15
@@ -99,14 +63,12 @@ setup.tavernModifiers = function (town, tavern) {
       tavern.wealthRoll += 5
       tavern.roughnessRoll -= 10
       tavern.cleanlinessRoll += 10
-      tavern.food *= 1.3
       break
     case 'members-only club':
       tavern.sinRoll -= 10
       tavern.wealthRoll += 5
       tavern.roughnessRoll -= 10
       tavern.cleanlinessRoll += 10
-      /* tavern.food *= 1.3 */
       break
 
     case 'gathering place for a secret society':
