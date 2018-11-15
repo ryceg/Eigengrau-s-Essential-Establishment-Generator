@@ -92,7 +92,7 @@ setup.getTavernLookAround = function (tavern) {
       populationRoll: 20,
       roughnessRoll: 60,
       note:
-      "There's not very many customers in name at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele."
+      "There's not very many customers in " + tavern.name + ' at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele.'
     },
     {
       populationRoll: 20,
