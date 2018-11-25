@@ -1,3 +1,8 @@
 :: Markets
 
 <<set $market to setup.createMarket($town)>>
+<<set $marketSellerA to setup.createNPC({ profession: "merchant", hasClass: false })>>
+<<set $marketSellerB to setup.createNPC({ profession: "merchant", hasClass: false })>>
+<<set $marketSellerC to setup.createNPC({ profession: "merchant", hasClass: false })>>
+<<set $marketSellerE to setup.createNPC({ profession: "merchant", hasClass: false })>>
+<<set $marketSellerD to setup.createNPC({background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>>

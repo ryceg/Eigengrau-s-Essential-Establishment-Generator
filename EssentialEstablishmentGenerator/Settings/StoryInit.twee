@@ -7,14 +7,13 @@
 <<set $towns to []>>
 <<set $factions to []>>
 <<set $buildings to []>>
-<<set $npcs to []>>
+<<set $npcs to {}>>
 
 <<include "Town">>
 
 /* <<set $town to {
   name: "Test Town",
-  type: "city",
-  wealthRoll: 99
+  type: "city"
 }>>
 
 <<set $tavern to {

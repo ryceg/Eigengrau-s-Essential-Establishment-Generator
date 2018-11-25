@@ -2,13 +2,17 @@
 <h5><<nobr>>
 <<link "The $town.type of $town.name">>
     <<unset $currentPassage>>
+    <<unset $currentNPC>>
+    <<unset $currentNPCKey>>
     <<goto "Start">>
 <</link>>
 
 <<if def $currentPassage && passage() is $currentPassage.passageName>>
   > $currentPassage.name
   <<elseif def $currentPassage && passage() isnot $currentPassage.passageName>>
-  > <<link $currentPassage.name>><<goto $currentPassage.passageName>><</link>>
+  > <<link $currentPassage.name>>
+  <<unset $currentNPC>>
+  <<unset $currentNPCKey>><<goto $currentPassage.passageName>><</link>>
 <</if>>
 
 <<if def $currentFaction && passage() is "FactionProfile">>
@@ -18,7 +22,9 @@
 <<if $currentPassage is $town.guard && passage() is "GuardOutput">>
   > $town.guard.name
   <<elseif $currentPassage is $town.guard && passage() isnot "GuardOutput">>
-  > <<link $currentPassage.name>><<goto $currentPassage.passageName>><</link>>
+  > <<link $currentPassage.name>>
+  <<unset $currentNPC>>
+  <<unset $currentNPCKey>><<goto $currentPassage.passageName>><</link>>
 <</if>>
 
 <<if def $currentNPC && passage() is "NPCProfile">>

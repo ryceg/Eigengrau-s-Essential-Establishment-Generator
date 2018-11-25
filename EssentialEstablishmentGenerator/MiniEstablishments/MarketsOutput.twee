@@ -1,39 +1,33 @@
 :: MarketOutput [market]
 <h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
-<<nobr>><<set _marketSellerA to setup.createNPC({ profession: "merchant", hasClass: false })>>
-<<set _marketSellerB to setup.createNPC({ profession: "merchant", hasClass: false })>>
-<<set _marketSellerC to setup.createNPC({ profession: "merchant", hasClass: false })>>
-<<set _marketSellerE to setup.createNPC({ profession: "merchant", hasClass: false })>>
-<<set _marketSellerD to setup.createNPC({background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>>
 <<set _marketData to setup.marketData>>
-<</nobr>>
-There's a <<profile _marketSellerA _marketSellerA.descriptor>> selling <<print either(_marketData.vendors.selling)>> from a <<print either(_marketData.vendors.tent)>>.
+There's a <<profile $marketSellerA $marketSellerA.descriptor>> selling <<print either(_marketData.vendors.selling)>> from a <<print either(_marketData.vendors.tent)>>.
 
-A <<profile _marketSellerB _marketSellerB.descriptor>> shouting out "<<print either(_marketData.vendors.shouts)>> <<print either(_marketData.vendors.suffix)>>" from a <<print either(_marketData.vendors.tent)>>.
+A <<profile $marketSellerB $marketSellerB.descriptor>> shouting out "<<print either(_marketData.vendors.shouts)>> <<print either(_marketData.vendors.suffix)>>" from a <<print either(_marketData.vendors.tent)>>.
 
-Nearby, a <<profile _marketSellerC _marketSellerC.descriptor>> is selling <<print either(_marketData.vendors.selling)>>.
+Nearby, a <<profile $marketSellerC $marketSellerC.descriptor>> is selling <<print either(_marketData.vendors.selling)>>.
 
-A <<profile _marketSellerE _marketSellerE.descriptor>> is shouting out "<<print either(_marketData.vendors.shouts)>> <<print either(_marketData.vendors.suffix)>>" from a <<print either(_marketData.vendors.tent)>>.
+A <<profile $marketSellerE $marketSellerE.descriptor>> is shouting out "<<print either(_marketData.vendors.shouts)>> <<print either(_marketData.vendors.suffix)>>" from a <<print either(_marketData.vendors.tent)>>.
 
 <<link "<h4>Who else is there?</h4>">>
-<<set _marketSellerF to setup.createNPC({ profession: "merchant", hasClass: false })>>
-<<replace "#moreSellers">>There's a <<profile _marketSellerF _marketSellerF.descriptor>> selling <<print either(_marketData.vendors.selling)>> from a <<print either(_marketData.vendors.tent)>>.<</replace>>
+<<set $marketSellerF to setup.createNPC({ profession: "merchant", hasClass: false })>>
+<<replace "#moreSellers">>There's a <<profile $marketSellerF $marketSellerF.descriptor>> selling <<print either(_marketData.vendors.selling)>> from a <<print either(_marketData.vendors.tent)>>.<</replace>>
 <</link>><span id="moreSellers"></span>
 
-A <<profile _marketSellerD _marketSellerD.descriptor>> is selling magical trinkets from a  <<print either(_marketData.vendors.tent)>>. Or, at least, they're supposedly magical trinkets.
+A <<profile $marketSellerD $marketSellerD.descriptor>> is selling magical trinkets from a  <<print either(_marketData.vendors.tent)>>. Or, at least, they're supposedly magical trinkets.
 
-<<linkreplace "Magical trinket seller">>The _marketSellerD.manwoman beckons you over to _marketSellerD.hisher stall, and introduces _marketSellerD.himherself as <<profile _marketSellerD>>, a purveyor of fine goods. The _marketSellerD.raceNote asks you for your ring size, and then _marketSellerD.heshe reaches below _marketSellerD.hisher table, and procures a ring...
+<<linkreplace "Magical trinket seller">>The $marketSellerD.manwoman beckons you over to $marketSellerD.hisher stall, and introduces $marketSellerD.himherself as <<profile $marketSellerD>>, a purveyor of fine goods. The $marketSellerD.raceNote asks you for your ring size, and then $marketSellerD.heshe reaches below $marketSellerD.hisher table, and procures a ring...
 
 <<nobr>><<linkreplace "<h4>Look at the ring!</h4>">>
 <<set $marketRing to setup.createRing()>>
     <<replace "#ring">>
           <div class="descriptive">
             <h3>A $marketRing.material ring</h3>
-            The _marketSellerD.raceNote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone. _marketSellerD.firstName says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote>
+            The $marketSellerD.raceNote hands you a $marketRing.material ring which is decorated with a $marketRing.decoration. In the centre is a $marketRing.gemstone. $marketSellerD.firstName says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote>
     <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketRing to setup.createRing()>>
         <<replace "#ring">>
               <div class="descriptive">
                 <h3>A $marketRing.material ring</h3>
-                <<print either("The _marketSellerD.raceNote", "_marketSellerD.firstName")>> <<print either("hands you", "passes you", "procures another ring, this one")>> a $marketRing.material ring which is decorated with a $marketRing.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $marketRing.gemstone. _marketSellerD.firstName says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote><</replace>><</link>>
+                <<print either("The $marketSellerD.raceNote", "$marketSellerD.firstName")>> <<print either("hands you", "passes you", "procures another ring, this one")>> a $marketRing.material ring which is decorated with a $marketRing.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $marketRing.gemstone. $marketSellerD.firstName says that it was intended for $marketRing.intendedowner, and it grants the power to $marketRing.power</div><blockquote>This ring works $marketRing.works, and works best $marketRing.activation. It grants the power to $marketRing.power, but $marketRing.cost</blockquote><</replace>><</link>>
 <</linkreplace>>
 <span id="ring"></span><</nobr>><</linkreplace>>

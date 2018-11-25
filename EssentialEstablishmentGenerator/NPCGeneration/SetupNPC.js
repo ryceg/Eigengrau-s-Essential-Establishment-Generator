@@ -156,8 +156,8 @@ setup.createNPC = function (base) {
   }
 
   if (!npc.isThrowaway) {
-    // temporarily pushing just the id
-    State.variables.npcs.push(npc.id)
+    npc.key = npc.name + '-' + npc.id
+    State.variables.npcs[npc.key] = npc
   }
   console.log(npc)
   console.groupEnd();

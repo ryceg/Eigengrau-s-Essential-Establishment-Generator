@@ -1,10 +1,10 @@
 :: TavernOutput [tavern]
-<<unset $selectedBuilding>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>>
+<<unset $selectedBuilding>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $npcs[$tavern.bartender.id]>>
 <h1>$tavern.name</h1>
 <span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 <h3>The Tavern</h3>
-<<print setup.closestMatch(setup.getTavernDescription($tavern), 'note', 'sizeRoll', 'wealthRoll', $tavern.sizeRoll, $tavern.wealthRoll)>>
-<<print setup.closestMatch(setup.getTavernLookAround($tavern), 'note', 'populationRoll', 'roughnessRoll', $tavern.populationRoll, $tavern.roughnessRoll)>>
+<<print setup.closestMatch(setup.getTavernDescription($tavern), 'note', 'sizeRoll', 'wealthRoll', $tavern.roll.size, $tavern.roll.wealth)>>
+<<print setup.closestMatch(setup.getTavernLookAround($tavern), 'note', 'populationRoll', 'roughnessRoll', $tavern.roll.population, $tavern.roll.roughness)>>
 <<print either(setup.tavernData.patrons)>>
 <<include "RandomNPC">>
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<profile $bartender>>, the $bartender.owner of $tavern.name.

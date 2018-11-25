@@ -47,7 +47,6 @@
 		<<set $currentGuard to $args[0]>>
 	<</if>>
 		<<goto 'GuardOutput'>><</link>>
-
 <</nobr>><</widget>>
 
 <<widget "buildingProfile">><<nobr>>
@@ -68,12 +67,20 @@
     \<<set _char = $args[0],
         _readout = $args[1] || _char.name,
         _id = "tip-" + Util.slugify($args[0].id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-    \<<capture _char>>
+    \<<capture _char, _readout, _id>>
         \<span @id="_id" class="tip"><<link _readout>>
 				<<set $currentNPC to $args[0]>>
+				<<set $currentNPCKey to $args[0].key>>
+				/* <<set $currentIndex to $npcs.indexOf($args[0])>>
+				<<if $currentIndex === -1>>
+						<<run console.log("Current NPC, " + $args[0].name + " has not been found in the npcs array.")>>
+						<<run console.log($args[0])>>
+					<<else>>
+						<<run console.log("Current NPC, " + $args[0].name + " has an index of " + $currentIndex)>>
+				<</if>> */
 				<<if $args[0].shallow === true>>
-					<<set $args[0] to setup.createNPC($args[0])>>
-					<<set $args[0].shallow to false>>
+					<<set $npcs[$currentNPCKey] to setup.createNPC($args[0])>>
+					<<set $npcs[$currentNPCKey].shallow to false>>
 					<<goto "NPCProfile">>
 				<<else>>
 					<<goto "NPCProfile">>
