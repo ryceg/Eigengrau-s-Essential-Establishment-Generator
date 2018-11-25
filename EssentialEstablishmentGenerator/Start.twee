@@ -4,13 +4,11 @@
 <<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">>
 
-<<nobr>>
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
-<<set _town to $town>>
-<</nobr>>
+\<<set _town to $town>>
 
 <<listbox "$newBuilding">>
-<<option "Tavern" "tavern">><<option "Alchemist" "alchemist">><<option "General Store" "GeneralStore">><<option "Blacksmith" "smithy">><<option "Market" "market">>
+<<option "Tavern" "tavern">><<option "Alchemist" "alchemist">><<option "General Store" "GeneralStore">><<option "Blacksmith" "smithy">><<option "Market" "market">><<option "Brothel" "brothel">>
 <</listbox>> -- <<button "Create new building">>
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<run $town.buildings[$newBuilding].push(setup['create' + $newBuilding.toUpperFirst()]($town))>>
@@ -30,6 +28,3 @@
     \<</link>></span><<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
 \<</capture>><</for>>
 <</for>>
-
-<<if def $brothel && $town.hasBrothel is true && $brothel.isTavern>>
-<<print "On $brothel.road is the whorehouse">><span @id="_brothel" class="tip"><<link $brothel.name>><<set $currentPassage to $brothel>><<goto "BrothelOutput">><</link>></span><</if>>
