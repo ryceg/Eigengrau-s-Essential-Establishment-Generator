@@ -2,6 +2,3 @@
 :: Smithy
 
 <<set $smithy to setup.createSmithy($town)>>
-<<set $blacksmith to $smithy.blacksmith>>
-
-<<set $alternateSmithy to setup.createSmithy($town)>>

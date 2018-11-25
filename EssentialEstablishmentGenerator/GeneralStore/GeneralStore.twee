@@ -1,3 +1,2 @@
 :: GeneralStore
 <<set $GeneralStore to setup.createGeneralStore($town)>>
-<<set $shopkeep to $GeneralStore.shopkeep>>
