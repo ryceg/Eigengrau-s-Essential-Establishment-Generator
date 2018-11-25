@@ -1,54 +1,18 @@
 
 :: Menu
-<<nobr>>
+<<nobr>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>>
 <<linkreplace "<h4>What's good?</h4>" t8n>>
 	<h3>On offer today...</h3>
-	/* <<if $tavern.wealthRoll gt 80 && $tavern.roughnessRoll gt 80>>
-		<<print either(
-			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. $bartender.name proudly tells you that there are no stinkin' vegetables, and that $tavern.name stocks only the finest meats.",
-			"The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's available to drink, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The <<print $npc.weight.random()>> <<print either("man", "woman")>> then tells you that while $tavern.name is proud of its menu, it caters to an exclusively carnivorous diet.")>>
-	<<elseif $tavern.wealthRoll gt 80 && $tavern.roughnessRoll lt 30>>
-		<<print either(
-			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that $tavern.name is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire $tavern.wordnoun<<nobr>>.<</nobr>>",
-			"The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that $tavern.name is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire $tavern.wordnoun.")>>
-	<<elseif $tavern.wealthRoll gt 80>>
-		<<print either(
-			"There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu.",
-			"The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. It goes without saying that the kitchen is able to accomodate even the pickiest of royalty.")>>
-	<<elseif $tavern.wealthRoll gt 60 && $tavern.roughnessRoll gt 80>>
-		<<print either(
-			"There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food, but curiously no vegetables. $bartender.name spits when you mention this, and says 'no stinkin' veggies around here. We eat meat and we like it, so if you don't like it, yer not eatin'.",
-			"There's your standard beers, with the $tavern.wordnoun specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in $tavern.name<<nobr>>.<</nobr>>")>>
-	<<elseif $tavern.wealthRoll gt 60 && $tavern.roughnessRoll lt 30>>
-		<<print either(
-			"There's ales available. The food is a peculiarly limited menu; roast vegetables, breads, cheeses, but no meats, despite $tavern.name clearly being able to afford it.",
-			"There's your standard beers, with the $tavern.wordnoun specialising in ales, which are allegedly quite good. As far as food is concerned, there's breads, cheeses, and all the vegetables you could ever ask for, but not a single bone of meat is available.",
-			"Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask $bartender.name about it, $bartender.heshe smiles, and says that $bartender.heshe is an animal lover, and wouldn't be able to forgive $bartender.himherself if an animal came to harm due to $bartender.hisher business.")>>
-	<<elseif $tavern.wealthRoll gt 60 && $bartender.race is "elf">>
-		<<print "Drinks are pretty standard, with the house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask $bartender.name about it, $bartender.heshe smiles, and says that $bartender.heshe is an animal lover, and wouldn't be able to forgive $bartender.himherself if an animal came to harm due to $bartender.hisher business.">>
-	<<elseif $tavern.wealthRoll gt 60>>
-		<<print either(
-			"There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food.",
-			"There's your standard beers, with the $tavern.wordnoun specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton.")>>
-	<<elseif $tavern.wealthRoll gt 40 && $tavern.sinRoll gt 60>>
-		<<print either(
-			"There's the usual house-brewed ale on tap, but it is warm and undercarbonated. You suspect that $bartender.firstName has watered it down. As far as food is concerned, there is the usual mutton and breads available.",
-			"$bartender.firstName says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated.")>>
-	<<elseif $tavern.wealthRoll gt 40>>
-		<<print either(
-			"There's the usual house-brewed ale on tap, but it is warm and undercarbonated. As far as food is concerned, there is the usual mutton and breads available.",
-			"There's a limited range of beers, some of which have very clearly soured.",
-			"The food on offer is rather plain, with nothing terribly interesting or appetizing. The beer is unfortunately not much better.")>>
-	<<elseif $tavern.wealthRoll gt 20>>
-		<<print "There's what can only be described as piss available to drink, and the food isn't much better; other patrons can be seen chewing away at stale pieces of bread.">>
-	<<elseif $tavern.wealthRoll lte 20>>
-		<<print "There's what can only be described as piss available to drink, and the food isn't much better; other patrons can be seen chewing away at stale pieces of bread.">>
-	<</if>> */
-	<<print setup.closestMatch(setup.getTavernMenu($tavern, $bartender), 'note', 'wealthRoll', 'roughnessRoll', $tavern.wealthRoll, $tavern.roughnessRoll)>>
+	<<print setup.closestMatch(setup.getTavernMenu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.roll.wealth, $tavern.roll.roughness)>>
 
-<<if $tavern.wealthRoll gte 50>>
-	<div class='descriptive'><h3>$specialbrew.name</h3><<print "The special brew of the week is a $specialbrew.type called $specialbrew.name, selling for <<money $specialbrew.cost>>. $specialbrew.description">></div>
-<</if>>The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to either($cheese.cost)>><<replace #cheese>> is <<money $cheese.costreadout>>, and is a  $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is <<money $cheese.costreadout>> and is a $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
+<<if $tavern.roll.wealth gte 50>>
+<<set $tavern.specialBrew to setup.tavernData.specialBrew.random()>>
+	<div class='descriptive'>
+	<h3>$tavern.specialBrew.name</h3>
+	The special brew of the week is a $tavern.specialBrew.type called $tavern.specialBrew.name, selling for <<money $tavern.specialBrew.cost>>. $tavern.specialBrew.description
+	</div>
+<</if>>
+
+The <<link "house cheese ">><<set $cheese.colourreadout to either($cheese.colour), $cheese.texturereadout to either($cheese.texture), $cheese.tastereadout to either($cheese.taste), $cheese.smellreadout to either($cheese.smell), $cheese.costreadout to either($cheese.cost)>><<replace #cheese>> is <<money $cheese.costreadout>>, and is a  $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.<</replace>><</link>><span id="cheese">is <<money $cheese.costreadout>> and is a $cheese.colourreadout cheese which is $cheese.texturereadout. It smells $cheese.smellreadout, and tastes $cheese.tastereadout.</span>
  <</linkreplace>>
-<<include "TavernSell">>
 <</nobr>>

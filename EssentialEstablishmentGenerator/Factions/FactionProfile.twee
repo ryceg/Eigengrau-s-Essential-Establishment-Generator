@@ -6,7 +6,7 @@
   <<case "group">>
   a $currentFaction.leaderGroupTitle of $currentFaction.leaderGroupSizeRoll, who were $currentFaction.leaderQualification. They are $currentFaction.leaderCompetence, and their positions on the $currentFaction.leaderGroupTitle are $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Their meetings are held $currentFaction.meetingRegularity, and are $currentFaction.meetingAccessibility. Bribes to the $currentFaction.leaderGroupTitle $currentFaction.leaderBribes.
   <<default>>
-  <<profile $currentFaction.leader>>, who was $currentFaction.leaderQualification. <<print _leader.heshe.toUpperFirst()>> is $currentFaction.leaderCompetence, and _leader.hisher position is $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Bribes $currentFaction.leaderBribes.
+  <<profile $npcs[$currentFaction.leader.key]>>, who was $currentFaction.leaderQualification. <<print _leader.heshe.toUpperFirst()>> is $currentFaction.leaderCompetence, and _leader.hisher position is $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Bribes $currentFaction.leaderBribes.
 <</switch>>
 <</nobr>><h3>Resources</h3><<nobr>>
 They have $currentFaction.resourcesDescription resources. <<if $currentFaction.resources.length == 2>>

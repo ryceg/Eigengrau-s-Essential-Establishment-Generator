@@ -1,59 +1,30 @@
 :: Start [output]
-<h1>Eigengrau's Essential Establishment Generator</h1>
-<span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionnumber! This is still in active development.
-<<nobr>><<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
-<<include "Popup">><</nobr>>
-/* <<button "Show Dialog">><<run Dialog.setup("Dialog title")>><<run Dialog.wiki("Dialog text.")>><<run Dialog.open()>><</button>> */
+<span id="body"><h1>Eigengrau's Essential Establishment Generator</h1>
+<span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionNumber! This is still in active development.
+<<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
+<<include "Popup">>
+
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
+\<<set _town to $town>>
 
-\<<set _tavern = "tip-" + Util.slugify($tavern.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<set _markets = "tip-" + Util.slugify($market.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<set _smithy = "tip-" + Util.slugify($smithy.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<set _alchemist = "tip-" + Util.slugify($alchemist.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<if $brothel>>
-  \<<set _brothel = "tip-" + Util.slugify($brothel.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-  \<<run setup.buildingTooltip(_brothel, $brothel, "brothel")>><</if>>
-\<<set _generalStore = "tip-" + Util.slugify($GeneralStore.id) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-\<<run setup.buildingTooltip(_tavern, $tavern, "tavern")>>
-\<<run setup.buildingTooltip(_markets, $market, "market")>>
-\<<run setup.buildingTooltip(_smithy, $smithy, "smithy")>>
-\<<run setup.buildingTooltip(_alchemist, $alchemist, "alchemist")>>
-\<<run setup.buildingTooltip(_generalStore, $GeneralStore, "general store")>>
-<<if $tavern.type is "brothel" && $brothel.isTavern is true>><<print "Along $tavern.road is the tavern and brothel, ">><<else>><<print either("Along $tavern.road is the tavern ", "On $tavern.road is the tavern ", "On $tavern.road is the $tavern.wordnoun ")>><</if>><span @id="_tavern" class="tip"><<link "$tavern.name">><<set $currentPassage to $tavern>>
-    <<if settings.showSliders is false>>
-        <<set $currentPassage to $tavern>>
-        <<goto "TavernOutput">>
-    <<else>>
-        <<goto "InitTavern">>
-    <</if>>
-<</link>></span>
+<<listbox "$newBuilding">>
+<<option "Tavern" "tavern">><<option "Alchemist" "alchemist">><<option "General Store" "GeneralStore">><<option "Blacksmith" "smithy">><<option "Market" "market">><<option "Brothel" "brothel">>
+<</listbox>> -- <<button "Create new building">>
+  <<run console.log('Creating a new ' + $newBuilding)>>
+  <<run $town.buildings[$newBuilding].push(setup['create' + $newBuilding.toUpperFirst()]($town))>>
+  <<run console.log($town)>>
+  <<goto "Start">>
+<</button>>
 
-Down from $tavern.road are the <span @id="_markets" class="tip">[[markets|MarketOutput]]</span>
-
-<<print either("On $smithy.road is the blacksmith ", "Along $smithy.road is the blacksmithery ", "Over on $smithy.road is the smith ")>><span @id="_smithy" class="tip"><<link "$smithy.name">><<set $currentPassage to $smithy>>
-    <<if settings.showSliders is false>>
-        <<set $currentPassage to $smithy>><<goto "SmithyOutput">>
-      <<else>>
-        <<goto "InitSmithy">>
-    <</if>>
-  <</link>></span>
-
-<<print either("Along $GeneralStore.road is the general store ", "On $GeneralStore.road is the supplies store ", "On $GeneralStore.road is the general store ")>><span @id="_generalStore" class="tip"><<link "$GeneralStore.name">><<set $currentPassage to $GeneralStore>>
-    <<if settings.showSliders is true>>
-        <<goto "InitGeneralStore">>
-    <<elseif settings.showSliders is false>>
-      <<set $currentPassage to $GeneralStore>><<goto "GeneralStoreOutput">>
-    <</if>>
-  <</link>></span>
-
-<<print either("On $alchemist.road is the ", "And on $alchemist.road is the ", "And on $alchemist.road is the ")>><span @id="_alchemist" class="tip"><<link "$alchemist.name">><<set $currentPassage to $alchemist>>
-    <<if settings.showSliders is false>>
-        <<set $currentPassage to $alchemist>><<goto "AlchemistOutput">>
-      <<else>>
-        <<goto "InitAlchemist">>
-    <</if>>
-  <</link>></span>
-
-<<nobr>><<if def $brothel && $town.hasBrothel is true && $brothel.isTavern>>
-<<print "On $brothel.road is the whorehouse">><span @id="_brothel" class="tip"><<link $brothel.name>><<set $currentPassage to $brothel>><<goto "BrothelOutput">><</link>></span><</if>>
-<</nobr>>
+<<for _key, _townBuildings range $town.buildings>>
+<<for _index, _building range _townBuildings>><<capture _key, _index, _building>>
+  <<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+  \<<print either("On ", "Along ", "Over on ")>> _building.road is the _building.wordNoun <span @id="_building.tooltip" class="tip"><<link "_building.name">><<set $selected to {key: _key, index: _index, building: _building}>><<set $currentPassage to _building>>
+      \<<if settings.showSliders>>
+          \<<goto _building.initPassage>>
+        \<<else>>
+          \<<goto _building.passageName>>
+      \<</if>>
+    \<</link>></span><<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
+\<</capture>><</for>>
+<</for>>

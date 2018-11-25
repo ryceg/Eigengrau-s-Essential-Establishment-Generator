@@ -1,3 +1,4 @@
+/* global Setting State Config */
 Setting.addHeader('Content Settings')
 
 Setting.addToggle('showSliders', {
@@ -5,10 +6,10 @@ Setting.addToggle('showSliders', {
 })
 
 var settingShowTutorial = function () {
-  if (settings.showTutorial) {
-    Config.passages.start = "Start"
+  if (Setting.showTutorial) {
+    Config.passages.start = 'Start'
   } else {
-    Config.passages.start = "Welcome"
+    Config.passages.start = 'Welcome'
   }
 }
 
@@ -30,9 +31,9 @@ Setting.addToggle('silverStandard', {
 })
 
 var settingPatreonContentHandler = function () {
-  if (settings.patreonContent) { // is true
+  if (Setting.patreonContent) {
     State.variables.bartender = State.variables.Birchbottom
-  } else { // is false
+  } else {
     State.variables.bartender = State.variables.backupBartender
   }
 }

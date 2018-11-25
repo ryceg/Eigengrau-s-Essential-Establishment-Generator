@@ -1,5 +1,5 @@
 :: AdventureAlternate
-<<set $adventureGorn to setup.createNPC({age: "venerable", firstName: "Gorn"})>>
+/* <<set $adventureGorn to setup.createNPC({age: "venerable", firstName: "Gorn"})>>
 <<set $adventureBandit to setup.createNPC({gender: "man", profession: "bandit", dndClass: "fighter", note: "$adventureBandit is currently drunk."})>>
 
 <blockquote><h3>The Premise</h3>
@@ -54,4 +54,4 @@ Locations:
 <h3Quest's End</h3>
 Once the ritual has been successfully completed, the tomb will seal with an arcane crackle. The party's family members will be waiting for them when they exit the City of the Dead, saying they had been transported by magic. One of them has a small pouch of fine leather, tied at the top, and hands it to their relative, saying that it shouldn't be opened here.
 
-Your loved ones embrace you, overjoyed at their release, and it seems Gorn was true to his word, as he has paid his treasure and kept his bargain. Its time to return home, and hope that you never see the dreary skies of this wretched place again.
+Your loved ones embrace you, overjoyed at their release, and it seems Gorn was true to his word, as he has paid his treasure and kept his bargain. Its time to return home, and hope that you never see the dreary skies of this wretched place again. */

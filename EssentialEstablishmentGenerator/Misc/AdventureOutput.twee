@@ -1,5 +1,5 @@
 :: AdventureOutput
-<<nobr>><<set $adventureMerchant to setup.createNPC({gender: "man", hasClass: false, profession: "merchant"})>>
+/* <<nobr>><<set $adventureMerchant to setup.createNPC({gender: "man", hasClass: false, profession: "merchant"})>>
 <<set $adventureMadameBeaudry to setup.createNPC({gender: "woman", race: "human", lastName: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged"})>>
 <<set $adventureMurderer to setup.createNPC({gender: "man", hasClass: false, profession: "apothecarist"})>>
 <<set $adventureAlchemist to setup.createNPC({gender: "man", hasClass: false, profession: "alchemist"})>>
@@ -21,7 +21,7 @@
 <<linkreplace "Compare it to the glass vial (Investigation (Int) DC 10)">>The red liquid is the same in both cases.<</linkreplace>><</linkreplace>>
 <<linkreplace "If your players get lost">>On your way to the crime scene, you remember that you passed through a merchant stall that had really cheap healing potions for sale and it was located on a street with the same name as the one found in the ledger.<</linkreplace>>
 
-<h3>Place #2 - Merchant Stall</h3>This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a <<print $adventureMerchant.descriptor.random()>> manning the stall that matches the address you found. He introduces himself as <<profile $adventureMerchant>>, and asks what he can do for you.
+<h3>Place #2 - Merchant Stall</h3>This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a $adventureMerchant.descriptor manning the stall that matches the address you found. He introduces himself as <<profile $adventureMerchant>>, and asks what he can do for you.
 
 <h4>Clue #1 - Purses</h4> There are numerous purses for sale, though some are rather expensive. Looks like they use the same gold-leaf embroidery technique as the dead woman's purse.
 
@@ -75,4 +75,4 @@ Best, $adventureMurderer.name
 
 <h4>Clue #5 - $adventureAlchemist.firstName's statment</h4><<linkreplace "About the bottle:">>"Yeah that bottle is from Madame Beaudry's shop, I'd recognize it anywhere."<</linkreplace>>
 <<linkreplace "If the players don't tell him that Mme. Beaudry is dead, he confesses to them this:">>"Thank the gods that awful wretch isn't here today. She pays me nothing and I've had enough!"<</linkreplace>>
-<<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventureMurderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>>
+<<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventureMurderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>> */

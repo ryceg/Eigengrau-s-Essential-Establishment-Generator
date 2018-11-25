@@ -18,19 +18,19 @@
       <<set _pavingRoll += 10>>
 <</if>>
 
-<<if $town.wealthRoll gt 80>>
+<<if $town.roll.wealth gt 80>>
       <<set _pavingRoll += 60>>
-    <<elseif $town.wealthRoll gt 70>>
+    <<elseif $town.roll.wealth gt 70>>
       <<set _pavingRoll += 50>>
-    <<elseif $town.wealthRoll gt 60>>
+    <<elseif $town.roll.wealth gt 60>>
       <<set _pavingRoll += 30>>
-    <<elseif $town.wealthRoll gt 50>>
+    <<elseif $town.roll.wealth gt 50>>
       <<set _pavingRoll += 25>>
-    <<elseif $town.wealthRoll gt 40>>
+    <<elseif $town.roll.wealth gt 40>>
       <<set _pavingRoll += 20>>
-    <<elseif $town.wealthRoll gt 30>>
+    <<elseif $town.roll.wealth gt 30>>
       <<set _pavingRoll += 15>>
-    <<elseif $town.wealthRoll lte 30>>
+    <<elseif $town.roll.wealth lte 30>>
       <<set _pavingRoll += 10>>
 <</if>>
 

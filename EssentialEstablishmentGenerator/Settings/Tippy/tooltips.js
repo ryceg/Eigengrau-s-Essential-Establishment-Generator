@@ -1,5 +1,5 @@
-setup.profileTooltip = function (id, ch) {
-  var char = ch
+/* global setup tippy jQuery settings */
+setup.profileTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
@@ -9,19 +9,27 @@ setup.profileTooltip = function (id, ch) {
   })
 }
 
-setup.profileAgeTooltip = function (id, ch) {
-  var char = ch
+setup.itemTooltip = function (id, item) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
-      span.title = char.ageRoll + ' years, to be exact.'
+      span.title = item.description
       tippy('#' + span.id)
     }
   })
 }
 
-setup.profileHeightTooltip = function (id, ch) {
-  var char = ch
+setup.profileAgeTooltip = function (id, char) {
+  jQuery(function () {
+    var span = document.getElementById(id)
+    if (span) {
+      span.title = char.ageYears + ' years, to be exact.'
+      tippy('#' + span.id)
+    }
+  })
+}
+
+setup.profileHeightTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
@@ -36,15 +44,13 @@ setup.profileHeightTooltip = function (id, ch) {
         } else {
           span.title = feet + 'ft. ' + inches + '"'
         }
-
         tippy('#' + span.id)
       }
     }
   })
 }
 
-setup.profileWeightTooltip = function (id, ch) {
-  var char = ch
+setup.profileWeightTooltip = function (id, char) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
@@ -61,38 +67,11 @@ setup.profileWeightTooltip = function (id, ch) {
   )
 }
 
-setup.buildingTooltip = function (id, building, type) {
+setup.buildingTooltip = function (id, building) {
   jQuery(function () {
     var span = document.getElementById(id)
-    var notableFeature
-    switch (type) {
-      case 'tavern':
-        switch (building.draw) {
-          case '$tavern.roughness atmosphere':
-            // notableFeature = 'its ' + building.roughness + ' atmosphere'
-            break
-          default:
-            // notableFeature = 'its ' + building.draw
-        }
-        break
-      case 'smithy':
-        notableFeature = 'its ' + building.expertise + ' armour and weapons'
-        break
-      case 'alchemist':
-        notableFeature = ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].random()
-        break
-      case 'general store':
-        notableFeature = 'its wide range of goods on sale'
-        break
-      case 'brothel':
-        notableFeature = building.specialty + ' and being owned by ' + building.owner
-        break
-      case 'market':
-        notableFeature = 'its ' + building.draw
-        break
-    }
     if (span) {
-      span.title = 'A ' + building.size + ' ' + type + " that's " + building.cleanliness + ', and is known for ' + notableFeature + '.'
+      span.title = 'A ' + (building.size || building._size) + ' ' + building.wordNoun + " that's " + (building.cleanliness || building._cleanliness) + ', and is known for ' + building.notableFeature + '.'
       tippy('#' + span.id)
     }
   })

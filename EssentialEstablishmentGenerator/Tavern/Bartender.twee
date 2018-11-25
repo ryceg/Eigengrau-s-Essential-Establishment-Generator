@@ -1,6 +1,6 @@
 
 :: Bartender
-<<set _roll to random(1, 100)>><<if _roll gt 99>>
+/* <<set _roll to random(1, 100)>><<if _roll gt 99>>
 			<<set $patreonContent to true>>
 			<<set $bartender to $Birchbottom>>
 	<<else>>
@@ -18,8 +18,9 @@
 <<set $barmaid to setup.createNPC({
 	gender: "woman",
 	background: "commoner",
+	hasClass: false,
 	profession: "barmaid"
-	})>>
+	})>> */
 
 /* ------------------------- BARTENDER RACE -------------------------- */
 /*
@@ -30,29 +31,29 @@
 	<<case "human">>
 		<<set $tavern.diversityRoll -= 10>>
 	<<case "half-elf">>
-		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll -= 5, $tavern.magicRoll += 2>>
+		<<set $tavern.diversityRoll += 5, $tavern.roll.roughness -= 5, $tavern.magicRoll += 2>>
 	<<case "elf">>
-		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll -= 10, $tavern.wealthRoll += 5, $tavern.magicRoll += 4>>
+		<<set $tavern.diversityRoll += 5, $tavern.roll.roughness -= 10, $tavern.roll.wealth += 5, $tavern.magicRoll += 4>>
 	<<case "dwarf">>
-		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll += 5, $tavern.wealthRoll += 5, $tavern.magicRoll += 1>>
+		<<set $tavern.diversityRoll += 5, $tavern.roll.roughness += 5, $tavern.roll.wealth += 5, $tavern.magicRoll += 1>>
 	<<case "gnome">>
-		<<set $tavern.diversityRoll += 10, $tavern.roughnessRoll -= 5, $tavern.magicRoll += 1>>
+		<<set $tavern.diversityRoll += 10, $tavern.roll.roughness -= 5, $tavern.magicRoll += 1>>
 	<<case "halfling">>
-		<<set $tavern.diversityRoll += 5, $tavern.roughnessRoll -= 5, $tavern.magicRoll += 1>>
+		<<set $tavern.diversityRoll += 5, $tavern.roll.roughness -= 5, $tavern.magicRoll += 1>>
 	<<case "half-orc">>
-		<<set $tavern.diversityRoll += 10, $tavern.roughnessRoll += 15>>
+		<<set $tavern.diversityRoll += 10, $tavern.roll.roughness += 15>>
 	<<case "dragonborn">>
-		<<set $tavern.diversityRoll += 10, $tavern.roughnessRoll += 5, $tavern.wealthRoll += 5, $tavern.magicRoll += 5>>
+		<<set $tavern.diversityRoll += 10, $tavern.roll.roughness += 5, $tavern.roll.wealth += 5, $tavern.magicRoll += 5>>
 	<<case "tiefling">>
-		<<set $tavern.diversityRoll += 15, $tavern.roughnessRoll += 5, $tavern.sinRoll += 15, $tavern.wealthRoll += 10, $tavern.magicRoll += 7>>
+		<<set $tavern.diversityRoll += 15, $tavern.roll.roughness += 5, $tavern.roll.sin += 15, $tavern.roll.wealth += 10, $tavern.magicRoll += 7>>
 	<<default>>
 		<<set $tavern.diversityRoll -= 10>>
 <</switch>>
 */
 
 /* Brothel Code - so the bartender is the Master or Madame of the brothel */
-<<if $tavern.draw is "brothel" && $bartender.gender is "man">>
+/* <<if $tavern.draw is "brothel" && $bartender.gender is "man">>
 		<<set $bartender.owner to "master">>
 	<<elseif $tavern.draw is "brothel" && $bartender.gender is "woman">>
 		<<set $bartender.owner to "madame">>
-<</if>>
+<</if>> */

@@ -1,0 +1,47 @@
+:: NPCProfileEdit
+<h1><<if def $npcs[$currentNPCKey].title>>$npcs[$currentNPCKey].title <</if>><<textbox "$npcs[$currentNPCKey].name" $npcs[$currentNPCKey].name>></h1>
+\<<set _age = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileAgeTooltip(_age, $npcs[$currentNPCKey])>>
+\<<set _weight = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileWeightTooltip(_weight, $npcs[$currentNPCKey])>>
+\<<set _height = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileHeightTooltip(_height, $npcs[$currentNPCKey])>>
+<<if def $npcs[$currentNPCKey].title>>$npcs[$currentNPCKey].title <</if>>$npcs[$currentNPCKey].name is a <span @id="_age" class="tip"><<textbox "$npcs[$currentNPCKey].age" $npcs[$currentNPCKey].age>></span> <span class="tip" title="Non binary options coming soon!">"<<listbox "$npcs[$currentNPCKey].gender" autoselect>><<for _i, _gender range Object.keys(setup.npcData.gender)>><<option "_gender" _gender>><</for>><</listbox>></span> <<listbox "$npcs[$currentNPCKey].race" autoselect>><<for _i, _race range Object.keys(setup.npcData.raceTraits)>><<option "_race" _race>><</for>><</listbox>>. <<print $npcs[$currentNPCKey].heshe.toUpperFirst()>> is <span @id="_height" class="tip"><<textbox "$npcs[$currentNPCKey].height" $npcs[$currentNPCKey].height>></span> and <span @id="_weight" class="tip"><<textbox "$npcs[$currentNPCKey].weight" $npcs[$currentNPCKey].weight>></span>, and has <<textbox "$npcs[$currentNPCKey].eyes" $npcs[$currentNPCKey].eyes>> eyes<<if def $npcs[$currentNPCKey].beard>> and a <<textbox "$npcs[$currentNPCKey].beard" $npcs[$currentNPCKey].beard>>,<</if>> with <<textbox "$npcs[$currentNPCKey].skinColours" $npcs[$currentNPCKey].skinColours>> skin. The most notable physical trait of $npcs[$currentNPCKey].firstName is that $npcs[$currentNPCKey].heshe has <<textbox "$npcs[$currentNPCKey].physicalTrait" $npcs[$currentNPCKey].physicalTrait>>.
+
+$npcs[$currentNPCKey].firstName <<textbox "$npcs[$currentNPCKey].trait" $npcs[$currentNPCKey].trait>>. <<if def $npcs[$currentNPCKey].vocalPattern>><<print $npcs[$currentNPCKey].heshe.toUpperFirst()>> <<textbox "$npcs[$currentNPCKey].vocalPattern" $npcs[$currentNPCKey].vocalPattern>>. <</if>>When $npcs[$currentNPCKey].heshe is relaxed, $npcs[$currentNPCKey].heshe is <<textbox "$npcs[$currentNPCKey].calmTrait" $npcs[$currentNPCKey].calmTrait>>. In moments of stress, $npcs[$currentNPCKey].heshe becomes <<textbox "$npcs[$currentNPCKey].stressTrait" $npcs[$currentNPCKey].stressTrait>>. <<if $npcs[$currentNPCKey].knownLanguages.length == 2>>$npcs[$currentNPCKey].firstName knows $npcs[$currentNPCKey].knownLanguages[0] and $npcs[$currentNPCKey].knownLanguages[1].<</if>>
+
+$npcs[$currentNPCKey].firstName is a <<listbox "$npcs[$currentNPCKey].dndClass" $npcs[$currentNPCKey].dndClass>><<for _i, _class range Object.keys(setup.npcData.classTraits)>><<option "_class" _class>><</for>><</listbox>>, with a background of being a <<listbox "$npcs[$currentNPCKey].background" $npcs[$currentNPCKey].background>><<for _i, _background range Object.keys(setup.npcData.backgroundTraits)>><<option "_background" _background>><</for>><</listbox>>. $npcs[$currentNPCKey].firstName currently has <<textbox "$npcs[$currentNPCKey].pockets" $npcs[$currentNPCKey].pockets>> in $npcs[$currentNPCKey].hisher pockets, and <<money $npcs[$currentNPCKey].wealth>> to $npcs[$currentNPCKey].hisher name. In combat, $npcs[$currentNPCKey].heshe uses <<textbox "$npcs[$currentNPCKey].weapon" $npcs[$currentNPCKey].weapon>>.
+
+<span class="tip" title="Add notes here"><<textarea "$npcs[$currentNPCKey].note" "">></span>
+
+<<linkreplace "Early Life">><div class='descriptive'>I was born <<textbox "$npcs[$currentNPCKey].birthplace" $npcs[$currentNPCKey].birthplace>>, and was raised by <<textbox "$npcs[$currentNPCKey].familyUnit" $npcs[$currentNPCKey].familyUnit>><<if $npcs[$currentNPCKey].siblingNumber == 0>> as an only child.<<elseif $npcs[$currentNPCKey].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$currentNPCKey].siblingNumber siblings.<</if>> I had a <<textbox "$npcs[$currentNPCKey].familyLifestyle" $npcs[$currentNPCKey].familyLifestyle>> upbringing in <<textbox "$npcs[$currentNPCKey].familyHome" $npcs[$currentNPCKey].familyHome>>. <<if !$npcs[$currentNPCKey].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$currentNPCKey].parentalLineage>>$npcs[$currentNPCKey].parentalLineage.<</if>> <<textbox "$npcs[$currentNPCKey].childhoodMemories" $npcs[$currentNPCKey].childhoodMemories>>.</div><</linkreplace>>
+
+<<linkreplace "Becoming a $npcs[$currentNPCKey].dndClass">><div class='descriptive'>"<<textarea "$npcs[$currentNPCKey].backgroundOrigin" $npcs[$currentNPCKey].backgroundOrigin>> <<textarea "$npcs[$currentNPCKey].dndClassOrigin" $npcs[$currentNPCKey].dndClassOrigin>> That's how I became a $npcs[$currentNPCKey].dndClass. <<textbox "$npcs[$currentNPCKey].bond" $npcs[$currentNPCKey].bond>>"</div><</linkreplace>>
+
+<<linkreplace "Life events">><div class='descriptive'>Well, I certainly have a tale or two...
+\<<if $npcs[$currentNPCKey].lifeEvents.length == 2>>
+    When I was about twenty, <<print $npcs[$currentNPCKey].lifeEvents[0].toUpperFirst()>>. A couple years later, $npcs[$currentNPCKey].lifeEvents[1]
+  \<<elseif $npcs[$currentNPCKey].lifeEvents.length == 1>>
+    $npcs[$currentNPCKey].lifeEvents. <<print either("Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest.")>>
+  \<<else>>
+    \<<print $npcs[$currentNPCKey].lifeEvents[0].toUpperFirst()>>.
+    \<<for _lifeEvents range $npcs[$currentNPCKey].lifeEvents.slice(1, -1)>>
+        <<print either(
+          "_lifeEvents ",
+          "And then, after a couple weeks, _lifeEvents ",
+          "And then I spent a couple months at home. Then, when I next ventured out, _lifeEvents ",
+          "Oh, and I can't forget the time _lifeEvents ",
+          "And then, maybe a week after that, _lifeEvents ",
+          "I tried settling down for a bit. That didn't work so well, so _lifeEvents ",
+          "I forget exactly when, but at one point, _lifeEvents "
+          )>>
+    \<</for>>
+    Then last year, <<print $npcs[$currentNPCKey].lifeEvents[$npcs[$currentNPCKey].lifeEvents.length - 1]>>
+<</if>></div><</linkreplace>>
+
+<<if def $npcs[$currentNPCKey].partnerID>>$npcs[$currentNPCKey].firstName has a partner, <<profile $npcs[$currentNPCKey].partnerID>><</if>>
+
+<<button "Save changes">>
+  <<run console.log('Saving changes to ' + $npcs[$currentNPCKey].name + '...')>>
+  /* <<set State[$npcs[$currentNPCKey].sourceType][$npcs[$currentNPCKey].sourceVar] to clone($npcs[$currentNPCKey])>>
+  <<set delete State[$npcs[$currentNPCKey].sourceType][$npcs[$currentNPCKey].sourceVar].sourceVar>> */
+  <<goto "NPCProfileEdit">>
+<</button>>
+[[Return|previous()]]

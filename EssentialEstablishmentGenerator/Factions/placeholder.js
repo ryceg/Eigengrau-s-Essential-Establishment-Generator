@@ -30,31 +30,31 @@
 // }
 //
 // if (faction.placeholderRoll > 95) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 15)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 15)
 // } else if (faction.placeholderRoll > 90) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 10)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 10)
 // } else if (faction.placeholderRoll > 80) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 8)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 8)
 // } else if (faction.placeholderRoll > 70) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 6)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 6)
 // } else if (faction.placeholderRoll > 60) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 4)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 4)
 // } else if (faction.placeholderRoll > 55) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 2)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 2)
 // } else if (faction.placeholderRoll > 50) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 1)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 1)
 // } else if (faction.placeholderRoll > 45) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, -1)
+//   faction.roll.influence += Math.fm(faction.roll.influence, -1)
 // } else if (faction.placeholderRoll > 40) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, -2)
+//   faction.roll.influence += Math.fm(faction.roll.influence, -2)
 // } else if (faction.placeholderRoll > 30) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, -4)
+//   faction.roll.influence += Math.fm(faction.roll.influence, -4)
 // } else if (faction.placeholderRoll > 20) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, -6)
+//   faction.roll.influence += Math.fm(faction.roll.influence, -6)
 // } else if (faction.placeholderRoll > 10) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, -8)
+//   faction.roll.influence += Math.fm(faction.roll.influence, -8)
 // } else if (faction.placeholderRoll <= 5) {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, -10)
+//   faction.roll.influence += Math.fm(faction.roll.influence, -10)
 // } else {
-//   faction.influenceRoll += Math.fm(faction.influenceRoll, 10)
+//   faction.roll.influence += Math.fm(faction.roll.influence, 10)
 // }

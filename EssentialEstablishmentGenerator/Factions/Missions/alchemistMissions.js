@@ -1,8 +1,8 @@
 setup.alchemistMission = function (mission) {
-  var missionPotion = setup.createAlchemy({type: 'potion'})
-  var missionIngredient = setup.createAlchemy({type: 'preserved herb'})
-  var missionBodyPart = setup.createAlchemy({type: 'body part'})
-  State.variables.AlchemistMissionNPC = setup.createNPC({hasClass: false, profession: 'alchemist'})
+  var missionPotion = setup.createAlchemy({ type: 'potion' })
+  var missionIngredient = setup.createAlchemy({ type: 'preserved herb' })
+  var missionBodyPart = setup.createAlchemy({ type: 'body part' })
+  var alchemistMissionNPC = setup.createNPC({ isShallow: true, hasClass: false, profession: 'alchemist' })
   switch (mission.difficulty) {
     case 'easy':
       Object.assign(mission, {
@@ -26,7 +26,7 @@ setup.alchemistMission = function (mission) {
         readout: ['I have had some issues with potions disappearing, and suspect that somebody is stealing from me. Would you be able to catch the thief?',
           'I am in need of some capable adventurers to go and collect some ' + missionIngredient.herb + '. Are you up to the task?',
           'I had a shipment of ' + missionIngredient.herb + ", but it was attacked by bandits. They probably don't know what they got; they're hiding in the hills. Would you retrieve it for me?",
-          'I received a shipment of ' + missionIngredient.herb + ', but it was completely unusable- my friend ' + '<<profile $AlchemistMissionNPC>>' + ' would never send me bad goods, so I suspect that something is amiss!'
+          'I received a shipment of ' + missionIngredient.herb + ', but it was completely unusable- my friend ' + '<<profile ' + alchemistMissionNPC + '>> would never send me bad goods, so I suspect that something is amiss!'
         ].random()
       })
       break

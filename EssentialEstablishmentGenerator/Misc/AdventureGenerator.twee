@@ -1,6 +1,5 @@
 :: AdventureGenerator
-<<nobr>>
-/*The players must $adventure.goal Their patron, a $adventure.patron called $adventurePatron.name, has requested that they $adventure.sidequest Acting against the party's interests is a $adventure.villain called <<profile $adventureVillain>>, who will accomplish $adventureVillain.hisher goal $adventure.villainActions. The adventurers are aided by a $adventure.ally, $adventureAlly.name. They do this on the backdrop of a $adventure.backdrop. $adventure.introduction $adventure.climax $adventure.twist*/
+/* <<nobr>>
 <<unset $adventure>>
 <<set $adventure to {}>>
 <<set $adventure.location to either(["dungeon", "wilderness", "other"])>>
@@ -17,25 +16,25 @@
 <<switch $adventure.goal>>
     <<case "rescue a captive.">>
         <<set $adventureGoalNPC to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
-        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
     <<case "discover the fate of a previous adventuring party.">>
         <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
         <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
     <<case "find an npc who disappeared in the area.">>
         <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
-        <<set $adventure.goal to "find <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who disappeared in the area.">>
+        <<set $adventure.goal to "find <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who disappeared in the area.">>
     <<case "escort an npc to a destination.">>
         <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
-        <<set $adventure.goal to "escort <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who needs protection on the way to another place.">>
+        <<set $adventure.goal to "escort <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who needs protection on the way to another place.">>
     <<case "discover the fate of a missing group of explorers.">>
         <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
         <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
         <<set $adventureGoalNPC to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
-        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
         <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
-        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.racenote who was caught in a natural disaster.">>
+        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was caught in a natural disaster.">>
 <</switch>>
 
 <<set $adventure.villain to either(["beast or monstrosity with no particular agenda", "terrible aberration bent on corruption or domination", "fiend bent on corruption or destruction", "dragon bent on domination and plunder", "giant bent on plunder", "horrible undead with any agenda", "fey with a mysterious goal", "humanoid cultist", "humanoid conqueror", "humanoid seeking revenge", "humanoid schemer seeking to rule", "humanoid criminal mastermind", "humanoid raider or ravager", "humanoid under a curse", "misguided humanoid zealot"])>>
@@ -63,22 +62,22 @@
         <<set $adventure.villain to "fearsome conqueror called <<profile $adventureVillain>>">>
     <<case "humanoid seeking revenge">>
         <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
-        <<set $adventure.villain to "$adventureVillain.racenote called <<profile $adventureVillain>> hellbent on revenge.">>
+        <<set $adventure.villain to "$adventureVillain.raceNote called <<profile $adventureVillain>> hellbent on revenge.">>
     <<case "humanoid schemer seeking to rule">>
         <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
-        <<set $adventure.villain to "conniving $adventureVillain.racenote called <<profile $adventureVillain>> who seeks power">>
+        <<set $adventure.villain to "conniving $adventureVillain.raceNote called <<profile $adventureVillain>> who seeks power">>
     <<case "humanoid criminal mastermind">>
         <<set $adventureVillain to setup.createNPC({dndClass: either("sorcerer", "rogue"), isThrowaway: true})>>
-        <<set $adventure.villain to "conniving $adventureVillain.racenote called <<profile $adventureVillain>> who seeks to build a criminal empire">>
+        <<set $adventure.villain to "conniving $adventureVillain.raceNote called <<profile $adventureVillain>> who seeks to build a criminal empire">>
     <<case "humanoid raider or ravager">>
         <<set $adventureVillain to setup.createNPC({dndClass: either("barbarian", "fighter"), isThrowaway: true})>>
         <<set $adventure.villain to "fearsome raider called <<profile $adventureVillain>>">>
     <<case "humanoid under a curse">>
         <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
-        <<set $adventure.villain to "$adventureVillain.racenote called <<profile $adventureVillain>> who was placed under a curse">>
+        <<set $adventure.villain to "$adventureVillain.raceNote called <<profile $adventureVillain>> who was placed under a curse">>
     <<case "misguided humanoid zealot">>
         <<set $adventureVillain to setup.createNPC({dndClass: "cleric", isThrowaway: true})>>
-        <<set $adventure.villain to "misguided $adventureVillain.racenote zealot called <<profile $adventureVillain>>">>
+        <<set $adventure.villain to "misguided $adventureVillain.raceNote zealot called <<profile $adventureVillain>>">>
     <</switch>>
 
 
@@ -178,4 +177,4 @@
             <<set $adventureSidequestNPC to setup.createNPC()>>
             <<set $adventure.sidequest to "discover the fate of <<profile $adventureSidequestNPC>>, who went missing in the area.">>
     <</switch>>
-<</nobr>>
+<</nobr>> */

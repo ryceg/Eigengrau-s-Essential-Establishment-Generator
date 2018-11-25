@@ -1,16 +1,16 @@
 
 :: Rooms
-<<nobr>><<set $tavern.freeRooms to setup.tavernRooms($tavern)>>
+<<nobr>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>><<set $tavern.freeRooms to setup.tavernRooms($tavern)>>
 <<if $tavern.freeRooms lte 0>>
 		<span id="room-cost"><<print "You talk with the barmaid about lodgings, and she says that there are no free rooms in $tavern.name at the moment...">></span>
 	<<elseif $tavern.freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
-		<<replace "#room-cost">><<include "Sleep">><</replace>>
+		<<replace "#room-cost">><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>><<print setup.tavernSleep($tavern)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has just one available room, which is $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$tavern.name has just one available room, which is $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordNoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
 	<<elseif $tavern.freeRooms gt 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
-		<<replace "#room-cost">><<include "Sleep">><</replace>>
+		<<replace "#room-cost">><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>><<print setup.tavernSleep($tavern)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has $tavern.freeRooms available rooms, which are $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordnoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$tavern.name has $tavern.freeRooms available rooms, which are $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordNoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
 <</if>><</nobr>>

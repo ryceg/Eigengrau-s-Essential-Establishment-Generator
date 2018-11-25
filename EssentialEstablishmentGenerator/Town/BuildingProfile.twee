@@ -1,3 +1,0 @@
-:: BuildingProfile
-
-On $currentBuilding.street, you come across a $currentBuilding.size $currentBuilding.material building. Inside, you see that it's $currentBuilding.lighting, and $currentBuilding.cleanliness.

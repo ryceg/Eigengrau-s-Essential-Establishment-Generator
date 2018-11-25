@@ -1,115 +1,115 @@
 setup.resourcesFaction = function (faction) {
+  console.log('assigning resources...')
   var resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']
-  var groupSizeModifier = ((faction.resourcesRoll - 50) + ((faction.reputationRoll - 50) + (faction.sizeRoll - 50)) / 2)
-  var type = faction.type
+  var groupSizeModifier = ((faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2)
   var resources = []
   var i
   // this is where weighting different groups happens. Needs updating with each new faction.
-  resourcesList.concat(factionData.type[type].resources)
+  resourcesList.concat(setup.factionData.type[faction.type].resources)
 
-  if (faction.ageRoll > 95) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 15)
-  } else if (faction.ageRoll > 90) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 10)
-  } else if (faction.ageRoll > 80) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 8)
-  } else if (faction.ageRoll > 70) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 6)
-  } else if (faction.ageRoll > 60) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 4)
-  } else if (faction.ageRoll > 55) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 2)
-  } else if (faction.ageRoll > 50) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 1)
-  } else if (faction.ageRoll > 45) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, -1)
-  } else if (faction.ageRoll > 40) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, -2)
-  } else if (faction.ageRoll > 30) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, -4)
-  } else if (faction.ageRoll > 20) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, -6)
-  } else if (faction.ageRoll > 10) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, -8)
-  } else if (faction.ageRoll <= 5) {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, -10)
+  if (faction.roll.age > 95) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 15)
+  } else if (faction.roll.age > 90) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 10)
+  } else if (faction.roll.age > 80) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 8)
+  } else if (faction.roll.age > 70) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 6)
+  } else if (faction.roll.age > 60) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 4)
+  } else if (faction.roll.age > 55) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 2)
+  } else if (faction.roll.age > 50) {
+    faction.roll.resources += Math.fm(faction.roll.resources, 1)
+  } else if (faction.roll.age > 45) {
+    faction.roll.resources += Math.fm(faction.roll.resources, -1)
+  } else if (faction.roll.age > 40) {
+    faction.roll.resources += Math.fm(faction.roll.resources, -2)
+  } else if (faction.roll.age > 30) {
+    faction.roll.resources += Math.fm(faction.roll.resources, -4)
+  } else if (faction.roll.age > 20) {
+    faction.roll.resources += Math.fm(faction.roll.resources, -6)
+  } else if (faction.roll.age > 10) {
+    faction.roll.resources += Math.fm(faction.roll.resources, -8)
+  } else if (faction.roll.age <= 5) {
+    faction.roll.resources += Math.fm(faction.roll.resources, -10)
   } else {
-    faction.resourcesRoll += Math.fm(faction.resourcesRoll, 10)
+    faction.roll.resources += Math.fm(faction.roll.resources, 10)
   }
 
-  // if (faction.ageRoll > 95) {
-  //   faction.resourcesRoll += 15
-  // } else if (faction.ageRoll > 90) {
-  //   faction.resourcesRoll += 10
-  // } else if (faction.ageRoll > 80) {
-  //   faction.resourcesRoll += 8
-  // } else if (faction.ageRoll > 70) {
-  //   faction.resourcesRoll += 6
-  // } else if (faction.ageRoll > 60) {
-  //   faction.resourcesRoll += 4
-  // } else if (faction.ageRoll > 55) {
-  //   faction.resourcesRoll += 2
-  // } else if (faction.ageRoll > 50) {
-  //   faction.resourcesRoll += 1
-  // } else if (faction.ageRoll > 45) {
-  //   faction.resourcesRoll += -1
-  // } else if (faction.ageRoll > 40) {
-  //   faction.resourcesRoll += -2
-  // } else if (faction.ageRoll > 30) {
-  //   faction.resourcesRoll += -4
-  // } else if (faction.ageRoll > 20) {
-  //   faction.resourcesRoll += -6
-  // } else if (faction.ageRoll > 10) {
-  //   faction.resourcesRoll += -8
-  // } else if (faction.ageRoll <= 5) {
-  //   faction.resourcesRoll += -10
+  // if (faction.roll.age > 95) {
+  //   faction.roll.resources += 15
+  // } else if (faction.roll.age > 90) {
+  //   faction.roll.resources += 10
+  // } else if (faction.roll.age > 80) {
+  //   faction.roll.resources += 8
+  // } else if (faction.roll.age > 70) {
+  //   faction.roll.resources += 6
+  // } else if (faction.roll.age > 60) {
+  //   faction.roll.resources += 4
+  // } else if (faction.roll.age > 55) {
+  //   faction.roll.resources += 2
+  // } else if (faction.roll.age > 50) {
+  //   faction.roll.resources += 1
+  // } else if (faction.roll.age > 45) {
+  //   faction.roll.resources += -1
+  // } else if (faction.roll.age > 40) {
+  //   faction.roll.resources += -2
+  // } else if (faction.roll.age > 30) {
+  //   faction.roll.resources += -4
+  // } else if (faction.roll.age > 20) {
+  //   faction.roll.resources += -6
+  // } else if (faction.roll.age > 10) {
+  //   faction.roll.resources += -8
+  // } else if (faction.roll.age <= 5) {
+  //   faction.roll.resources += -10
   // } else {
-  //   faction.resourcesRoll += 10
+  //   faction.roll.resources += 10
   // }
 
-  if (faction.resourcesRoll > 95) {
+  if (faction.roll.resources > 95) {
     faction.resourcesDescription = 'limitless'
     for (i = 1; i <= 5; ++i) { getResources(random(-10, 15)) }
-  } else if (faction.resourcesRoll > 90) {
+  } else if (faction.roll.resources > 90) {
     faction.resourcesDescription = 'near limitless'
     for (i = 1; i <= 4; ++i) { getResources(random(-10, 10)) }
-  } else if (faction.resourcesRoll > 80) {
+  } else if (faction.roll.resources > 80) {
     faction.resourcesDescription = 'extensive'
     for (i = 1; i <= 4; ++i) { getResources(random(-15, 5)) }
-  } else if (faction.resourcesRoll > 70) {
+  } else if (faction.roll.resources > 70) {
     faction.resourcesDescription = 'significant'
     for (i = 1; i <= 4; ++i) { getResources(random(-20, 5)) }
-  } else if (faction.resourcesRoll > 60) {
+  } else if (faction.roll.resources > 60) {
     faction.resourcesDescription = 'many'
     for (i = 1; i <= 3; ++i) { getResources(random(-10, 5)) }
-  } else if (faction.resourcesRoll > 55) {
+  } else if (faction.roll.resources > 55) {
     faction.resourcesDescription = 'decent'
     for (i = 1; i <= 3; ++i) { getResources(random(-15, 5)) }
-  } else if (faction.resourcesRoll > 50) {
+  } else if (faction.roll.resources > 50) {
     faction.resourcesDescription = 'average'
     for (i = 1; i <= 3; ++i) { getResources(random(-20, 5)) }
-  } else if (faction.resourcesRoll > 45) {
+  } else if (faction.roll.resources > 45) {
     faction.resourcesDescription = 'slightly below average'
     getResources(random(10, 15))
     getResources(random(-20, 5))
     getResources(random(-20, -5))
-  } else if (faction.resourcesRoll > 40) {
+  } else if (faction.roll.resources > 40) {
     faction.resourcesDescription = 'somewhat limited'
     getResources(random(5, 15))
     getResources(random(-20, 0))
-  } else if (faction.resourcesRoll > 30) {
+  } else if (faction.roll.resources > 30) {
     faction.resourcesDescription = 'limited'
     getResources(random(5, 10))
     getResources(random(-20, 0))
-  } else if (faction.resourcesRoll > 20) {
+  } else if (faction.roll.resources > 20) {
     faction.resourcesDescription = 'quite poor'
     getResources(random(5, 15))
     getResources(random(-20, 0))
-  } else if (faction.resourcesRoll > 10) {
+  } else if (faction.roll.resources > 10) {
     faction.resourcesDescription = 'extremely poor'
     getResources(random(-15, 5))
     getResources(random(-20, 0))
-  } else if (faction.resourcesRoll <= 5) {
+  } else if (faction.roll.resources <= 5) {
     faction.resourcesDescription = 'destitute'
     getResources(random(-20, -10))
     getResources(random(-30, -10))

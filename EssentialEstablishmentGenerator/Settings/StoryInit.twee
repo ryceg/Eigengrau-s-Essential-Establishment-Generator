@@ -1,98 +1,73 @@
 
 :: StoryInit
 
-<<set $versionnumber to "1.4">>
+<<set $versionNumber to "1.5">>
+<<set Config.history.maxStates to 50>>
 
-<<include "Names">>
+<<set $towns to []>>
+<<set $factions to []>>
+<<set $buildings to []>>
+<<set $npcs to {}>>
 
 <<include "Town">>
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ Dependencies on Town ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
+/* <<set $town to {
+  name: "Test Town",
+  type: "city"
+}>>
 
+<<set $tavern to {
+  name: "Test Tavern",
+  draw: "resident bard",
+  id: 1123,
+  type: "test type"
+}>>
 
+<<set $smithy to {
+  name: "Test Smithy",
+  id: 1125,
+  type: "test type"
+}>>
+<<set $alchemist to {
+  name: "Test Alchemist",
+  id: 112356,
+  type: "test type"
+}>>
 
-<<include "SpecialBrew">>
+<<set $GeneralStore to {
+  name: "Test Store",
+  id: 345761,
+  type: "test type"
+}>>
+<<set $markets to {
+  name: "Test Markets",
+  id: 145634,
+  size: "large",
+  draw: "fun",
+  type: "test type"
+}>> */
 
 <<include "Cheese">>
 
-<<include "Tavern">>
-
-/*<<include "TavernNameGen">>*/
-
-<<include "TavernFlavour">>
-
-<<include "TavernInventory">>
-
-<<include "TavernModifiers">>
+<<include "Books">>
 
 <<include "PatreonCharacters">>
-
-<<include "Bartender">>
 
 <<include "PlotHook">>
 
 <<include "ShitPlotHooks">>
 
-<<include "TavernRenders">>
-
 <<include "Newspaper">>
 
-<<include "Alchemist">>
 
-<<include "AlchemistModifiers">>
+/* <<include "Tavern">> */
 
-<<include "AlchemistNameGen">>
+/* <<include "Alchemist">> */
 
-<<include "Potions">>
+/* <<include "Smithy">> */
 
-<<include "AlchemistInventory">>
+/* <<include "GeneralStore">> */
 
-<<include "Blacksmith">>
+/* <<include "Markets">> */
 
-<<include "Smithy">>
-
-<<include "SmithyInventory">>
-
-<<include "SmithyModifiers">>
-
-<<include "SmithyRenders">>
-
-<<include "SmithyNameGen">>
-
-<<include "GeneralStore">>
-
-<<include "GeneralStoreInventory">>
-
-<<include "GeneralStoreModifiers">>
-
-<<include "GeneralStoreNameGen">>
-
-<<include "GeneralStoreRenders">>
-
-<<include "Books">>
-
-<<include "TavernGames">>
-
-<<include "TownSocioPolitics">>
-
-<<include "TownRefresh">>
-
-<<include "TownMicroEvents">>
-
-<<include "TownLandmark">>
-
-<<include "Mercenaries">>
-
-<<include "Lord">>
-
-<<include "Raiders">>
-
-<<include "TavernGuard">>
-
-<<include "Markets">>
-
-<<include "AdventureGenerator">>
-
-<<include "Guard">>
-
-<<include "Markets">>
+<<run console.log($town)>>

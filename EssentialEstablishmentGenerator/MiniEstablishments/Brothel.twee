@@ -1,5 +1,8 @@
 :: Brothel
 <<if $tavern.hasBrothel is true>>
+  <<set $brothel to setup.createBrothel($town, $tavern)>>
+<</if>>
+/* <<if $tavern.hasBrothel is true>>
     <<set $brothel to $tavern>>
   <<else>>
     <<set $brothel to setup.createBuilding()>>
@@ -123,4 +126,4 @@
         <<set $pimp.title to "Mistress">>
 <</switch>>
 
-<<set $pimp.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $pimp.heshe nods at you", "checks you out for just a moment before smiling at you"]>>
+<<set $pimp.greeting to ["nods at you", "welcomes you warmly", "smiles and greets you", "raises a hand with a wave", "sizes you up, before $pimp.heshe nods at you", "checks you out for just a moment before smiling at you"]>> */

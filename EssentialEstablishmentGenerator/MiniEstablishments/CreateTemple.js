@@ -1,3 +1,4 @@
+/* global setup */
 setup.createTemple = function (base) {
   var prayerSubject = [
     'one god and only one god',
@@ -131,7 +132,9 @@ setup.createTemple = function (base) {
     'a statue of a recognizable figure'
   ]
 
-  var temple = Object.assign({
+  var temple = setup.createBuilding()
+
+  Object.assign(temple, {
     prayerSubject: prayerSubject.random(),
     dedicated: dedicated.random(),
     knownFor: knownFor.random(),

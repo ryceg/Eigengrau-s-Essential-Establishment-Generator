@@ -511,7 +511,6 @@ setup.createPubRumour = function () {
           'a door to another plane' ].random()
       })
       break
-
   }
 
   switch (tempRumour.discovery) {

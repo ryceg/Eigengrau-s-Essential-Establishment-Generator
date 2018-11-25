@@ -1,22 +1,20 @@
 
 :: InitSmithy [output]
+<<set $selectedBuilding to $town.buildings[$selected.key][$selected.index]>>
+<<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
-<<linkreplace "Rename <strong>$smithy.name</strong>">><h3><<textbox "$smithy.name" $smithy.name>></h3><</linkreplace>>
+<span class="tip" title="How wealthy is the patronage?">Smithy Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How wealthy is the patronage?">Smithy Wealth: <<numberslider "$smithy.wealthRoll" $smithy.wealthRoll 1 100 1>></span>
+<span class="tip" title="How large is the smithy?">Smithy Size: <<numberslider "$selectedBuilding.roll.size" $selectedBuilding.roll.size 1 100 1>></span>
 
-<span class="tip" title="How large is the smithy?">Smithy Size: <<numberslider "$smithy.sizeRoll" $smithy.sizeRoll 1 100 1>></span>
+<span class="tip" title="Is it well known, or does the guy just shoe horses?">Smithy Reputation: <<numberslider "$selectedBuilding.roll.reputation" $selectedBuilding.roll.reputation 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or does the guy just shoe horses?">Smithy Reputation: <<numberslider "$smithy.reputationRoll" $smithy.reputationRoll 1 100 1>></span>
+<span class="tip" title="How clean is the smithy?">Smithy Cleanliness: <<numberslider "$selectedBuilding.roll.cleanliness" $selectedBuilding.roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How clean is the smithy?">Smithy Cleanliness: <<numberslider "$smithy.cleanlinessRoll" $smithy.cleanlinessRoll 1 100 1>></span>
+<span class="tip" title="How skilled is the blacksmith?">Smithy Expertise: <<numberslider "$selectedBuilding.roll.expertise" $selectedBuilding.roll.expertise 1 100 1>></span>
 
-<span class="tip" title="How skilled is the blacksmith?">Smithy Expertise: <<numberslider "$smithy.expertiseRoll" $smithy.expertiseRoll 1 100 1>></span>
+<span class="tip" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?">Smithy Activity: <<numberslider "$selectedBuilding.roll.activity" $selectedBuilding.roll.activity 1 100 1>></span>
 
-<span class="tip" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?">Smithy Activity: <<numberslider "$smithy.activityRoll" $smithy.activityRoll 1 100 1>></span>
-
-<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$smithy.priceModifier" $smithy.priceModifier -10 10 1>></span>
+<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$selectedBuilding.priceModifier" $selectedBuilding.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[smithy|SmithyOutput]]
-<<set $currentpassage to $smithy>>
-<<include "SmithyModifiers">>

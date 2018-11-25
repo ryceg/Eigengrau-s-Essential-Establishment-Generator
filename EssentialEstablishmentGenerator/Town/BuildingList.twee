@@ -1,6 +1,0 @@
-:: BuildingList
-
-<<for _i, _trade range $currentBuildingList.count>>
-    <<set _trade to setup.createBuilding()>>
-    <<buildingProfile _trade>>
-<</for>>
