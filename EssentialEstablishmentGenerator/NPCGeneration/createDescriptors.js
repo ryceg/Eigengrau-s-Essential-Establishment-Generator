@@ -1,6 +1,9 @@
 /* global setup */
 setup.createDescriptors = function (npc) {
   console.log('assigning descriptors to ' + npc.name + '...')
+  // remember adjectival precedence!
+  // opinion  size    age   shape       colour  origin  material  purpose     noun
+  // lovely   little  old   rectangular green   French  silver    whittling   knife
   npc.descriptors = [
     npc.age + ' ' + npc.raceName,
     npc.height + ' ' + npc.raceName,
