@@ -37,10 +37,10 @@ setup.townData = {
       'politicalSource': ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(30, 300) },
       'modifiers': {
-        'wealthRoll': -20,
-        'reputationRoll': -40,
-        'sinRoll': -25,
-        'diversityRoll': -20
+        'wealth': -20,
+        'reputation': -40,
+        'sin': -25,
+        'diversity': -20
       }
     },
     'village': {
@@ -48,10 +48,10 @@ setup.townData = {
       'politicalSource': ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(301, 1000) },
       'modifiers': {
-        'wealthRoll': -10,
-        'reputationRoll': -20,
-        'sinRoll': -15,
-        'diversityRoll': 10
+        'wealth': -10,
+        'reputation': -20,
+        'sin': -15,
+        'diversity': 10
       }
     },
     'town': {
@@ -59,10 +59,10 @@ setup.townData = {
       'politicalSource': ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(1001, 3000) },
       'modifiers': {
-        'wealthRoll': 15,
-        'reputationRoll': 5,
-        'sinRoll': 5,
-        'diversityRoll': 15
+        'wealth': 15,
+        'reputation': 5,
+        'sin': 5,
+        'diversity': 15
       }
     },
     'city': {
@@ -70,77 +70,77 @@ setup.townData = {
       'politicalSource': ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(3001, 6000) },
       'modifiers': {
-        'wealthRoll': 5,
-        'reputationRoll': 20,
-        'sinRoll': 25,
-        'diversityRoll': 25
+        'wealth': 5,
+        'reputation': 20,
+        'sin': 25,
+        'diversity': 25
       }
     }
   },
   'economicIdeology': {
     'feudalism': {
       'modifiers': {
-        'economicsRoll': 15,
-        'welfareRoll': -25,
-        'lawRoll': 15,
-        'militaryRoll': 20
+        'economics': 15,
+        'welfare': -25,
+        'law': 15,
+        'military': 20
       },
       'descriptors': {
         'economicIdeologyIC': 'feudalistic',
         'economicIdeologyIST': 'feudalist',
-        'economicIdeologyDescription': "The people of _this.name work the land in exchange for working their lord's lands."
+        'economicIdeologyDescription': "The people of _town.name work the land in exchange for working their lord's lands."
       }
     },
     'capitalism': {
       'modifiers': {
-        'economicsRoll': -20,
-        'welfareRoll': -25,
-        'lawRoll': 15,
-        'militaryRoll': 20
+        'economics': -20,
+        'welfare': -25,
+        'law': 15,
+        'military': 20
       },
       'descriptors': {
         'economicIdeologyIC': 'capitalistic',
         'economicIdeologyIST': 'capitalist',
-        'economicIdeologyDescription': 'The people of _this.name work in exchange for payment from their employers, which they use to buy the necessities.'
+        'economicIdeologyDescription': 'The people of _town.name work in exchange for payment from their employers, which they use to buy the necessities.'
       }
     },
     'syndicalism': {
       'modifiers': {
-        'economicsRoll': 35,
-        'welfareRoll': 25,
-        'lawRoll': -15,
-        'militaryRoll': -15
+        'economics': 35,
+        'welfare': 25,
+        'law': -15,
+        'military': -15
       },
       'descriptors': {
         'economicIdeologyIC': 'syndicalistic',
         'economicIdeologyIST': 'syndicalist',
-        'economicIdeologyDescription': 'The people of _this.name own the lands they work on collectively, and together benefit from its prosperity.'
+        'economicIdeologyDescription': 'The people of _town.name own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
     'communism': {
       'modifiers': {
-        'economicsRoll': 40,
-        'welfareRoll': 30,
-        'lawRoll': -15,
-        'militaryRoll': -30
+        'economics': 40,
+        'welfare': 30,
+        'law': -15,
+        'military': -30
       },
       'descriptors': {
         'economicIdeologyIC': 'communistic',
         'economicIdeologyIST': 'communist',
-        'economicIdeologyDescription': 'The people of _this.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
+        'economicIdeologyDescription': 'The people of _town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
     'primitivism': {
       'modifiers': {
-        'economicsRoll': 40,
-        'welfareRoll': -25,
-        'lawRoll': -30,
-        'militaryRoll': -30
+        'economics': 40,
+        'welfare': -25,
+        'law': -30,
+        'military': -30
       },
       'descriptors': {
         'economicIdeologyIC': 'primitivistic',
         'economicIdeologyIST': 'primitivist',
-        'economicIdeologyDescription': "The people of _this.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _this.type's citizens are hunter-gatherers."
+        'economicIdeologyDescription': "The people of _town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers."
       }
     }
   },
@@ -148,28 +148,28 @@ setup.townData = {
     'absolute monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
+        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile _town.leader>>.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
       }
     },
     'constitutional monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is technically the head of state, but affairs are handled by the prime minister, <<profile _town.leader>>, who controls all executive decisions.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile _town.ruler>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile _town.leader>>.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
       }
     },
     'republic': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'Affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile _town.leader>>'
+      'politicalSourceDescription': 'Affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>'
     },
     'anarchy': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of _this.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile _town.leader>>.'
+      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
     }
   },
   'politicalIdeology': {
@@ -181,11 +181,11 @@ setup.townData = {
         'title': 'Lord'
       },
       'modifiers': {
-        'economicsRoll': 45,
-        'welfareRoll': -25,
-        'lawRoll': 15,
-        'militaryRoll': 25,
-        'arcanaRoll': -5
+        'economics': 45,
+        'welfare': -25,
+        'law': 15,
+        'military': 25,
+        'arcana': -5
       },
       'data': {
         'isFaction': false,
@@ -201,11 +201,11 @@ setup.townData = {
         'title': 'Lord'
       },
       'modifiers': {
-        'economicsRoll': 15,
-        'welfareRoll': 5,
-        'lawRoll': -5,
-        'militaryRoll': -5,
-        'arcanaRoll': 15
+        'economics': 15,
+        'welfare': 5,
+        'law': -5,
+        'military': -5,
+        'arcana': 15
       },
       'data': {
         'isFaction': false,
@@ -222,11 +222,11 @@ setup.townData = {
         'title': 'Lord'
       },
       'modifiers': {
-        'economicsRoll': -15,
-        'welfareRoll': 25,
-        'lawRoll': 15,
-        'militaryRoll': -5,
-        'arcanaRoll': 15
+        'economics': -15,
+        'welfare': 25,
+        'law': 15,
+        'military': -5,
+        'arcana': 15
       },
       'data': {
         'isFaction': false,
@@ -243,11 +243,11 @@ setup.townData = {
         'title': 'High Thief'
       },
       'modifiers': {
-        'economicsRoll': -35,
-        'welfareRoll': -25,
-        'lawRoll': -30,
-        'militaryRoll': -5,
-        'arcanaRoll': 15
+        'economics': -35,
+        'welfare': -25,
+        'law': -30,
+        'military': -5,
+        'arcana': 15
       },
       'data': {
         'isFaction': true,
@@ -264,11 +264,11 @@ setup.townData = {
         'title': 'Archchancellor'
       },
       'modifiers': {
-        'economicsRoll': 2,
-        'welfareRoll': 5,
-        'lawRoll': -5,
-        'militaryRoll': -5,
-        'arcanaRoll': 50
+        'economics': 2,
+        'welfare': 5,
+        'law': -5,
+        'military': -5,
+        'arcana': 50
       },
       'data': {
         'isFaction': true,
@@ -285,11 +285,11 @@ setup.townData = {
         'title': 'Commander'
       },
       'modifiers': {
-        'economicsRoll': 25,
-        'welfareRoll': -5,
-        'lawRoll': 30,
-        'militaryRoll': 50,
-        'arcanaRoll': -15
+        'economics': 25,
+        'welfare': -5,
+        'law': 30,
+        'military': 50,
+        'arcana': -15
       },
       'data': {
         'isFaction': true,
@@ -305,11 +305,11 @@ setup.townData = {
         'title': 'Lord'
       },
       'modifiers': {
-        'economicsRoll': 15,
-        'welfareRoll': -15,
-        'lawRoll': 5,
-        'militaryRoll': 5,
-        'arcanaRoll': -5
+        'economics': 15,
+        'welfare': -15,
+        'law': 5,
+        'military': 5,
+        'arcana': -5
       },
       'data': {
         'isFaction': false,
@@ -325,11 +325,11 @@ setup.townData = {
         'title': 'Sir'
       },
       'modifiers': {
-        'economicsRoll': 15,
-        'welfareRoll': 50,
-        'lawRoll': -5,
-        'militaryRoll': -5,
-        'arcanaRoll': 15
+        'economics': 15,
+        'welfare': 50,
+        'law': -5,
+        'military': -5,
+        'arcana': 15
       },
       'data': {
         'isFaction': true,
@@ -347,11 +347,11 @@ setup.townData = {
         'gender': 'man'
       },
       'modifiers': {
-        'economicsRoll': 15,
-        'welfareRoll': 30,
-        'lawRoll': 15,
-        'militaryRoll': -15,
-        'arcanaRoll': 35
+        'economics': 15,
+        'welfare': 30,
+        'law': 15,
+        'military': -15,
+        'arcana': 35
       },
       'data': {
         'isFaction': true,
@@ -368,11 +368,11 @@ setup.townData = {
         'title': 'Architect'
       },
       'modifiers': {
-        'economicsRoll': 35,
-        'welfareRoll': 15,
-        'lawRoll': -15,
-        'militaryRoll': -5,
-        'arcanaRoll': 25
+        'economics': 35,
+        'welfare': 15,
+        'law': -15,
+        'military': -5,
+        'arcana': 25
       },
       'data': {
         'isFaction': false,

@@ -12,9 +12,9 @@
 //       atmosphere: [],
 //       senses: []
 //     }
-//     var roomSizeModifier = building.sizeRoll - 50
+//     var roomSizeModifier = building.roll.size - 50
 //     var roomSizeRoll = Math.fm(dice(2, 50), roomSizeModifier)
-//     var roomCleanlinessModifier = building.cleanlinessRoll - 50
+//     var roomCleanlinessModifier = building.roll.cleanliness - 50
 //     var roomCleanlinessRoll = Math.fm(dice(2, 50), roomCleanlinessModifier)
 //     if (roomSizeRoll > 80) {
 //       bedroom.size = 'huge'
@@ -34,7 +34,7 @@
 //       bedroom.size = 'tiny'
 //     }
 //
-//     if (roomCleanlinessRoll > 80 && building.wealthRoll > 70) {
+//     if (roomCleanlinessRoll > 80 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a large and open bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is quite large, and is extremely well cleaned.',
@@ -44,19 +44,19 @@
 //         "There's the scent of lemon in the air.",
 //         "The smell of a recently extinguished scented candle permeates the air."
 //       ].random())
-//     } else if (roomCleanlinessRoll > 70 && building.wealthRoll > 70) {
+//     } else if (roomCleanlinessRoll > 70 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a rather large and open bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is quite large, and is well cleaned.',
 //         'This large room has a bed on the floor, and a fireplace nearby. Despite the valiant cleaning attempts, there is still a bit of ash on the floor.'
 //       ].random())
-//     } else if (roomCleanlinessRoll > 60 && building.wealthRoll > 70) {
+//     } else if (roomCleanlinessRoll > 60 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a large bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is quite large, and is reasonably well cleaned.',
 //         'This large room has a bed on the floor, and a fireplace nearby. Despite the valiant cleaning attempts, there is still a fair bit of ash on the floor.'
 //       ].random())
-//     } else if (roomCleanlinessRoll > 50 && building.wealthRoll > 70) {
+//     } else if (roomCleanlinessRoll > 50 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a spacious bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is relatively spacious, and some attempts at sweeping the floor have been made.',

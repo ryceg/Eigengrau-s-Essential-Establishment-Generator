@@ -1,40 +1,41 @@
 setup.createRivals = function (faction) {
-  let sizeRoll = dice(2, 50)
+  console.log('accruing enemies...')
+  let _sizeRoll = dice(2, 50)
   let group
   let groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
-  let groupSizeModifier = ((sizeRoll - 50) + ((faction.reputationRoll - 50) + (faction.influenceRoll - 50)))
+  let groupSizeModifier = ((_sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.influence - 50)))
   let rivals = []
   let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
   groupList.concat(setup.factionData.type[faction.type].rivalsList)
 
-  if (sizeRoll >= 90) {
+  if (_sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'
     for (i = 1; i <= 6; ++i) { getRivalGroup(20) }
-  } else if (sizeRoll >= 80) {
+  } else if (_sizeRoll >= 80) {
     faction.rivalsDescription = 'enemies around every corner'
     for (i = 1; i <= 5; ++i) { getRivalGroup(25) }
-  } else if (sizeRoll >= 70) {
+  } else if (_sizeRoll >= 70) {
     faction.rivalsDescription = 'some fearsome enemies'
     for (i = 1; i <= 4; ++i) { getRivalGroup(20) }
-  } else if (sizeRoll >= 60) {
+  } else if (_sizeRoll >= 60) {
     faction.rivalsDescription = 'more enemies than one would expect'
     for (i = 1; i <= 3; ++i) { getRivalGroup(15) }
-  } else if (sizeRoll >= 50) {
+  } else if (_sizeRoll >= 50) {
     faction.rivalsDescription = 'some enemies'
     for (i = 1; i <= 2; ++i) { getRivalGroup(10) }
-  } else if (sizeRoll >= 40) {
+  } else if (_sizeRoll >= 40) {
     faction.rivalsDescription = 'a handful of rivals'
     getRivalGroup(10)
     getRivalGroup(-10)
-  } else if (sizeRoll >= 30) {
+  } else if (_sizeRoll >= 30) {
     faction.rivalsDescription = 'a couple enemies'
     getRivalGroup(-15)
-  } else if (sizeRoll >= 20) {
+  } else if (_sizeRoll >= 20) {
     faction.rivalsDescription = 'few rivals'
     getRivalGroup(10)
-  } else if (sizeRoll < 20) {
+  } else if (_sizeRoll < 20) {
     faction.rivalsDescription = 'barely any rivals'
     getRivalGroup(10)
   }

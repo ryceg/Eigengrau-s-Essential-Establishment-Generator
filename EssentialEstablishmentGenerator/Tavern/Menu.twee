@@ -3,9 +3,9 @@
 <<nobr>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>>
 <<linkreplace "<h4>What's good?</h4>" t8n>>
 	<h3>On offer today...</h3>
-	<<print setup.closestMatch(setup.getTavernMenu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.wealthRoll, $tavern.roughnessRoll)>>
+	<<print setup.closestMatch(setup.getTavernMenu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.roll.wealth, $tavern.roll.roughness)>>
 
-<<if $tavern.wealthRoll gte 50>>
+<<if $tavern.roll.wealth gte 50>>
 <<set $tavern.specialBrew to setup.tavernData.specialBrew.random()>>
 	<div class='descriptive'>
 	<h3>$tavern.specialBrew.name</h3>

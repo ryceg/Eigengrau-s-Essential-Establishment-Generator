@@ -1,27 +1,27 @@
 setup.GeneralStoreRenders = function (GeneralStore) {
   var warmthRoll = random(1, 100)
 
-  if (GeneralStore.sizeRoll > 80) {
+  if (GeneralStore.roll.size > 80) {
     GeneralStore.size = 'huge'
     warmthRoll -= 20
-  } else if (GeneralStore.sizeRoll > 70) {
+  } else if (GeneralStore.roll.size > 70) {
     GeneralStore.size = 'quite large'
     warmthRoll -= 15
-  } else if (GeneralStore.sizeRoll > 60) {
+  } else if (GeneralStore.roll.size > 60) {
     GeneralStore.size = 'large'
     warmthRoll -= 10
-  } else if (GeneralStore.sizeRoll > 50) {
+  } else if (GeneralStore.roll.size > 50) {
     GeneralStore.size = 'spacious'
     warmthRoll -= 5
-  } else if (GeneralStore.sizeRoll > 40) {
+  } else if (GeneralStore.roll.size > 40) {
     GeneralStore.size = 'medium'
-  } else if (GeneralStore.sizeRoll > 30) {
+  } else if (GeneralStore.roll.size > 30) {
     GeneralStore.size = 'slightly cramped'
     warmthRoll += 15
-  } else if (GeneralStore.sizeRoll > 20) {
+  } else if (GeneralStore.roll.size > 20) {
     GeneralStore.size = 'small'
     warmthRoll += 15
-  } else if (GeneralStore.sizeRoll <= 20) {
+  } else if (GeneralStore.roll.size <= 20) {
     GeneralStore.size = 'tiny'
     warmthRoll += 30
   }
@@ -44,57 +44,57 @@ setup.GeneralStoreRenders = function (GeneralStore) {
     GeneralStore.warmth = 'cold'
   }
 
-  if (GeneralStore.cleanlinessRoll > 80) {
+  if (GeneralStore.roll.cleanliness > 80) {
     GeneralStore.cleanliness = 'fastidious'
-  } else if (GeneralStore.cleanlinessRoll > 70) {
+  } else if (GeneralStore.roll.cleanliness > 70) {
     GeneralStore.cleanliness = 'very tidy'
-  } else if (GeneralStore.cleanlinessRoll > 60) {
+  } else if (GeneralStore.roll.cleanliness > 60) {
     GeneralStore.cleanliness = 'tidy'
-  } else if (GeneralStore.cleanlinessRoll > 50) {
+  } else if (GeneralStore.roll.cleanliness > 50) {
     GeneralStore.cleanliness = 'reasonably tidy'
-  } else if (GeneralStore.cleanlinessRoll > 40) {
+  } else if (GeneralStore.roll.cleanliness > 40) {
     GeneralStore.cleanliness = 'somewhat messy'
-  } else if (GeneralStore.cleanlinessRoll > 30) {
+  } else if (GeneralStore.roll.cleanliness > 30) {
     GeneralStore.cleanliness = 'rather messy'
-  } else if (GeneralStore.cleanlinessRoll > 20) {
+  } else if (GeneralStore.roll.cleanliness > 20) {
     GeneralStore.cleanliness = 'very messy'
-  } else if (GeneralStore.cleanlinessRoll <= 20) {
+  } else if (GeneralStore.roll.cleanliness <= 20) {
     GeneralStore.cleanliness = 'filthy'
   }
 
-  if (GeneralStore.expertiseRoll > 80) {
+  if (GeneralStore.roll.expertise > 80) {
     GeneralStore.expertise = 'masterful'
-  } else if (GeneralStore.expertiseRoll > 70) {
+  } else if (GeneralStore.roll.expertise > 70) {
     GeneralStore.expertise = 'exceptional'
-  } else if (GeneralStore.expertiseRoll > 60) {
+  } else if (GeneralStore.roll.expertise > 60) {
     GeneralStore.expertise = 'superior quality'
-  } else if (GeneralStore.expertiseRoll > 50) {
+  } else if (GeneralStore.roll.expertise > 50) {
     GeneralStore.expertise = 'finely-crafted'
-  } else if (GeneralStore.expertiseRoll > 40) {
+  } else if (GeneralStore.roll.expertise > 40) {
     GeneralStore.expertise = 'well-crafted'
-  } else if (GeneralStore.expertiseRoll > 30) {
+  } else if (GeneralStore.roll.expertise > 30) {
     GeneralStore.expertise = 'somewhat well made'
-  } else if (GeneralStore.expertiseRoll > 20) {
+  } else if (GeneralStore.roll.expertise > 20) {
     GeneralStore.expertise = 'somewhat amateur'
-  } else if (GeneralStore.expertiseRoll <= 20) {
+  } else if (GeneralStore.roll.expertise <= 20) {
     GeneralStore.expertise = 'blatantly amateur'
   }
 
-  if (GeneralStore.activityRoll > 80) {
+  if (GeneralStore.roll.activity > 80) {
     GeneralStore.activity = 'extremely busy'
-  } else if (GeneralStore.activityRoll > 70) {
+  } else if (GeneralStore.roll.activity > 70) {
     GeneralStore.activity = 'very busy'
-  } else if (GeneralStore.activityRoll > 60) {
+  } else if (GeneralStore.roll.activity > 60) {
     GeneralStore.activity = 'rather busy'
-  } else if (GeneralStore.activityRoll > 50) {
+  } else if (GeneralStore.roll.activity > 50) {
     GeneralStore.activity = 'reasonably busy'
-  } else if (GeneralStore.activityRoll > 40) {
+  } else if (GeneralStore.roll.activity > 40) {
     GeneralStore.activity = 'not terribly busy'
-  } else if (GeneralStore.activityRoll > 30) {
+  } else if (GeneralStore.roll.activity > 30) {
     GeneralStore.activity = 'not busy'
-  } else if (GeneralStore.activityRoll > 20) {
+  } else if (GeneralStore.roll.activity > 20) {
     GeneralStore.activity = 'rather quiet'
-  } else if (GeneralStore.activityRoll <= 20) {
+  } else if (GeneralStore.roll.activity <= 20) {
     GeneralStore.activity = 'very quiet'
   }
   return GeneralStore

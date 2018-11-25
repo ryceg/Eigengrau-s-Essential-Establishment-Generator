@@ -58,7 +58,7 @@ setup.createTavern = function (town, opts) {
     get: function () {
       console.log('Fetching ' + tavern.name + ' lodging.')
       var lodging = rollData.wealth.find(function (descriptor) {
-        return descriptor[0] <= this.wealthRoll
+        return descriptor[0] <= this.roll.wealth
       }, this)
       if (lodging === undefined) {
         lodging = rollData.wealth[rollData.wealth.length - 1]
@@ -71,7 +71,7 @@ setup.createTavern = function (town, opts) {
     get: function () {
       console.log('Fetching ' + tavern.name + ' food.')
       var food = rollData.wealth.find(function (descriptor) {
-        return descriptor[0] <= this.wealthRoll
+        return descriptor[0] <= this.roll.wealth
       }, this)
       if (food === undefined) {
         food = rollData.wealth[rollData.wealth.length - 1]
@@ -85,7 +85,7 @@ setup.createTavern = function (town, opts) {
     get: function () {
       console.log('Fetching ' + tavern.name + ' bed cleanliness.')
       var bedCleanliness = rollData.cleanliness.find(function (descriptor) {
-        return descriptor[0] <= this.cleanlinessRoll
+        return descriptor[0] <= this.roll.cleanliness
       }, this)
       if (bedCleanliness === undefined) {
         bedCleanliness = rollData.cleanliness[rollData.cleanliness.length - 1]
@@ -98,25 +98,25 @@ setup.createTavern = function (town, opts) {
   Object.defineProperty(tavern, 'sin', {
     get: function () {
       console.log('Fetching ' + tavern.name + ' sin.')
-      if (this.sinRoll > 80) {
+      if (this.roll.sin > 80) {
         this._sin = 'corrupt'
-      } else if (this.sinRoll > 70) {
+      } else if (this.roll.sin > 70) {
         this._sin = 'venal'
-      } else if (this.sinRoll > 60) {
+      } else if (this.roll.sin > 60) {
         this._sin = 'sleazy'
-      } else if (this.sinRoll > 50) {
+      } else if (this.roll.sin > 50) {
         this._sin = 'seedy'
-      } else if (this.sinRoll > 40 && this.reputationRoll > 60) {
+      } else if (this.roll.sin > 40 && this.roll.reputation > 60) {
         this._sin = 'surprisingly trustworthy'
-      } else if (this.sinRoll > 40) {
+      } else if (this.roll.sin > 40) {
         this._sin = 'trustworthy'
-      } else if (this.sinRoll > 30 && this.reputationRoll > 60) {
+      } else if (this.roll.sin > 30 && this.roll.reputation > 60) {
         this._sin = 'surprisingly reliable'
-      } else if (this.sinRoll > 30) {
+      } else if (this.roll.sin > 30) {
         this._sin = 'reliable'
-      } else if (this.sinRoll <= 20 && this.reputationRoll > 60) {
+      } else if (this.roll.sin <= 20 && this.roll.reputation > 60) {
         this._sin = 'surprisingly honest'
-      } else if (this.sinRoll <= 20) {
+      } else if (this.roll.sin <= 20) {
         this._sin = 'honest'
       } else {
         this._sin = 'reasonably trustworthy'
@@ -125,9 +125,9 @@ setup.createTavern = function (town, opts) {
     }
   })
 
-  tavern.wealth = ''
-  tavern.size = ''
-  tavern.cleanliness = ''
+  // tavern.wealth = ''
+  // tavern.size = ''
+  // tavern.cleanliness = ''
 
   Object.assign(tavern, setup.getTavernDraws(town, tavern))
   // console.log(tavern)

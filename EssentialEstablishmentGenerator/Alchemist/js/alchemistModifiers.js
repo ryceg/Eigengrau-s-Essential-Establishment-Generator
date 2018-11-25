@@ -1,127 +1,119 @@
 /* global setup */
 setup.alchemistModifiers = function (alchemist) {
-  if (alchemist.sizeRoll > 80) {
-    alchemist.activityRoll -= 4
-  } else if (alchemist.sizeRoll > 70) {
-    alchemist.activityRoll -= 3
-  } else if (alchemist.sizeRoll > 60) {
-    alchemist.activityRoll -= 1
-  } else if (alchemist.sizeRoll > 30) {
-    alchemist.activityRoll += 1
-  } else if (alchemist.sizeRoll > 20) {
-    alchemist.activityRoll += 1
-  } else if (alchemist.sizeRoll <= 20) {
-    alchemist.activityRoll += 3
+  if (alchemist.roll.size > 80) {
+    alchemist.roll.activity -= 4
+  } else if (alchemist.roll.size > 70) {
+    alchemist.roll.activity -= 3
+  } else if (alchemist.roll.size > 60) {
+    alchemist.roll.activity -= 1
+  } else if (alchemist.roll.size > 30) {
+    alchemist.roll.activity += 1
+  } else if (alchemist.roll.size > 20) {
+    alchemist.roll.activity += 1
+  } else if (alchemist.roll.size <= 20) {
+    alchemist.roll.activity += 3
   }
 
   switch (alchemist.material) {
     case 'hewn rock':
-      alchemist.roughnessRoll += 3
+      alchemist.roll.roughness += 3
       break
     case 'chiseled stone':
-      alchemist.roughnessRoll -= 1
+      alchemist.roll.roughness -= 1
       break
     case 'marble':
-      alchemist.cleanlinessRoll += 5
-      alchemist.wealthRoll += 6
+      alchemist.roll.cleanliness += 5
+      alchemist.roll.wealth += 6
       break
   }
 
-  if (alchemist.cleanlinessRoll > 80) {
-    alchemist.expertiseRoll += 10
-    alchemist.activityRoll += 6
-    alchemist.hardinessRoll += 8
-  } else if (alchemist.cleanlinessRoll > 70) {
-    alchemist.expertiseRoll += 7
-    alchemist.activityRoll += 4
-    alchemist.hardinessRoll += 6
-  } else if (alchemist.cleanlinessRoll > 60) {
-    alchemist.expertiseRoll += 3
-    alchemist.activityRoll += 3
-    alchemist.hardinessRoll += 4
-  } else if (alchemist.cleanlinessRoll > 50) {
-    alchemist.expertiseRoll += 1
-    alchemist.hardinessRoll += 2
-  } else if (alchemist.cleanlinessRoll > 40) {
-    alchemist.expertiseRoll -= 1
-    alchemist.hardinessRoll -= 2
-  } else if (alchemist.cleanlinessRoll > 30) {
-    alchemist.expertiseRoll -= 3
-    alchemist.hardinessRoll -= 4
-    alchemist.activityRoll -= 2
-  } else if (alchemist.cleanlinessRoll > 20) {
-    alchemist.expertiseRoll -= 5
-    alchemist.hardinessRoll -= 6
-    alchemist.activityRoll -= 6
-  } else if (alchemist.cleanlinessRoll <= 20) {
-    alchemist.expertiseRoll -= 7
-    alchemist.hardinessRoll -= 8
-    alchemist.activityRoll -= 10
+  if (alchemist.roll.cleanliness > 80) {
+    alchemist.roll.expertise += 10
+    alchemist.roll.activity += 6
+  } else if (alchemist.roll.cleanliness > 70) {
+    alchemist.roll.expertise += 7
+    alchemist.roll.activity += 4
+  } else if (alchemist.roll.cleanliness > 60) {
+    alchemist.roll.expertise += 3
+    alchemist.roll.activity += 3
+  } else if (alchemist.roll.cleanliness > 50) {
+    alchemist.roll.expertise += 1
+  } else if (alchemist.roll.cleanliness > 40) {
+    alchemist.roll.expertise -= 1
+  } else if (alchemist.roll.cleanliness > 30) {
+    alchemist.roll.expertise -= 3
+    alchemist.roll.activity -= 2
+  } else if (alchemist.roll.cleanliness > 20) {
+    alchemist.roll.expertise -= 5
+    alchemist.roll.activity -= 6
+  } else if (alchemist.roll.cleanliness <= 20) {
+    alchemist.roll.expertise -= 7
+    alchemist.roll.activity -= 10
   }
 
-  if (alchemist.wealthRoll > 95) {
+  if (alchemist.roll.wealth > 95) {
     alchemist.priceModifier += 4
-    alchemist.sizeRoll += 3
-    alchemist.cleanlinessRoll += 15
-    alchemist.reputationRoll += 10
-  } else if (alchemist.wealthRoll > 80) {
+    alchemist.roll.size += 3
+    alchemist.roll.cleanliness += 15
+    alchemist.roll.reputation += 10
+  } else if (alchemist.roll.wealth > 80) {
     alchemist.priceModifier += 3
-    alchemist.cleanlinessRoll += 10
-    alchemist.reputationRoll += 7
-  } else if (alchemist.wealthRoll > 70) {
+    alchemist.roll.cleanliness += 10
+    alchemist.roll.reputation += 7
+  } else if (alchemist.roll.wealth > 70) {
     alchemist.priceModifier += 2
-    alchemist.cleanlinessRoll += 6
-    alchemist.reputationRoll += 4
-  } else if (alchemist.wealthRoll > 60) {
+    alchemist.roll.cleanliness += 6
+    alchemist.roll.reputation += 4
+  } else if (alchemist.roll.wealth > 60) {
     alchemist.priceModifier += 1
-    alchemist.populationRoll += 5
-    alchemist.cleanlinessRoll += 4
-  } else if (alchemist.wealthRoll > 50) {
-    alchemist.populationRoll += 5
-    alchemist.reputationRoll -= 5
-    alchemist.cleanlinessRoll += 2
-  } else if (alchemist.wealthRoll > 30) {
+    alchemist.roll.population += 5
+    alchemist.roll.cleanliness += 4
+  } else if (alchemist.roll.wealth > 50) {
+    alchemist.roll.population += 5
+    alchemist.roll.reputation -= 5
+    alchemist.roll.cleanliness += 2
+  } else if (alchemist.roll.wealth > 30) {
     alchemist.priceModifier -= 1
-    alchemist.reputationRoll -= 7
-    alchemist.cleanlinessRoll -= 15
-  } else if (alchemist.wealthRoll <= 30) {
+    alchemist.roll.reputation -= 7
+    alchemist.roll.cleanliness -= 15
+  } else if (alchemist.roll.wealth <= 30) {
     alchemist.priceModifier -= 2
-    alchemist.reputationRoll -= 10
-    alchemist.cleanlinessRoll -= 25
+    alchemist.roll.reputation -= 10
+    alchemist.roll.cleanliness -= 25
   }
 
-  if (alchemist.activityRoll > 80) {
+  if (alchemist.roll.activity > 80) {
     alchemist.activity = 'extremely busy'
-    alchemist.reputationRoll += 5
-    alchemist.cleanlinessRoll -= 5
-  } else if (alchemist.activityRoll > 70) {
+    alchemist.roll.reputation += 5
+    alchemist.roll.cleanliness -= 5
+  } else if (alchemist.roll.activity > 70) {
     alchemist.activity = 'very busy'
-    alchemist.reputationRoll += 3
-    alchemist.cleanlinessRoll -= 3
-  } else if (alchemist.activityRoll > 60) {
+    alchemist.roll.reputation += 3
+    alchemist.roll.cleanliness -= 3
+  } else if (alchemist.roll.activity > 60) {
     alchemist.activity = 'rather busy'
-    alchemist.reputationRoll += 2
-    alchemist.cleanlinessRoll -= 2
-  } else if (alchemist.activityRoll > 50) {
+    alchemist.roll.reputation += 2
+    alchemist.roll.cleanliness -= 2
+  } else if (alchemist.roll.activity > 50) {
     alchemist.activity = 'reasonably busy'
-    alchemist.reputationRoll += 1
-    alchemist.cleanlinessRoll -= 1
-  } else if (alchemist.activityRoll > 40) {
+    alchemist.roll.reputation += 1
+    alchemist.roll.cleanliness -= 1
+  } else if (alchemist.roll.activity > 40) {
     alchemist.activity = 'not terribly busy'
-    alchemist.reputationRoll -= 1
-    alchemist.cleanlinessRoll += 1
-  } else if (alchemist.activityRoll > 30) {
+    alchemist.roll.reputation -= 1
+    alchemist.roll.cleanliness += 1
+  } else if (alchemist.roll.activity > 30) {
     alchemist.activity = 'not busy'
-    alchemist.reputationRoll -= 2
-    alchemist.cleanlinessRoll += 2
-  } else if (alchemist.activityRoll > 20) {
+    alchemist.roll.reputation -= 2
+    alchemist.roll.cleanliness += 2
+  } else if (alchemist.roll.activity > 20) {
     alchemist.activity = 'rather quiet'
-    alchemist.reputationRoll -= 3
-    alchemist.cleanlinessRoll += 3
-  } else if (alchemist.activityRoll <= 20) {
+    alchemist.roll.reputation -= 3
+    alchemist.roll.cleanliness += 3
+  } else if (alchemist.roll.activity <= 20) {
     alchemist.activity = 'very quiet'
-    alchemist.reputationRoll -= 5
-    alchemist.cleanlinessRoll += 5
+    alchemist.roll.reputation -= 5
+    alchemist.roll.cleanliness += 5
   }
 
   return alchemist

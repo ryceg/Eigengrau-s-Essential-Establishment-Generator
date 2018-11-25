@@ -1,4 +1,5 @@
 setup.joinFaction = function (faction) {
+  console.log('determining joining...')
   faction.joiningFeeRoll = dice(2, 50)
   var joiningRequirement = ['some social status', 'an excellent reputation', 'a favour to be done', 'to be called on for a favour', 'referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of loyalty', 'a display of skill', 'a display of bravery']
   var joiningInitiation = ['a secret task', 'a mission', 'a secret ritual', 'a simple form to be filled', 'nothing particularly interesting', 'an oath to be taken']

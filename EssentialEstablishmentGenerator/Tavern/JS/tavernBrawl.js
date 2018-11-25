@@ -9,11 +9,11 @@ guardRoll += 10
 guardRoll += 5
   else if ($guard.population > 10
 guardRoll += 1
-  else if ($guard.population > 5 && $tavern.sizeRoll > 60
+  else if ($guard.population > 5 && $tavern.roll.size > 60
 guardRoll -= 7
   else if ($guard.population > 5
 guardRoll -= 5
-  else if ($guard.population <= 5 && $tavern.sizeRoll > 60
+  else if ($guard.population <= 5 && $tavern.roll.size > 60
 guardRoll -= 15
   else if ($guard.population <= 5
 guardRoll -= 10
@@ -27,43 +27,43 @@ guardRoll -= 10
     tavern.guardPresent = false
   }
 
-  if (tavern.populationRoll > 80) {
+  if (tavern.roll.population > 80) {
     brawlRoll += 15
-  } else if (tavern.populationRoll > 70) {
+  } else if (tavern.roll.population > 70) {
     brawlRoll += 13
-  } else if (tavern.populationRoll > 60) {
+  } else if (tavern.roll.population > 60) {
     brawlRoll += 11
-  } else if (tavern.populationRoll > 55) {
+  } else if (tavern.roll.population > 55) {
     brawlRoll += 8
-  } else if (tavern.populationRoll > 50) {
+  } else if (tavern.roll.population > 50) {
     brawlRoll += 0
-  } else if (tavern.populationRoll > 40) {
+  } else if (tavern.roll.population > 40) {
     brawlRoll -= 5
-  } else if (tavern.populationRoll > 30) {
+  } else if (tavern.roll.population > 30) {
     brawlRoll -= 15
-  } else if (tavern.populationRoll > 20) {
+  } else if (tavern.roll.population > 20) {
     brawlRoll -= 20
-  } else if (tavern.populationRoll <= 20) {
+  } else if (tavern.roll.population <= 20) {
     brawlRoll -= 40
   }
 
-  if (tavern.roughnessRoll > 80) {
+  if (tavern.roll.roughness > 80) {
     brawlRoll += 15
-  } else if (tavern.roughnessRoll > 70) {
+  } else if (tavern.roll.roughness > 70) {
     brawlRoll += 13
-  } else if (tavern.roughnessRoll > 60) {
+  } else if (tavern.roll.roughness > 60) {
     brawlRoll += 11
-  } else if (tavern.roughnessRoll > 55) {
+  } else if (tavern.roll.roughness > 55) {
     brawlRoll += 8
-  } else if (tavern.roughnessRoll > 50) {
+  } else if (tavern.roll.roughness > 50) {
     brawlRoll += 0
-  } else if (tavern.roughnessRoll > 40) {
+  } else if (tavern.roll.roughness > 40) {
     brawlRoll -= 5
-  } else if (tavern.roughnessRoll > 30) {
+  } else if (tavern.roll.roughness > 30) {
     brawlRoll -= 15
-  } else if (tavern.roughnessRoll > 20) {
+  } else if (tavern.roll.roughness > 20) {
     brawlRoll -= 20
-  } else if (tavern.roughnessRoll <= 20) {
+  } else if (tavern.roll.roughness <= 20) {
     brawlRoll -= 40
   }
 

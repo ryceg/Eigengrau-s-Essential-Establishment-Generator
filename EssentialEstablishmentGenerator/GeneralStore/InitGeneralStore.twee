@@ -3,15 +3,15 @@
 <<set $selectedBuilding to $town.buildings[$selected.key][$selected.index]>>
 <<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
-<span class="tip" title="How wealthy is the patronage?">General Store Wealth: <<numberslider "$selectedBuilding.wealthRoll" $selectedBuilding.wealthRoll 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">General Store Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How large is it?">General Store Size: <<numberslider "$selectedBuilding.sizeRoll" $selectedBuilding.sizeRoll 1 100 1>></span>
+<span class="tip" title="How large is it?">General Store Size: <<numberslider "$selectedBuilding.roll.size" $selectedBuilding.roll.size 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or another no-name shop?">General Store Reputation: <<numberslider "$selectedBuilding.reputationRoll" $selectedBuilding.reputationRoll 1 100 1>></span>
+<span class="tip" title="Is it well known, or another no-name shop?">General Store Reputation: <<numberslider "$selectedBuilding.roll.reputation" $selectedBuilding.roll.reputation 1 100 1>></span>
 
-<span class="tip" title="How clean is it?">General Store Cleanliness: <<numberslider "$selectedBuilding.cleanlinessRoll" $selectedBuilding.cleanlinessRoll 1 100 1>></span>
+<span class="tip" title="How clean is it?">General Store Cleanliness: <<numberslider "$selectedBuilding.roll.cleanliness" $selectedBuilding.roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How busy is it? Are they getting much custom at the moment?">General Store Activity: <<numberslider "$selectedBuilding.activityRoll" $selectedBuilding.activityRoll 1 100 1>></span>
+<span class="tip" title="How busy is it? Are they getting much custom at the moment?">General Store Activity: <<numberslider "$selectedBuilding.roll.activity" $selectedBuilding.roll.activity 1 100 1>></span>
 
 <span class="tip" title="How likely is it to find magic here?">General Store Magic: <<numberslider "$selectedBuilding.magicRoll" $selectedBuilding.magicRoll 1 100 1>></span>
 

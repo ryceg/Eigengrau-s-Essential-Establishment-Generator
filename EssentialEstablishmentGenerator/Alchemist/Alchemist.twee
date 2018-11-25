@@ -65,4 +65,3 @@
 
 <<set $alchemist to setup.createBuilding()>>
 <<set $alchemist.passageName to "AlchemistOutput">>
-<<set $alchemist.magicRoll to random(40, 100)>> */

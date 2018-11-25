@@ -80,10 +80,10 @@ setup.createTown = function (base) {
     get wealth () {
       console.log('Fetching town wealth.')
       var wealth = setup.townData.rollData.wealth.find(function (descriptor) {
-        return descriptor[0] <= this.wealthRoll
+        return descriptor[0] <= this.roll.wealth
       }, this)
       if (wealth === undefined) {
-        console.log('Could not find a wealthRoll descriptor that was appropriate for a roll of ' + this.wealthRoll + ' for ' + this.name)
+        console.log('Could not find a wealthRoll descriptor that was appropriate for a roll of ' + this.roll.wealth + ' for ' + this.name)
         wealth = setup.townData.rollData.wealth[setup.townData.rollData.wealth.length - 1]
       }
       this._wealth = wealth[1]
@@ -95,17 +95,19 @@ setup.createTown = function (base) {
     landmark: setup.townData.misc.landmark.random(),
     currentEvent: setup.townData.misc.currentEvent.random(),
     microEvent: setup.townData.misc.microEvent,
-    wealthRoll: random(1, 100),
-    reputationRoll: random(1, 100),
-    sinRoll: random(1, 100),
-    diversityRoll: random(1, 100),
-    magicRoll: random(1, 100),
-    sizeRoll: random(1, 100),
-    economicsRoll: random(1, 100),
-    welfareRoll: random(1, 100),
-    militaryRoll: random(1, 100),
-    lawRoll: random(1, 100),
-    arcanaRoll: random(1, 100)
+    roll: {
+      wealth: random(1, 100),
+      reputation: random(1, 100),
+      sin: random(1, 100),
+      diversity: random(1, 100),
+      magic: random(1, 100),
+      size: random(1, 100),
+      economics: random(1, 100),
+      welfare: random(1, 100),
+      military: random(1, 100),
+      law: random(1, 100),
+      arcana: random(1, 100)
+    }
   }, base)
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
@@ -117,30 +119,30 @@ setup.createTown = function (base) {
   town.vegetation = setup.townData.terrain[town.terrain][town.location].vegetation.random()
 
   console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
-  Object.assign(town, setup.townData.type[town.type].modifiers)
+  Object.assign(town.roll, setup.townData.type[town.type].modifiers)
 
   town.guard = setup.createGuard(town.name)
 
   console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
   // economic ideology attribute modifiers
-  Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].modifiers)
+  Object.assign(town.roll, setup.townData.economicIdeology[town.economicIdeology].modifiers)
   // political ideology modifiers
   console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
-  Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
+  Object.assign(town.roll, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
   setup.createSocioPolitics(town)
 
-  town.wealthRoll.clamp(1, 100)
-  town.reputationRoll.clamp(1, 100)
-  town.sinRoll.clamp(1, 100)
-  town.diversityRoll.clamp(1, 100)
-  town.magicRoll.clamp(1, 100)
-  town.sizeRoll.clamp(1, 100)
-  town.economicsRoll.clamp(1, 100)
-  town.welfareRoll.clamp(1, 100)
-  town.militaryRoll.clamp(1, 100)
-  town.lawRoll.clamp(1, 100)
-  town.arcanaRoll.clamp(1, 100)
+  town.roll.wealth.clamp(1, 100)
+  town.roll.reputation.clamp(1, 100)
+  town.roll.sin.clamp(1, 100)
+  town.roll.diversity.clamp(1, 100)
+  town.roll.magic.clamp(1, 100)
+  town.roll.size.clamp(1, 100)
+  town.roll.economics.clamp(1, 100)
+  town.roll.welfare.clamp(1, 100)
+  town.roll.military.clamp(1, 100)
+  town.roll.law.clamp(1, 100)
+  town.roll.arcana.clamp(1, 100)
   setup.townRender(town)
   setup.createStartBuildings(town)
 

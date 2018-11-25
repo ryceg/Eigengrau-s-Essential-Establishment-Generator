@@ -3,22 +3,22 @@
 <<set $temple to setup.createTemple()>>
 <<set $priest to setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "cleric", "druid"), background: either("acolyte", "acolyte", "acolyte", "acolyte", "sage", "sage", "sage"), profession: "priest"})>>
 
-<<if $town.wealthRoll gt 95>>
-  <<set $temple.wealthRoll += 7>>
-<<elseif $town.wealthRoll gt 80>>
-  <<set $temple.wealthRoll += 5>>
-<<elseif $town.wealthRoll gt 70>>
-  <<set $temple.wealthRoll += 3>>
-<<elseif $town.wealthRoll gt 60>>
-  <<set $temple.wealthRoll += 2, $temple.populationRoll += 1>>
-<<elseif $town.wealthRoll gt 50>>
-  <<set $temple.wealthRoll += 2, $temple.populationRoll += 3>>
-<<elseif $town.wealthRoll gt 40>>
-  <<set $temple.wealthRoll += 1, $temple.populationRoll += 2>>
-<<elseif $town.wealthRoll gt 30>>
-  <<set $temple.wealthRoll -= 2>>
-<<elseif $town.wealthRoll gt 20>>
-  <<set $temple.wealthRoll -= 3, $temple.sinRoll += 1>>
-<<elseif $town.wealthRoll lte 20>>
-  <<set $temple.wealthRoll -= 5, $temple.sinRoll += 3, $temple.populationRoll -= 3>>
+<<if $town.roll.wealth gt 95>>
+  <<set $temple.roll.wealth += 7>>
+<<elseif $town.roll.wealth gt 80>>
+  <<set $temple.roll.wealth += 5>>
+<<elseif $town.roll.wealth gt 70>>
+  <<set $temple.roll.wealth += 3>>
+<<elseif $town.roll.wealth gt 60>>
+  <<set $temple.roll.wealth += 2, $temple.roll.population += 1>>
+<<elseif $town.roll.wealth gt 50>>
+  <<set $temple.roll.wealth += 2, $temple.roll.population += 3>>
+<<elseif $town.roll.wealth gt 40>>
+  <<set $temple.roll.wealth += 1, $temple.roll.population += 2>>
+<<elseif $town.roll.wealth gt 30>>
+  <<set $temple.roll.wealth -= 2>>
+<<elseif $town.roll.wealth gt 20>>
+  <<set $temple.roll.wealth -= 3, $temple.roll.sin += 1>>
+<<elseif $town.roll.wealth lte 20>>
+  <<set $temple.roll.wealth -= 5, $temple.roll.sin += 3, $temple.roll.population -= 3>>
 <</if>>

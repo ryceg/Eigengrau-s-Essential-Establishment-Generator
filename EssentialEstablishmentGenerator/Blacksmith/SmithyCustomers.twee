@@ -1,31 +1,31 @@
 :: SmithyCustomers
 /* <<nobr>>
 <<set _customer to random(1, 100)>>
-<<if $smithy.reputationRoll gt 80>>
+<<if $smithy.roll.reputation gt 80>>
     <<set _customer += 15>>
-  <<elseif $smithy.reputationRoll gt 70>>
+  <<elseif $smithy.roll.reputation gt 70>>
     <<set _customer += 10>>
-  <<elseif $smithy.reputationRoll gt 60>>
+  <<elseif $smithy.roll.reputation gt 60>>
     <<set _customer += 5>>
-  <<elseif $smithy.reputationRoll gt 50>>
+  <<elseif $smithy.roll.reputation gt 50>>
     <<set _customer += 1>>
 <</if>>
 
-<<if $smithy.expertiseRoll gt 80>>
+<<if $smithy.roll.expertise gt 80>>
     <<set _customer += 5>>
-  <<elseif $smithy.expertiseRoll gt 70>>
+  <<elseif $smithy.roll.expertise gt 70>>
     <<set _customer += 3>>
-  <<elseif $smithy.expertiseRoll gt 60>>
+  <<elseif $smithy.roll.expertise gt 60>>
     <<set _customer += 2>>
 <</if>>
 
-<<if $smithy.sizeRoll gt 40>>
+<<if $smithy.roll.size gt 40>>
     <<set _customer += 1>>
-  <<elseif $smithy.sizeRoll gt 30>>
+  <<elseif $smithy.roll.size gt 30>>
     <<set _customer -= 1>>
-  <<elseif $smithy.sizeRoll gt 20>>
+  <<elseif $smithy.roll.size gt 20>>
     <<set _customer -= 2>>
-  <<elseif $smithy.sizeRoll lte 20>>
+  <<elseif $smithy.roll.size lte 20>>
     <<set _customer -= 3>>
 <</if>>
 

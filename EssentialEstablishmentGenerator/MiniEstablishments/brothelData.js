@@ -1,9 +1,55 @@
 /* global setup */
 setup.brothelData = {
+  'rollData': {
+    'wealth': [
+      [95, 'kingly'],
+      [80, 'aristocratic'],
+      [70, 'wealthy'],
+      [60, 'comfortable'],
+      [50, 'modest'],
+      [25, 'poor'],
+      [15, 'squalid'],
+      [0, 'destitute']
+    ],
+    'size': [
+      [95, 'cavernous'],
+      [80, 'huge'],
+      [70, 'quite large'],
+      [60, 'large'],
+      [50, 'spacious'],
+      [40, 'average sized'],
+      [30, 'somewhat cramped'],
+      [20, 'small'],
+      [10, 'tiny'],
+      [0, 'extremely cramped']
+    ],
+    'cleanliness': [
+      [80, 'fastidious'],
+      [70, 'very tidy'],
+      [60, 'tidy'],
+      [50, 'reasonably tidy'],
+      [40, 'somewhat messy'],
+      [30, 'rather messy'],
+      [20, 'very messy'],
+      [10, 'extremely messy'],
+      [0, 'dangerously messy']
+    ],
+    'bedCleanliness': [
+      [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
+      [75, 'recently prepared and well cleaned'],
+      [70, 'freshly cleaned and neat'],
+      [60, 'tidy and neat'],
+      [50, 'reasonably clean'],
+      [40, 'somewhat tidy'],
+      [30, 'disgusting'],
+      [20, 'teeming with rats'],
+      [10, 'rather filthy'],
+      [0, 'festering with bugs']
+    ]
+  },
   'name': [
     'Daisies', 'The Don', 'Blinkers', "The Prude's Suspenders", 'Gold’s Dust', 'The Velvet Fang', 'The Whisper Home', 'The Hook', 'Over the River', 'Slooshes', 'The Rapid Rascal', 'The Stoat', 'The Fidgety Ferret', 'Long Shaft', 'The Guards', 'Chastity’s', 'The Mask', 'The Red Dress', 'Jewels', 'Silken Flute', 'The Nag’s Head', 'Drummers', 'Sailors Choice', 'Blacksmiths Envy', 'The Nagging Wife', 'Colins Rubble', "Dron's Beat", 'The Wink', 'Maggie’s Horn', 'The Sun & Cider', 'The Oakworm', 'Tickle & Feather', 'The Mistress', "Madam Zersannies's", "The King's Court", 'The Cursed Coin', 'Slit', 'The Maiden Head', 'The Rusty', 'The Silken Ferret', 'Long Legs', 'Elven Whispers', 'The Leg', 'False Suspenders', 'Aunt Fannies Bloomers', 'Final Rest', 'Cocks Crow', 'The Unblinking Eye', 'The Bountiful Bosom', 'Tuskers', 'The Thrusting Gentleman', 'Tally Hoes', 'Rutting', 'Pigs in Blankets', 'The Delicate Touch', 'Aphrodite’s Wish', 'The Dirty Secret', 'Long Locks', 'Sweat', 'The Plain Brothel', 'Taters', 'The Swift Finish', 'Cumberlands', 'The Missing Sausage', 'The Fools Frolic', 'Dragons', 'The Bushel', 'Farmers Oats', 'The Raised Brow', 'Genies', 'The Farfetched Feather', 'Junk', 'The Connoisseur’s Choice', 'Colossus', 'The Smooth Ride', 'Bucking', 'The Great Big Globes', 'The Glimmeric', 'Loving Embrace', 'Chokers Necklace', "The Grand Madame's Emporium of Fine Delicacies Treats and the Exotic", 'Thug’s Retreat', "Warriors' Return", 'Gold Gobblers', 'Cackling Croons', 'The Warty', 'Bessie’s Best', 'Corset', 'Winkies', 'The Shagger', 'Port of Call', 'The Home Away from Hoes', 'Smooth', 'The Maiden Fair', 'The Bit', 'Hosted', 'Glamourous Delights', 'Happily Ever After', 'Sultry Stare', 'The Full Flush', 'The Lighted Candle', 'The Red Candle', 'The Raised Candle', 'The Dancing Flame', 'The Candlelight Resort', 'The Sweetest Cherry', "Cherry's", 'Cherry Pie', 'The Velvet Cherry', 'The Golden Cherry', 'The Silk Curtain', 'The Red Curtain', 'The Lacy Curtain', 'The Welcoming Curtain', 'The Satin Curtain', 'Satin Dolls', 'Sweet Dolls', 'Porcelain Dolls', 'The Sugar Doll', 'Dancers and Dolls', 'The Red Door', 'The Golden Door', 'The Silver Door', "The Maiden's Door", "The Dancers' Door", "Lover's Embrace", "Lady's Embrace", 'The Sweetest Embrace', 'The Warmest Embrace', 'Welcoming Embrace', 'The Satin Glove', 'Silky Gloves', 'Lacy Gloves', "The Lady's Glove", "The Maiden's Glove", 'The Shining Heart', 'Pink Hearts', 'Lacy Hearts', "Sweetheart's", "The Maiden's Heart", 'The Night House', 'The Pink House', 'The Porcelain House', 'The Welcoming House', 'The Cozy House', 'The Warmest Lamp', 'The Red Lamp', 'The Pink Lamp', 'The Soft Lamp', "The Lady's Lamp", "The Lady's Kiss", "The Maiden's Kiss", "The Night's Kiss", 'Cozy Kisses', 'Satin Kisses', "Peach's Place", 'The Peach', 'The Prettiest Peach', 'The Sweetest Peach', 'The Golden Peach', 'The Silky Purse', 'The Satin Purse', "The Lady's Purse", "The Dancer's Purse", 'The Pink Purse', "The Maiden's Room", "The Lovers' Room", 'The Night Room', 'The Warm Room', 'The Red Room', 'The Silver Slipper', 'The Satin Slipper', 'The Silk Slipper', 'The Red Slipper', "The Dancer's Slipper", 'The Lacy Skirt', 'The Welcoming Skirt', 'The Pink Skirt', "The Dancer's Skirt", "The Lady's Skirt", "The Maiden's Shoe", 'The Red Shoe', 'Cozy Shoes', "Lovers' Shoes", 'Silver Shoes', 'Silky Stockings', 'The Red Stocking', 'The Lacy Stocking', "The Lady's Stocking", 'The Softest Stockings', "The Maiden's Veil", 'The Lacy Veil', 'The Silk Veil', "The Lovers' Veil", 'The Veil of Night', 'Soft-Lighted Window', 'The Shining Window', 'The Lighted Window', 'The Pink Window', 'The Welcoming Window', 'Pink Cheeks Sweets', 'Royal Tarts', 'Sweet Treats', 'Vixens', 'Bewitched'
   ],
-
   'specialty': [
     'really weird stuff, for those with the most interesting fetishes',
     'illegal stuff. If this is found out, the place would be burnt down, and the owners hung. It is clearly kept in great secret',
@@ -22,7 +68,6 @@ setup.brothelData = {
     'helping people live out their most twisted sexual fantasies',
     'incredibly dominant women'
   ],
-
   'talk': [
     [
       'you can pay for services with things other than coin',
@@ -45,7 +90,6 @@ setup.brothelData = {
     "it isn't worth the money",
     "you're more likely to get robbed than to get off"
   ],
-
   'rumour': [
     'a nobleman got one of the girls with child but refuses to acknowledge her or the baby',
     'someone slaughtered half of the workers and clients in the night',
@@ -61,7 +105,6 @@ setup.brothelData = {
     'one of the workers is said to be carrying the baby of a god',
     'a powerful amulet of lust is supposedly hidden there'
   ],
-
   'notice': [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
