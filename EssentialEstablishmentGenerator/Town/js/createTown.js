@@ -31,9 +31,9 @@ setup.createTown = function (base) {
       'smithy': [],
       'tavern': [],
       'alchemist': [],
-      'brothel': [],
       'market': [],
-      'GeneralStore': []
+      'GeneralStore': [],
+      'brothel': []
     },
     population: setup.townData.type[type].population(),
     _economicIdeology: economicIdeology,
