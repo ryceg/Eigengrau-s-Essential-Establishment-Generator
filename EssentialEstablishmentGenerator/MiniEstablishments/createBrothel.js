@@ -1,22 +1,22 @@
 /* global setup */
 setup.createBrothel = function (town, tavern) {
   console.log('Creating a brothel...')
-  var brothel
-  if (tavern.hasBrothel === true) {
-    brothel = tavern
-  } else {
-    brothel = setup.createBuilding(town, 'brothel')
-  }
+  let brothel = setup.createBuilding(town, 'brothel')
+  // if (tavern.hasBrothel) {
+  //   brothel = tavern
+  // } else {
+  //   brothel = setup.createBuilding(town, 'brothel')
+  // }
   Object.assign(brothel, {
     name: setup.brothelData.name.random(),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
     BuildingType: 'brothel',
     wordNoun: ['brothel', 'whorehouse', "gentleman's club"].random(),
-    brothelSpecialty: setup.brothelData.specialty.random(),
-    brothelTalk: setup.brothelData.talk.random(),
-    brothelRumour: setup.brothelData.rumour.random(),
-    brothelNotice: setup.brothelData.notice.random(),
+    specialty: setup.brothelData.specialty.random(),
+    talk: setup.brothelData.talk.random(),
+    rumour: setup.brothelData.rumour.random(),
+    notice: setup.brothelData.notice.random(),
     owner: [
       'a mean old madam',
       'a large madam with a no-nonsense attitude',
@@ -27,6 +27,16 @@ setup.createBrothel = function (town, tavern) {
       'a charming witch'].random()
   })
   brothel.notableFeature = brothel.specialty + ' and being owned by ' + brothel.owner
+
+  // to do: add bed cleanliness. Steal it from tavern.
+  var rollDataVariables = ['wealth', 'size', 'cleanliness']
+  rollDataVariables.forEach(function (propName) {
+    setup.defineRollDataGetter(brothel, setup.brothelData.rollData, propName)
+  })
+  brothel.wealth = ''
+  brothel.size = ''
+  brothel.cleanliness = ''
+
   switch (brothel.owner) {
     case 'a mean old madam':
       brothel.pimp = setup.createNPC({ age: 'venerable', gender: 'woman', title: 'Mistress', demeanour: 'mean', profession: 'pimp' })
@@ -49,7 +59,9 @@ setup.createBrothel = function (town, tavern) {
     case 'a charming witch':
       brothel.pimp = setup.createNPC({ gender: 'woman', title: 'Mistress', age: 'relatively young', dndClass: 'sorcerer', profession: 'pimp' })
   }
+
+  brothel.pimp.greeting = ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'sizes you up, before $pimp.heshe nods at you', 'checks you out for just a moment before smiling at you']
   console.log(brothel)
-  setup.townBinder(town, brothel, 'brothel')
+  // setup.townBinder(town, brothel, 'brothel')
   return brothel
 }

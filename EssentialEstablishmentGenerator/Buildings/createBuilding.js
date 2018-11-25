@@ -47,178 +47,178 @@ setup.createBuilding = function (town, type) {
       expertise: random(1, 100),
       activity: random(1, 100)
     },
-    magicRoll: (Math.floor(Math.random() * 80) + 20),
-    priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random()),
-    sizeRoll: (Math.floor(Math.random() * 80) + 20),
-    diversityRoll: (Math.floor(Math.random() * 80) + 20),
-    wealthRoll: random(1, 100),
-    populationRoll: random(1, 100),
-    reputationRoll: random(1, 100),
-    sinRoll: random(1, 100),
-    roughnessRoll: random(1, 100),
-    cleanlinessRoll: random(1, 100),
-    expertiseRoll: random(1, 100),
-    activityRoll: random(1, 100)
+    // magicRoll: (Math.floor(Math.random() * 80) + 20),
+    priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random())
+    // sizeRoll: (Math.floor(Math.random() * 80) + 20),
+    // diversityRoll: (Math.floor(Math.random() * 80) + 20),
+    // wealthRoll: random(1, 100),
+    // populationRoll: random(1, 100),
+    // reputationRoll: random(1, 100),
+    // sinRoll: random(1, 100),
+    // roughnessRoll: random(1, 100),
+    // cleanlinessRoll: random(1, 100),
+    // expertiseRoll: random(1, 100),
+    // activityRoll: random(1, 100)
   }
 
-  building.wealthRoll = Math.clamp(building.wealthRoll, 1, 100)
+  building.roll.wealth = Math.clamp(building.roll.wealth, 1, 100)
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
-  building.reputationRoll = Math.clamp(building.reputationRoll, 1, 100)
-  building.sinRoll = Math.clamp(building.sinRoll, 1, 100)
-  building.diversityRoll = Math.clamp(building.diversityRoll, 1, 100)
-  building.magicRoll = Math.clamp(building.magicRoll, 1, 100)
-  building.sizeRoll = Math.clamp(building.sizeRoll, 1, 100)
-  building.populationRoll = Math.clamp(building.populationRoll, 1, 100)
-  building.roughnessRoll = Math.clamp(building.roughnessRoll, 1, 100)
-  building.cleanlinessRoll = Math.clamp(building.cleanlinessRoll, 1, 100)
-  building.expertiseRoll = Math.clamp(building.expertiseRoll, 1, 100)
-  building.activityRoll = Math.clamp(building.activityRoll, 1, 100)
+  building.roll.reputation = Math.clamp(building.roll.reputation, 1, 100)
+  building.roll.sin = Math.clamp(building.roll.sin, 1, 100)
+  building.roll.diversity = Math.clamp(building.roll.diversity, 1, 100)
+  building.roll.magic = Math.clamp(building.roll.magic, 1, 100)
+  building.roll.size = Math.clamp(building.roll.size, 1, 100)
+  building.roll.population = Math.clamp(building.roll.population, 1, 100)
+  building.roll.roughness = Math.clamp(building.roll.roughness, 1, 100)
+  building.roll.cleanliness = Math.clamp(building.roll.cleanliness, 1, 100)
+  building.roll.expertise = Math.clamp(building.roll.expertise, 1, 100)
+  building.roll.activity = Math.clamp(building.roll.activity, 1, 100)
 
-  // if (building.sizeRoll > 80) {
+  // if (building.roll.size > 80) {
   //   building.size = 'huge'
   //   // building.floorPlan = dice(3, 6)
-  // } else if (building.sizeRoll > 70) {
+  // } else if (building.roll.size > 70) {
   //   building.size = 'quite large'
   //   // building.floorPlan = dice(3, 3)
-  // } else if (building.sizeRoll > 60) {
+  // } else if (building.roll.size > 60) {
   //   building.size = 'large'
   //   // building.floorPlan = dice(2, 3)
-  // } else if (building.sizeRoll > 50) {
+  // } else if (building.roll.size > 50) {
   //   building.size = 'spacious'
   //   // building.floorPlan = dice(2, 2)
-  // } else if (building.sizeRoll > 40) {
+  // } else if (building.roll.size > 40) {
   //   building.size = 'medium'
   //   // building.floorPlan = dice(1, 3)
-  // } else if (building.sizeRoll > 30) {
+  // } else if (building.roll.size > 30) {
   //   building.size = 'slightly cramped'
   //   // building.floorPlan = dice(1, 2)
-  // } else if (building.sizeRoll > 20) {
+  // } else if (building.roll.size > 20) {
   //   building.size = 'small'
   //   // building.floorPlan = dice(1, 2)
-  // } else if (building.sizeRoll <= 20) {
+  // } else if (building.roll.size <= 20) {
   //   building.size = 'tiny'
   //   // building.floorPlan = 1
   // }
 
   // building.rooms = setup.createRooms(building)
 
-  // if (building.wealthRoll > 95) {
+  // if (building.roll.wealth > 95) {
   //   building.wealth = 'kingly'
-  // } else if (building.wealthRoll > 80) {
+  // } else if (building.roll.wealth > 80) {
   //   building.wealth = 'aristocratic'
-  // } else if (building.wealthRoll > 70) {
+  // } else if (building.roll.wealth > 70) {
   //   building.wealth = 'wealthy'
-  // } else if (building.wealthRoll > 60) {
+  // } else if (building.roll.wealth > 60) {
   //   building.wealth = 'comfortable'
-  // } else if (building.wealthRoll > 50) {
+  // } else if (building.roll.wealth > 50) {
   //   building.wealth = 'modest'
-  // } else if (building.wealthRoll > 25) {
+  // } else if (building.roll.wealth > 25) {
   //   building.wealth = 'poor'
-  // } else if (building.wealthRoll <= 25) {
+  // } else if (building.roll.wealth <= 25) {
   //   building.wealth = 'squalid'
   // }
 
-  // if (building.cleanlinessRoll > 80) {
+  // if (building.roll.cleanliness > 80) {
   //   building.cleanliness = 'absolutely spotless'
   //   building.bedCleanliness = 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'
-  // } else if (building.cleanlinessRoll > 70) {
+  // } else if (building.roll.cleanliness > 70) {
   //   building.cleanliness = 'spotless'
   //   building.bedCleanliness = 'freshly cleaned and neat'
-  // } else if (building.cleanlinessRoll > 60) {
+  // } else if (building.roll.cleanliness > 60) {
   //   building.cleanliness = 'hygienic'
   //   building.bedCleanliness = 'tidy and neat'
-  // } else if (building.cleanlinessRoll > 50) {
+  // } else if (building.roll.cleanliness > 50) {
   //   building.cleanliness = 'decently hygienic'
   //   building.bedCleanliness = 'reasonably clean'
-  // } else if (building.cleanlinessRoll > 40) {
+  // } else if (building.roll.cleanliness > 40) {
   //   building.cleanliness = 'slightly grubby'
   //   building.bedCleanliness = 'somewhat tidy'
-  // } else if (building.cleanlinessRoll > 30) {
+  // } else if (building.roll.cleanliness > 30) {
   //   building.cleanliness = 'quite dirty'
   //   building.bedCleanliness = 'disgusting'
-  // } else if (building.cleanlinessRoll > 20) {
+  // } else if (building.roll.cleanliness > 20) {
   //   building.cleanliness = 'rather filthy'
   //   building.bedCleanliness = 'teeming with rats'
-  // } else if (building.cleanlinessRoll <= 20) {
+  // } else if (building.roll.cleanliness <= 20) {
   //   building.cleanliness = 'absolutely putrid'
   //   building.bedCleanliness = 'festering with bugs'
   // }
   //
-  // if (building.sinRoll > 80) {
+  // if (building.roll.sin > 80) {
   //   building.sin = 'corrupt'
-  // } else if (building.sinRoll > 70) {
+  // } else if (building.roll.sin > 70) {
   //   building.sin = 'venal'
-  // } else if (building.sinRoll > 60) {
+  // } else if (building.roll.sin > 60) {
   //   building.sin = 'sleazy'
-  // } else if (building.sinRoll > 50) {
+  // } else if (building.roll.sin > 50) {
   //   building.sin = 'seedy'
-  // } else if (building.sinRoll > 40 && building.roughnessRoll > 60) {
+  // } else if (building.roll.sin > 40 && building.roll.roughness > 60) {
   //   building.sin = 'surprisingly trustworthy'
-  // } else if (building.sinRoll > 40) {
+  // } else if (building.roll.sin > 40) {
   //   building.sin = 'trustworthy'
-  // } else if (building.sinRoll > 30 && building.roughnessRoll > 60) {
+  // } else if (building.roll.sin > 30 && building.roll.roughness > 60) {
   //   building.sin = 'surprisingly reliable'
-  // } else if (building.sinRoll > 30) {
+  // } else if (building.roll.sin > 30) {
   //   building.sin = 'reliable'
-  // } else if (building.sinRoll > 20 && building.roughnessRoll > 60) {
+  // } else if (building.roll.sin > 20 && building.roll.roughness > 60) {
   //   building.sin = 'surprisingly honest'
-  // } else if (building.sinRoll > 20) {
+  // } else if (building.roll.sin > 20) {
   //   building.sin = 'honest'
-  // } else if (building.sinRoll <= 20) {
+  // } else if (building.roll.sin <= 20) {
   //   building.sin = 'saintly'
   // }
   //
-  // if (building.roughnessRoll > 80) {
+  // if (building.roll.roughness > 80) {
   //   building.roughness = 'bloodthirsty'
-  // } else if (building.roughnessRoll > 70) {
+  // } else if (building.roll.roughness > 70) {
   //   building.roughness = 'quite rough'
-  // } else if (building.roughnessRoll > 60) {
+  // } else if (building.roll.roughness > 60) {
   //   building.roughness = 'rough'
-  // } else if (building.roughnessRoll > 50) {
+  // } else if (building.roll.roughness > 50) {
   //   building.roughness = 'alright'
-  // } else if (building.roughnessRoll > 40) {
+  // } else if (building.roll.roughness > 40) {
   //   building.roughness = 'placid'
-  // } else if (building.roughnessRoll > 30) {
+  // } else if (building.roll.roughness > 30) {
   //   building.roughness = 'calm'
-  // } else if (building.roughnessRoll > 20) {
+  // } else if (building.roll.roughness > 20) {
   //   building.roughness = 'tranquil'
-  // } else if (building.roughnessRoll <= 20) {
+  // } else if (building.roll.roughness <= 20) {
   //   building.roughness = 'serene'
   // }
   //
-  // if (building.expertiseRoll > 80) {
+  // if (building.roll.expertise > 80) {
   //   building.expertise = 'masterful'
-  // } else if (building.expertiseRoll > 70) {
+  // } else if (building.roll.expertise > 70) {
   //   building.expertise = 'exceptional'
-  // } else if (building.expertiseRoll > 60) {
+  // } else if (building.roll.expertise > 60) {
   //   building.expertise = 'superior quality'
-  // } else if (building.expertiseRoll > 50) {
+  // } else if (building.roll.expertise > 50) {
   //   building.expertise = 'finely-crafted'
-  // } else if (building.expertiseRoll > 40) {
+  // } else if (building.roll.expertise > 40) {
   //   building.expertise = 'well-crafted'
-  // } else if (building.expertiseRoll > 30) {
+  // } else if (building.roll.expertise > 30) {
   //   building.expertise = 'somewhat well made'
-  // } else if (building.expertiseRoll > 20) {
+  // } else if (building.roll.expertise > 20) {
   //   building.expertise = 'somewhat amateur'
-  // } else if (building.expertiseRoll <= 20) {
+  // } else if (building.roll.expertise <= 20) {
   //   building.expertise = 'blatantly amateur'
   // }
   //
-  // if (building.activityRoll > 80) {
+  // if (building.roll.activity > 80) {
   //   building.activity = 'extremely busy'
-  // } else if (building.activityRoll > 70) {
+  // } else if (building.roll.activity > 70) {
   //   building.activity = 'very busy'
-  // } else if (building.activityRoll > 60) {
+  // } else if (building.roll.activity > 60) {
   //   building.activity = 'rather busy'
-  // } else if (building.activityRoll > 50) {
+  // } else if (building.roll.activity > 50) {
   //   building.activity = 'reasonably busy'
-  // } else if (building.activityRoll > 40) {
+  // } else if (building.roll.activity > 40) {
   //   building.activity = 'not terribly busy'
-  // } else if (building.activityRoll > 30) {
+  // } else if (building.roll.activity > 30) {
   //   building.activity = 'not busy'
-  // } else if (building.activityRoll > 20) {
+  // } else if (building.roll.activity > 20) {
   //   building.activity = 'rather quiet'
-  // } else if (building.activityRoll <= 20) {
+  // } else if (building.roll.activity <= 20) {
   //   building.activity = 'very quiet'
   // }
   // console.log(building)
