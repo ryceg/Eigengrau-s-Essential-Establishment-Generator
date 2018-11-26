@@ -1,0 +1,5 @@
+:: TempleOutput
+<<unset $selectedBuilding>><<set $temple to $town.buildings[$selected.key][$selected.index]>><<set $priest to $npcs[$temple.priest.key]>>
+<h1>$temple.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou come across a temple.
+
+They pray to $temple.prayerSubject, and the temple is dedicated to $temple.dedicated. It's known for $temple.knownFor and is guarded by $temple.guardedBy. It's a $temple.floorPlan building, and the exterior walls are $temple.walls. Inside, it's $temple.interior, and the ceiling is $temple.ceiling. As you enter, you notice $temple.features. This temple also has a $temple.rooms.

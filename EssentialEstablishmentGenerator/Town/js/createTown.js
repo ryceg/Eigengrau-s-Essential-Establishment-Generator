@@ -33,6 +33,7 @@ setup.createTown = function (base) {
       'alchemist': [],
       'market': [],
       'GeneralStore': [],
+      'temple': [],
       'brothel': []
     },
     population: setup.townData.type[type].population(),
