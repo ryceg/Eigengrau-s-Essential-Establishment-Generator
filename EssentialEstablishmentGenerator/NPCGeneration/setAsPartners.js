@@ -18,7 +18,7 @@ setup.setAsPartners = function (npc1, npc2) {
     n.partnerID = ''
   })
   /* Link the two */
-  npc1.partnerID = npc2.id
-  npc2.partnerID = npc1.id
+  npc1.partnerID = npc2.key
+  npc2.partnerID = npc1.key
   console.log(npc1.name + ' and ' + npc2.name + ' are officially a couple!')
 }

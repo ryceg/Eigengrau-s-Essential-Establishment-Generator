@@ -35,6 +35,6 @@ $currentNPC.firstName is a $currentNPC.dndClass, with a background of being a $c
     Then last year, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
 
-<<if $currentNPC.partnerID>>$currentNPC.firstName has a partner, <<profile $npcs[$currentIndex].partnerID>><</if>>
+<<if $currentNPC.partnerID>>$currentNPC.firstName has a partner, <<profile $npcs[$currentNPC.partnerID]>><</if>>
 
 [[Return|previous()]]

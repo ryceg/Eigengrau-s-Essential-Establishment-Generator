@@ -150,15 +150,18 @@ setup.createNPC = function (base) {
 
   // npc.id = State.variables.npcs[State.variables.npcs.length - 1]
 
-  if (npc.partnerID) {
-    console.log('assigning ' + npc.name + ' a partner...')
-    setup.setAsPartners(npc, npc.partnerID)
-  }
+
 
   if (!npc.isThrowaway) {
     npc.key = npc.name + '-' + npc.id
     State.variables.npcs[npc.key] = npc
   }
+
+  if (npc.partnerID) {
+    console.log('assigning ' + npc.name + ' a partner...')
+    setup.setAsPartners(npc, npc.partnerID)
+  }
+
   console.log(npc)
   console.groupEnd();
   return npc
