@@ -5,7 +5,7 @@ setup.createAlchemist = function (town, opts) {
   var rollData = setup.alchemistData.rollData
   console.groupCollapsed('Alchemist loading...')
   Object.assign(alchemist, {
-    chemist: (opts['newBartender'] || setup.createChemist)(town.name),
+    chemist: (opts['newChemist'] || setup.createChemist)(town.name),
     wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random(),
     associatedTown: town.name,
     passageName: 'AlchemistOutput',
