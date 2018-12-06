@@ -27,6 +27,8 @@ setup.createTown = function (base) {
     },
     // type: type,
     terrain: terrain,
+    factions: {
+    },
     buildings: {
       'smithy': [],
       'tavern': [],
@@ -146,6 +148,7 @@ setup.createTown = function (base) {
   town.roll.arcana.clamp(1, 100)
   setup.townRender(town)
   setup.createStartBuildings(town)
+  setup.createStartFactions(town)
 
   console.log(town)
   console.groupEnd()

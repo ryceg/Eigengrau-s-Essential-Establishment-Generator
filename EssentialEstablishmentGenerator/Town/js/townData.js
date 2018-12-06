@@ -36,6 +36,7 @@ setup.townData = {
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       'politicalSource': ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(30, 300) },
+      'startFactionsNumber': function () { return [1, 1, 1, 1, 1, 2].random() },
       'modifiers': {
         'wealth': -20,
         'reputation': -40,
@@ -47,6 +48,7 @@ setup.townData = {
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       'politicalSource': ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(301, 1000) },
+      'startFactionsNumber': function () { return [1, 1, 1, 2, 2, 2].random() },
       'modifiers': {
         'wealth': -10,
         'reputation': -20,
@@ -58,6 +60,7 @@ setup.townData = {
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
       'politicalSource': ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(1001, 3000) },
+      'startFactionsNumber': function () { return [1, 1, 2, 2, 2, 3, 3].random() },
       'modifiers': {
         'wealth': 15,
         'reputation': 5,
@@ -69,6 +72,7 @@ setup.townData = {
       'economicIdeology': ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
       'politicalSource': ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(3001, 6000) },
+      'startFactionsNumber': function () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].random() },
       'modifiers': {
         'wealth': 5,
         'reputation': 20,

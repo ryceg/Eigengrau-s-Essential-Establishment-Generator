@@ -122,23 +122,25 @@ setup.createSocioPolitics = function (town) {
 
   if (polIde.data.isFaction === true) {
     console.log('Loading ruling faction...')
+    delete town.leader
     var type = polIde.data.governmentType
     if (polIde.data.governmentType !== setup.factionData.type[type]) {
       console.log('No faction that matches ' + polIde.data.governmentType + '. Creating random faction instead...')
-      town.leaderFaction = setup.createFaction(town, {
+      town.factions['leader'] = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true
       })
     } else {
-      town.leaderFaction = setup.createFaction(town, {
+      town.factions['leader'] = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
         type: polIde.data.governmentType
       })
     }
-    town.leaderType = "<<link '_town.leaderFaction.name'>><<set $currentFaction to _town.leaderFaction>><<goto 'FactionProfile'>><</link>>"
-  } else if (polIde.data.isFaction === false && town.leaderFaction) {
-    delete town.leaderFaction
+    town.leader = town.factions['leader'].leader
+    town.leaderType = "<<link '_town.factions['leader'].name'>><<set $currentFaction to _town.factions['leader']>><<goto 'FactionProfile'>><</link>>"
+  } else if (polIde.data.isFaction === false && town.factions['leader']) {
+    delete town.factions['leader']
   }
 
   console.groupEnd();

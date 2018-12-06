@@ -8,9 +8,27 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
 
 <h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
-<h3>Factions</h3><<for _i, _faction range $factions>>
-<<link "_faction.name">><<set $currentFaction to _faction>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type guild
-<</for>>
+<h3>Factions</h3><<silently>>
+    <<set _listbox to '<<listbox "$newFaction">>'>>
+    <<for _key range Object.keys(setup.factionData.type)>>
+        <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
+    <</for>>
+    <<set _listbox += '<</listbox>>'>>
+<</silently>>\
+_listbox -- <<button "Create new faction">>
+  <<run console.log('Creating a new ' + $newFaction)>>
+  <<if ndef $town.factions[$newFaction]>>
+    <<set $town.factions[$newFaction] = []>>
+  <</if>>
+  <<run $town.factions[$newFaction].push(setup.createFaction($town, {
+    type: $newFaction
+    }))>>
+  <<run console.log($town)>>
+  <<goto "TownOutput">>
+<</button>>
+<<unset $selected>><<for _key, _factionType range $town.factions>><<for _index, _faction range _factionType>><<capture _key, _index, _faction>>
+<<link "_faction.name">><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type _faction.factionNoun
+<</capture>><</for>><</for>>
 
 <<linkappend "<h3>Businesses in $town.name</h3>">>
 <<nobr>>

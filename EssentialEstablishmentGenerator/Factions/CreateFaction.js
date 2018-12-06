@@ -11,7 +11,6 @@ setup.createFaction = function (town, opts) {
     factionNoun: setup.factionData.type[type].factionNoun,
     motivation: setup.factionData.type[type].motivation.random(),
     membersTrait: setup.factionData.type[type].membersTrait.random(),
-    name: setup.nameFaction(town.name, type),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
     roll: {
       influence: dice(2, 50).clamp(1, 100),
@@ -22,6 +21,7 @@ setup.createFaction = function (town, opts) {
       resources: dice(2, 50).clamp(1, 100)
     }
   }, opts))
+  faction.name = setup.nameFaction(town.name, faction.type)
   console.groupCollapsed(faction.name + ' the ' + faction.type + ' have loaded.')
 
   setup.ageFaction(faction)
