@@ -1,5 +1,13 @@
 :: ChangelogFull
-
+<h4>v.1.4</h4>- <span class="tip" title="Ooooh! Neat!">Added popups!</span>
+- <span class="tip" title="Will be expanded with faction sidequests soon!">Added factions</span>
+- <span class="tip" title="Will add relationships and families at some point">Added NPC history</span>
+- <span class="tip" title="...I hope">Fixed tavern/brothel combos being kinda wacky</span>
+- <span class="tip" title="Will eventually be expanded into being able to visit each person (but not yet!)">Fixed town population to be reliable</span>
+- <span class="tip" title="1 Gold = 100 Silver = 10000 Copper. Great for gritty, grimdark campaigns!">Added support for the popular homebrew rule, the [[Silver Standard|https://redd.it/80f6kt]]</span>
+- <span class="tip" title="Surprise, surprise, a kleptocracy has what could be considered a 'pro crime' policy.">Kleptocracies and magocracies now have special opinions about crime and magic.</span>
+- <span class="tip" title="Even includes BMI!">Changed the way height, weight, and age are calculated to make it more realistically distributed.</span>
+- <span class="tip" title="Fun fact: Scott was responsible for adding fountains to Nethack!">Added linguistic drift for town names for added realism. Huge thanks to [[Dragons Abound|https://heredragonsabound.blogspot.com/]] for the RegEx magic.</span>
 <h4>v.1.3.5</h4> - Added racial last names (at long last! No more dragonborns with the last name "Johnston"!)
 - Added pub rumours, rogue missions, nightmares, raiders, and weather generation to the [[Toolbox]].
 - Added the one-shot murder mystery [[The Poisoned Potioner|AdventureOutput]]; a self-contained murder to keep your PCs occupied for an hour!
