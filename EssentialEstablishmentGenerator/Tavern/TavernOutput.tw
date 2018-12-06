@@ -14,6 +14,8 @@
 <<include "TavernGames">>
 <<print either(setup.tavernData.entertainment)>>
 
+<<link "Go on a bender">><<set $carousing to setup.getTavernCarousing($tavern, $town)>><<run console.log($carousing)>><<replace "#carousing">>$carousing<</replace>><<run console.log($npcs)>><</link>><span id="carousing"></span>
+
 <<include "Intrigue">>
 <<include "Rooms">>
 <<include "TavernBrothel">>

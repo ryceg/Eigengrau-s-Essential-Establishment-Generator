@@ -1,4 +1,4 @@
-/* global setup random */
+/* global setup random dice */
 setup.getTavernLookAround = function (tavern) {
   var bartender = tavern.bartender
   setup.lookAroundData = [
@@ -568,7 +568,17 @@ setup.getTavernDraws = function (town, tavern) {
     },
     {
       draw: 'resident bard',
+      // drawFunction: function createBard (tavern) {
+      //   console.log('Created a bard as part of the tavernDraw function.')
+      //   tavern.bard = setup.createNPC({ dndClass: 'bard', gender: 'man' })
+      //   return {
+      //     tavern
+      //   }
+      // },
       drawFeature: "You see a bard singing a love song in the corner of the room, and are drawn to his pure, melifluous voice. He's quite a good singer, and the patrons are nodding along to the song appreciatively."
+
+      // drawFeature: 'You see a bard singing a love song in the corner of the room, and are drawn to ' + tavern.bard.hisher + ' pure, melifluous voice. ' + tavern.bard.heshe.toUpperFirst() + "'s quite a good singer, and the patrons are nodding along to the song appreciatively."
+
     },
     {
       draw: 'witty banter with the waitstaff',
@@ -576,7 +586,14 @@ setup.getTavernDraws = function (town, tavern) {
     },
     {
       draw: 'crude jokes the bartender makes',
-      drawFeature: 'You see the bartender is talking to a $tavernPatron.age $tavernPatron.descriptor. ' + bartender.heshe.toUpperFirst() + ' smiles, and then says something, making the $tavernPatron.descriptor go white as a sheet, and immediately leave the establishment, with ' + bartender.firstName + " laughing, calling $tavernPatron.himher 'too goody-two-shoes to be able to handle " + tavern.name + '.'
+      // drawFunction: function createPatron (tavern) {
+      //   console.log('Created a tavern patron as part of the tavernDraw function.')
+      //   tavern.patron = setup.createNPC({ hasClass: false, gender: 'man' })
+      //   return {
+      //     tavern
+      //   }
+      // },
+      drawFeature: 'You see the bartender is talking to a <<profile $tavern.patron $tavern.patron.descriptor>>. ' + bartender.heshe.toUpperFirst() + ' smiles, and then says something, making the $tavern.patron.descriptor go white as a sheet, and immediately leave the establishment, with ' + bartender.firstName + " laughing, calling $tavern.patron.himher 'too goody-two-shoes to be able to handle " + tavern.name + '.'
     },
     {
       draw: "proximity to the thieves' guild headquarters",
@@ -591,6 +608,7 @@ setup.getTavernDraws = function (town, tavern) {
       draw: 'magic incense which is constantly burning',
       drawFeature: "You smell a peculiar aroma, which you can't quite place, only that it reminds you of the fond days of your childhood, until you see wafts of smoke trailing from behind the bar; there's a stick of incense burning, clearly at least somewhat magical.",
       drawFunction: function increaseTavernMagic (tavern) {
+        console.log('Increased tavern magic!')
         tavern.magicRoll += 10
         return tavern
       }
@@ -603,6 +621,7 @@ setup.getTavernDraws = function (town, tavern) {
       draw: 'proximity to the church',
       drawFeature: "You see a sign by the door which reads 'No proselytising'. Clearly, " + tavern.name + ' has an issue with the nearby church.',
       drawFunction: function increaseTavernMagic (tavern) {
+        console.log('Increased tavern magic!')
         tavern.magicRoll += 10
         return tavern
       }
@@ -631,6 +650,7 @@ setup.getTavernDraws = function (town, tavern) {
       draw: 'magic bedbugs',
       drawFeature: "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face.",
       drawFunction: function increaseTavernMagic (tavern) {
+        console.log('Increased tavern magic!')
         tavern.magicRoll += 10
         return tavern
       }
@@ -724,4 +744,53 @@ setup.getTavernDescription = function (tavern) {
 
   ]
   return setup.tavernDescription
+}
+
+setup.getTavernCarousing = function (tavern, town) {
+  setup.tavernCarousing = {
+    'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
+    'brawl': function () { return 'A bar brawl leaves you with a scar.' },
+    'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
+    'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
+    'quest': function (tavern, town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
+    'married': function () { return 'Surprise! You got married.' },
+    'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
+    'nickname': function () { return 'Everyone is calling you "puddle drinker", but nobody will tell you why.' },
+    'insult': function (town) { return 'You accidentally insulted a guild master, and only a public apology will let you do business with them again.' },
+    'anotherQuest': function (town) { return 'You swore to complete some quest on behalf of a temple or a guild.' },
+    'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
+    'suitor': function () {
+      var lover = setup.createNPC()
+      return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(lover.key) + ']`>> has taken an interest in you romantically.'
+    },
+    'wizard': function () {
+      var wizard = setup.createNPC({ dndClass: 'wizard' })
+      return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(wizard.key) + '].'
+    },
+    'festival': function () { return 'You have been recruited to help run a local festival.' },
+    'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
+    'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
+    'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
+    'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
+    'debt': function () {
+      var noble = setup.createNPC({ background: 'noble', hasClass: false })
+      return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(noble.name) + ']`>> debts.'
+    },
+    'joust': function () {
+      var knight = setup.createNPC({ dndClass: 'fighter', background: 'soldier', gender: 'man' })
+      return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(knight.key) + ']`>>.'
+    },
+    'foe': function () {
+      var noble = setup.createNPC({ background: 'noble', hasClass: false })
+      return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>>.'
+    },
+    'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
+    'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
+    'boring': function () {
+      var noble = setup.createNPC({ background: 'noble', hasClass: false })
+      return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
+    }
+  }
+  var keys = Object.keys(setup.tavernCarousing)
+  return setup.tavernCarousing[keys[keys.length * Math.random() << 0]](tavern, town)
 }
