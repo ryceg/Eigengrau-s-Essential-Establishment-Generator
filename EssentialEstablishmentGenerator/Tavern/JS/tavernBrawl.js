@@ -22,7 +22,7 @@ guardRoll -= 10
   if (guardRoll >= 50) {
     tavern.guardPresent = true
     brawlRoll -= 20
-    var tavernGuard = setup.createNPC({ isShallow: true,dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random() })
+    var tavernGuard = setup.createNPC({ isShallow: true, dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random() })
   } else {
     tavern.guardPresent = false
   }
