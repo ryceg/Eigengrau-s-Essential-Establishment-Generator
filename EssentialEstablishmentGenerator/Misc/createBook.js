@@ -6,7 +6,7 @@ setup.createBook = function () {
       contents: 'This 100 or so page volume consists of a childlike representation with several brightly coloured pictures of various recipes to prepare the dead for undeath.'
     },
     {
-      title: 'Taste of victory',
+      title: 'The Taste of Victory',
       category: 'non-fiction',
       contents: 'The book details a fencing techniques, with focus on various dirty tricks you can use to win a duel and get away with it.'
     },
@@ -16,7 +16,7 @@ setup.createBook = function () {
       contents: 'The book contains 100 basic campfire recipes, which are described in great detail and accompanied by multitude of illustrations. Anybody can use this book to craft one of the 0 meals, all of which make use of venision or other meat.'
     },
     {
-      title: "Smuggler's teachings",
+      title: "Smuggler's Teachings",
       category: 'non-fiction',
       contents: 'The collected teachings of a dozen master blacksmiths, armorers, and artificers, walks the reader step by step through the art of metalwork, from the most basic of tools to the creation of magic weapons and armor. The text is accompanied by dozens of intricatly detailed plates showing tools and techniques.'
     },

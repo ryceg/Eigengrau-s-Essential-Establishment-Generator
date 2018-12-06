@@ -10,7 +10,13 @@
 <<set $npcs to {}>>
 
 <<include "Town">>
+<<set $weather to {
+	season: either(["winter", "spring", "summer", "autumn"]),
+	seasonPool: ["winter", "spring", "summer", "autumn"]
+	}>>
 
+<<include "TownWeather">>
+<<include "Trades">>
 /* <<set $town to {
   name: "Test Town",
   type: "city"
@@ -46,8 +52,6 @@
   draw: "fun",
   type: "test type"
 }>> */
-
-<<include "Cheese">>
 
 <<include "Books">>
 

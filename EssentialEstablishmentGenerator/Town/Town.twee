@@ -4,10 +4,7 @@
 <<set $guard to $town.guard>>
 /* <<set $lord to setup.createNPC({background: "noble"})>> */
 /* <<set $merchantGuild to setup.createFaction({type: "merchants"})>> */
-<<set $weather to {
-	season: either(["winter", "spring", "summer", "autumn"]),
-	seasonPool: ["winter", "spring", "summer", "autumn"]
-	}>>
+
 <<set $town.scenery to either([
 	"Children play in the street, calling after one another.",
 	"An old woman waves from her chair on the porch at you.",
@@ -15,5 +12,3 @@
 	"The stench of curing leathers fills your nose as you pass the local tannery.",
 	"You see a kite flying overhead, and follow the string down to a young boy, clearly enjoying himself."
 	])>>
-<<include "TownWeather">>
-<<include "Trades">>
