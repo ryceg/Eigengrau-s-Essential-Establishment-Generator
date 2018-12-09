@@ -257,27 +257,105 @@ setup.tavernData = {
     'A nervous show-wizard on the small stage is doing tricks with Prestidigitation for the un-amused patrons.',
     'There is a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously.'
   ],
-  'patrons': [
-    'A poor farmer is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.',
-    'A sea captain has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.',
-    'A ranger sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.',
-    'A lone Troll is drinking at the end of the bar and softly crying and singing one country ballad after another.',
-    'A stoned magician is fumbling his way through one awful card trick after another.',
-    'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. One has an obsidian bow strapped to her back.',
-    'Two guards are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.',
-    'A sad clown is drinking a beer alone.',
-    'A handsome young woman is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.',
-    'Some idiot is having a stag night. His friends are loud and obnoxiously harassing the barmaid.',
-    "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town librarian.",
-    'A surly old witch is drinking sherry while stroking the fat grey cat sitting on her lap.',
-    'The barmaid is a marilith, mixing up four drinks at a time.',
-    'The barmaid is a succubus, she seems to be making great tips.',
-    'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.',
-    'Behind the bar is a gnomish alchemist with a penchant for mixology experiments.',
-    "The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.",
-    'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.',
-    "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
-  ],
+  'getPatrons': function (tavern, town) {
+    var key = Object.keys(setup.tavernData.patrons)
+    return setup.tavernData.patrons[key[key.length * Math.random() << 0]](tavern, town)
+  },
+  'patrons': {
+    'farmer': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'farmer', gender: 'man'})
+      return 'A poor <<profile `$npcs[' + JSON.stringify(npc.key) + ']` farmer>> is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.'
+    },
+    'seacaptain': function () {
+      var npc = setup.createNPC({background: 'sailor', profession: 'sea captain', gender: 'man'})
+      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` sea captain>> has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.'
+    },
+    'ranger': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man'})
+      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` ranger>> sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.'
+    },
+    'troll': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'troll', gender: 'man'})
+      return 'A lone <<profile `$npcs[' + JSON.stringify(npc.key) + ']` troll>> is drinking at the end of the bar and softly crying and singing one country ballad after another.'
+    },
+    'wizard': function () {
+      var npc = setup.createNPC({background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man'})
+      return 'A stoned magician is fumbling his way through one awful card trick after another.'
+    },
+    'elves': function () {
+      var npc = setup.createNPC({background: 'noble', profession: 'noble', race: 'elf', gender: 'woman'})
+      return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. One has an obsidian bow strapped to her back.'
+    },
+    'clown': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'clown'})
+      return 'A sad <<profile `$npcs[' + JSON.stringify(npc.key) + ']` clown>> is drinking a beer alone.'
+    },
+    'guards': function () {
+      var npc = setup.createNPC({background: 'soldier', profession: 'guard', dndClass: 'fighter'})
+      return 'Two guards are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.'
+    },
+    'suitor': function () {
+      var npc = setup.createNPC({background: 'noble', profession: 'noble', hasClass: false, gender: 'woman'})
+      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` handsome young woman>> is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.'
+    },
+    'stag': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'farmer', gender: 'man'})
+      return 'Some <<profile `$npcs[' + JSON.stringify(npc.key) + ']` idiot>> is having a stag night. His friends are loud and obnoxiously harassing the barmaid.'
+    },
+    'ladies': function () {
+      var npc = setup.createNPC({background: 'scholar', profession: 'librarian', gender: 'woman'})
+      return "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town <<profile `$npcs[' + JSON.stringify(npc.key) + ']` librarian>>."
+    },
+    'witch': function () {
+      var npc = setup.createNPC({background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman'})
+      return 'A surly old <<profile `$npcs[' + JSON.stringify(npc.key) + ']` witch>> is drinking sherry while stroking the fat grey cat sitting on her lap.'
+    },
+    'marilith': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
+      return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a marilith, mixing up four drinks at a time.'
+    },
+    'succubus': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
+      return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a succubus, she seems to be making great tips.'
+    },
+    'attendant': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'farmer'})
+      return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
+    },
+    'mophand': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'farmer'})
+      return "The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
+    },
+    'doppelganger': function () {
+      var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
+      return 'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.'
+    },
+    'priest': function () {
+      var npc = setup.createNPC({background: 'sage', profession: 'priest', dndClass: 'cleric'})
+      return "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
+    }
+  },
+  // 'patrons': [
+  //   'A poor farmer is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.',
+  //   'A sea captain has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.',
+  //   'A ranger sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.',
+  //   'A lone Troll is drinking at the end of the bar and softly crying and singing one country ballad after another.',
+  //   'A stoned magician is fumbling his way through one awful card trick after another.',
+  //   'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. One has an obsidian bow strapped to her back.',
+  //   'Two guards are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.',
+  //   'A sad clown is drinking a beer alone.',
+  //   'A handsome young woman is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.',
+  //   'Some idiot is having a stag night. His friends are loud and obnoxiously harassing the barmaid.',
+  //   "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town librarian.",
+  //   'A surly old witch is drinking sherry while stroking the fat grey cat sitting on her lap.',
+  //   'The barmaid is a marilith, mixing up four drinks at a time.',
+  //   'The barmaid is a succubus, she seems to be making great tips.',
+  //   'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.',
+  //   'Behind the bar is a gnomish alchemist with a penchant for mixology experiments.',
+  //   "The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.",
+  //   'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.',
+  //   "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
+  // ],
   'specialBrew': [
     {
       name: 'Gnollblood',
@@ -748,48 +826,53 @@ setup.getTavernDescription = function (tavern) {
 
 setup.getTavernCarousing = function (tavern, town) {
   setup.tavernCarousing = {
-    'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
-    'brawl': function () { return 'A bar brawl leaves you with a scar.' },
-    'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
-    'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
-    'quest': function (tavern, town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
-    'married': function () { return 'Surprise! You got married.' },
-    'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
-    'nickname': function () { return 'Everyone is calling you "puddle drinker", but nobody will tell you why.' },
-    'insult': function (town) { return 'You accidentally insulted a guild master, and only a public apology will let you do business with them again.' },
-    'anotherQuest': function (town) { return 'You swore to complete some quest on behalf of a temple or a guild.' },
-    'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
-    'suitor': function () {
-      var lover = setup.createNPC()
-      return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(lover.key) + ']`>> has taken an interest in you romantically.'
-    },
-    'wizard': function () {
-      var wizard = setup.createNPC({ dndClass: 'wizard' })
-      return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(wizard.key) + '].'
-    },
-    'festival': function () { return 'You have been recruited to help run a local festival.' },
-    'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
-    'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
-    'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
-    'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
-    'debt': function () {
-      var noble = setup.createNPC({ background: 'noble', hasClass: false })
-      return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(noble.name) + ']`>> debts.'
-    },
-    'joust': function () {
-      var knight = setup.createNPC({ dndClass: 'fighter', background: 'soldier', gender: 'man' })
-      return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(knight.key) + ']`>>.'
-    },
-    'foe': function () {
-      var noble = setup.createNPC({ background: 'noble', hasClass: false })
-      return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>>.'
-    },
-    'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
-    'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
-    'boring': function () {
-      var noble = setup.createNPC({ background: 'noble', hasClass: false })
-      return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
+    // 'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
+    // 'brawl': function () { return 'A bar brawl leaves you with a scar.' },
+    // 'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
+    // 'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
+    // 'quest': function (tavern, town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
+    // 'married': function () { return 'Surprise! You got married.' },
+    // 'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
+    // 'nickname': function () { return 'Everyone is calling you "puddle drinker", but nobody will tell you why.' },
+    'insult': function (town) {
+      var factions = Object.keys(town.factions)
+      var filteredFactions = factions.filter(function (town) { return 'leadershipType' === 'individual' })
+      var guild = filteredFactions.random()
+      return 'You accidentally insulted a <<profile `$npcs[' + JSON.stringify(guild.leader.key) + ']` guild master>>, and only a public apology will let you do business with them again.'
     }
+    // 'anotherQuest': function (town) { return 'You swore to complete some quest on behalf of a temple or a guild.' },
+    // 'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
+    // 'suitor': function () {
+    //   var lover = setup.createNPC()
+    //   return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(lover.key) + ']`>> has taken an interest in you romantically.'
+    // },
+    // 'wizard': function () {
+    //   var wizard = setup.createNPC({ dndClass: 'wizard' })
+    //   return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(wizard.key) + '].'
+    // },
+    // 'festival': function () { return 'You have been recruited to help run a local festival.' },
+    // 'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
+    // 'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
+    // 'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
+    // 'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
+    // 'debt': function () {
+    //   var noble = setup.createNPC({ background: 'noble', hasClass: false })
+    //   return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(noble.name) + ']`>> debts.'
+    // },
+    // 'joust': function () {
+    //   var knight = setup.createNPC({ dndClass: 'fighter', background: 'soldier', gender: 'man' })
+    //   return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(knight.key) + ']`>>.'
+    // },
+    // 'foe': function () {
+    //   var noble = setup.createNPC({ background: 'noble', hasClass: false })
+    //   return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>>.'
+    // },
+    // 'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
+    // 'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
+    // 'boring': function () {
+    //   var noble = setup.createNPC({ background: 'noble', hasClass: false })
+    //   return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
+    // }
   }
   var keys = Object.keys(setup.tavernCarousing)
   return setup.tavernCarousing[keys[keys.length * Math.random() << 0]](tavern, town)

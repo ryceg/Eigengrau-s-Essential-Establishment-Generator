@@ -5,7 +5,8 @@
 <h3>The Tavern</h3>
 <<print setup.closestMatch(setup.getTavernDescription($tavern), 'note', 'sizeRoll', 'wealthRoll', $tavern.roll.size, $tavern.roll.wealth)>>
 <<print setup.closestMatch(setup.getTavernLookAround($tavern), 'note', 'populationRoll', 'roughnessRoll', $tavern.roll.population, $tavern.roll.roughness)>>
-<<print either(setup.tavernData.patrons)>>
+
+<<print setup.tavernData.getPatrons($tavern, $town)>>
 <<include "RandomNPC">>
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<profile $bartender>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">>
