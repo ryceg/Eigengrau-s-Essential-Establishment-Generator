@@ -15,18 +15,17 @@ setup.createAlchemist = function (town, opts) {
   })
 
   alchemist.name = setup.createAlchemistName(alchemist.chemist.firstName)
-
+  alchemist.size = ""
+  alchemist.cleanliness = ""
+  alchemist.wealth = ""
+  alchemist.expertise = ""
   var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(alchemist, setup.alchemistData.rollData, propName)
   })
-
-  alchemist.wealth = ''
-  alchemist.size = ''
-  alchemist.cleanliness = ''
-  alchemist.expertise = ''
   setup.alchemistModifiers(alchemist)
-  console.log(alchemist)
+
+
   // setup.townBinder(town, alchemist, 'alchemist')
   console.groupEnd()
   return alchemist

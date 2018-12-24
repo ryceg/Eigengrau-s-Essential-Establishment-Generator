@@ -19,18 +19,17 @@ setup.createGeneralStore = function (town, opts) {
     BuildingType: 'GeneralStore'
   })
 
-  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
-  rollDataVariables.forEach(function (propName) {
-    setup.defineRollDataGetter(GeneralStore, setup.GeneralStoreData.rollData, propName)
-  })
-
+  GeneralStore.name = setup.createGeneralStoreName(GeneralStore.shopkeep)
   GeneralStore.wealth = ''
   GeneralStore.size = ''
   GeneralStore.cleanliness = ''
   GeneralStore.expertise = ''
-
-  GeneralStore.name = setup.createGeneralStoreName(GeneralStore.shopkeep)
   setup.GeneralStoreModifiers(town, GeneralStore)
+
+  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
+  rollDataVariables.forEach(function (propName) {
+    setup.defineRollDataGetter(GeneralStore, setup.GeneralStoreData.rollData, propName)
+  })
   // setup.GeneralStoreRenders(GeneralStore)
   console.log(GeneralStore)
   // setup.townBinder(town, GeneralStore, 'GeneralStore')

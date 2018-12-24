@@ -55,4 +55,4 @@
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-  <</nobr>><</linkreplace>>
+  </table><</nobr>><</linkreplace>>

@@ -1,6 +1,6 @@
 :: MarketOutput [market]
-<h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
-<<nobr>><<set _marketData to setup.marketData>><<if !$marketSellerA>>
+<<unset $selectedBuilding>><<set $market to $town.buildings[$selected.key][$selected.index]>><h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
+<<nobr>><<set _marketData to setup.marketData>><<if ndef $marketSellerA>>
 <<set $marketSellerA to setup.createNPC({ profession: "merchant", hasClass: false })>>
 <<set $marketSellerB to setup.createNPC({ profession: "merchant", hasClass: false })>>
 <<set $marketSellerC to setup.createNPC({ profession: "merchant", hasClass: false })>>

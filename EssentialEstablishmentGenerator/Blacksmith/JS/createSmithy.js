@@ -15,15 +15,17 @@ setup.createSmithy = function (town, opts) {
     mundane: ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks'],
     id: Math.floor(Math.random() * 0x10000)
   })
-
-  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
-  rollDataVariables.forEach(function (propName) {
-    setup.defineRollDataGetter(smithy, setup.smithyData.rollData, propName)
-  })
   smithy.wealth = ''
   smithy.size = ''
   smithy.cleanliness = ''
   smithy.expertise = ''
+  smithy.activity = ''
+
+  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']
+  rollDataVariables.forEach(function (propName) {
+    setup.defineRollDataGetter(smithy, setup.smithy.rollData, propName)
+  })
+
   smithy.notableFeature = 'its ' + smithy.expertise + ' weapons and armour'
   console.log(smithy)
   console.groupEnd()
