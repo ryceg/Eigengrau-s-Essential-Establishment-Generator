@@ -10,7 +10,7 @@ setup.createGeneralStore = function (town, opts) {
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'assistant manager', 'acting manager'].random()
   })
   Object.assign(GeneralStore, {
-    note: setup.getGeneralStoreNote(GeneralStore),
+    note: setup.GeneralStore.get.note(GeneralStore),
     wordNoun: ['general store', 'shop'].random(),
     crud: setup.GeneralStore.crud,
     notableFeature: 'wide range of goods on sale',
