@@ -74,7 +74,7 @@ setup.tavernSleep = function (tavern) {
     sleepEasy -= 3
   }
 
-  tavern.sleepOutput = setup.closestMatch(setup.getSleep(tavern), 'note', 'restfulness', 'sleepEasy', 'restfulness', 'sleepEasy')
+  tavern.sleepOutput = setup.closestMatch(setup.tavern.get.sleep(tavern), 'note', 'restfulness', 'sleepEasy', 'restfulness', 'sleepEasy')
 
   switch (tavern.type) {
     case 'brothel':

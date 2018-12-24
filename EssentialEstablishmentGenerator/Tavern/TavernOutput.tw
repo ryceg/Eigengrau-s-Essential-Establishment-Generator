@@ -1,21 +1,24 @@
 :: TavernOutput [tavern]
-<<unset $selectedBuilding>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $npcs[$tavern.bartender.id]>>
+/* <<unset $selectedBuilding>> */
+<<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $npcs[$tavern.bartender.key]>>
 <h1>$tavern.name</h1>
 <span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 <h3>The Tavern</h3>
-<<print setup.closestMatch(setup.getTavernDescription($tavern), 'note', 'sizeRoll', 'wealthRoll', $tavern.roll.size, $tavern.roll.wealth)>>
-<<print setup.closestMatch(setup.getTavernLookAround($tavern), 'note', 'populationRoll', 'roughnessRoll', $tavern.roll.population, $tavern.roll.roughness)>>
+<<print setup.closestMatch(setup.tavern.get.description($tavern), 'note', 'size', 'wealth', $tavern.roll.size, $tavern.roll.wealth)>>
+<<print setup.closestMatch(setup.tavern.get.lookAround($tavern), 'note', 'population', 'roughness', $tavern.roll.population, $tavern.roll.roughness)>>
 
-<<print setup.tavernData.getPatrons($tavern, $town)>>
+<<print setup.tavern.getPatrons($tavern, $town)>>
 <<include "RandomNPC">>
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<profile $bartender>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">>
 <<include "TavernGames">>
-<<print either(setup.tavernData.entertainment)>>
+<<print either(setup.tavern.entertainment)>>
 
-<<link "Go on a bender">><<set $carousing to setup.getTavernCarousing($tavern, $town)>><<run console.log($carousing)>><<replace "#carousing">>$carousing<</replace>><<run console.log($npcs)>><</link>><span id="carousing"></span>
+<<link "Go on a bender">>
+<<set $tavern.carousing to setup.tavern.get.carousing($tavern, $town)>><<replace "#carousing">>$tavern.carousing<</replace>><</link>>
+<p><<if def $tavern.carousing>><span id="carousing">$tavern.carousing</span><<else>><span id="carousing"></span><</if>></p>
 
 <<include "Intrigue">>
 <<include "Rooms">>

@@ -1,4 +1,4 @@
 :: TavernBrothel
-<<nobr>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>><<if $tavern.hasBrothel is true>>
+<<nobr>><<if $tavern.hasBrothel is true>>
 <<linkreplace "Go upstairs to the brothel">><h3>The Brothel</h3>When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality. You go up the $tavern.material staircase to the brothel section, and up there, you notice $brothel.notice. Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour
 <</linkreplace>><</if>><</nobr>>

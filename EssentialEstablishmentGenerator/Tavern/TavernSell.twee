@@ -1,7 +1,5 @@
 :: TavernSell [tavern]
 <<nobr>>
-<<set $tavern to $town.buildings[$selected.key][$selected.index]>>
-<<set $bartender to $tavern.bartender>>
 <<linkreplace "<h4>Show me the menu!</h4>">><table>
 
 	<<if $tavern.roll.wealth > 60 && $tavern.roll.roughness < 30 or $tavern.roll.wealth > 60 && $bartender.race === "elf">>

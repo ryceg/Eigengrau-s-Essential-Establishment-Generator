@@ -1,5 +1,5 @@
 :: BartenderTalk
-<<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $npcs[$tavern.bartender.id]>><<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><<nobr>>
+<<linkreplace "<h4>Talk with $bartender.name</h4>" t8n>><<nobr>>
 
 <<set _shortage to random(1, 10)>>
 	<<if $tavern.roll.wealth gt 80>>
