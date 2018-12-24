@@ -1,4 +1,10 @@
 setup.templeData = {
+  'name': {
+    'wordNoun': ['temple', 'house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine'],
+    'soleNoun': ['desire', 'restoration', 'humility', 'white', 'sorrow'],
+    'adjective': ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding'],
+    'plural': ['souls', 'men', 'sinners', 'warriors', 'wretches', 'tools', 'pawns']
+  },
   'rollData': {
     'wealth': [
       [95, 'kingly'],

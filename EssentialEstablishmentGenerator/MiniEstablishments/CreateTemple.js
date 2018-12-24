@@ -6,11 +6,10 @@ setup.createTemple = function (town, opts) {
   var data = setup.templeData
 
   Object.assign(temple, {
-    name: 'Test Temple',
     passageName: 'TempleOutput',
     initPassage: 'TempleOutput',
     BuildingType: 'temple',
-    wordNoun: ['temple', 'church', 'monastery'].random(),
+    wordNoun: data.name.wordNoun.random(),
     priest: setup.createNPC({ dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(), background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(), profession: 'priest' }),
     prayerSubject: data.prayerSubject.random(),
     dedicated: data.dedicated.random(),
@@ -24,6 +23,14 @@ setup.createTemple = function (town, opts) {
     rooms: data.rooms.random(),
     features: data.features.random()
   })
+
+  temple.name = [
+    'The ' + data.name.adjective.random().toUpperFirst() + ' ' + data.name.plural.random().toUpperFirst(),
+    'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.soleNoun.random().toUpperFirst(),
+    'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.adjective.random().toUpperFirst() + ' ' + data.name.plural.random().toUpperFirst(),
+    setup.createName() + "'s " + temple.wordNoun.toUpperFirst(),
+    setup.createName() + "'s " + data.name.soleNoun.random().toUpperFirst()
+  ].random()
 
   var rollDataVariables = ['wealth', 'size', 'cleanliness']
   rollDataVariables.forEach(function (propName) {

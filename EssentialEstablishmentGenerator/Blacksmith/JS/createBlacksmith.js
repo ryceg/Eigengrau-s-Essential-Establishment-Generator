@@ -18,8 +18,8 @@ setup.createBlacksmith = function (smithy) {
       "a <<print either($smithy.weapons)>> for my son, he's growing up so fast- he'll be six next winter!",
       'a <<print either($smithy.weapons)>> for the captain of the guard, $guardCaptain.name.',
       'a <<print either($smithy.weapons)>> for the captain of the guard, $guardCaptain.name.',
-      "I was commissioned by the town guard to make new <<print either($smithy.weapons)>>s for all the guardsmen. It'll probably take a damn long time.",
-      "I'm really just working on fleshing out the stock of the shop at the moment. Mostly general items like nails, horeshoes, and what not"].random()
+      "a commission by the town guard to make new <<print either($smithy.weapons)>>s for all the guardsmen. It'll probably take a damn long time.",
+      "fleshing out the stock of the shop at the moment. Mostly general items like nails, horeshoes, and what not"].random()
   })
   return blacksmith
 }

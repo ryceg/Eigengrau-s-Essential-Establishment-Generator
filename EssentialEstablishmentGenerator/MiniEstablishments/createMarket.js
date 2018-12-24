@@ -1,3 +1,4 @@
+/* global setup */
 setup.createMarket = function (town, opts) {
   opts = opts || {}
   let market = (opts['newBuilding'] || setup.createBuilding)(town, 'market')

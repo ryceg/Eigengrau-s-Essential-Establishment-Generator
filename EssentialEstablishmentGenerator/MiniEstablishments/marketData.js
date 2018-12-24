@@ -226,7 +226,7 @@ setup.marketData = {
     'somewhat cramped',
     'rather packed',
     'relatively large',
-    'cacophonous space with no room to think'
+    'huge and hectic'
   ],
   'cleanliness': [
     'rather dirty',
