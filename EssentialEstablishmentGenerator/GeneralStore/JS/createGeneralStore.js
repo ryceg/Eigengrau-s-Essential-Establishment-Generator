@@ -12,7 +12,7 @@ setup.createGeneralStore = function (town, opts) {
   Object.assign(GeneralStore, {
     note: setup.getGeneralStoreNote(GeneralStore),
     wordNoun: ['general store', 'shop'].random(),
-    crud: setup.GeneralStoreData.crud,
+    crud: setup.GeneralStore.crud,
     notableFeature: 'wide range of goods on sale',
     passageName: 'GeneralStoreOutput',
     initPassage: 'InitGeneralStore',
@@ -28,7 +28,7 @@ setup.createGeneralStore = function (town, opts) {
 
   var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   rollDataVariables.forEach(function (propName) {
-    setup.defineRollDataGetter(GeneralStore, setup.GeneralStoreData.rollData, propName)
+    setup.defineRollDataGetter(GeneralStore, setup.GeneralStore.rollData, propName)
   })
   // setup.GeneralStoreRenders(GeneralStore)
   console.log(GeneralStore)

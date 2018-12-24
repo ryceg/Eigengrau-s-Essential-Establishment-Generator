@@ -1,4 +1,4 @@
-setup.templeData = {
+setup.temple = {
   'name': {
     'wordNoun': ['temple', 'house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine'],
     'soleNoun': ['desire', 'restoration', 'humility', 'white', 'sorrow'],

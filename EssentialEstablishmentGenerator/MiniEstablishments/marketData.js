@@ -1,4 +1,4 @@
-setup.marketData = {
+setup.market = {
   'vendors': {
     'selling': [
       'ale by the pint',

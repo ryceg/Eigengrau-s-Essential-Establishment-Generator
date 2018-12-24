@@ -10,11 +10,11 @@ setup.createMarket = function (town, opts) {
     passageName: 'MarketOutput',
     BuildingType: 'market',
     wordNoun: 'market',
-    location: setup.marketData.location.random(),
-    size: setup.marketData.size.random(),
-    cleanliness: setup.marketData.cleanliness.random(),
-    draw: setup.marketData.draw.random(),
-    organisation: setup.marketData.organisation.random()
+    location: setup.market.location.random(),
+    size: setup.market.size.random(),
+    cleanliness: setup.market.cleanliness.random(),
+    draw: setup.market.draw.random(),
+    organisation: setup.market.organisation.random()
   })
   market.notableFeature = market.draw
   // setup.townBinder(town, market, 'market')

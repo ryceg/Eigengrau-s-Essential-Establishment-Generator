@@ -8,15 +8,15 @@ setup.createBrothel = function (town, tavern) {
   //   brothel = setup.createBuilding(town, 'brothel')
   // }
   Object.assign(brothel, {
-    name: setup.brothelData.name.random(),
+    name: setup.brothel.name.random(),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
     BuildingType: 'brothel',
     wordNoun: ['brothel', 'whorehouse', "gentleman's club"].random(),
-    specialty: setup.brothelData.specialty.random(),
-    talk: setup.brothelData.talk.random(),
-    rumour: setup.brothelData.rumour.random(),
-    notice: setup.brothelData.notice.random(),
+    specialty: setup.brothel.specialty.random(),
+    talk: setup.brothel.talk.random(),
+    rumour: setup.brothel.rumour.random(),
+    notice: setup.brothel.notice.random(),
     owner: [
       'a mean old madam',
       'a large madam with a no-nonsense attitude',
@@ -31,7 +31,7 @@ setup.createBrothel = function (town, tavern) {
   // to do: add bed cleanliness. Steal it from tavern.
   var rollDataVariables = ['wealth', 'size', 'cleanliness']
   rollDataVariables.forEach(function (propName) {
-    setup.defineRollDataGetter(brothel, setup.brothelData.rollData, propName)
+    setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   })
   brothel.wealth = ''
   brothel.size = ''

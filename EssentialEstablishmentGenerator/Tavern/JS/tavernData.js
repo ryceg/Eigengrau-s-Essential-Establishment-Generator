@@ -181,8 +181,8 @@ setup.tavern = {
           return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(lover.key) + ']`>> has taken an interest in you romantically.'
         },
         'wizard': function () {
-          var wizard = setup.createNPC({ dndClass: 'wizard' })
-          return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(wizard.key) + ']`>>.'
+          var npc = setup.createNPC({ dndClass: 'wizard' })
+          return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
         },
         'festival': function () { return 'You have been recruited to help run a local festival.' },
         'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
@@ -687,11 +687,11 @@ setup.tavern = {
     },
     'wizard': function () {
       var npc = setup.createNPC({background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man'})
-      return 'A stoned magician is fumbling his way through one awful card trick after another.'
+      return 'A stoned <<profile `$npcs[' + JSON.stringify(npc.key) + ']` magician>> is fumbling his way through one awful card trick after another.'
     },
     'elves': function () {
-      var npc = setup.createNPC({background: 'noble', profession: 'noble', race: 'elf', gender: 'woman'})
-      return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. One has an obsidian bow strapped to her back.'
+      var npc = setup.createNPC({background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: "obsidian bow"})
+      return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. <<profile `$npcs[' + JSON.stringify(npc.key) + ']` One>> has an obsidian bow strapped to her back.'
     },
     'clown': function () {
       var npc = setup.createNPC({background: 'commoner', profession: 'clown'})
@@ -699,7 +699,7 @@ setup.tavern = {
     },
     'guards': function () {
       var npc = setup.createNPC({background: 'soldier', profession: 'guard', dndClass: 'fighter'})
-      return 'Two guards are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.'
+      return 'Two <<profile `$npcs[' + JSON.stringify(npc.key) + ']` guards>> are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.'
     },
     'suitor': function () {
       var npc = setup.createNPC({background: 'noble', profession: 'noble', hasClass: false, gender: 'woman'})
@@ -711,7 +711,7 @@ setup.tavern = {
     },
     'ladies': function () {
       var npc = setup.createNPC({background: 'scholar', profession: 'librarian', gender: 'woman'})
-      return "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town <<profile `$npcs[' + JSON.stringify(npc.key) + ']` librarian>>."
+      return "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town <<profile `$npcs[" + JSON.stringify(npc.key) + "]` librarian>>."
     },
     'witch': function () {
       var npc = setup.createNPC({background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman'})
@@ -726,20 +726,19 @@ setup.tavern = {
       return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a succubus, she seems to be making great tips.'
     },
     'attendant': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'farmer'})
       return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
     },
     'mophand': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'farmer'})
-      return "The toothless mop-hand reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
+      var npc = setup.createNPC({background: 'commoner', profession: 'mophand', hasClass: false})
+      return "The <<profile `$npcs[" + JSON.stringify(npc.key) + "]` 'toothless mop-hand'>> reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
     },
     'doppelganger': function () {
       var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
-      return 'The barmaid is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.'
+      return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.'
     },
     'priest': function () {
       var npc = setup.createNPC({background: 'sage', profession: 'priest', dndClass: 'cleric'})
-      return "A fat priest is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
+      return "A <<profile `$npcs[" + JSON.stringify(npc.key) + "]` 'fat priest'>> is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
     }
   },
   'specialBrew': [
@@ -854,5 +853,104 @@ setup.tavern = {
       description: 'Distilled on the Elemental Plane of Air by the Djinn in a process that uses no machinery, but by captive air elementals controlling the temperatures and pressures while the liquid free floats in the air. Clear when poured but will louche when exposed to normal air pressure. Tastes of licorice, anise, and a warm breeze with a slight bitter aftertaste. Makes you lightheaded, maybe literally. Best mixed.',
       author: 'twocalf'
     }
+  ],
+  'overheard': [
+    'Dragon? What Dragon?',
+    'That lady over there, I wouldn’t talk to her, one time she turned me into a rabbit.',
+    'Honestly I saw this strange ghost, nearly crapped my pants!',
+    'Yes everyone knows about that old hermit, he lives by himself.  Oh? You’ve never heard of him, let me tell yah.',
+    'The ground shook last night!  I thought for a heartbeat it might have been something I ate!',
+    'One time this bloke strolls up and tells me that he was marooned on an island! And that he rode some sea turtles or something, I figured he’d had a few too many.',
+    'Weirdest thing, the lights in the night sky.  For the most part they look like a beautiful reflection, something the gods dreamed up, but the other night I swear I saw something moving up there.',
+    'The barley soup at the local tavern will cure just about any ailment, I had a wart on my foot the size of my big toe! It was gone the day after yesterday.',
+    'That old priestess I’ve see her walking at night, talking to herself.',
+    "Nah it's just a myth that most cemeteries are haunted.  You know what is really haunted?  My love life!",
+    'Normally I wouldn’t tell you this, but you seem like decent folk.',
+    'There was a thief hanging around the market lately, I was the one who found him out.  Caught him red handed, and told him to give me half, I did!',
+    'One time I danced with a sprite, at least I thought it was a sprite….  They are pretty big aren’t they?',
+    'I swear to the gods! There was a little leprechaun behind the tavern having himself a piss.  I said “Hey Buddy!”',
+    'That old horse of mine, she’s been around for years, my grandfather gave it to me, it was his horse! Can you believe that?',
+    'I never gamble.  Although…..',
+    'Saw some giant tracks the other day, right outside of my house!',
+    'Keep an eye out for those town guards, they’ll shake you down!',
+    'Caught the biggest fish the other day, no word of a lie, it was this…… big!',
+    'I said “you know what, I don’t believe your prophecies!”  And all they did was dismiss me, and walked away.  Can you believe that?',
+    'I wouldn’t let anyone down, I’ve spent my life keeping people alive.',
+    'We are always looking for farmhands, all we ever get is henchmen around here, what is up with that?',
+    'I could do with a few less adventurer’s in this town, they come in and drink all the good ale!',
+    'That blacksmith is making a suit of gold armour! Well at least I think it was gold anyways, it was really shiney!',
+    "You know what is weird, it's like there’s a sense of something else going on, like we are all in the imagination of some mad genius, is it just me?",
+    'Never seen a mermaid, I saw a goat swim once though.',
+    'Are you so sure about everyone in your group?',
+    'Honestly this town needs an enema, or something like that, Is there a potion that we can get for those stuffy political types?',
+    'The only way to earn your keep around here is to get down to work, traipsing all over the countryside adventuring, that’s not work! Plowing fields is work.',
+    'I don’t have any silly superstitions about my gambling dice.',
+    'I was out hunting the other day, came across a bunch of deer south of the town.',
+    'Saw a bloke on the road, he was trying to sell me a bag of beans, told him to go the other way, i don’t need any beans! I’ve got a whole field full of em.',
+    'Why is it that princess’s always get kidnapped and dragged off? How come you never hear of some fancy pants prince getting kidnapped.  You know if I was apt to it, I might try that.  Rewrite a bit o’ history.',
+    'I heard about this old book, well my neighbour was talking about this old book.  Sounded kind of interesting, but I can’t read.  Weird runes in it.',
+    'There was never anything to worry about, they made this big deal about what went down.',
+    "Maybe we ought to think this thru, your telling me that you saw a bunch of werewolves the other night, and the guard doesn’t want to do anything about it.  And now you're saying you want to go out and kill them?",
+    'I’d like a snack, something cheezie.',
+    'I’ve got to get up early tomorrow, lots to do.  Digging ditches, and graves.',
+    'I tend to wonder if all these shadowy guilds really exist.  You’ve heard of the assassins & the thieves guilds, are they really that organized?',
+    'WHAT HO! That’s what this guy always says every time he walks in, I don’t even know what that means? Do you?',
+    'It seems like there is always someone begging the local priest to get healed.  What are these people doing all the time?',
+    'You ever notice that one in every two pirates you meet has a peg leg or arm?  That’s odd isn’t it?',
+    'It’s really about the details, and the raspberry jam.',
+    'That old myth about trolls turning into stone from the sunshine is false',
+    'I kid you not, she had a head full of snakes!',
+    'You ever lit oil on fire and throw it? It’s hilarious!',
+    'No I haven’t seen your kids, you should really go out and find them.  That’s not the best parenting.',
+    "And I said “yeah it's one of a kind”,  hahahah.",
+    'So there I was mind my own business and all of a sudden this strange cat shows up in a tree.',
+    'Never underestimate a pissed off barbarian, or my wife for that matter!',
+    'You should probably spend some time fixing up your armour, it’s barely holding together.',
+    'There is this river, that runs down from the mountains, amazing tasting water, but it’s green.  Like lime green!',
+    'Nope I’ve never heard of that god, are you sure you have the spelling right?',
+    'Everything is possible within reason, it honestly depends on your outlook.  Oh and what time it is.',
+    'You should have seen his face when I told him he was invisible.  That mad hatter ran across the street to steal tomatoes.',
+    'I’ve never met a goblin with a sense of humour.',
+    'I swear every time I meet an adventurer, they tell me about falling into pit traps, who designed all these things?  Why do you keep falling into them? You would think once is enough right?',
+    'Nope nevermind… I think I just saw an illusion.  Wait a second….',
+    'You know what’s really stupid?  Trying to sleep out in the wilderness.',
+    'That was the worse case of bedbugs I’ve ever had!',
+    'Pardon me?  Yes do you know if there’s any grey mustard at this tavern?',
+    'Why do all wizards have beards anyways? Is that some kind of ritualistic club thing that I don’t know about? And why the moldy towers in the middle of nowhere?',
+    'Sure you saw a vampire, sure.',
+    'Don’t you find it odd that there’s always a gent sitting in the corner with his hood up trying to not attract any attention to himself?',
+    'You’re going to have to speak up, that damn bard was playing bagpipes again!',
+    "I think you're mistaking me for someone who cares.",
+    'It was an incredibly uplifting religious experience!',
+    'Why are you hopping on one foot? Or nevermind, I think I’ve had too much to drink.  What can I do for you?',
+    'You couldn’t pay me enough to go into that cave, smelled like bad cheese!',
+    'My uncle hugged a bugbear once.',
+    'That lady serving the drinks, whatever you do don’t call her by her first name.  It’s shirley, don’t do it though.',
+    'That is the absolute last time I drink in this establishment!',
+    'Hey you big lug, wanna arm wrestle?',
+    'Hold my beer while I kiss your elf.',
+    'Everyone knows there’s no such thing as lizardmen, old ladies made that up to scare their grandkids.',
+    'I’m not saying that I’m the king, I’m just saying have you ever seen us both in a room at the same time?',
+    'I hear that Orc’s dance when they beat up adventurer’s, is that true?',
+    'So there we were sitting in the “Green Dragon”, our feet up on a stool, listening to some good music, and in walks this great big guy who’s quite grumbly!',
+    'Most of the stories you will hear in here are unlikely and in some cases lies.',
+    'If you’re ever on fire, stop, drop and roll.  Well that is unless it’s magical fire, then I have no idea.',
+    'The god’s must seriously be crazy!',
+    'I like knitting, do you?',
+    'Ever drank whiskey with a dwarf? I have!  And I still have a hangover.',
+    'There’s this long story about a sword and a stone, I don’t really want to get into it.',
+    'Somedays you are the knight, somedays you are the dragon.',
+    'Never once did I say that.  I did say…',
+    'Alright we’ve all heard the story about “breeyark”, if you don’t know what it means by now, you’re an idgit.',
+    'But of course there’s a merchant looking for a caravan guard, why do you ask?',
+    'See this here scar?  I got that when I was running from a direwolf.  Good thing there was a tree I could climb up!',
+    'Remember to always have someone like an elf or a dwarf in your party, those types can see in the dark!',
+    'There’s a local farmer, sells some pretty good rations, if your going out on a hike.',
+    'Best sleep ever!  No it wasn’t in this Inn, I’m just saying I slept really well last night.',
+    'I’ve heard that some merchants will pay good gold for minotaur horns.',
+    'HICCUP! Well that was well brought up.',
+    'Pretend I’ve never met you before.  Alright now go away.',
+    'I was thinking about having a look around some old ruins.  What do you say, want to come along?',
+    'If you ever find one of those bags of holding, don’t ever put another bag of holding into it.  Bad idea.'
   ]
 }

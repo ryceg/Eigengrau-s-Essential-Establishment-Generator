@@ -1,3 +1,4 @@
+/* global setup clone */
 /* Returns an Array of factions for a leadership type. */
 setup.factionsForType = function (town, leadershipType) {
   var found = []

@@ -18,7 +18,7 @@ setup.townData = {
       [25, 'poor'],
       [15, 'squalid'],
       [0, 'destitute']
-    ],
+    ]
     // 'economics': [
     //   [90, 'Trade in ' + this.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + this.name + ' are high.'],
     //   [80, 'Trade in ' + this.name + ' is regulated, with taxes and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.'],

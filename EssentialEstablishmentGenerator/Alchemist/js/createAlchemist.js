@@ -2,7 +2,6 @@
 setup.createAlchemist = function (town, opts) {
   opts = opts || {}
   var alchemist = (opts['newBuilding'] || setup.createBuilding)(town, 'alchemist')
-  var rollData = setup.alchemistData.rollData
   console.groupCollapsed('Alchemist loading...')
   Object.assign(alchemist, {
     chemist: (opts['newChemist'] || setup.createChemist)(town.name),
@@ -15,16 +14,15 @@ setup.createAlchemist = function (town, opts) {
   })
 
   alchemist.name = setup.createAlchemistName(alchemist.chemist.firstName)
-  alchemist.size = ""
-  alchemist.cleanliness = ""
-  alchemist.wealth = ""
-  alchemist.expertise = ""
+  alchemist.size = ''
+  alchemist.cleanliness = ''
+  alchemist.wealth = ''
+  alchemist.expertise = ''
   var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   rollDataVariables.forEach(function (propName) {
-    setup.defineRollDataGetter(alchemist, setup.alchemistData.rollData, propName)
+    setup.defineRollDataGetter(alchemist, setup.alchemist.rollData, propName)
   })
   setup.alchemistModifiers(alchemist)
-
 
   // setup.townBinder(town, alchemist, 'alchemist')
   console.groupEnd()

@@ -1,5 +1,5 @@
 /* global setup */
-setup.brothelData = {
+setup.brothel = {
   'rollData': {
     'wealth': [
       [95, 'kingly'],
