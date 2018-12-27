@@ -47,29 +47,29 @@ setup.tavernSleep = function (tavern) {
     sleepEasy -= 3
   }
 
-  if (tavern.bedCleanlinessRoll > 90) {
+  if (tavern.roll.bedCleanliness > 90) {
     restfulness += 30
     sleepEasy += 4
-  } else if (tavern.bedCleanlinessRoll > 80) {
+  } else if (tavern.roll.bedCleanliness > 80) {
     restfulness += 15
     sleepEasy += 3
-  } else if (tavern.bedCleanlinessRoll > 70) {
+  } else if (tavern.roll.bedCleanliness > 70) {
     restfulness += 5
     sleepEasy += 2
-  } else if (tavern.bedCleanlinessRoll > 60) {
+  } else if (tavern.roll.bedCleanliness > 60) {
     restfulness += 3
     sleepEasy += 1
-  } else if (tavern.bedCleanlinessRoll > 50) {
+  } else if (tavern.roll.bedCleanliness > 50) {
     restfulness -= 2
-  } else if (tavern.bedCleanlinessRoll > 40) {
+  } else if (tavern.roll.bedCleanliness > 40) {
     restfulness -= 5
-  } else if (tavern.bedCleanlinessRoll > 30) {
+  } else if (tavern.roll.bedCleanliness > 30) {
     restfulness -= 10
     sleepEasy -= 1
-  } else if (tavern.bedCleanlinessRoll > 20) {
+  } else if (tavern.roll.bedCleanliness > 20) {
     restfulness -= 15
     sleepEasy -= 2
-  } else if (tavern.bedCleanlinessRoll < 20) {
+  } else if (tavern.roll.bedCleanliness < 20) {
     restfulness -= 20
     sleepEasy -= 3
   }

@@ -48,6 +48,7 @@ setup.createTavern = function (town, opts) {
     // patrons: setup.tavern.patrons.random(),
     game: setup.tavern.games.random()
   })
+  tavern.roll.bedCleanliness = random(1, 100)
 
   Object.assign(tavern, setup.tavern.get.draws(town, tavern))
 
@@ -106,7 +107,7 @@ setup.createTavern = function (town, opts) {
     get: function () {
       console.log('Fetching ' + tavern.name + ' bed cleanliness.')
       var bedCleanliness = rollData.cleanliness.find(function (descriptor) {
-        return descriptor[0] <= this.roll.cleanliness
+        return descriptor[0] <= this.roll.bedCleanliness
       }, this)
       if (bedCleanliness === undefined) {
         bedCleanliness = rollData.cleanliness[rollData.cleanliness.length - 1]
