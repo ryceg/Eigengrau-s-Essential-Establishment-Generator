@@ -35,4 +35,21 @@
 
 <span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.roll.law" $town.roll.law 1 100 1>></span>
 
+<<nobr>><table>
+    <tr>
+        <th>Race</th>
+        <th>Population</th>
+        <th>Percentage</th>
+        <th>Raw Number</th>
+    </tr>
+<<for _race, _percentage range $town.demographic>>
+    <tr>
+        <td>_race</td>
+        <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
+        <td><<print _percentage.toFixed(2)>></td>
+        <td><<textbox $town.baseDemographics[_race] "$town.baseDemographics[_race]">></td>
+    </tr>
+<</for>>
+</table><</nobr>>
+
 <<button "Save Changes">><<run setup.createSocioPolitics($town)>><<run setup.townRender($town)>><<goto "TownOutput">><</button>>

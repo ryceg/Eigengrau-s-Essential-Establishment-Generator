@@ -30,6 +30,23 @@ _listbox -- <<button "Create new faction">>
 <<link "_faction.name">><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type _faction.factionNoun
 <</capture>><</for>><</for>>
 
+<<nobr>><table>
+    <tr>
+        <th>Race</th>
+        <th>Population</th>
+        <th>Percentage</th>
+        /* <th>Raw Number</th> */
+    </tr>
+<<for _race, _percentage range $town.demographic>>
+    <tr>
+        <td><<print _race.toUpperFirst()>></td>
+        <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
+        <td><<print _percentage.toFixed(2)>></td>
+        /* <td><<print $town.baseDemographics[_race]>></td> */
+    </tr>
+<</for>>
+</table><</nobr>>
+
 <<linkappend "<h3>Businesses in $town.name</h3>">>
 <<nobr>>
 <table>

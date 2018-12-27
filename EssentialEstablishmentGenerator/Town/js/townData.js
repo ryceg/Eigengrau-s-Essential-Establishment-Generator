@@ -1,4 +1,4 @@
-/* global setup random */
+/* global setup random randomFloat */
 setup.townData = {
   'name': {
     'prefix': ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
@@ -33,6 +33,17 @@ setup.townData = {
   },
   'type': {
     'hamlet': {
+      'demographic': {
+        'dwarf': randomFloat(1, 10),
+        'dragonborn': randomFloat(1, 2),
+        'elf': randomFloat(1, 5),
+        'gnome': randomFloat(1, 5),
+        'half-elf': randomFloat(1, 5),
+        'half-orc': randomFloat(1, 3),
+        'halfling': randomFloat(5, 10),
+        'human': randomFloat(85, 95),
+        'tiefling': randomFloat(1, 2)
+      },
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       'politicalSource': ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(30, 300) },
@@ -45,6 +56,17 @@ setup.townData = {
       }
     },
     'village': {
+      'demographic': {
+        'dwarf': randomFloat(1, 10),
+        'dragonborn': randomFloat(1, 2),
+        'elf': randomFloat(1, 10),
+        'gnome': randomFloat(1, 10),
+        'half-elf': randomFloat(1, 10),
+        'half-orc': randomFloat(1, 5),
+        'halfling': randomFloat(5, 10),
+        'human': randomFloat(85, 95),
+        'tiefling': randomFloat(1, 2)
+      },
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       'politicalSource': ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(301, 1000) },
@@ -57,6 +79,17 @@ setup.townData = {
       }
     },
     'town': {
+      'demographic': {
+        'dwarf': randomFloat(1, 15),
+        'dragonborn': randomFloat(1, 2),
+        'elf': randomFloat(1, 10),
+        'gnome': randomFloat(1, 10),
+        'half-elf': randomFloat(3, 15),
+        'half-orc': randomFloat(1, 5),
+        'halfling': randomFloat(5, 10),
+        'human': randomFloat(75, 95),
+        'tiefling': randomFloat(1, 2)
+      },
       'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
       'politicalSource': ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(1001, 3000) },
@@ -69,6 +102,17 @@ setup.townData = {
       }
     },
     'city': {
+      'demographic': {
+        'dwarf': randomFloat(1, 20),
+        'dragonborn': randomFloat(1, 4),
+        'elf': randomFloat(1, 15),
+        'gnome': randomFloat(1, 15),
+        'half-elf': randomFloat(1, 20),
+        'half-orc': randomFloat(1, 10),
+        'halfling': randomFloat(5, 15),
+        'human': randomFloat(70, 95),
+        'tiefling': randomFloat(1, 2)
+      },
       'economicIdeology': ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
       'politicalSource': ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population': function () { return random(3001, 6000) },
