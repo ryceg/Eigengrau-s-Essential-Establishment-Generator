@@ -3,7 +3,7 @@ setup.createGeneralStore = function (town, opts) {
   opts = opts || {}
   let GeneralStore = (opts['newBuilding'] || setup.createBuilding)(town, 'GeneralStore')
   console.groupCollapsed('General Store loading...')
-  GeneralStore.shopkeep = (opts['newShopkeep'] || setup.createNPC)({
+  GeneralStore.shopkeep = (opts['newShopkeep'] || setup.createNPC)(town, {
     profession: 'merchant',
     mundane: ['pliers', 'tins', 'twine', 'cups', 'spoons', 'pans', 'chairs', 'cushions'],
     greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'checks you out for just a moment before smiling at you'],

@@ -44,14 +44,18 @@ setup.createTown = function (base) {
     // Clone the raw demographic data for the town type.
     _baseDemographics: clone(setup.townData.type[type].demographic),
     get baseDemographics () {
+      console.log('Getting base demographics.')
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
+      console.log('Setting base demographics.')
       Object.keys(newDemographics).forEach(function (byRace) {
         this._baseDemographics[byRace] = newDemographics[byRace]
       }, this)
+      console.log(this.demographic)
     },
     get demographic () {
+      console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
       var races = Object.keys(this._baseDemographics)
       // Calculate the sum of the raw demographic values.

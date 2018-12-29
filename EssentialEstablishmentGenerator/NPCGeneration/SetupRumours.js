@@ -1,6 +1,6 @@
 var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, MinorBoon, MinorQuest, MinorEnemy, MajorBane, MajorBoon, MajorQuest, MajorEnemy, OnTheRun, Vendetta, BuyingOrSelling, GoodDeeds, EvilDeeds, Haunted, Cursed, Treasure, Emergency, Warning, SocialEvents, PoliticalEvents, ReligiousEvents, FaithTouched, WeaveTouched, MysteryCult
 
-setup.createRumour = function () {
+setup.createRumour = function (town) {
   var Rnd = random(1, 2), Rumour
   switch (Rnd) {
     case 1:
@@ -176,11 +176,11 @@ setup.createRumour = function () {
   // N – Major Quest
   function MajorQuest () {
     return [
-      'awaken a sleeping NPC called ' + State.setVar('Quest', setup.createNPC()),
+      'awaken a sleeping NPC called ' + State.setVar('Quest', setup.createNPC(town)),
       ['recover', 'destroy'].random() + ' an artifact ' + ItemInformation(),
-      ['aid', 'slay'] + State.setVar('Quest', setup.createNPC()),
+      ['aid', 'slay'] + State.setVar('Quest', setup.createNPC(town)),
       'slay a monster',
-      ['liberate', 'enslave'] + State.setVar('Quest', setup.createNPC()),
+      ['liberate', 'enslave'] + State.setVar('Quest', setup.createNPC(town)),
       'discover a lost foreign land',
       'save or destroy the world'].random()
   }

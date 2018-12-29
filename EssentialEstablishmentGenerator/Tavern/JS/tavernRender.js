@@ -166,9 +166,9 @@ setup.tavernRender = function (tavern) {
 
   // default
   // if (tavern.hasBrawl === true) {
-  //   tavern.drawFeature = setup.tavernBrawl(tavern)
+  //   tavern.drawFeature = setup.tavernBrawl(town, tavern)
   // } else if (tavern.guardPresent === true) {
-  //   tavern.drawFeature = "There's a member of <<guard $guard>> chatting with a tavern patron."
+  //   tavern.drawFeature = "There's a member of <<guard $town.guard>> chatting with a tavern patron."
   // } else {
   //   tavern.drawFeature = "There's two men sitting in the corner, very intent on a thumbwrestling match."
   // }

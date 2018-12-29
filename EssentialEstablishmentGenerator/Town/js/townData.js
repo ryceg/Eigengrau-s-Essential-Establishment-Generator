@@ -34,8 +34,9 @@ setup.townData = {
   'type': {
     'hamlet': {
       'demographic': {
-        'dwarf': randomFloat(1, 10),
+        // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 2),
+        'dwarf': randomFloat(1, 10),
         'elf': randomFloat(1, 5),
         'gnome': randomFloat(1, 5),
         'half-elf': randomFloat(1, 5),
@@ -57,8 +58,9 @@ setup.townData = {
     },
     'village': {
       'demographic': {
-        'dwarf': randomFloat(1, 10),
+        // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 2),
+        'dwarf': randomFloat(1, 10),
         'elf': randomFloat(1, 10),
         'gnome': randomFloat(1, 10),
         'half-elf': randomFloat(1, 10),
@@ -80,8 +82,9 @@ setup.townData = {
     },
     'town': {
       'demographic': {
-        'dwarf': randomFloat(1, 15),
+        // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 2),
+        'dwarf': randomFloat(1, 15),
         'elf': randomFloat(1, 10),
         'gnome': randomFloat(1, 10),
         'half-elf': randomFloat(3, 15),
@@ -103,8 +106,9 @@ setup.townData = {
     },
     'city': {
       'demographic': {
-        'dwarf': randomFloat(1, 20),
+        // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 4),
+        'dwarf': randomFloat(1, 20),
         'elf': randomFloat(1, 15),
         'gnome': randomFloat(1, 15),
         'half-elf': randomFloat(1, 20),

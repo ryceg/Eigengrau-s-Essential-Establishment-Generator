@@ -1,22 +1,21 @@
 /* global setup */
-setup.miscData = {
+setup.misc = {
   'cheese': {
+    create: function () {
+      var cheese = {
+        colour: setup.misc.cheese.colour.random(),
+        texture: setup.misc.cheese.texture.random(),
+        taste: setup.misc.cheese.taste.random(),
+        smell: setup.misc.cheese.smell.random(),
+        cost: setup.misc.cheese.cost.random()
+      }
+      return cheese
+    },
     colour: ['pale grey, with dark flecks', 'bright yellow', 'warm yellow', 'spotty yellow', 'pale yellow', 'light green', 'light greenish-yellow'],
     texture: ['crumbly, with a texture similar to plaster', 'rubbery, and squeaks while you eat it', 'rubbery, and squeaks rather disconcertingly while you eat it', 'crumbly, with bits going everywhere', 'somewhat rubbery', 'somewhat stringy', 'slightly stringy', 'rubbery, like a piece of leather that has been soaking in some greasy sludge', 'soft and spongey, with the occassional... crunch', 'soft, springy, and moist', 'gooey', 'moist and delicious', 'almost liquid once you bite through the rind'],
     taste: ['sharp', 'sharp and salty', 'somewhat bland', 'inoffensively mild', "salty, like a cow's salt-lick", 'rich and creamy', 'creamy, with hints of oak', 'strong, slightly salty, and extremely more-ish', 'smokey, with hints of rum', 'smokey, with hints of chili', 'salty, but immediately the spice from the peppers takes over', "bitter, with the rind tasting somewhere between a burnt log and dead bug, but the taste isn't entirely unpleasant", "a warm and smooth creaminess which envelopes your taste buds like a mother's embrace"],
     smell: ["pungent, as if it was the result of somebody's terrible diet decisions", 'somewhat sweet, with a heady aroma', 'like the ass of a cow in cheese form', "like the best parts of a farm's stable", 'like freshly baled hay', 'like freshly cut grass', 'like a lemon tree', 'like fresh cream', 'like a rotting corpse', 'like a roast duck filled with spices', 'like a delicious slice of bread toasted over a fire', 'like a slice of bread left in the fire far too long'],
     cost: [1, 2, 3, 4, 5, 6, 6, 6, 7, 7, 7, 8, 9, 10, 10, 10, 11, 11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
-  },
-  'createCheese': function () {
-    var data = setup.miscData.cheese
-    let cheese = {
-      colour: data.colour.random(),
-      texture: data.texture.random(),
-      taste: data.taste.random(),
-      smell: data.smell.random(),
-      cost: data.cost.random()
-    }
-    return cheese
   },
   'newspaper': [
     'NPC attempts to become player, ridiculed.',

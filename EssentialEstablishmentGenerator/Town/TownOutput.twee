@@ -1,6 +1,6 @@
 :: TownOutput
 <<set _town to $town>>
-<<link "Edit $town.name">><<goto "TownEdit">><</link>>
+<<button "Edit $town.name">><<goto "TownEdit">><</button>>
 
 $town.name is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
 
@@ -30,7 +30,7 @@ _listbox -- <<button "Create new faction">>
 <<link "_faction.name">><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type _faction.factionNoun
 <</capture>><</for>><</for>>
 
-<<nobr>><table>
+<div class='classTable'><<nobr>><table>
     <tr>
         <th>Race</th>
         <th>Population</th>
@@ -45,7 +45,25 @@ _listbox -- <<button "Create new faction">>
         /* <td><<print $town.baseDemographics[_race]>></td> */
     </tr>
 <</for>>
-</table><</nobr>>
+</table><</nobr>></div>
+
+<<linkappend "<h3>List of NPCs</h3>">><<nobr>>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Race</th>
+    <th>Profession</th>
+    <th>Delete</th>
+  </tr>
+  <<for _i, _npc range $npcs>>
+  <tr><td><<profile $npcs[_npc.key]>></td>
+  <td>_npc.race</td>
+  <td>_npc.dndClass</td>
+  <td><<link "x">><<run delete $npcs[_npc.key]>><<goto "TownOutput">><</link>></td>
+  </tr>
+  <</for>>
+  </table><</nobr>>
+<</linkappend>>
 
 <<linkappend "<h3>Businesses in $town.name</h3>">>
 <<nobr>>

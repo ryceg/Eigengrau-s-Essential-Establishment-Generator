@@ -1,28 +1,12 @@
 /* global setup random */
-setup.tavernBrawl = function (tavern) {
+setup.tavernBrawl = function (town, tavern) {
   var guardRoll = random(1, 100)
   var brawlRoll = random(1, 100)
-
-  /* if ($guard.population > 20
-guardRoll += 10
-  elesif ($guard.population > 15
-guardRoll += 5
-  else if ($guard.population > 10
-guardRoll += 1
-  else if ($guard.population > 5 && $tavern.roll.size > 60
-guardRoll -= 7
-  else if ($guard.population > 5
-guardRoll -= 5
-  else if ($guard.population <= 5 && $tavern.roll.size > 60
-guardRoll -= 15
-  else if ($guard.population <= 5
-guardRoll -= 10
-  /if */
 
   if (guardRoll >= 50) {
     tavern.guardPresent = true
     brawlRoll -= 20
-    var tavernGuard = setup.createNPC({ isShallow: true, dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random() })
+    var tavernGuard = setup.createNPC(town, { isShallow: true, dndClass: 'fighter', background: 'soldier', gender: ['man', 'man', 'man', 'woman'].random() })
   } else {
     tavern.guardPresent = false
   }
@@ -69,8 +53,8 @@ guardRoll -= 10
 
   if (brawlRoll > 50) {
     tavern.hasBrawl = true
-    var brawlInstigator = setup.createNPC({ isShallow: true,gender: ['man', 'man', 'man', 'woman'].random() })
-    var brawlResponder = setup.createNPC({ isShallow: true,gender: ['man', 'man', 'man', 'woman'].random() })
+    var brawlInstigator = setup.createNPC(town, { isShallow: true,gender: ['man', 'man', 'man', 'woman'].random() })
+    var brawlResponder = setup.createNPC(town, { isShallow: true,gender: ['man', 'man', 'man', 'woman'].random() })
     tavern.brawl = {
       start: [
         'It seems that the ' + brawlInstigator.descriptor + ' that is currently wrestling with the ' + brawlResponder.descriptor + ' because of ',
@@ -89,8 +73,8 @@ guardRoll -= 10
     }
     if (tavern.guardPresent === true) {
       tavern.brawlEnd = [
-        'A ' + tavernGuard.descriptor + ' wearing the $guard.livery signifying that they are a member of <<guard $guard>> is currently pulling the ' + brawlInstigator.descriptor + ' off the ' + brawlResponder.descriptor + '.',
-        'A member of <<guard $guard>> is currently trying to pull the two apart.'
+        'A ' + tavernGuard.descriptor + ' wearing the '+ town.guard.livery + ' signifying that they are a member of <<guard $town.guard>> is currently pulling the ' + brawlInstigator.descriptor + ' off the ' + brawlResponder.descriptor + '.',
+        'A member of <<guard $town.guard>> is currently trying to pull the two apart.'
       ].random()
     } else {
       tavern.brawlEnd = [

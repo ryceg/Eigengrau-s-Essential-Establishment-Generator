@@ -1,7 +1,7 @@
 :: Temple
 
 <<set $temple to setup.createTemple()>>
-<<set $priest to setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "cleric", "druid"), background: either("acolyte", "acolyte", "acolyte", "acolyte", "sage", "sage", "sage"), profession: "priest"})>>
+<<set $priest to setup.createNPC($town, {dndClass: either("cleric", "cleric", "cleric", "cleric", "druid"), background: either("acolyte", "acolyte", "acolyte", "acolyte", "sage", "sage", "sage"), profession: "priest"})>>
 
 <<if $town.roll.wealth gt 95>>
   <<set $temple.roll.wealth += 7>>

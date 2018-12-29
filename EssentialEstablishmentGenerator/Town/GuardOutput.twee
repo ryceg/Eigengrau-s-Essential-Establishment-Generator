@@ -1,10 +1,9 @@
 :: GuardOutput
-<<set $guard to $town.guard>><h1>$guard.name</h1>
-<<set $guardCaptain to $guard.captain>>
-$guard.name is led by <<profile $npcs[$guard.captain.key]>>, a $guardCaptain.descriptor. $guard.name is a $guard.size of $guard.population. One can recognise a member of $guard.name by the $guard.livery.
+<h1>$town.guard.name</h1>
+$town.guard.name is led by <<profile $npcs[$town.guard.captain.key]>>, a $town.guard.captain.descriptor. $town.guard.name is a $town.guard.size of $town.guard.population. One can recognise a member of $town.guard.name by the $town.guard.livery.
 
-$guard.funding
+$town.guard.funding
 
 $town.law
-<<set $currentPassage to $guard>>
+<<set $currentPassage to $town.guard>>
 <<back>>

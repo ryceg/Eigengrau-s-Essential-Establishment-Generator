@@ -11,7 +11,7 @@
 //     if(npcsCount.length < professionCount) {
 //         // Create the missing NPCs
 //         for(var i = professionCount - npcsCount.length; i > 0; -- i) {
-//             setup.createNPC({profession: profession.profession, hasClass: false});
+//             setup.createNPC(town, {profession: profession.profession, hasClass: false});
 //         }
 //     } else if (npcsCount.length > professionCount) {
 //         // if there's more than there should be, remove then add just the right amount back

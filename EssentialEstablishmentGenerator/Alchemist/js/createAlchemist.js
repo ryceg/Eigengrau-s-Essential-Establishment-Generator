@@ -4,7 +4,7 @@ setup.createAlchemist = function (town, opts) {
   var alchemist = (opts['newBuilding'] || setup.createBuilding)(town, 'alchemist')
   console.groupCollapsed('Alchemist loading...')
   Object.assign(alchemist, {
-    chemist: (opts['newChemist'] || setup.createChemist)(town.name),
+    chemist: (opts['newChemist'] || setup.createChemist)(town),
     wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random(),
     associatedTown: town.name,
     passageName: 'AlchemistOutput',

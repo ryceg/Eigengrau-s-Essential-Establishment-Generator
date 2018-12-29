@@ -10,7 +10,7 @@ tweego -o EEEG.html github/Eigengrau/Essential\ Establishment\ Generator/
 
 $tavernNPC.heshe.toUpperFirst()
 
-<<set $npctest to setup.createNPC()>>
+<<set $npctest to setup.createNPC($town)>>
 
 
 <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
@@ -29,7 +29,7 @@ either($potion.smell)
 <</linkreplace>>
 <span id="random"></span><</nobr>>
 
-<<set $guard.name = "The Knights of <<= setup.Town.get('" + $townID + "').name>>">>
+<<set $town.guard.name = "The Knights of <<= setup.Town.get('" + $townID + "').name>>">>
 
 
 */

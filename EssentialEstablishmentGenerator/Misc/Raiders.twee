@@ -1,6 +1,6 @@
 :: Raiders
-<<set $raidedvillager to setup.createNPC({hasClass: false})>>
-<<set $raiderleader to setup.createNPC({dndClass: "barbarian", gender: "male"})>>
+<<set $raidedvillager to setup.createNPC($town, {hasClass: false})>>
+<<set $raiderleader to setup.createNPC($town, {dndClass: "barbarian", gender: "male"})>>
 <<set $raiders to {
   extort: either([
     "<<print random(2, 10)>> CP per week from each family",

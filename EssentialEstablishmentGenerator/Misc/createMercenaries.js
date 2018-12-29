@@ -1,4 +1,4 @@
-setup.createMercenaries = function () {
+setup.createMercenaries = function (town) {
   var mercenaries = {
     colours: [
       'black',
@@ -145,75 +145,75 @@ setup.createMercenaries = function () {
 
   switch (mercenaries.commanderTrait) {
     case 'a brazen outlaw':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'criminal'
       })
       break
     case 'a charismatic demagogue':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'charlatan',
         calmTrait: 'charismatic',
         stressTrait: 'manipulative'
       })
       break
     case 'a mysterious foreigner':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'outlander'
       })
       break
     case 'an outcast from a prominent family':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'noble'
       })
       break
     case 'a ruthless killer':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'criminal'
       })
       break
     case 'a dashing swashbuckler':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'sailor',
         dndClass: 'fighter'
       })
       break
     case 'a brutish thug':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'criminal',
         dndClass: 'fighter'
       })
       break
     case 'a celebrated war hero':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'soldier',
         dndClass: 'fighter'
       })
       break
     case 'a disgraced knight':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'criminal',
         dndClass: 'paladin'
       })
       break
     case 'a former arena champion':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'gladiator',
         dndClass: 'fighter'
       })
       break
     case 'an ex-gladiator':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'gladiator',
         dndClass: 'fighter'
       })
       break
     case 'an escaped slave':
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'criminal'
       })
       break
     default:
-      mercenaries.captain = setup.createNPC({
+      mercenaries.captain = setup.createNPC(town, {
         background: 'soldier',
         dndClass: 'fighter'
       })

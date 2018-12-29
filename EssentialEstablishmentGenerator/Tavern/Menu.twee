@@ -13,6 +13,6 @@
 	</div>
 <</if>>
 
-The <<link "house cheese ">><<set _cheese to setup.miscData.createCheese()>><<replace #cheese>> is <<money _cheese.cost>>, and is a  _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.<</replace>><</link>><span id="cheese">is <<money _cheese.cost>> and is a _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.</span>
+The <<set _cheese to setup.misc.cheese.create()>><<link "house cheese ">><<set _cheese to setup.misc.cheese.create()>><<replace #cheese>> is <<money _cheese.cost>>, and is a  _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.<</replace>><</link>><span id="cheese">is <<money _cheese.cost>> and is a _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.</span>
  <</linkreplace>>
 <</nobr>>

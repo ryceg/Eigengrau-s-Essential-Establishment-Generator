@@ -1,9 +1,10 @@
 /* global setup State dice random */
-setup.createNPC = function (base) {
+setup.createNPC = function (town, base) {
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   var data = setup.npcData
   var gender = ['man', 'woman'].random()
-  var race = data.race.random()
+  var race = setup.fetchRace(town)
+  // var race = setup.data.race.random()
   var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   var lastName = data.raceTraits[race].lastName.random().toUpperFirst()
   var ageStage = ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
@@ -136,8 +137,8 @@ setup.createNPC = function (base) {
   }
 
   if (!npc.isShallow) {
-    setup.createHistory(npc)
-    setup.createLifeEvents(npc)
+    setup.createHistory(town, npc)
+    setup.createLifeEvents(town, npc)
   } else if (npc.isShallow) {
     console.log(npc.name + ' is shallow, so ' + npc.heshe + " doesn't get a history.")
   }

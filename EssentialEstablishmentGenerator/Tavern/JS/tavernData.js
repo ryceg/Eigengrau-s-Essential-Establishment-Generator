@@ -80,42 +80,42 @@ setup.tavern = {
     {
       'name': 'Passe-dix',
       'type': 'chance game',
-      'description': "You see a <<profile $NPCgamer $NPCgamer.raceNote>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $NPCgamer.hisher winnings from a <<profile $NPCgamebanker $NPCgamebanker.raceNote>> who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight <<print $NPCgamebanker.raceSingular>> with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print either ('boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing')>>.",
+      'description': "You see a <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $NPCgamer.hisher winnings from a <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight <<print $NPCgamebanker.raceSingular>> with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print either ('boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing')>>.",
       'rules': 'Passe-dix is played with three dice. There’s always a banker, and the number of players is unlimited. The first gamer rolls: every time he throws UNDER ten he (and all the other players in the game) lose the specified stake, which goes to the banker. Every time he rolls ABOVE ten (or PASSES TEN–whence the name of the game), the banker must return double the stake to all the players in the game. After three losses of the roller (no matter how many wins), the roller position is passed to another gamer in the circle. The banker changes after each roll.',
       'bet': random(15, 25)
     },
     {
       'name': 'Highest Points',
       'type': 'chance game',
-      'description': 'A <<profile $NPCgamebanker $NPCgamebanker.raceNote>>, and a <<profile $NPCgamer $NPCgamer.raceNote>> are sitting in the middle of the room with two whittled dice each. They chuck <<money $taverngames.bet>> on the table, then roll, and the one that rolled higher grins as they grab the copper.',
+      'description': 'A <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>>, and a <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> are sitting in the middle of the room with two whittled dice each. They chuck <<money $taverngames.bet>> on the table, then roll, and the one that rolled higher grins as they grab the copper.',
       'rules': '2 six-sided dice, 2 players: each roll both dice and the highest sum wins.',
       'bet': random(2, 5)
     },
     {
       'name': 'Cross and Pile',
       'type': 'chance game',
-      'description': 'A <<profile $NPCgamer $NPCgamer.raceNote>> and a <<profile $NPCgamebanker $NPCgamebanker.raceNote>> sit around a large table, and take turns flipping a coin. As the coin flies mid-air, the $NPCgamer.weight $NPCgamer.race calls out the result, and guesses correctly, grabbing $NPCgamer.hisher meager winnings.',
+      'description': 'A <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> and a <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> sit around a large table, and take turns flipping a coin. As the coin flies mid-air, the $NPCgamer.weight $NPCgamer.race calls out the result, and guesses correctly, grabbing $NPCgamer.hisher meager winnings.',
       'rules': 'Two players choose each side of a coin, and then the coin is flipped. The top side after flipping the coin is the one that wins.',
       'bet': random(7, 14)
     },
     {
       'name': 'Thimble Rig',
       'type': 'guessing game',
-      'description': "A <<profile $NPCgamebanker $NPCgamebanker.raceNote>>'s quick hands, a pair of eyes belonging to a $NPCgamer.raceNote watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
+      'description': "A <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>>'s quick hands, a pair of eyes belonging to a <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
       'rules': 'The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.',
       'bet': random(4, 9)
     },
     {
       'name': 'Arm Wrestling',
       'type': 'strength game',
-      'description': "A $NPCgamer.dndClass and a <<profile $NPCgamebanker $NPCgamebanker.raceNote>> sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
+      'description': "A <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> and a <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
       'rules': '<blockquote> <<print random(12, 25)>> DC Athletics Check</blockquote>',
       'bet': random(6, 12)
     },
     {
       'name': 'Two-Up',
       'type': 'gambling game',
-      'description': 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $NPCgamer $NPCgamer.raceNote>> groaning whenever they both turned heads, and another <<profile $NPCgamebanker $NPCgamebanker.raceNote>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
+      'description': 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> groaning whenever they both turned heads, and another <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
       'rules': "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
       'bet': 10
     }
@@ -155,7 +155,11 @@ setup.tavern = {
     'There is a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously.'
   ],
   'get': {
-    'carousing': function (tavern, town) {
+    'patrons': function (town, tavern) {
+      var key = Object.keys(setup.tavern.patrons)
+      return setup.tavern.patrons[key[key.length * Math.random() << 0]](town, tavern)
+    },
+    'carousing': function (town, tavern) {
       var carousing = {
         'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
         'brawl': function () { return 'A bar brawl leaves you with a scar.' },
@@ -165,7 +169,7 @@ setup.tavern = {
         'married': function () { return 'Surprise! You got engaged.' },
         'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
         'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
-        'insult': function (tavern, town) {
+        'insult': function (town, tavern) {
           var found = setup.factionsForType(town, 'individual')
           var faction = found.random()
           return 'You accidentally insulted the <<profile `$npcs[' + JSON.stringify(faction.leader.key) + ']` leader>> of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>>, and only a public apology will let you do business with them again.'
@@ -176,12 +180,12 @@ setup.tavern = {
           return 'You swore to complete some quest on behalf of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>>.'
         },
         'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
-        'suitor': function () {
-          var lover = setup.createNPC()
-          return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(lover.key) + ']`>> has taken an interest in you romantically.'
+        'suitor': function (town) {
+          var npc = setup.createNPC(town)
+          return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>> has taken an interest in you romantically.'
         },
-        'wizard': function () {
-          var npc = setup.createNPC({ dndClass: 'wizard' })
+        'wizard': function (town) {
+          var npc = setup.createNPC(town, { dndClass: 'wizard' })
           return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
         },
         'festival': function () { return 'You have been recruited to help run a local festival.' },
@@ -189,27 +193,27 @@ setup.tavern = {
         'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
         'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
         'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
-        'debt': function () {
-          var noble = setup.createNPC({ background: 'noble', hasClass: false })
-          return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(noble.name) + ']`>> debts.'
+        'debt': function (town) {
+          var npc = setup.createNPC(town, { background: 'noble', hasClass: false })
+          return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(npc.name) + ']`>> debts.'
         },
-        'joust': function () {
-          var knight = setup.createNPC({ dndClass: 'fighter', background: 'soldier', gender: 'man' })
-          return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(knight.key) + ']`>>.'
+        'joust': function (town) {
+          var npc = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier', gender: 'man' })
+          return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
         },
-        'foe': function () {
-          var noble = setup.createNPC({ background: 'noble', hasClass: false })
-          return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>>.'
+        'foe': function (town) {
+          var npc = setup.createNPC(town, { background: 'noble', hasClass: false })
+          return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
         },
         'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
         'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
-        'boring': function () {
-          var noble = setup.createNPC({ background: 'noble', hasClass: false })
+        'boring': function (town) {
+          var noble = setup.createNPC(town, { background: 'noble', hasClass: false })
           return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
         }
       }
       var keys = Object.keys(carousing)
-      return carousing[keys[keys.length * Math.random() << 0]](tavern, town)
+      return carousing[keys[keys.length * Math.random() << 0]](town, tavern)
     },
     'lookAround': function (tavern) {
       var bartender = tavern.bartender
@@ -489,7 +493,7 @@ setup.tavern = {
           draw: 'resident bard',
           // drawFunction: function createBard (tavern) {
           //   console.log('Created a bard as part of the tavernDraw function.')
-          //   tavern.bard = setup.createNPC({ dndClass: 'bard', gender: 'man' })
+          //   tavern.bard = setup.createNPC(town, { dndClass: 'bard', gender: 'man' })
           //   return {
           //     tavern
           //   }
@@ -507,7 +511,7 @@ setup.tavern = {
           draw: 'crude jokes the bartender makes',
           // drawFunction: function createPatron (tavern) {
           //   console.log('Created a tavern patron as part of the tavernDraw function.')
-          //   tavern.patron = setup.createNPC({ hasClass: false, gender: 'man' })
+          //   tavern.patron = setup.createNPC(town, { hasClass: false, gender: 'man' })
           //   return {
           //     tavern
           //   }
@@ -578,7 +582,7 @@ setup.tavern = {
         //   draw: 'drunk wizard',
         //   drawFunction: function (tavern) {
         //     tavern.roll.magic += 10
-        //     var drunkWizard = setup.createNPC({dndClass: 'wizard'})
+        //     var drunkWizard = setup.createNPC(town, {dndClass: 'wizard'})
         //     return {
         //       drunkWizard: drunkWizard,
         //       tavern: tavern
@@ -664,80 +668,76 @@ setup.tavern = {
       return descriptions
     }
   },
-  'getPatrons': function (tavern, town) {
-    var key = Object.keys(setup.tavern.patrons)
-    return setup.tavern.patrons[key[key.length * Math.random() << 0]](tavern, town)
-  },
   'patrons': {
-    'farmer': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'farmer', gender: 'man'})
+    'farmer': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'farmer', gender: 'man'})
       return 'A poor <<profile `$npcs[' + JSON.stringify(npc.key) + ']` farmer>> is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.'
     },
-    'seacaptain': function () {
-      var npc = setup.createNPC({background: 'sailor', profession: 'sea captain', gender: 'man'})
+    'seacaptain': function (town) {
+      var npc = setup.createNPC(town, {background: 'sailor', profession: 'sea captain', gender: 'man'})
       return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` sea-captain>> has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.'
     },
-    'ranger': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man'})
+    'ranger': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man'})
       return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` ranger>> sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.'
     },
-    'troll': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'troll', gender: 'man'})
+    'troll': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'troll', gender: 'man'})
       return 'A lone <<profile `$npcs[' + JSON.stringify(npc.key) + ']` troll>> is drinking at the end of the bar and softly crying and singing one country ballad after another.'
     },
-    'wizard': function () {
-      var npc = setup.createNPC({background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man'})
+    'wizard': function (town) {
+      var npc = setup.createNPC(town, {background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man'})
       return 'A stoned <<profile `$npcs[' + JSON.stringify(npc.key) + ']` magician>> is fumbling his way through one awful card trick after another.'
     },
-    'elves': function () {
-      var npc = setup.createNPC({background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: "obsidian bow"})
+    'elves': function (town) {
+      var npc = setup.createNPC(town, {background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: "obsidian bow"})
       return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. <<profile `$npcs[' + JSON.stringify(npc.key) + ']` One>> has an obsidian bow strapped to her back.'
     },
-    'clown': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'clown'})
+    'clown': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'clown'})
       return 'A sad <<profile `$npcs[' + JSON.stringify(npc.key) + ']` clown>> is drinking a beer alone.'
     },
-    'guards': function () {
-      var npc = setup.createNPC({background: 'soldier', profession: 'guard', dndClass: 'fighter'})
+    'guards': function (town) {
+      var npc = setup.createNPC(town, {background: 'soldier', profession: 'guard', dndClass: 'fighter'})
       return 'Two <<profile `$npcs[' + JSON.stringify(npc.key) + ']` guards>> are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.'
     },
-    'suitor': function () {
-      var npc = setup.createNPC({background: 'noble', profession: 'noble', hasClass: false, gender: 'woman'})
+    'suitor': function (town) {
+      var npc = setup.createNPC(town, {background: 'noble', profession: 'noble', hasClass: false, gender: 'woman'})
       return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` handsome young woman>> is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.'
     },
-    'stag': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'farmer', gender: 'man'})
+    'stag': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'farmer', gender: 'man'})
       return 'Some <<profile `$npcs[' + JSON.stringify(npc.key) + ']` idiot>> is having a stag night. His friends are loud and obnoxiously harassing the barmaid.'
     },
-    'ladies': function () {
-      var npc = setup.createNPC({background: 'scholar', profession: 'librarian', gender: 'woman'})
+    'ladies': function (town) {
+      var npc = setup.createNPC(town, {background: 'scholar', profession: 'librarian', gender: 'woman'})
       return "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town <<profile `$npcs[" + JSON.stringify(npc.key) + "]` librarian>>."
     },
-    'witch': function () {
-      var npc = setup.createNPC({background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman'})
+    'witch': function (town) {
+      var npc = setup.createNPC(town, {background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman'})
       return 'A surly old <<profile `$npcs[' + JSON.stringify(npc.key) + ']` witch>> is drinking sherry while stroking the fat grey cat sitting on her lap.'
     },
-    'marilith': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
+    'marilith': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'barmaid', gender: 'woman'})
       return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a marilith, mixing up four drinks at a time.'
     },
-    'succubus': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
+    'succubus': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'barmaid', gender: 'woman'})
       return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a succubus, she seems to be making great tips.'
     },
-    'attendant': function () {
+    'attendant': function (town) {
       return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
     },
-    'mophand': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'mophand', hasClass: false})
+    'mophand': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'mophand', hasClass: false})
       return "The <<profile `$npcs[" + JSON.stringify(npc.key) + "]` 'toothless mop-hand'>> reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
     },
-    'doppelganger': function () {
-      var npc = setup.createNPC({background: 'commoner', profession: 'barmaid', gender: 'woman'})
+    'doppelganger': function (town) {
+      var npc = setup.createNPC(town, {background: 'commoner', profession: 'barmaid', gender: 'woman'})
       return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.'
     },
-    'priest': function () {
-      var npc = setup.createNPC({background: 'sage', profession: 'priest', dndClass: 'cleric'})
+    'priest': function (town) {
+      var npc = setup.createNPC(town, {background: 'sage', profession: 'priest', dndClass: 'cleric'})
       return "A <<profile `$npcs[" + JSON.stringify(npc.key) + "]` 'fat priest'>> is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
     }
   },

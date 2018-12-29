@@ -1,5 +1,5 @@
 /* global setup random dice */
-setup.createHistory = function (npc) {
+setup.createHistory = function (town, npc) {
   console.log('creating history for ' + npc.name + '...')
   var parentalLineageRoll = random(1, 8)
   var birthplaceRoll = random(1, 100)

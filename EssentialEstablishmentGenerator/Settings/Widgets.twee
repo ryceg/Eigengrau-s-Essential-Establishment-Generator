@@ -67,12 +67,12 @@
     \<<set _char = $args[0],
         _readout = $args[1] || _char.name,
         _id = "tip-" + Util.slugify(_char.name) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-    \<<capture _char, _readout, _id>><<run console.log("The provided argument is: ")>><<run console.log($args[0])>>
+    \<<capture _char, _readout, _id>>
         \<span @id="_id" class="tip"><<link _readout>>
 				<<set $currentNPC to _char>>
 				<<set $currentNPCKey to _char.key>>
 				<<if $args[0].shallow === true>>
-					<<set $npcs[$currentNPCKey] to setup.createNPC(_char)>>
+					<<set $npcs[$currentNPCKey] to setup.createNPC($town, _char)>>
 					<<set $npcs[$currentNPCKey].shallow to false>>
 					<<goto "NPCProfile">>
 				<<else>>

@@ -3,8 +3,8 @@ setup.createSmithy = function (town, opts) {
   opts = opts || {}
   let smithy = (opts['newBuilding'] || setup.createBuilding)(town, 'smithy')
   console.groupCollapsed('Smithy loading...')
-  smithy.blacksmith = setup.createBlacksmith(smithy)
-  setup.createSmithyName(smithy, town)
+  smithy.blacksmith = setup.createBlacksmith(town, smithy)
+  setup.createSmithyName(town, smithy)
   Object.assign(smithy, {
     wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].random(),
     passageName: 'SmithyOutput',

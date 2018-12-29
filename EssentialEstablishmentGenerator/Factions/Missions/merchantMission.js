@@ -1,8 +1,8 @@
-setup.merchantMission = function (mission) {
+setup.merchantMission = function (town, mission) {
   switch (mission.difficulty) {
     case 'easy':
       Object.assign(mission, {
-        readout: ['collect a package from the ' + State.variables.town.type + ' gates, which have been held up by a bureaucratic city official.',
+        readout: ['collect a package from the ' + town.type + ' gates, which have been held up by a bureaucratic city official.',
           "collect a package from the nearest village, where they're caught up in some small-town superstition.",
           'collect a shipment from a relatively nearby city, where there was a severe mix-up with the shipments.',
           'collect some payment from one of the stores to the north, which must be paid off from their mortgage.'

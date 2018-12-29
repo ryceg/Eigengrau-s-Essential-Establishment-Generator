@@ -11,10 +11,10 @@ setup.createSocioPolitics = function (town) {
   setup.createTownLeader = function (town) {
     town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].data.leaderType || 'commoners'
     if (typeof polIde.leaderTraits !== 'undefined') {
-      town.leader = setup.createNPC(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
+      town.leader = setup.createNPC(town, setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
     } else {
       console.log('Invalid political ideology of ' + town.politicalIdeology + '. Leader defaulting to random NPC...')
-      town.leader = setup.createNPC()
+      town.leader = setup.createNPC(town)
     }
     return town
   }
@@ -25,7 +25,7 @@ setup.createSocioPolitics = function (town) {
         case 'autocracy':
           town.dualLeaders = false
           console.log('Loaded autocratic absolute monarchy')
-          town.leader = setup.createNPC({ background: 'noble', profession: 'noble' })
+          town.leader = setup.createNPC(town, { background: 'noble', profession: 'noble' })
           // switch (town.ruler.gender) {
           //   case 'woman':
           //     town.rulerType = 'Queen'
@@ -39,7 +39,7 @@ setup.createSocioPolitics = function (town) {
           console.log('Loaded a ' + town.politicalIdeologyIC + ' absolute monarchy')
           setup.createTownLeader(town)
           town.dualLeaders = true
-          town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
       }
       break
     case 'constitutional monarchy':
@@ -47,8 +47,8 @@ setup.createSocioPolitics = function (town) {
         case 'autocracy':
           town.dualLeaders = true
           console.log('Loaded autocratic constitutional monarchy')
-          town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble', profession: 'noble' })
-          town.leader = setup.createNPC({ title: 'Lord', background: 'noble', profession: 'politician' })
+          town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          town.leader = setup.createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
           // switch (town.ruler.gender) {
           //   case 'woman':
           //     town.rulerType = 'Queen'
@@ -60,7 +60,7 @@ setup.createSocioPolitics = function (town) {
           break
         default:
           console.log('Loaded a ' + town.politicalIdeologyIC + ' constitutional monarchy')
-          town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
           setup.createTownLeader(town)
       }
       break
@@ -76,7 +76,7 @@ setup.createSocioPolitics = function (town) {
   //       case 'absolute monarchy':
   //         town.dualLeaders = false
   //         console.log('Loaded autocratic absolute monarchy')
-  //         town.leader = setup.createNPC({ background: 'noble', profession: 'noble' })
+  //         town.leader = setup.createNPC(town, { background: 'noble', profession: 'noble' })
   //         switch (town.ruler.gender) {
   //           case 'woman':
   //             town.rulerType = 'Queen'
@@ -89,8 +89,8 @@ setup.createSocioPolitics = function (town) {
   //       case 'constitutional monarchy':
   //         town.dualLeaders = true
   //         console.log('Loaded autocratic constitutional monarchy')
-  //         town.ruler = setup.createNPC({ title: 'Royal Highness', background: 'noble', profession: 'noble' })
-  //         town.leader = setup.createNPC({ title: 'Lord', background: 'noble', profession: 'politician' })
+  //         town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
+  //         town.leader = setup.createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
   //         // town.politicalSourceDescription = "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
   //         switch (town.ruler.gender) {
   //           case 'man':
@@ -106,7 +106,7 @@ setup.createSocioPolitics = function (town) {
   //       default:
   //         town.leaderType = 'the supreme leader'
   //         town.dualLeaders = false
-  //         town.leader = setup.createNPC({ title: 'Lord', background: 'noble', profession: 'politician' })
+  //         town.leader = setup.createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
   //     }
   //     break
   //   default:
@@ -116,7 +116,7 @@ setup.createSocioPolitics = function (town) {
   //       town.leader = setup.createNPC(polIde.leaderTraits)
   //     } else {
   //       console.log('Invalid political ideology of ' + town.politicalIdeology + '. Leader defaulting to random NPC...')
-  //       town.leader = setup.createNPC()
+  //       town.leader = setup.createNPC(town)
   //     }
   // }
 

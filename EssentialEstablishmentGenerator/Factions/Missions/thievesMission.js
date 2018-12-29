@@ -1,4 +1,4 @@
-setup.thievesMission = function (mission) {
+setup.thievesMission = function (town, mission) {
   mission.type = ['alchemy', 'assassination', 'blackmail', 'burglary', 'swindle', 'fence', 'fraud', 'gambling', 'kidnapping', 'narcotics', 'prostitution', 'protection', 'slavery', 'smuggling', 'street'].random()
   switch (mission.type) {
     case 'alchemy':

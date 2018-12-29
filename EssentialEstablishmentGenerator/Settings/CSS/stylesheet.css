@@ -2306,3 +2306,20 @@ pre code {
 .table-responsive > .table-bordered {
   border: 0;
 }
+
+.classTable{
+    margin-top:25px;
+    margin-bottom:40px;
+    border-collapse:separate;
+    background-color:white;
+    border:initial;
+    border-style:solid;
+    border-image-outset:25px 17px;
+    border-image-repeat:round;
+    border-image-slice:150 200 150 200;
+    border-image-source: [img[table-wrap]];
+    border-image-width:47px
+}
+.classTable h5{
+    margin-bottom:10px
+}

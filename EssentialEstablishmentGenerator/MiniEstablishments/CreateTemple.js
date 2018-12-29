@@ -10,7 +10,7 @@ setup.createTemple = function (town, opts) {
     initPassage: 'TempleOutput',
     BuildingType: 'temple',
     wordNoun: data.name.wordNoun.random(),
-    priest: setup.createNPC({ dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(), background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(), profession: 'priest' }),
+    priest: setup.createNPC(town, { dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(), background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(), profession: 'priest' }),
     prayerSubject: data.prayerSubject.random(),
     dedicated: data.dedicated.random(),
     knownFor: data.knownFor.random(),

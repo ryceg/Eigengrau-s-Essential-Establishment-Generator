@@ -1,8 +1,8 @@
-setup.alchemistMission = function (mission) {
+setup.alchemistMission = function (town, mission) {
   var missionPotion = setup.createAlchemy({ type: 'potion' })
   var missionIngredient = setup.createAlchemy({ type: 'preserved herb' })
   var missionBodyPart = setup.createAlchemy({ type: 'body part' })
-  var alchemistMissionNPC = setup.createNPC({ isShallow: true, hasClass: false, profession: 'alchemist' })
+  var alchemistMissionNPC = setup.createNPC(town, { isShallow: true, hasClass: false, profession: 'alchemist' })
   switch (mission.difficulty) {
     case 'easy':
       Object.assign(mission, {

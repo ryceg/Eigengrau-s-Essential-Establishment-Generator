@@ -7,7 +7,7 @@
               <<profile _found>>
             <</if>>
       <<else>>
-        <<run setup.createNPC({profession: _trade.profession, hasClass: false})>>
+        <<run setup.createNPC($town, {profession: _trade.profession, hasClass: false})>>
         <<set $currentNPC to _trade>>
         <<profile _trade>>
     <</if>>

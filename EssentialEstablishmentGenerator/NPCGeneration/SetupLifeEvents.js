@@ -1,5 +1,5 @@
 /* global setup random dice */
-setup.createLifeEvents = function (npc) {
+setup.createLifeEvents = function (town, npc) {
   console.groupCollapsed('creating life events for ' + npc.name + '...')
   var lifeEventsNumber
   var lifeEventsRoll
@@ -109,9 +109,9 @@ setup.createLifeEvents = function (npc) {
     } else if (npc.partnerID === undefined) {
       console.log(npc.name + ' met somebody!')
       if (npc.gender === 'man') {
-        npc.partnerID = setup.createNPC({ gender: 'woman', partnerID: npc.id })
+        npc.partnerID = setup.createNPC(town, { gender: 'woman', partnerID: npc.id })
       } else {
-        npc.partnerID = setup.createNPC({ gender: 'man', partnerID: npc.id })
+        npc.partnerID = setup.createNPC(town, { gender: 'man', partnerID: npc.id })
       }
       return 'I met the love of my life, <<profile ' + npc.partnerID + '>>.'
     }

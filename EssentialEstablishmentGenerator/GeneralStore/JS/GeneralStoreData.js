@@ -193,69 +193,69 @@ setup.GeneralStore = {
         shopkeep.firstName + ' insists ' + shopkeep.heshe + ' is from an ancient line of powerful merchants',
         shopkeep.firstName + ' dresses much better than expected',
         shopkeep.firstName + ' looks like a beggar',
-        'Constables of the local guard, $guard.name are interviewing everyone in the shop']
+        'Constables of the local guard, $town.guard.name are interviewing everyone in the shop']
       return note.random()
     },
     'priceTalk': function (GeneralStore) {
       var priceTalk = [
         {
           priceModifier: 5,
-          wealthRoll: 80,
+          wealth: 80,
           priceTalk: 'Be warned, these prices might be... out of your range'
         },
         {
           priceModifier: 5,
-          wealthRoll: 50,
+          wealth: 50,
           priceTalk: "Fair warning; the prices ain't what they used to be, by a long shot."
         },
         {
           priceModifier: 5,
-          wealthRoll: 20,
+          wealth: 20,
           priceTalk: "I'm afraid that times are tough, there's a bit of a surcharge on the fun stuff."
         },
         {
           priceModifier: 2,
-          wealthRoll: 80,
+          wealth: 80,
           priceTalk: 'Fair warning, premium products come with a premium price.'
         },
         {
           priceModifier: 2,
-          wealthRoll: 50,
+          wealth: 50,
           priceTalk: "Fair warning; the prices ain't what they used to be."
         },
         {
           priceModifier: 2,
-          wealthRoll: 20,
+          wealth: 20,
           priceTalk: "Things might be a wee bit more expensive than you're used to, but that's the cost of doing business at the moment."
         },
         {
           priceModifier: -2,
-          wealthRoll: 80,
+          wealth: 80,
           priceTalk: 'These are priced to move, so I can make some space and get some new stock in.'
         },
         {
           priceModifier: -2,
-          wealthRoll: 50,
+          wealth: 50,
           priceTalk: 'Priced to move!'
         },
         {
           priceModifier: -2,
-          wealthRoll: 20,
+          wealth: 20,
           priceTalk: 'Priced to sell, so I can afford some new stock!'
         },
         {
           priceModifier: -4,
-          wealthRoll: 80,
+          wealth: 80,
           priceTalk: "Everything must go! I'm getting in entirely new, custom stock in a couple day's time, and need the space clear."
         },
         {
           priceModifier: -4,
-          wealthRoll: 50,
+          wealth: 50,
           priceTalk: "I've got a massive sale going on at the moment!"
         },
         {
           priceModifier: -4,
-          wealthRoll: 20,
+          wealth: 20,
           priceTalk: "Everything must go- can't afford to keep " + GeneralStore.name + " open much longer, so I'm getting rid of the final stock."
         }
       ]

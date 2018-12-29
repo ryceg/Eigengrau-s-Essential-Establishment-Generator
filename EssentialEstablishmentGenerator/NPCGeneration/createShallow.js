@@ -1,6 +1,6 @@
 /* global setup */
 setup.createShallow = function (base) {
-  var npc = setup.createNPC({isShallow: true})
+  var npc = setup.createNPC(town, {isShallow: true})
   return npc
 }
 //   var data = setup.npcData

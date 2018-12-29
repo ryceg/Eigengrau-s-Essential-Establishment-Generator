@@ -1,6 +1,6 @@
 :: PatreonCharacters [render]
 <<if ndef $Birchbottom && $patreonContent is true>>
-    <<set $Birchbottom to setup.createNPC({
+    <<set $Birchbottom to setup.createNPC($town, {
       firstName: "Tylien",
       lastName: "Birchbottom",
       /* name: "Tylien Birchbottom", */
@@ -27,7 +27,7 @@
     /* <<set $Birchbottom.firstName to "Tylien", $Birchbottom.name to "Tylien Birchbottom", $Birchbottom.height to "short", $Birchbottom.weight to "light", $Birchbottom.age to "about twenty four", $Birchbottom.physicalTrait to "lashes on his back that have scarred over">> */
 <</if>>
 /*
-<<set $galder to setup.createNPC({
+<<set $galder to setup.createNPC($town, {
   firstName: "Galder",
   lastName: "Fendt",
   name: "Galder Fendt",

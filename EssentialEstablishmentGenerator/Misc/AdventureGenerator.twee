@@ -15,25 +15,25 @@
 
 <<switch $adventure.goal>>
     <<case "rescue a captive.">>
-        <<set $adventureGoalNPC to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
         <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
     <<case "discover the fate of a previous adventuring party.">>
-        <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
     <<case "find an npc who disappeared in the area.">>
-        <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "find <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who disappeared in the area.">>
     <<case "escort an npc to a destination.">>
-        <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "escort <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who needs protection on the way to another place.">>
     <<case "discover the fate of a missing group of explorers.">>
-        <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
-        <<set $adventureGoalNPC to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
         <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
-        <<set $adventureGoalNPC to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was caught in a natural disaster.">>
 <</switch>>
 
@@ -41,42 +41,42 @@
 
 <<switch $adventure.villain>>
     <<case "beast or monstrosity with no particular agenda">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
     <<case "terrible aberration bent on corruption or domination">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
     <<case "fiend bent on corruption or destruction">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
     <<case "dragon bent on domination and plunder">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
     <<case "giant bent on plunder">>
-        <<set $adventureVillain to setup.createNPC({height: "huge", race: "human", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {height: "huge", race: "human", isThrowaway: true})>>
     <<case "horrible undead with any agenda">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
     <<case "fey with a mysterious goal">>
-        <<set $adventureVillain to setup.createNPC({race: "elf", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "humanoid cultist">>
-        <<set $adventureVillain to setup.createNPC({dndClass: either("cleric", "sorcerer", "wizard"), isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {dndClass: either("cleric", "sorcerer", "wizard"), isThrowaway: true})>>
         <<set $adventure.villain to "cultist called <<profile $adventureVillain>>">>
     <<case "humanoid conqueror">>
-        <<set $adventureVillain to setup.createNPC({dndClass: either("barbarian", "fighter", "paladin"), isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {dndClass: either("barbarian", "fighter", "paladin"), isThrowaway: true})>>
         <<set $adventure.villain to "fearsome conqueror called <<profile $adventureVillain>>">>
     <<case "humanoid seeking revenge">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.villain to "$adventureVillain.raceNote called <<profile $adventureVillain>> hellbent on revenge.">>
     <<case "humanoid schemer seeking to rule">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.villain to "conniving $adventureVillain.raceNote called <<profile $adventureVillain>> who seeks power">>
     <<case "humanoid criminal mastermind">>
-        <<set $adventureVillain to setup.createNPC({dndClass: either("sorcerer", "rogue"), isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {dndClass: either("sorcerer", "rogue"), isThrowaway: true})>>
         <<set $adventure.villain to "conniving $adventureVillain.raceNote called <<profile $adventureVillain>> who seeks to build a criminal empire">>
     <<case "humanoid raider or ravager">>
-        <<set $adventureVillain to setup.createNPC({dndClass: either("barbarian", "fighter"), isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {dndClass: either("barbarian", "fighter"), isThrowaway: true})>>
         <<set $adventure.villain to "fearsome raider called <<profile $adventureVillain>>">>
     <<case "humanoid under a curse">>
-        <<set $adventureVillain to setup.createNPC({isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.villain to "$adventureVillain.raceNote called <<profile $adventureVillain>> who was placed under a curse">>
     <<case "misguided humanoid zealot">>
-        <<set $adventureVillain to setup.createNPC({dndClass: "cleric", isThrowaway: true})>>
+        <<set $adventureVillain to setup.createNPC($town, {dndClass: "cleric", isThrowaway: true})>>
         <<set $adventure.villain to "misguided $adventureVillain.raceNote zealot called <<profile $adventureVillain>>">>
     <</switch>>
 
@@ -86,29 +86,29 @@
 <<set $adventure.ally to either(["skilled adventurer", "inexperienced adventurer", "enthusiastic commoner", "soldier", "priest", "sage", "revenge seeker", "raving lunatic adventurer", "celestial ally", "fey ally", "disguised monster", "villain posing as an ally"])>>
 <<switch $adventure.ally>>
     <<case "skilled adventurer">>
-        <<set $adventureAlly to setup.createNPC()>>
+        <<set $adventureAlly to setup.createNPC($town)>>
     <<case "young adventurer">>
-        <<set $adventureAlly to setup.createNPC({age: "relatively young", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {age: "relatively young", isThrowaway: true})>>
     <<case "enthusiastic commoner">>
-        <<set $adventureAlly to setup.createNPC({dndClass: either("peasant", "urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner"), isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {dndClass: either("peasant", "urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner"), isThrowaway: true})>>
     <<case "soldier">>
-        <<set $adventureAlly to setup.createNPC({dndClass: "fighter", background: "soldier", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {dndClass: "fighter", background: "soldier", isThrowaway: true})>>
     <<case "priest">>
-        <<set $adventureAlly to setup.createNPC({dndClass: "cleric", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {dndClass: "cleric", isThrowaway: true})>>
     <<case "sage">>
-        <<set $adventureAlly to setup.createNPC({dndClass: either("cleric", "monk", "druid", "wizard"), background: "sage", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {dndClass: either("cleric", "monk", "druid", "wizard"), background: "sage", isThrowaway: true})>>
     <<case "revenge seeker">>
-        <<set $adventureAlly to setup.createNPC({background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
     <<case "raving lunatic adventurer">>
-        <<set $adventureAlly to setup.createNPC()>>
+        <<set $adventureAlly to setup.createNPC($town)>>
     <<case "celestial ally">>
-        <<set $adventureAlly to setup.createNPC({race: "elf", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "fey ally">>
-        <<set $adventureAlly to setup.createNPC({race: "elf", isThrowaway: true})>>
+        <<set $adventureAlly to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "disguised monster">>
-        <<set $adventureAlly to setup.createNPC()>>
+        <<set $adventureAlly to setup.createNPC($town)>>
     <<case "villain posing as an ally">>
-        <<set $adventureAlly to setup.createNPC()>>
+        <<set $adventureAlly to setup.createNPC($town)>>
 <</switch>>
 
 
@@ -117,33 +117,33 @@
 
 <<switch $adventure.patron>>
     <<case "retired adventurer">>
-        <<set $adventurePatron to setup.createNPC({adventure: "retired", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {adventure: "retired", isThrowaway: true})>>
     <<case "local ruler">>
-        <<set $adventurePatron to setup.createNPC({dndClass: "lord", background: "noble", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {dndClass: "lord", background: "noble", isThrowaway: true})>>
     <<case "military officer">>
-        <<set $adventurePatron to setup.createNPC({dndClass: either("fighter", "paladin"), background: "soldier", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {dndClass: either("fighter", "paladin"), background: "soldier", isThrowaway: true})>>
     <<case "temple official">>
-        <<set $adventurePatron to setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "paladin"), background: "sage", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {dndClass: either("cleric", "cleric", "cleric", "paladin"), background: "sage", isThrowaway: true})>>
     <<case "sage">>
-        <<set $adventurePatron to setup.createNPC({dndClass: either("cleric", "cleric", "cleric", "paladin"), background: "sage", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {dndClass: either("cleric", "cleric", "cleric", "paladin"), background: "sage", isThrowaway: true})>>
     <<case "respected elder">>
-        <<set $adventurePatron to setup.createNPC({age: "venerable", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {age: "venerable", isThrowaway: true})>>
     <<case "deity or celestial">>
-        <<set $adventurePatron to setup.createNPC({race: "elf", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "mysterious fey">>
-        <<set $adventurePatron to setup.createNPC({race: "elf", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "old friend">>
-        <<set $adventurePatron to setup.createNPC()>>
+        <<set $adventurePatron to setup.createNPC($town)>>
     <<case "former teacher">>
-        <<set $adventurePatron to setup.createNPC({age: "venerable", isThrowaway: true})>>
+        <<set $adventurePatron to setup.createNPC($town, {age: "venerable", isThrowaway: true})>>
     <<case "parent or other family member">>
-        <<set $adventurePatron to setup.createNPC()>>
+        <<set $adventurePatron to setup.createNPC($town)>>
     <<case "desperate commoner">>
-        <<set $adventurePatron to setup.createNPC()>>
+        <<set $adventurePatron to setup.createNPC($town)>>
     <<case "embattled merchant">>
-        <<set $adventurePatron to setup.createNPC()>>
+        <<set $adventurePatron to setup.createNPC($town)>>
     <<case "villain posing as a patron">>
-        <<set $adventurePatron to setup.createNPC()>>
+        <<set $adventurePatron to setup.createNPC($town)>>
 <</switch>>
 
 
@@ -168,13 +168,13 @@
 <<set $adventure.sidequest to either(["find a specific item rumored to be in the area.", "retrieve a stolen item in $adventureVillain.firstName's possession.", "receive information from an npc in the area.", "rescue a captive.", "discover the fate of a missing npc.", "slay a specific monster.", "discover the nature and origin of a strange phenomenon in the area.", "secure the aid of a character or creature in the area."])>>
     <<switch $adventure.sidequest>>
         <<case "receive information from an npc in the area.">>
-            <<set $adventureSidequestNPC to setup.createNPC()>>
+            <<set $adventureSidequestNPC to setup.createNPC($town)>>
             <<set $adventure.sidequest to "receive information from <<profile $adventureSidequestNPC>> who is in the area.">>
         <<case "rescue a captive.">>
-            <<set $adventureSidequestNPC to setup.createNPC()>>
+            <<set $adventureSidequestNPC to setup.createNPC($town)>>
             <<set $adventure.sidequest to "rescue <<profile $adventureSidequestNPC>>, who is being held captive.">>
         <<case "discover the fate of a missing npc.">>
-            <<set $adventureSidequestNPC to setup.createNPC()>>
+            <<set $adventureSidequestNPC to setup.createNPC($town)>>
             <<set $adventure.sidequest to "discover the fate of <<profile $adventureSidequestNPC>>, who went missing in the area.">>
     <</switch>>
 <</nobr>> */
