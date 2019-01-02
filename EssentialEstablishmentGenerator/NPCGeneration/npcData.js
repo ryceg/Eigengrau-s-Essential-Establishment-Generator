@@ -69,7 +69,7 @@ setup.npcData = {
     [30, 'so so tiny'],
     [0, 'impossibly small']
   ],
-  'skinColours': ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown'],
+  'skinColour': ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown'],
   'profession': ['actor', 'advocate', 'advisor', 'animal handler', 'apothecary', 'architect', 'archivist', 'armorer', 'astrologer', 'baker', 'banker', 'barber', 'barkeep', 'blacksmith', 'bookseller', 'brewer', 'bricklayer', 'brothel keeper', 'buccaneer', 'butcher', 'caravanner', 'carpenter', 'cartographer', 'chandler', 'chef', 'clock maker', 'cobbler', 'cook', 'counselor', 'courtesan', 'courtier', 'cowherd', 'dancer', 'diplomat', 'distiller', 'diver', 'farmer', 'fisherman', 'fishmonger', 'gardener', 'general', 'gladiator', 'glovemaker', 'goldsmith', 'grocer', 'guardsman', 'guildmaster', 'hatmaker', 'healer', 'herald', 'herbalist', 'hermit', 'historian', 'hunter', 'ice seller', 'innkeeper', 'inventor', 'jailer', 'jester', 'jeweler', 'judge', 'knight', 'lady', 'leatherworker', 'librarian', 'linguist', 'locksmith', 'lord', 'lumberjack', 'mason', 'masseur', 'merchant', 'messenger', 'midwife', 'miller', 'miner', 'minister', 'minstrel', 'monk', 'mortician', 'necromancer', 'noble', 'nun', 'nurse', 'officer', 'painter', 'patissier', 'perfumer', 'philosopher', 'physician', 'pilgrim', 'potter', 'priest', 'privateer', 'professor', 'roofer', 'ropemaker', 'rugmaker', 'saddler', 'sailor', 'scabbard maker', 'sculptor', 'scavenger', 'scholar', 'seamstress', 'servant', 'shaman', 'shepherd', "ship's captain", 'silversmith', 'slave', 'slaver', 'smith', 'soldier', 'spice merchant', 'squire', 'stablehand', 'stevedore', 'stonemason', 'steward', 'street seller', 'street sweeper', 'student', 'surgeon', 'surveyor', 'sailor', 'tanner', 'tavernkeeper', 'tax collector', 'teacher', 'thatcher', 'thief', 'torturer', 'town crier', 'toymaker', 'vendor', 'veterinarian', 'vintner', 'weaver', 'wetnurse', 'woodcarver', 'wood seller', 'wrestler', 'writer'],
   'trait': ['fidgets', 'drinks too much', 'eats too much', 'swears often', 'has poor hygiene', 'cannot resist flirting', 'cannot stop staring at you', 'sweats profusely and easily', 'is a habitual liar', 'embellishes the truth', 'exaggerates details', 'has a short temper', 'is melodramatic', 'gossips about the most mundane things', 'cannot resist a juicy secret', 'chews with an open mouth', 'often sniffs audibly', 'is incredibly gullible', 'is skeptical of everything', 'paces about incessantly', 'makes poor eye contact', 'is a know it all', "corrects people's grammar when they speak", 'blinks constantly', 'bobs head back and forth when speaking', 'is often sarcastic', 'cannot resist making snide comments', 'loses train of thought easily', 'is always shaking'],
   'idle': ['sitting, with a piece of bread in hand', 'sitting, mug in hand', 'poring over some map', 'reading some letter intently', 'reading a book', 'shuffling a pack of cards', 'chewing on a piece of hay', 'sharpening a knife', 'buffing a piece of armour', 'polishing a shield', 'sharpening the blade on a fearsome looking dagger', 'cutting an apple into bite sized pieces', 'biting into an apple', 'eating an apple while looking at some book', 'eating a hunk of cheese while reading a book', 'sipping out of a huge mug while reading a book', "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'"],
@@ -1050,6 +1050,16 @@ setup.npcData = {
         'I followed a childhood friend into religious service because we made a pact to never be apart.',
         'I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life.'
       ],
+      'personalityTrait': [
+        'I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.',
+        'I can find common ground between the fiercest of enemies, and can work towards peace no matter what the conditions.',
+        'I see omens in every event and action. The gods try to speak to us, we just need to listen!',
+        'Nothing can shake my optimistic attitude.',
+        'I quote (or misquote) sacred texts and proverbs in almost every situation.',
+        'I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.',
+        "I've enjoyed fine food, drink, and high society among my temple’s elite. Rough living grates on me.",
+        'I’ve spent so long in the temple that I have little practical experience dealing with people in the outside world.'
+      ],
       'bond': [
         'I would die to recover an ancient artifact of my faith that was lost long ago.',
         'I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.',
@@ -1068,6 +1078,16 @@ setup.npcData = {
         'I often got into trouble as a youngster, but talked my way out of it.',
         'I took up cheating as a hobby, then was sort of adopted by a local scam artist. It just sort of became a way of life for me.',
         'After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam.'
+      ],
+      'personalityTrait': [
+        'I fall in and out of love easily, and am always pursuing someone.',
+        'I have ajoke for every occasion, especially occasions where humor is inappropriate.',
+        'Flattery is my preferred trick for getting what I want.',
+        "I’m a born gambler who can't resist taking a risk for a potential payoff.",
+        'I lie about almost everything, even when there’s no good reason to.',
+        'Sarcasm and insults are my weapons of choice.',
+        'I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.',
+        'I pocket anything I see that might have some value.'
       ],
       'bond': [
         'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, and must work to ensure that he never crosses paths with me or those I care about.',
@@ -1088,6 +1108,11 @@ setup.npcData = {
         'A relative taught me the trade to prepare me for the family trade.',
         "I left home at a relatively young age, and found refuge in a thieves' guild.",
         'I was always bored, so I started committing minor crimes to pass the time. The adrenaline rush was addictive, and soon I was going on to bigger and better heists.'
+      ],
+      'personalityTrait': [
+        'I always have a plan for when things go wrong.',
+        'I am always calm, no matter what the situation. When things get crazy, I keep a cool head.',
+        "The first thing I do when I'm in a new place is to note the bolt holes, and see "
       ],
       'bond': [
         "I'm trying to pay off an old debt I owe to a generous benefactor.",
