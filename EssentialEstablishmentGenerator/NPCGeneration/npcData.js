@@ -1050,6 +1050,14 @@ setup.npcData = {
         'I followed a childhood friend into religious service because we made a pact to never be apart.',
         'I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life.'
       ],
+      ideal: [
+        'Tradition: The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)',
+        'Charity: I always try to help those in need, no matter what the personal cost. (Good)',
+        'Change: We must help bring about the changes the gods are constantly working in the world. (Chaotic)',
+        "Power: I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)",
+        'Faith: I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)',
+        "Aspiration: I seek to prove myself worthy of my god's favor by matching my actions against their teachings. (Any)"
+      ],
       'personalityTrait': [
         'I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.',
         'I can find common ground between the fiercest of enemies, and can work towards peace no matter what the conditions.',
@@ -1078,6 +1086,14 @@ setup.npcData = {
         'I often got into trouble as a youngster, but talked my way out of it.',
         'I took up cheating as a hobby, then was sort of adopted by a local scam artist. It just sort of became a way of life for me.',
         'After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam.'
+      ],
+      ideal: [
+        'Independence: I am a free spirit– no one tells me what to do. (Chaotic)',
+        "Fairness: I never target people who can't afford to lose a few coins. (Lawful)",
+        'Charity: I distribute the money I acquire to the people who really need it. (Good)',
+        'Creativity: I never run the same con twice. (Chaotic)',
+        'Friendship: Material goods come and go. Bonds of friendship last forever. (Good)',
+        "Aspiration: I'm determined to make something of myself. (Any)"
       ],
       'personalityTrait': [
         'I fall in and out of love easily, and am always pursuing someone.',
@@ -1109,10 +1125,16 @@ setup.npcData = {
         "I left home at a relatively young age, and found refuge in a thieves' guild.",
         'I was always bored, so I started committing minor crimes to pass the time. The adrenaline rush was addictive, and soon I was going on to bigger and better heists.'
       ],
-      'personalityTrait': [
-        'I always have a plan for when things go wrong.',
-        'I am always calm, no matter what the situation. When things get crazy, I keep a cool head.',
-        "The first thing I do when I'm in a new place is to note the bolt holes, and see "
+      ideal: [
+        "Honor: I don't steal from others in the trade. (Lawful)",
+        'Freedom: Chains are meant to be broken',
+        'Charity: I steal from the wealthy so that I can help people in need. (Good)',
+        'Greed: I will do whatever it takes to become wealthy. (Evil)',
+        "People: I'm loyal to my friends",
+        "Redemption: There's a spark of good in everyone. (Good)"
+      ],
+      personalityTrait: [
+
       ],
       'bond': [
         "I'm trying to pay off an old debt I owe to a generous benefactor.",
@@ -1134,6 +1156,17 @@ setup.npcData = {
         'I earned extra coin by performing on the streets as a child, and I never seemed to stop.',
         'A traveling entertainer took me in to teach me the trade, and I learned to love it.'
       ],
+      ideal: [
+        'Beauty: When I perform, I want to make beautiful things for the pleasure of my audience (Good)',
+        'Tradition: The stories I tell have a lot of history which I wish to preserve.',
+        'Creativity: The world is in need of new ideas and bold action. (Chaotic)',
+        "Greed: I'm only in it for the money and fame. (Evil)",
+        "People: I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)",
+        'Honesty: Art should reflect the soul; it should come from within and reveal who we really are. (Any)'
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         'My instrument is my most treasured possession, and it reminds me of someone I love.',
         "Someone stole my precious instrument, and someday I'll get it back.",
@@ -1154,6 +1187,17 @@ setup.npcData = {
         'A mad old hermit spoke a prophecy when l was born, saying that I would accomplish great things.',
         'I have always stood up for those who are weaker than me.'
       ],
+      ideal: [
+        'Respect: People deserve to be treated with dignity and respect. (Good)',
+        'Fairness: No one should get preferential treatment before the law (Good)',
+        'Freedom: Tyrants must not be allowed to oppress the people. (Chaotic)',
+        'Might: If I become strong, I will be better able to protect people. (Good)',
+        "Sincerity: There's no good in pretending to be something I'm not. (Neutral)",
+        'Destiny: Nothing and no one can steer me away from my higher calling. (Any)'
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         'I have a family, but I have no idea where they are.  One day, I hope to see them again.',
         'I worked the land, I love the land, and I will protect the land.',
@@ -1170,6 +1214,12 @@ setup.npcData = {
         'I was a slave, and was forced to fight for my supper and eventual freedom. By the time I got out, there was nothing else I knew.',
         'I entered a fight as a drunken bet, and somehow managed to win. The money was too good for me to quit.',
         'I was constantly getting into fights as a youngster. I figured I might as well continue, for money.'
+      ],
+      ideal: [
+        'Might: If I become strong, I will be better able to protect people. (Good)',
+      ],
+      personalityTrait: [
+
       ],
       'bond': [
         'My weapon has seen me through many a battle, and it means everything to me.',
@@ -1191,6 +1241,12 @@ setup.npcData = {
         'I wanted to get away from my home situation and start a new life, so I learned a trade in secret and ran away one night.',
         'I learned the essentials from an old mentor, but I had to join a guild to finish my learning once he passed away.'
       ],
+      ideal: [
+        'Community: It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)', 'Generosity: My talents were given to me so that I could use them to benefit the world. (Good)', 'Freedom: Everyone should be free to pursue their own livelihood. (Chaotic)', "Greed: I'm only in it for the money. (Evil)", "People: I'm committed to the people I care about", 'Aspiration: I work hard to be the best there is at my craft.'
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         'The workshop where I learned my trade is the most important place in the world to me.',
         "I created a great work for someone, and then found them unworthy to receive it; I'm still looking for someone worthy.",
@@ -1209,6 +1265,17 @@ setup.npcData = {
         'I find myself in love with nature, and prefer the company of the animals and plants to that of people.',
         'I never liked the people that I grew up with, so it was easy for me to leave it all behind and strike out a new life, alone.',
         'I felt compelled to forsake my past, and did so with great reluctane. Even now, I sometimes regret my decisions.'
+      ],
+      ideal: [
+        'Greater Good: My gifts are meant to be shared with all',
+        'Logic: Emotions must not cloud our sense of what is right and true',
+        'Free Thinking: Inquiry and curiosity are the pillars of progress. (Chaotic)',
+        'Power: Solitude and contemplation are paths toward mystical or magical power. (Evil)',
+        'Live and Let Live: Meddling in the affairs of others only causes trouble. (Neutral)',
+        'Self-Knowledge: If you know yourself, you know your enemy.'
+      ],
+      personalityTrait: [
+
       ],
       'bond': [
         'Nothing is more important than the other members of my hermitage, order, or association.',
@@ -1235,6 +1302,15 @@ setup.npcData = {
         'My family is filled with remarkable people. I hope to live up to their reputation.',
         "I hope to increase my family's power and influence."
       ],
+      ideal: [
+        'Respect: Respect is due to me because of my position',
+        'Responsibility: It is my duty to respect the authority of those above me',
+        'Independence: I must prove that I can handle myself without the coddling of my family. (Chaotic)',
+        'Power: If I can attain more power, I will be able to protect my family (Chaotic)', 'Family: Blood runs thicker than water. (Any)', 'Noble Obligation: It is my duty to protect and care for the people beneath me. (Good)'
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         'I will face any challenge to win the approval of my family.',
         "My house's alliance with another noble family must be sustained at all costs.",
@@ -1254,6 +1330,17 @@ setup.npcData = {
         'My people live on the edges of civilisation, and I learned the methods of survival from my family.',
         'After a personal tragedy, I retreated to the wilderness to be alone with my thoughts.',
         'My family moved away from civilisation, and I learnt to adapt with the harsh environment.'
+      ],
+      ideal: [
+        'Change: Life is like the seasons, change should be embraced! (Chaotic)',
+        "Greater Good: It is each person's responsibility to make the most happiness for the whole tribe. (Good)",
+        'Honor: If I dishonor myself, I bring dishonor to my whole tribe (Lawful)',
+        'Might: The strongest are meant to rule. (Evil)',
+        'Nature: The natural world is more important than all the constructs of civilization. (Neutral)',
+        'Glory: I must earn glory in battle. (Neutral)'
+      ],
+      personalityTrait: [
+
       ],
       'bond': [
         'My family, clan, or tribe is the most important thing in my life, even when they are far from me.',
@@ -1280,6 +1367,12 @@ setup.npcData = {
         'I impressed a traveling wizard, who told me that I was squandering my talents and that I should seek out an education to take advantage of my gifts.',
         'My father gave me a basic education which whetted my appetite for more knowledge, and I left home to build on what I knew.'
       ],
+      ideal: [
+        'Knowledge: The path to power and self-improvement is through knowledge. (Neutral)', 'Beauty: What is beautiful points us beyond itself toward what is true. (Good)', 'Logic: Emotions must not cloud our logical thinking. (Lawful)', 'No Limits: Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)', 'Power: Knowledge is the path to power and domination. (Evil)', 'Self-Improvement: The goal of a life of study is the betterment of oneself. (Any)'
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         'It is my duty to protect my students.',
         'I have an ancient text that holds terrible secrets that must not fall into the wrong hands.',
@@ -1300,6 +1393,12 @@ setup.npcData = {
         'Reavers attacked my village, and I found refuge in a ship.',
         'There were few prospects where I was living, so I hopped on board a boat, to seek my fortunes elsewhere.'
       ],
+      ideal: [
+        'Respect: The thing that keeps a ship together is mutual respect between captain and crew. (Good)', 'Fairness: We all do the work', 'Freedom: The sea is freedom– the freedom to go anywhere and do anything. (Chaotic)', "Mastery: I'm a predator", "People: I'm committed to my crewmates", "Aspiration: Someday I'll own my own ship and chart my own destiny. (Any)"
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         "I'm loyal to my captain first, everything else second.",
         'The ship is most important--crewmates and captains come and go.',
@@ -1319,6 +1418,12 @@ setup.npcData = {
         'Invaders attacked my village, and I vowed to never let my family be unprotected again, so I picked up the sword.',
         "I was always playing with a sword as a kid, and it wasn't until a visiting adventurer sparred with me for fun that I realised that I had a real talent."
       ],
+      ideal: [
+        'Greater Good: Our lot is to lay down our lives in defense of others. (Good)', 'Responsibility: I do what I must and obey just authority. (Lawful)', 'Independence: When people follow orders blindly', 'Might: In life as in war', "Live and Let Live: Ideals aren't worth killing over or going to war for. (Neutral)", 'Nation: My city'
+      ],
+      personalityTrait: [
+
+      ],
       'bond': [
         'I would lay down my life for the people I served with.',
         'Someone saved my life on the battlefield. To this day, I will never leave a friend behind.',
@@ -1337,6 +1442,12 @@ setup.npcData = {
         'Raiders attacked my village when I was a child, leaving me the only survivor. I had to walk for three days to the next town over, and begged to survive.',
         'My family was swindled, and we lost everything we had. I had to beg on the streets to look after my family.',
         'A thief took me in, and in exchange for food and shelter, I would keep an eye on the streets while he pulled off heists.'
+      ],
+      ideal: [
+        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters. (Evil)', "People: I help the people who help me– that's what keeps us alive. (Neutral)", "Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
+      ],
+      personalityTrait: [
+
       ],
       'bond': [
         "My town or city is my home, and I'll fight to defend it.",
@@ -1360,6 +1471,13 @@ setup.npcData = {
         'I was one of seven children, and when I was old enough to work, my parents put me to it.',
         'I was one of eight children, and had to work from a young age to support my family.',
         'I was the eldest of four children, but when my father died, I had to leave school and work to support my family.'
+      ],
+      ideal: [
+        'Community. Everyone needs to pitch in for the greater good. (Good)',
+        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters. (Evil)', "People: I help the people who help me– that's what keeps us alive. (Neutral)", "Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
+      ],
+      personalityTrait: [
+
       ],
       'bond': [
         'I am trying to pay off a debt that I inherited from my father.',
