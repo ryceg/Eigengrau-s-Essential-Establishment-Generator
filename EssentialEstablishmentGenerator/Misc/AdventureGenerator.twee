@@ -1,5 +1,5 @@
 :: AdventureGenerator
-/* <<nobr>>
+<<nobr>>
 <<unset $adventure>>
 <<set $adventure to {}>>
 <<set $adventure.location to either(["dungeon", "wilderness", "other"])>>
@@ -177,4 +177,4 @@
             <<set $adventureSidequestNPC to setup.createNPC($town)>>
             <<set $adventure.sidequest to "discover the fate of <<profile $adventureSidequestNPC>>, who went missing in the area.">>
     <</switch>>
-<</nobr>> */
+<</nobr>>

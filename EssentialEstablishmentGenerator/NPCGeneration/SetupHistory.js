@@ -52,9 +52,9 @@ setup.createHistory = function (town, npc) {
   }
 
   if (birthplaceRoll === 100) {
-    npc.birthplace = 'an Outer Plane'
+    npc.birthplace = 'on an Outer Plane'
   } else if (birthplaceRoll === 99) {
-    npc.birthplace = 'an Inner Plane'
+    npc.birthplace = 'on an Inner Plane'
   } else if (birthplaceRoll === 98) {
     npc.birthplace = 'on the Astral Plane'
   } else if (birthplaceRoll === 97) {

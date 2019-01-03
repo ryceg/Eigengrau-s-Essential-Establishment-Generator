@@ -40,7 +40,7 @@
 	<<elseif _shortage lte 4>>
 		<<set _talk to "Well, business could be better. We've got a bit of a shortage on <<print $tavern.shortages.pluck()>>, and that certainly can't be helping things, but I suppose there's always some bad days; they're just not spending the coin, is all.">>
 <</if>><</nobr>><h3>$bartender.name</h3>
-$bartender.name looks $bartender.currentMood.random(), but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a $tavern.sin lot. $bartender.firstName pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstName says "_talk"
+$bartender.name looks <<print $bartender.currentMood.random()>>, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part a $tavern.sin lot. $bartender.firstName pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstName says "_talk"
 
 <<linkreplace "Talk more with $bartender.name" t8n>>
 $bartender.firstName tells you that $bartender.heshe <<print either("loves working in $tavern.name", "hates working in $tavern.name", "finds working in the $tavern.wordNoun boring", "finds working in the $tavern.wordNoun fun")>>. $bartender.firstName says "Before I took over $tavern.name, I was a $bartender.background. $bartender.backgroundOrigin <<if $bartender.dndClass isnot "bartender">>Then, I took up adventuring as a $bartender.dndClass;<</if>> $bartender.dndClassOrigin

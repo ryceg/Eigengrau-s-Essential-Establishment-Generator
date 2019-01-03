@@ -28,14 +28,14 @@ setup.createBrothel = function (town, tavern) {
   })
   brothel.notableFeature = brothel.specialty + ' and being owned by ' + brothel.owner
 
-  // to do: add bed cleanliness. Steal it from tavern.
+  brothel.wealth = ''
+  brothel.size = ''
+  brothel.cleanliness = ''
+
   var rollDataVariables = ['wealth', 'size', 'cleanliness']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   })
-  brothel.wealth = ''
-  brothel.size = ''
-  brothel.cleanliness = ''
 
   switch (brothel.owner) {
     case 'a mean old madam':
