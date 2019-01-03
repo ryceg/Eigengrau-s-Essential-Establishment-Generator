@@ -11,7 +11,7 @@ setup.createTemple = function (town, opts) {
     BuildingType: 'temple',
     wordNoun: data.name.wordNoun.random(),
     priest: setup.createNPC(town, { dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(), background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(), profession: 'priest' }),
-    prayerSubject: data.prayerSubject.random(),
+    prayerSubject: ['god', 'godess'].random() + ' of ' + data.prayerSubject.random(),
     dedicated: data.dedicated.random(),
     knownFor: data.knownFor.random(),
     guardedBy: data.guardedBy.random(),
