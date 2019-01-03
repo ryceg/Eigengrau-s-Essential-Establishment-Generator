@@ -1,9 +1,17 @@
 /* global setup State dice random */
 setup.createNPC = function (town, base) {
+  if (!town) {
+    console.error('Town is not defined! NPC cannot be created. Please report this bug.')
+  }
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   var data = setup.npcData
   var gender = ['man', 'woman'].random()
   var race = setup.fetchRace(town)
+  console.log(gender)
+  console.log(race)
+  // console.log('Loading profession:')
+  var profession = setup.fetchProfessionChance(town)
+  console.log(profession)
   // var race = setup.data.race.random()
   var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   var lastName = data.raceTraits[race].lastName.random().toUpperFirst()
@@ -58,9 +66,9 @@ setup.createNPC = function (town, base) {
       }
     },
     eyes: data.raceTraits[race].eyes.random(),
-    skinColours: data.skinColours.random(),
+    skinColour: data.skinColour.random(),
     dndClass: dndClass,
-    profession: data.profession.random(),
+    profession: profession,
     pockets: data.pockets.random(),
     wealth: dice(2, 50),
     trait: data.trait.random(),

@@ -55,13 +55,13 @@ _listbox -- <<button "Create new faction">>
     <th>Profession</th>
     <th>Delete</th>
   </tr>
-  <<for _i, _npc range $npcs>>
+  <<for _i, _npc range $npcs>><<capture _i, _npc>>
   <tr><td><<profile $npcs[_npc.key]>></td>
   <td>_npc.race</td>
   <td>_npc.dndClass</td>
   <td><<link "x">><<run delete $npcs[_npc.key]>><<goto "TownOutput">><</link>></td>
   </tr>
-  <</for>>
+  <</capture>><</for>>
   </table><</nobr>>
 <</linkappend>>
 
@@ -69,29 +69,13 @@ _listbox -- <<button "Create new faction">>
 <<nobr>>
 <table>
   <tr>
-    <th>Trade</th>
+    <th>Profession</th>
     <th>Number</th>
   </tr>
-<<for _i, _trade range $trade>>
-    <<set _townPop to $town.population>>
-    <<set _trade.roll to (_townPop / _trade.sv)>> /* Set the number of trades equal to the town's population divided by how many people are needed to support that type of business */
-          <<if _trade.roll lt 1>>
-              <<set _trade.roll * 100, _trade.rollPercentage to random(1, 100)>>
-              <<if _trade.roll gte _trade.rollPercentage>>
-                  <<set _trade.count to 1>>
-              <<else>>
-                  <<set _trade.count to 0>>
-              <</if>>
-          <<else>>
-              <<set _trade.count to Math.trunc(_trade.roll)>> /* Truncate the number to a whole number */
-          <</if>>
-
-      <<if _trade.count gte 1>>
-          <tr><td><<print _trade.profession.toUpperFirst()>></td>
-        /* <td><<include "ProfessionList">></td></tr> */
-        <td>_trade.count</td></tr>
-      <</if>>
-      <</for>>
+  <<set $town.professions to setup.fetchProfessions($town)>>
+  <<for _name, _profession range $town.professions>>
+  <tr><td><<print _profession.name>></td>
+<td>_profession.population</td></tr><</for>>
 </table><</nobr>>
 <</linkappend>>
 

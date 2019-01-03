@@ -6,6 +6,7 @@ setup.createGuard = function (town) {
     associatedTown: town.name,
     captain: setup.createNPC(town, {
       dndClass: 'fighter',
+      profession: 'guard',
       background: 'soldier'
     }),
     passageName: 'GuardOutput',

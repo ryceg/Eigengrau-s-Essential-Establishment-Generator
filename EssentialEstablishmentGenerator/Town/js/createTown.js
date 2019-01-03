@@ -55,7 +55,7 @@ setup.createTown = function (base) {
       console.log(this.demographic)
     },
     get demographic () {
-      console.log('Getting demographic percent.')
+      // console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
       var races = Object.keys(this._baseDemographics)
       // Calculate the sum of the raw demographic values.
@@ -145,6 +145,8 @@ setup.createTown = function (base) {
       arcana: random(1, 100)
     }
   }, base)
+
+  town.professions = setup.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
