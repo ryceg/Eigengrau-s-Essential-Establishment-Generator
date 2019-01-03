@@ -15,16 +15,21 @@ setup.fetchRace = function (town) {
       return town.demographic[race]
     }, town)
   var cumulativeSum = 0
+  var selectedRace
 
   for (let percent of sum) {
     if (raceRoll <= cumulativeSum) {
-      var selectedRace = sum.indexOf(percent) - 1
-      // console.log('selected race is: ' + races[selectedRace])
+      selectedRace = sum.indexOf(percent) - 1
+      console.log('selected race is: ' + races[selectedRace])
+      return races[selectedRace]
+    } else if (raceRoll === 100) {
+      selectedRace = sum.length - 1
+      console.log('Hit 100! selected race is: ' + races[selectedRace])
       return races[selectedRace]
     } else {
-    // console.log('Add ' + percent)
+      // console.log('Add ' + percent)
       cumulativeSum += percent
-    // console.log('Equals ' + cumulativeSum)
+      // console.log('Equals ' + cumulativeSum)
     }
   }
 }
