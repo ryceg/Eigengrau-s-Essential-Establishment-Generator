@@ -1,7 +1,7 @@
 
 :: StoryInit
 
-<<set $versionNumber to "1.5">>
+<<set $versionNumber to "2.0">>
 <<set Config.history.maxStates to 50>>
 
 <<set $towns to []>>
@@ -74,4 +74,13 @@
 
 /* <<include "Markets">> */
 
-<<run console.log($town)>>
+<<if settings.showTutorial is false>>
+	<<set Config.passages.start = 'Start'>>
+<<else>>
+	<<set Config.passages.start = 'Welcome'>>
+<</if>>
+
+<<if ndef $hideAds>>
+	<<set $hideAds to true>>
+	<<set settings.hideAds to true>>
+<</if>>

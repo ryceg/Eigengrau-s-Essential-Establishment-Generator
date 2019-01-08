@@ -1216,7 +1216,7 @@ setup.npcData = {
         'I was constantly getting into fights as a youngster. I figured I might as well continue, for money.'
       ],
       ideal: [
-        'Might: If I become strong, I will be better able to protect people. (Good)',
+        'Might: If I become strong, I will be better able to protect people. (Good)'
       ],
       personalityTrait: [
 

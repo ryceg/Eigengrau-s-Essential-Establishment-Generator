@@ -3,4 +3,5 @@
 
 Created by /u/rcgy
 
-<span class="tip" title="Thank you for your help!"><div id="patreon">[img[patreonbutton][https://www.patreon.com/bePatron?u=399997]]</div></span>
+<<if settings.hideAds !== true or $hideAds !== true>><span class="tip" title="Thank you for your continued support!"><div id="patreon">[img[patreonbutton][https://www.patreon.com/bePatron?u=399997]]</div></span>
+<span class="tip" title="Thank you for your continued support!"><div id="kofi">[img[kofi][https://ko-fi.com/Q5Q8O5AA]]</div></span><</if>>

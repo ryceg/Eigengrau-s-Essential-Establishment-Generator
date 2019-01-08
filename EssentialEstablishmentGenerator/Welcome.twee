@@ -3,12 +3,3 @@
 Welcome! Is this your first time using Eigengrau's Essential Establishment Generator?
 
 <<button "yes">><<goto "Tutorial">><</button>>             <<button "no, and don't show me this again">><<remember settings.showTutorial = false>><<goto "Start">><</button>>
-/* <<set $testNPC to setup.createNPC($town)>>
-
-<<profile $testNPC>>
-$testNPC.bmi
-$testNPC.bmiReadout */
-/* <<link "Create faction">><<set $testFaction to setup.createFaction()>><</link>>
-$testFaction.allies
-
-<<link "FactionProfile">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>> */
