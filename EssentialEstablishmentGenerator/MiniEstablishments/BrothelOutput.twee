@@ -5,3 +5,6 @@
 Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. You notice $brothel.notice. The $pimp.title is <<print $pimp.idle.random()>>. The $pimp.raceNote <<print either($pimp.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "swaggers", "quickly walks", "slides")>>over to you, and introduces $pimp.himherself as <<profile $pimp>>, the $pimp.title of $brothel.name, and asks what $pimp.heshe can do for you.
 
 Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour
+
+<<link "Meet one of the harlots">><<set $brothel.harlot to setup.misc.harlot.create($town)>><<replace "#harlot">>$brothel.harlot<</replace>><</link>>
+<div id="harlot"><<if def $brothel.harlot>>$brothel.harlot<</if>></div>
