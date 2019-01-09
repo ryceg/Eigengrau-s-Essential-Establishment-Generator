@@ -151,8 +151,8 @@ setup.createTown = function (base) {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = setup.townData.terrain[town.terrain][town.location].origin.random()
-  town.vegetation = setup.townData.terrain[town.terrain][town.location].vegetation.random()
+  town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.random()
+  town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.random()
 
   console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
   Object.assign(town.roll, setup.townData.type[town.type].modifiers)

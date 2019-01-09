@@ -3,6 +3,8 @@
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionNumber! This is still in active development.
 <<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">>
+<<listbox "$scenarioType">><<option "Forest" "forest">><<option "Desert" "desert">><<option "Mountain" "mountain">><<option "Road" "road">><</listbox>><<button "Create scenario">><<set $scenario to setup.misc[$scenarioType].create($town)>><<replace "#scenario">>$scenario<</replace>><</button>>
+<div id="scenario"><<if def $scenario>>$scenario<</if>></div>
 
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
 \<<set _town to $town>>
@@ -15,12 +17,6 @@
   <<run console.log($town)>>
   <<goto "Start">>
 <</button>>
-<<listbox "$scenarioType">><<option "Forest" "forest">><<option "Desert" "desert">><<option "Mountain" "mountain">><<option "Road" "road">><</listbox>><<button "Create scenario">><<set $scenario to setup.misc[$scenarioType].create($town)>><<replace "#scenario">>$scenario<</replace>><</button>>
-<div id="scenario"><<if def $scenario>>$scenario<</if>></div>
-
-<<set $testCaravan to setup.misc.treasureMap.create()>>$testCaravan.readout
-<<link 'cat'>><<set $cat to setup.misc.cat.create()>><<replace "#cat">>$cat.tippyWord<</replace>><<run setup.tippy("span")>><</link>>
-<div id='cat'>$cat.tippyWord</div>
 
 <<for _key, _townBuildings range $town.buildings>>
 <<for _index, _building range _townBuildings>><<capture _key, _index, _building>>

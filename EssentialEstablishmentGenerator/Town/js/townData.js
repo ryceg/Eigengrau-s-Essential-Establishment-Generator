@@ -728,361 +728,487 @@ setup.townData = {
   },
   'terrain': {
     'temperate': {
-      'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
-      'seacoast': {
-        'origin': [
-          'a coastal harbor',
-          'a calm, coastal bay',
-          'a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'the confluence of two rivers',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'
-        ],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': ['shrubs', 'bush', 'windswept trees', 'windswept trees', 'windswept trees']
+      'weather': {
+        'summer': {
+          precipitationlevel: 4,
+          precipitationIntensity: 1,
+          baseTemp: 80
+        },
+        'autumn': {
+          precipitationlevel: 3,
+          precipitationIntensity: 1,
+          baseTemp: 60
+        },
+        'winter': {
+          precipitationlevel: 2,
+          precipitationIntensity: 1,
+          baseTemp: 30
+        },
+        'spring': {
+          precipitationlevel: 3,
+          precipitationIntensity: 1,
+          baseTemp: 60
+        }
       },
-      'forest': {
-        'origin': [
-          'a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'a deep freshwater river',
-          'a river that runs through the forest',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a road that passes through the forests',
-          'a water source and a well-traveled road leading through the forest'
-        ],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-        'plants': ['oak trees', 'oak trees', 'oak trees', 'pine trees', 'maple trees', 'birch trees', 'ash trees', 'elm trees', 'fir trees', 'spruce trees', 'sycamore trees', 'alder trees', 'cypress trees', 'yew trees']
-      },
-      'hills': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'plains': {
-        'origin': ['a wide, navigable river',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'mountains': {
-        'origin': ['a large freshwater lake',
-          'a river navigable by small craft',
-          'a series of natural springs',
-          'a road that connects two other cities',
-          'a road that leads through the mountains',
-          'a trade route through the mountains',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'river coast': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a wide, navigable river',
-          'a river navigable by small craft'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
+      'start': ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
+      'location': {
+        'seacoast': {
+          'precipitationIntensity': 3,
+          'origin': [
+            'a coastal harbor',
+            'a calm, coastal bay',
+            'a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'the confluence of two rivers',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'
+          ],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': ['shrubs', 'bush', 'windswept trees', 'windswept trees', 'windswept trees']
+        },
+        'forest': {
+          'precipitationIntensity': 2,
+          'origin': [
+            'a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'a deep freshwater river',
+            'a river that runs through the forest',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a road that passes through the forests',
+            'a water source and a well-traveled road leading through the forest'
+          ],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          'plants': ['oak trees', 'oak trees', 'oak trees', 'pine trees', 'maple trees', 'birch trees', 'ash trees', 'elm trees', 'fir trees', 'spruce trees', 'sycamore trees', 'alder trees', 'cypress trees', 'yew trees']
+        },
+        'hills': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'plains': {
+          'precipitationIntensity': 2,
+          'origin': ['a wide, navigable river',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'mountains': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a river navigable by small craft',
+            'a series of natural springs',
+            'a road that connects two other cities',
+            'a road that leads through the mountains',
+            'a trade route through the mountains',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'river coast': {
+          'precipitationIntensity': 2,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a wide, navigable river',
+            'a river navigable by small craft'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        }
       }
     },
     'tropical': {
+      'weather': {
+        'summer': {
+          precipitationlevel: 3,
+          precipitationIntensity: 1,
+          baseTemp: 90
+        },
+        'autumn': {
+          precipitationlevel: 3,
+          precipitationIntensity: 1,
+          baseTemp: 75
+        },
+        'winter': {
+          precipitationlevel: 2,
+          precipitationIntensity: 1,
+          baseTemp: 50
+        },
+        'spring': {
+          precipitationlevel: 4,
+          precipitationIntensity: 1,
+          baseTemp: 75
+        }
+      },
       'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'jungle', 'volcanic field'],
-      'seacoast': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'the confluence of two rivers',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'forest': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'a deep freshwater river',
-          'a river that runs through the forest',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a road that passes through the forests',
-          'a water source and a well-traveled road leading through the forest'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'hills': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'plains': {
-        'origin': ['a wide, navigable river',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'mountains': {
-        'origin': ['a large freshwater lake',
-          'a river navigable by small craft',
-          'a series of natural springs',
-          'a road that connects two other cities',
-          'a road that leads through the mountains',
-          'a trade route through the mountains',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'river coast': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a wide, navigable river',
-          'a river navigable by small craft'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'jungle': {
-        'origin': ['a river navigable by small craft',
-          'a series of natural springs',
-          'a road that connects two other cities',
-          'a road that leads through the jungle',
-          'a trade route through the jungle',
-          'a water source and a well-traveled road that leads through the jungle'],
-        'vegetation': ['sparse', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'volcanic field': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'a series of natural springs',
-          'a series of natural springs',
-          'a series of natural springs',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-        'plants': []
+      'location': {
+        'seacoast': {
+          'precipitationIntensity': 3,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'the confluence of two rivers',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'forest': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'a deep freshwater river',
+            'a river that runs through the forest',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a road that passes through the forests',
+            'a water source and a well-traveled road leading through the forest'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'hills': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'plains': {
+          'precipitationIntensity': 2,
+          'origin': ['a wide, navigable river',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'mountains': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a river navigable by small craft',
+            'a series of natural springs',
+            'a road that connects two other cities',
+            'a road that leads through the mountains',
+            'a trade route through the mountains',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'river coast': {
+          'precipitationIntensity': 2,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a wide, navigable river',
+            'a river navigable by small craft'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'jungle': {
+          'precipitationIntensity': 2,
+          'origin': ['a river navigable by small craft',
+            'a series of natural springs',
+            'a road that connects two other cities',
+            'a road that leads through the jungle',
+            'a trade route through the jungle',
+            'a water source and a well-traveled road that leads through the jungle'],
+          'vegetation': ['sparse', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'volcanic field': {
+          'precipitationIntensity': 3,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'a series of natural springs',
+            'a series of natural springs',
+            'a series of natural springs',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          'plants': []
+        }
       }
     },
     'arid': {
+      'weather': {
+        'summer': {
+          precipitationlevel: 3,
+          precipitationIntensity: -1,
+          baseTemp: 95
+        },
+        'autumn': {
+          precipitationlevel: 3,
+          precipitationIntensity: -1,
+          baseTemp: 75
+        },
+        'winter': {
+          precipitationlevel: 2,
+          precipitationIntensity: -1,
+          baseTemp: 50
+        },
+        'spring': {
+          precipitationlevel: 2,
+          precipitationIntensity: -1,
+          baseTemp: 75
+        }
+      },
       'start': ['desert', 'hills', 'plains', 'mountains', 'river coast', 'wasteland', 'oasis'],
-      'desert': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'the confluence of two rivers',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'forest': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'a deep freshwater river',
-          'a river that runs through the forest',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a road that passes through the forests',
-          'a water source and a well-traveled road leading through the forest'],
-        'vegetation': ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'hills': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'plains': {
-        'origin': ['a wide, navigable river',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'mountains': {
-        'origin': ['a large freshwater lake',
-          'a river navigable by small craft',
-          'a series of natural springs',
-          'a road that connects two other cities',
-          'a road that leads through the mountains',
-          'a trade route through the mountains',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'river coast': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a wide, navigable river',
-          'a river navigable by small craft'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'wasteland': {
-        'origin': ['a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-        'plants': []
-      },
-      'oasis': {
-        'origin': ['a series of natural springs',
-          'a series of natural springs',
-          'a large oasis of water',
-          'a large oasis of water',
-          'a large oasis of water',
-          'a large oasis of water',
-          'a water source and a well-traveled road'],
-        'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
+      'location': {
+        'desert': {
+          'precipitationIntensity': 2,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'the confluence of two rivers',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'forest': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'a deep freshwater river',
+            'a river that runs through the forest',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a road that passes through the forests',
+            'a water source and a well-traveled road leading through the forest'],
+          'vegetation': ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'hills': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'plains': {
+          'precipitationIntensity': 2,
+          'origin': ['a wide, navigable river',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'mountains': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a river navigable by small craft',
+            'a series of natural springs',
+            'a road that connects two other cities',
+            'a road that leads through the mountains',
+            'a trade route through the mountains',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'river coast': {
+          'precipitationIntensity': 2,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a wide, navigable river',
+            'a river navigable by small craft'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'wasteland': {
+          'precipitationIntensity': 2,
+          'origin': ['a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          'plants': []
+        },
+        'oasis': {
+          'origin': ['a series of natural springs',
+            'a series of natural springs',
+            'a large oasis of water',
+            'a large oasis of water',
+            'a large oasis of water',
+            'a large oasis of water',
+            'a water source and a well-traveled road'],
+          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        }
       }
     },
     'polar': {
+      'weather': {
+        'summer': {
+          precipitationlevel: 4,
+          precipitationIntensity: 0,
+          baseTemp: 40
+        },
+        'autumn': {
+          precipitationlevel: 4,
+          precipitationIntensity: 0,
+          baseTemp: 30
+        },
+        'winter': {
+          precipitationlevel: 2,
+          precipitationIntensity: 0,
+          baseTemp: 20
+        },
+        'spring': {
+          precipitationlevel: 3,
+          precipitationIntensity: 0,
+          baseTemp: 30
+        }
+      },
       'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'tundra', 'ice sheet', 'seacoast'],
-      'seacoast': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'the confluence of two rivers',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'forest': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'the mouth of a river',
-          'a deep freshwater river',
-          'a river that runs through the forest',
-          'a series of natural springs',
-          'a well-traveled crossroads',
-          'a road that passes through the forests',
-          'a water source and a well-traveled road leading through the forest'],
-        'vegetation': ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'hills': {
-        'origin': ['a large freshwater lake',
-          'a wide, navigable river',
-          'a river navigable by small craft',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'plains': {
-        'origin': ['a wide, navigable river',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'mountains': {
-        'origin': ['a large freshwater lake',
-          'a river navigable by small craft',
-          'a series of natural springs',
-          'a road that connects two other cities',
-          'a road that leads through the mountains',
-          'a trade route through the mountains',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-        'plants': []
-      },
-      'river coast': {
-        'origin': ['a coastal harbor',
-          'a calm, coastal bay',
-          'a wide, navigable river',
-          'a river navigable by small craft'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-        'plants': []
-      },
-      'tundra': {
-        'origin': ['a wide, navigable river',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-        'plants': []
-      },
-      'ice sheet': {
-        'origin': ['a wide, navigable river',
-          'a road traveled by merchants on the way to another, larger city',
-          'a well maintained road',
-          'a road that connects two other cities',
-          'a well-traveled crossroads',
-          'a water source and a well-traveled road'],
-        'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-        'plants': []
+      'location': {
+        'seacoast': {
+          'precipitationIntensity': 3,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'the confluence of two rivers',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'forest': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'the mouth of a river',
+            'a deep freshwater river',
+            'a river that runs through the forest',
+            'a series of natural springs',
+            'a well-traveled crossroads',
+            'a road that passes through the forests',
+            'a water source and a well-traveled road leading through the forest'],
+          'vegetation': ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'hills': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a wide, navigable river',
+            'a river navigable by small craft',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'plains': {
+          'precipitationIntensity': 2,
+          'origin': ['a wide, navigable river',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'mountains': {
+          'precipitationIntensity': 2,
+          'origin': ['a large freshwater lake',
+            'a river navigable by small craft',
+            'a series of natural springs',
+            'a road that connects two other cities',
+            'a road that leads through the mountains',
+            'a trade route through the mountains',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          'plants': []
+        },
+        'river coast': {
+          'precipitationIntensity': 2,
+          'origin': ['a coastal harbor',
+            'a calm, coastal bay',
+            'a wide, navigable river',
+            'a river navigable by small craft'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          'plants': []
+        },
+        'tundra': {
+          'precipitationIntensity': 2,
+          'origin': ['a wide, navigable river',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          'plants': []
+        },
+        'ice sheet': {
+          'precipitationIntensity': 3,
+          'origin': ['a wide, navigable river',
+            'a road traveled by merchants on the way to another, larger city',
+            'a well maintained road',
+            'a road that connects two other cities',
+            'a well-traveled crossroads',
+            'a water source and a well-traveled road'],
+          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          'plants': []
+        }
       }
+
     }
   },
   'professions': {
