@@ -380,7 +380,7 @@ setup.plothook = {
     'LOST: 3 peg legs, a hook, 5 eye patches, and a talking parrot. If found please return to ‘The Luckiest Crew’ down at the pier.',
     'HELP WANTED: Poor old widow requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)',
     'MINIONS NEEDED – Local Lich Looking for Less than Lawful Lackeys. References not required, no paladins. Full training and benefits given.',
-    '81.	Fence need painted. Good pay. Contact Sythi at the Inn. Twist, the fence is 10 feet tall and almost a mile long.',
+    '81. Fence need painted. Good pay. Contact Sythi at the Inn. Twist, the fence is 10 feet tall and almost a mile long.',
     'ISO: Skilled toymaker, it’s my daughter’s birthday and she wants a teddy. I can compensate for any materials you use. This was posted by an orc and her human husband, there’s an address near the bottom with a smiley face. The 6-year old half-orc wants a GIANT teddy.',
     'IN NEED OF DURABLE IDIOT, WILL BE WORKING WITH IMPOSSIBLE GEOMETRIES. IDIOCY NOT NEEDED BUT DESIRED. BRING FRIENDS. snacks provided! (This was wrote incredibly hastily by a desperate wizard, and his wife. The words ‘snacks provided’ are in much cleaner handwriting toward the bottom, obviously added as it was being posted.)',
     'My brother an me want candy!!! (This note is barely legible and is tacked at the very bottom of the board.)',
