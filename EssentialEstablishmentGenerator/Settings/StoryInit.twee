@@ -8,6 +8,7 @@
 <<set $factions to []>>
 <<set $buildings to []>>
 <<set $npcs to {}>>
+<<set $throwawayNpcs to {}>>
 
 <<include "Town">>
 <<set $weather to {

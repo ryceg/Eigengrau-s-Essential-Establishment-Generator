@@ -1,7 +1,5 @@
 :: TavernOutput [tavern]
-/* <<unset $selectedBuilding>> */
-<<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $npcs[$tavern.bartender.key]>>
-<h1>$tavern.name</h1>
+<<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $npcs[$tavern.bartender.key]>><h1>$tavern.name</h1>
 <span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
 <h3>The Tavern</h3>
 <<print setup.closestMatch(setup.tavern.get.description($tavern), 'note', 'size', 'wealth', $tavern.roll.size, $tavern.roll.wealth)>>
@@ -9,7 +7,7 @@
 
 <<print setup.tavern.get.patrons($town, $tavern)>>
 <<include "RandomNPC">>
-<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<profile $bartender>>, the $bartender.owner of $tavern.name.
+<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<print setup.profile($bartender)>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">>

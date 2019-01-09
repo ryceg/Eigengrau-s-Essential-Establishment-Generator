@@ -71,13 +71,7 @@
         \<span @id="_id" class="tip"><<link _readout>>
 				<<set $currentNPC to _char>>
 				<<set $currentNPCKey to _char.key>>
-				<<if $args[0].shallow === true>>
-					<<set $npcs[$currentNPCKey] to setup.createNPC($town, _char)>>
-					<<set $npcs[$currentNPCKey].shallow to false>>
-					<<goto "NPCProfile">>
-				<<else>>
-					<<goto "NPCProfile">>
-				<</if>>
+				<<goto "NPCProfile">>
 				<</link>></span>
         \<<run setup.profileTooltip(_id, _char)>>
 				\<<run setup.tippy(".btn")>>

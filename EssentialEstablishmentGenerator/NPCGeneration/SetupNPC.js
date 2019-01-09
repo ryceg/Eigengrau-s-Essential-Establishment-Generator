@@ -126,7 +126,7 @@ setup.createNPC = function (town, base) {
   }
 
   if (dice(2, 50) >= 75) {
-    npc.vocalPattern = data.vocalPattern.random()
+    npc.vocalPattern = npc.vocalPattern || data.vocalPattern.random()
   }
 
   // setup.createName(npc)
@@ -137,11 +137,11 @@ setup.createNPC = function (town, base) {
 
   var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
   if (physicalTraitRoll > 8) {
-    npc.physicalTrait = data.scar.random()
+    npc.physicalTrait = npc.physicalTrait || data.scar.random()
   } else if (physicalTraitRoll > 6) {
-    npc.physicalTrait = data.tattoo.random()
+    npc.physicalTrait = npc.physicalTrait || data.tattoo.random()
   } else if (physicalTraitRoll <= 6) {
-    npc.physicalTrait = npc.hair
+    npc.physicalTrait = npc.physicalTrait || npc.hair
   }
 
   if (!npc.isShallow) {
@@ -162,6 +162,17 @@ setup.createNPC = function (town, base) {
   if (!npc.isThrowaway) {
     npc.key = npc.name
     State.variables.npcs[npc.key] = npc
+    npc.profile = function (npc, base) {
+      base = npc.name || base
+      return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
+    }
+  } else {
+    npc.key = npc.name
+    State.variables.throwawayNpcs[npc.key] = npc
+    npc.profile = function (npc, base) {
+      base = npc.name || base
+      return '<<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
+    }
   }
 
   if (npc.partnerID) {
