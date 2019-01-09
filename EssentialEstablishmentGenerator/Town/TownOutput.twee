@@ -17,37 +17,40 @@ They are a $town.economicIdeologyIST $town.politicalIdeologyIC $town.politicalSo
 <</silently>>\
 _listbox -- <<button "Create new faction">>
   <<run console.log('Creating a new ' + $newFaction)>>
-  <<if ndef $town.factions[$newFaction]>>
+  /* <<if ndef $town.factions[$newFaction]>>
     <<set $town.factions[$newFaction] = []>>
-  <</if>>
-  <<run $town.factions[$newFaction].push(setup.createFaction($town, {
+  <</if>> */
+  <<set _tempFaction to setup.createFaction($town, {
+  type: $newFaction
+  })>>
+  <<set $town.factions[_tempFaction.name] = _tempFaction>>
+  /* <<run $town.factions[$newFaction].push(setup.createFaction($town, {
     type: $newFaction
-    }))>>
+    }))>> */
   <<run console.log($town)>>
   <<goto "TownOutput">>
 <</button>>
-<<unset $selected>><<for _key, _factionType range $town.factions>><<for _index, _faction range _factionType>><<capture _key, _index, _faction>>
-<<link "_faction.name">><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>> - A _faction.size _faction.type _faction.factionNoun
-<</capture>><</for>><</for>>
+<<unset $selected>>
 
 <div class='classTable'><<nobr>><table>
     <tr>
-        <th>Race</th>
-        <th>Population</th>
-        <th>Percentage</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Delete</th>
         /* <th>Raw Number</th> */
     </tr>
-<<for _race, _percentage range $town.demographic>>
-    <tr>
-        <td><<print _race.toUpperFirst()>></td>
-        <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
-        <td><<print _percentage.toFixed(2)>></td>
-        /* <td><<print $town.baseDemographics[_race]>></td> */
-    </tr>
-<</for>>
-</table><</nobr>></div>
+<<for _key, _faction range $town.factions>><<capture _key, _index, _faction, _factionType>>
+  <tr>
+    <td><<link "_faction.name">><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>></td>
+    <td>_faction.type _faction.factionNoun</td>
+    <td>_faction.size</td>
+    <td><<link "x">><<run delete $town.factions[_faction.key]>><<goto "TownOutput">><</link>></td>
+  </tr>
+ /* - A _faction.size _faction.type _faction.factionNoun */
+<</capture>><</for>></table><</nobr>></div>
 
-<<linkappend "<h3>List of NPCs</h3>">><<nobr>>
+<h3>List of NPCs</h3><<nobr>>
 <table>
   <tr>
     <th>Name</th>
@@ -63,7 +66,41 @@ _listbox -- <<button "Create new faction">>
   </tr>
   <</capture>><</for>>
   </table><</nobr>>
-<</linkappend>>
+
+  <<nobr>><<linkappend "<h3>Throwaway NPCs</h3>">><<button "Wipe all throwaway NPCs">>
+  <<run delete $throwawayNpcs>><<set $throwawayNpcs to {}>><<goto "TownOutput">><</button>>
+  <p><table>
+    <tr>
+      <th>Name</th>
+      <th>Race</th>
+      <th>Profession</th>
+      <th>Delete</th>
+    </tr>
+    <<for _i, _npc range $throwawayNpcs>><<capture _i, _npc>>
+    <tr><td><<profile $throwawayNpcs[_npc.key]>></td>
+    <td>_npc.race</td>
+    <td>_npc.dndClass</td>
+    <td><<link "x">><<run delete $throwawayNpcs[_npc.key]>><<goto "TownOutput">><</link>></td>
+    </tr>
+    <</capture>><</for>>
+    </table></p><</linkappend>><</nobr>>
+
+<<linkappend "<h3>Racial demographics in $town.name</h3>">><div class='classTable'><<nobr>><table>
+    <tr>
+        <th>Race</th>
+        <th>Population</th>
+        <th>Percentage</th>
+        /* <th>Raw Number</th> */
+    </tr>
+<<for _race, _percentage range $town.demographic>>
+    <tr>
+        <td><<print _race.toUpperFirst()>></td>
+        <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
+        <td><<print _percentage.toFixed(2)>></td>
+        /* <td><<print $town.baseDemographics[_race]>></td> */
+    </tr>
+<</for>>
+</table><</nobr>></div><</linkappend>>
 
 <<linkappend "<h3>Businesses in $town.name</h3>">>
 <<nobr>>

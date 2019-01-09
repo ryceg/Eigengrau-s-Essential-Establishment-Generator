@@ -11,14 +11,18 @@ setup.createStartFactions = function (town) {
   }
 
   for (let i = 0; i <= factionsNumber; i++) {
-    let tempFaction = factions.pluck()
-    console.log(tempFaction)
-    if (!town.factions[tempFaction]) {
-      town.factions[tempFaction] = []
-    }
-    town.factions[tempFaction].push(setup.createFaction(town, {
-      type: tempFaction
-    }))
+    let tempFactionType = factions.pluck()
+    var tempFaction = setup.createFaction(town, {
+      type: tempFactionType
+    })
+    town.factions[tempFaction.name] = tempFaction
+    // console.log(tempFaction)
+    // if (!town.factions[tempFaction]) {
+    //   town.factions[tempFaction] = []
+    // }
+    // town.factions[tempFaction].push(setup.createFaction(town, {
+    //   type: tempFaction
+    // }))
   }
   console.log('Finished creating start factions!')
   return town

@@ -13,12 +13,12 @@ setup.createFaction = function (town, opts) {
     membersTrait: setup.factionData.type[type].membersTrait.random(),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
     roll: {
-      influence: dice(2, 50).clamp(1, 100),
-      reputation: dice(2, 50).clamp(1, 100),
-      age: dice(2, 50).clamp(1, 100),
-      size: dice(2, 50).clamp(1, 100),
-      stability: dice(2, 50).clamp(1, 100),
-      resources: dice(2, 50).clamp(1, 100)
+      influence: dice(2, 50),
+      reputation: dice(2, 50),
+      age: dice(2, 50),
+      size: dice(2, 50),
+      stability: dice(2, 50),
+      resources: dice(2, 50)
     }
   }, opts))
   faction.name = setup.nameFaction(town.name, faction.type)
@@ -45,13 +45,14 @@ setup.createFaction = function (town, opts) {
   setup.createRivals(faction)
   console.log('other cool bits...')
   setup.createMisc(faction)
+  faction.key = faction.name + randomFloat(1, 100)
 
-  if (faction.isThrowaway === undefined) {
-    console.log('and finally assigning to the faction roster.')
-    State.variables.factions.push(faction.id)
-  } else {
-    console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
-  }
+  // if (faction.isThrowaway === undefined) {
+  //   console.log('and finally assigning to the faction roster.')
+  //   State.variables.factions.push(faction.id)
+  // } else {
+  //   console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
+  // }
   console.groupEnd()
   return faction
 }
