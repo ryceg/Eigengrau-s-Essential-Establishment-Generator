@@ -1,15 +1,221 @@
-setup.adventureData = {
+/* global setup */
+setup.adventure = {
+  'create': function (town) {
+    var villainType = Object.keys(setup.adventure.villain).random()
+    var allyType = Object.keys(setup.adventure.ally).random()
+    var patronType = Object.keys(setup.adventure.patron).random()
+    var adventure = {
+      // villain: setup.adventure.villain[villainType],
+      ally: setup.adventure.ally[allyType],
+      patron: setup.adventure.patron[patronType],
+      climax: setup.adventure.climax.random(),
+      introduction: setup.adventure.introduction.random(),
+      otherGoal: setup.adventure.otherGoal.random(),
+      backdrop: setup.adventure.backdrop.random(),
+      quandary: setup.adventure.quandary.random(),
+      twist: setup.adventure.twist.random(),
+      villainActions: setup.adventure.villainActions.random()
+    }
+    adventure.villain = setup.adventure.villain[villainType]
+    adventure.location = Object.keys(setup.adventure.location).random()
+    var goal = Object.keys(setup.adventure.location[adventure.location]).random()
+    adventure.goal = setup.adventure.location[adventure.location][goal]
+    console.log(adventure)
+    return adventure
+  },
   'location': {
-    'dungeon': ["stop the dungeon's monstrous inhabitants from raiding the surface world.", "foil a villain's evil scheme.", 'destroy a magical threat inside the dungeon.', 'acquire treasure.', 'find a particular item for a specific purpose.', 'retrieve a stolen item hidden in the dungeon.', 'find information needed for a special purpose.', 'rescue a captive.', 'discover the fate of a previous adventuring party.', 'find an npc who disappeared in the area.', 'slay a dragon or some other challenging monster.', 'discover the nature and origin of a strange location or phenomenon.', 'pursue fleeing foes taking refuge in the dungeon.', 'escape from captivity in the dungeon.', 'clear a ruin so it can be rebuilt and reoccupied.', 'discover why a villain is interested in the dungeon.', 'win a bet or complete a rite of passage by surviving in the dungeon for a certain amount of time.', 'parley with a villain in the dungeon.', 'hide from a threat outside the dungeon.'],
-    'wilderness': ['assess the scope of a natural or unnatural disaster.', 'escort an npc to a destination.', "arrive at a destination without being seen by the villain's forces.", 'stop monsters from raiding caravans and farms.', 'establish trade with a distant town.', 'protect a caravan traveling to a distant town.', 'map a new land.', 'find a place to establish a colony.', 'find a natural resource.', 'hunt a specific monster.', 'return home from a distant place.', 'obtain information from a reclusive hermit.', 'find an object that was lost in the wilds.', 'discover the fate of a missing group of explorers.', 'pursue fleeing foes.', 'assess the size of an approaching army.', 'escape the reign of a tyrant.', 'protect a wilderness site from attackers.'],
-    'other': ['seize control of a fortified location such as a fortress, town, or ship.', 'defend a location from attackers.', 'retrieve an object from inside a secure location in a settlement.', 'retrieve an object from a caravan.', 'salvage an object or goods from a lost vessel or caravan.', 'break a prisoner out of a jail or prison camp.', 'escape from a jail or prison camp.', 'successfully travel through an obstacle course to gain recognition or reward.', 'infiltrate a fortified location.', 'find the source of strange occurrences in a haunted house or other location.', 'interfere with the operation of a business.', 'rescue a character, monster, or object from a natural or unnatural disaster.']
+    'dungeon': {
+      "stop the dungeon's monstrous inhabitants from raiding the surface world.": function (town, adventure) {
+        return "stop the dungeon's monstrous inhabitants from raiding the surface world."
+      },
+      "foil a villain's evil scheme.": function (town, adventure) {
+        return "foil a villain's evil scheme."
+      },
+      'destroy a magical threat inside the dungeon.': function (town, adventure) {
+        return 'destroy a magical threat inside the dungeon.'
+      },
+      'acquire treasure.': function (town, adventure) {
+        return 'acquire treasure.'
+      },
+      'find a particular item for a specific purpose.': function (town, adventure) {
+        return 'find a particular item for a specific purpose.'
+      },
+      'retrieve a stolen item hidden in the dungeon.': function (town, adventure) {
+        return 'retrieve a stolen item hidden in the dungeon.'
+      },
+      'find information needed for a special purpose.': function (town, adventure) {
+        return 'find information needed for a special purpose.'
+      },
+      'rescue a captive.': function (town, adventure) {
+        var npc = setup.createNPC(town, {
+          background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble'].random(),
+          profession: 'captive',
+          hasClass: false,
+          isThrowaway: true
+        })
+        return 'rescue ' + setup.profile(npc) + ', a ' + npc.descriptor + ' who was captured and taken prisoner.'
+      },
+      'discover the fate of a previous adventuring party.': function (town, adventure) {
+        var npc = setup.createNPC(town, {
+          hasClass: true
+        })
+        return 'discover the fate of ' + setup.profile(npc) + ' and ' + npc.hisher + ' adventuring party.'
+      },
+      'find an npc who disappeared in the area.': function (town, adventure) {
+        var npc = setup.createNPC(town, {
+          hasClass: true
+        })
+        return 'find ' + setup.profile(npc) + ', who disappeared in the area.'
+      },
+      'slay a dragon or some other challenging monster.': function (town, adventure) {
+        return 'slay a dragon or some other challenging monster.'
+      },
+      'discover the nature and origin of a strange location or phenomenon.': function (town, adventure) {
+        return 'discover the nature and origin of a strange location or phenomenon.'
+      },
+      'pursue fleeing foes taking refuge in the dungeon.': function (town, adventure) {
+        return 'pursue fleeing foes taking refuge in the dungeon.'
+      },
+      'escape from captivity in the dungeon.': function (town, adventure) {
+        return 'escape from captivity in the dungeon.'
+      },
+      'clear a ruin so it can be rebuilt and reoccupied.': function (town, adventure) {
+        return 'clear a ruin so it can be rebuilt and reoccupied.'
+      },
+      'discover why a villain is interested in the dungeon.': function (town, adventure) {
+        return 'discover why a villain is interested in the dungeon.'
+      },
+      'win a bet or complete a rite of passage by surviving in the dungeon for a certain amount of time.': function (town, adventure) {
+        return 'win a bet or complete a rite of passage by surviving in the dungeon for a certain amount of time.'
+      },
+      'parley with a villain in the dungeon.': function (town, adventure) {
+        return 'parley with a villain in the dungeon.'
+      },
+      'hide from a threat outside the dungeon.': function (town, adventure) {
+        return 'hide from a threat outside the dungeon.'
+      }
+    },
+    'wilderness': {
+      'assess the scope of a natural or unnatural disaster.': function (town, adventure) {
+        return ''
+      },
+      'escort an npc to a destination.': function (town, adventure) {
+        var npc = setup.createNPC(town, {
+          hasClass: true
+        })
+        return 'escort ' + setup.profile(npc) + ' to a destination.'
+      },
+      "arrive at a destination without being seen by the villain's forces.": function (town, adventure) {
+        return "arrive at a destination without being seen by the villain's forces."
+      },
+      'stop monsters from raiding caravans and farms.': function (town, adventure) {
+        return 'stop monsters from raiding caravans and farms.'
+      },
+      'establish trade with a distant town.': function (town, adventure) {
+        var otherTown = setup.createTownName()
+        return 'establish trade with the distant town ' + otherTown + '.'
+      },
+      'protect a caravan traveling to a distant town.': function (town, adventure) {
+        var caravan = setup.misc.caravan.create(town)
+        var otherTown = setup.createTownName()
+        return 'protect a ' + caravan.tippyWord + ' traveling to the distant town ' + otherTown
+      },
+      'map a new land.': function (town, adventure) {
+        return ''
+      },
+      'find a place to establish a colony.': function (town, adventure) {
+        return 'find a place to establish a colony.'
+      },
+      'find a natural resource.': function (town, adventure) {
+        return 'find a natural resource.'
+      },
+      'hunt a specific monster.': function (town, adventure) {
+        return 'hunt a specific monster.'
+      },
+      'return home from a distant place.': function (town, adventure) {
+        return 'return home from a distant place.'
+      },
+      'obtain information from a reclusive hermit.': function (town, adventure) {
+        var npc = setup.createNPC(town, {
+          hasClass: false,
+          background: 'hermit',
+          profession: 'hermit',
+          isThrowaway: true
+        })
+        return 'obtain information from a ' + setup.profile(npc, 'reclusive hermit.')
+      },
+      'find an object that was lost in the wilds.': function (town, adventure) {
+        return 'find an object that was lost in the wilds.'
+      },
+      'discover the fate of a missing group of explorers.': function (town, adventure) {
+        var npc = setup.createNPC(town, {
+          hasClass: false,
+          background: 'outlander',
+          profession: 'explorer',
+          isThrowaway: true
+        })
+        return 'discover the fate of ' + setup.profile(npc) + ' and ' + npc.hisher + ' missing group of explorers.'
+      },
+      'pursue fleeing foes.': function (town, adventure) {
+        return 'pursue fleeing foes.'
+      },
+      'assess the size of an approaching army.': function (town, adventure) {
+        return ''
+      },
+      'escape the reign of a tyrant.': function (town, adventure) {
+        return ''
+      },
+      'protect a wilderness site from attackers.': function (town, adventure) {
+        return ''
+      }
+    },
+    'other': {
+      'seize control of a fortified location such as a fortress, town, or ship.': function (town, adventure) {
+        return 'seize control of a fortified location such as a fortress, town, or ship.'
+      },
+      'defend a location from attackers.': function (town, adventure) {
+        return 'defend a location from attackers.'
+      },
+      'retrieve an object from inside a secure location in a settlement.': function (town, adventure) {
+        var otherTown = setup.createTownName()
+        return 'retrieve an object from inside a secure location in the settlement ' + otherTown + '.'
+      },
+      'retrieve an object from a caravan.': function (town, adventure) {
+        var caravan = setup.misc.caravan.create(town)
+        return 'retrieve an object from a ' + caravan.tippyWord + '. '
+      },
+      'salvage an object or goods from a lost vessel or caravan.': function (town, adventure) {
+        return 'salvage an object or goods from a lost vessel or caravan.'
+      },
+      'break a prisoner out of a jail or prison camp.': function (town, adventure) {
+        return 'break a prisoner out of a jail or prison camp.'
+      },
+      'escape from a jail or prison camp.': function (town, adventure) {
+        return 'escape from a jail or prison camp.'
+      },
+      'successfully travel through an obstacle course to gain recognition or reward.': function (town, adventure) {
+        return 'successfully travel through an obstacle course to gain recognition or reward.'
+      },
+      'infiltrate a fortified location.': function (town, adventure) {
+        return 'infiltrate a fortified location.'
+      },
+      'find the source of strange occurrences in a haunted house or other location.': function (town, adventure) {
+        return 'find the source of strange occurrences in a haunted house or other location.'
+      },
+      'interfere with the operation of a business.': function (town, adventure) {
+        return 'interfere with the operation of a business.'
+      },
+      'rescue a character, monster, or object from a natural or unnatural disaster.': function (town, adventure) {
+        return 'rescue a character, monster, or object from a natural or unnatural disaster.'
+      }
+    }
   },
   'introduction': [
     'While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.',
     'While traveling in the wilderness, the characters notice the entrance to the adventure location.',
     'While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.',
-    'The adventurers find a map on a dead body. In addition to the map setting up the adventure, the $adventureVillain.name wants the map.',
-    'A mysterious magic item (or $adventureVillain.name) teleports the characters to the adventure location.',
+    'The adventurers find a map on a dead body. In addition to the map setting up the adventure, the $adventure.villain.name wants the map.',
+    'A mysterious magic item (or $adventure.villain.name) teleports the characters to the adventure location.',
     'A stranger approaches the characters in a tavern and urges them toward the adventure location.',
     '$town.name needs volunteers to go to the adventure location.',
     'An NPC the characters care about needs them to go to the adventure location.',
@@ -19,25 +225,25 @@ setup.adventureData = {
     'A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location.'
   ],
   'climax': [
-    'The adventurers confront $adventureVillain.name and a group of minions in a bloody battle to the finish.',
-    "The adventurers chase $adventureVillain.name while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventureVillain.firstName's refuge",
-    'The actions of the adventurers or $adventureVillain.firstName result in a cataclysmic even that the adventurers must escape',
-    'The adventurers race to the site where $adventureVillain.name is bringing a master plan to its conclusion, arriving just as that plan is about to be completed',
-    '$adventureVillain.name and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ',
+    'The adventurers confront $adventure.villain.name and a group of minions in a bloody battle to the finish.',
+    "The adventurers chase $adventure.villain.name while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventure.villain.firstName's refuge",
+    'The actions of the adventurers or $adventure.villain.firstName result in a cataclysmic even that the adventurers must escape',
+    'The adventurers race to the site where $adventure.villain.name is bringing a master plan to its conclusion, arriving just as that plan is about to be completed',
+    '$adventure.villain.name and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ',
     "An ally betrays the adventurers as they're about to achieve their goal (use this climax carefully, and don't overuse it).",
-    'A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with $adventureVillain.name at the same time.',
-    'Traps, hazards, or animated objects turn against the adventurers while $adventureVillain.name attacks.',
-    'The dungeon begins to collapse while the adventurers face $adventureVillain.name, who attempts to escape in the chaos. ',
-    'A threat more powerful than the adventurers appears, destrops $adventureVillain.name, and then turns its attention on the characters. ',
-    'The adventurers must choose whether to pursue the fleeing $adventureVillain.name or save an NPC they care about or a group of innocents. ',
-    "The adventurers must discover $adventureVillain.firstName's secret weakness before they can hope to defeat $adventureVillain.himher"
+    'A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with $adventure.villain.name at the same time.',
+    'Traps, hazards, or animated objects turn against the adventurers while $adventure.villain.name attacks.',
+    'The dungeon begins to collapse while the adventurers face $adventure.villain.name, who attempts to escape in the chaos. ',
+    'A threat more powerful than the adventurers appears, destroys $adventure.villain.name, and then turns its attention on the characters. ',
+    'The adventurers must choose whether to pursue the fleeing $adventure.villain.name or save an NPC they care about or a group of innocents. ',
+    "The adventurers must discover $adventure.villain.firstName's secret weakness before they can hope to defeat $adventure.villain.himher"
   ],
   'otherGoal': [
-    'Bring $adventureVillain.name to justice.',
+    'Bring $adventure.villain.name to justice.',
     'Clear the name of an innocent NPC.',
     'Protect or hide an NPC.',
     'Protect an object.',
-    "Discover the nature and origin of a strange phenomenon that might be $adventureVillain.firstName's doing.",
+    "Discover the nature and origin of a strange phenomenon that might be $adventure.villain.firstName's doing.",
     'Find a wanted fugitive.',
     'Overthrow a tyrant.',
     'Uncover a conspiracy to overthrow a ruler.',
@@ -53,23 +259,341 @@ setup.adventureData = {
     'Locate a stolen item.',
     'Make sure a wedding goes off without a hitch.'
   ],
-  'backdrop': ["anniversary of a monarch's reign", 'anniversary of an important event', 'arena event', 'arrival of a caravan or ship', 'arrival of a circus', 'arrival of an important npc', 'arrival of marching modrons', 'artistic performance', 'athletic event', 'birth of a child', 'birthday of an important npc', 'civic festival', 'comet appearance', 'commemoration of a past tragedy', 'consecration of a new temple', 'coronation', 'council meeting', 'equinox or solstice', 'execution', 'fertility festival', 'full moon', 'funeral', 'graduation of cadets or wizards', 'harvest festival', 'holy day', 'investiture of a knight or other noble', 'lunar eclipse', 'midsummer festival', 'midwinter festival', 'migration of monsters', "monarch's ball", 'new moon', 'new year', 'pardoning of a prisoner', 'planar conjunction', 'planetary alignment', 'priestly investiture', 'procession of ghosts', 'remembrance for soldiers lost in war', 'royal address or proclamation', 'royal audience day', 'signing of a treaty', 'solar eclipse', 'tournament', 'trial', 'violent uprising', 'wedding or wedding anniversary'],
-  'quandary': ['Ally quandary', 'Friend quandary', 'Honor quandary', 'Rescue quandary', 'Respect quandary'],
+  'backdrop': [
+    "anniversary of a monarch's reign", 'anniversary of an important event', 'arena event', 'arrival of a caravan or ship', 'arrival of a circus', 'arrival of an important npc', 'arrival of marching modrons', 'artistic performance', 'athletic event', 'birth of a child', 'birthday of an important npc', 'civic festival', 'comet appearance', 'commemoration of a past tragedy', 'consecration of a new temple', 'coronation', 'council meeting', 'equinox or solstice', 'execution', 'fertility festival', 'full moon', 'funeral', 'graduation of cadets or wizards', 'harvest festival', 'holy day', 'investiture of a knight or other noble', 'lunar eclipse', 'midsummer festival', 'midwinter festival', 'migration of monsters', "monarch's ball", 'new moon', 'new year', 'pardoning of a prisoner', 'planar conjunction', 'planetary alignment', 'priestly investiture', 'procession of ghosts', 'remembrance for soldiers lost in war', 'royal address or proclamation', 'royal audience day', 'signing of a treaty', 'solar eclipse', 'tournament', 'trial', 'violent uprising', 'wedding or wedding anniversary'
+  ],
+  'quandary': [
+    'Ally quandary', 'Friend quandary', 'Honor quandary', 'Rescue quandary', 'Respect quandary'
+  ],
   'twist': [
     'The adventurers are racing against other creatures with the same or opposite goal.',
     'The adventurers become responsible for the safety of a noncombatant NPC.',
-    'The adventurers are prohibited from killing $adventureVillain.name, but $adventureVillain.heshe has no compunctions about killing them.',
+    'The adventurers are prohibited from killing $adventure.villain.name, but $adventure.villain.heshe has no compunctions about killing them.',
     'The adventurers have a time limit.',
     'The adventurers have received false or extraneous information.',
     'Completing an adventure goal fulfills a prophecy or prevents the fulfillment of a prophecy.',
     'The adventurers have two different goals, but they can complete only one.',
-    'Completing the goal secretly helps $adventureVillain.name.',
+    'Completing the goal secretly helps $adventure.villain.name.',
     'The adventurers must cooperate with a known enemy to achieve the goal.',
     'The adventurers are under magical compulsion (such as a geas spell) to complete their goal'
   ],
-  'sidequest': ['find a specific item rumored to be in the area.', "retrieve a stolen item in $adventureVillain.firstName's possession.", 'receive information from an npc in the area.', 'rescue a captive.', 'discover the fate of a missing npc.', 'slay a specific monster.', 'discover the nature and origin of a strange phenomenon in the area.', 'secure the aid of a character or creature in the area.'],
-  'patron': ['retired adventurer', 'local ruler', 'military officer', 'temple official', 'sage', 'respected elder', 'deity or celestial', 'mysterious fey', 'old friend', 'former teacher', 'parent or other family member', 'desperate commoner', 'embattled merchant', 'villain posing as a patron'],
-  'villain': ['beast or monstrosity with no particular agenda', 'terrible aberration bent on corruption or domination', 'fiend bent on corruption or destruction', 'dragon bent on domination and plunder', 'giant bent on plunder', 'horrible undead with any agenda', 'fey with a mysterious goal', 'humanoid cultist', 'humanoid conqueror', 'humanoid seeking revenge', 'humanoid schemer seeking to rule', 'humanoid criminal mastermind', 'humanoid raider or ravager', 'humanoid under a curse', 'misguided humanoid zealot'],
-  'villainActions': ['by doing one big event', 'by a crime spree', 'by growing corruption throughout the land', 'by serial crimes', 'step by step'],
-  'allyDescription': ['skilled adventurer', 'inexperienced adventurer', 'enthusiastic commoner', 'soldier', 'priest', 'sage', 'revenge seeker', 'raving lunatic adventurer', 'celestial ally', 'fey ally', 'disguised monster', 'villain posing as an ally']
+  'sidequest': {
+    'find a specific item rumored to be in the area.': function (town, adventure) {
+      return 'find a specific item rumored to be in the area.'
+    },
+    "retrieve a stolen item in the villain's possession.": function (town, adventure) {
+      return 'retrieve a stolen item in ' + setup.profile(adventure.villain) + "'s possession."
+    },
+    'receive information from an npc in the area.': function (town, adventure) {
+      var npc = setup.createNPC({
+        isThrowaway: true
+      })
+      return 'receive information from ' + setup.profile(npc) + ' who is in the area.'
+    },
+    'rescue a captive.': function (town, adventure) {
+      var npc = setup.createNPC({
+        isThrowaway: true
+      })
+      return 'rescue the captive ' + setup.profile(npc) + '.'
+    },
+    'discover the fate of a missing npc.': function (town, adventure) {
+      var npc = setup.createNPC({
+        isThrowaway: true
+      })
+      return 'discover the fate of the missing ' + setup.profile(npc) + '.'
+    },
+    'slay a specific monster.': function (town, adventure) {
+      return 'slay a specific monster.'
+    },
+    'discover the nature and origin of a strange phenomenon in the area.': function (town, adventure) {
+      return 'discover the nature and origin of a strange phenomenon in the area.'
+    },
+    'secure the aid of a character or creature in the area.': function (town, adventure) {
+      return 'secure the aid of a character or creature in the area.'
+    }
+
+  },
+  'patron': {
+    'retired adventurer': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        hasClass: true,
+        ageStage: 'elderly'
+      })
+      return setup.profile(npc, 'retired adventurer')
+    },
+    'local ruler': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        background: 'noble',
+        profession: 'ruler',
+        hasClass: false
+      })
+      return setup.profile(npc, 'local ruler')
+    },
+    'military officer': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        background: 'soldier',
+        profession: 'officer',
+        dndClass: 'fighter'
+      })
+      return setup.profile(npc, 'military officer')
+    },
+    'temple official': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        hasClass: false,
+        background: 'acolyte',
+        profession: 'temple official'
+      })
+      return setup.profile(npc, 'temple official')
+    },
+    'sage': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        background: 'sage'
+      })
+      return setup.profile(npc, 'sage')
+    },
+    'respected elder': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        ageStage: 'elderly'
+      })
+      return setup.profile(npc, 'respected elder')
+    },
+    'deity or celestial': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        note: 'Is a deity or celestial.'
+      })
+      return setup.profile(npc, 'deity or celestial')
+    },
+    'mysterious fey': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        race: 'elf',
+        note: 'Is a deity or celestial.'
+      })
+      return setup.profile(npc, 'mysterious fey')
+    },
+    'old friend': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        note: 'Is an old friend.'
+      })
+      return setup.profile(npc, 'old friend')
+    },
+    'former teacher': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        note: 'Is a former teacher.'
+      })
+      return setup.profile(npc, 'former teacher')
+    },
+    'parent or other family member': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        note: 'Is parent or family member to a party member.'
+      })
+      return setup.profile(npc, 'parent or other family member')
+    },
+    'desperate commoner': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        hasClass: false,
+        background: 'commoner'
+      })
+      return setup.profile(npc, 'desperate commoner')
+    },
+    'embattled merchant': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        hasClass: false,
+        background: 'merchant',
+        profession: 'merchant'
+      })
+      return setup.profile(npc, 'embattled merchant')
+    },
+    'villain posing as a patron': function (town) {
+      var npc = setup.createNPC({
+        isThrowaway: true,
+        note: 'Is actually a villain.'
+      })
+      return setup.profile(npc, 'villain posing as a patron')
+    }
+  },
+  'ally': {
+    'skilled adventurer': function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: true,
+        ageStage: 'elderly',
+        isThrowaway: true
+      })
+      return setup.profile(npc, 'skilled adventurer')
+    },
+    'inexperienced adventurer': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        hasClass: true
+      })
+      return setup.profile(npc, 'inexperienced adventurer')
+    },
+    'enthusiastic commoner': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        background: 'commoner',
+        hasClass: false
+      })
+      return setup.profile(npc, 'enthusiastic commoner')
+    },
+    'soldier': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        background: 'soldier',
+        dndClass: 'fighter'
+      })
+      return setup.profile(npc, 'soldier')
+    },
+    'priest': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        background: 'acolyte',
+        dndClass: 'cleric'
+      })
+      return setup.profile(npc, 'priest')
+    },
+    'sage': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        background: 'sage',
+        profession: 'sage'
+      })
+      return setup.profile(npc, 'sage')
+    },
+    'revenge seeker': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true
+      })
+      return setup.profile(npc, 'revenge seeker')
+    },
+    'raving lunatic adventurer': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        hasClass: true,
+        calmTrait: 'mildly crazy',
+        stressTrait: 'totally insane'
+      })
+      return setup.profile(npc, 'raving lunatic adventurer')
+    },
+    'celestial ally': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        note: 'Is a celestial being.'
+      })
+      return setup.profile(npc, 'celestial ally')
+    },
+    'fey ally': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        note: 'Is a fey.',
+        race: 'elf'
+      })
+      return setup.profile(npc, 'fey ally')
+    },
+    'disguised monster': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true,
+        note: 'Is a disguised monster'
+      })
+      return setup.profile(npc, 'disguised monster')
+    },
+    'villain posing as an ally': function (town) {
+      var npc = setup.createNPC(town, {
+        isThrowaway: true
+      })
+      return setup.profile(npc, 'villain') + ' posing as an ally'
+    }
+  },
+  'villain': {
+    'beast or monstrosity with no particular agenda': function (town, adventure) {
+      return 'beast or monstrosity with no particular agenda'
+    },
+    'terrible aberration bent on corruption or domination': function (town, adventure) {
+      return 'terrible aberration bent on corruption or domination'
+    },
+    'fiend bent on corruption or destruction': function (town, adventure) {
+      return 'fiend bent on corruption or destruction'
+    },
+    'dragon bent on domination and plunder': function (town, adventure) {
+      return 'dragon bent on domination and plunder'
+    },
+    'giant bent on plunder': function (town, adventure) {
+      return 'giant bent on plunder'
+    },
+    'horrible undead with any agenda': function (town, adventure) {
+      return 'horrible undead with any agenda'
+    },
+    'fey with a mysterious goal': function (town, adventure) {
+      return 'horrible undead with any agenda'
+    },
+    'humanoid cultist': function (town, adventure) {
+      var villain = setup.createNPC({
+        dndClass: ['cleric', 'sorcerer', 'wizard'].random(),
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, 'cultist')
+    },
+    'humanoid conqueror': function (town, adventure) {
+      var villain = setup.createNPC({
+        dndClass: ['barbarian', 'fighter', 'fighter'].random(),
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, 'conqueror')
+    },
+    'humanoid seeking revenge': function (town, adventure) {
+      var villain = setup.createNPC({
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, villain.race) + ' seeking revenge'
+    },
+    'humanoid schemer seeking to rule': function (town, adventure) {
+      var villain = setup.createNPC({
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, 'schemer') + ' seeking to rule'
+    },
+    'humanoid criminal mastermind': function (town, adventure) {
+      var villain = setup.createNPC({
+        dndClass: ['rogue', 'rogue', 'fighter'].random(),
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, 'criminal mastermind')
+    },
+    'humanoid raider or ravager': function (town, adventure) {
+      var villain = setup.createNPC({
+        dndClass: ['fighter', 'rogue'].random(),
+        race: ['half-orc', 'human', 'human'].random(),
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, 'raider')
+    },
+    'humanoid under a curse': function (town, adventure) {
+      var villain = setup.createNPC({
+        isThrowaway: true,
+        note: 'Is under a curse.'
+      })
+      return 'a ' + setup.profile(villain, villain.race) + ' under a curse'
+    },
+    'misguided humanoid zealot': function (town, adventure) {
+      var villain = setup.createNPC({
+        dndClass: ['cleric', 'cleric', 'druid'].random(),
+        isThrowaway: true
+      })
+      return 'a ' + setup.profile(villain, 'zealot')
+    }
+  },
+  'villainActions': ['by doing one big event', 'by a crime spree', 'by growing corruption throughout the land', 'by serial crimes', 'step by step']
+
 }

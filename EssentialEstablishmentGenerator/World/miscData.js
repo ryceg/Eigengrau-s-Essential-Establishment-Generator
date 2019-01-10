@@ -56,6 +56,8 @@ setup.misc = {
       }, base)
       caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
       caravan.readout = 'The caravan is ' + caravan.type + ', with ' + caravan.animals + ' as the pack animals. They are transporting ' + caravan.transporting + ', and the general mood seems to be ' + caravan.mood + ' The master is <<profile `$throwawayNpcs[' + JSON.stringify(caravan.master.key) + ']` ' + JSON.stringify(caravan.masterType) + '>>, who is looking for ' + caravan.masterLooking + '. ' + caravan.master.heshe.toUpperFirst() + ' is taking special care to avoid ' + caravan.masterAvoid + ' and is carrying ' + caravan.masterCarry + ' with ' + caravan.master.himher + '.'
+      caravan.tippy = '<span class=tip title=' + JSON.stringify(caravan.readout) + '><<run setup.tippy("span")>>'
+      caravan.tippyWord = caravan.tippy + '<b>caravan</b></span>'
       return caravan
     },
     'caravanType': ['a wagon train', 'a long wagon train', 'a small train of pack animals', 'a long train of pack animals', 'a train of pack animals with livestock', 'a line of people on foot with a few animals'],
