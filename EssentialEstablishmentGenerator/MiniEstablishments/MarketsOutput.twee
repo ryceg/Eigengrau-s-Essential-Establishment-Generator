@@ -1,10 +1,10 @@
 :: MarketOutput [market]
 <<unset $selectedBuilding>><<set $market to $town.buildings[$selected.key][$selected.index]>><h1>The Markets of $town.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness.
 <<nobr>><<set _marketData to setup.market>><<if ndef $marketSellerA>>
-<<set $marketSellerA to setup.createNPC($town, { profession: "merchant", hasClass: false })>>
-<<set $marketSellerB to setup.createNPC($town, { profession: "merchant", hasClass: false })>>
-<<set $marketSellerC to setup.createNPC($town, { profession: "merchant", hasClass: false })>>
-<<set $marketSellerE to setup.createNPC($town, { profession: "merchant", hasClass: false })>>
+<<set $marketSellerA to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>>
+<<set $marketSellerB to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>>
+<<set $marketSellerC to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>>
+<<set $marketSellerE to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>>
 <<set $marketSellerD to setup.createNPC($town, {background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>><</if>><</nobr>>
 There's a <<profile $marketSellerA $marketSellerA.descriptor>> selling <<print either(_marketData.vendors.selling)>> from a <<print either(_marketData.vendors.tent)>>.
 
@@ -15,7 +15,7 @@ Nearby, a <<profile $marketSellerC $marketSellerC.descriptor>> is selling <<prin
 A <<profile $marketSellerE $marketSellerE.descriptor>> is shouting out "<<print either(_marketData.vendors.shouts)>> <<print either(_marketData.vendors.suffix)>>" from a <<print either(_marketData.vendors.tent)>>.
 
 <<link "<h4>Who else is there?</h4>">>
-<<set $marketSellerF to setup.createNPC($town, { profession: "merchant", hasClass: false })>>
+<<set $marketSellerF to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>>
 <<replace "#moreSellers">>There's a <<profile $marketSellerF $marketSellerF.descriptor>> selling <<print either(_marketData.vendors.selling)>> from a <<print either(_marketData.vendors.tent)>>.<</replace>>
 <</link>><span id="moreSellers"></span>
 
