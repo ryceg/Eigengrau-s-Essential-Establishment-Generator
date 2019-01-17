@@ -1106,11 +1106,11 @@ setup.npcData = {
         'I pocket anything I see that might have some value.'
       ],
       'bond': [
-        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, and must work to ensure that he never crosses paths with me or those I care about.',
-        "I owe everything to my mentor <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>--a horrible person who's probably rotting in jail somewhere.",
-        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, who doesn't know me. I'm going to try and make the world better for him.",
+        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].firstName.random()>>, and must work to ensure that he never crosses paths with me or those I care about.',
+        "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>--a horrible person who's probably rotting in jail somewhere.",
+        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>, who doesn't know me. I'm going to try and make the world better for him.",
         "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
-        "A powerful person, Lord <<print setup.npcData.raceTraits[human].genderTraits[man].firstName.random()>>, killed someone I love. Some day soon, I'll have my revenge.",
+        "A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>, killed someone I love. Some day soon, I'll have my revenge.",
         "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself."
       ],
       'wealth': 1500
