@@ -2,6 +2,7 @@
 setup.createTown = function (base) {
   var type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   var terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
+  var season = ['summer', 'autumn', 'winter', 'spring']
   var townName = setup.createTownName()
   console.groupCollapsed(townName + ' is loading...')
   var economicIdeology = setup.townData.type[type].economicIdeology.random()
@@ -28,6 +29,8 @@ setup.createTown = function (base) {
     },
     // type: type,
     terrain: terrain,
+    currentSeason: season.random(),
+    season: season,
     factions: {
     },
     buildings: {
@@ -166,6 +169,8 @@ setup.createTown = function (base) {
   console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
   Object.assign(town.roll, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
+  // Object.assign(town.leader, setup.townData.politicalIdeology[town.politicalIdeology].data)
+
   setup.createSocioPolitics(town)
 
   town.roll.wealth.clamp(1, 100)
@@ -185,6 +190,7 @@ setup.createTown = function (base) {
 
   console.log(town)
   console.groupEnd()
+  // setup.createWeather(town)
   console.log(town.name + ' has loaded.')
 
   return town
