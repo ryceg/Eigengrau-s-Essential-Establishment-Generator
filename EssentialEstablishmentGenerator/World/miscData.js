@@ -1545,33 +1545,33 @@ setup.misc = {
     'a cavern behind a waterfall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '.</blockquote>'
     },
     'a small cave in the bank of a creek': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '</blockquote>'
+      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
     'an entrance to a rocky cave': function (town, biome) {
       var cavern = setup.misc.cavern.create()
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '</blockquote>'
+      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
     'a hole under a large tree': function (town, biome) {
       var contents = setup.misc[biome].hole.random()
       // this is lazy. Will change hole from an array to an object once I make more creators.
       if (contents === 'a spider') {
         var spider = setup.misc.spider.create()
-        contents = spider.tippyWord
+        contents = 'a ' + spider.tippyWord + '.'
       }
       var tree = setup.misc.tree.create(town, biome)
       // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '</blockquote>'
+      return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '.</blockquote>'
     },
     'a large burrow': function (town, biome) {
       var contents = setup.misc[biome].hole.random()
       // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a large burrow <blockquote>Inside is ' + contents + '</blockquote>'
+      return 'a large burrow <blockquote>Inside is ' + contents + '.</blockquote>'
     },
     'a peculiar cottage': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cottageLives, setup.misc.encounters)
@@ -1615,17 +1615,17 @@ setup.misc = {
     'a cavern in a canyon wall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     'a cave entrance, hidden by a boulder': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     'a small cave next to a dry river bed': function (town, biome) {
       var cavern = setup.misc.cavern.create()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     // mining is intentionally using the mountain biome
     'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.random() + ', looking for ' + setup.misc.mountain.minersGoal.random() + '.</blockquote>' },
@@ -1691,7 +1691,7 @@ setup.misc = {
         ceiling: setup.misc.cavern.ceiling.random(),
         hazards: setup.misc.cavern.hazards.random()
       }, base)
-      cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling
+      cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling + '.'
       return cavern
     }
   },
