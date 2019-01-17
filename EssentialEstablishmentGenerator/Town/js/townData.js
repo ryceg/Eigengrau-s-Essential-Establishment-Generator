@@ -1,4 +1,4 @@
-/* global setup random randomFloat */
+/* global setup random randomFloat dice */
 setup.townData = {
   'name': {
     'prefix': ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
@@ -434,7 +434,6 @@ setup.townData = {
       }
     }
   },
-
   'misc': {
     'primaryCrop': [
       'barley and oats',
@@ -729,6 +728,36 @@ setup.townData = {
   'terrain': {
     'temperate': {
       'weather': {
+        'tempVariation': {
+          95: {
+            temperature: dice(3, 10),
+            temperatureTimer: random(24, 48)
+          },
+          85: {
+            temperature: dice(2, 10),
+            temperatureTimer: random(24, 96)
+          },
+          65: {
+            temperature: random(1, 10),
+            temperatureTimer: random(48, 120)
+          },
+          35: {
+            temperature: random(-5, 5),
+            temperatureTimer: random(48, 144)
+          },
+          15: {
+            temperature: random(-1, -10),
+            temperatureTimer: random(48, 120)
+          },
+          5: {
+            temperature: 0 - dice(2, 10),
+            temperatureTimer: random(24, 96)
+          },
+          0: {
+            temperature: 0 - dice(3, 10),
+            temperatureTimer: random(24, 48)
+          }
+        },
         'summer': {
           precipitationlevel: 4,
           precipitationIntensity: 1,
@@ -836,6 +865,28 @@ setup.townData = {
     },
     'tropical': {
       'weather': {
+        'tempVariation': {
+          85: {
+            temperature: dice(2, 10),
+            temperatureTimer: random(24, 48)
+          },
+          55: {
+            temperature: random(1, 10),
+            temperatureTimer: random(48, 120)
+          },
+          25: {
+            temperature: 0 - random(-5, 5),
+            temperatureTimer: random(48, 120)
+          },
+          10: {
+            temperature: 0 - random(1, 10),
+            temperatureTimer: random(24, 48)
+          },
+          0: {
+            temperature: 0 - dice(2, 10),
+            temperatureTimer: random(24, 48)
+          }
+        },
         'summer': {
           precipitationlevel: 3,
           precipitationIntensity: 1,
@@ -962,6 +1013,36 @@ setup.townData = {
     },
     'arid': {
       'weather': {
+        'tempVariation': {
+          95: {
+            temperature: dice(3, 10),
+            temperatureTimer: random(24, 48)
+          },
+          85: {
+            temperature: dice(2, 10),
+            temperatureTimer: random(24, 96)
+          },
+          65: {
+            temperature: random(1, 10),
+            temperatureTimer: random(48, 120)
+          },
+          35: {
+            temperature: 0 - random(-5, 5),
+            temperatureTimer: random(48, 144)
+          },
+          15: {
+            temperature: 0 - random(1, 4),
+            temperatureTimer: random(48, 120)
+          },
+          5: {
+            temperature: 0 - dice(1, 10),
+            temperatureTimer: random(24, 96)
+          },
+          0: {
+            temperature: 0 - dice(2, 6),
+            temperatureTimer: random(24, 48)
+          }
+        },
         'summer': {
           precipitationlevel: 3,
           precipitationIntensity: -1,
@@ -1086,6 +1167,36 @@ setup.townData = {
     },
     'polar': {
       'weather': {
+        'tempVariation': {
+          100: {
+            temperature: dice(3, 10),
+            temperatureTimer: random(24, 48)
+          },
+          95: {
+            temperature: dice(2, 10),
+            temperatureTimer: random(24, 96)
+          },
+          80: {
+            temperature: random(1, 10),
+            temperatureTimer: random(48, 120)
+          },
+          60: {
+            temperature: random(-5, 5),
+            temperatureTimer: random(48, 144)
+          },
+          40: {
+            temperature: 0 - random(1, 10),
+            temperatureTimer: random(48, 120)
+          },
+          20: {
+            temperature: 0 - dice(2, 10),
+            temperatureTimer: random(24, 96)
+          },
+          0: {
+            temperature: 0 - dice(3, 10),
+            temperatureTimer: random(24, 48)
+          }
+        },
         'summer': {
           precipitationlevel: 4,
           precipitationIntensity: 0,
