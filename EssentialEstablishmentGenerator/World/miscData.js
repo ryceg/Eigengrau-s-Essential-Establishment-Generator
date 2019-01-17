@@ -55,7 +55,7 @@ setup.misc = {
         masterCarry: setup.misc.caravan.masterCarry.random()
       }, base)
       caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
-      caravan.readout = 'The caravan is ' + caravan.type + ', with ' + caravan.animals + ' as the pack animals. They are transporting ' + caravan.transporting + ', and the general mood seems to be ' + caravan.mood + ' The master is <<profile `$throwawayNpcs[' + JSON.stringify(caravan.master.key) + ']` ' + JSON.stringify(caravan.masterType) + '>>, who is looking for ' + caravan.masterLooking + '. ' + caravan.master.heshe.toUpperFirst() + ' is taking special care to avoid ' + caravan.masterAvoid + ' and is carrying ' + caravan.masterCarry + ' with ' + caravan.master.himher + '.'
+      caravan.readout = 'The caravan is ' + caravan.type + ', with ' + caravan.animals + ' as the pack animals. They are transporting ' + caravan.transporting + ', and the general mood seems to be ' + caravan.mood + ' The master is ' + setup.profile(caravan.master, JSON.stringify(caravan.masterType)) + ', who is looking for ' + caravan.masterLooking + '. ' + caravan.master.heshe.toUpperFirst() + ' is taking special care to avoid ' + caravan.masterAvoid + ' and is carrying ' + caravan.masterCarry + ' with ' + caravan.master.himher + '.'
       caravan.tippy = '<span class=tip title=' + JSON.stringify(caravan.readout) + '><<run setup.tippy("span")>>'
       caravan.tippyWord = caravan.tippy + '<b>caravan</b></span>'
       return caravan
@@ -193,13 +193,15 @@ setup.misc = {
         lairType: setup.misc.goblins.lairType.random(),
         target: setup.misc.goblins.target.random(),
         currentTarget: setup.misc.goblins.currentTarget.random(),
-        leader: setup.misc.goblins.leader.random(),
+        leaderType: setup.misc.goblins.leader.random(),
         goals: setup.misc.goblins.goals.random(),
         tactics: setup.misc.goblins.tactics.random(),
         accompaniedBy: setup.misc.goblins.accompaniedBy.random(),
         pets: setup.misc.goblins.pets.random()
       }, base)
-      goblins.readout = '<blockquote>These goblins primarily deal with ' + goblins.business + '. Their symbol is ' + goblins.symbol + ', and their colours are primarily ' + goblins.colours + '. Their lair is ' + goblins.lairType + ', located ' + goblins.lairLocation + '. Their leader is ' + goblins.leader + ', who wants ' + goblins.goals + '. They like to target ' + goblins.target + ', and are currently planning a raid on ' + goblins.currentTarget + '. They fight with ' + goblins.tactics + ', and occasionally enlist help from ' + goblins.accompaniedBy + '. They have some ' + goblins.pets + ' as pets.</blockquote>'
+      goblins.readout = 'These goblins primarily deal with ' + goblins.business + '. Their symbol is ' + goblins.symbol + ', and their colours are primarily ' + goblins.colours + '. Their lair is ' + goblins.lairType + ', located ' + goblins.lairLocation + '. Their leader is ' + goblins.leaderType + ', who wants ' + goblins.goals + '. They like to target ' + goblins.target + ', and are currently planning a raid on ' + goblins.currentTarget + '. They fight with ' + goblins.tactics + ', and occasionally enlist help from ' + goblins.accompaniedBy + '. They have some ' + goblins.pets + ' as pets.'
+      goblins.tippy = '<span class=tip title=' + JSON.stringify(goblins.readout) + '><<run setup.tippy("span")>>'
+      goblins.tippyWord = goblins.tippy + '<b>goblins</b></span>'
       return goblins
     },
     'business': ['raiding villages and farms', 'burglarizing storehouses and shops', 'harassing anyone who passes through their territory', 'robbing caravans carrying gems, precious metals, and exotic goods', 'holding up traders’ ships or wagons', 'smuggling smokeleaf; a hallucinogenic mushroom', 'smuggling sleepysalt (a downer)', 'smuggling sharpsugar (an upper)', 'smuggling exotic beasts', 'smuggling foreign harlots', 'smuggling fugitives', 'smuggling slaves', 'serving as muscle for evildoers', 'mining and crafting', 'pranks and hijinks'],
@@ -227,7 +229,8 @@ setup.misc = {
         talent: setup.misc.goblin.talent.random()
       }, base)
       goblin.readout = 'This goblin is ' + goblin.type + ', and has a ' + goblin.faceFeature + '. It wields ' + goblin.carry + ' and wears ' + goblin.wears + '. This goblin is particularly good at ' + goblin.talent + ', and has ' + goblin.feature + '. Currently, it is looking to ' + goblin.looks
-      goblin.tippyWord = '<span class=tip title=' + JSON.stringify(goblin.readout) + '> <b>goblin</b></span><<run setup.tippy("span")>>'
+      goblin.tippy = '<span class=tip title=' + JSON.stringify(goblin.readout) + '><<run setup.tippy("span")>>'
+      goblin.tippyWord = goblin.tippy + '<b>goblin</b></span>'
       return goblin
     },
     'type': ['a miner', 'a forager', 'a warrior', 'a scout', 'a trapmaker', 'an archer', 'an assassin', 'a hexer', 'a wolf-rider', 'a sneak', 'an armorer', 'a cook', 'a builder', 'a beastshifter', 'a skullcrusher', 'a thug', 'a warpriest', 'a prankster', 'a blackblade', 'a worthless nobody'],
@@ -509,6 +512,73 @@ setup.misc = {
     }
   ],
   'religion': {
+    'shrine': {
+      'create': function (town, base) {
+        var sensesArray = Object.keys(setup.misc.religion.shrine.senses).random()
+        var shrine = Object.assign({
+          god: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random(),
+          material: setup.misc.religion.shrine.material.random(),
+          senses: setup.misc.religion.shrine.senses[sensesArray](town)
+        }, base)
+        shrine.readout = 'You come across a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
+        shrine.tippy = '<span class=tip title=' + JSON.stringify(shrine.readout) + '><<run setup.tippy("span")>>'
+        shrine.tippyWord = shrine.tippy + '<b>shrine</b></span>'
+        return shrine
+      },
+      // the shrine is _______.
+      'material': [
+        'sculpted marble.',
+        'chiseled oak.',
+        'an old tree stump that has been carved into shape.',
+        'a huge statue made out of a common rock.',
+        'a respectable statue, inlaid with some semi-precious gems.',
+        'a rock pool with a simple altar.',
+        'a tiny structure, with an incense holder and dais sheltered by the roof.',
+        'some planks that are painted.',
+        'a boulder that has been chiseled into shape.',
+        'an artistic arrangement of rocks, logs, and natural materials.',
+        'little more than a lectern with some religious symbols carved into it.',
+        'made out of pottery.',
+        'clay, moulded and coaxed into shape.',
+        'some sort of rock, although it is now covered in a thick moss.',
+        'some type of clay that is visibly wet.',
+        'little more than a couple rocks symbolically arranged.',
+        'a natural geode that has been carved into shape. The hollow inside shines brilliant colours.'
+      ],
+      'senses': {
+        'incense': function (town) { return 'You can smell the soft scent of incense having been burnt here.' },
+        'wood chimes': function (town) { return 'The soft clattering of some wooden chimes can be heard in the distance.' },
+        'candle': function (town) { return "There's a melted candle on top of the shrine." },
+        'wax': function (town) { return "There's some blobs of melted wax on the shrine." },
+        'pen': function (town) { return 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.' },
+        'bread': function (town) { return 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.' },
+        'deadBird': function (town) { return 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.' },
+        'cat': function (town) {
+          var cat = setup.misc.cat.create()
+          return "You hear a soft meow, and see that there's a " + cat.tippyWord + ' sitting near the shrine, watching you.'
+        },
+        'hissingCat': function (town) {
+          var cat = setup.misc.cat.create()
+          return "You hear a hissing sound, and see that there's a " + cat.tippyWord + ' sitting near the shrine, almost guarding it.'
+        },
+        'bedding': function (town) { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
+        'beddingWithNPC': function (town) {
+          var npc = setup.createNPC(town)
+          return 'You can see some bedding on the ground near the shrine. The ' + setup.profile(npc, 'owner') + ' is out hunting.'
+        }
+      }
+    },
+    'createRelic': function () {
+      // var holy = setup.misc.religion.holy.random()
+      // var unholy = setup.misc.religion.unholy.random()
+      var adjective = [setup.misc.religion.holy.random(), setup.misc.religion.unholy.random()].random()
+      // var namedGod = setup.misc.religion.namedGod.random()
+      // var abstractGod = setup.misc.religion.abstractGod.random()
+      // var saint = setup.misc.religion.saint.random()
+      var god = [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random()
+      var noun = setup.misc.religion.noun.random()
+      return 'The ' + adjective + ' ' + noun + ' of ' + god
+    },
     holy: [
       'Airborn', 'Almighty', 'Ancient', 'Ascendant', 'Blessed', 'Blue', 'Bronze', 'Burning', 'Ceaseless', 'Celestial', 'Charming', 'Colossal', 'Consecarted', 'Crystal', 'Curing', 'Diamond', 'Emerald', 'Eminent', 'Eternal', 'Ethereal', 'Everlasting', 'Fabled', 'Famous', 'Feathered', 'Flaming', 'Floating', 'Flying', 'Forceful', 'Gentle', 'Ghostly', 'Glass', 'Glorious', 'Glowing', 'Golden', 'Granite', 'Green', 'Grey', 'Healing', 'Heavenly', 'Holiest', 'Holy', 'Illuminated', 'Inexorable', 'Invincible', 'Just', 'Learned', 'Legendary', 'Life', 'Lighted', 'Lightning', 'Lofty', 'Long Lost', 'Lost', 'Lucky', 'Medicinal', 'Mighty', 'Moonstone', 'Oaken', 'Peaceful', 'Pious', 'Platinum', 'Praising', 'Pristine', 'Radiant', 'Red', 'Reflecting', 'Regenerating', 'Restoring', 'Righteous', 'Sacred', 'Sanctified', 'Sapphire', 'Secret', 'Shielding', 'Shining', 'Silk', 'Silver', 'Singing', 'Skyborn', 'Soaring', 'Steel', 'Stone', 'Storied', 'Sunstone', 'Thundering', 'Titanic', 'Unstoppable', 'Untouchable', 'Unyielding', 'Virtuous', 'Vorpal', 'Warding', 'Watchful', 'Whistling', 'White', 'Wind', 'Winged', 'Wise', 'Wooden', 'Yellow'
     ],
@@ -526,18 +596,7 @@ setup.misc = {
     ],
     saint: [
       'Almar the Holy', 'Amaya the Seeress', 'Bahak the Preacher', 'Bahruz the Prophet', 'Lira the Flamekeeper', 'Mozar the Conqueror', 'Prince Tarunal', 'Queen Kalissa', 'Rahal the Sunsoul', 'Raham the Lightbringer', 'St. Aemilia', 'St. Albus', 'St. Anglos', 'St. Antonia', 'St. Antonus', 'St. Austyn', 'St. Bardo', 'St. Beatrix', 'St. Berta', 'St. Bettius', 'St. Bryenn', 'St. Buttercup', 'St. Carolo', 'St. Cedrick', 'St. Cordelia', 'St. Cowhan', 'St. Cumberbund', 'St. Dorys', 'St. Dreddos', 'St. Dwayn', 'St. Edwynna', 'St. Elayne', 'St. Falstyus', 'St. Farcas', 'St. Florenzo', 'St. Gabrella', 'St. Gaiorgus', 'St. Goodkynd', 'St. Hal', 'St. Halcincas', 'St. Haroldus', 'St. Hemingwar', 'St. Heraclora', 'St. Hermioninny', 'St. Hieronymus', 'St. Inigo', 'St. Jordyn', 'St. Katrynn', 'St. Lannus', 'St. Leo', 'St. Leryo', 'St. Londyn', 'St. Magio', 'St. Marius', 'St. Markuz', 'St. Martyn', 'St. Matromus', 'St. Morrsona', 'St. Morwayne', 'St. Murkel', 'St. Mychel', 'St. Nyneva', 'St. Paolo', 'St. Parrinus', 'St. Perseon', 'St. Petyr', 'St. Podryck', 'St. Polly', 'St. Pratchytt', 'St. Rawynn', 'St. Regus', 'St. Ricarddos', 'St. Roberts', 'St. Robinus', 'St. Rowhan', 'St. Rowlynna', 'St. Sansima', 'St. Sessimus', 'St. Severus', 'St. Stynebick', 'St. Symeon', 'St. Theseon', 'St. Thoryn', 'St. Tolkkyn', 'St. Twayn', 'St. Xavos', 'the Deliverer', 'the Doomcaller', 'the Doomsayer', 'the Lawgiver', 'the Oracle', 'the Prophet', 'the Savior', 'the Seeker', 'the Shadowseer', 'the Soothsayer', 'the Starwatcher', 'the Truthsayer', 'the Voice', 'Zefar the Sorcer'
-    ],
-    'createRelic': function () {
-      var holy = setup.misc.religion.holy.random()
-      var unholy = setup.misc.religion.unholy.random()
-      var adjective = [holy, unholy].random()
-      var namedGod = setup.misc.religion.namedGod.random()
-      var abstractGod = setup.misc.religion.abstractGod.random()
-      var saint = setup.misc.religion.saint.random()
-      var god = [namedGod, abstractGod, saint].random()
-      var noun = setup.misc.religion.noun.random()
-      return 'The ' + adjective + ' ' + noun + ' of ' + god
-    }
+    ]
   },
   'cat': {
     'create': function () {
@@ -697,49 +756,47 @@ setup.misc = {
         background: 'criminal',
         isThrowaway: true
       })
-      return 'a pair of two outlaws; one ' + '<<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` ' + JSON.stringify(npc.descriptor) + '>>, and a <<profile `$throwawayNpcs[' + JSON.stringify(secondNpc.key) + ']` ' + JSON.stringify(secondNpc.descriptor) + '>>'
-    },
-    "some goblins' hideout": function (town) {
-      var goblins = setup.misc.goblins.create(town)
-      return 'a goblin hideout. ' + goblins.readout
-    },
-    'a pair of goblin scouts': function () { return 'a pair of goblin scouts' },
-    'a lone goblin': function () {
-      var goblin = setup.misc.goblin.create()
-      return 'a lone ' + goblin.tippyWord
-    },
-    'a goblin patrol': function () { return 'a goblin patrol' },
-    'some outlaws’ hideout': function (town) {
-      var bandits = setup.misc.bandits.create(town)
-      return bandits.tippy + 'a hideout belonging to <b>some outlaws.</b></span>'
-    },
-    'a disciplined military company': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a military company, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$throwawayNpcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a rowdy mercenary troop': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$throwawayNpcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a band of mercenaries': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$throwawayNpcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a marching army': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a small army, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$throwawayNpcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
+      return 'a pair of two outlaws; one ' + setup.profile(npc, npc.descriptor) + ' and a ' + setup.profile(secondNpc, secondNpc.descriptor)
     },
     'a band of desperate outlaws': function (town) {
       var bandits = setup.misc.bandits.create(town)
       return bandits.tippy + '<b>a band of desperate outlaws.</b></span>'
     },
+    'some bandits': function (town) {
+      var bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
+      return bandits.tippy + '<b>some bandits.</b></span>'
+    },
+    'some outlaws’ hideout': function (town) {
+      var bandits = setup.misc.bandits.create(town)
+      return bandits.tippy + 'a hideout belonging to <b>some outlaws</b></span>'
+    },
+    'a disciplined military company': function (town) {
+      var mercenaries = setup.createMercenaries(town)
+      return 'a military company, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
+    },
+    'a rowdy mercenary troop': function (town) {
+      var mercenaries = setup.createMercenaries(town)
+      return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
+    },
+    'a band of mercenaries': function (town) {
+      var mercenaries = setup.createMercenaries(town)
+      return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
+    },
+    'a marching army': function (town) {
+      var mercenaries = setup.createMercenaries(town)
+      return 'a small army, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
+    },
+    'a small merchant caravan': function (town) {
+      var caravan = setup.misc.caravan.create(town)
+      return 'a small merchant caravan. ' + caravan.readout
+    },
+    'a merchant caravan': function (town) {
+      var caravan = setup.misc.caravan.create(town)
+      return 'a merchant caravan. ' + caravan.readout
+    },
     'a clan of orcs': function (town) {
       var orcs = setup.misc.orcs.create()
       return 'a clan of orcs. ' + orcs.readout
-    },
-    'a goblin war party': function (town) {
-      var goblins = setup.misc.goblins.create()
-      return 'a goblin war party. ' + goblins.readout
     },
     'several orc raiders': function (town) {
       var orcs = setup.misc.orcs.create()
@@ -755,28 +812,46 @@ setup.misc = {
     },
     'a handful of ogres': function () {
       var ogre = setup.misc.ogre.create()
-      return 'a handful of ' + ogre.tippyWord + 's'
+      return 'a handful of ' + ogre.tippyWord + 's.'
     },
     'an ogre': function () {
       var ogre = setup.misc.ogre.create()
-      return 'a lone ' + ogre.tippyWord
+      return 'a lone ' + ogre.tippyWord + '.'
     },
+    "an ogre's lair": function () {
+      var ogre = setup.misc.ogre.create()
+      return 'a lair belonging to an ' + ogre.tippyWord
+    },
+    "some goblins' hideout": function (town) {
+      var goblins = setup.misc.goblins.create(town)
+      return 'a goblin hideout. ' + goblins.readout
+    },
+    'a pair of goblin scouts': function () { return 'a pair of goblin scouts' },
+    'a lone goblin': function () {
+      var goblin = setup.misc.goblin.create()
+      return 'a lone ' + goblin.tippyWord + ' ' + ['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].random()
+    },
+    'a goblin war party': function (town) {
+      var goblins = setup.misc.goblins.create()
+      return 'a goblin war party. ' + goblins.readout
+    },
+    'a goblin patrol': function () { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].random() },
     'several giant spiders': function () {
       var spider = setup.misc.spider.create()
-      return 'several giant ' + spider.tippyWord + '<b>s</b>'
+      return 'several giant ' + spider.tippyWord + '<b>s</b>.'
     },
     'a pack of wolves': function () {
       var wolf = setup.misc.wolf.create()
-      var wolves = wolf.tippy + '<b>wolves</b></span>'
+      var wolves = wolf.tippy + '<b>wolves</b></span>.'
       return 'a pack of ' + wolves
     },
     'a lone wolf': function () {
       var wolf = setup.misc.wolf.create()
-      return 'a lone ' + wolf.tippyWord
+      return 'a lone ' + wolf.tippyWord + '.'
     },
     'a hunting cat': function () {
       var cat = setup.misc.cat.create()
-      return 'a hunting ' + cat.tippyWord
+      return 'a hunting ' + cat.tippyWord + '.'
     },
     'an itinerant priest': function (town) {
       var npc = setup.createNPC(town, {
@@ -785,7 +860,7 @@ setup.misc = {
         profession: 'priest',
         isThrowaway: true
       })
-      return 'an itinerant <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` priest>>'
+      return 'an itinerant ' + setup.profile(npc, 'priest')
     },
     'a hermit': function (town) {
       var npc = setup.createNPC(town, {
@@ -794,7 +869,7 @@ setup.misc = {
         profession: 'hermit',
         isThrowaway: true
       })
-      return 'a <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` hermit>>'
+      return 'a ' + setup.profile(npc, 'hermit')
     },
     'a solitary hunter': function (town) {
       var npc = setup.createNPC(town, {
@@ -802,7 +877,7 @@ setup.misc = {
         background: 'outlander',
         isThrowaway: true
       })
-      return 'a solitary <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` hunter>>'
+      return 'a solitary ' + setup.profile(npc, 'hunter')
     },
     'a solitary bandit': function (town) {
       var npc = setup.createNPC(town, {
@@ -810,7 +885,7 @@ setup.misc = {
         background: 'criminal',
         isThrowaway: true
       })
-      return 'a solitary <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` bandit>>'
+      return 'a solitary ' + setup.profile(npc, 'bandit')
     },
     'an injured knight': function (town) {
       var npc = setup.createNPC(town, {
@@ -818,7 +893,7 @@ setup.misc = {
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
-      return 'an injured <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` knight>>'
+      return 'an injured ' + setup.profile(npc, 'knight')
     },
     'a ranger': function (town) {
       var npc = setup.createNPC(town, {
@@ -826,15 +901,7 @@ setup.misc = {
         background: 'outlander',
         isThrowaway: true
       })
-      return 'a solitary <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` hunter>>'
-    },
-    'a small merchant caravan': function (town) {
-      var caravan = setup.misc.caravan.create(town)
-      return 'a small merchant caravan. ' + caravan.readout
-    },
-    'a merchant caravan': function (town) {
-      var caravan = setup.misc.caravan.create(town)
-      return 'a merchant caravan. ' + caravan.readout
+      return 'a solitary ' + setup.profile(npc, 'hunter')
     },
     'a diseased animal corpse': function () { return 'a diseased animal corpse' },
     'a dead body': function () { return 'a dead body' },
@@ -850,10 +917,6 @@ setup.misc = {
     'some tribesmen': function () { return 'some tribesmen' },
     'the undead': function () { return 'the undead' },
     '[monster encounter]': function () { return '[monster encounter]' },
-    'some bandits': function (town) {
-      var bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-      return bandits.tippy + '<b>some bandits.</b></span>'
-    },
     'a traveling peddler': function (town) {
       var npc = setup.createNPC(town, {
         hasClass: false,
@@ -861,7 +924,7 @@ setup.misc = {
         profession: 'merchant',
         isThrowaway: true
       })
-      return 'a traveling <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` peddler>>'
+      return 'a traveling ' + setup.profile(npc, 'peddler')
     },
     'a solitary troubador': function (town) {
       var npc = setup.createNPC(town, {
@@ -870,7 +933,7 @@ setup.misc = {
         profession: 'troubador',
         isThrowaway: true
       })
-      return 'a solitary <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` troubador>>'
+      return 'a solitary ' + setup.profile(npc, 'troubador')
     },
     'an adventurer on a horse': function (town) {
       var horse = setup.misc.horse.create()
@@ -879,7 +942,7 @@ setup.misc = {
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
-      return 'an <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` adventurer>> on a ' + horse.tippyWord
+      return 'an ' + setup.profile(npc, 'adventurer') + ' on a ' + horse.tippyWord
     },
     'a mounted messenger': function (town) {
       var npc = setup.createNPC(town, {
@@ -887,7 +950,7 @@ setup.misc = {
         profession: 'messenger',
         isThrowaway: true
       })
-      return 'a mounted <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` messenger>>'
+      return 'a mounted ' + setup.profile(npc, 'messenger')
     },
     'a work gang heading home': function () { return 'a work gang heading home' },
     'the road wardens': function () { return 'the road wardens' },
@@ -895,7 +958,10 @@ setup.misc = {
     'a pair of travelling clerics': function () { return 'a pair of travelling clerics' },
     'some graverobbers': function () { return 'some graverobbers' },
     'some farmers': function () { return 'some farmers' },
-    'a plague-infested cabin': function () { return 'a plague-infested cabin' },
+    'a plague-infested cabin': function () {
+      var cabin = setup.misc.cabin.create()
+      return 'a plague-infested ' + cabin.tippyWord + '.'
+    },
     'some beserkers': function () { return 'some beserkers' },
     'a caravan of gypsies': function () { return 'a caravan of gypsies' },
     'a knight errant': function (town) {
@@ -904,7 +970,7 @@ setup.misc = {
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
-      return 'a <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` knight>> errant'
+      return 'a ' + setup.profile(npc, 'knight errant')
     },
     'a wounded knight': function (town) {
       var npc = setup.createNPC(town, {
@@ -912,7 +978,7 @@ setup.misc = {
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
-      return 'an injured <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` knight>>'
+      return 'an injured ' + setup.profile(npc, 'knight')
     },
     'a traveling lady': function (town) {
       var npc = setup.createNPC(town, {
@@ -920,7 +986,7 @@ setup.misc = {
         background: 'noble',
         isThrowaway: true
       })
-      return 'a traveling <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` lady>>'
+      return 'a traveling ' + setup.profile(npc, 'lady')
     },
     'a courier': function (town) {
       var npc = setup.createNPC(town, {
@@ -928,7 +994,7 @@ setup.misc = {
         profession: 'courier',
         isThrowaway: true
       })
-      return 'a <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` courier>>'
+      return 'a ' + setup.profile(npc, 'courier')
     },
     'a wedding party': function () { return 'a wedding party' },
     'a group of pilgrims': function () { return 'a group of pilgrims' },
@@ -947,7 +1013,7 @@ setup.misc = {
         background: 'hermit',
         isThrowaway: true
       })
-      return 'a strange <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` hermit>>'
+      return 'a strange ' + setup.profile(npc, 'hermit')
     },
     'a lost traveler': function (town) {
       var npc = setup.createNPC(town, {
@@ -956,7 +1022,7 @@ setup.misc = {
         note: 'This person is very lost.',
         isThrowaway: true
       })
-      return 'a lost <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` traveler>>'
+      return 'a lost ' + setup.profile(npc, 'traveler')
     },
     'a poor nomad': function (town) {
       var npc = setup.createNPC(town, {
@@ -965,7 +1031,7 @@ setup.misc = {
         profession: 'nomad',
         isThrowaway: true
       })
-      return 'a poor <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` nomad>>'
+      return 'a poor ' + setup.profile(npc, 'nomad')
     },
     'a suspicious miner': function (town) {
       var npc = setup.createNPC(town, {
@@ -975,7 +1041,7 @@ setup.misc = {
         note: 'This person is hiding something.',
         isThrowaway: true
       })
-      return 'a suspicious <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` miner>>'
+      return 'a suspicious ' + setup.profile(npc, 'miner')
     },
     'a barbarian hunter': function (town) {
       var npc = setup.createNPC(town, {
@@ -984,7 +1050,7 @@ setup.misc = {
         profession: 'hunter',
         isThrowaway: true
       })
-      return 'a barbarian <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` hunter>>'
+      return 'a barbarian ' + setup.profile(npc, 'hunter')
     },
     'a mounted barbarian scout': function (town) {
       var npc = setup.createNPC(town, {
@@ -993,11 +1059,11 @@ setup.misc = {
         profession: 'scout',
         isThrowaway: true
       })
-      return 'a mounted barbarian <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` scout>>'
+      return 'a mounted barbarian ' + setup.profile(npc, 'scout')
     },
     'the ghost of a traveler': function () {
       var ghost = setup.misc.ghost.create()
-      return 'the ghost of a traveler. ' + ghost.readout
+      return 'the ' + ghost.tippyWord + ' of a traveler. '
     },
     'a poisonous snake': function () { return 'a poisonous snake' },
     'a giant spider': function () {
@@ -1017,10 +1083,6 @@ setup.misc = {
     'lots of bats': function (town) { return 'lots of bats' },
     'many spider webs': function (town) { return 'many spider webs' },
     "a troll's stash.": function (town) { return "a troll's stash." },
-    "an ogre's lair": function () {
-      var ogre = setup.misc.ogre.create()
-      return 'a lair belonging to an ' + ogre.tippyWord
-    },
     'some abandoned mining equipment': function (town) { return 'some abandoned mining equipment' },
     'bare rock': function (town) { return 'bare rock' },
     'a potable spring': function (town) { return 'a potable spring' },
@@ -1035,7 +1097,7 @@ setup.misc = {
         note: 'This prophet is as crazy as can be.',
         isThrowaway: true
       })
-      return 'a half-mad <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` prophet>>'
+      return 'a half-mad ' + setup.profile(npc, 'prophet')
     },
     'a reclusive sorcerer': function (town) {
       var npc = setup.createNPC(town, {
@@ -1044,7 +1106,7 @@ setup.misc = {
         calmTrait: 'withdrawn',
         isThrowaway: true
       })
-      return 'a reclusive <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` sorcerer>>'
+      return 'a reclusive ' + setup.profile(npc, 'sorcerer')
     },
     'a merchant of exotic goods': function (town) {
       var npc = setup.createNPC(town, {
@@ -1053,7 +1115,7 @@ setup.misc = {
         hasClass: false,
         isThrowaway: true
       })
-      return 'a strange <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` merchant>> of exotic goods'
+      return 'a strange ' + setup.profile(npc, 'merchant') + ' of exotic goods'
     },
     'a misanthropic shapeshifter': function (town) {
       var npc = setup.createNPC(town, {
@@ -1065,7 +1127,7 @@ setup.misc = {
         hasClass: false,
         isThrowaway: true
       })
-      return 'a misanthropic <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` shapeshifter>>'
+      return 'a misanthropic ' + setup.profile(npc, 'shapeshifter')
     },
     'an eccentric monk': function (town) {
       var npc = setup.createNPC(town, {
@@ -1076,7 +1138,7 @@ setup.misc = {
         dndClass: 'monk',
         isThrowaway: true
       })
-      return 'an eccentric <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` monk>>'
+      return 'an eccentric ' + setup.profile(npc, 'monk')
     },
     'a nomadic herder': function (town) {
       var npc = setup.createNPC(town, {
@@ -1085,7 +1147,7 @@ setup.misc = {
         hasClass: false,
         isThrowaway: true
       })
-      return 'a nomadic <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` herder>>'
+      return 'a nomadic ' + setup.profile(npc, 'herder')
     },
     'a nomadic warrior': function (town) {
       var npc = setup.createNPC(town, {
@@ -1094,7 +1156,7 @@ setup.misc = {
         dndClass: 'fighter',
         isThrowaway: true
       })
-      return 'a nomadic <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` warrior>>'
+      return 'a nomadic ' + setup.profile(npc, 'warrior')
     },
     'an outcast elf': function (town) {
       var npc = setup.createNPC(town, {
@@ -1105,7 +1167,7 @@ setup.misc = {
         race: 'elf',
         isThrowaway: true
       })
-      return 'an outcast <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` elf>>'
+      return 'an outcast ' + setup.profile(npc, 'elf')
     },
     'a reclusive scholar': function (town) {
       var npc = setup.createNPC(town, {
@@ -1115,7 +1177,7 @@ setup.misc = {
         calmTrait: 'withdrawn',
         isThrowaway: true
       })
-      return 'a reclusive <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` scholar>>'
+      return 'a reclusive ' + setup.profile(npc, 'scholar')
     },
     'an eccentric healer': function (town) {
       var npc = setup.createNPC(town, {
@@ -1124,7 +1186,7 @@ setup.misc = {
         note: 'This healer is rather odd.',
         isThrowaway: true
       })
-      return 'an eccentric <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` healer>>'
+      return 'an eccentric ' + setup.profile(npc, 'healer')
     },
     'a poor goatherder': function (town) {
       var npc = setup.createNPC(town, {
@@ -1134,7 +1196,7 @@ setup.misc = {
         note: 'This goatherder is very poor, but knows the area well.',
         isThrowaway: true
       })
-      return 'a poor <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` goatherder>>'
+      return 'a poor ' + setup.profile(npc, 'goatherder')
     },
     'a mining prospector': function (town) {
       var npc = setup.createNPC(town, {
@@ -1143,7 +1205,7 @@ setup.misc = {
         profession: 'prospector',
         isThrowaway: true
       })
-      return 'a mining <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` prospector>>'
+      return 'a mining ' + setup.profile(npc, 'prospector')
     },
     'a religious fanatic with his many wives': function (town) {
       var npc = setup.createNPC(town, {
@@ -1152,7 +1214,7 @@ setup.misc = {
         note: 'Has multiple wives.',
         isThrowaway: true
       })
-      return 'a religious <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` fanatic>> with his many wives'
+      return 'a religious ' + setup.profile(npc, 'fanatic') + ' with his many wives'
     },
     'poisonous snakes': function (town) { return 'poisonous snakes' },
     'a pair of orcs': function (town) { return 'a pair of orcs' },
@@ -1165,7 +1227,7 @@ setup.misc = {
         note: 'This person is totally mad.',
         isThrowaway: true
       })
-      return 'a mad <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` sorcerer>>'
+      return 'a mad ' + setup.profile(npc, 'sorcerer')
     },
     'a paranoid shapeshifter': function (town) {
       var npc = setup.createNPC(town, {
@@ -1177,7 +1239,7 @@ setup.misc = {
         note: 'This person is a paranoid shapeshifter.',
         isThrowaway: true
       })
-      return 'a paranoid <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` shapeshifter>>'
+      return 'a paranoid ' + setup.profile(npc, 'shapeshifter')
     },
     'a reclusive shapeshifter': function (town) {
       var npc = setup.createNPC(town, {
@@ -1187,11 +1249,11 @@ setup.misc = {
         note: 'This person is a shapeshifter.',
         isThrowaway: true
       })
-      return 'a reclusive <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` shapeshifter>>'
+      return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
     },
     'a restless ghost': function () {
       var ghost = setup.misc.ghost.create()
-      return 'a restless ghost. ' + ghost.readout
+      return 'a restless ' + ghost.tippyWord
     },
     'a dangerous fugitive': function (town) {
       var npc = setup.createNPC(town, {
@@ -1203,7 +1265,7 @@ setup.misc = {
         note: 'This person is a wanted criminal for high treason against the crown.',
         isThrowaway: true
       })
-      return 'a dangerous <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` fugitive>>'
+      return 'a dangerous ' + setup.profile(npc, 'fugitive')
     },
     'spiders and rats': function () {
       var spider = setup.misc.spider.create()
@@ -1220,7 +1282,7 @@ setup.misc = {
         isThrowaway: true
       })
       var map = setup.misc.treasureMap.create()
-      return 'a <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` treasure-hunter>> with a ' + map.tippyWord
+      return 'a ' + setup.profile(npc, 'treasure-hunter') + ' with a ' + map.tippyWord
     },
     'a wasteland druid': function (town) {
       var npc = setup.createNPC(town, {
@@ -1230,7 +1292,7 @@ setup.misc = {
         calmTrait: 'understanding',
         isThrowaway: true
       })
-      return 'a wasteland <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` druid>>'
+      return 'a wasteland ' + setup.profile(npc, 'druid')
     },
     'cursed mummies': function (town) { return 'cursed mummies' },
     'a hobgoblin warlord': function (town) { return 'a hobgoblin warlord' },
@@ -1258,11 +1320,11 @@ setup.misc = {
         note: 'This witch is as mad as a cut snake.',
         isThrowaway: true
       })
-      return 'a mad <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` witch>>'
+      return 'a mad ' + setup.profile(npc, 'witch')
     },
     'restless ghosts': function () {
       var ghost = setup.misc.ghost.create()
-      return 'a restless ghost. ' + ghost.readout
+      return 'a restless ' + ghost.tippyWord
     },
     'an outcast orc': function (town) {
       var npc = setup.createNPC(town, {
@@ -1271,7 +1333,7 @@ setup.misc = {
         note: 'This person is either an orc that was outcast, or a half orc.',
         isThrowaway: true
       })
-      return 'a reclusive <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` shapeshifter>>'
+      return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
     },
     'an owlbear': function (town) { return 'an owlbear' },
     'a troll': function (town) { return 'a troll' },
@@ -1286,7 +1348,7 @@ setup.misc = {
         note: 'This person is very lost.',
         isThrowaway: true
       })
-      return 'a lost <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` prospector>>'
+      return 'a lost ' + setup.profile(npc, 'prospector')
     },
     'a solemn warrior': function (town) {
       var npc = setup.createNPC(town, {
@@ -1297,7 +1359,7 @@ setup.misc = {
         stressTrait: 'determined',
         isThrowaway: true
       })
-      return 'a solemn looking <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` warrior>>'
+      return 'a solemn looking ' + setup.profile(npc, 'warrior')
     },
     'a seasoned mountaineer': function (town) {
       var npc = setup.createNPC(town, {
@@ -1307,7 +1369,7 @@ setup.misc = {
         note: 'Never gets lost.',
         isThrowaway: true
       })
-      return 'a seasoned <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` mountaineer>>'
+      return 'a seasoned ' + setup.profile(npc, 'mountaineer')
     },
 
     'an eccentric witch': function (town) {
@@ -1319,7 +1381,7 @@ setup.misc = {
         note: 'This witch is as crazy as a cut snake.',
         isThrowaway: true
       })
-      return 'an eccentric <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` witch>>'
+      return 'an eccentric ' + setup.profile(npc, 'witch')
     },
     'a contemplative monk': function (town) {
       var npc = setup.createNPC(town, {
@@ -1330,7 +1392,7 @@ setup.misc = {
         stressTrait: 'determined',
         isThrowaway: true
       })
-      return 'a contemplative <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` monk>>'
+      return 'a contemplative ' + setup.profile(npc, 'monk')
     },
     'a hunting peryton': function (town) { return 'a hunting peryton' },
     'a mountain lion': function (town) { return 'a mountain lion' },
@@ -1340,7 +1402,7 @@ setup.misc = {
     'an angry wraith': function (town) { return 'an angry wraith' },
     'a malevolent ghost': function () {
       var ghost = setup.misc.ghost.create({ reaction: 'murderous and cruel' })
-      return 'a malevolent ghost. ' + ghost.readout
+      return 'a malevolent ' + ghost.tippyWord
     },
     'a mated pair of manticores': function (town) { return 'a mated pair of manticores' },
     'a trio of monstrous trolls': function (town) { return 'a trio of monstrous trolls' },
@@ -1352,7 +1414,7 @@ setup.misc = {
         dndClass: ['fighter', 'rogue', 'rogue'].random(),
         isThrowaway: true
       })
-      return 'a beggarly <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` bandit>>'
+      return 'a beggarly ' + setup.profile(npc, 'bandit')
     },
     'an old witch': function (town) {
       var npc = setup.createNPC(town, {
@@ -1362,7 +1424,7 @@ setup.misc = {
         ageStage: 'elderly',
         isThrowaway: true
       })
-      return 'an old <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` witch>>'
+      return 'an old ' + setup.profile(npc, 'witch')
     },
     'a curious herbalist': function (town) {
       var npc = setup.createNPC(town, {
@@ -1371,14 +1433,14 @@ setup.misc = {
         profession: 'herbalist',
         isThrowaway: true
       })
-      return 'a curious <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` herbalist>>'
+      return 'a curious ' + setup.profile(npc, 'herbalist')
     },
     'a lost child': function (town) {
       var npc = setup.createNPC(town, {
         ageStage: 'child',
         isThrowaway: true
       })
-      return 'a lost <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` child>>'
+      return 'a lost ' + setup.profile(npc, 'child')
     },
     'a woodcutter busy with the day’s work': function (town) {
       var npc = setup.createNPC(town, {
@@ -1387,7 +1449,7 @@ setup.misc = {
         profession: 'woodcutter',
         isThrowaway: true
       })
-      return 'a <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + "]` woodcutter>>, busy with the day's work"
+      return 'a <<profile `$npcs[' + JSON.stringify(npc.key) + "]` woodcutter>>, busy with the day's work"
     },
     'an intrepid hunter': function (town) {
       var npc = setup.createNPC(town, {
@@ -1395,7 +1457,7 @@ setup.misc = {
         background: 'outlander',
         isThrowaway: true
       })
-      return 'an intrepid <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` hunter>>'
+      return 'an intrepid ' + setup.profile(npc, 'hunter')
     },
     'an elvish ranger': function (town) {
       var npc = setup.createNPC(town, {
@@ -1404,13 +1466,13 @@ setup.misc = {
         background: 'outlander',
         isThrowaway: true
       })
-      return 'an elvish <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` ranger>>'
+      return 'an elvish ' + setup.profile(npc, 'ranger')
     },
     'a large bear': function () { return 'a large bear' },
     'a bear cub': function () { return 'a bear cub' },
     'a wailing ghost': function () {
       var ghost = setup.misc.ghost.create()
-      return 'a wailing ghost. ' + ghost.readout
+      return 'a wailing ' + ghost.tippyWord
     },
     'giant spiders': function () {
       var spider = setup.misc.spider.create()
@@ -1425,7 +1487,7 @@ setup.misc = {
         calmTrait: 'quiet',
         isThrowaway: true
       })
-      return 'a lonely old <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` woman>>'
+      return 'a lonely old ' + setup.profile(npc, 'woman')
     },
     'a beautiful witch': function (town) {
       var npc = setup.createNPC(town, {
@@ -1435,7 +1497,7 @@ setup.misc = {
         note: 'This witch is very beautiful.',
         isThrowaway: true
       })
-      return 'a beautiful <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` witch>>'
+      return 'a beautiful ' + setup.profile(npc, 'witch')
     },
     'a horrible witch': function (town) {
       var npc = setup.createNPC(town, {
@@ -1446,7 +1508,7 @@ setup.misc = {
         stressTrait: 'cruel',
         isThrowaway: true
       })
-      return 'a horrible <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` witch>>'
+      return 'a horrible ' + setup.profile(npc, 'witch')
     },
     'an outcast dwarf': function (town) {
       var npc = setup.createNPC(town, {
@@ -1456,7 +1518,7 @@ setup.misc = {
         calmTrait: 'quiet',
         isThrowaway: true
       })
-      return 'an outcast <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` dwarf>>'
+      return 'an outcast ' + setup.profile(npc, 'dwarf')
     },
     'a dwarf prospector': function (town) {
       var npc = setup.createNPC(town, {
@@ -1466,7 +1528,7 @@ setup.misc = {
         profession: 'prospector',
         isThrowaway: true
       })
-      return 'a mining <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` prospector>>'
+      return 'a mining ' + setup.profile(npc, 'prospector')
     },
     'a wood elf druid': function (town) {
       var npc = setup.createNPC(town, {
@@ -1475,7 +1537,7 @@ setup.misc = {
         race: 'elf',
         isThrowaway: true
       })
-      return 'a wood elf <<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + ']` druid>>'
+      return 'a wood elf ' + setup.profile(npc, 'druid')
     },
     'some irritable trolls': function () { return 'some irritable trolls' }
   },
@@ -1483,22 +1545,28 @@ setup.misc = {
     'a cavern behind a waterfall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + contents + ' now.</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '</blockquote>'
     },
     'a small cave in the bank of a creek': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
+      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '</blockquote>'
     },
     'an entrance to a rocky cave': function (town, biome) {
       var cavern = setup.misc.cavern.create()
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
+      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '</blockquote>'
     },
     'a hole under a large tree': function (town, biome) {
       var contents = setup.misc[biome].hole.random()
+      // this is lazy. Will change hole from an array to an object once I make more creators.
+      if (contents === 'a spider') {
+        var spider = setup.misc.spider.create()
+        contents = spider.tippyWord
+      }
+      var tree = setup.misc.tree.create(town, biome)
       // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a hole under a large tree. <blockquote>Inside is ' + contents + '</blockquote>'
+      return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '</blockquote>'
     },
     'a large burrow': function (town, biome) {
       var contents = setup.misc[biome].hole.random()
@@ -1507,40 +1575,57 @@ setup.misc = {
     },
     'a peculiar cottage': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cottageLives, setup.misc.encounters)
-      return 'a peculiar cottage. <blockquote>' + contents + ' lives here.</blockquote>'
+      var cabin = setup.misc.cabin.create(town, biome, {
+        wordNoun: 'cottage'
+      })
+      return 'a peculiar ' + cabin.tippyWord + '. <blockquote>' + contents + ' lives here.</blockquote>'
     },
     "a woodsman's cabin": function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
-      return "an woodsman's cabin. <blockquote>" + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
+      var cabin = setup.misc.cabin.create(town, biome)
+      return "a woodsman's " + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
+    },
+    'a cozy little cabin': function (town, biome) {
+      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
+      var cabin = setup.misc.cabin.create(town, biome, {
+        wordNoun: 'cabin',
+        size: 'little'
+      })
+      return 'a cozy little ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
     'an abandoned cabin': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
-      return 'an abandoned cabin. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
+      var cabin = setup.misc.cabin.create(town, biome)
+      return 'an abandoned ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
     'an abandoned campsite': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
       return 'an abandoned campsite, which looks to have been occupied previously by ' + contents
     },
     'a sacred grove': function () { return 'a sacred grove.' },
+    'a shrine': function (town, biome) {
+      var shrine = setup.misc.religion.shrine.create(town)
+      return 'a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
+    },
     'a grave with an illegible headstone': function () { return 'a grave with an illegible headstone.' },
     'ancient ruins': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.random() + ' Now, ' + contents + ' lives here.</blockquote>'
+      return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.random() + '. Now, ' + contents + ' lives here.</blockquote>'
     },
     'a cavern in a canyon wall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + ' now.</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
     },
     'a cave entrance, hidden by a boulder': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + ' now.</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
     },
     'a small cave next to a dry river bed': function (town, biome) {
       var cavern = setup.misc.cavern.create()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + ' now.</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
     },
     // mining is intentionally using the mountain biome
     'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.random() + ', looking for ' + setup.misc.mountain.minersGoal.random() + '.</blockquote>' },
@@ -1549,12 +1634,20 @@ setup.misc = {
     'an abandoned stone house': function (town, biome) {
       var lived = setup.misc[biome].houseLived.random()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
-      return 'an abandoned stone house. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
+      var cabin = setup.misc.cabin.create(town, biome, {
+        material: 'stone',
+        wordNoun: 'house'
+      })
+      return 'an abandoned ' + cabin.tippy + '<b>stone house</b></span>. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
     },
     'a stone house': function (town, biome) {
       var lived = setup.misc[biome].houseLived.random()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
-      return 'a stone house sheltered by a ' + ['canyon', 'gorge', 'bluff'].random() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
+      var cabin = setup.misc.cabin.create(town, biome, {
+        material: 'stone',
+        wordNoun: 'house'
+      })
+      return 'a ' + cabin.tippy + '<b>stone house</b></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].random() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
     },
     "a merchant caravan's camp": function (town, biome) {
       var caravan = setup.misc.caravan.create(town)
@@ -1600,6 +1693,221 @@ setup.misc = {
       }, base)
       cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling
       return cavern
+    }
+  },
+  'tree': {
+    'create': function (town, biome, base) {
+      biome = biome || ['forest', 'desert', 'mountain', 'plains'].random()
+      var tree = Object.assign({
+        species: setup.misc.tree.biome[biome].species.random(),
+        size: setup.misc.tree.biome[biome].size.random(),
+        feature: setup.misc.tree.biome[biome].feature.random()
+      }, base)
+      tree.readout = 'The ' + tree.species + ' tree is ' + tree.size + ' ' + tree.feature
+      tree.tippy = '<span class=tip title=' + JSON.stringify(tree.readout) + '><<run setup.tippy("span")>>'
+      tree.tippyWord = tree.tippy + '<b>tree</b></span>'
+      return tree
+    },
+    'biome': {
+      'forest': {
+        'species': ['oak', 'oak', 'oak', 'pine', 'maple', 'birch', 'ash', 'elm', 'fir', 'spruce', 'sycamore', 'alder', 'cypress', 'yew'],
+        // a tree that is _______
+        'size': [
+          'positively huge.',
+          'as thick as a barrel.',
+          'so tall that you have to crane your neck back to see the top of it.',
+          'at least a hundred years old, with an impressive number of branches.',
+          'huge, even compared to the other trees in the forest.',
+          'as thick as a man, and twice as tall.',
+          'half as thick as a man. It looks somewhat weedy.',
+          'comparatively young; many of the other trees nearby are taller.',
+          'little more than a stump, save for one limb which keeps its tree status.',
+          'rather tall, but not very thick; it sways in the wind in such a way that it makes you a little uncomfortable.',
+          'barely as tall as a man; this was relatively recently planted, and has not had time to grow.'
+        ],
+        'feature': [
+          'Near the base, one can see some initials have been etched into the bark.',
+          'It is slightly stunted; you can see some burn marks on it.',
+          'It is slightly mangled, with a couple limbs missing.',
+          'It has some scratch marks near the base of it.',
+          'It looks like it has been used as a scratching post for a large creature.',
+          'There are some feasome looking claw marks halfway up the trunk.'
+        ]
+      },
+      'mountain': {
+        'species': ['oak', 'oak', 'oak', 'pine', 'maple', 'birch', 'ash', 'elm', 'fir', 'spruce', 'sycamore', 'alder', 'cypress', 'yew'],
+        // a tree that is _______
+        'size': [
+          'positively huge',
+          'as thick as a barrel.',
+          'so tall that you have to crane your neck back to see the top of it.',
+          'at least a hundred years old, with an impressive number of branches.',
+          'huge, even compared to the other trees on this side of the mountain.',
+          'as thick as a man, and twice as tall.',
+          'half as thick as a man. It looks somewhat weedy.',
+          'comparatively young; many of the other trees nearby are taller.',
+          'slightly stunted; you can see some burn marks on it.',
+          'slightly mangled, with a couple limbs missing.',
+          'little more than a stump, save for one limb which keeps its tree status.',
+          'rather tall, but not very thick; it sways in the wind in such a way that it makes you a little uncomfortable.',
+          'barely as tall as a man; this was relatively recently planted, and has not had time to grow.'
+        ],
+        'feature': [
+          'Near the base, one can see some initials have been etched into the bark.',
+          'It is slightly stunted; you can see some burn marks on it.',
+          'It is slightly mangled, with a couple limbs missing.',
+          'It has some scratch marks near the base of it.',
+          'It looks like it has been used as a scratching post for a large creature.',
+          'There are some feasome looking claw marks halfway up the trunk.',
+          'You can see some marks where climbing gear had been forced into the tree a long time ago.',
+          'You can see some bird has made this tree its home.',
+          'The crunch of egg shells under foot tell you that this was once home to a bird nest.'
+        ]
+      },
+      'desert': {
+        'species': ['oak', 'oak', 'oak', 'pine', 'maple', 'birch', 'ash', 'elm', 'fir', 'spruce', 'sycamore', 'alder', 'cypress', 'yew'],
+        // a tree that is _______
+        'size': [
+          'as thick as a barrel.',
+          'so tall that you have to crane your neck back to see the top of it.',
+          'at least a hundred years old, with an impressive number of branches.',
+          'huge, but even more impressive with no other trees in sight.',
+          'as thick as a man, and twice as tall.',
+          'half as thick as a man. It looks somewhat weedy due to the poor conditions that it has been growing in.',
+          'comparatively young; it looks to have been planted by a traveler.',
+          'little more than a stump, save for one limb which keeps its tree status.',
+          'rather tall, but not very thick; it sticks out like a sore thumb against the flat horizon.',
+          'barely as tall as a man; this was relatively recently planted, and has had neither the time nor water to grow.'
+        ],
+        'feature': [
+          'Near the base, one can see some initials have been etched into the bark.',
+          'It is slightly stunted; you can see some burn marks on it.',
+          'There are some nasty scorch marks on the side of it.',
+          'It is slightly mangled, with a couple limbs missing.',
+          'It has some scratch marks near the base of it.',
+          'It looks like it has been used as a scratching post for a large creature.',
+          'There are some feasome looking claw marks halfway up the trunk.',
+          'You can see some marks where climbing gear had been forced into the tree a long time ago for a better view of the horizon.',
+          'You can see some bird has made this tree its home.',
+          'The crunch of egg shells under foot tell you that this was once home to a bird nest.'
+        ]
+      },
+      'plains': {
+        'species': ['oak', 'oak', 'oak', 'pine', 'maple', 'birch', 'ash', 'elm', 'fir', 'spruce', 'sycamore', 'alder', 'cypress', 'yew'],
+        // a tree that is _______
+        'size': [
+          'as thick as a barrel.',
+          'so tall that you have to crane your neck back to see the top of it.',
+          'at least a hundred years old, with an impressive number of branches.',
+          'huge, even compared to the other trees on the horizon.',
+          'as thick as a man, and twice as tall.',
+          'half as thick as a man. It looks somewhat weedy.',
+          'comparatively young; it looks to have been planted by a traveler.',
+          'little more than a stump, save for one limb which keeps its tree status.',
+          'rather tall, but not very thick; it sways in the wind in such a way that it makes you a little uncomfortable.',
+          'barely as tall as a man; this was relatively recently planted, and has not had time to grow.'
+        ],
+        'feature': [
+          'Near the base, one can see some initials have been etched into the bark.',
+          'It is slightly stunted; you can see some burn marks on it.',
+          'It is slightly mangled, with a couple limbs missing.',
+          'It has some scratch marks near the base of it.',
+          'It looks like it has been used as a scratching post for a large creature.',
+          'There are some feasome looking claw marks halfway up the trunk.',
+          'You can see some marks where climbing gear had been forced into the tree a long time ago.',
+          'You can see some bird has made this tree its home.',
+          'The crunch of egg shells under foot tell you that this was once home to a bird nest.'
+        ]
+      }
+    }
+  },
+  'cabin': {
+    'create': function (town, base, biome) {
+      var cabin = Object.assign({
+        material: ['wooden', 'wooden', 'wooden', 'stone'].random(),
+        wordNoun: 'cabin',
+        feature: setup.misc.cabin.feature.random(),
+        insideFeature: setup.misc.cabin.insideFeature.random(),
+        size: '',
+        cleanliness: '',
+        bedCleanliness: '',
+        roll: {
+          size: random(1, 100),
+          cleanliness: random(1, 100),
+          bedCleanliness: random(1, 100)
+        }
+      }, base)
+      cabin.size = ''
+      cabin.cleanliness = ''
+      cabin.bedCleanliness = ''
+
+      var rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
+      rollDataVariables.forEach(function (propName) {
+        setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
+      })
+
+      cabin.readout = 'The ' + cabin.material + ' ' + cabin.wordNoun + ' is ' + cabin.size + '. ' + cabin.feature + ' Inside, it is ' + cabin.cleanliness + '. ' + cabin.insideFeature + ' There is a bed, which is ' + cabin.bedCleanliness + '.'
+      cabin.tippy = '<span class=tip title=' + JSON.stringify(cabin.readout) + '><<run setup.tippy("span")>>'
+      cabin.tippyWord = cabin.tippy + '<b>' + cabin.wordNoun + '</b></span>'
+      return cabin
+    },
+    'feature': [
+      'The door has deep scratch marks in it.',
+      'There is a pair of large boots by the door.',
+      'The steps leading to the door are rather dirty.',
+      'The chimney has a bird nesting in it.',
+      'The windows are rather grotty, with cobwebs all over.',
+      'There is a rusty shovel leaning against the door.',
+      'There is an empty water bowl next to the door.'
+    ],
+    'insideFeature': [
+      'There are seemingly hundreds of dishes stacked, in desperate need of a clean.',
+      'There is a toy pram in the corner of the room.',
+      'A decorative tapestry is hanging up on one of the walls.',
+      'There is a rather impressive bookcase in the corner of the room.',
+      'There is a hunk of bread lying on the table.',
+      'The room feels cramped, with tables and chairs cluttering everything up.',
+      'The room feels spacious, with a single table and chair in the corner.',
+      'There is a huge cast iron pot sitting in the fireplace.',
+      'Dried herbs sit in bunches on the table.'
+    ],
+    'rollData': {
+      'size': [
+        [95, 'huge'],
+        [80, 'quite large'],
+        [70, 'large'],
+        [60, 'spacious'],
+        [50, 'relatively spacious'],
+        [40, 'average sized'],
+        [30, 'somewhat cramped'],
+        [20, 'small'],
+        [10, 'tiny'],
+        [0, 'extremely cramped']
+      ],
+      'cleanliness': [
+        [80, 'absolutely spotless'],
+        [75, 'spotless'],
+        [70, 'nice and well cleaned'],
+        [60, 'hygienic'],
+        [50, 'decently hygienic'],
+        [40, 'slightly grubby'],
+        [30, 'quite dirty'],
+        [20, 'filthy'],
+        [10, 'rather filthy'],
+        [0, 'absolutely putrid']
+      ],
+      'bedCleanliness': [
+        [90, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
+        [80, 'recently prepared and well cleaned'],
+        [70, 'freshly cleaned and neat'],
+        [60, 'tidy and neat'],
+        [50, 'reasonably clean'],
+        [40, 'somewhat tidy'],
+        [30, 'disgusting'],
+        [20, 'teeming with rats'],
+        [10, 'rather filthy'],
+        [0, 'festering with bugs']
+      ]
     }
   },
   'road': {
@@ -1702,7 +2010,8 @@ setup.misc = {
       'a temple ruin',
       'a village of primitive canyon dwellers',
       "some nomad's camp",
-      'an ancient tomb'
+      'an ancient tomb',
+      'a shrine'
     ],
     'landmark': ['an oasis with a fruit tree', 'an oasis with a palm tree and some desert flowers', 'an unusually large, prickly desert plant', 'a pair of prickly plants from the same root', 'a patch of desert flowers in the shade of a boulder', 'a patch of damp sand in the shadow of a large boulder', 'a rocky bluff', 'a boulder shaped like a face', 'a pair of identical boulders, side by side', 'a boulder sitting atop a larger boulder', 'a narrow gorge with a trickle of water', 'a wide canyon with a trickle of water', 'a dry river bed', 'a swiftly flowing, shallow river in a canyon', 'a muddy river bed', 'a ridge of wind-eroded rock', 'a ridge of jagged rock', 'a mostly-buried, ancient monument', 'twelve large stones, deliberately arranged in a ring', 'a sheer rock wall with patterns of color in the rock layers'],
     'feature': ['a buzzard circles overhead', 'a vulture screams', 'a scorpion scuttles away', 'a large beetle scuttles away', 'a toad hops behind a rock', 'a lizard crawls under a rock', 'a jackal barks', 'a snake slithers away', 'a butterfly flutters by', 'a rattlesnake sounds', 'an unusual bird chirps', 'a gentle breeze blows', 'the wind blows harder', 'the wind kicks up dust', 'small loose stones tumble down a slope', 'a hint of moisture on the ground', 'a prickly plant with brightly colored fruit', 'a strange desert flower', 'a small palm tree', 'several small prickly plants'],
@@ -1820,7 +2129,8 @@ setup.misc = {
       // 'an ancient temple',
       // 'a ruined monastery',
       'an abandoned watchtower',
-      'an enormous bird’s nest'
+      'an enormous bird’s nest',
+      'a shrine'
     ],
     'cave': ['a mountain lion’s den', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", "some goblins' hideout", 'some abandoned mining equipment', 'bare rock', 'a potable spring', 'unidentifiable remains', 'some outlaws’ hideout', 'an orc war band', 'a hungry ettin', 'a band of dwarvish refugees', 'a griffon’s nest', 'a manticore’s den', 'a basilisk’s lair', 'a wyvern’s nest', 'a clan of stone giants', 'a sleeping dragon'],
     'cabinLives': ['an owlbear', 'an ogre', 'a troll', 'a mad witch', 'a reclusive shapeshifter', 'restless ghosts', 'an outcast orc', 'a strange hermit'],
@@ -1867,7 +2177,8 @@ setup.misc = {
       'an abandoned campsite',
       'a sacred grove',
       'a grave with an illegible headstone',
-      'ancient ruins'
+      'ancient ruins',
+      'a shrine'
     ],
     'landmark': ['a fruit tree', 'a large, hollow tree', 'a pair of trees from the same root', 'a tree growing over a boulder', 'a clearing with wildflowers', 'a grassy clearing', 'a moss-covered boulder', 'a thicket of brambles', 'a babbling brook', 'a brook in a deep ravine', 'a brook, with gentle rapids', 'a dry creekbed', "a small pool at a creek's bend", 'a patch of mushrooms', 'an enormous mushroom', 'a large, hollow log', 'a large, rotting log', 'a tree felled by lightning', 'an old gnarled tree', 'the stump of an enormous tree'],
     'feature': ['a flock of birds scatter', 'a hawk cries', 'a woodpecker drumming', 'an owl hoots', 'birds chirping', 'a chipmunk scurrying', 'a deer dashes away', 'a deer watches curiously', 'a squirrel leaps from one tree to another', 'a wolf howls', 'butterflies fluttering about', 'squirrels chittering', 'an eerie silence', 'the breeze stops', 'the wind blows harder', 'a twig snaps', 'brightly, colored berries', 'leaves rustling', 'the scent of flowers', 'the smell of decay'],

@@ -1,0 +1,15 @@
+:: CreateScenario
+<<listbox "$town.currentSeason">><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><</listbox>><<listbox "$scenarioType">><<option "Forest" "forest">><<option "Desert" "desert">><<option "Mountain" "mountain">><<option "Road" "road">><</listbox>><<button "Create scenario">>
+<<if def $scenario && $scenarioWeather >>
+    <<set $scenarioWeather.timer.temperature -= 4>>
+    <<set $scenarioWeather.timer.precipitation -= 4>>
+    <<set $scenarioWeather.timer.cloud -= 4>>
+    <<set $scenario to setup.createEncounter($town, $scenarioType)>>
+    <<set _scenarioWeather to setup.createWeather($town, $scenarioType, $scenarioWeather)>>
+    <<set $scenarioWeather to _scenarioWeather>>
+  <<else>>
+    <<set $scenario to setup.createEncounter($town, $scenarioType)>>
+    <<set $scenarioWeather to setup.createWeather($town, $scenarioType)>>
+<</if>>
+<<replace "#scenario">>$scenarioWeather.readout.full $scenario.readout<</replace>><</button>>
+<div id="scenario"><<if def $scenario>>$scenarioWeather.readout.full $scenario.readout<</if>></div>
