@@ -161,56 +161,58 @@ setup.tavern = {
     },
     'carousing': function (town, tavern) {
       var carousing = {
-        'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
-        'brawl': function () { return 'A bar brawl leaves you with a scar.' },
-        'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
-        'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
-        'quest': function (town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
-        'married': function () { return 'Surprise! You got engaged.' },
-        'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
-        'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
+        // 'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
+        // 'brawl': function () { return 'A bar brawl leaves you with a scar.' },
+        // 'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
+        // 'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
+        // 'quest': function (town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
+        // 'married': function () { return 'Surprise! You got engaged.' },
+        // 'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
+        // 'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
         'insult': function (town, tavern) {
           var found = setup.factionsForType(town, 'individual')
           var faction = found.random()
-          return 'You accidentally insulted the <<profile `$npcs[' + JSON.stringify(faction.leader.key) + ']` leader>> of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>>, and only a public apology will let you do business with them again.'
+          console.log(faction)
+          return 'You accidentally insulted the <<profile `$npcs[' + JSON.stringify(faction.leader.key) + ']` leader>> of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: ' + JSON.stringify(faction.key) + '}>><<goto "FactionProfile">><</link>>, and only a public apology will let you do business with them again.'
         },
         'anotherQuest': function (town) {
           var found = setup.factionsForType(town, 'individual')
           var faction = found.random()
-          return 'You swore to complete some quest on behalf of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>>.'
+          console.log(faction)
+          return 'You swore to complete some quest on behalf of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: ' + JSON.stringify(faction.key) + '}>><<goto "FactionProfile">><</link>>.'
         },
-        'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
-        'suitor': function (town) {
-          var npc = setup.createNPC(town)
-          return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>> has taken an interest in you romantically.'
-        },
-        'wizard': function (town) {
-          var npc = setup.createNPC(town, { dndClass: 'wizard' })
-          return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
-        },
-        'festival': function () { return 'You have been recruited to help run a local festival.' },
-        'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
-        'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
-        'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
-        'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
-        'debt': function (town) {
-          var npc = setup.createNPC(town, { background: 'noble', hasClass: false })
-          return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(npc.name) + ']`>> debts.'
-        },
-        'joust': function (town) {
-          var npc = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier', gender: 'man' })
-          return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
-        },
-        'foe': function (town) {
-          var npc = setup.createNPC(town, { background: 'noble', hasClass: false })
-          return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
-        },
-        'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
-        'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
-        'boring': function (town) {
-          var noble = setup.createNPC(town, { background: 'noble', hasClass: false })
-          return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
-        }
+        // 'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
+        // 'suitor': function (town) {
+        //   var npc = setup.createNPC(town, { isThrowaway: true })
+        //   return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>> has taken an interest in you romantically.'
+        // },
+        // 'wizard': function (town) {
+        //   var npc = setup.createNPC(town, { dndClass: 'wizard', isThrowaway: true })
+        //   return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
+        // },
+        // 'festival': function () { return 'You have been recruited to help run a local festival.' },
+        // 'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
+        // 'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
+        // 'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
+        // 'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
+        // 'debt': function (town) {
+        //   var npc = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
+        //   return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(npc.name) + ']`>> debts.'
+        // },
+        // 'joust': function (town) {
+        //   var npc = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier', gender: 'man', isThrowaway: true })
+        //   return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
+        // },
+        // 'foe': function (town) {
+        //   var npc = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
+        //   return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
+        // },
+        // 'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
+        // 'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
+        // 'boring': function (town) {
+        //   var noble = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
+        //   return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
+        // }
       }
       var keys = Object.keys(carousing)
       return carousing[keys[keys.length * Math.random() << 0]](town, tavern)

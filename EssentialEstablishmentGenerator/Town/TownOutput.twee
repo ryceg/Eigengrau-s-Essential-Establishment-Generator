@@ -40,12 +40,12 @@ _listbox -- <<button "Create new faction">>
         <th>Delete</th>
         /* <th>Raw Number</th> */
     </tr>
-<<for _key, _faction range $town.factions>><<capture _key, _index, _faction, _factionType>>
+<<for _key, _faction range $town.factions>><<capture _key, _faction>>
   <tr>
-    <td><<link "_faction.name">><<set $selected to {key: _key, index: _index, faction: _faction}>><<goto "FactionProfile">><</link>></td>
+    <td><<link "_faction.name">><<set $selected to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
     <td>_faction.type _faction.factionNoun</td>
     <td>_faction.size</td>
-    <td><<link "x">><<run delete $town.factions[_faction.key]>><<goto "TownOutput">><</link>></td>
+    <td><<link "x">><<set _deleted to $town.factions[_faction.key]>><<run delete $town.factions[_faction.key]>><<goto "TownOutput">><<notify 5000>>Deleted _deleted.name<</notify>><</link>></td>
   </tr>
  /* - A _faction.size _faction.type _faction.factionNoun */
 <</capture>><</for>></table><</nobr>></div>
@@ -58,17 +58,30 @@ _listbox -- <<button "Create new faction">>
     <th>Profession</th>
     <th>Delete</th>
   </tr>
-  <<for _i, _npc range $npcs>><<capture _i, _npc>>
+  <<for _i, _npc range $npcs>><<capture _i, _npc>><<if !_npc.isThrowaway>>
   <tr><td><<profile $npcs[_npc.key]>></td>
   <td>_npc.race</td>
   <td>_npc.dndClass</td>
-  <td><<link "x">><<run delete $npcs[_npc.key]>><<goto "TownOutput">><</link>></td>
+  <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run delete $npcs[_npc.key]>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
   </tr>
-  <</capture>><</for>>
+  <</if>><</capture>><</for>>
   </table><</nobr>>
 
-  <<nobr>><<linkappend "<h3>Throwaway NPCs</h3>">><<button "Wipe all throwaway NPCs">>
-  <<run delete $throwawayNpcs>><<set $throwawayNpcs to {}>><<goto "TownOutput">><</button>>
+  <<nobr>>
+  /* <<set _throwaway>><<run for (var key in $npcs) {
+    if ($npcs[key].isThrowaway === true) {
+      State.temporary.throwaway === true
+    }
+    }>><<if _throwaway !== true>><span class="tip" title="There are no more throwaway NPCs!"><h3>Throwaway NPCs</h3></span><<else>> */
+    <<linkappend "<h3>Throwaway NPCs</h3>">><<button "Wipe all throwaway NPCs">>
+  <<run for (var key in $npcs) {
+     if ($npcs.hasOwnProperty(key)) {
+       if ($npcs[key].isThrowaway === true) {
+         delete $npcs[key]
+       }
+     }
+  }>>
+  <<goto "TownOutput">><</button>>
   <p><table>
     <tr>
       <th>Name</th>
@@ -76,12 +89,13 @@ _listbox -- <<button "Create new faction">>
       <th>Profession</th>
       <th>Delete</th>
     </tr>
-    <<for _i, _npc range $throwawayNpcs>><<capture _i, _npc>>
-    <tr><td><<profile $throwawayNpcs[_npc.key]>></td>
+    <<for _i, _npc range $npcs>><<capture _i, _npc>><<if _npc.isThrowaway>>
+    <tr><td><<profile $npcs[_npc.key]>></td>
     <td>_npc.race</td>
     <td>_npc.dndClass</td>
-    <td><<link "x">><<run delete $throwawayNpcs[_npc.key]>><<goto "TownOutput">><</link>></td>
+    <td><<link "x">><<run delete $npcs[_npc.key]>><<goto "TownOutput">><</link>></td>
     </tr>
+    <</if>>
     <</capture>><</for>>
     </table></p><</linkappend>><</nobr>>
 

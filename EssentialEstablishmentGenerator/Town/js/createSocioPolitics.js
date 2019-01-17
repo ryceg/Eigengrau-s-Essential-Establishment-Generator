@@ -4,9 +4,19 @@ setup.createSocioPolitics = function (town) {
   // ecoIde and polSource are now set in the createTown.js function
   var polIde = setup.townData.politicalIdeology[town.politicalIdeology]
   // // give those ideologies some descriptions
-  // town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
+  town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
   // // data
-  // town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
+  town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
+
+  // deletes town leaders if they are defined. Commented out because I'd prefer to leave ex-prime ministers in than delete somebody's valuable NPC.
+  // if (town.leader) {
+  //   delete State.variables.npcs[town.leader.key]
+  //   delete town.leader
+  // }
+  // if (town.ruler) {
+  //   delete State.variables.npcs[town.ruler.key]
+  //   delete town.ruler
+  // }
 
   setup.createTownLeader = function (town) {
     town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].data.leaderType || 'commoners'
@@ -14,7 +24,9 @@ setup.createSocioPolitics = function (town) {
       town.leader = setup.createNPC(town, setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
     } else {
       console.log('Invalid political ideology of ' + town.politicalIdeology + '. Leader defaulting to random NPC...')
-      town.leader = setup.createNPC(town)
+      town.leader = setup.createNPC(town, {
+        profession: 'politician'
+      })
     }
     return town
   }
@@ -119,9 +131,10 @@ setup.createSocioPolitics = function (town) {
   //       town.leader = setup.createNPC(town)
   //     }
   // }
-
+  console.log('Town faction leadership...')
   if (polIde.data.isFaction === true) {
     console.log('Loading ruling faction...')
+    delete State.variables.npcs[town.leader.key]
     delete town.leader
     var type = polIde.data.governmentType
     if (polIde.data.governmentType !== setup.factionData.type[type]) {
