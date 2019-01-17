@@ -10,9 +10,13 @@ setup.createTemple = function (town, opts) {
     initPassage: 'TempleOutput',
     BuildingType: 'temple',
     wordNoun: data.name.wordNoun.random(),
-    priest: setup.createNPC(town, { dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(), background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(), profession: 'priest' }),
+    priest: setup.createNPC(town, {
+      dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
+      profession: 'priest'
+    }),
     prayerSubject: ['god', 'godess'].random() + ' of ' + data.prayerSubject.random(),
-    dedicated: data.dedicated.random(),
+    dedicated: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random(),
     knownFor: data.knownFor.random(),
     guardedBy: data.guardedBy.random(),
     floorPlan: data.floorPlan.random(),
@@ -40,7 +44,6 @@ setup.createTemple = function (town, opts) {
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(temple, data.rollData, propName)
   })
-
 
   return temple
 }

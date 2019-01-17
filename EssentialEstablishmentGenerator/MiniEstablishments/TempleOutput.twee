@@ -7,3 +7,42 @@ They pray to $temple.prayerSubject, and the temple is dedicated to $temple.dedic
 It's a $temple.size $temple.floorPlan building, and the exterior walls are $temple.walls. Inside, it's $temple.cleanliness, $temple.interior, and the ceiling is $temple.ceiling. As you enter, you notice $temple.features.
 
 A priest greets you, and introduces $priest.himherself as <<profile $priest>>.
+
+<<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
+
+<<switch $town.type>>
+  <<case "city">>
+    <<set _availability to 4>>
+  <<case "town">>
+    <<set _availability to 3>>
+  <<case "village">>
+    <<set _availability to 2>>
+  <<case "hamlet">>
+    <<set _availability to 1>>
+  <<default>>
+    <<set _availability to 3>>
+<</switch>>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
+<h3>Adventuring Gear</h3>
+<<for _i, _item range setup.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === "adventuring gear"
+  && item.availabilityLocation.includes("temple");
+  })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+<</for>>
+
+<h3>Tools</h3>
+<<for _i, _item range setup.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === "tools"
+  && item.availabilityLocation.includes("temple");
+  })>><tr><td>_item.name</td>
+<td><<money _item.cost>></td></tr>
+<</for>>
+</table>
+<</linkappend>><</nobr>>
