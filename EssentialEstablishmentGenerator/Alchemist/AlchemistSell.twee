@@ -10,7 +10,7 @@
   $chemist.name says "Sure, what are you after? <<print $chemist.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>
   $chemist.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $chemist.ingredients.randomMany(2)>>, you name it!
-<</switch>><<print setup.closestMatch(setup.getAlchemistPriceTalk($alchemist), 'priceTalk', 'priceModifier', 'wealthRoll', '$alchemist.priceModifier', '$alchemist.roll.wealth')>>"</div>
+<</switch>><<print setup.closestMatch(setup.alchemist.get.priceTalk($alchemist), 'priceTalk', 'priceModifier', 'wealth', '$alchemist.priceModifier', '$alchemist.roll.wealth')>>"</div>
 <<switch $town.type>>
   <<case "city">>
     <<set _availability to 4>>
