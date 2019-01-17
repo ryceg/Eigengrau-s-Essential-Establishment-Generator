@@ -1,7 +1,7 @@
 :: NPCProfileMarkdown
 {{{___}}}
 {{{> ## }}}$currentNPC.name
-{{{>*}}}$currentNPC.race($currentNPC.gender), $currentNPC.profession*
+{{{>*}}}$currentNPC.race($currentNPC.gender), $currentNPC.dndClass*
 {{{> ___}}}
 {{{> - **Age** }}}$currentNPC.ageYears
 {{{> - **Armor Class** 10}}}
