@@ -26,10 +26,18 @@ setup.fetchRace = function (town) {
       selectedRace = sum.length - 1
       console.log('Hit 100! selected race is: ' + races[selectedRace])
       return races[selectedRace]
-    } else {
+    } else if (raceRoll > cumulativeSum) {
       // console.log('Add ' + percent)
       cumulativeSum += percent
+      if (cumulativeSum === 100) {
+        selectedRace = sum.length - 1
+        console.log('Hit 100! selected race is: ' + races[selectedRace])
+        return races[selectedRace]
+      }
       // console.log('Equals ' + cumulativeSum)
+    } else {
+      console.log('Somehow managed to not find a race for this person.')
+      return 'human'
     }
   }
 }
