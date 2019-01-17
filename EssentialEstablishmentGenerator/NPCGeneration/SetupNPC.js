@@ -5,18 +5,16 @@ setup.createNPC = function (town, base) {
   }
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   var data = setup.npcData
-  var gender = ['man', 'woman'].random()
-  var race = setup.fetchRace(town)
-  console.log(gender)
-  console.log(race)
-  // console.log('Loading profession:')
-  var profession = setup.fetchProfessionChance(town)
-  console.log(profession)
-  // var race = setup.data.race.random()
+  var gender = base.gender || ['man', 'woman'].random()
+  var race = base.race || setup.fetchRace(town)
+  console.log('Loading profession:')
+  var profession = base.profession || setup.fetchProfessionChance(town)
+
   var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   var lastName = data.raceTraits[race].lastName.random().toUpperFirst()
-  var ageStage = ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
-  var dndClass = data.dndClass.random()
+  var ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
+  var dndClass = base.dndClass || data.dndClass.random()
+  console.log('2')
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   var npc = Object.assign({
     _gender: gender,
@@ -103,6 +101,7 @@ setup.createNPC = function (town, base) {
     reading: data.reading.random()
     // pubRumour: setup.createPubRumour()
   }, base)
+  console.log('3')
   console.groupCollapsed(npc.name)
   console.log(npc)
   npc.gender = npc.gender || npc._gender
@@ -159,27 +158,27 @@ setup.createNPC = function (town, base) {
 
   // npc.id = State.variables.npcs[State.variables.npcs.length - 1]
 
-  if (!npc.isThrowaway) {
-    npc.key = npc.name
-    State.variables.npcs[npc.key] = npc
-    npc.profile = function (npc, base) {
-      base = npc.name || base
-      return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
-    }
-  } else {
-    npc.key = npc.name
-    State.variables.throwawayNpcs[npc.key] = npc
-    npc.profile = function (npc, base) {
-      base = npc.name || base
-      return '<<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
-    }
+  // if (!npc.isThrowaway) {
+  npc.key = npc.name
+  State.variables.npcs[npc.key] = npc
+  npc.profile = function (npc, base) {
+    base = npc.name || base
+    return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
   }
+  // } else {
+  //   npc.key = npc.name
+  //   State.variables.throwawayNpcs[npc.key] = npc
+  //   npc.profile = function (npc, base) {
+  //     base = npc.name || base
+  //     return '<<profile `$throwawayNpcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
+  //   }
+  // }
 
   if (npc.partnerID) {
     console.log('assigning ' + npc.name + ' a partner...')
     setup.setAsPartners(npc, npc.partnerID)
   }
   console.log(npc)
-  console.groupEnd();
+  console.groupEnd()
   return npc
 }
