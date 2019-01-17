@@ -8,5 +8,11 @@ setup.createAge = function (npc) {
   } else {
     console.log('Called age descriptor without a valid array.')
   }
+
+  if (npc.ageStage === 'child') {
+    npc.hasClass = false
+    npc.profession = npc.age
+    npc.dndClass = npc.age
+  }
   return npc;
 }
