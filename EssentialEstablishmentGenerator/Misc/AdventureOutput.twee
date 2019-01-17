@@ -1,5 +1,5 @@
 :: AdventureOutput
-/* <<nobr>><<set $adventureMerchant to setup.createNPC($town, {gender: "man", hasClass: false, profession: "merchant"})>>
+<<nobr>><<set $adventureMerchant to setup.createNPC($town, {gender: "man", hasClass: false, profession: "merchant"})>>
 <<set $adventureMadameBeaudry to setup.createNPC($town, {gender: "woman", race: "human", lastName: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged"})>>
 <<set $adventureMurderer to setup.createNPC($town, {gender: "man", hasClass: false, profession: "apothecarist"})>>
 <<set $adventureAlchemist to setup.createNPC($town, {gender: "man", hasClass: false, profession: "alchemist"})>>
@@ -75,4 +75,4 @@ Best, $adventureMurderer.name
 
 <h4>Clue #5 - $adventureAlchemist.firstName's statment</h4><<linkreplace "About the bottle:">>"Yeah that bottle is from Madame Beaudry's shop, I'd recognize it anywhere."<</linkreplace>>
 <<linkreplace "If the players don't tell him that Mme. Beaudry is dead, he confesses to them this:">>"Thank the gods that awful wretch isn't here today. She pays me nothing and I've had enough!"<</linkreplace>>
-<<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventureMurderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>> */
+<<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventureMurderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>>

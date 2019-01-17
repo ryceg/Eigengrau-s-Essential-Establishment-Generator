@@ -1,8 +1,9 @@
 :: Toolbox
 
 <<include "RandomNPC">>
-<<include "RandomAdventure">>
-<<link "<h4>Generate Random Faction</h4>">><<set $testFaction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">> - <<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><</replace>><</link>><span id="faction"></span>
+/* <<include "RandomAdventure">> */
+<<include "CreateScenario">>
+<<link "<h4>Generate random Faction</h4>">><<set $testFaction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">><<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><</replace>><</link>><<if def $testFaction>><<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><<else>><span id="faction"></span><</if>>
 <<link "<h4>Generate some mercenaries</h4>">><<set $testMercenaries to setup.createMercenaries($town)>><<replace "#mercs">><div class='descriptive'><h3>$testMercenaries.name</h3><<print "A group of mercenaries sit in the corner of the room, armed to the teeth with $testMercenaries.weapon, wearing $testMercenaries.colours livery over their $testMercenaries.armour with an insignia of $testMercenaries.insignia. They are $testMercenaries.attitude towards their commander <<profile $testMercenaries.captain>>, who is $testMercenaries.commanderTrait. They specialise in $testMercenaries.specializes, and are notorious for $testMercenaries.notorious. They are famous for their $testMercenaries.tactics, and are currently $testMercenaries.currently.">></div><</replace>><</link>><span id="mercs"></span>
 [[One Shot - The Poisoned Potioner|AdventureOutput]]
 

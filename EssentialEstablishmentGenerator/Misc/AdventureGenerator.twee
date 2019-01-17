@@ -16,25 +16,25 @@
 <<switch $adventure.goal>>
     <<case "rescue a captive.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
-        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
     <<case "discover the fate of a previous adventuring party.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
+        <<set $adventure.goal to "discover the fate of $adventureGoalNPC.profile and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
     <<case "find an npc who disappeared in the area.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "find <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who disappeared in the area.">>
+        <<set $adventure.goal to "find $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who disappeared in the area.">>
     <<case "escort an npc to a destination.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "escort <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who needs protection on the way to another place.">>
+        <<set $adventure.goal to "escort $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who needs protection on the way to another place.">>
     <<case "discover the fate of a missing group of explorers.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "discover the fate of <<profile $adventureGoalNPC>> and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
+        <<set $adventure.goal to "discover the fate of $adventureGoalNPC.profile and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
-        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "rescue <<profile $adventureGoalNPC>>, a $adventureGoalNPC.raceNote who was caught in a natural disaster.">>
+        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who was caught in a natural disaster.">>
 <</switch>>
 
 <<set $adventure.villain to either(["beast or monstrosity with no particular agenda", "terrible aberration bent on corruption or domination", "fiend bent on corruption or destruction", "dragon bent on domination and plunder", "giant bent on plunder", "horrible undead with any agenda", "fey with a mysterious goal", "humanoid cultist", "humanoid conqueror", "humanoid seeking revenge", "humanoid schemer seeking to rule", "humanoid criminal mastermind", "humanoid raider or ravager", "humanoid under a curse", "misguided humanoid zealot"])>>
@@ -56,28 +56,28 @@
         <<set $adventureVillain to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "humanoid cultist">>
         <<set $adventureVillain to setup.createNPC($town, {dndClass: either("cleric", "sorcerer", "wizard"), isThrowaway: true})>>
-        <<set $adventure.villain to "cultist called <<profile $adventureVillain>>">>
+        <<set $adventure.villain to "cultist called $adventureVillain.profile">>
     <<case "humanoid conqueror">>
         <<set $adventureVillain to setup.createNPC($town, {dndClass: either("barbarian", "fighter", "paladin"), isThrowaway: true})>>
-        <<set $adventure.villain to "fearsome conqueror called <<profile $adventureVillain>>">>
+        <<set $adventure.villain to "fearsome conqueror called $adventureVillain.profile">>
     <<case "humanoid seeking revenge">>
         <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.villain to "$adventureVillain.raceNote called <<profile $adventureVillain>> hellbent on revenge.">>
+        <<set $adventure.villain to "$adventureVillain.raceNote called $adventureVillain.profile hellbent on revenge.">>
     <<case "humanoid schemer seeking to rule">>
         <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.villain to "conniving $adventureVillain.raceNote called <<profile $adventureVillain>> who seeks power">>
+        <<set $adventure.villain to "conniving $adventureVillain.raceNote called $adventureVillain.profile who seeks power">>
     <<case "humanoid criminal mastermind">>
         <<set $adventureVillain to setup.createNPC($town, {dndClass: either("sorcerer", "rogue"), isThrowaway: true})>>
-        <<set $adventure.villain to "conniving $adventureVillain.raceNote called <<profile $adventureVillain>> who seeks to build a criminal empire">>
+        <<set $adventure.villain to "conniving $adventureVillain.raceNote called $adventureVillain.profile who seeks to build a criminal empire">>
     <<case "humanoid raider or ravager">>
         <<set $adventureVillain to setup.createNPC($town, {dndClass: either("barbarian", "fighter"), isThrowaway: true})>>
-        <<set $adventure.villain to "fearsome raider called <<profile $adventureVillain>>">>
+        <<set $adventure.villain to "fearsome raider called $adventureVillain.profile">>
     <<case "humanoid under a curse">>
         <<set $adventureVillain to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.villain to "$adventureVillain.raceNote called <<profile $adventureVillain>> who was placed under a curse">>
+        <<set $adventure.villain to "$adventureVillain.raceNote called $adventureVillain.profile who was placed under a curse">>
     <<case "misguided humanoid zealot">>
         <<set $adventureVillain to setup.createNPC($town, {dndClass: "cleric", isThrowaway: true})>>
-        <<set $adventure.villain to "misguided $adventureVillain.raceNote zealot called <<profile $adventureVillain>>">>
+        <<set $adventure.villain to "misguided $adventureVillain.raceNote zealot called $adventureVillain.profile">>
     <</switch>>
 
 
@@ -86,7 +86,7 @@
 <<set $adventure.ally to either(["skilled adventurer", "inexperienced adventurer", "enthusiastic commoner", "soldier", "priest", "sage", "revenge seeker", "raving lunatic adventurer", "celestial ally", "fey ally", "disguised monster", "villain posing as an ally"])>>
 <<switch $adventure.ally>>
     <<case "skilled adventurer">>
-        <<set $adventureAlly to setup.createNPC($town)>>
+        <<set $adventureAlly to setup.createNPC($town, {isThrowaway: true})>>
     <<case "young adventurer">>
         <<set $adventureAlly to setup.createNPC($town, {age: "relatively young", isThrowaway: true})>>
     <<case "enthusiastic commoner">>
@@ -100,15 +100,15 @@
     <<case "revenge seeker">>
         <<set $adventureAlly to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
     <<case "raving lunatic adventurer">>
-        <<set $adventureAlly to setup.createNPC($town)>>
+        <<set $adventureAlly to setup.createNPC($town, {isThrowaway: true})>>
     <<case "celestial ally">>
         <<set $adventureAlly to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "fey ally">>
         <<set $adventureAlly to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "disguised monster">>
-        <<set $adventureAlly to setup.createNPC($town)>>
+        <<set $adventureAlly to setup.createNPC($town, {isThrowaway: true})>>
     <<case "villain posing as an ally">>
-        <<set $adventureAlly to setup.createNPC($town)>>
+        <<set $adventureAlly to setup.createNPC($town, {isThrowaway: true})>>
 <</switch>>
 
 
@@ -133,48 +133,48 @@
     <<case "mysterious fey">>
         <<set $adventurePatron to setup.createNPC($town, {race: "elf", isThrowaway: true})>>
     <<case "old friend">>
-        <<set $adventurePatron to setup.createNPC($town)>>
+        <<set $adventurePatron to setup.createNPC($town, {isThrowaway: true})>>
     <<case "former teacher">>
         <<set $adventurePatron to setup.createNPC($town, {age: "venerable", isThrowaway: true})>>
     <<case "parent or other family member">>
-        <<set $adventurePatron to setup.createNPC($town)>>
+        <<set $adventurePatron to setup.createNPC($town, {isThrowaway: true})>>
     <<case "desperate commoner">>
-        <<set $adventurePatron to setup.createNPC($town)>>
+        <<set $adventurePatron to setup.createNPC($town, {isThrowaway: true})>>
     <<case "embattled merchant">>
-        <<set $adventurePatron to setup.createNPC($town)>>
+        <<set $adventurePatron to setup.createNPC($town, {isThrowaway: true})>>
     <<case "villain posing as a patron">>
-        <<set $adventurePatron to setup.createNPC($town)>>
+        <<set $adventurePatron to setup.createNPC($town, {isThrowaway: true})>>
 <</switch>>
 
 
 
 
-<<set $adventure.introduction to either(["While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.", "While traveling in the wilderness, the characters notice the entrance to the adventure location.", "While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.", "The adventurers find a map on a dead body. In addition to the map setting up the adventure, the <<profile $adventureVillain>> wants the map.", "A mysterious magic item (or <<profile $adventureVillain>>) teleports the characters to the adventure location.", "A stranger approaches the characters in a tavern and urges them toward the adventure location.", "$town.name needs volunteers to go to the adventure location.", "An NPC the characters care about needs them to go to the adventure location.", "An NPC the characters must obey orders them to go to the adventure location.", "An NPC the characters respect asks them to go to the adventure location.", "One night, the characters all dream about entering the adventure location.", "A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location."])>>
+<<set $adventure.introduction to either(["While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.", "While traveling in the wilderness, the characters notice the entrance to the adventure location.", "While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.", "The adventurers find a map on a dead body. In addition to the map setting up the adventure, the $adventureVillain.profile wants the map.", "A mysterious magic item (or $adventureVillain.profile) teleports the characters to the adventure location.", "A stranger approaches the characters in a tavern and urges them toward the adventure location.", "$town.name needs volunteers to go to the adventure location.", "An NPC the characters care about needs them to go to the adventure location.", "An NPC the characters must obey orders them to go to the adventure location.", "An NPC the characters respect asks them to go to the adventure location.", "One night, the characters all dream about entering the adventure location.", "A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location."])>>
 
-<<set $adventure.climax to either(["The adventurers confront <<profile $adventureVillain>> and a group of minions in a bloody battle to the finish.", "The adventurers chase <<profile $adventureVillain>> while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventureVillain.firstName's refuge", "The actions of the adventurers or $adventureVillain.firstName result in a cataclysmic even that the adventurers must escape", "The adventurers race to the site where <<profile $adventureVillain>> is bringing a master plan to its conclusion, arriving just as that plan is about to be completed", "<<profile $adventureVillain>> and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ", "An ally betrays the adventurers as they're about to achieve their goal (use this climax carefully, and don't overuse it).", "A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with <<profile $adventureVillain>> at the same time.", "Traps, hazards, or animated objects turn against the adventurers while <<profile $adventureVillain>> attacks.", "The dungeon begins to collapse while the adventurers face <<profile $adventureVillain>>, who attempts to escape in the chaos. ", "A threat more powerful than the adventurers appears, destroys <<profile $adventureVillain>>, and then turns its attention on the characters. ", "The adventurers must choose whether to pursue the fleeing <<profile $adventureVillain>> or save an NPC they care about or a group of innocents. ", "The adventurers must discover $adventureVillain.firstName's secret weakness before they can hope to defeat $adventureVillain.himher"])>>
-
-
+<<set $adventure.climax to either(["The adventurers confront $adventureVillain.profile and a group of minions in a bloody battle to the finish.", "The adventurers chase $adventureVillain.profile while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventureVillain.firstName's refuge", "The actions of the adventurers or $adventureVillain.firstName result in a cataclysmic even that the adventurers must escape", "The adventurers race to the site where $adventureVillain.profile is bringing a master plan to its conclusion, arriving just as that plan is about to be completed", "$adventureVillain.profile and two or three lieutenants perform seperate rites in a large room. The adventurers must disrupt all the rites at the same time. ", "An ally betrays the adventurers as they're about to achieve their goal (use this climax carefully, and don't overuse it).", "A portal opens to another plane of existence. Creatures on the other side spill out, forcing the adventurers to close the portal and deal with $adventureVillain.profile at the same time.", "Traps, hazards, or animated objects turn against the adventurers while $adventureVillain.profile attacks.", "The dungeon begins to collapse while the adventurers face $adventureVillain.profile, who attempts to escape in the chaos. ", "A threat more powerful than the adventurers appears, destroys $adventureVillain.profile, and then turns its attention on the characters. ", "The adventurers must choose whether to pursue the fleeing $adventureVillain.profile or save an NPC they care about or a group of innocents. ", "The adventurers must discover $adventureVillain.firstName's secret weakness before they can hope to defeat $adventureVillain.himher"])>>
 
 
-<<set $adventure.otherGoal to either(["Bring <<profile $adventureVillain>> to justice.", "Clear the name of an innocent NPC.", "Protect or hide an NPC.", "Protect an object.", "Discover the nature and origin of a strange phenomenon that might be $adventureVillain.firstName's doing.", "Find a wanted fugitive.", "Overthrow a tyrant.", "Uncover a conspiracy to overthrow a ruler.", "Negotiate peace between enemy nations or feuding families.", "Secure aid from a ruler or council.", "Help a villain find redemption.", "Parley with a villain.", "Smuggle weapons to rebel forces.", "Stop a band of smugglers.", "Gather intelligence on an enemy force.", "Win a tournament.", "Determine the villain's identity.", "Locate a stolen item.", "Make sure a wedding goes off without a hitch."])>>
+
+
+<<set $adventure.otherGoal to either(["Bring $adventureVillain.profile to justice.", "Clear the name of an innocent NPC.", "Protect or hide an NPC.", "Protect an object.", "Discover the nature and origin of a strange phenomenon that might be $adventureVillain.firstName's doing.", "Find a wanted fugitive.", "Overthrow a tyrant.", "Uncover a conspiracy to overthrow a ruler.", "Negotiate peace between enemy nations or feuding families.", "Secure aid from a ruler or council.", "Help a villain find redemption.", "Parley with a villain.", "Smuggle weapons to rebel forces.", "Stop a band of smugglers.", "Gather intelligence on an enemy force.", "Win a tournament.", "Determine the villain's identity.", "Locate a stolen item.", "Make sure a wedding goes off without a hitch."])>>
 
 <<set $adventure.backdrop to either(["anniversary of a monarch's reign", "anniversary of an important event", "arena event", "arrival of a caravan or ship", "arrival of a circus", "arrival of an important npc", "arrival of marching modrons", "artistic performance", "athletic event", "birth of a child", "birthday of an important npc", "civic festival", "comet appearance", "commemoration of a past tragedy", "consecration of a new temple", "coronation", "council meeting", "equinox or solstice", "execution", "fertility festival", "full moon", "funeral", "graduation of cadets or wizards", "harvest festival", "holy day", "investiture of a knight or other noble", "lunar eclipse", "midsummer festival", "midwinter festival", "migration of monsters", "monarch's ball", "new moon", "new year", "pardoning of a prisoner", "planar conjunction", "planetary alignment", "priestly investiture", "procession of ghosts", "remembrance for soldiers lost in war", "royal address or proclamation", "royal audience day", "signing of a treaty", "solar eclipse", "tournament", "trial", "violent uprising", "wedding or wedding anniversary"])>>
 
 
 <<set $adventure.quandry to either(["Ally quandary", "Friend quandary", "Honor quandary", "Rescue quandary", "Respect quandary"])>>
 
-<<set $adventure.twist to either(["The adventurers are racing against other creatures with the same or opposite goal.", "The adventurers become responsible for the safety of a noncombatant NPC.", "The adventurers are prohibited from killing <<profile $adventureVillain>>, but $adventureVillain.heshe has no compunctions about killing them.", "The adventurers have a time limit.", "The adventurers have received false or extraneous information.", "Completing an adventure goal fulfills a prophecy or prevents the fulfillment of a prophecy.", "The adventurers have two different goals, but they can complete only one.", "Completing the goal secretly helps <<profile $adventureVillain>>.", "The adventurers must cooperate with a known enemy to achieve the goal.", "The adventurers are under magical compulsion (such as a geas spell) to complete their goal"])>>
+<<set $adventure.twist to either(["The adventurers are racing against other creatures with the same or opposite goal.", "The adventurers become responsible for the safety of a noncombatant NPC.", "The adventurers are prohibited from killing $adventureVillain.profile, but $adventureVillain.heshe has no compunctions about killing them.", "The adventurers have a time limit.", "The adventurers have received false or extraneous information.", "Completing an adventure goal fulfills a prophecy or prevents the fulfillment of a prophecy.", "The adventurers have two different goals, but they can complete only one.", "Completing the goal secretly helps $adventureVillain.profile.", "The adventurers must cooperate with a known enemy to achieve the goal.", "The adventurers are under magical compulsion (such as a geas spell) to complete their goal"])>>
 
 <<set $adventure.sidequest to either(["find a specific item rumored to be in the area.", "retrieve a stolen item in $adventureVillain.firstName's possession.", "receive information from an npc in the area.", "rescue a captive.", "discover the fate of a missing npc.", "slay a specific monster.", "discover the nature and origin of a strange phenomenon in the area.", "secure the aid of a character or creature in the area."])>>
     <<switch $adventure.sidequest>>
         <<case "receive information from an npc in the area.">>
-            <<set $adventureSidequestNPC to setup.createNPC($town)>>
-            <<set $adventure.sidequest to "receive information from <<profile $adventureSidequestNPC>> who is in the area.">>
+            <<set $adventureSidequestNPC to setup.createNPC($town, {isThrowaway: true})>>
+            <<set $adventure.sidequest to "receive information from $adventureSidequestNPC.profile who is in the area.">>
         <<case "rescue a captive.">>
-            <<set $adventureSidequestNPC to setup.createNPC($town)>>
-            <<set $adventure.sidequest to "rescue <<profile $adventureSidequestNPC>>, who is being held captive.">>
+            <<set $adventureSidequestNPC to setup.createNPC($town, {isThrowaway: true})>>
+            <<set $adventure.sidequest to "rescue $adventureSidequestNPC.profile, who is being held captive.">>
         <<case "discover the fate of a missing npc.">>
-            <<set $adventureSidequestNPC to setup.createNPC($town)>>
-            <<set $adventure.sidequest to "discover the fate of <<profile $adventureSidequestNPC>>, who went missing in the area.">>
+            <<set $adventureSidequestNPC to setup.createNPC($town, {isThrowaway: true})>>
+            <<set $adventure.sidequest to "discover the fate of $adventureSidequestNPC.profile, who went missing in the area.">>
     <</switch>>
 <</nobr>>
