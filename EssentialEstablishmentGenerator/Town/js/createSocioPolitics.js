@@ -151,7 +151,7 @@ setup.createSocioPolitics = function (town) {
       })
     }
     town.leader = town.factions['leader'].leader
-    town.leaderType = "<<link '_town.factions['leader'].name'>><<set $currentFaction to _town.factions['leader']>><<goto 'FactionProfile'>><</link>>"
+    town.leaderType = '<<link ' + JSON.stringify(town.factions['leader'].name) + '>><<set $selected to {key: ' + JSON.stringify(town.factions['leader'].key) + '}>><<goto "FactionProfile">><</link>>'
   } else if (polIde.data.isFaction === false && town.factions['leader']) {
     delete town.factions['leader']
   }

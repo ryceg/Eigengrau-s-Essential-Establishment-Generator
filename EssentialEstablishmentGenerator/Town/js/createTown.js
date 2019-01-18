@@ -157,33 +157,40 @@ setup.createTown = function (base) {
   town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.random()
 
+  Object.keys(town.roll).forEach(function (roll) {
+    town.roll[roll].clamp(1, 100)
+  })
+
   console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
-  Object.assign(town.roll, setup.townData.type[town.type].modifiers)
+  Object.keys(setup.townData.type[town.type].modifiers).forEach(function (modifier) {
+    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
+  })
 
   town.guard = setup.createGuard(town)
 
   console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
   // economic ideology attribute modifiers
-  Object.assign(town.roll, setup.townData.economicIdeology[town.economicIdeology].modifiers)
+
+  Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(function (modifier) {
+    console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+  })
   // political ideology modifiers
   console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
-  Object.assign(town.roll, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
+  Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(function (modifier) {
+    console.log(modifier)
+    console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+  })
   // Object.assign(town.leader, setup.townData.politicalIdeology[town.politicalIdeology].data)
 
   setup.createSocioPolitics(town)
 
-  town.roll.wealth.clamp(1, 100)
-  town.roll.reputation.clamp(1, 100)
-  town.roll.sin.clamp(1, 100)
-  town.roll.diversity.clamp(1, 100)
-  town.roll.magic.clamp(1, 100)
-  town.roll.size.clamp(1, 100)
-  town.roll.economics.clamp(1, 100)
-  town.roll.welfare.clamp(1, 100)
-  town.roll.military.clamp(1, 100)
-  town.roll.law.clamp(1, 100)
-  town.roll.arcana.clamp(1, 100)
+  Object.keys(town.roll).forEach(function (roll) {
+    town.roll[roll].clamp(1, 100)
+  })
+
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
