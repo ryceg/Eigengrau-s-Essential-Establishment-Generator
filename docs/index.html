@@ -11899,7 +11899,7 @@ setup.createLifeEvents = function (town, npc) {
       } else {
         npc.partnerID = setup.createNPC(town, { gender: 'man', partnerID: npc.id })
       }
-      return 'I met the love of my life, <<profile ' + npc.partnerID + '>>.'
+      return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
     }
   }
 
@@ -11951,7 +11951,7 @@ setup.createLifeEvents = function (town, npc) {
       'I spent some time working as a ',
       'I did a stint as a ',
       'to pay off a debt, I spent some time as a ',
-      'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()
+      'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].random()
   }
 
   function war (npc) {
@@ -16641,14 +16641,14 @@ setup.tavern = {
     },
     'carousing': function (town, tavern) {
       var carousing = {
-        // 'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
-        // 'brawl': function () { return 'A bar brawl leaves you with a scar.' },
-        // 'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
-        // 'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
-        // 'quest': function (town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
-        // 'married': function () { return 'Surprise! You got engaged.' },
-        // 'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
-        // 'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
+        'pickpocket': function () { return 'A pickpocket lifts ' + dice(5, 10) + ' gold from you.' },
+        'brawl': function () { return 'A bar brawl leaves you with a scar.' },
+        'memories': function () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
+        'banned': function (tavern) { return 'You are banned from ' + tavern.name + ' after some very obnoxious behaviour.' },
+        'quest': function (town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
+        'married': function () { return 'Surprise! You got engaged.' },
+        'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
+        'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
         'insult': function (town, tavern) {
           var found = setup.factionsForType(town, 'individual')
           var faction = found.random()
@@ -16661,38 +16661,38 @@ setup.tavern = {
           console.log(faction)
           return 'You swore to complete some quest on behalf of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: ' + JSON.stringify(faction.key) + '}>><<goto "FactionProfile">><</link>>.'
         },
-        // 'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
-        // 'suitor': function (town) {
-        //   var npc = setup.createNPC(town, { isThrowaway: true })
-        //   return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>> has taken an interest in you romantically.'
-        // },
-        // 'wizard': function (town) {
-        //   var npc = setup.createNPC(town, { dndClass: 'wizard', isThrowaway: true })
-        //   return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
-        // },
-        // 'festival': function () { return 'You have been recruited to help run a local festival.' },
-        // 'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
-        // 'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
-        // 'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
-        // 'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
-        // 'debt': function (town) {
-        //   var npc = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
-        //   return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(npc.name) + ']`>> debts.'
-        // },
-        // 'joust': function (town) {
-        //   var npc = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier', gender: 'man', isThrowaway: true })
-        //   return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
-        // },
-        // 'foe': function (town) {
-        //   var npc = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
-        //   return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
-        // },
-        // 'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
-        // 'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
-        // 'boring': function (town) {
-        //   var noble = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
-        //   return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
-        // }
+        'gaffe': function () { return 'A social gaffe has made you the talk of the town.' },
+        'suitor': function (town) {
+          var npc = setup.createNPC(town, { isThrowaway: true })
+          return 'A particularly obnoxious person called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>> has taken an interest in you romantically.'
+        },
+        'wizard': function (town) {
+          var npc = setup.createNPC(town, { dndClass: 'wizard', isThrowaway: true })
+          return 'You have made a foe out of a local spellcaster called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
+        },
+        'festival': function () { return 'You have been recruited to help run a local festival.' },
+        'toast': function () { return 'You made a drunken toast that scandalized the locals.' },
+        'impress': function () { return 'You spent an additional 100 gp trying to impress people.' },
+        'noble': function () { return 'A pushy noble family wants to marry off one of their scions to you.' },
+        'dance': function () { return 'You tripped and fell during a dance, and people cannot stop talking about it.' },
+        'debt': function (town) {
+          var npc = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
+          return 'You have agreed to take on a noble called <<profile `$npcs[' + JSON.stringify(npc.name) + ']`>> debts.'
+        },
+        'joust': function (town) {
+          var npc = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier', gender: 'man', isThrowaway: true })
+          return 'You have been challenged to a joust by a knight called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
+        },
+        'foe': function (town) {
+          var npc = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
+          return 'You have made a foe out of a local noble called <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>>.'
+        },
+        'rumours': function () { return 'You have become the target of a variety of embarrassing rumors.' },
+        'wasteful': function () { return 'You spent an additional 500 gp trying to impress people.' },
+        'boring': function (town) {
+          var noble = setup.createNPC(town, { background: 'noble', hasClass: false, isThrowaway: true })
+          return 'A  boring noble called <<profile `$npcs[' + JSON.stringify(noble.key) + ']`>> insists you visit each day and listen to long, tedious theories of magic.'
+        }
       }
       var keys = Object.keys(carousing)
       return carousing[keys[keys.length * Math.random() << 0]](town, tavern)
@@ -17923,13 +17923,13 @@ setup.createWeather = function (town, biome, weather, time) {
         cloud: '',
         temperature: ''
       },
-      precipitationlevel: setup.townData.terrain[biome].weather[town.currentSeason].precipitationlevel,
+      precipitationLevel: setup.townData.terrain[biome].weather[town.currentSeason].precipitationLevel,
       precipitationIntensity: setup.townData.terrain[biome].weather[town.currentSeason].precipitationIntensity
     }
   }
   // console.log('weather:')
   // console.log(weather)
-  weather.precipitationlevel.clamp(1, 4)
+  weather.precipitationLevel.clamp(1, 4)
   weather.precipitationIntensity.clamp(1, 4)
 
   setup.renderWeather(town, biome, weather)
@@ -17945,10 +17945,10 @@ setup.renderWeather = function (town, biome, weather) {
   if (!weather) {
     weather = setup.createWeather(town, biome)
   }
-  weather.precipitationlevel = Math.clamp(weather.precipitationlevel, 1, 4)
+  weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
   weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
   // weather.precipitationIntensity.clamp(1, 4)
-  // weather.precipitationlevel.clamp(1, 4)
+  // weather.precipitationLevel.clamp(1, 4)
   // console.log(weather)
   biome = biome || town.terrain
 
@@ -17983,7 +17983,7 @@ setup.renderWeather = function (town, biome, weather) {
   if (weather.timer.precipitation < 1) {
     console.log('Resetting precipitation timer...')
     weather.roll.precipitation = random(1, 100)
-    weather.precipitation = setup.weather.precipitationlevel[weather.precipitationlevel](weather)
+    weather.precipitation = setup.weather.precipitationLevel[weather.precipitationLevel](weather)
   }
 
   if (weather.precipitation === true && weather.temperature <= 32) {
@@ -18281,7 +18281,7 @@ setup.weather = {
       }
     }
   },
-  precipitationlevel: {
+  precipitationLevel: {
     1: function (weather) {
       if (weather.roll.precipitation >= 95) {
         return true
@@ -18619,7 +18619,7 @@ setup.createSocioPolitics = function (town) {
       })
     }
     town.leader = town.factions['leader'].leader
-    town.leaderType = "<<link '_town.factions['leader'].name'>><<set $currentFaction to _town.factions['leader']>><<goto 'FactionProfile'>><</link>>"
+    town.leaderType = '<<link ' + JSON.stringify(town.factions['leader'].name) + '>><<set $selected to {key: ' + JSON.stringify(town.factions['leader'].key) + '}>><<goto "FactionProfile">><</link>>'
   } else if (polIde.data.isFaction === false && town.factions['leader']) {
     delete town.factions['leader']
   }
@@ -18830,33 +18830,40 @@ setup.createTown = function (base) {
   town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.random()
 
+  Object.keys(town.roll).forEach(function (roll) {
+    town.roll[roll].clamp(1, 100)
+  })
+
   console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
-  Object.assign(town.roll, setup.townData.type[town.type].modifiers)
+  Object.keys(setup.townData.type[town.type].modifiers).forEach(function (modifier) {
+    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
+  })
 
   town.guard = setup.createGuard(town)
 
   console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
   // economic ideology attribute modifiers
-  Object.assign(town.roll, setup.townData.economicIdeology[town.economicIdeology].modifiers)
+
+  Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(function (modifier) {
+    console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+  })
   // political ideology modifiers
   console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
-  Object.assign(town.roll, setup.townData.politicalIdeology[town.politicalIdeology].modifiers)
 
+  Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(function (modifier) {
+    console.log(modifier)
+    console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+  })
   // Object.assign(town.leader, setup.townData.politicalIdeology[town.politicalIdeology].data)
 
   setup.createSocioPolitics(town)
 
-  town.roll.wealth.clamp(1, 100)
-  town.roll.reputation.clamp(1, 100)
-  town.roll.sin.clamp(1, 100)
-  town.roll.diversity.clamp(1, 100)
-  town.roll.magic.clamp(1, 100)
-  town.roll.size.clamp(1, 100)
-  town.roll.economics.clamp(1, 100)
-  town.roll.welfare.clamp(1, 100)
-  town.roll.military.clamp(1, 100)
-  town.roll.law.clamp(1, 100)
-  town.roll.arcana.clamp(1, 100)
+  Object.keys(town.roll).forEach(function (roll) {
+    town.roll[roll].clamp(1, 100)
+  })
+
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
@@ -19824,22 +19831,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 1,
           baseTemp: 80
         },
         'autumn': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 60
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: 1,
           baseTemp: 30
         },
         'spring': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 60
         }
@@ -19953,22 +19960,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 90
         },
         'autumn': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 75
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: 1,
           baseTemp: 50
         },
         'spring': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 1,
           baseTemp: 75
         }
@@ -20109,22 +20116,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: -1,
           baseTemp: 95
         },
         'autumn': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: -1,
           baseTemp: 75
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: -1,
           baseTemp: 50
         },
         'spring': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: -1,
           baseTemp: 75
         }
@@ -20263,22 +20270,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 0,
           baseTemp: 40
         },
         'autumn': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 0,
           baseTemp: 30
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: 0,
           baseTemp: 20
         },
         'spring': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 0,
           baseTemp: 30
         }
@@ -20388,155 +20395,155 @@ setup.townData = {
     }
   },
   'professions': {
-    'actor': { sv: 2500, availability: 1, type: 'profession' },
-    'advocate': { sv: 3250, availability: 1, type: 'profession' },
-    'advisor': { sv: 780, availability: 1, type: 'profession' },
-    'animal handler': { sv: 250, availability: 1, type: '' },
-    'apothecarist': { sv: 450, availability: 1, type: 'business' },
-    'architect': { sv: 550, availability: 1, type: 'profession' },
-    'archivist': { sv: 2450, availability: 1, type: 'profession' },
-    'armorer': { sv: 750, availability: 1, type: 'business' },
-    'astrologer': { sv: 950, availability: 1, type: '' },
-    'baker': { sv: 800, availability: 1, type: 'business' },
-    'banker': { sv: 2250, availability: 1, type: '' },
-    'barber': { sv: 350, availability: 1, type: 'business' },
-    'barkeep': { sv: 450, availability: 1, type: 'business' },
-    'blacksmith': { sv: 750, availability: 1, type: 'business' },
-    'bookseller': { sv: 6300, availability: 1, type: 'business' },
-    'brewer': { sv: 550, availability: 1, type: 'business' },
-    'bricklayer': { sv: 650, availability: 1, type: 'business' },
-    'brothel keeper': { sv: 850, availability: 1, type: 'business' },
-    'buccaneer': { sv: 1350, availability: 1, type: '' },
-    'butcher': { sv: 1150, availability: 1, type: 'business' },
-    'caravanner': { sv: 1450, availability: 1, type: '' },
-    'carpenter': { sv: 550, availability: 1, type: 'business' },
-    'cartographer': { sv: 1950, availability: 1, type: '' },
-    'chandler': { sv: 700, availability: 1, type: '' },
-    'chef': { sv: 1850, availability: 1, type: '' },
-    'clergyman': { sv: 40, availability: 1, type: '' },
-    'clock maker': { sv: 4550, availability: 1, type: 'profession' },
-    'cobbler': { sv: 1550, availability: 1, type: '' },
-    'cook': { sv: 450, availability: 1, type: '' },
-    'cooper': { sv: 700, availability: 1, type: '' },
-    'counselor': { sv: 1650, availability: 1, type: 'profession' },
-    'courtesan': { sv: 1950, availability: 1, type: '' },
-    'courtier': { sv: 1950, availability: 1, type: 'profession' },
-    'cowherd': { sv: 250, availability: 1, type: '' },
-    'dancer': { sv: 2250, availability: 1, type: '' },
-    'diplomat': { sv: 3450, availability: 1, type: 'profession' },
-    'distiller': { sv: 450, availability: 1, type: 'business' },
-    'diver': { sv: 3250, availability: 1, type: '' },
-    'farmer': { sv: 150, availability: 1, type: '' },
-    'fisherman': { sv: 170, availability: 1, type: '' },
-    'fishmonger': { sv: 250, availability: 1, type: '' },
-    'furrier': { sv: 250, availability: 1, type: '' },
-    'gardener': { sv: 550, availability: 1, type: '' },
-    'general': { sv: 2250, availability: 1, type: 'profession' },
-    'gladiator': { sv: 3250, availability: 1, type: '' },
-    'glovemaker': { sv: 2400, availability: 1, type: 'business' },
-    'goldsmith': { sv: 6550, availability: 1, type: 'business' },
-    'grocer': { sv: 450, availability: 1, type: '' },
-    'guardsman': { sv: 150, availability: 1, type: '' },
-    'guildmaster': { sv: 4150, availability: 1, type: '' },
-    'hatmaker': { sv: 950, availability: 1, type: 'business' },
-    'healer': { sv: 950, availability: 1, type: '' },
-    'herald': { sv: 550, availability: 1, type: '' },
-    'herbalist': { sv: 850, availability: 1, type: 'business' },
-    'hermit': { sv: 950, availability: 1, type: '' },
-    'historian': { sv: 4150, availability: 1, type: 'profession' },
-    'hunter': { sv: 250, availability: 1, type: '' },
-    'ice seller': { sv: 1950, availability: 1, type: '' },
-    'innkeeper': { sv: 750, availability: 1, type: 'business' },
-    'inventor': { sv: 2250, availability: 1, type: 'profession' },
-    'jailer': { sv: 1250, availability: 1, type: '' },
-    'jester': { sv: 2250, availability: 1, type: '' },
-    'jeweler': { sv: 400, availability: 1, type: 'business' },
-    'judge': { sv: 850, availability: 1, type: 'profession' },
-    'knight': { sv: 1150, availability: 1, type: '' },
-    'lady': { sv: 1550, availability: 1, type: '' },
-    'leatherworker': { sv: 750, availability: 1, type: 'business' },
-    'librarian': { sv: 3150, availability: 1, type: 'profession' },
-    'linguist': { sv: 5150, availability: 1, type: 'profession' },
-    'locksmith': { sv: 1900, availability: 1, type: 'business' },
-    'lord': { sv: 1150, availability: 1, type: '' },
-    'lumberjack': { sv: 350, availability: 1, type: '' },
-    'maid-servant': { sv: 250, availability: 1, type: '' },
-    'mason': { sv: 500, availability: 1, type: 'business' },
-    'masseur': { sv: 1550, availability: 1, type: 'profession' },
-    'merchant': { sv: 650, availability: 1, type: 'business' },
-    'messenger': { sv: 1250, availability: 1, type: '' },
-    'midwife': { sv: 650, availability: 1, type: '' },
-    'miller': { sv: 650, availability: 1, type: 'business' },
-    'miner': { sv: 550, availability: 1, type: '' },
-    'minister': { sv: 950, availability: 1, type: 'profession' },
-    'minstrel': { sv: 1450, availability: 1, type: '' },
-    'monk': { sv: 1450, availability: 1, type: '' },
-    'mortician': { sv: 650, availability: 1, type: 'profession' },
-    'necromancer': { sv: 6150, availability: 1, type: '' },
-    'noble': { sv: 3150, availability: 1, type: 'profession' },
-    'nun': { sv: 2150, availability: 1, type: 'profession' },
-    'nurse': { sv: 1150, availability: 1, type: 'profession' },
-    'officer': { sv: 1150, availability: 1, type: '' },
-    'painter': { sv: 1500, availability: 1, type: 'business' },
-    'patissier': { sv: 1500, availability: 1, type: '' },
-    'perfumer': { sv: 3150, availability: 1, type: 'business' },
-    'philosopher': { sv: 7150, availability: 1, type: 'profession' },
-    'physician': { sv: 4150, availability: 1, type: 'profession' },
-    'pilgrim': { sv: 5150, availability: 1, type: '' },
-    'potter': { sv: 1150, availability: 1, type: 'business' },
-    'priest': { sv: 750, availability: 1, type: '' },
-    'privateer': { sv: 1150, availability: 1, type: '' },
-    'professor': { sv: 3150, availability: 1, type: 'profession' },
-    'roofer': { sv: 1800, availability: 1, type: '' },
-    'ropemaker': { sv: 1850, availability: 1, type: 'business' },
-    'rugmaker': { sv: 1850, availability: 1, type: 'business' },
-    'saddler': { sv: 1000, availability: 1, type: 'business' },
-    'sailor': { sv: 150, availability: 1, type: '' },
-    'scabbard maker': { sv: 875, availability: 1, type: 'business' },
-    'sculptor': { sv: 250, availability: 1, type: 'business' },
-    'scavenger': { sv: 350, availability: 1, type: '' },
-    'scholar': { sv: 2250, availability: 1, type: 'profession' },
-    'seamstress': { sv: 450, availability: 1, type: '' },
-    'servant': { sv: 350, availability: 1, type: '' },
-    'shaman': { sv: 750, availability: 1, type: '' },
-    'shepherd': { sv: 150, availability: 1, type: '' },
-    "ship's captain": { sv: 950, availability: 1, type: '' },
-    'shoemaker': { sv: 150, availability: 1, type: '' },
-    'silversmith': { sv: 1250, availability: 1, type: 'business' },
-    'slave': { sv: 150, availability: 1, type: '' },
-    'slaver': { sv: 650, availability: 1, type: '' },
-    'smith': { sv: 750, availability: 1, type: 'business' },
-    'soldier': { sv: 1000, availability: 1, type: '' },
-    'spice merchant': { sv: 1500, availability: 1, type: 'business' },
-    'squire': { sv: 950, availability: 1, type: '' },
-    'stablehand': { sv: 550, availability: 1, type: '' },
-    'stevedore': { sv: 550, availability: 1, type: '' },
-    'stonemason': { sv: 750, availability: 1, type: '' },
-    'steward': { sv: 950, availability: 1, type: '' },
-    'street seller': { sv: 550, availability: 1, type: '' },
-    'street sweeper': { sv: 450, availability: 1, type: '' },
-    'student': { sv: 3150, availability: 1, type: '' },
-    'surgeon': { sv: 4150, availability: 1, type: 'profession' },
-    'surveyor': { sv: 1150, availability: 1, type: 'profession' },
-    'tailor': { sv: 250, availability: 1, type: '' },
-    'tanner': { sv: 200, availability: 1, type: '' },
-    'tavernkeeper': { sv: 450, availability: 1, type: 'business' },
-    'tax collector': { sv: 1850, availability: 1, type: 'profession' },
-    'teacher': { sv: 1450, availability: 1, type: 'profession' },
-    'thatcher': { sv: 350, availability: 1, type: '' },
-    'thief': { sv: 850, availability: 1, type: '' },
-    'torturer': { sv: 1850, availability: 1, type: '' },
-    'town crier': { sv: 750, availability: 1, type: '' },
-    'toymaker': { sv: 2150, availability: 1, type: 'profession' },
-    'vendor': { sv: 1150, availability: 1, type: '' },
-    'veterinarian': { sv: 1250, availability: 1, type: 'profession' },
-    'vintner': { sv: 850, availability: 1, type: '' },
-    'weaver': { sv: 600, availability: 1, type: '' },
-    'wetnurse': { sv: 350, availability: 1, type: '' },
-    'woodcarver': { sv: 2450, availability: 1, type: 'business' },
-    'wood seller': { sv: 2150, availability: 1, type: 'business' },
-    'wrestler': { sv: 6150, availability: 1, type: '' },
-    'writer': { sv: 7150, availability: 1, type: 'profession' }
+    'actor': { sv: 2500, type: 'profession' },
+    'advocate': { sv: 3250, type: 'profession' },
+    'advisor': { sv: 780, type: 'profession' },
+    'animal handler': { sv: 250, type: 'labourer' },
+    'apothecarist': { sv: 450, type: 'business' },
+    'architect': { sv: 550, type: 'profession' },
+    'archivist': { sv: 2450, type: 'profession' },
+    'armorer': { sv: 750, type: 'business' },
+    'astrologer': { sv: 950, type: '' },
+    'baker': { sv: 800, type: 'business' },
+    'banker': { sv: 2250, type: '' },
+    'barber': { sv: 350, type: 'business' },
+    'barkeep': { sv: 450, type: 'business' },
+    'blacksmith': { sv: 750, type: 'business' },
+    'bookseller': { sv: 6300, type: 'business' },
+    'brewer': { sv: 550, type: 'business' },
+    'bricklayer': { sv: 650, type: 'business' },
+    'brothel keeper': { sv: 850, type: 'business' },
+    'buccaneer': { sv: 1350, type: '' },
+    'butcher': { sv: 1150, type: 'business' },
+    'caravanner': { sv: 1450, type: 'labourer' },
+    'carpenter': { sv: 550, type: 'business' },
+    'cartographer': { sv: 1950, type: '' },
+    'chandler': { sv: 700, type: 'business' },
+    'chef': { sv: 1850, type: 'labourer' },
+    'clergyman': { sv: 40, type: 'profession' },
+    'clock maker': { sv: 4550, type: 'profession' },
+    'cobbler': { sv: 1550, type: '' },
+    'cook': { sv: 450, type: 'labourer' },
+    'cooper': { sv: 700, type: 'labourer' },
+    'counselor': { sv: 1650, type: 'profession' },
+    'courtesan': { sv: 1950, type: '' },
+    'courtier': { sv: 1950, type: 'profession' },
+    'cowherd': { sv: 250, type: 'labourer' },
+    'dancer': { sv: 2250, type: 'profession' },
+    'diplomat': { sv: 3450, type: 'profession' },
+    'distiller': { sv: 450, type: 'business' },
+    'diver': { sv: 3250, type: 'labourer' },
+    'farmer': { sv: 150, type: 'labourer' },
+    'fisherman': { sv: 170, type: 'labourer' },
+    'fishmonger': { sv: 250, type: 'business' },
+    'furrier': { sv: 250, type: 'business' },
+    'gardener': { sv: 550, type: 'labourer' },
+    'general': { sv: 2250, type: 'profession' },
+    'gladiator': { sv: 3250, type: '' },
+    'glovemaker': { sv: 2400, type: 'business' },
+    'goldsmith': { sv: 6550, type: 'business' },
+    'grocer': { sv: 450, type: 'business' },
+    'guardsman': { sv: 150, type: 'profession' },
+    'guildmaster': { sv: 4150, type: 'profession' },
+    'hatmaker': { sv: 950, type: 'business' },
+    'healer': { sv: 950, type: 'profession' },
+    'herald': { sv: 550, type: '' },
+    'herbalist': { sv: 850, type: 'business' },
+    'hermit': { sv: 950, type: 'profession' },
+    'historian': { sv: 4150, type: 'profession' },
+    'hunter': { sv: 250, type: 'labourer' },
+    'ice seller': { sv: 1950, type: 'labourer' },
+    'innkeeper': { sv: 750, type: 'business' },
+    'inventor': { sv: 2250, type: 'profession' },
+    'jailer': { sv: 1250, type: 'labourer' },
+    'jester': { sv: 2250, type: 'profession' },
+    'jeweler': { sv: 400, type: 'business' },
+    'judge': { sv: 850, type: 'profession' },
+    'knight': { sv: 1150, type: 'profession' },
+    'lady': { sv: 1550, type: 'profession' },
+    'leatherworker': { sv: 750, type: 'business' },
+    'librarian': { sv: 3150, type: 'profession' },
+    'linguist': { sv: 5150, type: 'profession' },
+    'locksmith': { sv: 1900, type: 'business' },
+    'lord': { sv: 1150, type: 'profession' },
+    'lumberjack': { sv: 350, type: 'labourer' },
+    'maid-servant': { sv: 250, type: 'labourer' },
+    'mason': { sv: 500, type: 'business' },
+    'masseur': { sv: 1550, type: 'profession' },
+    'merchant': { sv: 650, type: 'business' },
+    'messenger': { sv: 1250, type: 'labourer' },
+    'midwife': { sv: 650, type: 'labourer' },
+    'miller': { sv: 650, type: 'business' },
+    'miner': { sv: 550, type: 'labourer' },
+    'minister': { sv: 950, type: 'profession' },
+    'minstrel': { sv: 1450, type: 'profession' },
+    'monk': { sv: 1450, type: 'profession' },
+    'mortician': { sv: 650, type: 'profession' },
+    'necromancer': { sv: 6150, type: 'profession' },
+    'noble': { sv: 3150, type: 'profession' },
+    'nun': { sv: 2150, type: 'profession' },
+    'nurse': { sv: 1150, type: 'profession' },
+    'officer': { sv: 1150, type: 'profession' },
+    'painter': { sv: 1500, type: 'business' },
+    'patissier': { sv: 1500, type: 'business' },
+    'perfumer': { sv: 3150, type: 'business' },
+    'philosopher': { sv: 7150, type: 'profession' },
+    'physician': { sv: 4150, type: 'profession' },
+    'pilgrim': { sv: 5150, type: 'labourer' },
+    'potter': { sv: 1150, type: 'business' },
+    'priest': { sv: 750, type: 'profession' },
+    'privateer': { sv: 1150, type: 'labourer' },
+    'professor': { sv: 3150, type: 'profession' },
+    'roofer': { sv: 1800, type: 'labourer' },
+    'ropemaker': { sv: 1850, type: 'business' },
+    'rugmaker': { sv: 1850, type: 'business' },
+    'saddler': { sv: 1000, type: 'business' },
+    'sailor': { sv: 150, type: 'labourer' },
+    'scabbard maker': { sv: 875, type: 'business' },
+    'sculptor': { sv: 250, type: 'business' },
+    'scavenger': { sv: 350, type: 'labourer' },
+    'scholar': { sv: 2250, type: 'profession' },
+    'seamstress': { sv: 450, type: 'labourer' },
+    'servant': { sv: 350, type: 'labourer' },
+    'shaman': { sv: 750, type: 'profession' },
+    'shepherd': { sv: 150, type: 'labourer' },
+    "ship's captain": { sv: 950, type: 'profession' },
+    'shoemaker': { sv: 150, type: 'business' },
+    'silversmith': { sv: 1250, type: 'business' },
+    'slave': { sv: 150, type: 'labourer' },
+    'slaver': { sv: 650, type: 'business' },
+    'smith': { sv: 750, type: 'business' },
+    'soldier': { sv: 1000, type: 'profession' },
+    'spice merchant': { sv: 1500, type: 'business' },
+    'squire': { sv: 950, type: 'profession' },
+    'stablehand': { sv: 550, type: 'labourer' },
+    'stevedore': { sv: 550, type: 'labourer' },
+    'stonemason': { sv: 750, type: 'business' },
+    'steward': { sv: 950, type: 'profession' },
+    'street seller': { sv: 550, type: 'business' },
+    'street sweeper': { sv: 450, type: 'labourer' },
+    'student': { sv: 3150, type: 'profession' },
+    'surgeon': { sv: 4150, type: 'profession' },
+    'surveyor': { sv: 1150, type: 'profession' },
+    'tailor': { sv: 250, type: 'business' },
+    'tanner': { sv: 200, type: 'business' },
+    'tavernkeeper': { sv: 450, type: 'business' },
+    'tax collector': { sv: 1850, type: 'profession' },
+    'teacher': { sv: 1450, type: 'profession' },
+    'thatcher': { sv: 350, type: 'labourer' },
+    'thief': { sv: 850, type: 'profession' },
+    'torturer': { sv: 1850, type: 'profession' },
+    'town crier': { sv: 750, type: 'labourer' },
+    'toymaker': { sv: 2150, type: 'profession' },
+    'vendor': { sv: 1150, type: 'business' },
+    'veterinarian': { sv: 1250, type: 'profession' },
+    'vintner': { sv: 850, type: 'profession' },
+    'weaver': { sv: 600, type: 'labourer' },
+    'wetnurse': { sv: 350, type: 'labourer' },
+    'woodcarver': { sv: 2450, type: 'business' },
+    'wood seller': { sv: 2150, type: 'business' },
+    'wrestler': { sv: 6150, type: 'labourer' },
+    'writer': { sv: 7150, type: 'profession' }
   }
 }
 /* twine-user-script #119: "townRender.js" */
@@ -20777,7 +20784,7 @@ setup.townRender = function (town) {
   } else if (guardfundingRoll > 20) {
     town.guard.funding = 'The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $town.guard.name does not have the funding to perform any training exercises.'
   } else if (guardfundingRoll <= 20) {
-    town.guard.funding = 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
+    town.guard.funding = 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
   }
 
   // town.guard.funding = setup.townGuardFundingCat(guardfundingRoll)
@@ -22628,33 +22635,33 @@ setup.misc = {
     'a cavern behind a waterfall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '.</blockquote>'
     },
     'a small cave in the bank of a creek': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '</blockquote>'
+      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
     'an entrance to a rocky cave': function (town, biome) {
       var cavern = setup.misc.cavern.create()
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '</blockquote>'
+      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
     'a hole under a large tree': function (town, biome) {
       var contents = setup.misc[biome].hole.random()
       // this is lazy. Will change hole from an array to an object once I make more creators.
       if (contents === 'a spider') {
         var spider = setup.misc.spider.create()
-        contents = spider.tippyWord
+        contents = 'a ' + spider.tippyWord + '.'
       }
       var tree = setup.misc.tree.create(town, biome)
       // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '</blockquote>'
+      return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '.</blockquote>'
     },
     'a large burrow': function (town, biome) {
       var contents = setup.misc[biome].hole.random()
       // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a large burrow <blockquote>Inside is ' + contents + '</blockquote>'
+      return 'a large burrow <blockquote>Inside is ' + contents + '.</blockquote>'
     },
     'a peculiar cottage': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cottageLives, setup.misc.encounters)
@@ -22698,17 +22705,17 @@ setup.misc = {
     'a cavern in a canyon wall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     'a cave entrance, hidden by a boulder': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     'a small cave next to a dry river bed': function (town, biome) {
       var cavern = setup.misc.cavern.create()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '</blockquote>'
+      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     // mining is intentionally using the mountain biome
     'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.random() + ', looking for ' + setup.misc.mountain.minersGoal.random() + '.</blockquote>' },
@@ -22774,7 +22781,7 @@ setup.misc = {
         ceiling: setup.misc.cavern.ceiling.random(),
         hazards: setup.misc.cavern.hazards.random()
       }, base)
-      cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling
+      cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling + '.'
       return cavern
     }
   },
@@ -24114,7 +24121,25 @@ When you&#39;re ready, here&#39;s the [[general store|GeneralStoreOutput]]</tw-p
 
 
 [[Full changelog|ChangelogFull]]
-&lt;/blockquote&gt;</tw-passagedata><tw-passagedata pid="22" name="ChangelogFull" tags="" position="225,350">&lt;h4&gt;v.1.4&lt;/h4&gt;- &lt;span class=&quot;tip&quot; title=&quot;Ooooh! Neat!&quot;&gt;Added popups!&lt;/span&gt;
+&lt;/blockquote&gt;</tw-passagedata><tw-passagedata pid="22" name="ChangelogFull" tags="" position="225,350">&lt;4&gt;v.2.0.1&lt;/h4&gt;-&lt;span class=&quot;tip&quot; title=&quot;Oops.&quot;&gt;Fixed broken town rolls&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;Oops.&quot;&gt;Uncommented the tavern stuff&lt;/span&gt;
+&lt;span class=&quot;tip&quot; title=&quot;Also oops.&quot;&gt;Fixed NPC relationships not displaying properly&lt;/span&gt;
+&lt;span class=&quot;tip&quot; title=&quot;Double oops.&quot;&gt;Fixed [Object object] bug with town leaders&lt;/span&gt;
+&lt;span class=&quot;tip&quot; title=&quot;Minor oops.&quot;&gt;Fixed toolbox weather&lt;/span&gt;
+&lt;span class=&quot;tip&quot; title=&quot;Not an oops!&quot;&gt;Minor change to the formatting of the start page&lt;/span&gt;
+&lt;h4&gt;v.2.0&lt;/h4&gt;- &lt;span class=&quot;tip&quot; title=&quot;This should make it much more contributor-friendly.&quot;&gt;Total rewrite of code.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;No more renaming the bartender on the fly because he had a weird name that sounded vaguely phallic!&quot;&gt;Added support for editing NPCs.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;I&#39;ve opted to only generate one of each type of building (even if it&#39;s a huge city) to avoid bogging down the user with unnecessary clutter.&quot;&gt;Added support for multiple buildings.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;No more weird menage-a-trois. Not that there&#39;s anything wrong with them- I&#39;ll implement poly &amp; LGBTQI relationships soon!&quot;&gt;Fixed relationships.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;Woo! Lose your money! Get married! I dunno.&quot;&gt;Added tavern carousing.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;This feeds into the NPC creation process, so the racial makeup of the town makes things more and less likely.&quot;&gt;Added racial demographics.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;This also into the NPC creation process, so professions are no longer a lucky dip.&quot;&gt;Improved the profession demographic.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;Woo! Lose your money! Get married! I dunno.&quot;&gt;Added harlots to the brothels.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;Also added the ability to delete them. Beware, no stability is promised if you delete a building&#39;s NPC.&quot;&gt;Added list of current NPCs for reference.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;The meat and potatoes of this came from many of /u/OrkishBlade&#39;s wonderful tables over at /r/behindTheTables. Thanks!&quot;&gt;Added a scenario generator, complete with NPCs and descriptive text.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;Thunderbolts and lightning, very very frightening!&quot;&gt;Added weather generation.&lt;/span&gt;
+- &lt;span class=&quot;tip&quot; title=&quot;Instead of just &#39;the sea captain&#39;, it&#39;s now a genuine NPC like others.&quot;&gt;Added depth to tavern patrons.&lt;/span&gt;
+&lt;h4&gt;v.1.4&lt;/h4&gt;- &lt;span class=&quot;tip&quot; title=&quot;Ooooh! Neat!&quot;&gt;Added popups!&lt;/span&gt;
 - &lt;span class=&quot;tip&quot; title=&quot;Will be expanded with faction sidequests soon!&quot;&gt;Added factions&lt;/span&gt;
 - &lt;span class=&quot;tip&quot; title=&quot;Will add relationships and families at some point&quot;&gt;Added NPC history&lt;/span&gt;
 - &lt;span class=&quot;tip&quot; title=&quot;...I hope&quot;&gt;Fixed tavern/brothel combos being kinda wacky&lt;/span&gt;
@@ -25027,8 +25052,18 @@ Tylien Birchbottom was kidnapped by a local cult at the age of 14. They keep him
 &lt;&lt;link &quot;&lt;h4&gt;Create a rumour (WIP)&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $testRumour to setup.createRumour($town)&gt;&gt;&lt;&lt;replace &quot;#rumour&quot;&gt;&gt;$testRumour&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;span id=&quot;rumour&quot;&gt;&lt;/span&gt;
 /* &lt;&lt;link &quot;&lt;h4&gt;Create a mission&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $testmission to setup.createMission($town)&gt;&gt;&lt;&lt;replace &quot;#mission&quot;&gt;&gt;$testmission&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;span id=&quot;mission&quot;&gt;&lt;/span&gt; */
 &lt;&lt;link &quot;&lt;h4&gt;Generate a nightmare&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $testNightmare to setup.createNightmare()&gt;&gt;&lt;&lt;replace &quot;#nightmare&quot;&gt;&gt;$testNightmare&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;span id=&quot;nightmare&quot;&gt;&lt;/span&gt;
-&lt;&lt;link &quot;&lt;h4&gt;Describe the weather&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $weather.temperatureTimer -= 16, $weather.precipitationTimer -= 8, $weather.cloudTimer&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;&lt;include &quot;TownWeatherDescriptions&quot;&gt;&gt;&lt;&lt;include &quot;TownWeatherTimer&quot;&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;replace &quot;#weather&quot;&gt;&gt;It&#39;s currently $weather.temperatureReadout. $weather.precipitationReadout, and $weather.cloudReadout.&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;dropdown &quot;$weather.seasonChange&quot; $weather.seasonPool&gt;&gt; &lt;&lt;dropdown &quot;$town.terrainChange&quot; $town.terrainPool&gt;&gt; &lt;&lt;dropdown &quot;$town.locationChange&quot; $town.locationPool&gt;&gt;
-&lt;span id=&quot;weather&quot;&gt;&lt;/span&gt;
+&lt;&lt;listbox &quot;$town.currentSeason&quot;&gt;&gt;&lt;&lt;option &quot;Summer&quot; &quot;summer&quot;&gt;&gt;&lt;&lt;option &quot;Autumn&quot; &quot;autumn&quot;&gt;&gt;&lt;&lt;option &quot;Winter&quot; &quot;winter&quot;&gt;&gt;&lt;&lt;option &quot;Spring&quot; &quot;spring&quot;&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;listbox &quot;$testWeatherType&quot;&gt;&gt;&lt;&lt;option &quot;Temperate&quot; &quot;temperate&quot;&gt;&gt;&lt;&lt;option &quot;Arid&quot; &quot;arid&quot;&gt;&gt;&lt;&lt;option &quot;Tropical&quot; &quot;tropical&quot;&gt;&gt;&lt;&lt;option &quot;Polar&quot; &quot;polar&quot;&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;link &quot;&lt;h4&gt;Describe the weather&lt;/h4&gt;&quot;&gt;&gt;
+&lt;&lt;if def $testWeather &gt;&gt;
+    &lt;&lt;set $testWeather.timer.temperature -= 4&gt;&gt;
+    &lt;&lt;set $testWeather.timer.precipitation -= 4&gt;&gt;
+    &lt;&lt;set $testWeather.timer.cloud -= 4&gt;&gt;
+    &lt;&lt;set _testWeather to setup.createWeather($town, $testWeatherType, $testWeather)&gt;&gt;
+    &lt;&lt;set $testWeather to _testWeather&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    &lt;&lt;set $testWeather to setup.createWeather($town, $testWeatherType)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;replace &quot;#weather&quot;&gt;&gt;$testWeather.readout.full&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;div id=&quot;weather&quot;&gt;&lt;&lt;if def $scenario&gt;&gt;$testWeather.readout.full&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 &lt;&lt;link &quot;&lt;h4&gt;Generate a road&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;set $testRoad to setup.createRoad()&gt;&gt;&lt;&lt;replace &quot;#road&quot;&gt;&gt;$testRoad&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;span id=&quot;road&quot;&gt;&lt;/span&gt;
 &lt;&lt;link &quot;&lt;h4&gt;Generate some raiders&lt;/h4&gt;&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;&lt;include &quot;Raiders&quot;&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;replace &quot;#raiders&quot;&gt;&gt;A &lt;&lt;profile $raidedvillager $raidedvillager.raceNote&gt;&gt; runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. &lt;&lt;print $raidedvillager.heshe.toUpperFirst()&gt;&gt; continues, saying &quot;they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally&quot;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;span id=&quot;raiders&quot;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="45" name="Newspaper" tags="" position="600,600">&lt;&lt;set $newspaperheadline to either([&quot;NPC attempts to become player, ridiculed.&quot;,
 &quot;Underground homunculi fights discovered - homunculi sales increase.&quot;,
@@ -25600,7 +25635,7 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
   &gt; $currentNPC.name
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;/nobr&gt;&gt;&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="63" name="StoryInit" tags="" position="350,850">&lt;&lt;set $versionNumber to &quot;2.0&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="63" name="StoryInit" tags="" position="350,850">&lt;&lt;set $versionNumber to &quot;2.0.1&quot;&gt;&gt;
 &lt;&lt;set Config.history.maxStates to 50&gt;&gt;
 
 &lt;&lt;set $towns to []&gt;&gt;
@@ -25872,7 +25907,8 @@ You talk amongst the good folk of $town.name, who seem pleasant enough. They gos
 &lt;span class=&quot;firstcharacter&quot;&gt;W&lt;/span&gt;elcome to Eigengrau&#39;s Essential Establishment Generator, v$versionNumber! This is still in active development.
 &lt;&lt;linkappend &quot;&lt;h4&gt;Changelog&lt;/h4&gt;&quot; t8n&gt;&gt;&lt;&lt;include &quot;Changelog&quot;&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 &lt;&lt;include &quot;Popup&quot;&gt;&gt;
-&lt;&lt;include &quot;CreateScenario&quot;&gt;&gt;
+&lt;h3&gt;Quick scenario generator&lt;/h3&gt;&lt;&lt;include &quot;CreateScenario&quot;&gt;&gt;
+&lt;h3&gt;The $town.type of $town.name&lt;/h3&gt;
 &lt;span class=&quot;tip&quot; title=&quot;Find the overview of the town and its sociopolitical structure here!&quot;&gt;&lt;&lt;link &quot;Description of $town.name&quot;&gt;&gt;&lt;&lt;set $currentPassage to $town&gt;&gt;&lt;&lt;goto &quot;TownOutput&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;for _key, _townBuildings range $town.buildings&gt;&gt;
 &lt;&lt;for _index, _building range _townBuildings&gt;&gt;&lt;&lt;capture _key, _index, _building&gt;&gt;
@@ -26590,13 +26626,13 @@ _listbox -- &lt;&lt;button &quot;Create new faction&quot;&gt;&gt;
 
 &lt;&lt;switch $town.terrain&gt;&gt;
     &lt;&lt;case &quot;temperate&quot;&gt;&gt;
-      &lt;&lt;set $weather.precipitationlevel += 1, $weather.precipitationIntensity += 1&gt;&gt;
+      &lt;&lt;set $weather.precipitationLevel += 1, $weather.precipitationIntensity += 1&gt;&gt;
     &lt;&lt;case &quot;tropical&quot;&gt;&gt;
-      &lt;&lt;set $weather.precipitationlevel -= 1, $weather.precipitationIntensity += 1&gt;&gt;
+      &lt;&lt;set $weather.precipitationLevel -= 1, $weather.precipitationIntensity += 1&gt;&gt;
     &lt;&lt;case &quot;polar&quot;&gt;&gt;
-      &lt;&lt;set $weather.precipitationlevel += 1&gt;&gt;
+      &lt;&lt;set $weather.precipitationLevel += 1&gt;&gt;
     &lt;&lt;case &quot;arid&quot;&gt;&gt;
-      &lt;&lt;set $weather.precipitationlevel -= 1, $weather.precipitationIntensity -= 1&gt;&gt;
+      &lt;&lt;set $weather.precipitationLevel -= 1, $weather.precipitationIntensity -= 1&gt;&gt;
 &lt;&lt;/switch&gt;&gt;
 
 
@@ -26604,61 +26640,61 @@ _listbox -- &lt;&lt;button &quot;Create new faction&quot;&gt;&gt;
     &lt;&lt;case &quot;summer&quot;&gt;&gt;
         &lt;&lt;switch $town.terrain&gt;&gt;
             &lt;&lt;case &quot;temperate&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 4&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 4&gt;&gt;
                 &lt;&lt;set $weather.temperature to 80&gt;&gt;
             &lt;&lt;case &quot;tropical&quot;&gt;&gt;
-              &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+              &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 90&gt;&gt;
             &lt;&lt;case &quot;polar&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 4&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 4&gt;&gt;
                 &lt;&lt;set $weather.temperature to 40&gt;&gt;
             &lt;&lt;case &quot;arid&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 95&gt;&gt;
         &lt;&lt;/switch&gt;&gt;
     &lt;&lt;case &quot;autumn&quot;&gt;&gt;
         &lt;&lt;switch $town.terrain&gt;&gt;
             &lt;&lt;case &quot;temperate&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 60&gt;&gt;
             &lt;&lt;case &quot;tropical&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 75&gt;&gt;
             &lt;&lt;case &quot;polar&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 4&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 4&gt;&gt;
                 &lt;&lt;set $weather.temperature to 30&gt;&gt;
             &lt;&lt;case &quot;arid&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 75&gt;&gt;
         &lt;&lt;/switch&gt;&gt;
     &lt;&lt;case &quot;winter&quot;&gt;&gt;
         &lt;&lt;switch $town.terrain&gt;&gt;
             &lt;&lt;case &quot;temperate&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 2&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 2&gt;&gt;
                 &lt;&lt;set $weather.temperature to 30&gt;&gt;
             &lt;&lt;case &quot;tropical&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 2&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 2&gt;&gt;
                 &lt;&lt;set $weather.temperature to 50&gt;&gt;
             &lt;&lt;case &quot;polar&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 2&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 2&gt;&gt;
                 &lt;&lt;set $weather.temperature to 20&gt;&gt;
             &lt;&lt;case &quot;arid&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 2&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 2&gt;&gt;
                 &lt;&lt;set $weather.temperature to 50&gt;&gt;
         &lt;&lt;/switch&gt;&gt;
     &lt;&lt;case &quot;spring&quot;&gt;&gt;
         &lt;&lt;switch $town.terrain&gt;&gt;
             &lt;&lt;case &quot;temperate&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 60&gt;&gt;
             &lt;&lt;case &quot;tropical&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 4&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 4&gt;&gt;
                 &lt;&lt;set $weather.temperature to 75&gt;&gt;
             &lt;&lt;case &quot;polar&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 3&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 3&gt;&gt;
                 &lt;&lt;set $weather.temperature to 30&gt;&gt;
             &lt;&lt;case &quot;arid&quot;&gt;&gt;
-                &lt;&lt;set $weather.precipitationlevel to 2&gt;&gt;
+                &lt;&lt;set $weather.precipitationLevel to 2&gt;&gt;
                 &lt;&lt;set $weather.temperature to 75&gt;&gt;
         &lt;&lt;/switch&gt;&gt;
 &lt;&lt;/switch&gt;&gt;
@@ -26669,7 +26705,7 @@ _listbox -- &lt;&lt;button &quot;Create new faction&quot;&gt;&gt;
         &lt;&lt;set $weather.temperature += random(8, 12)&gt;&gt;
     &lt;&lt;case &quot;hills&quot;, &quot;mountains&quot;&gt;&gt;
         &lt;&lt;set $weather.temperature -= random(8, 12)&gt;&gt;
-        &lt;&lt;set $weather.precipitationlevel -= 1&gt;&gt;
+        &lt;&lt;set $weather.precipitationLevel -= 1&gt;&gt;
 &lt;&lt;/switch&gt;&gt;
 &lt;&lt;set $weather.temperatureTimer to 0, $weather.precipitationTimer to 0, $weather.cloudTimer to 0&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="TownWeatherDescriptions" tags="render" position="475,1225">&lt;&lt;if $weather.temperature gt 95&gt;&gt;
     &lt;&lt;set $weather.temperatureReadout to &quot;swelteringly hot&quot;&gt;&gt;
@@ -26920,7 +26956,7 @@ _listbox -- &lt;&lt;button &quot;Create new faction&quot;&gt;&gt;
 
 &lt;&lt;if $weather.precipitationTimer lt 1&gt;&gt;
     &lt;&lt;set _precipitationroll to random(1, 100)&gt;&gt; /* Rolling a d100 for precipitation frequency */
-    &lt;&lt;switch $weather.precipitationlevel&gt;&gt;
+    &lt;&lt;switch $weather.precipitationLevel&gt;&gt;
         &lt;&lt;case 1&gt;&gt; /* drought */
             &lt;&lt;if _precipitationroll lte 5&gt;&gt;
                 &lt;&lt;set _precipitation to true&gt;&gt;
