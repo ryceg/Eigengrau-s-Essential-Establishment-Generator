@@ -1,4 +1,22 @@
 :: ChangelogFull
+<4>v.2.0.1</h4>-<span class="tip" title="Oops.">Fixed broken town rolls</span>
+- <span class="tip" title="Oops.">Uncommented the tavern stuff</span>
+<span class="tip" title="Also oops.">Fixed NPC relationships not displaying properly</span>
+<span class="tip" title="Double oops.">Fixed [Object object] bug with town leaders</span>
+<span class="tip" title="Minor oops.">Fixed toolbox weather</span>
+<span class="tip" title="Not an oops!">Minor change to the formatting of the start page</span>
+<h4>v.2.0</h4>- <span class="tip" title="This should make it much more contributor-friendly.">Total rewrite of code.</span>
+- <span class="tip" title="No more renaming the bartender on the fly because he had a weird name that sounded vaguely phallic!">Added support for editing NPCs.</span>
+- <span class="tip" title="I've opted to only generate one of each type of building (even if it's a huge city) to avoid bogging down the user with unnecessary clutter.">Added support for multiple buildings.</span>
+- <span class="tip" title="No more weird menage-a-trois. Not that there's anything wrong with them- I'll implement poly & LGBTQI relationships soon!">Fixed relationships.</span>
+- <span class="tip" title="Woo! Lose your money! Get married! I dunno.">Added tavern carousing.</span>
+- <span class="tip" title="This feeds into the NPC creation process, so the racial makeup of the town makes things more and less likely.">Added racial demographics.</span>
+- <span class="tip" title="This also into the NPC creation process, so professions are no longer a lucky dip.">Improved the profession demographic.</span>
+- <span class="tip" title="Woo! Lose your money! Get married! I dunno.">Added harlots to the brothels.</span>
+- <span class="tip" title="Also added the ability to delete them. Beware, no stability is promised if you delete a building's NPC.">Added list of current NPCs for reference.</span>
+- <span class="tip" title="The meat and potatoes of this came from many of /u/OrkishBlade's wonderful tables over at /r/behindTheTables. Thanks!">Added a scenario generator, complete with NPCs and descriptive text.</span>
+- <span class="tip" title="Thunderbolts and lightning, very very frightening!">Added weather generation.</span>
+- <span class="tip" title="Instead of just 'the sea captain', it's now a genuine NPC like others.">Added depth to tavern patrons.</span>
 <h4>v.1.4</h4>- <span class="tip" title="Ooooh! Neat!">Added popups!</span>
 - <span class="tip" title="Will be expanded with faction sidequests soon!">Added factions</span>
 - <span class="tip" title="Will add relationships and families at some point">Added NPC history</span>
