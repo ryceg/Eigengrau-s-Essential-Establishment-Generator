@@ -3,7 +3,8 @@
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionNumber! This is still in active development.
 <<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">>
-<<include "CreateScenario">>
+<h3>Quick scenario generator</h3><<include "CreateScenario">>
+<h3>The $town.type of $town.name</h3>
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
 <<for _key, _townBuildings range $town.buildings>>
 <<for _index, _building range _townBuildings>><<capture _key, _index, _building>>
