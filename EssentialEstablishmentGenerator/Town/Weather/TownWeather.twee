@@ -13,13 +13,13 @@
 
 <<switch $town.terrain>>
     <<case "temperate">>
-      <<set $weather.precipitationlevel += 1, $weather.precipitationIntensity += 1>>
+      <<set $weather.precipitationLevel += 1, $weather.precipitationIntensity += 1>>
     <<case "tropical">>
-      <<set $weather.precipitationlevel -= 1, $weather.precipitationIntensity += 1>>
+      <<set $weather.precipitationLevel -= 1, $weather.precipitationIntensity += 1>>
     <<case "polar">>
-      <<set $weather.precipitationlevel += 1>>
+      <<set $weather.precipitationLevel += 1>>
     <<case "arid">>
-      <<set $weather.precipitationlevel -= 1, $weather.precipitationIntensity -= 1>>
+      <<set $weather.precipitationLevel -= 1, $weather.precipitationIntensity -= 1>>
 <</switch>>
 
 
@@ -27,61 +27,61 @@
     <<case "summer">>
         <<switch $town.terrain>>
             <<case "temperate">>
-                <<set $weather.precipitationlevel to 4>>
+                <<set $weather.precipitationLevel to 4>>
                 <<set $weather.temperature to 80>>
             <<case "tropical">>
-              <<set $weather.precipitationlevel to 3>>
+              <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 90>>
             <<case "polar">>
-                <<set $weather.precipitationlevel to 4>>
+                <<set $weather.precipitationLevel to 4>>
                 <<set $weather.temperature to 40>>
             <<case "arid">>
-                <<set $weather.precipitationlevel to 3>>
+                <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 95>>
         <</switch>>
     <<case "autumn">>
         <<switch $town.terrain>>
             <<case "temperate">>
-                <<set $weather.precipitationlevel to 3>>
+                <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 60>>
             <<case "tropical">>
-                <<set $weather.precipitationlevel to 3>>
+                <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 75>>
             <<case "polar">>
-                <<set $weather.precipitationlevel to 4>>
+                <<set $weather.precipitationLevel to 4>>
                 <<set $weather.temperature to 30>>
             <<case "arid">>
-                <<set $weather.precipitationlevel to 3>>
+                <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 75>>
         <</switch>>
     <<case "winter">>
         <<switch $town.terrain>>
             <<case "temperate">>
-                <<set $weather.precipitationlevel to 2>>
+                <<set $weather.precipitationLevel to 2>>
                 <<set $weather.temperature to 30>>
             <<case "tropical">>
-                <<set $weather.precipitationlevel to 2>>
+                <<set $weather.precipitationLevel to 2>>
                 <<set $weather.temperature to 50>>
             <<case "polar">>
-                <<set $weather.precipitationlevel to 2>>
+                <<set $weather.precipitationLevel to 2>>
                 <<set $weather.temperature to 20>>
             <<case "arid">>
-                <<set $weather.precipitationlevel to 2>>
+                <<set $weather.precipitationLevel to 2>>
                 <<set $weather.temperature to 50>>
         <</switch>>
     <<case "spring">>
         <<switch $town.terrain>>
             <<case "temperate">>
-                <<set $weather.precipitationlevel to 3>>
+                <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 60>>
             <<case "tropical">>
-                <<set $weather.precipitationlevel to 4>>
+                <<set $weather.precipitationLevel to 4>>
                 <<set $weather.temperature to 75>>
             <<case "polar">>
-                <<set $weather.precipitationlevel to 3>>
+                <<set $weather.precipitationLevel to 3>>
                 <<set $weather.temperature to 30>>
             <<case "arid">>
-                <<set $weather.precipitationlevel to 2>>
+                <<set $weather.precipitationLevel to 2>>
                 <<set $weather.temperature to 75>>
         <</switch>>
 <</switch>>
@@ -92,6 +92,6 @@
         <<set $weather.temperature += random(8, 12)>>
     <<case "hills", "mountains">>
         <<set $weather.temperature -= random(8, 12)>>
-        <<set $weather.precipitationlevel -= 1>>
+        <<set $weather.precipitationLevel -= 1>>
 <</switch>>
 <<set $weather.temperatureTimer to 0, $weather.precipitationTimer to 0, $weather.cloudTimer to 0>>

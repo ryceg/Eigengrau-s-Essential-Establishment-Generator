@@ -759,22 +759,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 1,
           baseTemp: 80
         },
         'autumn': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 60
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: 1,
           baseTemp: 30
         },
         'spring': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 60
         }
@@ -888,22 +888,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 90
         },
         'autumn': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 1,
           baseTemp: 75
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: 1,
           baseTemp: 50
         },
         'spring': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 1,
           baseTemp: 75
         }
@@ -1044,22 +1044,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: -1,
           baseTemp: 95
         },
         'autumn': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: -1,
           baseTemp: 75
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: -1,
           baseTemp: 50
         },
         'spring': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: -1,
           baseTemp: 75
         }
@@ -1198,22 +1198,22 @@ setup.townData = {
           }
         },
         'summer': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 0,
           baseTemp: 40
         },
         'autumn': {
-          precipitationlevel: 4,
+          precipitationLevel: 4,
           precipitationIntensity: 0,
           baseTemp: 30
         },
         'winter': {
-          precipitationlevel: 2,
+          precipitationLevel: 2,
           precipitationIntensity: 0,
           baseTemp: 20
         },
         'spring': {
-          precipitationlevel: 3,
+          precipitationLevel: 3,
           precipitationIntensity: 0,
           baseTemp: 30
         }

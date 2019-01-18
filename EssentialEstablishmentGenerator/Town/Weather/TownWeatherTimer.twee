@@ -109,7 +109,7 @@
 
 <<if $weather.precipitationTimer lt 1>>
     <<set _precipitationroll to random(1, 100)>> /* Rolling a d100 for precipitation frequency */
-    <<switch $weather.precipitationlevel>>
+    <<switch $weather.precipitationLevel>>
         <<case 1>> /* drought */
             <<if _precipitationroll lte 5>>
                 <<set _precipitation to true>>

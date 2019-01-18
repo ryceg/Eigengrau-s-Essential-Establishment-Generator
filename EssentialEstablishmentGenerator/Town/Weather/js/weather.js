@@ -238,7 +238,7 @@ setup.weather = {
       }
     }
   },
-  precipitationlevel: {
+  precipitationLevel: {
     1: function (weather) {
       if (weather.roll.precipitation >= 95) {
         return true

@@ -5,10 +5,10 @@ setup.renderWeather = function (town, biome, weather) {
   if (!weather) {
     weather = setup.createWeather(town, biome)
   }
-  weather.precipitationlevel = Math.clamp(weather.precipitationlevel, 1, 4)
+  weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
   weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
   // weather.precipitationIntensity.clamp(1, 4)
-  // weather.precipitationlevel.clamp(1, 4)
+  // weather.precipitationLevel.clamp(1, 4)
   // console.log(weather)
   biome = biome || town.terrain
 
@@ -43,7 +43,7 @@ setup.renderWeather = function (town, biome, weather) {
   if (weather.timer.precipitation < 1) {
     console.log('Resetting precipitation timer...')
     weather.roll.precipitation = random(1, 100)
-    weather.precipitation = setup.weather.precipitationlevel[weather.precipitationlevel](weather)
+    weather.precipitation = setup.weather.precipitationLevel[weather.precipitationLevel](weather)
   }
 
   if (weather.precipitation === true && weather.temperature <= 32) {
