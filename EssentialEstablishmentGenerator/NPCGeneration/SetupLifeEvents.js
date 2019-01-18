@@ -113,7 +113,7 @@ setup.createLifeEvents = function (town, npc) {
       } else {
         npc.partnerID = setup.createNPC(town, { gender: 'man', partnerID: npc.id })
       }
-      return 'I met the love of my life, <<profile ' + npc.partnerID + '>>.'
+      return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
     }
   }
 
@@ -165,7 +165,7 @@ setup.createLifeEvents = function (town, npc) {
       'I spent some time working as a ',
       'I did a stint as a ',
       'to pay off a debt, I spent some time as a ',
-      'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()
+      'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].random()
   }
 
   function war (npc) {
