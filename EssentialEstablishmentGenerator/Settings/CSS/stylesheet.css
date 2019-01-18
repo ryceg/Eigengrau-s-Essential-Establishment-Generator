@@ -2323,3 +2323,9 @@ pre code {
 .classTable h5{
     margin-bottom:10px
 }
+
+/*removes link icon from below images */
+a.link-external::after {
+    visibility: hidden;
+    content: "";
+}
