@@ -235,7 +235,7 @@ setup.townRender = function (town) {
   } else if (guardfundingRoll > 20) {
     town.guard.funding = 'The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $town.guard.name does not have the funding to perform any training exercises.'
   } else if (guardfundingRoll <= 20) {
-    town.guard.funding = 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
+    town.guard.funding = 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
   }
 
   // town.guard.funding = setup.townGuardFundingCat(guardfundingRoll)
