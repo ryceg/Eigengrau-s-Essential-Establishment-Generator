@@ -6,18 +6,7 @@
 <h3>Quick scenario generator</h3><<include "CreateScenario">>
 <h3>The $town.type of $town.name</h3>
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
-<<for _key, _townBuildings range $town.buildings>>
-<<for _index, _building range _townBuildings>><<capture _key, _index, _building>>
-  <<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-  \<<print either("On ", "Along ", "Over on ")>> _building.road is the _building.wordNoun <span @id="_building.tooltip" class="tip"><<link "_building.name">><<set $selected to {key: _key, index: _index, building: _building}>><<set $currentPassage to _building>>
-      \<<if settings.showSliders>>
-          \<<goto _building.initPassage>>
-        \<<else>>
-          \<<goto _building.passageName>>
-      \<</if>>
-    \<</link>></span><<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
-\<</capture>><</for>>
-<</for>>
+<span id="buildings"><<include "BuildingsList">></span>
 
 <<listbox "$newBuilding">>
 <<option "Tavern" "tavern">><<option "Alchemist" "alchemist">><<option "General Store" "GeneralStore">><<option "Blacksmith" "smithy">><<option "Market" "market">><<option "Temple" "temple">><<option "Brothel" "brothel">>
@@ -25,5 +14,8 @@
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<run $town.buildings[$newBuilding].push(setup['create' + $newBuilding.toUpperFirst()]($town))>>
   <<run console.log($town)>>
-  <<goto "Start">>
+  <<replace "#buildings">><<include "BuildingsList">><</replace>>
 <</button>>
+
+<<link "<h4>v.2.0</h4>">><<toggleclass "body" "changelog">><</link>>
+<span class="changelog" id="changelog">Test</span>
