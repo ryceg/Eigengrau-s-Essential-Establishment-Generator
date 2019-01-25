@@ -19,6 +19,13 @@ setup.createLifeEvents = function (town, npc) {
     lifeEventsNumber = 1
   } else if (npc.ageYears <= 15) {
     lifeEventsNumber = 0
+    lifeEvents = [[
+      "One time I got pushed over and nearly cried but I didn't",
+      'I once saw a really big dog',
+      'I found a cool stick that looks exactly like a sword',
+      "I made a new friend who is teaching me how to read using daddy's important papers",
+      'I made a kite!'
+    ].random()]
   }
 
   // this is meant to assign an age for when the NPC had the life event. Still haven't decided how I'll handle distribution of events.
@@ -289,6 +296,6 @@ setup.createLifeEvents = function (town, npc) {
     }
     return adventurePrefix + adventureResults
   }
-  console.groupEnd();
+  console.groupEnd()
   return npc
 }

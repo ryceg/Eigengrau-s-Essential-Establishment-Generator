@@ -9,46 +9,50 @@ setup.createHistory = function (town, npc) {
   var childhoodMemoriesRoll = dice(3, 6)
   var wealthModifier
 
-  if (random(1, 100) > 95) {
-    npc.knewParents = false
-  } else {
-    npc.knewParents = true
+  if (!npc.knewParents) {
+    if (random(1, 100) > 95) {
+      npc.knewParents = false
+    } else {
+      npc.knewParents = true
+    }
   }
 
-  switch (npc.race) {
-    case 'half-orc':
-      if (parentalLineageRoll === 8) {
-        npc.parentalLineage = 'Both parents were half-orcs'
-      } else if (parentalLineageRoll >= 6) {
-        npc.parentalLineage = 'One parent was a human, the other was a half orc'
-      } else if (parentalLineageRoll >= 4) {
-        npc.parentalLineage = 'One parent was a half-orc, the other was an orc'
-      } else if (parentalLineageRoll < 4) {
-        npc.parentalLineage = 'One parent was a human, the other was an orc'
-      }
-      break
-    case 'half-elf':
-      if (parentalLineageRoll === 8) {
-        npc.parentalLineage = 'Both parents were half-elves'
-      } else if (parentalLineageRoll === 7) {
-        npc.parentalLineage = 'One parent was a human, the other was a half elf'
-      } else if (parentalLineageRoll === 6) {
-        npc.parentalLineage = 'One parent was a half-elf, the other was an elf'
-      } else if (parentalLineageRoll < 6) {
-        npc.parentalLineage = 'One parent was a human, the other was an elf'
-      }
-      break
-    case 'tiefling':
-      if (parentalLineageRoll === 8) {
-        npc.parentalLineage = 'One parent was a human, the other was a devil'
-      } else if (parentalLineageRoll === 7) {
-        npc.parentalLineage = 'One parent was a tiefling, the other was a devil'
-      } else if (parentalLineageRoll >= 4) {
-        npc.parentalLineage = 'One parent was a human, the other was a tiefling'
-      } else if (parentalLineageRoll < 4) {
-        npc.parentalLineage = 'Both parents were human, with their infernal ancestry manifesting in me later in life'
-      }
-      break
+  if (!npc.parentalLineage) {
+    switch (npc.race) {
+      case 'half-orc':
+        if (parentalLineageRoll === 8) {
+          npc.parentalLineage = 'Both parents were half-orcs'
+        } else if (parentalLineageRoll >= 6) {
+          npc.parentalLineage = 'One parent was a human, the other was a half orc'
+        } else if (parentalLineageRoll >= 4) {
+          npc.parentalLineage = 'One parent was a half-orc, the other was an orc'
+        } else if (parentalLineageRoll < 4) {
+          npc.parentalLineage = 'One parent was a human, the other was an orc'
+        }
+        break
+      case 'half-elf':
+        if (parentalLineageRoll === 8) {
+          npc.parentalLineage = 'Both parents were half-elves'
+        } else if (parentalLineageRoll === 7) {
+          npc.parentalLineage = 'One parent was a human, the other was a half elf'
+        } else if (parentalLineageRoll === 6) {
+          npc.parentalLineage = 'One parent was a half-elf, the other was an elf'
+        } else if (parentalLineageRoll < 6) {
+          npc.parentalLineage = 'One parent was a human, the other was an elf'
+        }
+        break
+      case 'tiefling':
+        if (parentalLineageRoll === 8) {
+          npc.parentalLineage = 'One parent was a human, the other was a devil'
+        } else if (parentalLineageRoll === 7) {
+          npc.parentalLineage = 'One parent was a tiefling, the other was a devil'
+        } else if (parentalLineageRoll >= 4) {
+          npc.parentalLineage = 'One parent was a human, the other was a tiefling'
+        } else if (parentalLineageRoll < 4) {
+          npc.parentalLineage = 'Both parents were human, with their infernal ancestry manifesting in me later in life'
+        }
+        break
+    }
   }
 
   if (birthplaceRoll === 100) {
@@ -144,34 +148,36 @@ setup.createHistory = function (town, npc) {
   //     }
   // }
 
-  if (parentRoll >= 76) {
-    npc.familyUnit = 'my mother and father'
-  } else if (parentRoll >= 70) {
-    npc.familyUnit = 'my single stepmother'
-  } else if (parentRoll >= 56) {
-    npc.familyUnit = 'my single mother'
-  } else if (parentRoll >= 50) {
-    npc.familyUnit = 'my single stepfather'
-  } else if (parentRoll >= 36) {
-    npc.familyUnit = 'my single father'
-  } else if (parentRoll >= 26) {
-    npc.familyUnit = 'my adoptive family'
-  } else if (parentRoll >= 20) {
-    npc.familyUnit = 'my maternal grandparents'
-  } else if (parentRoll >= 16) {
-    npc.familyUnit = 'my paternal grandparents'
-  } else if (parentRoll >= 8) {
-    npc.familyUnit = 'my extended family'
-  } else if (parentRoll >= 6) {
-    npc.familyUnit = 'my guardian'
-  } else if (parentRoll >= 4) {
-    npc.familyUnit = 'the orphanage'
-  } else if (parentRoll >= 3) {
-    npc.familyUnit = 'the temple'
-  } else if (parentRoll >= 2) {
-    npc.familyUnit = 'the institution'
-  } else if (parentRoll < 2) {
-    npc.familyUnit = 'the streets'
+  if (!npc.familyUnit) {
+    if (parentRoll >= 76) {
+      npc.familyUnit = 'my mother and father'
+    } else if (parentRoll >= 70) {
+      npc.familyUnit = 'my single stepmother'
+    } else if (parentRoll >= 56) {
+      npc.familyUnit = 'my single mother'
+    } else if (parentRoll >= 50) {
+      npc.familyUnit = 'my single stepfather'
+    } else if (parentRoll >= 36) {
+      npc.familyUnit = 'my single father'
+    } else if (parentRoll >= 26) {
+      npc.familyUnit = 'my adoptive family'
+    } else if (parentRoll >= 20) {
+      npc.familyUnit = 'my maternal grandparents'
+    } else if (parentRoll >= 16) {
+      npc.familyUnit = 'my paternal grandparents'
+    } else if (parentRoll >= 8) {
+      npc.familyUnit = 'my extended family'
+    } else if (parentRoll >= 6) {
+      npc.familyUnit = 'my guardian'
+    } else if (parentRoll >= 4) {
+      npc.familyUnit = 'the orphanage'
+    } else if (parentRoll >= 3) {
+      npc.familyUnit = 'the temple'
+    } else if (parentRoll >= 2) {
+      npc.familyUnit = 'the institution'
+    } else if (parentRoll < 2) {
+      npc.familyUnit = 'the streets'
+    }
   }
 
   if (familyLifestyleRoll === 18) {
