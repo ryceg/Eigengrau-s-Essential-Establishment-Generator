@@ -76,3 +76,26 @@ setup.buildingTooltip = function (id, building) {
     }
   })
 }
+
+setup.politicsTooltip = function (id, type, town) {
+  jQuery(function () {
+    var span = document.getElementById(id)
+    if (span) {
+      switch (type) {
+        case 'politicalIdeology':
+          span.title = setup.townData.politicalIdeology[town.politicalIdeology].data.description
+          break
+        case 'economicIdeology':
+          span.title = setup.townData.economicIdeology[town.economicIdeology].descriptors.tippy
+          break
+        case 'politicalSource':
+          if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
+            span.title = setup.townData.politicalSource[town.politicalSource][town.politicalIdeology].description || setup.townData.politicalSource[town.politicalSource]['default'].description
+          } else {
+            span.title = setup.townData.politicalSource[town.politicalSource].description
+          }
+      }
+      tippy('#' + span.id)
+    }
+  })
+}

@@ -140,7 +140,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'feudalistic',
         'economicIdeologyIST': 'feudalist',
-        'economicIdeologyDescription': "The people of _town.name work the land in exchange for working their lord's lands."
+        'economicIdeologyDescription': "The people of _town.name work the land in exchange for working their lord's lands.",
+        'tippy': "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands."
       }
     },
     'capitalism': {
@@ -153,7 +154,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'capitalistic',
         'economicIdeologyIST': 'capitalist',
-        'economicIdeologyDescription': 'The people of _town.name work in exchange for payment from their employers, which they use to buy the necessities.'
+        'economicIdeologyDescription': 'The people of _town.name work in exchange for payment from their employers, which they use to buy the necessities.',
+        'tippy': 'Trade and industry are controlled by private owners for profit, rather than the state.'
       }
     },
     'syndicalism': {
@@ -166,7 +168,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'syndicalistic',
         'economicIdeologyIST': 'syndicalist',
-        'economicIdeologyDescription': 'The people of _town.name own the lands they work on collectively, and together benefit from its prosperity.'
+        'economicIdeologyDescription': 'The people of _town.name own the lands they work on collectively, and together benefit from its prosperity.',
+        'tippy': 'The workers own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
     'communism': {
@@ -179,7 +182,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'communistic',
         'economicIdeologyIST': 'communist',
-        'economicIdeologyDescription': 'The people of _town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
+        'economicIdeologyDescription': 'The people of _town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
+        'tippy': 'People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
     'primitivism': {
@@ -192,7 +196,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'primitivistic',
         'economicIdeologyIST': 'primitivist',
-        'economicIdeologyDescription': "The people of _town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers."
+        'economicIdeologyDescription': "The people of _town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
+        'tippy': 'There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.'
       }
     }
   },
@@ -200,28 +205,34 @@ setup.townData = {
     'absolute monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
+        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
+        'description': 'The crown holds both supreme executive and judicial powers.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        'description': 'The crown holds supreme judicial power, but the executive power is held by a parliamentary.'
       }
     },
     'constitutional monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.',
+        'description': 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        'description': 'The crown holds supreme judicial power, but day to day affairs are held by parliament.'
       }
     },
     'republic': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'Affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>'
+      'politicalSourceDescription': 'Affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>',
+      'description': 'The crown holds both supreme executive and judicial powers.'
     },
     'anarchy': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
+      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.',
+      'description': 'No formal political system exists.'
     }
   },
   'politicalIdeology': {
@@ -243,7 +254,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the supreme leader',
         'governmentType': 'nobles',
-        'politicalIdeologyIC': 'autocratic'
+        'politicalIdeologyIC': 'autocratic',
+        'description': 'Governed by one person.'
       }
     },
     'meritocracy': {
@@ -263,7 +275,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the competent',
         'governmentType': 'commoners',
-        'politicalIdeologyIC': 'meritocratic'
+        'politicalIdeologyIC': 'meritocratic',
+        'description': 'Governed by the best.'
       }
     },
     'democracy': {
@@ -284,7 +297,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the people',
         'governmentType': 'commoners',
-        'politicalIdeologyIC': 'democratic'
+        'politicalIdeologyIC': 'democratic',
+        'description': 'Governed by the elected.'
       }
     },
     'kleptocracy': {
@@ -305,7 +319,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': "the Thieves' Guild",
         'governmentType': 'thieves',
-        'politicalIdeologyIC': 'kleptocratic'
+        'politicalIdeologyIC': 'kleptocratic',
+        'description': 'Governed by the thieves.'
       }
     },
     'magocracy': {
@@ -326,7 +341,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the wizards',
         'governmentType': 'wizards',
-        'politicalIdeologyIC': 'magocratic'
+        'politicalIdeologyIC': 'magocratic',
+        'description': 'Governed by the wizards.'
       }
     },
     'militocracy': {
@@ -347,7 +363,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the military',
         'governmentType': 'military',
-        'politicalIdeologyIC': 'militocratic'
+        'politicalIdeologyIC': 'militocratic',
+        'description': 'Governed by the military.'
       }
     },
     'oligarchy': {
@@ -367,7 +384,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the powerful few',
         'governmentType': 'nobles',
-        'politicalIdeologyIC': 'oligarchic'
+        'politicalIdeologyIC': 'oligarchic',
+        'description': 'Governed by the powerful few.'
       }
     },
     'pedocracy': {
@@ -387,7 +405,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the scholars',
         'governmentType': 'scholars',
-        'politicalIdeologyIC': 'pedocratic'
+        'politicalIdeologyIC': 'pedocratic',
+        'description': 'Governed by the scholars.'
       }
     },
     'theocracy': {
@@ -409,7 +428,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the holy',
         'governmentType': 'priests',
-        'politicalIdeologyIC': 'theocratic'
+        'politicalIdeologyIC': 'theocratic',
+        'description': 'Governed by the church.'
       }
     },
     'technocracy': {
@@ -430,7 +450,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the engineers',
         'governmentType': 'craftsmen',
-        'politicalIdeologyIC': 'technocratic'
+        'politicalIdeologyIC': 'technocratic',
+        'description': 'Governed by the engineers.'
       }
     }
   },
