@@ -1,5 +1,5 @@
 :: ChangelogFull
-<4>v.2.0.1</h4>-<span class="tip" title="Oops.">Fixed broken town rolls</span>
+<h4>v.2.0.1</h4>-<span class="tip" title="Oops.">Fixed broken town rolls</span>
 - <span class="tip" title="Oops.">Uncommented the tavern stuff</span>
 <span class="tip" title="Also oops.">Fixed NPC relationships not displaying properly</span>
 <span class="tip" title="Double oops.">Fixed [Object object] bug with town leaders</span>
