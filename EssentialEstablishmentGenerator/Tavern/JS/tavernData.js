@@ -170,14 +170,12 @@ setup.tavern = {
         'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
         'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
         'insult': function (town, tavern) {
-          var found = setup.factionsForType(town, 'individual')
-          var faction = found.random()
+          var faction = setup.factionsForType(town, 'leadershipType', 'individual')
           console.log(faction)
           return 'You accidentally insulted the <<profile `$npcs[' + JSON.stringify(faction.leader.key) + ']` leader>> of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: ' + JSON.stringify(faction.key) + '}>><<goto "FactionProfile">><</link>>, and only a public apology will let you do business with them again.'
         },
         'anotherQuest': function (town) {
-          var found = setup.factionsForType(town, 'individual')
-          var faction = found.random()
+          var faction = setup.factionsForType(town, 'leadershipType', 'individual')
           console.log(faction)
           return 'You swore to complete some quest on behalf of the ' + faction.type + ' ' + faction.factionNoun + ', <<link ' + JSON.stringify(faction.name) + '>><<set $selected to {key: ' + JSON.stringify(faction.key) + '}>><<goto "FactionProfile">><</link>>.'
         },
