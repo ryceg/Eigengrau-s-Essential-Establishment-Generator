@@ -145,6 +145,27 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'money', 'money', 'power', 'glory', 'vengeance', 'politics', 'politics', 'politics'],
       'resources': ['trade goods', 'trade goods', 'trade goods', 'trade goods', 'trade goods', 'chests of gold', 'chests of gold', 'chests of gold', 'chests of gold', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors', 'debtors']
     },
+    'military': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': ['fighter', 'fighter', 'fighter', 'barbarian', 'paladin', 'rogue'].random(),
+        'profession': 'War Chief',
+        'background': ['soldier', 'soldier', 'noble'].random()
+      },
+      'factionNoun': 'army',
+      'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
+      'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles', 'bandits', 'bandits', 'bandits'],
+      'rivalsList': ['bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
+      'joiningRequirement': ['some social status', 'referral by an existing member', 'a display of bravery', 'a display of bravery'],
+      'joiningInitiation': ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      'membersTrait': ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
+      'main': ['Hand', 'Fist', 'Gauntlet', 'Glove', 'Hammer', 'Shield', 'Cloak', 'Dagger', 'Mace', 'Sword'],
+      'adjective': ['Black', 'White', 'Shining', 'Just', 'Tall', 'Impenetrable', 'Unbreakable', 'Brass', 'Bronze', 'Blue', 'Strong', 'Mighty', 'Death'],
+      'group': ['Axemen', 'Swordsmen', 'Pikesmen', 'Squad', 'Batallion', 'Battlesquad', 'Fighters'],
+      'unique': ['The Steel Hydras', 'The Silver Hippogryphs', 'The Black Glove of Anubis', "Hera's Tears", 'The Rabid Possums', 'Macguffins, Ltd.', 'The Wayfaring Strangers', 'Valiant, Inc.', 'Blood of the Gordon', 'The Green Hand', 'The Tomb Raiders', 'The Order of the Obsidian Flame', "The King's Ransom", 'The Golden Guardians', 'Dragonfire, Inc.', 'Path of the Righteous Man', 'Hellraisers for Hire', 'Band of the Crimson Lion', 'Company of Champions', 'The Covenant of the Shield', 'Crusaders of the Everlasting Chalice', 'The Iron Fang', 'The Sapphire Guard', 'The Azure Guild', 'Goblincleavers', 'The Redcrest Five', 'Necessary Chaotic Neutral', 'Magic Item and Artifact Retrieval Specialists', 'The Dungeon Delvers', 'Brave Crusaders', 'Daring Champions'],
+      'motivation': ['money', 'money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'power', 'glory', 'glory', 'glory', 'politics'],
+      'resources': ['magical weapons', 'magical weapons', 'magical weapons', 'chests of gold', 'chests of gold', 'chests of gold', 'old favours', 'old favours', 'old favours']
+    },
     'monks': {
       'leaderTraits': {
         'hasClass': true,
