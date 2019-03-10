@@ -97,7 +97,7 @@ setup.townRender = function (town) {
     town.military = "There's a decent military presence, and citizens know better than to step out of line, as <<guard $town.guard>> are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear."
   } else if (town.roll.military > 50) {
     guardfundingRoll += 30
-    town.military = 'There is a military presence in town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<guard $town.guard>>.'
+    town.military = 'There is a military presence in ' + town.name + ', but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<guard $town.guard>>.'
   } else if (town.roll.military > 40) {
     guardfundingRoll += 25
     town.military = 'The military presence in ' + town.name + ' is somewhat smaller than one would expect for its size. The local guard, <<guard $town.guard>>, are seen as friends and drinking buddies, rather than horrible tyrants.'
