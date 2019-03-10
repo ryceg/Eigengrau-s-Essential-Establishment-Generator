@@ -40,7 +40,8 @@ setup.createTown = function (base) {
       'market': [],
       'GeneralStore': [],
       'temple': [],
-      'brothel': []
+      'brothel': [],
+      // 'docks': []
     },
     population: setup.townData.type[type].population(),
     _demographic: {},
