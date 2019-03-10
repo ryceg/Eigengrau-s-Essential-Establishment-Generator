@@ -1,6 +1,6 @@
 setup.setAsPartners = function (npc1, npc2) {
   var npcs = State.variables.npcs
-  if (!npc1 || !npc2 || !npc1.id || !npc2.id) {
+  if (!npc1 || !npc2 || !npc1.key || !npc2.key) {
     console.log('Called setAsPartners() with a null/undefined argument')
     return
   }
