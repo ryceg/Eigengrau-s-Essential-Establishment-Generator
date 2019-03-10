@@ -150,8 +150,12 @@ setup.createSocioPolitics = function (town) {
         type: setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType
       })
     }
+    console.log('Town factions:')
+    console.log(town.factions)
     town.leader = town.factions['leader'].leader
     town.leaderType = '<<link ' + JSON.stringify(town.factions['leader'].name) + '>><<set $selected to {key: ' + JSON.stringify(town.factions['leader'].key) + '}>><<goto "FactionProfile">><</link>>'
+    console.log('Town factions:')
+    console.log(town.factions)
   } else if (setup.townData.politicalIdeology[town.politicalIdeology].data.isFaction === false && town.factions['leader']) {
     delete State.variables.npcs[town.leader.key]
     delete town.leader
