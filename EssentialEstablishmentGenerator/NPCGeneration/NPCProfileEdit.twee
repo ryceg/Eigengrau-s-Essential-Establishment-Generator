@@ -4,25 +4,25 @@
 \<<set _weight = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileWeightTooltip(_weight, $npcs[$currentNPCKey])>>
 \<<set _height = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileHeightTooltip(_height, $npcs[$currentNPCKey])>>
 <<silently>>
-    <<set _class to '<<listbox "$npcs[$currentNPCKey].dndClass">>'>>
+    <<set _class to '<<listbox "$npcs[$currentNPCKey].dndClass" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.classTraits)>>
         <<set _class += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _class += '<</listbox>>'>>
 
-    <<set _background to '<<listbox "$npcs[$currentNPCKey].background">>'>>
+    <<set _background to '<<listbox "$npcs[$currentNPCKey].background" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.backgroundTraits)>>
         <<set _background += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _background += '<</listbox>>'>>
 
-    <<set _race to '<<listbox "$npcs[$currentNPCKey].race">>'>>
+    <<set _race to '<<listbox "$npcs[$currentNPCKey].race" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.raceTraits)>>
         <<set _race += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _race += '<</listbox>>'>>
 
-    <<set _gender to '<<listbox "$npcs[$currentNPCKey].gender">>'>>
+    <<set _gender to '<<listbox "$npcs[$currentNPCKey].gender" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.gender)>>
         <<set _gender += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
