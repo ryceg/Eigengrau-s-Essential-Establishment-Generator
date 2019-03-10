@@ -1,8 +1,5 @@
 setup.weightedRandomFetcher = function (town, args, npc) {
   // console.log(args)
-  if (!npc) {
-    npc = setup.createNPC(town)
-  }
   var pool = []
   var totalWeight = 0
   // function addWeight (totalWeight, value) {
