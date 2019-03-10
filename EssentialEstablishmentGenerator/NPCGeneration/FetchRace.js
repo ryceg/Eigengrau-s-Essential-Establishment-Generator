@@ -12,7 +12,7 @@ setup.fetchRace = function (town) {
   }
 
   var random = Math.floor(Math.random() * totalWeight)
-  console.log(random)
+  // console.log(random)
   for (var i = 0; i < pool.length; i++) {
     random -= pool[i]
     if (random < 0) {
