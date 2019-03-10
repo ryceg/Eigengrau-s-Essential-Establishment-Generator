@@ -29,12 +29,15 @@ setup.profileAgeTooltip = function (id, char) {
   })
 }
 
-setup.profileHeightTooltip = function (id, char) {
+setup.profileHeightTooltip = function (id, char, heightVar) {
+  if (heightVar) {
+    char.heightRoll = heightVar
+  }
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
       if (settings.showMetric === true) {
-        span.title = (char.heightRoll * 0.0254).toFixed(2) + 'm tall'
+        span.title = (char.heightRoll * 0.0254).toFixed(2) + 'm'
         tippy('#' + span.id)
       } else {
         var feet = Math.trunc(char.heightRoll / 12)
@@ -89,7 +92,9 @@ setup.politicsTooltip = function (id, type, town) {
           span.title = setup.townData.economicIdeology[town.economicIdeology].descriptors.tippy
           break
         case 'politicalSource':
-          if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
+          if (town.politicalSource === 'absolute monarchy') {
+            span.title = setup.townData.politicalSource[town.politicalSource][town.politicalIdeology].description || setup.townData.politicalSource[town.politicalSource]['default'].description
+          } else if (town.politicalSource === 'constitutional monarchy') {
             span.title = setup.townData.politicalSource[town.politicalSource][town.politicalIdeology].description || setup.townData.politicalSource[town.politicalSource]['default'].description
           } else {
             span.title = setup.townData.politicalSource[town.politicalSource].description
