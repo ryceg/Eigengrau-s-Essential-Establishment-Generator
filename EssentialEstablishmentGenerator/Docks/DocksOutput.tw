@@ -1,0 +1,62 @@
+:: DocksOutput
+<<unset $selectedBuilding>><<set $docks to $town.buildings[$selected.key][$selected.index]>><h1>$docks.name</h1>
+
+You walk down to the docks, which are known best for $docks.notableFeature. You notice $docks.notice. The docks are $docks.size, and is $docks.cleanliness. It's currently $docks.activity.
+
+<<button "Create a ship">><<run setup.docks.ships.create($town, $docks)>><<replace "#ships">>
+<div class='classTable'><<nobr>><table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        /* <th>Size</th> */
+        <th>Delete</th>
+        /* <th>Raw Number</th> */
+    </tr>
+<<for _key, _ship range $docks.ships>><<capture _key, _ship>>
+  <tr>
+    <td><<link "_ship.name">><<set $currentShip to {shipKey: _key}>><<goto "ShipProfile">><</link>></td>
+    <td>_ship.type</td>
+    /* <td>_faction.size</td> */
+    <td><<link "x">>
+    <<set _deleted to $docks.ships[_ship.key]>><<run delete $town.buildings[$selected.key][$selected.index].ships[_ship.key]>><<notify 5000>>Deleted _deleted.name<</notify>>
+    <<replace "#ships">>
+    <div class='classTable'><<nobr>><table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            /* <th>Size</th> */
+            <th>Delete</th>
+            /* <th>Raw Number</th> */
+        </tr>
+    <<for _key, _ship range $docks.ships>><<capture _key, _ship>>
+      <tr>
+        <td><<link "_ship.name">><<set $selected to {shipKey: _key}>><<goto "ShipProfile">><</link>></td>
+        <td>_ship.type</td>
+        /* <td>_faction.size</td> */
+        <td><<link "x">><<set _deleted to $docks.ships[_ship.key]>><<run delete $town.buildings[$selected.key][$selected.index].ships[_ship.key]>><<notify 5000>>Deleted _deleted.name<</notify>><</link>></td>
+      </tr>
+     /* - A _faction.size _faction.type _faction.factionNoun */
+    <</capture>><</for>></table><</nobr>></div><</replace>>
+    <</link>></td>
+  </tr>
+ /* - A _faction.size _faction.type _faction.factionNoun */
+<</capture>><</for>></table><</nobr>></div><</replace>>
+<</button>>
+
+<div id="ships"><div class='classTable'><<nobr>><table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        /* <th>Size</th> */
+        <th>Delete</th>
+        /* <th>Raw Number</th> */
+    </tr>
+<<for _key, _ship range $docks.ships>><<capture _key, _ship>>
+  <tr>
+    <td><<link "_ship.name">><<set $selected to {shipKey: _key}>><<goto "ShipProfile">><</link>></td>
+    <td>_ship.type</td>
+    /* <td>_faction.size</td> */
+    <td><<link "x">><<set _deleted to $docks.ships[_ship.key]>><<run delete $docks.ships[_ship.key]>><<notify 5000>>Deleted _deleted.name<</notify>><</link>></td>
+  </tr>
+ /* - A _faction.size _faction.type _faction.factionNoun */
+<</capture>><</for>></table><</nobr>></div></div>
