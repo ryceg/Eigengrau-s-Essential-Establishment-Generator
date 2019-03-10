@@ -13,7 +13,7 @@ setup.fetchProfessionChance = function (town) {
       return town.professions[profession].population
     }, town)
   // console.log('sum is: ')
-  console.log(sum)
+  // console.log(sum)
   var cumulativeSum = 0
 
   for (let percent of sum) {
@@ -23,13 +23,13 @@ setup.fetchProfessionChance = function (town) {
       return professions[selectedProfession]
     } else if (professionRoll === 100) {
       selectedProfession = sum.length - 1
-      console.log('Hit 100! selected race is: ' + professions[selectedProfession])
+      console.log('Hit 100! selected profession is: ' + professions[selectedProfession])
       return professions[selectedProfession]
     } else if (professionRoll > cumulativeSum) {
       cumulativeSum += percent
       if (cumulativeSum === 100) {
         selectedProfession = sum.length - 1
-        console.log('Hit 100! selected race is: ' + professions[selectedProfession])
+        console.log('Hit 100! selected profession is: ' + professions[selectedProfession])
         return professions[selectedProfession]
       }
       // console.log(cumulativeSum)
