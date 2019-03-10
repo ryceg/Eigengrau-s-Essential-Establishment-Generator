@@ -9,6 +9,12 @@ setup.createWeather = function (town, biome, weather, time) {
         break
       case 'desert':
         biome = 'arid'
+        break
+      case 'town':
+        biome = town.terrain
+        break
+      default:
+        biome = 'temperate'
     }
   }
   biome = biome || town.terrain
