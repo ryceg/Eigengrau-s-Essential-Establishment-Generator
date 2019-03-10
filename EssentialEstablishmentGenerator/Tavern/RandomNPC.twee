@@ -1,5 +1,7 @@
 :: RandomNPC
-<<link "<h4>Meet a fellow adventurer!</h4>">>
+<<link "<h4>Meet a fellow adventurer!</h4>">><<if def _newNPC>>
+  <<run delete $npcs[_newNPC.key]>>
+<</if>>
 <<set $tavernNPC to setup.createNPC($town, {
   isThrowaway: true
 })>>
