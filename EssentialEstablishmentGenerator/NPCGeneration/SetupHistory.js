@@ -180,26 +180,28 @@ setup.createHistory = function (town, npc) {
     }
   }
 
-  if (familyLifestyleRoll === 18) {
-    npc.familyLifestyle = 'aristocratic'
-    wealthModifier = 40
-  } else if (familyLifestyleRoll >= 16) {
-    npc.familyLifestyle = 'wealthy'
-    wealthModifier = 20
-  } else if (familyLifestyleRoll >= 13) {
-    npc.familyLifestyle = 'comfortable'
-    wealthModifier = 10
-  } else if (familyLifestyleRoll >= 9) {
-    npc.familyLifestyle = 'modest'
-  } else if (familyLifestyleRoll >= 6) {
-    npc.familyLifestyle = 'poor'
-    wealthModifier = -10
-  } else if (familyLifestyleRoll >= 4) {
-    npc.familyLifestyle = 'squalid'
-    wealthModifier = -20
-  } else if (familyLifestyleRoll < 4) {
-    npc.familyLifestyle = 'wretched'
-    wealthModifier = -40
+  if (!npc.familyLifestyle) {
+    if (familyLifestyleRoll === 18) {
+      npc.familyLifestyle = 'aristocratic'
+      wealthModifier = 40
+    } else if (familyLifestyleRoll >= 16) {
+      npc.familyLifestyle = 'wealthy'
+      wealthModifier = 20
+    } else if (familyLifestyleRoll >= 13) {
+      npc.familyLifestyle = 'comfortable'
+      wealthModifier = 10
+    } else if (familyLifestyleRoll >= 9) {
+      npc.familyLifestyle = 'modest'
+    } else if (familyLifestyleRoll >= 6) {
+      npc.familyLifestyle = 'poor'
+      wealthModifier = -10
+    } else if (familyLifestyleRoll >= 4) {
+      npc.familyLifestyle = 'squalid'
+      wealthModifier = -20
+    } else if (familyLifestyleRoll < 4) {
+      npc.familyLifestyle = 'wretched'
+      wealthModifier = -40
+    }
   }
 
   var familyHomeRoll = random(1, 100)
@@ -228,21 +230,48 @@ setup.createHistory = function (town, npc) {
     npc.familyHome = 'a small house'
   }
 
-  if (childhoodMemoriesRoll >= 18) {
-    npc.childhoodMemories = 'Everyone knew who I was, and I had friends everywhere I went'
-  } else if (childhoodMemoriesRoll >= 16) {
-    npc.childhoodMemories = 'I always found it easy to make friends, and I loved being around people'
-  } else if (childhoodMemoriesRoll >= 13) {
-    npc.childhoodMemories = 'I had several friends, and my childhood was generally a happy one'
-  } else if (childhoodMemoriesRoll >= 9) {
-    npc.childhoodMemories = 'I had a few close friends, and my childhood was a relatively normal one'
-  } else if (childhoodMemoriesRoll >= 6) {
-    npc.childhoodMemories = 'Others saw me as different, or strange, and so I had few companions'
-  } else if (childhoodMemoriesRoll >= 4) {
-    npc.childhoodMemories = 'I spent most of my childhood alone, and had no close friends'
-  } else if (childhoodMemoriesRoll < 4) {
-    npc.childhoodMemories = 'I am still haunted by my childhood, where I was treated badly by my peers'
+  if (!npc.childhoodMemories) {
+    if (childhoodMemoriesRoll >= 18) {
+      npc.childhoodMemories = 'Everyone knew who I was, and I had friends everywhere I went'
+      var friend = setup.createNPC(town, {
+        isShallow: true,
+        ageYears: npc.ageYears += random(-3, 3)
+      })
+      setup.createRelationship(town, npc, friend, 'friend', 'friend')
+      var anotherFriend = setup.createNPC(town, {
+        isShallow: true,
+        ageYears: npc.ageYears += random(-3, 3)
+      })
+      setup.createRelationship(town, npc, anotherFriend, 'friend', 'friend')
+    } else if (childhoodMemoriesRoll >= 16) {
+      npc.childhoodMemories = 'I always found it easy to make friends, and I loved being around people'
+      friend = setup.createNPC(town, {
+        isShallow: true,
+        ageYears: npc.ageYears += random(-3, 3)
+      })
+      setup.createRelationship(town, npc, friend, 'friend', 'friend')
+    } else if (childhoodMemoriesRoll >= 13) {
+      npc.childhoodMemories = 'I had several friends, and my childhood was generally a happy one'
+      friend = setup.createNPC(town, {
+        isShallow: true,
+        ageYears: npc.ageYears += random(-3, 3)
+      })
+      setup.createRelationship(town, npc, friend, 'friend', 'friend')
+    } else if (childhoodMemoriesRoll >= 9) {
+      npc.childhoodMemories = 'I had a few close friends, and my childhood was a relatively normal one'
+    } else if (childhoodMemoriesRoll >= 6) {
+      npc.childhoodMemories = 'Others saw me as different, or strange, and so I had few companions'
+    } else if (childhoodMemoriesRoll >= 4) {
+      npc.childhoodMemories = 'I spent most of my childhood alone, and had no close friends'
+    } else if (childhoodMemoriesRoll < 4) {
+      npc.childhoodMemories = 'I am still haunted by my childhood, where I was treated badly by my peers'
+      friend = setup.createNPC(town, {
+        isShallow: true,
+        ageYears: npc.ageYears += random(1, 3),
+        childhoodMemories: 'I remember that we used to beat the shit out of that annoying ' + npc.boygirl + ', ' + setup.profile(npc, npc.firstName)
+      })
+      setup.createRelationship(town, npc, friend, 'bully', 'victim of bullying')
+    }
   }
-
   return npc
 }

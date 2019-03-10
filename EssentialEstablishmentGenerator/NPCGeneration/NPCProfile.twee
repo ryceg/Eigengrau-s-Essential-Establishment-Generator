@@ -5,10 +5,12 @@
 
 $currentNPC.firstName $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
 
-$currentNPC.firstName is a $currentNPC.dndClass, with a background of being a $currentNPC.background. $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon.
+$currentNPC.firstName is a $currentNPC.dndClass, with a background of being a $currentNPC.background. $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon. <<if $currentNPC.partnerID>>$currentNPC.firstName has a partner, <<profile $npcs[$currentNPC.partnerID]>><</if>>
+
+$currentNPC.doesnt
 
 <<if def $currentNPC.note >>$currentNPC.note<</if>>
-
+<<if $currentNPC.isShallow === true || $currentNPC.hasHistory === false>><<set $currentNPC.hasHistory to true>><<run setup.createLifeEvents($town, $currentNPC)>><<run setup.createHistory($town, $currentNPC)>><<set $npcs[$currentNPC.key] to $currentNPC>><</if>>
 <<linkreplace "Early Life">><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
 
 <<linkreplace "Becoming a $currentNPC.dndClass">><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndClassOrigin That's how I became a $currentNPC.dndClass. $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>
@@ -34,6 +36,16 @@ $currentNPC.firstName is a $currentNPC.dndClass, with a background of being a $c
     Then last year, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
 
-<<if $currentNPC.partnerID>>$currentNPC.firstName has a partner, <<profile $npcs[$currentNPC.partnerID]>><</if>>
+
+
+<div class='classTable'><<nobr>><table>
+    <tr>
+        <th>Name</th>
+        <th>Relationship</th>
+    </tr>
+<<for _key, _relationship range $currentNPC.relationships>>
+<tr>
+  <td><<profile $npcs[_key]>></td><td><<print _relationship.toUpperFirst()>></td>
+</tr><</for>></table><</nobr>></div>
 
 [[Return|previous()]]

@@ -5,18 +5,20 @@ setup.createNPC = function (town, base) {
   }
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   var data = setup.npcData
-  if (!base) {
-    if (random(1, 100) > 1) {
-      base = setup.misc.patreonCharacters.random()
-    } else {
-      base = {
-        isThrowaway: true
-      }
+  if (!base || base.isShallow === true) {
+    base = {
+      isThrowaway: true,
+      canBeCustom: true,
+      hasHistory: false
     }
+  }
+
+  if (base.canBeCustom === true && random(1, 100) > 99) {
+    base = setup.misc.patreonCharacters.random()
   }
   var gender = base.gender || ['man', 'woman'].random()
   var race = base.race || setup.fetchRace(town)
-  console.log('Loading profession:')
+  // console.log('Loading profession:')
   var profession = base.profession || setup.fetchProfessionChance(town)
 
   var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
@@ -45,6 +47,9 @@ setup.createNPC = function (town, base) {
     // demeanour: data.demeanour.random(),
     calmTrait: data.calmTrait.random(),
     stressTrait: data.stressTrait.random(),
+    relationships: {
+
+    },
     // value: data.value.random(),
     // drive: data.drive.random(),
     // belief: data.belief.random(),
@@ -81,10 +86,8 @@ setup.createNPC = function (town, base) {
     wealth: dice(2, 50),
     trait: data.trait.random(),
     currentMood: data.currentMood,
-    // id: State.variables.npcs.length - 1,
+    hasHistory: base.hasHistory || false,
     id: Math.floor(Math.random() * 0x10000),
-    // id: State.variables.npcs.length,
-    shallow: false,
     idle: data.idle,
     get gender () {
       return this._gender
@@ -114,7 +117,7 @@ setup.createNPC = function (town, base) {
 
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
-
+  npc.key = npc.firstName + ' ' + npc.lastName
   // Object.assign(npc, data.gender[npc.gender])
   // Object.assign(npc, data.raceTraits[npc.race].raceWords)
   // npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
@@ -151,10 +154,7 @@ setup.createNPC = function (town, base) {
     npc.physicalTrait = npc.physicalTrait || npc.hair
   }
 
-  if (!npc.isShallow) {
-    setup.createHistory(town, npc)
-    setup.createLifeEvents(town, npc)
-  }
+
 
   setup.createClass(npc)
 
@@ -162,17 +162,26 @@ setup.createNPC = function (town, base) {
 
   setup.createDescriptors(npc)
 
-  npc.key = npc.name
+  // npc.key = npc.name
   State.variables.npcs[npc.key] = npc
   npc.profile = function (npc, base) {
     base = npc.name || base
     return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
   }
 
+  if (npc.hasHistory !== false) {
+    setup.createHistory(town, npc)
+    setup.createLifeEvents(town, npc)
+  }
+
   if (npc.partnerID) {
     console.log('assigning ' + npc.name + ' a partner...')
     setup.setAsPartners(npc, npc.partnerID)
   }
+  State.temporary.newNPC = npc
+
+  npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
+
   console.log(npc)
   console.groupEnd()
   return npc
