@@ -1,5 +1,5 @@
 :: Changelog
-<blockquote><<run setup.tippy(".btn")>><h4>v.2.0</h4>- <span class="tip" title="This should make it much more contributor-friendly.">Total rewrite of code.</span>
+<blockquote><<run setup.tippy(".btn")>><<link "<h4>v.2.0</h4>">><<toggleclass "#changelog" "changelog">><</link>><span class="changelog" id="changelog">- <span class="tip" title="This should make it much more contributor-friendly.">Total rewrite of code.</span>
 - <span class="tip" title="No more renaming the bartender on the fly because he had a weird name that sounded vaguely phallic!">Added support for editing NPCs.</span>
 - <span class="tip" title="I've opted to only generate one of each type of building (even if it's a huge city) to avoid bogging down the user with unnecessary clutter.">Added support for multiple buildings.</span>
 - <span class="tip" title="No more weird menage-a-trois. Not that there's anything wrong with them- I'll implement poly & LGBTQI relationships soon!">Fixed relationships.</span>
@@ -14,4 +14,4 @@
 
 
 [[Full changelog|ChangelogFull]]
-</blockquote>
+</span></blockquote>
