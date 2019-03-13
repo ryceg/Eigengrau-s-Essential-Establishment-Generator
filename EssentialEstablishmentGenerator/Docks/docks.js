@@ -107,7 +107,7 @@ setup.docks = {
         hasOars: true,
         crew: random(1, 10)
       },
-      "herring buss": {
+      'herring buss': {
         masts: random(2, 3),
         rigging: 'square',
         length: random(180, 400),
