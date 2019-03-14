@@ -1,5 +1,5 @@
 /* global setup clone */
-/* Returns an Array of factions for a leadership type. */
+/* Returns a random of factions for a leadership type. */
 setup.factionsForType = function (town, variable, arg) {
   var found = []
   for (var faction in town.factions) {
