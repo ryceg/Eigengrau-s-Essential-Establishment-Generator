@@ -296,6 +296,119 @@ setup.plothook = {
     'A house/shop in the middle of town has vanished entirely, as if it were just erased from creation. A strange scent and magical residue permeates the premises. (u/crunkDealer)',
     "A very belligerent (and often drunk) old man is causing problems in town. The hangup: it is the burgher's dearly beloved uncle who remains an extremely proficient fighter in his advanced age. The guard can't apprehend him without serious injury to the man. (u/crunkDealer)"
   ],
+  papers: {
+    'Doppelganger Dead Or Alive': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        return "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own..."
+      }
+    },
+    'Eggs': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        return "The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high."
+      }
+    },
+    'Orc Captain': {
+      // TO UPDATE needs to be updated with orc generation
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: 1,000gp’'
+      }
+    },
+    'Hubert': {
+      probability: 10,
+      exclusions: function (town) {
+        if (town.population > 3000 || town.roll.magic > 70) {
+          return true
+        }
+      },
+      function: function (town) {
+        var faction = setup.factionsForType(town, 'type', 'wizards')
+        return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $selected to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
+      }
+    },
+    'Big Chickens': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          gender: 'woman',
+          dndClass: 'sorcerer'
+        })
+        var cabin = setup.misc.cabin.create()
+        return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. 1GP/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
+      }
+    },
+    'Guard The Garlic': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        if (town.population > 500) {
+          return true
+        }
+      },
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          background: 'noble',
+          profession: 'noble',
+          note: 'Is hosting a banquet for vampires.'
+        })
+        return setup.profile(npc, 'I') + 'need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. 200gp per person, payed upfront. No questions asked. (All the guests are vampires.)'
+      }
+    },
+    'Books': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          background: 'scholar',
+          profession: 'librarian'
+        })
+        return setup.profile(npc, 'My') + ' book store has a shipment of rare books coming in and needs people to help unload them. Will pay 100 gold per person and not responsible for any injuries incurred on the job. (Caution: dangerous magic and pet books around.)'
+      }
+    },
+    'Rat Exterminator': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'Exterminator needed: ' + setup.profile(npc, "I've") + ' got a mess of rats in my basement. Bring me 10 rat tails in return for payment. (Listed address has no basement and owner has no rat problem. The advert has a typo and should point to a house further down the way.)'
+      }
+    },
+    'Sunk Ore': {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town) {
+        return 'Strong Swimmer Needed! My simpleton apprentice left my ore cart unattended on the bridge and the blasted thing tumbled into the river! Hopefully the ore is still in there somewhere, I’ll pay gold to anyone who can get me my ore!'
+      }
+    },
+    // 'Eggs': {
+    //   probability: 10,
+    //   exclusions: function (town, npc) {
+    //     return true
+    //   },
+    //   function: function (town) {
+    //     return "The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high."
+    //   }
+    // }
+  },
   'paper': [
     "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
     "The paper states 'WANTED: DEAD OR ALIVE', with the fine print reading 'For the crimes of theft, robbery, burglary, and arson, the $town.name Bandit is wanted dead or alive.' You ask _bartender.firstName about what the crimes entailed, and apparently there's been a huge rash of thefts of food in $town.name recently, resulting in food shortages. The $town.type's council has hired bounty hunters to catch the criminal.",
@@ -311,7 +424,7 @@ setup.plothook = {
     'Sick Grandmother: My grandmother is sick and needs a shipment of medicine. Our normal courier has gone missing, so we desperately need it delivered. Expedited fee available with a bonus upon delivery (Grandma makes a mean elven bread.)',
     'Squirrel Hunting: A squirrel has been seen in town stealing jewelry from citizens. We think there may be more than one squirrel involved — they always head west after the theft. They need to be captured or killed; a bonus available if stolen items are returned.',
     'Earrings Stolen: My wagon was robbed by bandits in the eastern forest. Among the items taken where heirloom earrings that were given to me by my mother. Please find them. Reward available.',
-    'TEST SUBJECT NEEDED! We at the Barrington Bakery (insert your own name) are looking for subjects to test out our new magical breads. We infuse magic into the mixing process for a, hopefully, tasteful bread. You will need to taste each bread, and have our scholar review the side effects. You will be paid per day.',
+    'TEST SUBJECT NEEDED! We at the Barrington Bakery are looking for subjects to test out our new magical breads. We infuse magic into the mixing process for a, hopefully, tasteful bread. You will need to taste each bread, and have our scholar review the side effects. You will be paid per day.',
     'Lost Arrow: While practicing with a bow, my son lost a trophy arrow (he was not supposed to use). He was practicing in the Northern plains and thinks the arrow went into the forbidden forest. Please retrieve this arrow. As an alchemist, I will pay in healing potions.',
     'Goblin encampment: A goblin encampment has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.',
     'Wandering Skeleton: Wandering Skeleton seen on the outskirts of town. It appears armed with a sword, shield and horned helmet. Dispatch this skeleton and we’ll offer you 10% off anything in town.',
@@ -404,11 +517,11 @@ setup.plothook = {
   'people': [
     "I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
   	"There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.",
-  	"There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",
+  	// "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",
   	"I know that you are not likely to believe me, but... I am the messenger for the Duke's brother- yes, he had a brother, who has been in exile for some time. I've been charged to deliver this letter to the Duke, but I fear that I'm being followed and may meet my fate soon; the exact details are better left unknown, lest you make yourself a permanent target for holding the knowledge that I do. You must get this message to him. But do not open it, as the Duke will not touch it if the wax seal has been broken.",
   	"I'm looking for some guards to help me deliver some cargo some weeks' way away from $town.name; I can't promise that it's going to be easy, but if you keep me and my cargo safe, I can promise rewards well worth your time.",
-  	"For many years, I've kept in contact with the priest of $town.name, Father <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>. But when I visited last spring, he was nowhere to be seen, and _bartender.firstName said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
-  	"Many years ago, my sister <<print setup.npcData.raceTraits['human'].genderTraits['woman'].firstName.random()>> had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows.",
+  	// "For many years, I've kept in contact with the priest of $town.name, Father <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>. But when I visited last spring, he was nowhere to be seen, and _bartender.firstName said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
+  	// "Many years ago, my sister <<print setup.npcData.raceTraits['human'].genderTraits['woman'].firstName.random()>> had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows.",
   	"I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?"
   ]
 }
