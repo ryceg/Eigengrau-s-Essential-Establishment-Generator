@@ -514,7 +514,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -600,7 +600,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -688,7 +688,7 @@ setup.npcData = {
           [80, 'young'],
           [60, 'youngster'],
           [40, 'adolescent'],
-          [30, 'barely teenaged'],
+          [30, 'prepubescent'],
           [20, 'child'],
           [15, 'young child'],
           [10, 'kid']
@@ -778,7 +778,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -865,7 +865,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -952,7 +952,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -1039,7 +1039,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -1126,7 +1126,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -1212,7 +1212,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
