@@ -111,15 +111,15 @@ setup.npcData = {
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
           return [
-            'I met my ' + setup.profile(npc, 'best buddy') + ' on some travel.',
-            'I lost contact with an ' + setup.profile(npc, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
-            'I made a ' + setup.profile(npc, 'good friend') + ' during a drinking contest.',
-            'We were attacked by raiders, and I was saved by a ' + setup.profile(npc, 'traveler') + ' passing through. We are best of friends to this day.'
+            'I met my ' + setup.profile(friend, 'best buddy') + ' on some travel.',
+            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
+            'I made a ' + setup.profile(friend, 'good friend') + ' during a drinking contest.',
+            'We were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
           ].random()
         } else {
           return [
-            'I made a ' + setup.profile(npc, 'friend') + ' for life in my travels.',
-            'I was poor as a churchmouse, but then ' + setup.profile(npc, 'a total stranger') + ' helped me get a job. I owe everything I am today to his compassion.',
+            'I made a ' + setup.profile(friend, 'friend') + ' for life in my travels.',
+            'I was poor as a churchmouse, but then ' + setup.profile(friend, 'a total stranger') + ' helped me get a job. I owe everything I am today to his compassion.',
             'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.',
             "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my " + setup.profile(friend, 'best friend') + '.'
           ].random()
