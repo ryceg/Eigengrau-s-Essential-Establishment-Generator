@@ -1,12 +1,6 @@
 /* global setup random dice */
 setup.createHistory = function (town, npc) {
   console.log('creating history for ' + npc.name + '...')
-  var parentalLineageRoll = random(1, 8)
-  var birthplaceRoll = random(1, 100)
-  var parentRoll = random(1, 100)
-  var siblingRoll = random(1, 5)
-  var familyLifestyleRoll = dice(3, 6)
-  var childhoodMemoriesRoll = dice(3, 6)
   var wealthModifier
 
   if (!npc.knewParents) {
@@ -18,6 +12,7 @@ setup.createHistory = function (town, npc) {
   }
 
   if (!npc.parentalLineage) {
+    var parentalLineageRoll = random(1, 8)
     switch (npc.race) {
       case 'half-orc':
         if (parentalLineageRoll === 8) {
@@ -55,6 +50,8 @@ setup.createHistory = function (town, npc) {
     }
   }
 
+  if (!npc.birthplace) {
+  var birthplaceRoll = random(1, 100)
   if (birthplaceRoll === 100) {
     npc.birthplace = 'on an Outer Plane'
   } else if (birthplaceRoll === 99) {
@@ -118,7 +115,9 @@ setup.createHistory = function (town, npc) {
   } else {
     npc.birthplace = 'at home'
   }
+}
 
+  var siblingRoll = random(1, 5)
   switch (siblingRoll) {
     case 1:
       npc.siblingNumber = 0
@@ -149,6 +148,7 @@ setup.createHistory = function (town, npc) {
   // }
 
   if (!npc.familyUnit) {
+    var parentRoll = random(1, 100)
     if (parentRoll >= 76) {
       npc.familyUnit = 'my mother and father'
     } else if (parentRoll >= 70) {
@@ -181,6 +181,7 @@ setup.createHistory = function (town, npc) {
   }
 
   if (!npc.familyLifestyle) {
+    var familyLifestyleRoll = dice(3, 6)
     if (familyLifestyleRoll === 18) {
       npc.familyLifestyle = 'aristocratic'
       wealthModifier = 40
@@ -231,6 +232,7 @@ setup.createHistory = function (town, npc) {
   }
 
   if (!npc.childhoodMemories) {
+    var childhoodMemoriesRoll = dice(3, 6)
     if (childhoodMemoriesRoll >= 18) {
       npc.childhoodMemories = 'Everyone knew who I was, and I had friends everywhere I went'
       var friend = setup.createNPC(town, {
