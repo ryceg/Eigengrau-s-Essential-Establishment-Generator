@@ -232,7 +232,7 @@ setup.plothooks = {
         background: 'noble',
         gender: 'man'
       })
-      return 'Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guards>> seem disinterested in assisting with either clearing the road or arbitrating between a ' + setup.profile(npc, 'man') + ' and ' + setup.profile(secondNpc, 'man') + ' from the other coach.'
+      return 'Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ' + setup.profile(npc, 'man') + ' and ' + setup.profile(secondNpc, 'man') + ' from the other coach.'
     }
   },
   'The One True God': {
@@ -454,7 +454,7 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: 1,000gp’'
+      return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 1000000>>’'
     }
   },
   'Hubert': {
@@ -482,7 +482,7 @@ setup.plothooks = {
         dndClass: 'sorcerer'
       })
       var cabin = setup.misc.cabin.create()
-      return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. 1GP/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
+      return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
     }
   },
   'Guard The Garlic': {
@@ -499,7 +499,7 @@ setup.plothooks = {
         profession: 'noble',
         note: 'Is hosting a banquet for vampires.'
       })
-      return setup.profile(npc, 'I') + 'need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. 200gp per person, payed upfront. No questions asked. (All the guests are vampires.)'
+      return setup.profile(npc, 'I') + 'need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. <<money 20000>> per person, payed upfront. No questions asked. (All the guests are vampires.)'
     }
   },
   'Books': {
@@ -635,7 +635,7 @@ setup.plothooks = {
         profession: 'alchemist',
         hasClass: false
       })
-      return 'Kobold Flour: ' + setup.profile(npc, 'Local baker') + ' seeks Kobold Flour for the upcoming Monster festival. This specialty item can only be found in Kobold encampments. Will pay 10gp per pound (maximum of 100 pounds).'
+      return 'Kobold Flour: ' + setup.profile(npc, 'Local baker') + ' seeks Kobold Flour for the upcoming Monster festival. This specialty item can only be found in Kobold encampments. Will pay <<money 1000>> per pound (maximum of 100 pounds).'
     }
   },
   'Bard Wanted': {
@@ -912,7 +912,7 @@ setup.plothooks = {
     },
     function: function (town) {
       var npc = setup.createNPC(town, {
-        hasClass: false,
+        hasClass: true,
         dndClass: 'wizard'
       })
       return 'Local ' + setup.profile(npc, 'spell caster') + ' looking for lab ‘assistant.’ Intelligence not required, but a high resistance to pain appreciated.'
@@ -994,7 +994,7 @@ setup.plothooks = {
       var npc = setup.createNPC(town, {
         hasClass: true,
       })
-      return 'Adventurers needed! Our Kobold in our previous adventuring party is currently missing and is in possession of an ancient and dangerous artifact. Problem is, he ate it. Please return the artifact in tact! The Kobold (Skrazz) can be returned dead, alive, or not at all for all we care. 1000 GP Reward. Please contact ' + setup.profile(npc) + ' for details.'
+      return 'Adventurers needed! Our Kobold in our previous adventuring party is currently missing and is in possession of an ancient and dangerous artifact. Problem is, he ate it. Please return the artifact in tact! The Kobold (Skrazz) can be returned dead, alive, or not at all for all we care. <<money 100000>> Reward. Please contact ' + setup.profile(npc) + ' for details.'
     }
   },
   'Linguist Needed': {
@@ -1004,11 +1004,13 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
+      var map = setup.misc.map.create()
       var npc = setup.createNPC(town, {
         hasClass: false,
-        background: 'commoner'
+        background: 'commoner',
+        note: 'has a ' + map.tippyWord
       })
-      return 'Multi-Linguist Needed: While going through my pappy’s attic I found this really old map that I’m pretty sure leads to something cool. The problem is, I can’t read it! Pretty sure it’s Celestial, Draconian or Elvish cuz the letters are all curly. If the map leads to some sweet treasure I’ll share it fairly with you! Please contact ' + setup.profile(npc, 'me') + ' for details.'
+      return 'Multi-Linguist Needed: While going through my pappy’s attic I found this really old ' + map.tippyWord + ' that I’m pretty sure leads to something cool. The problem is, I can’t read it! Pretty sure it’s Celestial, Draconian or Elvish cuz the letters are all curly. If the map leads to some sweet treasure I’ll share it fairly with you! Please contact ' + setup.profile(npc, 'me') + ' for details.'
     }
   },
   'Taste Tester': {
@@ -1040,7 +1042,7 @@ setup.plothooks = {
         background: 'entertainer',
         profession: 'entertainer'
       })
-      return 'A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you 10g. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -' + setup.profile(npc)
+      return 'A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -' + setup.profile(npc)
     }
   },
   'Strange Doll': {
@@ -1054,7 +1056,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'FOUND: Stange child’s doll. Blue gingham dress, yellow yarn hair with blue satin bow, made of painted wood. Eyes are large and very lifelike, seeming to follow you around the room. IF YOU RECOGNIZE THIS DOLL PLEASE COME AND TAKE IT I’LL GIVE YOU 5G. Please contact ' + setup.profile(npc) + ' for details.'
+      return 'FOUND: Stange child’s doll. Blue gingham dress, yellow yarn hair with blue satin bow, made of painted wood. Eyes are large and very lifelike, seeming to follow you around the room. IF YOU RECOGNIZE THIS DOLL PLEASE COME AND TAKE IT I’LL GIVE YOU <<money 500>>. Please contact ' + setup.profile(npc) + ' for details.'
     }
   },
   'Lost Shorts': {
@@ -1068,7 +1070,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'LOST SHORTS: please, this seems silly, but recently my favorite lucky shorts have gone missing! I’m sure someone stole them but I have no proof. I need them before the big poker tournament tomorrow and I will pay 100g to whoever finds them! They are purple with green polka-dots and the back pocket has a recently-patched up rip. Also my name is written on the waistband. -' + setup.profile(npc) + ', #4 Lake Park Ave. E'
+      return 'LOST SHORTS: please, this seems silly, but recently my favorite lucky shorts have gone missing! I’m sure someone stole them but I have no proof. I need them before the big poker tournament tomorrow and I will pay <<money 10000>> to whoever finds them! They are purple with green polka-dots and the back pocket has a recently-patched up rip. Also my name is written on the waistband. -' + setup.profile(npc) + ', #4 Lake Park Ave. E'
     }
   },
   'Who Am I': {
@@ -1253,7 +1255,7 @@ setup.plothooks = {
         hasClass: true,
         dndClass: ['warlock', 'wizard'].random()
       })
-      return 'Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. 50 GP & four (4) Stones of Farspeech upon return. Please contact ' + setup.profile(npc) + ' for details.'
+      return 'Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. <<money 5000>> & four (4) Stones of Farspeech upon return. Please contact ' + setup.profile(npc) + ' for details.'
     }
   },
   'Nice Guy': {
@@ -1368,7 +1370,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'Music tutor: My son wants to be a bard, but the kid has absolutely no talent. I want to enjoy my time at home without the shrieking of his horrible electric lute destroying the peace. I’ll pay you 10g to give him some lessons, and if after a couple his ‘Music’ becomes less painful, I’ll give you a 100g bonus. Contact ' + setup.profile(npc) + ' at 75 Leyton Ave.'
+      return 'Music tutor: My son wants to be a bard, but the kid has absolutely no talent. I want to enjoy my time at home without the shrieking of his horrible electric lute destroying the peace. I’ll pay you <<money 1000>> to give him some lessons, and if after a couple his ‘Music’ becomes less painful, I’ll give you a <<money 10000>> bonus. Contact ' + setup.profile(npc) + ' at 75 Leyton Ave.'
     }
   },
   'Just No MIL': {
@@ -1382,7 +1384,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'Help! My mother-in-law is coming to town for a visit and ' + setup.profile(npc, 'I') + ' need someone professional to inflict me with some awful disease or other affliction so I have an excuse to stay in bed and not interact or be around her. Please no afflictions that cause perminant damage or death. Mildly life-threatening ok. Meet me at 10pm behind that bar that smells like old goat. You know the one. 50g upon disease delivery.'
+      return 'Help! My mother-in-law is coming to town for a visit and ' + setup.profile(npc, 'I') + ' need someone professional to inflict me with some awful disease or other affliction so I have an excuse to stay in bed and not interact or be around her. Please no afflictions that cause perminant damage or death. Mildly life-threatening ok. Meet me at 10pm behind that bar that smells like old goat. You know the one. <<money 5000>> upon disease delivery.'
     }
   },
   'Lost Hat': {
@@ -1584,7 +1586,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'Mimic hunt! Mimics are running rampant throughout a house. Find and kill 2D6 mimics. 1-6 mimics gets 100gp, 7-11 gets 300gp, and 12 kills gets 500gp. Contact ' + setup.profile(npc) + ' for the location.'
+      return 'Mimic hunt! Mimics are running rampant throughout a house. Find and kill 2D6 mimics. 1-6 mimics gets <<money 10000>>, 7-11 gets <<money 30000>>, and 12 kills gets <<money 50000>>. Contact ' + setup.profile(npc) + ' for the location.'
     }
   },
   'Crawling Claws': {
@@ -1598,7 +1600,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'Being followed by crawling claws. Kill 1D4 crawling claws. Reward of 40gp. Contact ' + setup.profile(npc) + ' for details.'
+      return 'Being followed by crawling claws. Kill 1D4 crawling claws. Reward of <<money 4000>>. Contact ' + setup.profile(npc) + ' for details.'
     }
   },
   'More Rats': {
@@ -1612,7 +1614,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'House is overrun with rats. Exterminate 4D10 rats and 2D4 dire rats. Reward of 450gp. Contact ' + setup.profile(npc) + ' for details.'
+      return 'House is overrun with rats. Exterminate 4D10 rats and 2D4 dire rats. Reward of <<money 4500>>. Contact ' + setup.profile(npc) + ' for details.'
     }
   },
   'Lost Cat': {
@@ -1627,7 +1629,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'commoner'
       })
-      return 'Help find my lost pet ' + cat.tippyWord + '! Reward of 3D10gp to anyone who finds him. Contact ' + setup.profile(npc) + ' for details on him.'
+      return 'Help find my lost pet ' + cat.tippyWord + '! Reward of <<money 3000>> to anyone who finds him. Contact ' + setup.profile(npc) + ' for details on him.'
     }
   },
   'Bakery Delivery': {
@@ -1703,7 +1705,12 @@ setup.plothooks = {
         hasClass: true,
         dndClass: 'wizard'
       })
-      return 'Help! My good friend Smolik Droweater has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard ' + setup.profile(npc, npc.firstName) + '.'
+      var secondNpc = setup.createNPC(town, {
+        hasClass: true,
+        gender: 'man'
+      })
+      setup.createRelationship(town, npc, secondNpc, 'friend', 'friend')
+      return 'Help! My good friend ' + setup.profile(secondNpc) + ' has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard ' + setup.profile(npc, npc.firstName) + '.'
     }
   },
   'Bardic Inspiration Needed': {
@@ -1733,7 +1740,7 @@ setup.plothooks = {
         background: 'commoner',
         profession: 'miller'
       })
-      return 'Just bought the old mill outside of town. But there’s something living in it. Will pay 50GP and free milling service for a year to anybody who clears out the infestation and makes it safe for our family to set up! Contact ' + setup.profile(npc) + ' for details.'
+      return 'Just bought the old mill outside of town. But there’s something living in it. Will pay <<money 5000>> and free milling service for a year to anybody who clears out the infestation and makes it safe for our family to set up! Contact ' + setup.profile(npc) + ' for details.'
     }
   },
   'Domain Lines': {
