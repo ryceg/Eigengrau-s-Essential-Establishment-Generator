@@ -32,8 +32,8 @@
 				<</if>>\
 	<</if>>
 		<</silently>>\
-		<<if _gold>><<= _gold>> Gold <</if>>\
-		<<if _silver>><<= _silver>> Silver <</if>>\
+		<<if _gold>><<= _gold>> Gold<</if>>\
+		<<if _silver>><<= _silver>> Silver<</if>>\
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 
 <<widget "guard">><<nobr>>
