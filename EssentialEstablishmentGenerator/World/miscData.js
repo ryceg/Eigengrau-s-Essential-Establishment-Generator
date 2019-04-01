@@ -2342,7 +2342,19 @@ setup.misc = {
   },
   'town': {
     create: function (town) {
-      return setup.weightedRandomFetcher(town, setup.plothooks)
+      return setup.weightedRandomFetcher(town, setup.plothooks, '', setup.misc.town.type.event)
+    },
+    type: {
+      event: function (town, arg) {
+      // console.log('Town event callback function')
+      // console.log(arg)
+        return arg.type.includes('event')
+      },
+      paper: function (town, arg) {
+      // console.log('Town event callback function')
+      // console.log(arg)
+        return arg.type.includes('paper')
+      }
     }
   },
   'road': {
