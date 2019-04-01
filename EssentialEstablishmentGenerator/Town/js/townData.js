@@ -205,11 +205,11 @@ setup.townData = {
     'absolute monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
+        'politicalSourceDescription': "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
         'description': 'The crown holds both supreme executive and judicial powers.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
         'description': 'The crown holds supreme judicial power, but the executive power is held by a parliamentary.'
       }
     },
@@ -220,18 +220,18 @@ setup.townData = {
         'description': 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
         'description': 'The crown holds supreme judicial power, but day to day affairs are held by parliament.'
       }
     },
     'republic': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'Affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>',
+      'politicalSourceDescription': 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
       'description': 'The crown holds both supreme executive and judicial powers.'
     },
     'anarchy': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.',
+      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
       'description': 'No formal political system exists.'
     }
   },

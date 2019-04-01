@@ -103,7 +103,7 @@ setup.createSocioPolitics = function (town) {
   //         console.log('Loaded autocratic constitutional monarchy')
   //         town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
   //         town.leader = setup.createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
-  //         // town.politicalSourceDescription = "<<print _town.leader.title.toUpperFirst()>> <<profile _town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
+  //         // town.politicalSourceDescription = "<<print $town.leader.title.toUpperFirst()>> <<profile $town.leader>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
   //         switch (town.ruler.gender) {
   //           case 'man':
   //             town.rulerType = 'King'
