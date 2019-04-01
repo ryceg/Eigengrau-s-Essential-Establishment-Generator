@@ -1,0 +1,20 @@
+:: TownSquareOutput
+<<unset $selectedBuilding>><<set $townSquare to $town.buildings[$selected.key][$selected.index]>><h1>The Town Square</h1><<set _npc to setup.weightedRandomFetcher($town, setup.townSquare.crowd)>>
+You're in the town square. It's $townSquare.size, and $townSquare.cleanliness. It features $townSquare.feature As you <<print ["walk through the square", "walk along", "stroll along", "pass through", "enter the town square"].random()>>, you see _npc
+There's <<print setup.weightedRandomFetcher($town, setup.townSquare.vignettes)>> There's also a noticeboard, which has various posters, requests, and announcements tacked to it. 
+
+<<button "Who else is there?">>
+<<if def _newNPC>>
+  <<run delete $npcs[_newNPC.key]>>
+<</if>>
+<<set $newNpc to setup.weightedRandomFetcher($town, setup.townSquare.crowd)>>
+<<replace "#newNpc">><<print ["You can see", "You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $newNpc<</replace>><</button>>
+<div id="newNpc"><<if def $newNpc>><<print ["You can see", "You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $newNpc<</if>></div>
+
+<<button "Generate a poster">>
+<<if def _newNPC>>
+  <<run delete $npcs[_newNPC.key]>>
+<</if>>
+<<set $poster to setup.weightedRandomFetcher($town, setup.plothooks, '', setup.misc.town.type.paper)>>
+<<replace "#poster">><descriptive>$poster</descriptive><</replace>><</button>>
+<div id="poster"><<if def $poster>><descriptive>$poster</descriptive><</if>></div>
