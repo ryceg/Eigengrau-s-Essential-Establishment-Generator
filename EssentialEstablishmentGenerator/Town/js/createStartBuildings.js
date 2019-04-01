@@ -1,6 +1,6 @@
 /* global setup */
 setup.createStartBuildings = function (town) {
-  var building = ['tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
+  var building = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
 
   if (town.hasBrothel) {
     building.push('brothel')
