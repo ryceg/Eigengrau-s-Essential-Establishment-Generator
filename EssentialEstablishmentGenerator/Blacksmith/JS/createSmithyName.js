@@ -12,6 +12,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.parentNoun
       },
       gender: 'man',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'young adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -21,6 +22,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.parentNoun
       },
       gender: 'woman',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'young adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -30,6 +32,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun
       },
       gender: 'man',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -39,6 +42,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun
       },
       gender: 'woman',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -48,6 +52,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun
       },
       gender: 'man',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -57,6 +62,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun
       },
       gender: 'woman',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -66,6 +72,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: smithy.blacksmith.childNoun
       },
       gender: 'man',
+      race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -82,6 +89,7 @@ setup.createSmithyName = function (town, smithy) {
         [smithy.blacksmith.key]: 'relative'
       },
       lastName: smithy.blacksmith.lastName,
+      race: smithy.blacksmith.race,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },

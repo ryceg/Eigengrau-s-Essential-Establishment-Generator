@@ -11,6 +11,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.parentNoun
       },
       gender: 'man',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -20,6 +21,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.parentNoun
       },
       gender: 'woman',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -29,6 +31,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.siblingNoun
       },
       gender: 'man',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: GeneralStore.shopkeep.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -38,6 +41,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.siblingNoun
       },
       gender: 'woman',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: GeneralStore.shopkeep.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -47,6 +51,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.niblingNoun
       },
       gender: 'man',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -56,6 +61,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.niblingNoun
       },
       gender: 'woman',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -65,6 +71,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.childNoun
       },
       gender: 'man',
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -80,6 +87,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       relationships: {
         [GeneralStore.shopkeep.key]: 'relative'
       },
+      race: GeneralStore.shopkeep.race,
       lastName: GeneralStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -95,7 +103,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
 
   switch (roll) {
     case 1:
-      name = 'The ' + adjective + ' ' + noun
+      GeneralStore.name = 'The ' + adjective + ' ' + noun
       break
     case 2:
       GeneralStore.name = GeneralStore.shopkeep.firstName + ' and ' + family.toUpperFirst()
@@ -108,14 +116,14 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       setup.createRelationship(town, GeneralStore.shopkeep, GeneralStore.assistant, family, GeneralStore.assistant.relationships[GeneralStore.shopkeep.key])
       break
     case 4:
-      name = 'The ' + adjective + ' ' + rider
+      GeneralStore.name = 'The ' + adjective + ' ' + rider
       break
     case 5:
-      name = adjective + ' ' + noun
+      GeneralStore.name = adjective + ' ' + noun
       break
     default:
-      name = 'The ' + adjective + " Adventurer's Store"
+      GeneralStore.name = 'The ' + adjective + " Adventurer's Store"
       break
   }
-  return name
+  return GeneralStore
 }

@@ -19,7 +19,7 @@ setup.createGeneralStore = function (town, opts) {
     BuildingType: 'GeneralStore'
   })
 
-  GeneralStore.name = setup.createGeneralStoreName(town, GeneralStore)
+  setup.createGeneralStoreName(town, GeneralStore)
   GeneralStore.wealth = ''
   GeneralStore.size = ''
   GeneralStore.cleanliness = ''
