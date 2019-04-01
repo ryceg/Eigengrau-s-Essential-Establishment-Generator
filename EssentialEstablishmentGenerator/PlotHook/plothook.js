@@ -1004,7 +1004,7 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var map = setup.misc.map.create()
+      var map = setup.misc.treasureMap.create()
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -1080,12 +1080,14 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
+      var tavernIndex = random(0, town.buildings.tavern.length)
+      var tavern = town.buildings.tavern[tavernIndex]
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
       })
       // #
-      return 'WHO AM I?: ' + setup.profile(npc, 'I') + ' woke up in a gutter this morning outside of <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + '. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.'
+      return 'WHO AM I?: ' + setup.profile(npc, 'I') + ' woke up in a gutter this morning outside of ' + tavern.name + '' + '. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.'
     }
   },
   'Bouncers Needed': {
@@ -1098,7 +1100,7 @@ setup.plothooks = {
       var tavernIndex = random(0, town.buildings.tavern.length)
       var tavern = town.buildings.tavern[tavernIndex]
       // #
-      return '<<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!'
+      return '' + tavern.name + '' + ' needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!'
     }
   },
   'Bard for Hire': {
@@ -1399,7 +1401,7 @@ setup.plothooks = {
         background: 'entertainer',
         dndClass: 'bard'
       })
-      return 'Help recovering property! This is your local bard ' + setup.profile(npc.firstName) + ', and if you’ve seen me lately you know that I haven’t quite been myself. The truth is I lost my prize peacock feather hat in a wager at the Lusty Mermaid two days ago. The man who won it from me said I could pay him back for the value of the hat, but when I went to the inn he was staying at I found he skipped town without even paying his tab! (And I found out he cheated at that game of cards by the by) Please, I need a skilled ranger or another who is good at tracking to get back my hat! I’ll pay you 4,000 gold to go with me to get it, and I’m willing increase the price to 5,000 if our quarry proves elusive.'
+      return 'Help recovering property! This is your local bard, ' + setup.profile(npc) + ', and if you’ve seen me lately you know that I haven’t quite been myself. The truth is I lost my prize peacock feather hat in a wager at the Lusty Mermaid two days ago. The man who won it from me said I could pay him back for the value of the hat, but when I went to the inn he was staying at I found he skipped town without even paying his tab! (And I found out he cheated at that game of cards by the by) Please, I need a skilled ranger or another who is good at tracking to get back my hat! I’ll pay you 4,000 gold to go with me to get it, and I’m willing increase the price to 5,000 if our quarry proves elusive.'
     }
   },
   'Birthday Party': {
@@ -1431,7 +1433,7 @@ setup.plothooks = {
         note: 'For whatever reason, loves being abused.'
       })
       // #
-      return 'NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ' + setup.profile(npc, 'me') + '. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' in order to discuss terms.'
+      return 'NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ' + setup.profile(npc, 'me') + '. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ' + tavern.name + '' + ' in order to discuss terms.'
     }
   },
   'Pirates Lost Stuff': {
@@ -1481,7 +1483,8 @@ setup.plothooks = {
         background: 'commoner'
       })
       // #
-      return 'Fence need painted. Good pay. Contact ' + setup.profile(npc) + ' at <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + '. Twist, the fence is 10 feet tall and almost a mile long.'
+      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $tavern to ' + tavern + '>><<goto "TavernOutput">><</link>>
+      return 'Fence need painted. Good pay. Contact ' + setup.profile(npc) + ' at ' + tavern.name + '. Twist, the fence is 10 feet tall and almost a mile long.'
     }
   },
   'Teddy Wanted': {
