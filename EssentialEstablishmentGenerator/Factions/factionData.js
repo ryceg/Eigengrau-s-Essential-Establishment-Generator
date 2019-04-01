@@ -3,6 +3,7 @@ setup.factionData = {
   'type': {
     'artisans': {
       'leaderTraits': {
+        title: 'Aesthetician',
         'hasClass': false,
         'profession': 'artisan',
         'background': 'guild artisan'
@@ -24,6 +25,7 @@ setup.factionData = {
     'assassins': {
       'leaderTraits': {
         'hasClass': true,
+        title: 'High Assassin',
         'dndClass': 'rogue',
         'profession': 'thief',
         'background': ['charlatan', 'soldier', 'criminal'].random()
@@ -44,6 +46,7 @@ setup.factionData = {
     },
     'bandits': {
       'leaderTraits': {
+        title: 'Chief',
         'hasClass': true,
         'dndClass': 'fighter',
         'profession': 'soldier',
@@ -65,6 +68,7 @@ setup.factionData = {
     },
     'bards': {
       'leaderTraits': {
+        title: 'Maestro',
         'hasClass': true,
         'dndClass': 'bard',
         'profession': 'musician',
@@ -86,6 +90,7 @@ setup.factionData = {
     },
     'craftsmen': {
       'leaderTraits': {
+        title: 'Master',
         'hasClass': false,
         'profession': 'craftsman',
         'background': 'guild artisan'
@@ -106,6 +111,7 @@ setup.factionData = {
     },
     'mercenaries': {
       'leaderTraits': {
+        title: 'Commander',
         'hasClass': true,
         'dndClass': 'fighter',
         'profession': 'soldier',
@@ -127,6 +133,7 @@ setup.factionData = {
     },
     'merchants': {
       'leaderTraits': {
+        title: 'Executive Officer',
         'hasClass': false,
         'profession': 'merchant',
         'background': ['merchant', 'charlatan', 'noble'].random()
@@ -147,9 +154,10 @@ setup.factionData = {
     },
     'military': {
       'leaderTraits': {
+        title: 'Commander',
         'hasClass': true,
         'dndClass': ['fighter', 'fighter', 'fighter', 'barbarian', 'paladin', 'rogue'].random(),
-        'profession': 'War Chief',
+        'profession': 'Commander',
         'background': ['soldier', 'soldier', 'noble'].random()
       },
       'factionNoun': 'army',
@@ -168,6 +176,7 @@ setup.factionData = {
     },
     'monks': {
       'leaderTraits': {
+        title: 'High Monk',
         'hasClass': true,
         'dndClass': 'monk',
         'profession': 'monk',
@@ -189,6 +198,7 @@ setup.factionData = {
     },
     'nobles': {
       'leaderTraits': {
+        title: 'Lord',
         'hasClass': false,
         'profession': 'nobleman',
         'background': 'noble'
@@ -209,6 +219,7 @@ setup.factionData = {
     },
     'priests': {
       'leaderTraits': {
+        title: 'The Holy',
         'hasClass': true,
         'dndClass': 'cleric',
         'profession': 'priest',
@@ -230,6 +241,7 @@ setup.factionData = {
     },
     'rangers': {
       'leaderTraits': {
+        title: 'Lord Ranger',
         'hasClass': true,
         'dndClass': 'ranger',
         'profession': 'trapper',
@@ -251,6 +263,7 @@ setup.factionData = {
     },
     'scholars': {
       'leaderTraits': {
+        title: 'Chief Scholar',
         'hasClass': false,
         'profession': 'professor',
         'background': ['sage', 'acolyte'].random()
@@ -271,6 +284,7 @@ setup.factionData = {
     },
     'seers': {
       'leaderTraits': {
+        title: 'High Seer',
         'hasClass': false,
         'profession': 'seer',
         'background': ['acolyte', 'sage'].random()
@@ -291,6 +305,7 @@ setup.factionData = {
     },
     'thieves': {
       'leaderTraits': {
+        title: 'High Rogue',
         'hasClass': true,
         'dndClass': 'rogue',
         'profession': 'thief',
@@ -312,6 +327,7 @@ setup.factionData = {
     },
     'wizards': {
       'leaderTraits': {
+        title: 'Archmage',
         'hasClass': true,
         'dndClass': 'wizard',
         'profession': 'magic user',
