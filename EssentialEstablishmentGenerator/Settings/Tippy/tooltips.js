@@ -74,7 +74,7 @@ setup.buildingTooltip = function (id, building) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
-      span.title = 'A ' + (building.size || building._size) + ' ' + building.wordNoun + " that's " + (building.cleanliness || building._cleanliness) + ', and is known for ' + building.notableFeature + '.'
+      span.title = (building.tippyDescription || 'A ' + (building.size || building._size) + ' ' + building.wordNoun + " that's " + (building.cleanliness || building._cleanliness) + ', and is known for ' + building.notableFeature + '.')
       tippy('#' + span.id)
     }
   })
