@@ -92,10 +92,12 @@ setup.politicsTooltip = function (id, type, town) {
           span.title = setup.townData.economicIdeology[town.economicIdeology].descriptors.tippy
           break
         case 'politicalSource':
-          if (town.politicalSource === 'absolute monarchy') {
-            span.title = setup.townData.politicalSource[town.politicalSource][town.politicalIdeology].description || setup.townData.politicalSource[town.politicalSource]['default'].description
-          } else if (town.politicalSource === 'constitutional monarchy') {
-            span.title = setup.townData.politicalSource[town.politicalSource][town.politicalIdeology].description || setup.townData.politicalSource[town.politicalSource]['default'].description
+          if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
+            if (town.politicalIdeology === 'autocracy') {
+              span.title = setup.townData.politicalSource[town.politicalSource].autocracy.description
+            } else {
+              span.title = setup.townData.politicalSource[town.politicalSource]['default'].description
+            }
           } else {
             span.title = setup.townData.politicalSource[town.politicalSource].description
           }
