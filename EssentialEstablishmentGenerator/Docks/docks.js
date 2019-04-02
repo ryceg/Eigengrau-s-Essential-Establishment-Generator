@@ -59,7 +59,17 @@ setup.docks = {
     'a captain pointing at a map, arguing with another man',
     'there is a certain quietness to the air; nobody is shouting as is usual in dockyards',
     'the atmosphere is a little on edge; sailors are more curt than usual, and the dock hands are grimacing as they load the ships with goods',
-    'there is a foul stench in the air; like a rotting fish, only much larger, with no escape from the stomach turning scent to be found in buildings, or behind a scented hankerchief'
+    'there is a foul stench in the air; like a rotting fish, only much larger, with no escape from the stomach turning scent to be found in buildings, or behind a scented hankerchief',
+    'a pair of sailors accidentally dropping one of their crates of cargo into the water',
+    'a sailor in the water trying to rescue a dropped supply barrel',
+    'a crew unfurling the sails of their ship as they head for open waters',
+    // a(n) enormous/large/moderately sized/regular/small/tiny/single stall fish market selling a large variety of fish/an inconceivable number of fish, crabs, shrimp, and other sea creatures/a small selection of fish/a pitiful variety fish
+    'a small group of men posing for a portrait with the carcass of an enormous sea monster strung up from a tall wooden pole',
+    'a person in dirty rags attempting to sell a single fish to passersby',
+    'an incredibly large schooner/barque/frigate docked out in the water. It is ornately painted with the figurehead of a magical animal',
+    'a large crowd gathered in front of an absolutely gargantuan ship that has been severely damaged',
+    'a lone fisherman sitting at the edge and waiting for his catch',
+    'two men pulling up crab traps out of the water'
   ],
   ships: {
     create: function (town, docks, opts) {
@@ -241,6 +251,7 @@ setup.docks = {
       'a woman with a temper': {
         profession: 'captain',
         background: 'sailor',
+        hasClass: false,
         gender: 'woman',
         calmTrait: 'quick to anger',
         stressTrait: 'extremely snappy'
@@ -248,6 +259,7 @@ setup.docks = {
       'a stern man, with a long beard': {
         profession: 'captain',
         background: 'sailor',
+        hasClass: false,
         gender: 'man',
         beard: 'long and majestic',
         calmTrait: 'stern',
@@ -263,7 +275,42 @@ setup.docks = {
         profession: 'captain',
         background: 'sailor',
         gender: 'man',
+        hasClass: false,
         note: 'He is searching for his long lost lover.'
+      },
+      'an elf who has forsaken the earth': {
+        race: 'elf',
+        hasClass: false
+      },
+      'a half-orc with a passion for marine life': {
+        profession: 'captain',
+        background: 'sailor',
+        race: 'half-orc',
+        hasClass: false
+      },
+      'a stoic woman with a quiet voice': {
+        profession: 'captain',
+        background: 'sailor',
+        gender: 'woman',
+        vocalPattern: 'has a quiet voice',
+        hasClass: false
+      },
+      'an ex mercenary': {
+        profession: 'captain',
+        background: 'soldier'
+      },
+      'a retired merchant': {
+        profession: 'captain',
+        background: 'merchant',
+        ageStage: 'elderly',
+        hasClass: false
+      },
+      'a young boy who inherited the ship': {
+        profession: 'captain',
+        background: 'sailor',
+        ageStage: 'young adult',
+        note: 'Inherited the ship.',
+        hasClass: false
       }
     },
     rollData: {
