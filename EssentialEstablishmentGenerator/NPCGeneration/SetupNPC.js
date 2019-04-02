@@ -14,7 +14,7 @@ setup.createNPC = function (town, base) {
   }
 
   if (base.canBeCustom === true && random(1, 100) > 99) {
-    base = setup.misc.patreonCharacters.random()
+    base = setup.objectArrayFetcher(setup.misc.patreonCharacters, town)
   }
   var gender = base.gender || ['man', 'woman'].random()
   var race = base.race || setup.fetchRace(town)
@@ -180,7 +180,7 @@ setup.createNPC = function (town, base) {
   }
   State.temporary.newNPC = npc
 
-  npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
+  // npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
 
   console.log(npc)
   console.groupEnd()
