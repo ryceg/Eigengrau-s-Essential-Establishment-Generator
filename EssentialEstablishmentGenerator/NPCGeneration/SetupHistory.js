@@ -51,71 +51,71 @@ setup.createHistory = function (town, npc) {
   }
 
   if (!npc.birthplace) {
-  var birthplaceRoll = random(1, 100)
-  if (birthplaceRoll === 100) {
-    npc.birthplace = 'on an Outer Plane'
-  } else if (birthplaceRoll === 99) {
-    npc.birthplace = 'on an Inner Plane'
-  } else if (birthplaceRoll === 98) {
-    npc.birthplace = 'on the Astral Plane'
-  } else if (birthplaceRoll === 97) {
-    npc.birthplace = 'in the Shadowfell'
-  } else if (birthplaceRoll === 96) {
-    npc.birthplace = 'in the Feywild'
-  } else if (birthplaceRoll === 95) {
-    npc.birthplace = 'on the Ethereal Plane'
-  } else if (birthplaceRoll === 94) {
-    npc.birthplace = "in a sage's laboratory"
-  } else if (birthplaceRoll === 93) {
-    npc.birthplace = 'in the headquarters of a secret organisation'
-  } else if (birthplaceRoll === 92) {
-    npc.birthplace = 'in a prison'
-  } else if (birthplaceRoll === 91) {
-    npc.birthplace = 'on a ship'
-  } else if (birthplaceRoll >= 89) {
-    npc.birthplace = 'on a boat'
-  } else if (birthplaceRoll >= 86) {
-    npc.birthplace = 'among people of a different race'
-  } else if (birthplaceRoll === 85) {
-    npc.birthplace = 'in a rubbish heap'
-  } else if (birthplaceRoll === 84) {
-    npc.birthplace = 'in a castle'
-  } else if (birthplaceRoll === 83) {
-    npc.birthplace = 'in a tower'
-  } else if (birthplaceRoll === 82) {
-    npc.birthplace = 'in a brothel'
-  } else if (birthplaceRoll === 81) {
-    npc.birthplace = 'in a tavern'
-  } else if (birthplaceRoll === 80) {
-    npc.birthplace = 'in an alley'
-  } else if (birthplaceRoll === 79) {
-    npc.birthplace = 'in a street'
-  } else if (birthplaceRoll === 78) {
-    npc.birthplace = 'on a battlefield'
-  } else if (birthplaceRoll >= 75) {
-    npc.birthplace = 'in a temple'
-  } else if (birthplaceRoll >= 73) {
-    npc.birthplace = 'in a forest'
-  } else if (birthplaceRoll >= 71) {
-    npc.birthplace = 'in a field'
-  } else if (birthplaceRoll >= 69) {
-    npc.birthplace = 'in a cave'
-  } else if (birthplaceRoll === 68) {
-    npc.birthplace = 'in a barn'
-  } else if (birthplaceRoll === 67) {
-    npc.birthplace = 'in a shed'
-  } else if (birthplaceRoll === 66) {
-    npc.birthplace = 'in a cart'
-  } else if (birthplaceRoll === 65) {
-    npc.birthplace = 'on a wagon'
-  } else if (birthplaceRoll >= 56) {
-    npc.birthplace = 'in the home of a midwife'
-  } else if (birthplaceRoll >= 51) {
-    npc.birthplace = 'in the home of a friend'
-  } else {
-    npc.birthplace = 'at home'
+    var birthplaceRoll = random(1, 100)
+    if (birthplaceRoll === 100) {
+      npc.birthplace = 'on an Outer Plane'
+    } else if (birthplaceRoll === 99) {
+      npc.birthplace = 'on an Inner Plane'
+    } else if (birthplaceRoll === 98) {
+      npc.birthplace = 'on the Astral Plane'
+    } else if (birthplaceRoll === 97) {
+      npc.birthplace = 'in the Shadowfell'
+    } else if (birthplaceRoll === 96) {
+      npc.birthplace = 'in the Feywild'
+    } else if (birthplaceRoll === 95) {
+      npc.birthplace = 'on the Ethereal Plane'
+    } else if (birthplaceRoll === 94) {
+      npc.birthplace = "in a sage's laboratory"
+    } else if (birthplaceRoll === 93) {
+      npc.birthplace = 'in the headquarters of a secret organisation'
+    } else if (birthplaceRoll === 92) {
+      npc.birthplace = 'in a prison'
+    } else if (birthplaceRoll === 91) {
+      npc.birthplace = 'on a ship'
+    } else if (birthplaceRoll >= 89) {
+      npc.birthplace = 'on a boat'
+    } else if (birthplaceRoll >= 86) {
+      npc.birthplace = 'among people of a different race'
+    } else if (birthplaceRoll === 85) {
+      npc.birthplace = 'in a rubbish heap'
+    } else if (birthplaceRoll === 84) {
+      npc.birthplace = 'in a castle'
+    } else if (birthplaceRoll === 83) {
+      npc.birthplace = 'in a tower'
+    } else if (birthplaceRoll === 82) {
+      npc.birthplace = 'in a brothel'
+    } else if (birthplaceRoll === 81) {
+      npc.birthplace = 'in a tavern'
+    } else if (birthplaceRoll === 80) {
+      npc.birthplace = 'in an alley'
+    } else if (birthplaceRoll === 79) {
+      npc.birthplace = 'in a street'
+    } else if (birthplaceRoll === 78) {
+      npc.birthplace = 'on a battlefield'
+    } else if (birthplaceRoll >= 75) {
+      npc.birthplace = 'in a temple'
+    } else if (birthplaceRoll >= 73) {
+      npc.birthplace = 'in a forest'
+    } else if (birthplaceRoll >= 71) {
+      npc.birthplace = 'in a field'
+    } else if (birthplaceRoll >= 69) {
+      npc.birthplace = 'in a cave'
+    } else if (birthplaceRoll === 68) {
+      npc.birthplace = 'in a barn'
+    } else if (birthplaceRoll === 67) {
+      npc.birthplace = 'in a shed'
+    } else if (birthplaceRoll === 66) {
+      npc.birthplace = 'in a cart'
+    } else if (birthplaceRoll === 65) {
+      npc.birthplace = 'on a wagon'
+    } else if (birthplaceRoll >= 56) {
+      npc.birthplace = 'in the home of a midwife'
+    } else if (birthplaceRoll >= 51) {
+      npc.birthplace = 'in the home of a friend'
+    } else {
+      npc.birthplace = 'at home'
+    }
   }
-}
 
   var siblingRoll = random(1, 5)
   switch (siblingRoll) {
