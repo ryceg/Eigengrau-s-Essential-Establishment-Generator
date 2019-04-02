@@ -2,7 +2,6 @@
 setup.createLifeEvents = function (town, npc) {
   console.groupCollapsed('creating life events for ' + npc.name + '...')
   var lifeEventsNumber
-  var lifeEventsRoll
 
   npc.lifeEvents = []
   if (npc.ageYears > 60) {
