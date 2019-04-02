@@ -27,16 +27,20 @@
         <<set _gender += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _gender += '<</listbox>>'>>
+
+    /* <<run Object.assign(_npcOptions, setup.misc.patreonCharacters)>> */
+    <<set _replaceNpc to $npcs[$currentNPCKey]>>
 <</silently>>\
+
+<<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom setup.misc.patreonCharacters>><</listbox>> -- <<button "Replace NPC">><<set $npcs[$currentNPCKey] to setup.createNPC($town, _replaceNpc)>><</button>>
+
 <<if def $npcs[$currentNPCKey].title>>$npcs[$currentNPCKey].title <</if>>$npcs[$currentNPCKey].name is a <span @id="_age" class="tip"><<textbox "$npcs[$currentNPCKey].age" $npcs[$currentNPCKey].age>></span> <span class="tip" title="Non binary options coming soon!">_gender</span> _race. <<print $npcs[$currentNPCKey].heshe.toUpperFirst()>> is <span @id="_height" class="tip"><<textbox "$npcs[$currentNPCKey].height" $npcs[$currentNPCKey].height>></span> and <span @id="_weight" class="tip"><<textbox "$npcs[$currentNPCKey].weight" $npcs[$currentNPCKey].weight>></span>, and has <<textbox "$npcs[$currentNPCKey].eyes" $npcs[$currentNPCKey].eyes>> eyes<<if def $npcs[$currentNPCKey].beard>> and a <<textbox "$npcs[$currentNPCKey].beard" $npcs[$currentNPCKey].beard>>,<</if>> with <<textbox "$npcs[$currentNPCKey].skinColour" $npcs[$currentNPCKey].skinColour>> skin. The most notable physical trait of $npcs[$currentNPCKey].firstName is that $npcs[$currentNPCKey].heshe has <<textbox "$npcs[$currentNPCKey].physicalTrait" $npcs[$currentNPCKey].physicalTrait>>.
 
 $npcs[$currentNPCKey].firstName <<textbox "$npcs[$currentNPCKey].trait" $npcs[$currentNPCKey].trait>>. <<if def $npcs[$currentNPCKey].vocalPattern>><<print $npcs[$currentNPCKey].heshe.toUpperFirst()>> <<textbox "$npcs[$currentNPCKey].vocalPattern" $npcs[$currentNPCKey].vocalPattern>>. <</if>>When $npcs[$currentNPCKey].heshe is relaxed, $npcs[$currentNPCKey].heshe is <<textbox "$npcs[$currentNPCKey].calmTrait" $npcs[$currentNPCKey].calmTrait>>. In moments of stress, $npcs[$currentNPCKey].heshe becomes <<textbox "$npcs[$currentNPCKey].stressTrait" $npcs[$currentNPCKey].stressTrait>>. <<if $npcs[$currentNPCKey].knownLanguages.length == 2>>$npcs[$currentNPCKey].firstName knows $npcs[$currentNPCKey].knownLanguages[0] and $npcs[$currentNPCKey].knownLanguages[1].<</if>>
 
-
 $npcs[$currentNPCKey].firstName is a _class, with a background of being a _background. $npcs[$currentNPCKey].firstName currently has <<textbox "$npcs[$currentNPCKey].pockets" $npcs[$currentNPCKey].pockets>> in $npcs[$currentNPCKey].hisher pockets, and <<money $npcs[$currentNPCKey].wealth>> to $npcs[$currentNPCKey].hisher name. In combat, $npcs[$currentNPCKey].heshe uses <<textbox "$npcs[$currentNPCKey].weapon" $npcs[$currentNPCKey].weapon>>.
 
 <span class="tip" title="Add notes here"><<textarea "$npcs[$currentNPCKey].note" "">></span>
-
 <<linkreplace "Early Life">><div class='descriptive'>I was born <<textbox "$npcs[$currentNPCKey].birthplace" $npcs[$currentNPCKey].birthplace>>, and was raised by <<textbox "$npcs[$currentNPCKey].familyUnit" $npcs[$currentNPCKey].familyUnit>><<if $npcs[$currentNPCKey].siblingNumber == 0>> as an only child.<<elseif $npcs[$currentNPCKey].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$currentNPCKey].siblingNumber siblings.<</if>> I had a <<textbox "$npcs[$currentNPCKey].familyLifestyle" $npcs[$currentNPCKey].familyLifestyle>> upbringing in <<textbox "$npcs[$currentNPCKey].familyHome" $npcs[$currentNPCKey].familyHome>>. <<if !$npcs[$currentNPCKey].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$currentNPCKey].parentalLineage>>$npcs[$currentNPCKey].parentalLineage.<</if>> <<textbox "$npcs[$currentNPCKey].childhoodMemories" $npcs[$currentNPCKey].childhoodMemories>>.</div><</linkreplace>>
 
 <<linkreplace "Becoming a $npcs[$currentNPCKey].dndClass">><div class='descriptive'>"<<textarea "$npcs[$currentNPCKey].backgroundOrigin" $npcs[$currentNPCKey].backgroundOrigin>> <<textarea "$npcs[$currentNPCKey].dndClassOrigin" $npcs[$currentNPCKey].dndClassOrigin>> That's how I became a $npcs[$currentNPCKey].dndClass. <<textbox "$npcs[$currentNPCKey].bond" $npcs[$currentNPCKey].bond>> <<textbox "$npcs[$currentNPCKey].ideal" $npcs[$currentNPCKey].ideal>>"</div><</linkreplace>>
@@ -66,8 +70,6 @@ $npcs[$currentNPCKey].firstName is a _class, with a background of being a _backg
 
 <<button "Save changes">>
   <<run console.log('Saving changes to ' + $npcs[$currentNPCKey].name + '...')>>
-  /* <<set State[$npcs[$currentNPCKey].sourceType][$npcs[$currentNPCKey].sourceVar] to clone($npcs[$currentNPCKey])>>
-  <<set delete State[$npcs[$currentNPCKey].sourceType][$npcs[$currentNPCKey].sourceVar].sourceVar>> */
   <<goto "NPCProfileEdit">>
 <</button>>
 [[Return|previous()]]
