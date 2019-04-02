@@ -847,36 +847,39 @@ setup.misc = {
     'Evil Lich Necromancer escaped prison. Wanted dead or alive.',
     'Impersonator discovers his house is a mimic'
   ],
-  'patreonCharacters': [
-    // {
-    //   firstName: 'Tylien',
-    //   lastName: 'Birchbottom',
-    //   /* name: "Tylien Birchbottom", */
-    //   gender: 'man',
-    //   age: 'about twenty four',
-    //   ageYears: 24,
-    //   race: 'halfling',
-    //   dndClass: 'warlock',
-    //   height: 'rather diminuitive',
-    //   heightRoll: 34,
-    //   weight: 'small and light',
-    //   idle: ['gently whispering to his petrified mouse', 'writing something in a well-worn notebook'],
-    //   background: 'outlander',
-    //   hairColour: 'brown',
-    //   hairType: 'wispy',
-    //   scar: 'lashes on his back that have scarred over',
-    //   physicalTrait: 'lashes on his back that have scarred over',
-    //   trait: 'constantly forgets things, and has to write things down in his journal to be able to remember them properly.',
-    //   greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave'],
-    //   dndClassOrigin: "I've been making a decent living hunting game, selling the pelts to the blacksmith for spare change. I'm searching for a cure to my memory decay- every day, I have to write more things down. I need to learn why these things are happening to me... To find out who or whatever the beast of shadows that stalks me is.",
-    //   backgroundOrigin: "I was kidnapped by a cult at the age of 14. They used me in a ritual to summon an ancient being known as 'the beast of shadows'. Half-way through, guards rescued me. Things got better, and then got a lot worse- I woke speaking tongues, and found myself losing time. As my powers grew, so did my lost time, so I started to keep a journal. Nowadays I can barely remember more than a week into my past now.",
-    //   owner: 'owner',
-    //   calmTrait: 'unintentionally funny',
-    //   stressTrait: 'distant',
-    //   vocalPattern: 'speaks rather quickly',
-    //   note: "Tylien is Patreon supporter Jasher Drake's PC."
-    // },
-    {
+  'patreonCharacters': {
+    'Tylien Birchbottom': {
+      firstName: 'Tylien',
+      lastName: 'Birchbottom',
+      /* name: "Tylien Birchbottom", */
+      gender: 'man',
+      age: 'about twenty four',
+      ageYears: 24,
+      hasClass: true,
+      isThrowaway: false,
+      race: 'halfling',
+      dndClass: 'warlock',
+      height: 'rather diminuitive',
+      heightRoll: 34,
+      // weightRoll:
+      weight: 'small and light',
+      idle: ['gently whispering to his petrified mouse', 'writing something in a well-worn notebook'],
+      background: 'outlander',
+      hairColour: 'brown',
+      hairType: 'wispy',
+      scar: 'lashes on his back that have scarred over',
+      physicalTrait: 'lashes on his back that have scarred over',
+      trait: 'constantly forgets things, and has to write things down in his journal to be able to remember them properly.',
+      greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave'],
+      dndClassOrigin: "I've been making a decent living hunting game, selling the pelts to the blacksmith for spare change. I'm searching for a cure to my memory decay- every day, I have to write more things down. I need to learn why these things are happening to me... To find out who or whatever the beast of shadows that stalks me is.",
+      backgroundOrigin: "I was kidnapped by a cult at the age of 14. They used me in a ritual to summon an ancient being known as 'the beast of shadows'. Half-way through, guards rescued me. Things got better, and then got a lot worse- I woke speaking tongues, and found myself losing time. As my powers grew, so did my lost time, so I started to keep a journal. Nowadays I can barely remember more than a week into my past now.",
+      owner: 'owner',
+      calmTrait: 'unintentionally funny',
+      stressTrait: 'distant',
+      vocalPattern: 'speaks rather quickly',
+      note: "Tylien is Patreon supporter Jasher Drake's PC."
+    },
+    'Galder Fendt': {
       firstName: 'Galder',
       lastName: 'Fendt',
       name: 'Galder Fendt',
@@ -884,6 +887,8 @@ setup.misc = {
       age: 'venerable',
       eyes: 'green',
       ageYears: 84,
+      hasClass: true,
+      isThrowaway: false,
       race: 'human',
       height: 'some five and a half feet',
       heightRoll: 66,
@@ -903,7 +908,7 @@ setup.misc = {
       backgroundOrigin: '',
       note: "Galder Fendt is the wizard of /u/SomeHairyGuy, a Reddit user who suffered from advanced pelvic RMS. It's his wish that his character, Galder, be used in games around the world. #CreateAgainstCancer"
     },
-    {
+    "Brugo Gul'Moth": {
       firstName: 'Brugo',
       lastName: "Gul'Moth",
       name: "Brugo Gul'Moth",
@@ -937,7 +942,7 @@ setup.misc = {
       backgroundOrigin: 'Brugo is Son of Gul, Leader of the Cult of Pain. Brugo is of age to be sent on the Pain Quest to discover new methods of pain. Brugo must etch a new scar in ritual mask for each new pain learned.',
       note: 'Brugo is the character of Patreon supporter NaviSaysListen.'
     }
-  ],
+  },
   'religion': {
     'shrine': {
       'create': function (town, base) {
