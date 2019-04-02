@@ -2,16 +2,11 @@
 setup.createWeather = function (town, biome, weather, time) {
   if (biome) {
     switch (biome) {
-      case 'forest':
-      case 'road':
-      case 'mountain':
-        biome = 'temperate'
-        break
       case 'desert':
         biome = 'arid'
         break
       case 'town':
-        biome = town.terrain
+        biome = town.terrain || 'temperate'
         break
       default:
         biome = 'temperate'
@@ -29,7 +24,7 @@ setup.createWeather = function (town, biome, weather, time) {
     }
   } else {
     weather = {
-      temperature: setup.townData.terrain[biome].weather[town.currentSeason].baseTemp,
+      temperature: setup.townData.terrain[biome].weather[town.currentSeason].baseTemp || setup.townData.terrain['temperate'].weather['summer'].baseTemp,
       tempVariation: random(1, 100),
       timer: {
         precipitation: 0,
