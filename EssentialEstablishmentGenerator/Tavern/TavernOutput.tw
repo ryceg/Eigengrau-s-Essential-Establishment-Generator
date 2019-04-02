@@ -15,11 +15,10 @@
 <<print either(setup.tavern.entertainment)>>
 
 <<link "Go on a bender">><<if def _newNPC>>
-  <<run delete $npcs[_newNPC.key]>>
-<</if>>
-<<set $tavern.carousing to setup.tavern.get.carousing($town, $tavern)>><<replace "#carousing">>$tavern.carousing<</replace>><</link>>
-<p><<if def $tavern.carousing>><span id="carousing">$tavern.carousing</span><<else>><span id="carousing"></span><</if>></p>
-
+\  <<run delete $npcs[_newNPC.key]>>
+\<</if>>
+\<<set $tavern.carousing to setup.tavern.get.carousing($town, $tavern)>><<replace "#carousing">>$tavern.carousing<</replace>><</link>>
+\<p><<if def $tavern.carousing>><span id="carousing">$tavern.carousing</span><<else>><span id="carousing"></span><</if>></p>
 <<include "Intrigue">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
