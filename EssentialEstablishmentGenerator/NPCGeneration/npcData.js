@@ -180,7 +180,7 @@ setup.npcData = {
             isShallow: true,
             relationships: {
               [npc.key]: npc.parentNoun,
-              [npc.partnerID.key]: npc.partnerID.parentNoun
+              [npc.partnerID.key]: State.variables.npcs[npc.partnerID].parentNoun
             }
           })
           setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
