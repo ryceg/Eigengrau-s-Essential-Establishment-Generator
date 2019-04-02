@@ -45,5 +45,6 @@ setup.createTemple = function (town, opts) {
     setup.defineRollDataGetter(temple, data.rollData, propName)
   })
 
+  temple.tippyDescription = 'A ' + temple.size + ' and ' + temple.cleanliness + ' ' + temple.wordNoun + ' that is dedicated to ' + temple.dedicated
   return temple
 }
