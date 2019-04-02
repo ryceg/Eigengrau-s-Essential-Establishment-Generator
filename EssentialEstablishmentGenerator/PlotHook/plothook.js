@@ -454,7 +454,7 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 1000000>>’'
+      return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’'
     }
   },
   'Hubert': {
