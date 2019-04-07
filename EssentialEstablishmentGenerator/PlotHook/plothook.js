@@ -303,7 +303,7 @@ setup.plothooks = {
     }
   },
   'The Thieves Fun': {
-    probability: 10,
+    probability: 100000,
     type: ['event'],
     questGiver: {
       object: 'faction',
@@ -313,8 +313,8 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var faction = setup.factionsForType(town, 'type', 'wizards')
-      return 'PCs are marked by a guild of thieves, <<link ' + JSON.stringify(faction) + '>><<set $selected to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>>, for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.'
+      var faction = setup.factionsForType(town, 'type', 'thieves')
+      return 'PCs are marked by a ' + setup.profile(faction, 'guild of thieves', 'town.factions') + ', for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.'
     }
   },
   'The Spoiled Kid': {
@@ -645,9 +645,13 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
-      return '<<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).'
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
+      console.log("Taverns:")
+      console.log(building)
+
+      // return 'test<<run console.log($town.buildings.tavern)>> ' + 'test2 <<run console.log(`$town.buildings.tavern[' + JSON.stringify(building.key) + ']`)>> ' +
+      return setup.profile(building, '', 'town.buildings.tavern') + ' is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).'
+      // '<<profile `$town.buildings.tavern[' + JSON.stringify(building.key) + ']`' + '>>
     }
   },
   'Armed Escort Needed': {
@@ -874,9 +878,8 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
-      return 'Needed bartender. Looking to employ a bartender for my inn, <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + '. Must be able to listen to political rants on the slower days. NO GOBLINS'
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
+      return 'Needed bartender. Looking to employ a bartender for my inn, ' + setup.profile(building, '', 'town.buildings.tavern') + '. Must be able to listen to political rants on the slower days. NO GOBLINS'
     }
   },
   'Weird Well Water': {
@@ -1035,14 +1038,13 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
         profession: 'entertainer'
       })
-      return 'A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -' + setup.profile(npc)
+      return 'A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ' + setup.profile(building, '', 'town.buildings.tavern') + ' tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -' + setup.profile(npc)
     }
   },
   'Strange Doll': {
@@ -1080,14 +1082,13 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
       })
       // #
-      return 'WHO AM I?: ' + setup.profile(npc, 'I') + ' woke up in a gutter this morning outside of ' + tavern.name + '' + '. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.'
+      return 'WHO AM I?: ' + setup.profile(npc, 'I') + ' woke up in a gutter this morning outside of ' + setup.profile(building, '', 'town.buildings.tavern') + '. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.'
     }
   },
   'Bouncers Needed': {
@@ -1097,10 +1098,9 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
       // #
-      return '' + tavern.name + '' + ' needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!'
+      return setup.profile(building, '', 'town.buildings.tavern') + ' needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!'
     }
   },
   'Bard for Hire': {
@@ -1425,15 +1425,14 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         note: 'For whatever reason, loves being abused.'
       })
       // #
-      return 'NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ' + setup.profile(npc, 'me') + '. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ' + tavern.name + '' + ' in order to discuss terms.'
+      return 'NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ' + setup.profile(npc, 'me') + '. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ' + setup.profile(building, '', 'town.buildings.tavern') + ' in order to discuss terms.'
     }
   },
   'Pirates Lost Stuff': {
@@ -1476,15 +1475,14 @@ setup.plothooks = {
       return true
     },
     function: function (town) {
-      var tavernIndex = random(0, town.buildings.tavern.length)
-      var tavern = town.buildings.tavern[tavernIndex]
+      var building = setup.objectArrayFetcher(town.buildings.tavern)
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
       // #
       // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $tavern to ' + tavern + '>><<goto "TavernOutput">><</link>>
-      return 'Fence need painted. Good pay. Contact ' + setup.profile(npc) + ' at ' + tavern.name + '. Twist, the fence is 10 feet tall and almost a mile long.'
+      return 'Fence need painted. Good pay. Contact ' + setup.profile(npc) + ' at ' + setup.profile(building, '', 'town.buildings.tavern') + '. Twist is, the fence is 10 feet tall and almost a mile long.'
     }
   },
   'Teddy Wanted': {
