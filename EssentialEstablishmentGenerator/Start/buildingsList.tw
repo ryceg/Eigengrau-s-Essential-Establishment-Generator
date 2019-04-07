@@ -1,8 +1,8 @@
 :: BuildingsList
-<<for _key, _townBuildings range $town.buildings>>
-<<for _index, _building range _townBuildings>><<capture _key, _index, _building>>
+<<for _buildingType, _townBuildings range $town.buildings>>
+<<for _key, _building range _townBuildings>><<capture _buildingType, _key, _building>>
   <<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
-  \<<print either("On ", "Along ", "Over on ")>> _building.road is <<if _building.needsWordNoun !== false>>the _building.wordNoun <</if>><span @id="_building.tooltip" class="tip"><<link "_building.name">><<set $selected to {key: _key, index: _index, building: _building}>><<set $currentPassage to _building>>
+  \<<print either("On ", "Along ", "Over on ")>> _building.road is <<if _building.needsWordNoun !== false>>the _building.wordNoun <</if>><span @id="_building.tooltip" class="tip"><<link "_building.name">><<set $selected to {BuildingType: _buildingType, key: _key, building: _building}>><<set $currentPassage to _building>>
       \<<if settings.showSliders>>
           \<<goto _building.initPassage>>
         \<<else>>

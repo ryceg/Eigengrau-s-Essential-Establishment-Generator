@@ -1,5 +1,5 @@
 :: FactionProfile
-<<set $currentFaction to $town.factions[$selected.key]>><h1>$currentFaction.name</h1>$currentFaction.name is a $currentFaction.type $currentFaction.factionNoun. It's $currentFaction.age, and the $currentFaction.size faction has a $currentFaction.reputation reputation, and is motivated by $currentFaction.motivation. They are $currentFaction.misc.
+<<set $currentFaction to $town.factions[$selected.key]>><h1>$currentFaction.name</h1>$currentFaction.name is a $currentFaction.type $currentFaction.wordNoun. It's $currentFaction.age, and the $currentFaction.size faction has a $currentFaction.reputation reputation, and is motivated by $currentFaction.motivation. They are $currentFaction.misc.
 <<set _leader to $currentFaction.leader>>
 <h3>Governance</h3>It's ruled by <<nobr>>
 <<switch $currentFaction.leadershipType>>
