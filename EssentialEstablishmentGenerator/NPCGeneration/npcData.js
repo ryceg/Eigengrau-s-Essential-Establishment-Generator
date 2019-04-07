@@ -180,23 +180,24 @@ setup.npcData = {
             isShallow: true,
             relationships: {
               [npc.key]: npc.parentNoun,
-              [npc.partnerID.key]: State.variables.npcs[npc.partnerID].parentNoun
+              [npc.partnerID]: State.variables.npcs[npc.partnerID].parentNoun
             }
           })
           setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
-          setup.createRelationship(town, State.variables.npcs[npc.partnerID], child, child.childNoun, State.variables.npcs[npc.partnerID].parentNoun)
+          setup.createRelationship(town, npc.partnerID, child, child.childNoun, State.variables.npcs[npc.partnerID].parentNoun)
           return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
           if (npc.gender === 'man') {
-            npc.partnerID = setup.createNPC(town, {
+            var partner = setup.createNPC(town, {
               gender: 'woman',
               lastName: npc.lastName,
               isShallow: true,
               partnerID: npc.key
             })
-            setup.createRelationship(town, npc, npc.partnerID, 'wife', 'husband')
+            setup.setAsPartners(npc, partner)
+            setup.createRelationship(town, npc, partner, 'wife', 'husband')
           } else {
             npc.partnerID = setup.createNPC(town, {
               gender: 'man',
@@ -204,7 +205,8 @@ setup.npcData = {
               isShallow: true,
               partnerID: npc.key
             })
-            setup.createRelationship(town, npc, npc.partnerID, 'husband', 'wife')
+            setup.setAsPartners(npc, partner)
+            setup.createRelationship(town, npc, partner, 'husband', 'wife')
           }
           return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
         }
