@@ -18,7 +18,8 @@ setup.createBuilding = function (town, type) {
   var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   var building = {
     // index: State.variables.buildings.length - 1,
-    index: Math.floor(Math.random() * 0x10000),
+    // index: Math.floor(Math.random() * 0x10000),
+    key: Math.floor(Math.random() * 0x10000).toString(16),
     roadName: roadName,
     roadType: roadType,
     get road () {
