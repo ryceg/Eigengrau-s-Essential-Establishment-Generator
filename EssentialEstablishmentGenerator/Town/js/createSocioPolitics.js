@@ -141,19 +141,22 @@ setup.createSocioPolitics = function (town) {
       console.log('No faction that matches ' + setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType + '. Creating random faction instead...')
       town.factions['leader'] = setup.createFaction(town, {
         leadershipType: 'individual',
-        isPoliticalPower: true
+        isPoliticalPower: true,
+        key: 'leader'
       })
     } else {
       town.factions['leader'] = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
-        type: setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType
+        type: setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType,
+        key: 'leader'
       })
     }
     console.log('Town factions:')
     console.log(town.factions)
     town.leader = town.factions['leader'].leader
-    town.leaderType = '<<link ' + JSON.stringify(town.factions['leader'].name) + '>><<set $selected to {key: ' + JSON.stringify(town.factions['leader'].key) + '}>><<goto "FactionProfile">><</link>>'
+    town.leaderType = '<<profile $town.factions["leader"]>>'
+    // town.leaderType = '<<link ' + JSON.stringify(town.factions['leader'].name) + '>><<set $selected to {key: ' + JSON.stringify(town.factions['leader'].key) + '}>><<goto "FactionProfile">><</link>>'
     console.log('Town factions:')
     console.log(town.factions)
   } else if (setup.townData.politicalIdeology[town.politicalIdeology].data.isFaction === false && town.factions['leader']) {
