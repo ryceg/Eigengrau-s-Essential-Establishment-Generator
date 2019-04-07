@@ -140,7 +140,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'feudalistic',
         'economicIdeologyIST': 'feudalist',
-        'economicIdeologyDescription': "The people of _town.name work the land in exchange for working their lord's lands.",
+        'economicIdeologyDescription': "The people of $town.name work the land in exchange for working their lord's lands.",
         'tippy': "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands."
       }
     },
@@ -154,7 +154,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'capitalistic',
         'economicIdeologyIST': 'capitalist',
-        'economicIdeologyDescription': 'The people of _town.name work in exchange for payment from their employers, which they use to buy the necessities.',
+        'economicIdeologyDescription': 'The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.',
         'tippy': 'Trade and industry are controlled by private owners for profit, rather than the state.'
       }
     },
@@ -168,7 +168,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'syndicalistic',
         'economicIdeologyIST': 'syndicalist',
-        'economicIdeologyDescription': 'The people of _town.name own the lands they work on collectively, and together benefit from its prosperity.',
+        'economicIdeologyDescription': 'The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.',
         'tippy': 'The workers own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
@@ -182,7 +182,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'communistic',
         'economicIdeologyIST': 'communist',
-        'economicIdeologyDescription': 'The people of _town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
+        'economicIdeologyDescription': 'The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
         'tippy': 'People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
@@ -196,7 +196,7 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'primitivistic',
         'economicIdeologyIST': 'primitivist',
-        'economicIdeologyDescription': "The people of _town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
+        'economicIdeologyDescription': "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
         'tippy': 'There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.'
       }
     }
@@ -231,7 +231,7 @@ setup.townData = {
     },
     'anarchy': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+      'politicalSourceDescription': 'None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
       'description': 'No formal political system exists.'
     }
   },
