@@ -8,7 +8,7 @@ setup.factionData = {
         'profession': 'artisan',
         'background': 'guild artisan'
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles'],
       'rivalsList': ['nobles', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
@@ -30,7 +30,7 @@ setup.factionData = {
         'profession': 'thief',
         'background': ['charlatan', 'soldier', 'criminal'].random()
       },
-      'factionNoun': 'company',
+      'wordNoun': 'company',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group'],
       'alliesList': ['thieves', 'thieves', 'thieves', 'urchins', 'urchins', 'urchins', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['scholars', 'scholars', 'mercenaries', 'mercenaries', 'mercenaries'],
@@ -52,7 +52,7 @@ setup.factionData = {
         'profession': 'soldier',
         'background': ['soldier', 'charlatan', 'criminal'].random()
       },
-      'factionNoun': 'gang',
+      'wordNoun': 'gang',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'urchins', 'urchins'],
       'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries'],
@@ -74,7 +74,7 @@ setup.factionData = {
         'profession': 'musician',
         'background': 'entertainer'
       },
-      'factionNoun': 'college',
+      'wordNoun': 'college',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing a masterpiece', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'urchins', 'urchins', 'nobles', 'nobles', 'nobles'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'bandits'],
@@ -95,7 +95,7 @@ setup.factionData = {
         'profession': 'craftsman',
         'background': 'guild artisan'
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'seers', 'commoners', 'commoners', 'commoners'],
       'rivalsList': ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
@@ -117,7 +117,7 @@ setup.factionData = {
         'profession': 'soldier',
         'background': 'soldier'
       },
-      'factionNoun': 'company',
+      'wordNoun': 'company',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
@@ -138,7 +138,7 @@ setup.factionData = {
         'profession': 'merchant',
         'background': ['merchant', 'charlatan', 'noble'].random()
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
       'rivalsList': ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
@@ -160,7 +160,7 @@ setup.factionData = {
         'profession': 'Commander',
         'background': ['soldier', 'soldier', 'noble'].random()
       },
-      'factionNoun': 'army',
+      'wordNoun': 'army',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
@@ -182,7 +182,7 @@ setup.factionData = {
         'profession': 'monk',
         'background': ['acolyte', 'sage'].random()
       },
-      'factionNoun': 'group',
+      'wordNoun': 'group',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'priests', 'priests', 'artisans', 'artisans'],
       'rivalsList': ['artisans', 'priests', 'priests', 'bandits', 'bandits', 'bandits'],
@@ -203,7 +203,7 @@ setup.factionData = {
         'profession': 'nobleman',
         'background': 'noble'
       },
-      'factionNoun': 'society',
+      'wordNoun': 'society',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['hitmen', 'hitmen', 'hitmen', 'hitmen', 'seers', 'seers', 'seers'],
       'rivalsList': ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
@@ -225,7 +225,7 @@ setup.factionData = {
         'profession': 'priest',
         'background': ['acolyte', 'sage'].random()
       },
-      'factionNoun': 'college',
+      'wordNoun': 'college',
       'leaderQualification': ['the wealthiest of the group', 'the holiest of the group', 'the holiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['nobles', 'nobles', 'nobles', 'artisans', 'artisans'],
       'rivalsList': ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
@@ -247,7 +247,7 @@ setup.factionData = {
         'profession': 'trapper',
         'background': ['outlander', 'hermit'].random()
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'nobles', 'nobles', 'seers', 'seers'],
       'rivalsList': ['bandits', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries'],
@@ -268,7 +268,7 @@ setup.factionData = {
         'profession': 'professor',
         'background': ['sage', 'acolyte'].random()
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'priests', 'nobles', 'nobles', 'artisans', 'artisans', 'seers'],
       'rivalsList': ['seers', 'priests', 'priests', 'priests', 'commoners', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
@@ -289,7 +289,7 @@ setup.factionData = {
         'profession': 'seer',
         'background': ['acolyte', 'sage'].random()
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'priests', 'priests', 'nobles', 'nobles', 'nobles', 'nobles'],
       'rivalsList': ['scholars', 'scholars', 'scholars', 'scholars'],
@@ -311,7 +311,7 @@ setup.factionData = {
         'profession': 'thief',
         'background': ['charlatan', 'criminal'].random()
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the most skilled of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['thieves', 'thieves', 'thieves', 'urchins', 'hitmen', 'hitmen', 'urchins', 'urchins', 'assassins', 'assassins', 'bandits', 'bandits', 'bandits'],
       'rivalsList': ['priests', 'priests', 'priests', 'commoners', 'commoners', 'commoners', 'commoners'],
@@ -333,7 +333,7 @@ setup.factionData = {
         'profession': 'magic user',
         'background': ['acolyte', 'sage'].random()
       },
-      'factionNoun': 'college',
+      'wordNoun': 'college',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['nobles', 'nobles', 'artisans', 'artisans', 'seers'],
       'rivalsList': ['seers', 'priests', 'priests', 'priests', 'priests', 'assassins', 'assassins'],
@@ -353,7 +353,7 @@ setup.factionData = {
         'profession': 'merchant',
         'background': 'merchant'
       },
-      'factionNoun': 'guild',
+      'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
       'alliesList': ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
       'rivalsList': ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
