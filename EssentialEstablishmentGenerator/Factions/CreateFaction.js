@@ -45,7 +45,8 @@ setup.createFaction = function (town, opts) {
   setup.createRivals(faction)
   console.log('other cool bits...')
   setup.createMisc(faction)
-  faction.key = faction.name + randomFloat(1, 100)
+
+  faction.tippyDescription = 'A ' + faction.size + ' ' + faction.type + ' ' + faction.wordNoun + ' called ' + faction.name
 
   // if (faction.isThrowaway === undefined) {
   //   console.log('and finally assigning to the faction roster.')
