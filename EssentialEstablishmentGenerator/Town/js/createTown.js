@@ -34,15 +34,15 @@ setup.createTown = function (base) {
     factions: {
     },
     buildings: {
-      'townSquare': [],
-      'tavern': [],
-      'smithy': [],
-      'alchemist': [],
-      'market': [],
-      'GeneralStore': [],
-      'temple': [],
-      // 'brothel': [],
-      'docks': []
+      // 'townSquare': [],
+      // 'tavern': [],
+      // 'smithy': [],
+      // 'alchemist': [],
+      // 'market': [],
+      // 'GeneralStore': [],
+      // 'temple': [],
+      // // 'brothel': [],
+      // 'docks': []
     },
     population: setup.townData.type[type].population(),
     _demographic: {},
