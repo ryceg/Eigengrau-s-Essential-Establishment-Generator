@@ -1,16 +1,17 @@
 /* global setup */
 setup.createStartBuildings = function (town) {
-  var building = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
+  var buildingType = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
 
   if (town.hasBrothel) {
-    building.push('brothel')
+    buildingType.push('brothel')
   }
 
-  building.forEach(function (building) {
-    if (!town.buildings[building]) {
-      town.buildings[building] = []
+  buildingType.forEach(function (type) {
+    if (!town.buildings[type]) {
+      town.buildings[type] = {}
     }
-    town.buildings[building].push(setup['create' + building.toUpperFirst()](town))
+    var building = setup['create' + type.toUpperFirst()](town)
+    town.buildings[type][building.key] = building
   })
   return town
 }
