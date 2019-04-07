@@ -26,9 +26,13 @@ setup.createNPC = function (town, base) {
   console.groupCollapsed(firstName + ' ' + lastName)
   var ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
   var dndClass = base.dndClass || data.dndClass.random()
+  if (base.dndClass) {
+    base.hasClass = true
+  }
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   var npc = Object.assign({
+    passageName: 'NPCProfile',
     _gender: gender,
     _race: race,
     firstName: firstName,
@@ -128,6 +132,7 @@ setup.createNPC = function (town, base) {
       npc.dndClass = npc.profession
     } else {
       npc.adventure = data.adventure.random()
+      npc.hasClass = true
     }
   } else if (!npc.hasClass) {
     npc.dndClass = npc.profession
@@ -135,10 +140,11 @@ setup.createNPC = function (town, base) {
     npc.adventure = data.adventure.random()
   }
 
-  if (dice(2, 50) >= 75) {
-    npc.vocalPattern = npc.vocalPattern || data.vocalPattern.random()
+  if (!npc.vocalPattern) {
+    if (dice(2, 50) >= 75) {
+      npc.vocalPattern = data.vocalPattern.random()
+    }
   }
-
   // setup.createName(npc)
   // console.log(npc)
   setup.createAge(npc)
@@ -153,8 +159,6 @@ setup.createNPC = function (town, base) {
   } else if (physicalTraitRoll <= 6) {
     npc.physicalTrait = npc.physicalTrait || npc.hair
   }
-
-
 
   setup.createClass(npc)
 
