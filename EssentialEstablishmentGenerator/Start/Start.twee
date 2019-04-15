@@ -10,8 +10,7 @@
 <<option "Tavern" "tavern">><<option "Alchemist" "alchemist">><<option "General Store" "GeneralStore">><<option "Blacksmith" "smithy">><<option "Market" "market">><<option "Temple" "temple">><<option "Brothel" "brothel">><<option "Docks" "docks">>
 <</listbox>> -- <<button "Create new building">>
   <<run console.log('Creating a new ' + $newBuilding)>>
-  <<run $town.buildings[$newBuilding].push(setup['create' + $newBuilding.toUpperFirst()]($town))>>
-  <<run console.log($town)>>
+  <<run setup.createNewBuilding($town, $newBuilding)>>
   <<replace "#buildings">><<include "BuildingsList">><</replace>>
 <</button>>
 <span id="buildings"><<include "BuildingsList">></span>
