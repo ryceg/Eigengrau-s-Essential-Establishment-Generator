@@ -2,22 +2,22 @@
 setup.docks = {
   rollData: {
     cleanliness: [
-      [80, 'spotless, save for a couple splashes of sea water'],
-      [70, 'quite tidy, if you can stand the smell'],
-      [50, 'reasonably clean, with the occasional rope laying about posing a tripping hazard'],
-      [40, 'crusted with sea water. Although the crew has worked hard, it is still quite dirty from its most recent voyage'],
-      [30, 'marred with seaweed and a slippery mess. It smells disgusting, too'],
-      [20, 'disgusting. All types of moulds, algae, and other unspeakably slimy things are on display here.']
+      [80, 'quite clean', 'spotless, save for a couple splashes of sea water'],
+      [70, 'safe, if smelly', 'quite tidy, if you can stand the smell'],
+      [50, 'relatively tidy', 'reasonably clean, with the occasional rope laying about posing a tripping hazard'],
+      [40, 'crusty and dirty', 'crusted with sea water. Although the crew has worked hard, it is still quite dirty from its most recent voyage'],
+      [30, 'seaweed infested', 'marred with seaweed and a slippery mess. It smells disgusting, too'],
+      [20, 'disgustingly slimy', 'disgusting. All types of moulds, algae, and other unspeakably slimy things are on display here.']
     ],
     size: [
-      [90, 'huge; it sprawls across the body of water, as far as the eye can see'],
-      [80, 'large. It has the space and equipment to acoomodate a fleet of ships'],
-      [60, 'big, with space to accomodate several galleons'],
-      [50, 'average sized, with room enough for a fair few ships'],
-      [40, 'on the small size; it is geared towards fishing vessels, but has the capacity for larger ships if needed'],
-      [30, 'small, and clearly geared towards smaller vessels such as fishing ships. You could probably fit a large ship in, if you were lucky'],
-      [20, 'quite small, with room for fishing ships and little else'],
-      [10, 'tiny; barely more than a glorified jetty']
+      [90, 'large and sprawling', 'huge; it sprawls across the body of water, as far as the eye can see'],
+      [80, 'large', 'large. It has the space and equipment to acoomodate a fleet of ships'],
+      [60, 'big', 'big, with space to accomodate several galleons'],
+      [50, 'accomodating', 'average sized, with room enough for a fair few ships'],
+      [40, 'geared towards smaller vessels', 'on the small size; it is geared towards fishing vessels, but has the capacity for larger ships if needed'],
+      [30, 'small', 'small, and clearly geared towards smaller vessels such as fishing ships. You could probably fit a large ship in, if you were lucky'],
+      [20, 'pretty small', 'quite small, with room for fishing ships and little else'],
+      [10, 'glorified jetty', 'tiny; barely more than a glorified jetty']
     ],
     activity: [
       [90, 'absolutely packed; the din of everyone shouting to one another to ' + ['fetch another barrel', 'haul in the fish off the boat', 'get off their asses and shift this pile of rope'].random() + ' and other such things makes the place feel alive'],
