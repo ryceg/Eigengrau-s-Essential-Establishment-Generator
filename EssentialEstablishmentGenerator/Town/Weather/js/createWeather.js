@@ -1,5 +1,6 @@
 /* global setup random */
-setup.createWeather = function (town, biome, weather, time) {
+setup.createWeather = function (town, biome, weather, season, time) {
+  console.groupCollapsed('Creating weather...')
   if (biome) {
     switch (biome) {
       case 'desert':
@@ -13,10 +14,12 @@ setup.createWeather = function (town, biome, weather, time) {
     }
   }
   biome = biome || town.terrain
+  time = time || 8
+  season = season || season
   console.log('biome: ' + biome)
   if (weather) {
     console.log('Weather was already defined.')
-    if (time) {
+    if (weather.timer) {
       console.log('Counting down timers!')
       weather.timer.precipitation -= time
       weather.timer.temperature -= time
@@ -24,8 +27,9 @@ setup.createWeather = function (town, biome, weather, time) {
     }
   } else {
     weather = {
-      temperature: setup.townData.terrain[biome].weather[town.currentSeason].baseTemp || setup.townData.terrain['temperate'].weather['summer'].baseTemp,
-      tempVariation: random(1, 100),
+      temperature: setup.townData.terrain[biome].weather[season].baseTemp || setup.townData.terrain['temperate'].weather['summer'].baseTemp,
+      tempVariation: dice(2, 50),
+      season: season,
       timer: {
         precipitation: 0,
         cloud: 0,
@@ -41,8 +45,8 @@ setup.createWeather = function (town, biome, weather, time) {
         cloud: '',
         temperature: ''
       },
-      precipitationLevel: setup.townData.terrain[biome].weather[town.currentSeason].precipitationLevel,
-      precipitationIntensity: setup.townData.terrain[biome].weather[town.currentSeason].precipitationIntensity
+      precipitationLevel: setup.townData.terrain[biome].weather[season].precipitationLevel,
+      precipitationIntensity: setup.townData.terrain[biome].weather[season].precipitationIntensity
     }
   }
   // console.log('weather:')
@@ -53,5 +57,6 @@ setup.createWeather = function (town, biome, weather, time) {
   setup.renderWeather(town, biome, weather)
   // console.log('weather after render:')
   // console.log(weather)
+  console.groupEnd()
   return weather
 }

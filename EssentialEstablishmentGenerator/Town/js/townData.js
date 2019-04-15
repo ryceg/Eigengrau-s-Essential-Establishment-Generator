@@ -775,7 +775,7 @@ setup.townData = {
             temperatureTimer: random(24, 96)
           },
           0: {
-            temperature: 0 - dice(3, 10),
+            temperature: random(-1, -24),
             temperatureTimer: random(24, 48)
           }
         },
