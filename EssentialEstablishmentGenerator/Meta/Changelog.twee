@@ -1,5 +1,5 @@
 :: Changelog
-<blockquote><<run setup.tippy(".btn")>><<link "<h4>v.2.0</h4>">><<toggleclass "#changelog" "changelog">><</link>>
+<blockquote><<run setup.tippy(".btn")>>
 <h4>v.2.1</h4>-<span class="tip" title="Thanks to /u/WishingOnAWendy for this!">Removed the annoying hyperlink symbol for the Patreon & Ko-Fi links</span>
 -<span class="tip" title="Will be expanded upon in future!">Added town squares.</span>
 -<span class="tip" title="Now with extra fishy smell!">Added docks.</span>
@@ -14,4 +14,4 @@
 -<span class="tip" title="Although I'm quite sure that it would be entertaining to roleplay, I don't think we need a whole town's worth of them.">Fixed editing NPCs defaulting to male acolyte barbarians.</span>
 
 [[Full changelog|ChangelogFull]]
-</span></blockquote>
+</blockquote>
