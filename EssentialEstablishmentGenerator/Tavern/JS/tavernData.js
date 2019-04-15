@@ -703,7 +703,7 @@ setup.tavern = {
     },
     'suitor': function (town) {
       var npc = setup.createNPC(town, {background: 'noble', profession: 'noble', hasClass: false, gender: 'woman'})
-      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` handsome young woman>> is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.'
+      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` "handsome young woman">> is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.'
     },
     'stag': function (town) {
       var npc = setup.createNPC(town, {background: 'commoner', profession: 'farmer', gender: 'man'})
