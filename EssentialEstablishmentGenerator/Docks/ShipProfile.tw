@@ -14,5 +14,5 @@
   \<<print _feet + " feet">>\
   \<</if>>. It is a <<if $currentShip.purpose.length === 1>>$currentShip.purpose[0] ship
     \<<elseif $currentShip.purpose.length === 2>>$currentShip.purpose[0] and $currentShip.purpose[1] ship
-    \<<elseif $currentShip.purpose.length > 2>><<for _purpose range $currentShip.purpose.slice(0, -1)>>_purpose, <</for>> and <<print $currentShip.purpose[$currentShip.purpose.length -1]>>
+    \<<elseif $currentShip.purpose.length > 2>><<for _purpose range $currentShip.purpose.slice(0, -1)>>_purpose, <</for>> and <<print $currentShip.purpose[$currentShip.purpose.length -1]>> ship
     \<</if>>.
