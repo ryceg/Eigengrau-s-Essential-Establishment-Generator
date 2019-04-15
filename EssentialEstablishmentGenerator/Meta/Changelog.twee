@@ -1,17 +1,17 @@
 :: Changelog
-<blockquote><<run setup.tippy(".btn")>><<link "<h4>v.2.0</h4>">><<toggleclass "#changelog" "changelog">><</link>><span class="changelog" id="changelog">- <span class="tip" title="This should make it much more contributor-friendly.">Total rewrite of code.</span>
-- <span class="tip" title="No more renaming the bartender on the fly because he had a weird name that sounded vaguely phallic!">Added support for editing NPCs.</span>
-- <span class="tip" title="I've opted to only generate one of each type of building (even if it's a huge city) to avoid bogging down the user with unnecessary clutter.">Added support for multiple buildings.</span>
-- <span class="tip" title="No more weird menage-a-trois. Not that there's anything wrong with them- I'll implement poly & LGBTQI relationships soon!">Fixed relationships.</span>
-- <span class="tip" title="Woo! Lose your money! Get married! I dunno.">Added tavern carousing.</span>
-- <span class="tip" title="This feeds into the NPC creation process, so the racial makeup of the town makes things more and less likely.">Added racial demographics.</span>
-- <span class="tip" title="This also into the NPC creation process, so professions are no longer a lucky dip.">Improved the profession demographic.</span>
-- <span class="tip" title="Woo! Lose your money! Get married! I dunno.">Added harlots to the brothels.</span>
-- <span class="tip" title="Also added the ability to delete them. Beware, no stability is promised if you delete a building's NPC.">Added list of current NPCs for reference.</span>
-- <span class="tip" title="The meat and potatoes of this came from many of /u/OrkishBlade's wonderful tables over at /r/behindTheTables. Thanks!">Added a scenario generator, complete with NPCs and descriptive text.</span>
-- <span class="tip" title="Thunderbolts and lightning, very very frightening!">Added weather generation.</span>
-- <span class="tip" title="Instead of just 'the sea captain', it's now a genuine NPC like others.">Added depth to tavern patrons.</span>
-
+<blockquote><<run setup.tippy(".btn")>><<link "<h4>v.2.0</h4>">><<toggleclass "#changelog" "changelog">><</link>>
+<h4>v.2.1</h4>-<span class="tip" title="Thanks to /u/WishingOnAWendy for this!">Removed the annoying hyperlink symbol for the Patreon & Ko-Fi links</span>
+-<span class="tip" title="Will be expanded upon in future!">Added town squares.</span>
+-<span class="tip" title="Now with extra fishy smell!">Added docks.</span>
+-<span class="tip" title="Over a hundred whacky events.">Added town plot hooks.</span>
+-<span class="tip" title="Also over a hundred whacky events!">Added poster-based plothooks.</span>
+-<span class="tip" title="Hopefully.">Fixed weather playing up, and added an option to omit weather.</span>
+-<span class="tip" title="This will mean that it becomes a lot easier for contributors to write their own code.">Huge behind the scenes overhaul of how things are linked to, simplifying a lot of things.</span>
+-<span class="tip" title="This is still very much in its infancy, and will be expanded upon later.">Created a relationship chart! Now, when people talk of their friend that they met while travelling, you can *meet* that friend!</span>
+-<span class="tip" title="Hopefully.">Bug fixes for town leadership.</span>
+-<span class="tip" title="This will be expanded upon to make more convincing sounding titles.">Blacksmiths that reference sisters or sons etc will now actually have those sisters or sons.</span>
+-<span class="tip" title="Oops.">Properly clamped establishments so they won't have rolls out of bounds.</span>
+-<span class="tip" title="Although I'm quite sure that it would be entertaining to roleplay, I don't think we need a whole town's worth of them.">Fixed editing NPCs defaulting to male acolyte barbarians.</span>
 
 [[Full changelog|ChangelogFull]]
 </span></blockquote>
