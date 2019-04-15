@@ -173,6 +173,7 @@ setup.npcData = {
         console.log('called lifeEvents.meetPartnerNPC function')
         if (npc.partnerID !== undefined) {
           console.log('Making a baby!')
+          var partner = State.variables.npcs[npc.partnerID]
           var child = setup.createNPC(town, {
             ageStage: 'child',
             race: npc.race,
@@ -180,17 +181,17 @@ setup.npcData = {
             isShallow: true,
             relationships: {
               [npc.key]: npc.parentNoun,
-              [npc.partnerID]: State.variables.npcs[npc.partnerID].parentNoun
+              [npc.partnerID]: partner.parentNoun
             }
           })
           setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
-          setup.createRelationship(town, npc.partnerID, child, child.childNoun, State.variables.npcs[npc.partnerID].parentNoun)
+          setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
           return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
           if (npc.gender === 'man') {
-            var partner = setup.createNPC(town, {
+            partner = setup.createNPC(town, {
               gender: 'woman',
               lastName: npc.lastName,
               isShallow: true,
@@ -199,7 +200,7 @@ setup.npcData = {
             setup.setAsPartners(npc, partner)
             setup.createRelationship(town, npc, partner, 'wife', 'husband')
           } else {
-            npc.partnerID = setup.createNPC(town, {
+            partner = setup.createNPC(town, {
               gender: 'man',
               lastName: npc.lastName,
               isShallow: true,
