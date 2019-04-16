@@ -7,8 +7,6 @@ setup.renderWeather = function (town, biome, weather) {
   }
   weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
   weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
-  // weather.precipitationIntensity.clamp(1, 4)
-  // weather.precipitationLevel.clamp(1, 4)
   // console.log(weather)
   biome = biome || town.terrain
 

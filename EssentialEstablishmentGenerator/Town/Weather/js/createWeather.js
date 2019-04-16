@@ -15,7 +15,7 @@ setup.createWeather = function (town, biome, weather, season, time) {
   }
   biome = biome || town.terrain
   time = time || 8
-  season = season || season
+  season = season || 'spring'
   console.log('biome: ' + biome)
   if (weather) {
     console.log('Weather was already defined.')
