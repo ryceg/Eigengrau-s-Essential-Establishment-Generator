@@ -4,8 +4,10 @@
 <h3>The Tavern</h3>
 <<print setup.closestMatch(setup.tavern.get.description($tavern), 'note', 'size', 'wealth', $tavern.roll.size, $tavern.roll.wealth)>>
 <<print setup.closestMatch(setup.tavern.get.lookAround($tavern), 'note', 'population', 'roughness', $tavern.roll.population, $tavern.roll.roughness)>>
-
-<<print setup.tavern.get.patrons($town, $tavern)>>
+<div id="patron">
+<<if ndef $tavern.patron>><<set $tavern.patron to setup.tavern.get.patrons($town, $tavern)>><</if>>$tavern.patron
+<<include "TavernPatrons">>
+</div>
 <<include "RandomNPC">>
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.random()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<print setup.profile($bartender)>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">>
@@ -14,9 +16,7 @@
 <<include "TavernGames">>
 <<print either(setup.tavern.entertainment)>>
 
-<<link "Go on a bender">><<if def _newNPC>>
-\  <<run delete $npcs[_newNPC.key]>>
-\<</if>>
+<<link "Go on a bender">>
 \<<set $tavern.carousing to setup.tavern.get.carousing($town, $tavern)>><<replace "#carousing">>$tavern.carousing<</replace>><</link>>
 \<p><<if def $tavern.carousing>><span id="carousing">$tavern.carousing</span><<else>><span id="carousing"></span><</if>></p>
 <<include "Intrigue">>

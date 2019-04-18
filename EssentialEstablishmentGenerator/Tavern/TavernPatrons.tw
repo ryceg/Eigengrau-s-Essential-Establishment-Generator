@@ -1,0 +1,3 @@
+:: TavernPatrons
+<<link "Who else is here?">><<set $tavern.patron to setup.tavern.get.patrons($town, $tavern)>><<replace "#patron">><<include "TavernPatrons">>
+$tavern.patron<</replace>><</link>>
