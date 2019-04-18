@@ -1,8 +1,8 @@
 :: NPCProfileEdit
 <h1><<if def $npcs[$selected.key].title>>$npcs[$selected.key].title <</if>><<textbox "$npcs[$selected.key].name" $npcs[$selected.key].name>></h1>
-\<<set _age = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileAgeTooltip(_age, $npcs[$selected.key])>>
-\<<set _weight = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileWeightTooltip(_weight, $npcs[$selected.key])>>
-\<<set _height = Math.floor(Math.random() * 0x10000).toString(16)>><<run setup.profileHeightTooltip(_height, $npcs[$selected.key])>>
+\<<set _age = Math.floor(randomFloat(1).toString(16))>><<run setup.profileAgeTooltip(_age, $npcs[$selected.key])>>
+\<<set _weight = Math.floor(randomFloat(1).toString(16))>><<run setup.profileWeightTooltip(_weight, $npcs[$selected.key])>>
+\<<set _height = Math.floor(randomFloat(1).toString(16))>><<run setup.profileHeightTooltip(_height, $npcs[$selected.key])>>
 <<silently>>
     <<set _class to '<<listbox "$npcs[$selected.key].dndClass" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.classTraits)>>

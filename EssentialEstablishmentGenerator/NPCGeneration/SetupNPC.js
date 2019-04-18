@@ -18,7 +18,7 @@ setup.createNPC = function (town, base) {
   }
   var gender = base.gender || ['man', 'woman'].random()
   var race = base.race || setup.fetchRace(town)
-  // console.log('Loading profession:')
+  console.log('Loading profession:')
   var profession = base.profession || setup.fetchProfessionChance(town)
 
   var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
@@ -91,7 +91,7 @@ setup.createNPC = function (town, base) {
     trait: data.trait.random(),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
-    id: Math.floor(Math.random() * 0x10000),
+    // id: Math.floor(randomFloat(1) * 0x10000),
     idle: data.idle,
     get gender () {
       return this._gender
@@ -122,22 +122,22 @@ setup.createNPC = function (town, base) {
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
   npc.key = npc.firstName + ' ' + npc.lastName
-  // Object.assign(npc, data.gender[npc.gender])
-  // Object.assign(npc, data.raceTraits[npc.race].raceWords)
-  // npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
+  Object.assign(npc, data.gender[npc.gender])
+  Object.assign(npc, data.raceTraits[npc.race].raceWords)
+  npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
   if (npc.hasClass === undefined) {
     if (random(100) > 70) {
       npc.hasClass = false
       npc.dndClass = npc.profession
     } else {
-      npc.adventure = data.adventure.random()
+      npc.adventure = data.adventure.random() || 'looking for work'
       npc.hasClass = true
     }
   } else if (!npc.hasClass) {
     npc.dndClass = npc.profession
   } else if (npc.hasClass) {
-    npc.adventure = data.adventure.random()
+    npc.adventure = data.adventure.random() || 'looking for work'
   }
 
   if (!npc.vocalPattern) {
@@ -151,7 +151,7 @@ setup.createNPC = function (town, base) {
 
   setup.createRace(npc)
 
-  var physicalTraitRoll = Math.floor(Math.random() * 10) + 1
+  var physicalTraitRoll = random(1, 11)
   if (physicalTraitRoll > 8) {
     npc.physicalTrait = npc.physicalTrait || data.scar.random()
   } else if (physicalTraitRoll > 6) {

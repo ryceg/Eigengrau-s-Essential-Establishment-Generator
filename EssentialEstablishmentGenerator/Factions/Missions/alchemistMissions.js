@@ -33,5 +33,5 @@ setup.alchemistMission = function (town) {
     }
   }
   var keys = Object.keys(missions)
-  return missions[keys[keys.length * Math.random() << 0]](town)
+  return missions[keys[random(0, keys.length)]](town)
 }

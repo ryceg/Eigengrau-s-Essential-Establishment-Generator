@@ -157,7 +157,7 @@ setup.tavern = {
   'get': {
     'patrons': function (town, tavern) {
       var key = Object.keys(setup.tavern.patrons)
-      return setup.tavern.patrons[key[key.length * Math.random() << 0]](town, tavern)
+      return setup.tavern.patrons[key[random(0, key.length)]](town, tavern)
     },
     'carousing': function (town, tavern) {
       var carousing = {
@@ -213,7 +213,7 @@ setup.tavern = {
         }
       }
       var keys = Object.keys(carousing)
-      return carousing[keys[keys.length * Math.random() << 0]](town, tavern)
+      return carousing[keys[random(0, keys.length)]](town, tavern)
     },
     'lookAround': function (tavern) {
       var bartender = tavern.bartender

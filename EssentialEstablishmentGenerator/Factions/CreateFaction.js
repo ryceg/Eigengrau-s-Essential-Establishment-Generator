@@ -6,7 +6,7 @@ setup.createFaction = function (town, opts) {
 
   var faction = (opts['newFaction'] || Object.assign({
     id: [State.variables.factions.length - 1],
-    key: Math.floor(Math.random() * 0x10000).toString(16),
+    key: randomFloat(1).toString(16),
     passageName: 'FactionProfile',
     associatedTown: town.name,
     type: type,

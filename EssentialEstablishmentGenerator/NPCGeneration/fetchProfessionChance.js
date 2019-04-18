@@ -19,7 +19,7 @@ setup.fetchProfessionChance = function (town) {
   sum.forEach(function (single) {
     totalWeight += single
   })
-  var random = Math.floor(Math.random() * totalWeight)
+  var random = Math.floor(randomFloat(1) * totalWeight)
   // console.log(random)
   for (var i = 0; i < sum.length; i++) {
     random -= sum[i]
