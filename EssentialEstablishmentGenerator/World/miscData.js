@@ -70,7 +70,16 @@ setup.misc = {
       'ancient. The pages crumble as they turn.',
       'strange. Some of the pages are blank?',
       'in good condition, but used. There are handwritten notes in the margins of the pages.',
-      'pristine. You can smell the ink drying.'
+      'pristine. You can smell the ink drying.',
+      "really wet for no discernable reason. It doesn't seem to be damaged at all though.",
+      'printed upside-down.',
+      'beautifully illuminated in gold leaf and vibrant paints.',
+      'glowing with a soft radiance.',
+      'warm to the touch. The text glows like the embers of a fire.',
+      'tattered and torn. Many pages are ripped and unreadable.',
+      'poorly made, and the handwriting is illegible in most places.',
+      'completely clean, as if it was magically preserved.',
+      'massive. Easily two feet wide and three feet tall, it weighs nearly 50 pounds'
     ],
     cover: [
       'missing. The pages are bound with string woven through holes near the spine.',
@@ -84,7 +93,12 @@ setup.misc = {
       'leather with the title branded on it.',
       'leather with gilding on the spine.',
       "torn off. It's kept together by a leather belt.",
-      'tree bark. Dried vine bind it.'
+      'tree bark. Dried vine bind it.',
+      'a thin metal foil; surprisingly strong and light.',
+      'dark metal embossed with swirling runes.',
+      'patchwork leather of multiple different creatures.',
+      'dragonscale with gold decorations.',
+      'wood and iron, with a large padlock holding the covers together.'
     ],
     detailedTitles: [
       {
@@ -338,6 +352,16 @@ setup.misc = {
         title: 'Travellers Musings',
         category: 'tales and legends',
         contents: 'Within is what seems to be a collection of short stories. To anyone that can read the thieves cant, the book is a guide on how to gain membership to the thieves guilds.'
+      },
+      {
+        title: 'Strange Creatures and How to Cook Them',
+        category: 'anatomy',
+        contents: 'This oddly warm book contains page upon page of recipes and descriptions of powerful and strange magical beasts. Both the monster descriptions and the recipes seem to be of dubious quality. Also is it dripping saliva? ARE THOSE TEETH!?'
+      },
+      {
+        title: 'Live Your Best Life',
+        category: 'history',
+        contents: 'This recruitment pamphlet is scribbled in reddish ink on folded reeds, and details the benefits of living in a nearby druidic society. There is an address for a recruitment officer, along with instructions on how to join the druids.'
       }
     ],
     titles: [
@@ -392,7 +416,12 @@ setup.misc = {
       'Asamokology: the Nature of What Is Fake',
       'Breaking the Cycle: the Written War Against the Gods - Vol. 146',
       'Losing Yourself To Be One: Mind Flayer and the Hive Mind',
-      'Stone Eyes: the Myth of Aqytorky'
+      'Stone Eyes: the Myth of Aqytorky',
+      'The Fire Within the Stone: A Divination Primer for Beginners',
+      'You Can Call Me Gary: The Autobiography of Lord Gygax',
+      'Two Runes and a Pentagram: Summoning Demons for Beginners',
+      "The King's Consort - Vol. 8",
+      'Back to Work Peasants! The Writings of The Bad King Quellix'
     ],
     pun: [
       'How to make Illusions and Charm People',
@@ -431,7 +460,24 @@ setup.misc = {
       'The Cockatrice in the Rye',
       'One Thousand and One Knights',
       'The Grapes of Wraith: Wining and Dining the Undead',
-      'The Adventures of Nancy Druid'
+      'The Adventures of Nancy Druid',
+      '1984 Orcs',
+      'Of Kobolds and Men',
+      'The Great Goliath',
+      'Animals Farm, Gardening Tips From a Friendly Druid',
+      "Little Women, A Female Halfling in a Human's World",
+      'Lord of the Gnolls',
+      'The Orc Man and the Sea',
+      'Moby-Dick, or, the Kraken',
+      "Hairy Kobold and the Sorcerer's Throne",
+      'Hairy Kobold and the Chamber of Regrets',
+      'Hairy Kobold and the Prisoner of Gundabad',
+      'Hairy Kobold and the Hobbit of Fire',
+      'Hairy Kobold and the Larder of the Phoenix',
+      'Hairy Kobold and the Half-Elf Prince',
+      'Hairy Kobold and the Deathly Horsemen',
+      'The Giving Treent',
+      'The Call of the Wildshape'
     ]
   },
   'caravan': {
