@@ -6,34 +6,34 @@ setup.townRender = function (town) {
 
   town.roll.guardFunding = 0
 
-  // if (town.population > 3000) {
-  //   town.type = 'city'
-  // } else if (town.population > 1000) {
-  //   town.type = 'town'
-  // } else if (town.population > 300) {
-  //   town.type = 'village'
-  // } else if (town.population > 30) {
-  //   town.type = 'hamlet'
-  // } else if (town.population <= 30) {
-  //   town.type = 'hamlet'
-  //   town.population = 30
-  // }
+  if (town.population > 3000) {
+    town.type = 'city'
+  } else if (town.population > 1000) {
+    town.type = 'town'
+  } else if (town.population > 300) {
+    town.type = 'village'
+  } else if (town.population > 30) {
+    town.type = 'hamlet'
+  } else if (town.population <= 30) {
+    town.type = 'hamlet'
+    town.population = 30
+  }
 
-  // if (town.roll.wealth > 95) {
-  //   town.wealth = 'kingly'
-  // } else if (town.roll.wealth > 90) {
-  //   town.wealth = 'aristocratic'
-  // } else if (town.roll.wealth > 80) {
-  //   town.wealth = 'wealthy'
-  // } else if (town.roll.wealth > 70) {
-  //   town.wealth = 'comfortable'
-  // } else if (town.roll.wealth > 30) {
-  //   town.wealth = 'modest'
-  // } else if (town.roll.wealth > 25) {
-  //   town.wealth = 'poor'
-  // } else if (town.roll.wealth <= 25) {
-  //   town.wealth = 'squalid'
-  // }
+  if (town.roll.wealth > 95) {
+    town.wealth = 'kingly'
+  } else if (town.roll.wealth > 90) {
+    town.wealth = 'aristocratic'
+  } else if (town.roll.wealth > 80) {
+    town.wealth = 'wealthy'
+  } else if (town.roll.wealth > 70) {
+    town.wealth = 'comfortable'
+  } else if (town.roll.wealth > 30) {
+    town.wealth = 'modest'
+  } else if (town.roll.wealth > 25) {
+    town.wealth = 'poor'
+  } else if (town.roll.wealth <= 25) {
+    town.wealth = 'squalid'
+  }
 
   if (town.roll.economics > 90) {
     town.economics = 'Trade in ' + town.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + town.type + ', and people live a ' + town.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + town.name + ' are high.'
