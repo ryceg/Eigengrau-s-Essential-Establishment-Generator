@@ -27,6 +27,7 @@ setup.createSmithy = function (town, opts) {
   })
 
   smithy.notableFeature = 'its ' + smithy.expertise + ' weapons and armour'
+  smithy.tippyDescription = 'A ' + (smithy.size || smithy._size) + ' ' + smithy.wordNoun + " that's " + (smithy.cleanliness || smithy._cleanliness) + ', and is known for ' + smithy.notableFeature + '.'
   console.log(smithy)
   console.groupEnd()
 
