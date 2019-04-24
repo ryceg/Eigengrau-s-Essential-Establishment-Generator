@@ -152,8 +152,8 @@ setup.plothooks = {
       type: 'smithy'
     },
     function: function (town) {
-      // var blacksmithPool = town.buildings.smithy
-      var smithy = setup.objectArrayFetcher(town.buildings.smithy)
+      var blacksmithPool = town.buildings.smithy
+      var smithy = setup.objectArrayFetcher(blacksmithPool)
       console.log(smithy)
       // var blacksmith = smithy.blacksmith
       var npc = setup.createNPC(town, {
