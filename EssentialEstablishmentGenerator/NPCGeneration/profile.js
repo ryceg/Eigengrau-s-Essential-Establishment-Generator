@@ -1,5 +1,9 @@
 setup.profile = function (obj, base, type) {
   // obj is the object. It is mandatory.
+  if (typeof obj === 'string') {
+    console.error('Profile function for ' + obj + ' called with a string.')
+    obj = State.variables.npcs[obj]
+  }
 
   // base is the user-facing text
   base = base || obj.name || obj.race
