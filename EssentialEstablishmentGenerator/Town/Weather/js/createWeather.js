@@ -1,6 +1,9 @@
 /* global setup random */
 setup.createWeather = function (town, biome, weather, season, time) {
   console.groupCollapsed('Creating weather...')
+  // this weather function is pretty complex. Basically, temperature, precipitation, and precipitation intensity are each independently tracked.
+
+  console.log({ biome, weather, season, time })
   if (biome) {
     switch (biome) {
       case 'desert':
@@ -15,9 +18,10 @@ setup.createWeather = function (town, biome, weather, season, time) {
   }
   biome = biome || town.terrain
   time = time || 8
-  season = season || 'spring'
+  season = season || weather.season || 'spring'
   console.log('biome: ' + biome)
   if (weather) {
+    // if it's passed the weather object (i.e. if it isn't the first time the user has clicked on the button, it doesn't need to set up everything.)
     console.log('Weather was already defined.')
     if (weather.timer) {
       console.log('Counting down timers!')
@@ -27,7 +31,7 @@ setup.createWeather = function (town, biome, weather, season, time) {
     }
   } else {
     weather = {
-      temperature: setup.townData.terrain[biome].weather[season].baseTemp || setup.townData.terrain['temperate'].weather['summer'].baseTemp,
+      temperature: setup.townData.terrain[biome].weather.season[season].baseTemp || setup.townData.terrain['temperate'].weather.season['summer'].baseTemp,
       tempVariation: dice(2, 50),
       season: season,
       timer: {
@@ -45,8 +49,8 @@ setup.createWeather = function (town, biome, weather, season, time) {
         cloud: '',
         temperature: ''
       },
-      precipitationLevel: setup.townData.terrain[biome].weather[season].precipitationLevel,
-      precipitationIntensity: setup.townData.terrain[biome].weather[season].precipitationIntensity
+      precipitationLevel: setup.townData.terrain[biome].weather.season[season].precipitationLevel,
+      precipitationIntensity: setup.townData.terrain[biome].weather.season[season].precipitationIntensity
     }
   }
   // console.log('weather:')

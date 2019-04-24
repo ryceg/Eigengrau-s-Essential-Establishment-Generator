@@ -779,25 +779,27 @@ setup.townData = {
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 4,
-          precipitationIntensity: 1,
-          baseTemp: 80
-        },
-        'autumn': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 60
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: 1,
-          baseTemp: 30
-        },
-        'spring': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 60
+        season: {
+          'summer': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 80
+          },
+          'autumn': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 60
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: 1,
+            baseTemp: 30
+          },
+          'spring': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 60
+          }
         }
       },
       'start': ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
@@ -908,25 +910,27 @@ setup.townData = {
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 90
-        },
-        'autumn': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 75
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: 1,
-          baseTemp: 50
-        },
-        'spring': {
-          precipitationLevel: 4,
-          precipitationIntensity: 1,
-          baseTemp: 75
+        season: {
+          'summer': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 90
+          },
+          'autumn': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 75
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: 1,
+            baseTemp: 50
+          },
+          'spring': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 75
+          }
         }
       },
       'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'jungle', 'volcanic field'],
@@ -1064,25 +1068,27 @@ setup.townData = {
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 3,
-          precipitationIntensity: -1,
-          baseTemp: 95
-        },
-        'autumn': {
-          precipitationLevel: 3,
-          precipitationIntensity: -1,
-          baseTemp: 75
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: -1,
-          baseTemp: 50
-        },
-        'spring': {
-          precipitationLevel: 2,
-          precipitationIntensity: -1,
-          baseTemp: 75
+        season: {
+          'summer': {
+            precipitationLevel: 3,
+            precipitationIntensity: -1,
+            baseTemp: 95
+          },
+          'autumn': {
+            precipitationLevel: 3,
+            precipitationIntensity: -1,
+            baseTemp: 75
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: -1,
+            baseTemp: 50
+          },
+          'spring': {
+            precipitationLevel: 2,
+            precipitationIntensity: -1,
+            baseTemp: 75
+          }
         }
       },
       'start': ['desert', 'hills', 'plains', 'mountains', 'river coast', 'wasteland', 'oasis'],
@@ -1206,37 +1212,39 @@ setup.townData = {
             temperatureTimer: random(48, 144)
           },
           40: {
-            temperature: 0 - random(1, 10),
+            temperature: random(0, -10),
             temperatureTimer: random(48, 120)
           },
           20: {
-            temperature: 0 - dice(2, 10),
+            temperature: random(-2, -20),
             temperatureTimer: random(24, 96)
           },
           0: {
-            temperature: 0 - dice(3, 10),
+            temperature: random(-3, -30),
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 4,
-          precipitationIntensity: 0,
-          baseTemp: 40
-        },
-        'autumn': {
-          precipitationLevel: 4,
-          precipitationIntensity: 0,
-          baseTemp: 30
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: 0,
-          baseTemp: 20
-        },
-        'spring': {
-          precipitationLevel: 3,
-          precipitationIntensity: 0,
-          baseTemp: 30
+        season: {
+          'summer': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 40
+          },
+          'autumn': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 30
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: 1,
+            baseTemp: 20
+          },
+          'spring': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 30
+          }
         }
       },
       'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'tundra', 'ice sheet', 'seacoast'],

@@ -2,6 +2,8 @@
 setup.renderWeather = function (town, biome, weather) {
   console.log('Rendering weather...')
   // console.log(weather)
+
+  // if weather is undefined, call the createWeather function
   if (!weather) {
     weather = setup.createWeather(town, biome)
   }
@@ -10,37 +12,45 @@ setup.renderWeather = function (town, biome, weather) {
   // console.log(weather)
   biome = biome || town.terrain
 
+  // tempVariationRoll
+  var tempVariationRoll = random(0, 100)
+
   var tempVariationKeys = Object.keys(setup.townData.terrain[biome].weather.tempVariation).reverse()
   var intKeys = []
   var finalKey
 
+  // interpret the key for each tempVariation object as an integer
   tempVariationKeys.forEach(function (key) {
     intKeys.push(parseInt(key))
   })
+
+  // find one that's equal or lesser than tempVariationRoll to use as the final key
   finalKey = intKeys.find(function (key) {
-    if (weather.tempVariation >= key) {
+    if (tempVariationRoll >= key) {
+      console.log({key})
       return key
     }
-  })
+  }) || 0
   console.log('2')
   if (weather.timer.temperature < 1) {
-    weather.tempVariation = random(1, 100)
-    weather.timer.temperature = 0 + Math.trunc(setup.townData.terrain[biome].weather.tempVariation[finalKey].temperatureTimer / 8)
-    finalKey = intKeys.find(function (key) {
-      if (weather.tempVariation >= key) {
-        console.log('key is: ' + key)
-        return key
-      }
-    })
+    console.log('Timer for temperature has run out. Rolling temp timer!')
+    console.log({weather, finalKey})
+    weather.timer.temperature = Math.trunc((setup.townData.terrain[biome].weather.tempVariation[finalKey].temperatureTimer || random(24, 48)) / 8)
+    console.log({weather})
+    // finalKey = intKeys.find(function (key) {
+    //   if (tempVariationRoll >= key) {
+    //     console.log('key is: ' + key)
+    //     return key
+    //   }
+    // })
   }
   console.log('3')
   var tempVariation = (setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain['temperate'].weather.tempVariation[finalKey].temperature)
   console.log('tempVariation: ' + tempVariation)
 
-  weather.temperature = (setup.townData.terrain[biome].weather[weather.season].baseTemp || setup.townData.terrain['temperate'].weather['spring'].baseTemp) + tempVariation - random(-2, 2)
-
+  weather.temperature = (setup.townData.terrain[biome].weather.season[weather.season].baseTemp || setup.townData.terrain['temperate'].weather['spring'].baseTemp) + tempVariation - random(-2, 2)
   console.log('weather temp: ' + weather.temperature)
-console.log('4')
+
   if (weather.timer.precipitation < 1) {
     console.log('Resetting precipitation timer...')
     weather.roll.precipitation = random(1, 100)
@@ -60,7 +70,7 @@ console.log('4')
     weather.precipitation = 'no precipitation'
     weather.timer.precipitation = random(1, 8)
   }
-console.log('5')
+  console.log('5')
   if (weather.timer.cloud < 1) {
     console.log('Resetting cloud timer...')
     weather.roll.cloud = random(1, 100)
