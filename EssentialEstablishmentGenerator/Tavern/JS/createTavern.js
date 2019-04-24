@@ -13,6 +13,7 @@ setup.createTavern = function (town, opts) {
     hasClass: false,
     profession: 'barmaid'
   })
+  setup.createRelationship(town, tavern.bartender, tavern.barmaid, 'employee', 'employer')
 
   Object.assign(tavern, {
     passageName: 'TavernOutput',

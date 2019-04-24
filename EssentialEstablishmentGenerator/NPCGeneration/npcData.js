@@ -2,7 +2,7 @@
 setup.npcData = {
   'gender': {
     'man': {
-      // 'title': 'Mr',
+      'title': 'Mr',
       'heshe': 'he',
       'himher': 'him',
       'himherself': 'himself',
@@ -18,10 +18,11 @@ setup.npcData = {
       'parentNoun': 'father',
       'childNoun': 'son',
       'siblingNoun': 'brother',
-      'niblingNoun': 'nephew'
+      'niblingNoun': 'nephew',
+      'oppositeGender': 'woman'
     },
     'woman': {
-      // 'title': 'Ms',
+      'title': 'Ms',
       'heshe': 'she',
       'himher': 'her',
       'himherself': 'herself',
@@ -37,7 +38,8 @@ setup.npcData = {
       'parentNoun': 'mother',
       'childNoun': 'daughter',
       'siblingNoun': 'sister',
-      'niblingNoun': 'neice'
+      'niblingNoun': 'neice',
+      'oppositeGender': 'man'
     }
   },
   'heightChart': [
@@ -106,7 +108,24 @@ setup.npcData = {
       },
       function: function (town, npc) {
         console.log('called lifeEvents.meetFriendNPC function')
-        var friend = setup.createNPC(town)
+        if (random(100) > 50) {
+          console.log('Finding an already existing friend!')
+          var friend = Object.keys(State.variables.npcs).find(function (name) {
+            return (State.variables.npcs[name].wealthClass === npc.wealthClass &&
+            (!State.variables.npcs[name].relationships[npc.key]))
+          })
+          if (friend === undefined) {
+            console.log('Nobody was in the same caste as ' + npc.name)
+            friend = setup.createNPC(town, {
+              isShallow: true,
+              wealthClass: npc.wealthClass
+            })
+          }
+        } else {
+          friend = setup.createNPC(town, {
+            isShallow: true
+          })
+        }
         setup.createRelationship(town, npc, friend, 'friend', 'friend')
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
@@ -137,7 +156,8 @@ setup.npcData = {
         console.log('called lifeEvents.meetEnemyNPC function')
         var enemy = setup.createNPC(town, {
           gender: 'man',
-          background: 'noble'
+          background: 'noble',
+          isShallow: true
         })
         setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
         return [
@@ -174,41 +194,43 @@ setup.npcData = {
         if (npc.partnerID !== undefined) {
           console.log('Making a baby!')
           var partner = State.variables.npcs[npc.partnerID]
-          var child = setup.createNPC(town, {
-            ageStage: 'child',
-            race: npc.race,
-            lastName: npc.lastName,
-            isShallow: true,
-            relationships: {
-              [npc.key]: npc.parentNoun,
-              [npc.partnerID]: partner.parentNoun
-            }
-          })
-          setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
+          var child = setup.createRelative(town, npc, 'child')
+          // var child = setup.createNPC(town, {
+          //   ageStage: 'child',
+          //   race: npc.race,
+          //   lastName: npc.lastName,
+          //   isShallow: true,
+          //   relationships: {
+          //     [npc.key]: npc.parentNoun,
+          //     [npc.partnerID]: partner.parentNoun
+          //   }
+          // })
+          // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
           setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
           return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
-          if (npc.gender === 'man') {
-            partner = setup.createNPC(town, {
-              gender: 'woman',
-              lastName: npc.lastName,
-              isShallow: true,
-              partnerID: npc.key
-            })
-            setup.setAsPartners(npc, partner)
-            setup.createRelationship(town, npc, partner, 'wife', 'husband')
-          } else {
-            partner = setup.createNPC(town, {
-              gender: 'man',
-              lastName: npc.lastName,
-              isShallow: true,
-              partnerID: npc.key
-            })
-            setup.setAsPartners(npc, partner)
-            setup.createRelationship(town, npc, partner, 'husband', 'wife')
-          }
+          // if (npc.gender === 'man') {
+          setup.createRelative(town, npc, 'partner')
+          // partner = setup.createNPC(town, {
+          //   gender: npc.partnerGenderProbability(npc),
+          //   lastName: npc.lastName,
+          //   isShallow: true,
+          //   partnerID: npc.key
+          // })
+          // setup.setAsPartners(npc, partner)
+          // setup.createRelationship(town, npc, partner, State.variables.npcs[npc.partnerID].marriageNoun, npc.marriageNoun)
+          // } else {
+          //   partner = setup.createNPC(town, {
+          //     gender: 'man',
+          //     lastName: npc.lastName,
+          //     isShallow: true,
+          //     partnerID: npc.key
+          //   })
+          //   setup.setAsPartners(npc, partner)
+          //   setup.createRelationship(town, npc, partner, 'husband', 'wife')
+          // }
           return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
         }
       }
@@ -1898,8 +1920,13 @@ setup.npcData = {
         'I was the eldest of four children, but when my father died, I had to leave school and work to support my family.'
       ],
       ideal: [
-        'Community. Everyone needs to pitch in for the greater good.',
-        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters.', "People: I help the people who help me– that's what keeps us alive.", "Aspiration: I'm going to prove that I'm worthy of a better life."
+        'Everyone needs to pitch in for the greater good.',
+        'You have to respect all people',
+        'We have to take care of each other',
+        'The low are lifted up',
+        'The rich need to be shown what life and death are like in the gutters.',
+        "I help the people who help me– that's what keeps us alive.",
+        "I'm going to prove that I'm worthy of a better life."
       ],
       personalityTrait: [
 

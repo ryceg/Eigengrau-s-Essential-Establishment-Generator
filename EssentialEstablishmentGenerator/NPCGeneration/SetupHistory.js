@@ -17,34 +17,94 @@ setup.createHistory = function (town, npc) {
       case 'half-orc':
         if (parentalLineageRoll === 8) {
           npc.parentalLineage = 'Both parents were half-orcs'
+          setup.createRelative(town, npc, 'father', {
+            race: 'half-orc'
+          })
+          setup.createRelative(town, npc, 'mother', {
+            race: 'half-orc'
+          })
         } else if (parentalLineageRoll >= 6) {
           npc.parentalLineage = 'One parent was a human, the other was a half orc'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
+          setup.createRelative(town, npc, 'father', {
+            race: 'half-orc'
+          })
         } else if (parentalLineageRoll >= 4) {
           npc.parentalLineage = 'One parent was a half-orc, the other was an orc'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'half-orc'
+          })
         } else if (parentalLineageRoll < 4) {
           npc.parentalLineage = 'One parent was a human, the other was an orc'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
         }
         break
       case 'half-elf':
         if (parentalLineageRoll === 8) {
           npc.parentalLineage = 'Both parents were half-elves'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'half-elf'
+          })
+          setup.createRelative(town, npc, 'father', {
+            race: 'half-elf'
+          })
         } else if (parentalLineageRoll === 7) {
           npc.parentalLineage = 'One parent was a human, the other was a half elf'
+          setup.createRelative(town, npc, 'father', {
+            race: 'half-elf'
+          })
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
         } else if (parentalLineageRoll === 6) {
           npc.parentalLineage = 'One parent was a half-elf, the other was an elf'
+          setup.createRelative(town, npc, 'father', {
+            race: 'half-elf'
+          })
+          setup.createRelative(town, npc, 'mother', {
+            race: 'elf'
+          })
         } else if (parentalLineageRoll < 6) {
           npc.parentalLineage = 'One parent was a human, the other was an elf'
+          setup.createRelative(town, npc, 'father', {
+            race: 'elf'
+          })
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
         }
         break
       case 'tiefling':
         if (parentalLineageRoll === 8) {
           npc.parentalLineage = 'One parent was a human, the other was a devil'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
         } else if (parentalLineageRoll === 7) {
           npc.parentalLineage = 'One parent was a tiefling, the other was a devil'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'tiefling'
+          })
         } else if (parentalLineageRoll >= 4) {
           npc.parentalLineage = 'One parent was a human, the other was a tiefling'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
+          setup.createRelative(town, npc, 'father', {
+            race: 'tiefling'
+          })
         } else if (parentalLineageRoll < 4) {
           npc.parentalLineage = 'Both parents were human, with their infernal ancestry manifesting in me later in life'
+          setup.createRelative(town, npc, 'mother', {
+            race: 'human'
+          })
+          setup.createRelative(town, npc, 'father', {
+            race: 'human'
+          })
         }
         break
     }
