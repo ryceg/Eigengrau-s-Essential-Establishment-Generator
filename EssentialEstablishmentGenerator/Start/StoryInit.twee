@@ -1,9 +1,9 @@
 
 :: StoryInit
 
-<<run State.initPRNG("aVeryLongSeed")>>
+<<run State.initPRNG()>>
 
-<<set $versionNumber to "2.1">>
+<<set $versionNumber to "2.2">>
 /* <<set Config.history.maxStates to 50>> */
 <<set $towns to []>>
 <<set $factions to []>>
