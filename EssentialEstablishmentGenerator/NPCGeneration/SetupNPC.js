@@ -3,14 +3,20 @@ setup.createNPC = function (town, base) {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
+  console.log('Base:')
+  console.log({ base })
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   var data = setup.npcData
-  if (!base || base.isShallow === true) {
+  if (!base) {
     base = {
-      isThrowaway: true,
-      canBeCustom: true,
-      hasHistory: false
+      isShallow: true
     }
+  }
+  if (base.isShallow === true) {
+    console.log('NPC flagged as shallow.')
+    base.isThrowaway = base.isThrowaway || true
+    base.canBeCustom = base.canBeCustom || true
+    base.hasHistory = base.hasHistory || false
   }
 
   if (base.canBeCustom === true && random(1, 100) > 99) {
@@ -19,10 +25,10 @@ setup.createNPC = function (town, base) {
   var gender = base.gender || ['man', 'woman'].random()
   var race = base.race || setup.fetchRace(town)
   console.log('Loading profession:')
-  var profession = base.profession || setup.fetchProfessionChance(town)
+  var profession = base.profession || setup.fetchProfessionChance(town, base)
 
-  var firstName = data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
-  var lastName = data.raceTraits[race].lastName.random().toUpperFirst()
+  var firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
+  var lastName = base.lastName || data.raceTraits[race].lastName.random().toUpperFirst()
   console.groupCollapsed(firstName + ' ' + lastName)
   var ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
   var dndClass = base.dndClass || data.dndClass.random()
@@ -51,7 +57,13 @@ setup.createNPC = function (town, base) {
     // demeanour: data.demeanour.random(),
     calmTrait: data.calmTrait.random(),
     stressTrait: data.stressTrait.random(),
+    pronouns: {
+
+    },
     relationships: {
+
+    },
+    roll: {
 
     },
     // value: data.value.random(),
@@ -123,6 +135,8 @@ setup.createNPC = function (town, base) {
   npc.race = npc.race || npc._race
   npc.key = npc.firstName + ' ' + npc.lastName
   Object.assign(npc, data.gender[npc.gender])
+  Object.assign(npc.pronouns, data.gender[npc.gender])
+
   Object.assign(npc, data.raceTraits[npc.race].raceWords)
   npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
@@ -146,6 +160,7 @@ setup.createNPC = function (town, base) {
     }
   }
   // setup.createName(npc)
+
   // console.log(npc)
   setup.createAge(npc)
 
@@ -165,7 +180,7 @@ setup.createNPC = function (town, base) {
   setup.createBackground(npc)
 
   setup.createDescriptors(npc)
-
+  npc.formalName = npc.formalName || npc.title + ' ' + npc.lastName
   // npc.key = npc.name
   State.variables.npcs[npc.key] = npc
   npc.profile = function (npc, base) {
@@ -173,14 +188,17 @@ setup.createNPC = function (town, base) {
     return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
   }
 
+  setup.createSexuality(npc)
+  setup.createWealthClass(town, npc)
+
   if (npc.hasHistory !== false) {
     setup.createHistory(town, npc)
     setup.createLifeEvents(town, npc)
   }
 
   if (npc.partnerID) {
-    console.log('assigning ' + npc.name + ' a partner...')
-    setup.setAsPartners(npc, npc.partnerID)
+    console.log('assigning ' + npc.name + ' ' + State.variables.npcs[npc.partnerID].name + ' as a partner...')
+    setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
   }
   State.temporary.newNPC = npc
 
