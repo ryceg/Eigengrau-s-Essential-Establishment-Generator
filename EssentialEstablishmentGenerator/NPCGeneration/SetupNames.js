@@ -1,7 +1,4 @@
-setup.createName = function (npc) {
-  if (!npc) {
-    return setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random().toUpperFirst()
-  }
-  npc.formalName = npc.formalName || npc.title + ' ' + npc.lastName
-  return npc
+setup.createName = function (parameters) {
+    console.log('Returning a name!')
+    return setup.npcData.raceTraits[parameters.race || 'human'].genderTraits[parameters.gender || 'man'][parameters.firstOrLast || 'firstName'].random().toUpperFirst()
 }
