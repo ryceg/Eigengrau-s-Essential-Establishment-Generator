@@ -18,8 +18,8 @@ setup.createBuilding = function (town, type) {
   var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   var building = {
     // index: State.variables.buildings.length - 1,
-    // index: Math.floor(Math.random() * 0x10000),
-    key: Math.floor(Math.random() * 0x10000).toString(16),
+    // index: Math.floor(randomFloat(1) * 0x10000),
+    key: randomFloat(1).toString(16),
     roadName: roadName,
     roadType: roadType,
     get road () {
@@ -36,9 +36,9 @@ setup.createBuilding = function (town, type) {
     outside: outside,
     material: material,
     roll: {
-      magic: (Math.floor(Math.random() * 80) + 20),
-      size: (Math.floor(Math.random() * 80) + 20),
-      diversity: (Math.floor(Math.random() * 80) + 20),
+      magic: (Math.floor(randomFloat(1) * 80) + 20),
+      size: (Math.floor(randomFloat(1) * 80) + 20),
+      diversity: (Math.floor(randomFloat(1) * 80) + 20),
       wealth: random(1, 100),
       population: random(1, 100),
       reputation: random(1, 100),
@@ -48,10 +48,10 @@ setup.createBuilding = function (town, type) {
       expertise: random(1, 100),
       activity: random(1, 100)
     },
-    // magicRoll: (Math.floor(Math.random() * 80) + 20),
-    priceModifier: (Math.floor(Math.random() * 10) - [0, 10].random())
-    // sizeRoll: (Math.floor(Math.random() * 80) + 20),
-    // diversityRoll: (Math.floor(Math.random() * 80) + 20),
+    // magicRoll: (Math.floor(randomFloat(1) * 80) + 20),
+    priceModifier: (Math.floor(randomFloat(1) * 10) - [0, 10].random())
+    // sizeRoll: (Math.floor(randomFloat(1) * 80) + 20),
+    // diversityRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // wealthRoll: random(1, 100),
     // populationRoll: random(1, 100),
     // reputationRoll: random(1, 100),

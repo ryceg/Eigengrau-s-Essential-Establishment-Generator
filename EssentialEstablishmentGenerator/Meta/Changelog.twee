@@ -1,17 +1,11 @@
 :: Changelog
 <blockquote><<run setup.tippy(".btn")>>
-<h4>v.2.1</h4>-<span class="tip" title="Thanks to /u/WishingOnAWendy for this!">Removed the annoying hyperlink symbol for the Patreon & Ko-Fi links</span>
--<span class="tip" title="Will be expanded upon in future!">Added town squares.</span>
--<span class="tip" title="Now with extra fishy smell!">Added docks.</span>
--<span class="tip" title="Over a hundred whacky events.">Added town plot hooks.</span>
--<span class="tip" title="Also over a hundred whacky events!">Added poster-based plothooks.</span>
--<span class="tip" title="Hopefully.">Fixed weather playing up, and added an option to omit weather.</span>
--<span class="tip" title="This will mean that it becomes a lot easier for contributors to write their own code.">Huge behind the scenes overhaul of how things are linked to, simplifying a lot of things.</span>
--<span class="tip" title="This is still very much in its infancy, and will be expanded upon later.">Created a relationship chart! Now, when people talk of their friend that they met while travelling, you can *meet* that friend!</span>
--<span class="tip" title="Hopefully.">Bug fixes for town leadership.</span>
--<span class="tip" title="This will be expanded upon to make more convincing sounding titles.">Blacksmiths that reference sisters or sons etc will now actually have those sisters or sons.</span>
--<span class="tip" title="Oops.">Properly clamped establishments so they won't have rolls out of bounds.</span>
--<span class="tip" title="Although I'm quite sure that it would be entertaining to roleplay, I don't think we need a whole town's worth of them.">Fixed editing NPCs defaulting to male acolyte barbarians.</span>
+<h4>v.2.2</h4>-<span class="tip" title="Probably more bug squashing still needed!">Fixed most of the weather bugs</span>
+-<span class="tip" title="Probably more bug squashing still needed!">Fixed most of the town slider bugs related to wealth and socioeconomic structure.</span>
+-<span class="tip" title="Non-town encounters are still slightly hacked together. Will fix them soon!">Sorted out a weird bug with town encounters</span>
+-<span class="tip" title="There was one time when everyone was a polygamist. Weird.">Made a more robust relationships system, including half-breed handling.</span>
+-<span class="tip" title="Loosely based on the Kinsey scale. I'm very eager to introduce some more realistic representation.">Implemented sexuality.</span>
+-<span class="tip" title="Lots to be done here. Have opted for a relatively blocky system- the middle class didn't *really* exist in medieval times.">Implemented class system, which effects relationships & available occupations.</span>
 
 [[Full changelog|ChangelogFull]]
 </blockquote>

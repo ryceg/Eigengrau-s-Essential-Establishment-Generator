@@ -157,7 +157,7 @@ setup.tavern = {
   'get': {
     'patrons': function (town, tavern) {
       var key = Object.keys(setup.tavern.patrons)
-      return setup.tavern.patrons[key[key.length * Math.random() << 0]](town, tavern)
+      return setup.tavern.patrons[key[random(0, key.length)]](town, tavern)
     },
     'carousing': function (town, tavern) {
       var carousing = {
@@ -213,7 +213,7 @@ setup.tavern = {
         }
       }
       var keys = Object.keys(carousing)
-      return carousing[keys[keys.length * Math.random() << 0]](town, tavern)
+      return carousing[keys[random(0, keys.length)]](town, tavern)
     },
     'lookAround': function (tavern) {
       var bartender = tavern.bartender
@@ -521,7 +521,7 @@ setup.tavern = {
         {
           draw: "proximity to the thieves' guild headquarters",
           // drawFunction: setup.createFaction({'type': "thieves"}),
-          drawFeature: "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, " + tavern.name + " has an issue with the thieves guild."
+          drawFeature: "You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, " + tavern.name + ' has an issue with the thieves guild.'
         },
         {
           draw: 'warmth inside',
@@ -582,7 +582,7 @@ setup.tavern = {
         //   draw: 'drunk wizard',
         //   drawFunction: function (tavern) {
         //     tavern.roll.magic += 10
-        //     var drunkWizard = setup.createNPC(town, {dndClass: 'wizard'})
+        //     var drunkWizard = setup.createNPC(town, {dndClass: 'wizard' })
         //     return {
         //       drunkWizard: drunkWizard,
         //       tavern: tavern
@@ -670,75 +670,75 @@ setup.tavern = {
   },
   'patrons': {
     'farmer': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'farmer', gender: 'man'})
-      return 'A poor <<profile `$npcs[' + JSON.stringify(npc.key) + ']` farmer>> is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'farmer', gender: 'man' })
+      return 'A poor ' + setup.profile(npc, 'farmer') + ' is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.'
     },
     'seacaptain': function (town) {
-      var npc = setup.createNPC(town, {background: 'sailor', profession: 'sea captain', gender: 'man'})
-      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` sea-captain>> has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.'
+      var npc = setup.createNPC(town, { background: 'sailor', profession: 'sea captain', gender: 'man' })
+      return 'A ' + setup.profile(npc, 'sea-captain') + ' has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.'
     },
     'ranger': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man'})
-      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` ranger>> sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man' })
+      return 'A ' + setup.profile(npc, 'ranger') + ' sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.'
     },
     'troll': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'troll', gender: 'man'})
-      return 'A lone <<profile `$npcs[' + JSON.stringify(npc.key) + ']` troll>> is drinking at the end of the bar and softly crying and singing one country ballad after another.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'troll', gender: 'man' })
+      return 'A lone ' + setup.profile(npc, 'troll') + ' is drinking at the end of the bar and softly crying and singing one country ballad after another.'
     },
     'wizard': function (town) {
-      var npc = setup.createNPC(town, {background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man'})
-      return 'A stoned <<profile `$npcs[' + JSON.stringify(npc.key) + ']` magician>> is fumbling his way through one awful card trick after another.'
+      var npc = setup.createNPC(town, { background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man' })
+      return 'A stoned ' + setup.profile(npc, 'magician') + ' is fumbling his way through one awful card trick after another.'
     },
     'elves': function (town) {
-      var npc = setup.createNPC(town, {background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: "obsidian bow"})
-      return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. <<profile `$npcs[' + JSON.stringify(npc.key) + ']` One>> has an obsidian bow strapped to her back.'
+      var npc = setup.createNPC(town, { background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: 'obsidian bow' })
+      return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. ' + setup.profile(npc, 'One') + ' has an obsidian bow strapped to her back.'
     },
     'clown': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'clown'})
-      return 'A sad <<profile `$npcs[' + JSON.stringify(npc.key) + ']` clown>> is drinking a beer alone.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'clown' })
+      return 'A sad ' + setup.profile(npc, 'clown') + ' is drinking a beer alone.'
     },
     'guards': function (town) {
-      var npc = setup.createNPC(town, {background: 'soldier', profession: 'guard', dndClass: 'fighter'})
-      return 'Two <<profile `$npcs[' + JSON.stringify(npc.key) + ']` guards>> are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.'
+      var npc = setup.createNPC(town, { background: 'soldier', profession: 'guard', dndClass: 'fighter' })
+      return 'Two ' + setup.profile(npc, 'guards') + ' are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.'
     },
     'suitor': function (town) {
-      var npc = setup.createNPC(town, {background: 'noble', profession: 'noble', hasClass: false, gender: 'woman'})
-      return 'A <<profile `$npcs[' + JSON.stringify(npc.key) + ']` handsome young woman>> is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.'
+      var npc = setup.createNPC(town, { background: 'noble', profession: 'noble', hasClass: false, gender: 'woman' })
+      return 'A ' + setup.profile(npc, 'handsome young woman') + ' is holding court among some of her would-be suitors. Her father interrupts, and she stalks off embarrassed.'
     },
     'stag': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'farmer', gender: 'man'})
-      return 'Some <<profile `$npcs[' + JSON.stringify(npc.key) + ']` idiot>> is having a stag night. His friends are loud and obnoxiously harassing the barmaid.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'farmer', gender: 'man' })
+      return 'Some ' + setup.profile(npc, 'idiot') + ' is having a stag night. His friends are loud and obnoxiously harassing the barmaid.'
     },
     'ladies': function (town) {
-      var npc = setup.createNPC(town, {background: 'scholar', profession: 'librarian', gender: 'woman'})
-      return "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town <<profile `$npcs[" + JSON.stringify(npc.key) + "]` librarian>>."
+      var npc = setup.createNPC(town, { background: 'scholar', profession: 'librarian', gender: 'woman' })
+      return "It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town " + setup.profile(npc, 'librarian') + '.'
     },
     'witch': function (town) {
-      var npc = setup.createNPC(town, {background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman'})
-      return 'A surly old <<profile `$npcs[' + JSON.stringify(npc.key) + ']` witch>> is drinking sherry while stroking the fat grey cat sitting on her lap.'
+      var npc = setup.createNPC(town, { background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman' })
+      return 'A surly old ' + setup.profile(npc, 'witch') + ' is drinking sherry while stroking the fat grey cat sitting on her lap.'
     },
     'marilith': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'barmaid', gender: 'woman'})
-      return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a marilith, mixing up four drinks at a time.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
+      return 'The ' + setup.profile(npc, 'barmaid') + ' is a marilith, mixing up four drinks at a time.'
     },
     'succubus': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'barmaid', gender: 'woman'})
-      return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a succubus, she seems to be making great tips.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
+      return 'The ' + setup.profile(npc, 'barmaid') + ' is a succubus, she seems to be making great tips.'
     },
     'attendant': function (town) {
       return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
     },
     'mophand': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'mophand', hasClass: false})
-      return "The <<profile `$npcs[" + JSON.stringify(npc.key) + "]` 'toothless mop-hand'>> reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'mophand', hasClass: false})
+      return 'The ' + setup.profile(npc, 'toothless mop-hand') + " reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
     },
     'doppelganger': function (town) {
-      var npc = setup.createNPC(town, {background: 'commoner', profession: 'barmaid', gender: 'woman'})
-      return 'The <<profile `$npcs[' + JSON.stringify(npc.key) + ']` barmaid>> is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.'
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
+      return 'The ' + setup.profile(npc, 'barmaid') + ' is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.'
     },
     'priest': function (town) {
-      var npc = setup.createNPC(town, {background: 'sage', profession: 'priest', dndClass: 'cleric'})
-      return "A <<profile `$npcs[" + JSON.stringify(npc.key) + "]` 'fat priest'>> is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
+      var npc = setup.createNPC(town, { background: 'sage', profession: 'priest', dndClass: 'cleric', weight: 'fat', weightRoll: 200 })
+      return 'A ' + setup.profile(npc, 'fat priest') + " is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?"
     }
   },
   'specialBrew': [

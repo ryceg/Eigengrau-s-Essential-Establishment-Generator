@@ -32,8 +32,8 @@ setup.createTemple = function (town, opts) {
     'The ' + data.name.adjective.random().toUpperFirst() + ' ' + data.name.plural.random().toUpperFirst(),
     'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.soleNoun.random().toUpperFirst(),
     'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.adjective.random().toUpperFirst() + ' ' + data.name.plural.random().toUpperFirst(),
-    setup.createName() + "'s " + temple.wordNoun.toUpperFirst(),
-    setup.createName() + "'s " + data.name.soleNoun.random().toUpperFirst()
+    setup.createName({race: temple.priest.race}) + "'s " + temple.wordNoun.toUpperFirst(),
+    setup.createName({race: temple.priest.race}) + "'s " + data.name.soleNoun.random().toUpperFirst()
   ].random()
 
   temple.wealth = ''

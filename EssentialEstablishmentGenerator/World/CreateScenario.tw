@@ -7,9 +7,12 @@
     <<set $scenarioWeather.timer.temperature to 0>>
     <<set $scenarioWeather.timer.precipitation to 0>>
     <<set $scenarioWeather.timer.cloud to 0>>
+
 <</if>>
 <<set _rememberSeason to $currentSeason>>
-
+<<if $currentSeason !== "null" && $currentSeason !== $town.currentSeason>>
+    <<set $town.currentSeason to $currentSeason>>
+<</if>>
 <<if def $scenario && $scenarioWeather && $currentSeason !==  "null">>
     <<set $scenarioWeather.timer.temperature -= 4>>
     <<set $scenarioWeather.timer.precipitation -= 4>>

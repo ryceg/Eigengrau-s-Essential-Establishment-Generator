@@ -1,7 +1,14 @@
-setup.fetchProfessionChance = function (town) {
+setup.fetchProfessionChance = function (town, npc) {
   console.log('Fetching profession...')
   town = town || State.variables.town
   var professions = Object.keys(town.professions)
+
+  if (npc.wealthClass) {
+    console.log('Wealth class for ' + npc.name + ' was defined, so filtering to the available professions!')
+    professions.filter(function (profession) {
+      return town.professions[profession].wealthClass === npc.wealthClass
+    })
+  }
   // console.log('list of professions:')
   // console.log(professions)
   // console.log('list of percentages:')
@@ -19,7 +26,7 @@ setup.fetchProfessionChance = function (town) {
   sum.forEach(function (single) {
     totalWeight += single
   })
-  var random = Math.floor(Math.random() * totalWeight)
+  var random = Math.floor(randomFloat(1) * totalWeight)
   // console.log(random)
   for (var i = 0; i < sum.length; i++) {
     random -= sum[i]

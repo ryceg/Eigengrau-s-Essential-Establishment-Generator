@@ -2,7 +2,7 @@
 setup.npcData = {
   'gender': {
     'man': {
-      // 'title': 'Mr',
+      'title': 'Mr',
       'heshe': 'he',
       'himher': 'him',
       'himherself': 'himself',
@@ -18,10 +18,11 @@ setup.npcData = {
       'parentNoun': 'father',
       'childNoun': 'son',
       'siblingNoun': 'brother',
-      'niblingNoun': 'nephew'
+      'niblingNoun': 'nephew',
+      'oppositeGender': 'woman'
     },
     'woman': {
-      // 'title': 'Ms',
+      'title': 'Ms',
       'heshe': 'she',
       'himher': 'her',
       'himherself': 'herself',
@@ -37,7 +38,8 @@ setup.npcData = {
       'parentNoun': 'mother',
       'childNoun': 'daughter',
       'siblingNoun': 'sister',
-      'niblingNoun': 'neice'
+      'niblingNoun': 'neice',
+      'oppositeGender': 'man'
     }
   },
   'heightChart': [
@@ -106,7 +108,24 @@ setup.npcData = {
       },
       function: function (town, npc) {
         console.log('called lifeEvents.meetFriendNPC function')
-        var friend = setup.createNPC(town)
+        if (random(100) > 50) {
+          console.log('Finding an already existing friend!')
+          var friend = Object.keys(State.variables.npcs).find(function (name) {
+            return (State.variables.npcs[name].wealthClass === npc.wealthClass &&
+            (!State.variables.npcs[name].relationships[npc.key]))
+          })
+          if (friend === undefined) {
+            console.log('Nobody was in the same caste as ' + npc.name)
+            friend = setup.createNPC(town, {
+              isShallow: true,
+              wealthClass: npc.wealthClass
+            })
+          }
+        } else {
+          friend = setup.createNPC(town, {
+            isShallow: true
+          })
+        }
         setup.createRelationship(town, npc, friend, 'friend', 'friend')
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
@@ -137,7 +156,8 @@ setup.npcData = {
         console.log('called lifeEvents.meetEnemyNPC function')
         var enemy = setup.createNPC(town, {
           gender: 'man',
-          background: 'noble'
+          background: 'noble',
+          isShallow: true
         })
         setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
         return [
@@ -174,41 +194,43 @@ setup.npcData = {
         if (npc.partnerID !== undefined) {
           console.log('Making a baby!')
           var partner = State.variables.npcs[npc.partnerID]
-          var child = setup.createNPC(town, {
-            ageStage: 'child',
-            race: npc.race,
-            lastName: npc.lastName,
-            isShallow: true,
-            relationships: {
-              [npc.key]: npc.parentNoun,
-              [npc.partnerID]: partner.parentNoun
-            }
-          })
-          setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
+          var child = setup.createRelative(town, npc, 'child')
+          // var child = setup.createNPC(town, {
+          //   ageStage: 'child',
+          //   race: npc.race,
+          //   lastName: npc.lastName,
+          //   isShallow: true,
+          //   relationships: {
+          //     [npc.key]: npc.parentNoun,
+          //     [npc.partnerID]: partner.parentNoun
+          //   }
+          // })
+          // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
           setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
           return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
-          if (npc.gender === 'man') {
-            partner = setup.createNPC(town, {
-              gender: 'woman',
-              lastName: npc.lastName,
-              isShallow: true,
-              partnerID: npc.key
-            })
-            setup.setAsPartners(npc, partner)
-            setup.createRelationship(town, npc, partner, 'wife', 'husband')
-          } else {
-            partner = setup.createNPC(town, {
-              gender: 'man',
-              lastName: npc.lastName,
-              isShallow: true,
-              partnerID: npc.key
-            })
-            setup.setAsPartners(npc, partner)
-            setup.createRelationship(town, npc, partner, 'husband', 'wife')
-          }
+          // if (npc.gender === 'man') {
+          setup.createRelative(town, npc, 'partner')
+          // partner = setup.createNPC(town, {
+          //   gender: npc.partnerGenderProbability(npc),
+          //   lastName: npc.lastName,
+          //   isShallow: true,
+          //   partnerID: npc.key
+          // })
+          // setup.setAsPartners(npc, partner)
+          // setup.createRelationship(town, npc, partner, State.variables.npcs[npc.partnerID].marriageNoun, npc.marriageNoun)
+          // } else {
+          //   partner = setup.createNPC(town, {
+          //     gender: 'man',
+          //     lastName: npc.lastName,
+          //     isShallow: true,
+          //     partnerID: npc.key
+          //   })
+          //   setup.setAsPartners(npc, partner)
+          //   setup.createRelationship(town, npc, partner, 'husband', 'wife')
+          // }
           return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
         }
       }
@@ -1445,12 +1467,12 @@ setup.npcData = {
         'I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life.'
       ],
       ideal: [
-        'Tradition: The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)',
-        'Charity: I always try to help those in need, no matter what the personal cost. (Good)',
-        'Change: We must help bring about the changes the gods are constantly working in the world. (Chaotic)',
-        "Power: I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)",
-        'Faith: I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)',
-        "Aspiration: I seek to prove myself worthy of my god's favor by matching my actions against their teachings. (Any)"
+        'I believe that the ancient traditions of worship and sacrifice must be preserved and upheld.',
+        'I always try to help those in need, no matter what the personal cost.',
+        'We must help bring about the changes the gods are constantly working in the world.',
+        "I hope to one day rise to the top of my faith's religious hierarchy.",
+        'I trust that my deity will guide my actions, I have faith that if I work hard, things will go well.',
+        "I seek to prove myself worthy of my god's favor by matching my actions against their teachings."
       ],
       'personalityTrait': [
         'I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.',
@@ -1482,12 +1504,12 @@ setup.npcData = {
         'After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam.'
       ],
       ideal: [
-        'Independence: I am a free spirit– no one tells me what to do. (Chaotic)',
-        "Fairness: I never target people who can't afford to lose a few coins. (Lawful)",
-        'Charity: I distribute the money I acquire to the people who really need it. (Good)',
-        'Creativity: I never run the same con twice. (Chaotic)',
-        'Friendship: Material goods come and go. Bonds of friendship last forever. (Good)',
-        "Aspiration: I'm determined to make something of myself. (Any)"
+        'I am a free spirit– no one tells me what to do.',
+        "I never target people who can't afford to lose a few coins.",
+        'I distribute the money I acquire to the people who really need it.',
+        'I never run the same con twice.',
+        'I believe that Material goods come and go. Bonds of friendship last forever.',
+        "I'm determined to make something of myself."
       ],
       'personalityTrait': [
         'I fall in and out of love easily, and am always pursuing someone.',
@@ -1520,12 +1542,12 @@ setup.npcData = {
         'I was always bored, so I started committing minor crimes to pass the time. The adrenaline rush was addictive, and soon I was going on to bigger and better heists.'
       ],
       ideal: [
-        "Honor: I don't steal from others in the trade. (Lawful)",
-        'Freedom: Chains are meant to be broken',
-        'Charity: I steal from the wealthy so that I can help people in need. (Good)',
-        'Greed: I will do whatever it takes to become wealthy. (Evil)',
-        "People: I'm loyal to my friends",
-        "Redemption: There's a spark of good in everyone. (Good)"
+        "I believe in honour amongst thieves- I don't steal from others in the trade.",
+        'I am definitely a fan of freedom- Chains are meant to be broken',
+        'I steal from the wealthy so that I can help people in need.',
+        'I will do whatever it takes to become wealthy.',
+        "I'm loyal to my friends",
+        "I believe that there's a spark of good in everyone."
       ],
       personalityTrait: [
 
@@ -1551,12 +1573,12 @@ setup.npcData = {
         'A traveling entertainer took me in to teach me the trade, and I learned to love it.'
       ],
       ideal: [
-        'Beauty: When I perform, I want to make beautiful things for the pleasure of my audience (Good)',
-        'Tradition: The stories I tell have a lot of history which I wish to preserve.',
-        'Creativity: The world is in need of new ideas and bold action. (Chaotic)',
-        "Greed: I'm only in it for the money and fame. (Evil)",
-        "People: I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)",
-        'Honesty: Art should reflect the soul; it should come from within and reveal who we really are. (Any)'
+        'When I perform, I want to make beautiful things for the pleasure of my audience',
+        'The stories I tell have a lot of history which I wish to preserve.',
+        'The world is in need of new ideas and bold action.',
+        "I'm only in it for the money and fame.",
+        "I like seeing the smiles on people's faces when I perform. That's all that matters.",
+        'Art should reflect the soul; it should come from within and reveal who we really are.'
       ],
       personalityTrait: [
 
@@ -1582,12 +1604,12 @@ setup.npcData = {
         'I have always stood up for those who are weaker than me.'
       ],
       ideal: [
-        'Respect: People deserve to be treated with dignity and respect. (Good)',
-        'Fairness: No one should get preferential treatment before the law (Good)',
-        'Freedom: Tyrants must not be allowed to oppress the people. (Chaotic)',
-        'Might: If I become strong, I will be better able to protect people. (Good)',
-        "Sincerity: There's no good in pretending to be something I'm not. (Neutral)",
-        'Destiny: Nothing and no one can steer me away from my higher calling. (Any)'
+        'I have the radical belief that people deserve to be treated with dignity and respect.',
+        'I believe that no one should get preferential treatment before the law',
+        'Tyrants must not be allowed to oppress the people.',
+        'If I become strong, I will be better able to protect people.',
+        "There's no good in pretending to be something I'm not.",
+        'Nothing and no one can steer me away from my higher calling.'
       ],
       personalityTrait: [
 
@@ -1610,7 +1632,12 @@ setup.npcData = {
         'I was constantly getting into fights as a youngster. I figured I might as well continue, for money.'
       ],
       ideal: [
-        'Might: If I become strong, I will be better able to protect people. (Good)'
+        'If I become strong, I will be better able to protect people.',
+        'I want to become the hero I pretend to be.',
+        'I want people to tremble at the sound of my name.',
+        'I want to inspire others.',
+        'I am in it for the money.',
+        'I honestly love to see others in pain.'
       ],
       personalityTrait: [
 
@@ -1636,7 +1663,12 @@ setup.npcData = {
         'I learned the essentials from an old mentor, but I had to join a guild to finish my learning once he passed away.'
       ],
       ideal: [
-        'Community: It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)', 'Generosity: My talents were given to me so that I could use them to benefit the world. (Good)', 'Freedom: Everyone should be free to pursue their own livelihood. (Chaotic)', "Greed: I'm only in it for the money. (Evil)", "People: I'm committed to the people I care about", 'Aspiration: I work hard to be the best there is at my craft.'
+        'I believe it is the duty of all civilized people to strengthen the bonds of community and the security of civilization.',
+        'My talents were given to me so that I could use them to benefit the world.',
+        'Everyone should be free to pursue their own livelihood.',
+        "I'm only in it for the money.",
+        "I'm committed to the people I care about",
+        'I work hard to be the best there is at my craft.'
       ],
       personalityTrait: [
 
@@ -1661,12 +1693,12 @@ setup.npcData = {
         'I felt compelled to forsake my past, and did so with great reluctane. Even now, I sometimes regret my decisions.'
       ],
       ideal: [
-        'Greater Good: My gifts are meant to be shared with all',
-        'Logic: Emotions must not cloud our sense of what is right and true',
-        'Free Thinking: Inquiry and curiosity are the pillars of progress. (Chaotic)',
-        'Power: Solitude and contemplation are paths toward mystical or magical power. (Evil)',
-        'Live and Let Live: Meddling in the affairs of others only causes trouble. (Neutral)',
-        'Self-Knowledge: If you know yourself, you know your enemy.'
+        'My gifts are meant to be shared with all',
+        'I believe that motions must not cloud our sense of what is right and true',
+        'I believe that inquiry and curiosity are the pillars of progress.',
+        'I think that solitude and contemplation are paths toward mystical or magical power.',
+        'I believe that meddling in the affairs of others only causes trouble.',
+        'If you know yourself, you know your enemy.'
       ],
       personalityTrait: [
 
@@ -1697,10 +1729,12 @@ setup.npcData = {
         "I hope to increase my family's power and influence."
       ],
       ideal: [
-        'Respect: Respect is due to me because of my position',
-        'Responsibility: It is my duty to respect the authority of those above me',
-        'Independence: I must prove that I can handle myself without the coddling of my family. (Chaotic)',
-        'Power: If I can attain more power, I will be able to protect my family (Chaotic)', 'Family: Blood runs thicker than water. (Any)', 'Noble Obligation: It is my duty to protect and care for the people beneath me. (Good)'
+        'Respect is due to me because of my position',
+        'It is my duty to respect the authority of those above me',
+        'I must prove that I can handle myself without the coddling of my family.',
+        'If I can attain more power, I will be able to protect my family',
+        'I believe that blood runs thicker than water.',
+        'It is my duty to protect and care for the people beneath me.'
       ],
       personalityTrait: [
 
@@ -1726,12 +1760,12 @@ setup.npcData = {
         'My family moved away from civilisation, and I learnt to adapt with the harsh environment.'
       ],
       ideal: [
-        'Change: Life is like the seasons, change should be embraced! (Chaotic)',
-        "Greater Good: It is each person's responsibility to make the most happiness for the whole tribe. (Good)",
-        'Honor: If I dishonor myself, I bring dishonor to my whole tribe (Lawful)',
-        'Might: The strongest are meant to rule. (Evil)',
-        'Nature: The natural world is more important than all the constructs of civilization. (Neutral)',
-        'Glory: I must earn glory in battle. (Neutral)'
+        'I think that life is like the seasons, change should be embraced!',
+        "It is each person's responsibility to make the most happiness for the whole tribe.",
+        'If I dishonor myself, I bring dishonor to my whole tribe',
+        'I believe that the strongest are meant to rule.',
+        'The natural world is more important than all the constructs of civilization.',
+        'I must earn glory in battle.'
       ],
       personalityTrait: [
 
@@ -1762,7 +1796,12 @@ setup.npcData = {
         'My father gave me a basic education which whetted my appetite for more knowledge, and I left home to build on what I knew.'
       ],
       ideal: [
-        'Knowledge: The path to power and self-improvement is through knowledge. (Neutral)', 'Beauty: What is beautiful points us beyond itself toward what is true. (Good)', 'Logic: Emotions must not cloud our logical thinking. (Lawful)', 'No Limits: Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)', 'Power: Knowledge is the path to power and domination. (Evil)', 'Self-Improvement: The goal of a life of study is the betterment of oneself. (Any)'
+        'I believe that the path to power and self-improvement is through knowledge.',
+        'What is beautiful points us beyond itself toward what is true.',
+        'I believe that emotions must not cloud our logical thinking.',
+        'I believe that nothing should fetter the infinite possibility inherent in all existence.',
+        'Knowledge is, in my opinion, the path to power and domination.',
+        'I think that the goal of a life of study is the betterment of oneself.'
       ],
       personalityTrait: [
 
@@ -1788,7 +1827,12 @@ setup.npcData = {
         'There were few prospects where I was living, so I hopped on board a boat, to seek my fortunes elsewhere.'
       ],
       ideal: [
-        'Respect: The thing that keeps a ship together is mutual respect between captain and crew. (Good)', 'Fairness: We all do the work', 'Freedom: The sea is freedom– the freedom to go anywhere and do anything. (Chaotic)', "Mastery: I'm a predator", "People: I'm committed to my crewmates", "Aspiration: Someday I'll own my own ship and chart my own destiny. (Any)"
+        'I believe that the thing that keeps a ship together is mutual respect between captain and crew.',
+        'We all do the work. That is how the work gets done.',
+        'To me, the sea is freedom– the freedom to go anywhere and do anything.',
+        "I'm a predator, and I'm not going to apologise for it. Those that cannot survive on the seas should not live.",
+        "I'm committed to my crewmates.",
+        "Someday I'll own my own ship and chart my own destiny."
       ],
       personalityTrait: [
 
@@ -1813,7 +1857,11 @@ setup.npcData = {
         "I was always playing with a sword as a kid, and it wasn't until a visiting adventurer sparred with me for fun that I realised that I had a real talent."
       ],
       ideal: [
-        'Greater Good: Our lot is to lay down our lives in defense of others. (Good)', 'Responsibility: I do what I must and obey just authority. (Lawful)', 'Independence: When people follow orders blindly', 'Might: In life as in war', "Live and Let Live: Ideals aren't worth killing over or going to war for. (Neutral)", 'Nation: My city'
+        'Our lot is to lay down our lives in defense of others.',
+        'I do what I must and obey just authority.',
+        'When people follow orders blindly, people die.',
+        'In life, as in war. That is my motto, that I will live and die by.',
+        "To me, ideals aren't worth killing over or going to war for."
       ],
       personalityTrait: [
 
@@ -1838,7 +1886,12 @@ setup.npcData = {
         'A thief took me in, and in exchange for food and shelter, I would keep an eye on the streets while he pulled off heists.'
       ],
       ideal: [
-        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters. (Evil)', "People: I help the people who help me– that's what keeps us alive. (Neutral)", "Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
+        'All people deserve respect.',
+        'We have to take care of each other to survive.',
+        'The low are lifted up, and we all benefit from that.',
+        'The rich need to be shown what life and death are like in the gutters.',
+        "I help the people who help me– that's what keeps us alive.",
+        "I'm going to prove that I'm worthy of a better life."
       ],
       personalityTrait: [
 
@@ -1867,8 +1920,13 @@ setup.npcData = {
         'I was the eldest of four children, but when my father died, I had to leave school and work to support my family.'
       ],
       ideal: [
-        'Community. Everyone needs to pitch in for the greater good. (Good)',
-        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters. (Evil)', "People: I help the people who help me– that's what keeps us alive. (Neutral)", "Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
+        'Everyone needs to pitch in for the greater good.',
+        'You have to respect all people',
+        'We have to take care of each other',
+        'The low are lifted up',
+        'The rich need to be shown what life and death are like in the gutters.',
+        "I help the people who help me– that's what keeps us alive.",
+        "I'm going to prove that I'm worthy of a better life."
       ],
       personalityTrait: [
 

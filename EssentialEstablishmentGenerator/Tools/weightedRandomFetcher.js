@@ -33,7 +33,7 @@ setup.weightedRandomFetcher = function (town, args, npc, fn) {
     // isValid = {}
   }
   // console.log('Starting the search.')
-  var random = Math.floor(Math.random() * totalWeight)
+  var random = Math.floor(randomFloat(1) * totalWeight)
   console.log(random)
   for (var i = 0; i < pool.length; i++) {
     random -= pool[i].probability || 5
