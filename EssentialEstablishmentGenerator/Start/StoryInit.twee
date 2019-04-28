@@ -18,7 +18,7 @@
 	}>>
 
 <<include "TownWeather">>
-<<include "Trades">>
+
 /* <<set $town to {
   name: "Test Town",
   type: "city"
