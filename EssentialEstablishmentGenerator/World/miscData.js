@@ -43,21 +43,33 @@ setup.misc = {
   },
   'book': {
     create: function (town) {
-      var book = [
-        setup.misc.book.detailedTitles.random(),
-        setup.misc.book.titles.random(),
-        setup.misc.book.titles.random(),
-        setup.misc.book.puns.random()
-      ].random()
-      if (setup.misc.book.puns.includes(book)) {
-        return 'a book called ' + book
-      } else {
-        Object.assign(book, {
-          condition: setup.misc.book.condition.random(),
-          cover: setup.misc.book.cover.random()
-        })
+      var bookType = [
+        'detailedTitles',
+        'titles',
+        'titles',
+        'puns'].random()
+      switch (bookType) {
+        case 'detailedTitles':
+          var book = setup.misc.book.detailedTitles.random()
+          break
+        default:
+          book = {
+            title: setup.misc.book[bookType].random()
+          }
       }
-      return 'a book titled "' + book + '"'
+      Object.assign(book, {
+        condition: setup.misc.book.condition.random(),
+        cover: setup.misc.book.cover.random()
+      })
+
+      if (bookType === 'detailedTitles') {
+        book.readout = "'" + book.title + "'" + ' is ' + book.condition + ' The cover is ' + book.cover + book.contents
+      } else {
+        book.readout = "'" + book.title + "'" + ' is ' + book.condition + ' The cover is ' + book.cover
+      }
+      book.tippy = '<span class=tip title=' + JSON.stringify(book.readout) + '><<run setup.tippy("span")>>'
+      book.tippyWord = '"' + book.tippy + book.title + '"</span>'
+      return 'a book titled "' + book.tippy + book.title + '"</span>'
     },
     condition: [
       // the book is...
@@ -394,7 +406,7 @@ setup.misc = {
       'Losing Yourself To Be One: Mind Flayer and the Hive Mind',
       'Stone Eyes: the Myth of Aqytorky'
     ],
-    pun: [
+    puns: [
       'How to make Illusions and Charm People',
       'The Illithid by Homer',
       'Memoirs of a Genasi',
