@@ -401,7 +401,7 @@ setup.tavern = {
         },
         {
           restfulness: 90,
-          sleepEasy: 0,
+          sleepEasy: -2,
           note: "You surprisingly get an excellent night's sleep, and awake feeling refreshed and reinvigorated"
         },
         {
