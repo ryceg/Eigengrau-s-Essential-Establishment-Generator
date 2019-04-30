@@ -21,7 +21,8 @@
 
 	boring: ["I've heard that over the "],
 
-	paper: ["The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
+	paper: [
+	"The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
 	"The paper states 'WANTED: DEAD OR ALIVE', with the fine print reading 'For the crimes of theft, robbery, burglary, and arson, the $town.name Bandit is wanted dead or alive.' You ask _bartender.firstName about what the crimes entailed, and apparently there's been a huge rash of thefts of food in $town.name recently, resulting in food shortages. The $town.type's council has hired bounty hunters to catch the criminal.",
 	"The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high.",
 	"‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: 1,000gp’",

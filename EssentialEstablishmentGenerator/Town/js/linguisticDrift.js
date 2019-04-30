@@ -79,14 +79,14 @@ setup.linguisticDrift = function (name) {
   ]
 
   function modifyTown (modify) {
-    if (Math.random() <= modify[0]) {
+    if (randomFloat(1) <= modify[0]) {
       // console.log('Successful modify!')
       name = name.replace(modify[1], modify[2])
     }
   };
 
   function fixTown (fix) {
-    if (Math.random() <= fix[0]) {
+    if (randomFloat(1) <= fix[0]) {
       // console.log('Successful fix!')
       name = name.replace(fix[1], fix[2])
     }

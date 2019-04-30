@@ -268,7 +268,8 @@ setup.weather = {
   precipitationDescriptors: {
     'no precipitation': [
       "it's a fine day",
-      "it's a fair day"
+      "it's a fair day",
+      "it's a nice day out"
     ],
     'light fog': [
       "there's a light fog, although it doesn't obscure much",
@@ -277,7 +278,8 @@ setup.weather = {
     ],
     'medium fog': [
       "there's a bit of fog that obscures the horizon a little",
-      "there's some fog on the horizon"
+      "there's some fog on the horizon",
+      "there's a decent bit of fog"
     ],
     'heavy fog': [
       "there's a heavy fog, which obscures everything further than some fifty feet ahead of you",
@@ -287,14 +289,17 @@ setup.weather = {
     ],
     'light rain': [
       "there's a light rain falling from the few clouds that are in the sky",
-      "there's a slight bit of rain falling from the sky"
+      "there's a slight bit of rain falling from the sky",
+      "there's a gentle patter of rain falling down"
     ],
     'drizzle': [
       "there's a steady drizzle streaming down",
-      "there's a bit of a drizzle of rain"
+      "there's a bit of a drizzle of rain",
+      "there's a steady drizzle going"
     ],
     'rain': [
       "it's currently raining",
+      "it's raining at the moment",
       "there's some rain at the moment"
     ],
     'heavy rain': [
@@ -327,6 +332,7 @@ setup.weather = {
       'you cannot see the sky for the thick blanket of cloudcover'
     ],
     'overcast': [
+      'it is overcast',
       'stratus clouds hang overhead, resembling a thick fog clinging to the horizon, instead of the ground'
     ],
     'thick clouds': [
@@ -349,6 +355,7 @@ setup.weather = {
     ],
     'none': [
       "there's not a cloud in sight",
+      "there aren't any clouds in the sky",
       'there are no clouds on the horizon',
       'there are no clouds in the sky'
     ]

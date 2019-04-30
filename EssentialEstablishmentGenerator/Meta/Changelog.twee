@@ -1,17 +1,11 @@
 :: Changelog
-<blockquote><<run setup.tippy(".btn")>><h4>v.2.0</h4>- <span class="tip" title="This should make it much more contributor-friendly.">Total rewrite of code.</span>
-- <span class="tip" title="No more renaming the bartender on the fly because he had a weird name that sounded vaguely phallic!">Added support for editing NPCs.</span>
-- <span class="tip" title="I've opted to only generate one of each type of building (even if it's a huge city) to avoid bogging down the user with unnecessary clutter.">Added support for multiple buildings.</span>
-- <span class="tip" title="No more weird menage-a-trois. Not that there's anything wrong with them- I'll implement poly & LGBTQI relationships soon!">Fixed relationships.</span>
-- <span class="tip" title="Woo! Lose your money! Get married! I dunno.">Added tavern carousing.</span>
-- <span class="tip" title="This feeds into the NPC creation process, so the racial makeup of the town makes things more and less likely.">Added racial demographics.</span>
-- <span class="tip" title="This also into the NPC creation process, so professions are no longer a lucky dip.">Improved the profession demographic.</span>
-- <span class="tip" title="Woo! Lose your money! Get married! I dunno.">Added harlots to the brothels.</span>
-- <span class="tip" title="Also added the ability to delete them. Beware, no stability is promised if you delete a building's NPC.">Added list of current NPCs for reference.</span>
-- <span class="tip" title="The meat and potatoes of this came from many of /u/OrkishBlade's wonderful tables over at /r/behindTheTables. Thanks!">Added a scenario generator, complete with NPCs and descriptive text.</span>
-- <span class="tip" title="Thunderbolts and lightning, very very frightening!">Added weather generation.</span>
-- <span class="tip" title="Instead of just 'the sea captain', it's now a genuine NPC like others.">Added depth to tavern patrons.</span>
-
+<blockquote><<run setup.tippy(".btn")>>
+<h4>v.2.2</h4>-<span class="tip" title="Probably more bug squashing still needed!">Fixed most of the weather bugs</span>
+-<span class="tip" title="Probably more bug squashing still needed!">Fixed most of the town slider bugs related to wealth and socioeconomic structure.</span>
+-<span class="tip" title="Non-town encounters are still slightly hacked together. Will fix them soon!">Sorted out a weird bug with town encounters</span>
+-<span class="tip" title="There was one time when everyone was a polygamist. Weird.">Made a more robust relationships system, including half-breed handling.</span>
+-<span class="tip" title="Loosely based on the Kinsey scale. I'm very eager to introduce some more realistic representation.">Implemented sexuality.</span>
+-<span class="tip" title="Lots to be done here. Have opted for a relatively blocky system- the middle class didn't *really* exist in medieval times.">Implemented class system, which effects relationships & available occupations.</span>
 
 [[Full changelog|ChangelogFull]]
 </blockquote>

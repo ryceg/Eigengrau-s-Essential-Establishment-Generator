@@ -3,7 +3,7 @@ setup.getPriceMod = function () {
     return 0
   }
 
-  var locations = ['blacksmith', 'tavern', 'alchemist', 'GeneralStore']
+  var locations = ['blacksmith', 'tavern', 'alchemist', 'GeneralStore', 'docks', 'smithy']
   var loc = tags().find(function (tag) {
     return locations.includes(tag)
   })

@@ -13,6 +13,7 @@ setup.createTavern = function (town, opts) {
     hasClass: false,
     profession: 'barmaid'
   })
+  setup.createRelationship(town, tavern.bartender, tavern.barmaid, 'employee', 'employer')
 
   Object.assign(tavern, {
     passageName: 'TavernOutput',
@@ -152,6 +153,8 @@ setup.createTavern = function (town, opts) {
   })
   // setup.tavernRender(tavern)
   // setup.townBinder(town, tavern, 'tavern')
+
+  tavern.tippyDescription = 'A ' + tavern.size + ' ' + tavern.wordNoun + " that's " + tavern.cleanliness + ', and is known for ' + tavern.notableFeature + '.'
   console.log(tavern)
   console.groupEnd();
   return tavern

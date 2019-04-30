@@ -1,5 +1,5 @@
 :: TempleOutput
-<<unset $selectedBuilding>><<set $temple to $town.buildings[$selected.key][$selected.index]>><<set $priest to $npcs[$temple.priest.key]>>
+<<unset $selectedBuilding>><<set $temple to ($town.buildings.temple[$selected.key] || $town.buildings.temple[$currentPassage.key])>><<set $priest to $npcs[$temple.priest.key]>>
 <h1>$temple.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou come across a $temple.wordNoun.
 
 They pray to $temple.prayerSubject, and the temple is dedicated to $temple.dedicated. It's known for $temple.knownFor and is guarded by $temple.guardedBy. This temple also has $temple.rooms.

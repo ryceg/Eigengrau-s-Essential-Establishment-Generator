@@ -1,0 +1,18 @@
+:: ShipProfile
+<<set $currentShip to $docks.ships[$selected.shipKey]>><h1>$currentShip.name</h1>This is the $currentShip.type $currentShip.name. It has a crew of $currentShip.crew and is commanded by $currentShip.captainType, <<print setup.profile($currentShip.captain)>>.
+
+\<<if $currentShip.masts === 1>>\
+  The ship has one mast, which is $currentShip.rigging rigged
+  \<<elseif $currentShip.masts > 1>>\
+  The ship has $currentShip.masts $currentShip.rigging rigged masts
+  \<<else>>\
+  The ship has no masts<</if>>\
+  \<<if $currentShip.hasOars is true>>, and is <<if $currentShip.masts > 0>>, also <</if>>propelled via oars<</if>>. It is <<if settings.showMetric === true>>
+  \<<print ($currentShip.length * 0.0254).toFixed(1) + " metres">>\
+  \<<else>>\
+  \<<set _feet = Math.trunc($currentShip.length / 12)>>\
+  \<<print _feet + " feet">>\
+  \<</if>>. It is a <<if $currentShip.purpose.length === 1>>$currentShip.purpose[0] ship
+    \<<elseif $currentShip.purpose.length === 2>>$currentShip.purpose[0] and $currentShip.purpose[1] ship
+    \<<elseif $currentShip.purpose.length > 2>><<for _purpose range $currentShip.purpose.slice(0, -1)>>_purpose, <</for>> and <<print $currentShip.purpose[$currentShip.purpose.length -1]>> ship
+    \<</if>>.

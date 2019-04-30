@@ -1,8 +1,8 @@
-/* global dice setup */
+/* global dice setup random */
 setup.npcData = {
   'gender': {
     'man': {
-      // 'title': 'Mr',
+      'title': 'Mr',
       'heshe': 'he',
       'himher': 'him',
       'himherself': 'himself',
@@ -12,10 +12,17 @@ setup.npcData = {
       'manwoman': 'man',
       'menwomen': 'men',
       'malefemale': 'male',
-      'guygirl': 'guy'
+      'guygirl': 'guy',
+      'marriageNoun': 'husband',
+      'niblingReciprocalNoun': 'uncle',
+      'parentNoun': 'father',
+      'childNoun': 'son',
+      'siblingNoun': 'brother',
+      'niblingNoun': 'nephew',
+      'oppositeGender': 'woman'
     },
     'woman': {
-      // 'title': 'Ms',
+      'title': 'Ms',
       'heshe': 'she',
       'himher': 'her',
       'himherself': 'herself',
@@ -25,7 +32,14 @@ setup.npcData = {
       'manwoman': 'woman',
       'menwomen': 'women',
       'malefemale': 'female',
-      'guygirl': 'girl'
+      'guygirl': 'girl',
+      'marriageNoun': 'wife',
+      'niblingReciprocalNoun': 'aunt',
+      'parentNoun': 'mother',
+      'childNoun': 'daughter',
+      'siblingNoun': 'sister',
+      'niblingNoun': 'neice',
+      'oppositeGender': 'man'
     }
   },
   'heightChart': [
@@ -69,6 +83,408 @@ setup.npcData = {
     [30, 'so so tiny'],
     [0, 'impossibly small']
   ],
+  lifeEvents: {
+    trinket: {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function () {
+        var trinket = setup.createMagicTrinket()
+        console.log('called lifeEvents.trinket function')
+        return [
+          "I was given a magical trinket- it's a ",
+          'I happened across a ',
+          'I was gifted a ',
+          "I saved a wizard's life, and as a token of his thanks, he gave me a ",
+          "I came across a trinket in a field- It's a "
+        ].random() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
+      }
+    },
+    meetFriendNPC: {
+      probability: 10,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.meetFriendNPC function')
+        if (random(100) > 50) {
+          console.log('Finding an already existing friend!')
+          var friend = Object.keys(State.variables.npcs).find(function (name) {
+            return (State.variables.npcs[name].wealthClass === npc.wealthClass &&
+            (!State.variables.npcs[name].relationships[npc.key]))
+          })
+          if (friend === undefined) {
+            console.log('Nobody was in the same caste as ' + npc.name)
+            friend = setup.createNPC(town, {
+              isShallow: true,
+              wealthClass: npc.wealthClass
+            })
+          }
+        } else {
+          friend = setup.createNPC(town, {
+            isShallow: true
+          })
+        }
+        setup.createRelationship(town, npc, friend, 'friend', 'friend')
+        if (npc.hasClass === false) {
+          // Descriptions and stuff goes here
+          return [
+            'I met my ' + setup.profile(friend, 'best buddy') + ' on some travel.',
+            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
+            'I made a ' + setup.profile(friend, 'good friend') + ' during a drinking contest.',
+            'We were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
+          ].random()
+        } else {
+          return [
+            'I made a ' + setup.profile(friend, 'friend') + ' for life in my travels.',
+            'I was poor as a churchmouse, but then ' + setup.profile(friend, 'a total stranger') + ' helped me get a job. I owe everything I am today to his compassion.',
+            'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.',
+            "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my " + setup.profile(friend, 'best friend') + '.'
+          ].random()
+        }
+      }
+    },
+    meetEnemyNPC: {
+      probability: 10,
+      exclusions: function (town, npc) {
+        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.meetEnemyNPC function')
+        var enemy = setup.createNPC(town, {
+          gender: 'man',
+          background: 'noble',
+          isShallow: true
+        })
+        setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
+        return [
+          'I made an ' + setup.profile(enemy, 'enemy') + ' for life in my travels- ',
+          'I met a ' + setup.profile(enemy, 'man') + ', and we played cards. He decided that I was cheating- ',
+          'I was a guest in the court of a ' + setup.profile(enemy, 'lord') + ', and made an embarassment of him- ',
+          'I used to play cards in a pub, and one time supposedly cheated a ' + setup.profile(enemy, 'man') + ' out of his winnings; '
+        ].random() + [
+          'it was a misunderstanding, but I cannot convince him otherwise. ',
+          'I admit that I am at least partially at fault. ',
+          "I suppose that I'm at least partially to blame. ",
+          "I'll freely admit that I'm to blame. ",
+          "I'm ashamed to admit that I'm to blame. "
+        ].random() + [
+          'He hunts me to this day.',
+          'I hope to apologise to him if I ever encounter him again.',
+          "I don't exactly care to run into him again.",
+          "I couldn't care less if he tries to do anything about it.",
+          "I'll gut him like a fish if he crosses my path again.",
+          "I'm afraid that he'll kill me in my sleep.",
+          'I would rather have backup the next time that I face him.'
+        ].random()
+      }
+    },
+    meetPartnerNPC: {
+      probability: 10,
+      exclusions: function (town, npc) {
+        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.meetPartnerNPC function')
+        if (npc.partnerID !== undefined) {
+          console.log('Making a baby!')
+          var partner = State.variables.npcs[npc.partnerID]
+          var child = setup.createRelative(town, npc, 'child')
+          // var child = setup.createNPC(town, {
+          //   ageStage: 'child',
+          //   race: npc.race,
+          //   lastName: npc.lastName,
+          //   isShallow: true,
+          //   relationships: {
+          //     [npc.key]: npc.parentNoun,
+          //     [npc.partnerID]: partner.parentNoun
+          //   }
+          // })
+          // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
+          // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
+          setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
+          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
+        } else if (npc.partnerID === undefined) {
+          console.log(npc.name + ' met somebody!')
+          // if (npc.gender === 'man') {
+          setup.createRelative(town, npc, 'partner')
+          // partner = setup.createNPC(town, {
+          //   gender: npc.partnerGenderProbability(npc),
+          //   lastName: npc.lastName,
+          //   isShallow: true,
+          //   partnerID: npc.key
+          // })
+          // setup.setAsPartners(npc, partner)
+          // setup.createRelationship(town, npc, partner, State.variables.npcs[npc.partnerID].marriageNoun, npc.marriageNoun)
+          // } else {
+          //   partner = setup.createNPC(town, {
+          //     gender: 'man',
+          //     lastName: npc.lastName,
+          //     isShallow: true,
+          //     partnerID: npc.key
+          //   })
+          //   setup.setAsPartners(npc, partner)
+          //   setup.createRelationship(town, npc, partner, 'husband', 'wife')
+          // }
+          return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
+        }
+      }
+    },
+    backgroundWork: {
+      probability: 20,
+      exclusions: function (town, npc) {
+        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.backgroundWork function')
+        npc.wealth += (dice('2d6') * 1000)
+        return [
+          'I spent some time working as a ',
+          'I did a stint as a ',
+          'to pay off a debt, I spent some time as a ',
+          'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].random()
+      }
+    },
+    meetImportantNPC: {
+      probability: 5,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.meetImportantNPC function')
+        return [
+          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].random() +
+          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].random() +
+          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].random() + '.'
+        ].random()
+      }
+    },
+    adventure: {
+      probability: 5,
+      exclusions: function (town, npc) {
+        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.adventure function')
+        var adventureRoll = random(1, 100)
+        var adventureResults
+        if (npc.hasClass === false) {
+          // Descriptions and stuff goes here
+          return setup.npcData.lifeEvents.backgroundWork.function(town, npc)
+        } else {
+          var adventurePrefix = [
+            'I went on an adventure, and ',
+            'I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ',
+            'I had a spur of the moment whim to go on an adventure, and on my journeys, I ',
+            'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
+            'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
+          if (adventureRoll === 100) {
+            var weapon = setup.createMagicWeapon()
+            console.log('Called weapon function.')
+            adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + '<blockquote>' + '<h4>' + weapon.name + '</h4>' + weapon.description + '</blockquote>'
+          } else if (adventureRoll >= 91) {
+            adventureResults = 'found a considerable amount of treasure.'
+            npc.wealth += random(5100, 7150)
+          } else if (adventureRoll >= 81) {
+            adventureResults = 'found some treasure.'
+            npc.wealth += dice(2, 600)
+          } else if (adventureRoll >= 71) {
+            adventureResults = 'learnt a great deal about myself.'
+          } else if (adventureRoll >= 61) {
+            adventureResults = 'came across something terrifying that still stalks the lands.'
+          } else if (adventureRoll >= 51) {
+            adventureResults = 'lost something of sentimental value to me.'
+          } else if (adventureRoll >= 41) {
+            adventureResults = 'was poisoned by a ' + ['monster', 'trap', 'monster'].random() + ', but recovered in due time.'
+          } else if (adventureRoll >= 31) {
+            adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right."
+            npc.physicalTrait = ['pockmarked face', 'grey hair'].random()
+          } else if (adventureRoll >= 21) {
+            adventureResults = 'was wounded, but recovered in time.'
+          } else if (adventureRoll >= 11) {
+            adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time.'
+          } else if (adventureRoll < 11) {
+            adventureResults = "nearly died- that's how I got the scars."
+            npc.physicalTrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
+          }
+        }
+        return adventurePrefix + adventureResults
+      }
+    },
+    supernatural: {
+      probability: 5,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.supernatural function')
+        return [
+          'I came across a horde of ghouls feasting on a dead body in my youth.',
+          'I was ensorcelled by a fey for a year. It played tricks on my mind, making me see things which were not there, and not see things which were there.',
+          "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since.",
+          'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls.',
+          'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later.',
+          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, he vanished'
+        ].random()
+      }
+    },
+    war: {
+      probability: 5,
+      exclusions: function (town, npc) {
+        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.war function')
+        var warRoll = random(1, 12)
+        var warStart = [
+          'there was a minor skirmish with some orcs that I was involved with.',
+          'there was a small skirmish with a rivaling faction that I was drafted into.',
+          'there was a small war between a rival lord that I was forced to take part with.',
+          'there were some goblin raids which I had to defend my town from.',
+          'there was a pretty nasty zombie outbreak which I had to defend my town against.'
+        ].random()
+        var warResults
+        var warDescription
+        if (warRoll === 12) {
+          warResults = 'I acquitted myself well in battle, and was awarded a medal for bravery.'
+        } else if (warRoll >= 10) {
+          warResults = 'I managed to escape the battle unscathed, but many of my friends were killed or injured.'
+        } else if (warRoll >= 8) {
+          warResults = 'I managed to survive, but I still have nightmares about what happened.'
+        } else if (warRoll >= 5) {
+          warResults = 'I suffered only minor injuries, and the wounds all healed without leaving any scars.'
+        } else if (warRoll >= 2) {
+          warResults = 'I suffered some serious injuries, and had to be carried off the field.'
+          npc.physicalTrait = ['a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'].random()
+        } else if (warRoll === 1) {
+          warResults = 'I was knocked out, and left for dead. I woke up hours later, after the battle was over, and had to walk injured for days to find aid.'
+        }
+        warDescription = warStart + ' ' + warResults
+        return warDescription
+      }
+    },
+    crime: {
+      probability: 5,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.crime function')
+        var crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting'].random()
+        var crimeRoll = random(1, 12)
+        var crimeReadout
+        if (crimeRoll >= 9) {
+          crimeReadout = 'I was caught and convicted of ' + crime + ', and spent ' + random(1, 4) + ' years ' + ['in jail', 'chained to an oar', 'doing hard labour'].random() + ' before ' + ['being released.', 'managing to escape.'].random()
+        } else if (crimeRoll >= 7) {
+          crimeReadout = 'I was nearly caught and convicted in the middle of a ' + crime + ', but managed to escape. They are still after me, though.'
+        } else if (crimeRoll >= 4) {
+          crimeReadout = 'I was caught aiding and abetting the crime of ' + crime + ', but due to ' + ['being forced to do it against my will', 'my amazing lawyer', 'being under a spell'].random() + ', I was found not guilty.'
+        } else {
+          crimeReadout = 'I was falsely accused of ' + crime + ", but eventually was acquitted. It took up years of my life, though, and I still get antsy around guards that I don't know."
+        }
+        return crimeReadout
+      }
+    },
+    arcaneMatters: {
+      probability: 4,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.arcaneMatters function')
+        return [
+          'I once saw a demon!',
+          'I once saw a powerful wizard enchanting a weapon.',
+          'I once got caught in the cross-fires between two dueling wizards.',
+          'I had a mishap with a charm spell- an old friend tried to force me to hand over all my money, but I luckily managed to resist the spell.',
+          'I once drank a really strong potion- I swear to god, I could taste colours!'
+        ].random()
+      }
+    },
+    weirdStuff: {
+      probability: 1,
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        console.log('called lifeEvents.weirdStuff function')
+        return [
+          'I came across a genie, but squandered the wish on an ex lover.',
+          'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.',
+          'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].random() + ' and lived to tell the tale.',
+          'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.',
+          'I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold!',
+          "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest!",
+          'some bloody dragon held me as prisoner for a couple months. I was forced to polish all its gold! Luckily, I managed to escape when it tried to torch the nearby village.',
+          'believe it or not, I was a stone statue for quite a while; I only recently was released. I still feel pretty stiff, to be honest.'
+        ].random()
+      }
+    }
+  },
+  doesnt: {
+    'wants to grow a beard': {
+      probability: 5,
+      // type: ['says', 'doesnt', 'hides'],
+      exclusions: function (town, npc) {
+        if (npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability)) {
+          return false
+        } else {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        return npc.name + " doesn't say " + npc.heshe + ' wants to grow a beard.'
+      }
+    },
+    'no longer loves partner': {
+      probability: 5,
+      // type: ['says', 'doesnt', 'hides'],
+      exclusions: function (town, npc) {
+        if (!npc.partnerID) {
+          return false
+        } else {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        return npc.name + " doesn't say " + npc.heshe + ' no longer loves ' + npc.hisher + ' ' + npc.partnerID.marriageNoun + ', ' + '<<profile `$npcs[' + JSON.stringify(npc.partnerID) + ']`>>'
+      }
+    },
+    'has a sizeable inheritance': {
+      probability: 5,
+      // type: ['says', 'doesnt', 'hides'],
+      exclusions: function (town, npc) {
+        return true
+      },
+      function: function (town, npc) {
+        npc.wealth += 50000
+        return npc.name + " doesn't say " + npc.heshe + ' has a sizeable inheritance.'
+      }
+    },
+    'wants to run away': {
+      probability: 5,
+      // type: ['says', 'doesnt', 'hides'],
+      exclusions: function (town, npc) {
+        if (npc.background !== 'hermit') {
+          return true
+        }
+      },
+      function: function (town, npc) {
+        return npc.name + " doesn't say " + npc.heshe + ' wants to run away and live far away from society.'
+      }
+    }
+  },
   'skinColour': ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown'],
   'profession': ['actor', 'advocate', 'advisor', 'animal handler', 'apothecary', 'architect', 'archivist', 'armorer', 'astrologer', 'baker', 'banker', 'barber', 'barkeep', 'blacksmith', 'bookseller', 'brewer', 'bricklayer', 'brothel keeper', 'buccaneer', 'butcher', 'caravanner', 'carpenter', 'cartographer', 'chandler', 'chef', 'clock maker', 'cobbler', 'cook', 'counselor', 'courtesan', 'courtier', 'cowherd', 'dancer', 'diplomat', 'distiller', 'diver', 'farmer', 'fisherman', 'fishmonger', 'gardener', 'general', 'gladiator', 'glovemaker', 'goldsmith', 'grocer', 'guardsman', 'guildmaster', 'hatmaker', 'healer', 'herald', 'herbalist', 'hermit', 'historian', 'hunter', 'ice seller', 'innkeeper', 'inventor', 'jailer', 'jester', 'jeweler', 'judge', 'knight', 'lady', 'leatherworker', 'librarian', 'linguist', 'locksmith', 'lord', 'lumberjack', 'mason', 'masseur', 'merchant', 'messenger', 'midwife', 'miller', 'miner', 'minister', 'minstrel', 'monk', 'mortician', 'necromancer', 'noble', 'nun', 'nurse', 'officer', 'painter', 'patissier', 'perfumer', 'philosopher', 'physician', 'pilgrim', 'potter', 'priest', 'privateer', 'professor', 'roofer', 'ropemaker', 'rugmaker', 'saddler', 'sailor', 'scabbard maker', 'sculptor', 'scavenger', 'scholar', 'seamstress', 'servant', 'shaman', 'shepherd', "ship's captain", 'silversmith', 'slave', 'slaver', 'smith', 'soldier', 'spice merchant', 'squire', 'stablehand', 'stevedore', 'stonemason', 'steward', 'street seller', 'street sweeper', 'student', 'surgeon', 'surveyor', 'sailor', 'tanner', 'tavernkeeper', 'tax collector', 'teacher', 'thatcher', 'thief', 'torturer', 'town crier', 'toymaker', 'vendor', 'veterinarian', 'vintner', 'weaver', 'wetnurse', 'woodcarver', 'wood seller', 'wrestler', 'writer'],
   'trait': ['fidgets', 'drinks too much', 'eats too much', 'swears often', 'has poor hygiene', 'cannot resist flirting', 'cannot stop staring at you', 'sweats profusely and easily', 'is a habitual liar', 'embellishes the truth', 'exaggerates details', 'has a short temper', 'is melodramatic', 'gossips about the most mundane things', 'cannot resist a juicy secret', 'chews with an open mouth', 'often sniffs audibly', 'is incredibly gullible', 'is skeptical of everything', 'paces about incessantly', 'makes poor eye contact', 'is a know it all', "corrects people's grammar when they speak", 'blinks constantly', 'bobs head back and forth when speaking', 'is often sarcastic', 'cannot resist making snide comments', 'loses train of thought easily', 'is always shaking'],
@@ -123,7 +539,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -209,7 +625,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -297,7 +713,7 @@ setup.npcData = {
           [80, 'young'],
           [60, 'youngster'],
           [40, 'adolescent'],
-          [30, 'barely teenaged'],
+          [30, 'prepubescent'],
           [20, 'child'],
           [15, 'young child'],
           [10, 'kid']
@@ -387,7 +803,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -474,7 +890,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -561,7 +977,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -648,7 +1064,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -735,7 +1151,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -821,7 +1237,7 @@ setup.npcData = {
           [16, 'teenager'],
           [15, 'young teenager'],
           [14, 'adolescent'],
-          [12, 'barely teenaged'],
+          [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
           [6, 'kid']
@@ -1051,12 +1467,12 @@ setup.npcData = {
         'I followed a lover into religious service, but tragically, they were killed. The faith was the only thing that stopped me from ending my own life.'
       ],
       ideal: [
-        'Tradition: The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)',
-        'Charity: I always try to help those in need, no matter what the personal cost. (Good)',
-        'Change: We must help bring about the changes the gods are constantly working in the world. (Chaotic)',
-        "Power: I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)",
-        'Faith: I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)',
-        "Aspiration: I seek to prove myself worthy of my god's favor by matching my actions against their teachings. (Any)"
+        'I believe that the ancient traditions of worship and sacrifice must be preserved and upheld.',
+        'I always try to help those in need, no matter what the personal cost.',
+        'We must help bring about the changes the gods are constantly working in the world.',
+        "I hope to one day rise to the top of my faith's religious hierarchy.",
+        'I trust that my deity will guide my actions, I have faith that if I work hard, things will go well.',
+        "I seek to prove myself worthy of my god's favor by matching my actions against their teachings."
       ],
       'personalityTrait': [
         'I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.',
@@ -1088,12 +1504,12 @@ setup.npcData = {
         'After a charlatan fleeced my family, I decided to learn all the tricks I could so I would never fall for another scam.'
       ],
       ideal: [
-        'Independence: I am a free spirit– no one tells me what to do. (Chaotic)',
-        "Fairness: I never target people who can't afford to lose a few coins. (Lawful)",
-        'Charity: I distribute the money I acquire to the people who really need it. (Good)',
-        'Creativity: I never run the same con twice. (Chaotic)',
-        'Friendship: Material goods come and go. Bonds of friendship last forever. (Good)',
-        "Aspiration: I'm determined to make something of myself. (Any)"
+        'I am a free spirit– no one tells me what to do.',
+        "I never target people who can't afford to lose a few coins.",
+        'I distribute the money I acquire to the people who really need it.',
+        'I never run the same con twice.',
+        'I believe that Material goods come and go. Bonds of friendship last forever.',
+        "I'm determined to make something of myself."
       ],
       'personalityTrait': [
         'I fall in and out of love easily, and am always pursuing someone.',
@@ -1126,12 +1542,12 @@ setup.npcData = {
         'I was always bored, so I started committing minor crimes to pass the time. The adrenaline rush was addictive, and soon I was going on to bigger and better heists.'
       ],
       ideal: [
-        "Honor: I don't steal from others in the trade. (Lawful)",
-        'Freedom: Chains are meant to be broken',
-        'Charity: I steal from the wealthy so that I can help people in need. (Good)',
-        'Greed: I will do whatever it takes to become wealthy. (Evil)',
-        "People: I'm loyal to my friends",
-        "Redemption: There's a spark of good in everyone. (Good)"
+        "I believe in honour amongst thieves- I don't steal from others in the trade.",
+        'I am definitely a fan of freedom- Chains are meant to be broken',
+        'I steal from the wealthy so that I can help people in need.',
+        'I will do whatever it takes to become wealthy.',
+        "I'm loyal to my friends",
+        "I believe that there's a spark of good in everyone."
       ],
       personalityTrait: [
 
@@ -1157,12 +1573,12 @@ setup.npcData = {
         'A traveling entertainer took me in to teach me the trade, and I learned to love it.'
       ],
       ideal: [
-        'Beauty: When I perform, I want to make beautiful things for the pleasure of my audience (Good)',
-        'Tradition: The stories I tell have a lot of history which I wish to preserve.',
-        'Creativity: The world is in need of new ideas and bold action. (Chaotic)',
-        "Greed: I'm only in it for the money and fame. (Evil)",
-        "People: I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)",
-        'Honesty: Art should reflect the soul; it should come from within and reveal who we really are. (Any)'
+        'When I perform, I want to make beautiful things for the pleasure of my audience',
+        'The stories I tell have a lot of history which I wish to preserve.',
+        'The world is in need of new ideas and bold action.',
+        "I'm only in it for the money and fame.",
+        "I like seeing the smiles on people's faces when I perform. That's all that matters.",
+        'Art should reflect the soul; it should come from within and reveal who we really are.'
       ],
       personalityTrait: [
 
@@ -1188,12 +1604,12 @@ setup.npcData = {
         'I have always stood up for those who are weaker than me.'
       ],
       ideal: [
-        'Respect: People deserve to be treated with dignity and respect. (Good)',
-        'Fairness: No one should get preferential treatment before the law (Good)',
-        'Freedom: Tyrants must not be allowed to oppress the people. (Chaotic)',
-        'Might: If I become strong, I will be better able to protect people. (Good)',
-        "Sincerity: There's no good in pretending to be something I'm not. (Neutral)",
-        'Destiny: Nothing and no one can steer me away from my higher calling. (Any)'
+        'I have the radical belief that people deserve to be treated with dignity and respect.',
+        'I believe that no one should get preferential treatment before the law',
+        'Tyrants must not be allowed to oppress the people.',
+        'If I become strong, I will be better able to protect people.',
+        "There's no good in pretending to be something I'm not.",
+        'Nothing and no one can steer me away from my higher calling.'
       ],
       personalityTrait: [
 
@@ -1216,7 +1632,12 @@ setup.npcData = {
         'I was constantly getting into fights as a youngster. I figured I might as well continue, for money.'
       ],
       ideal: [
-        'Might: If I become strong, I will be better able to protect people. (Good)'
+        'If I become strong, I will be better able to protect people.',
+        'I want to become the hero I pretend to be.',
+        'I want people to tremble at the sound of my name.',
+        'I want to inspire others.',
+        'I am in it for the money.',
+        'I honestly love to see others in pain.'
       ],
       personalityTrait: [
 
@@ -1242,7 +1663,12 @@ setup.npcData = {
         'I learned the essentials from an old mentor, but I had to join a guild to finish my learning once he passed away.'
       ],
       ideal: [
-        'Community: It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)', 'Generosity: My talents were given to me so that I could use them to benefit the world. (Good)', 'Freedom: Everyone should be free to pursue their own livelihood. (Chaotic)', "Greed: I'm only in it for the money. (Evil)", "People: I'm committed to the people I care about", 'Aspiration: I work hard to be the best there is at my craft.'
+        'I believe it is the duty of all civilized people to strengthen the bonds of community and the security of civilization.',
+        'My talents were given to me so that I could use them to benefit the world.',
+        'Everyone should be free to pursue their own livelihood.',
+        "I'm only in it for the money.",
+        "I'm committed to the people I care about",
+        'I work hard to be the best there is at my craft.'
       ],
       personalityTrait: [
 
@@ -1267,12 +1693,12 @@ setup.npcData = {
         'I felt compelled to forsake my past, and did so with great reluctane. Even now, I sometimes regret my decisions.'
       ],
       ideal: [
-        'Greater Good: My gifts are meant to be shared with all',
-        'Logic: Emotions must not cloud our sense of what is right and true',
-        'Free Thinking: Inquiry and curiosity are the pillars of progress. (Chaotic)',
-        'Power: Solitude and contemplation are paths toward mystical or magical power. (Evil)',
-        'Live and Let Live: Meddling in the affairs of others only causes trouble. (Neutral)',
-        'Self-Knowledge: If you know yourself, you know your enemy.'
+        'My gifts are meant to be shared with all',
+        'I believe that motions must not cloud our sense of what is right and true',
+        'I believe that inquiry and curiosity are the pillars of progress.',
+        'I think that solitude and contemplation are paths toward mystical or magical power.',
+        'I believe that meddling in the affairs of others only causes trouble.',
+        'If you know yourself, you know your enemy.'
       ],
       personalityTrait: [
 
@@ -1303,10 +1729,12 @@ setup.npcData = {
         "I hope to increase my family's power and influence."
       ],
       ideal: [
-        'Respect: Respect is due to me because of my position',
-        'Responsibility: It is my duty to respect the authority of those above me',
-        'Independence: I must prove that I can handle myself without the coddling of my family. (Chaotic)',
-        'Power: If I can attain more power, I will be able to protect my family (Chaotic)', 'Family: Blood runs thicker than water. (Any)', 'Noble Obligation: It is my duty to protect and care for the people beneath me. (Good)'
+        'Respect is due to me because of my position',
+        'It is my duty to respect the authority of those above me',
+        'I must prove that I can handle myself without the coddling of my family.',
+        'If I can attain more power, I will be able to protect my family',
+        'I believe that blood runs thicker than water.',
+        'It is my duty to protect and care for the people beneath me.'
       ],
       personalityTrait: [
 
@@ -1332,12 +1760,12 @@ setup.npcData = {
         'My family moved away from civilisation, and I learnt to adapt with the harsh environment.'
       ],
       ideal: [
-        'Change: Life is like the seasons, change should be embraced! (Chaotic)',
-        "Greater Good: It is each person's responsibility to make the most happiness for the whole tribe. (Good)",
-        'Honor: If I dishonor myself, I bring dishonor to my whole tribe (Lawful)',
-        'Might: The strongest are meant to rule. (Evil)',
-        'Nature: The natural world is more important than all the constructs of civilization. (Neutral)',
-        'Glory: I must earn glory in battle. (Neutral)'
+        'I think that life is like the seasons, change should be embraced!',
+        "It is each person's responsibility to make the most happiness for the whole tribe.",
+        'If I dishonor myself, I bring dishonor to my whole tribe',
+        'I believe that the strongest are meant to rule.',
+        'The natural world is more important than all the constructs of civilization.',
+        'I must earn glory in battle.'
       ],
       personalityTrait: [
 
@@ -1368,7 +1796,12 @@ setup.npcData = {
         'My father gave me a basic education which whetted my appetite for more knowledge, and I left home to build on what I knew.'
       ],
       ideal: [
-        'Knowledge: The path to power and self-improvement is through knowledge. (Neutral)', 'Beauty: What is beautiful points us beyond itself toward what is true. (Good)', 'Logic: Emotions must not cloud our logical thinking. (Lawful)', 'No Limits: Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)', 'Power: Knowledge is the path to power and domination. (Evil)', 'Self-Improvement: The goal of a life of study is the betterment of oneself. (Any)'
+        'I believe that the path to power and self-improvement is through knowledge.',
+        'What is beautiful points us beyond itself toward what is true.',
+        'I believe that emotions must not cloud our logical thinking.',
+        'I believe that nothing should fetter the infinite possibility inherent in all existence.',
+        'Knowledge is, in my opinion, the path to power and domination.',
+        'I think that the goal of a life of study is the betterment of oneself.'
       ],
       personalityTrait: [
 
@@ -1394,7 +1827,12 @@ setup.npcData = {
         'There were few prospects where I was living, so I hopped on board a boat, to seek my fortunes elsewhere.'
       ],
       ideal: [
-        'Respect: The thing that keeps a ship together is mutual respect between captain and crew. (Good)', 'Fairness: We all do the work', 'Freedom: The sea is freedom– the freedom to go anywhere and do anything. (Chaotic)', "Mastery: I'm a predator", "People: I'm committed to my crewmates", "Aspiration: Someday I'll own my own ship and chart my own destiny. (Any)"
+        'I believe that the thing that keeps a ship together is mutual respect between captain and crew.',
+        'We all do the work. That is how the work gets done.',
+        'To me, the sea is freedom– the freedom to go anywhere and do anything.',
+        "I'm a predator, and I'm not going to apologise for it. Those that cannot survive on the seas should not live.",
+        "I'm committed to my crewmates.",
+        "Someday I'll own my own ship and chart my own destiny."
       ],
       personalityTrait: [
 
@@ -1419,7 +1857,11 @@ setup.npcData = {
         "I was always playing with a sword as a kid, and it wasn't until a visiting adventurer sparred with me for fun that I realised that I had a real talent."
       ],
       ideal: [
-        'Greater Good: Our lot is to lay down our lives in defense of others. (Good)', 'Responsibility: I do what I must and obey just authority. (Lawful)', 'Independence: When people follow orders blindly', 'Might: In life as in war', "Live and Let Live: Ideals aren't worth killing over or going to war for. (Neutral)", 'Nation: My city'
+        'Our lot is to lay down our lives in defense of others.',
+        'I do what I must and obey just authority.',
+        'When people follow orders blindly, people die.',
+        'In life, as in war. That is my motto, that I will live and die by.',
+        "To me, ideals aren't worth killing over or going to war for."
       ],
       personalityTrait: [
 
@@ -1444,7 +1886,12 @@ setup.npcData = {
         'A thief took me in, and in exchange for food and shelter, I would keep an eye on the streets while he pulled off heists.'
       ],
       ideal: [
-        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters. (Evil)', "People: I help the people who help me– that's what keeps us alive. (Neutral)", "Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
+        'All people deserve respect.',
+        'We have to take care of each other to survive.',
+        'The low are lifted up, and we all benefit from that.',
+        'The rich need to be shown what life and death are like in the gutters.',
+        "I help the people who help me– that's what keeps us alive.",
+        "I'm going to prove that I'm worthy of a better life."
       ],
       personalityTrait: [
 
@@ -1473,8 +1920,13 @@ setup.npcData = {
         'I was the eldest of four children, but when my father died, I had to leave school and work to support my family.'
       ],
       ideal: [
-        'Community. Everyone needs to pitch in for the greater good. (Good)',
-        'Respect: All people', 'Community: We have to take care of each other', 'Change: The low are lifted up', 'Retribution: The rich need to be shown what life and death are like in the gutters. (Evil)', "People: I help the people who help me– that's what keeps us alive. (Neutral)", "Aspiration: I'm going to prove that I'm worthy of a better life. (Any)"
+        'Everyone needs to pitch in for the greater good.',
+        'You have to respect all people',
+        'We have to take care of each other',
+        'The low are lifted up',
+        'The rich need to be shown what life and death are like in the gutters.',
+        "I help the people who help me– that's what keeps us alive.",
+        "I'm going to prove that I'm worthy of a better life."
       ],
       personalityTrait: [
 
