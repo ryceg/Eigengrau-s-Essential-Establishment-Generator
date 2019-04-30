@@ -109,6 +109,26 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'artifacts', 'artifacts', 'artifacts', 'magical contraptions', 'magical contraptions', 'magical contraptions']
     },
+    'foreigners': {
+      'leaderTraits': {
+        'hasClass': false,
+        'profession': 'diplomat',
+        'background': 'noble'
+      },
+      'wordNoun': 'embassy',
+      'leaderQualification': ['incredibly well spoken', 'incredibly well spoken', 'fluent in common, though with a strong accent', 'the best dressed of the group', 'the most charismatic of the group', 'chosen by his government as a representative', 'incredibly beautiful and charming', 'driven and ambitious', 'the fattest man you have ever seen', 'able to rise to power through nepotism', 'the most intelligent man in the room', 'fluent in common, though with a strong accent'],
+      'alliesList': ['merchants', 'merchants', 'mercenaries', 'commoners', 'nobles', 'nobles', 'nobles', 'artisans', 'craftsmen', 'craftsmen', 'artisans'],
+      'rivalsList': ['wizards', 'assassins', 'commoners', 'commoners', 'priests', 'commoners', 'assassins'],
+      'joiningRequirement': ['familial ties to their home country', 'an expressed desire for citizenship', 'a bond of kinship'],
+      'joiningInitiation': ['complex citizenship paperwork', 'complex citizenship paperwork', 'an oath of fealty to their king', 'a sufficiently large bribe'],
+      'membersTrait': ['their tattoos and facial piercings', 'their outlandish clothes', 'their strangely colored hair', 'their orange clothes', 'their large earrings', 'their gaudy jewelry'],
+      'main': ['Peoples', 'Citizens', 'Lords', 'Peoples'],
+      'adjective': ['Foreign', 'Distant', 'External', 'Alien', 'Foreign'],
+      'group': ['Embassy', 'Embassy', 'Embassy', 'Consulate', 'Legation', 'Ministry', 'Diplomatic Mission'],
+      'unique': ["Citizen's Permanent Mission", 'Alien Consulate General'],
+      'motivation': ['power', 'peace', 'connections', 'political power'],
+      'resources': ['contacts', 'contacts', 'contacts', 'political influence', 'foreign goods', 'foreign goods']
+    },
     'mercenaries': {
       'leaderTraits': {
         title: 'Commander',
