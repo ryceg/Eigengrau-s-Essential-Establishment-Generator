@@ -75,18 +75,14 @@ setup.townSquare = {
     },
     'gawk': {
       function: function (town) {
-        var npc = setup.createNPC(town{
-          background: 'commoner'
-        })
+        var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby beautiful woman.'
       }
     },
-    'delivery': {
+    'parcel': {
       function: function (town) {
-        var npc = setup.createNPC(town{
-          background: 'commoner'
-        })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is pushing through the square while carrying a parcel.'
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is pushing through the square with an oddly shaped parcel in hand.'
       }
     },
     'hurry': {
