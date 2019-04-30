@@ -51,7 +51,7 @@ setup.townSquare = {
     'animal': {
       function: function (town) {
         return 'a large cage with ' + ['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
-         'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() ' inside of it.'
+         'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() + ' inside of it.'
       }
     },
     'drunkard': {
