@@ -26,11 +26,14 @@ setup.townSquare = {
     'feral cats that stalk through the streets, searching for scraps.',
     'a large gallows on a raised stage in the center.',
     'a raised executioners block in the middle.',
-    
+    'a large wooden pole in the center with ribbons hanging down from it. Several children are gathered around the pole dancing with the ribbons.',
+    'an in-the-round style stage currently prepped for some sort of stage show',
+    'several small ' + ['wooden', 'stone', 'jewel encrusted', 'obsidian', 'copper', 'bronze', 'iron', 'metal', 'glass'].random() + " statues of the town's patron placed in different corners.",
     'a huge old ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
     'an old, withered ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
     'a fountain that the common folk drink from despite the sanitation issues.',
     'an ornate fountain that several children are playing in.',
+    'a large box with a slit in the top. The front of the box has "suggestions" scrawled across it.',
     'a small well that several shabbily dressed folk are waiting in line for.',
     'a large well with guards stationed around it.',
     'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
@@ -48,6 +51,13 @@ setup.townSquare = {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' carrying a large bag.'
+      }
+    },
+    'chest': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        var npc2 = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + 'and a ' + setup.profile(npc2, npc2.descriptor) + ' carrying a large and heavy looking chest.'
       }
     },
     'hurry': {
