@@ -11,10 +11,10 @@ setup.misc = {
       }
       return cheese
     },
-    colour: ['pale grey, with dark flecks', 'bright yellow', 'warm yellow', 'spotty yellow', 'pale yellow', 'light green', 'light greenish-yellow'],
-    texture: ['crumbly, with a texture similar to plaster', 'rubbery, and squeaks while you eat it', 'rubbery, and squeaks rather disconcertingly while you eat it', 'crumbly, with bits going everywhere', 'somewhat rubbery', 'somewhat stringy', 'slightly stringy', 'rubbery, like a piece of leather that has been soaking in some greasy sludge', 'soft and spongey, with the occassional... crunch', 'soft, springy, and moist', 'gooey', 'moist and delicious', 'almost liquid once you bite through the rind'],
-    taste: ['sharp', 'sharp and salty', 'somewhat bland', 'inoffensively mild', "salty, like a cow's salt-lick", 'rich and creamy', 'creamy, with hints of oak', 'strong, slightly salty, and extremely more-ish', 'smokey, with hints of rum', 'smokey, with hints of chili', 'salty, but immediately the spice from the peppers takes over', "bitter, with the rind tasting somewhere between a burnt log and dead bug, but the taste isn't entirely unpleasant", "a warm and smooth creaminess which envelopes your taste buds like a mother's embrace"],
-    smell: ["pungent, as if it was the result of somebody's terrible diet decisions", 'somewhat sweet, with a heady aroma', 'like the ass of a cow in cheese form', "like the best parts of a farm's stable", 'like freshly baled hay', 'like freshly cut grass', 'like a lemon tree', 'like fresh cream', 'like a rotting corpse', 'like a roast duck filled with spices', 'like a delicious slice of bread toasted over a fire', 'like a slice of bread left in the fire far too long'],
+    colour: ['pale grey, with dark flecks', 'bright yellow', 'warm yellow', 'spotty yellow', 'pale yellow', 'light green', 'light greenish-yellow', 'white, with blue spots', 'white, with a purple rind', 'yellow, with a black waxy rind', 'dark, almost brown'],
+    texture: ['crumbly, with a texture similar to plaster', 'rubbery, and squeaks while you eat it', 'rubbery, and squeaks rather disconcertingly while you eat it', 'crumbly, with bits going everywhere', 'somewhat rubbery', 'somewhat stringy', 'slightly stringy', 'rubbery, like a piece of leather that has been soaking in some greasy sludge', 'soft and spongey, with the occassional... crunch', 'soft, springy, and moist', 'gooey', 'moist and delicious', 'almost liquid once you bite through the rind', 'rock hard', 'mildly grainy', 'slippery', 'melted and gooey'],
+    taste: ['sharp', 'sharp and salty', 'somewhat bland', 'inoffensively mild', "salty, like a cow's salt-lick", 'rich and creamy', 'creamy, with hints of oak', 'strong, slightly salty, and extremely more-ish', 'smokey, with hints of rum', 'smokey, with hints of chili', 'salty, but immediately the spice from the peppers takes over', "bitter, with the rind tasting somewhere between a burnt log and dead bug, but the taste isn't entirely unpleasant", "a warm and smooth creaminess which envelopes your taste buds like a mother's embrace", 'entirely bland', 'incredibly and painfully sour', 'somehow meaty', 'earthy and buttery, like sautéed mushrooms', 'like it has bits of berries mixed in'],
+    smell: ["pungent, as if it was the result of somebody's terrible diet decisions", 'somewhat sweet, with a heady aroma', 'like the ass of a cow in cheese form', "like the best parts of a farm's stable", 'like freshly baled hay', 'like freshly cut grass', 'like a lemon tree', 'like fresh cream', 'like a rotting corpse', 'like a roast duck filled with spices', 'like a delicious slice of bread toasted over a fire', 'like a slice of bread left in the fire far too long', 'smoky and savory', "like a halfling's sweaty foot", 'like an open sewer'],
     cost: [1, 2, 3, 4, 5, 6, 6, 6, 7, 7, 7, 8, 9, 10, 10, 10, 11, 11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
   },
   'treasureMap': {
@@ -33,13 +33,13 @@ setup.misc = {
       map.tippyWord = map.tippy + '<b>map</b></span>'
       return map
     },
-    'one': ['big cracked boulder.', 'lightning-blasted oak tree.', 'rock shaped like a horse.', 'stone wall with a piece of volcanic glass .', 'exact center of the village/town/city.', 'statue of a famous person.', 'shipwreck of an infamous pirate ship.', 'bones of the black dragon.', 'cavern near the waterfall.', 'top of the volcano.', 'exact center of the lake.', 'abandoned temple.', 'old fort.', 'old standing circle.', 'road marker leading south.', 'exact center of the longest bridge.', "hangman's scaffold.", "king's/queens throne room.", 'crossroads.', 'largest tomb in the cemetery.'],
+    'one': ['big cracked boulder.', 'lightning-blasted oak tree.', 'rock shaped like a horse.', 'stone wall with a piece of volcanic glass .', 'exact center of the village/town/city.', 'statue of a famous person.', 'shipwreck of an infamous pirate ship.', 'bones of the black dragon.', 'cavern near the waterfall.', 'top of the volcano.', 'exact center of the lake.', 'abandoned temple.', 'old fort.', 'old standing circle.', 'road marker leading south.', 'exact center of the longest bridge.', "hangman's scaffold.", "king's/queens throne room.", 'crossroads.', 'largest tomb in the cemetery.', 'last waterfall on the great river', 'big well', 'yellow barn outside of town'],
     'two': ['go north for ' + random(1, 4) + ' miles', 'go south for ' + random(1, 4) + ' miles', 'go east for ' + random(1, 4) + ' miles', 'go west for ' + random(1, 4) + ' miles', 'go northeast for ' + random(1, 4) + ' miles', 'go northwest for ' + random(1, 4) + ' miles', 'go southeast for ' + random(1, 4) + ' miles', 'go southwest for ' + random(1, 4) + ' miles'],
-    'three': ['mountain shaped like a tooth.', 'hill shaped like a saddle.', 'cliffs of red stone.', 'tiny caves in a white hill.', 'old fortress ruins.', 'dried up creekbed.', 'swift-running river.', 'waterfall.', 'abandoned village.', 'tree with a large hole in it.', 'toppled statue of a deity.', 'landslide of shale and gravel.', 'steep-sided valley with blue flowers.', 'beach strewn with black seashells.', 'broken remains of a watchtower.', 'road marker pointing east.', "dilapidated hunter's shack.", 'crossroads.', 'hand-cut stairway into the hillside.', 'the canyon with natural stairs leading down.'],
+    'three': ['mountain shaped like a tooth.', 'hill shaped like a saddle.', 'cliffs of red stone.', 'tiny caves in a white hill.', 'old fortress ruins.', 'dried up creekbed.', 'swift-running river.', 'waterfall.', 'abandoned village.', 'tree with a large hole in it.', 'toppled statue of a deity.', 'landslide of shale and gravel.', 'steep-sided valley with blue flowers.', 'beach strewn with black seashells.', 'broken remains of a watchtower.', 'road marker pointing east.', "dilapidated hunter's shack.", 'crossroads.', 'hand-cut stairway into the hillside.', 'the canyon with natural stairs leading down.', 'white tree.', 'exposed dragon skull.', 'stone island in the center of a small lake.'],
     'four': ['go north for ' + random(1, 4) + ' miles', 'go south for ' + random(1, 4) + ' miles', 'go east for ' + random(1, 4) + ' miles', 'go west for ' + random(1, 4) + ' miles', 'go northeast for ' + random(1, 4) + ' miles', 'go northwest for ' + random(1, 4) + ' miles', 'go southeast for ' + random(1, 4) + ' miles', 'go southwest for ' + random(1, 4) + ' miles'],
-    'five': ['rock shaped like a heart.', "mountain shaped like a bird's head.", 'petrified forest.', 'salt lake.', 'dried up swampland.', 'broken bridge.', 'old abandoned mill.', 'the ruined tower of a famous mage.', 'the ancient cemetery.', 'the mossy limestone cliffs.', 'the old granite quarry.', 'the abandoned campgrounds.', 'the vandalized statue of a former ruler.', 'the crossroads.', 'the road marker pointing west.', 'shipwreck of a well-known war ship.', 'minaret.', 'quicksand.', 'hills honeycombed with caves.', "old king's forest."],
+    'five': ['rock shaped like a heart.', "mountain shaped like a bird's head.", 'petrified forest.', 'salt lake.', 'dried up swampland.', 'broken bridge.', 'old abandoned mill.', 'the ruined tower of a famous mage.', 'the ancient cemetery.', 'the mossy limestone cliffs.', 'the old granite quarry.', 'the abandoned campgrounds.', 'the vandalized statue of a former ruler.', 'the crossroads.', 'the road marker pointing west.', 'shipwreck of a well-known war ship.', 'minaret.', 'quicksand.', 'hills honeycombed with caves.', "old king's forest.", 'edge of the great desert.', 'great pine tree.', 'boulder split in two.', 'enormous sacrificial altar.', 'unholy temple to a forgotten god.', 'eternally burning campfire.'],
     'six': ['go north for ' + random(1, 4) + ' miles.', 'go south for ' + random(1, 4) + ' miles.', 'go east for ' + random(1, 4) + ' miles.', 'go west for ' + random(1, 4) + ' miles.', 'go northeast for ' + random(1, 4) + ' miles.', 'go northwest for ' + random(1, 4) + ' miles.', 'go southeast for ' + random(1, 4) + ' miles.', 'go southwest for ' + random(1, 4) + ' miles.'],
-    'seven': ['buried at the foot of a cliff.', 'buried under a mighty oak tree.', 'buried under some tower ruins.', 'buried under a pile of skulls.', 'buried in the grave of a famous person.', 'hidden at the top of an old tower.', 'hidden behind an old painting.', "hidden at the bottom of an old rabbit's warren.", 'hidden in the bole of an ancient elm tree.', "hidden in a shipwreck's hold.", 'guarded by assassins.', 'guarded by monsters.', 'guarded by soldiers.', 'guarded by spirits.', 'guarded by a big monster.', 'protected by magical wards.', 'protected by astral locks.', 'protected by physical traps.', 'protected by necromantic curses.', 'protected by spiritual prayers.']
+    'seven': ['buried at the foot of a cliff.', 'buried under a mighty oak tree.', 'buried under some tower ruins.', 'buried under a pile of skulls.', 'buried in the grave of a famous person.', 'hidden at the top of an old tower.', 'hidden behind an old painting.', "hidden at the bottom of an old rabbit's warren.", 'hidden in the bole of an ancient elm tree.', "hidden in a shipwreck's hold.", 'guarded by assassins.', 'guarded by monsters.', 'guarded by soldiers.', 'guarded by spirits.', 'guarded by a big monster.', 'protected by magical wards.', 'protected by astral locks.', 'protected by physical traps.', 'protected by necromantic curses.', 'protected by spiritual prayers.', 'protected by a terrible riddle.', 'locked behind a holy ward.', 'buried in an old latrine.', "mixed into a dragon's horde.", 'hidden at the bottom of the chasm.', 'locked behind arcane spells.', 'stuck at the top of a great elm tree.', 'buried in an iron chest.', 'in a wooden chest in the basement of the cabin.', 'stuffed in the crack between two boulders.', 'buried at the end of the black alleyway.']
   },
   'book': {
     create: function (town) {
@@ -82,7 +82,16 @@ setup.misc = {
       'ancient. The pages crumble as they turn.',
       'strange. Some of the pages are blank?',
       'in good condition, but used. There are handwritten notes in the margins of the pages.',
-      'pristine. You can smell the ink drying.'
+      'pristine. You can smell the ink drying.',
+      "really wet for no discernable reason. It doesn't seem to be damaged at all though.",
+      'printed upside-down.',
+      'beautifully illuminated in gold leaf and vibrant paints.',
+      'glowing with a soft radiance.',
+      'warm to the touch. The text glows like the embers of a fire.',
+      'tattered and torn. Many pages are ripped and unreadable.',
+      'poorly made, and the handwriting is illegible in most places.',
+      'completely clean, as if it was magically preserved.',
+      'massive. Easily two feet wide and three feet tall, it weighs nearly 50 pounds'
     ],
     cover: [
       'missing. The pages are bound with string woven through holes near the spine.',
@@ -96,7 +105,12 @@ setup.misc = {
       'leather with the title branded on it.',
       'leather with gilding on the spine.',
       "torn off. It's kept together by a leather belt.",
-      'tree bark. Dried vine bind it.'
+      'tree bark. Dried vine bind it.',
+      'a thin metal foil; surprisingly strong and light.',
+      'dark metal embossed with swirling runes.',
+      'patchwork leather of multiple different creatures.',
+      'dragonscale with gold decorations.',
+      'wood and iron, with a large padlock holding the covers together.'
     ],
     detailedTitles: [
       {
@@ -350,6 +364,16 @@ setup.misc = {
         title: 'Travellers Musings',
         category: 'tales and legends',
         contents: 'Within is what seems to be a collection of short stories. To anyone that can read the thieves cant, the book is a guide on how to gain membership to the thieves guilds.'
+      },
+      {
+        title: 'Strange Creatures and How to Cook Them',
+        category: 'anatomy',
+        contents: 'This oddly warm book contains page upon page of recipes and descriptions of powerful and strange magical beasts. Both the monster descriptions and the recipes seem to be of dubious quality. Also is it dripping saliva? ARE THOSE TEETH!?'
+      },
+      {
+        title: 'Live Your Best Life',
+        category: 'history',
+        contents: 'This recruitment pamphlet is scribbled in reddish ink on folded reeds, and details the benefits of living in a nearby druidic society. There is an address for a recruitment officer, along with instructions on how to join the druids.'
       }
     ],
     titles: [
@@ -404,7 +428,12 @@ setup.misc = {
       'Asamokology: the Nature of What Is Fake',
       'Breaking the Cycle: the Written War Against the Gods - Vol. 146',
       'Losing Yourself To Be One: Mind Flayer and the Hive Mind',
-      'Stone Eyes: the Myth of Aqytorky'
+      'Stone Eyes: the Myth of Aqytorky',
+      'The Fire Within the Stone: A Divination Primer for Beginners',
+      'You Can Call Me Gary: The Autobiography of Lord Gygax',
+      'Two Runes and a Pentagram: Summoning Demons for Beginners',
+      "The King's Consort - Vol. 8",
+      'Back to Work Peasants! The Writings of The Bad King Quellix'
     ],
     puns: [
       'How to make Illusions and Charm People',
@@ -443,7 +472,24 @@ setup.misc = {
       'The Cockatrice in the Rye',
       'One Thousand and One Knights',
       'The Grapes of Wraith: Wining and Dining the Undead',
-      'The Adventures of Nancy Druid'
+      'The Adventures of Nancy Druid',
+      '1984 Orcs',
+      'Of Kobolds and Men',
+      'The Great Goliath',
+      'Animals Farm, Gardening Tips From a Friendly Druid',
+      "Little Women, A Female Halfling in a Human's World",
+      'Lord of the Gnolls',
+      'The Orc Man and the Sea',
+      'Moby-Dick, or, the Kraken',
+      "Hairy Kobold and the Sorcerer's Throne",
+      'Hairy Kobold and the Chamber of Regrets',
+      'Hairy Kobold and the Prisoner of Gundabad',
+      'Hairy Kobold and the Hobbit of Fire',
+      'Hairy Kobold and the Larder of the Phoenix',
+      'Hairy Kobold and the Half-Elf Prince',
+      'Hairy Kobold and the Deathly Horsemen',
+      'The Giving Treent',
+      'The Call of the Wildshape'
     ]
   },
   'caravan': {
