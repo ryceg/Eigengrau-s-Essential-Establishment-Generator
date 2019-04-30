@@ -3,7 +3,7 @@ setup.createTownName = function () {
    'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger',
     'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin', 'Aber', 'Acc', 'Ock',
   'Avon', 'Ar', 'Ard', 'Druin', 'Ash', 'Ast', 'Auchen', 'Ach', 'Usk', 'Axe', 'Balla', 'Bal', 'Bannock', 'Bannau', 'Bre', 'Bry', 'Crag', 'Cul', 'Dinas', 'Drum', 'Holm', 'Keld', 'West', 'Wind', 'Nor', 'Nant',
-   'Porth', 'Swin', 'Sud', 'Sut', 'Wes', 'Alt', 'Alten', 'Kies', 'Klein', 'Neu', 'Nieder', 'Ober', 'Oberst', 'Unter', 'Lichten', 'Pyr', 'Kron', 'Frank', 'Ber', 'Berg', 'Kirch'].random()
+   'Porth', 'Swin', 'Sud', 'Sut', 'Wes', 'Alt', 'Alten', 'Kies', 'Klein', 'Neu', 'Nieder', 'Ober', 'Oberst', 'Unter', 'Lichten', 'Pyr', 'Kron', 'Frank', 'Ber', 'Berg', 'Kirch', "Uk", 'Rus'].random()
   var suffix = ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant',
    'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer',
    'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen',
