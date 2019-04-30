@@ -81,11 +81,11 @@ setup.createNightmare = function (base) {
       gender: 'its'
     }
   }
-  
+
   var figureKey = Object.keys(figure)
   var nightmare = Object.assign({
     location: location.random(),
-    figure: figure[figureKey[figureKey.length * Math.random() << 0]]
+    figure: figure[figureKey[random(0, figureKey.length)]]
   }, base)
 
   Object.assign(nightmare, {

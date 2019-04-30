@@ -1,6 +1,6 @@
 
 :: Menu
-<<nobr>><<set $tavern to $town.buildings[$selected.key][$selected.index]>><<set $bartender to $tavern.bartender>>
+<<nobr>>
 <<linkreplace "<h4>What's good?</h4>" t8n>>
 	<h3>On offer today...</h3>
 	<<print setup.closestMatch(setup.tavern.get.menu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.roll.wealth, $tavern.roll.roughness)>>

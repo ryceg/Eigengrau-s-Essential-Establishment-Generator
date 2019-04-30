@@ -10,21 +10,26 @@
 <<if def $currentPassage && passage() is $currentPassage.passageName>>
   > $currentPassage.name
   <<elseif def $currentPassage && passage() isnot $currentPassage.passageName>>
-  > <<link $currentPassage.name>>
-  <<unset $currentNPC>>
-  <<unset $currentNPCKey>><<goto $currentPassage.passageName>><</link>>
+  > <<profile $currentPassage>>
+  /* <<elseif def $currentPassage && passage() isnot $currentPassage.passageName>> */
+  /* > <<link $currentPassage.name>> */
+  /* <<unset $currentNPC>> */
+  /* <<unset $currentNPCKey>> */
+  /* <<goto $currentPassage.passageName>> */
+  <</link>>
 <</if>>
 
-<<if def $currentFaction && passage() is "FactionProfile">>
+/* <<if def $currentFaction && passage() is "FactionProfile">>
   > $currentFaction.name
-<</if>>
+<</if>> */
 
 <<if $currentPassage is $town.guard && passage() is "GuardOutput">>
   > $town.guard.name
   <<elseif $currentPassage is $town.guard && passage() isnot "GuardOutput">>
   > <<link $currentPassage.name>>
-  <<unset $currentNPC>>
-  <<unset $currentNPCKey>><<goto $currentPassage.passageName>><</link>>
+  /* <<unset $currentNPC>> */
+  /* <<unset $currentNPCKey>> */
+  <<goto $currentPassage.passageName>><</link>>
 <</if>>
 
 <<if def $currentNPC && passage() is "NPCProfile">>

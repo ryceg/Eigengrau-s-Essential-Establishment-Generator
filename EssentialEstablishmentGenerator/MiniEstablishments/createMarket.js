@@ -4,12 +4,13 @@ setup.createMarket = function (town, opts) {
   let market = (opts['newBuilding'] || setup.createBuilding)(town, 'market')
 
   Object.assign(market, {
-    name: ['The Markets', 'The Markets of ' + town.name, 'The ' + town.name + 'Bazaar'].random(),
+    name: ['The Markets', 'The Markets of ' + town.name, 'The ' + town.name + ' Bazaar'].random(),
     associatedTown: town.name,
     initPassage: 'MarketOutput',
     passageName: 'MarketOutput',
     BuildingType: 'market',
     wordNoun: 'market',
+    needsWordNoun: false,
     location: setup.market.location.random(),
     size: setup.market.size.random(),
     cleanliness: setup.market.cleanliness.random(),

@@ -4,36 +4,36 @@ setup.townRender = function (town) {
   // town.economicIdeologyIST = setup.townData.economicIdeology[town._economicIdeology].descriptors.economicIdeologyIST
   // town.politicalIdeologyIC = setup.townData.politicalIdeology[town._politicalIdeology].data.politicalIdeologyIC
 
-  var guardfundingRoll = 0
+  town.roll.guardFunding = 0
 
-  // if (town.population > 3000) {
-  //   town.type = 'city'
-  // } else if (town.population > 1000) {
-  //   town.type = 'town'
-  // } else if (town.population > 300) {
-  //   town.type = 'village'
-  // } else if (town.population > 30) {
-  //   town.type = 'hamlet'
-  // } else if (town.population <= 30) {
-  //   town.type = 'hamlet'
-  //   town.population = 30
-  // }
+  if (town.population > 3000) {
+    town.type = 'city'
+  } else if (town.population > 1000) {
+    town.type = 'town'
+  } else if (town.population > 300) {
+    town.type = 'village'
+  } else if (town.population > 30) {
+    town.type = 'hamlet'
+  } else if (town.population <= 30) {
+    town.type = 'hamlet'
+    town.population = 30
+  }
 
-  // if (town.roll.wealth > 95) {
-  //   town.wealth = 'kingly'
-  // } else if (town.roll.wealth > 90) {
-  //   town.wealth = 'aristocratic'
-  // } else if (town.roll.wealth > 80) {
-  //   town.wealth = 'wealthy'
-  // } else if (town.roll.wealth > 70) {
-  //   town.wealth = 'comfortable'
-  // } else if (town.roll.wealth > 30) {
-  //   town.wealth = 'modest'
-  // } else if (town.roll.wealth > 25) {
-  //   town.wealth = 'poor'
-  // } else if (town.roll.wealth <= 25) {
-  //   town.wealth = 'squalid'
-  // }
+  if (town.roll.wealth > 95) {
+    town.wealth = 'kingly'
+  } else if (town.roll.wealth > 90) {
+    town.wealth = 'aristocratic'
+  } else if (town.roll.wealth > 80) {
+    town.wealth = 'wealthy'
+  } else if (town.roll.wealth > 70) {
+    town.wealth = 'comfortable'
+  } else if (town.roll.wealth > 30) {
+    town.wealth = 'modest'
+  } else if (town.roll.wealth > 25) {
+    town.wealth = 'poor'
+  } else if (town.roll.wealth <= 25) {
+    town.wealth = 'squalid'
+  }
 
   if (town.roll.economics > 90) {
     town.economics = 'Trade in ' + town.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + town.type + ', and people live a ' + town.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + town.name + ' are high.'
@@ -84,31 +84,31 @@ setup.townRender = function (town) {
   }
 
   if (town.roll.military > 90) {
-    guardfundingRoll += 60
+    town.roll.guardFunding += 60
     town.military = 'The military is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, <<guard $town.guard>>, is extremely well armed, and brutality is commonplace.'
   } else if (town.roll.military > 80) {
-    guardfundingRoll += 50
+    town.roll.guardFunding += 50
     town.military = 'The military is very strict, with citizens being forced to carry licenses and travel permits. The local guard, <<guard $town.guard>>, is well armed, and brutality is common.'
   } else if (town.roll.military > 70) {
-    guardfundingRoll += 40
+    town.roll.guardFunding += 40
     town.military = 'There is a strong military presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, <<guard $town.guard>>, is well armed, and brutality is not unheard of.'
   } else if (town.roll.military > 60) {
-    guardfundingRoll += 30
+    town.roll.guardFunding += 30
     town.military = "There's a decent military presence, and citizens know better than to step out of line, as <<guard $town.guard>> are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear."
   } else if (town.roll.military > 50) {
-    guardfundingRoll += 30
-    town.military = 'There is a military presence in town.name, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<guard $town.guard>>.'
+    town.roll.guardFunding += 30
+    town.military = 'There is a military presence in ' + town.name + ', but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<guard $town.guard>>.'
   } else if (town.roll.military > 40) {
-    guardfundingRoll += 25
+    town.roll.guardFunding += 25
     town.military = 'The military presence in ' + town.name + ' is somewhat smaller than one would expect for its size. The local guard, <<guard $town.guard>>, are seen as friends and drinking buddies, rather than horrible tyrants.'
   } else if (town.roll.military > 30) {
-    guardfundingRoll += 25
+    town.roll.guardFunding += 25
     town.military = 'The military presence in ' + town.name + ' is more of a militia; some of the members of <<guard $town.guard>> are part time, and there is little need for the use of force outside of intruders.'
   } else if (town.roll.military > 20) {
-    guardfundingRoll += 15
+    town.roll.guardFunding += 15
     town.military = 'The military presence in ' + town.name + ' is a militia; most of the guards of <<guard $town.guard>> are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.'
   } else if (town.roll.military <= 20) {
-    guardfundingRoll += 10
+    town.roll.guardFunding += 10
     town.military = 'The military presence in ' + town.name + ' is a militia; the guards of <<guard $town.guard>> are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.'
   }
 
@@ -136,28 +136,28 @@ setup.townRender = function (town) {
       break
     default:
       if (town.roll.law > 90) {
-        guardfundingRoll += 25
+        town.roll.guardFunding += 25
         town.law = 'Law in ' + town.name + ' is overwhelmingly punitive, and those that breach the complex and codified list of laws can expect hard labor, incarceration, or public execution. Crime is seen as a stain, which cannot be erased, and only through retribution can it be redeemed.'
       } else if (town.roll.law > 80) {
-        guardfundingRoll += 20
+        town.roll.guardFunding += 20
         town.law = 'Law in ' + town.name + ' is extremely punitive, and those that breach the complex list of laws can expect hard labor, incarceration, or sometimes public execution. Crime is an ugly stain on humanity, to be punished wherever possible.'
       } else if (town.roll.law > 70) {
-        guardfundingRoll += 15
+        town.roll.guardFunding += 15
         town.law = 'Law in ' + town.name + ' is very much punitive based, and those that breach the laws can expect hard labor, incarceration, or sometimes public execution. Crime is an ugly stain on humanity, to be punished.'
       } else if (town.roll.law > 60) {
-        guardfundingRoll += 15
+        town.roll.guardFunding += 15
         town.law = 'Law in ' + town.name + ' is punitive based , and those that breach the laws can expect hard labor, incarceration, fines, or, in some instances, public execution. Crime is an ugly stain on humanity, to be removed wherever possible.'
       } else if (town.roll.law > 50) {
-        guardfundingRoll += 15
+        town.roll.guardFunding += 15
         town.law = 'Law in ' + town.name + ' is punitive, and those that breach the laws can expect hard labor, incarceration, fines, or, in rare instances, execution.'
       } else if (town.roll.law > 40) {
-        guardfundingRoll += 10
+        town.roll.guardFunding += 10
         town.law = 'Law in ' + town.name + ' is somewhat reform-based, and those that breach the laws can expect hard labor, incarceration, or fines. The death penalty is typically reserved for traitors to the state.'
       } else if (town.roll.law > 30) {
-        guardfundingRoll += 10
+        town.roll.guardFunding += 10
         town.law = 'Law in ' + town.name + ' is reform-based, and those that breach the laws can expect incarceration, fines, or going to an asylum for reform. The death penalty is reserved only for traitors to the state.'
       } else if (town.roll.law > 20) {
-        guardfundingRoll += 5
+        town.roll.guardFunding += 5
         town.law = 'Law in ' + town.name + ' is reform-based, and those that breach the laws can expect incarceration, fines, asylums, or work-release programs to provide them with the chance to not become a recidivist. The death penalty is reserved only for traitors to the state.'
       } else if (town.roll.law <= 20) {
         town.law = 'Law in ' + town.name + ' is reform-based, and those that breach the laws can expect fines, penalties, or work-release programs to provide them with the best possible chance to not become a recidivist.'
@@ -167,13 +167,13 @@ setup.townRender = function (town) {
   switch (town.politicalIdeology) {
     case 'magocracy':
       if (town.roll.arcana > 90) {
-        guardfundingRoll += 15
+        town.roll.guardFunding += 15
         town.arcana = 'Magic is reserved for the ruling class of mages, who govern ' + town.name + ". Those found practicing magic without a license are considered to be undermining the council of wizards' authority."
       } else if (town.roll.arcana > 80) {
-        guardfundingRoll += 10
+        town.roll.guardFunding += 10
         town.arcana = 'Magic is reserved only for the ruling class of mages and those who manage to procure a license, which is an intentionally confusing affair of different forms that need signatures from the council of wizards that govern ' + town.name + '.'
       } else if (town.roll.arcana > 70) {
-        guardfundingRoll += 5
+        town.roll.guardFunding += 5
         town.arcana = 'Magic is typically only for the ruling class of mages who govern ' + town.name + '. Those who cast spells within ' + town.name + ' are seen as politicians more than awe-inspiring heroes.'
       } else if (town.roll.arcana > 60) {
         town.arcana = 'Magic is not codified into the laws, though the wizard council that governs ' + town.name + ' have instructed the local guards would be more likely to treat it as a threat rather than not.'
@@ -184,13 +184,13 @@ setup.townRender = function (town) {
       } else if (town.roll.arcana > 30) {
         town.arcana = 'Magic is treated with suspicion, and the wizard council that governs ' + town.name + ' treat anybody practicing magic as a threat to their rule.'
       } else if (town.roll.arcana > 20) {
-        guardfundingRoll += 5
+        town.roll.guardFunding += 5
         town.arcana = 'Magic is treated with suspicion and fear, and the people of ' + town.name + ' trust only the wizard council with magic.'
       } else if (town.roll.arcana > 10) {
-        guardfundingRoll += 10
+        town.roll.guardFunding += 10
         town.arcana = 'Those that do not sit on the wizard council that governs ' + town.name + ' are not permitted to cast magic. It is coded into law as a restricted activity.'
       } else if (town.roll.arcana <= 10) {
-        guardfundingRoll += 25
+        town.roll.guardFunding += 25
         town.arcana = 'Magic is outlawed. Only the wizards that govern ' + town.name + ' are permitted to cast any spells beyond a cantrip level.'
       }
       break
@@ -218,27 +218,27 @@ setup.townRender = function (town) {
       }
   }
 
-  if (guardfundingRoll > 90) {
+  if (town.roll.guardFunding > 90) {
     town.guard.funding = 'The guards are extremely well funded, and are extensively armed. They regularly have training exercises, and their officers are held to extremely high standards.'
-  } else if (guardfundingRoll > 80) {
+  } else if (town.roll.guardFunding > 80) {
     town.guard.funding = 'The guards are well funded, and are armed more than adequately. They regularly have training exercises, and their officers are held to high standards.'
-  } else if (guardfundingRoll > 70) {
+  } else if (town.roll.guardFunding > 70) {
     town.guard.funding = 'The guards are well funded, and are armed. They perform annual training exercises, and their officers are held to high standards.'
-  } else if (guardfundingRoll > 60) {
+  } else if (town.roll.guardFunding > 60) {
     town.guard.funding = 'The guard is well funded, and armed according to budget. They have training exercises, and their officers are held accountable for their actions.'
-  } else if (guardfundingRoll > 50) {
+  } else if (town.roll.guardFunding > 50) {
     town.guard.funding = 'The guard is funded and armed according to the town budget. Their officers are held accountable for their actions.'
-  } else if (guardfundingRoll > 40) {
+  } else if (town.roll.guardFunding > 40) {
     town.guard.funding = 'The guard is slightly underfunded, and their equipment sometimes falls into slight disrepair. Their officers are held accountable for their actions, though $town.guard.name does not have the funding to perform regular training exercises.'
-  } else if (guardfundingRoll > 30) {
+  } else if (town.roll.guardFunding > 30) {
     town.guard.funding = 'The guard is underfunded, and their equipment is always in slight disrepair. Their officers are held accountable for their actions when public pressure fors for it, though $town.guard.name does not have the funding to perform training exercises.'
-  } else if (guardfundingRoll > 20) {
+  } else if (town.roll.guardFunding > 20) {
     town.guard.funding = 'The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $town.guard.name does not have the funding to perform any training exercises.'
-  } else if (guardfundingRoll <= 20) {
+  } else if (town.roll.guardFunding <= 20) {
     town.guard.funding = 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
   }
 
-  // town.guard.funding = setup.townGuardFundingCat(guardfundingRoll)
+  // town.guard.funding = setup.townGuardFundingCat(town.roll.guardFunding)
 
   if (town.roll.sin > 75 && town.population > 300) {
     town.hasBrothel = true

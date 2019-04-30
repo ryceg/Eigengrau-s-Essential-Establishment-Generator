@@ -230,7 +230,6 @@ setup.createMercenaries = function (town) {
   ].random()
 
   mercenaries.readout = 'A group of mercenaries sit in the corner of the room, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their commander ' + mercenariesCaptain.name + ', who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-  mercenaries.readout = 'This mercenaries is ' + mercenaries.type + ', and has a ' + mercenaries.faceFeature + '. It wields ' + mercenaries.carry + ' and wears ' + mercenaries.wears + '. This mercenaries is particularly good at ' + mercenaries.talent + ', and has ' + mercenaries.feature + '. Currently, it is looking to ' + mercenaries.looks
   mercenaries.tippyWord = '<span class=tip title=' + JSON.stringify(mercenaries.readout) + '> <b>mercenaries</b></span><<run setup.tippy("span")>>'
   return mercenaries
 }

@@ -140,7 +140,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'feudalistic',
         'economicIdeologyIST': 'feudalist',
-        'economicIdeologyDescription': "The people of _town.name work the land in exchange for working their lord's lands."
+        'economicIdeologyDescription': "The people of $town.name work the land in exchange for working their lord's lands.",
+        'tippy': "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands."
       }
     },
     'capitalism': {
@@ -153,7 +154,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'capitalistic',
         'economicIdeologyIST': 'capitalist',
-        'economicIdeologyDescription': 'The people of _town.name work in exchange for payment from their employers, which they use to buy the necessities.'
+        'economicIdeologyDescription': 'The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.',
+        'tippy': 'Trade and industry are controlled by private owners for profit, rather than the state.'
       }
     },
     'syndicalism': {
@@ -166,7 +168,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'syndicalistic',
         'economicIdeologyIST': 'syndicalist',
-        'economicIdeologyDescription': 'The people of _town.name own the lands they work on collectively, and together benefit from its prosperity.'
+        'economicIdeologyDescription': 'The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.',
+        'tippy': 'The workers own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
     'communism': {
@@ -179,7 +182,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'communistic',
         'economicIdeologyIST': 'communist',
-        'economicIdeologyDescription': 'The people of _town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
+        'economicIdeologyDescription': 'The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
+        'tippy': 'People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
     'primitivism': {
@@ -192,7 +196,8 @@ setup.townData = {
       'descriptors': {
         'economicIdeologyIC': 'primitivistic',
         'economicIdeologyIST': 'primitivist',
-        'economicIdeologyDescription': "The people of _town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers."
+        'economicIdeologyDescription': "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
+        'tippy': 'There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.'
       }
     }
   },
@@ -200,28 +205,34 @@ setup.townData = {
     'absolute monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': "<<print _town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will."
+        'politicalSourceDescription': "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
+        'description': 'The crown holds both supreme executive and judicial powers.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        'description': 'The crown holds supreme judicial power, but the executive power is held by a parliamentary.'
       }
     },
     'constitutional monarchy': {
       'politicalIdeology': ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
       'autocracy': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.',
+        'description': 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
       },
       'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
+        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        'description': 'The crown holds supreme judicial power, but day to day affairs are held by parliament.'
       }
     },
     'republic': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'Affairs are handled by _town.leaderType, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>'
+      'politicalSourceDescription': 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
+      'description': 'The crown holds both supreme executive and judicial powers.'
     },
     'anarchy': {
       'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of _town.name, but _town.leaderType hold the best semblance of order, the head of whom is _town.leader.title <<profile $npcs[$town.leader.key]>>.'
+      'politicalSourceDescription': 'None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+      'description': 'No formal political system exists.'
     }
   },
   'politicalIdeology': {
@@ -230,7 +241,8 @@ setup.townData = {
         'hasClass': false,
         'profession': 'lord',
         'background': 'noble',
-        'title': 'Lord'
+        'title': 'Lord',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 45,
@@ -243,14 +255,16 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the supreme leader',
         'governmentType': 'nobles',
-        'politicalIdeologyIC': 'autocratic'
+        'politicalIdeologyIC': 'autocratic',
+        'description': 'Governed by one person.'
       }
     },
     'meritocracy': {
       'leaderTraits': {
         'hasClass': false,
         'background': 'noble',
-        'title': 'Lord'
+        'title': 'Lord',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -263,7 +277,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the competent',
         'governmentType': 'commoners',
-        'politicalIdeologyIC': 'meritocratic'
+        'politicalIdeologyIC': 'meritocratic',
+        'description': 'Governed by the best.'
       }
     },
     'democracy': {
@@ -271,7 +286,8 @@ setup.townData = {
         'hasClass': false,
         'profession': 'prime minister',
         'background': 'commoner',
-        'title': 'Lord'
+        'title': 'Lord',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': -15,
@@ -284,7 +300,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the people',
         'governmentType': 'commoners',
-        'politicalIdeologyIC': 'democratic'
+        'politicalIdeologyIC': 'democratic',
+        'description': 'Governed by the elected.'
       }
     },
     'kleptocracy': {
@@ -292,7 +309,8 @@ setup.townData = {
         'hasClass': true,
         'dndClass': 'rogue',
         'background': 'criminal',
-        'title': 'High Thief'
+        'title': 'High Thief',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': -35,
@@ -305,7 +323,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': "the Thieves' Guild",
         'governmentType': 'thieves',
-        'politicalIdeologyIC': 'kleptocratic'
+        'politicalIdeologyIC': 'kleptocratic',
+        'description': 'Governed by the thieves.'
       }
     },
     'magocracy': {
@@ -313,7 +332,8 @@ setup.townData = {
         'hasClass': true,
         'dndClass': 'wizard',
         'background': 'sage',
-        'title': 'Archchancellor'
+        'title': 'Archchancellor',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 2,
@@ -326,7 +346,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the wizards',
         'governmentType': 'wizards',
-        'politicalIdeologyIC': 'magocratic'
+        'politicalIdeologyIC': 'magocratic',
+        'description': 'Governed by the wizards.'
       }
     },
     'militocracy': {
@@ -334,7 +355,8 @@ setup.townData = {
         'hasClass': true,
         'dndClass': 'fighter',
         'background': 'soldier',
-        'title': 'Commander'
+        'title': 'Commander',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 25,
@@ -347,14 +369,16 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the military',
         'governmentType': 'military',
-        'politicalIdeologyIC': 'militocratic'
+        'politicalIdeologyIC': 'militocratic',
+        'description': 'Governed by the military.'
       }
     },
     'oligarchy': {
       'leaderTraits': {
         'hasClass': false,
         'background': 'noble',
-        'title': 'Lord'
+        'title': 'Lord',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -367,14 +391,16 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the powerful few',
         'governmentType': 'nobles',
-        'politicalIdeologyIC': 'oligarchic'
+        'politicalIdeologyIC': 'oligarchic',
+        'description': 'Governed by the powerful few.'
       }
     },
     'pedocracy': {
       'leaderTraits': {
         'hasClass': false,
         'background': 'scholar',
-        'title': 'Sir'
+        'title': 'Sir',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -387,7 +413,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the scholars',
         'governmentType': 'scholars',
-        'politicalIdeologyIC': 'pedocratic'
+        'politicalIdeologyIC': 'pedocratic',
+        'description': 'Governed by the scholars.'
       }
     },
     'theocracy': {
@@ -396,7 +423,8 @@ setup.townData = {
         'dndClass': 'cleric',
         'background': 'acolyte',
         'title': 'High Priest',
-        'gender': 'man'
+        'gender': 'man',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -409,7 +437,8 @@ setup.townData = {
         'isFaction': true,
         'leaderType': 'the holy',
         'governmentType': 'priests',
-        'politicalIdeologyIC': 'theocratic'
+        'politicalIdeologyIC': 'theocratic',
+        'description': 'Governed by the church.'
       }
     },
     'technocracy': {
@@ -417,7 +446,8 @@ setup.townData = {
         'hasClass': false,
         'profession': 'architect',
         'background': 'guild artisan',
-        'title': 'Architect'
+        'title': 'Architect',
+        'wealthClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 35,
@@ -430,7 +460,8 @@ setup.townData = {
         'isFaction': false,
         'leaderType': 'the engineers',
         'governmentType': 'craftsmen',
-        'politicalIdeologyIC': 'technocratic'
+        'politicalIdeologyIC': 'technocratic',
+        'description': 'Governed by the engineers.'
       }
     }
   },
@@ -754,29 +785,31 @@ setup.townData = {
             temperatureTimer: random(24, 96)
           },
           0: {
-            temperature: 0 - dice(3, 10),
+            temperature: random(-1, -24),
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 4,
-          precipitationIntensity: 1,
-          baseTemp: 80
-        },
-        'autumn': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 60
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: 1,
-          baseTemp: 30
-        },
-        'spring': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 60
+        season: {
+          'summer': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 80
+          },
+          'autumn': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 60
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: 1,
+            baseTemp: 30
+          },
+          'spring': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 60
+          }
         }
       },
       'start': ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
@@ -887,25 +920,27 @@ setup.townData = {
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 90
-        },
-        'autumn': {
-          precipitationLevel: 3,
-          precipitationIntensity: 1,
-          baseTemp: 75
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: 1,
-          baseTemp: 50
-        },
-        'spring': {
-          precipitationLevel: 4,
-          precipitationIntensity: 1,
-          baseTemp: 75
+        season: {
+          'summer': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 90
+          },
+          'autumn': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 75
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: 1,
+            baseTemp: 50
+          },
+          'spring': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 75
+          }
         }
       },
       'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'jungle', 'volcanic field'],
@@ -1043,25 +1078,27 @@ setup.townData = {
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 3,
-          precipitationIntensity: -1,
-          baseTemp: 95
-        },
-        'autumn': {
-          precipitationLevel: 3,
-          precipitationIntensity: -1,
-          baseTemp: 75
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: -1,
-          baseTemp: 50
-        },
-        'spring': {
-          precipitationLevel: 2,
-          precipitationIntensity: -1,
-          baseTemp: 75
+        season: {
+          'summer': {
+            precipitationLevel: 3,
+            precipitationIntensity: -1,
+            baseTemp: 95
+          },
+          'autumn': {
+            precipitationLevel: 3,
+            precipitationIntensity: -1,
+            baseTemp: 75
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: -1,
+            baseTemp: 50
+          },
+          'spring': {
+            precipitationLevel: 2,
+            precipitationIntensity: -1,
+            baseTemp: 75
+          }
         }
       },
       'start': ['desert', 'hills', 'plains', 'mountains', 'river coast', 'wasteland', 'oasis'],
@@ -1185,37 +1222,39 @@ setup.townData = {
             temperatureTimer: random(48, 144)
           },
           40: {
-            temperature: 0 - random(1, 10),
+            temperature: random(0, -10),
             temperatureTimer: random(48, 120)
           },
           20: {
-            temperature: 0 - dice(2, 10),
+            temperature: random(-2, -20),
             temperatureTimer: random(24, 96)
           },
           0: {
-            temperature: 0 - dice(3, 10),
+            temperature: random(-3, -30),
             temperatureTimer: random(24, 48)
           }
         },
-        'summer': {
-          precipitationLevel: 4,
-          precipitationIntensity: 0,
-          baseTemp: 40
-        },
-        'autumn': {
-          precipitationLevel: 4,
-          precipitationIntensity: 0,
-          baseTemp: 30
-        },
-        'winter': {
-          precipitationLevel: 2,
-          precipitationIntensity: 0,
-          baseTemp: 20
-        },
-        'spring': {
-          precipitationLevel: 3,
-          precipitationIntensity: 0,
-          baseTemp: 30
+        season: {
+          'summer': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 40
+          },
+          'autumn': {
+            precipitationLevel: 4,
+            precipitationIntensity: 1,
+            baseTemp: 30
+          },
+          'winter': {
+            precipitationLevel: 2,
+            precipitationIntensity: 1,
+            baseTemp: 20
+          },
+          'spring': {
+            precipitationLevel: 3,
+            precipitationIntensity: 1,
+            baseTemp: 30
+          }
         }
       },
       'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'tundra', 'ice sheet', 'seacoast'],
@@ -1323,154 +1362,172 @@ setup.townData = {
     }
   },
   'professions': {
-    'actor': { sv: 2500, type: 'profession' },
-    'advocate': { sv: 3250, type: 'profession' },
-    'advisor': { sv: 780, type: 'profession' },
-    'animal handler': { sv: 250, type: 'labourer' },
-    'apothecarist': { sv: 450, type: 'business' },
-    'architect': { sv: 550, type: 'profession' },
-    'archivist': { sv: 2450, type: 'profession' },
-    'armorer': { sv: 750, type: 'business' },
-    'astrologer': { sv: 950, type: '' },
-    'baker': { sv: 800, type: 'business' },
-    'banker': { sv: 2250, type: '' },
-    'barber': { sv: 350, type: 'business' },
-    'barkeep': { sv: 450, type: 'business' },
-    'blacksmith': { sv: 750, type: 'business' },
-    'bookseller': { sv: 6300, type: 'business' },
-    'brewer': { sv: 550, type: 'business' },
-    'bricklayer': { sv: 650, type: 'business' },
-    'brothel keeper': { sv: 850, type: 'business' },
-    'buccaneer': { sv: 1350, type: '' },
-    'butcher': { sv: 1150, type: 'business' },
-    'caravanner': { sv: 1450, type: 'labourer' },
-    'carpenter': { sv: 550, type: 'business' },
-    'cartographer': { sv: 1950, type: '' },
-    'chandler': { sv: 700, type: 'business' },
-    'chef': { sv: 1850, type: 'labourer' },
-    'clergyman': { sv: 40, type: 'profession' },
-    'clock maker': { sv: 4550, type: 'profession' },
-    'cobbler': { sv: 1550, type: '' },
-    'cook': { sv: 450, type: 'labourer' },
-    'cooper': { sv: 700, type: 'labourer' },
-    'counselor': { sv: 1650, type: 'profession' },
-    'courtesan': { sv: 1950, type: '' },
-    'courtier': { sv: 1950, type: 'profession' },
-    'cowherd': { sv: 250, type: 'labourer' },
-    'dancer': { sv: 2250, type: 'profession' },
-    'diplomat': { sv: 3450, type: 'profession' },
-    'distiller': { sv: 450, type: 'business' },
-    'diver': { sv: 3250, type: 'labourer' },
-    'farmer': { sv: 150, type: 'labourer' },
-    'fisherman': { sv: 170, type: 'labourer' },
-    'fishmonger': { sv: 250, type: 'business' },
-    'furrier': { sv: 250, type: 'business' },
-    'gardener': { sv: 550, type: 'labourer' },
-    'general': { sv: 2250, type: 'profession' },
-    'gladiator': { sv: 3250, type: '' },
-    'glovemaker': { sv: 2400, type: 'business' },
-    'goldsmith': { sv: 6550, type: 'business' },
-    'grocer': { sv: 450, type: 'business' },
-    'guardsman': { sv: 150, type: 'profession' },
-    'guildmaster': { sv: 4150, type: 'profession' },
-    'hatmaker': { sv: 950, type: 'business' },
-    'healer': { sv: 950, type: 'profession' },
-    'herald': { sv: 550, type: '' },
-    'herbalist': { sv: 850, type: 'business' },
-    'hermit': { sv: 950, type: 'profession' },
-    'historian': { sv: 4150, type: 'profession' },
-    'hunter': { sv: 250, type: 'labourer' },
-    'ice seller': { sv: 1950, type: 'labourer' },
-    'innkeeper': { sv: 750, type: 'business' },
-    'inventor': { sv: 2250, type: 'profession' },
-    'jailer': { sv: 1250, type: 'labourer' },
-    'jester': { sv: 2250, type: 'profession' },
-    'jeweler': { sv: 400, type: 'business' },
-    'judge': { sv: 850, type: 'profession' },
-    'knight': { sv: 1150, type: 'profession' },
-    'lady': { sv: 1550, type: 'profession' },
-    'leatherworker': { sv: 750, type: 'business' },
-    'librarian': { sv: 3150, type: 'profession' },
-    'linguist': { sv: 5150, type: 'profession' },
-    'locksmith': { sv: 1900, type: 'business' },
-    'lord': { sv: 1150, type: 'profession' },
-    'lumberjack': { sv: 350, type: 'labourer' },
-    'maid-servant': { sv: 250, type: 'labourer' },
-    'mason': { sv: 500, type: 'business' },
-    'masseur': { sv: 1550, type: 'profession' },
-    'merchant': { sv: 650, type: 'business' },
-    'messenger': { sv: 1250, type: 'labourer' },
-    'midwife': { sv: 650, type: 'labourer' },
-    'miller': { sv: 650, type: 'business' },
-    'miner': { sv: 550, type: 'labourer' },
-    'minister': { sv: 950, type: 'profession' },
-    'minstrel': { sv: 1450, type: 'profession' },
-    'monk': { sv: 1450, type: 'profession' },
-    'mortician': { sv: 650, type: 'profession' },
-    'necromancer': { sv: 6150, type: 'profession' },
-    'noble': { sv: 3150, type: 'profession' },
-    'nun': { sv: 2150, type: 'profession' },
-    'nurse': { sv: 1150, type: 'profession' },
-    'officer': { sv: 1150, type: 'profession' },
-    'painter': { sv: 1500, type: 'business' },
-    'patissier': { sv: 1500, type: 'business' },
-    'perfumer': { sv: 3150, type: 'business' },
-    'philosopher': { sv: 7150, type: 'profession' },
-    'physician': { sv: 4150, type: 'profession' },
-    'pilgrim': { sv: 5150, type: 'labourer' },
-    'potter': { sv: 1150, type: 'business' },
-    'priest': { sv: 750, type: 'profession' },
-    'privateer': { sv: 1150, type: 'labourer' },
-    'professor': { sv: 3150, type: 'profession' },
-    'roofer': { sv: 1800, type: 'labourer' },
-    'ropemaker': { sv: 1850, type: 'business' },
-    'rugmaker': { sv: 1850, type: 'business' },
-    'saddler': { sv: 1000, type: 'business' },
-    'sailor': { sv: 150, type: 'labourer' },
-    'scabbard maker': { sv: 875, type: 'business' },
-    'sculptor': { sv: 250, type: 'business' },
-    'scavenger': { sv: 350, type: 'labourer' },
-    'scholar': { sv: 2250, type: 'profession' },
-    'seamstress': { sv: 450, type: 'labourer' },
-    'servant': { sv: 350, type: 'labourer' },
-    'shaman': { sv: 750, type: 'profession' },
-    'shepherd': { sv: 150, type: 'labourer' },
-    "ship's captain": { sv: 950, type: 'profession' },
-    'shoemaker': { sv: 150, type: 'business' },
-    'silversmith': { sv: 1250, type: 'business' },
-    'slave': { sv: 150, type: 'labourer' },
-    'slaver': { sv: 650, type: 'business' },
-    'smith': { sv: 750, type: 'business' },
-    'soldier': { sv: 1000, type: 'profession' },
-    'spice merchant': { sv: 1500, type: 'business' },
-    'squire': { sv: 950, type: 'profession' },
-    'stablehand': { sv: 550, type: 'labourer' },
-    'stevedore': { sv: 550, type: 'labourer' },
-    'stonemason': { sv: 750, type: 'business' },
-    'steward': { sv: 950, type: 'profession' },
-    'street seller': { sv: 550, type: 'business' },
-    'street sweeper': { sv: 450, type: 'labourer' },
-    'student': { sv: 3150, type: 'profession' },
-    'surgeon': { sv: 4150, type: 'profession' },
-    'surveyor': { sv: 1150, type: 'profession' },
-    'tailor': { sv: 250, type: 'business' },
-    'tanner': { sv: 200, type: 'business' },
-    'tavernkeeper': { sv: 450, type: 'business' },
-    'tax collector': { sv: 1850, type: 'profession' },
-    'teacher': { sv: 1450, type: 'profession' },
-    'thatcher': { sv: 350, type: 'labourer' },
-    'thief': { sv: 850, type: 'profession' },
-    'torturer': { sv: 1850, type: 'profession' },
-    'town crier': { sv: 750, type: 'labourer' },
-    'toymaker': { sv: 2150, type: 'profession' },
-    'vendor': { sv: 1150, type: 'business' },
-    'veterinarian': { sv: 1250, type: 'profession' },
-    'vintner': { sv: 850, type: 'profession' },
-    'weaver': { sv: 600, type: 'labourer' },
-    'wetnurse': { sv: 350, type: 'labourer' },
-    'woodcarver': { sv: 2450, type: 'business' },
-    'wood seller': { sv: 2150, type: 'business' },
-    'wrestler': { sv: 6150, type: 'labourer' },
-    'writer': { sv: 7150, type: 'profession' }
+    'barbarian': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'bard': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'cleric': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'druid': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'fighter': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    // 'monk': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'rogue': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'ranger': { sv: 6500, type: 'dndClass', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'paladin': { sv: 6500, type: 'dndClass', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'sorcerer': { sv: 6500, type: 'dndClass', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'warlock': { sv: 6500, type: 'dndClass', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'wizard': { sv: 6500, type: 'dndClass', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'actor': { sv: 2500, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'advocate': { sv: 3250, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'advisor': { sv: 780, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'animal handler': { sv: 250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'apothecarist': { sv: 450, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'architect': { sv: 550, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'archivist': { sv: 2450, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 76 } },
+    'armorer': { sv: 750, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return dice(9, 10) } },
+    'astrologer': { sv: 950, type: '', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 89 } },
+    'baker': { sv: 800, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'banker': { sv: 2250, type: '', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 89 } },
+    'barber': { sv: 350, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(4, 6) } },
+    'bartender': { sv: 450, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return dice(3, 30) } },
+    'barmaid': { sv: 450, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return dice(3, 15) } },
+    'blacksmith': { sv: 750, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return dice(2, 50) } },
+    "blacksmith's assistant": { sv: 800, type: 'labourer', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return dice(2, 25) } },
+    'bookseller': { sv: 6300, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 65 } },
+    'brewer': { sv: 550, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'bricklayer': { sv: 650, type: 'labourer', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 10 + dice(4, 6) } },
+    'brothel keeper': { sv: 850, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    // 'buccaneer': { sv: 1350, type: '', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 55 } },
+    'butcher': { sv: 1150, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'captain': { sv: 550, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'caravanner': { sv: 1450, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'carpenter': { sv: 550, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'cartographer': { sv: 1950, type: '', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 89 } },
+    'chandler': { sv: 700, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'chef': { sv: 1850, type: 'labourer', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 } },
+    'clergyman': { sv: 40, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'clock maker': { sv: 4550, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'cobbler': { sv: 1550, type: '', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 45 } },
+    'cook': { sv: 450, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'cooper': { sv: 700, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'counselor': { sv: 1650, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'courtesan': { sv: 1950, type: '', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 89 } },
+    'courtier': { sv: 1950, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'cowherd': { sv: 250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'dancer': { sv: 2250, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'diplomat': { sv: 3450, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'distiller': { sv: 450, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'diver': { sv: 3250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'farmer': { sv: 150, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'fisherman': { sv: 170, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'fishmonger': { sv: 250, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'furrier': { sv: 250, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'gardener': { sv: 550, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'general': { sv: 2250, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'gladiator': { sv: 3250, type: '', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 89 } },
+    'glovemaker': { sv: 2400, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'goldsmith': { sv: 6550, type: 'business', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'grocer': { sv: 450, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 27 } },
+    'guardsman': { sv: 150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'guildmaster': { sv: 4150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'hatmaker': { sv: 950, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'healer': { sv: 950, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'herald': { sv: 550, type: '', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 48 } },
+    'herbalist': { sv: 850, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 60 + dice(4, 6) } },
+    'hermit': { sv: 950, type: 'profession', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'historian': { sv: 4150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'hunter': { sv: 250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'ice seller': { sv: 1950, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 24 } },
+    'innkeeper': { sv: 750, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'inventor': { sv: 2250, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'jailer': { sv: 1250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'jester': { sv: 2250, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 42 } },
+    'jeweler': { sv: 400, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'judge': { sv: 850, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'knight': { sv: 1150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'lady': { sv: 1550, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'leatherworker': { sv: 750, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'librarian': { sv: 3150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'linguist': { sv: 5150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'locksmith': { sv: 1900, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'lord': { sv: 1150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'lumberjack': { sv: 350, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'maid-servant': { sv: 250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'mason': { sv: 500, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'masseur': { sv: 1550, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'merchant': { sv: 650, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'messenger': { sv: 1250, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'midwife': { sv: 650, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'miller': { sv: 650, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'miner': { sv: 550, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 } },
+    'minister': { sv: 950, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'minstrel': { sv: 1450, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'monk': { sv: 1450, type: 'profession', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'mortician': { sv: 650, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'necromancer': { sv: 6150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'noble': { sv: 3150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'nobleman': { sv: 3150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'nun': { sv: 2150, type: 'profession', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'nurse': { sv: 1150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'officer': { sv: 1150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'painter': { sv: 1500, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'patissier': { sv: 1500, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'perfumer': { sv: 3150, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'philosopher': { sv: 7150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'physician': { sv: 4150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'pilgrim': { sv: 5150, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 } },
+    'politician': { sv: 4000, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'potter': { sv: 1150, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'priest': { sv: 750, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'privateer': { sv: 1150, type: 'labourer', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 } },
+    'professor': { sv: 3150, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'roofer': { sv: 1800, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'ropemaker': { sv: 1850, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'rugmaker': { sv: 1850, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'saddler': { sv: 1000, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'sailor': { sv: 150, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'scabbard maker': { sv: 875, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'sculptor': { sv: 250, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'scavenger': { sv: 350, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 22 } },
+    'scholar': { sv: 2250, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'seamstress': { sv: 450, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'seer': { sv: 350, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'servant': { sv: 350, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 } },
+    'shaman': { sv: 750, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'shepherd': { sv: 150, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    "ship's captain": { sv: 950, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'shoemaker': { sv: 150, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'silversmith': { sv: 1250, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'slave': { sv: 150, type: 'labourer', wealthClass: 'indentured servitude', wealthClassRoll: function (town, npc) { return 40 } },
+    'slaver': { sv: 650, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'smith': { sv: 750, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'soldier': { sv: 1000, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'spice merchant': { sv: 1500, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'squire': { sv: 950, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'stablehand': { sv: 550, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 } },
+    'stevedore': { sv: 550, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'stonemason': { sv: 750, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'steward': { sv: 950, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'street seller': { sv: 550, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'street sweeper': { sv: 450, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 } },
+    'student': { sv: 3150, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'surgeon': { sv: 4150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'surveyor': { sv: 1150, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'tailor': { sv: 250, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'tanner': { sv: 200, type: 'business', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'tavernkeeper': { sv: 450, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'tax collector': { sv: 1850, type: 'profession', wealthClass: 'nobility', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'teacher': { sv: 1450, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'thatcher': { sv: 350, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'thief': { sv: 850, type: 'profession', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'torturer': { sv: 1850, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'town crier': { sv: 750, type: 'labourer', wealthClass: 'paupery', wealthClassRoll: function (town, npc) { return 40 } },
+    'toymaker': { sv: 2150, type: 'profession', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'vendor': { sv: 1150, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'veterinarian': { sv: 1250, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'vintner': { sv: 850, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } },
+    'weaver': { sv: 600, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'wetnurse': { sv: 350, type: 'labourer', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 } },
+    'woodcarver': { sv: 2450, type: 'business', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'wood seller': { sv: 2150, type: 'business', wealthClass: 'peasantry', wealthClassRoll: function (town, npc) { return 40 + dice(4, 6) } },
+    'wrestler': { sv: 6150, type: 'labourer', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 40 } },
+    'writer': { sv: 7150, type: 'profession', wealthClass: 'commoner', wealthClassRoll: function (town, npc) { return 50 + dice(8, 6) } }
   }
 }

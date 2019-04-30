@@ -1,21 +1,29 @@
 /* global setup random */
-setup.createWeather = function (town, biome, weather, time) {
+setup.createWeather = function (town, biome, weather, season, time) {
+  console.groupCollapsed('Creating weather...')
+  // this weather function is pretty complex. Basically, temperature, precipitation, and precipitation intensity are each independently tracked.
+
+  console.log({ biome, weather, season, time })
   if (biome) {
     switch (biome) {
-      case 'forest':
-      case 'road':
-      case 'mountain':
-        biome = 'temperate'
-        break
       case 'desert':
         biome = 'arid'
+        break
+      case 'town':
+        biome = town.terrain || 'temperate'
+        break
+      default:
+        biome = 'temperate'
     }
   }
   biome = biome || town.terrain
+  time = time || 8
+  season = season || weather.season || 'spring'
   console.log('biome: ' + biome)
   if (weather) {
+    // if it's passed the weather object (i.e. if it isn't the first time the user has clicked on the button, it doesn't need to set up everything.)
     console.log('Weather was already defined.')
-    if (time) {
+    if (weather.timer) {
       console.log('Counting down timers!')
       weather.timer.precipitation -= time
       weather.timer.temperature -= time
@@ -23,8 +31,9 @@ setup.createWeather = function (town, biome, weather, time) {
     }
   } else {
     weather = {
-      temperature: setup.townData.terrain[biome].weather[town.currentSeason].baseTemp,
-      tempVariation: random(1, 100),
+      temperature: setup.townData.terrain[biome].weather.season[season].baseTemp || setup.townData.terrain['temperate'].weather.season['summer'].baseTemp,
+      tempVariation: dice(2, 50),
+      season: season,
       timer: {
         precipitation: 0,
         cloud: 0,
@@ -40,8 +49,8 @@ setup.createWeather = function (town, biome, weather, time) {
         cloud: '',
         temperature: ''
       },
-      precipitationLevel: setup.townData.terrain[biome].weather[town.currentSeason].precipitationLevel,
-      precipitationIntensity: setup.townData.terrain[biome].weather[town.currentSeason].precipitationIntensity
+      precipitationLevel: setup.townData.terrain[biome].weather.season[season].precipitationLevel,
+      precipitationIntensity: setup.townData.terrain[biome].weather.season[season].precipitationIntensity
     }
   }
   // console.log('weather:')
@@ -52,5 +61,6 @@ setup.createWeather = function (town, biome, weather, time) {
   setup.renderWeather(town, biome, weather)
   // console.log('weather after render:')
   // console.log(weather)
+  console.groupEnd()
   return weather
 }

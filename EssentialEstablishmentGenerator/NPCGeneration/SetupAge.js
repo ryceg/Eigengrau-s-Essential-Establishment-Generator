@@ -13,6 +13,7 @@ setup.createAge = function (npc) {
     npc.hasClass = false
     npc.profession = npc.age
     npc.dndClass = npc.age
+    npc.background = 'child'
   }
   return npc;
 }

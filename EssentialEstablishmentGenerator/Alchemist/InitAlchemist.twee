@@ -1,6 +1,6 @@
 
 :: InitAlchemist [output]
-<<set $selectedBuilding to $town.buildings[$selected.key][$selected.index]>>
+<<set $selectedBuilding to ($town.buildings.alchemist[$selected.key] || $town.buildings.alchemist[$currentPassage.key])>><<run setup.clampRolls($town.buildings.alchemist[$selected.key].roll)>>
 <<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
 <span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>

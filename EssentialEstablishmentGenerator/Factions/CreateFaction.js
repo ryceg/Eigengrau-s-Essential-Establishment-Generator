@@ -6,9 +6,11 @@ setup.createFaction = function (town, opts) {
 
   var faction = (opts['newFaction'] || Object.assign({
     id: [State.variables.factions.length - 1],
+    key: randomFloat(1).toString(16),
+    passageName: 'FactionProfile',
     associatedTown: town.name,
     type: type,
-    factionNoun: setup.factionData.type[type].factionNoun,
+    wordNoun: setup.factionData.type[type].wordNoun,
     motivation: setup.factionData.type[type].motivation.random(),
     membersTrait: setup.factionData.type[type].membersTrait.random(),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
@@ -45,7 +47,8 @@ setup.createFaction = function (town, opts) {
   setup.createRivals(faction)
   console.log('other cool bits...')
   setup.createMisc(faction)
-  faction.key = faction.name + randomFloat(1, 100)
+
+  faction.tippyDescription = 'A ' + faction.size + ' ' + faction.type + ' ' + faction.wordNoun + ' called ' + faction.name
 
   // if (faction.isThrowaway === undefined) {
   //   console.log('and finally assigning to the faction roster.')

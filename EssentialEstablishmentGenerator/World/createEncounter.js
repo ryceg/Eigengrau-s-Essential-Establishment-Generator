@@ -1,13 +1,11 @@
-setup.createEncounter = function (town, biome, scenario) {
+setup.createEncounter = function (town, biome) {
   // console.log('scenario:')
   // console.log(scenario)
-  scenario = {
-    encounter: setup.misc[biome].create(town)
+  var encounter = setup.misc[biome].create(town)
     // weather: scenario.weather || setup.createWeather(town, biome)
-  }
   // scenario.weather = setup.createWeather(town, biome, scenario.weather, 4)
   // console.log(scenario)
 
-  scenario.readout = scenario.encounter
-  return scenario
+
+  return encounter
 }

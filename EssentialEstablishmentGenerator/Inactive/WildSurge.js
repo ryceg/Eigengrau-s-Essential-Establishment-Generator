@@ -6,7 +6,7 @@ var idString = "result";
 function surge()
 {
 
-	var lineIndex = Math.floor(Math.random() * fileContentLines.length);
+	var lineIndex = Math.floor(randomFloat(1) * fileContentLines.length);
 	var line = fileContentLines[lineIndex];
 	for (i = numResults-1; i > 0; i--)
 	{

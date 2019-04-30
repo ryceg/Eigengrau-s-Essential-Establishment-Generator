@@ -32,8 +32,8 @@
 				<</if>>\
 	<</if>>
 		<</silently>>\
-		<<if _gold>><<= _gold>> Gold <</if>>\
-		<<if _silver>><<= _silver>> Silver <</if>>\
+		<<if _gold>><<= _gold>> Gold<</if>>\
+		<<if _silver>><<= _silver>> Silver<</if>>\
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 
 <<widget "guard">><<nobr>>
@@ -49,34 +49,22 @@
 		<<goto 'GuardOutput'>><</link>>
 <</nobr>><</widget>>
 
-<<widget "buildingProfile">><<nobr>>
-		<<set _build = $args[0], _readout = $args[1]>>
-		<<capture _build, _readout>>
-				<<if def $args[1]>>
-							<<link _readout "BuildingProfile">>
-								<<set $currentBuilding to _build>>
-							<</link>>
-					<<else>>
-							<<link _char.name "BuildingProfile">>
-									<<set $currentBuilding to _build>>
-							<</link>>
-				<</if>>
-		<</capture>><</nobr>><</widget>>
 
 <<widget "profile">>
     \<<set _char = $args[0],
         _readout = $args[1] || _char.name,
-        _id = "tip-" + Util.slugify(_char.name) + "-" + Math.floor(Math.random() * 0x10000).toString(16)>>
+        _id = "tip-" + Util.slugify((_char.name || "profile")) + "-" + Math.floor(randomFloat(1).toString(16))>>
     \<<capture _char, _readout, _id>>
         \<span @id="_id" class="tip"><<link _readout>>
-				<<set $currentNPC to _char>>
-				<<set $currentNPCKey to _char.key>>
-				<<goto "NPCProfile">>
+				<<set $selected to _char>>
+				/* <<set $currentNPCKey to _char.key>> */
+				<<goto _char.passageName>>
 				<</link>></span>
         \<<run setup.profileTooltip(_id, _char)>>
 				\<<run setup.tippy(".btn")>>
     \<</capture>>
 \<</widget>>
+
 
 <<widget "temp">><<nobr>>
 		<<set _temp = $args[0]>>

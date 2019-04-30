@@ -27,6 +27,10 @@ setup.createTown = function (base) {
         return 'hamlet'
       }
     },
+    set type (value) {
+      console.log('Setting town type.')
+      this._type = value
+    },
     // type: type,
     terrain: terrain,
     currentSeason: season.random(),
@@ -34,13 +38,6 @@ setup.createTown = function (base) {
     factions: {
     },
     buildings: {
-      'smithy': [],
-      'tavern': [],
-      'alchemist': [],
-      'market': [],
-      'GeneralStore': [],
-      'temple': [],
-      'brothel': []
     },
     population: setup.townData.type[type].population(),
     _demographic: {},
@@ -127,6 +124,10 @@ setup.createTown = function (base) {
       }
       this._wealth = wealth[1]
       return this._wealth
+    },
+    set wealth (value) {
+      console.log('Setting town wealth.')
+      this._wealth = value
     },
     location: setup.townData.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
