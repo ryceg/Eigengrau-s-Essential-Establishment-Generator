@@ -4,7 +4,7 @@ setup.market = {
       'ale by the pint',
       'amulets and totems',
       'apples',
-      'attractive young slaves (bedmates),',
+      'attractive young slaves (bedmates)',
       'axes and hammers',
       'bearskin rugs and capes',
       'beer by the barrel',
@@ -29,7 +29,7 @@ setup.market = {
       'corn on the cob',
       'cotton shirts and pants',
       'dogs and cats',
-      'domestic slaves (maidservants],',
+      'domestic slaves (maidservants)',
       'dried fish',
       'dried herbs',
       'dried venison',
@@ -45,7 +45,7 @@ setup.market = {
       'fresh fish',
       'fruit pies',
       'glass bottles, jars, vials, and cups',
-      'hardy slaves (laborers],',
+      'hardy slaves (laborers)',
       'hot soup',
       'iron candlesticks and tools',
       'iron pots and pans',
@@ -117,7 +117,27 @@ setup.market = {
       'preserved jams and jellies',
       'ancient trinkets and knick knacks',
       'palm readings',
-      'fortune tellings'
+      'fortune tellings',
+      'halfling grown pipe leaf',
+      'halfling carvings and jewelry',
+      'smelly halfling cheeses',
+      'rich and hearty dwarven breads',
+      'knockoff dwarven ale',
+      'traditional dwarven ale',
+      'dwarf-made tools and farming equipment',
+      'elven silk',
+      'fruity elven wines',
+      'fragrant elven incense',
+      'elven medicinal herbs',
+      'strangely shaped orcish vegetables',
+      'greasy and fragrant orcish meat pies',
+      'orcish knives and cutlery',
+      'slices from an auroch roasting on a spit',
+      'magical dice',
+      'lost and found items at reasonable prices',
+      'chickens, rabbits, ducks, and other small game',
+      'venoms and poisons (all medicinal of course)',
+      'snake oils of every variety'
     ],
     'shouts': [
       'Tasty meat pies, baked into the shape of otters! Delicious!',
@@ -180,7 +200,10 @@ setup.market = {
       'Carts and wagons! Nicely brightly painted!',
       'Powdered carrion crawler! Warts cured instantly!<blockquote>Not carrion crawler, not curative, smells like nettles, acts like nettles, is nettles.</blockquote>',
       'Owlbear beaks for sale! Guaranteed protection from scurvy!<blockquote>Well, no protection against anything really.</blockquote>',
-      'Buy your love a rose that never dies!<blockquote>A picture of a rose</blockquote>'
+      'Buy your love a rose that never dies!<blockquote>A picture of a rose</blockquote>',
+      "The finest wines you've ever tasted! Fruity or dry, oaky or herbal, we have them all!",
+      "Cure that painful boil with my all-in-one healing tincture!<blockquote>It's just rancid vinegar</blockquote>",
+      'Pies! Fruit pies! Apple, cherry, peach, and plum!'
     ],
     'suffix': [
       'Be the envy of your friends!',
@@ -193,7 +216,11 @@ setup.market = {
       "You'd be a fool to pass it up!",
       'Be the big cheese on your block!',
       'Buy it now!',
-      "I've got kids to feed, buy it!"
+      "I've got kids to feed, buy it!",
+      'Trade your money for goods and services here!',
+      'Even a dwarf would buy at this price!',
+      'Your next purchase is right here!',
+      'Love yourself and buy something nice!',
     ],
     'tent': [
       'little push cart',
@@ -208,7 +235,11 @@ setup.market = {
       'permanent stone stall',
       'huge sack the merchant has set down on the ground',
       'one- or two-man tent',
-      "myriad of pockets in the vendor's clothes"]
+      "myriad of pockets in the vendor's clothes",
+      'permanent table with a tent set up around it',
+      'racks of goods set up in a circle',
+      'flat stones with merchandise piled on them'
+    ]
   },
   'location': [
     'wide, rectangular plaza',
@@ -219,14 +250,21 @@ setup.market = {
     'sprawling maze of tunnels beneath the city streets',
     'huge pavilion with a solid roof overhead',
     'disorganized series of large tents',
-    'single long, wide, road stretching through the town'
+    'single long, wide, road stretching through the town',
+    'large clearing on the outside of town',
+    'circle of tents around a huge bonfire',
+    'scattered tents set randomly throughout town'
   ],
   'size': [
     'large and bustling',
     'somewhat cramped',
     'rather packed',
     'relatively large',
-    'huge and hectic'
+    'huge and hectic',
+    'claustrophobic',
+    'large but nearly empty',
+    'large enough to service an entire kingdom',
+    'too small for the growing town'
   ],
   'cleanliness': [
     'rather dirty',
@@ -236,7 +274,10 @@ setup.market = {
     'surprisingly clean',
     'astonishingly well-kempt',
     'surprisingly tidy',
-    'a victim to the chaos that is so common in markets'
+    'a victim to the chaos that is so common in markets',
+    'religiously cleaned',
+    'scattered with discarded food (and vermin eating it)',
+    'cats chase the endless mice between the stalls'
   ],
   'draw': [
     'the hot mead',
@@ -255,7 +296,12 @@ setup.market = {
     'being open once in a blue moon',
     'the fights that break out',
     'the merchants fighting each other for your business',
-    'the interesting things you can find'
+    'the interesting things you can find',
+    'the wonderful scents and colors of the merchandise',
+    'the lovely and attractive merchants',
+    'the entertainers and musicians set up around the bazaar',
+    'having every type of food imaginable',
+    'having trinkets from every corner of the world'
   ],
   'organisation': [
     'type of merchandise',
