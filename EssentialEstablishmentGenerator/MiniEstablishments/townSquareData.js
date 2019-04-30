@@ -48,6 +48,17 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor.'
       }
     },
+    'colorfulRobes':{
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'wizard'
+      })
+      return 'a ' + setup.profile(npc, npc.description) + ' wearing strange ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple',
+       'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver', 'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue',
+     'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe'].random() + ' coloured robes.'
+    }
+  },
     'animal': {
       function: function (town) {
         return 'a large cage with ' + ['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
