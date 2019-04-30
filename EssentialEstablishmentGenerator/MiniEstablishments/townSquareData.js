@@ -21,12 +21,21 @@ setup.townSquare = {
   },
   feature: [
     // the town square features _______
-    'a statue of an old ruler in the centre.',
+    ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' statue of an old ruler in the centre.',
     'stray dogs that run around, begging for scraps.',
-    'a huge old tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
-    'an old, withered tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
+    'feral cats that stalk through the streets, searching for scraps.',
+    'a large gallows on a raised stage in the center.',
+    'a raised executioners block in the middle.',
+    
+    'a huge old ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
+    'an old, withered ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
     'a fountain that the common folk drink from despite the sanitation issues.',
-    'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.'
+    'an ornate fountain that several children are playing in.',
+    'a small well that several shabbily dressed folk are waiting in line for.',
+    'a large well with guards stationed around it.',
+    'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
+    'streets made of ' + ['dirt and gravel.', 'course gravel.', 'packed down dirt and mud.', 'rough cut stone.', 'smooth, hand carved stone.', 'rough hewn bricks.', 'artisan quality bricks, laid in a detailed pattern.', 'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random(),
+
   ],
   crowd: {
     'haggling': {
