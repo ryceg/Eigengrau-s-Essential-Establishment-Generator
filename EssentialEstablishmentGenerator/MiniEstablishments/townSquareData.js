@@ -187,13 +187,14 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is chasing a child.'
       }
     },
-    'expensiveJewelry': {
+    'Jewelry': {
       function: function (town) {
         var npc = setup.createNPC(town, {
           background: 'noble',
           note: 'Has some very nice jewelry.'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some very nice jewelry.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some ' ['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.',
+      'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()
       }
     },
     'cart': {
