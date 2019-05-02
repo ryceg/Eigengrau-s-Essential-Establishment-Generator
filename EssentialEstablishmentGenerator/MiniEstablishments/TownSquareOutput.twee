@@ -8,7 +8,7 @@ There's <<print setup.weightedRandomFetcher($town, setup.townSquare.vignettes)>>
   <<run delete $npcs[_newNPC.key]>>
 <</if>>
 <<set $newNpc to setup.weightedRandomFetcher($town, setup.townSquare.crowd)>>
-<<replace "#newNpc">><<print ["You can see", "You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $newNpc<</replace>><</button>>
+<<replace "#newNpc">><<print ["You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $newNpc<</replace>><</button>>
 <div id="newNpc"><<if def $newNpc>><<print ["You can see", "You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $newNpc<</if>></div>
 
 <<include "Posters">>

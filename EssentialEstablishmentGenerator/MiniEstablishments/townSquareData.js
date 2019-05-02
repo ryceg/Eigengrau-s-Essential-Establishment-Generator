@@ -39,7 +39,8 @@ setup.townSquare = {
     'a large well with guards stationed around it.',
     'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
     'streets made of ' + ['dirt and gravel.', 'course gravel.', 'packed down dirt and mud.', 'rough cut stone.', 'smooth, hand carved stone.', 'rough hewn bricks.', 'artisan quality bricks, laid in a detailed pattern.',
-     'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random()
+    'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random(),
+    'a large donation box
 
 
   ],
@@ -244,6 +245,13 @@ setup.townSquare = {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who keeps bumping into people.'
+      }
+    },
+    'musician': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is playing ' + ['a sweet tune on a lute.', 'a beat on a small wooden box.', 'an off-key song on a lute.', 'a bitter tune on a harp.',
+      'an interesting song on a sitar.', 'a merry tune on a flute.', 'a quick beat on a pair of drums.', 'a fine song on a fiddle.'].random()
       }
     },
     'singer': {
