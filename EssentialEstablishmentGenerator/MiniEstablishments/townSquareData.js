@@ -21,14 +21,15 @@ setup.townSquare = {
   },
   feature: [
     // the town square features _______
-    ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' statue of an old ruler in the centre.',
+    ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' statue of ' + ['an old ruler',
+     'an ancient hero', 'the current ruler', 'the town founder', 'an ancient wizard', 'a fearsome dragon', 'a noble ship', 'the ruler of all the lands', 'a revered bard', 'a group of citizens', "the town's patron family"].random() + ' in the centre.',
     ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' obelisk jutting out from the centre.',
     'stray dogs that run around, begging for scraps.',
     'feral cats that stalk through the streets, searching for scraps.',
     'a large gallows on a raised stage in the center.',
     'a raised executioners block in the middle.',
     'a large wooden pole in the center with ribbons hanging down from it. Several children are gathered around the pole dancing with the ribbons.',
-    'an in-the-round style stage currently prepped for some sort of stage show',
+    'an in-the-round style stage currently prepped for some sort of stage show.',
     'several small ' + ['wooden', 'stone', 'jewel encrusted', 'obsidian', 'copper', 'bronze', 'iron', 'metal', 'glass'].random() + " statues of the town's patron placed in different corners.",
     'a huge old ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
     'an old, withered ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
@@ -66,12 +67,26 @@ setup.townSquare = {
     ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
     'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', and ' +
     ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() +' lining the streets.'
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() +' lining the streets.',
+    'a large unlit stake surrounded by kindling.',
+    'a small animal pen full of ' + ['chickens.', 'pigs.', 'goats.', 'sheep.', 'turkeys.', 'dogs.', 'hares.'].random(),
+    "a protected plinth with the town's most important relic which is " + ['a warhammer.', 'a smithing hammer.', 'a large rusted anvil.', 'a silver medallion.', 'an ancient magical scroll.', 'the sarcophagus of their founder.',
+    'the weapon of their most famous hero.', 'a particularly nice vase.', 'the riding saddle of a noble who once visited.', 'some sort of potion.', 'a large engraved chest.', 'a very lovely landscape painting.',
+    'a shimmering gold crown.', 'a finely crafted wagon wheel.', 'a creepy looking mask.', 'a rock in the shape of the face of an old ruler.', 'a quite high quality feathered cap.', 'a black raven quill.', 'a fossilized egg.'].random() + ' There are several guards next to or near the plinth.'
 
 
   ],
   crowd: {
-    'haggling': {
+    'shoeShine':{
+    function: function (town) {
+    var npc = setup.createNPC(town, {
+      ageStage: 'child',
+      hasClass: false
+    })
+    return 'a ' + setup.profile(npc, 'child') + ' shining shoes with small rag from a battered box.'
+    }
+  },
+  'haggling': {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor for ' + ['a pile of fish.', 'a piece of pottery.', 'a fine piece of art.', 'a cheap looking statue.',
