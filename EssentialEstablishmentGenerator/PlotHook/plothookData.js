@@ -147,7 +147,16 @@ setup.plothook = {
     'A small collection of bards of various races have formed an impromptu jam session in a clearing nearby. They sound great, and if asked, they attribute the sound to the quality of the instruments. Anyone with a proficiency in a musical instrument and enough gold in their purse must succeed on a DC 10 Will save, or feel compelled to buy one.',
     "A minotaur comes out of the shadows into your campfire, not making a sound as he approaches. He stands 8 feet tall, with a massive axe strapped to his back. Wordlessly, he crouches near the fire and stirs the embers with a stick. Then he speaks, trading stories of the road. He tells many stories of doing battle with Mountain Giants, and delights in hearing stories of the players' exploits. In the morning, he leaves. If asked, he will provide perfect directions to any one destination.",
     'The bodies of a human woman, a male orc, and a baby half-orc are nailed to nearby trees. A sign stuck in the soil nearby reads "Race Mixers"',
-    'A trio of dirty peasants is riding past on an impossibly fancy carriage. They nervously smile and wave at your group. A DC 18 spot check will notice a smear of blood on the side of the carriage.'
+    'A trio of dirty peasants is riding past on an impossibly fancy carriage. They nervously smile and wave at your group. A DC 18 spot check will notice a smear of blood on the side of the carriage.',
+    'The light of a large fire winks through the branches to your left, and you can distinctly smell smoke.',
+    'You come upon a huge pile of stone rubble. As you look at it, you can see pieces of gear, tapestries, and splintered pieces of wood beneath the pile of stones.',
+    'Almost out of nowhere, an incredibly small humanoid creature flies out of the woods and straight at your party. Once she gets close enough to see her tiny face, it is obvious that she is terrified.',
+    'A stone basin stands on a plinth in the middle of the road. It seems to be full of water, but when you reach toward it the water drains out of the basin.',
+    'A huge cave opens up 30 feet to your left. In front of the entrance is a huge ogre wearing the pelt of a dire bear. He has not noticed you yet.',
+    'You come upon a small pond that smells distinctly of low tide. The pond seems to be salt water, and anyone who has lived in a coastal city recognizes some distinctly ocean dwelling fish in the small pond.',
+    'A broken down tower pokes out above the trees about 600 yards away. Even from this distance, you can see flashes of blue and green light coming from the topmost windows.',
+    'A massive stag comes up to you as you are settling down to sleep. It does not attack, and simply walks up to the fire and lays down. It sits there calmly and stares into the fire. Anyone watching the deer immediately at daybreak sees it slowly dissolve into smoke.',
+    'A rumble in the earth is the first indication; soon your party can see the herd of buffalo-like creatures stampeding down the plain directly toward you!'
   ],
   'city': [
     "The town guard think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the real culprit before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?",
@@ -294,7 +303,11 @@ setup.plothook = {
     "Ever since the ascension of the new baron/burgher, criminals have been taken into the keep and never seen again. The captain of the guard knows that the keep should have run out of room in the dungeons long ago, but he hasn't been allowed inside to see them. (u/crunkDealer)",
     'A public execution is taking place in the town square, the town is split on whether the accused is actually guilty. (u/crunkDealer)',
     'A house/shop in the middle of town has vanished entirely, as if it were just erased from creation. A strange scent and magical residue permeates the premises. (u/crunkDealer)',
-    "A very belligerent (and often drunk) old man is causing problems in town. The hangup: it is the burgher's dearly beloved uncle who remains an extremely proficient fighter in his advanced age. The guard can't apprehend him without serious injury to the man. (u/crunkDealer)"
+    "A very belligerent (and often drunk) old man is causing problems in town. The hangup: it is the burgher's dearly beloved uncle who remains an extremely proficient fighter in his advanced age. The guard can't apprehend him without serious injury to the man. (u/crunkDealer)",
+    'A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations.',
+    'A well dressed elf runs up to the party, desperately shouting something about a painting and a demon.',
+    'A huge crack has recently appeared in the center of the town square. The town guard are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.',
+    'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying the party drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
   ],
   papers: {
     // 'Doppelganger Dead Or Alive': {
@@ -669,7 +682,15 @@ setup.plothook = {
     'Help! My good friend Smolik Droweater has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard Quinn.',
     'Seasoned adventurers needed! Writer/Bard here, tell me the tales of your great adventures, I need some inspiration for my books/songs. Payment will be determined by how good your stories are.',
     'Just bought the old mill outside of town. But there’s something living in it (make something up). Will pay 50GP and free milling service for a year to anybody who clears out the infestation and makes it safe for our family to set up!',
-    'Help settle a minor dispute between two noble Elven houses! House Alendrian is looking for adventurers to help draw the domain lines with the House Walopez border. If you are strong of arm and fleet of foot, inquire at the Dovestail Manor.'
+    'Help settle a minor dispute between two noble Elven houses! House Alendrian is looking for adventurers to help draw the domain lines with the House Walopez border. If you are strong of arm and fleet of foot, inquire at the Dovestail Manor.',
+    'Looking for adventure? Ready to leave this crummy town? Want to earn lots of gold? Ask for Captain Delwyn at the docks.',
+    'Lost: pet rabbit named Fluffy. Reward: 2 gold.',
+    'WANTED DEAD OR ALIVE: The assassin Reudelard (see attached picture).',
+    'Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject our lady of mercy!',
+    'Looking for willing test subjects. 200 gold per experiment. 400 gold if you lose a limb.',
+    'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
+    'REPENT SINNERS - Temple of the Lady of Spring',
+    'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
   ],
   'people': [
     "I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
