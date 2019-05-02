@@ -47,7 +47,9 @@ setup.townSquare = {
     'haggling': {
       function: function (town) {
         var npc = setup.createNPC(town)
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor for ' + ['a pile of fish.', 'a piece of pottery.', 'a fine piece of art.', 'a cheap looking statue.',
+      'a tattered looking map.', 'a dyed roll of cloth.', 'a pair of fleece leggings.', 'a checker patterned tunic.', 'a dusty old tome.', 'a pair of scrolls.', 'a fresh loaf of bread.',
+    'a shiny green apple.', 'a large cheese wheel.', 'a caged owl.', 'a large tanned hide.', 'a small crate of torches.', 'a crude looking dagger.', 'a fine looking sword.'].random()
       }
     },
     'colorfulRobes':{
