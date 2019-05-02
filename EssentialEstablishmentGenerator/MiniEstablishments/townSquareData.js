@@ -39,7 +39,34 @@ setup.townSquare = {
     'a large well with guards stationed around it.',
     'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
     'streets made of ' + ['dirt and gravel.', 'course gravel.', 'packed down dirt and mud.', 'rough cut stone.', 'smooth, hand carved stone.', 'rough hewn bricks.', 'artisan quality bricks, laid in a detailed pattern.',
-    'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random()
+    'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random(),
+    'a large donation box with "For the Greater Good" engraved into a plaque on the front.',
+    'a large ' + ['wooden', 'stone', 'granite', 'scaffold', 'log built'].random() + ' watchtower that is ' + ['open to the public.', 'manned by several guards.', 'closed off for entry.', 'manned by a single guard.'].random(),
+    'a wall with a beautiful painted mural that overlooks the people.',
+    'a large plaque in the center of the square dedicated to ' + ['the people of the town.', 'an old ruler.', 'the current ruler.', 'an old hero who was born here.', 'the founder of the town.',
+     "the town's patron.", "the town's general wealth.", 'the major god of the town.', 'the hero of the town.', 'the first king.', 'the first queen.'].random(),
+     'a small park nestled in the center.',
+     'a large park at the back of the square.',
+     'a small marketplace with a couple of people selling out of carts.',
+     'a rather bustling marketplace with several large stalls and many smaller vendors selling out of carts and off mats.',
+     'colorful awnings hanging from every building in the square.',
+     'small '+ ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
+     'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
+    'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
+
+    'small boxes of ' + ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ' and ' +
+    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ' lining the streets.',
+
+    'large boxes of ' + ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', ' +
+    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', ' +
+    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', and ' +
+    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() +' lining the streets.'
 
 
   ],
