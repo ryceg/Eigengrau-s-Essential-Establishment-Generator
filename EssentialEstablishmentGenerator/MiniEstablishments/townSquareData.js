@@ -21,12 +21,25 @@ setup.townSquare = {
   },
   feature: [
     // the town square features _______
-    'a statue of an old ruler in the centre.',
+    ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' statue of an old ruler in the centre.',
     'stray dogs that run around, begging for scraps.',
-    'a huge old tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
-    'an old, withered tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
+    'feral cats that stalk through the streets, searching for scraps.',
+    'a large gallows on a raised stage in the center.',
+    'a raised executioners block in the middle.',
+    'a large wooden pole in the center with ribbons hanging down from it. Several children are gathered around the pole dancing with the ribbons.',
+    'an in-the-round style stage currently prepped for some sort of stage show',
+    'several small ' + ['wooden', 'stone', 'jewel encrusted', 'obsidian', 'copper', 'bronze', 'iron', 'metal', 'glass'].random() + " statues of the town's patron placed in different corners.",
+    'a huge old ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
+    'an old, withered ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
     'a fountain that the common folk drink from despite the sanitation issues.',
-    'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.'
+    'an ornate fountain that several children are playing in.',
+    'a large box with a slit in the top. The front of the box has "suggestions" scrawled across it.',
+    'a small well that several shabbily dressed folk are waiting in line for.',
+    'a large well with guards stationed around it.',
+    'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
+    'streets made of ' + ['dirt and gravel.', 'course gravel.', 'packed down dirt and mud.', 'rough cut stone.', 'smooth, hand carved stone.', 'rough hewn bricks.', 'artisan quality bricks, laid in a detailed pattern.',
+     'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random()
+
   ],
   crowd: {
     'haggling': {
@@ -35,10 +48,52 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor.'
       }
     },
+    'colorfulRobes':{
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'wizard'
+      })
+      return 'a ' + setup.profile(npc, npc.description) + ' wearing strange ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple',
+       'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver', 'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue',
+     'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe'].random() + ' coloured robes.'
+    }
+  },
+    'animal': {
+      function: function (town) {
+        return 'a large cage with ' + ['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
+         'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() + ' inside of it.'
+      }
+    },
+    'drunkard': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' clearly drunk off their ass just wandering about.'
+      }
+    },
     'bag': {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' carrying a large bag.'
+      }
+    },
+    'chest': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        var npc2 = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' and a ' + setup.profile(npc2, npc2.descriptor) + ' carrying a large and heavy looking chest.'
+      }
+    },
+    'gawk': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby beautiful woman.'
+      }
+    },
+    'parcel': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is pushing through the square with an oddly shaped parcel in hand.'
       }
     },
     'hurry': {
@@ -68,6 +123,15 @@ setup.townSquare = {
           hasClass: false
         })
         return 'a ' + setup.profile(npc, 'noble') + ' strutting around, accompanied by a servant.'
+      }
+    },
+    'showoff': {
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          background: 'noble',
+          hasClass: false
+        })
+        return 'a ' + setup.profile(npc, 'noble') + ' attempting to show off to a group of lovely looking commoners.'
       }
     },
     'alley': {
@@ -105,6 +169,12 @@ setup.townSquare = {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a horse.'
+      }
+    },
+    'ridingCamel': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a camel.'
       }
     },
     'chasingChild': {
