@@ -203,7 +203,7 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           background: 'commoner'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' ['pulling a cart.', 'pushing a cart stuck in a rut.', 'fixing a cart off to the side.', 'riding in a cart pulled by an ox.',
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['pulling a cart.', 'pushing a cart stuck in a rut.', 'fixing a cart off to the side.', 'riding in a cart pulled by an ox.',
       'riding in a cart pulled by a horse.', 'riding in a large cart pulled by horses.', 'riding in a cart pulled by slaves.', 'loading a cart full of goods from the market.', 'unloading goods from a cart.'].random()
       }
     },
@@ -231,7 +231,8 @@ setup.townSquare = {
     'singer': {
       function: function (town) {
         var npc = setup.createNPC(town)
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is singing off-key as ' + npc.heshe + ' walks along.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['singing off-key', 'singing a single note', 'humming a sweet tune', 'singing a lovely song',
+        'singing soft and sweetly', 'singing loudly', 'singing terribly', 'humming off-key', 'singing very badly', 'singing a funny song'].random() + ' as ' + npc.heshe + ' walks along.'
       }
     }
   },
