@@ -91,7 +91,7 @@ setup.townSquare = {
     'gawk': {
       function: function (town) {
         var npc = setup.createNPC(town)
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby beautiful woman.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby '+ ['beautiful woman.', 'handsome man.', 'rugged dwarf.', 'ethereal elf.'].random()
       }
     },
     'parcel': {
@@ -112,6 +112,14 @@ setup.townSquare = {
           note: 'Is on crutches.'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is hobbling along on crutches.'
+      }
+    },
+    'pegleg': {
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          note: 'Has a pegleg.'
+        })
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is hobbling along with a pegleg.'
       }
     },
     'lost': {
@@ -144,10 +152,17 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' ducking into an alley.'
       }
     },
+    'store': {
+      function: function (town) {
+        var npc = setup.createNPC(town)
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' stepping into a store.'
+      }
+    },
     'charity': {
       function: function (town) {
         var npc = setup.createNPC(town)
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' toss a coin to a beggar.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + [' toss a coin to a beggar.', ' give part of a loaf of bread to a small child.', ' feed some scraps to a mutt.',
+         " drop some coins in a street performer's cup.", ' help an old woman cross the square.'].random()
       }
     },
     'guardBait': {
@@ -160,7 +175,8 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           background: 'criminal'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is being chased by guards.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is '+ ['being chased by guards.', 'being beaten by guards.', 'being pushed into a cell by guards.', 'having their hands tied up by guards.',
+      'being surrounded by several guards.', 'being told off by a guard.'].random()
       }
     },
     'ridingMule': {
