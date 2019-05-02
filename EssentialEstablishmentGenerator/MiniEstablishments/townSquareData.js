@@ -181,17 +181,18 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a camel.'
       }
     },
-    'chasingChild': {
+    'chasingSomething': {
       function: function (town) {
         var npc = setup.createNPC(town)
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is chasing a child.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is chasing a ' + ['child.', 'cat.', 'dog.', 'group of kids.', 'man holding a small bag.', 'woman holding a small chest.', 'horse.',
+         'runaway cart.', 'chicken.', 'pig.', 'barrel rolling ahead of them.', 'piece of parchment blowing in the breeze.'].random()
       }
     },
     'Jewelry': {
       function: function (town) {
         var npc = setup.createNPC(town, {
           background: 'noble',
-          note: 'Has some very nice jewelry.'
+          note: 'Has some jewelry.'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some ' ['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.',
       'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()
@@ -202,7 +203,8 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           background: 'commoner'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is pulling a cart.'
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' ['pulling a cart.', 'pushing a cart stuck in a rut.', 'fixing a cart off to the side.', 'riding in a cart pulled by an ox.',
+      'riding in a cart pulled by a horse.', 'riding in a large cart pulled by horses.', 'riding in a cart pulled by slaves.', 'loading a cart full of goods from the market.', 'unloading goods from a cart.'].random()
       }
     },
     'wandering': {
