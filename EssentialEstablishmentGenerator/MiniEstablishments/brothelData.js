@@ -347,7 +347,7 @@ setup.brothel = {
       }
     },
     'feature': ['a pretty smile', 'beautiful eyes', 'lovely, long eyelashes', 'lush, curly locks', 'short-cropped hair', 'a clean satin gown', 'broad shoulders', 'a slender jaw', 'thick, long hair', 'a very large bosom', 'a very curvacious body', 'long slender hands'],
-    'physicalTrait': ['a gimpy leg', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
+    'physicalTrait': ['a gimpy leg', 'trout lips', 'a missing hand', 'dirty, matted hair', 'quite strong body odor', 'a very hairy body', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
     'flawSeverity': ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
     'skill': ['listening and offering emotional support', 'bringing a smile to her clients’ faces as soon as she touches them', 'embroidery and sewing', 'cooking and cleaning', 'drinking and swearing', 'certain lewd oral activities', 'getting clients in the mood', 'juggling'],
     'looks': ['earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away',
