@@ -125,6 +125,7 @@ setup.brothel = {
     'the harlots there are treated like royalty',
     'the whores there are treated like slaves',
   ],
+  //these are the brothel rumors for BrothelOutput
   'rumour': [
     'a nobleman got one of the girls with child but refuses to acknowledge her or the baby',
     'someone slaughtered half of the workers and clients in the night',
@@ -162,6 +163,7 @@ setup.brothel = {
     'the brothel is just a front for a local gambling ring',
     'they water down all the drinks with horse piss'
   ],
+  //These are the lines used to select the notice action in BrothelOutput
   'notice': [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
@@ -235,6 +237,7 @@ setup.brothel = {
     'several pieces of pottery with very vulgar acts painted on them',
     'a great many nude statues placed all around the room'
   ],
+  //these are the lines used to pick the pimp's idle action in brothelOutput
   'idle': [
     'sitting, with a piece of bread in hand',
      'sitting, mug in hand',
@@ -270,6 +273,7 @@ setup.brothel = {
     'laying across a velvet sofa in the room being fed grapes by a beautiful woman',
     'nowhere to be seen at first, but then emerges from a back room covered by thick curtains'
   ],
+  //this creates a new NPC with specific traits for readout in the BrothelOutput
   'harlot': {
     'create': function (town, base) {
       var harlotType = Object.keys(setup.brothel.harlot.type).random()
