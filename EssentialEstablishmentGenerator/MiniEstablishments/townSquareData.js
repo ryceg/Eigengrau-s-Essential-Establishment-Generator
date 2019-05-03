@@ -19,60 +19,94 @@ setup.townSquare = {
       [10, 'little more than an empty lot']
     ]
   },
+
   feature: [
     // the town square features _______
     ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' statue of ' + ['an old ruler',
-     'an ancient hero', 'the current ruler', 'the town founder', 'an ancient wizard', 'a fearsome dragon', 'a noble ship', 'the ruler of all the lands', 'a revered bard', 'a group of citizens', "the town's patron family"].random() + ' in the centre.',
+    'an ancient hero', 'the current ruler', 'the town founder', 'an ancient wizard', 'a fearsome dragon', 'a noble ship', 'the ruler of all the lands', 'a revered bard', 'a group of citizens', "the town's patron family"].random() + ' in the centre.',
+
     ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' obelisk jutting out from the centre.',
+
     'stray dogs that run around, begging for scraps.',
+
     'feral cats that stalk through the streets, searching for scraps.',
+
     'a large gallows on a raised stage in the center.',
+
     'a raised executioners block in the middle.',
+
     'a large wooden pole in the center with ribbons hanging down from it. Several children are gathered around the pole dancing with the ribbons.',
+
     'an in-the-round style stage currently prepped for some sort of stage show.',
+
     'several small ' + ['wooden', 'stone', 'jewel encrusted', 'obsidian', 'copper', 'bronze', 'iron', 'metal', 'glass'].random() + " statues of the town's patron placed in different corners.",
+
     'a huge old ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree, which is home to hundreds of birds, filling the town square with the sounds of birdsong.',
+
     'an old, withered ' + ['pine', 'oak', 'elm', 'cypress', 'willow', 'juniper', 'poplar', 'maple', 'apple', 'cherry', 'birch', 'ash', 'redwood', 'spruce', 'fir'].random() + ' tree. Legend says that it will flower on the darkest day of the land, to give the people hope.',
+
     'a fountain that the common folk drink from despite the sanitation issues.',
+
+    'a stone fountain with a weak trickle of water feebly pouring down the sides.',
+
     'an ornate fountain that several children are playing in.',
+
     'a large box with a slit in the top. The front of the box has "suggestions" scrawled across it.',
+
     'a small well that several shabbily dressed folk are waiting in line for.',
+
     'a large well with guards stationed around it.',
+
     'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
+
     'streets made of ' + ['dirt and gravel.', 'course gravel.', 'packed down dirt and mud.', 'rough cut stone.', 'smooth, hand carved stone.', 'rough hewn bricks.', 'artisan quality bricks, laid in a detailed pattern.',
     'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random(),
+
     'a large donation box with "For the Greater Good" engraved into a plaque on the front.',
+
     'a large ' + ['wooden', 'stone', 'granite', 'scaffold', 'log built'].random() + ' watchtower that is ' + ['open to the public.', 'manned by several guards.', 'closed off for entry.', 'manned by a single guard.'].random(),
     'a wall with a beautiful painted mural that overlooks the people.',
+
     'a large plaque in the center of the square dedicated to ' + ['the people of the town.', 'an old ruler.', 'the current ruler.', 'an old hero who was born here.', 'the founder of the town.',
+
      "the town's patron.", "the town's general wealth.", 'the major god of the town.', 'the hero of the town.', 'the first king.', 'the first queen.'].random(),
+
      'a small park nestled in the center.',
+
      'a large park at the back of the square.',
+
      'a small marketplace with a couple of people selling out of carts.',
+
      'a rather bustling marketplace with several large stalls and many smaller vendors selling out of carts and off mats.',
+
      'colorful awnings hanging from every building in the square.',
+
      'small '+ ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
      'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
+     'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
 
     'small boxes of ' + ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ' and ' +
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ' and ' +
     ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ' lining the streets.',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ' lining the streets.',
 
     'large boxes of ' + ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', ' +
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ', ' +
     ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', ' +
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ', ' +
     ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() + ', and ' +
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ', and ' +
     ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets', ''].random() +' lining the streets.',
+    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() +' lining the streets.',
+
     'a large unlit stake surrounded by kindling.',
+
     'a small animal pen full of ' + ['chickens.', 'pigs.', 'goats.', 'sheep.', 'turkeys.', 'dogs.', 'hares.'].random(),
+
     "a protected plinth with the town's most important relic which is " + ['a warhammer.', 'a smithing hammer.', 'a large rusted anvil.', 'a silver medallion.', 'an ancient magical scroll.', 'the sarcophagus of their founder.',
     'the weapon of their most famous hero.', 'a particularly nice vase.', 'the riding saddle of a noble who once visited.', 'some sort of potion.', 'a large engraved chest.', 'a very lovely landscape painting.',
-    'a shimmering gold crown.', 'a finely crafted wagon wheel.', 'a creepy looking mask.', 'a rock in the shape of the face of an old ruler.', 'a quite high quality feathered cap.', 'a black raven quill.', 'a fossilized egg.'].random() + ' There are several guards next to or near the plinth.'
+    'a shimmering gold crown.', 'a finely crafted wagon wheel.', 'a creepy looking mask.', 'a rock in the shape of the face of an old ruler.', 'a quite high quality feathered cap.', 'a black raven quill.', 'a fossilized egg.'].random() +
+    ' There are several guards next to or near the plinth.'
 
 
   ],
