@@ -4,7 +4,7 @@
 
 Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. You notice $brothel.notice. The $pimp.altTitle is $brothel.idle, $pimp.heshe appears to be $brothel.owner. <<print either('Upon seeing you come in', 'Upon noticing your arrival', 'Once $pimp.heshe notices you', 'After a few minutes', 'As soon as you enter')>> the $pimp.raceNote <<print either($pimp.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "swaggers", "quickly walks", "slides", 'quickly walks', 'casually saunters', 'ambles', 'trudges', 'strides', 'slowly wanders', 'marches' )>> over to where you are. <<print $pimp.heshe.toUpperFirst()>> introduces $pimp.himherself as <<profile $pimp>>, the $pimp.altTitle of $brothel.name, and asks what $pimp.heshe can do for you.
 
-Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour
+Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour.
 
 <<link "Meet one of the harlots">><<set $brothel.harlot to setup.brothel.harlot.create($town)>><<replace "#harlot">>$brothel.harlot<</replace>><</link>>
 <div id="harlot"><<if def $brothel.harlot>>$brothel.harlot<</if>></div>

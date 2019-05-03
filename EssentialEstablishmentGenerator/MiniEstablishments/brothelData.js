@@ -289,7 +289,7 @@ setup.brothel = {
       Object.assign(harlotTraits, setup.brothel.harlot.type[harlotType])
 
       var harlot = setup.createNPC(town, harlotTraits)
-      return 'This harlot is ' + harlotType + ' called ' + setup.profile(harlot) + '. She has ' + readout.feature + ' and is particularly good at ' + readout.skill + '. However, she has ' + harlot.physicalTrait + ', which is ' + readout.flawSeverity + '. She is looking to ' + readout.looks
+      return 'This harlot is ' + harlotType + ' called ' + setup.profile(harlot) + '. She has ' + readout.feature + ' and is particularly good at ' + readout.skill + '. However, she has ' + harlot.physicalTrait + ', which is ' + readout.flawSeverity + '. She is looking to ' + readout.looks + '.'
     },
     'type': {
       'a veteran who may have been beautiful': {
