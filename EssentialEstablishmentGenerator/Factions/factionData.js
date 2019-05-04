@@ -88,6 +88,27 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'fame', 'fame', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'politics'],
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'magical instruments', 'magical instruments', 'magical instruments']
     },
+    'clergy': {
+      'leaderTraits': {
+        title: 'Clergyman',
+        'hasClass': true,
+        dndClass: 'cleric',
+        background: 'clergy'
+      },
+      'wordNoun': 'church',
+      'leaderQualification': ['wearing flowing white robes', 'a holy symbol tattooed on their face'],
+      'alliesList': ['mercenaries'],
+      'rivalsList': ['assassins'],
+      'joiningRequirement': ['holy deeds'],
+      'joiningInitiation': ['sacraments and rituals'],
+      'membersTrait': ['amulets with a holy sigil'],
+      'main': ['Mother', 'Father', 'Lord'],
+      'adjective': ['Heavenly', 'Merciful', 'Holy'],
+      'group': ['Church', 'Convent', 'Congregation'],
+      'unique': ["The Lord's Chosen"],
+      'motivation': ['devotion'],
+      'resources': ['money', 'connections']
+    },
     'craftsmen': {
       'leaderTraits': {
         title: 'Master',
