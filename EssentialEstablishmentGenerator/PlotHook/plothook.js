@@ -369,10 +369,15 @@ setup.plothooks = {
     }
   },
   'Orc Captain': {
-    // TO UPDATE needs to be updated with orc generation
     type: ['paper'],
     function: function (town) {
-      return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’'
+      var npc = setup.createNPC(town, {
+        race = 'orc',
+        hasClass = true,
+        dndClass = 'barbarian',
+        background = 'bandit'
+      }
+      return 'Wanted Dead or Alive – ' + setup.profile(npc) + ', Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’'
     }
   },
   'Hubert': {
@@ -1434,10 +1439,66 @@ setup.plothooks = {
     type: ['event'],
     questGiver: {
       object: 'building',
-      type: 'docks'
+      type: 'tavern'
     },
     function: function (town) {
-      return 'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying the party drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
+      return 'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying you all drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
+    }
+  },
+  'The Merchant Ship': {
+    type: ['paper'],
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: false,
+        background: 'soldier',
+        profession: 'merchant'
+      })
+      return 'Looking for adventure? Ready to leave this crummy town? Want to earn lots of gold? Ask for Captain ' + setup.profile(npc, npc.lastName) + ' at the docks.'
+    }
+  },
+  'A Lost Bunny': {
+    type: ['paper'],
+    function: function (town) {
+      var cat = setup.misc.cat.create()
+      var npc = setup.createNPC(town, {
+        hasClass: false,
+        background: 'commoner'
+      })
+      return 'Help find my lost rabbit ' + cat.tippyWord + '! Reward of <<money 2>> to anyone who finds him. Contact ' + setup.profile(npc) + ' for details on him.'
+    }
+  },
+  'Dead or Alive': {
+    type: ['paper'],
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass = true,
+        dndClass = 'rogue',
+        background = 'assassin'
+      }
+      return '‘Wanted Dead or Alive – ' + setup.profile(npc) + ', master assassin! Warning: very heavily armed and dangerous. See attached picture. Reward: <<money 100000>>’'
+    }
+  },
+  'Brimstone!': {
+    type: ['paper'],
+    function: function (town) {
+      var faction = setup.factionsForType(town, 'type', 'clergy')
+      return 'Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ' + setup.profile(faction, '', 'town.factions') + '!'
+    }
+  },
+  'Experiment Subjects': {
+    type: ['paper'],
+    exclusions: function (town, npc) {
+      return true
+    },
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'wizard'
+      })
+      return 'Local ' + setup.profile(npc, 'spell caster') + ' looking for willing test subjects. <<money 20000>> per experiment. <money 400000>> if you lose a limb.'
     }
   }
+    //'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
+    //'REPENT SINNERS - Temple of the Lady of Spring',
+    //'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
 }
