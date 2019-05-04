@@ -1383,5 +1383,61 @@ setup.plothooks = {
       setup.createRelationship(town, npc, secondNpc, 'rival', 'rival')
       return 'Help settle a minor dispute between two noble Elven houses! House ' + setup.profile(npc, npc.lastName) + ' is looking for adventurers to help draw the domain lines with the House ' + setup.profile(secondNpc, secondNpc.lastName) + ' border. If you are strong of arm and fleet of foot, inquire at the ' + setup.profile(npc, npc.lastName) + ' Manor.'
     }
+  },
+  'The Cock-Fight': {
+    type: ['event'],
+    exclusions: function (town) {
+      if (town.population < 500 && town.wealth < 10) {
+        return true
+      }
+    },
+    function: function (town) {
+      var druid1 = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'druid',
+        ageStage: 'adult'
+      })
+      var druid2 = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'druid',
+        ageStage: 'adult'
+      })
+      var faction = setup.factionsForType(town, 'type', 'druids')
+      return 'A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ' + druid1 + ' and ' + druid2 ', are more than happy to introduce the party to ' + setup.profile(faction, '', 'town.factions') + '.'
+    }
+  },
+  'The Painted Devil': {
+    type: ['event'],
+    exclusions: function (town) {
+      return true
+    },
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: 'false',
+        background: 'noble',
+        race: 'elf'
+      })
+      return 'A ' + setup.profile(npc, 'well dressed elf') + ' runs up to the party, desperately shouting something about a painting and a demon.'
+    }
+  },
+  'The Crack': {
+    type: ['event'],
+    exclusions: function (town) {
+      return true
+    },
+    function: function (town) {
+      var faction = setup.factionsForType(town, 'type', 'mercenaries')
+      return 'A huge crack has recently appeared in the center of the town square. ' + setup.profile(faction, '', 'town.factions') + ' are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.'
+    }
+  },
+  'The Press Gang': {
+    type: ['event'],
+    questGiver: {
+      object: 'building',
+      type: 'docks'
+    },
+    function: function (town) {
+      return 'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying the party drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
+    }
   }
 }
