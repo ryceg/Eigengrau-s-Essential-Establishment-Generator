@@ -1063,6 +1063,7 @@ setup.misc = {
     ]
   },
   'cat': {
+
     'create': function () {
       var cat = {
         size: setup.misc.cat.size.random(),

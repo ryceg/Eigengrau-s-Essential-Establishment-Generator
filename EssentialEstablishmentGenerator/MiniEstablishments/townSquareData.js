@@ -85,19 +85,10 @@ setup.townSquare = {
      'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
      'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
 
-    'small boxes of ' + ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ' and ' +
-    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ' lining the streets.',
+    'small boxes of ' + setup.flora.flowers.stems.random() + ' and ' + setup.flora.flowers.stems.random() + ' lining the streets.',
 
-    'large boxes of ' + ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ', ' +
-    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ', ' +
-    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() + ', and ' +
-    ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
-    'hydrangeas', 'poppies', 'irises', 'lavender', 'lilacs', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'].random() +' lining the streets.',
+    'large boxes of ' + setup.flora.flowers.stems.random() + ', ' + setup.flora.flowers.stems.random() + ', ' +
+    setup.flora.flowers.stems.random() + ', and ' + setup.flora.flowers.stems.random() +' lining the streets.',
 
     'a large unlit stake surrounded by kindling.',
 
