@@ -39,7 +39,7 @@ setup.createBrothel = function (town, tavern) {
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   })
-//as title is already a value in npcData the title for the brothel owner appears as altTitle
+//as title is already a value in npcData.js the title for the brothel owner appears as altTitle
   switch (brothel.owner) {
     case 'a mean old madam':
       brothel.pimp = setup.createNPC(town, { age: 'venerable', gender: 'woman', altTitle: 'Mistress', demeanour: 'mean', profession: 'pimp' })
