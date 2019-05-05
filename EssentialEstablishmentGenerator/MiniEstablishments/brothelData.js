@@ -123,9 +123,9 @@ setup.brothel = {
     "you're more likely to get robbed than to get off",
     'the girls are well compensated for their dirty deeds',
     'the harlots there are treated like royalty',
-    'the whores there are treated like slaves',
+    'the whores there are treated like slaves'
   ],
-  //these are the brothel rumors for BrothelOutput
+  // these are the brothel rumors for BrothelOutput
   'rumour': [
     'a nobleman got one of the girls with child but refuses to acknowledge her or the baby',
     'someone slaughtered half of the workers and clients in the night',
