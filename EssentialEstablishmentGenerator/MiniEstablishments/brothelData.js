@@ -163,13 +163,21 @@ setup.brothel = {
     'the brothel is just a front for a local gambling ring',
     'they water down all the drinks with horse piss'
   ],
-  //These are the lines used to select the notice action in BrothelOutput
+  brothelColours: [
+    'indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
+    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
+    'periwinkle', 'salmon', 'taupe'
+  ],
+  brothelScents: [
+    'vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'the sea', 'cherry', 'oranges', 'clean linens', 'honeysuckle'
+  ],
+  // these are the lines used to select the notice action in BrothelOutput
   'notice': [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
     'the scent of ginger and cinnamon hanging in the air',
     'the scent of roses in the air',
-    'scented candles burning cheerily on a counter. The smell of ' + ['vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'the sea', 'cherry', 'oranges', 'clean linens', 'honeysuckle'].random() + ' wafts from where the candles burn',
+    'scented candles burning cheerily on a counter. The smell of ' + '<<print setup.brothel.brothelScents.random()>>' + ' wafts from where the candles burn',
 
     'the soft ' + ['red', 'orange', 'golden', 'dark blue', 'blue', 'indigo', 'violet', 'jade', 'green', 'purple', 'maroon', 'pink'].random() + ' glow from a shaded lamp in the room',
 
@@ -182,17 +190,9 @@ setup.brothel = {
     'a painting of a pair of lovers hanging on the wall',
     'a tasteful nude of two women hanging on the wall',
 
-    'several thick curtains of ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + ' colored beads',
-
-    'silky ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + ' colored curtains lining the walls',
-
-    'a plush and somewhat gaudy ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + ' colored carpet beneath your feet',
+    'several thick curtains of ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored beads',
+    'silky ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored curtains lining the walls',
+    'a plush and somewhat gaudy ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored carpet beneath your feet',
 
     'a thick fur carpet beneath your feet',
     'the sound of distant, soft music playing in the background',
@@ -205,7 +205,7 @@ setup.brothel = {
     'a rather distasteful tapestry hanging on the wall depicting ' + ['a rather lewd act', 'a woman with both breasts hanging out', 'a man with his bits hanging out', 'some sort of sexual story', 'the greatest sexual deeds of the brothel owner'].random(),
     'the smell of sex lingering in the air',
 
-    'the whole place smells oddly of ' + ['vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'the sea', 'cherry', 'oranges', 'clean linens', 'honeysuckle'].random(),
+    'the whole place smells oddly of ' + '<<print setup.brothel.brothelScents.random()>>',
 
     'the people here all look to be on some sort of drugs',
     'the sound of wood banging against wood echoing out from somewhere nearby',
@@ -223,38 +223,30 @@ setup.brothel = {
     'several long metal poles with harlots dancing around them',
     'beds laid out in the open showing off all sorts of lewd acts',
     'several of the patrons of this establishment seem to be quite drunk',
-
-    'a light ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + 'colored smoke hangs in the air',
-
+    'a light ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored smoke hangs in the air',
     'a small group of men eyeing up some women in the corner',
     'a small group of women eyeing up some men in the corner',
     "a board covered in pictures and names. It's all the different prostitutes currently available",
     'a nude bard stands on a small stage in one corner singing quite the raunchy song for the people in the room',
-    'a bard clad in only his undergarments standing in one corner playing ' + ['a sweet tune on a lute', 'a beat on a small wooden box', 'an off-key song on a lute', 'a bitter tune on a harp',
-    'an interesting song on a sitar', 'a merry tune on a flute', 'a quick beat on a pair of drums', 'a fine song on a fiddle'].random() + ' for the brothel patrons',
+    'a bard clad in only his undergarments standing in one corner playing ' + [
+      'a sweet tune on a lute', 'a beat on a small wooden box', 'an off-key song on a lute', 'a bitter tune on a harp',
+      'an interesting song on a sitar', 'a merry tune on a flute', 'a quick beat on a pair of drums', 'a fine song on a fiddle'
+    ].random() + ' for the brothel patrons',
     'several pieces of pottery with very vulgar acts painted on them',
     'a great many nude statues placed all around the room'
   ],
-  //these are the lines used to pick the pimp's idle action in brothelOutput
+  // these are the lines used to pick the pimp's idle action in brothelOutput
   'idle': [
     'sitting, with a piece of bread in hand',
-     'sitting, mug in hand',
-     'casually looking over a letter',
-
-     'pouring over a book titled ' + ['The Lustful Practice', 'Helpful Harlot Hints', "From Rags to Wenches: A Pimp's Trip to the Top", 'Glory Holes', 'Venus and Adonis', 'The Seven Beauties',
-     'Sappho and the Other Raunchy Poets', 'The Complete Works of Archilochus', 'Poetica Erotica', '50 Positions to Make Him Drop his Coin Sack', 'Sex and Sorcery', 'Toys for Boys'].random(),
-
-     'applying a generous layer of powdered makeup',
-
-     'spraying a copious amount of ' + ['vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'ocean', 'cherry', 'oranges', 'clean linen', 'honeysuckle', 'lavendar',
-    'lilac', 'peach', 'rose', 'ginger scented', 'sex'].random() + ' scented perfume',
-
-    'laying in a particularly plush looking ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + ' chaise lounge',
-
+    'sitting, mug in hand',
+    'casually looking over a letter',
+    'pouring over a book titled ' + [
+      'The Lustful Practice', 'Helpful Harlot Hints', "From Rags to Wenches: A Pimp's Trip to the Top", 'Glory Holes', 'Venus and Adonis', 'The Seven Beauties',
+      'Sappho and the Other Raunchy Poets', 'The Complete Works of Archilochus', 'Poetica Erotica', '50 Positions to Make Him Drop his Coin Sack', 'Sex and Sorcery', 'Toys for Boys'
+    ].random(),
+    'applying a generous layer of powdered makeup',
+    'spraying a copious amount of ' + '<<print setup.brothel.brothelScents.random()>>' + ' scented perfume',
+    'laying in a particularly plush looking ' + '<<print setup.brothel.brothelColours.random()>>' + ' chaise lounge',
     'taking a long drag from a nearby hookah.',
     'showing a few of the local girls how to use a new toy',
     'giving tips to some of the workers on how to better please the patrons',
