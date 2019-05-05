@@ -6,5 +6,5 @@ Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. Yo
 
 Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour.
 
-<<link "Meet one of the harlots">><<set $brothel.harlot to setup.brothel.harlot.create($town)>><<replace "#harlot">>$brothel.harlot<</replace>><</link>>
+<<link "Meet one of the harlots">><<set $brothel.harlot to setup.brothel.harlot.create($town, $brothel)>><<replace "#harlot">>$brothel.harlot<</replace>><</link>>
 <div id="harlot"><<if def $brothel.harlot>>$brothel.harlot<</if>></div>
