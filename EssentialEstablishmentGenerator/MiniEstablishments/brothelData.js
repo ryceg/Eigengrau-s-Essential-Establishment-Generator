@@ -259,19 +259,80 @@ setup.brothel = {
     'sitting and idly talking with an employee',
     'idly chatting with a patron',
     'telling a raunchy story to a few of the patrons',
-
-    'putting on a long ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-    'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-    'periwinkle', 'salmon', 'taupe'].random() + ' lacey shawl',
-
+    'putting on a long ' + '<<print setup.brothel.brothelColours.random()>>' + ' lacey shawl',
     'laying across a velvet sofa in the room being fed grapes by a beautiful woman',
     'nowhere to be seen at first, but then emerges from a back room covered by thick curtains',
     'sticking fake jewels on a feathery headdress',
     'sewing a patch onto some sparkling undergarments'
   ],
-  //this creates a new NPC with specific traits for readout in the BrothelOutput
+  'pimp': {
+    'a mean old madam': {
+      age: 'venerable',
+      gender: 'woman',
+      altTitle: 'Mistress',
+      relaxedTrait: 'mean',
+      profession: 'pimp'
+    },
+    'a large madam with a no-nonsense attitude': {
+      gender: 'woman',
+      altTitle: 'Mistress',
+      weight: 'plump',
+      relaxedTrait: 'sensible',
+      profession: 'pimp'
+    },
+    'a warm motherly figure': {
+      gender: 'woman',
+      altTitle: 'Mistress',
+      weight: 'plump',
+      relaxedTrait: 'kind',
+      profession: 'pimp'
+    },
+    'a surly brute': {
+      gender: 'man',
+      altTitle: 'Master',
+      weight: 'muscular',
+      relaxedTrait: 'mean',
+      profession: 'pimp'
+    },
+    'a tyrannical and cruel fellow': {
+      gender: 'man',
+      altTitle: 'Master',
+      age: 'middle-aged',
+      relaxedTrait: 'mean',
+      profession: 'pimp'
+    },
+    'a sultry seductress': {
+      gender: 'woman',
+      altTitle: 'Mistress',
+      age: 'relatively young',
+      relaxedTrait: 'flirtatious',
+      profession: 'pimp'
+    },
+    'a charming witch': {
+      gender: 'woman',
+      altTitle: 'Mistress',
+      age: 'relatively young',
+      dndClass: 'sorcerer',
+      profession: 'pimp'
+    },
+    'an incredibly well endowed woman': {
+      gender: 'woman',
+      altTitle: 'Mistress',
+      weight: 'plump',
+      age: 'relatively young',
+      relaxedTrait: 'flirtatious',
+      profession: 'pimp'
+    },
+    'a rugged and grizzled rogue': {
+      gender: 'man',
+      altTitle: 'Master',
+      relaxedTrait: 'mean',
+      profession: 'pimp'
+    }
+  },
+  // this creates a new NPC with specific traits for readout in the BrothelOutput
   'harlot': {
-    'create': function (town, base) {
+    'create': function (town, brothel, base) {
       var harlotType = Object.keys(setup.brothel.harlot.type).random()
       var readout = {
         feature: setup.brothel.harlot.feature.random(),
