@@ -202,6 +202,10 @@ setup.createNPC = function (town, base) {
   }
   State.temporary.newNPC = npc
 
+  if (npc.callbackFunction) {
+    npc.callbackFunction(town, npc, base)
+  }
+
   // npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
 
   console.log(npc)

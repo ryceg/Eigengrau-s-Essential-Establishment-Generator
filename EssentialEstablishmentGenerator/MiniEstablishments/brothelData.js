@@ -343,13 +343,13 @@ setup.brothel = {
       var harlotTraits = Object.assign({
         physicalTrait: setup.brothel.harlot.physicalTrait.random(),
         gender: 'woman',
-        isThrowaway: true,
+        isShallow: true,
         hasClass: false,
         profession: 'harlot'
       }, base)
       Object.assign(harlotTraits, setup.brothel.harlot.type[harlotType])
-
       var harlot = setup.createNPC(town, harlotTraits)
+      setup.createRelationship(town, harlot, State.variables.npcs[brothel.pimp.key], 'employer', 'employee')
       return 'This harlot is ' + harlotType + ' called ' + setup.profile(harlot) + '. She has ' + readout.feature + ' and is particularly good at ' + readout.skill + '. However, she has ' + harlot.physicalTrait + ', which is ' + readout.flawSeverity + '. She is looking to ' + readout.looks + '.'
     },
     'type': {
@@ -375,7 +375,15 @@ setup.brothel = {
       'the bastard daughter of a noble house': {
         background: 'noble',
         gender: 'woman',
-        note: 'The bastard daughter of a noble house.'
+        note: 'The bastard daughter of a noble house.',
+        callbackFunction: function (town, npc) {
+          var father = setup.createRelative(town, npc, 'father', {
+            lastName: setup.npcData.raceTraits[npc.race].lastName.random(),
+            race: npc.race
+            // callbackFunction: function (town, father, npc) 'Has a bastard daughter, ' + setup.profile(npc)
+          })
+          setup.createRelationship(town, npc, father, 'father', 'bastard daughter')
+        }
       },
       'a young foreigner': {
         background: 'outlander',
@@ -411,8 +419,8 @@ setup.brothel = {
     'physicalTrait': ['a gimpy leg', 'trout lips', 'a missing hand', 'dirty, matted hair', 'quite strong body odor', 'a very hairy body', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
     'flawSeverity': ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
     'skill': ['listening and offering emotional support', 'bringing a smile to her clients’ faces as soon as she touches them', 'embroidery and sewing', 'cooking and cleaning', 'drinking and swearing', 'certain lewd oral activities', 'getting clients in the mood', 'juggling'],
-    'looks': ['earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away',
-      'hatch a plan for revenge against the man who ruined her life', 'drink some wine and have a laugh', 'seduce a noble and live a life of luxury', 'learn more about the whorehouse practice for her erotic fiction',
-    'leave this place with her bastard children', 'learn a trade and get out of this dreadful line of work', 'simply have all the sex her heart desires, and the gold is a nice bonus']
+    'looks': [
+      'earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away', 'hatch a plan for revenge against the man who ruined her life', 'drink some wine and have a laugh', 'seduce a noble and live a life of luxury', 'learn more about the whorehouse practice for her erotic fiction', 'leave this place with her bastard children', 'learn a trade and get out of this dreadful line of work', 'simply have all the sex her heart desires, and the gold is a nice bonus'
+    ]
   }
 }
