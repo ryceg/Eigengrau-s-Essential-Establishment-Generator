@@ -9,9 +9,9 @@ setup.createRelative = function (town, npc, type, base) {
       console.groupCollapsed('Making a partner for ' + npc.name + '...')
       Object.assign(base, {
         gender: npc.partnerGenderProbability(npc),
-        ageStage: npc.ageStage,
-        lastName: npc.lastName,
-        wealthClass: npc.wealthClass
+        ageStage: base.ageStage || npc.ageStage,
+        lastName: base.lastName || npc.lastName,
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.setAsPartners(npc, relative)
@@ -23,9 +23,9 @@ setup.createRelative = function (town, npc, type, base) {
       console.groupCollapsed('Making a husband for ' + npc.name + '...')
       Object.assign(base, {
         gender: 'man',
-        ageStage: npc.ageStage,
-        lastName: npc.lastName,
-        wealthClass: npc.wealthClass
+        ageStage: base.ageStage || npc.ageStage,
+        lastName: base.lastName || npc.lastName,
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.setAsPartners(npc, relative)
@@ -38,14 +38,14 @@ setup.createRelative = function (town, npc, type, base) {
       var parent = State.variables.npcs[setup.findInObj(npc.relationships, 'father')] || State.variables.npcs[setup.findInObj(npc.relationships, 'mother')]
       if (parent) {
         base.race = base.race || parent.race
-        base.lastName = parent.lastName
+        base.lastName = base.lastName || parent.lastName
       } else {
         base.race = base.race || npc.race
       }
       Object.assign(base, {
         gender: 'man',
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
@@ -61,9 +61,9 @@ setup.createRelative = function (town, npc, type, base) {
       base.race = base.race || State.variables.npcs[setup.findInObj(npc.relationships, 'mother')].race || npc.race
       var relative = setup.createNPC(town, Object.assign(base, {
         gender: 'man',
-        lastName: npc.lastName,
+        lastName: base.lastName || npc.lastName,
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       }))
       setup.createRelationship(town, npc, relative, relative.parentNoun, npc.childNoun)
       console.groupEnd()
@@ -79,8 +79,8 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'man',
         ageYears: Math.clamp(npc.ageYears - dice(6, 6), 1, npc.ageYears),
-        lastName: npc.lastName,
-        wealthClass: npc.wealthClass
+        lastName: base.lastName || npc.lastName,
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.childNoun, npc.parentNoun)
@@ -99,8 +99,8 @@ setup.createRelative = function (town, npc, type, base) {
       base.race = base.race || setup.halfbreedHandler(town, npc, State.variables.npcs[npc.partnerID]) || npc.race
       Object.assign(base, {
         ageYears: Math.clamp(npc.ageYears - dice(6, 6), 1, npc.ageYears),
-        lastName: npc.lastName,
-        wealthClass: npc.wealthClass
+        lastName: base.lastName || npc.lastName,
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.childNoun, npc.parentNoun)
@@ -115,16 +115,16 @@ setup.createRelative = function (town, npc, type, base) {
       var parent = State.variables.npcs[setup.findInObj(npc.relationships, 'father')] || State.variables.npcs[setup.findInObj(npc.relationships, 'mother')]
       if (parent) {
         base.race = base.race || parent.race
-        base.lastName = parent.lastName
+        base.lastName = base.lastName || parent.lastName
       } else {
         base.race = base.race || npc.race
-        base.lastName = npc.lastName
+        base.lastName = base.lastName || npc.lastName
       }
       Object.assign(base, {
         gender: 'man',
-        ageStage: npc.ageStage,
+        ageStage: base.ageStage || npc.ageStage,
         ageYears: npc.ageYears + Math.clamp(random(-12, 12), 1, 900),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.siblingNoun, npc.siblingNoun)
@@ -136,14 +136,14 @@ setup.createRelative = function (town, npc, type, base) {
       var parent = State.variables.npcs[setup.findInObj(npc.relationships, 'brother')] || State.variables.npcs[setup.findInObj(npc.relationships, 'sister')]
       if (parent) {
         base.race = base.race || parent.race
-        base.lastName = parent.lastName
+        base.lastName = base.lastName || parent.lastName
       } else {
         base.race = base.race || npc.race
       }
       Object.assign(base, {
         gender: 'man',
         ageYears: State.variables.npcs[parent].ageYears + dice(6, 6),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
@@ -154,9 +154,9 @@ setup.createRelative = function (town, npc, type, base) {
       console.groupCollapsed('Making a wife for ' + npc.name + '...')
       Object.assign(base, {
         gender: 'woman',
-        ageStage: npc.ageStage,
-        lastName: npc.lastName,
-        wealthClass: npc.wealthClass
+        ageStage: base.ageStage || npc.ageStage,
+        lastName: base.lastName || npc.lastName,
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.setAsPartners(npc, relative)
@@ -169,14 +169,14 @@ setup.createRelative = function (town, npc, type, base) {
       var parent = State.variables.npcs[setup.findInObj(npc.relationships, 'father')] || State.variables.npcs[setup.findInObj(npc.relationships, 'mother')]
       if (parent) {
         base.race = base.race || parent.race
-        base.lastName = parent.lastName
+        base.lastName = base.lastName || parent.lastName
       } else {
         base.race = base.race || npc.race
       }
       Object.assign(base, {
         gender: 'woman',
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
@@ -192,9 +192,9 @@ setup.createRelative = function (town, npc, type, base) {
       base.race = base.race || State.variables.npcs[setup.findInObj(npc.relationships, 'father')].race || npc.race
       Object.assign(base, {
         gender: 'woman',
-        lastName: npc.lastName,
+        lastName: base.lastName || npc.lastName,
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.parentNoun, npc.childNoun)
@@ -211,8 +211,8 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'woman',
         ageYears: Math.clamp(npc.ageYears - dice(6, 6), 1, npc.ageYears),
-        lastName: npc.lastName,
-        wealthClass: npc.wealthClass
+        lastName: base.lastName || npc.lastName,
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.childNoun, npc.parentNoun)
@@ -227,16 +227,16 @@ setup.createRelative = function (town, npc, type, base) {
       var parent = State.variables.npcs[setup.findInObj(npc.relationships, 'father')] || State.variables.npcs[setup.findInObj(npc.relationships, 'mother')]
       if (parent) {
         base.race = base.race || parent.race
-        base.lastName = parent.lastName
+        base.lastName = base.lastName || parent.lastName
       } else {
         base.race = base.race || npc.race
-        base.lastName = npc.lastName
+        base.lastName = base.lastName || npc.lastName
       }
       Object.assign(base, {
         gender: 'woman',
-        ageStage: npc.ageStage,
+        ageStage: base.ageStage || npc.ageStage,
         ageYears: npc.ageYears + Math.clamp(random(-12, 12), 1, 900),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.siblingNoun, npc.siblingNoun)
@@ -248,7 +248,7 @@ setup.createRelative = function (town, npc, type, base) {
       var parent = State.variables.npcs[setup.findInObj(npc.relationships, 'brother')] || State.variables.npcs[setup.findInObj(npc.relationships, 'sister')]
       if (parent) {
         base.race = base.race || parent.race
-        base.lastName = parent.lastName
+        base.lastName = base.lastName || parent.lastName
       } else {
         base.race = base.race || npc.race
         parent = npc
@@ -256,7 +256,7 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'woman',
         ageYears: Math.clamp(parent.ageYears - dice(6, 6), 1, npc.ageYears),
-        wealthClass: npc.wealthClass
+        wealthClass: base.wealthClass || npc.wealthClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
