@@ -1,5 +1,5 @@
 /* global setup State random */
-setup.createBuilding = function (town, type) {
+setup.createBuilding = function (town, type, base) {
 // Tables used later
 
   var roadName = setup.townData.roads.name.random()
