@@ -14,3 +14,7 @@
   <<replace "#buildings">><<include "BuildingsList">><</replace>>
 <</button>>
 <span id="buildings"><<include "BuildingsList">></span>
+<<set $bakery to setup.goodsAndServices.bakery.create($town)>>
+<<profile $bakery.owner>>
+$bakery.name
+$bakery.cleanliness
