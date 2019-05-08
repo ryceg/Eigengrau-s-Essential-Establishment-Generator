@@ -1459,12 +1459,12 @@ setup.plothooks = {
   'A Lost Bunny': {
     type: ['paper'],
     function: function (town) {
-      var cat = setup.misc.cat.create()
+      var bunny = setup.misc.bunny.create()
       var npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
-      return 'Help find my lost rabbit ' + cat.tippyWord + '! Reward of <<money 2>> to anyone who finds him. Contact ' + setup.profile(npc) + ' for details on him.'
+      return 'Help find my lost rabbit ' + bunny.tippyWord + '! Reward of <<money 2>> to anyone who finds him. Contact ' + setup.profile(npc) + ' for details on him.'
     }
   },
   'Dead or Alive': {
@@ -1498,7 +1498,7 @@ setup.plothooks = {
       return 'Local ' + setup.profile(npc, 'spell caster') + ' looking for willing test subjects. <<money 20000>> per experiment. <money 400000>> if you lose a limb.'
     }
   }
-    //'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
-    //'REPENT SINNERS - Temple of the Lady of Spring',
-    //'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
+  //'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
+  //'REPENT SINNERS - Temple of the Lady of Spring',
+  //'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
 }
