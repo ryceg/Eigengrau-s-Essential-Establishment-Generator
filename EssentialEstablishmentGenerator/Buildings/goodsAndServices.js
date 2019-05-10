@@ -26,12 +26,21 @@ setup.goodsAndServices = {
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + name.foodAdjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + name.beast.seededrandom().toUpperFirst() + "'s " + name.noun.seededrandom().toUpperFirst(),
+          name.adjective.seededrandom().toUpperFirst() + ' ' + [building.owner.firstName + "'s ", name.beast.seededrandom().toUpperFirst()].seededrandom() + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.fruit.seededrandom().toUpperFirst() + ' ' + name.nounBakedGood.seededrandom().toUpperFirst(),
           unique
         ].seededrandom()
       },
       unique: [
         'The Really Good Bakery',
-        'Warm Angry Rabbits'
+        'Warm Angry Rabbits',
+        'The Cooling Rack',
+        'Doughy Delights',
+        'Happy Flour',
+        'Slice of Life',
+        'Knead to Bake'
       ],
       noun: [
         'pie',
@@ -39,16 +48,74 @@ setup.goodsAndServices = {
         'loaf',
         'crust',
         'pan',
-        'crumb'
+        'crumb',
+        'pastry',
+        'bagel',
+        'biscuit',
+        'muffin',
+        'bun',
+        'pretzel',
+        'scone',
+        'dough',
+        'cake',
+        'oven',
+        'slice',
+        'bakery',
+        'tart',
+        'roll',
+        'breadstick',
+        'wafer',
+        'snack',
+        'flour'
+
+      ],
+      nounBakedGood: [
+        'pie',
+        'pastry',
+        'tart',
+        'muffin',
+        'cake',
+        'doughnut'
+      ],
+      beast: [
+        'dragon',
+        'pig',
+        'wolf',
+        'cow',
+        'goat',
+        'dog',
+        'cat',
+        'horse',
+        'sparrow',
+        'bluejay',
+        'lion',
+        'chicken',
+        'hen',
+        'rooster',
+        'bull',
+        'yak',
+        'hare',
+        'rabbit',
+        'deer'
       ],
       adjective: [
-        'inscrutable',
-        'indominatable',
         'cheery',
         'happy',
         'hopeful',
         'morning',
-        'waking'
+        'waking',
+        'magical',
+        'sassy',
+        'tasty',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'doughy'
 
       ],
       foodAdjective: [
@@ -56,10 +123,14 @@ setup.goodsAndServices = {
         'delectable',
         'stale',
         'hot',
-        'fresh'
+        'fresh',
+        'crumbly',
+
       ],
       wordNoun: [
         'bakery',
+        'pastry shop',
+        'pastry kitchen',
         'bakeshop',
         'patisserie',
         'biscuit factory',
@@ -70,7 +141,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'you come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $building.owner>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -85,8 +156,18 @@ setup.goodsAndServices = {
           'kneading some dough',
           'serving a customer',
           'boiling a pot of water',
+          'cracking an egg into a small pot',
+          'powdering a tray of pastries',
+          'measuring out flour',
+          'buttering a pan',
+          'slicing up a loaf of bread',
+          'sliding something into the oven',
           'pulling something out of the oven',
-          'sprinkling some seeds on a loaf'
+          'sprinkling some seeds on a loaf',
+          'sifting some flour',
+          'starting to knod off',
+          'struggling with a large sack of flour',
+          'icing a small cake'
         ]
       }
     },
@@ -133,14 +214,24 @@ setup.goodsAndServices = {
     notableFeature: [
       // you notice _______
       'the smell of freshly baked bread fills the air.',
-      'that a rat scurries away as you enter!',
-      'there are no other people inside the bakery.'
+      'a rat that scurries away as you enter!',
+      'there are no other people inside the bakery.',
+      'the bakery is rather bustling.',
+      'the bakery has a few people milling about.',
+      'the smell of moldy old bread fills the air.',
+      ''
     ],
     specialty: [
       // the bakery is known for _______
       'discounted breads at the end of the week.',
       'the delicious pies that they bake daily.',
-      'the sweet pastries that they sell.'
+      'the sweet pastries that they sell.',
+      'their pillowy soft hot buns.',
+      'the thick and crumbly biscuits they bake.',
+      'always having stale bread mixed in with the fresh.',
+      'having an open kitchen so you can see the bakers at work.',
+      'putting enchantments on the baked goods that make them even tastier.',
+      'their lumpy and unevenly baked bread.'
     ]
   }
 }
