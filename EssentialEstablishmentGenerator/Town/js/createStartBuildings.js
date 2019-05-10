@@ -11,7 +11,10 @@ setup.createStartBuildings = function (town) {
       town.buildings[type] = {}
     }
     var building = setup['create' + type.toUpperFirst()](town)
-    // town.buildings[type][building.key] = building
+    town.buildings[type][building.key] = building
   })
+
+  var bakery = setup.goodsAndServices.bakery.create(town)
+  town.buildings.bakery[bakery.key] = bakery
   return town
 }

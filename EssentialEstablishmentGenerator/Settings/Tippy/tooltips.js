@@ -13,7 +13,7 @@ setup.itemTooltip = function (id, item) {
   jQuery(function () {
     var span = document.getElementById(id)
     if (span) {
-      span.title = item.description
+      span.title = item.description || item
       tippy('#' + span.id)
     }
   })

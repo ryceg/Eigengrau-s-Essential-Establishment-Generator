@@ -92,7 +92,7 @@ setup.building = {
           noun: 'shingle',
           verb: 'shingled'
         }
-      },
+      }
     }
   }
 }

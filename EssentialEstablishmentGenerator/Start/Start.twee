@@ -14,10 +14,3 @@
   <<replace "#buildings">><<include "BuildingsList">><</replace>>
 <</button>>
 <span id="buildings"><<include "BuildingsList">></span>
-<<set $bakery to setup.goodsAndServices.bakery.create($town)>>
-<<profile $bakery.owner>>
-
-<<link "$bakery.name">><<set $selected to {BuildingType: $bakery.BuildingType, key: $bakery.key, building: $bakery}>><<set $currentPassage to $bakery>>
-<<goto "GenericPassage">><</link>>
-$bakery.name
-$bakery.cleanliness
