@@ -5,17 +5,17 @@ setup.plothooks = {
     type: ['event'],
     function: function () {
       return [
-        'Nothing much ' + ['happens', 'seems to be going on', 'is happening'].random(),
-        'Nothing of note ' + ['happens', 'seems to be going on', 'is happening'].random(),
+        'Nothing much ' + ['happens', 'seems to be going on', 'is happening'].seededrandom(),
+        'Nothing of note ' + ['happens', 'seems to be going on', 'is happening'].seededrandom(),
         'No items of interest occurs',
         'Nothing happens',
         'Nothing really happens'
-      ].random() + '. <blockquote>' + [
+      ].seededrandom() + '. <blockquote>' + [
         'Perhaps now is a good time to ask a player a question, such as ',
         'Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as ',
         'This is a great opportunity to get players to roleplay. Ask them questions like ',
         'This would be a good chance to build on player backstory. Ask them questions such as '
-      ].random() + "'" + setup.misc.roleplayQuestions.create() + "'" +
+      ].seededrandom() + "'" + setup.misc.roleplayQuestions.create() + "'" +
       '<<button "Create another question!">><<set _question to setup.misc.roleplayQuestions.create()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>'
     }
   },
@@ -26,7 +26,7 @@ setup.plothooks = {
     },
     function: function (town) {
       var npc = setup.createNPC(town, {
-        dndClass: ['sorcerer', 'wizard', 'warlock'].random(),
+        dndClass: ['sorcerer', 'wizard', 'warlock'].seededrandom(),
         gender: 'man'
       })
       return "<<guard $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the " + setup.profile(npc, 'real culprit') + ' before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?'
@@ -369,10 +369,15 @@ setup.plothooks = {
     }
   },
   'Orc Captain': {
-    // TO UPDATE needs to be updated with orc generation
     type: ['paper'],
     function: function (town) {
-      return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’'
+      var npc = setup.createNPC(town, {
+        race: 'orc',
+        hasClass: true,
+        dndClass: 'barbarian',
+        background: 'bandit'
+      })
+      return 'Wanted Dead or Alive – ' + setup.profile(npc) + ', Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’'
     }
   },
   'Hubert': {
@@ -528,7 +533,7 @@ setup.plothooks = {
       var npc = setup.createNPC(town, {
         profession: 'merchant',
         hasClass: false,
-        background: ['noble', 'commoner'].random()
+        background: ['noble', 'commoner'].seededrandom()
       })
       return '' + setup.profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + setup.createTownName() + '.'
     }
@@ -597,7 +602,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'noble',
         gender: 'woman',
-        ageStage: ['child', 'young adult'].random()
+        ageStage: ['child', 'young adult'].seededrandom()
       })
       return 'Bandit Kidnappers! Our ' + setup.profile(npc, 'beloved daughter') + ' has been captured by Bandits! They have not made any demands, but we want her back. They were last seen Northwest of the old tower — a reward for our daughter (alive), plus a bonus for the head of each bandit.'
     }
@@ -608,7 +613,7 @@ setup.plothooks = {
       var npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'fighter',
-        ageStage: ['child', 'young adult'].random(),
+        ageStage: ['child', 'young adult'].seededrandom(),
         gender: 'man'
       })
       return 'Family Bandits! My ' + setup.profile(npc, 'son') + ' and his two friends have left the village to become bandits. Find them and teach them the error of their ways. Reward if they return — must be alive.'
@@ -996,7 +1001,7 @@ setup.plothooks = {
     function: function (town) {
       var npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: ['warlock', 'wizard'].random()
+        dndClass: ['warlock', 'wizard'].seededrandom()
       })
       return 'Need basilisk eggs for experiment! Big reward! Please contact ' + setup.profile(npc) + ' for details.'
     }
@@ -1006,7 +1011,7 @@ setup.plothooks = {
     function: function (town) {
       var npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: ['warlock', 'wizard'].random()
+        dndClass: ['warlock', 'wizard'].seededrandom()
       })
       return 'Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. <<money 5000>> & four (4) Stones of Farspeech upon return. Please contact ' + setup.profile(npc) + ' for details.'
     }
@@ -1157,7 +1162,7 @@ setup.plothooks = {
         hasClass: true,
         ageStage: 'elderly',
         gender: 'woman',
-        dndClass: ['sorcerer', 'warlock', 'warlock'].random(),
+        dndClass: ['sorcerer', 'warlock', 'warlock'].seededrandom(),
         note: 'Is not a very nice witch.'
       })
       return 'HELP WANTED: ' + setup.profile(npc, 'poor old widow') + ' requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)'
@@ -1224,10 +1229,10 @@ setup.plothooks = {
   'Thieves Cant Thieve Here': {
     type: ['paper'],
     function: function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'commoner'
-      })
+      // var npc = setup.createNPC(town, {
+      //   hasClass: false,
+      //   background: 'commoner'
+      // })
       // #
       return 'A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.'
     }
@@ -1298,10 +1303,10 @@ setup.plothooks = {
   'Riddle Maker Needed': {
     type: ['paper'],
     function: function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'commoner'
-      })
+      // var npc = setup.createNPC(town, {
+      //   hasClass: false,
+      //   background: 'commoner'
+      // })
       // #
       return 'Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.'
     }
@@ -1383,5 +1388,117 @@ setup.plothooks = {
       setup.createRelationship(town, npc, secondNpc, 'rival', 'rival')
       return 'Help settle a minor dispute between two noble Elven houses! House ' + setup.profile(npc, npc.lastName) + ' is looking for adventurers to help draw the domain lines with the House ' + setup.profile(secondNpc, secondNpc.lastName) + ' border. If you are strong of arm and fleet of foot, inquire at the ' + setup.profile(npc, npc.lastName) + ' Manor.'
     }
+  },
+  'The Cock-Fight': {
+    type: ['event'],
+    exclusions: function (town) {
+      if (town.population < 500 && town.wealth < 10) {
+        return true
+      }
+    },
+    function: function (town) {
+      var druid1 = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'druid',
+        ageStage: 'adult'
+      })
+      var druid2 = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'druid',
+        ageStage: 'adult'
+      })
+      var faction = setup.factionsForType(town, 'type', 'druids')
+      return 'A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ' + druid1 + ' and ' + druid2 + ', are more than happy to introduce the party to ' + setup.profile(faction, '', 'town.factions') + '.'
+    }
+  },
+  'The Painted Devil': {
+    type: ['event'],
+    exclusions: function (town) {
+      return true
+    },
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: 'false',
+        background: 'noble',
+        race: 'elf'
+      })
+      return 'A ' + setup.profile(npc, 'well dressed elf') + ' runs up to the party, desperately shouting something about a painting and a demon.'
+    }
+  },
+  'The Crack': {
+    type: ['event'],
+    exclusions: function (town) {
+      return true
+    },
+    function: function (town) {
+      var faction = setup.factionsForType(town, 'type', 'mercenaries')
+      return 'A huge crack has recently appeared in the center of the town square. ' + setup.profile(faction, '', 'town.factions') + ' are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.'
+    }
+  },
+  'The Press Gang': {
+    type: ['event'],
+    questGiver: {
+      object: 'building',
+      type: 'tavern'
+    },
+    function: function (town) {
+      return 'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying you all drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
+    }
+  },
+  'The Merchant Ship': {
+    type: ['paper'],
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: false,
+        background: 'soldier',
+        profession: 'merchant'
+      })
+      return 'Looking for adventure? Ready to leave this crummy town? Want to earn lots of gold? Ask for Captain ' + setup.profile(npc, npc.lastName) + ' at the docks.'
+    }
+  },
+  'A Lost Bunny': {
+    type: ['paper'],
+    function: function (town) {
+      var bunny = setup.misc.bunny.create()
+      var npc = setup.createNPC(town, {
+        hasClass: false,
+        background: 'commoner'
+      })
+      return 'Help find my lost rabbit ' + bunny.tippyWord + '! Reward of <<money 2>> to anyone who finds him. Contact ' + setup.profile(npc) + ' for details on him.'
+    }
+  },
+  'Dead or Alive': {
+    type: ['paper'],
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'rogue',
+        background: 'assassin'
+      })
+      return '‘Wanted Dead or Alive – ' + setup.profile(npc) + ', master assassin! Warning: very heavily armed and dangerous. See attached picture. Reward: <<money 100000>>’'
+    }
+  },
+  'Brimstone!': {
+    type: ['paper'],
+    function: function (town) {
+      var faction = setup.factionsForType(town, 'type', 'clergy')
+      return 'Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ' + setup.profile(faction, '', 'town.factions') + '!'
+    }
+  },
+  'Experiment Subjects': {
+    type: ['paper'],
+    exclusions: function (town, npc) {
+      return true
+    },
+    function: function (town) {
+      var npc = setup.createNPC(town, {
+        hasClass: true,
+        dndClass: 'wizard'
+      })
+      return 'Local ' + setup.profile(npc, 'spell caster') + ' looking for willing test subjects. <<money 20000>> per experiment. <money 400000>> if you lose a limb.'
+    }
   }
+  // 'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
+  // 'REPENT SINNERS - Temple of the Lady of Spring',
+  // 'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
 }

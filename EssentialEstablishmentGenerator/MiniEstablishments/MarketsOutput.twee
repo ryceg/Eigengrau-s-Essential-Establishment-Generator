@@ -4,11 +4,11 @@
 <<set $magicSeller to setup.createNPC($town, {background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>><</if>><</nobr>>
 
 <<for _key, _seller range $marketSellers>>
-<<print ["A ", "Nearby, a ", "Off to the side, a "].random()>> <<profile $npcs[_key] $npcs[_key].descriptor>> is _seller.selling from a _seller.tent.
+<<print ["A ", "Nearby, a ", "Off to the side, a "].seededrandom()>> <<profile $npcs[_key] $npcs[_key].descriptor>> is _seller.selling from a _seller.tent.
 
 <</for>>
 <<link "<h4>Who else is there?</h4>">>
-<<set $moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $moreSeller.merchant to {}>><<set $moreSeller.merchant.selling to setup.market.vendors.selling.random()>><<set $moreSeller.merchant.tent to setup.market.vendors.tent.random()>>
+<<set $moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $moreSeller.merchant to {}>><<set $moreSeller.merchant.selling to setup.market.vendors.selling.seededrandom()>><<set $moreSeller.merchant.tent to setup.market.vendors.tent.seededrandom()>>
 <<replace "#moreSellers">>There's a <<profile $moreSeller $moreSeller.descriptor>> selling $moreSeller.merchant.selling from a $moreSeller.merchant.tent.<</replace>>
 <</link>><<if !$moreSeller>><span id="moreSellers"></span><<else>>There's a <<profile $moreSeller $moreSeller.descriptor>> selling $moreSeller.merchant.selling from a $moreSeller.merchant.tent.<</if>>
 

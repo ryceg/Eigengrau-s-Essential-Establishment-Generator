@@ -10,27 +10,27 @@ setup.createGuard = function (town) {
       background: 'soldier'
     }),
     passageName: 'GuardOutput',
-    livery: setup.guardData.primaryColours.random() + ' and ' + setup.guardData.secondaryColours.random() + ' livery adorned with an image of ' + setup.guardData.insignia.random()
+    livery: setup.guardData.primaryColours.seededrandom() + ' and ' + setup.guardData.secondaryColours.seededrandom() + ' livery adorned with an image of ' + setup.guardData.insignia.seededrandom()
   }
 
   var nameRoll = random(1, 8)
   console.log('nameRoll is ' + nameRoll)
   if (nameRoll === 1) {
-    guard.name = 'The ' + setup.guardData.name.group.random() + ' of ' + town.name
+    guard.name = 'The ' + setup.guardData.name.group.seededrandom() + ' of ' + town.name
   } else if (nameRoll === 2) {
-    guard.name = 'The ' + town.name + ' ' + setup.guardData.name.group.random()
+    guard.name = 'The ' + town.name + ' ' + setup.guardData.name.group.seededrandom()
   } else if (nameRoll === 3) {
-    guard.name = 'The ' + setup.guardData.name.group.random() + ' of ' + setup.guardData.name.alternateAdjective.random()
+    guard.name = 'The ' + setup.guardData.name.group.seededrandom() + ' of ' + setup.guardData.name.alternateAdjective.seededrandom()
   } else if (nameRoll === 4) {
-    guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.group.random()
+    guard.name = 'The ' + setup.guardData.name.adjective.seededrandom() + ' ' + setup.guardData.name.group.seededrandom()
   } else if (nameRoll === 5) {
-    guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.noun.random()
+    guard.name = 'The ' + setup.guardData.name.adjective.seededrandom() + ' ' + setup.guardData.name.noun.seededrandom()
   } else if (nameRoll === 6) {
-    guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + setup.guardData.name.alternateAdjective.random()
+    guard.name = 'The ' + setup.guardData.name.adjective.seededrandom() + ' ' + setup.guardData.name.noun.seededrandom() + ' of ' + setup.guardData.name.alternateAdjective.seededrandom()
   } else if (nameRoll === 7) {
-    guard.name = 'The ' + setup.guardData.name.adjective.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + town.name
+    guard.name = 'The ' + setup.guardData.name.adjective.seededrandom() + ' ' + setup.guardData.name.noun.seededrandom() + ' of ' + town.name
   } else if (nameRoll === 8) {
-    guard.name = 'The ' + setup.guardData.name.group.random() + ' ' + setup.guardData.name.noun.random() + ' of ' + town.name
+    guard.name = 'The ' + setup.guardData.name.group.seededrandom() + ' ' + setup.guardData.name.noun.seededrandom() + ' of ' + town.name
   }
   console.log(guard.name + ' is the name of the guard.')
   console.groupEnd();

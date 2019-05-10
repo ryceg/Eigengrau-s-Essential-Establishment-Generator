@@ -2,18 +2,18 @@ setup.createDocks = function (town, opts) {
   opts = opts || {}
   var docks = (opts['newBuilding'] || setup.createBuilding)(town, 'docks')
   Object.assign(docks, {
-    notableFeature: setup.docks.notableFeature.random(),
-    notice: setup.docks.notice.random(),
+    notableFeature: setup.docks.notableFeature.seededrandom(),
+    notice: setup.docks.notice.seededrandom(),
     passageName: 'DocksOutput',
     initPassage: 'DocksOutput',
     BuildingType: 'docks',
     needsWordNoun: false,
-    wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina'].random(),
+    wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina'].seededrandom(),
     ships: {},
     typePool: setup.docks.ships.typePool
   })
 
-  docks.name = ['the' + [' Old ', ' New ', ' ', ' ' , ' '].random() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].random() + docks.wordNoun.toUpperFirst()].random()
+  docks.name = ['the' + [' Old ', ' New ', ' ', ' ' , ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
 
   // docks.wealth = ''
   docks.activity = ''

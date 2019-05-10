@@ -1,6 +1,38 @@
 
 :: Widgets [widget widgets]
 
+<<widget "goods">>
+	\<<set _obj to $args[0]>>
+	\<<set _target to $args[1]>>
+	\<<capture _obj, _target>>
+	\<table>
+	\<tr>
+		\<th>Goods</th>
+		\<th>Cost</th>
+	\</tr>
+	\<<for _key, _item range _target>>
+		\<<if ndef _item.exclusions || _item.exclusions($town, _obj) === true>>
+			\<<set _name to _item.name || _key>>
+			\<<set _name to _name.toUpperFirst()>>
+			\<tr><td>
+			\<<if def _item.description>>
+				\<<tooltip _name _item.description>>
+			\<<else>>
+				\<<print _item.name || _key>>
+			\<</if>>
+			\</td><td><<money _item.cost>></td></tr>
+	\<</if>><</for>>
+	\</table>
+	\<</capture>>
+<</widget>>
+
+<<widget "tooltip">>
+	\<<set _target to $args[0]>>
+	\<<set _description to $args[1]>>
+	\<<set _id to "tip-" + Util.slugify((_target.name || "tooltip")) + "-" + Math.floor(Math.random().toString(16))>>
+	\<span @id=_id class=tip @title=_description>_target</span>
+<</widget>>
+
 <<widget "money">><<silently>>
 		<<set _copper to Number($args)>>\
 		<<set _copper to (_copper + Math.round(_copper * setup.getPriceMod()))>>\

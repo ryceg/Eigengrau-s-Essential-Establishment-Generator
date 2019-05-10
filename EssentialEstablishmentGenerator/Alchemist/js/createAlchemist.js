@@ -5,12 +5,12 @@ setup.createAlchemist = function (town, opts) {
   console.groupCollapsed('Alchemist loading...')
   Object.assign(alchemist, {
     chemist: (opts['newChemist'] || setup.createChemist)(town),
-    wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random(),
+    wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].seededrandom(),
     associatedTown: town.name,
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',
     BuildingType: 'alchemist',
-    notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].random()
+    notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].seededrandom()
   })
 
   alchemist.name = setup.createAlchemistName(alchemist.chemist.firstName)

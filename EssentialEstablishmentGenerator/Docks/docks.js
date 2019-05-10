@@ -20,7 +20,11 @@ setup.docks = {
       [10, 'glorified jetty', 'tiny; barely more than a glorified jetty']
     ],
     activity: [
-      [90, 'absolutely packed; the din of everyone shouting to one another to ' + ['fetch another barrel', 'haul in the fish off the boat', 'get off their asses and shift this pile of rope'].random() + ' and other such things makes the place feel alive'],
+      [90, [
+        'absolutely packed; the din of everyone shouting to one another to fetch another barrel and other such things makes the place feel alive',
+        'absolutely packed; the din of everyone shouting to one another to haul in the fish off the boat and other such things makes the place feel alive',
+        'absolutely packed; the din of everyone shouting to one another to get off their asses and shift this pile of rope and other such things makes the place feel alive'
+      ]],
       [80, 'bustling. there are all manners of folk walking around, all of whom have places to be'],
       [60, 'busy, with lots of deckhands running about, lugging things from point A to point B'],
       [50, 'reasonably busy, with a decent amount of activity'],
@@ -74,9 +78,9 @@ setup.docks = {
   ships: {
     create: function (town, docks, opts) {
       var ship = {
-        name: setup.docks.ships.name.random(),
-        type: docks.typePool.random(),
-        captainType: Object.keys(setup.docks.ships.captain).random()
+        name: setup.docks.ships.name.seededrandom(),
+        type: docks.typePool.seededrandom(),
+        captainType: Object.keys(setup.docks.ships.captain).seededrandom()
       }
       Object.assign(ship, setup.docks.ships.type[ship.type])
       ship.captain = setup.createNPC(town, setup.docks.ships.captain[ship.captainType])

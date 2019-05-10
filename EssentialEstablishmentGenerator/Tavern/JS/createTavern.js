@@ -19,9 +19,9 @@ setup.createTavern = function (town, opts) {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     BuildingType: 'tavern',
-    wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
+    wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].seededrandom(),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
-    fun: setup.tavern.fun.random(),
+    fun: setup.tavern.fun.seededrandom(),
     type: [
       'quiet and low-key bar',
       'regular',
@@ -44,10 +44,10 @@ setup.createTavern = function (town, opts) {
       'members-only club',
       'brothel',
       'brothel'
-    ].random(),
-    // entertainment: setup.tavern.entertainment.random(),
-    // patrons: setup.tavern.patrons.random(),
-    game: setup.tavern.games.random()
+    ].seededrandom(),
+    // entertainment: setup.tavern.entertainment.seededrandom(),
+    // patrons: setup.tavern.patrons.seededrandom(),
+    game: setup.tavern.games.seededrandom()
   })
   tavern.roll.bedCleanliness = random(1, 100)
 

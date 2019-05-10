@@ -207,7 +207,7 @@ setup.createMagicArmour = function () {
   var prefixArmourRoll = random(1, propertyArmour.length)
   var suffixArmourRoll = random(1, propertyArmour.length)
   Object.assign(armour, {
-    type: armour.random(),
+    type: armour.seededrandom(),
     prefixArmour: prefixArmour[prefixArmourRoll],
     suffixArmour: suffixArmour[suffixArmourRoll],
     prefixProperty: propertyArmour[prefixArmourRoll],

@@ -1,7 +1,7 @@
 /* global setup dice State */
 setup.createFaction = function (town, opts) {
   opts = opts || {}
-  var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
+  var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].seededrandom()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
   var faction = (opts['newFaction'] || Object.assign({
@@ -11,9 +11,9 @@ setup.createFaction = function (town, opts) {
     associatedTown: town.name,
     type: type,
     wordNoun: setup.factionData.type[type].wordNoun,
-    motivation: setup.factionData.type[type].motivation.random(),
-    membersTrait: setup.factionData.type[type].membersTrait.random(),
-    leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
+    motivation: setup.factionData.type[type].motivation.seededrandom(),
+    membersTrait: setup.factionData.type[type].membersTrait.seededrandom(),
+    leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].seededrandom(),
     roll: {
       influence: dice(2, 50),
       reputation: dice(2, 50),

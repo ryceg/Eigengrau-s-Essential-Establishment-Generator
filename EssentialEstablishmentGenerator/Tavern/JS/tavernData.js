@@ -168,7 +168,7 @@ setup.tavern = {
         'quest': function (town) { return 'After a few drinks, you swore in the ' + town.type + ' square to undergo a dangerous quest.' },
         'married': function () { return 'Surprise! You got engaged.' },
         'streaking': function (tavern) { return 'Streaking naked down ' + tavern.road + ' seemed like a good idea.' },
-        'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random() + '", but nobody will tell you why.' },
+        'nickname': function () { return 'Everyone is calling you "' + ['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].seededrandom() + '", but nobody will tell you why.' },
         'insult': function (town, tavern) {
           var faction = setup.factionsForType(town, 'leadershipType', 'individual')
           console.log(faction)
@@ -325,32 +325,32 @@ setup.tavern = {
           roughness: 80,
           note:
           ["There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. " + bartender.name + " proudly tells you that there are no stinkin' vegetables, and that " + tavern.name + ' stocks only the finest meats.',
-            "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's available to drink, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The server then tells you that while " + tavern.name + ' is proud of its menu, it caters to an exclusively carnivorous diet.'].random()
+            "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's available to drink, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The server then tells you that while " + tavern.name + ' is proud of its menu, it caters to an exclusively carnivorous diet.'].seededrandom()
         },
         { wealth: 80,
           roughness: 30,
           note:
           ["There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordNoun + '.',
-            "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordNoun + '.'].random()
+            "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that " + tavern.name + ' is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ' + tavern.wordNoun + '.'].seededrandom()
         },
         { wealth: 80,
           roughness: 50,
           note:
           ["There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu.",
-            "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. It goes without saying that the kitchen is able to accomodate even the pickiest of royalty."].random()
+            "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. It goes without saying that the kitchen is able to accomodate even the pickiest of royalty."].seededrandom()
         },
         { wealth: 60,
           roughness: 80,
           note:
           ["There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food, but curiously no vegetables. " + bartender.name + " spits when you mention this, and says 'no stinkin' veggies around here. We eat meat and we like it, so if you don't like it, yer not eatin'.",
-            "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in " + tavern.name + '.'].random()
+            "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in " + tavern.name + '.'].seededrandom()
         },
         { wealth: 60,
           roughness: 30,
           note:
           ["There's ales available. The food is a peculiarly limited menu; roast vegetables, breads, cheeses, but no meats, despite " + tavern.name + ' clearly being able to afford it.',
             "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's breads, cheeses, and all the vegetables you could ever ask for, but not a single bone of meat is available.",
-            'Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask ' + bartender.name + ' about it, ' + bartender.heshe + ' smiles, and says that ' + bartender.heshe + " is an animal lover, and wouldn't be able to forgive " + bartender.himherself + ' if an animal came to harm due to ' + bartender.hisher + ' business.'].random()
+            'Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask ' + bartender.name + ' about it, ' + bartender.heshe + ' smiles, and says that ' + bartender.heshe + " is an animal lover, and wouldn't be able to forgive " + bartender.himherself + ' if an animal came to harm due to ' + bartender.hisher + ' business.'].seededrandom()
         },
         { wealth: 60,
           roughness: 20,
@@ -361,20 +361,20 @@ setup.tavern = {
           roughness: 30,
           note:
           ["There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food.",
-            "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton."].random()
+            "There's your standard beers, with the " + tavern.wordNoun + " specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton."].seededrandom()
         },
         { wealth: 40,
           roughness: 60,
           note:
           ["There's the usual house-brewed ale on tap, but it is warm and undercarbonated. You suspect that " + bartender.firstName + ' has watered it down. As far as food is concerned, there is the usual mutton and breads available.',
-            '' + bartender.firstName + " says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated."].random()
+            '' + bartender.firstName + " says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated."].seededrandom()
         },
         { wealth: 40,
           roughness: 30,
           note:
           ["There's the usual house-brewed ale on tap, but it is warm and undercarbonated. As far as food is concerned, there is the usual mutton and breads available.",
             "There's a limited range of beers, some of which have very clearly soured.",
-            'The food on offer is rather plain, with nothing terribly interesting or appetizing. The beer is unfortunately not much better.'].random()
+            'The food on offer is rather plain, with nothing terribly interesting or appetizing. The beer is unfortunately not much better.'].seededrandom()
         },
         { wealth: 20,
           roughness: 30,
@@ -603,7 +603,7 @@ setup.tavern = {
           drawFeature: 'You look out the window, and see that the view is indeed quite nice; the ' + tavern.wordNoun + ' is situated on a hill which overlooks the sleepy ' + town.type + ' of ' + town.name + ", and you can make out the specks of people walking about below. It's a nice location for an inn."
         }
       ]
-      return draws.random()
+      return draws.seededrandom()
     },
     'description': function (tavern) {
       var bartender = tavern.bartender
@@ -613,28 +613,28 @@ setup.tavern = {
           wealth: 10,
           note: [tavern.name + ' is just one huge, ' + tavern.lighting + ' ' + tavern.cleanliness + ' room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.',
             tavern.name + ' is huge, ' + tavern.lighting + ', and ' + tavern.cleanliness + '. There are several large ' + tavern.material + ' tables.'
-          ].random()
+          ].seededrandom()
         },
         {
           size: 80,
           wealth: 10,
           note: [tavern.name + ' is quite large, ' + tavern.lighting + ', and ' + tavern.cleanliness + '. The ceiling is unusually high, and the amount of wood that ' + bartender.firstName + ' must go through would be immense. The dining hall has several large ' + tavern.material + ' tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.'
 
-          ].random()
+          ].seededrandom()
         },
         {
           size: 70,
           wealth: 10,
           note: [tavern.name + ' is a large building, with the ' + tavern.cleanliness + " bar occupying the ground floor, and the beds for patrons are on the floor directly above you. It's " + tavern.lighting + '.'
 
-          ].random()
+          ].seededrandom()
         },
         {
           size: 60,
           wealth: 10,
           note: [tavern.name + ' is nice and spacious. The bar is roomy and ' + tavern.lighting + ', with several stools in front of it for patrons that wish to while away the evening talking to ' + bartender.firstName + ". There's a couple large " + tavern.material + " tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part."
 
-          ].random()
+          ].seededrandom()
         },
         {
           size: 50,
@@ -643,25 +643,25 @@ setup.tavern = {
             tavern.name + ' is a tall building, but not particularly spacious; the ' + tavern.cleanliness + ' bar occupies the ground floor which is ' + tavern.lighting + ', and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ' + tavern.material + ' building.',
             tavern.name + ' is a reasonably spacious building that is ' + tavern.lighting + ", and very similar to the countless other taverns that you've come across in your times, right down to the specials board being somewhat battered with so many uses, and the dart board with many holes constantly seeing use.",
             tavern.name + ' is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is ' + tavern.cleanliness + ', and ' + tavern.lighting + '.'
-          ].random()
+          ].seededrandom()
         },
         {
           size: 40,
           wealth: 10,
           note: [tavern.name + ' is slightly cramped, and ' + tavern.lighting + '. The ' + tavern.cleanliness + " tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The " + tavern.wealth + ' establishment is clearly in need of an extension to relieve the somewhat small ' + tavern.material + ' pub of its congestion issues.'
-          ].random()
+          ].seededrandom()
         },
         {
           size: 30,
           wealth: 10,
           note: [tavern.name + ' is barely more than a large, ' + tavern.cleanliness + ' house; the ' + tavern.lighting + ' bar area is permanently crowded due to a bottleneck preventing barmaids from passing through without having to negotiate through thirsty patrons looking for refills.'
-          ].random()
+          ].seededrandom()
         },
         {
           size: 20,
           wealth: 10,
           note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordNoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.material + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
-          ].random()
+          ].seededrandom()
         }
 
       ]

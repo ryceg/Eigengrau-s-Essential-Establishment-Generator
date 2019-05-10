@@ -146,7 +146,7 @@ setup.townRender = function (town) {
         town.law = 'Law in ' + town.name + ' is very much punitive based, and those that breach the laws can expect hard labor, incarceration, or sometimes public execution. Crime is an ugly stain on humanity, to be punished.'
       } else if (town.roll.law > 60) {
         town.roll.guardFunding += 15
-        town.law = 'Law in ' + town.name + ' is punitive based , and those that breach the laws can expect hard labor, incarceration, fines, or, in some instances, public execution. Crime is an ugly stain on humanity, to be removed wherever possible.'
+        town.law = 'Law in ' + town.name + ' is punitive based, and those that breach the laws can expect hard labor, incarceration, fines, or, in some instances, public execution. Crime is an ugly stain on humanity, to be removed wherever possible.'
       } else if (town.roll.law > 50) {
         town.roll.guardFunding += 15
         town.law = 'Law in ' + town.name + ' is punitive, and those that breach the laws can expect hard labor, incarceration, fines, or, in rare instances, execution.'

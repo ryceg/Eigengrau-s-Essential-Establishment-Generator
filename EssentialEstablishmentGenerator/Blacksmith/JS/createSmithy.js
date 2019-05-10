@@ -6,7 +6,7 @@ setup.createSmithy = function (town, opts) {
   smithy.blacksmith = setup.createBlacksmith(town, smithy)
   setup.createSmithyName(town, smithy)
   Object.assign(smithy, {
-    wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].random(),
+    wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].seededrandom(),
     passageName: 'SmithyOutput',
     initPassage: 'InitSmithy',
     BuildingType: 'smithy',

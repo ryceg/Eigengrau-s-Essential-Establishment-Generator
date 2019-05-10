@@ -18,6 +18,9 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
         console.log('Failed to get a descriptor that matched the roll of ' + this.roll[propName] + ' for ' + propName + '.')
         result = rollArray[rollArray.length - 1]
       }
+      if (Array.isArray(result[indexNumber])) {
+        result = result.seededrandom(0, result.length)
+      }
       this['_' + propName] = result[indexNumber]
       return this['_' + propName]
     },
