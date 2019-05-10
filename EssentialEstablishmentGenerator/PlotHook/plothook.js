@@ -372,11 +372,11 @@ setup.plothooks = {
     type: ['paper'],
     function: function (town) {
       var npc = setup.createNPC(town, {
-        race = 'orc',
-        hasClass = true,
-        dndClass = 'barbarian',
-        background = 'bandit'
-      }
+        race: 'orc',
+        hasClass: true,
+        dndClass: 'barbarian',
+        background: 'bandit'
+      })
       return 'Wanted Dead or Alive – ' + setup.profile(npc) + ', Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’'
     }
   },
@@ -1229,10 +1229,10 @@ setup.plothooks = {
   'Thieves Cant Thieve Here': {
     type: ['paper'],
     function: function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'commoner'
-      })
+      // var npc = setup.createNPC(town, {
+      //   hasClass: false,
+      //   background: 'commoner'
+      // })
       // #
       return 'A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.'
     }
@@ -1303,10 +1303,10 @@ setup.plothooks = {
   'Riddle Maker Needed': {
     type: ['paper'],
     function: function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'commoner'
-      })
+      // var npc = setup.createNPC(town, {
+      //   hasClass: false,
+      //   background: 'commoner'
+      // })
       // #
       return 'Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.'
     }
@@ -1408,7 +1408,7 @@ setup.plothooks = {
         ageStage: 'adult'
       })
       var faction = setup.factionsForType(town, 'type', 'druids')
-      return 'A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ' + druid1 + ' and ' + druid2 ', are more than happy to introduce the party to ' + setup.profile(faction, '', 'town.factions') + '.'
+      return 'A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ' + druid1 + ' and ' + druid2 + ', are more than happy to introduce the party to ' + setup.profile(faction, '', 'town.factions') + '.'
     }
   },
   'The Painted Devil': {
@@ -1471,10 +1471,10 @@ setup.plothooks = {
     type: ['paper'],
     function: function (town) {
       var npc = setup.createNPC(town, {
-        hasClass = true,
-        dndClass = 'rogue',
-        background = 'assassin'
-      }
+        hasClass: true,
+        dndClass: 'rogue',
+        background: 'assassin'
+      })
       return '‘Wanted Dead or Alive – ' + setup.profile(npc) + ', master assassin! Warning: very heavily armed and dangerous. See attached picture. Reward: <<money 100000>>’'
     }
   },
@@ -1498,7 +1498,7 @@ setup.plothooks = {
       return 'Local ' + setup.profile(npc, 'spell caster') + ' looking for willing test subjects. <<money 20000>> per experiment. <money 400000>> if you lose a limb.'
     }
   }
-  //'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
-  //'REPENT SINNERS - Temple of the Lady of Spring',
-  //'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
+  // 'Help! Looking for druid to help persuade nature spirit to get out of my well. Water is poisoned.',
+  // 'REPENT SINNERS - Temple of the Lady of Spring',
+  // 'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
 }
