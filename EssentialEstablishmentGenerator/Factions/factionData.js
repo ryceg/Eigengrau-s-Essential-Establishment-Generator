@@ -88,6 +88,27 @@ setup.factionData = {
       'motivation': ['money', 'money', 'money', 'fame', 'fame', 'fame', 'fame', 'fame', 'glory', 'glory', 'glory', 'politics'],
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'magical instruments', 'magical instruments', 'magical instruments']
     },
+    'clergy': {
+      'leaderTraits': {
+        title: 'Clergyman',
+        'hasClass': true,
+        dndClass: 'cleric',
+        background: 'clergy'
+      },
+      'wordNoun': 'church',
+      'leaderQualification': ['wearing flowing white robes', 'a holy symbol tattooed on their face'],
+      'alliesList': ['mercenaries'],
+      'rivalsList': ['assassins'],
+      'joiningRequirement': ['holy deeds'],
+      'joiningInitiation': ['sacraments and rituals'],
+      'membersTrait': ['amulets with a holy sigil'],
+      'main': ['Mother', 'Father', 'Lord'],
+      'adjective': ['Heavenly', 'Merciful', 'Holy'],
+      'group': ['Church', 'Convent', 'Congregation'],
+      'unique': ["The Lord's Chosen"],
+      'motivation': ['devotion'],
+      'resources': ['money', 'connections']
+    },
     'craftsmen': {
       'leaderTraits': {
         title: 'Master',
@@ -108,6 +129,27 @@ setup.factionData = {
       'unique': ['The Clicks of the Spring', 'The Offerman Order', 'The Blessed Workshop', 'The Factory'],
       'motivation': ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
       'resources': ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'masterpieces', 'masterpieces', 'masterpieces', 'artifacts', 'artifacts', 'artifacts', 'magical contraptions', 'magical contraptions', 'magical contraptions']
+    },
+    'druids': {
+      'leaderTraits': {
+        'hasClass': true,
+        'dndClass': 'druid',
+        'profession': 'noble',
+        'background': 'noble'
+      },
+      'wordNoun': 'grove',
+      'leaderQualification': ['leathery tanned skin'],
+      'alliesList': ['bards', 'rangers'],
+      'rivalsList': ['assassins', 'wizards'],
+      'joiningRequirement': ['become a druid', 'give up all worldly possessions'],
+      'joiningInitiation': ['fight a bear with your bare hands'],
+      'membersTrait': ['brown and dirty robes'],
+      'main': ['Green', 'Wild', 'Forest', 'Stream', 'Sky'],
+      'adjective': ['Holy', 'Great', 'Wide', 'Open'],
+      'group': ['Coven', 'Circle', 'Tribe', 'Grove'],
+      'unique': ['Circle of the Green'],
+      'motivation': ['peace', 'growth of nature', 'love of nature'],
+      'resources': ['magic', 'knowledge', 'history']
     },
     'foreigners': {
       'leaderTraits': {
