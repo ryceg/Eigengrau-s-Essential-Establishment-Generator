@@ -3,11 +3,11 @@ setup.misc = {
   'cheese': {
     create: function () {
       var cheese = {
-        colour: setup.misc.cheese.colour.random(),
-        texture: setup.misc.cheese.texture.random(),
-        taste: setup.misc.cheese.taste.random(),
-        smell: setup.misc.cheese.smell.random(),
-        cost: setup.misc.cheese.cost.random()
+        colour: setup.misc.cheese.colour.seededrandom(),
+        texture: setup.misc.cheese.texture.seededrandom(),
+        taste: setup.misc.cheese.taste.seededrandom(),
+        smell: setup.misc.cheese.smell.seededrandom(),
+        cost: setup.misc.cheese.cost.seededrandom()
       }
       return cheese
     },
@@ -20,15 +20,15 @@ setup.misc = {
   'treasureMap': {
     'create': function (base) {
       var map = Object.assign({
-        one: setup.misc.treasureMap.one.random(),
-        two: setup.misc.treasureMap.two.random(),
-        three: setup.misc.treasureMap.three.random(),
-        four: setup.misc.treasureMap.four.random(),
-        five: setup.misc.treasureMap.five.random(),
-        six: setup.misc.treasureMap.six.random(),
-        seven: setup.misc.treasureMap.seven.random()
+        one: setup.misc.treasureMap.one.seededrandom(),
+        two: setup.misc.treasureMap.two.seededrandom(),
+        three: setup.misc.treasureMap.three.seededrandom(),
+        four: setup.misc.treasureMap.four.seededrandom(),
+        five: setup.misc.treasureMap.five.seededrandom(),
+        six: setup.misc.treasureMap.six.seededrandom(),
+        seven: setup.misc.treasureMap.seven.seededrandom()
       }, base)
-      map.readout = ['Find the ', 'Start at the '].random() + map.one + ' Then, ' + map.two + ' until you find the ' + map.three + ' Then, ' + map.four + ' until you reach ' + map.five + ' Then, ' + map.six + ' You will find the treasure ' + map.seven
+      map.readout = ['Find the ', 'Start at the '].seededrandom() + map.one + ' Then, ' + map.two + ' until you find the ' + map.three + ' Then, ' + map.four + ' until you reach ' + map.five + ' Then, ' + map.six + ' You will find the treasure ' + map.seven
       map.tippy = '<span class=tip title=' + JSON.stringify(map.readout) + '><<run setup.tippy("span")>>'
       map.tippyWord = map.tippy + '<b>map</b></span>'
       return map
@@ -47,19 +47,19 @@ setup.misc = {
         'detailedTitles',
         'titles',
         'titles',
-        'puns'].random()
+        'puns'].seededrandom()
       switch (bookType) {
         case 'detailedTitles':
-          var book = setup.misc.book.detailedTitles.random()
+          var book = setup.misc.book.detailedTitles.seededrandom()
           break
         default:
           book = {
-            title: setup.misc.book[bookType].random()
+            title: setup.misc.book[bookType].seededrandom()
           }
       }
       Object.assign(book, {
-        condition: setup.misc.book.condition.random(),
-        cover: setup.misc.book.cover.random()
+        condition: setup.misc.book.condition.seededrandom(),
+        cover: setup.misc.book.cover.seededrandom()
       })
 
       if (bookType === 'detailedTitles') {
@@ -77,7 +77,7 @@ setup.misc = {
       'in poor condition. An ink stain obscures a fair amount of the pages.',
       'accidentally damaged. Various water damage around the edges but readable.',
       'vandalized. It appears that a good dozen pages have been ripped out.',
-      'deliberately damaged. Towards the middle there is a section hollowed out. In this hiding place, you find a ' + ['locket', 'knife', 'small hammer', 'small scroll', 'vial of mysterious liquid', 'ring'].random(),
+      'deliberately damaged. Towards the middle there is a section hollowed out. In this hiding place, you find a ' + ['locket', 'knife', 'small hammer', 'small scroll', 'vial of mysterious liquid', 'ring'].seededrandom(),
       'badly damaged. A lot of the ink has run through water damage and it is nearly illegible.',
       'ancient. The pages crumble as they turn.',
       'strange. Some of the pages are blank?',
@@ -494,16 +494,16 @@ setup.misc = {
   },
   'caravan': {
     'create': function (town, base) {
-      var masterType = Object.keys(setup.misc.caravan.masterType).random()
+      var masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
       var caravan = Object.assign({
-        type: setup.misc.caravan.caravanType.random(),
-        animals: setup.misc.caravan.animals.random(),
-        transporting: setup.misc.caravan.transporting.random(),
-        mood: setup.misc.caravan.mood.random(),
+        type: setup.misc.caravan.caravanType.seededrandom(),
+        animals: setup.misc.caravan.animals.seededrandom(),
+        transporting: setup.misc.caravan.transporting.seededrandom(),
+        mood: setup.misc.caravan.mood.seededrandom(),
         masterType: masterType,
-        masterLooking: setup.misc.caravan.masterLooking.random(),
-        masterAvoid: setup.misc.caravan.masterAvoid.random(),
-        masterCarry: setup.misc.caravan.masterCarry.random()
+        masterLooking: setup.misc.caravan.masterLooking.seededrandom(),
+        masterAvoid: setup.misc.caravan.masterAvoid.seededrandom(),
+        masterCarry: setup.misc.caravan.masterCarry.seededrandom()
       }, base)
       caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
       caravan.readout = 'The caravan is ' + caravan.type + ', with ' + caravan.animals + ' as the pack animals. They are transporting ' + caravan.transporting + ', and the general mood seems to be ' + caravan.mood + ' The master is ' + setup.profile(caravan.master, JSON.stringify(caravan.masterType)) + ', who is looking for ' + caravan.masterLooking + '. ' + caravan.master.heshe.toUpperFirst() + ' is taking special care to avoid ' + caravan.masterAvoid + ' and is carrying ' + caravan.masterCarry + ' with ' + caravan.master.himher + '.'
@@ -512,8 +512,8 @@ setup.misc = {
       return caravan
     },
     'caravanType': ['a wagon train', 'a long wagon train', 'a small train of pack animals', 'a long train of pack animals', 'a train of pack animals with livestock', 'a line of people on foot with a few animals'],
-    'animals': ['one-humped camels', 'two-humped camels', 'large draft horses', 'reliable garrons', 'sure-footed ponies', 'mules', 'oxen', ['bison', 'drakes', 'elephants', 'elk', 'giant lizards', 'zebras'].random()],
-    'transporting': [['cotton', 'linen', 'silk', 'wool'].random(), 'drugs or contraband.', ['diamonds', 'emeralds', 'jade', 'obsidian', 'opals', 'pearls', 'rubies', 'sapphires', 'topaz', 'turquoise'].random(), ['arsenic', 'copper', 'gold', 'lead', 'silver', 'tin'].random(), 'spices and teas.', 'wine and spirits.'],
+    'animals': ['one-humped camels', 'two-humped camels', 'large draft horses', 'reliable garrons', 'sure-footed ponies', 'mules', 'oxen', ['bison', 'drakes', 'elephants', 'elk', 'giant lizards', 'zebras'].seededrandom()],
+    'transporting': [['cotton', 'linen', 'silk', 'wool'].seededrandom(), 'drugs or contraband.', ['diamonds', 'emeralds', 'jade', 'obsidian', 'opals', 'pearls', 'rubies', 'sapphires', 'topaz', 'turquoise'].seededrandom(), ['arsenic', 'copper', 'gold', 'lead', 'silver', 'tin'].seededrandom(), 'spices and teas.', 'wine and spirits.'],
     'mood': ['desperate; a calamity has befallen them.', 'foul; morale is bad, and provisions are low.', 'tired; the journey is long and longer yet.', 'eager; great riches await at journey’s end.'],
     'masterType': {
       'a mysterious foreigner': {
@@ -530,7 +530,7 @@ setup.misc = {
         note: 'Outcast from their family.'
       },
       'a celebrated explorer': {
-        background: ['outlander', 'sailor'].random(),
+        background: ['outlander', 'sailor'].seededrandom(),
         hasClass: false,
         profession: 'explorer'
       },
@@ -540,7 +540,7 @@ setup.misc = {
         gender: 'woman'
       },
       'a charming rogue': {
-        background: ['criminal', 'charlatan'].random(),
+        background: ['criminal', 'charlatan'].seededrandom(),
         dndClass: 'rogue',
         calmTrait: 'charming'
       },
@@ -581,11 +581,11 @@ setup.misc = {
   'ghost': {
     'create': function (base) {
       var ghost = Object.assign({
-        profession: setup.misc.ghost.profession.random(),
-        cause: setup.misc.ghost.cause.random(),
-        reason: setup.misc.ghost.reason.random(),
-        release: setup.misc.ghost.release.random(),
-        reaction: setup.misc.ghost.reaction.random()
+        profession: setup.misc.ghost.profession.seededrandom(),
+        cause: setup.misc.ghost.cause.seededrandom(),
+        reason: setup.misc.ghost.reason.seededrandom(),
+        release: setup.misc.ghost.release.seededrandom(),
+        reaction: setup.misc.ghost.reaction.seededrandom()
       }, base)
       ghost.readout = 'This ghost was once ' + ghost.profession + '. They died from ' + ghost.cause + ', and linger on in this life ' + ghost.reason + '. They can move on if ' + ghost.release + '. It is ' + ghost.reaction + ' towards the living.'
       ghost.tippy = '<span class=tip title=' + JSON.stringify(ghost.readout) + '><<run setup.tippy("span")>>'
@@ -615,20 +615,20 @@ setup.misc = {
     'weapons': ['spears and large hunting knives', 'spears and javelins', 'exotic, curved blades and several bolas', 'huge, curved blades', 'exotic, curved blades and blowguns', 'pikes and shortswords', 'pikes and short bows', 'battleaxes and throwing axes', 'battleaxes and longbows', 'longswords and longbows', 'jagged greatswords and shortbows', 'greataxes and javelins'],
     'create': function () {
       var orcs = {
-        type: setup.misc.orcs.type.random(),
-        symbol: setup.misc.orcs.symbol.random(),
-        value: setup.misc.orcs.value.random(),
-        meat: setup.misc.orcs.meat.random(),
-        fear: setup.misc.orcs.fear.random(),
-        notorious: setup.misc.orcs.notorious.random(),
-        knownFor: setup.misc.orcs.knownFor.random(),
-        attitude: setup.misc.orcs.attitude.random(),
-        leader: setup.misc.orcs.leader.random(),
-        goals: setup.misc.orcs.goals.random(),
-        tactics: setup.misc.orcs.tactics.random(),
-        pets: setup.misc.orcs.pets.random(),
-        slaves: setup.misc.orcs.slaves.random(),
-        weapons: setup.misc.orcs.weapons.random()
+        type: setup.misc.orcs.type.seededrandom(),
+        symbol: setup.misc.orcs.symbol.seededrandom(),
+        value: setup.misc.orcs.value.seededrandom(),
+        meat: setup.misc.orcs.meat.seededrandom(),
+        fear: setup.misc.orcs.fear.seededrandom(),
+        notorious: setup.misc.orcs.notorious.seededrandom(),
+        knownFor: setup.misc.orcs.knownFor.seededrandom(),
+        attitude: setup.misc.orcs.attitude.seededrandom(),
+        leader: setup.misc.orcs.leader.seededrandom(),
+        goals: setup.misc.orcs.goals.seededrandom(),
+        tactics: setup.misc.orcs.tactics.seededrandom(),
+        pets: setup.misc.orcs.pets.seededrandom(),
+        slaves: setup.misc.orcs.slaves.seededrandom(),
+        weapons: setup.misc.orcs.weapons.seededrandom()
       }
       orcs.readout = '<blockquote>These orcs are ' + orcs.type + ', known for ' + orcs.knownFor + '. Their symbol is ' + orcs.symbol + ', and they value ' + orcs.value + '. Their favourite food is is ' + orcs.meat + ', and they fear ' + orcs.fear + '. Their leader is ' + orcs.leader + ', who wants ' + orcs.goals + '. They are ' + orcs.attitude + ', and are notorious for ' + orcs.notorious + '. They fight with ' + orcs.weapons + ', with ' + orcs.tactics + '. They have pet ' + orcs.pets + ', and keep some ' + orcs.slaves + ' as slaves.</blockquote'
       return orcs
@@ -637,18 +637,18 @@ setup.misc = {
   'goblins': {
     'create': function (base) {
       var goblins = Object.assign({
-        business: setup.misc.goblins.business.random(),
-        symbol: setup.misc.goblins.symbol.random(),
-        colour: setup.misc.goblins.colour.random(),
-        lairLocation: setup.misc.goblins.lairLocation.random(),
-        lairType: setup.misc.goblins.lairType.random(),
-        target: setup.misc.goblins.target.random(),
-        currentTarget: setup.misc.goblins.currentTarget.random(),
-        leaderType: setup.misc.goblins.leader.random(),
-        goals: setup.misc.goblins.goals.random(),
-        tactics: setup.misc.goblins.tactics.random(),
-        accompaniedBy: setup.misc.goblins.accompaniedBy.random(),
-        pets: setup.misc.goblins.pets.random()
+        business: setup.misc.goblins.business.seededrandom(),
+        symbol: setup.misc.goblins.symbol.seededrandom(),
+        colour: setup.misc.goblins.colour.seededrandom(),
+        lairLocation: setup.misc.goblins.lairLocation.seededrandom(),
+        lairType: setup.misc.goblins.lairType.seededrandom(),
+        target: setup.misc.goblins.target.seededrandom(),
+        currentTarget: setup.misc.goblins.currentTarget.seededrandom(),
+        leaderType: setup.misc.goblins.leader.seededrandom(),
+        goals: setup.misc.goblins.goals.seededrandom(),
+        tactics: setup.misc.goblins.tactics.seededrandom(),
+        accompaniedBy: setup.misc.goblins.accompaniedBy.seededrandom(),
+        pets: setup.misc.goblins.pets.seededrandom()
       }, base)
       goblins.readout = 'These goblins primarily deal with ' + goblins.business + '. Their symbol is ' + goblins.symbol + ', and their colours are primarily ' + goblins.colours + '. Their lair is ' + goblins.lairType + ', located ' + goblins.lairLocation + '. Their leader is ' + goblins.leaderType + ', who wants ' + goblins.goals + '. They like to target ' + goblins.target + ', and are currently planning a raid on ' + goblins.currentTarget + '. They fight with ' + goblins.tactics + ', and occasionally enlist help from ' + goblins.accompaniedBy + '. They have some ' + goblins.pets + ' as pets.'
       goblins.tippy = '<span class=tip title=' + JSON.stringify(goblins.readout) + '><<run setup.tippy("span")>>'
@@ -671,13 +671,13 @@ setup.misc = {
   'goblin': {
     'create': function (base) {
       var goblin = Object.assign({
-        type: setup.misc.goblin.type.random(),
-        carry: setup.misc.goblin.carry.random(),
-        wears: setup.misc.goblin.wears.random(),
-        faceFeature: setup.misc.goblin.faceFeature.random(),
-        feature: setup.misc.goblin.feature.random(),
-        looks: setup.misc.goblin.looks.random(),
-        talent: setup.misc.goblin.talent.random()
+        type: setup.misc.goblin.type.seededrandom(),
+        carry: setup.misc.goblin.carry.seededrandom(),
+        wears: setup.misc.goblin.wears.seededrandom(),
+        faceFeature: setup.misc.goblin.faceFeature.seededrandom(),
+        feature: setup.misc.goblin.feature.seededrandom(),
+        looks: setup.misc.goblin.looks.seededrandom(),
+        talent: setup.misc.goblin.talent.seededrandom()
       }, base)
       goblin.readout = 'This goblin is ' + goblin.type + ', and has a ' + goblin.faceFeature + '. It wields ' + goblin.carry + ' and wears ' + goblin.wears + '. This goblin is particularly good at ' + goblin.talent + ', and has ' + goblin.feature + '. Currently, it is looking to ' + goblin.looks
       goblin.tippy = '<span class=tip title=' + JSON.stringify(goblin.readout) + '><<run setup.tippy("span")>>'
@@ -704,15 +704,15 @@ setup.misc = {
     'fearedBy': ['ambassadors and tax collectors', 'merchants and peddlers', 'politicians and magistrates', 'guards and sheriffs', 'soldiers and warriors', 'nobles and wealthy travelers', 'knights and loyalists', 'peasants and farmers', 'priests and sages', 'women and children'],
     'create': function (town, base) {
       var bandits = {
-        business: setup.misc.bandits.business.random(),
-        colours: setup.misc.bandits.colours.random(),
-        symbol: setup.misc.bandits.symbol.random(),
-        leader: setup.misc.bandits.leader.random(),
-        type: setup.misc.bandits.type.random(),
-        goals: setup.misc.bandits.goals.random(),
-        weapons: setup.misc.bandits.weapons.random(),
-        lair: setup.misc.bandits.lair.random(),
-        fearedBy: setup.misc.bandits.fearedBy.random()
+        business: setup.misc.bandits.business.seededrandom(),
+        colours: setup.misc.bandits.colours.seededrandom(),
+        symbol: setup.misc.bandits.symbol.seededrandom(),
+        leader: setup.misc.bandits.leader.seededrandom(),
+        type: setup.misc.bandits.type.seededrandom(),
+        goals: setup.misc.bandits.goals.seededrandom(),
+        weapons: setup.misc.bandits.weapons.seededrandom(),
+        lair: setup.misc.bandits.lair.seededrandom(),
+        fearedBy: setup.misc.bandits.fearedBy.seededrandom()
       }
       bandits.readout = 'These bandits are ' + bandits.type + ' whose primary business is ' + bandits.business + '. Their leader is ' + bandits.leader + ', who wants ' + bandits.goals + '. Their symbol is ' + bandits.symbol + ' on a ' + bandits.colours + ' background. They are feared by ' + bandits.fearedBy + ', and they use ' + bandits.weapons + '. Their base of operations is ' + bandits.lair
       bandits.tippy = '<span class=tip title=' + JSON.stringify(bandits.readout) + '><<run setup.tippy("span")>>'
@@ -920,7 +920,7 @@ setup.misc = {
   },
   'roleplayQuestions': {
     create: function () {
-      return setup.misc.roleplayQuestions.array.random()
+      return setup.misc.roleplayQuestions.array.seededrandom()
     },
     array: [
       'what was a bad memory of your family?',
@@ -978,10 +978,10 @@ setup.misc = {
   'religion': {
     'shrine': {
       'create': function (town, base) {
-        var sensesArray = Object.keys(setup.misc.religion.shrine.senses).random()
+        var sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
         var shrine = Object.assign({
-          god: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random(),
-          material: setup.misc.religion.shrine.material.random(),
+          god: [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom(),
+          material: setup.misc.religion.shrine.material.seededrandom(),
           senses: setup.misc.religion.shrine.senses[sensesArray](town)
         }, base)
         shrine.readout = 'You come across a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
@@ -1033,14 +1033,14 @@ setup.misc = {
       }
     },
     'createRelic': function () {
-      // var holy = setup.misc.religion.holy.random()
-      // var unholy = setup.misc.religion.unholy.random()
-      var adjective = [setup.misc.religion.holy.random(), setup.misc.religion.unholy.random()].random()
-      // var namedGod = setup.misc.religion.namedGod.random()
-      // var abstractGod = setup.misc.religion.abstractGod.random()
-      // var saint = setup.misc.religion.saint.random()
-      var god = [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random()
-      var noun = setup.misc.religion.noun.random()
+      // var holy = setup.misc.religion.holy.seededrandom()
+      // var unholy = setup.misc.religion.unholy.seededrandom()
+      var adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
+      // var namedGod = setup.misc.religion.namedGod.seededrandom()
+      // var abstractGod = setup.misc.religion.abstractGod.seededrandom()
+      // var saint = setup.misc.religion.saint.seededrandom()
+      var god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
+      var noun = setup.misc.religion.noun.seededrandom()
       return 'The ' + adjective + ' ' + noun + ' of ' + god
     },
     holy: [
@@ -1066,14 +1066,14 @@ setup.misc = {
 
     'create': function () {
       var cat = {
-        size: setup.misc.cat.size.random(),
-        coat: setup.misc.cat.coat.random(),
-        eyes: setup.misc.cat.eyes.random(),
-        breedSkill: setup.misc.cat.breedSkill.random(),
-        favouriteFood: setup.misc.cat.favouriteFood.random(),
-        markings: setup.misc.cat.markings.random(),
-        habit: setup.misc.cat.habit.random(),
-        talent: setup.misc.cat.talent.random()
+        size: setup.misc.cat.size.seededrandom(),
+        coat: setup.misc.cat.coat.seededrandom(),
+        eyes: setup.misc.cat.eyes.seededrandom(),
+        breedSkill: setup.misc.cat.breedSkill.seededrandom(),
+        favouriteFood: setup.misc.cat.favouriteFood.seededrandom(),
+        markings: setup.misc.cat.markings.seededrandom(),
+        habit: setup.misc.cat.habit.seededrandom(),
+        talent: setup.misc.cat.talent.seededrandom()
       }
       cat.readout = 'This cat is ' + cat.size + ', and has a ' + cat.coat + ' coat, with ' + cat.eyes + ' and ' + cat.markings + '. This breed was bred ' + cat.breedSkill + ', and this cat has ' + cat.habit + '. It loves ' + cat.favouriteFood + ', and it is particularly good at ' + cat.talent
       cat.tippyWord = '<span class=tip title=' + JSON.stringify(cat.readout) + '> <b>cat</b></span><<run setup.tippy("span")>>'
@@ -1091,16 +1091,16 @@ setup.misc = {
   'horse': {
     'create': function () {
       var horse = {
-        gender: setup.misc.horse.gender.random(),
-        coat: setup.misc.horse.coat.random(),
-        eyes: setup.misc.horse.eyes.random(),
-        type: setup.misc.horse.type.random(),
-        quality: setup.misc.horse.quality.random(),
-        flaw: setup.misc.horse.flaw.random(),
-        flawSeverity: setup.misc.horse.flawSeverity.random(),
-        feature: setup.misc.horse.feature.random(),
-        personality: setup.misc.horse.personality.random(),
-        behaviour: setup.misc.horse.behaviour.random()
+        gender: setup.misc.horse.gender.seededrandom(),
+        coat: setup.misc.horse.coat.seededrandom(),
+        eyes: setup.misc.horse.eyes.seededrandom(),
+        type: setup.misc.horse.type.seededrandom(),
+        quality: setup.misc.horse.quality.seededrandom(),
+        flaw: setup.misc.horse.flaw.seededrandom(),
+        flawSeverity: setup.misc.horse.flawSeverity.seededrandom(),
+        feature: setup.misc.horse.feature.seededrandom(),
+        personality: setup.misc.horse.personality.seededrandom(),
+        behaviour: setup.misc.horse.behaviour.seededrandom()
       }
       horse.readout = 'This horse is ' + horse.gender + +' ' + horse.type + ', and is ' + horse.quality + '. It has a ' + horse.colour + ' coat, with ' + horse.feature + ' and ' + horse.eyes + '. It is ' + horse.flaw + ', which is ' + horse.flawSeverity + '. It is ' + horse.personality + ', and ' + horse.behaviour + '.'
       horse.tippyWord = '<span class=tip title=' + JSON.stringify(horse.readout) + '> <b>horse</b></span><<run setup.tippy("span")>>'
@@ -1120,14 +1120,14 @@ setup.misc = {
   'wolf': {
     'create': function () {
       var wolf = {
-        colour: setup.misc.wolf.colour.random(),
-        markings: setup.misc.wolf.markings.random(),
-        eyes: setup.misc.wolf.eyes.random(),
-        manner: setup.misc.wolf.manner.random(),
-        prey: setup.misc.wolf.prey.random(),
-        tactics: setup.misc.wolf.tactics.random(),
-        packStatus: setup.misc.wolf.packStatus.random(),
-        habitat: setup.misc.wolf.habitat.random()
+        colour: setup.misc.wolf.colour.seededrandom(),
+        markings: setup.misc.wolf.markings.seededrandom(),
+        eyes: setup.misc.wolf.eyes.seededrandom(),
+        manner: setup.misc.wolf.manner.seededrandom(),
+        prey: setup.misc.wolf.prey.seededrandom(),
+        tactics: setup.misc.wolf.tactics.seededrandom(),
+        packStatus: setup.misc.wolf.packStatus.seededrandom(),
+        habitat: setup.misc.wolf.habitat.seededrandom()
       }
       wolf.readout = 'This wolf is ' + wolf.colour + ', and has ' + wolf.markings + ' coat, with ' + wolf.eyes + '. It is ' + wolf.manner + ', and is ' + wolf.packStatus + '. This breed thrives in ' + wolf.habitat + '. It prefers to ' + wolf.tactics + ', and if given the choice, it prefers ' + wolf.prey
       wolf.tippy = '<span class=tip title=' + JSON.stringify(wolf.readout) + '><<run setup.tippy("span")>>'
@@ -1135,7 +1135,7 @@ setup.misc = {
       return wolf
     },
     'colour': ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown', 'sandy brown', 'white'],
-    'markings': ['white or pale fur on each paw', 'white or pale fur on one paw', 'white or pale fur around the face and muzzle', 'black or dark fur around the face and muzzle', 'a banded pattern on its back' + ['dark grey', 'pale grey', 'reddish brown', 'sandy brown'].random(), 'lighter fur on its belly', 'darker fur on its belly', 'a distinct, ' + ['white', 'pale grey'].random() + ' ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random() + ' on its chest', 'a scar from a past injury on its ' + ['flank', 'foreleg', 'hindleg', 'snout', 'eye', 'ear'].random(), 'no obvious markings'],
+    'markings': ['white or pale fur on each paw', 'white or pale fur on one paw', 'white or pale fur around the face and muzzle', 'black or dark fur around the face and muzzle', 'a banded pattern on its back' + ['dark grey', 'pale grey', 'reddish brown', 'sandy brown'].seededrandom(), 'lighter fur on its belly', 'darker fur on its belly', 'a distinct, ' + ['white', 'pale grey'].seededrandom() + ' ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom() + ' on its chest', 'a scar from a past injury on its ' + ['flank', 'foreleg', 'hindleg', 'snout', 'eye', 'ear'].seededrandom(), 'no obvious markings'],
     'eyes': ['reflective and black', 'pale grey', 'brownish grey', 'dark grey', 'dark brown', 'golden brown', 'light brown', 'red', 'yellow', 'green', 'pale blue', 'dark blue'],
     'manner': ['panting lightly', 'panting heavily, its tongue lolling out of its mouth', 'salivating', 'hungrily licking its chops', 'yawning', 'watching curiously', 'watching warily', 'pacing nervously', 'whining softly', 'watching with ears perked and hackles raised', 'growling low, giving warning', 'standing perfectly still, ready to lunge'],
     'tactics': ['pick off weak, easy prey', 'stalk its prey until the opportune time to strike', 'harrying its prey over long distances until the prey is exhausted', 'chase its prey to a place where its packmates are waiting in ambush', 'wait in ambush while one or more of its packmates chases the prey to it', 'choose its prey and to run it down'],
@@ -1146,14 +1146,14 @@ setup.misc = {
   'ogre': {
     'create': function () {
       var ogre = {
-        hair: setup.misc.ogre.hair.random(),
-        type: setup.misc.ogre.type.random(),
-        eyes: setup.misc.ogre.eyes.random(),
-        skill: setup.misc.ogre.skill.random(),
-        quirk: setup.misc.ogre.quirk.random(),
-        carry: setup.misc.ogre.carry.random(),
-        look: setup.misc.ogre.look.random(),
-        misfortune: setup.misc.ogre.misfortune.random()
+        hair: setup.misc.ogre.hair.seededrandom(),
+        type: setup.misc.ogre.type.seededrandom(),
+        eyes: setup.misc.ogre.eyes.seededrandom(),
+        skill: setup.misc.ogre.skill.seededrandom(),
+        quirk: setup.misc.ogre.quirk.seededrandom(),
+        carry: setup.misc.ogre.carry.seededrandom(),
+        look: setup.misc.ogre.look.seededrandom(),
+        misfortune: setup.misc.ogre.misfortune.seededrandom()
       }
       ogre.readout = 'This ogre is a ' + ogre.type + ', and carries ' + ogre.carry + ". It's hair is " + ogre.hair + ', and its eyes are ' + ogre.eyes + ', with ' + ogre.eyes + '. It is particularly good at ' + ogre.skill + ', and frequently ' + ogre.quirk + '. A long time ago, it was ' + ogre.misfortune + '. Currently, it is looking for a ' + ogre.look
       ogre.tippy = '<span class=tip title=' + JSON.stringify(ogre.readout) + '><<run setup.tippy("span")>>'
@@ -1172,14 +1172,14 @@ setup.misc = {
   'spider': {
     'create': function () {
       var spider = {
-        colour: setup.misc.spider.colour.random(),
-        markings: setup.misc.spider.markings.random(),
-        eyes: setup.misc.spider.eyes.random(),
-        mouth: setup.misc.spider.mouth.random(),
-        poison: setup.misc.spider.poison.random(),
-        tactics: setup.misc.spider.tactics.random(),
-        webs: setup.misc.spider.webs.random(),
-        habitat: setup.misc.spider.habitat.random()
+        colour: setup.misc.spider.colour.seededrandom(),
+        markings: setup.misc.spider.markings.seededrandom(),
+        eyes: setup.misc.spider.eyes.seededrandom(),
+        mouth: setup.misc.spider.mouth.seededrandom(),
+        poison: setup.misc.spider.poison.seededrandom(),
+        tactics: setup.misc.spider.tactics.seededrandom(),
+        webs: setup.misc.spider.webs.seededrandom(),
+        habitat: setup.misc.spider.habitat.seededrandom()
       }
       spider.readout = 'This spider is ' + spider.colour + ', and has ' + spider.markings + ', with ' + spider.eyes + ' and a mouth ' + spider.mouth + '. This breed thrives in ' + spider.habitat + ', and their poison causes ' + spider.poison + '.Their webs are ' + spider.webs + '. It prefers to ' + spider.tactics
       spider.tippy = '<span class=tip title=' + JSON.stringify(spider.readout) + '><<run setup.tippy("span")>>'
@@ -1187,7 +1187,7 @@ setup.misc = {
       return spider
     },
     'colour': ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown'],
-    'markings': ['pale banding on its legs', 'dark banding on its legs', 'bright ' + ['orange', 'red', 'white', 'yellow'].random() + ' banding on its legs', 'pale stripes down its abdomen', 'dark stripes down its abdomen', 'a distinct, crimson ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random() + ' on its abdomen', 'a distinct, ' + ['black', 'dark grey'].random() + ' ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random() + ' on its abdomen', 'no obvious markings'],
+    'markings': ['pale banding on its legs', 'dark banding on its legs', 'bright ' + ['orange', 'red', 'white', 'yellow'].seededrandom() + ' banding on its legs', 'pale stripes down its abdomen', 'dark stripes down its abdomen', 'a distinct, crimson ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom() + ' on its abdomen', 'a distinct, ' + ['black', 'dark grey'].seededrandom() + ' ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom() + ' on its abdomen', 'no obvious markings'],
     'eyes': ['dull and black', 'reflective and black', 'dark grey, almost black', 'dark red', 'bright red', 'pearly white'],
     'mouth': ['flanked by fangs, dripping venom', 'flanked by hooked fangs', 'flanked by hairy chelicerae, each ending in a sharp fang', 'flanked by chelicerae, covered in hair that hides any fangs', 'hungrily opening and closing', 'yawning open'],
     'poison': ['paralysis', 'loss of consciousness', 'nausea', 'headache', 'loss of coordination', 'blindness', 'dizziness', 'shortness of breath'],
@@ -1294,13 +1294,13 @@ setup.misc = {
     'a pair of goblin scouts': function () { return 'a pair of goblin scouts' },
     'a lone goblin': function () {
       var goblin = setup.misc.goblin.create()
-      return 'a lone ' + goblin.tippyWord + ' ' + ['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].random()
+      return 'a lone ' + goblin.tippyWord + ' ' + ['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].seededrandom()
     },
     'a goblin war party': function (town) {
       var goblins = setup.misc.goblins.create()
       return 'a goblin war party. ' + goblins.readout
     },
-    'a goblin patrol': function () { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].random() },
+    'a goblin patrol': function () { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom() },
     'several giant spiders': function () {
       var spider = setup.misc.spider.create()
       return 'several giant ' + spider.tippyWord + '<b>s</b>.'
@@ -1354,8 +1354,8 @@ setup.misc = {
     },
     'an injured knight': function (town) {
       var npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].random(),
-        background: ['noble', 'soldier', 'soldier'].random(),
+        dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
+        background: ['noble', 'soldier', 'soldier'].seededrandom(),
         isThrowaway: true
       })
       return 'an injured ' + setup.profile(npc, 'knight')
@@ -1403,8 +1403,8 @@ setup.misc = {
     'an adventurer on a horse': function (town) {
       var horse = setup.misc.horse.create()
       var npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].random(),
-        background: ['noble', 'soldier', 'soldier'].random(),
+        dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
+        background: ['noble', 'soldier', 'soldier'].seededrandom(),
         isThrowaway: true
       })
       return 'an ' + setup.profile(npc, 'adventurer') + ' on a ' + horse.tippyWord
@@ -1432,15 +1432,15 @@ setup.misc = {
     'a knight errant': function (town) {
       var npc = setup.createNPC(town, {
         dndClass: 'paladin',
-        background: ['noble', 'soldier', 'soldier'].random(),
+        background: ['noble', 'soldier', 'soldier'].seededrandom(),
         isThrowaway: true
       })
       return 'a ' + setup.profile(npc, 'knight errant')
     },
     'a wounded knight': function (town) {
       var npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].random(),
-        background: ['noble', 'soldier', 'soldier'].random(),
+        dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
+        background: ['noble', 'soldier', 'soldier'].seededrandom(),
         isThrowaway: true
       })
       return 'an injured ' + setup.profile(npc, 'knight')
@@ -1879,7 +1879,7 @@ setup.misc = {
     'a beggarly bandit': function (town) {
       var npc = setup.createNPC(town, {
         background: 'criminal',
-        dndClass: ['fighter', 'rogue', 'rogue'].random(),
+        dndClass: ['fighter', 'rogue', 'rogue'].seededrandom(),
         isThrowaway: true
       })
       return 'a beggarly ' + setup.profile(npc, 'bandit')
@@ -2026,7 +2026,7 @@ setup.misc = {
       return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
     'a hole under a large tree': function (town, biome) {
-      var contents = setup.misc[biome].hole.random()
+      var contents = setup.misc[biome].hole.seededrandom()
       // this is lazy. Will change hole from an array to an object once I make more creators.
       if (contents === 'a spider') {
         var spider = setup.misc.spider.create()
@@ -2037,7 +2037,7 @@ setup.misc = {
       return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '.</blockquote>'
     },
     'a large burrow': function (town, biome) {
-      var contents = setup.misc[biome].hole.random()
+      var contents = setup.misc[biome].hole.seededrandom()
       // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
       return 'a large burrow <blockquote>Inside is ' + contents + '.</blockquote>'
     },
@@ -2051,7 +2051,7 @@ setup.misc = {
     "a woodsman's cabin": function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
       var cabin = setup.misc.cabin.create(town, biome)
-      return "a woodsman's " + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
+      return "a woodsman's " + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
     'a cozy little cabin': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
@@ -2059,12 +2059,12 @@ setup.misc = {
         wordNoun: 'cabin',
         size: 'little'
       })
-      return 'a cozy little ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
+      return 'a cozy little ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
     'an abandoned cabin': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
       var cabin = setup.misc.cabin.create(town, biome)
-      return 'an abandoned ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.random() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
+      return 'an abandoned ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
     'an abandoned campsite': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
@@ -2078,7 +2078,7 @@ setup.misc = {
     'a grave with an illegible headstone': function () { return 'a grave with an illegible headstone.' },
     'ancient ruins': function (town, biome) {
       var contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.random() + '. Now, ' + contents + ' lives here.</blockquote>'
+      return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.seededrandom() + '. Now, ' + contents + ' lives here.</blockquote>'
     },
     'a cavern in a canyon wall': function (town, biome) {
       var cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
@@ -2096,11 +2096,11 @@ setup.misc = {
       return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     // mining is intentionally using the mountain biome
-    'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.random() + ', looking for ' + setup.misc.mountain.minersGoal.random() + '.</blockquote>' },
-    'an active mining camp': function (town, biome) { return 'an active mining camp, manned by ' + setup.misc.mountain.miners.random() + ', looking for ' + setup.misc.mountain.minersGoal.random() },
-    'a hole under a large boulder': function (town, biome) { return 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.random() + '</blockquote>' },
+    'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() + '.</blockquote>' },
+    'an active mining camp': function (town, biome) { return 'an active mining camp, manned by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() },
+    'a hole under a large boulder': function (town, biome) { return 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.seededrandom() + '</blockquote>' },
     'an abandoned stone house': function (town, biome) {
-      var lived = setup.misc[biome].houseLived.random()
+      var lived = setup.misc[biome].houseLived.seededrandom()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
       var cabin = setup.misc.cabin.create(town, biome, {
         material: 'stone',
@@ -2109,34 +2109,34 @@ setup.misc = {
       return 'an abandoned ' + cabin.tippy + '<b>stone house</b></span>. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
     },
     'a stone house': function (town, biome) {
-      var lived = setup.misc[biome].houseLived.random()
+      var lived = setup.misc[biome].houseLived.seededrandom()
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
       var cabin = setup.misc.cabin.create(town, biome, {
         material: 'stone',
         wordNoun: 'house'
       })
-      return 'a ' + cabin.tippy + '<b>stone house</b></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].random() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
+      return 'a ' + cabin.tippy + '<b>stone house</b></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].seededrandom() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
     },
     "a merchant caravan's camp": function (town, biome) {
       var caravan = setup.misc.caravan.create(town)
       return "a merchant caravan's camp. " + caravan.readout
     },
     'a peculiar tent': function (town, biome) {
-      var lived = setup.misc[biome].camped.random()
+      var lived = setup.misc[biome].camped.seededrandom()
       return 'an peculiar tent, which looks to have been occupied previously by ' + lived
     },
     'an old watchtower': function (town, biome) {
       // intentionally uses the mountain biome
       var encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
-      return 'a strategically located watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.random() + '. Now, it is controlled by ' + encounter + ' .</blockquote>'
+      return 'a strategically located watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.seededrandom() + '. Now, it is controlled by ' + encounter + ' .</blockquote>'
     },
     'ruins of an ancient city': function (town, biome) {
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'ruins of an ancient city. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.random() + ' Now, ' + encounter + ' lives here.</blockquote>'
+      return 'ruins of an ancient city. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
     },
     'a temple ruin': function (town, biome) {
       var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'a temple ruin. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.random() + ' Now, ' + encounter + ' lives here.</blockquote>'
+      return 'a temple ruin. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
     },
     'a village of primitive canyon dwellers': function (town, biome) { return 'a village of primitive canyon dwellers' },
     "some nomad's camp": function (town, biome) { return "some nomad's camp" },
@@ -2152,12 +2152,12 @@ setup.misc = {
     'create': function (base) {
       var cavern = Object.assign({
         noun: 'cavern',
-        entrance: setup.misc.cavern.entrance.random(),
-        landmark: setup.misc.cavern.landmark.random(),
-        feature: setup.misc.cavern.feature.random(),
-        walls: setup.misc.cavern.walls.random(),
-        ceiling: setup.misc.cavern.ceiling.random(),
-        hazards: setup.misc.cavern.hazards.random()
+        entrance: setup.misc.cavern.entrance.seededrandom(),
+        landmark: setup.misc.cavern.landmark.seededrandom(),
+        feature: setup.misc.cavern.feature.seededrandom(),
+        walls: setup.misc.cavern.walls.seededrandom(),
+        ceiling: setup.misc.cavern.ceiling.seededrandom(),
+        hazards: setup.misc.cavern.hazards.seededrandom()
       }, base)
       cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling + '.'
       return cavern
@@ -2165,11 +2165,11 @@ setup.misc = {
   },
   'tree': {
     'create': function (town, biome, base) {
-      biome = biome || ['forest', 'desert', 'mountain', 'plains'].random()
+      biome = biome || ['forest', 'desert', 'mountain', 'plains'].seededrandom()
       var tree = Object.assign({
-        species: setup.misc.tree.biome[biome].species.random(),
-        size: setup.misc.tree.biome[biome].size.random(),
-        feature: setup.misc.tree.biome[biome].feature.random()
+        species: setup.misc.tree.biome[biome].species.seededrandom(),
+        size: setup.misc.tree.biome[biome].size.seededrandom(),
+        feature: setup.misc.tree.biome[biome].feature.seededrandom()
       }, base)
       tree.readout = 'The ' + tree.species + ' tree is ' + tree.size + ' ' + tree.feature
       tree.tippy = '<span class=tip title=' + JSON.stringify(tree.readout) + '><<run setup.tippy("span")>>'
@@ -2292,10 +2292,10 @@ setup.misc = {
   'cabin': {
     'create': function (town, base, biome) {
       var cabin = Object.assign({
-        material: ['wooden', 'wooden', 'wooden', 'stone'].random(),
+        material: ['wooden', 'wooden', 'wooden', 'stone'].seededrandom(),
         wordNoun: 'cabin',
-        feature: setup.misc.cabin.feature.random(),
-        insideFeature: setup.misc.cabin.insideFeature.random(),
+        feature: setup.misc.cabin.feature.seededrandom(),
+        insideFeature: setup.misc.cabin.insideFeature.seededrandom(),
         size: '',
         cleanliness: '',
         bedCleanliness: '',
@@ -2397,15 +2397,15 @@ setup.misc = {
   },
   'road': {
     'create': function (town, base) {
-      var type = ['trail', 'path', 'path', 'road', 'road', 'road'].random()
-      var encounterKey = setup.misc.road[type].encounters.random()
+      var type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
+      var encounterKey = setup.misc.road[type].encounters.seededrandom()
       console.log(encounterKey)
       var road = Object.assign({
-        type: setup.misc.road[type].type.random(),
-        traffic: setup.misc.road[type].traffic.random(),
+        type: setup.misc.road[type].type.seededrandom(),
+        traffic: setup.misc.road[type].traffic.seededrandom(),
         encounter: setup.misc.encounters[encounterKey](town)
       }, base)
-      return ['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.type + ', ' + road.traffic + [[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), '. ' + ['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()].random() + road.encounter
+      return ['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].seededrandom() + road.type + ', ' + road.traffic + [[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].seededrandom(), '. ' + ['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].seededrandom()].seededrandom() + road.encounter
     },
     'trail': {
       'type': ["hunter's trail", 'animal trail', 'dirt trail'],
@@ -2467,14 +2467,14 @@ setup.misc = {
       var encounter
       var encounterKey
       if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.desert.location.random()
+        encounterKey = setup.misc.desert.location.seededrandom()
         encounter = setup.misc.locations[encounterKey](town, biome)
       } else {
-        encounterKey = setup.misc.desert.encounters.random()
+        encounterKey = setup.misc.desert.encounters.seededrandom()
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return ['While', 'As', 'After a while, as'].random() + ' you ' + ['traverse', 'trudge along', 'travel across', 'walk across'].random() + ' the desert, you see ' + setup.misc.desert.landmark.random() + '. You notice ' + setup.misc.desert.feature.random() + '. Up ahead, you see ' + encounter
+      return ['While', 'As', 'After a while, as'].seededrandom() + ' you ' + ['traverse', 'trudge along', 'travel across', 'walk across'].seededrandom() + ' the desert, you see ' + setup.misc.desert.landmark.seededrandom() + '. You notice ' + setup.misc.desert.feature.seededrandom() + '. Up ahead, you see ' + encounter
     },
     'location': [
       'a cavern in a canyon wall',
@@ -2539,16 +2539,16 @@ setup.misc = {
       var encounter
       var encounterKey
       if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.mountain.location.random()
+        encounterKey = setup.misc.mountain.location.seededrandom()
         console.log(encounterKey)
         encounter = setup.misc.locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
-        encounterKey = setup.misc.mountain.encounters.random()
+        encounterKey = setup.misc.mountain.encounters.seededrandom()
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return ['While', 'As', 'After a while, as'].random() + ' you ' + ['traverse', 'trudge along', 'travel across', 'walk on'].random() + ' the mountain, you see ' + setup.misc.mountain.landmark.random() + '. You notice ' + setup.misc.mountain.feature.random() + '. Up ahead, you see ' + encounter
+      return ['While', 'As', 'After a while, as'].seededrandom() + ' you ' + ['traverse', 'trudge along', 'travel across', 'walk on'].seededrandom() + ' the mountain, you see ' + setup.misc.mountain.landmark.seededrandom() + '. You notice ' + setup.misc.mountain.feature.seededrandom() + '. Up ahead, you see ' + encounter
     },
     'landmark': [
       'a trickle of water flowing down a rock wall',
@@ -2624,7 +2624,7 @@ setup.misc = {
     'cabinLived': ['a fugitive from justice', 'a stubborn miner', 'a dwarvish prospector', 'a dwarvish war veteran', 'a gnomish wizard', 'a mystic sage'],
     'camped': ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'a pair of wandering elves', 'some refugees or fugitives', 'someone whose purposes are unclear'],
     'miners': ['greedy dwarves', 'ambitious humans', 'tricky goblins', 'industrious kobolds'],
-    'minersGoal': ['copper', 'gems', 'gold', 'iron', 'silver', ['adamantine', 'electrum', 'mithral', 'platinum'].random()],
+    'minersGoal': ['copper', 'gems', 'gold', 'iron', 'silver', ['adamantine', 'electrum', 'mithral', 'platinum'].seededrandom()],
     'mineLives': ['carrion crawler', 'cloaker', 'darkmantle', 'dwarves', 'fungi', 'kobolds', 'ghosts', 'mimics', 'myconids', 'ogres', 'ooze', 'orcs', 'otyugh', 'piercer', 'roper', 'rust monster', 'stirges', 'trolls', 'umber hulk', 'wraiths'],
     'monasteryBuilt': ['an order of elementalist monks', 'an order of mystics', 'an extremely secretive order of monks', 'an order of shadow monks', 'an order of warrior monks', 'an unknown order of monks'],
     'monasteryHonour': ['the sun god', 'the god of the heavens', 'the moon goddess', 'the storm god', 'the earth mother goddess', 'a long-forgotten god'],
@@ -2638,17 +2638,17 @@ setup.misc = {
       var encounter
       var encounterKey
       if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.forest.location.random()
+        encounterKey = setup.misc.forest.location.seededrandom()
         console.log(encounterKey)
         encounter = setup.misc.locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
-        encounterKey = setup.misc.forest.encounters.random()
+        encounterKey = setup.misc.forest.encounters.seededrandom()
         console.log(encounterKey)
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return ['While', 'As', 'After a while, as'].random() + ' you ' + ['traverse', 'trudge along in', 'travel through', 'walk through'].random() + ' the forest, you see ' + setup.misc.forest.landmark.random() + '. You notice ' + setup.misc.forest.feature.random() + '. Up ahead, you see ' + encounter
+      return ['While', 'As', 'After a while, as'].seededrandom() + ' you ' + ['traverse', 'trudge along in', 'travel through', 'walk through'].seededrandom() + ' the forest, you see ' + setup.misc.forest.landmark.seededrandom() + '. You notice ' + setup.misc.forest.feature.seededrandom() + '. Up ahead, you see ' + encounter
     },
     'location': [
       'a cavern behind a waterfall',

@@ -8,8 +8,8 @@ setup.joinFaction = function (faction) {
   joiningInitiation.push(setup.factionData.type[faction.type].joiningInitiation)
 
   Object.assign(faction, {
-    joiningRequirement: joiningRequirement.random(),
-    joiningInitiation: joiningInitiation.random()
+    joiningRequirement: joiningRequirement.seededrandom(),
+    joiningInitiation: joiningInitiation.seededrandom()
   })
 
   if (faction.joiningFeeRoll > 95) {
@@ -37,7 +37,7 @@ setup.joinFaction = function (faction) {
   } else if (faction.joiningFeeRoll > 10) {
     faction.joiningFee = 'five hundred gold pieces, plus a tremendous task'
   } else if (faction.joiningFeeRoll <= 5) {
-    faction.joiningFee = 'absolutely anything; they could demand two thousand gold, or ' + ['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail'].random()
+    faction.joiningFee = 'absolutely anything; they could demand two thousand gold, or ' + ['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail'].seededrandom()
   } else {
     faction.joiningFee = 'about a hundred gold pieces'
   }

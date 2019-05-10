@@ -22,16 +22,16 @@ setup.createNPC = function (town, base) {
   if (base.canBeCustom === true && random(1, 100) > 99) {
     base = setup.objectArrayFetcher(setup.misc.patreonCharacters, town)
   }
-  var gender = base.gender || ['man', 'woman'].random()
+  var gender = base.gender || ['man', 'woman'].seededrandom()
   var race = base.race || setup.fetchRace(town)
   console.log('Loading profession:')
   var profession = base.profession || setup.fetchProfessionChance(town, base)
 
-  var firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
-  var lastName = base.lastName || data.raceTraits[race].lastName.random().toUpperFirst()
+  var firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.seededrandom().toUpperFirst()
+  var lastName = base.lastName || data.raceTraits[race].lastName.seededrandom().toUpperFirst()
   console.groupCollapsed(firstName + ' ' + lastName)
-  var ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
-  var dndClass = base.dndClass || data.dndClass.random()
+  var ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].seededrandom()
+  var dndClass = base.dndClass || data.dndClass.seededrandom()
   if (base.dndClass) {
     base.hasClass = true
   }
@@ -54,9 +54,9 @@ setup.createNPC = function (town, base) {
     ageStage: ageStage,
     ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
     muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
-    // demeanour: data.demeanour.random(),
-    calmTrait: data.calmTrait.random(),
-    stressTrait: data.stressTrait.random(),
+    // demeanour: data.demeanour.seededrandom(),
+    calmTrait: data.calmTrait.seededrandom(),
+    stressTrait: data.stressTrait.seededrandom(),
     pronouns: {
 
     },
@@ -66,11 +66,11 @@ setup.createNPC = function (town, base) {
     roll: {
 
     },
-    // value: data.value.random(),
-    // drive: data.drive.random(),
-    // belief: data.belief.random(),
-    hairColour: data.hairColour.random(),
-    hairType: data.hairType.random(),
+    // value: data.value.seededrandom(),
+    // drive: data.drive.seededrandom(),
+    // belief: data.belief.seededrandom(),
+    hairColour: data.hairColour.seededrandom(),
+    hairType: data.hairType.seededrandom(),
     get hair () {
       return this.hairType + ' ' + this.hairColour + ' hair'
     },
@@ -80,7 +80,7 @@ setup.createNPC = function (town, base) {
       this.hairColour = hairs[1] || ''
     },
     get descriptor () {
-      return this.descriptors.random()
+      return this.descriptors.seededrandom()
     },
     set descriptorsAdd (description) {
       if (typeof description === 'string') {
@@ -94,13 +94,13 @@ setup.createNPC = function (town, base) {
         console.log('Expected a string operand and received ' + description)
       }
     },
-    eyes: data.raceTraits[race].eyes.random(),
-    skinColour: data.skinColour.random(),
+    eyes: data.raceTraits[race].eyes.seededrandom(),
+    skinColour: data.skinColour.seededrandom(),
     dndClass: dndClass,
     profession: profession,
-    pockets: data.pockets.random(),
+    pockets: data.pockets.seededrandom(),
     wealth: dice(2, 50),
-    trait: data.trait.random(),
+    trait: data.trait.seededrandom(),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
@@ -127,7 +127,7 @@ setup.createNPC = function (town, base) {
       }
     },
     knownLanguages: data.raceTraits[race].knownLanguages,
-    reading: data.reading.random()
+    reading: data.reading.seededrandom()
     // pubRumour: setup.createPubRumour()
   }, base)
 
@@ -145,18 +145,18 @@ setup.createNPC = function (town, base) {
       npc.hasClass = false
       npc.dndClass = npc.profession
     } else {
-      npc.adventure = data.adventure.random() || 'looking for work'
+      npc.adventure = data.adventure.seededrandom() || 'looking for work'
       npc.hasClass = true
     }
   } else if (!npc.hasClass) {
     npc.dndClass = npc.profession
   } else if (npc.hasClass) {
-    npc.adventure = data.adventure.random() || 'looking for work'
+    npc.adventure = data.adventure.seededrandom() || 'looking for work'
   }
 
   if (!npc.vocalPattern) {
     if (dice(2, 50) >= 75) {
-      npc.vocalPattern = data.vocalPattern.random()
+      npc.vocalPattern = data.vocalPattern.seededrandom()
     }
   }
   // setup.createName(npc)
@@ -168,9 +168,9 @@ setup.createNPC = function (town, base) {
 
   var physicalTraitRoll = random(1, 11)
   if (physicalTraitRoll > 8) {
-    npc.physicalTrait = npc.physicalTrait || data.scar.random()
+    npc.physicalTrait = npc.physicalTrait || data.scar.seededrandom()
   } else if (physicalTraitRoll > 6) {
-    npc.physicalTrait = npc.physicalTrait || data.tattoo.random()
+    npc.physicalTrait = npc.physicalTrait || data.tattoo.seededrandom()
   } else if (physicalTraitRoll <= 6) {
     npc.physicalTrait = npc.physicalTrait || npc.hair
   }

@@ -12,7 +12,7 @@ setup.createPubRumour = function () {
       'a crazy monk',
       'a drunken farmer',
       'the butcher',
-      'the tailor'].random()
+      'the tailor'].seededrandom()
   })
 
   switch (tempRumour.origin) {
@@ -31,7 +31,7 @@ setup.createPubRumour = function () {
           'was sleepwalking',
           'walked off into the forest',
           'stole a loaf of bread from the hermit'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a fat merchant':
@@ -50,7 +50,7 @@ setup.createPubRumour = function () {
           'found a magic item',
           'was sleepwalking',
           'walked off into the forest'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a priest':
@@ -70,7 +70,7 @@ setup.createPubRumour = function () {
           'found a magic item',
           'saw a ghost',
           'was sleepwalking',
-          'walked off into the forest'].random()
+          'walked off into the forest'].seededrandom()
       })
       break
     case 'a sailor':
@@ -93,7 +93,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'a soldier':
@@ -114,7 +114,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'a magician':
@@ -135,7 +135,7 @@ setup.createPubRumour = function () {
           'tried to cast a spell way above his abilities',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'a noble':
@@ -156,7 +156,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'a rogue':
@@ -179,7 +179,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'a crazy monk':
@@ -197,7 +197,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'a drunken farmer':
@@ -215,7 +215,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'the butcher':
@@ -236,7 +236,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
     case 'the tailor':
@@ -254,7 +254,7 @@ setup.createPubRumour = function () {
           'met a weird stranger',
           'found a magic item',
           'was sleepwalking',
-          'walked off into the forest' ].random()
+          'walked off into the forest' ].seededrandom()
       })
       break
   }
@@ -270,7 +270,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
     case 'got really drunk':
@@ -284,7 +284,7 @@ setup.createPubRumour = function () {
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
           'a door to another plane',
-          'a really good reason to not drink so much'].random()
+          'a really good reason to not drink so much'].seededrandom()
       })
       break
     case 'got washed out to sea':
@@ -298,7 +298,7 @@ setup.createPubRumour = function () {
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
           'a door to another plane',
-          'a type of goblin with fins'].random()
+          'a type of goblin with fins'].seededrandom()
       })
       break
     case 'got stuck on a runaway horse':
@@ -311,7 +311,7 @@ setup.createPubRumour = function () {
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
           'a door to another plane',
-          'saddles exist for a reason'].random()
+          'saddles exist for a reason'].seededrandom()
       })
       break
     case 'found an old well':
@@ -324,7 +324,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a bucket'].random()
+          'a bucket'].seededrandom()
       })
       break
     case 'disappeared for 3 days':
@@ -337,7 +337,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
     case 'found an old tomb':
@@ -351,7 +351,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
     case 'met a weird stranger':
@@ -363,7 +363,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
     case 'found a magic item':
@@ -373,7 +373,7 @@ setup.createPubRumour = function () {
           'a sleeping monster',
           'swords are sharp',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
     case 'tried to woo the barmaid, $barmaid.name':
@@ -387,7 +387,7 @@ setup.createPubRumour = function () {
           'a treasure map',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -402,7 +402,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -417,7 +417,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -432,7 +432,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -446,7 +446,7 @@ setup.createPubRumour = function () {
           'swords are sharp',
           'a book of secrets',
           'a key to a vast fortune',
-          'a supressed truth about the ruling kingdom' ].random()
+          'a supressed truth about the ruling kingdom' ].seededrandom()
       })
       break
 
@@ -462,7 +462,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -477,7 +477,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -493,7 +493,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
 
@@ -508,7 +508,7 @@ setup.createPubRumour = function () {
           'a book of secrets',
           'a key to a vast fortune',
           'a supressed truth about the ruling kingdom',
-          'a door to another plane' ].random()
+          'a door to another plane' ].seededrandom()
       })
       break
   }
@@ -526,7 +526,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'swords are sharp':
@@ -541,7 +541,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a new venereal disease':
@@ -557,7 +557,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a cursed item':
@@ -573,7 +573,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a sleeping monster':
@@ -587,7 +587,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a treasure map':
@@ -603,7 +603,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a villain thought dead, returned to life':
@@ -618,7 +618,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a book of secrets':
@@ -635,7 +635,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a key to a vast fortune':
@@ -651,7 +651,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a supressed truth about the ruling kingdom':
@@ -667,7 +667,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     case 'a door to another plane':
@@ -684,7 +684,7 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
     default:
@@ -699,12 +699,12 @@ setup.createPubRumour = function () {
           'people are having bad dreams every night!',
           'people are unable to sleep!',
           'people are afraid to come outside!'
-        ].random()
+        ].seededrandom()
       })
       break
   }
 
-  pubRumour = ['Did you hear?', 'Did you hear the news?', 'Did you hear about the news?', 'Did you hear?'].random() + ' ' + tempRumour.origin.toUpperFirst() + ' ' + tempRumour.complication + ' and discovered ' + tempRumour.discovery + ', and now ' + tempRumour.result
+  pubRumour = ['Did you hear?', 'Did you hear the news?', 'Did you hear about the news?', 'Did you hear?'].seededrandom() + ' ' + tempRumour.origin.toUpperFirst() + ' ' + tempRumour.complication + ' and discovered ' + tempRumour.discovery + ', and now ' + tempRumour.result
 
   return pubRumour
 }

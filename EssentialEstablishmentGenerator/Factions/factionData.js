@@ -28,7 +28,7 @@ setup.factionData = {
         title: 'High Assassin',
         'dndClass': 'rogue',
         'profession': 'thief',
-        'background': ['charlatan', 'soldier', 'criminal'].random()
+        'background': ['charlatan', 'soldier', 'criminal']
       },
       'wordNoun': 'company',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group'],
@@ -50,7 +50,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'fighter',
         'profession': 'soldier',
-        'background': ['soldier', 'charlatan', 'criminal'].random()
+        'background': ['soldier', 'charlatan', 'criminal']
       },
       'wordNoun': 'gang',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -156,7 +156,7 @@ setup.factionData = {
         title: 'Executive Officer',
         'hasClass': false,
         'profession': 'merchant',
-        'background': ['merchant', 'charlatan', 'noble'].random()
+        'background': ['merchant', 'charlatan', 'noble']
       },
       'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -176,9 +176,9 @@ setup.factionData = {
       'leaderTraits': {
         title: 'Commander',
         'hasClass': true,
-        'dndClass': ['fighter', 'fighter', 'fighter', 'barbarian', 'paladin', 'rogue'].random(),
+        'dndClass': ['fighter', 'fighter', 'fighter', 'barbarian', 'paladin', 'rogue'],
         'profession': 'Commander',
-        'background': ['soldier', 'soldier', 'noble'].random()
+        'background': ['soldier', 'soldier', 'noble']
       },
       'wordNoun': 'army',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -200,7 +200,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'monk',
         'profession': 'monk',
-        'background': ['acolyte', 'sage'].random()
+        'background': ['acolyte', 'sage']
       },
       'wordNoun': 'group',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -243,7 +243,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'cleric',
         'profession': 'priest',
-        'background': ['acolyte', 'sage'].random()
+        'background': ['acolyte', 'sage']
       },
       'wordNoun': 'college',
       'leaderQualification': ['the wealthiest of the group', 'the holiest of the group', 'the holiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -265,7 +265,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'ranger',
         'profession': 'trapper',
-        'background': ['outlander', 'hermit'].random()
+        'background': ['outlander', 'hermit']
       },
       'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -286,7 +286,7 @@ setup.factionData = {
         title: 'Chief Scholar',
         'hasClass': false,
         'profession': 'professor',
-        'background': ['sage', 'acolyte'].random()
+        'background': ['sage', 'acolyte']
       },
       'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -307,7 +307,7 @@ setup.factionData = {
         title: 'High Seer',
         'hasClass': false,
         'profession': 'seer',
-        'background': ['acolyte', 'sage'].random()
+        'background': ['acolyte', 'sage']
       },
       'wordNoun': 'guild',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -329,7 +329,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'rogue',
         'profession': 'thief',
-        'background': ['charlatan', 'criminal'].random()
+        'background': ['charlatan', 'criminal']
       },
       'wordNoun': 'guild',
       'leaderQualification': ['the most skilled of the group', 'able to rise to power by completing an ordeal', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
@@ -351,7 +351,7 @@ setup.factionData = {
         'hasClass': true,
         'dndClass': 'wizard',
         'profession': 'magic user',
-        'background': ['acolyte', 'sage'].random()
+        'background': ['acolyte', 'sage']
       },
       'wordNoun': 'college',
       'leaderQualification': ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],

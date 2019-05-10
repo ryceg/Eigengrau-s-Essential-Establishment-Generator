@@ -10,7 +10,7 @@ setup.alchemistMission = function (town) {
       return "I'm in need of a test subject for a new potion that I've been brewing; I'm not quite sure what the effects will be. Would you be interested in trying this?" + "<div class='descriptive'>" + '<h4>' + missionPotion.titleReadout + '</h4>' + missionPotion.descriptionReadout + '</div>' + '<blockquote>' + missionPotion.effectReadout + '</blockquote>'
     },
     'bandits': function (town) {
-      var npc = setup.createNPC(town, { dndClass: ['rogue', 'fighter'].random(), background: 'criminal' })
+      var npc = setup.createNPC(town, { dndClass: ['rogue', 'fighter'].seededrandom(), background: 'criminal' })
       var missionIngredient = setup.createAlchemy({ type: 'preserved herb' })
       return 'I had a shipment of ' + missionIngredient.herb + ", but it was attacked by bandits. They probably don't know what they got; they're hiding in the hills. Would you retrieve it for me?" + '<blockquote>The bandit captain responsible is <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>></blockquote>'
     },

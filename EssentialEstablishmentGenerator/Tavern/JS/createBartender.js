@@ -2,8 +2,8 @@ setup.createBartender = function (town, associatedBuilding) {
   var bartender = setup.createNPC(town, {
     // associatedBuilding: associatedBuilding,
     associatedTown: town.name,
-    owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].random(),
-    dndClass: ['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'].random(),
+    owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].seededrandom(),
+    dndClass: ['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'].seededrandom(),
     profession: 'bartender'
   })
   Object.assign(bartender, {
@@ -22,7 +22,7 @@ setup.createBartender = function (town, associatedBuilding) {
       'taking an order from a customer',
       'talking with a customer',
       'picking ' + bartender.hisher + ' nose',
-      'scratching ' + bartender.hisher + ['buttocks', 'bum', 'nose'].random(),
+      'scratching ' + bartender.hisher + ['buttocks', 'bum', 'nose'].seededrandom(),
       'playing a card game by ' + bartender.himherself,
       'checking the stock levels of the beer on tap',
       'shouting into the kitchen, annoyed',

@@ -9,32 +9,32 @@ setup.createTemple = function (town, opts) {
     passageName: 'TempleOutput',
     initPassage: 'TempleOutput',
     BuildingType: 'temple',
-    wordNoun: data.name.wordNoun.random(),
+    wordNoun: data.name.wordNoun.seededrandom(),
     priest: setup.createNPC(town, {
-      dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
-      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
+      dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].seededrandom(),
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].seededrandom(),
       profession: 'priest'
     }),
-    prayerSubject: ['god', 'godess'].random() + ' of ' + data.prayerSubject.random(),
-    dedicated: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random(),
-    knownFor: data.knownFor.random(),
-    guardedBy: data.guardedBy.random(),
-    floorPlan: data.floorPlan.random(),
-    complex: data.complex.random(),
-    walls: data.walls.random(),
-    interior: data.interior.random(),
-    ceiling: data.ceiling.random(),
-    rooms: data.rooms.random(),
-    features: data.features.random()
+    prayerSubject: ['god', 'godess'].seededrandom() + ' of ' + data.prayerSubject.seededrandom(),
+    dedicated: [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom(),
+    knownFor: data.knownFor.seededrandom(),
+    guardedBy: data.guardedBy.seededrandom(),
+    floorPlan: data.floorPlan.seededrandom(),
+    complex: data.complex.seededrandom(),
+    walls: data.walls.seededrandom(),
+    interior: data.interior.seededrandom(),
+    ceiling: data.ceiling.seededrandom(),
+    rooms: data.rooms.seededrandom(),
+    features: data.features.seededrandom()
   })
 
   temple.name = [
-    'The ' + data.name.adjective.random().toUpperFirst() + ' ' + data.name.plural.random().toUpperFirst(),
-    'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.soleNoun.random().toUpperFirst(),
-    'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.adjective.random().toUpperFirst() + ' ' + data.name.plural.random().toUpperFirst(),
+    'The ' + data.name.adjective.seededrandom().toUpperFirst() + ' ' + data.name.plural.seededrandom().toUpperFirst(),
+    'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.soleNoun.seededrandom().toUpperFirst(),
+    'The ' + temple.wordNoun.toUpperFirst() + ' of ' + data.name.adjective.seededrandom().toUpperFirst() + ' ' + data.name.plural.seededrandom().toUpperFirst(),
     setup.createName({race: temple.priest.race}) + "'s " + temple.wordNoun.toUpperFirst(),
-    setup.createName({race: temple.priest.race}) + "'s " + data.name.soleNoun.random().toUpperFirst()
-  ].random()
+    setup.createName({race: temple.priest.race}) + "'s " + data.name.soleNoun.seededrandom().toUpperFirst()
+  ].seededrandom()
 
   temple.wealth = ''
   temple.size = ''

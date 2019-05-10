@@ -21,9 +21,9 @@ setup.createBuilding = function (town, type, base) {
     'a cat lazily lounging in the shade',
     'a muddy pair of boots by the door',
     "a sign from the local paper which reads '$newspaperheadline'"
-  ].random()
-  var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
-  var building = {
+  ].seededrandom()
+  var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].seededrandom()
+  var building = Object.assign({
     // index: State.variables.buildings.length - 1,
     // index: Math.floor(randomFloat(1) * 0x10000),
     key: randomFloat(1).toString(16),
@@ -56,7 +56,7 @@ setup.createBuilding = function (town, type, base) {
       activity: random(1, 100)
     },
     // magicRoll: (Math.floor(randomFloat(1) * 80) + 20),
-    priceModifier: (Math.floor(randomFloat(1) * 10) - [0, 10].random())
+    priceModifier: (Math.floor(randomFloat(1) * 10) - [0, 10].seededrandom())
     // sizeRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // diversityRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // wealthRoll: random(1, 100),

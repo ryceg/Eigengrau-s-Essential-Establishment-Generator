@@ -102,11 +102,11 @@ setup.tavernSleep = function (tavern) {
         'You make your way down out of the ' + tavern.wordNoun + ' and see ' + bartender.name + ' has fallen asleep at a bowl of porridge. From the kitchen, you can smell something burning',
         "You make your way down, and as you're leaving " + tavern.name + ', you accidentally knock a cup over. From behind the bar, you hear ' + setup.profile(bartender, bartender.firstName) + ' yell out obscenities at you for disturbing ' + bartender.hisher + ' slumber.',
         'You start to make your way out of ' + tavern.name + ', careful not to disturb the patrons that have fallen asleep at their tables.',
-        'You smell something burning, and make your way down to check; when you get down to the kitchen of ' + tavern.name + ', you find ' + setup.profile(bartender, bartender.firstName) + ' sitting, chewing angrily over a bowl of burnt porridge.'].random()
+        'You smell something burning, and make your way down to check; when you get down to the kitchen of ' + tavern.name + ', you find ' + setup.profile(bartender, bartender.firstName) + ' sitting, chewing angrily over a bowl of burnt porridge.'].seededrandom()
     } else {
       tavern.sleepOutput += [
         'You start to make your way out of the ' + tavern.cleanliness + ' ' + tavern.wordNoun + ', and smell something burning, and make your way down to check; when you get down to the kitchen of ' + tavern.name + ', you find ' + setup.profile(bartender, bartender.firstName) + ' sitting, chewing angrily over a bowl of burnt porridge.',
-        "You can't help but shake the feeling that there's a smell clinging to your clothes after staying the night at " + tavern.name + '.'].random()
+        "You can't help but shake the feeling that there's a smell clinging to your clothes after staying the night at " + tavern.name + '.'].seededrandom()
     }
   }
   setup.tavernWakeUp(tavern)

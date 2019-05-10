@@ -84,7 +84,7 @@ setup.createNightmare = function (base) {
 
   var figureKey = Object.keys(figure)
   var nightmare = Object.assign({
-    location: location.random(),
+    location: location.seededrandom(),
     figure: figure[figureKey[random(0, figureKey.length)]]
   }, base)
 
@@ -99,7 +99,7 @@ setup.createNightmare = function (base) {
       'has mismatching limbs. It looks to be sewn together using mismatching pieces',
       'has the lower body of an arachnid',
       'has fingernails that continue to grow. They look sharp',
-      'is starting to crumble away as if made of ash' ].random(),
+      'is starting to crumble away as if made of ash' ].seededrandom(),
     action: [
       'sprints at you',
       'begins walking slowly toward you',
@@ -110,7 +110,7 @@ setup.createNightmare = function (base) {
       'grows double ' + nightmare.figure.gender + ' size and begins chasing you',
       'grows horrible, black, leathery wings and begins flying towards you',
       'begins systematically breaking ' + nightmare.figure.gender + ' fingers while staring you in the eye',
-      'starts ripping the flesh from ' + nightmare.figure.gender + ' face'].random(),
+      'starts ripping the flesh from ' + nightmare.figure.gender + ' face'].seededrandom(),
     wake: [
       'inches from your face is the ' + nightmare.figure.type,
       'in the darkness you can see the outline of the ' + nightmare.figure.type,
@@ -120,7 +120,7 @@ setup.createNightmare = function (base) {
       'standing over you is the ' + nightmare.figure.type,
       'as you are about to go to sleep you blink and the ' + nightmare.figure.type + ' is in front of you',
       'the ' + nightmare.figure.type + ' is walking toward you slowly. You cannot move',
-      'the ' + nightmare.figure.type + ' is dragging away a party member. It looks up and makes eye contact with you'].random()
+      'the ' + nightmare.figure.type + ' is dragging away a party member. It looks up and makes eye contact with you'].seededrandom()
   })
 
   nightmare.readout = 'You find yourself in ' + nightmare.location + '. You see ' + nightmare.figure.prefix + ' ' + nightmare.figure.type + ' which ' + nightmare.descriptor + '. The ' + nightmare.figure.type + ' ' + nightmare.action + '. You wake up in a cold sweat. ' + nightmare.wake.toUpperFirst()

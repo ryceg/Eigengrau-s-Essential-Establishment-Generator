@@ -5,17 +5,17 @@ setup.plothooks = {
     type: ['event'],
     function: function () {
       return [
-        'Nothing much ' + ['happens', 'seems to be going on', 'is happening'].random(),
-        'Nothing of note ' + ['happens', 'seems to be going on', 'is happening'].random(),
+        'Nothing much ' + ['happens', 'seems to be going on', 'is happening'].seededrandom(),
+        'Nothing of note ' + ['happens', 'seems to be going on', 'is happening'].seededrandom(),
         'No items of interest occurs',
         'Nothing happens',
         'Nothing really happens'
-      ].random() + '. <blockquote>' + [
+      ].seededrandom() + '. <blockquote>' + [
         'Perhaps now is a good time to ask a player a question, such as ',
         'Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as ',
         'This is a great opportunity to get players to roleplay. Ask them questions like ',
         'This would be a good chance to build on player backstory. Ask them questions such as '
-      ].random() + "'" + setup.misc.roleplayQuestions.create() + "'" +
+      ].seededrandom() + "'" + setup.misc.roleplayQuestions.create() + "'" +
       '<<button "Create another question!">><<set _question to setup.misc.roleplayQuestions.create()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>'
     }
   },
@@ -26,7 +26,7 @@ setup.plothooks = {
     },
     function: function (town) {
       var npc = setup.createNPC(town, {
-        dndClass: ['sorcerer', 'wizard', 'warlock'].random(),
+        dndClass: ['sorcerer', 'wizard', 'warlock'].seededrandom(),
         gender: 'man'
       })
       return "<<guard $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the " + setup.profile(npc, 'real culprit') + ' before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?'
@@ -528,7 +528,7 @@ setup.plothooks = {
       var npc = setup.createNPC(town, {
         profession: 'merchant',
         hasClass: false,
-        background: ['noble', 'commoner'].random()
+        background: ['noble', 'commoner'].seededrandom()
       })
       return '' + setup.profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + setup.createTownName() + '.'
     }
@@ -597,7 +597,7 @@ setup.plothooks = {
         hasClass: false,
         background: 'noble',
         gender: 'woman',
-        ageStage: ['child', 'young adult'].random()
+        ageStage: ['child', 'young adult'].seededrandom()
       })
       return 'Bandit Kidnappers! Our ' + setup.profile(npc, 'beloved daughter') + ' has been captured by Bandits! They have not made any demands, but we want her back. They were last seen Northwest of the old tower — a reward for our daughter (alive), plus a bonus for the head of each bandit.'
     }
@@ -608,7 +608,7 @@ setup.plothooks = {
       var npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'fighter',
-        ageStage: ['child', 'young adult'].random(),
+        ageStage: ['child', 'young adult'].seededrandom(),
         gender: 'man'
       })
       return 'Family Bandits! My ' + setup.profile(npc, 'son') + ' and his two friends have left the village to become bandits. Find them and teach them the error of their ways. Reward if they return — must be alive.'
@@ -996,7 +996,7 @@ setup.plothooks = {
     function: function (town) {
       var npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: ['warlock', 'wizard'].random()
+        dndClass: ['warlock', 'wizard'].seededrandom()
       })
       return 'Need basilisk eggs for experiment! Big reward! Please contact ' + setup.profile(npc) + ' for details.'
     }
@@ -1006,7 +1006,7 @@ setup.plothooks = {
     function: function (town) {
       var npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: ['warlock', 'wizard'].random()
+        dndClass: ['warlock', 'wizard'].seededrandom()
       })
       return 'Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. <<money 5000>> & four (4) Stones of Farspeech upon return. Please contact ' + setup.profile(npc) + ' for details.'
     }
@@ -1157,7 +1157,7 @@ setup.plothooks = {
         hasClass: true,
         ageStage: 'elderly',
         gender: 'woman',
-        dndClass: ['sorcerer', 'warlock', 'warlock'].random(),
+        dndClass: ['sorcerer', 'warlock', 'warlock'].seededrandom(),
         note: 'Is not a very nice witch.'
       })
       return 'HELP WANTED: ' + setup.profile(npc, 'poor old widow') + ' requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)'

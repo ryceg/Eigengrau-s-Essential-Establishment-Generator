@@ -194,7 +194,7 @@ setup.GeneralStore = {
         shopkeep.firstName + ' dresses much better than expected',
         shopkeep.firstName + ' looks like a beggar',
         'Constables of the local guard, $town.guard.name are interviewing everyone in the shop']
-      return note.random()
+      return note.seededrandom()
     },
     'priceTalk': function (GeneralStore) {
       var priceTalk = [

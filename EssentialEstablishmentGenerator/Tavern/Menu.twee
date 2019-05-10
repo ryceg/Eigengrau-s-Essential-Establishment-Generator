@@ -6,7 +6,7 @@
 	<<print setup.closestMatch(setup.tavern.get.menu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.roll.wealth, $tavern.roll.roughness)>>
 
 <<if $tavern.roll.wealth gte 50 && ndef $tavern.specialBrew>>
-<<set $tavern.specialBrew to setup.tavern.specialBrew.random()>>
+<<set $tavern.specialBrew to setup.tavern.specialBrew.seededrandom()>>
 	<div class='descriptive'>
 	<h3>$tavern.specialBrew.name</h3>
 	The special brew of the week is a $tavern.specialBrew.type called $tavern.specialBrew.name, selling for <<money $tavern.specialBrew.cost>>. $tavern.specialBrew.description

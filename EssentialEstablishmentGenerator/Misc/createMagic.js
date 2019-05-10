@@ -1,6 +1,6 @@
 /* global setup random */
 setup.createMagic = function (type) {
-  // var type = type || ['ring', 'trinket', 'weapon', 'armour'].random()
+  // var type = type || ['ring', 'trinket', 'weapon', 'armour'].seededrandom()
   console.log("type: " + type)
   var magic
   if (type === 'ring') {
@@ -14,7 +14,7 @@ setup.createMagic = function (type) {
   var prefixRoll = random(1, length)
   var suffixRoll = random(1, length)
   magic = {
-    type: setup.magicData[type].type.random(),
+    type: setup.magicData[type].type.seededrandom(),
     prefix: setup.magicData[type].prefix[prefixRoll],
     suffix: setup.magicData[type].suffix[suffixRoll],
     prefixProperty: setup.magicData[type].property[prefixRoll],

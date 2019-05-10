@@ -1,10 +1,10 @@
 /* global setup */
 setup.createSmithyName = function (town, smithy) {
   var smithyNameRoll = random(1, 5)
-  var adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].random()
-  var noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].random()
-  var family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'fool'].random()
-  var rider = ['Shop', 'Blacksmith', 'Fabricator', 'Smith', 'Smithy', 'Farrier', 'Metalsmith', 'Swordsmith'].random()
+  var adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].seededrandom()
+  var noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].seededrandom()
+  var family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'fool'].seededrandom()
+  var rider = ['Shop', 'Blacksmith', 'Fabricator', 'Smith', 'Smithy', 'Farrier', 'Metalsmith', 'Swordsmith'].seededrandom()
 
   var fam = {
     'son': {
@@ -15,7 +15,7 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'young adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'daughter': {
       relationships: {
@@ -25,7 +25,7 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'young adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'brother': {
       relationships: {
@@ -35,7 +35,7 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'sister': {
       relationships: {
@@ -45,7 +45,7 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'uncle': {
       relationships: {
@@ -55,7 +55,7 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'aunt': {
       relationships: {
@@ -65,7 +65,7 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'father': {
       relationships: {
@@ -75,14 +75,14 @@ setup.createSmithyName = function (town, smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'friend': {
       relationships: {
         [smithy.blacksmith.key]: 'friend'
       },
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'family': {
       relationships: {
@@ -91,14 +91,14 @@ setup.createSmithyName = function (town, smithy) {
       lastName: smithy.blacksmith.lastName,
       race: smithy.blacksmith.race,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
     'fool': {
       relationships: {
         [smithy.blacksmith.key]: 'employer'
       },
       gender: 'man',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     }
   }
 

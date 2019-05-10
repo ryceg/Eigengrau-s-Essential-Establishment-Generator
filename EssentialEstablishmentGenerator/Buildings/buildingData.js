@@ -60,6 +60,39 @@ setup.building = {
         wordNoun: 'plaster',
         wordAdjective: 'plaster'
       }
+    },
+    'stone': {
+      probability: 1,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'stone',
+        wordAdjective: 'stone'
+      }
+    }
+  },
+  roof: {
+    material: {
+      'thatch': {
+        words: {
+          noun: 'thatch',
+          verb: 'thatched'
+        }
+      },
+      'tile': {
+        words: {
+          noun: 'tile',
+          verb: 'tiled'
+        },
+        prefix: [
+          ''
+        ]
+      },
+      'shingle': {
+        words: {
+          noun: 'shingle',
+          verb: 'shingled'
+        }
+      },
     }
   }
 }

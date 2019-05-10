@@ -34,44 +34,44 @@ setup.createAlchemy = function (base) {
   var potionEffect = ['instantly regenerates some health when drank', 'gives temporary health when drank', 'slowly regenerates health over a period of some hours', 'gives a bonus to attack rolls after drinking', 'gives immunity to fear and some temporary inspiration', 'gives the user much more strength', 'gives resistance to fire damage', 'gives resistance to cold damage', 'gives resistance to necrotic damage', 'gives resistance to radiant damage', 'gives resistance to martial damage', 'gives resistance to acid', 'gives resistance to lightning damage', 'makes the drinker irresistible to nearby people', 'gives the user a magical shield of energy', 'gives the user fire breath for a short time', 'makes the user double in size', 'makes the user half in size', 'lets the user understand all languages', 'makes the user very fertile, almost certain to make a baby under its effects', 'gives the user a huge booming voice that terrifies those around', 'gives the user a temporary boost to luck', 'gives the user more magical power to cast with', 'gives the user more powerful spells', 'makes the user turn into a random animal', 'makes the user get lost in a hallucinary dream world of their perfect dream', 'makes the user get lost in a hallucinary dream world of their worst nightmares', 'gives the user more stamina and constitution', 'makes the user have more speed', 'increases the users intelligence temporarily', 'increases the users dexterity temporarily', 'changes the users form to a disguised form of any race and appeance', 'removes all hunger and thirst from the target', 'makes the user grow some years younger', 'makes the user grow some years older', 'makes the user radiate with a damaging aura', 'gives the user strong vision and a bonus to perception', 'cures all diseases and illnesses', 'freezes the user in stasis that makes them immune to damage but they cannot move or act', 'gives the user the cure to a single riddle', 'makes the user look more ugly for a time', 'makes the user appear more attractive for a time', 'makes the user more effective and versatile with a blade', 'makes the user more effective with a bow or ranged weapon', 'gives water breathing', 'makes the user turn things to gold', 'makes the user rage with great strength', 'makes the user have bonuses against a particular type of enemy', 'lets the user divinate the future', 'heals a portion of all damage the user deals', 'lets the user become one with animals and nature around them', 'makes the user very hard to follow', 'makes the user have a better acrobatics skill', 'gives the user a bonus to climbing', 'makes the user appear completely dead to all magic', 'gives the user worst luck', 'lets the user gain control of a nearby creature, their body comatosed while they do', 'makes the user need no sleep for a time', 'lets the user fly', 'makes the user very calm and unable to harm others', 'heals a single scar or bad injury on the user such as a missing arm', 'makes the user tell the truth', 'makes the user only able to lie', 'makes the user unable to get lost and find where they need', 'turns the users hands become sharp weaponised blades', 'makes the enemies take damage as they deal it to the user', 'makes the user invisible', 'taps into wild magic making an absolutely random thing happen', 'makes the user more famous', 'makes the user immune to the toils of long travels and bad weather', 'increases the users constitution', 'lets the user know the exact time and date', 'lets the user have the ability to change somethings properties', 'turns the users skin to metal giving them many resistances', 'changes the users gender', 'changes the users race', 'makes the user say everything in song, and fey music follows them in the air', 'makes the user know very intimately about one exact thing', 'turns the user into two or three tiny versions of themselves and controls them all', 'makes anything and everything taste amazing!', 'makes the user and its gear instantly clean and as good looking as possible', 'makes the user and someone else fall in love', 'poisons the user, weakening them', 'resurrects the user if they die soon after drinking', 'turns the user to an elemental form relevant to their personality', 'turns the user into a familiar like creature similar to their personality', 'gives the user a holy connection to their god or fiendish deity', 'does what it says on the tin', 'makes the user intangible and able to phase through objects', 'gives the user skill in a particular art temporarily', 'improves all stats', 'makes the users weapons do more damage', 'makes the user feel amazing and trip out', 'creates a spectral bodyguard for a short time who obeys orders', 'lets the user speak any language but not understand it', 'stops whatever its poured on from rotting or degrading', 'makes the user terrified', 'gives the ability to see in the dark', 'lets the user track an enemy', 'cures any status effects']
 
   var output = Object.assign({
-    type: type.random()
+    type: type.seededrandom()
   }, base)
   switch (output.type) {
     case 'alchemical ingredient':
       Object.assign(output, {
-        preservationMethod: preservationMethod.random(),
-        smallThing: smallThing.random()
+        preservationMethod: preservationMethod.seededrandom(),
+        smallThing: smallThing.seededrandom()
       })
       break
     case 'body part':
       Object.assign(output, {
-        preservationMethod: preservationMethod.random(),
-        bodyPart: bodyPart.random(),
-        bodyPartOrigin: bodyPartOrigin.random()
+        preservationMethod: preservationMethod.seededrandom(),
+        bodyPart: bodyPart.seededrandom(),
+        bodyPartOrigin: bodyPartOrigin.seededrandom()
       })
       break
     case 'substance':
       Object.assign(output, {
-        substanceForm: substanceForm.random(),
-        substanceType: substanceType.random()
+        substanceForm: substanceForm.seededrandom(),
+        substanceType: substanceType.seededrandom()
       })
       break
     case 'preserved herb':
       Object.assign(output, {
-        herbPreservation: herbPreservation.random(),
-        herb: herb.random(),
-        readout: herbPreservation.random() + ' ' + herb.random()
+        herbPreservation: herbPreservation.seededrandom(),
+        herb: herb.seededrandom(),
+        readout: herbPreservation.seededrandom() + ' ' + herb.seededrandom()
       })
       break
     case 'brewing potion':
       var temp = {
-        vesselDescriptor: vesselDescriptor.random(),
-        vesselMaterial: vesselMaterial.random(),
-        vesselType: vesselType.random(),
-        liquidTexture: liquidTexture.random(),
-        liquidColour: liquidColour.random(),
-        liquidSecondary: liquidSecondary.random(),
-        potionPurpose: potionPurpose.random()
+        vesselDescriptor: vesselDescriptor.seededrandom(),
+        vesselMaterial: vesselMaterial.seededrandom(),
+        vesselType: vesselType.seededrandom(),
+        liquidTexture: liquidTexture.seededrandom(),
+        liquidColour: liquidColour.seededrandom(),
+        liquidSecondary: liquidSecondary.seededrandom(),
+        potionPurpose: potionPurpose.seededrandom()
       }
       temp.containerDescription = temp.vesselDescriptor + ' ' + temp.vesselMaterial + ' ' + temp.vesselType
       temp.liquidDescription = temp.liquidTexture + ' ' + temp.liquidColour + ' liquid with ' + temp.liquidSecondary
@@ -79,16 +79,16 @@ setup.createAlchemy = function (base) {
       break
     case 'potion':
       var temp = {
-        potionContainer: potionContainer.random(),
-        potionLabel: potionLabel.random(),
-        potionStrength: potionStrength.random(),
-        potionSideEffect: potionSideEffect.random(),
-        smell: smell.random(),
-        taste: smell.random(),
-        liquidTitle: liquidTitle.random(),
-        liquidColour: liquidColour.random(),
-        liquidSecondary: liquidSecondary.random(),
-        liquidTexture: liquidTexture.random(),
+        potionContainer: potionContainer.seededrandom(),
+        potionLabel: potionLabel.seededrandom(),
+        potionStrength: potionStrength.seededrandom(),
+        potionSideEffect: potionSideEffect.seededrandom(),
+        smell: smell.seededrandom(),
+        taste: smell.seededrandom(),
+        liquidTitle: liquidTitle.seededrandom(),
+        liquidColour: liquidColour.seededrandom(),
+        liquidSecondary: liquidSecondary.seededrandom(),
+        liquidTexture: liquidTexture.seededrandom(),
         potionTitleRoll: potionTitleRoll,
         potionTitle: potionTitle[potionTitleRoll],
         potionEffect: potionEffect[potionTitleRoll]

@@ -77,7 +77,7 @@ setup.renderWeather = function (town, biome, weather) {
     setup.weather.precipitationIntensity[weather.precipitationIntensity].cloud(weather)
   }
 
-  weather.readout.precipitation = setup.weather.precipitationDescriptors[weather.precipitation].random()
+  weather.readout.precipitation = setup.weather.precipitationDescriptors[weather.precipitation].seededrandom()
   if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 18) {
     weather.readout.precipitation += ". It doesn't look like it'll be clearing up today"
   } else if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 12) {
@@ -85,7 +85,7 @@ setup.renderWeather = function (town, biome, weather) {
   } else if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation <= 2) {
     weather.readout.precipitation += ". It's clearing up pretty quickly, though"
   }
-  weather.readout.cloud = setup.weather.cloudIntensityDescriptors[weather.cloudIntensity].random()
+  weather.readout.cloud = setup.weather.cloudIntensityDescriptors[weather.cloudIntensity].seededrandom()
 
   console.log('Rendering temperature...')
   for (var array of setup.weather.temperatureDescriptors) {

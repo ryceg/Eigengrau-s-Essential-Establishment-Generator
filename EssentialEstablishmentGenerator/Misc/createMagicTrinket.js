@@ -134,7 +134,7 @@ setup.createMagicTrinket = function () {
   var prefixTrinketRoll = random(1, propertyTrinket.length)
   var suffixTrinketRoll = random(1, propertyTrinket.length)
   Object.assign(trinket, {
-    type: trinket.random(),
+    type: trinket.seededrandom(),
     prefixTrinket: prefixTrinket[prefixTrinketRoll],
     suffixTrinket: suffixTrinket[suffixTrinketRoll],
     prefixProperty: propertyTrinket[prefixTrinketRoll],

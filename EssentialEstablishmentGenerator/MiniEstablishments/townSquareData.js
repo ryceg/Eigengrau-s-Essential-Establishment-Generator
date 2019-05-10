@@ -23,7 +23,7 @@ setup.townSquare = {
   feature: [
     // the town square features _______
     ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' statue of ' + ['an old ruler',
-    'an ancient hero', 'the current ruler', 'the town founder', 'an ancient wizard', 'a fearsome dragon', 'a noble ship', 'the ruler of all the lands', 'a revered bard', 'a group of citizens', "the town's patron family"].random() + ' in the centre.',
+      'an ancient hero', 'the current ruler', 'the town founder', 'an ancient wizard', 'a fearsome dragon', 'a noble ship', 'the ruler of all the lands', 'a revered bard', 'a group of citizens', "the town's patron family"].random() + ' in the centre.',
 
     ['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random() + ' obelisk jutting out from the centre.',
 
@@ -60,7 +60,7 @@ setup.townSquare = {
     'a wall almost entirely made out of posters; nobody ever took them down to start with, and now it seems that the years of posters are the only thing keeping the wall upright.',
 
     'streets made of ' + ['dirt and gravel.', 'course gravel.', 'packed down dirt and mud.', 'rough cut stone.', 'smooth, hand carved stone.', 'rough hewn bricks.', 'artisan quality bricks, laid in a detailed pattern.',
-    'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random(),
+      'golden bricks that shine in the sun.', 'smooth stone encrusted with jewels.', 'jewel encrusted bricks.', 'well maintained cobblestone.', 'well worn cobblestones.', 'hard packed dirt.'].random(),
 
     'a large donation box with "For the Greater Good" engraved into a plaque on the front.',
 
@@ -69,71 +69,69 @@ setup.townSquare = {
 
     'a large plaque in the center of the square dedicated to ' + ['the people of the town.', 'an old ruler.', 'the current ruler.', 'an old hero who was born here.', 'the founder of the town.',
 
-     "the town's patron.", "the town's general wealth.", 'the major god of the town.', 'the hero of the town.', 'the first king.', 'the first queen.'].random(),
+      "the town's patron.", "the town's general wealth.", 'the major god of the town.', 'the hero of the town.', 'the first king.', 'the first queen.'].random(),
 
-     'a small park nestled in the center.',
+    'a small park nestled in the center.',
 
-     'a large park at the back of the square.',
+    'a large park at the back of the square.',
 
-     'a small marketplace with a couple of people selling out of carts.',
+    'a small marketplace with a couple of people selling out of carts.',
 
-     'a rather bustling marketplace with several large stalls and many smaller vendors selling out of carts and off mats.',
+    'a rather bustling marketplace with several large stalls and many smaller vendors selling out of carts and off mats.',
 
-     'colorful awnings hanging from every building in the square.',
+    'colorful awnings hanging from every building in the square.',
 
-     'small '+ ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
-     'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
-     'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
+    'small ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple', 'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver',
+      'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
+      'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
 
     'small boxes of ' + setup.flora.flowers.stems.random() + ' and ' + setup.flora.flowers.stems.random() + ' lining the streets.',
 
     'large boxes of ' + setup.flora.flowers.stems.random() + ', ' + setup.flora.flowers.stems.random() + ', ' +
-    setup.flora.flowers.stems.random() + ', and ' + setup.flora.flowers.stems.random() +' lining the streets.',
+    setup.flora.flowers.stems.random() + ', and ' + setup.flora.flowers.stems.random() + ' lining the streets.',
 
     'a large unlit stake surrounded by kindling.',
 
     'a small animal pen full of ' + ['chickens.', 'pigs.', 'goats.', 'sheep.', 'turkeys.', 'dogs.', 'hares.'].random(),
 
     "a protected plinth with the town's most important relic which is " + ['a warhammer.', 'a smithing hammer.', 'a large rusted anvil.', 'a silver medallion.', 'an ancient magical scroll.', 'the sarcophagus of their founder.',
-    'the weapon of their most famous hero.', 'a particularly nice vase.', 'the riding saddle of a noble who once visited.', 'some sort of potion.', 'a large engraved chest.', 'a very lovely landscape painting.',
-    'a shimmering gold crown.', 'a finely crafted wagon wheel.', 'a creepy looking mask.', 'a rock in the shape of the face of an old ruler.', 'a quite high quality feathered cap.', 'a black raven quill.', 'a fossilized egg.'].random() +
+      'the weapon of their most famous hero.', 'a particularly nice vase.', 'the riding saddle of a noble who once visited.', 'some sort of potion.', 'a large engraved chest.', 'a very lovely landscape painting.',
+      'a shimmering gold crown.', 'a finely crafted wagon wheel.', 'a creepy looking mask.', 'a rock in the shape of the face of an old ruler.', 'a quite high quality feathered cap.', 'a black raven quill.', 'a fossilized egg.'].random() +
     ' There are several guards next to or near the plinth.'
-
-
   ],
   crowd: {
-    'shoeShine':{
-    function: function (town) {
-    var npc = setup.createNPC(town, {
-      ageStage: 'child',
-      hasClass: false
-    })
-    return 'a ' + setup.profile(npc, 'child') + ' shining shoes with small rag from a battered box.'
-    }
-  },
-  'haggling': {
+    'shoeShine': {
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          ageStage: 'child',
+          hasClass: false
+        })
+        return 'a ' + setup.profile(npc, 'child') + ' shining shoes with small rag from a battered box.'
+      }
+    },
+    'haggling': {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor for ' + ['a pile of fish.', 'a piece of pottery.', 'a fine piece of art.', 'a cheap looking statue.',
-      'a tattered looking map.', 'a dyed roll of cloth.', 'a pair of fleece leggings.', 'a checker patterned tunic.', 'a dusty old tome.', 'a pair of scrolls.', 'a fresh loaf of bread.',
-    'a shiny green apple.', 'a large cheese wheel.', 'a caged owl.', 'a large tanned hide.', 'a small crate of torches.', 'a crude looking dagger.', 'a fine looking sword.'].random()
+          'a tattered looking map.', 'a dyed roll of cloth.', 'a pair of fleece leggings.', 'a checker patterned tunic.', 'a dusty old tome.', 'a pair of scrolls.', 'a fresh loaf of bread.',
+          'a shiny green apple.', 'a large cheese wheel.', 'a caged owl.', 'a large tanned hide.', 'a small crate of torches.', 'a crude looking dagger.', 'a fine looking sword.'].random()
       }
     },
-    'colorfulRobes':{
-    function: function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: true,
-        dndClass: 'wizard'
-      })
-      return 'a ' + setup.profile(npc, npc.descriptor) + ' wearing strange ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple',
-       'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver', 'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue',
-     'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe'].random() + ' coloured robes.'
-    }
-  },
+    'colorfulRobes': {
+      function: function (town) {
+        var npc = setup.createNPC(town, {
+          hasClass: true,
+          dndClass: 'wizard'
+        })
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' wearing strange ' + ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple',
+          'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver', 'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue',
+          'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe'].random() + ' coloured robes.'
+      }
+    },
     'animal': {
       function: function (town) {
         return 'a large cage with ' + ['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
-         'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() + ' inside of it.'
+          'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() + ' inside of it.'
       }
     },
     'drunkard': {
@@ -158,7 +156,7 @@ setup.townSquare = {
     'gawk': {
       function: function (town) {
         var npc = setup.createNPC(town)
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby '+ ['beautiful woman.', 'handsome man.', 'rugged dwarf.', 'ethereal elf.'].random()
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby ' + ['beautiful woman.', 'handsome man.', 'rugged dwarf.', 'ethereal elf.'].random()
       }
     },
     'parcel': {
@@ -229,7 +227,7 @@ setup.townSquare = {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + [' toss a coin to a beggar.', ' give part of a loaf of bread to a small child.', ' feed some scraps to a mutt.',
-         " drop some coins in a street performer's cup.", ' help an old woman cross the square.'].random()
+          " drop some coins in a street performer's cup.", ' help an old woman cross the square.'].random()
       }
     },
     'guardBait': {
@@ -242,8 +240,8 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           background: 'criminal'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is '+ ['being chased by guards.', 'being beaten by guards.', 'being pushed into a cell by guards.', 'having their hands tied up by guards.',
-      'being surrounded by several guards.', 'being told off by a guard.'].random()
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['being chased by guards.', 'being beaten by guards.', 'being pushed into a cell by guards.', 'having their hands tied up by guards.',
+          'being surrounded by several guards.', 'being told off by a guard.'].random()
       }
     },
     'ridingMule': {
@@ -262,14 +260,14 @@ setup.townSquare = {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + [' riding a camel.', ' riding an ox.', ' riding a cow.', ' riding a zebra.', ' riding an ostrich.', ' riding a reindeer.', ' riding a yak.',
-      ' riding a giant tortoise.', ' riding a llama.', ' riding a water buffalo.', ' riding a large boar.', ' riding a hippo.', ' riding a lion.', ' riding an elephant.'].random()
+          ' riding a giant tortoise.', ' riding a llama.', ' riding a water buffalo.', ' riding a large boar.', ' riding a hippo.', ' riding a lion.', ' riding an elephant.'].random()
       }
     },
     'chasingSomething': {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is chasing a ' + ['child.', 'cat.', 'dog.', 'group of kids.', 'man holding a small bag.', 'woman holding a small chest.', 'horse.',
-         'runaway cart.', 'chicken.', 'pig.', 'barrel rolling ahead of them.', 'piece of parchment blowing in the breeze.'].random()
+          'runaway cart.', 'chicken.', 'pig.', 'barrel rolling ahead of them.', 'piece of parchment blowing in the breeze.'].random()
       }
     },
     'Jewelry': {
@@ -278,7 +276,7 @@ setup.townSquare = {
           background: 'noble',
           note: 'Has some jewelry.'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some ' ['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.',
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some '['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.',
       'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()
       }
     },
@@ -288,14 +286,14 @@ setup.townSquare = {
           background: 'commoner'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['pulling a cart.', 'pushing a cart stuck in a rut.', 'fixing a cart off to the side.', 'riding in a cart pulled by an ox.',
-      'riding in a cart pulled by a horse.', 'riding in a large cart pulled by horses.', 'riding in a cart pulled by slaves.', 'loading a cart full of goods from the market.', 'unloading goods from a cart.'].random()
+          'riding in a cart pulled by a horse.', 'riding in a large cart pulled by horses.', 'riding in a cart pulled by slaves.', 'loading a cart full of goods from the market.', 'unloading goods from a cart.'].random()
       }
     },
     'npcMovement': {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['wandering aimlessly.', 'strutting with haste.', 'meandering through the crowds.', 'running through the square.', 'wandering as if lost.',
-      'walking very slowly.', 'favoring their ' + ['right leg', 'left leg'].random() + ' as they limp by.', 'hastily walking past.'].random()
+          'walking very slowly.', 'favoring their ' + ['right leg', 'left leg'].random() + ' as they limp by.', 'hastily walking past.'].random()
       }
     },
     'map': {
@@ -317,14 +315,14 @@ setup.townSquare = {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is playing ' + ['a sweet tune on a lute.', 'a beat on a small wooden box.', 'an off-key song on a lute.', 'a bitter tune on a harp.',
-      'an interesting song on a sitar.', 'a merry tune on a flute.', 'a quick beat on a pair of drums.', 'a fine song on a fiddle.'].random()
+          'an interesting song on a sitar.', 'a merry tune on a flute.', 'a quick beat on a pair of drums.', 'a fine song on a fiddle.'].random()
       }
     },
     'singer': {
       function: function (town) {
         var npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['singing off-key', 'singing a single note', 'humming a sweet tune', 'singing a lovely song',
-        'singing soft and sweetly', 'singing loudly', 'singing terribly', 'humming off-key', 'singing very badly', 'singing a funny song'].random() + ' as ' + npc.heshe + ' walks along.'
+          'singing soft and sweetly', 'singing loudly', 'singing terribly', 'humming off-key', 'singing very badly', 'singing a funny song'].random() + ' as ' + npc.heshe + ' walks along.'
       }
     }
   },

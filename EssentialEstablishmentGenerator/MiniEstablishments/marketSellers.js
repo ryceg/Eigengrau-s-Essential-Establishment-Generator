@@ -6,17 +6,17 @@ setup.createMarketSellers = function (town, obj, opts, number) {
       profession: 'merchant',
       merchant: {
         selling: [
-          'selling ' + setup.market.vendors.selling.random(),
+          'selling ' + setup.market.vendors.selling.seededrandom(),
           [
             'shouting out ',
             'calling ',
             'calling to any who would listen: ',
             'hawking goods, saying ',
             'shouting '
-          ].random() + '"' +
-            setup.market.vendors.shouts.random() + ' ' + setup.market.vendors.suffix.random() + '"'
-        ].random(),
-        tent: setup.market.vendors.tent.random()
+          ].seededrandom() + '"' +
+            setup.market.vendors.shouts.seededrandom() + ' ' + setup.market.vendors.suffix.seededrandom() + '"'
+        ].seededrandom(),
+        tent: setup.market.vendors.tent.seededrandom()
       },
       hasClass: false,
       isThrowaway: true,

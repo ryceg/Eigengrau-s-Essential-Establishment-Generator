@@ -1,13 +1,13 @@
 /* global setup random clone */
 setup.createTown = function (base) {
-  var type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
-  var terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
+  var type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].seededrandom()
+  var terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].seededrandom()
   var season = ['summer', 'autumn', 'winter', 'spring']
   var townName = setup.createTownName()
   console.groupCollapsed(townName + ' is loading...')
-  var economicIdeology = setup.townData.type[type].economicIdeology.random()
-  var politicalSource = setup.townData.type[type].politicalSource.random()
-  var politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.random()
+  var economicIdeology = setup.townData.type[type].economicIdeology.seededrandom()
+  var politicalSource = setup.townData.type[type].politicalSource.seededrandom()
+  var politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.seededrandom()
   let town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
@@ -33,7 +33,7 @@ setup.createTown = function (base) {
     },
     // type: type,
     terrain: terrain,
-    currentSeason: season.random(),
+    currentSeason: season.seededrandom(),
     season: season,
     factions: {
     },
@@ -129,11 +129,12 @@ setup.createTown = function (base) {
       console.log('Setting town wealth.')
       this._wealth = value
     },
-    location: setup.townData.terrain[terrain].start.random(),
-    primaryCrop: setup.townData.misc.primaryCrop.random(),
-    primaryExport: setup.townData.misc.primaryExport.random(),
-    landmark: setup.townData.misc.landmark.random(),
-    currentEvent: setup.townData.misc.currentEvent.random(),
+    roads: {},
+    location: setup.townData.terrain[terrain].start.seededrandom(),
+    primaryCrop: setup.townData.misc.primaryCrop.seededrandom(),
+    primaryExport: setup.townData.misc.primaryExport.seededrandom(),
+    landmark: setup.townData.misc.landmark.seededrandom(),
+    currentEvent: setup.townData.misc.currentEvent.seededrandom(),
     microEvent: setup.townData.misc.microEvent,
     roll: {
       wealth: random(1, 100),
@@ -155,8 +156,8 @@ setup.createTown = function (base) {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.random()
-  town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.random()
+  town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.seededrandom()
+  town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.seededrandom()
 
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
