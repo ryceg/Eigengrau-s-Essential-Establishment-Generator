@@ -1,11 +1,18 @@
 /* global setup State random */
 setup.createBuilding = function (town, type, base) {
 // Tables used later
+  if (random(100) < setup.townData.type[town.type].roadDuplication) {
+    // roads are currently only supported with two words
+    // var roads = town.roads[Object.keys(town.roads).seededrandom()].toString().split(' ')
+    var roads = 'Test Road'
+    var roadName = roads[0] || setup.townData.roads.name.seededrandom()
+    var roadType = roads[1] || setup.townData.roads.type.seededrandom()
+  } else {
+    roadName = setup.townData.roads.name.seededrandom()
+    roadType = setup.townData.roads.type.seededrandom()
+  }
 
-  var roadName = setup.townData.roads.name.random()
-  var roadType = setup.townData.roads.type.random()
-
-  var lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
+  var lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].seededrandom()
   var outside = [
     'a horse grazing on the bushes nearby',
     'a rusted shovel near a somewhat overgrown flowerbed',
@@ -60,7 +67,9 @@ setup.createBuilding = function (town, type, base) {
     // cleanlinessRoll: random(1, 100),
     // expertiseRoll: random(1, 100),
     // activityRoll: random(1, 100)
-  }
+  }, base)
+
+  town.roads[building.key] = building.road
 
   building.roll.wealth = Math.clamp(building.roll.wealth, 1, 100)
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
@@ -223,6 +232,12 @@ setup.createBuilding = function (town, type, base) {
   //   building.activity = 'very quiet'
   // }
   // console.log(building)
+  if (type) {
+    if (!town.buildings[type]) {
+      town.buildings[type] = {}
+    }
+    town.buildings[type][building.key] = building
+  }
   if (!building.isThrowaway) {
     State.variables.buildings.push(building)
     // setup.townBinder(town, building, type)
