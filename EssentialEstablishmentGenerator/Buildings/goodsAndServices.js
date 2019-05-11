@@ -46,6 +46,10 @@ setup.goodsAndServices = {
       ],
       noun: [
         'pie',
+        'rolling pin',
+        'tray',
+        'spoon',
+        'bowl',
         'bread',
         'loaf',
         'crust',
@@ -211,6 +215,29 @@ setup.goodsAndServices = {
           }
         }
       },
+      'loaf of dwarven bread':{
+        cost: 15,
+        description: "A loaf of dwarven bread. It's hard as rock.",
+        exclusions: function (town, building) {
+          if(town.wealth > 50 && building.roll.weatlh > 25){
+            return true
+          }else{
+            return false
+          }
+        }
+      },
+      'elven biscuits':{
+        cost: 15,
+        description: "Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.",
+        exclusions: function (town, building) {
+
+          if(town.wealth > 50 && building.roll.weatlh > 50){
+            return true
+          }else{
+            return false
+          }
+        }
+      },
       'stale bread': {
         cost: 2,
         description: 'A stale loaf. Not very appetizing.'
@@ -218,6 +245,20 @@ setup.goodsAndServices = {
       'biscuit loaf': {
         cost: 13,
         description: 'A loaf sliced and then baked a second time, biscuits last for a long time.'
+      },
+      'sweet tart': {
+        cost: 13,
+        description: 'A tasty looking fruit tart.',
+        exclusions: function (town, building) {
+          var i = building.specialty.includes('pastries')
+          if ( i = true  && building.roll.wealth > 30) {
+            return true
+          } else if (building.roll.wealth > 70){
+            return true
+          } else{
+            return false
+          }
+        }
       },
       'gold loaf': {
         cost: 1300,
@@ -240,7 +281,7 @@ setup.goodsAndServices = {
       'the bakery is rather bustling.',
       'the bakery has a few people milling about.',
       'the smell of moldy old bread fills the air.',
-      'a trophy with "Best Baked Bread awarded to $building.name" etched into it',
+      'a trophy with "Best Baked Bread awarded to $building.name" etched into it sitting on a shelf near the entry.',
       'the smell of sweet pastries wafts through that air.'
 
     ],
@@ -255,6 +296,167 @@ setup.goodsAndServices = {
       'having an open kitchen so you can see the bakers at work.',
       'putting enchantments on the baked goods that make them even tastier.',
       'their lumpy and unevenly baked bread.'
+    ]
+  },
+  florist: {
+    create: function (town, opts) {
+      opts = opts || {}
+      var building = {
+        type: 'florist',
+        BuildingType: 'florist',
+        passageName: 'GenericPassage',
+        initPassage: 'GenericPassage'
+      }
+      Object.assign(building, (opts['newBuilding'] || setup.createBuilding)(town, building.type))
+      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
+      building.name = setup.goodsAndServices[building.type].name.function(town, building)
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.wordNoun = setup.goodsAndServices[building.type].name.wordNoun.seededrandom()
+      building.PassageFormat = setup.goodsAndServices[building.type].PassageFormat
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      return building
+    },
+    name: {
+      function: function (town, building) {
+        var name = setup.goodsAndServices[building.type].name
+        var unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        return [
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
+          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout'].seededrandom(),
+          setup.flora.flowers.stemS.seededrandom().toUpperFirst() + ' Petals ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.flowers.bush.seededrandom().toUpperFirst() + ' Bush ' + name.wordNoun.seededrandom().toUpperFirst(),
+          unique
+        ].seededrandom()
+      },
+      unique: [
+        'The Daisy Chain',
+        'The Grow Room',
+
+
+      ],
+      noun: [
+        'bouquet',
+        'plant Pot',
+        'ivy',
+        'watering Can',
+        'sprout',
+        'petal',
+        'seed',
+        'flower',
+        'pot',
+        'fern',
+        'bulb',
+        'root',
+        'greenhouse'
+      ],
+
+      adjective: [
+        'lovely',
+        'long-lasting',
+        'magnificent',
+        'mesmerizing',
+        'petite',
+        'playful',
+        'ravishing',
+        'pretty',
+        'precious',
+        'playful',
+        'prized',
+        'radiant',
+        'light',
+        'sweet',
+        'fragrant',
+        'merry',
+        'lofty'
+
+
+      ],
+
+      wordNoun: [
+        'florist',
+        'flower shop',
+        'florist shop',
+        'floral shop',
+        'herb shop',
+        'botany shop',
+        'garden shop'
+      ]
+    },
+    PassageFormat: [
+      // each array string will be a new line.
+      // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'you come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      '',
+      'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<goods $building setup.goodsAndServices[$building.type].goods>>'
+    ],
+    profession: {
+      name: 'florist',
+      opts: {
+        profession: 'florist',
+        hasClass: false,
+        idle: [
+          // name is currently _______
+          'watering a large flower pot',
+          'handling a strange and exotic looking plant',
+          'trimming the stems on a few cut flowers',
+          'carefully arranging a bouquet of flowers',
+          'extracting the petals off of an alchemical plant',
+          'planting some seeds in a pot',
+          'examining the leaves of a slightly wilting flower',
+          'plucking seeds out of the center of a large plant',
+          'mixing up some soil for planting',
+          'wrapping some flowers',
+          'tying a cloth ribbon around a lovely bouquet',
+          'dying some flowers a new color',
+          'starting to doze off behind the counter',
+          'showing a customer some of the different floral options',
+          'reading a book on exotic seeds'
+        ]
+      }
+    },
+    goods: {
+      'Flowers': {
+        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+        cost: 8,
+        // description: used in tooltip.
+        description: 'Some nice flowers.'
+      }
+    },
+    type: 'florist',
+    notableFeature: [
+      // you notice _______
+      'the smell of fresh cut flowers hangs in the air.',
+      'a stong floral aroma wafting through the room.',
+      'several planter pots dangling from ropes on the ceiling. Long fern leaves and vines hang down from the pots above.',
+      'a plethora of small pots brimming with wildflowers dotted around the shop.',
+      'a substantial number of patrons crowding the shop counter.',
+      'there is hardly anyone in here.',
+      'a large hand painted sign in the window that reads "Finest flowers in $town.name".',
+      'there are several large flowering bushes and plants crammed inside the shop that seem far to big to be indoors.',
+      'a large set of shelves filled with cut florwers organized by color.',
+      'one of the shop walls is completely covered in ivy.'
+
+
+    ],
+    specialty: [
+      // the florist is known for _______
+      'often carrying strange and exotic plants.',
+      'always having very nice smelling flowers.',
+      'having brilliantly colorful flowers.',
+      'the large variety of seeds that they offer.',
+      'growing strangely large flowers.',
+      'offering classes throughout the year on proper flower gardening.',
+      'their collection of unique herbs.',
+      'having a private collection of insect eating plants.',
+      'their beautifully arranged bouquets.',
+      'being the favorite garden shop of the local nobility.',
+      'having a discrete delivery service for any relationship emergency.',
+      'enchanting their bouquets to sing a song to their recipients.'
     ]
   }
 }

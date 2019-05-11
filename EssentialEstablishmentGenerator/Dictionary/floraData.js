@@ -4,6 +4,9 @@ setup.flora = {
     //Stemmed, non-shrub flowers plural
     'stemP' : ['daisies', 'asters', 'begonias', 'bellflowers', 'bluebells', 'buttercups', 'lillies', 'daffodils', 'irises', 'marigolds', 'gardenias', 'geraniums', 'goldenrods', 'hibiscuses', 'honeysuckle',
     'hydrangeas', 'poppies', 'irises', 'lavender', 'moonflowers', 'orchids', 'pansies', 'petunias', 'pointsettias', 'roses', 'snapdragon', 'tulips', 'violets'],
+    //Stemmed, non-shrub flowers singular
+    'stemS' : ['daisy', 'aster', 'begonia', 'bellflower', 'bluebell', 'buttercup', 'lilly', 'daffodil', 'iris', 'marigold', 'gardenia', 'geranium', 'goldenrod', 'hibiscus', 'honeysuckle',
+    'hydrangea', 'poppy', 'iris', 'lavender', 'moonflower', 'orchid', 'pansy', 'petunia', 'pointsettia', 'rose', 'snapdragon', 'tulip', 'violet', 'peony', 'sunflower'],
     //Common flowers displayed in vases or bouquet plural
     'cuts' : ['dahlias', 'chrysanthemums', 'tulips', 'peonys', 'roses', 'lillies', 'daffodils', "baby's-breath", 'sunflowers', 'zinnias', 'buttercups', 'lavendar', 'tulips'],
     //Common flowering shrubs and bushes
