@@ -593,10 +593,11 @@ setup.goodsAndServices = {
     specialty: [
       // the florist is known for _______
       'often carrying strange and exotic plants.',
-      'always having very fragrant flowers.',
-      'having brilliantly colorful flowers.',
+      'always having very fragrant $building.flowers1.',
+      'having brilliantly colorful $building.flowers1.',
       'the large variety of seeds that they offer.',
-      'growing strangely large flowers.',
+      'growing strangely large $building.flowers2.',
+      'growing strangely large flowers of all varieties.',
       'offering classes throughout the year on proper flower gardening.',
       'their collection of unique herbs.',
       'having a private collection of insect eating plants.',
@@ -608,7 +609,8 @@ setup.goodsAndServices = {
       'being a front for the local fight ring bookie. Nobody really buys flowers.',
       'being the florist to provide all of the flowers for the most recent royal wedding.',
       'always seeming to know exactly the kind of flowers you need.',
-      'making particularly bad floral arrangements.'
+      'making particularly bad floral arrangements.',
+      'their prize winning $building.flowers1.'
     ]
   }
 }
