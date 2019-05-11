@@ -16,6 +16,7 @@ setup.goodsAndServices = {
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
       building.wordNoun = setup.goodsAndServices[building.type].name.wordNoun.seededrandom()
       building.PassageFormat = setup.goodsAndServices[building.type].PassageFormat
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
