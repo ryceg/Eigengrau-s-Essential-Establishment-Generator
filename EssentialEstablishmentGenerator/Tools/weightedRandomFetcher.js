@@ -12,7 +12,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   // obj is the optional npc, building, or whatever that is needed for functions.
   // exclusionFunction is the optional global exclusion testing function; this is for things like pulling just the paper type objects from plothooks. Saves on LoC.
   // leave exclusionFunction blank if everyting in your object is always going to be allowed.
-  // output is what should be outputted at the end.
+  // output is what should be outputted at the end. Set to 'object' to return the whole object.
   // defaultProbability is the optional default unit. You won't usually need to supply this.
   var pool = []
   var totalWeight = 0
@@ -20,7 +20,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
 
   for (var arg in args) {
     // console.log(args[arg])
-    if (typeof (args[arg].exclusions) === 'function') {
+    if (args[arg].exclusions && typeof (args[arg].exclusions) === 'function') {
       var isValid = args[arg].exclusions(town, obj)
     } else {
       isValid = true
@@ -52,7 +52,15 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
       break
     }
   }
-  if (typeof (selected[output]) === 'function') {
+  if (!selected[output]) {
+    console.error('The randomly fetched object does not have the attribute ' + output + '.')
+    console.log({ selected })
+  }
+
+  if (output === 'object') {
+    console.log(selected)
+    return selected
+  } else if (typeof (selected[output]) === 'function') {
     console.log(selected[output](town, obj))
     return selected[output](town, obj)
   } else {
