@@ -326,15 +326,44 @@ setup.goodsAndServices = {
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout'].seededrandom(),
+          'The ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom(),
           setup.flora.flowers.stemS.seededrandom().toUpperFirst() + ' Petals ' + name.wordNoun.seededrandom().toUpperFirst(),
           'The ' + setup.flora.flowers.bush.seededrandom().toUpperFirst() + ' Bush ' + name.wordNoun.seededrandom().toUpperFirst(),
+          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           unique
         ].seededrandom()
       },
       unique: [
         'The Daisy Chain',
         'The Grow Room',
+        'The Secret Garden',
+        'Roses are Red',
+        'Sweet Stems',
+        'The Watering Can',
+        'Smell the Tulips',
+        'Honeybee',
+        'Happy Petals',
+        'The Flower Patch',
+        'All in Bloom',
+        'The Flower Cart',
+        'The Garden Trough',
+        'Beautiful Blossoms',
+        'The Enchanted Florist',
+        'Green Thumb Gardens',
+        'Magical Blooms',
+        "Mother Earth's",
+        'Royal Blooms',
+        'Pollen Palace',
+        "Bramble and Wild",
+        'Scarlet and Violet',
+        'Lavender Belle',
+        'Petal Pushers',
+        'Sherwood Florist',
+        'Fleur',
+        'Flores',
+        'By Any Other Name',
+        'Little Shop of Flowers'
+
 
 
       ],
@@ -351,7 +380,9 @@ setup.goodsAndServices = {
         'fern',
         'bulb',
         'root',
-        'greenhouse'
+        'blossom',
+        'bloom',
+        'bramble'
       ],
 
       adjective: [
@@ -371,19 +402,44 @@ setup.goodsAndServices = {
         'sweet',
         'fragrant',
         'merry',
-        'lofty'
+        'lofty',
+        'tilted',
+        'beautiful'
 
 
+      ],
+      adjectivePerson: [
+        'cheery',
+        'happy',
+        'hopeful',
+        'morning',
+        'waking',
+        'magical',
+        'sassy',
+        'tasty',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'fat',
+        'stoic',
+        'colorful',
+        'silly'
       ],
 
       wordNoun: [
         'florist',
-        'flower shop',
-        'florist shop',
-        'floral shop',
-        'herb shop',
-        'botany shop',
-        'garden shop'
+        'flower Shop',
+        'florist Shop',
+        'floral Shop',
+        'herb Shop',
+        'botany Shop',
+        'garden Shop',
+        'greenhouse'
       ]
     },
     PassageFormat: [
