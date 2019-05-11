@@ -420,11 +420,23 @@ setup.goodsAndServices = {
       }
     },
     goods: {
-      'Flowers': {
+      'Small Bouquet': {
+        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+        cost: 4,
+        // description: used in tooltip.
+        description: 'A small bouquet made up of mostly wildflowers.'
+      },
+      'Mid-Size Bouquet': {
         // cost: in copper pieces. The <<money>> macro handles currency conversion.
         cost: 8,
         // description: used in tooltip.
-        description: 'Some nice flowers.'
+        description: 'A medium sized bouquet made up of an assortment of colorful flowers.'
+      },
+      'Large Bouquet': {
+        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+        cost: 15,
+        // description: used in tooltip.
+        description: 'A large bouquet comprised of many colorful and intricately arranged flowers.'
       }
     },
     type: 'florist',
