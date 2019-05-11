@@ -29,7 +29,8 @@ setup.goodsAndServices = {
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           'The ' + name.beast.seededrandom().toUpperFirst() + "'s " + name.noun.seededrandom().toUpperFirst(),
           name.adjective.seededrandom().toUpperFirst() + ' ' + [building.owner.firstName + "'s ", name.beast.seededrandom().toUpperFirst()].seededrandom() + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.fruit.seededrandom().toUpperFirst() + ' ' + name.nounBakedGood.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.fruit.fruitS.seededrandom().toUpperFirst() + ' ' + name.nounBakedGood.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.fruit.tree.seededrandom().toUpperFirst() + ' Tree ' + name.wordNoun.seededrandom().toUpperFirst(),
           unique
         ].seededrandom()
       },
@@ -115,7 +116,11 @@ setup.goodsAndServices = {
         'loud',
         'angry',
         'dopey',
-        'doughy'
+        'elven',
+        'dwarven',
+        'fat',
+        'stoic'
+
 
       ],
       foodAdjective: [
@@ -125,6 +130,10 @@ setup.goodsAndServices = {
         'hot',
         'fresh',
         'crumbly',
+        'tasty',
+        'sweet',
+        'sour',
+        'doughy'
 
       ],
       wordNoun: [
