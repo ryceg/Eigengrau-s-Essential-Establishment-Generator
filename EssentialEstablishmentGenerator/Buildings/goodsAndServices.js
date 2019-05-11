@@ -229,7 +229,9 @@ setup.goodsAndServices = {
       'the bakery is rather bustling.',
       'the bakery has a few people milling about.',
       'the smell of moldy old bread fills the air.',
-      ''
+      'a trophy with "Best Baked Bread awarded to $building.name" etched into it',
+      'the smell of sweet pastries wafts through that air.'
+    
     ],
     specialty: [
       // the bakery is known for _______
