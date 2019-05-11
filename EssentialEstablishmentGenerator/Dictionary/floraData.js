@@ -7,8 +7,6 @@ setup.flora = {
     //Stemmed, non-shrub flowers singular
     'stemS' : ['daisy', 'aster', 'begonia', 'bellflower', 'bluebell', 'buttercup', 'lilly', 'daffodil', 'iris', 'marigold', 'gardenia', 'geranium', 'goldenrod', 'hibiscus', 'honeysuckle',
     'hydrangea', 'poppy', 'iris', 'lavender', 'moonflower', 'orchid', 'pansy', 'petunia', 'pointsettia', 'rose', 'snapdragon', 'tulip', 'violet', 'peony', 'sunflower'],
-    //Common flowers displayed in vases or bouquet plural
-    'cuts' : ['dahlias', 'chrysanthemums', 'tulips', 'peonys', 'roses', 'lillies', 'daffodils', "baby's-breath", 'sunflowers', 'zinnias', 'buttercups', 'lavendar', 'tulips'],
     //Common flowering shrubs and bushes
     'bush' : ['hydrangea', 'azalea', 'hibiscus', 'sweetshrub', 'butterfly', 'rhododendron', 'lilac', 'deutzia', 'pearl', 'spirea', 'forsythia', 'summersweet']
   },

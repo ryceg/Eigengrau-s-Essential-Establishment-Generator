@@ -371,6 +371,9 @@ setup.goodsAndServices = {
       Object.assign(building, (opts['newBuilding'] || setup.createBuilding)(town, building.type))
       building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
       building.name = setup.goodsAndServices[building.type].name.function(town, building)
+      building.flowers1 = setup.flora.flowers.stemP.seededrandom()
+      building.flowers2 = setup.flora.flowers.stemP.seededrandom()
+      building.flower = setup.flora.flowers.stemS.seededrandom()
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
       building.wordNoun = setup.goodsAndServices[building.type].name.wordNoun.seededrandom()
@@ -518,18 +521,18 @@ setup.goodsAndServices = {
         hasClass: false,
         idle: [
           // name is currently _______
-          'watering a large flower pot',
+          'watering a large flower pot full of $building.flowers1',
           'handling a strange and exotic looking plant',
-          'trimming the stems on a few cut flowers',
+          'trimming the stems on a few cut $building.flowers1',
           'carefully arranging a bouquet of flowers',
           'extracting the petals off of an alchemical plant',
           'planting some seeds in a pot',
-          'examining the leaves of a slightly wilting flower',
+          'examining the leaves of a slightly wilting $building.flower',
           'plucking seeds out of the center of a large plant',
           'mixing up some soil for planting',
           'wrapping some flowers',
-          'tying a cloth ribbon around a lovely bouquet',
-          'dying some flowers a new color',
+          'tying a cloth ribbon around a lovely bouquet of $building.flowers1 and $building.flowers2',
+          'dying some $building.flowers1 a new color',
           'starting to doze off behind the counter',
           'showing a customer some of the different floral options',
           'reading a book on exotic seeds',
@@ -561,17 +564,17 @@ setup.goodsAndServices = {
     notableFeature: [
       // you notice _______
       'the smell of fresh cut flowers hangs in the air.',
-      'a stong floral aroma wafting through the room.',
+      'a stong $building.flower aroma wafting through the room.',
       'several planter pots dangling from ropes on the ceiling. Long fern leaves and vines hang down from the pots above.',
-      'a plethora of small pots brimming with wildflowers dotted around the shop.',
+      'a plethora of small pots brimming with $building.flowers1 dotted around the shop.',
       'a substantial number of patrons crowding the shop counter.',
       'there is hardly anyone in here.',
-      'a large hand painted sign in the window that reads "Finest flowers in $town.name".',
+      'a large hand painted sign in the window that reads "Finest $building.flowers1 in $town.name".',
       'there are several large flowering bushes and plants crammed inside the shop that seem far to big to be indoors.',
-      'a large set of shelves filled with cut florwers organized by color.',
+      'a large set of shelves filled with cut flowers organized by color.',
       'one of the shop walls is completely covered in ivy.',
       'several large sacks of fertilizer stacked up near the shop counter.',
-      'several of the shop windows are adorned with hand painted flowers',
+      'several of the shop windows are adorned with hand painted $building.flowers2',
       'there are several strings of dried flowers strung from the shop ceiling.',
       'a collection of dried flowers framed above the counter.',
       'quite a few charcoal flower drawings are hanging on the shop walls.',
@@ -582,7 +585,8 @@ setup.goodsAndServices = {
       'a small hearth with a roaring fire in one corner.',
       'quite a few decorative plates covered in different animals sit on racks hanging on the walls.',
       'a caged sparrow sits upon the shop counter.',
-      'several holly wreaths are hung upon the shop timbers.'
+      'several holly wreaths are hung upon the shop timbers.',
+      'a single potted $building.flower sitting on the shop counter,'
 
 
     ],
