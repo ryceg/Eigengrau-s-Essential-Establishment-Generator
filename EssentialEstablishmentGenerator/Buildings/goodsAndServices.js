@@ -204,7 +204,8 @@ setup.goodsAndServices = {
           'sifting some flour',
           'starting to knod off',
           'struggling with a large sack of flour',
-          'icing a small cake'
+          'icing a small cake',
+          'lighting the coals of a clay oven'
         ]
       }
     },
@@ -509,7 +510,8 @@ setup.goodsAndServices = {
           'dying some flowers a new color',
           'starting to doze off behind the counter',
           'showing a customer some of the different floral options',
-          'reading a book on exotic seeds'
+          'reading a book on exotic seeds',
+          'clipping leaves from a small flowering hedge'
         ]
       }
     },
@@ -552,7 +554,7 @@ setup.goodsAndServices = {
     specialty: [
       // the florist is known for _______
       'often carrying strange and exotic plants.',
-      'always having very nice smelling flowers.',
+      'always having very fragrant flowers.',
       'having brilliantly colorful flowers.',
       'the large variety of seeds that they offer.',
       'growing strangely large flowers.',
