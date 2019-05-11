@@ -433,12 +433,12 @@ setup.goodsAndServices = {
 
       wordNoun: [
         'florist',
-        'flower Shop',
-        'florist Shop',
-        'floral Shop',
-        'herb Shop',
-        'botany Shop',
-        'garden Shop',
+        'flower shop',
+        'florist shop',
+        'floral shop',
+        'herb shop',
+        'botany shop',
+        'garden shop',
         'greenhouse'
       ]
     },
