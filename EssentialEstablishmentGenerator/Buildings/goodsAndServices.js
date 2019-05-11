@@ -547,7 +547,15 @@ setup.goodsAndServices = {
       'a large hand painted sign in the window that reads "Finest flowers in $town.name".',
       'there are several large flowering bushes and plants crammed inside the shop that seem far to big to be indoors.',
       'a large set of shelves filled with cut florwers organized by color.',
-      'one of the shop walls is completely covered in ivy.'
+      'one of the shop walls is completely covered in ivy.',
+      'several large sacks of fertilizer stacked up near the shop counter.',
+      'several of the shop windows are adorned with hand painted flowers',
+      'there are several strings of dried flowers strung from the shop ceiling.',
+      'a collection of dried flowers framed above the counter.',
+      'quite a few charcoal flower drawings are hanging on the shop walls.',
+      'a few different shelves of dried herbs lining the far wall of the shop.',
+      'a small collection of jarred dried herbs sitting on the shop counter.',
+      'many of the potted plants in the shop are dead or dying.'
 
 
     ],
