@@ -282,7 +282,16 @@ setup.goodsAndServices = {
       'the bakery has a few people milling about.',
       'the smell of moldy old bread fills the air.',
       'a trophy with "Best Baked Bread awarded to $building.name" etched into it sitting on a shelf near the entry.',
-      'the smell of sweet pastries wafts through that air.'
+      'the smell of sweet pastries wafts through that air.',
+      'several large sacks of flower stacked up near the shop counter.',
+      'a large sign near the front of the shop with "Bread of the Day: Pumpernickel" scrawled across it.',
+      'a few pies sitting in an open window sill to cool.',
+      'a large golden bell is sitting on the shop counter.',
+      'there are several paintings of bread loafs hanging on the walls.',
+      'a small platter with little cubes of bread on it. A folded paper in the middle of the platter reads "Free Samples".',
+      'a baker tossing dough high into the air off behind the counter.',
+      'a particularly huge clay oven in the middle of the bakery.',
+      'there are several small tables inside the bakery for pastries to be enjoyed.'
 
     ],
     specialty: [
@@ -295,7 +304,13 @@ setup.goodsAndServices = {
       'always having stale bread mixed in with the fresh.',
       'having an open kitchen so you can see the bakers at work.',
       'putting enchantments on the baked goods that make them even tastier.',
-      'their lumpy and unevenly baked bread.'
+      'their lumpy and unevenly baked bread.',
+      'being a social establishment as well as a bakery.',
+      'more of a cafe than just a bakery.',
+      'putting on interesting displays with dough while patrons wait for their bread.',
+      'constantly trying out new novelty items to draw in more customers.',
+      'putting delicious spices in their bread dough.',
+      'giving fair prices for decent baked goods.'
     ]
   },
   florist: {
