@@ -572,7 +572,12 @@ setup.goodsAndServices = {
       'their beautifully arranged bouquets.',
       'being the favorite garden shop of the local nobility.',
       'having a discrete delivery service for any relationship emergency.',
-      'enchanting their bouquets to sing a song to their recipients.'
+      'enchanting their bouquets to sing a song to their recipients.',
+      'selling to a rather seedy clientele.',
+      'being a front for the local fight ring bookie. Nobody really buys flowers.',
+      'being the florist to provide all of the flowers for the most recent royal wedding.',
+      'always seeming to know exactly the kind of flowers you need.',
+      'making particularly bad floral arrangements.'
     ]
   }
 }
