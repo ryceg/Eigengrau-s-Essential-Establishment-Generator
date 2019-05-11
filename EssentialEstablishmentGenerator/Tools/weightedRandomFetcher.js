@@ -1,16 +1,22 @@
-setup.weightedRandomFetcher = function (town, args, obj, fn, defaultProbability) {
+setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, output, defaultProbability) {
   // console.log(args)
   if (!defaultProbability) {
     defaultProbability = 10
   }
+
+  if (!output) {
+    output = 'function'
+  }
   // town is needed because everything needs town to evaluate
   // args is the object containing the objects that you're drawing from
   // obj is the optional npc, building, or whatever that is needed for functions.
-  // fn is the optional exclusion testing function. Leave blank if everyting in your object is always going to be allowed.
+  // exclusionFunction is the optional global exclusion testing function; this is for things like pulling just the paper type objects from plothooks. Saves on LoC.
+  // leave exclusionFunction blank if everyting in your object is always going to be allowed.
+  // output is what should be outputted at the end.
   // defaultProbability is the optional default unit. You won't usually need to supply this.
   var pool = []
   var totalWeight = 0
-  fn = fn || true
+  exclusionFunction = exclusionFunction || true
 
   for (var arg in args) {
     // console.log(args[arg])
@@ -21,8 +27,8 @@ setup.weightedRandomFetcher = function (town, args, obj, fn, defaultProbability)
     }
     // console.log('fnValid: ')
     // console.log(args[arg])
-    if (typeof (fn) === 'function') {
-      var fnValid = fn(town, args[arg])
+    if (typeof (exclusionFunction) === 'function') {
+      var fnValid = exclusionFunction(town, args[arg])
     } else {
       fnValid = true
     }
@@ -46,6 +52,11 @@ setup.weightedRandomFetcher = function (town, args, obj, fn, defaultProbability)
       break
     }
   }
-  console.log(selected.function(town, obj))
-  return selected.function(town, obj)
+  if (typeof (selected[output]) === 'function') {
+    console.log(selected[output](town, obj))
+    return selected[output](town, obj)
+  } else {
+    console.log(selected[output])
+    return selected[output]
+  }
 }
