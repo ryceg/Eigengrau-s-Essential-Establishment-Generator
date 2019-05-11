@@ -218,6 +218,17 @@ setup.goodsAndServices = {
       'biscuit loaf': {
         cost: 13,
         description: 'A loaf sliced and then baked a second time, biscuits last for a long time.'
+      },
+      'Sweet tart': {
+        cost: 12,
+        description: 'A tasty looking tart.',
+        exclusions: function (town, building) {
+          if (town.wealth < 50 && building.roll.wealth < 75) {
+            return false
+          } else {
+            return true
+          }
+        }
       }
     },
     type: 'bakery',
@@ -231,7 +242,7 @@ setup.goodsAndServices = {
       'the smell of moldy old bread fills the air.',
       'a trophy with "Best Baked Bread awarded to $building.name" etched into it',
       'the smell of sweet pastries wafts through that air.'
-    
+
     ],
     specialty: [
       // the bakery is known for _______
