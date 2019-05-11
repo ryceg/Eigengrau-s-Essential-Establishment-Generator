@@ -315,7 +315,23 @@ setup.goodsAndServices = {
       'a small platter with little cubes of bread on it. A folded paper in the middle of the platter reads "Free Samples".',
       'a baker tossing dough high into the air off behind the counter.',
       'a particularly huge clay oven in the middle of the bakery.',
-      'there are several small tables inside the bakery for pastries to be enjoyed.'
+      'there are several small tables inside the bakery for pastries to be enjoyed.',
+      'a round, somehow rotating, shelf in the middle of the shop full of baked goods.',
+      'a small black cat dart behind the counter as you enter.',
+      'a strange shrill sound coming from the near the shop oven as you enter, but it quickly dies down. The smell of burnt hair slowly fills the room.',
+      'huge clouds of flour rising up from behind the shop counter.',
+      'the distinct smell of vanilla.',
+      'an enormous spoon hanging from one of the walls',
+      'the shop counter is made of rough hewn oak wood.',
+      'a rack of discount breads near the front door.',
+      'a large and intricate cake display near the front window.',
+      'a make your own tart station in one corner of the shop.',
+      'a bread slicing station for the commoners without bread knives.',
+      'a large embroidery bread loaf hanging on a wall.',
+      'several caged hens in the back of the shop that lay fresh eggs for the bakers.',
+      'a large moose head hanging above the entryway.',
+      'a small hearth with a roaring fire in one corner.',
+      'quite a few decorative plates covered in different animals sit on racks hanging on the walls.'
 
     ],
     specialty: [
@@ -334,7 +350,13 @@ setup.goodsAndServices = {
       'putting on interesting displays with dough while patrons wait for their bread.',
       'constantly trying out new novelty items to draw in more customers.',
       'putting delicious spices in their bread dough.',
-      'giving fair prices for decent baked goods.'
+      'giving fair prices for decent baked goods.',
+      'making incredibly intricate and pointlessly complex cakes.',
+      "baking cakes and breadloafs in the shape of famous noble's and heroe's heads.",
+      'the incredibly fresh fruit they use in their baked goods.',
+      'milling their own flour.',
+      'catering special occasions.',
+      'being the bakery that catered the most recent royal wedding.'
     ]
   },
   florist: {
@@ -555,7 +577,12 @@ setup.goodsAndServices = {
       'quite a few charcoal flower drawings are hanging on the shop walls.',
       'a few different shelves of dried herbs lining the far wall of the shop.',
       'a small collection of jarred dried herbs sitting on the shop counter.',
-      'many of the potted plants in the shop are dead or dying.'
+      'many of the potted plants in the shop are dead or dying.',
+      'the shop counter is made of rough hewn oak wood.',
+      'a small hearth with a roaring fire in one corner.',
+      'quite a few decorative plates covered in different animals sit on racks hanging on the walls.',
+      'a caged sparrow sits upon the shop counter.',
+      'several holly wreaths are hung upon the shop timbers.'
 
 
     ],
