@@ -11,7 +11,12 @@
 		\<th>Cost</th>
 	\</tr>
 	\<<for _key, _item range _target>>
-		\<<if ndef _item.exclusions || _item.exclusions($town, _obj) === true>>
+		\<<if ndef _item.exclusions>><<set _isValid to true>><</if>>
+		\<<if (typeof _item.exclusions === "function")>>
+			\<<run console.log("Is a function!")>>
+			\<<set _isValid to _item.exclusions($town, _obj)>>
+		\<</if>>
+		\<<if _isValid === true>>
 			\<<set _name to _item.name || _key>>
 			\<<set _name to _name.toUpperFirst()>>
 			\<tr><td>
@@ -21,7 +26,7 @@
 				\<<print _item.name || _key>>
 			\<</if>>
 			\</td><td><<money _item.cost>></td></tr>
-	\<</if>><</for>>
+	\<</if>><<unset _isValid>><</for>>
 	\</table>
 	\<</capture>>
 <</widget>>
