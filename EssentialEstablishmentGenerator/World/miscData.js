@@ -1065,10 +1065,10 @@ setup.misc = {
   'bunny': {
     'create': function () {
       var bunny = {
-        size: setup.misc.bunny.size.random(),
-        coat: setup.misc.bunny.coat.random(),
-        favouriteFood: setup.misc.bunny.favouriteFood.random(),
-        markings: setup.misc.bunny.markings.random()
+        size: setup.misc.bunny.size.seededrandom(),
+        coat: setup.misc.bunny.coat.seededrandom(),
+        favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
+        markings: setup.misc.bunny.markings.seededrandom()
       }
       bunny.readout = 'This bunny is ' + bunny.size + ', and has a ' + bunny.coat + ' coat, with ' + bunny.markings + '. It loves ' + bunny.favouriteFood + '.'
       bunny.tippyWord = '<span class=tip title=' + JSON.stringify(bunny.readout) + '> <b>bunny</b></span><<run setup.tippy("span")>>'
