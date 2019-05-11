@@ -189,10 +189,10 @@ setup.goodsAndServices = {
         description: 'A loaf of rye bread.',
         // exclusions for testing whether it is available. Can be ommitted if it is always available.
         exclusions: function (town, building) {
-          if (town.wealth < 20 && building.roll.wealth < 40) {
-            return false
-          } else {
+          if (town.wealth > 20 && building.roll.wealth > 40) {
             return true
+          } else {
+            return false
           }
         }
       },
@@ -204,10 +204,10 @@ setup.goodsAndServices = {
         cost: 18,
         description: 'A loaf of barley bread.',
         exclusions: function (town, building) {
-          if (town.wealth < 20 && building.roll.wealth < 40) {
-            return false
-          } else {
+          if (town.wealth > 20 && building.roll.wealth > 40) {
             return true
+          } else {
+            return false
           }
         }
       },
@@ -218,6 +218,17 @@ setup.goodsAndServices = {
       'biscuit loaf': {
         cost: 13,
         description: 'A loaf sliced and then baked a second time, biscuits last for a long time.'
+      },
+      'gold loaf': {
+        cost: 1300,
+        description: 'A loaf with gold leaf on top. Debug.',
+        exclusions: function (town, building) {
+          if (town.wealth > 99 && building.roll.wealth > 99) {
+            return true
+          } else {
+            return false
+          }
+        }
       }
     },
     type: 'bakery',

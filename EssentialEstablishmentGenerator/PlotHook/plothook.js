@@ -1413,9 +1413,6 @@ setup.plothooks = {
   },
   'The Painted Devil': {
     type: ['event'],
-    exclusions: function (town) {
-      return true
-    },
     function: function (town) {
       var npc = setup.createNPC(town, {
         hasClass: 'false',
@@ -1427,9 +1424,6 @@ setup.plothooks = {
   },
   'The Crack': {
     type: ['event'],
-    exclusions: function (town) {
-      return true
-    },
     function: function (town) {
       var faction = setup.factionsForType(town, 'type', 'mercenaries')
       return 'A huge crack has recently appeared in the center of the town square. ' + setup.profile(faction, '', 'town.factions') + ' are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.'
@@ -1487,9 +1481,6 @@ setup.plothooks = {
   },
   'Experiment Subjects': {
     type: ['paper'],
-    exclusions: function (town, npc) {
-      return true
-    },
     function: function (town) {
       var npc = setup.createNPC(town, {
         hasClass: true,
