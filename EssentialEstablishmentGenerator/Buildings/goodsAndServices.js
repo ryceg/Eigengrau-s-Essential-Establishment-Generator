@@ -16,6 +16,8 @@ setup.goodsAndServices = {
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
       building.wordNoun = setup.goodsAndServices[building.type].name.wordNoun.seededrandom()
       building.PassageFormat = setup.goodsAndServices[building.type].PassageFormat
+      building.fruit = setup.flora.fruit.fruitS.seededrandom()
+      building.fruits = setup.flora.fruit.fruitP.seededrandom()
       building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
@@ -205,7 +207,9 @@ setup.goodsAndServices = {
           'starting to knod off',
           'struggling with a large sack of flour',
           'icing a small cake',
-          'lighting the coals of a clay oven'
+          'lighting the coals of a clay oven',
+          'prepping some $building.fruits for baking',
+          'putting some $building.fruits into barrels'
         ]
       }
     },
@@ -307,7 +311,7 @@ setup.goodsAndServices = {
       'the smell of moldy old bread fills the air.',
       'a trophy with "Best Baked Bread awarded to $building.name" etched into it sitting on a shelf near the entry.',
       'the smell of sweet pastries wafts through that air.',
-      'several large sacks of flower stacked up near the shop counter.',
+      'several large sacks of flour stacked up near the shop counter.',
       'a large sign near the front of the shop with "Bread of the Day: Pumpernickel" scrawled across it.',
       'a few pies sitting in an open window sill to cool.',
       'a large golden bell is sitting on the shop counter.',
@@ -331,7 +335,8 @@ setup.goodsAndServices = {
       'several caged hens in the back of the shop that lay fresh eggs for the bakers.',
       'a large moose head hanging above the entryway.',
       'a small hearth with a roaring fire in one corner.',
-      'quite a few decorative plates covered in different animals sit on racks hanging on the walls.'
+      'quite a few decorative plates covered in different animals sit on racks hanging on the walls.',
+      'a few barrels of $building.fruits sitting near the shop counter.'
 
     ],
     specialty: [
@@ -339,6 +344,8 @@ setup.goodsAndServices = {
       'discounted breads at the end of the week.',
       'the delicious pies that they bake daily.',
       'the sweet pastries that they sell.',
+      'the $building.fruit tarts they sell.',
+      'the $building.fruit pies they sell.',
       'their pillowy soft hot buns.',
       'the thick and crumbly biscuits they bake.',
       'always having stale bread mixed in with the fresh.',
@@ -477,7 +484,6 @@ setup.goodsAndServices = {
         'happy',
         'hopeful',
         'morning',
-        'waking',
         'magical',
         'sassy',
         'tasty',
@@ -492,7 +498,11 @@ setup.goodsAndServices = {
         'fat',
         'stoic',
         'colorful',
-        'silly'
+        'silly',
+        'big',
+        'slim',
+        'weedy',
+        'seedy'
       ],
 
       wordNoun: [
