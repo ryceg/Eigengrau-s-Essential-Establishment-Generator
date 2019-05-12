@@ -211,12 +211,13 @@ setup.goodsAndServices = {
           'pulling something out of the oven',
           'sprinkling some seeds on a loaf',
           'sifting some flour',
-          'starting to knod off',
+          'starting to knod off behind the counter',
           'struggling with a large sack of flour',
           'icing a small cake',
           'lighting the coals of a clay oven',
           'prepping some $building.fruits for baking',
-          'putting some $building.fruits into barrels'
+          'putting some $building.fruits into barrels',
+          'mixing some spices together'
         ]
       }
     },
@@ -589,7 +590,7 @@ setup.goodsAndServices = {
       'a substantial number of patrons crowding the shop counter.',
       'there is hardly anyone in here.',
       'a large hand painted sign in the window that reads "Finest $building.flowers1 in $town.name".',
-      'there are several large flowering bushes and plants crammed inside the shop that seem far to big to be indoors.',
+      'there are several large flowering bushes and plants crammed inside the shop that seem far too big to be growing indoors.',
       'a large set of shelves filled with cut flowers organized by color.',
       'one of the shop walls is completely covered in ivy.',
       'several large sacks of fertilizer stacked up near the shop counter.',
@@ -616,7 +617,8 @@ setup.goodsAndServices = {
       'a large amount of flower clippings have been piled up in one corner of the shop.',
       'several small copper birds are hanging from the ceiling by strings',
       'a flower mural is painted on the far wall',
-      'a framed collection of pinned <<print either("dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps")>> hung up on the wall next to the counter.'
+      'a framed collection of pinned <<print either("dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps")>> hung up on the wall next to the counter.',
+      'there is a small shelf of boxed chocolates near the front counter with a sign above that reads "For the truly scorned lover".'
 
 
     ],
