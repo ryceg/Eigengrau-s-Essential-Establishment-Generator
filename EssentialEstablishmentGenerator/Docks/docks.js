@@ -43,6 +43,7 @@ setup.docks = {
     ]
   },
   notableFeature: [
+    //which are best known for _
     'the foul smelling fish that fisherman haul in',
     'being a good place to get mugged',
     'a large lookout post that warns the shipmaster of approaching ships',
@@ -61,7 +62,12 @@ setup.docks = {
     "a peculiar ship docked here, constricted from living trees fed from it's soil filled hull",
     'the sun bleached wrecks littering the shore line',
     'local urban legends about ghosts ships and damned crewmembers',
-    'the time the local the local militia and fishermen held back a pirate raid on the town here'
+    'the time the local the local militia and fishermen held back a pirate raid on the town here',
+    'the large marble slabs that anchor the docks to the shore',
+    'the thick oak timbers of the piers',
+    'the enormous hand crafted ropes that tie down the ships',
+    'a huge lighthouse that guides ships to the port',
+    'being built inside an enormous cavern'
   ],
   notice: [
     'a pair of beggars arguing over a dead fish',
@@ -83,8 +89,7 @@ setup.docks = {
     'a large crowd gathered in front of an absolutely gargantuan severely damaged ship slowly drifting into port',
     'a lone fisherman sitting at the edge and waiting for his catch',
     'two men pulling up crab traps out of the water',
-    'a haggard old woman weaving baskets out of seaweed',
-    ''
+    'a haggard old woman weaving baskets out of seaweed'
   ],
   ships: {
     create: function (town, docks, opts) {
@@ -94,7 +99,7 @@ setup.docks = {
         captainType: Object.keys(setup.docks.ships.captain).seededrandom(),
         hull: setup.docks.ships.hullDesc.seededrandom(),
         detail: setup.docks.ships.shipDetail.seededrandom(),
-        event: setup.docks.ships.eventDetail.seededrandom()
+        event: setup.docks.ships.eventDetail.seededrandom(),
       }
       Object.assign(ship, setup.docks.ships.type[ship.type])
       ship.captain = setup.createNPC(town, setup.docks.ships.captain[ship.captainType])
@@ -154,6 +159,11 @@ setup.docks = {
         },
         'a rugged and battered looking bilge rat':{
           note: 'This person has extremely dirty clothing on.'
+        },
+        'a suspiciously regal and seasick looking sailor':{
+          profession: 'seasick sailor',
+          wealthClass: 'aristocracy',
+          note: 'This character is a noble in hiding.'
         }
       },
     //He/She (bodyFeature) and (itemFeature) .
@@ -190,7 +200,8 @@ setup.docks = {
                  'has a slender jaw',
                  'has muscled arms from the hard work of the sea',
                  'has a spoon lodged into the nub at the end of their arm where their hand should be',
-                 'has large cauliflower ears'
+                 'has large cauliflower ears',
+                 'has rather pungent body odor'
               ],
     itemFeature: [
                   'is wearing a grungy looking sailors cap',
@@ -211,7 +222,10 @@ setup.docks = {
                   'is wearing a tattered bandana',
                   'is wearing a rather filthy looking cocked hat with a ragged feather poking out',
                   'is wearing some thick leathery boots absolutely riddled with holes and rips',
-                  'has a large colorful parrot on one shoulder'
+                  'has a large colorful parrot on one shoulder',
+                  'is wearing a large skull pendant',
+                  'is wearing a small jeweled pendant',
+                  'has some sort fo necklace tucked under their shirt'
                   
 
                 ],
@@ -297,6 +311,17 @@ setup.docks = {
       'a few crew members are playing cards off in a corner',
       'all the ships rails are shaped like swords',
       'a large flag is hoisted high on top the mast',
+      'a large locked chest off to one side of the deck',
+      "a large open chest off to one side of the deck, you can't quite see what's inside",
+      'a small cage on deck with a few slaves inside',
+      'a lusty looking harlot flirting with the captain',
+      'a large barrel of oranges',
+      'the body of a large sea creature strung up from the mast',
+      'several different piles of potatoes in the cargo hold',
+      'a large harpoon gun mounted near the front of the deck',
+      'a small harpoon gun mounted at the side of the deck',
+      'a few crates that seem to shake every once and a while',
+      "a bright red painted door that leads to the captain's quarters",
       'a <<print either("scruffy looking dog", "fluffy but mangy looking cat", "a small and rather underfed looking monkey", "a large and colorful parrot", "a dull looking seagull")>> the crew keeps as a pet',
       'the wheel of the ship appears to be made from <<print either("the wheel off an old cart", "mahogany", "an oddly shaped rock", "oiled teak", "a crudely fashioned hunk of wood", "an old buckler shield", "several swords melted into a ring; it is uncertain how the captain keeps from cutting $currentShip.captain.himherself", "several thick branches tied together")>>'
     ],
@@ -316,8 +341,16 @@ setup.docks = {
       'seeking a great treasure that they heard about from a passing pirate',
       'planning to become pirates after a string of bad luck',
       'fitting the ship with cannons',
+      'practicing tying different kinds of knots',
+      'partaking in a safety class on the harpoon gun',
       'mostly asleep below deck or off in town',
-      'gathered around the captain listening to outrageously tall tale',
+      'gathered around the captain listening to an outrageously tall tale',
+      'going about their normal day to day',
+      'trying to patch up a considerably big leak in the hull',
+      'crowded around a large chest that they seem to be trying to pry open',
+      'trying to pry open an enormous clam they fished up on their last journey',
+      'having a crew wide jig off by the stern',
+      'planning a mutiny against the captain',
       'trying to pull up the anchor which appears to be stuck',
       'singing a jaunty sea shanty about <<print either("beautiful women", "rough storms", "rum and wine", "good fortunes", "sea monsters", "ancient treasures")>> at the tops of their lungs'
     ],
@@ -326,7 +359,7 @@ setup.docks = {
         masts: random(2, 3),
         rigging: 'lateen',
         length: random(468, 708),
-        purpose: ['sail', 'cargo'],
+        purpose: ['sailing', 'cargo', 'pirate'],
         hasOars: false,
         crewMen: random(20, 30)
       },
@@ -366,7 +399,7 @@ setup.docks = {
         masts: random(3, 4),
         rigging: 'square',
         length: random(800, 920),
-        purpose: ['sail', 'cargo', 'warfare'],
+        purpose: ['sailing', 'cargo', 'navy', 'merchant'],
         hasOars: true,
         crewMen: random(30, 40)
       },
@@ -374,7 +407,7 @@ setup.docks = {
         masts: 3,
         rigging: 'square',
         length: random(468, 708),
-        purpose: ['cargo'],
+        purpose: ['cargo', 'merchant'],
         hasOars: true,
         crewMen: random(30, 40)
       },
@@ -398,7 +431,7 @@ setup.docks = {
         masts: 3,
         rigging: 'lateen',
         length: random(3800, 4200),
-        purpose: ['warfare'],
+        purpose: ['navy', "adventurer's", 'pirate'],
         hasOars: true,
         crewMen: random(80, 120)
       },
@@ -406,7 +439,7 @@ setup.docks = {
         masts: 1,
         rigging: 'square',
         length: random(1600, 1800),
-        purpose: ['warfare', 'cargo', 'transport'],
+        purpose: ['navy', 'cargo', 'transport'],
         hasOars: true,
         crewMen: random(80, 120)
       },
@@ -422,7 +455,7 @@ setup.docks = {
         masts: 3,
         rigging: 'square',
         length: random(1500, 1700),
-        purpose: ['warfare', 'cargo'],
+        purpose: ['navy', 'cargo', 'pirate', "adventurer's"],
         hasOars: true,
         crewMen: random(30, 40)
       },
@@ -430,7 +463,7 @@ setup.docks = {
         masts: 3,
         rigging: 'lateen',
         length: random(3800, 4200),
-        purpose: ['warfare', 'cargo'],
+        purpose: ['navy', 'cargo', 'pirate', 'merchant', "adventurer's"],
         hasOars: true,
         crewMen: random(80, 120)
       },
@@ -438,7 +471,7 @@ setup.docks = {
         masts: 3,
         rigging: 'square',
         length: random(3800, 4200),
-        purpose: ['cargo', 'transport', 'warfare'],
+        purpose: ['cargo', 'transport', 'navy', 'pirate', "adventurer's"],
         hasOars: true,
         crewMen: random(80, 140)
       },
@@ -449,9 +482,17 @@ setup.docks = {
         purpose: ['cargo', 'exploration'],
         hasOars: true,
         crewMen: random(40, 120)
+      },
+      barque: {
+        masts: random(3, 5),
+        rigging: 'square',
+        length: (3000, 5000),
+        purpose: ['cargo', 'transport', "explorer's", 'pirate'],
+        hasOars: true,
+        crewMen: (65, 120)
       }
     },
-    typePool: ['caravel', 'dory', 'drifter', 'herring buss', 'carrack', 'crayer', 'hoy', 'picard', 'galley', 'longship', 'balinger', 'frigate', 'galleon', 'galleass', 'galley', 'nef'],
+    typePool: ['caravel', 'dory', 'drifter', 'herring buss', 'carrack', 'crayer', 'hoy', 'picard', 'galley', 'longship', 'balinger', 'frigate', 'galleon', 'galleass', 'galley', 'nef', 'barque'],
     captain: {
       'a seasoned veteran': {
         profession: 'captain',
