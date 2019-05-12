@@ -171,7 +171,6 @@ setup.goodsAndServices = {
         'pastry shop',
         'pastry kitchen',
         'bakeshop',
-        'patisserie',
         'biscuit factory',
         'boulangerie',
         'bakehouse'
