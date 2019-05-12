@@ -638,7 +638,23 @@ setup.goodsAndServices = {
       'being the florist to provide all of the flowers for the most recent royal wedding.',
       'always seeming to know exactly the kind of flowers you need.',
       'making particularly bad floral arrangements.',
-      'their prize winning $building.flowers1.'
+      'their prize winning $building.flowers1.',
+      'the gaudy and eccentric floral arrangements the owner creates.',
+      'the lavish floral arrangements they make for clientele.',
+      'the high class clients they do floral arrangements for.',
+      'the rather cheap buoquets they throw together.',
+      'enchantings their flowers to glitter in the sunlight.',
+      'growing all their own flowers.',
+      'doubling as a lawn care service.',
+      'keeping a large collection of "royal plants" that are only to be sold to members of the nobility.',
+      'having a large variety of magical flowers.',
+      'selling what amounts to bundles of weeds.',
+      'having a beautifully decorated cart at least years Summer Festival.',
+      'their hand painted flowers.',
+      'creating beautiful art out of the petals that fall off their flowers.',
+      'being rumored to be an arm to a large secret organization of flower shops that run the world as we know it.',
+      'being founded by a retired barbarian hero.',
+      'being rumored to funded by a local thieves guild master who has a soft spot for flowers.'
     ]
   }
 }
