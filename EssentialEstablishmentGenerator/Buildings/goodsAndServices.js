@@ -604,7 +604,17 @@ setup.goodsAndServices = {
       'quite a few decorative plates covered in different animals sit on racks hanging on the walls.',
       'a caged sparrow sits upon the shop counter.',
       'several holly wreaths are hung upon the shop timbers.',
-      'a single potted $building.flower sitting on the shop counter,'
+      'a single potted $building.flower sitting on the shop counter.,',
+      'several strings of cut plants hung up to dry.',
+      'a rusty watering can sitting on a stool in a corner.',
+      'a small fairy garden has been set up at one end of the shop and a couple of fairies have taken up residence.',
+      'a shelf with all kinds of jars and bottles with labels like "Giant Slug Repellant" and "Truly Magical Plant Growth".',
+      'a table with vases of all shapes and sizes.',
+      'a few large leafy ferns grouped up near the entrance.',
+      'the room is full of $building.flower scented candles.',
+      'a large amount of flower clippings have been piled up in one corner of the shop.',
+      'several small copper birds are hanging from the ceiling by strings',
+      'a flower mural is painted on the far wall'
 
 
     ],
