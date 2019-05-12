@@ -373,7 +373,15 @@ setup.goodsAndServices = {
       'the incredibly fresh fruit they use in their baked goods.',
       'milling their own flour.',
       'catering special occasions.',
-      'being the bakery that catered the most recent royal wedding.'
+      'being the bakery that catered the most recent royal wedding.',
+      'baking rolls in the shapes of various small animals.',
+      'having once been owned by a famous hero.',
+      'adding a lot of sugar to their bread.',
+      'baking quite hard bread loaves.',
+      'baking their bread using magics',
+      'using an otherwise long lost technique to bake their breads.',
+      'utilizing an ancient family bread recipe passed down for generations.'
+
     ]
   },
   florist: {
@@ -610,7 +618,7 @@ setup.goodsAndServices = {
       'several strings of cut flowers are hung up to dry by an open window.',
       'a rusty watering can sitting on a stool in a corner.',
       'a small fairy garden has been set up at one end of the shop and a couple of fairies have taken up residence.',
-      'a shelf with all kinds of jars and bottles with labels like "Giant Slug Repellant" and "Truly Magical Plant Growth".',
+      'a shelf holding all kinds of jars and bottles with handmade labels like "Giant Slug Repellant" and "Truly Magical Plant Growth".',
       'a table with vases of all shapes and sizes set in the middle of the room.',
       'a few large leafy ferns grouped up near the entrance.',
       'the room is full of $building.flower scented candles.',
@@ -658,7 +666,9 @@ setup.goodsAndServices = {
       'creating beautiful art out of the petals that fall off their flowers.',
       'being rumored to be an arm to a large secret organization of flower shops that run the world as we know it.',
       'being founded by a retired barbarian hero.',
-      'being rumored to funded by a local thieves guild master who has a soft spot for flowers.'
+      'being rumored to funded by a local thieves guild master who has a soft spot for flowers.',
+      'trimming flowers into interesting shapes',
+      'using discarded leaves and stems to create tiny animals to go with their bouquets.'
     ]
   }
 }
