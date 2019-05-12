@@ -16,5 +16,8 @@ setup.createStartBuildings = function (town) {
 
   var bakery = setup.goodsAndServices.bakery.create(town)
   town.buildings.bakery[bakery.key] = bakery
+
+  var florist = setup.goodsAndServices.florist.create(town)
+  town.buildings.florist[florist.key] = florist
   return town
 }

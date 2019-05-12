@@ -12,6 +12,14 @@ setup.building = {
             adjective: 'log'
           }
         },
+        'split log': {
+          probability: 10,
+          words: {
+            indefiniteArticle: 'a',
+            noun: 'split log',
+            adjective: 'split log'
+          }
+        },
         'wood': {
           probability: 10,
           words: {
@@ -26,6 +34,14 @@ setup.building = {
             indefiniteArticle: 'a',
             noun: 'timber',
             adjective: 'timber'
+          }
+        },
+        'plank': {
+          probability: 10,
+          words: {
+            indefiniteArticle: 'a',
+            noun: 'plank',
+            adjective: 'plank'
           }
         },
         exclusion: function (town, building) {
@@ -53,6 +69,22 @@ setup.building = {
         wordAdjective: 'adobe'
       }
     },
+    'daub': {
+      probability: 30,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'daub',
+        wordAdjective: 'daub'
+      }
+    },
+    'cob': {
+      probability: 5,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'cob',
+        wordAdjective: 'cob'
+      }
+    },
     'plaster': {
       probability: 30,
       words: {
@@ -61,14 +93,54 @@ setup.building = {
         wordAdjective: 'plaster'
       }
     },
+    'rock': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'rock',
+        wordAdjective: 'rock'
+      }
+    },
+    'straw': {
+      probability: 15,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'straw',
+        wordAdjective: 'straw'
+      }
+    },
+    'hewn rock': {
+      probability: 5,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'hewn rock',
+        wordAdjective: 'hewn rock'
+      }
+    },
     'stone': {
-      probability: 1,
+      probability: 5,
       words: {
         indefiniteArticle: 'a',
         wordNoun: 'stone',
         wordAdjective: 'stone'
       }
-    }
+    },
+    'brick': {
+      probability: 1,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'brick',
+        wordAdjective: 'brick'
+      }
+    },
+    'clay': {
+      probability: 5,
+      words: {
+        indefiniteArticle: 'a',
+        wordNoun: 'clay',
+        wordAdjective: 'clay'
+      }
+    },
   },
   roof: {
     material: {
@@ -76,6 +148,18 @@ setup.building = {
         words: {
           noun: 'thatch',
           verb: 'thatched'
+        }
+      },
+      'straw': {
+        words: {
+          noun: 'straw',
+          verb: 'strawed'
+        }
+      },
+      'plank': {
+        words: {
+          noun: 'plank',
+          verb: 'planked'
         }
       },
       'tile': {
