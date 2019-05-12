@@ -5,7 +5,7 @@ setup.docks = {
       [80, 'quite clean', 'spotless, save for a couple splashes of sea water'],
       [70, 'safe, if smelly', 'quite tidy, if you can stand the smell'],
       [50, 'relatively tidy', 'reasonably clean, with the occasional rope laying about posing a tripping hazard'],
-      [40, 'crusty and dirty', 'crusted with sea water. Although the crew has worked hard, it is still quite dirty from its most recent voyage'],
+      [40, 'crusty and dirty', 'crusted with sea water and barnacles cling to the supports'],
       [30, 'seaweed infested', 'marred with seaweed and a slippery mess. It smells disgusting, too'],
       [20, 'disgustingly slimy', 'disgusting. All types of moulds, algae, and other unspeakably slimy things are on display here.']
     ],
@@ -27,7 +27,7 @@ setup.docks = {
         'packed to the gills; you have trouble moving through some parts of the harbor due to the throngs of seafairers crowding the place'
       ]],
       [80, ['bustling. There are all manners of folk walking around, all of whom have places to be',
-            'bustling. Several ships seem to be currently undocking and crowds are beginning to fill the street'
+            'bustling. Several ships seem to be currently unloading and crowds are beginning to fill the street'
       ]],
       [60, ['busy, with lots of deckhands running about, lugging things from point A to point B',
             'busy, with several large makeshift fish markets crowding the docks drawing in all kinds of crowds'
@@ -51,16 +51,17 @@ setup.docks = {
     'single handedly keeping the brothels in business',
     'its ships that are all incredible smelly, but rather swift on the waters',
     'being a tourist attraction',
-    'the Sea Priests and clergymen who roam the docks blessing ships before they set sail.',
-    "it's shipwrights. The dry docks here have birthed a large portion of the local navy.",
-    'a fine dining restaurant that hangs suspended off the end of the pier.',
-    "it's shady wharfmaster, who appears to be willing to turn a blind eye to just about anything for the right price.",
-    "it's large ornate lighthouse, an ancient statue of a humanoid figure with all details erroded by time. It holds the lighthouse's beacon aloft in it's hand.",
-    'the waters around the docks being infested with predatory fish and poisonous snakes.',
-    'the exotic stone used to construct the docks.',
-    "a peculiar ship docked here, constricted from living trees fed from it's soil filled hull.",
-    'the sun bleached wrecks littering the shore line.',
-    'local urban legends about ghosts ships and damned crewmembers.'
+    'the Sea Priests and clergymen who roam the docks blessing ships before they set sail',
+    "it's shipwrights. The dry docks here have birthed a large portion of the local navy",
+    'a fine dining restaurant that hangs suspended off the end of the pier',
+    "it's shady wharfmaster, who appears to be willing to turn a blind eye to just about anything for the right price",
+    "it's large ornate lighthouse, an ancient statue of a humanoid figure with all details erroded by time. It holds the lighthouse's beacon aloft in it's hand",
+    'the waters around the docks being infested with predatory fish and poisonous snakes',
+    'the exotic stone used to construct the docks',
+    "a peculiar ship docked here, constricted from living trees fed from it's soil filled hull",
+    'the sun bleached wrecks littering the shore line',
+    'local urban legends about ghosts ships and damned crewmembers',
+    'the time the local the local militia and fishermen held back a pirate raid on the town here'
   ],
   notice: [
     'a pair of beggars arguing over a dead fish',
@@ -78,17 +79,21 @@ setup.docks = {
     // a(n) enormous/large/moderately sized/regular/small/tiny/single stall fish market selling a large variety of fish/an inconceivable number of fish, crabs, shrimp, and other sea creatures/a small selection of fish/a pitiful variety fish
     'a small group of men posing for a portrait with the carcass of an enormous sea monster strung up from a tall wooden pole',
     'a person in dirty rags attempting to sell a single fish to passersby',
-    'an incredibly large schooner/barque/frigate docked out in the water. It is ornately painted with the figurehead of a magical animal',
-    'a large crowd gathered in front of an absolutely gargantuan ship that has been severely damaged',
+    'an incredibly large <<print either("schooner", "barque", "frigate", "galleon", "caravel", "galley")>> docked out in the water. It is ornately painted with the figurehead of a magical animal',
+    'a large crowd gathered in front of an absolutely gargantuan severely damaged ship slowly drifting into port',
     'a lone fisherman sitting at the edge and waiting for his catch',
-    'two men pulling up crab traps out of the water'
+    'two men pulling up crab traps out of the water',
+    'a haggard old woman weaving baskets out of seaweed',
+    ''
   ],
   ships: {
     create: function (town, docks, opts) {
       var ship = {
         name: setup.docks.ships.name.seededrandom(),
         type: docks.typePool.seededrandom(),
-        captainType: Object.keys(setup.docks.ships.captain).seededrandom()
+        captainType: Object.keys(setup.docks.ships.captain).seededrandom(),
+        hull: setup.docks.ships.hullDesc.seededrandom(),
+        detail: setup.docks.ships.shipDetail.seededrandom()
       }
       Object.assign(ship, setup.docks.ships.type[ship.type])
       ship.captain = setup.createNPC(town, setup.docks.ships.captain[ship.captainType])
@@ -102,7 +107,62 @@ setup.docks = {
       // })
       return ship
     },
-    name: ['Lantheon', 'Starchaser', 'Dryad’s Fury', 'Black Trident', 'Corellon’s Arrow', 'Morkoth', 'Koalinthas', 'Sehanine’s Fool', 'Stormcrow', 'Vaazrus', 'Shield of Khahar', 'Stingray', 'Sanaj-Rakal', 'Zhal-Vazir', 'Griffonwing', 'Blademark', 'Golden Libram', 'Hareth’s Barrel', 'Kasha’s Wake', 'Shining Flute', 'White Feather', 'Riventide', 'Moonriser', 'Gem of Malfier', 'Dragon’s Glory', 'Menacer', 'Scarlet Dagger', 'Kral-Tajir', 'Ravager', 'Kerle’s Drum', 'Heart of Avandra', 'Goldraker', 'Sea Haunt', 'Storm Maven', 'Grimbol’s Cutlass', 'Scimitar', 'Black Gauntlet', 'Iron Maiden', 'Wavecrusher', 'Hammer of Kavath', 'Waterblade', 'Arkhor’s Secret', 'Dire Gar', 'Prallmar’s Shadow', 'Piranha', 'Devil’s Fork', 'Tuersyl’s Fist', 'Daraj-Vzan', 'Silver Chalice', 'Demonrudder', 'Turathi Flame', 'Storm’s Eye', 'Tanishar’s Fate', 'Shard of Night', 'Triton', 'Jarak’s Grasp', 'Nightmare', 'Harpy’s Lure', 'Devious', 'Arazandro’s Bluff', 'Nbod’s Haul', 'Astaryntha', 'Expeditious', 'Curse of Thuban', 'Siren’s Kiss', 'Lonely Witch', 'Rat’s Nest', 'Evader', 'Mistreaver', 'Ven’r', 'Vicious', 'Dream of Melora', 'Shensari', 'Damilor', 'Krimilvin’s Charm', 'Bloodmonger', 'Lucky Scrag', 'Windstriker', 'Grim Gale', 'Djinni’s Wish', 'Flying Eel', 'Jewel of Irthos', 'Broken Keel', 'Javelin', 'Myrska’s Revenge', 'Fearsome', 'Archon’s Hammer', 'Vendetta', 'Thunderchaser', 'Heartless', 'Shrike', 'Morak’s Boat', 'Mar-Turang', 'Will-o’-wisp', 'Asha-Naga', 'Dominant', 'Shoal Courser', 'Crescent Moon', 'Crystal Tear', 'Kara-Vaji', 'Shalastar', 'Roc’s Talon', 'Wavecarver', 'Graethan', 'Rotten Apple', 'Bharzim’s Victory', 'Avarice', 'Farak-Changal', 'Falling Star', 'Crimson Knife', 'Yisek’s Ride', 'Shara-Vaja', 'Varalan’s Dweomer', 'Rangoth', 'Vostarika', 'Mirasandra', 'Second Chance', 'Redfeather', 'Maal-Destir', 'Scorpion', 'Ghorzaar’s Bane', 'Moonwatcher', 'Dragon’s Crown', 'Dragonhawk', 'Dancing Sword', 'Kaveth’s Whisper', 'Tirah', 'Phantom Shark', 'Hjeltia', 'Satyr', 'Breyten’s Thrill', 'Golden Coin', 'Pearl of Fire', 'Bhez-Rizma', 'Fireball', 'Color Spray', 'Sea Bear', 'Prosperous', 'Summer Rain', 'Sundowner', 'Skulldark’s Ire', 'Skandalor', 'Zarkanan', 'Sana-Losi', 'Wolfshark', 'Song of Elyndri', 'Coral Rose', 'Rune of Halendros', 'Maelstrom', 'Shadow Mask', 'Deep Heathen', 'Aurora', 'Rusted Cutlass', 'Thog’s Maul', 'Wooden Stake', 'Hellstrike', 'Scepter Queen', 'Prince of Lies', 'Fang of Tezmyr', 'White Hart', 'Floating Cask', 'Sea Howler', 'Frostwind', 'Moonshadow', 'Melora’s Favor', 'Dark Queen’s Voice', 'Chethel’s Ghost', 'Mad Hag', 'Tamarion’s Grudge', 'Raven’s Gamble', 'Reckoner', 'Wraithwind', 'Kalisa Tano', 'Beholder', 'Slippery Trickster', 'Retribution', 'Whirling Glyph', 'Lady Rose', 'Karthang’s Plunder', 'Good Fortune', 'Axe of Thard', 'Black Bow', 'Quickstrike', 'Thelandira', 'Hammergust', 'Barracuda', 'Sahandrian’s Quarrel', 'Feral Knave', 'Wildwyrm', 'Shevaya’s Honor', 'Blackhelm’s Legacy', 'Wyvern’s Sting', 'Dragonroar', 'Kegstaff', 'Oaken Ranger', 'Timber Serpent', 'Desperate Sorceress', 'Screaming Gull', 'Greedy Drake', 'Light of Pjaltr', 'Fate’s Blessing', 'Stardancer', 'Leering Skull', 'Ebon Moon', 'Werewolf', 'Redemption', 'Zaetchan’s Privilege', 'Sea Skulk', 'Savage Swan', 'Bane’s Breath', 'Ghorok’s Grail', 'Emerald Eye', 'Remorseless', 'Skiprock', 'Zaetra', 'Silverfin', 'Risen Ghost', 'Listless', 'Vortex', 'Advantage', 'Autumn Song', 'Trystan’s Delight', 'Soaring Manta', 'Calomaar’s Edge', 'Saerthzal', 'Iron Trumpet', 'Locathah', 'Demonskull', 'Arrowhead', 'Frastain’s Bottle'],
+    name: ['Lantheon', 'Starchaser', 'Dryad’s Fury', 'Black Trident', 'Corellon’s Arrow', 'Morkoth', 'Koalinthas', 'Sehanine’s Fool', 'Stormcrow', 'Vaazrus', 'Shield of Khahar',
+           'Stingray', 'Sanaj-Rakal', 'Zhal-Vazir', 'Griffonwing', 'Blademark', 'Golden Libram', 'Hareth’s Barrel', 'Kasha’s Wake', 'Shining Flute', 'White Feather', 'Riventide',
+          'Moonriser', 'Gem of Malfier', 'Dragon’s Glory', 'Menacer', 'Scarlet Dagger', 'Kral-Tajir', 'Ravager', 'Kerle’s Drum', 'Heart of Avandra', 'Goldraker', 'Sea Haunt', 'Storm Maven',
+          'Grimbol’s Cutlass', 'Scimitar', 'Black Gauntlet', 'Iron Maiden', 'Wavecrusher', 'Hammer of Kavath', 'Waterblade', 'Arkhor’s Secret', 'Dire Gar', 'Prallmar’s Shadow', 'Piranha',
+          'Devil’s Fork', 'Tuersyl’s Fist', 'Daraj-Vzan', 'Silver Chalice', 'Demonrudder', 'Turathi Flame', 'Storm’s Eye', 'Tanishar’s Fate', 'Shard of Night', 'Triton', 'Jarak’s Grasp',
+          'Nightmare', 'Harpy’s Lure', 'Devious', 'Arazandro’s Bluff', 'Nbod’s Haul', 'Astaryntha', 'Expeditious', 'Curse of Thuban', 'Siren’s Kiss', 'Lonely Witch', 'Rat’s Nest',
+          'Evader', 'Mistreaver', 'Ven’r', 'Vicious', 'Dream of Melora', 'Shensari', 'Damilor', 'Krimilvin’s Charm', 'Bloodmonger', 'Lucky Scrag', 'Windstriker', 'Grim Gale', 'Djinni’s Wish',
+          'Flying Eel', 'Jewel of Irthos', 'Broken Keel', 'Javelin', 'Myrska’s Revenge', 'Fearsome', 'Archon’s Hammer', 'Vendetta', 'Thunderchaser', 'Heartless', 'Shrike', 'Morak’s Boat',
+          'Mar-Turang', 'Will-o’-wisp', 'Asha-Naga', 'Dominant', 'Shoal Courser', 'Crescent Moon', 'Crystal Tear', 'Kara-Vaji', 'Shalastar', 'Roc’s Talon', 'Wavecarver', 'Graethan',
+          'Rotten Apple', 'Bharzim’s Victory', 'Avarice', 'Farak-Changal', 'Falling Star', 'Crimson Knife', 'Yisek’s Ride', 'Shara-Vaja', 'Varalan’s Dweomer', 'Rangoth', 'Vostarika',
+           'Mirasandra', 'Second Chance', 'Redfeather', 'Maal-Destir', 'Scorpion', 'Ghorzaar’s Bane', 'Moonwatcher', 'Dragon’s Crown', 'Dragonhawk', 'Dancing Sword', 'Kaveth’s Whisper',
+          'Tirah', 'Phantom Shark', 'Hjeltia', 'Satyr', 'Breyten’s Thrill', 'Golden Coin', 'Pearl of Fire', 'Bhez-Rizma', 'Fireball', 'Color Spray', 'Sea Bear', 'Prosperous', 'Summer Rain',
+          'Sundowner', 'Skulldark’s Ire', 'Skandalor', 'Zarkanan', 'Sana-Losi', 'Wolfshark', 'Song of Elyndri', 'Coral Rose', 'Rune of Halendros', 'Maelstrom', 'Shadow Mask', 
+          'Deep Heathen', 'Aurora', 'Rusted Cutlass', 'Thog’s Maul', 'Wooden Stake', 'Hellstrike', 'Scepter Queen', 'Prince of Lies', 'Fang of Tezmyr', 'White Hart', 'Floating Cask', 
+          'Sea Howler', 'Frostwind', 'Moonshadow', 'Melora’s Favor', 'Dark Queen’s Voice', 'Chethel’s Ghost', 'Mad Hag', 'Tamarion’s Grudge', 'Raven’s Gamble', 'Reckoner', 'Wraithwind', 
+          'Kalisa Tano', 'Beholder', 'Slippery Trickster', 'Retribution', 'Whirling Glyph', 'Lady Rose', 'Karthang’s Plunder', 'Good Fortune', 'Axe of Thard', 'Black Bow', 'Quickstrike', 
+          'Thelandira', 'Hammergust', 'Barracuda', 'Sahandrian’s Quarrel', 'Feral Knave', 'Wildwyrm', 'Shevaya’s Honor', 'Blackhelm’s Legacy', 'Wyvern’s Sting', 'Dragonroar', 'Kegstaff',
+          'Oaken Ranger', 'Timber Serpent', 'Desperate Sorceress', 'Screaming Gull', 'Greedy Drake', 'Light of Pjaltr', 'Fate’s Blessing', 'Stardancer', 'Leering Skull', 'Ebon Moon',
+          'Werewolf', 'Redemption', 'Zaetchan’s Privilege', 'Sea Skulk', 'Savage Swan', 'Bane’s Breath', 'Ghorok’s Grail', 'Emerald Eye', 'Remorseless', 'Skiprock', 'Zaetra', 'Silverfin', 
+          'Risen Ghost', 'Listless', 'Vortex', 'Advantage', 'Autumn Song', 'Trystan’s Delight', 'Soaring Manta', 'Calomaar’s Edge', 'Saerthzal', 'Iron Trumpet', 'Locathah', 'Demonskull',
+           'Arrowhead', 'Frastain’s Bottle', 'The Saint Ive', 'Halygast', 'La Bon An', 'La Katerine', 'The Blythe', 'Rose', 'The Flying Squirrel', 'Golden Lion', 'Panther', 'Silent Night'],
+   //The hull of the ship _
+    hullDesc: [
+      'is built out of bare <<print either("oak planks", "larch planks", "fir wood planks", "mahogany planks", "teak wood planks", "reeds", "pine and pitch", "cypruss wood planks", "cedar planks")>> ',
+      'has <<print either("a single thin stripe", "a single thick stripe", "two thin stripes", "two stripes", "three thin stripes")>> of <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>> colored paint going across it',
+      'is encrusted with several very large and oddly colored barnacles',
+      'is painted with small ornate <<print either("wave", "fish", "geometric", "organic", "animal", "island shaped")>> patterns at the edges',
+      'has "$currentShip.name" painted on it in bold <<print either("black", "white", "silver", "golden", "red", "blue", "green", "purple")>> letters',
+      'is battered and old. The planks of the ship creek loudly in protest as it bobs through the water',
+      'looks fresh and new as if it was built only yesterday',
+      'looks to be damaged from a recent storm or perhaps a fight at sea',
+      'has a great many number of nets hanging down it',
+      'has been painted to resemble <<print either("a shark", "a seagull", "a pelican", "a lion", "an eagle", "a sea monster", "a swordfish", "a blowfish", "a mackarel", "an arrow", "a tiger", "a cheetah", "an eel", "a whale", "a hawk", "a vulture")>>',
+      'has been painted so the top half is <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>> and the bottom half is <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>>',
+      'has several small portholes',
+      'is grungy and dirty looking',
+      'has several boards nailed to the side in hasty repair',
+      'is painted pure <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>>'
+    ],
+    //On board you notice _
+    shipDetail: [
+      'all of the crew members are wearing matching uniforms',
+      'the ship figurehead is a beautifully carved <<print either("mermaid", "lion", "deer", "dolphin", "whale", "maiden", "elk", "tiger", "shark" , "swordfish", "owl", "eagle", "hawk", "vulture", "serpent", "cannon", "skull", "salmon")>>',
+      'the ship seems to be barely held together with patchwork boards and makeshift nails',
+      "the captain's quarters has an expensive looking piano in it",
+      'the rails of the ship are shaped like fish',
+      'several large piles of tangled nets sitting around', 
+      'a large barrel full of poorly carved peglegs',
+      'a small set of hooks with nameplates above them; one of them has an eyepatch hanging off of it',
+      'several fishing rods bundled together',
+      'a few small piles of unsorted fish and ocean debree sitting near the bow',
+      'instead of a wheel there is a large lever jutting out in its place',
+      'several hammocks have been set up for crew to be able to sleep under the night sky',
+      'a few crew members are playing cards off in a corner',
+      'the wheel of the ship appears to be made from <<print either("the wheel off an old cart", "mahogany", "an oddly shaped rock", "oiled teak", "a crudely fashioned hunk of wood", "an old buckler shield", "several swords melted into a ring; it is uncertain how the captain keeps from cutting $currentShip.captain.himherself", "several thick branches tied together")>>'
+    ],
     type: {
       caravel: {
         masts: random(2, 3),
