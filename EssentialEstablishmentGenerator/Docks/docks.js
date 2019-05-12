@@ -132,13 +132,108 @@ setup.docks = {
         'a veteran of the sea who may have been beautiful at one point': {
           gender: 'woman',
           note: "A woman whose skin has been brined by the salt water."
+        },
+        'a young sailor excited to take to the sea':{
+          ageStage: 'young adult',
+          calmTrait: 'passionate'  
+        },
+        'a wide eyed adventurer of the sea just getting a first true taste of sailing':{
+          ageStage: 'young adult',
+          calmTrait: 'curious',
+          profession: 'wannabe pirate',
+          note: 'This person has great ambitions'
+        },
+        'an older, well-brined master of sailing':{
+          ageStage: 'elderly'
+        },
+        'an ordinary looking sailor':{},
+        'a stoic looking veteran':{
+          ageStage: 'settledAdult',
+          calmTrait: 'quiet',
+          stressTrait: 'reliable'
+        },
+        'a rugged and battered looking bilge rat':{
+          note: 'This person has extremely dirty clothing on.'
         }
-    },
+      },
     //He/She (bodyFeature) and (itemFeature) .
-    bodyFeature: ['has a bright pink scar running across the <<print either("right", "left")>> hand'],
-    itemFeature: ['is wearing a grungy looking sailors cap'],
+    bodyFeature: [
+                 'has a bright pink scar running across the <<print either("right", "left")>> hand',
+                 'is missing the <<print either("left", "right")>> eye and instead has a glass one', 
+                 'has long matted hair', 'has a thick layer of dirt covering the skin', 
+                 'has a large number of sun spots', 
+                 'is covered in freckles', 
+                 'has a cleft chin', 
+                 'has deep sunken eyes', 
+                 'has leathery thick skin from the hot sun', 
+                 'is missing several teeth', 
+                 'is missing an ear', 
+                 'has acne riddled skin', 
+                 'has hawkish eyes the seem to catch every movement', 
+                 'has rather pale skin for someone who works in the sun', 
+                 'has course calloused hands from working with rope daily', 
+                 'smells distinctly of the sea', 
+                 'has a square jaw', 
+                 'has a large bulbous nose', 
+                 'has a crooked nose', 
+                 'has a crooked smile', 
+                 'has the eyes of a rat', 
+                 'is hunched over all of the time', 
+                 'suffers from a limp', 
+                 'has a noticeable stutter',
+                 'has a large wart on the chin',
+                 'has incredibly long and nimble fingers',
+                 'has very expressive eyebrows',
+                 'has beautifully clean skin',
+                 'has short but unpkempt hair',
+                 'is broad shouldered',
+                 'has a slender jaw',
+                 'has muscled arms from the hard work of the sea',
+                 'has a spoon lodged into the nub at the end of their arm where their hand should be',
+                 'has large cauliflower ears'
+              ],
+    itemFeature: [
+                  'is wearing a grungy looking sailors cap',
+                  'is wearing a cheap looking eyepatch',
+                  'has on clothes that are rugged and tattered from the storms',
+                  'is wearing clothes that are stiff from all the sea salt caked upon them',
+                  'always carries a fancy looking compass that only points <<print either("south", "east", "west", "southeast", "southwest", "northeast", "northwest")>>',
+                  'has a crudely carved peg leg',
+                  'has a large hook for a hand',
+                  'has a very well crafted mahogany peg leg',
+                  'uses a crude walking stick',
+                  'uses a finely carved oak walking stick',
+                  'uses a walking cane with the head of a <<print either("lion", "tiger", "shark", "dolphin", "snake", "crow", "owl", "bear", "hawk", "rhino", "pufferfish", "whale")>> carved at the top',
+                  'is always wearing a backpack',
+                  'wears a thick seal leather coat to keep dry',
+                  'has a collapsible spyglass tied to their belt',
+                  'has a lucky accordion on hand at all times',
+                  'is wearing a tattered bandana',
+                  'is wearing a rather filthy looking cocked hat with a ragged feather poking out',
+                  'is wearing some thick leathery boots absolutely riddled with holes and rips',
+                  'has a large colorful parrot on one shoulder'
+                  
+
+                ],
     //When asked why he/she took to the sea, his/her reason is _ .
-    sailing: ['the sea called to me and I answered her']
+    sailing: [
+              'the sea called to me and I answered her',
+              'to try and find all the buried treasures that have been left behind',
+              'for the riches that lie below',
+              'adventure was calling me and the sea is where the greatest adventures happen',
+              'I needed coin for a debt and I still need to pay it off',
+              'I needed to get away from some trouble',
+              'nobody cares about your past out at sea',
+              'I just love the color blue',
+              'the captain is a friend of mine and they asked me to come aboard',
+              'the captain pays well',
+              "I don't know any other trade",
+              "all my family has sailed the sea. I'm just following in their footsteps",
+              'it sounded like fun at the time',
+              'I was sick of my town and wanted a change of scenery',
+              'I lost my beloved and with it my only reason to stay on land',
+              'to make enough money for my family to eat'
+            ]
   },
     name: ['Lantheon', 'Starchaser', 'Dryad’s Fury', 'Black Trident', 'Corellon’s Arrow', 'Morkoth', 'Koalinthas', 'Sehanine’s Fool', 'Stormcrow', 'Vaazrus', 'Shield of Khahar',
            'Stingray', 'Sanaj-Rakal', 'Zhal-Vazir', 'Griffonwing', 'Blademark', 'Golden Libram', 'Hareth’s Barrel', 'Kasha’s Wake', 'Shining Flute', 'White Feather', 'Riventide',
@@ -217,6 +312,13 @@ setup.docks = {
       'trying to decipher a map one of them found in a bottle',
       'mostly relaxing on deck, eating, and laying about enjoying the sea breeze',
       'hauling goods and supplies up into cargo',
+      'drinking deeply and laughing loudly',
+      'seeking a great treasure that they heard about from a passing pirate',
+      'planning to become pirates after a string of bad luck',
+      'fitting the ship with cannons',
+      'mostly asleep below deck or off in town',
+      'gathered around the captain listening to outrageously tall tale',
+      'trying to pull up the anchor which appears to be stuck',
       'singing a jaunty sea shanty about <<print either("beautiful women", "rough storms", "rum and wine", "good fortunes", "sea monsters", "ancient treasures")>> at the tops of their lungs'
     ],
     type: {
