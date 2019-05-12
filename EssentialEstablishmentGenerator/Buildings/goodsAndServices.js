@@ -363,7 +363,7 @@ setup.goodsAndServices = {
       'putting enchantments on the baked goods that make them even tastier.',
       'their lumpy and unevenly baked bread.',
       'being a social establishment as well as a bakery.',
-      'more of a cafe than just a bakery.',
+      'being more of a cafe than just a bakery.',
       'putting on interesting displays with dough while patrons wait for their bread.',
       'constantly trying out new novelty items to draw in more customers.',
       'putting delicious spices in their bread dough.',
