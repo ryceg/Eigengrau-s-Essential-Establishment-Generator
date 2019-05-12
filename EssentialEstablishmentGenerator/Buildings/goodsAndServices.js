@@ -343,7 +343,7 @@ setup.goodsAndServices = {
       'several caged hens in the back of the shop that lay fresh eggs for the bakers.',
       'a large moose head hanging above the entryway.',
       'a small hearth with a roaring fire in one corner.',
-      'quite a few decorative plates covered in different animals sit on racks hanging on the walls.',
+      'quite a few racks of decorative plates covered in different animals hanging on the walls.',
       'a few barrels of $building.fruits sitting near the shop counter.'
 
     ],
