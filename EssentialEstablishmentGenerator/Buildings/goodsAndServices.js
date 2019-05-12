@@ -179,7 +179,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'you come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -529,7 +529,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'you come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -606,7 +606,7 @@ setup.goodsAndServices = {
       'quite a few decorative plates covered in different animals sit on racks hanging on the walls.',
       'a caged sparrow sits upon the shop counter.',
       'several holly wreaths are hung upon the shop timbers.',
-      'a single potted $building.flower sitting on the shop counter.,',
+      'a single potted $building.flower sitting on the shop counter.',
       'several strings of cut flowers are hung up to dry by an open window.',
       'a rusty watering can sitting on a stool in a corner.',
       'a small fairy garden has been set up at one end of the shop and a couple of fairies have taken up residence.',
