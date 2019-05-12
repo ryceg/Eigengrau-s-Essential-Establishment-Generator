@@ -195,7 +195,7 @@ setup.goodsAndServices = {
           'kneading some dough',
           'serving a customer',
           'boiling a pot of water',
-          'cracking an egg into a small pot',
+          'cracking eggs into a small pot',
           'powdering a tray of pastries',
           'measuring out flour',
           'buttering a pan',
