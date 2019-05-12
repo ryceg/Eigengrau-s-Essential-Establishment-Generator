@@ -582,7 +582,7 @@ setup.goodsAndServices = {
     type: 'florist',
     notableFeature: [
       // you notice _______
-      /*'the smell of fresh cut flowers hangs in the air.',
+      'the smell of fresh cut flowers hangs in the air.',
       'a stong $building.flower aroma wafting through the room.',
       'several planter pots dangling from ropes on the ceiling. Long fern leaves and vines hang down from the pots above.',
       'a plethora of small pots brimming with $building.flowers1 dotted around the shop.',
@@ -615,7 +615,7 @@ setup.goodsAndServices = {
       'the room is full of $building.flower scented candles.',
       'a large amount of flower clippings have been piled up in one corner of the shop.',
       'several small copper birds are hanging from the ceiling by strings',
-      'a flower mural is painted on the far wall',*/
+      'a flower mural is painted on the far wall',
       'a framed collection of pinned <<print either("dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps")>> hung up on the wall next to the counter.'
 
 
