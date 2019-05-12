@@ -13,7 +13,7 @@ setup.flora = {
 
   'fruit': {
     //list of more common fruits, plural
-   'fruitP' : ['apples', 'almdonds', 'apricots', 'bananas', 'blackberries', 'blueberries', 'boysenberries', 'cherries', 'coconuts', 'dates', 'dragonfruits', 'elderberries', 'figs', 'gooseberries', 'grapes', 'raisins',
+   'fruitP' : ['apples', 'almonds', 'apricots', 'bananas', 'blackberries', 'blueberries', 'boysenberries', 'cherries', 'coconuts', 'dates', 'dragonfruits', 'elderberries', 'figs', 'gooseberries', 'grapes', 'raisins',
    'honneyberries', 'juniper berries', 'kiwis', 'lemons', 'limes', 'mangos', 'honeydews', 'watermelons', 'mulberries', 'nectarines', 'oranges', 'papayas', 'peaches', 'pears', 'plums', 'prunes', 'pineapples',
    'pomegranites', 'raspberries', 'star fruits', 'strawberries'],
  //list of more common fruits, singular
