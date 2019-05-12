@@ -200,7 +200,7 @@ setup.goodsAndServices = {
           'buttering a pan',
           'slicing up a loaf of bread',
           'slicing up a $building.fruit',
-          'forming some dough into a loaf',
+          'forming some dough into a loaf pan',
           'whisking together a bowl of batter',
           'blending together a bowl of ingredients',
           'flouring a baking pan',
@@ -217,7 +217,8 @@ setup.goodsAndServices = {
           'lighting the coals of a clay oven',
           'prepping some $building.fruits for baking',
           'putting some $building.fruits into barrels',
-          'mixing some spices together'
+          'mixing some spices together',
+          'partitioning out balls of dough'
         ]
       }
     },
@@ -343,10 +344,12 @@ setup.goodsAndServices = {
       'several caged hens in the back of the shop that lay fresh eggs for the bakers.',
       'a large moose head hanging above the entryway.',
       'a small hearth with a roaring fire in one corner.',
-      'quite a few racks of decorative plates covered in different animals hanging on the walls.',
+      'quite a few racks of decorative plates covered in different <<print either ("animals", "flowers", "fruits", "baked goods", "kinds of bread", "birds", "cats")>> hanging on the walls.',
       'a few barrels of $building.fruits sitting near the shop counter.',
       'a deere head mounted above the counter.',
-      'a beaver head framed above a mantel'
+      'a beaver head framed above a mantel.',
+      'a large millstone behind the shop counter.',
+      'a medium sized brown dog comes to greet you as you enter.'
 
     ],
     specialty: [
@@ -378,7 +381,7 @@ setup.goodsAndServices = {
       'having once been owned by a famous hero.',
       'adding a lot of sugar to their bread.',
       'baking quite hard bread loaves.',
-      'baking their bread using magics',
+      'baking their bread using magics.',
       'using an otherwise long lost technique to bake their breads.',
       'utilizing an ancient family bread recipe passed down for generations.'
 
