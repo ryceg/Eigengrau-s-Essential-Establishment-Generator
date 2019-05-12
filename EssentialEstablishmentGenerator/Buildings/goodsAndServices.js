@@ -606,7 +606,7 @@ setup.goodsAndServices = {
       'a caged sparrow sits upon the shop counter.',
       'several holly wreaths are hung upon the shop timbers.',
       'a single potted $building.flower sitting on the shop counter.,',
-      'several strings of cut plants hung up to dry.',
+      'several strings of cut flowers are hung up to dry by an open window.',
       'a rusty watering can sitting on a stool in a corner.',
       'a small fairy garden has been set up at one end of the shop and a couple of fairies have taken up residence.',
       'a shelf with all kinds of jars and bottles with labels like "Giant Slug Repellant" and "Truly Magical Plant Growth".',
