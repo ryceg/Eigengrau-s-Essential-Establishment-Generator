@@ -241,6 +241,7 @@ setup.goodsAndServices = {
         cost: 4,
         description: 'A dense and difficult to digest loaf. Typically used as a plate for meats, with the juices soaking into the bread to make it more palatable.'
       },
+
       'loaf of barley bread': {
         cost: 18,
         description: 'A loaf of barley bread.',
@@ -256,7 +257,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
         exclusions: function (town, building) {
-          if (town.wealth > 50 && building.roll.wealth > 25) {
+          if (town.population > 1500 && building.roll.wealth > 25) {
             return true
           } else {
             return false
@@ -267,7 +268,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
         exclusions: function (town, building) {
-          if (town.wealth > 50 && building.roll.wealth > 50) {
+          if (town.population > 2000 && building.roll.wealth > 50) {
             return true
           } else {
             return false
