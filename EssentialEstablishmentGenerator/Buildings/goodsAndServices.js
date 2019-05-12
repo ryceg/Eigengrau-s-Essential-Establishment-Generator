@@ -669,7 +669,7 @@ setup.goodsAndServices = {
       'creating beautiful art out of the petals that fall off their flowers.',
       'being rumored to be an arm to a large secret organization of flower shops that run the world as we know it.',
       'being founded by a retired barbarian hero.',
-      'being rumored to funded by a local thieves guild master who has a soft spot for flowers.',
+      'being rumored to be funded by a local thieves guild master who has a soft spot for flowers.',
       'trimming flowers into interesting shapes',
       'using discarded leaves and stems to create tiny animals to go with their bouquets.'
     ]
