@@ -52,7 +52,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
       break
     }
   }
-  if (!selected[output]) {
+  if (!selected[output] && output !== 'object') {
     console.error('The randomly fetched object does not have the attribute ' + output + '.')
     console.log({ selected })
   }
