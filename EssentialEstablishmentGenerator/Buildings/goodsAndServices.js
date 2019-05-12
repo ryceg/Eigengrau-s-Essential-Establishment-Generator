@@ -368,7 +368,7 @@ setup.goodsAndServices = {
       'putting delicious spices in their bread dough.',
       'giving fair prices for decent baked goods.',
       'making incredibly intricate and pointlessly complex cakes.',
-      "baking cakes and breadloafs in the shape of famous noble's and heroe's heads.",
+      "baking cakes and breadloafs in the shape of famous noble's and heroe's faces.",
       'the incredibly fresh fruit they use in their baked goods.',
       'milling their own flour.',
       'catering special occasions.',
