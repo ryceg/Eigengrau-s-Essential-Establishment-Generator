@@ -542,7 +542,7 @@ setup.goodsAndServices = {
           'mixing up some soil for planting',
           'wrapping some flowers',
           'tying a cloth ribbon around a lovely bouquet of $building.flowers1 and $building.flowers2',
-          'dying some $building.flowers1 a new color',
+          'trying to dye some $building.flowers1 a new color',
           'starting to doze off behind the counter',
           'showing a customer some of the different floral options',
           'reading a book on exotic seeds',
