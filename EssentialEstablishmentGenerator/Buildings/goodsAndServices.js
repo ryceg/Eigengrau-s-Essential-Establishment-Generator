@@ -534,7 +534,7 @@ setup.goodsAndServices = {
           'watering a large flower pot full of $building.flowers1',
           'handling a strange and exotic looking plant',
           'trimming the stems on a few cut $building.flowers1',
-          'carefully arranging a bouquet of flowers',
+          'carefully arranging a bouquet of $building.flowers1 and $building.flowers2',
           'extracting the petals off of an alchemical plant',
           'planting some seeds in a pot',
           'examining the leaves of a slightly wilting $building.flower',
