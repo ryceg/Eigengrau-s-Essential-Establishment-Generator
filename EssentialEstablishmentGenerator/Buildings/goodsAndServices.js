@@ -346,7 +346,7 @@ setup.goodsAndServices = {
       'a small hearth with a roaring fire in one corner.',
       'quite a few racks of decorative plates covered in different <<print either ("animals", "flowers", "fruits", "baked goods", "kinds of bread", "birds", "cats")>> hanging on the walls.',
       'a few barrels of $building.fruits sitting near the shop counter.',
-      'a deere head mounted above the counter.',
+      'a deer head mounted above the counter.',
       'a beaver head framed above a mantel.',
       'a large millstone behind the shop counter.',
       'a medium sized brown dog comes to greet you as you enter.'
