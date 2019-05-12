@@ -277,7 +277,7 @@ setup.docks = {
       'is encrusted with several very large and oddly colored barnacles',
       'is painted with small ornate <<print either("wave", "fish", "geometric", "organic", "animal", "island shaped")>> patterns at the edges',
       'has "$currentShip.name" painted on it in bold <<print either("black", "white", "silver", "golden", "red", "blue", "green", "purple")>> letters',
-      'is battered and old. The planks of the ship creek loudly in protest as it bobs through the water',
+      'is battered and old. The planks of the ship creak loudly in protest as it bobs through the water',
       'looks fresh and new as if it was built only yesterday',
       'looks to be damaged from a recent storm or perhaps a fight at sea',
       'has a great many number of nets hanging down it',
