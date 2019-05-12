@@ -1,4 +1,15 @@
 setup.building = {
+  create: function (town, building, opts) {
+    var structure = {}
+    var tempMaterial = setup.weightedRandomFetcher(town, setup.building.material, building, 'object')
+    if (tempMaterial.variations) {
+      var material = setup.weightedRandomFetcher(town, setup.building.material[tempMaterial].variations, building, 'object')
+    } else {
+      material = tempMaterial
+    }
+    Object.assign(structure.material, material.words)
+    return structure
+  },
   material: {
     'wood': {
       probability: 40,
@@ -8,40 +19,35 @@ setup.building = {
           words: {
             // you come across _ log cabin
             indefiniteArticle: 'a',
-            noun: 'log',
-            adjective: 'log'
+            noun: 'log'
           }
         },
         'split log': {
           probability: 10,
           words: {
             indefiniteArticle: 'a',
-            noun: 'split log',
-            adjective: 'split log'
+            noun: 'split log'
           }
         },
         'wood': {
           probability: 10,
           words: {
             indefiniteArticle: 'a',
-            noun: 'wood',
-            adjective: 'wooden'
+            noun: 'wood'
           }
         },
         'timber': {
           probability: 10,
           words: {
             indefiniteArticle: 'a',
-            noun: 'timber',
-            adjective: 'timber'
+            noun: 'timber'
           }
         },
         'plank': {
           probability: 10,
           words: {
             indefiniteArticle: 'a',
-            noun: 'plank',
-            adjective: 'plank'
+            noun: 'plank'
           }
         },
         exclusion: function (town, building) {
@@ -57,88 +63,77 @@ setup.building = {
       probability: 30,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'terra cotta',
-        wordAdjective: 'terra cotta'
+        noun: 'terra cotta'
       }
     },
     'adobe': {
       probability: 30,
       words: {
         indefiniteArticle: 'an',
-        wordNoun: 'adobe',
-        wordAdjective: 'adobe'
+        noun: 'adobe'
       }
     },
     'daub': {
       probability: 30,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'daub',
-        wordAdjective: 'daub'
+        noun: 'daub'
       }
     },
     'cob': {
       probability: 5,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'cob',
-        wordAdjective: 'cob'
+        noun: 'cob'
       }
     },
     'plaster': {
       probability: 30,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'plaster',
-        wordAdjective: 'plaster'
+        noun: 'plaster'
       }
     },
     'rock': {
       probability: 10,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'rock',
-        wordAdjective: 'rock'
+        noun: 'rock'
       }
     },
     'straw': {
       probability: 15,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'straw',
-        wordAdjective: 'straw'
+        noun: 'straw'
       }
     },
     'hewn rock': {
       probability: 5,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'hewn rock',
-        wordAdjective: 'hewn rock'
+        noun: 'hewn rock'
       }
     },
     'stone': {
       probability: 5,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'stone',
-        wordAdjective: 'stone'
+        noun: 'stone'
       }
     },
     'brick': {
       probability: 1,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'brick',
-        wordAdjective: 'brick'
+        noun: 'brick'
       }
     },
     'clay': {
       probability: 5,
       words: {
         indefiniteArticle: 'a',
-        wordNoun: 'clay',
-        wordAdjective: 'clay'
+        noun: 'clay'
       }
     },
   },

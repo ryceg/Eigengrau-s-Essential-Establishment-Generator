@@ -1,3 +1,4 @@
+/* global setup */
 setup.goodsAndServices = {
   bakery: {
     // the bakery can be used as the scaffolding for others.
@@ -151,7 +152,6 @@ setup.goodsAndServices = {
         'fat',
         'stoic'
 
-
       ],
       foodAdjective: [
         'delicious',
@@ -228,7 +228,7 @@ setup.goodsAndServices = {
         cost: 15,
         // description: used in tooltip.
         description: 'A loaf of rye bread.',
-        // exclusions for testing whether it is available. Can be ommitted if it is always available.
+        // exclusions for testing whether it is available. Can be ommitted if it is always available. Return truthiness.
         exclusions: function (town, building) {
           if (town.wealth > 20 && building.roll.wealth > 40) {
             return true
@@ -252,25 +252,24 @@ setup.goodsAndServices = {
           }
         }
       },
-      'loaf of dwarven bread':{
+      'loaf of dwarven bread': {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
         exclusions: function (town, building) {
-          if(town.wealth > 50 && building.roll.weatlh > 25){
+          if (town.wealth > 50 && building.roll.wealth > 25) {
             return true
-          }else{
+          } else {
             return false
           }
         }
       },
-      'elven biscuits':{
+      'elven biscuits': {
         cost: 15,
-        description: "Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.",
+        description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
         exclusions: function (town, building) {
-
-          if(town.wealth > 50 && building.roll.weatlh > 50){
+          if (town.wealth > 50 && building.roll.wealth > 50) {
             return true
-          }else{
+          } else {
             return false
           }
         }
@@ -288,11 +287,9 @@ setup.goodsAndServices = {
         description: 'A tasty looking fruit tart.',
         exclusions: function (town, building) {
           var i = building.specialty.includes('pastries')
-          if ( i = true  && building.roll.wealth > 30) {
+          if (i === true && building.roll.wealth > 30 || building.roll.wealth > 70) {
             return true
-          } else if (building.roll.wealth > 70){
-            return true
-          } else{
+          } else {
             return false
           }
         }
@@ -446,7 +443,7 @@ setup.goodsAndServices = {
         "Mother Earth's",
         'Royal Blooms',
         'Pollen Palace',
-        "Bramble and Wild",
+        'Bramble and Wild',
         'Scarlet and Violet',
         'Lavender Belle',
         'Petal Pushers',
@@ -455,8 +452,6 @@ setup.goodsAndServices = {
         'Flores',
         'By Any Other Name',
         'Little Shop of Flowers'
-
-
 
       ],
       noun: [
@@ -476,7 +471,6 @@ setup.goodsAndServices = {
         'bloom',
         'bramble'
       ],
-
       adjective: [
         'lovely',
         'long-lasting',
@@ -497,7 +491,6 @@ setup.goodsAndServices = {
         'lofty',
         'tilted',
         'beautiful'
-
 
       ],
       adjectivePerson: [
@@ -525,7 +518,6 @@ setup.goodsAndServices = {
         'weedy',
         'seedy'
       ],
-
       wordNoun: [
         'florist',
         'flower shop',
@@ -630,7 +622,6 @@ setup.goodsAndServices = {
       'a flower mural is painted on the far wall',
       'a framed collection of pinned <<print either("dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps")>> hung up on the wall next to the counter.',
       'there is a small shelf of boxed chocolates near the front counter with a sign above that reads "For the truly scorned lover".'
-
 
     ],
     specialty: [
