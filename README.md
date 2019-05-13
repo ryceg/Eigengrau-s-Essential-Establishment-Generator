@@ -32,9 +32,12 @@ You can also find easy work to do on the generator [here.](https://github.com/ry
 
 To learn how to compile a local version of the generator for testing go [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Compiling-the-Generator)
 
-## 
+## Built With
+* [Twine](https://twinery.org/) - The front end framework 
+* [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) - A format for Twine
+* [TweeGo](https://www.motoslave.net/tweego/) - Twine command line compiler
 
-This was written in [Twine](https://twinery.org/) using [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) and [TweeGo](https://www.motoslave.net/tweego/). 
+##
 
 You can support me on [Patreon](https://www.patreon.com/eigengrausgenerator)
 
