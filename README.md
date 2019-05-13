@@ -19,7 +19,9 @@ Join our Discord to talk about the project in real time
 * Learn more about the project
 * Ask questions and learn from other contributors
 * Show off your work
+
 **[DISCORD](https://discord.gg/A543VC5)**
+
 Also consider joining the [reddit.](www.reddit.com/r/EigengrausGenerator)
 
 ## Contributing
