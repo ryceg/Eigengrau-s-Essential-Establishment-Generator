@@ -56,7 +56,7 @@ setup.building = {
     building.structure.descriptors = [
       'a ' + building.size + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof.',
       building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof.',
-      building.structure.material.indefiniteArticle + ' ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof.'
+      'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof.'
     ]
     console.log(building.structure)
     return building
