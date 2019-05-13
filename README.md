@@ -15,7 +15,7 @@
 Go to https://eigengrausgenerator.com/ to see the most current live build of EEEG in action!
 
 ## Community
-Join our Discord to talk about the project in real time
+**Join our Discord to talk about the project in real time**
 * Learn more about the project
 * Ask questions and learn from other contributors
 * Show off your work
