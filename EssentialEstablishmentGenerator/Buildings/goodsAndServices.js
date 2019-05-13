@@ -241,6 +241,7 @@ setup.goodsAndServices = {
         cost: 4,
         description: 'A dense and difficult to digest loaf. Typically used as a plate for meats, with the juices soaking into the bread to make it more palatable.'
       },
+
       'loaf of barley bread': {
         cost: 18,
         description: 'A loaf of barley bread.',
@@ -256,7 +257,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
         exclusions: function (town, building) {
-          if (town.wealth > 50 && building.roll.wealth > 25) {
+          if (town.population > 1500 && building.roll.wealth > 25) {
             return true
           } else {
             return false
@@ -267,7 +268,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
         exclusions: function (town, building) {
-          if (town.wealth > 50 && building.roll.wealth > 50) {
+          if (town.population > 2000 && building.roll.wealth > 50) {
             return true
           } else {
             return false
@@ -343,7 +344,7 @@ setup.goodsAndServices = {
       'a small hearth with a roaring fire in one corner.',
       'quite a few racks of decorative plates covered in different <<print either ("animals", "flowers", "fruits", "baked goods", "kinds of bread", "birds", "cats")>> hanging on the walls.',
       'a few barrels of $building.fruits sitting near the shop counter.',
-      'a deere head mounted above the counter.',
+      'a deer head mounted above the counter.',
       'a beaver head framed above a mantel.',
       'a large millstone behind the shop counter.',
       'a medium sized brown dog comes to greet you as you enter.'
