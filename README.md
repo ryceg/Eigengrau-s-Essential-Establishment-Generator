@@ -23,7 +23,8 @@ Join our Discord to talk about the project in real time
 Also consider joining the [reddit.](www.reddit.com/r/EigengrausGenerator)
 
 ## Contributing
-We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CONTRIBUTING.md) The more contributors, the better the generator will be.
+We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CONTRIBUTING.md) 
+
 You can also find easy work to do on the generator [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ## 
