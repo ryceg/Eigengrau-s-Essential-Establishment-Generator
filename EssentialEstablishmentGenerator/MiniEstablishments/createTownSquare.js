@@ -1,4 +1,5 @@
 setup.createTownSquare = function (town, opts) {
+  console.groupCollapsed('Creating townSquare function')
   opts = opts || {}
   let townSquare = (opts['newBuilding'] || setup.createBuilding)(town, 'townSquare')
   Object.assign(townSquare, {
@@ -20,5 +21,6 @@ setup.createTownSquare = function (town, opts) {
     setup.defineRollDataGetter(townSquare, setup.townSquare.rollData, propName)
   })
   townSquare.tippyDescription = 'The town square, which is ' + townSquare.size + ' and ' + townSquare.cleanliness
+  console.groupEnd()
   return townSquare
 }

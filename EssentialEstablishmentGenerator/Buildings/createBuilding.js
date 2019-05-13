@@ -37,6 +37,21 @@ setup.createBuilding = function (town, type, base) {
       this.roadName = roads[0] || ''
       this.roadType = roads[1] || ''
     },
+    // get descriptor () {
+    //   return this.descriptors.seededrandom()
+    // },
+    // set descriptorsAdd (description) {
+    //   if (typeof description === 'string') {
+    //     console.log(this.descriptors)
+    //     if (this.descriptors.includes(description)) {
+    //       console.log('Throwing out duplicate description...')
+    //     } else {
+    //       this.descriptors.push(description)
+    //     }
+    //   } else {
+    //     console.log('Expected a string operand and received ' + description)
+    //   }
+    // },
     associatedTown: town.name,
     type: type,
     lighting: lighting,
