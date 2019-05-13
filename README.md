@@ -26,7 +26,7 @@ Go to https://eigengrausgenerator.com/ to see the most current live build of EEE
 Also consider joining the [reddit.](www.reddit.com/r/EigengrausGenerator)
 
 ## Compiling the Generator
-You will need the latest version of [TweeGo](https://www.motoslave.net/tweego/docs/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). Make sure that TweeGo knows where the SugarCube format is using `export TWEEGO_PATH=LOCATIONOFSUGARCUBE`.
+To compile EEG for local testing you will need the latest version of [TweeGo](https://www.motoslave.net/tweego/docs/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). Make sure that TweeGo knows where the SugarCube format is using `export TWEEGO_PATH=LOCATIONOFSUGARCUBE`.
 
 CD to above the directory, and use `tweego -o EEEG.html github/Eigengrau/EssentialEstablishmentGenerator --head=HeadContent/main.txt` to compile things all nicely. You want to CD outside of the directory to avoid generating EEEG.html inside (which would be compiled the next time you run), and you want to point it specifically at /EssentialEstablishmentGenerator to avoid compiling the `index.html`, which is a copy of the live.
 
