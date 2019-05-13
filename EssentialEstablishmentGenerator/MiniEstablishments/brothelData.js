@@ -48,6 +48,7 @@ setup.brothel = {
       [0, 'festering with bugs']
     ]
   },
+  //Name of the brothel
   'name': [
     'Daisies', 'The Don', 'Blinkers', "The Prude's Suspenders", 'Gold’s Dust', 'The Velvet Fang', 'The Whisper Home', 'The Hook', 'Over the River', 'Slooshes', 'The Rapid Rascal', 'The Stoat',
     'The Fidgety Ferret', 'Long Shaft', 'The Guards', 'Chastity’s', 'The Mask', 'The Red Dress', 'Jewels', 'Silken Flute', 'The Nag’s Head', 'Drummers', 'Sailors Choice', 'Blacksmiths Envy',
@@ -75,6 +76,7 @@ setup.brothel = {
     'The Kings Head', 'The Queens Head', 'The Red Lion', 'The Drunken Sailor', 'The Plough', 'The Dancing Dragon', 'Lusty Maidens', 'Mermaid Gait', 'Lone Wenches Inn', 'The Sour Sow', 'The Rusty Tub', 'The Lacy Curtain',
     'The Porcelain Candle', 'Golden Embrace', 'The Pink Petticoat', 'The Silky Kisses', 'The Red Slipper', "The Lady's Skirt"
   ],
+  //Apparently, it specialises in __
   'specialty': [
     'really weird stuff, for those with the most interesting fetishes',
     'illegal stuff. If this is found out, the place would be burnt down, and the owners hung. It is clearly kept in great secret',
@@ -93,6 +95,7 @@ setup.brothel = {
     'helping people live out their most twisted sexual fantasies',
     'incredibly dominant women'
   ],
+  //When people talke about the brothel, they say __
   'talk': [
     [
       'you can pay for services with things other than coin',
@@ -126,6 +129,7 @@ setup.brothel = {
     'the whores there are treated like slaves'
   ],
   // these are the brothel rumors for BrothelOutput
+  //apparently __
   'rumour': [
     'a nobleman got one of the girls with child but refuses to acknowledge her or the baby',
     'someone slaughtered half of the workers and clients in the night',
@@ -172,6 +176,7 @@ setup.brothel = {
     'vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'the sea', 'cherry', 'oranges', 'clean linens', 'honeysuckle'
   ],
   // these are the lines used to select the notice action in BrothelOutput
+  //You notice_
   'notice': [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
@@ -236,6 +241,7 @@ setup.brothel = {
     'a great many nude statues placed all around the room'
   ],
   // these are the lines used to pick the pimp's idle action in brothelOutput
+ //The master/mistress is _
   'idle': [
     'sitting, with a piece of bread in hand',
     'sitting, mug in hand',
@@ -415,12 +421,17 @@ setup.brothel = {
         calmTrait: 'eager to please'
       }
     },
+    //She has __
     'feature': ['a pretty smile', 'beautiful eyes', 'lovely, long eyelashes', 'lush, curly locks', 'short-cropped hair', 'a clean satin gown', 'broad shoulders', 'a slender jaw', 'thick, long hair', 'a very large bosom', 'a very curvacious body', 'long slender hands'],
-    'physicalTrait': ['a gimpy leg', 'trout lips', 'a missing hand', 'dirty, matted hair', 'quite strong body odor', 'a very hairy body', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
-    'flawSeverity': ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
+    //and is particularly good at __
     'skill': ['listening and offering emotional support', 'bringing a smile to her clients’ faces as soon as she touches them', 'embroidery and sewing', 'cooking and cleaning', 'drinking and swearing', 'certain lewd oral activities', 'getting clients in the mood', 'juggling'],
+    //However, she has __
+    'physicalTrait': ['a gimpy leg', 'trout lips', 'a missing hand', 'dirty, matted hair', 'quite strong body odor', 'a very hairy body', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
+    //whish is __.
+    'flawSeverity': ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
+    //She is looking to __
     'looks': [
-      'earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away', 'hatch a plan for revenge against the man who ruined her life', 'drink some wine and have a laugh', 'seduce a noble and live a life of luxury', 'learn more about the whorehouse practice for her erotic fiction', 'leave this place with her bastard children', 'learn a trade and get out of this dreadful line of work', 'simply have all the sex her heart desires, and the gold is a nice bonus'
+      'earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away', 'hatch a plan for revenge against the man who ruined her life', 'drink some wine and have a laugh', 'seduce a noble and live a life of luxury', 'learn more about the whorehouse practice for her erotic fiction', 'leave this place with her bastard children', 'learn a trade and get out of this dreadful line of work', 'simply have all the sex her heart desires, and the gold is a nice bonus', 'make connections with powerful people'
     ]
   }
 }
