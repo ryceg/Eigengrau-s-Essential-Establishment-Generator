@@ -2,7 +2,8 @@
 
 ### A Tabletop Generator Unlike Any Other
 
-[Eigengrau's Essential Establishment Generator](https://eigengrausgenerator.com/), or EEEG for short, is a tabletop procedural generation tool for towns, npcs, and more. It creates text suitable to be read directly to the players during a game.
+[Eigengrau's Essential Establishment Generator](https://eigengrausgenerator.com/), or EEEG for short, is a tabletop procedural generation tool for towns, npcs, and more. It creates paragraphs of text suitable to be read directly to the players during a game. No longer do you have to simply describe a generic, unnamed tavern as "small"- this is the sort of stuff that you can read out instead;
+![](EssentialEstablishmentGenerator/resources/tavernOutput)
 
 
 **What It's For**
