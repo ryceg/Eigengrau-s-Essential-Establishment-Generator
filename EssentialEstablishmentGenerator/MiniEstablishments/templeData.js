@@ -54,17 +54,43 @@ setup.temple = {
     ]
   },
   'prayerSubject': [
+    //They pray to
     'one god and only one god',
     'one god primarily, but other gods occasionally or for specific petitions',
     'several gods within a pantheon, but two gods above the rest',
     'an entire pantheon, petitioning each god for specific needs',
-    'one god to whom the temple was not originally dedicated',
+    'one god, but not the one the temple was originally dedicated to',
     'several gods within a pantheon to whom the temple was not originally dedicated'
   ],
   'dedicated': [
-    'the sun', 'the sky', 'craft', 'knowledge', 'death', 'evil', 'the hunt', 'the woodlands', 'love', 'beauty', 'the moon', 'the sun', 'the seas', 'the storms', 'trickery', 'war', 'the harvest', 'festivals'
+    //the temple is dedicated to
+    'the sun',
+     'the sky', 
+     'craft', 
+     'knowledge', 
+     'death', 
+     'evil', 
+     'the hunt', 
+     'the woodlands', 
+     'love', 
+     'beauty', 
+     'the moon', 
+     'the sun', 
+     'the seas', 
+     'the storms', 
+     'trickery', 
+     'war', 
+     'the harvest', 
+     'festivals',
+     'wealth and prosperity',
+     'record keeping',
+     'true peace',
+     'friendship and community',
+     'law and order'
+
   ],
   'knownFor': [
+    //and is known for _
     'miraculous healers',
     'compassionate healers',
     'beautiful priestesses',
@@ -148,14 +174,27 @@ setup.temple = {
     'rectangular',
     'pentagonal'
   ],
+  'architect': [
+    'the local priest',
+    'a poor local farmer who was mistaken for the architect',
+    "a local architect; he's not the best",
+    'a nearby noble who wanted to get right with the gods',
+    'a noble who wanted to show how holy he was',
+    'a famed priest doing his duty for the gods',
+    'a famous architect on a very generous commission',
+    'a nearby king for his priestly brother',
+    'a local scholar who had read some books on churches',
+    'the local bricklayer',
+    'the son of the local priest'
+  ],
   'complex': [
-    'simple; a large main worship chamber with a handful of functional rooms adjoining',
+    'simple; with only a large main worship chamber and a handful of functional rooms adjoining',
     'simple with a large annex; the annex contains many chambers',
     'simple with fortifications',
-    'multi-layered; upper or lower layers are inaccessible to most visitors',
+    'multi-layered; the upper or lower layers are inaccessible to most visitors',
     'multi-winged; some wings are inaccessible to most visitors',
-    'arranged in a concentric fashion; inner areas are inaccessible to most visitors',
-    'labyrinthine; designed to deliberately confuse outsiders',
+    'arranged in a concentric fashion; the inner areas are inaccessible to most visitors',
+    'labyrinthine; it is designed to deliberately confuse outsiders',
     'simple with an intricate complex hidden beneath the main worship chamber'
   ],
   'walls': [
@@ -163,19 +202,27 @@ setup.temple = {
     'an intricate structure of stone arches and columns',
     'a colorful structure of painted wood and plaster',
     'a sturdy structure of finished wood',
-    'a solid structure of oven-fired clay bricks'
+    'a solid structure of oven-fired clay bricks',
+    'finished with oak planks',
+    'finished with oiled mahogany planks',
+    'powdery white gypsum',
+    'supported by thin stone columns',
+    'held up by thick wooden timbers',
+    'adorned in intricate wooden carvings',
+    'made of well crafted bricks',
+    'made of rough hewn stone blocks',
+    'made of poorly molded bricks',
+    'made of rocks and mud',
+    'made of sawn logs',
+    'actually the hollowed husk of an enormous tree',
+    'beautifully painted wood',
+    'made of smooth cut stone',
+    'made of unfinished hardwood',
+    'covered in intricate murals',
+    'adorned with relief carvings',
+    'covered in sacred texts and runes'
   ],
-  'interior': [
-    'rough hewn stone',
-    'smooth cut stone',
-    'painted wood',
-    'lacquered wood',
-    'unfinished hardwood',
-    'decorated with intricate mosaics',
-    'decorated with elaborate murals',
-    'decorated with relief carvings',
-    'decorated with sacred texts and runes'
-  ],
+
   'ceiling': [
     'uncomfortably close to your head',
     'connected to the floor by columns',
@@ -214,7 +261,8 @@ setup.temple = {
     'tall candles on holders, taller than a man',
     'the tinkle of chimes from a nearby room',
     'a tapestry depicting a mythological scene',
-    'a small fountain', 'a reflecting pool',
+    'a small fountain', 
+    'a reflecting pool',
     'the sound of a gong from another room',
     'a large holy symbol embedded in the wall',
     'a huge book of sacred texts or prayers',
@@ -222,7 +270,8 @@ setup.temple = {
     'a kneeler beneath a small statue or icon',
     'an oil lamp with colored glass panels',
     'a mosaic set into the floor of the room',
-    'a wide fresco', 'a mural depicting a mythological scene',
+    'a wide fresco', 
+    'a mural depicting a mythological scene',
     'the pipes of an immense organ running along the walls',
     'robes and cassocks hanging on hooks',
     'an ornamental rug',
@@ -231,7 +280,7 @@ setup.temple = {
     'two large stone statues further down the hall',
     'a series of percussive thuds punctuated rhythmically by a groaning sound',
     'large stone stairs leading down to a pool of clear water',
-    'the pillars are carved with intricate images of the heavens',
-    'the floor tiles are made of red sandstone'
+    'pillars carved with intricate images of the heavens',
+    'floor tiles made of red sandstone'
   ]
 }
