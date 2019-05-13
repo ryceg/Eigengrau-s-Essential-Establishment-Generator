@@ -29,6 +29,8 @@ We love getting pull requests! You can find out more about contributing to the p
 
 You can also find easy work to do on the generator [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
+To learn how to compile a local version of the generator for testing go [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Compiling-the-Generator)
+
 ## 
 
 This was written in [Twine](https://twinery.org/) using [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) and [TweeGo](https://www.motoslave.net/tweego/). 
