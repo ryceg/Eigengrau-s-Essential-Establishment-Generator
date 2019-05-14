@@ -3,10 +3,7 @@
   "rules": {
     "comma-dangle": 0,
     "indent": 1,
-    "react/prop-types": 0,
-    "react/jsx-indent-props": 0,
     "linebreak-style": 0,
-    "react/jsx-closing-bracket-location": 0,
     "object-curly-spacing": 0,
     "arrow-body-style": 0,
     "no-console": 0,
@@ -16,9 +13,6 @@
     "global-require": 0,
     "no-underscore-dangle": 0,
     "semi": 0,
-    "space-before-blocks": 0,
-    "jsx-a11y/label-has-associated-control": 0,
-    "jsx-a11y/label-has-for": 0,
-    "jsx-a11y/anchor-is-valid": 0
+    "space-before-blocks": 0
   }
 }
