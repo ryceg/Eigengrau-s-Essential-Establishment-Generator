@@ -1,6 +1,8 @@
 :: Changelog
 
-<blockquote><<run setup.tippy(".btn")>>
+<blockquote>
+  <<run setup.tippy(".btn")>>
+
   <h4>v.2.2</h4>
   <ul>
     <li class="tip" title="Probably more bug squashing still needed!">Fixed most of the weather bugs</li>
@@ -10,5 +12,6 @@
     <li class="tip" title="Loosely based on the Kinsey scale. I'm very eager to introduce some more realistic representation.">Implemented sexuality.</li>
     <li class="tip" title="Lots to be done here. Have opted for a relatively blocky system- the middle class didn't *really* exist in medieval times.">Implemented class system, which effects relationships & available occupations.</li>
   </ul>
+
   [[Full changelog|ChangelogFull]]
 </blockquote>
