@@ -4,6 +4,8 @@ setup.building = {
     if (!building) {
       building = {}
     }
+    building.wordNoun = building.wordNoun || 'building'
+
     if (!building.structure) {
       building.structure = {
         get descriptor () {
@@ -47,10 +49,8 @@ setup.building = {
         tempRoof.words[roof] = colour + ' ' + tempRoof.words[roof]
       })
     }
-    building.wordNoun = building.wordNoun || 'building'
     building.structure.roof = tempRoof.words
-    building.structure.roof.wealth = ''
-    building.structure.material.wealth = ''
+
     setup.defineRollDataGetter(building.structure.roof, setup.building.roof.rollData, 'wealth', 'wealth', '', building.roll)
     setup.defineRollDataGetter(building.structure.material, setup.building.material.rollData, 'wealth', 'wealth', '', building.roll)
     building.structure.descriptors = [
