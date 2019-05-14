@@ -1,12 +1,13 @@
 setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, output, defaultProbability) {
   // console.log(args)
-  if (!defaultProbability) {
-    defaultProbability = 10
-  }
-
-  if (!output) {
-    output = 'function'
-  }
+  console.groupCollapsed('Running a weighted random search...')
+  console.log({
+    args,
+    obj,
+    exclusionFunction,
+    output,
+    defaultProbability
+  })
   // town is needed because everything needs town to evaluate
   // args is the object containing the objects that you're drawing from
   // obj is the optional npc, building, or whatever that is needed for functions.
@@ -14,6 +15,13 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   // leave exclusionFunction blank if everyting in your object is always going to be allowed.
   // output is what should be outputted at the end. Set to 'object' to return the whole object.
   // defaultProbability is the optional default unit. You won't usually need to supply this.
+  if (!output) {
+    output = 'function'
+  }
+  if (!defaultProbability) {
+    defaultProbability = 10
+  }
+
   var pool = []
   var totalWeight = 0
   exclusionFunction = exclusionFunction || true
@@ -38,11 +46,9 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
       pool.push(args[arg])
       totalWeight += args[arg].probability || defaultProbability
     }
-    // isValid = {}
   }
   // console.log('Starting the search.')
   var random = Math.floor(randomFloat(1) * totalWeight)
-  console.log(random)
   for (var i = 0; i < pool.length; i++) {
     random -= pool[i].probability || defaultProbability
     if (random < 0) {
@@ -56,8 +62,9 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     console.error('The randomly fetched object does not have the attribute ' + output + '.')
     console.log({ selected })
   }
-
+  console.groupEnd()
   if (output === 'object') {
+    // if the string 'object' is passed, then it returns the object itself.
     console.log(selected)
     return selected
   } else if (typeof (selected[output]) === 'function') {
@@ -67,4 +74,5 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     console.log(selected[output])
     return selected[output]
   }
+
 }
