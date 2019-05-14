@@ -16,6 +16,8 @@
 ## Live Build :rocket:
 Go to https://eigengrausgenerator.com/ to see the most current live build of EEEG in action!
 
+NOTE: The live build is often several weeks or months behind the current build here on github. Compile the generator locally to see all the latest features and updates!
+
 ## Community :family:
 **Join our Discord to talk about the project in real time**
 * Learn more about the project
