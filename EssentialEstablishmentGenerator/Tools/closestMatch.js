@@ -1,4 +1,5 @@
 setup.closestMatch = function (array, readout, prop1, prop2, val1, val2) {
+  // an approximation of two dimensional arrays, that needs a rework.
   var range1, range2, scale1 = 1, scale2 = 1
   // Find highest and lowest values for each property in the array.
   var min1 = array[0][prop1], min2 = array[0][prop2], max1 = array[0][prop1], max2 = array[0][prop2]
@@ -18,7 +19,9 @@ setup.closestMatch = function (array, readout, prop1, prop2, val1, val2) {
   }
   // Find the shortest "distance" from any item in the array to val1 and val2.
   // If multiple items in the array are of the same minimum distance, choose the last one.
-  var curdist, closest = 0, dist = (Math.abs(array[0][prop1] - val1) * scale1) + (Math.abs(array[0][prop2] - val2) * scale2)
+  var curdist
+  var closest = 0
+  var dist = (Math.abs(array[0][prop1] - val1) * scale1) + (Math.abs(array[0][prop2] - val2) * scale2)
   for (i = 1; i < array.length; i++) {
     curdist = (Math.abs(array[i][prop1] - val1) * scale1) + (Math.abs(array[i][prop2] - val2) * scale2)
     if (curdist <= dist) {

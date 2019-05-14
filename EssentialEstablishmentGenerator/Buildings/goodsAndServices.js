@@ -1,24 +1,44 @@
 /* global setup */
 setup.goodsAndServices = {
-  bakery: {
-    // the bakery can be used as the scaffolding for others.
-    create: function (town, opts) {
+  default: {
+    create: function (town, type, opts) {
+      // this is the template for the creation of generic buildings; i.e. those that are present in this list.
+      // It is *not* for taverns, town squares, castles, or anything large scale.
+      // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
+      console.groupCollapsed('setup.goodsAndServices.default.create()ing a ' + type)
       opts = opts || {}
       var building = {
-        type: 'bakery',
-        BuildingType: 'bakery',
+        type: type,
+        BuildingType: type,
         passageName: 'GenericPassage',
         initPassage: 'GenericPassage'
       }
       Object.assign(building, (opts['newBuilding'] || setup.createBuilding)(town, building.type))
+      building.wordNoun = (building.wordNoun || opts['wordNoun'] || setup.goodsAndServices[building.type].name.wordNoun.seededrandom() || 'building')
+      building.PassageFormat = (building.PassageFormat || opts['PassageFormat'] || setup.goodsAndServices[building.type].PassageFormat)
+      setup.goodsAndServices[building.type].create(town, building, opts)
+      setup.building.create(town, building)
+
+      console.groupEnd()
+      return building
+    }
+  },
+  bakery: {
+    // the bakery can be used as an example of how to add more features to a building.
+    create: function (town, building, opts) {
+      opts = opts || {}
+      if (!building) {
+        console.error('A building was not passed!')
+        return
+      }
       building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = setup.goodsAndServices[building.type].name.function(town, building)
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
-      building.wordNoun = setup.goodsAndServices[building.type].name.wordNoun.seededrandom()
-      building.PassageFormat = setup.goodsAndServices[building.type].PassageFormat
+
       building.fruit = setup.flora.fruit.fruitS.seededrandom()
       building.fruits = setup.flora.fruit.fruitP.seededrandom()
+
       building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
@@ -179,7 +199,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -276,19 +299,18 @@ setup.goodsAndServices = {
         }
       },
       'stale bread': {
-        cost: 2,
+        cost: random(1, 4),
         description: 'A stale loaf. Not very appetizing.'
       },
       'biscuit loaf': {
-        cost: 13,
+        cost: random(9, 14),
         description: 'A loaf sliced and then baked a second time, biscuits last for a long time.'
       },
       'sweet tart': {
-        cost: 13,
+        cost: random(10, 15),
         description: 'A tasty looking fruit tart.',
         exclusions: function (town, building) {
-          var i = building.specialty.includes('pastries')
-          if (i === true && building.roll.wealth > 30 || building.roll.wealth > 70) {
+          if (building.roll.wealth > 70 || building.specialty.includes('pastries') && building.roll.wealth > 30) {
             return true
           } else {
             return false
@@ -328,7 +350,7 @@ setup.goodsAndServices = {
       'a particularly huge clay oven in the middle of the bakery.',
       'there are several small tables inside the bakery for pastries to be enjoyed.',
       'a round, somehow rotating, shelf in the middle of the shop full of baked goods.',
-      'a small black cat dart behind the counter as you enter.',
+      'a small black cat darts behind the counter as you enter.',
       'a strange shrill sound coming from the near the shop oven as you enter, but it quickly dies down. The smell of burnt hair slowly fills the room.',
       'huge clouds of flour rising up from behind the shop counter.',
       'the distinct smell of vanilla.',
@@ -386,24 +408,23 @@ setup.goodsAndServices = {
     ]
   },
   florist: {
-    create: function (town, opts) {
+    create: function (town, building, opts) {
       opts = opts || {}
-      var building = {
-        type: 'florist',
-        BuildingType: 'florist',
-        passageName: 'GenericPassage',
-        initPassage: 'GenericPassage'
+      if (!building) {
+        console.error('A building was not passed!')
+        return
       }
-      Object.assign(building, (opts['newBuilding'] || setup.createBuilding)(town, building.type))
+
       building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = setup.goodsAndServices[building.type].name.function(town, building)
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+
       building.flowers1 = setup.flora.flowers.stemP.seededrandom()
       building.flowers2 = setup.flora.flowers.stemP.seededrandom()
       building.flower = setup.flora.flowers.stemS.seededrandom()
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
-      building.wordNoun = setup.goodsAndServices[building.type].name.wordNoun.seededrandom()
-      building.PassageFormat = setup.goodsAndServices[building.type].PassageFormat
+
       building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },

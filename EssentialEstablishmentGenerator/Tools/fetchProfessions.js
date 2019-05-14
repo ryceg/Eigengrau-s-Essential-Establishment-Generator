@@ -1,7 +1,8 @@
 /* global setup dice randomFloat */
 setup.fetchProfessions = function (town) {
-  // var professionArray = []
-  // var professionCountArray = []
+  // this is run on start up.
+  // it returns the available town professions, with their support values.
+  // individual professions are returned by the fetchProfessionChance() function located in NPCGeneration/fetchProfessionChance.js
   town = town || State.variables.town
   town.professions = {}
   var professionNames = Object.keys(setup.townData.professions)
