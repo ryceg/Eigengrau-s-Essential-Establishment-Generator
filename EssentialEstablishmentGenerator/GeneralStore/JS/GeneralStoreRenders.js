@@ -1,5 +1,6 @@
 setup.GeneralStoreRenders = function(GeneralStore) {
   let warmthRoll = random(1, 100);
+  // update warmth based on store size
   const size = GeneralStore.size;
   if (size > 80) {
     GeneralStore.size = "huge";
@@ -25,7 +26,8 @@ setup.GeneralStoreRenders = function(GeneralStore) {
     GeneralStore.size = "tiny";
     warmthRoll += 30;
   }
-
+  GeneralStore.roll.warmth = warmthRoll; // set warmth roll
+  // attributes for store
   const attributes = {
     warmth: [
       [80, "swelteringly hot"],
@@ -71,7 +73,7 @@ setup.GeneralStoreRenders = function(GeneralStore) {
       [0, "very quiet"]
     ].reverse()
   };
-  // add attributes to store
+  // actually add attributes to store object
   Object.keys(attributes).map(key => {
     const array = attributes[key];
     GeneralStore[key] = array[0][1]; // default value
