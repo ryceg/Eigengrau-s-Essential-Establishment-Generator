@@ -3,13 +3,6 @@
   "version": "0.1.0",
   "description": "Eigengrau's Essential Establishment Generator",
   "main": "main.txt",
-  "scripts": {
-    "serve": "webpack-dev-server --mode=development",
-    "seed": "node db/seeds",
-    "build": "webpack -p",
-    "start": "node index",
-    "test": "mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator.git"
