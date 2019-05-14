@@ -45,7 +45,7 @@ You can also find easy work to do on the generator [here.](https://github.com/ry
 
 ##
 
-You can support me on [Patreon](https://www.patreon.com/eigengrausgenerator)
+If you can't contribute pull requests consider supporting the generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
 
-I hope that you find it useful!
+We hope that you find it useful!
 
