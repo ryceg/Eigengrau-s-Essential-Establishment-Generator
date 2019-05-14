@@ -175,12 +175,9 @@
 <ul>
 	<li>Added vegetarian & carnivorous menus based on tavern's roughness.</li>
 	<li>Replaced attribute buttons with sliders (that actually work)</li>
-	<li>Added racess
-	<i>Bartender's race will impact the tavern's roughness, cleanliness, etc.</i></li>
-	<li>Added special brews
-	<i>Stolen from the /r/DnDBehindTheScreen 10000 Drinks thread</i></li>
-	<li>Added bonds
-	<i>These are kinda hamfisted in, but it's just in case your PCs are really into talking with the bartender, and you need to make up more stuff to keep them interested.</i></li>
+	<li class="tip" title="Bartender's race will impact the tavern's roughness, cleanliness, etc.">Added races</li>
+	<li class="tip" title="Stolen from the /r/DnDBehindTheScreen 10000 Drinks thread">Added special brews</li>
+	<li class="tip" title="These are kinda hamfisted in, but it's just in case your PCs are really into talking with the bartender, and you need to make up more stuff to keep them interested.">Added bonds</li>
 	<li>Added descriptions of taverns based on size and draw.</li>
 	<li>Made room availability dependent on size, and current population of the tavern.</li>
 </ul>
