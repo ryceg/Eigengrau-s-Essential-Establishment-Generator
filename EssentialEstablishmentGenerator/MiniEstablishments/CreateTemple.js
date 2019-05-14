@@ -47,6 +47,8 @@ setup.createTemple = function (town, opts) {
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(temple, data.rollData, propName)
   })
+
+  //These are the full sentence printouts referenced within TempleOutput.twee
   temple.guardReadout = 'This ' + temple.wordNoun + ' is protected by ' + temple.guardedBy + '.'
   temple.aboutReadout = 'Within this holy place they pray to ' + temple.prayerSubject + '. The temple itself was originally dedicated to ' + temple.dedicated + ' and is known for ' + temple.knownFor + '. The ' + temple.wordNoun + ' was designed by ' + temple.architect + ' and it is ' + temple.complex + '.'
   temple.interiorReadout = 'You enter the ' + temple.size + ', ' + temple.cleanliness + ' ' + temple.wordNoun + ' and notice ' +  temple.features + '. The main room is ' + temple.floorPlan + ' in shape and is decorated with ' + temple.wealth + ' looking furniture. The walls of the ' + temple.wordNoun + ' are ' + temple.walls + ' and the the ceiling is ' + temple.ceiling + '.'
