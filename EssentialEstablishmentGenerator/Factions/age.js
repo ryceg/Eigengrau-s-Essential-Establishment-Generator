@@ -1,6 +1,6 @@
 setup.ageFaction = function(faction) {
   console.log("ageing...");
-  ranks = [
+  var ranks = [
     [95, "ancient"],
     [90, "extremely old"],
     [80, "very old"],
