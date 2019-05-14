@@ -24,7 +24,7 @@ Go to https://eigengrausgenerator.com/ to see the most current live build of EEE
 
 **[DISCORD](https://discord.gg/A543VC5)**
 
-Also consider joining the [reddit.](www.reddit.com/r/EigengrausGenerator)
+Also consider joining the [reddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Compiling :computer:
 To compile EEEG for local testing you will need the latest version of [TweeGo](http://www.motoslave.net/tweego/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). Make sure that TweeGo knows where the SugarCube format is using `export TWEEGO_PATH=LOCATION_OF_SUGARCUBE`.
