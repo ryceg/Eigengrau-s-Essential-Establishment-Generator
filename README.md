@@ -52,7 +52,7 @@ You can also find easy work to do on the generator [here.](https://github.com/ry
 
 ## Built With :hammer:
 * [Twine](https://twinery.org/) - The front end framework 
-* [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) - A format for Twine
+* [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) - A language for Twine
 * [TweeGo](https://www.motoslave.net/tweego/) - Twine command line compiler
 
 ##
