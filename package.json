@@ -1,0 +1,28 @@
+{
+  "name": "eigengraus-essential-establishment-generator",
+  "version": "0.1.0",
+  "description": "Eigengrau's Essential Establishment Generator",
+  "main": "main.txt",
+  "scripts": {
+    "serve": "webpack-dev-server --mode=development",
+    "seed": "node db/seeds",
+    "build": "webpack -p",
+    "start": "node index",
+    "test": "mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator.git"
+  },
+  "author": "ryceg",
+  "license": "GNU GENERAL PUBLIC LICENSE",
+  "bugs": {
+    "url": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues"
+  },
+  "homepage": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/README.md",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2"
+  }
+}
