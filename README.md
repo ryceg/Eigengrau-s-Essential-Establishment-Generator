@@ -27,9 +27,17 @@ Go to https://eigengrausgenerator.com/ to see the most current live build of EEE
 Also consider joining the [reddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Compiling :computer:
-To compile EEEG for local testing you will need the latest version of [TweeGo](http://www.motoslave.net/tweego/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). Make sure that TweeGo knows where the SugarCube format is using `export TWEEGO_PATH=LOCATION_OF_SUGARCUBE`.
+To compile EEEG for local testing you will need the latest version of [TweeGo](http://www.motoslave.net/tweego/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). 
+```bash
+# Show TweeGo knows where the SugarCube format is
+export TWEEGO_PATH=LOCATION_OF_SUGARCUBE
 
-`cd` to the directory where Tweego is installed, and use `tweego -o EEEG.html {PROJECT_ROOT}/EssentialEstablishmentGenerator --head={PROJECT_ROOT}/main.txt` to compile. 
+# go to where you installed Tweego. If you installed it globally, feel free to skip this
+cd $TWEEGO_PATH
+
+# replace PROJECT_ROOT with wherever you git cloned the repository
+tweego -o EEEG.html {PROJECT_ROOT}/EssentialEstablishmentGenerator --head={PROJECT_ROOT}/main.txt
+```
 This generates `EEEG.html` in the project root directory that you can open in a browser.
 
 NOTE: You can save time once you've set your directories by saving that command as a `.bat` or `.sh` file.
