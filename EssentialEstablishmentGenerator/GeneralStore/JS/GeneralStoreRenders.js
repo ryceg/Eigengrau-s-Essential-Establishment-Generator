@@ -1,101 +1,82 @@
-setup.GeneralStoreRenders = function (GeneralStore) {
-  var warmthRoll = random(1, 100)
-
-  if (GeneralStore.roll.size > 80) {
-    GeneralStore.size = 'huge'
-    warmthRoll -= 20
-  } else if (GeneralStore.roll.size > 70) {
-    GeneralStore.size = 'quite large'
-    warmthRoll -= 15
-  } else if (GeneralStore.roll.size > 60) {
-    GeneralStore.size = 'large'
-    warmthRoll -= 10
-  } else if (GeneralStore.roll.size > 50) {
-    GeneralStore.size = 'spacious'
-    warmthRoll -= 5
-  } else if (GeneralStore.roll.size > 40) {
-    GeneralStore.size = 'medium'
-  } else if (GeneralStore.roll.size > 30) {
-    GeneralStore.size = 'slightly cramped'
-    warmthRoll += 15
-  } else if (GeneralStore.roll.size > 20) {
-    GeneralStore.size = 'small'
-    warmthRoll += 15
-  } else if (GeneralStore.roll.size <= 20) {
-    GeneralStore.size = 'tiny'
-    warmthRoll += 30
+setup.GeneralStoreRenders = function(GeneralStore) {
+  let warmthRoll = random(1, 100);
+  const { size, cleanliness, expertise, activity } = GeneralStore.roll;
+  if (size > 80) {
+    GeneralStore.size = "huge";
+    warmthRoll -= 20;
+  } else if (size > 70) {
+    GeneralStore.size = "quite large";
+    warmthRoll -= 15;
+  } else if (size > 60) {
+    GeneralStore.size = "large";
+    warmthRoll -= 10;
+  } else if (size > 50) {
+    GeneralStore.size = "spacious";
+    warmthRoll -= 5;
+  } else if (size > 40) {
+    GeneralStore.size = "medium";
+  } else if (size > 30) {
+    GeneralStore.size = "slightly cramped";
+    warmthRoll += 15;
+  } else if (size > 20) {
+    GeneralStore.size = "small";
+    warmthRoll += 15;
+  } else if (size <= 20) {
+    GeneralStore.size = "tiny";
+    warmthRoll += 30;
   }
 
-  if (warmthRoll > 80) {
-    GeneralStore.warmth = 'swelteringly hot'
-  } else if (warmthRoll > 70) {
-    GeneralStore.warmth = 'extremely warm'
-  } else if (warmthRoll > 60) {
-    GeneralStore.warmth = 'uncomfortably warm'
-  } else if (warmthRoll > 50) {
-    GeneralStore.warmth = 'nice and toasty'
-  } else if (warmthRoll > 40) {
-    GeneralStore.warmth = 'quite warm'
-  } else if (warmthRoll > 30) {
-    GeneralStore.warmth = 'warm'
-  } else if (warmthRoll > 20) {
-    GeneralStore.warmth = 'mild'
-  } else if (warmthRoll <= 20) {
-    GeneralStore.warmth = 'cold'
-  }
+  const warmth = [
+    [80, "swelteringly hot"],
+    [70, "extremely warm"],
+    [60, "uncomfortably warm"],
+    [50, "nice and toasty"],
+    [40, "quite warm"],
+    [30, "warm"],
+    [20, "mild"],
+    [0, "cold"]
+  ];
+  for (let [num, descript] in warmth)
+    if (warmthRoll > num) GeneralStore.warmth = descript;
 
-  if (GeneralStore.roll.cleanliness > 80) {
-    GeneralStore.cleanliness = 'fastidious'
-  } else if (GeneralStore.roll.cleanliness > 70) {
-    GeneralStore.cleanliness = 'very tidy'
-  } else if (GeneralStore.roll.cleanliness > 60) {
-    GeneralStore.cleanliness = 'tidy'
-  } else if (GeneralStore.roll.cleanliness > 50) {
-    GeneralStore.cleanliness = 'reasonably tidy'
-  } else if (GeneralStore.roll.cleanliness > 40) {
-    GeneralStore.cleanliness = 'somewhat messy'
-  } else if (GeneralStore.roll.cleanliness > 30) {
-    GeneralStore.cleanliness = 'rather messy'
-  } else if (GeneralStore.roll.cleanliness > 20) {
-    GeneralStore.cleanliness = 'very messy'
-  } else if (GeneralStore.roll.cleanliness <= 20) {
-    GeneralStore.cleanliness = 'filthy'
-  }
+  const cleanliness = [
+    [80, "fastidious"],
+    [70, "very tidy"],
+    [60, "tidy"],
+    [50, "reasonably tidy"],
+    [40, "somewhat messy"],
+    [30, "rather messy"],
+    [20, "very messy"],
+    [0, "filthy"]
+  ];
+  for (let [num, descript] in cleanliness)
+    if (cleanliness > num) GeneralStore.cleanliness = descript;
 
-  if (GeneralStore.roll.expertise > 80) {
-    GeneralStore.expertise = 'masterful'
-  } else if (GeneralStore.roll.expertise > 70) {
-    GeneralStore.expertise = 'exceptional'
-  } else if (GeneralStore.roll.expertise > 60) {
-    GeneralStore.expertise = 'superior quality'
-  } else if (GeneralStore.roll.expertise > 50) {
-    GeneralStore.expertise = 'finely-crafted'
-  } else if (GeneralStore.roll.expertise > 40) {
-    GeneralStore.expertise = 'well-crafted'
-  } else if (GeneralStore.roll.expertise > 30) {
-    GeneralStore.expertise = 'somewhat well made'
-  } else if (GeneralStore.roll.expertise > 20) {
-    GeneralStore.expertise = 'somewhat amateur'
-  } else if (GeneralStore.roll.expertise <= 20) {
-    GeneralStore.expertise = 'blatantly amateur'
-  }
+  const exp = [
+    [80, "masterful"],
+    [70, "exceptional"],
+    [60, "superior quality"],
+    [50, "finely-crafted"],
+    [40, "well-crafted"],
+    [30, "somewhat well made"],
+    [20, "somewhat amateur"],
+    [20, "blatantly amateur"]
+  ];
+  for (let [num, descript] in exp)
+    if (cleanliness > num) GeneralStore.expertise = descript;
 
-  if (GeneralStore.roll.activity > 80) {
-    GeneralStore.activity = 'extremely busy'
-  } else if (GeneralStore.roll.activity > 70) {
-    GeneralStore.activity = 'very busy'
-  } else if (GeneralStore.roll.activity > 60) {
-    GeneralStore.activity = 'rather busy'
-  } else if (GeneralStore.roll.activity > 50) {
-    GeneralStore.activity = 'reasonably busy'
-  } else if (GeneralStore.roll.activity > 40) {
-    GeneralStore.activity = 'not terribly busy'
-  } else if (GeneralStore.roll.activity > 30) {
-    GeneralStore.activity = 'not busy'
-  } else if (GeneralStore.roll.activity > 20) {
-    GeneralStore.activity = 'rather quiet'
-  } else if (GeneralStore.roll.activity <= 20) {
-    GeneralStore.activity = 'very quiet'
-  }
-  return GeneralStore
-}
+  const activity = [
+    [80, "extremely busy"],
+    [70, "very busy"],
+    [60, "rather busy"],
+    [50, "reasonably busy"],
+    [40, "not terribly busy"],
+    [30, "not busy"],
+    [20, "rather quiet"],
+    [0, "very quiet"]
+  ];
+  for (let [num, descript] in activity)
+    if (activity > num) GeneralStore.activity = descript;
+
+  return GeneralStore;
+};
