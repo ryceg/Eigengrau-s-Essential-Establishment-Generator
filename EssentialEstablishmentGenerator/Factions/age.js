@@ -16,7 +16,9 @@ setup.ageFaction = function (faction) {
     [5, 'unknown'],
     [0, 'well established']
   ]
+  faction.age = 'well established';
   for (let [num, description] of ranks) {
     if (faction.roll.age > num) return (faction.age = description)
   }
+  return faction.age
 }
