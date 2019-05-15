@@ -1364,13 +1364,13 @@ setup.misc = {
         'a natural geode that has been carved into shape. The hollow inside shines brilliant colours.'
       ],
       'senses': {
-        'incense': town => { return 'You can smell the soft scent of incense having been burnt here.' },
-        'wood chimes': town => { return 'The soft clattering of some wooden chimes can be heard in the distance.' },
+        'incense': town => 'You can smell the soft scent of incense having been burnt here.',
+        'wood chimes': town => 'The soft clattering of some wooden chimes can be heard in the distance.',
         'candle': town => { return "There's a melted candle on top of the shrine." },
         'wax': town => { return "There's some blobs of melted wax on the shrine." },
-        'pen': town => { return 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.' },
-        'bread': town => { return 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.' },
-        'deadBird': town => { return 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.' },
+        'pen': town => 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.',
+        'bread': town => 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.',
+        'deadBird': town => 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.',
         'cat': town => {
           let cat = setup.misc.cat.create()
           return "You hear a soft meow, and see that there's a " + cat.tippyWord + ' sitting near the shrine, watching you.'
@@ -1662,7 +1662,7 @@ setup.misc = {
       let goblins = setup.misc.goblins.create(town)
       return 'a goblin hideout. ' + goblins.readout
     },
-    'a pair of goblin scouts': () => { return 'a pair of goblin scouts' },
+    'a pair of goblin scouts': () => 'a pair of goblin scouts',
     'a lone goblin': () => {
       let goblin = setup.misc.goblin.create()
       return 'a lone ' + goblin.tippyWord + ' ' + ['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].seededrandom()
@@ -1671,7 +1671,7 @@ setup.misc = {
       let goblins = setup.misc.goblins.create()
       return 'a goblin war party. ' + goblins.readout
     },
-    'a goblin patrol': () => { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom() },
+    'a goblin patrol': () => 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom(),
     'several giant spiders': () => {
       let spider = setup.misc.spider.create()
       return 'several giant ' + spider.tippyWord + '<b>s</b>.'
@@ -1739,20 +1739,20 @@ setup.misc = {
       })
       return 'a solitary ' + setup.profile(npc, 'hunter')
     },
-    'a diseased animal corpse': () => { return 'a diseased animal corpse' },
-    'a dead body': () => { return 'a dead body' },
-    'a group of dwarves': () => { return 'a group of dwarves' },
-    'a handful of farmers': () => { return 'a handful of farmers' },
-    'the border patrol': () => { return 'the border patrol' },
-    'a travelling peddler': () => { return 'a travelling peddler' },
-    'a hunting party': () => { return 'a hunting party' },
-    'another adventuring party': () => { return 'another adventuring party' },
-    'some escaped convicts': () => { return 'some escaped convicts' },
-    'some herdsmen': () => { return 'some herdsmen' },
-    'some particularly dense overgrowth': () => { return 'some particularly dense overgrowth' },
-    'some tribesmen': () => { return 'some tribesmen' },
-    'the undead': () => { return 'the undead' },
-    '[monster encounter]': () => { return '[monster encounter]' },
+    'a diseased animal corpse': () => 'a diseased animal corpse',
+    'a dead body': () => 'a dead body',
+    'a group of dwarves': () => 'a group of dwarves',
+    'a handful of farmers': () => 'a handful of farmers',
+    'the border patrol': () => 'the border patrol',
+    'a travelling peddler': () => 'a travelling peddler',
+    'a hunting party': () => 'a hunting party',
+    'another adventuring party': () => 'another adventuring party',
+    'some escaped convicts': () => 'some escaped convicts',
+    'some herdsmen': () => 'some herdsmen',
+    'some particularly dense overgrowth': () => 'some particularly dense overgrowth',
+    'some tribesmen': () => 'some tribesmen',
+    'the undead': () => 'the undead',
+    '[monster encounter]': () => '[monster encounter]',
     'a traveling peddler': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
@@ -1788,18 +1788,18 @@ setup.misc = {
       })
       return 'a mounted ' + setup.profile(npc, 'messenger')
     },
-    'a work gang heading home': () => { return 'a work gang heading home' },
-    'the road wardens': () => { return 'the road wardens' },
-    'some of the local militia': () => { return 'some of the local militia' },
-    'a pair of travelling clerics': () => { return 'a pair of travelling clerics' },
-    'some graverobbers': () => { return 'some graverobbers' },
-    'some farmers': () => { return 'some farmers' },
+    'a work gang heading home': () => 'a work gang heading home',
+    'the road wardens': () => 'the road wardens',
+    'some of the local militia': () => 'some of the local militia',
+    'a pair of travelling clerics': () => 'a pair of travelling clerics',
+    'some graverobbers': () => 'some graverobbers',
+    'some farmers': () => 'some farmers',
     'a plague-infested cabin': () => {
       let cabin = setup.misc.cabin.create()
       return 'a plague-infested ' + cabin.tippyWord + '.'
     },
-    'some beserkers': () => { return 'some beserkers' },
-    'a caravan of gypsies': () => { return 'a caravan of gypsies' },
+    'some beserkers': () => 'some beserkers',
+    'a caravan of gypsies': () => 'a caravan of gypsies',
     'a knight errant': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'paladin',
@@ -1832,18 +1832,18 @@ setup.misc = {
       })
       return 'a ' + setup.profile(npc, 'courier')
     },
-    'a wedding party': () => { return 'a wedding party' },
-    'a group of pilgrims': () => { return 'a group of pilgrims' },
-    'a funeral procession': () => { return 'a funeral procession' },
-    'a plague cart': () => { return 'a plague cart' },
+    'a wedding party': () => 'a wedding party',
+    'a group of pilgrims': () => 'a group of pilgrims',
+    'a funeral procession': () => 'a funeral procession',
+    'a plague cart': () => 'a plague cart',
     'a lone horse, trotting the other way': () => {
       let horse = setup.misc.horse.create()
       return 'a lone ' + horse.tippyWord + ', trotting the other way'
     },
-    'a traveling theatre troupe': () => { return 'a traveling theatre troupe' },
-    'some beggars': () => { return 'some beggars' },
-    'a caravan of slavers': () => { return 'a caravan of slavers' },
-    'a lone zombie': () => { return 'a lone zombie' },
+    'a traveling theatre troupe': () => 'a traveling theatre troupe',
+    'some beggars': () => 'some beggars',
+    'a caravan of slavers': () => 'a caravan of slavers',
+    'a lone zombie': () => 'a lone zombie',
     'a strange hermit': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
@@ -1903,30 +1903,30 @@ setup.misc = {
       let ghost = setup.misc.ghost.create()
       return 'the ' + ghost.tippyWord + ' of a traveler. '
     },
-    'a poisonous snake': () => { return 'a poisonous snake' },
+    'a poisonous snake': () => 'a poisonous snake',
     'a giant spider': () => {
       let spider = setup.misc.spider.create()
       return 'a giant ' + spider.tippyWord
     },
-    'a giant scorpion': () => { return 'a giant scorpion' },
-    'a giant centipede': () => { return 'a giant centipede' },
-    'a pack of jackals': () => { return 'a pack of jackals' },
-    'a hungry jackalwere': () => { return 'a hungry jackalwere' },
-    'a giant lizard': () => { return 'a giant lizard' },
-    'a pair of gnolls': () => { return 'a pair of gnolls' },
-    'a pair of bandits': () => { return 'a pair of bandits' },
-    'an hobgoblin scout': () => { return 'an hobgoblin scout' },
-    'a roc on the wing': () => { return 'a roc on the wing' },
-    'a wyvern on the wing': () => { return 'a wyvern on the wing' },
-    'lots of bats': town => { return 'lots of bats' },
-    'many spider webs': town => { return 'many spider webs' },
+    'a giant scorpion': () => 'a giant scorpion',
+    'a giant centipede': () => 'a giant centipede',
+    'a pack of jackals': () => 'a pack of jackals',
+    'a hungry jackalwere': () => 'a hungry jackalwere',
+    'a giant lizard': () => 'a giant lizard',
+    'a pair of gnolls': () => 'a pair of gnolls',
+    'a pair of bandits': () => 'a pair of bandits',
+    'an hobgoblin scout': () => 'an hobgoblin scout',
+    'a roc on the wing': () => 'a roc on the wing',
+    'a wyvern on the wing': () => 'a wyvern on the wing',
+    'lots of bats': town => 'lots of bats',
+    'many spider webs': town => 'many spider webs',
     "a troll's stash.": town => { return "a troll's stash." },
-    'some abandoned mining equipment': town => { return 'some abandoned mining equipment' },
-    'bare rock': town => { return 'bare rock' },
-    'a potable spring': town => { return 'a potable spring' },
-    'mummified remains': town => { return 'some mummified remains' },
-    'a band of dwarvish refugees': town => { return 'a band of dwarvish refugees' },
-    'a swarm of beetles': town => { return 'a swarm of beetles' },
+    'some abandoned mining equipment': town => 'some abandoned mining equipment',
+    'bare rock': town => 'bare rock',
+    'a potable spring': town => 'a potable spring',
+    'mummified remains': town => 'some mummified remains',
+    'a band of dwarvish refugees': town => 'a band of dwarvish refugees',
+    'a swarm of beetles': town => 'a swarm of beetles',
     'a half mad prophet': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
@@ -2054,8 +2054,8 @@ setup.misc = {
       })
       return 'a religious ' + setup.profile(npc, 'fanatic') + ' with his many wives'
     },
-    'poisonous snakes': town => { return 'poisonous snakes' },
-    'a pair of orcs': town => { return 'a pair of orcs' },
+    'poisonous snakes': town => 'poisonous snakes',
+    'a pair of orcs': town => 'a pair of orcs',
     'a mad sorcerer': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
@@ -2133,23 +2133,23 @@ setup.misc = {
       })
       return 'a wasteland ' + setup.profile(npc, 'druid')
     },
-    'cursed mummies': town => { return 'cursed mummies' },
-    'a hobgoblin warlord': town => { return 'a hobgoblin warlord' },
-    'an orcish war chief': town => { return 'an orcish war chief' },
-    'a tribe of kobolds': town => { return 'a tribe of kobolds' },
-    'a territorial griffon': town => { return 'a territorial griffon' },
-    'a pair of manticores': town => { return 'a pair of manticores' },
-    'slavering gnolls': town => { return 'slavering gnolls' },
-    'a mountain lion’s den': town => { return 'a mountain lion’s den' },
-    'unidentifiable remains': town => { return 'some unidentifiable remains' },
-    'a hungry ettin': town => { return 'a hungry ettin' },
-    'a griffon’s nest': town => { return 'a griffon’s nest' },
-    'a manticore’s den': town => { return 'a manticore’s den' },
-    'a basilisk’s lair': town => { return 'a basilisk’s lair' },
-    'a wyvern’s nest': town => { return 'a wyvern’s nest' },
-    'a clan of stone giants': town => { return 'a clan of stone giants' },
-    'a dragon': town => { return 'a dragon' },
-    'a sleeping dragon': town => { return 'a sleeping dragon' },
+    'cursed mummies': town => 'cursed mummies',
+    'a hobgoblin warlord': town => 'a hobgoblin warlord',
+    'an orcish war chief': town => 'an orcish war chief',
+    'a tribe of kobolds': town => 'a tribe of kobolds',
+    'a territorial griffon': town => 'a territorial griffon',
+    'a pair of manticores': town => 'a pair of manticores',
+    'slavering gnolls': town => 'slavering gnolls',
+    'a mountain lion’s den': town => 'a mountain lion’s den',
+    'unidentifiable remains': town => 'some unidentifiable remains',
+    'a hungry ettin': town => 'a hungry ettin',
+    'a griffon’s nest': town => 'a griffon’s nest',
+    'a manticore’s den': town => 'a manticore’s den',
+    'a basilisk’s lair': town => 'a basilisk’s lair',
+    'a wyvern’s nest': town => 'a wyvern’s nest',
+    'a clan of stone giants': town => 'a clan of stone giants',
+    'a dragon': town => 'a dragon',
+    'a sleeping dragon': town => 'a sleeping dragon',
     'a mad witch': town => {
       let npc = setup.createNPC(town, {
         gender: 'woman',
@@ -2174,11 +2174,11 @@ setup.misc = {
       })
       return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
     },
-    'an owlbear': town => { return 'an owlbear' },
-    'a troll': town => { return 'a troll' },
-    'several harpies': town => { return 'several harpies' },
-    'a handful of dwarves': town => { return 'a handful of dwarves' },
-    'ghostly warriors': town => { return 'ghostly warriors' },
+    'an owlbear': town => 'an owlbear',
+    'a troll': town => 'a troll',
+    'several harpies': town => 'several harpies',
+    'a handful of dwarves': town => 'a handful of dwarves',
+    'ghostly warriors': town => 'ghostly warriors',
     'a lost prospector': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
@@ -2233,20 +2233,20 @@ setup.misc = {
       })
       return 'a contemplative ' + setup.profile(npc, 'monk')
     },
-    'a hunting peryton': town => { return 'a hunting peryton' },
-    'a mountain lion': town => { return 'a mountain lion' },
-    'a pair of harpies': town => { return 'a pair of harpies' },
-    'a flock of ravens': town => { return 'a flock of ravens' },
-    'several homeless dwarves': town => { return 'several homeless dwarves' },
-    'an angry wraith': town => { return 'an angry wraith' },
+    'a hunting peryton': town => 'a hunting peryton',
+    'a mountain lion': town => 'a mountain lion',
+    'a pair of harpies': town => 'a pair of harpies',
+    'a flock of ravens': town => 'a flock of ravens',
+    'several homeless dwarves': town => 'several homeless dwarves',
+    'an angry wraith': town => 'an angry wraith',
     'a malevolent ghost': () => {
       let ghost = setup.misc.ghost.create({ reaction: 'murderous and cruel' })
       return 'a malevolent ' + ghost.tippyWord
     },
-    'a mated pair of manticores': town => { return 'a mated pair of manticores' },
-    'a trio of monstrous trolls': town => { return 'a trio of monstrous trolls' },
-    'a clan of stone giants at rest': town => { return 'a clan of stone giants at rest' },
-    'a roc tearing apart some prey': town => { return 'a roc tearing apart some prey' },
+    'a mated pair of manticores': town => 'a mated pair of manticores',
+    'a trio of monstrous trolls': town => 'a trio of monstrous trolls',
+    'a clan of stone giants at rest': town => 'a clan of stone giants at rest',
+    'a roc tearing apart some prey': town => 'a roc tearing apart some prey',
     'a beggarly bandit': town => {
       let npc = setup.createNPC(town, {
         background: 'criminal',
@@ -2307,8 +2307,8 @@ setup.misc = {
       })
       return 'an elvish ' + setup.profile(npc, 'ranger')
     },
-    'a large bear': () => { return 'a large bear' },
-    'a bear cub': () => { return 'a bear cub' },
+    'a large bear': () => 'a large bear',
+    'a bear cub': () => 'a bear cub',
     'a wailing ghost': () => {
       let ghost = setup.misc.ghost.create()
       return 'a wailing ' + ghost.tippyWord
@@ -2317,7 +2317,7 @@ setup.misc = {
       let spider = setup.misc.spider.create()
       return 'giant ' + spider.tippyWord + '<b>s</b><<run setup.tippy("span")>>'
     },
-    'hungry zombies': () => { return 'hungry zombies' },
+    'hungry zombies': () => 'hungry zombies',
     'a lonely old woman': town => {
       let npc = setup.createNPC(town, {
         gender: 'woman',
@@ -2378,7 +2378,7 @@ setup.misc = {
       })
       return 'a wood elf ' + setup.profile(npc, 'druid')
     },
-    'some irritable trolls': () => { return 'some irritable trolls' }
+    'some irritable trolls': () => 'some irritable trolls'
   },
   'locations': {
     'a cavern behind a waterfall': (town, biome) => {
@@ -2441,12 +2441,12 @@ setup.misc = {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
       return 'an abandoned campsite, which looks to have been occupied previously by ' + contents
     },
-    'a sacred grove': () => { return 'a sacred grove.' },
+    'a sacred grove': () => 'a sacred grove.',
     'a shrine': (town, biome) => {
       let shrine = setup.misc.religion.shrine.create(town)
       return 'a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
     },
-    'a grave with an illegible headstone': () => { return 'a grave with an illegible headstone.' },
+    'a grave with an illegible headstone': () => 'a grave with an illegible headstone.',
     'ancient ruins': (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
       return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.seededrandom() + '. Now, ' + contents + ' lives here.</blockquote>'
@@ -2467,9 +2467,9 @@ setup.misc = {
       return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     // mining is intentionally using the mountain biome
-    'an old mine in a canyon': (town, biome) => { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() + '.</blockquote>' },
-    'an active mining camp': (town, biome) => { return 'an active mining camp, manned by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() },
-    'a hole under a large boulder': (town, biome) => { return 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.seededrandom() + '</blockquote>' },
+    'an old mine in a canyon': (town, biome) => 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() + '.</blockquote>',
+    'an active mining camp': (town, biome) => 'an active mining camp, manned by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom(),
+    'a hole under a large boulder': (town, biome) => 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.seededrandom() + '</blockquote>',
     'an abandoned stone house': (town, biome) => {
       let lived = setup.misc[biome].houseLived.seededrandom()
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
@@ -2509,9 +2509,9 @@ setup.misc = {
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
       return 'a temple ruin. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
     },
-    'a village of primitive canyon dwellers': (town, biome) => { return 'a village of primitive canyon dwellers' },
+    'a village of primitive canyon dwellers': (town, biome) => 'a village of primitive canyon dwellers',
     "some nomad's camp": (town, biome) => { return "some nomad's camp" },
-    'an ancient tomb': (town, biome) => { return 'an ancient tomb' }
+    'an ancient tomb': (town, biome) => 'an ancient tomb'
   },
   'cavern': {
     'entrance': ['wide and tall, letting much daylight into the entry chamber', 'a wide sinkhole', 'an easy to spot, narrow passage', 'a steep, slippery sloped tunnel', 'a man-made tunnel', 'a collapsed tunnel, impassable without excavation', 'marked with several warning signs', 'hidden by some boulders', 'hidden by a waterfall', 'hidden by a rocky overhang', 'hidden by a hillock', 'hidden by a briar patch', 'hidden by a curtain of moss', 'hidden by some enormous ancient tree roots', 'hidden by some overgrown vines', 'up a cliff face', 'down a deep hole', 'in an underwater tunnel'],
