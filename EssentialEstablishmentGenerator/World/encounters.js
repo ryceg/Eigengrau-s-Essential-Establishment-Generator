@@ -1,3 +1,5 @@
+if(!setup.misc)
+    setup.misc = {}
 setup.misc.encounters = {
     'a group of bandits operating a toll road': town => {
       let bandits = setup.misc.bandits.create(town, { business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)' })

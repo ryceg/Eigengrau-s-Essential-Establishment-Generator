@@ -1,3 +1,5 @@
+if(!setup.misc)
+    setup.misc = {}
 setup.misc.locations = {
     'a cavern behind a waterfall': (town, biome) => {
       let cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
