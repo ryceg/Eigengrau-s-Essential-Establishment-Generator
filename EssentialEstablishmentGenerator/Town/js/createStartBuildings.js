@@ -19,5 +19,8 @@ setup.createStartBuildings = function (town) {
 
   var florist = setup.goodsAndServices.default.create(town, 'florist')
   town.buildings.florist[florist.key] = florist
+
+  var tailor = setup.goodsAndServices.default.create(town, 'tailor')
+  town.buildings.tailor[tailor.key] = tailor
   return town
 }
