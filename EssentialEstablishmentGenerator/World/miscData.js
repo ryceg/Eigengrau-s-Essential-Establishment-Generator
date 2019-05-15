@@ -1,5 +1,6 @@
 /* global setup random */
 setup.misc = {
+  ...(setup.misc || {}), // keep any existing misc attributes, see "JS Spread Operator"
   'cheese': {
     create: () => {
       let cheese = {
