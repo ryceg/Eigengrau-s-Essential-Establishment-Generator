@@ -2535,7 +2535,7 @@ setup.misc = {
     }
   },
   'tree': {
-    'create': (town, biome, base) => { {
+    'create': (town, biome, base) => {
       biome = biome || ['forest', 'desert', 'mountain', 'plains'].seededrandom()
       let tree = Object.assign({
         species: setup.misc.tree.biome[biome].species.seededrandom(),
@@ -2661,7 +2661,7 @@ setup.misc = {
     }
   },
   'cabin': {
-    'create': (town, base, biome) => { {
+    'create': (town, base, biome) => {
       let cabin = Object.assign({
         material: ['wooden', 'wooden', 'wooden', 'stone'].seededrandom(),
         wordNoun: 'cabin',
