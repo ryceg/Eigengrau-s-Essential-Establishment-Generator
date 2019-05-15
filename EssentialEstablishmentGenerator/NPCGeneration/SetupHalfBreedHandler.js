@@ -1,6 +1,6 @@
 setup.halfbreedHandler = function (town, mother, father) {
   console.log('Handling some half-breeds!')
-  console.log({mother}, {father})
+  console.log({ mother }, { father })
   if (typeof mother === 'string') {
     console.error('First argument was passed a string!')
     mother = State.variables.npcs[mother]

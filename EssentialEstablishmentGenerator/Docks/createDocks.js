@@ -13,14 +13,12 @@ setup.createDocks = function (town, opts) {
     typePool: setup.docks.ships.typePool
   })
 
-  docks.name = ['the' + [' Old ', ' New ', ' ', ' ' , ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
+  docks.name = ['the' + [' Old ', ' New ', ' ', ' ', ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
 
   // docks.wealth = ''
   docks.activity = ''
   docks.size = ''
   docks.cleanliness = ''
-
-
 
   var rollDataVariables = ['size', 'cleanliness', 'activity']
   rollDataVariables.forEach(function (propName) {

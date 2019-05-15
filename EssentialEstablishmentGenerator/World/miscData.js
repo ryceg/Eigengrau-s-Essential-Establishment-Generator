@@ -976,7 +976,7 @@ setup.misc = {
     ]
   },
   'riddles': [
-     {
+    {
       answer: 'an anvil',
       question: [
         'I bear the weight of sparks, but do not catch alight,',
@@ -985,7 +985,7 @@ setup.misc = {
         'The arms of steel that I create are forged upon my head.'
       ]
     },
-     {
+    {
       answer: 'fire',
       question: [
         'With no tongue I lick,',
@@ -1002,7 +1002,7 @@ setup.misc = {
         'With no weapons I kill.'
       ]
     },
-     {
+    {
       answer: 'courage',
       question: [
         'I live in your mind, but I am shown by hand upon heart,',
@@ -1025,7 +1025,7 @@ setup.misc = {
         'I’m long or I’m short, I’m new or I’m old,',
         'But always use me with care,',
         'For I can topple the brave and the bold,',
-        'So of the order you place me beware.',
+        'So of the order you place me beware.'
       ]
     },
     {
@@ -1036,7 +1036,7 @@ setup.misc = {
         'My third is in dignity, but not in deceit,',
         'My fourth, like my second, never found in a cheat,',
         'My fifth is in tribute, but not in trial,',
-        'My last is in war and friends, but not the weak and vile.',
+        'My last is in war and friends, but not the weak and vile.'
       ]
     },
     {
@@ -1045,7 +1045,7 @@ setup.misc = {
         'A crystal ball, the pickpocket’s plight,',
         'In a fleshy prison suspended,',
         'Stronger in day, weaker at night,',
-        'Upon this my power depended.',
+        'Upon this my power depended.'
       ]
     },
     {
@@ -1054,7 +1054,7 @@ setup.misc = {
         'The only thing that truly cuts the air in silence.',
         'The clearest way that our body gives us guidance.',
         'Faster than sword, sound, wind or light,',
-        'A tool, a weapon, a gift, the answer is',
+        'A tool, a weapon, a gift, the answer is'
       ]
     },
     {
@@ -1068,7 +1068,7 @@ setup.misc = {
         'Life-shaper,',
         'Time-thinner,',
         'Back-breaker,',
-        'Sweat-bringer.',
+        'Sweat-bringer.'
       ]
     },
     {
@@ -1081,7 +1081,7 @@ setup.misc = {
         'His life measured by height,',
         'By the stroke of midnight,',
         'The darkness will bite,',
-        'And take away his warming light.',
+        'And take away his warming light.'
       ]
     },
     {
@@ -1090,7 +1090,7 @@ setup.misc = {
         'Silver, brass, bronze, gold,',
         'Given, bought, stolen, sold,',
         'Symbols of wealth, power, or love,',
-        'Forged like a sword, fits like a glove.',
+        'Forged like a sword, fits like a glove.'
       ]
     },
     {
@@ -1101,7 +1101,7 @@ setup.misc = {
         'The Gambler’s Bane,',
         'The Poor Man’s Pain,',
         'The Bankers’ Game,',
-        'The Noble’s Claim.',
+        'The Noble’s Claim.'
       ]
     },
     {
@@ -1112,7 +1112,7 @@ setup.misc = {
         'Beware the white gargoyles, stuck fast in the roof,',
         'When the wind blows through, a smell most uncouth,',
         'And beware the tunnel at the back of the cave,',
-        'For down at the bottom awaits a watery grave.',
+        'For down at the bottom awaits a watery grave.'
       ]
     },
     {
@@ -1122,7 +1122,7 @@ setup.misc = {
         'You wouldn’t call me wise, though I am filled with wonder,',
         'You shouldn’t call me worthless, though I’m made not of gold,',
         'You can’t hold a torch to the stories I’ve told.',
-        'What am I?',
+        'What am I?'
       ]
     },
     {
@@ -1131,7 +1131,7 @@ setup.misc = {
         'A thousand steps an inch,',
         'A hundred houses a hand,',
         'A week by horse, drawn as a course,',
-        'From the eyes of an eagle on the land.',
+        'From the eyes of an eagle on the land.'
       ]
     },
     {
@@ -1145,7 +1145,7 @@ setup.misc = {
         'It’s only the strikes of others I feel.',
         'My duty is a true protection,',
         'So wield me in your foe’s direction,',
-        'And let their blades taste my rejection.',
+        'And let their blades taste my rejection.'
       ]
     },
     {
@@ -1158,7 +1158,7 @@ setup.misc = {
         'Grand dealer of tricks,',
         'Hands quick, eyes transfixed.',
         'Conjurer beyond the true,',
-        'Coursing through, empowering you.',
+        'Coursing through, empowering you.'
       ]
     },
     {
@@ -1172,7 +1172,7 @@ setup.misc = {
         'Then rushing straight back.',
         'Striking with every volt,',
         'The earth feels the jolt,',
-        'Brings life to a halt.',
+        'Brings life to a halt.'
       ]
     },
     {
@@ -1184,7 +1184,7 @@ setup.misc = {
         'Words fleet,',
         'Mouths bleat,',
         'Feel the heat,',
-        'Isn’t it sweet.',
+        'Isn’t it sweet.'
       ]
     },
     {
@@ -1195,7 +1195,7 @@ setup.misc = {
         'Arms for King, Lord or Sultan,',
         'As I chew upon your metal, molten',
         'So thrust at me your iron, sharp',
-        'And I’ll reshape it in my heart.',
+        'And I’ll reshape it in my heart.'
       ]
     },
     {
@@ -1204,7 +1204,7 @@ setup.misc = {
         'My tool is not a weapon, though it has a hook,',
         'My work’s to take what is not mine, though I am no crook,',
         'You shan’t find me in battle, though you may try to look,',
-        'Better luck you’d have searching by yonder brook.',
+        'Better luck you’d have searching by yonder brook.'
       ]
     },
     {
@@ -1215,7 +1215,7 @@ setup.misc = {
         'Most in years between,',
         'Long or short,',
         'Light or dark,',
-        'Slick, unkempt or clean.',
+        'Slick, unkempt or clean.'
       ]
     },
     {
@@ -1224,7 +1224,7 @@ setup.misc = {
         'You know how to ask, but not yet my answer,',
         'For I am the ivory table dancer.',
         'So rattle me up then let me free,',
-        'How many of my eyes will you see?',
+        'How many of my eyes will you see?'
       ]
     },
     {
@@ -1237,7 +1237,7 @@ setup.misc = {
         'I strike you true with my mighty lance,',
         'And never do I miss,',
         'Upon your floor and walls I dance,',
-        'Spreading my morning kiss.',
+        'Spreading my morning kiss.'
       ]
     },
     {
@@ -1247,7 +1247,7 @@ setup.misc = {
         'Have no bones but our spine,',
         'Curled together we fight,',
         'As a symbol of might,',
-        'Or raise a chalice of wine.',
+        'Or raise a chalice of wine.'
       ]
     },
     {
@@ -1258,7 +1258,7 @@ setup.misc = {
         'Oh mighty cattle-chaser, standing tall above the trees,',
         'Our warriors of bravest heart stand only to your knees.',
         'Oh wondrous boulder-cruncher, with strength from head to feet,',
-        'All my life I truly hope that never do we meet.',
+        'All my life I truly hope that never do we meet.'
       ]
     },
     {
@@ -1271,7 +1271,7 @@ setup.misc = {
         'In daytime I rest, settle and simmer,',
         'Biding my time in the sky,',
         'Ready to show you the glory and glimmer,',
-        'Of worlds and dreams passing by.',
+        'Of worlds and dreams passing by.'
       ]
     },
     {
@@ -1288,7 +1288,7 @@ setup.misc = {
         'I am no sword despite my steel,',
         'So away with your brutish warrior’s zeal,',
         'I command my form with much more grace,',
-        'While still delivering death’s embrace.',
+        'While still delivering death’s embrace.'
       ]
     },
     {
@@ -1299,7 +1299,7 @@ setup.misc = {
         'Sea and river growing,',
         'Falling, filling, flowing,',
         'Beware the winding, sleeping lake,',
-        'Rising, heaving, banks will break.',
+        'Rising, heaving, banks will break.'
       ]
     },
     {
@@ -1312,7 +1312,7 @@ setup.misc = {
         'With ne’er much to do but drum his claws,',
         'And grind the teeth of mighty jaws,',
         'And wait an age for when next nears,',
-        'A morsel with greater greed than fears.',
+        'A morsel with greater greed than fears.'
       ]
     },
     {
@@ -1325,9 +1325,9 @@ setup.misc = {
         'Bathe in my blissful reverberation!',
         'Booming through the streets of the town,',
         'I’ll sit and sing out from my station,',
-        'At the top of the tower; I’m the crown.',
+        'At the top of the tower; I’m the crown.'
       ]
-    },
+    }
   ],
   'religion': {
     'shrine': {

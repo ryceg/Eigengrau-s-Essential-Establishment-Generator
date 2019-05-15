@@ -1,7 +1,7 @@
 var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, MinorBoon, MinorQuest, MinorEnemy, MajorBane, MajorBoon, MajorQuest, MajorEnemy, OnTheRun, Vendetta, BuyingOrSelling, GoodDeeds, EvilDeeds, Haunted, Cursed, Treasure, Emergency, Warning, SocialEvents, PoliticalEvents, ReligiousEvents, FaithTouched, WeaveTouched, MysteryCult
 
 setup.createRumour = function (town) {
-  var Rnd = random(1, 2), Rumour
+  var Rnd = random(1, 2); var Rumour
   switch (Rnd) {
     case 1:
       Rumour = Motivations() + '. ' + PersonalInformation()
@@ -52,7 +52,7 @@ setup.createRumour = function (town) {
   // C – Item information
   function ItemInformation () {
     return [
-        ['artifact'],
+      ['artifact'],
       ['jewelry', 'chest', 'map', 'bucket', 'lantern', 'jar'].seededrandom(),
       ['piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'set of armor'].seededrandom(),
       ['common', 'common', 'common', 'common', 'common', 'common', 'rare', 'rare', 'rare', 'valuable'].seededrandom() + ['longsword', 'longbow', 'short sword', 'dagger', 'greataxe', 'crossbow'].seededrandom(),

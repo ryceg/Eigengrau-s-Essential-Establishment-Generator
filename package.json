@@ -14,7 +14,8 @@
   },
   "homepage": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/README.md",
   "scripts": {
-    "test": "standard"
+    "lint": "eslint EssentialEstablishmentGenerator/**/*.js",
+    "lint-fix": "eslint --fix EssentialEstablishmentGenerator/**/*.js"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -22,7 +23,6 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "standard": "^12.0.1"
+    "eslint-plugin-standard": "^4.0.0"
   }
 }
