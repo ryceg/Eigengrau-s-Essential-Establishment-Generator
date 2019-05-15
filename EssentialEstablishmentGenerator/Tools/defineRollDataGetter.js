@@ -16,6 +16,8 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
     indexNumber,
     rollLocation
   })
+  baseObj[propName] = ''
+
   Object.defineProperty(baseObj, propName, {
     get: function () {
       console.log('Fetching ' + this.name + ' ' + propName + '.')

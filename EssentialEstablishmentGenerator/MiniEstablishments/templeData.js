@@ -158,6 +158,7 @@ setup.temple = {
     'sprawling indoor gardens',
     'colorful hanging gardens'
   ],
+  //The temple is protected by
   'guardedBy': [
     'a sworn order of devout warriors',
     'sellswords',
@@ -166,6 +167,7 @@ setup.temple = {
     'statues of beautiful maidens, beckoning visitors into a trap',
     'nothing; the temple welcomes all'
   ],
+  //The main room is __ in shape
   'floorPlan': [
     'circular',
     'ellipsoidal',
@@ -174,6 +176,7 @@ setup.temple = {
     'rectangular',
     'pentagonal'
   ],
+  //The temple was designed by __
   'architect': [
     'the local priest',
     'a poor local farmer who was mistaken for the architect',
@@ -187,6 +190,7 @@ setup.temple = {
     'the local bricklayer',
     'the son of the local priest'
   ],
+  //and it is __.
   'complex': [
     'simple; with only a large main worship chamber and a handful of functional rooms adjoining',
     'simple with a large annex; the annex contains many chambers',
@@ -197,6 +201,7 @@ setup.temple = {
     'labyrinthine; it is designed to deliberately confuse outsiders',
     'simple with an intricate complex hidden beneath the main worship chamber'
   ],
+  //The walls of the temple are
   'walls': [
     'impenetrable stone walls',
     'an intricate structure of stone arches and columns',
@@ -222,7 +227,7 @@ setup.temple = {
     'adorned with relief carvings',
     'covered in sacred texts and runes'
   ],
-
+//the ceiling is __
   'ceiling': [
     'uncomfortably close to your head',
     'connected to the floor by columns',
@@ -254,6 +259,7 @@ setup.temple = {
     'a stable', 'a kennel',
     'a workshop for temple craftsmen'
   ],
+  //You enter the temple and notice __
   'features': [
     'a small altar set in an alcove in the wall',
     'the sound of bells ringing in a tower',

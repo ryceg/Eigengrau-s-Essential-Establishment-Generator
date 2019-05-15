@@ -1,4 +1,5 @@
 setup.profile = function (obj, base, type) {
+  // this is a function that returns the profile widget for the provided object.
   // obj is the object. It is mandatory.
   if (typeof obj === 'string') {
     console.error('Profile function for ' + obj + ' called with a string.')

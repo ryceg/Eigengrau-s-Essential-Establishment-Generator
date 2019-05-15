@@ -4,6 +4,8 @@ setup.building = {
     if (!building) {
       building = {}
     }
+    building.wordNoun = building.wordNoun || 'building'
+
     if (!building.structure) {
       building.structure = {
         get descriptor () {
@@ -47,17 +49,17 @@ setup.building = {
         tempRoof.words[roof] = colour + ' ' + tempRoof.words[roof]
       })
     }
-    building.wordNoun = building.wordNoun || 'building'
     building.structure.roof = tempRoof.words
-    building.structure.roof.wealth = ''
-    building.structure.material.wealth = ''
+
     setup.defineRollDataGetter(building.structure.roof, setup.building.roof.rollData, 'wealth', 'wealth', '', building.roll)
     setup.defineRollDataGetter(building.structure.material, setup.building.material.rollData, 'wealth', 'wealth', '', building.roll)
     building.structure.descriptors = [
-      'a ' + building.size + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof.',
-      building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof.',
-      building.structure.material.indefiniteArticle + ' ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof.'
+      building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof',
+      'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.verb + ' roof'
     ]
+    if (building.size) {
+      building.structure.descriptorsAdd('a ' + building.size + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof')
+    }
     console.log(building.structure)
     return building
   },
@@ -73,7 +75,21 @@ setup.building = {
       'white',
       'yellow',
       'orange'
-    ]
+    ],
+    rollData: {
+      'size': [
+        [95, 'cavernous'],
+        [80, 'huge'],
+        [70, 'quite large'],
+        [60, 'large'],
+        [50, 'spacious'],
+        [40, 'average sized'],
+        [30, 'somewhat cramped'],
+        [20, 'small'],
+        [10, 'tiny'],
+        [0, 'extremely cramped']
+      ]
+    }
   },
   material: {
     rollData: {
