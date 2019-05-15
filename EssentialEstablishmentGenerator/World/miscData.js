@@ -493,7 +493,7 @@ setup.misc = {
     ]
   },
   'caravan': {
-    'create': function (town, base) {
+    'create': (town, base) => {
       let masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
       let caravan = Object.assign({
         type: setup.misc.caravan.caravanType.seededrandom(),
@@ -702,7 +702,7 @@ setup.misc = {
     'weapons': ['wooden clubs', 'over-sized daggers', 'shortbows and arrows', 'longbows and arrows', 'daggers and crossbows', 'axes and knives', 'sticks and stones', 'shortswords', 'brass knuckles', 'daggers and sling shots'],
     'lair': ['the residence of a prominent noble', 'the village’s market square', 'a wayside inn', 'a tavern', 'a brothel', 'an old lighthouse', 'an abandoned cabin', 'a waterfall', 'a cave', 'a dense forest'],
     'fearedBy': ['ambassadors and tax collectors', 'merchants and peddlers', 'politicians and magistrates', 'guards and sheriffs', 'soldiers and warriors', 'nobles and wealthy travelers', 'knights and loyalists', 'peasants and farmers', 'priests and sages', 'women and children'],
-    'create': function (town, base) {
+    'create': (town, base) => {
       let bandits = {
         business: setup.misc.bandits.business.seededrandom(),
         colours: setup.misc.bandits.colours.seededrandom(),
@@ -1331,7 +1331,7 @@ setup.misc = {
   ],
   'religion': {
     'shrine': {
-      'create': function (town, base) {
+      'create': (town, base) => {
         let sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
         let shrine = Object.assign({
           god: [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom(),
@@ -2381,22 +2381,22 @@ setup.misc = {
     'some irritable trolls': () => { return 'some irritable trolls' }
   },
   'locations': {
-    'a cavern behind a waterfall': function (town, biome) {
+    'a cavern behind a waterfall': (town, biome) => {
       let cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
       return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '.</blockquote>'
     },
-    'a small cave in the bank of a creek': function (town, biome) {
+    'a small cave in the bank of a creek': (town, biome) => {
       let cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
       return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
-    'an entrance to a rocky cave': function (town, biome) {
+    'an entrance to a rocky cave': (town, biome) => {
       let cavern = setup.misc.cavern.create()
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
       return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
     },
-    'a hole under a large tree': function (town, biome) {
+    'a hole under a large tree': (town, biome) => {
       let contents = setup.misc[biome].hole.seededrandom()
       // this is lazy. Will change hole from an array to an object once I make more creators.
       if (contents === 'a spider') {
@@ -2407,24 +2407,24 @@ setup.misc = {
       // let contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
       return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '.</blockquote>'
     },
-    'a large burrow': function (town, biome) {
+    'a large burrow': (town, biome) => {
       let contents = setup.misc[biome].hole.seededrandom()
       // let contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
       return 'a large burrow <blockquote>Inside is ' + contents + '.</blockquote>'
     },
-    'a peculiar cottage': function (town, biome) {
+    'a peculiar cottage': (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cottageLives, setup.misc.encounters)
       let cabin = setup.misc.cabin.create(town, biome, {
         wordNoun: 'cottage'
       })
       return 'a peculiar ' + cabin.tippyWord + '. <blockquote>' + contents + ' lives here.</blockquote>'
     },
-    "a woodsman's cabin": function (town, biome) {
+    "a woodsman's cabin": (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
       let cabin = setup.misc.cabin.create(town, biome)
       return "a woodsman's " + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
-    'a cozy little cabin': function (town, biome) {
+    'a cozy little cabin': (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
       let cabin = setup.misc.cabin.create(town, biome, {
         wordNoun: 'cabin',
@@ -2432,45 +2432,45 @@ setup.misc = {
       })
       return 'a cozy little ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
-    'an abandoned cabin': function (town, biome) {
+    'an abandoned cabin': (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
       let cabin = setup.misc.cabin.create(town, biome)
       return 'an abandoned ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
     },
-    'an abandoned campsite': function (town, biome) {
+    'an abandoned campsite': (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
       return 'an abandoned campsite, which looks to have been occupied previously by ' + contents
     },
     'a sacred grove': () => { return 'a sacred grove.' },
-    'a shrine': function (town, biome) {
+    'a shrine': (town, biome) => {
       let shrine = setup.misc.religion.shrine.create(town)
       return 'a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
     },
     'a grave with an illegible headstone': () => { return 'a grave with an illegible headstone.' },
-    'ancient ruins': function (town, biome) {
+    'ancient ruins': (town, biome) => {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
       return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.seededrandom() + '. Now, ' + contents + ' lives here.</blockquote>'
     },
-    'a cavern in a canyon wall': function (town, biome) {
+    'a cavern in a canyon wall': (town, biome) => {
       let cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
       return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
-    'a cave entrance, hidden by a boulder': function (town, biome) {
+    'a cave entrance, hidden by a boulder': (town, biome) => {
       let cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
       return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
-    'a small cave next to a dry river bed': function (town, biome) {
+    'a small cave next to a dry river bed': (town, biome) => {
       let cavern = setup.misc.cavern.create()
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
       return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
     },
     // mining is intentionally using the mountain biome
-    'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() + '.</blockquote>' },
-    'an active mining camp': function (town, biome) { return 'an active mining camp, manned by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() },
-    'a hole under a large boulder': function (town, biome) { return 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.seededrandom() + '</blockquote>' },
-    'an abandoned stone house': function (town, biome) {
+    'an old mine in a canyon': (town, biome) => { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() + '.</blockquote>' },
+    'an active mining camp': (town, biome) => { return 'an active mining camp, manned by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() },
+    'a hole under a large boulder': (town, biome) => { return 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.seededrandom() + '</blockquote>' },
+    'an abandoned stone house': (town, biome) => {
       let lived = setup.misc[biome].houseLived.seededrandom()
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
       let cabin = setup.misc.cabin.create(town, biome, {
@@ -2479,7 +2479,7 @@ setup.misc = {
       })
       return 'an abandoned ' + cabin.tippy + '<b>stone house</b></span>. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
     },
-    'a stone house': function (town, biome) {
+    'a stone house': (town, biome) => {
       let lived = setup.misc[biome].houseLived.seededrandom()
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
       let cabin = setup.misc.cabin.create(town, biome, {
@@ -2488,30 +2488,30 @@ setup.misc = {
       })
       return 'a ' + cabin.tippy + '<b>stone house</b></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].seededrandom() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
     },
-    "a merchant caravan's camp": function (town, biome) {
+    "a merchant caravan's camp": (town, biome) => {
       let caravan = setup.misc.caravan.create(town)
       return "a merchant caravan's camp. " + caravan.readout
     },
-    'a peculiar tent': function (town, biome) {
+    'a peculiar tent': (town, biome) => {
       let lived = setup.misc[biome].camped.seededrandom()
       return 'an peculiar tent, which looks to have been occupied previously by ' + lived
     },
-    'an old watchtower': function (town, biome) {
+    'an old watchtower': (town, biome) => {
       // intentionally uses the mountain biome
       let encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
       return 'a strategically located watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.seededrandom() + '. Now, it is controlled by ' + encounter + ' .</blockquote>'
     },
-    'ruins of an ancient city': function (town, biome) {
+    'ruins of an ancient city': (town, biome) => {
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
       return 'ruins of an ancient city. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
     },
-    'a temple ruin': function (town, biome) {
+    'a temple ruin': (town, biome) => {
       let encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
       return 'a temple ruin. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
     },
-    'a village of primitive canyon dwellers': function (town, biome) { return 'a village of primitive canyon dwellers' },
-    "some nomad's camp": function (town, biome) { return "some nomad's camp" },
-    'an ancient tomb': function (town, biome) { return 'an ancient tomb' }
+    'a village of primitive canyon dwellers': (town, biome) => { return 'a village of primitive canyon dwellers' },
+    "some nomad's camp": (town, biome) => { return "some nomad's camp" },
+    'an ancient tomb': (town, biome) => { return 'an ancient tomb' }
   },
   'cavern': {
     'entrance': ['wide and tall, letting much daylight into the entry chamber', 'a wide sinkhole', 'an easy to spot, narrow passage', 'a steep, slippery sloped tunnel', 'a man-made tunnel', 'a collapsed tunnel, impassable without excavation', 'marked with several warning signs', 'hidden by some boulders', 'hidden by a waterfall', 'hidden by a rocky overhang', 'hidden by a hillock', 'hidden by a briar patch', 'hidden by a curtain of moss', 'hidden by some enormous ancient tree roots', 'hidden by some overgrown vines', 'up a cliff face', 'down a deep hole', 'in an underwater tunnel'],
@@ -2535,7 +2535,7 @@ setup.misc = {
     }
   },
   'tree': {
-    'create': function (town, biome, base) {
+    'create': (town, biome, base) => { {
       biome = biome || ['forest', 'desert', 'mountain', 'plains'].seededrandom()
       let tree = Object.assign({
         species: setup.misc.tree.biome[biome].species.seededrandom(),
@@ -2661,7 +2661,7 @@ setup.misc = {
     }
   },
   'cabin': {
-    'create': function (town, base, biome) {
+    'create': (town, base, biome) => { {
       let cabin = Object.assign({
         material: ['wooden', 'wooden', 'wooden', 'stone'].seededrandom(),
         wordNoun: 'cabin',
@@ -2681,7 +2681,7 @@ setup.misc = {
       cabin.bedCleanliness = ''
 
       let rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
-      rollDataVariables.forEach(function (propName) {
+      rollDataVariables.forEach((propName) => {
         setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
       })
 
@@ -2754,12 +2754,12 @@ setup.misc = {
       return setup.weightedRandomFetcher(town, setup.plothooks, '', setup.misc.town.type.event)
     },
     type: {
-      event: function (town, arg) {
+      event: (town, arg) => {
       // console.log('Town event callback function')
       // console.log(arg)
         return arg.type.includes('event')
       },
-      paper: function (town, arg) {
+      paper: (town, arg) => {
       // console.log('Town event callback function')
       // console.log(arg)
         return arg.type.includes('paper')
@@ -2767,7 +2767,7 @@ setup.misc = {
     }
   },
   'road': {
-    'create': function (town, base) {
+    'create': (town, base) => {
       let type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
       let encounterKey = setup.misc.road[type].encounters.seededrandom()
       console.log(encounterKey)
