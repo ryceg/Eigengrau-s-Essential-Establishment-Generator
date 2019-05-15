@@ -1,7 +1,7 @@
 /* global setup random */
 setup.misc = {
   'cheese': {
-    create: function () {
+    create: () => {
       let cheese = {
         colour: setup.misc.cheese.colour.seededrandom(),
         texture: setup.misc.cheese.texture.seededrandom(),
@@ -18,7 +18,7 @@ setup.misc = {
     cost: [1, 2, 3, 4, 5, 6, 6, 6, 7, 7, 7, 8, 9, 10, 10, 10, 11, 11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
   },
   'treasureMap': {
-    'create': function (base) {
+    'create': base => {
       let map = Object.assign({
         one: setup.misc.treasureMap.one.seededrandom(),
         two: setup.misc.treasureMap.two.seededrandom(),
@@ -42,7 +42,7 @@ setup.misc = {
     'seven': ['buried at the foot of a cliff.', 'buried under a mighty oak tree.', 'buried under some tower ruins.', 'buried under a pile of skulls.', 'buried in the grave of a famous person.', 'hidden at the top of an old tower.', 'hidden behind an old painting.', "hidden at the bottom of an old rabbit's warren.", 'hidden in the bole of an ancient elm tree.', "hidden in a shipwreck's hold.", 'guarded by assassins.', 'guarded by monsters.', 'guarded by soldiers.', 'guarded by spirits.', 'guarded by a big monster.', 'protected by magical wards.', 'protected by astral locks.', 'protected by physical traps.', 'protected by necromantic curses.', 'protected by spiritual prayers.', 'protected by a terrible riddle.', 'locked behind a holy ward.', 'buried in an old latrine.', "mixed into a dragon's horde.", 'hidden at the bottom of the chasm.', 'locked behind arcane spells.', 'stuck at the top of a great elm tree.', 'buried in an iron chest.', 'in a wooden chest in the basement of the cabin.', 'stuffed in the crack between two boulders.', 'buried at the end of the black alleyway.']
   },
   'book': {
-    create: function (town) {
+    create: town => {
       let bookType = [
         'detailedTitles',
         'titles',
@@ -579,7 +579,7 @@ setup.misc = {
     'travelerLook': ['accomplices on a quest', 'an audience to entertain', 'someone to hear a sad tale', 'drinking companions']
   },
   'ghost': {
-    'create': function (base) {
+    'create': base => {
       let ghost = Object.assign({
         profession: setup.misc.ghost.profession.seededrandom(),
         cause: setup.misc.ghost.cause.seededrandom(),
@@ -613,7 +613,7 @@ setup.misc = {
     'pets': ['boars', 'dire rats', 'giant lizards', 'ogres', 'wargs', 'wolves'],
     'slaves': ['dwarves', 'gnomes', 'goblins', 'halflings', 'humans', 'kobolds', 'undead servitors', 'nothing; the orcs eat any captives they take', 'nothing; the orcs leave no survivors', 'nothing; the orcs believe in freedom for all beings'],
     'weapons': ['spears and large hunting knives', 'spears and javelins', 'exotic, curved blades and several bolas', 'huge, curved blades', 'exotic, curved blades and blowguns', 'pikes and shortswords', 'pikes and short bows', 'battleaxes and throwing axes', 'battleaxes and longbows', 'longswords and longbows', 'jagged greatswords and shortbows', 'greataxes and javelins'],
-    'create': function () {
+    'create': () => {
       let orcs = {
         type: setup.misc.orcs.type.seededrandom(),
         symbol: setup.misc.orcs.symbol.seededrandom(),
@@ -635,7 +635,7 @@ setup.misc = {
     }
   },
   'goblins': {
-    'create': function (base) {
+    'create': base => {
       let goblins = Object.assign({
         business: setup.misc.goblins.business.seededrandom(),
         symbol: setup.misc.goblins.symbol.seededrandom(),
@@ -669,7 +669,7 @@ setup.misc = {
     'pets': ['wolves', 'wargs', 'giant spiders', 'boars', 'giant bats', 'dire rats']
   },
   'goblin': {
-    'create': function (base) {
+    'create': base => {
       let goblin = Object.assign({
         type: setup.misc.goblin.type.seededrandom(),
         carry: setup.misc.goblin.carry.seededrandom(),
@@ -919,7 +919,7 @@ setup.misc = {
     }
   },
   'roleplayQuestions': {
-    create: function () {
+    create: () => {
       return setup.misc.roleplayQuestions.array.seededrandom()
     },
     array: [
@@ -1364,29 +1364,29 @@ setup.misc = {
         'a natural geode that has been carved into shape. The hollow inside shines brilliant colours.'
       ],
       'senses': {
-        'incense': function (town) { return 'You can smell the soft scent of incense having been burnt here.' },
-        'wood chimes': function (town) { return 'The soft clattering of some wooden chimes can be heard in the distance.' },
-        'candle': function (town) { return "There's a melted candle on top of the shrine." },
-        'wax': function (town) { return "There's some blobs of melted wax on the shrine." },
-        'pen': function (town) { return 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.' },
-        'bread': function (town) { return 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.' },
-        'deadBird': function (town) { return 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.' },
-        'cat': function (town) {
+        'incense': town => { return 'You can smell the soft scent of incense having been burnt here.' },
+        'wood chimes': town => { return 'The soft clattering of some wooden chimes can be heard in the distance.' },
+        'candle': town => { return "There's a melted candle on top of the shrine." },
+        'wax': town => { return "There's some blobs of melted wax on the shrine." },
+        'pen': town => { return 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.' },
+        'bread': town => { return 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.' },
+        'deadBird': town => { return 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.' },
+        'cat': town => {
           let cat = setup.misc.cat.create()
           return "You hear a soft meow, and see that there's a " + cat.tippyWord + ' sitting near the shrine, watching you.'
         },
-        'hissingCat': function (town) {
+        'hissingCat': town => {
           let cat = setup.misc.cat.create()
           return "You hear a hissing sound, and see that there's a " + cat.tippyWord + ' sitting near the shrine, almost guarding it.'
         },
-        'bedding': function (town) { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
-        'beddingWithNPC': function (town) {
+        'bedding': town => { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
+        'beddingWithNPC': town => {
           let npc = setup.createNPC(town)
           return 'You can see some bedding on the ground near the shrine. The ' + setup.profile(npc, 'owner') + ' is out hunting.'
         }
       }
     },
-    'createRelic': function () {
+    'createRelic': () => {
       // let holy = setup.misc.religion.holy.seededrandom()
       // let unholy = setup.misc.religion.unholy.seededrandom()
       let adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
@@ -1417,7 +1417,7 @@ setup.misc = {
     ]
   },
   'bunny': {
-    'create': function () {
+    'create': () => {
       let bunny = {
         size: setup.misc.bunny.size.seededrandom(),
         coat: setup.misc.bunny.coat.seededrandom(),
@@ -1435,7 +1435,7 @@ setup.misc = {
   },
   'cat': {
 
-    'create': function () {
+    'create': () => {
       let cat = {
         size: setup.misc.cat.size.seededrandom(),
         coat: setup.misc.cat.coat.seededrandom(),
@@ -1460,7 +1460,7 @@ setup.misc = {
     'talent': ['scratching', 'hissing', 'purring', 'climbing trees', 'climbing walls', 'catching mice', 'catching fish', 'catching birds', 'avoiding you', 'ignoring you']
   },
   'horse': {
-    'create': function () {
+    'create': () => {
       let horse = {
         gender: setup.misc.horse.gender.seededrandom(),
         coat: setup.misc.horse.coat.seededrandom(),
@@ -1489,7 +1489,7 @@ setup.misc = {
     'behaviour': ['nickers when anxious', 'whinnies when anxious', 'bucks when impatient', 'stamps when impatient', 'froths when tired', 'snorts when tired', 'stamps when content', 'snorts when content']
   },
   'wolf': {
-    'create': function () {
+    'create': () => {
       let wolf = {
         colour: setup.misc.wolf.colour.seededrandom(),
         markings: setup.misc.wolf.markings.seededrandom(),
@@ -1515,7 +1515,7 @@ setup.misc = {
     'habitat': ['in canyonlands', 'in grassy hills', 'in forested hills', 'on grassy plains', 'in ancient forests', 'in young forests', 'in rocky deserts', 'in the foothills of mountains', 'in mountain passes', 'in frozen lands']
   },
   'ogre': {
-    'create': function () {
+    'create': () => {
       let ogre = {
         hair: setup.misc.ogre.hair.seededrandom(),
         type: setup.misc.ogre.type.seededrandom(),
@@ -1541,7 +1541,7 @@ setup.misc = {
     'misfortune': ['pressed into service in an orkish army', 'tricked into doing some dirty work by some goblins', 'charmed by a witch', 'badly burned in a fire', 'imprisoned in a cold, dark cell', 'bested by a rival for the affections of another ogre']
   },
   'spider': {
-    'create': function () {
+    'create': () => {
       let spider = {
         colour: setup.misc.spider.colour.seededrandom(),
         markings: setup.misc.spider.markings.seededrandom(),
@@ -1567,23 +1567,23 @@ setup.misc = {
     'habitat': ['in caverns', 'on cliff-sides', 'on the forest floor', 'in grasslands', 'in jungles', 'in rocky deserts', 'in rotting logs', 'in shallow burrows', 'in swamps', 'in treetops']
   },
   'encounters': {
-    'a group of bandits operating a toll road': function (town) {
+    'a group of bandits operating a toll road': town => {
       let bandits = setup.misc.bandits.create(town, { business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)' })
       return 'a group of ' + bandits.tippyWord + ' operating a toll road. '
     },
-    'a band of robbers': function (town) {
+    'a band of robbers': town => {
       let bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
       return bandits.tippy + '<b>a band of robbers.</b></span>'
     },
-    'some robbers': function (town) {
+    'some robbers': town => {
       let bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
       return bandits.tippy + '<b>some robbers.</b></span>'
     },
-    'a party of raiders': function (town) {
+    'a party of raiders': town => {
       let bandits = setup.misc.bandits.create(town)
       return bandits.tippy + '<b>a party of raiders.</b></span>'
     },
-    'a pair of outlaws': function (town) {
+    'a pair of outlaws': town => {
       let npc = setup.createNPC(town, {
         background: 'criminal',
         isThrowaway: true
@@ -1594,102 +1594,102 @@ setup.misc = {
       })
       return 'a pair of two outlaws; one ' + setup.profile(npc, npc.descriptor) + ' and a ' + setup.profile(secondNpc, secondNpc.descriptor)
     },
-    'a band of desperate outlaws': function (town) {
+    'a band of desperate outlaws': town => {
       let bandits = setup.misc.bandits.create(town)
       return bandits.tippy + '<b>a band of desperate outlaws.</b></span>'
     },
-    'some bandits': function (town) {
+    'some bandits': town => {
       let bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
       return bandits.tippy + '<b>some bandits.</b></span>'
     },
-    'some outlaws’ hideout': function (town) {
+    'some outlaws’ hideout': town => {
       let bandits = setup.misc.bandits.create(town)
       return bandits.tippy + 'a hideout belonging to <b>some outlaws</b></span>'
     },
-    'a disciplined military company': function (town) {
+    'a disciplined military company': town => {
       let mercenaries = setup.createMercenaries(town)
       return 'a military company, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
     },
-    'a rowdy mercenary troop': function (town) {
+    'a rowdy mercenary troop': town => {
       let mercenaries = setup.createMercenaries(town)
       return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
     },
-    'a band of mercenaries': function (town) {
+    'a band of mercenaries': town => {
       let mercenaries = setup.createMercenaries(town)
       return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
     },
-    'a marching army': function (town) {
+    'a marching army': town => {
       let mercenaries = setup.createMercenaries(town)
       return 'a small army, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
     },
-    'a small merchant caravan': function (town) {
+    'a small merchant caravan': town => {
       let caravan = setup.misc.caravan.create(town)
       return 'a small merchant caravan. ' + caravan.readout
     },
-    'a merchant caravan': function (town) {
+    'a merchant caravan': town => {
       let caravan = setup.misc.caravan.create(town)
       return 'a merchant caravan. ' + caravan.readout
     },
-    'a clan of orcs': function (town) {
+    'a clan of orcs': town => {
       let orcs = setup.misc.orcs.create()
       return 'a clan of orcs. ' + orcs.readout
     },
-    'several orc raiders': function (town) {
+    'several orc raiders': town => {
       let orcs = setup.misc.orcs.create()
       return 'several orc raiders. ' + orcs.readout
     },
-    'an orkish war band': function () {
+    'an orkish war band': () => {
       let orcs = setup.misc.orcs.create()
       return 'an orc war band. ' + orcs.readout
     },
-    'an orc war band': function (town) {
+    'an orc war band': town => {
       let orcs = setup.misc.orcs.create(town)
       return 'an orc war band. ' + orcs.readout
     },
-    'a handful of ogres': function () {
+    'a handful of ogres': () => {
       let ogre = setup.misc.ogre.create()
       return 'a handful of ' + ogre.tippyWord + 's.'
     },
-    'an ogre': function () {
+    'an ogre': () => {
       let ogre = setup.misc.ogre.create()
       return 'a lone ' + ogre.tippyWord + '.'
     },
-    "an ogre's lair": function () {
+    "an ogre's lair": () => {
       let ogre = setup.misc.ogre.create()
       return 'a lair belonging to an ' + ogre.tippyWord
     },
-    "some goblins' hideout": function (town) {
+    "some goblins' hideout": town => {
       let goblins = setup.misc.goblins.create(town)
       return 'a goblin hideout. ' + goblins.readout
     },
-    'a pair of goblin scouts': function () { return 'a pair of goblin scouts' },
-    'a lone goblin': function () {
+    'a pair of goblin scouts': () => { return 'a pair of goblin scouts' },
+    'a lone goblin': () => {
       let goblin = setup.misc.goblin.create()
       return 'a lone ' + goblin.tippyWord + ' ' + ['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].seededrandom()
     },
-    'a goblin war party': function (town) {
+    'a goblin war party': town => {
       let goblins = setup.misc.goblins.create()
       return 'a goblin war party. ' + goblins.readout
     },
-    'a goblin patrol': function () { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom() },
-    'several giant spiders': function () {
+    'a goblin patrol': () => { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom() },
+    'several giant spiders': () => {
       let spider = setup.misc.spider.create()
       return 'several giant ' + spider.tippyWord + '<b>s</b>.'
     },
-    'a pack of wolves': function () {
+    'a pack of wolves': () => {
       let wolf = setup.misc.wolf.create()
       let wolves = wolf.tippy + '<b>wolves</b></span>.'
       return 'a pack of ' + wolves
     },
-    'a lone wolf': function () {
+    'a lone wolf': () => {
       let wolf = setup.misc.wolf.create()
       return 'a lone ' + wolf.tippyWord + '.'
     },
-    'a hunting cat': function () {
+    'a hunting cat': () => {
       let cat = setup.misc.cat.create()
       return 'a hunting ' + cat.tippyWord + '.'
     },
-    'an itinerant priest': function (town) {
+    'an itinerant priest': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'acolyte',
@@ -1698,7 +1698,7 @@ setup.misc = {
       })
       return 'an itinerant ' + setup.profile(npc, 'priest')
     },
-    'a hermit': function (town) {
+    'a hermit': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
@@ -1707,7 +1707,7 @@ setup.misc = {
       })
       return 'a ' + setup.profile(npc, 'hermit')
     },
-    'a solitary hunter': function (town) {
+    'a solitary hunter': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'ranger',
         background: 'outlander',
@@ -1715,7 +1715,7 @@ setup.misc = {
       })
       return 'a solitary ' + setup.profile(npc, 'hunter')
     },
-    'a solitary bandit': function (town) {
+    'a solitary bandit': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'rogue',
         background: 'criminal',
@@ -1723,7 +1723,7 @@ setup.misc = {
       })
       return 'a solitary ' + setup.profile(npc, 'bandit')
     },
-    'an injured knight': function (town) {
+    'an injured knight': town => {
       let npc = setup.createNPC(town, {
         dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
         background: ['noble', 'soldier', 'soldier'].seededrandom(),
@@ -1731,7 +1731,7 @@ setup.misc = {
       })
       return 'an injured ' + setup.profile(npc, 'knight')
     },
-    'a ranger': function (town) {
+    'a ranger': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'ranger',
         background: 'outlander',
@@ -1739,21 +1739,21 @@ setup.misc = {
       })
       return 'a solitary ' + setup.profile(npc, 'hunter')
     },
-    'a diseased animal corpse': function () { return 'a diseased animal corpse' },
-    'a dead body': function () { return 'a dead body' },
-    'a group of dwarves': function () { return 'a group of dwarves' },
-    'a handful of farmers': function () { return 'a handful of farmers' },
-    'the border patrol': function () { return 'the border patrol' },
-    'a travelling peddler': function () { return 'a travelling peddler' },
-    'a hunting party': function () { return 'a hunting party' },
-    'another adventuring party': function () { return 'another adventuring party' },
-    'some escaped convicts': function () { return 'some escaped convicts' },
-    'some herdsmen': function () { return 'some herdsmen' },
-    'some particularly dense overgrowth': function () { return 'some particularly dense overgrowth' },
-    'some tribesmen': function () { return 'some tribesmen' },
-    'the undead': function () { return 'the undead' },
-    '[monster encounter]': function () { return '[monster encounter]' },
-    'a traveling peddler': function (town) {
+    'a diseased animal corpse': () => { return 'a diseased animal corpse' },
+    'a dead body': () => { return 'a dead body' },
+    'a group of dwarves': () => { return 'a group of dwarves' },
+    'a handful of farmers': () => { return 'a handful of farmers' },
+    'the border patrol': () => { return 'the border patrol' },
+    'a travelling peddler': () => { return 'a travelling peddler' },
+    'a hunting party': () => { return 'a hunting party' },
+    'another adventuring party': () => { return 'another adventuring party' },
+    'some escaped convicts': () => { return 'some escaped convicts' },
+    'some herdsmen': () => { return 'some herdsmen' },
+    'some particularly dense overgrowth': () => { return 'some particularly dense overgrowth' },
+    'some tribesmen': () => { return 'some tribesmen' },
+    'the undead': () => { return 'the undead' },
+    '[monster encounter]': () => { return '[monster encounter]' },
+    'a traveling peddler': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'urchin',
@@ -1762,7 +1762,7 @@ setup.misc = {
       })
       return 'a traveling ' + setup.profile(npc, 'peddler')
     },
-    'a solitary troubador': function (town) {
+    'a solitary troubador': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
@@ -1771,7 +1771,7 @@ setup.misc = {
       })
       return 'a solitary ' + setup.profile(npc, 'troubador')
     },
-    'an adventurer on a horse': function (town) {
+    'an adventurer on a horse': town => {
       let horse = setup.misc.horse.create()
       let npc = setup.createNPC(town, {
         dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
@@ -1780,7 +1780,7 @@ setup.misc = {
       })
       return 'an ' + setup.profile(npc, 'adventurer') + ' on a ' + horse.tippyWord
     },
-    'a mounted messenger': function (town) {
+    'a mounted messenger': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'messenger',
@@ -1788,19 +1788,19 @@ setup.misc = {
       })
       return 'a mounted ' + setup.profile(npc, 'messenger')
     },
-    'a work gang heading home': function () { return 'a work gang heading home' },
-    'the road wardens': function () { return 'the road wardens' },
-    'some of the local militia': function () { return 'some of the local militia' },
-    'a pair of travelling clerics': function () { return 'a pair of travelling clerics' },
-    'some graverobbers': function () { return 'some graverobbers' },
-    'some farmers': function () { return 'some farmers' },
-    'a plague-infested cabin': function () {
+    'a work gang heading home': () => { return 'a work gang heading home' },
+    'the road wardens': () => { return 'the road wardens' },
+    'some of the local militia': () => { return 'some of the local militia' },
+    'a pair of travelling clerics': () => { return 'a pair of travelling clerics' },
+    'some graverobbers': () => { return 'some graverobbers' },
+    'some farmers': () => { return 'some farmers' },
+    'a plague-infested cabin': () => {
       let cabin = setup.misc.cabin.create()
       return 'a plague-infested ' + cabin.tippyWord + '.'
     },
-    'some beserkers': function () { return 'some beserkers' },
-    'a caravan of gypsies': function () { return 'a caravan of gypsies' },
-    'a knight errant': function (town) {
+    'some beserkers': () => { return 'some beserkers' },
+    'a caravan of gypsies': () => { return 'a caravan of gypsies' },
+    'a knight errant': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'paladin',
         background: ['noble', 'soldier', 'soldier'].seededrandom(),
@@ -1808,7 +1808,7 @@ setup.misc = {
       })
       return 'a ' + setup.profile(npc, 'knight errant')
     },
-    'a wounded knight': function (town) {
+    'a wounded knight': town => {
       let npc = setup.createNPC(town, {
         dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
         background: ['noble', 'soldier', 'soldier'].seededrandom(),
@@ -1816,7 +1816,7 @@ setup.misc = {
       })
       return 'an injured ' + setup.profile(npc, 'knight')
     },
-    'a traveling lady': function (town) {
+    'a traveling lady': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
@@ -1824,7 +1824,7 @@ setup.misc = {
       })
       return 'a traveling ' + setup.profile(npc, 'lady')
     },
-    'a courier': function (town) {
+    'a courier': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'courier',
@@ -1832,19 +1832,19 @@ setup.misc = {
       })
       return 'a ' + setup.profile(npc, 'courier')
     },
-    'a wedding party': function () { return 'a wedding party' },
-    'a group of pilgrims': function () { return 'a group of pilgrims' },
-    'a funeral procession': function () { return 'a funeral procession' },
-    'a plague cart': function () { return 'a plague cart' },
-    'a lone horse, trotting the other way': function () {
+    'a wedding party': () => { return 'a wedding party' },
+    'a group of pilgrims': () => { return 'a group of pilgrims' },
+    'a funeral procession': () => { return 'a funeral procession' },
+    'a plague cart': () => { return 'a plague cart' },
+    'a lone horse, trotting the other way': () => {
       let horse = setup.misc.horse.create()
       return 'a lone ' + horse.tippyWord + ', trotting the other way'
     },
-    'a traveling theatre troupe': function () { return 'a traveling theatre troupe' },
-    'some beggars': function () { return 'some beggars' },
-    'a caravan of slavers': function () { return 'a caravan of slavers' },
-    'a lone zombie': function () { return 'a lone zombie' },
-    'a strange hermit': function (town) {
+    'a traveling theatre troupe': () => { return 'a traveling theatre troupe' },
+    'some beggars': () => { return 'some beggars' },
+    'a caravan of slavers': () => { return 'a caravan of slavers' },
+    'a lone zombie': () => { return 'a lone zombie' },
+    'a strange hermit': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
         isThrowaway: true,
@@ -1852,7 +1852,7 @@ setup.misc = {
       })
       return 'a strange ' + setup.profile(npc, 'hermit')
     },
-    'a lost traveler': function (town) {
+    'a lost traveler': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'traveler',
@@ -1862,7 +1862,7 @@ setup.misc = {
       })
       return 'a lost ' + setup.profile(npc, 'traveler')
     },
-    'a poor nomad': function (town) {
+    'a poor nomad': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -1871,7 +1871,7 @@ setup.misc = {
       })
       return 'a poor ' + setup.profile(npc, 'nomad')
     },
-    'a suspicious miner': function (town) {
+    'a suspicious miner': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'miner',
@@ -1881,7 +1881,7 @@ setup.misc = {
       })
       return 'a suspicious ' + setup.profile(npc, 'miner')
     },
-    'a barbarian hunter': function (town) {
+    'a barbarian hunter': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'barbarian',
         background: 'outlander',
@@ -1890,7 +1890,7 @@ setup.misc = {
       })
       return 'a barbarian ' + setup.profile(npc, 'hunter')
     },
-    'a mounted barbarian scout': function (town) {
+    'a mounted barbarian scout': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'barbarian',
         background: 'outlander',
@@ -1899,35 +1899,35 @@ setup.misc = {
       })
       return 'a mounted barbarian ' + setup.profile(npc, 'scout')
     },
-    'the ghost of a traveler': function () {
+    'the ghost of a traveler': () => {
       let ghost = setup.misc.ghost.create()
       return 'the ' + ghost.tippyWord + ' of a traveler. '
     },
-    'a poisonous snake': function () { return 'a poisonous snake' },
-    'a giant spider': function () {
+    'a poisonous snake': () => { return 'a poisonous snake' },
+    'a giant spider': () => {
       let spider = setup.misc.spider.create()
       return 'a giant ' + spider.tippyWord
     },
-    'a giant scorpion': function () { return 'a giant scorpion' },
-    'a giant centipede': function () { return 'a giant centipede' },
-    'a pack of jackals': function () { return 'a pack of jackals' },
-    'a hungry jackalwere': function () { return 'a hungry jackalwere' },
-    'a giant lizard': function () { return 'a giant lizard' },
-    'a pair of gnolls': function () { return 'a pair of gnolls' },
-    'a pair of bandits': function () { return 'a pair of bandits' },
-    'an hobgoblin scout': function () { return 'an hobgoblin scout' },
-    'a roc on the wing': function () { return 'a roc on the wing' },
-    'a wyvern on the wing': function () { return 'a wyvern on the wing' },
-    'lots of bats': function (town) { return 'lots of bats' },
-    'many spider webs': function (town) { return 'many spider webs' },
-    "a troll's stash.": function (town) { return "a troll's stash." },
-    'some abandoned mining equipment': function (town) { return 'some abandoned mining equipment' },
-    'bare rock': function (town) { return 'bare rock' },
-    'a potable spring': function (town) { return 'a potable spring' },
-    'mummified remains': function (town) { return 'some mummified remains' },
-    'a band of dwarvish refugees': function (town) { return 'a band of dwarvish refugees' },
-    'a swarm of beetles': function (town) { return 'a swarm of beetles' },
-    'a half mad prophet': function (town) {
+    'a giant scorpion': () => { return 'a giant scorpion' },
+    'a giant centipede': () => { return 'a giant centipede' },
+    'a pack of jackals': () => { return 'a pack of jackals' },
+    'a hungry jackalwere': () => { return 'a hungry jackalwere' },
+    'a giant lizard': () => { return 'a giant lizard' },
+    'a pair of gnolls': () => { return 'a pair of gnolls' },
+    'a pair of bandits': () => { return 'a pair of bandits' },
+    'an hobgoblin scout': () => { return 'an hobgoblin scout' },
+    'a roc on the wing': () => { return 'a roc on the wing' },
+    'a wyvern on the wing': () => { return 'a wyvern on the wing' },
+    'lots of bats': town => { return 'lots of bats' },
+    'many spider webs': town => { return 'many spider webs' },
+    "a troll's stash.": town => { return "a troll's stash." },
+    'some abandoned mining equipment': town => { return 'some abandoned mining equipment' },
+    'bare rock': town => { return 'bare rock' },
+    'a potable spring': town => { return 'a potable spring' },
+    'mummified remains': town => { return 'some mummified remains' },
+    'a band of dwarvish refugees': town => { return 'a band of dwarvish refugees' },
+    'a swarm of beetles': town => { return 'a swarm of beetles' },
+    'a half mad prophet': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
         background: 'acolyte',
@@ -1937,7 +1937,7 @@ setup.misc = {
       })
       return 'a half-mad ' + setup.profile(npc, 'prophet')
     },
-    'a reclusive sorcerer': function (town) {
+    'a reclusive sorcerer': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
         background: 'acolyte',
@@ -1946,7 +1946,7 @@ setup.misc = {
       })
       return 'a reclusive ' + setup.profile(npc, 'sorcerer')
     },
-    'a merchant of exotic goods': function (town) {
+    'a merchant of exotic goods': town => {
       let npc = setup.createNPC(town, {
         background: 'noble',
         profession: 'merchant',
@@ -1955,7 +1955,7 @@ setup.misc = {
       })
       return 'a strange ' + setup.profile(npc, 'merchant') + ' of exotic goods'
     },
-    'a misanthropic shapeshifter': function (town) {
+    'a misanthropic shapeshifter': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
         profession: 'hermit',
@@ -1967,7 +1967,7 @@ setup.misc = {
       })
       return 'a misanthropic ' + setup.profile(npc, 'shapeshifter')
     },
-    'an eccentric monk': function (town) {
+    'an eccentric monk': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
         profession: 'hermit',
@@ -1978,7 +1978,7 @@ setup.misc = {
       })
       return 'an eccentric ' + setup.profile(npc, 'monk')
     },
-    'a nomadic herder': function (town) {
+    'a nomadic herder': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'herder',
@@ -1987,7 +1987,7 @@ setup.misc = {
       })
       return 'a nomadic ' + setup.profile(npc, 'herder')
     },
-    'a nomadic warrior': function (town) {
+    'a nomadic warrior': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'warrior',
@@ -1996,7 +1996,7 @@ setup.misc = {
       })
       return 'a nomadic ' + setup.profile(npc, 'warrior')
     },
-    'an outcast elf': function (town) {
+    'an outcast elf': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'hermit',
@@ -2007,7 +2007,7 @@ setup.misc = {
       })
       return 'an outcast ' + setup.profile(npc, 'elf')
     },
-    'a reclusive scholar': function (town) {
+    'a reclusive scholar': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
@@ -2017,7 +2017,7 @@ setup.misc = {
       })
       return 'a reclusive ' + setup.profile(npc, 'scholar')
     },
-    'an eccentric healer': function (town) {
+    'an eccentric healer': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'cleric',
         background: 'acolyte',
@@ -2026,7 +2026,7 @@ setup.misc = {
       })
       return 'an eccentric ' + setup.profile(npc, 'healer')
     },
-    'a poor goatherder': function (town) {
+    'a poor goatherder': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
@@ -2036,7 +2036,7 @@ setup.misc = {
       })
       return 'a poor ' + setup.profile(npc, 'goatherder')
     },
-    'a mining prospector': function (town) {
+    'a mining prospector': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -2045,7 +2045,7 @@ setup.misc = {
       })
       return 'a mining ' + setup.profile(npc, 'prospector')
     },
-    'a religious fanatic with his many wives': function (town) {
+    'a religious fanatic with his many wives': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'religious fanatic',
@@ -2054,9 +2054,9 @@ setup.misc = {
       })
       return 'a religious ' + setup.profile(npc, 'fanatic') + ' with his many wives'
     },
-    'poisonous snakes': function (town) { return 'poisonous snakes' },
-    'a pair of orcs': function (town) { return 'a pair of orcs' },
-    'a mad sorcerer': function (town) {
+    'poisonous snakes': town => { return 'poisonous snakes' },
+    'a pair of orcs': town => { return 'a pair of orcs' },
+    'a mad sorcerer': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
         dndClass: 'sorcerer',
@@ -2067,7 +2067,7 @@ setup.misc = {
       })
       return 'a mad ' + setup.profile(npc, 'sorcerer')
     },
-    'a paranoid shapeshifter': function (town) {
+    'a paranoid shapeshifter': town => {
       let npc = setup.createNPC(town, {
         background: 'hermit',
         hasClass: false,
@@ -2079,7 +2079,7 @@ setup.misc = {
       })
       return 'a paranoid ' + setup.profile(npc, 'shapeshifter')
     },
-    'a reclusive shapeshifter': function (town) {
+    'a reclusive shapeshifter': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
         background: 'hermit',
@@ -2089,11 +2089,11 @@ setup.misc = {
       })
       return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
     },
-    'a restless ghost': function () {
+    'a restless ghost': () => {
       let ghost = setup.misc.ghost.create()
       return 'a restless ' + ghost.tippyWord
     },
-    'a dangerous fugitive': function (town) {
+    'a dangerous fugitive': town => {
       let npc = setup.createNPC(town, {
         background: 'criminal',
         profession: 'criminal',
@@ -2105,11 +2105,11 @@ setup.misc = {
       })
       return 'a dangerous ' + setup.profile(npc, 'fugitive')
     },
-    'spiders and rats': function () {
+    'spiders and rats': () => {
       let spider = setup.misc.spider.create()
       return spider.tippyWord + '<b>s</b>' + ' and rats'
     },
-    'a treasure hunter': function (town) {
+    'a treasure hunter': town => {
       let npc = setup.createNPC(town, {
         background: 'criminal',
         profession: 'treasure hunter',
@@ -2123,7 +2123,7 @@ setup.misc = {
       let map = setup.misc.treasureMap.create()
       return 'a ' + setup.profile(npc, 'treasure-hunter') + ' with a ' + map.tippyWord
     },
-    'a wasteland druid': function (town) {
+    'a wasteland druid': town => {
       let npc = setup.createNPC(town, {
         background: 'acolyte',
         profession: 'druid',
@@ -2133,24 +2133,24 @@ setup.misc = {
       })
       return 'a wasteland ' + setup.profile(npc, 'druid')
     },
-    'cursed mummies': function (town) { return 'cursed mummies' },
-    'a hobgoblin warlord': function (town) { return 'a hobgoblin warlord' },
-    'an orcish war chief': function (town) { return 'an orcish war chief' },
-    'a tribe of kobolds': function (town) { return 'a tribe of kobolds' },
-    'a territorial griffon': function (town) { return 'a territorial griffon' },
-    'a pair of manticores': function (town) { return 'a pair of manticores' },
-    'slavering gnolls': function (town) { return 'slavering gnolls' },
-    'a mountain lion’s den': function (town) { return 'a mountain lion’s den' },
-    'unidentifiable remains': function (town) { return 'some unidentifiable remains' },
-    'a hungry ettin': function (town) { return 'a hungry ettin' },
-    'a griffon’s nest': function (town) { return 'a griffon’s nest' },
-    'a manticore’s den': function (town) { return 'a manticore’s den' },
-    'a basilisk’s lair': function (town) { return 'a basilisk’s lair' },
-    'a wyvern’s nest': function (town) { return 'a wyvern’s nest' },
-    'a clan of stone giants': function (town) { return 'a clan of stone giants' },
-    'a dragon': function (town) { return 'a dragon' },
-    'a sleeping dragon': function (town) { return 'a sleeping dragon' },
-    'a mad witch': function (town) {
+    'cursed mummies': town => { return 'cursed mummies' },
+    'a hobgoblin warlord': town => { return 'a hobgoblin warlord' },
+    'an orcish war chief': town => { return 'an orcish war chief' },
+    'a tribe of kobolds': town => { return 'a tribe of kobolds' },
+    'a territorial griffon': town => { return 'a territorial griffon' },
+    'a pair of manticores': town => { return 'a pair of manticores' },
+    'slavering gnolls': town => { return 'slavering gnolls' },
+    'a mountain lion’s den': town => { return 'a mountain lion’s den' },
+    'unidentifiable remains': town => { return 'some unidentifiable remains' },
+    'a hungry ettin': town => { return 'a hungry ettin' },
+    'a griffon’s nest': town => { return 'a griffon’s nest' },
+    'a manticore’s den': town => { return 'a manticore’s den' },
+    'a basilisk’s lair': town => { return 'a basilisk’s lair' },
+    'a wyvern’s nest': town => { return 'a wyvern’s nest' },
+    'a clan of stone giants': town => { return 'a clan of stone giants' },
+    'a dragon': town => { return 'a dragon' },
+    'a sleeping dragon': town => { return 'a sleeping dragon' },
+    'a mad witch': town => {
       let npc = setup.createNPC(town, {
         gender: 'woman',
         dndClass: 'sorcerer',
@@ -2161,11 +2161,11 @@ setup.misc = {
       })
       return 'a mad ' + setup.profile(npc, 'witch')
     },
-    'restless ghosts': function () {
+    'restless ghosts': () => {
       let ghost = setup.misc.ghost.create()
       return 'a restless ' + ghost.tippyWord
     },
-    'an outcast orc': function (town) {
+    'an outcast orc': town => {
       let npc = setup.createNPC(town, {
         race: 'half-orc',
         background: 'hermit',
@@ -2174,12 +2174,12 @@ setup.misc = {
       })
       return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
     },
-    'an owlbear': function (town) { return 'an owlbear' },
-    'a troll': function (town) { return 'a troll' },
-    'several harpies': function (town) { return 'several harpies' },
-    'a handful of dwarves': function (town) { return 'a handful of dwarves' },
-    'ghostly warriors': function (town) { return 'ghostly warriors' },
-    'a lost prospector': function (town) {
+    'an owlbear': town => { return 'an owlbear' },
+    'a troll': town => { return 'a troll' },
+    'several harpies': town => { return 'several harpies' },
+    'a handful of dwarves': town => { return 'a handful of dwarves' },
+    'ghostly warriors': town => { return 'ghostly warriors' },
+    'a lost prospector': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         hasClass: false,
@@ -2189,7 +2189,7 @@ setup.misc = {
       })
       return 'a lost ' + setup.profile(npc, 'prospector')
     },
-    'a solemn warrior': function (town) {
+    'a solemn warrior': town => {
       let npc = setup.createNPC(town, {
         background: 'soldier',
         hasClass: true,
@@ -2200,7 +2200,7 @@ setup.misc = {
       })
       return 'a solemn looking ' + setup.profile(npc, 'warrior')
     },
-    'a seasoned mountaineer': function (town) {
+    'a seasoned mountaineer': town => {
       let npc = setup.createNPC(town, {
         background: 'outlander',
         hasClass: false,
@@ -2211,7 +2211,7 @@ setup.misc = {
       return 'a seasoned ' + setup.profile(npc, 'mountaineer')
     },
 
-    'an eccentric witch': function (town) {
+    'an eccentric witch': town => {
       let npc = setup.createNPC(town, {
         gender: 'woman',
         dndClass: 'sorcerer',
@@ -2222,7 +2222,7 @@ setup.misc = {
       })
       return 'an eccentric ' + setup.profile(npc, 'witch')
     },
-    'a contemplative monk': function (town) {
+    'a contemplative monk': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'monk',
         background: 'acolyte',
@@ -2233,21 +2233,21 @@ setup.misc = {
       })
       return 'a contemplative ' + setup.profile(npc, 'monk')
     },
-    'a hunting peryton': function (town) { return 'a hunting peryton' },
-    'a mountain lion': function (town) { return 'a mountain lion' },
-    'a pair of harpies': function (town) { return 'a pair of harpies' },
-    'a flock of ravens': function (town) { return 'a flock of ravens' },
-    'several homeless dwarves': function (town) { return 'several homeless dwarves' },
-    'an angry wraith': function (town) { return 'an angry wraith' },
-    'a malevolent ghost': function () {
+    'a hunting peryton': town => { return 'a hunting peryton' },
+    'a mountain lion': town => { return 'a mountain lion' },
+    'a pair of harpies': town => { return 'a pair of harpies' },
+    'a flock of ravens': town => { return 'a flock of ravens' },
+    'several homeless dwarves': town => { return 'several homeless dwarves' },
+    'an angry wraith': town => { return 'an angry wraith' },
+    'a malevolent ghost': () => {
       let ghost = setup.misc.ghost.create({ reaction: 'murderous and cruel' })
       return 'a malevolent ' + ghost.tippyWord
     },
-    'a mated pair of manticores': function (town) { return 'a mated pair of manticores' },
-    'a trio of monstrous trolls': function (town) { return 'a trio of monstrous trolls' },
-    'a clan of stone giants at rest': function (town) { return 'a clan of stone giants at rest' },
-    'a roc tearing apart some prey': function (town) { return 'a roc tearing apart some prey' },
-    'a beggarly bandit': function (town) {
+    'a mated pair of manticores': town => { return 'a mated pair of manticores' },
+    'a trio of monstrous trolls': town => { return 'a trio of monstrous trolls' },
+    'a clan of stone giants at rest': town => { return 'a clan of stone giants at rest' },
+    'a roc tearing apart some prey': town => { return 'a roc tearing apart some prey' },
+    'a beggarly bandit': town => {
       let npc = setup.createNPC(town, {
         background: 'criminal',
         dndClass: ['fighter', 'rogue', 'rogue'].seededrandom(),
@@ -2255,7 +2255,7 @@ setup.misc = {
       })
       return 'a beggarly ' + setup.profile(npc, 'bandit')
     },
-    'an old witch': function (town) {
+    'an old witch': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
         gender: 'woman',
@@ -2265,7 +2265,7 @@ setup.misc = {
       })
       return 'an old ' + setup.profile(npc, 'witch')
     },
-    'a curious herbalist': function (town) {
+    'a curious herbalist': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         background: 'acolyte',
@@ -2274,14 +2274,14 @@ setup.misc = {
       })
       return 'a curious ' + setup.profile(npc, 'herbalist')
     },
-    'a lost child': function (town) {
+    'a lost child': town => {
       let npc = setup.createNPC(town, {
         ageStage: 'child',
         isThrowaway: true
       })
       return 'a lost ' + setup.profile(npc, 'child')
     },
-    'a woodcutter busy with the day’s work': function (town) {
+    'a woodcutter busy with the day’s work': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         gender: 'man',
@@ -2290,7 +2290,7 @@ setup.misc = {
       })
       return 'a <<profile `$npcs[' + JSON.stringify(npc.key) + "]` woodcutter>>, busy with the day's work"
     },
-    'an intrepid hunter': function (town) {
+    'an intrepid hunter': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'ranger',
         background: 'outlander',
@@ -2298,7 +2298,7 @@ setup.misc = {
       })
       return 'an intrepid ' + setup.profile(npc, 'hunter')
     },
-    'an elvish ranger': function (town) {
+    'an elvish ranger': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'ranger',
         race: 'elf',
@@ -2307,18 +2307,18 @@ setup.misc = {
       })
       return 'an elvish ' + setup.profile(npc, 'ranger')
     },
-    'a large bear': function () { return 'a large bear' },
-    'a bear cub': function () { return 'a bear cub' },
-    'a wailing ghost': function () {
+    'a large bear': () => { return 'a large bear' },
+    'a bear cub': () => { return 'a bear cub' },
+    'a wailing ghost': () => {
       let ghost = setup.misc.ghost.create()
       return 'a wailing ' + ghost.tippyWord
     },
-    'giant spiders': function () {
+    'giant spiders': () => {
       let spider = setup.misc.spider.create()
       return 'giant ' + spider.tippyWord + '<b>s</b><<run setup.tippy("span")>>'
     },
-    'hungry zombies': function () { return 'hungry zombies' },
-    'a lonely old woman': function (town) {
+    'hungry zombies': () => { return 'hungry zombies' },
+    'a lonely old woman': town => {
       let npc = setup.createNPC(town, {
         gender: 'woman',
         background: 'hermit',
@@ -2328,7 +2328,7 @@ setup.misc = {
       })
       return 'a lonely old ' + setup.profile(npc, 'woman')
     },
-    'a beautiful witch': function (town) {
+    'a beautiful witch': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
         gender: 'woman',
@@ -2338,7 +2338,7 @@ setup.misc = {
       })
       return 'a beautiful ' + setup.profile(npc, 'witch')
     },
-    'a horrible witch': function (town) {
+    'a horrible witch': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'sorcerer',
         gender: 'woman',
@@ -2349,7 +2349,7 @@ setup.misc = {
       })
       return 'a horrible ' + setup.profile(npc, 'witch')
     },
-    'an outcast dwarf': function (town) {
+    'an outcast dwarf': town => {
       let npc = setup.createNPC(town, {
         race: 'dwarf',
         background: 'hermit',
@@ -2359,7 +2359,7 @@ setup.misc = {
       })
       return 'an outcast ' + setup.profile(npc, 'dwarf')
     },
-    'a dwarf prospector': function (town) {
+    'a dwarf prospector': town => {
       let npc = setup.createNPC(town, {
         hasClass: false,
         race: 'dwarf',
@@ -2369,7 +2369,7 @@ setup.misc = {
       })
       return 'a mining ' + setup.profile(npc, 'prospector')
     },
-    'a wood elf druid': function (town) {
+    'a wood elf druid': town => {
       let npc = setup.createNPC(town, {
         dndClass: 'druid',
         background: 'outlander',
@@ -2378,7 +2378,7 @@ setup.misc = {
       })
       return 'a wood elf ' + setup.profile(npc, 'druid')
     },
-    'some irritable trolls': function () { return 'some irritable trolls' }
+    'some irritable trolls': () => { return 'some irritable trolls' }
   },
   'locations': {
     'a cavern behind a waterfall': function (town, biome) {
@@ -2441,12 +2441,12 @@ setup.misc = {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
       return 'an abandoned campsite, which looks to have been occupied previously by ' + contents
     },
-    'a sacred grove': function () { return 'a sacred grove.' },
+    'a sacred grove': () => { return 'a sacred grove.' },
     'a shrine': function (town, biome) {
       let shrine = setup.misc.religion.shrine.create(town)
       return 'a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
     },
-    'a grave with an illegible headstone': function () { return 'a grave with an illegible headstone.' },
+    'a grave with an illegible headstone': () => { return 'a grave with an illegible headstone.' },
     'ancient ruins': function (town, biome) {
       let contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
       return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.seededrandom() + '. Now, ' + contents + ' lives here.</blockquote>'
@@ -2520,7 +2520,7 @@ setup.misc = {
     'walls': ['slightly damp', 'dripping wet', 'slick with mold', 'covered in soft fungi', 'dry as a bone', 'rough and dry', 'dry and smooth', 'jagged', 'pockmarked', 'crumbling, with loose bits flaking off', 'crumbling, with large chunks falling off at a touch', 'covered in an unidentifiable slime'],
     'ceiling': ['uncomfortably close to your head', 'covered in stalactites (watch your head!)', 'smooth as glass', 'rough and jagged', 'connected to the floor by natural columns', 'so high it’s difficult to see'],
     'hazards': ['a colony of poisonous mushrooms', 'a patch of toxic mold', 'the ceiling caves in', 'several rocks tumble down a sloped wall', 'the floor is very slippery', 'your foot misses the floor as you step into a pit or chasm'],
-    'create': function (base) {
+    'create': base => {
       let cavern = Object.assign({
         noun: 'cavern',
         entrance: setup.misc.cavern.entrance.seededrandom(),
@@ -2750,7 +2750,7 @@ setup.misc = {
     }
   },
   'town': {
-    create: function (town) {
+    create: town => {
       return setup.weightedRandomFetcher(town, setup.plothooks, '', setup.misc.town.type.event)
     },
     type: {
@@ -2833,7 +2833,7 @@ setup.misc = {
     }
   },
   'desert': {
-    'create': function (town) {
+    'create': town => {
       let biome = 'desert'
       let encounter
       let encounterKey
@@ -2905,7 +2905,7 @@ setup.misc = {
     'hole': ['a snake', 'a spider', 'beetles', 'scorpions', 'centipedes', 'a toad', 'a lizard', 'a fox']
   },
   'mountain': {
-    'create': function (town) {
+    'create': town => {
       let biome = 'mountain'
       let encounter
       let encounterKey
@@ -3004,7 +3004,7 @@ setup.misc = {
     'hazards': ['a perilous rockslide', 'an icy rime across the path or road', 'a tumbling boulder', 'loose rocks that make for poor footing', 'a large boulder blocking the way', 'a place where the path has fallen away leaving a narrow ledge on which to walk', 'a place where the path or road slopes steeply down toward a cliff edge', 'a sudden storm bringing heavy snow']
   },
   'forest': {
-    'create': function (town) {
+    'create': town => {
       let biome = 'forest'
       let encounter
       let encounterKey
