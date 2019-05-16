@@ -1,4 +1,4 @@
-/* global setup random dice */
+
 setup.tavern = {
   'rollData': {
     'wealth': [
@@ -729,7 +729,7 @@ setup.tavern = {
       return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
     },
     'mophand': function (town) {
-      var npc = setup.createNPC(town, { background: 'commoner', profession: 'mophand', hasClass: false})
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'mophand', hasClass: false })
       return 'The ' + setup.profile(npc, 'toothless mop-hand') + " reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
     },
     'doppelganger': function (town) {

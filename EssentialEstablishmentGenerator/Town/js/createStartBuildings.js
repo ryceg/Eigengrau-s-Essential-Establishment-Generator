@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createStartBuildings = function (town) {
   var buildingType = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
 

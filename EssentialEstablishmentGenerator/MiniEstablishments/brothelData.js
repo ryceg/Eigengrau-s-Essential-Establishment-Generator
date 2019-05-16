@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.brothel = {
 
   'rollData': {

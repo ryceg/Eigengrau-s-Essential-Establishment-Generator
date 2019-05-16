@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createSmithy = function (town, opts) {
   opts = opts || {}
   let smithy = (opts['newBuilding'] || setup.createBuilding)(town, 'smithy')

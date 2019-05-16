@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createTavern = function (town, opts) {
   opts = opts || {}
   var tavern = (opts['newBuilding'] || setup.createBuilding)(town, 'tavern')

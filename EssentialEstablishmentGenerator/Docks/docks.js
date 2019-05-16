@@ -1,4 +1,4 @@
-/* global setup random */
+
 setup.docks = {
   rollData: {
     cleanliness: [

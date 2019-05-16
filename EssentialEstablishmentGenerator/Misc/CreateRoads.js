@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createRoad = function (base) {
   var type = ['trail', 'path', 'path', 'road', 'road', 'road']
   var noEncounter = [true, true, true, false, false].seededrandom()

@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.goodsAndServices = {
   default: {
     create: function (town, type, opts) {

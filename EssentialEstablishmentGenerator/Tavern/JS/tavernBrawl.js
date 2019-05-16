@@ -1,4 +1,4 @@
-/* global setup random */
+
 setup.tavernBrawl = function (town, tavern) {
   var guardRoll = random(1, 100)
   var brawlRoll = random(1, 100)
@@ -53,8 +53,8 @@ setup.tavernBrawl = function (town, tavern) {
 
   if (brawlRoll > 50) {
     tavern.hasBrawl = true
-    var brawlInstigator = setup.createNPC(town, { isShallow: true,gender: ['man', 'man', 'man', 'woman'].seededrandom() })
-    var brawlResponder = setup.createNPC(town, { isShallow: true,gender: ['man', 'man', 'man', 'woman'].seededrandom() })
+    var brawlInstigator = setup.createNPC(town, { isShallow: true, gender: ['man', 'man', 'man', 'woman'].seededrandom() })
+    var brawlResponder = setup.createNPC(town, { isShallow: true, gender: ['man', 'man', 'man', 'woman'].seededrandom() })
     tavern.brawl = {
       start: [
         'It seems that the ' + brawlInstigator.descriptor + ' that is currently wrestling with the ' + brawlResponder.descriptor + ' because of ',
@@ -73,7 +73,7 @@ setup.tavernBrawl = function (town, tavern) {
     }
     if (tavern.guardPresent === true) {
       tavern.brawlEnd = [
-        'A ' + tavernGuard.descriptor + ' wearing the '+ town.guard.livery + ' signifying that they are a member of <<guard $town.guard>> is currently pulling the ' + brawlInstigator.descriptor + ' off the ' + brawlResponder.descriptor + '.',
+        'A ' + tavernGuard.descriptor + ' wearing the ' + town.guard.livery + ' signifying that they are a member of <<guard $town.guard>> is currently pulling the ' + brawlInstigator.descriptor + ' off the ' + brawlResponder.descriptor + '.',
         'A member of <<guard $town.guard>> is currently trying to pull the two apart.'
       ].seededrandom()
     } else {

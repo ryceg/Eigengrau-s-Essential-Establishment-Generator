@@ -1,4 +1,3 @@
-/* global dice setup random */
 setup.npcData = {
   'gender': {
     'man': {

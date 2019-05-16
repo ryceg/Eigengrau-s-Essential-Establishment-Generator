@@ -1,4 +1,3 @@
-/* global setup State dice random */
 setup.createNPC = function (town, base) {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')

@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createSocioPolitics = function (town) {
   console.groupCollapsed('Creating sociopolitics!')
   // ecoIde and polSource are now set in the createTown.js function

@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.townSquare = {
   rollData: {
     cleanliness: [

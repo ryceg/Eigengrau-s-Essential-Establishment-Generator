@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.plothook = {
   'joke': [
     "A bard. Not a magic one. Just a bard. Like y'know. A minstrel or some shit he's ok I guess.",

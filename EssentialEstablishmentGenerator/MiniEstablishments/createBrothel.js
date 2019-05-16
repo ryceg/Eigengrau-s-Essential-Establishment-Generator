@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createBrothel = function (town, tavern) {
   console.log('Creating a brothel...')
   let brothel = setup.createBuilding(town, 'brothel')

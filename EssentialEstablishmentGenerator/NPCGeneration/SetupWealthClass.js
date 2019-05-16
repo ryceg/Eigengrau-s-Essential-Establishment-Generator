@@ -1,4 +1,4 @@
-/* global setup random dice */
+
 setup.createWealthClass = function (town, npc) {
   console.log('Creating wealth class...')
   setup.wealthClasses = [

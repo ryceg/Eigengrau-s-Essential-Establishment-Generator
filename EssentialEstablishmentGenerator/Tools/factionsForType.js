@@ -1,4 +1,3 @@
-/* global setup clone */
 /* Returns a random of factions for a leadership type. */
 setup.factionsForType = function (town, variable, value) {
   // town is the town object. Like most times it's passed as an argument, it's mandatory here.
