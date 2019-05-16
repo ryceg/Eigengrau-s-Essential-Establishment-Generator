@@ -220,7 +220,7 @@ setup.market = {
       'Trade your money for goods and services here!',
       'Even a dwarf would buy at this price!',
       'Your next purchase is right here!',
-      'Love yourself and buy something nice!',
+      'Love yourself and buy something nice!'
     ],
     'tent': [
       'little push cart',

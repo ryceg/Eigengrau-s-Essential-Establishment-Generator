@@ -1,4 +1,4 @@
-/*var request = new XMLHttpRequest();
+/* var request = new XMLHttpRequest();
 var fileContentLines = null;
 var numResults = 10;
 var idString = "result";
@@ -38,4 +38,4 @@ function setup() {
 	};
 	request.open('GET', './content/wildMagic.txt');
 	request.send();
-}*/
+} */

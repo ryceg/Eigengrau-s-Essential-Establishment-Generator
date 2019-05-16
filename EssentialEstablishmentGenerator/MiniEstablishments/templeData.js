@@ -54,7 +54,7 @@ setup.temple = {
     ]
   },
   'prayerSubject': [
-    //They pray to
+    // They pray to
     'one god and only one god',
     'one god primarily, but other gods occasionally or for specific petitions',
     'several gods within a pantheon, but two gods above the rest',
@@ -63,34 +63,34 @@ setup.temple = {
     'several gods within a pantheon to whom the temple was not originally dedicated'
   ],
   'dedicated': [
-    //the temple is dedicated to
+    // the temple is dedicated to
     'the sun',
-     'the sky', 
-     'craft', 
-     'knowledge', 
-     'death', 
-     'evil', 
-     'the hunt', 
-     'the woodlands', 
-     'love', 
-     'beauty', 
-     'the moon', 
-     'the sun', 
-     'the seas', 
-     'the storms', 
-     'trickery', 
-     'war', 
-     'the harvest', 
-     'festivals',
-     'wealth and prosperity',
-     'record keeping',
-     'true peace',
-     'friendship and community',
-     'law and order'
+    'the sky',
+    'craft',
+    'knowledge',
+    'death',
+    'evil',
+    'the hunt',
+    'the woodlands',
+    'love',
+    'beauty',
+    'the moon',
+    'the sun',
+    'the seas',
+    'the storms',
+    'trickery',
+    'war',
+    'the harvest',
+    'festivals',
+    'wealth and prosperity',
+    'record keeping',
+    'true peace',
+    'friendship and community',
+    'law and order'
 
   ],
   'knownFor': [
-    //and is known for _
+    // and is known for _
     'miraculous healers',
     'compassionate healers',
     'beautiful priestesses',
@@ -158,7 +158,7 @@ setup.temple = {
     'sprawling indoor gardens',
     'colorful hanging gardens'
   ],
-  //The temple is protected by
+  // The temple is protected by
   'guardedBy': [
     'a sworn order of devout warriors',
     'sellswords',
@@ -167,7 +167,7 @@ setup.temple = {
     'statues of beautiful maidens, beckoning visitors into a trap',
     'nothing; the temple welcomes all'
   ],
-  //The main room is __ in shape
+  // The main room is __ in shape
   'floorPlan': [
     'circular',
     'ellipsoidal',
@@ -176,7 +176,7 @@ setup.temple = {
     'rectangular',
     'pentagonal'
   ],
-  //The temple was designed by __
+  // The temple was designed by __
   'architect': [
     'the local priest',
     'a poor local farmer who was mistaken for the architect',
@@ -190,7 +190,7 @@ setup.temple = {
     'the local bricklayer',
     'the son of the local priest'
   ],
-  //and it is __.
+  // and it is __.
   'complex': [
     'simple; with only a large main worship chamber and a handful of functional rooms adjoining',
     'simple with a large annex; the annex contains many chambers',
@@ -201,7 +201,7 @@ setup.temple = {
     'labyrinthine; it is designed to deliberately confuse outsiders',
     'simple with an intricate complex hidden beneath the main worship chamber'
   ],
-  //The walls of the temple are
+  // The walls of the temple are
   'walls': [
     'impenetrable stone walls',
     'an intricate structure of stone arches and columns',
@@ -227,7 +227,7 @@ setup.temple = {
     'adorned with relief carvings',
     'covered in sacred texts and runes'
   ],
-//the ceiling is __
+  // the ceiling is __
   'ceiling': [
     'uncomfortably close to your head',
     'connected to the floor by columns',
@@ -259,7 +259,7 @@ setup.temple = {
     'a stable', 'a kennel',
     'a workshop for temple craftsmen'
   ],
-  //You enter the temple and notice __
+  // You enter the temple and notice __
   'features': [
     'a small altar set in an alcove in the wall',
     'the sound of bells ringing in a tower',
@@ -267,7 +267,7 @@ setup.temple = {
     'tall candles on holders, taller than a man',
     'the tinkle of chimes from a nearby room',
     'a tapestry depicting a mythological scene',
-    'a small fountain', 
+    'a small fountain',
     'a reflecting pool',
     'the sound of a gong from another room',
     'a large holy symbol embedded in the wall',
@@ -276,7 +276,7 @@ setup.temple = {
     'a kneeler beneath a small statue or icon',
     'an oil lamp with colored glass panels',
     'a mosaic set into the floor of the room',
-    'a wide fresco', 
+    'a wide fresco',
     'a mural depicting a mythological scene',
     'the pipes of an immense organ running along the walls',
     'robes and cassocks hanging on hooks',

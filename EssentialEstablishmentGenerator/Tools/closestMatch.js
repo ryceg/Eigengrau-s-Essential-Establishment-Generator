@@ -1,8 +1,8 @@
 setup.closestMatch = function (array, readout, prop1, prop2, val1, val2) {
   // an approximation of two dimensional arrays, that needs a rework.
-  var range1, range2, scale1 = 1, scale2 = 1
+  var range1; var range2; var scale1 = 1; var scale2 = 1
   // Find highest and lowest values for each property in the array.
-  var min1 = array[0][prop1], min2 = array[0][prop2], max1 = array[0][prop1], max2 = array[0][prop2]
+  var min1 = array[0][prop1]; var min2 = array[0][prop2]; var max1 = array[0][prop1]; var max2 = array[0][prop2]
   for (var i = 1; i < array.length; i++) {
     if (min1 > array[0][prop1]) min1 = array[0][prop1]
     if (min2 > array[0][prop2]) min2 = array[0][prop2]
