@@ -17,7 +17,7 @@ setup.goodsAndServices = {
       building.wordNoun = (building.wordNoun || opts['wordNoun'] || setup.goodsAndServices[building.type].name.wordNoun.seededrandom() || 'building')
       building.PassageFormat = (building.PassageFormat || opts['PassageFormat'] || setup.goodsAndServices[building.type].PassageFormat)
       setup.goodsAndServices[building.type].create(town, building, opts)
-      setup.building.create(town, building)
+      setup.structure.create(town, building)
 
       console.groupEnd()
       return building
@@ -685,6 +685,204 @@ setup.goodsAndServices = {
       'being rumored to be funded by a local thieves guild master who has a soft spot for flowers.',
       'trimming flowers into interesting shapes',
       'using discarded leaves and stems to create tiny animals to go with their bouquets.'
+    ]
+  },
+  tailor: {
+    create: function (town, building, opts) {
+      opts = opts || {}
+      if (!building) {
+        console.error('A building was not passed!')
+        return
+      }
+
+      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      return building
+    },
+    name: {
+      function: function (town, building) {
+        var name = setup.goodsAndServices[building.type].name
+        var unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        return [
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
+          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          unique
+        ].seededrandom()
+      },
+      unique: [
+        'Golden Stitching',
+        'Elite Clothes & Tailor',
+        'Sew Wave',
+        'Scissor Sisters',
+        "Thread n Needle",
+        'True Cuts',
+        'Fineland Crotchet',
+        'Skilled Stitches',
+        'The Stitchery',
+        'A Quality Sewing Co.',
+        'Sew New',
+        'First Cut',
+        'Dream Dresser'
+
+
+      ],
+      noun: [
+        'stitches',
+        'stitching',
+        'needle',
+        'thread',
+        'cloth',
+        'scissors',
+        'pincushion',
+        'wardrobe',
+        'seam',
+        'thimble',
+        'spool',
+        'bobbin',
+        'button',
+        'hem',
+        'quilt',
+        'fabric'
+      ],
+      adjective: [
+        'fancy',
+        'happy',
+        'cheery',
+        'bright',
+        'magic',
+        'fresh',
+        'lovely',
+        'quick',
+        'flashy',
+        'plush',
+        'prized',
+        'noble'
+
+      ],
+      adjectivePerson: [
+        'cheery',
+        'happy',
+        'hopeful',
+        'morning',
+        'magical',
+        'sassy',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'fat',
+        'stoic',
+        'colorful',
+        'silly',
+        'big',
+        'slim'
+      ],
+      wordNoun: [
+        'tailors',
+        'clothing shop',
+        'dress shop',
+        'haberdashery',
+        'boutique',
+        'garment store',
+        'clothier shop'
+      ]
+    },
+    PassageFormat: [
+      // each array string will be a new line.
+      // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      '',
+      'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<goods $building setup.goodsAndServices[$building.type].goods>>'
+    ],
+    profession: {
+      name: 'tailor',
+      opts: {
+        profession: 'tailor',
+        hasClass: false,
+        idle: [
+          //There is a tailor currently _______
+          'measuring a man for a fitted suit',
+          'measuring a woman for a new dress',
+          'taking the measurements of a particularly gruff looking half-orc',
+          'rummaging through a large drawer of buttons',
+          'sewing a patch onto a well-worn looking cloak',
+          'carefully threading a needle',
+          'cutting some loose threads with a pair of small golden scissors',
+          'working on a new piece of clothing',
+          'doing some stitch work for a pair of pants',
+          'pinning measurements on a body form',
+          'checking the sleeve length of a new shirt',
+          'arranging needles in a needle pillow near the counter',
+          'cleaning loose threads off the counter',
+          'fashioning a tunic from some sort of hide',
+          'restocking a shelf with new socks',
+          'tending to a large trough '
+        ]
+      }
+    },
+    goods: {
+      'Fine shirt': {
+        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+        cost: 10,
+        // description: used in tooltip.
+        description: 'A fine shirt made out of cotton.'
+      },
+      'Cheap shirt': {
+        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+        cost: 5,
+        // description: used in tooltip.
+        description: 'A poorly made and scratchy feeling shirt.'
+      },
+      'Hole Repair': {
+        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+        cost: 30,
+        // description: used in tooltip.
+        description: 'A service offered to patch up holey or tattered clothing people may have.'
+      }
+    },
+    type: 'tailors',
+    notableFeature: [
+      // you notice _______
+      'several rolls of cloth stacked on the counter.',
+      'a wide shelf stuffed to the brim with fabric bolts.',
+      'a long rack of thick leather hides pushed up against a wall.',
+      'a glass cabinet behind the counter chock full of thimbles.',
+      'long rows of different clothing laid out before you.',
+      'several body forms fitted with quite regal clothing.',
+      'a number of body forms fitted with peasant class clothing.',
+      'a rack with several thick woolen cloaks right in the middle of the store.',
+      'a basket full of spools of thread on a stool near the front counter.',
+      'a large sign at the front window which reads "These clothes are a fit for you!".',
+      'nothing out of the ordinary, it seems to be a regular tailors.',
+      'a large cluster of mirrors in one corner of the shop.',
+      'several paintings of well clothed lords and ladies hang from the shop walls'
+    ],
+    specialty: [
+      // the tailors is known for _______
+      'their exceptionally colorful clothing.',
+      'the fair prices they give to the common folk.',
+      'doing free fittings for suits every other sunday.',
+      'sewing a few too many buttons onto things.',
+      'doing exceptionally good work for fairly decent prices.',
+      'having the most trendy clothing available.',
+      'serving several well known nobles.',
+      'having created the gown for the most recent royal wedding.',
+      'refusing to service garments unless they are completely clean.',
+      'charging far too much for far too little fabric.',
+      'having a large collection of all black clothing.',
+      'their skill with leather working.'
     ]
   }
 }

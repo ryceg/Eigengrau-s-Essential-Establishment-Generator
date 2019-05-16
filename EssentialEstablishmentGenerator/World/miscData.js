@@ -1,8 +1,9 @@
 /* global setup random */
 setup.misc = {
+  ...(setup.misc || {}), // keep any existing misc attributes, see "JS Spread Operator"
   'cheese': {
-    create: function () {
-      var cheese = {
+    create: () => {
+      let cheese = {
         colour: setup.misc.cheese.colour.seededrandom(),
         texture: setup.misc.cheese.texture.seededrandom(),
         taste: setup.misc.cheese.taste.seededrandom(),
@@ -18,8 +19,8 @@ setup.misc = {
     cost: [1, 2, 3, 4, 5, 6, 6, 6, 7, 7, 7, 8, 9, 10, 10, 10, 11, 11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
   },
   'treasureMap': {
-    'create': function (base) {
-      var map = Object.assign({
+    'create': base => {
+      let map = Object.assign({
         one: setup.misc.treasureMap.one.seededrandom(),
         two: setup.misc.treasureMap.two.seededrandom(),
         three: setup.misc.treasureMap.three.seededrandom(),
@@ -41,461 +42,10 @@ setup.misc = {
     'six': ['go north for ' + random(1, 4) + ' miles.', 'go south for ' + random(1, 4) + ' miles.', 'go east for ' + random(1, 4) + ' miles.', 'go west for ' + random(1, 4) + ' miles.', 'go northeast for ' + random(1, 4) + ' miles.', 'go northwest for ' + random(1, 4) + ' miles.', 'go southeast for ' + random(1, 4) + ' miles.', 'go southwest for ' + random(1, 4) + ' miles.'],
     'seven': ['buried at the foot of a cliff.', 'buried under a mighty oak tree.', 'buried under some tower ruins.', 'buried under a pile of skulls.', 'buried in the grave of a famous person.', 'hidden at the top of an old tower.', 'hidden behind an old painting.', "hidden at the bottom of an old rabbit's warren.", 'hidden in the bole of an ancient elm tree.', "hidden in a shipwreck's hold.", 'guarded by assassins.', 'guarded by monsters.', 'guarded by soldiers.', 'guarded by spirits.', 'guarded by a big monster.', 'protected by magical wards.', 'protected by astral locks.', 'protected by physical traps.', 'protected by necromantic curses.', 'protected by spiritual prayers.', 'protected by a terrible riddle.', 'locked behind a holy ward.', 'buried in an old latrine.', "mixed into a dragon's horde.", 'hidden at the bottom of the chasm.', 'locked behind arcane spells.', 'stuck at the top of a great elm tree.', 'buried in an iron chest.', 'in a wooden chest in the basement of the cabin.', 'stuffed in the crack between two boulders.', 'buried at the end of the black alleyway.']
   },
-  'book': {
-    create: function (town) {
-      var bookType = [
-        'detailedTitles',
-        'titles',
-        'titles',
-        'puns'].seededrandom()
-      switch (bookType) {
-        case 'detailedTitles':
-          var book = setup.misc.book.detailedTitles.seededrandom()
-          break
-        default:
-          book = {
-            title: setup.misc.book[bookType].seededrandom()
-          }
-      }
-      Object.assign(book, {
-        condition: setup.misc.book.condition.seededrandom(),
-        cover: setup.misc.book.cover.seededrandom()
-      })
-
-      if (bookType === 'detailedTitles') {
-        book.readout = "'" + book.title + "'" + ' is ' + book.condition + ' The cover is ' + book.cover + book.contents
-      } else {
-        book.readout = "'" + book.title + "'" + ' is ' + book.condition + ' The cover is ' + book.cover
-      }
-      book.tippy = '<span class=tip title=' + JSON.stringify(book.readout) + '><<run setup.tippy("span")>>'
-      book.tippyWord = '"' + book.tippy + book.title + '"</span>'
-      return 'a book titled "' + book.tippy + book.title + '"</span>'
-    },
-    condition: [
-      // the book is...
-      'worn and tattered.',
-      'in poor condition. An ink stain obscures a fair amount of the pages.',
-      'accidentally damaged. Various water damage around the edges but readable.',
-      'vandalized. It appears that a good dozen pages have been ripped out.',
-      'deliberately damaged. Towards the middle there is a section hollowed out. In this hiding place, you find a ' + ['locket', 'knife', 'small hammer', 'small scroll', 'vial of mysterious liquid', 'ring'].seededrandom(),
-      'badly damaged. A lot of the ink has run through water damage and it is nearly illegible.',
-      'ancient. The pages crumble as they turn.',
-      'strange. Some of the pages are blank?',
-      'in good condition, but used. There are handwritten notes in the margins of the pages.',
-      'pristine. You can smell the ink drying.',
-      "really wet for no discernable reason. It doesn't seem to be damaged at all though.",
-      'printed upside-down.',
-      'beautifully illuminated in gold leaf and vibrant paints.',
-      'glowing with a soft radiance.',
-      'warm to the touch. The text glows like the embers of a fire.',
-      'tattered and torn. Many pages are ripped and unreadable.',
-      'poorly made, and the handwriting is illegible in most places.',
-      'completely clean, as if it was magically preserved.',
-      'massive. Easily two feet wide and three feet tall, it weighs nearly 50 pounds'
-    ],
-    cover: [
-      'missing. The pages are bound with string woven through holes near the spine.',
-      'stained leather. Some sign of wear.',
-      'wooden. The title is carved into the spine.',
-      'paperback.',
-      'animal hide. The fur is still on.',
-      'stone. Iron rings hold it together.',
-      'cast Iron. Hinges keep it bound.',
-      'leather with gemstones embedded in it.',
-      'leather with the title branded on it.',
-      'leather with gilding on the spine.',
-      "torn off. It's kept together by a leather belt.",
-      'tree bark. Dried vine bind it.',
-      'a thin metal foil; surprisingly strong and light.',
-      'dark metal embossed with swirling runes.',
-      'patchwork leather of multiple different creatures.',
-      'dragonscale with gold decorations.',
-      'wood and iron, with a large padlock holding the covers together.'
-    ],
-    detailedTitles: [
-      {
-        title: "Let's play dead",
-        category: 'non-fiction',
-        contents: 'This 100 or so page volume consists of a childlike representation with several brightly coloured pictures of various recipes to prepare the dead for undeath.'
-      },
-      {
-        title: 'The Taste of Victory',
-        category: 'non-fiction',
-        contents: 'The book details a fencing techniques, with focus on various dirty tricks you can use to win a duel and get away with it.'
-      },
-      {
-        title: 'Shock and Awe',
-        category: 'non-fiction',
-        contents: 'The book contains 100 basic campfire recipes, which are described in great detail and accompanied by multitude of illustrations. Anybody can use this book to craft one of the 0 meals, all of which make use of venision or other meat.'
-      },
-      {
-        title: "Smuggler's Teachings",
-        category: 'non-fiction',
-        contents: 'The collected teachings of a dozen master blacksmiths, armorers, and artificers, walks the reader step by step through the art of metalwork, from the most basic of tools to the creation of magic weapons and armor. The text is accompanied by dozens of intricatly detailed plates showing tools and techniques.'
-      },
-      {
-        title: 'Liber ex Vasis',
-        category: 'non-fiction',
-        contents: "A rather thin volume about the comestible plant life found in the Underdark and the different ways to prepare them. The author begins by explaining his firsthand experience tasting and testing all the recipes and flora available to the underdark. After detailing a few recipes, the writings become more rambly and saccaded. A certain plant begins to come up in several of the recipes towards the end of the book. The final page is just a repetition of that same plant's name over and over again until the words just trail off the page."
-      },
-      {
-        title: "A Herbalist's Guide to Surviving",
-        category: 'non-fiction',
-        contents: 'This diary details the accounts a famous halfling smuggler, who was best known for smuggling his home made rum into kingdoms throughout the world during the great alcohol depression. With proper study the reader can reproduce the famous Sweetfoot Rum recipe from the different mentions, hints and references scattered across the pages of this book.'
-        // HISTORY
-
-      },
-      {
-        title: 'For the good of the nation',
-        category: 'history',
-        contents: "Autobiography of a wandering merchant, who often found himself in war torn countries and always had something to sell, even if he hadn't."
-      },
-      {
-        title: "The Dragon's Downfall",
-        category: 'history',
-        contents: 'This argumentative text, written by one Colonel Tavon Coyle, stresses the importance of overwhelming force when responding to foreign attacks. (“When the world is watching, one must prove that an attack upon oneself or one’s nation is folly.”) It is typically used to defend the use of downright vile acts during times of war by invoking a sense of patriotism and community. It has been criticised for dehumanising the enemy, and for being far too eager when it comes to giving carte blache authority to military commanders.'
-      },
-      {
-        title: 'The Elemental Chaos and the resulting Planes',
-        category: 'history',
-        contents: "This tome, bound in dragon scales, will only show its true contents to to those it deems worthy. To the unworthy, it consists of a rather somber description of a period of time in which the dragon's ruled the Forgotten Realms and their inevitable downfall where the dragons were taken down by an army of the combined forces of the world's humanoid races. However, to a worthy lector, the script changes entirely and, in draconic, a tale is woven of the truw downfall. The humanoid races were powerless to the dragons, but the chromatics grew vain and the metallics could no longer tolerate their greed. Thus, the metallics aided the humanoids to stage an uprising and the chromatics were banished to the Inner Planes. But, the humanoids grew greedy and tricked the metallics banishing them with their kindred. The tale ends on an ominous note of plans for the dragons' imminent return."
-      },
-      {
-        title: 'The True Rulers of Our Countries',
-        category: 'history',
-        contents: 'A controversial document in and of its own right, this book talks about the creation of the Prime Material and Inner planes. A thin volume which only containspieces of paper, however these papers are magically enchanted to pass through the thousands of pages of content which this book holds. The author of the document seems almost too knowing on the subject, almost as if he were there...'
-      },
-      {
-        title: 'The Secret Heroes and Abominations',
-        category: 'history',
-        contents: "The original manuscript of the much-reproduced text, its well-reputed author's final work. The chronicle itself passingly mentions a rumored artifact, the legendary Laddle of the Chef (commonly believed to be myth) as though its existence is fact. Careful reading might uncover second text that lays below the current one, scraped out, but not gone completely."
-      },
-      {
-        title: 'Tales of times past',
-        category: 'history',
-        contents: 'This book contains recipes for various desserts and esseys on their historical perspective and impacts.'
-      },
-      {
-        title: 'The Fall of the Empire',
-        category: 'history',
-        contents: "On the surface, this appears to merely be a recounting of the opulent Haloan Empire's fall from power centuries ago. Some claim, however, that careful analysis reveals it as a scathing commentary on the notoriously corrupt court of King Judicus, written in code to keep the author from harm."
-      },
-      {
-        title: 'Gold in Ashes',
-        category: 'history',
-        contents: "A historical analysis of the last attacks on the primaterial plane by both the gith and the modrons. The focus of it is a comparison of their vastly different tactics and what little the defenders learned of their invader's cultures."
-        // ARCANE STUDIES
-
-      },
-      {
-        title: 'The Forgotten Art',
-        category: 'arcane studies',
-        contents: 'This massive tome is a fine source of information about all things undead, and was written by one Lord Zeiram, who later ascended to lichhood. It has long been rumored that it is a good starting point for a would-be lich, and it has thus been banned in many a juristiction, but truth be told it is of little use when it comes to becoming a lich, unless one counts the potential benefit of more effective minions.'
-      },
-      {
-        title: 'From Beyond the Veil',
-        category: 'arcane studies',
-        contents: 'This introductory tome is required reading at many a magical academy, but is of relatively little value in regards to the truly esoteric. Introduces the various elements and elementals, and discusses the purpose/traits of the various elemental planes and the elemental chaos.'
-      },
-      {
-        title: 'Edicts of Incantations',
-        category: 'arcane studies',
-        contents: "This book is a standalone work from eccentric elven author Marybeth Hight, a scholar of the Feywild and its denizens. It was originally intended as a primer for would-be plane shifters and astral travellers, but the manuscript was partially destroyed in a fire and now the contents are damaged. The current owner has gone mildly insane trying to piece the manuscript back together, and has scrawled almost two year's worth of ramblings and half-thoughts in the margins of the text. While the work no longer primes the reader for the act of travelling to the Feywild, the combination of reading materials contained within the folio binding now prep the reader's mind for the bewildering and maddening magics encountered there (giving advantage against the enchantment and illusion effects created by denizens of the Feywild)"
-      },
-      {
-        title: 'Arcane Secrets',
-        category: 'arcane studies',
-        contents: 'A generous manuscript contains description of inner workings of various contraptions and automatons and instruction manual to programing automatons, allowing any intermediate transmuter to create their very own contraptions!'
-      },
-      {
-        title: 'Sinister Discoveries',
-        category: 'arcane studies',
-        contents: 'Reading this little book takes about an hour. It contains complete instructions how to cast two cantrips from the wizard list of spells, allowing the reader to cast them for the remainder of the day.'
-      },
-      {
-        title: 'Theatrical Uses of Illusion',
-        category: 'arcane studies',
-        contents: 'A dry but informative text detailing the blending of Positive Energy and Negative Energy (which he refers to as “the Holy Antipodes”) to better access healing and harming magics. It’s an insightful work for healers and necromancers alike, but those who read carefully and follow Sahl’s train of logic may unlock a new path of power (read gain access to a prestige class).'
-      },
-      {
-        title: 'Antipodean Harmonies',
-        category: 'arcane studies',
-        contents: 'Written by the mage playwright Rodger Goldhammer, this semi autobiography shows how the famed thespian worked intricate illusion spells into his plays. Chapters included "Combining natural and magical light", "Canned vs conjured thunder: a discussion", and "Loss of concentration, or why it is vital to wear undergarments beneath an illusionary costume".'
-      },
-      {
-        title: "A children's guide to necromancy",
-        category: 'arcane studies',
-        contents: 'This book contains procedures regarding conjuring and exorcising acient horrors of the deep seas.'
-      },
-      {
-        title: "Skritzlbon's Contraptions",
-        category: 'arcane studies',
-        contents: 'Rather well known and a piece of every wizard’s library, this book contains instructions on divination basics, and tips how to not anger the customers with unfortunate events to come.'
-      },
-      {
-        title: 'Liminal Zones and You',
-        category: 'arcane studies',
-        contents: "When opened, this book creates an spectral dog that starts reproducing the book contents with the skill of experienced rhetorician. Given it's a dog, it's speech consists of different barks, whines and howls. The actual contets are studies regarding blink dogs. Why this book was named the way it was is a mystery not even the author knows answer to."
-      },
-      {
-        title: 'Elements and Elementals',
-        category: 'arcane studies',
-        contents: 'A collection of stories and essays focusing on a first-hand account of the journey from life to death told to the author by a ghost, a resurrected individual or a soul called forth from the other realms. Critics suggest she sensationalizes the tales a bit to make death sound more frightening than it is, to which she challenges them to explore death on their own and then come back to talk about it.'
-      },
-      {
-        title: 'From Ghouls to Ghosts',
-        category: 'arcane studies',
-        contents: 'The book is chaotic and hard to understand, written in an unkown dialect which makes it very slow to read. Contained within are the studies of a powerful necromancer on how interplanar travel might be used to achieve functional immortality.'
-        // ANATOMY
-
-      },
-      {
-        title: 'Cultures Unknown',
-        category: 'anatomy',
-        contents: "This truly massive tome features everything from text heavy pages without a hint of illustration, to brilliant anatomical illustrations that cover multiple pages. It is the magnum opus of a brilliant wizard known for her astute observations and nigh unhealthy obsession with dragons, who sadly perished during a wyvern attack while searching for a dragon graveyard in an isolated mountain chain; had she not perished she would likely have continued revising her work, as she had done for many decades beforehand. Some rarer versions have even been known to feature moving pictures, especially those of dragons in flight and their breath. While it contains a staggering amount of information, it is also very academically challenging and quite rare; as a result it is rarely found outside of restricted library sections, wizards' libraries, and the hoards of academically inclined dragons, especially blue and silver ones."
-      },
-      {
-        title: 'Short essey on the subject of marine life',
-        category: 'anatomy',
-        contents: 'An exhaustive exploration of the bodies of goblins, hobgoblins, and bugbears. It appears highly reputable, but no other surgeon has ever been willing to replicate the results presented here.'
-      },
-      {
-        title: 'What those guts told me.',
-        category: 'anatomy',
-        contents: 'Not only does this book go in-depth on the history of these creatures and their faraway worlds, it also tells that they are really into gardening and the various flowers, vegetables and fruits they have cultivated.'
-      },
-      {
-        title: 'Codex Draconis',
-        category: 'anatomy',
-        contents: 'A detailed biological survey of aquatic species in a lake near the authors residence.'
-        // BOTANY
-
-      },
-      {
-        title: 'Our Friend the Cactus',
-        category: 'botany',
-        contents: 'Written by a dwarf wizard by the name of Daven Wraithmail, this treatise explains the growth and upkeep of a Gulthias Tree as well as several manners to corrupt seeds of other trees in order to create a suitable vessel. An entire chapter is dedicated to the domestication of the resulting blights which sprout from said tree and their training to better protect your new sapling.'
-      },
-      {
-        title: 'The Inner Workings of a Gulthias Tree',
-        category: 'botany',
-        contents: 'A dense academic treaty on the biology of cacti. If one has the patience it is very interesting in its own way. The book also details a large number of edible cacti, as well as those that can be used as water sources in the harsh deserts.'
-        // COLLECTED TALES
-
-      },
-      {
-        title: "The Night's Embrace",
-        category: 'botany',
-        contents: 'A book about the primordial titans, mostly legend and myth, collected by an eccentric young wizard who traveled the planes looking for information about them. This book is highly frustrating to scholars because the last entry is the beginning of a summary of an actual historical document, which has never been found. The book is unfinished and the wizard has not been seen for hundreds of years.'
-      },
-      {
-        title: 'Collected Work of Reginald of Urholm',
-        category: 'botany',
-        contents: "Collection of seven orc legends, written in simple language that is easy to read. It can be used to each someone to read Orkish. The stories include: a tale of Gor'tak the Plunderer, who conquered an elven city and was brought down when he stole a cursed axe; the tale of Gor'tak's son Mur'nal, who tried to break the axe and two and ended up with two cursed axes; two stories about the half-orc twins Robald and Eron and their contests of strength (like when Eron tried to lift a mountain, but his feet didn't find any grip and he sunk away in the mud); and finally, three stories of the voyages of Zyarr the drunken priest and the times he ended up in a roc's nest, a frozen cave stocked with booze (all frozen solid), and Asmodeus' bathtub."
-      },
-      {
-        title: "Egdemort's Travels",
-        category: 'botany',
-        contents: 'A very fun collection of fairytales where half the time the protagonist dies horribly.'
-      },
-      {
-        title: 'The Best Tales of Nameless Cults',
-        category: 'botany',
-        contents: "This set of tales centers on a bard of yore who had a collection of magical tuning forks. These he assembled in the form of the instrument he dubbed the Octarion, which, when played by his expert thumping produced a temporary Portal to other worlds. The book details his wanderings and adventures in these other worlds and sadly ends with his fatal wounding at an unfortunate tea-party turned duel in the Feylands. The epilogue reveals that the tales are penned by his companion, the priest Lucedol of Tuftsburg who met the bard on his first adventure (in this book) in fact freeing him from the clutches of the dreaded Lugomorphs of Artuick-Fell. The two became inseparable friends who ever after had the other's back... until that day."
-      },
-      {
-        title: 'Stories from the Orkholds',
-        category: 'botany',
-        contents: "A collection of poems written by an orcish adventurer and skald. The majority of the book is an epic saga, recounting the various deeds of the adventuring party the poet was a part of, with later short poems about specific aspects of adventurers' lifestyle. The later poems touch on a wide array of topics, such as the joys of a shared victory, longing for hearth and home, and the simple pleasure of splitting a foe in half lengthwise."
-      },
-      {
-        title: "Children's Tales of Death and Hugs",
-        category: 'botany',
-        contents: "A series of romantic novels featuring romance between vampires and humans which tries to cast vampires as villified people who just want to live in peace, while simultaneously overlooking their intense thirst for blood and blithe disregard for the lives of others. Parts of the books have been described as downright obvious attempts at convincing the reader that formally inviting strangers into ones' home is common courtes and that sunlight is highly overrated. It conveniently fails to mention the vampiric weakness to running water, while simultaniously trying to spread awareness about potamophobia (the fear of rivers or running water)."
-        // TALES AND LEGENDS
-
-      },
-      {
-        title: "A Sheep's Tail",
-        category: 'tales and legends',
-        contents: 'A propagandic tale featuring two main characters: A delusional young man who joins an order of paladins and sets about “restoring good and order to the world” and a young necromancer who only wants to help people. The story ends with the paladin murdering the necromancer, as the necromancer had spent his magical powers healing some innocent villagers who were hurt in a goblin raid. It has been theorised that the story might have been written and distrubuted by an ancient vampire wizard as part of his smear campaign against so called "good" organised religions and militant orders, but this has never been conclusively proven.'
-      },
-      {
-        title: 'Tale of Cons and Scams',
-        category: 'tales and legends',
-        contents: "The first installment of Critter and his friends' adventures! Watch as they journey into the Underdark searching for some bountiful booty to bring back home. Critter and his friends soon discover that the denizens of the Underdark don't take kindly to guests. Read carefully as duergars, and drow pin Critter's friends' still live bodies to crosses while torturing their mutilated bodies for being the filthy thieves that they are! A journey of friendship, kindness, dark and unending wallows of despair, and bravery that's fun for the whole family!"
-      },
-      {
-        title: 'A Night to Remember',
-        category: 'tales and legends',
-        contents: "Follow Critter and his new friends in their wacky adventures across the Forgotten Realms! They've been up to some crazy hijinxes together ever since they first met. In this latest installment, watch as Critter and his friends are pursued by the demons of the Nine Hells for betraying a pact with Lolth. Critter gets to watch in stunned horror as each of his friends is burnt to a crisp by a demonic army! Read carefully as they discover the value of friendship, kindness, fire, and bravery!"
-      },
-      {
-        title: "The Stonemason's Son",
-        category: 'tales and legends',
-        contents: 'A young kobold falls for her laconic draconic master in this classic tale of love, taboo, discovery, and betrayal.'
-      },
-      {
-        title: 'The Unaligned Monk',
-        category: 'tales and legends',
-        contents: "A story in the form of a collection of letters from a dwarf stonemason's son that left the trade to be an adventurer."
-      },
-      {
-        title: 'The Story of Graye',
-        category: 'tales and legends',
-        contents: 'The story of a slave forced to be a pit-fighter who turned to meditation as an escape from his violent life. This book is not well written, and is probably an earlier work of a novice author that never reached wide spread fame.'
-      },
-      {
-        title: 'The Creepy Crawly Cremation Story',
-        category: 'tales and legends',
-        contents: 'A short story that describes a case where the shadow realm spills into the material plane and haunts the small town of Graye.'
-      },
-      {
-        title: 'The Cryptic Crystalline Crucifixion Story',
-        category: 'tales and legends',
-        contents: "A book filled with full-page illustrations with small captions (in an esoteric language) that tell the story of a man who seeks to fight criminals by dressing up and scaring them. If the reader doesn't know the language, it appears to be about a vampire."
-      },
-      {
-        title: 'Most Holy of Knights',
-        category: 'tales and legends',
-        contents: "Written like a child's book with colorful pictures. Details a murderous sheep that is burned after slaying a whole town. Then reborn as an evil sheep spirit."
-      },
-      {
-        title: 'Travellers Musings',
-        category: 'tales and legends',
-        contents: 'Within is what seems to be a collection of short stories. To anyone that can read the thieves cant, the book is a guide on how to gain membership to the thieves guilds.'
-      },
-      {
-        title: 'Strange Creatures and How to Cook Them',
-        category: 'anatomy',
-        contents: 'This oddly warm book contains page upon page of recipes and descriptions of powerful and strange magical beasts. Both the monster descriptions and the recipes seem to be of dubious quality. Also is it dripping saliva? ARE THOSE TEETH!?'
-      },
-      {
-        title: 'Live Your Best Life',
-        category: 'history',
-        contents: 'This recruitment pamphlet is scribbled in reddish ink on folded reeds, and details the benefits of living in a nearby druidic society. There is an address for a recruitment officer, along with instructions on how to join the druids.'
-      }
-    ],
-    titles: [
-      'A Study of Elementals: Volume 3: Pain and Tolerance of the Elements',
-      'Typhory’s Guide To Abjurations: Rapid Adaptions To Opposing Forces',
-      'Notes of Death and Undeath: Vykathar’s Endeavours in the Unholy',
-      'The Credits of Lightning and Ice: Shifting Plans and their Collisions',
-      'The Basics of Regeneration: Healing in Many instances',
-      'Blood and the Foul Arts: Dark Practices of Necromancy',
-      'Ethereal and Material: infusing Arcane and Steel',
-      'The Warping of Broken Minds: Eteterveil’s Enchanting of the Mad',
-      'The Walls That Won’t Change: Transmutation and the Laws of Exchange',
-      'Magic in War: Scorched Earth and Seared Minds',
-      'Gynthorn’s Research Notes of Arcane Fauna',
-      'The Call of the Void: the Draw of the Yawning Nothing',
-      'Tides of Chaos: Studies of the Broken Flows',
-      'Null Zones: Hythen & Surich’s Research of Anti Magic Zone',
-      'Compulsion: the Forcing of a Mind',
-      'Seeing Beyond the Sight: Illusionary Hallmarks',
-      'A Brief History of the Magically Corrupted Races',
-      'Tyven’s Folly of Illusion and Enchantment influence - Vol. 3',
-      'To Create and Channel, Evocation and Conjuration: a Study of Flows',
-      'Sight Beyond the Realm: Divination Visions of Maliksin',
-      'The Dangers of the Shadow Weave: Arch Mage Quilore’s Secret War',
-      'The Decay of a Soul: a Study of Resurrection - Vol. 5',
-      'A Study of Foci: To Shape Reality Upon the Physical',
-      'A Fragile Balance: Nature and It’s Secrets',
-      'The Findings of the Wyrm Cult of Asrigah',
-      'Eterhen’s Study of Wyvern: the Lesser Dragons',
-      'Ethereal Enchantments of Magical Materials: Gyhaki’s Work',
-      'Blades of Light in the Howling Night: the Angel’s Decent',
-      'The Hungry Abyss: What Lays Beneath Our Fears',
-      'Blue Fire’s Wrath: Spell Plague Anthology',
-      'Power in the Blood: Elven and Other Fey Descendants',
-      'The Mirroring Planes: Fequries Enquiries To the Planes and their Shared Features',
-      'A Walk Within the Dead Light of Cold Suns: Tales From the Old Ones',
-      'The Study of Gems: Kurin’s Geology - Vol. 7',
-      'The Parables of Circles: infinite Lines and Endless Angles. First Prints',
-      'Salt and Chalk: the Mundane Script of the Arcane',
-      'Chasing Echos: insanity From the Mundane',
-      'The Scaled King: Regime of Shadow - Vol. 6',
-      'The Winds of Change: From Empire To Dust. Gnome Chronicles 6',
-      'Chaotic Minds and Iron Wills: Corruption in Golems',
-      'Uses of the Soul: Vol 5: Soul Lightning',
-      'Chi: the Energies of Balance',
-      'Wyfen’s Advance: a One Man Conquest of the Silver Spires',
-      'Tar’tari Tendary: the City of Cosmic Shadows',
-      'Secrets and Riddles of the Weave: Vol 14',
-      'Shadow and Dust: What Rots and Remains',
-      'Fey Unbound: Study of Entrapped Creatures and their Release',
-      'Evil’s Horde: Hugar and Juik’s Notes On Demons',
-      'Asamokology: the Nature of What Is Fake',
-      'Breaking the Cycle: the Written War Against the Gods - Vol. 146',
-      'Losing Yourself To Be One: Mind Flayer and the Hive Mind',
-      'Stone Eyes: the Myth of Aqytorky',
-      'The Fire Within the Stone: A Divination Primer for Beginners',
-      'You Can Call Me Gary: The Autobiography of Lord Gygax',
-      'Two Runes and a Pentagram: Summoning Demons for Beginners',
-      "The King's Consort - Vol. 8",
-      'Back to Work Peasants! The Writings of The Bad King Quellix'
-    ],
-    puns: [
-      'How to make Illusions and Charm People',
-      'The Illithid by Homer',
-      'Memoirs of a Genasi',
-      "The 7 Habits of Highly Effective Peasants (The sequel to 'The Hunger Games: a True Story')",
-      'Diary of a Wimpy Kobold',
-      "A Handmaid's Tail: a collection of short stories by notable Tieflings",
-      'Ready Mindflayer One',
-      'Dragon Turtles All the Way Down',
-      'The Lion, the Witch, and the War-forged',
-      'Gone with the Healing Wind',
-      'To Kill a Manticore',
-      'Planar-shifting for People in a Hurry',
-      "One Flew Over the Kenku's Nest",
-      'The Brothers Dragonbornov',
-      'For Whom the Behir Tolls',
-      'The Power of Mimics: Why Certain Encounters Have Extraordinary Impact',
-      'The Wizard of Ooze',
-      'Fight. Club. - A Comprehensive Guide for Barbarians',
-      'The Secret Life of Bards',
-      'The Giving Treant',
-      "Alice's Adventures in the Underdark",
-      '50 Shades of Fey',
-      'Sense Motive and Sensability',
-      'As I Lay at Zero Hit Points',
-      'Great Incantations',
-      'The Amityville Hook Horror',
-      "Dante's Infernal",
-      'The Girl with the Dragonborn Tattoo',
-      "Lolth's Web",
-      'Satyrs and Sensibility',
-      'Pride and Prestidigitation',
-      'The Constant Scrivener',
-      'The Left Hand Casts Darkness',
-      'The Cockatrice in the Rye',
-      'One Thousand and One Knights',
-      'The Grapes of Wraith: Wining and Dining the Undead',
-      'The Adventures of Nancy Druid',
-      '1984 Orcs',
-      'Of Kobolds and Men',
-      'The Great Goliath',
-      'Animals Farm, Gardening Tips From a Friendly Druid',
-      "Little Women, A Female Halfling in a Human's World",
-      'Lord of the Gnolls',
-      'The Orc Man and the Sea',
-      'Moby-Dick, or, the Kraken',
-      "Hairy Kobold and the Sorcerer's Throne",
-      'Hairy Kobold and the Chamber of Regrets',
-      'Hairy Kobold and the Prisoner of Gundabad',
-      'Hairy Kobold and the Hobbit of Fire',
-      'Hairy Kobold and the Larder of the Phoenix',
-      'Hairy Kobold and the Half-Elf Prince',
-      'Hairy Kobold and the Deathly Horsemen',
-      'The Giving Treent',
-      'The Call of the Wildshape'
-    ]
-  },
   'caravan': {
-    'create': function (town, base) {
-      var masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
-      var caravan = Object.assign({
+    'create': (town, base) => {
+      let masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
+      let caravan = Object.assign({
         type: setup.misc.caravan.caravanType.seededrandom(),
         animals: setup.misc.caravan.animals.seededrandom(),
         transporting: setup.misc.caravan.transporting.seededrandom(),
@@ -579,8 +129,8 @@ setup.misc = {
     'travelerLook': ['accomplices on a quest', 'an audience to entertain', 'someone to hear a sad tale', 'drinking companions']
   },
   'ghost': {
-    'create': function (base) {
-      var ghost = Object.assign({
+    'create': base => {
+      let ghost = Object.assign({
         profession: setup.misc.ghost.profession.seededrandom(),
         cause: setup.misc.ghost.cause.seededrandom(),
         reason: setup.misc.ghost.reason.seededrandom(),
@@ -613,8 +163,8 @@ setup.misc = {
     'pets': ['boars', 'dire rats', 'giant lizards', 'ogres', 'wargs', 'wolves'],
     'slaves': ['dwarves', 'gnomes', 'goblins', 'halflings', 'humans', 'kobolds', 'undead servitors', 'nothing; the orcs eat any captives they take', 'nothing; the orcs leave no survivors', 'nothing; the orcs believe in freedom for all beings'],
     'weapons': ['spears and large hunting knives', 'spears and javelins', 'exotic, curved blades and several bolas', 'huge, curved blades', 'exotic, curved blades and blowguns', 'pikes and shortswords', 'pikes and short bows', 'battleaxes and throwing axes', 'battleaxes and longbows', 'longswords and longbows', 'jagged greatswords and shortbows', 'greataxes and javelins'],
-    'create': function () {
-      var orcs = {
+    'create': () => {
+      let orcs = {
         type: setup.misc.orcs.type.seededrandom(),
         symbol: setup.misc.orcs.symbol.seededrandom(),
         value: setup.misc.orcs.value.seededrandom(),
@@ -635,8 +185,8 @@ setup.misc = {
     }
   },
   'goblins': {
-    'create': function (base) {
-      var goblins = Object.assign({
+    'create': base => {
+      let goblins = Object.assign({
         business: setup.misc.goblins.business.seededrandom(),
         symbol: setup.misc.goblins.symbol.seededrandom(),
         colour: setup.misc.goblins.colour.seededrandom(),
@@ -669,8 +219,8 @@ setup.misc = {
     'pets': ['wolves', 'wargs', 'giant spiders', 'boars', 'giant bats', 'dire rats']
   },
   'goblin': {
-    'create': function (base) {
-      var goblin = Object.assign({
+    'create': base => {
+      let goblin = Object.assign({
         type: setup.misc.goblin.type.seededrandom(),
         carry: setup.misc.goblin.carry.seededrandom(),
         wears: setup.misc.goblin.wears.seededrandom(),
@@ -702,8 +252,8 @@ setup.misc = {
     'weapons': ['wooden clubs', 'over-sized daggers', 'shortbows and arrows', 'longbows and arrows', 'daggers and crossbows', 'axes and knives', 'sticks and stones', 'shortswords', 'brass knuckles', 'daggers and sling shots'],
     'lair': ['the residence of a prominent noble', 'the village’s market square', 'a wayside inn', 'a tavern', 'a brothel', 'an old lighthouse', 'an abandoned cabin', 'a waterfall', 'a cave', 'a dense forest'],
     'fearedBy': ['ambassadors and tax collectors', 'merchants and peddlers', 'politicians and magistrates', 'guards and sheriffs', 'soldiers and warriors', 'nobles and wealthy travelers', 'knights and loyalists', 'peasants and farmers', 'priests and sages', 'women and children'],
-    'create': function (town, base) {
-      var bandits = {
+    'create': (town, base) => {
+      let bandits = {
         business: setup.misc.bandits.business.seededrandom(),
         colours: setup.misc.bandits.colours.seededrandom(),
         symbol: setup.misc.bandits.symbol.seededrandom(),
@@ -919,7 +469,7 @@ setup.misc = {
     }
   },
   'roleplayQuestions': {
-    create: function () {
+    create: () => {
       return setup.misc.roleplayQuestions.array.seededrandom()
     },
     array: [
@@ -975,365 +525,11 @@ setup.misc = {
       'what was your last nightmare?'
     ]
   },
-  'riddles': [
-    {
-      answer: 'an anvil',
-      question: [
-        'I bear the weight of sparks, but do not catch alight,',
-        'I feel the blows of blades and hammers, but back I do not fight,',
-        'Of swords and axes I’m made the same, but I bear no bladed edge,',
-        'The arms of steel that I create are forged upon my head.'
-      ]
-    },
-    {
-      answer: 'fire',
-      question: [
-        'With no tongue I lick,',
-        'With no fingers I flick,',
-        'With no wings I go up,',
-        'With no lungs I blow up,',
-        'With no ideas I spark,',
-        'With no bridge I arc,',
-        'With no life I breathe,',
-        'With no anger I seethe,',
-        'With no teeth I eat,',
-        'With no muscles I beat,',
-        'With no liquid I fill,',
-        'With no weapons I kill.'
-      ]
-    },
-    {
-      answer: 'courage',
-      question: [
-        'I live in your mind, but I am shown by hand upon heart,',
-        'I am brought to war, but killing is not my part,',
-        'My brothers are foolishness, bravery and dare,',
-        'My antonyms are cowardice, caution and fear,',
-        'I am respected in fighters, encouraged in the young,',
-        'And under my name many swords have been swung,',
-        'I am a quality for all, not warriors alone,',
-        'I am a greatness as deep as the bone.'
-      ]
-    },
-    {
-      answer: 'words',
-      question: [
-        'Find me in sword, and find me song,',
-        'Use me as weapon or tool,',
-        'There’s no one answer to where I belong,',
-        'For I come from both scholar and fool,',
-        'I’m long or I’m short, I’m new or I’m old,',
-        'But always use me with care,',
-        'For I can topple the brave and the bold,',
-        'So of the order you place me beware.'
-      ]
-    },
-    {
-      answer: 'honour',
-      question: [
-        'My first is in truth, but not in try,',
-        'My second is in love, but not in a lie,',
-        'My third is in dignity, but not in deceit,',
-        'My fourth, like my second, never found in a cheat,',
-        'My fifth is in tribute, but not in trial,',
-        'My last is in war and friends, but not the weak and vile.'
-      ]
-    },
-    {
-      answer: 'eye',
-      question: [
-        'A crystal ball, the pickpocket’s plight,',
-        'In a fleshy prison suspended,',
-        'Stronger in day, weaker at night,',
-        'Upon this my power depended.'
-      ]
-    },
-    {
-      answer: 'sight',
-      question: [
-        'The only thing that truly cuts the air in silence.',
-        'The clearest way that our body gives us guidance.',
-        'Faster than sword, sound, wind or light,',
-        'A tool, a weapon, a gift, the answer is'
-      ]
-    },
-    {
-      answer: 'work',
-      question: [
-        'Name-giver,',
-        'Man-maker,',
-        'Food-winner,',
-        'Youth-shaker,',
-        'Coin-glimmer,',
-        'Life-shaper,',
-        'Time-thinner,',
-        'Back-breaker,',
-        'Sweat-bringer.'
-      ]
-    },
-    {
-      answer: 'a candle',
-      question: [
-        'A tall soldier of white,',
-        'Stands watch at night,',
-        'His smoke alight,',
-        'His smile bright,',
-        'His life measured by height,',
-        'By the stroke of midnight,',
-        'The darkness will bite,',
-        'And take away his warming light.'
-      ]
-    },
-    {
-      answer: 'ring',
-      question: [
-        'Silver, brass, bronze, gold,',
-        'Given, bought, stolen, sold,',
-        'Symbols of wealth, power, or love,',
-        'Forged like a sword, fits like a glove.'
-      ]
-    },
-    {
-      answer: 'money',
-      question: [
-        'The Squanderer’s Blame,',
-        'The Petty Thieves’ Gain,',
-        'The Gambler’s Bane,',
-        'The Poor Man’s Pain,',
-        'The Bankers’ Game,',
-        'The Noble’s Claim.'
-      ]
-    },
-    {
-      answer: 'mouth',
-      question: [
-        'Beware the Red Cave where the walls drip with ichor,',
-        'Where the floor isn’t made of stone, wood or wicker,',
-        'Beware the white gargoyles, stuck fast in the roof,',
-        'When the wind blows through, a smell most uncouth,',
-        'And beware the tunnel at the back of the cave,',
-        'For down at the bottom awaits a watery grave.'
-      ]
-    },
-    {
-      answer: 'book',
-      question: [
-        'You couldn’t call me spineless, though I hide behind cover,',
-        'You wouldn’t call me wise, though I am filled with wonder,',
-        'You shouldn’t call me worthless, though I’m made not of gold,',
-        'You can’t hold a torch to the stories I’ve told.',
-        'What am I?'
-      ]
-    },
-    {
-      answer: 'a map',
-      question: [
-        'A thousand steps an inch,',
-        'A hundred houses a hand,',
-        'A week by horse, drawn as a course,',
-        'From the eyes of an eagle on the land.'
-      ]
-    },
-    {
-      answer: 'a shield',
-      question: [
-        'Clash blade and arrow upon my face,',
-        'And with my sturdy brow I’ll brace,',
-        'The blows of mighty sword, axe and mace.',
-        'My brothers in war are weapons of steel,',
-        'But never a killing blow I’ll deal,',
-        'It’s only the strikes of others I feel.',
-        'My duty is a true protection,',
-        'So wield me in your foe’s direction,',
-        'And let their blades taste my rejection.'
-      ]
-    },
-    {
-      answer: 'magic',
-      question: [
-        'Almighty will bender,',
-        'Body mender, life ender.',
-        'Tremendous hidden power,',
-        'Foes cower in their final hour.',
-        'Grand dealer of tricks,',
-        'Hands quick, eyes transfixed.',
-        'Conjurer beyond the true,',
-        'Coursing through, empowering you.'
-      ]
-    },
-    {
-      answer: 'lightning',
-      question: [
-        'Up in clouds high,',
-        'Storm rages in the sky,',
-        'Thunder rolls nearby.',
-        'Coursing down with a crack,',
-        'Hits the ground with a smack,',
-        'Then rushing straight back.',
-        'Striking with every volt,',
-        'The earth feels the jolt,',
-        'Brings life to a halt.'
-      ]
-    },
-    {
-      answer: 'love',
-      question: [
-        'Eyes meet,',
-        'Smiles greet,',
-        'Hearts beat,',
-        'Words fleet,',
-        'Mouths bleat,',
-        'Feel the heat,',
-        'Isn’t it sweet.'
-      ]
-    },
-    {
-      answer: 'forge',
-      question: [
-        'With open mouth I sit, waiting',
-        'My raging lungs ablaze, creating',
-        'Arms for King, Lord or Sultan,',
-        'As I chew upon your metal, molten',
-        'So thrust at me your iron, sharp',
-        'And I’ll reshape it in my heart.'
-      ]
-    },
-    {
-      answer: 'a fisherman',
-      question: [
-        'My tool is not a weapon, though it has a hook,',
-        'My work’s to take what is not mine, though I am no crook,',
-        'You shan’t find me in battle, though you may try to look,',
-        'Better luck you’d have searching by yonder brook.'
-      ]
-    },
-    {
-      answer: 'hair',
-      question: [
-        'Less when young,',
-        'Less when old,',
-        'Most in years between,',
-        'Long or short,',
-        'Light or dark,',
-        'Slick, unkempt or clean.'
-      ]
-    },
-    {
-      answer: 'dice',
-      question: [
-        'You know how to ask, but not yet my answer,',
-        'For I am the ivory table dancer.',
-        'So rattle me up then let me free,',
-        'How many of my eyes will you see?'
-      ]
-    },
-    {
-      answer: 'sun/sunlight',
-      question: [
-        'In the morning you lift your shields,',
-        'And through your window I leap,',
-        'For I’ve travelled across the skies and fields,',
-        'To wake you from your sleep,',
-        'I strike you true with my mighty lance,',
-        'And never do I miss,',
-        'Upon your floor and walls I dance,',
-        'Spreading my morning kiss.'
-      ]
-    },
-    {
-      answer: 'fingers',
-      question: [
-        'Me and my brothers nine,',
-        'Have no bones but our spine,',
-        'Curled together we fight,',
-        'As a symbol of might,',
-        'Or raise a chalice of wine.'
-      ]
-    },
-    {
-      answer: 'giant',
-      question: [
-        'Oh great chicken-stomper, how your gut doth wobble,',
-        'We flee from your glorious stench, so us you shall not gobble,',
-        'Oh mighty cattle-chaser, standing tall above the trees,',
-        'Our warriors of bravest heart stand only to your knees.',
-        'Oh wondrous boulder-cruncher, with strength from head to feet,',
-        'All my life I truly hope that never do we meet.'
-      ]
-    },
-    {
-      answer: 'night sky',
-      question: [
-        'I am the great sparkling black sea,',
-        'So gaze up on me and wonder,',
-        'Watch as ships shoot across into quay,',
-        'Shining bright with their golden plunder,',
-        'In daytime I rest, settle and simmer,',
-        'Biding my time in the sky,',
-        'Ready to show you the glory and glimmer,',
-        'Of worlds and dreams passing by.'
-      ]
-    },
-    {
-      answer: 'arrow',
-      question: [
-        'I am no bird, despite my feathers',
-        'So leave your cage, leash or tethers.',
-        'Yet I fly from perch to heart,',
-        'Let loose to the sky by my counterpart.',
-        'I am no tree, despite my wood,',
-        'So your axe here will do no good,',
-        'To protect yourself from my affection,',
-        'You’ll need something with more reflection.',
-        'I am no sword despite my steel,',
-        'So away with your brutish warrior’s zeal,',
-        'I command my form with much more grace,',
-        'While still delivering death’s embrace.'
-      ]
-    },
-    {
-      answer: 'rain',
-      question: [
-        'We all begin up high,',
-        'Clouds, heavens, sky,',
-        'Sea and river growing,',
-        'Falling, filling, flowing,',
-        'Beware the winding, sleeping lake,',
-        'Rising, heaving, banks will break.'
-      ]
-    },
-    {
-      answer: 'a dragon',
-      question: [
-        'Is it a curse or is he blessed?',
-        'To sit upon a mountain crest,',
-        'Of golden wealth and treasures hoarded,',
-        'In a lowly cavern the land has warded,',
-        'With ne’er much to do but drum his claws,',
-        'And grind the teeth of mighty jaws,',
-        'And wait an age for when next nears,',
-        'A morsel with greater greed than fears.'
-      ]
-    },
-    {
-      answer: 'a bell',
-      question: [
-        'Behold my beautiful bronze body!',
-        'Big, bold and bowed into shape,',
-        'Be baffled by my harmony; godly,',
-        'No ear in the land will escape!',
-        'Bathe in my blissful reverberation!',
-        'Booming through the streets of the town,',
-        'I’ll sit and sing out from my station,',
-        'At the top of the tower; I’m the crown.'
-      ]
-    }
-  ],
   'religion': {
     'shrine': {
-      'create': function (town, base) {
-        var sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
-        var shrine = Object.assign({
+      'create': (town, base) => {
+        let sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
+        let shrine = Object.assign({
           god: [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom(),
           material: setup.misc.religion.shrine.material.seededrandom(),
           senses: setup.misc.religion.shrine.senses[sensesArray](town)
@@ -1364,37 +560,37 @@ setup.misc = {
         'a natural geode that has been carved into shape. The hollow inside shines brilliant colours.'
       ],
       'senses': {
-        'incense': function (town) { return 'You can smell the soft scent of incense having been burnt here.' },
-        'wood chimes': function (town) { return 'The soft clattering of some wooden chimes can be heard in the distance.' },
-        'candle': function (town) { return "There's a melted candle on top of the shrine." },
-        'wax': function (town) { return "There's some blobs of melted wax on the shrine." },
-        'pen': function (town) { return 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.' },
-        'bread': function (town) { return 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.' },
-        'deadBird': function (town) { return 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.' },
-        'cat': function (town) {
-          var cat = setup.misc.cat.create()
+        'incense': town => 'You can smell the soft scent of incense having been burnt here.',
+        'wood chimes': town => 'The soft clattering of some wooden chimes can be heard in the distance.',
+        'candle': town => { return "There's a melted candle on top of the shrine." },
+        'wax': town => { return "There's some blobs of melted wax on the shrine." },
+        'pen': town => 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.',
+        'bread': town => 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.',
+        'deadBird': town => 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.',
+        'cat': town => {
+          let cat = setup.misc.cat.create()
           return "You hear a soft meow, and see that there's a " + cat.tippyWord + ' sitting near the shrine, watching you.'
         },
-        'hissingCat': function (town) {
-          var cat = setup.misc.cat.create()
+        'hissingCat': town => {
+          let cat = setup.misc.cat.create()
           return "You hear a hissing sound, and see that there's a " + cat.tippyWord + ' sitting near the shrine, almost guarding it.'
         },
-        'bedding': function (town) { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
-        'beddingWithNPC': function (town) {
-          var npc = setup.createNPC(town)
+        'bedding': town => { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
+        'beddingWithNPC': town => {
+          let npc = setup.createNPC(town)
           return 'You can see some bedding on the ground near the shrine. The ' + setup.profile(npc, 'owner') + ' is out hunting.'
         }
       }
     },
-    'createRelic': function () {
-      // var holy = setup.misc.religion.holy.seededrandom()
-      // var unholy = setup.misc.religion.unholy.seededrandom()
-      var adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
-      // var namedGod = setup.misc.religion.namedGod.seededrandom()
-      // var abstractGod = setup.misc.religion.abstractGod.seededrandom()
-      // var saint = setup.misc.religion.saint.seededrandom()
-      var god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
-      var noun = setup.misc.religion.noun.seededrandom()
+    'createRelic': () => {
+      // let holy = setup.misc.religion.holy.seededrandom()
+      // let unholy = setup.misc.religion.unholy.seededrandom()
+      let adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
+      // let namedGod = setup.misc.religion.namedGod.seededrandom()
+      // let abstractGod = setup.misc.religion.abstractGod.seededrandom()
+      // let saint = setup.misc.religion.saint.seededrandom()
+      let god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
+      let noun = setup.misc.religion.noun.seededrandom()
       return 'The ' + adjective + ' ' + noun + ' of ' + god
     },
     holy: [
@@ -1417,8 +613,8 @@ setup.misc = {
     ]
   },
   'bunny': {
-    'create': function () {
-      var bunny = {
+    'create': () => {
+      let bunny = {
         size: setup.misc.bunny.size.seededrandom(),
         coat: setup.misc.bunny.coat.seededrandom(),
         favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
@@ -1435,8 +631,8 @@ setup.misc = {
   },
   'cat': {
 
-    'create': function () {
-      var cat = {
+    'create': () => {
+      let cat = {
         size: setup.misc.cat.size.seededrandom(),
         coat: setup.misc.cat.coat.seededrandom(),
         eyes: setup.misc.cat.eyes.seededrandom(),
@@ -1460,8 +656,8 @@ setup.misc = {
     'talent': ['scratching', 'hissing', 'purring', 'climbing trees', 'climbing walls', 'catching mice', 'catching fish', 'catching birds', 'avoiding you', 'ignoring you']
   },
   'horse': {
-    'create': function () {
-      var horse = {
+    'create': () => {
+      let horse = {
         gender: setup.misc.horse.gender.seededrandom(),
         coat: setup.misc.horse.coat.seededrandom(),
         eyes: setup.misc.horse.eyes.seededrandom(),
@@ -1489,8 +685,8 @@ setup.misc = {
     'behaviour': ['nickers when anxious', 'whinnies when anxious', 'bucks when impatient', 'stamps when impatient', 'froths when tired', 'snorts when tired', 'stamps when content', 'snorts when content']
   },
   'wolf': {
-    'create': function () {
-      var wolf = {
+    'create': () => {
+      let wolf = {
         colour: setup.misc.wolf.colour.seededrandom(),
         markings: setup.misc.wolf.markings.seededrandom(),
         eyes: setup.misc.wolf.eyes.seededrandom(),
@@ -1515,8 +711,8 @@ setup.misc = {
     'habitat': ['in canyonlands', 'in grassy hills', 'in forested hills', 'on grassy plains', 'in ancient forests', 'in young forests', 'in rocky deserts', 'in the foothills of mountains', 'in mountain passes', 'in frozen lands']
   },
   'ogre': {
-    'create': function () {
-      var ogre = {
+    'create': () => {
+      let ogre = {
         hair: setup.misc.ogre.hair.seededrandom(),
         type: setup.misc.ogre.type.seededrandom(),
         eyes: setup.misc.ogre.eyes.seededrandom(),
@@ -1541,8 +737,8 @@ setup.misc = {
     'misfortune': ['pressed into service in an orkish army', 'tricked into doing some dirty work by some goblins', 'charmed by a witch', 'badly burned in a fire', 'imprisoned in a cold, dark cell', 'bested by a rival for the affections of another ogre']
   },
   'spider': {
-    'create': function () {
-      var spider = {
+    'create': () => {
+      let spider = {
         colour: setup.misc.spider.colour.seededrandom(),
         markings: setup.misc.spider.markings.seededrandom(),
         eyes: setup.misc.spider.eyes.seededrandom(),
@@ -1566,953 +762,6 @@ setup.misc = {
     'webs': ['sheet-like webs', 'webs with radial symmetry', 'webs with triangular symmetry', 'webs with hexagonal symmetry', 'webs with irregular shapes', 'almost no webs; the spider is constantly on the move and on the hunt'],
     'habitat': ['in caverns', 'on cliff-sides', 'on the forest floor', 'in grasslands', 'in jungles', 'in rocky deserts', 'in rotting logs', 'in shallow burrows', 'in swamps', 'in treetops']
   },
-  'encounters': {
-    'a group of bandits operating a toll road': function (town) {
-      var bandits = setup.misc.bandits.create(town, { business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)' })
-      return 'a group of ' + bandits.tippyWord + ' operating a toll road. '
-    },
-    'a band of robbers': function (town) {
-      var bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-      return bandits.tippy + '<b>a band of robbers.</b></span>'
-    },
-    'some robbers': function (town) {
-      var bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-      return bandits.tippy + '<b>some robbers.</b></span>'
-    },
-    'a party of raiders': function (town) {
-      var bandits = setup.misc.bandits.create(town)
-      return bandits.tippy + '<b>a party of raiders.</b></span>'
-    },
-    'a pair of outlaws': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'criminal',
-        isThrowaway: true
-      })
-      var secondNpc = setup.createNPC(town, {
-        background: 'criminal',
-        isThrowaway: true
-      })
-      return 'a pair of two outlaws; one ' + setup.profile(npc, npc.descriptor) + ' and a ' + setup.profile(secondNpc, secondNpc.descriptor)
-    },
-    'a band of desperate outlaws': function (town) {
-      var bandits = setup.misc.bandits.create(town)
-      return bandits.tippy + '<b>a band of desperate outlaws.</b></span>'
-    },
-    'some bandits': function (town) {
-      var bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-      return bandits.tippy + '<b>some bandits.</b></span>'
-    },
-    'some outlaws’ hideout': function (town) {
-      var bandits = setup.misc.bandits.create(town)
-      return bandits.tippy + 'a hideout belonging to <b>some outlaws</b></span>'
-    },
-    'a disciplined military company': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a military company, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a rowdy mercenary troop': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a band of mercenaries': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a mercenary troop, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a marching army': function (town) {
-      var mercenaries = setup.createMercenaries(town)
-      return 'a small army, armed to the teeth with ' + mercenaries.weapon + ', wearing ' + mercenaries.colours + ' livery over their ' + mercenaries.armour + ' with an insignia of ' + mercenaries.insignia + '. They are ' + mercenaries.attitude + ' towards their <<profile `$npcs[' + JSON.stringify(mercenaries.captain.key) + ']` commander>>, who is ' + mercenaries.commanderTrait + '. They specialise in ' + mercenaries.specializes + ', and are notorious for ' + mercenaries.notorious + '. They are famous for their ' + mercenaries.tactics + ', and are currently ' + mercenaries.currently + '.'
-    },
-    'a small merchant caravan': function (town) {
-      var caravan = setup.misc.caravan.create(town)
-      return 'a small merchant caravan. ' + caravan.readout
-    },
-    'a merchant caravan': function (town) {
-      var caravan = setup.misc.caravan.create(town)
-      return 'a merchant caravan. ' + caravan.readout
-    },
-    'a clan of orcs': function (town) {
-      var orcs = setup.misc.orcs.create()
-      return 'a clan of orcs. ' + orcs.readout
-    },
-    'several orc raiders': function (town) {
-      var orcs = setup.misc.orcs.create()
-      return 'several orc raiders. ' + orcs.readout
-    },
-    'an orkish war band': function () {
-      var orcs = setup.misc.orcs.create()
-      return 'an orc war band. ' + orcs.readout
-    },
-    'an orc war band': function (town) {
-      var orcs = setup.misc.orcs.create(town)
-      return 'an orc war band. ' + orcs.readout
-    },
-    'a handful of ogres': function () {
-      var ogre = setup.misc.ogre.create()
-      return 'a handful of ' + ogre.tippyWord + 's.'
-    },
-    'an ogre': function () {
-      var ogre = setup.misc.ogre.create()
-      return 'a lone ' + ogre.tippyWord + '.'
-    },
-    "an ogre's lair": function () {
-      var ogre = setup.misc.ogre.create()
-      return 'a lair belonging to an ' + ogre.tippyWord
-    },
-    "some goblins' hideout": function (town) {
-      var goblins = setup.misc.goblins.create(town)
-      return 'a goblin hideout. ' + goblins.readout
-    },
-    'a pair of goblin scouts': function () { return 'a pair of goblin scouts' },
-    'a lone goblin': function () {
-      var goblin = setup.misc.goblin.create()
-      return 'a lone ' + goblin.tippyWord + ' ' + ['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].seededrandom()
-    },
-    'a goblin war party': function (town) {
-      var goblins = setup.misc.goblins.create()
-      return 'a goblin war party. ' + goblins.readout
-    },
-    'a goblin patrol': function () { return 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom() },
-    'several giant spiders': function () {
-      var spider = setup.misc.spider.create()
-      return 'several giant ' + spider.tippyWord + '<b>s</b>.'
-    },
-    'a pack of wolves': function () {
-      var wolf = setup.misc.wolf.create()
-      var wolves = wolf.tippy + '<b>wolves</b></span>.'
-      return 'a pack of ' + wolves
-    },
-    'a lone wolf': function () {
-      var wolf = setup.misc.wolf.create()
-      return 'a lone ' + wolf.tippyWord + '.'
-    },
-    'a hunting cat': function () {
-      var cat = setup.misc.cat.create()
-      return 'a hunting ' + cat.tippyWord + '.'
-    },
-    'an itinerant priest': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'acolyte',
-        profession: 'priest',
-        isThrowaway: true
-      })
-      return 'an itinerant ' + setup.profile(npc, 'priest')
-    },
-    'a hermit': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'hermit',
-        profession: 'hermit',
-        isThrowaway: true
-      })
-      return 'a ' + setup.profile(npc, 'hermit')
-    },
-    'a solitary hunter': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'ranger',
-        background: 'outlander',
-        isThrowaway: true
-      })
-      return 'a solitary ' + setup.profile(npc, 'hunter')
-    },
-    'a solitary bandit': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'rogue',
-        background: 'criminal',
-        isThrowaway: true
-      })
-      return 'a solitary ' + setup.profile(npc, 'bandit')
-    },
-    'an injured knight': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
-        background: ['noble', 'soldier', 'soldier'].seededrandom(),
-        isThrowaway: true
-      })
-      return 'an injured ' + setup.profile(npc, 'knight')
-    },
-    'a ranger': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'ranger',
-        background: 'outlander',
-        isThrowaway: true
-      })
-      return 'a solitary ' + setup.profile(npc, 'hunter')
-    },
-    'a diseased animal corpse': function () { return 'a diseased animal corpse' },
-    'a dead body': function () { return 'a dead body' },
-    'a group of dwarves': function () { return 'a group of dwarves' },
-    'a handful of farmers': function () { return 'a handful of farmers' },
-    'the border patrol': function () { return 'the border patrol' },
-    'a travelling peddler': function () { return 'a travelling peddler' },
-    'a hunting party': function () { return 'a hunting party' },
-    'another adventuring party': function () { return 'another adventuring party' },
-    'some escaped convicts': function () { return 'some escaped convicts' },
-    'some herdsmen': function () { return 'some herdsmen' },
-    'some particularly dense overgrowth': function () { return 'some particularly dense overgrowth' },
-    'some tribesmen': function () { return 'some tribesmen' },
-    'the undead': function () { return 'the undead' },
-    '[monster encounter]': function () { return '[monster encounter]' },
-    'a traveling peddler': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'urchin',
-        profession: 'merchant',
-        isThrowaway: true
-      })
-      return 'a traveling ' + setup.profile(npc, 'peddler')
-    },
-    'a solitary troubador': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'entertainer',
-        profession: 'troubador',
-        isThrowaway: true
-      })
-      return 'a solitary ' + setup.profile(npc, 'troubador')
-    },
-    'an adventurer on a horse': function (town) {
-      var horse = setup.misc.horse.create()
-      var npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
-        background: ['noble', 'soldier', 'soldier'].seededrandom(),
-        isThrowaway: true
-      })
-      return 'an ' + setup.profile(npc, 'adventurer') + ' on a ' + horse.tippyWord
-    },
-    'a mounted messenger': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        profession: 'messenger',
-        isThrowaway: true
-      })
-      return 'a mounted ' + setup.profile(npc, 'messenger')
-    },
-    'a work gang heading home': function () { return 'a work gang heading home' },
-    'the road wardens': function () { return 'the road wardens' },
-    'some of the local militia': function () { return 'some of the local militia' },
-    'a pair of travelling clerics': function () { return 'a pair of travelling clerics' },
-    'some graverobbers': function () { return 'some graverobbers' },
-    'some farmers': function () { return 'some farmers' },
-    'a plague-infested cabin': function () {
-      var cabin = setup.misc.cabin.create()
-      return 'a plague-infested ' + cabin.tippyWord + '.'
-    },
-    'some beserkers': function () { return 'some beserkers' },
-    'a caravan of gypsies': function () { return 'a caravan of gypsies' },
-    'a knight errant': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'paladin',
-        background: ['noble', 'soldier', 'soldier'].seededrandom(),
-        isThrowaway: true
-      })
-      return 'a ' + setup.profile(npc, 'knight errant')
-    },
-    'a wounded knight': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
-        background: ['noble', 'soldier', 'soldier'].seededrandom(),
-        isThrowaway: true
-      })
-      return 'an injured ' + setup.profile(npc, 'knight')
-    },
-    'a traveling lady': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'noble',
-        isThrowaway: true
-      })
-      return 'a traveling ' + setup.profile(npc, 'lady')
-    },
-    'a courier': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        profession: 'courier',
-        isThrowaway: true
-      })
-      return 'a ' + setup.profile(npc, 'courier')
-    },
-    'a wedding party': function () { return 'a wedding party' },
-    'a group of pilgrims': function () { return 'a group of pilgrims' },
-    'a funeral procession': function () { return 'a funeral procession' },
-    'a plague cart': function () { return 'a plague cart' },
-    'a lone horse, trotting the other way': function () {
-      var horse = setup.misc.horse.create()
-      return 'a lone ' + horse.tippyWord + ', trotting the other way'
-    },
-    'a traveling theatre troupe': function () { return 'a traveling theatre troupe' },
-    'some beggars': function () { return 'some beggars' },
-    'a caravan of slavers': function () { return 'a caravan of slavers' },
-    'a lone zombie': function () { return 'a lone zombie' },
-    'a strange hermit': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'hermit',
-        isThrowaway: true,
-        canBeCustom: true
-      })
-      return 'a strange ' + setup.profile(npc, 'hermit')
-    },
-    'a lost traveler': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        profession: 'traveler',
-        note: 'This person is very lost.',
-        isThrowaway: true,
-        canBeCustom: true
-      })
-      return 'a lost ' + setup.profile(npc, 'traveler')
-    },
-    'a poor nomad': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'commoner',
-        profession: 'nomad',
-        isThrowaway: true
-      })
-      return 'a poor ' + setup.profile(npc, 'nomad')
-    },
-    'a suspicious miner': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        profession: 'miner',
-        calmTrait: 'suspicious',
-        note: 'This person is hiding something.',
-        isThrowaway: true
-      })
-      return 'a suspicious ' + setup.profile(npc, 'miner')
-    },
-    'a barbarian hunter': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'barbarian',
-        background: 'outlander',
-        profession: 'hunter',
-        isThrowaway: true
-      })
-      return 'a barbarian ' + setup.profile(npc, 'hunter')
-    },
-    'a mounted barbarian scout': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'barbarian',
-        background: 'outlander',
-        profession: 'scout',
-        isThrowaway: true
-      })
-      return 'a mounted barbarian ' + setup.profile(npc, 'scout')
-    },
-    'the ghost of a traveler': function () {
-      var ghost = setup.misc.ghost.create()
-      return 'the ' + ghost.tippyWord + ' of a traveler. '
-    },
-    'a poisonous snake': function () { return 'a poisonous snake' },
-    'a giant spider': function () {
-      var spider = setup.misc.spider.create()
-      return 'a giant ' + spider.tippyWord
-    },
-    'a giant scorpion': function () { return 'a giant scorpion' },
-    'a giant centipede': function () { return 'a giant centipede' },
-    'a pack of jackals': function () { return 'a pack of jackals' },
-    'a hungry jackalwere': function () { return 'a hungry jackalwere' },
-    'a giant lizard': function () { return 'a giant lizard' },
-    'a pair of gnolls': function () { return 'a pair of gnolls' },
-    'a pair of bandits': function () { return 'a pair of bandits' },
-    'an hobgoblin scout': function () { return 'an hobgoblin scout' },
-    'a roc on the wing': function () { return 'a roc on the wing' },
-    'a wyvern on the wing': function () { return 'a wyvern on the wing' },
-    'lots of bats': function (town) { return 'lots of bats' },
-    'many spider webs': function (town) { return 'many spider webs' },
-    "a troll's stash.": function (town) { return "a troll's stash." },
-    'some abandoned mining equipment': function (town) { return 'some abandoned mining equipment' },
-    'bare rock': function (town) { return 'bare rock' },
-    'a potable spring': function (town) { return 'a potable spring' },
-    'mummified remains': function (town) { return 'some mummified remains' },
-    'a band of dwarvish refugees': function (town) { return 'a band of dwarvish refugees' },
-    'a swarm of beetles': function (town) { return 'a swarm of beetles' },
-    'a half mad prophet': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
-        background: 'acolyte',
-        profession: 'prophet',
-        note: 'This prophet is as crazy as can be.',
-        isThrowaway: true
-      })
-      return 'a half-mad ' + setup.profile(npc, 'prophet')
-    },
-    'a reclusive sorcerer': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
-        background: 'acolyte',
-        calmTrait: 'withdrawn',
-        isThrowaway: true
-      })
-      return 'a reclusive ' + setup.profile(npc, 'sorcerer')
-    },
-    'a merchant of exotic goods': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'noble',
-        profession: 'merchant',
-        hasClass: false,
-        isThrowaway: true
-      })
-      return 'a strange ' + setup.profile(npc, 'merchant') + ' of exotic goods'
-    },
-    'a misanthropic shapeshifter': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'hermit',
-        profession: 'hermit',
-        calmTrait: 'misanthropic',
-        stressTrait: 'murderous',
-        note: 'Hates everyone. Is a shapeshifter.',
-        hasClass: false,
-        isThrowaway: true
-      })
-      return 'a misanthropic ' + setup.profile(npc, 'shapeshifter')
-    },
-    'an eccentric monk': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'hermit',
-        profession: 'hermit',
-        calmTrait: 'kinda weird',
-        hasClass: true,
-        dndClass: 'monk',
-        isThrowaway: true
-      })
-      return 'an eccentric ' + setup.profile(npc, 'monk')
-    },
-    'a nomadic herder': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        profession: 'herder',
-        hasClass: false,
-        isThrowaway: true
-      })
-      return 'a nomadic ' + setup.profile(npc, 'herder')
-    },
-    'a nomadic warrior': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        profession: 'warrior',
-        dndClass: 'fighter',
-        isThrowaway: true
-      })
-      return 'a nomadic ' + setup.profile(npc, 'warrior')
-    },
-    'an outcast elf': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        profession: 'hermit',
-        note: 'Is an outcast.',
-        hasClass: false,
-        race: 'elf',
-        isThrowaway: true
-      })
-      return 'an outcast ' + setup.profile(npc, 'elf')
-    },
-    'a reclusive scholar': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'hermit',
-        profession: 'scholar',
-        calmTrait: 'withdrawn',
-        isThrowaway: true
-      })
-      return 'a reclusive ' + setup.profile(npc, 'scholar')
-    },
-    'an eccentric healer': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'cleric',
-        background: 'acolyte',
-        note: 'This healer is rather odd.',
-        isThrowaway: true
-      })
-      return 'an eccentric ' + setup.profile(npc, 'healer')
-    },
-    'a poor goatherder': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'hermit',
-        profession: 'goatherder',
-        note: 'This goatherder is very poor, but knows the area well.',
-        isThrowaway: true
-      })
-      return 'a poor ' + setup.profile(npc, 'goatherder')
-    },
-    'a mining prospector': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'commoner',
-        profession: 'prospector',
-        isThrowaway: true
-      })
-      return 'a mining ' + setup.profile(npc, 'prospector')
-    },
-    'a religious fanatic with his many wives': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        profession: 'religious fanatic',
-        note: 'Has multiple wives.',
-        isThrowaway: true
-      })
-      return 'a religious ' + setup.profile(npc, 'fanatic') + ' with his many wives'
-    },
-    'poisonous snakes': function (town) { return 'poisonous snakes' },
-    'a pair of orcs': function (town) { return 'a pair of orcs' },
-    'a mad sorcerer': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'hermit',
-        dndClass: 'sorcerer',
-        calmTrait: 'paranoid',
-        stressTrait: 'murderous',
-        note: 'This person is totally mad.',
-        isThrowaway: true
-      })
-      return 'a mad ' + setup.profile(npc, 'sorcerer')
-    },
-    'a paranoid shapeshifter': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'hermit',
-        hasClass: false,
-        profession: 'hermit',
-        calmTrait: 'paranoid',
-        stressTrait: 'murderous',
-        note: 'This person is a paranoid shapeshifter.',
-        isThrowaway: true
-      })
-      return 'a paranoid ' + setup.profile(npc, 'shapeshifter')
-    },
-    'a reclusive shapeshifter': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
-        background: 'hermit',
-        profession: 'shapeshifter',
-        note: 'This person is a shapeshifter.',
-        isThrowaway: true
-      })
-      return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
-    },
-    'a restless ghost': function () {
-      var ghost = setup.misc.ghost.create()
-      return 'a restless ' + ghost.tippyWord
-    },
-    'a dangerous fugitive': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'criminal',
-        profession: 'criminal',
-        dndClass: 'rogue',
-        calmTrait: 'paranoid',
-        stressTrait: 'murderous',
-        note: 'This person is a wanted criminal for high treason against the crown.',
-        isThrowaway: true
-      })
-      return 'a dangerous ' + setup.profile(npc, 'fugitive')
-    },
-    'spiders and rats': function () {
-      var spider = setup.misc.spider.create()
-      return spider.tippyWord + '<b>s</b>' + ' and rats'
-    },
-    'a treasure hunter': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'criminal',
-        profession: 'treasure hunter',
-        dndClass: 'rogue',
-        calmTrait: 'adventurous',
-        stressTrait: 'excited',
-        note: 'This person loves the thrill of a treasure hunt, and is about to go on a quest.',
-        isThrowaway: true,
-        canBeCustom: true
-      })
-      var map = setup.misc.treasureMap.create()
-      return 'a ' + setup.profile(npc, 'treasure-hunter') + ' with a ' + map.tippyWord
-    },
-    'a wasteland druid': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'acolyte',
-        profession: 'druid',
-        dndClass: 'druid',
-        calmTrait: 'understanding',
-        isThrowaway: true
-      })
-      return 'a wasteland ' + setup.profile(npc, 'druid')
-    },
-    'cursed mummies': function (town) { return 'cursed mummies' },
-    'a hobgoblin warlord': function (town) { return 'a hobgoblin warlord' },
-    'an orcish war chief': function (town) { return 'an orcish war chief' },
-    'a tribe of kobolds': function (town) { return 'a tribe of kobolds' },
-    'a territorial griffon': function (town) { return 'a territorial griffon' },
-    'a pair of manticores': function (town) { return 'a pair of manticores' },
-    'slavering gnolls': function (town) { return 'slavering gnolls' },
-    'a mountain lion’s den': function (town) { return 'a mountain lion’s den' },
-    'unidentifiable remains': function (town) { return 'some unidentifiable remains' },
-    'a hungry ettin': function (town) { return 'a hungry ettin' },
-    'a griffon’s nest': function (town) { return 'a griffon’s nest' },
-    'a manticore’s den': function (town) { return 'a manticore’s den' },
-    'a basilisk’s lair': function (town) { return 'a basilisk’s lair' },
-    'a wyvern’s nest': function (town) { return 'a wyvern’s nest' },
-    'a clan of stone giants': function (town) { return 'a clan of stone giants' },
-    'a dragon': function (town) { return 'a dragon' },
-    'a sleeping dragon': function (town) { return 'a sleeping dragon' },
-    'a mad witch': function (town) {
-      var npc = setup.createNPC(town, {
-        gender: 'woman',
-        dndClass: 'sorcerer',
-        background: 'hermit',
-        profession: 'witch',
-        note: 'This witch is as mad as a cut snake.',
-        isThrowaway: true
-      })
-      return 'a mad ' + setup.profile(npc, 'witch')
-    },
-    'restless ghosts': function () {
-      var ghost = setup.misc.ghost.create()
-      return 'a restless ' + ghost.tippyWord
-    },
-    'an outcast orc': function (town) {
-      var npc = setup.createNPC(town, {
-        race: 'half-orc',
-        background: 'hermit',
-        note: 'This person is either an orc that was outcast, or a half orc.',
-        isThrowaway: true
-      })
-      return 'a reclusive ' + setup.profile(npc, 'shapeshifter')
-    },
-    'an owlbear': function (town) { return 'an owlbear' },
-    'a troll': function (town) { return 'a troll' },
-    'several harpies': function (town) { return 'several harpies' },
-    'a handful of dwarves': function (town) { return 'a handful of dwarves' },
-    'ghostly warriors': function (town) { return 'ghostly warriors' },
-    'a lost prospector': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        hasClass: false,
-        profession: 'prospector',
-        note: 'This person is very lost.',
-        isThrowaway: true
-      })
-      return 'a lost ' + setup.profile(npc, 'prospector')
-    },
-    'a solemn warrior': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'soldier',
-        hasClass: true,
-        dndClass: 'fighter',
-        calmTrait: 'solemn',
-        stressTrait: 'determined',
-        isThrowaway: true
-      })
-      return 'a solemn looking ' + setup.profile(npc, 'warrior')
-    },
-    'a seasoned mountaineer': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'outlander',
-        hasClass: false,
-        profession: 'mountaineer',
-        note: 'Never gets lost.',
-        isThrowaway: true
-      })
-      return 'a seasoned ' + setup.profile(npc, 'mountaineer')
-    },
-
-    'an eccentric witch': function (town) {
-      var npc = setup.createNPC(town, {
-        gender: 'woman',
-        dndClass: 'sorcerer',
-        background: 'hermit',
-        profession: 'witch',
-        note: 'This witch is as crazy as a cut snake.',
-        isThrowaway: true
-      })
-      return 'an eccentric ' + setup.profile(npc, 'witch')
-    },
-    'a contemplative monk': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'monk',
-        background: 'acolyte',
-        profession: 'monk',
-        calmTrait: 'contemplative',
-        stressTrait: 'determined',
-        isThrowaway: true
-      })
-      return 'a contemplative ' + setup.profile(npc, 'monk')
-    },
-    'a hunting peryton': function (town) { return 'a hunting peryton' },
-    'a mountain lion': function (town) { return 'a mountain lion' },
-    'a pair of harpies': function (town) { return 'a pair of harpies' },
-    'a flock of ravens': function (town) { return 'a flock of ravens' },
-    'several homeless dwarves': function (town) { return 'several homeless dwarves' },
-    'an angry wraith': function (town) { return 'an angry wraith' },
-    'a malevolent ghost': function () {
-      var ghost = setup.misc.ghost.create({ reaction: 'murderous and cruel' })
-      return 'a malevolent ' + ghost.tippyWord
-    },
-    'a mated pair of manticores': function (town) { return 'a mated pair of manticores' },
-    'a trio of monstrous trolls': function (town) { return 'a trio of monstrous trolls' },
-    'a clan of stone giants at rest': function (town) { return 'a clan of stone giants at rest' },
-    'a roc tearing apart some prey': function (town) { return 'a roc tearing apart some prey' },
-    'a beggarly bandit': function (town) {
-      var npc = setup.createNPC(town, {
-        background: 'criminal',
-        dndClass: ['fighter', 'rogue', 'rogue'].seededrandom(),
-        isThrowaway: true
-      })
-      return 'a beggarly ' + setup.profile(npc, 'bandit')
-    },
-    'an old witch': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
-        gender: 'woman',
-        background: 'acolyte',
-        ageStage: 'elderly',
-        isThrowaway: true
-      })
-      return 'an old ' + setup.profile(npc, 'witch')
-    },
-    'a curious herbalist': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        background: 'acolyte',
-        profession: 'herbalist',
-        isThrowaway: true
-      })
-      return 'a curious ' + setup.profile(npc, 'herbalist')
-    },
-    'a lost child': function (town) {
-      var npc = setup.createNPC(town, {
-        ageStage: 'child',
-        isThrowaway: true
-      })
-      return 'a lost ' + setup.profile(npc, 'child')
-    },
-    'a woodcutter busy with the day’s work': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        gender: 'man',
-        profession: 'woodcutter',
-        isThrowaway: true
-      })
-      return 'a <<profile `$npcs[' + JSON.stringify(npc.key) + "]` woodcutter>>, busy with the day's work"
-    },
-    'an intrepid hunter': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'ranger',
-        background: 'outlander',
-        isThrowaway: true
-      })
-      return 'an intrepid ' + setup.profile(npc, 'hunter')
-    },
-    'an elvish ranger': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'ranger',
-        race: 'elf',
-        background: 'outlander',
-        isThrowaway: true
-      })
-      return 'an elvish ' + setup.profile(npc, 'ranger')
-    },
-    'a large bear': function () { return 'a large bear' },
-    'a bear cub': function () { return 'a bear cub' },
-    'a wailing ghost': function () {
-      var ghost = setup.misc.ghost.create()
-      return 'a wailing ' + ghost.tippyWord
-    },
-    'giant spiders': function () {
-      var spider = setup.misc.spider.create()
-      return 'giant ' + spider.tippyWord + '<b>s</b><<run setup.tippy("span")>>'
-    },
-    'hungry zombies': function () { return 'hungry zombies' },
-    'a lonely old woman': function (town) {
-      var npc = setup.createNPC(town, {
-        gender: 'woman',
-        background: 'hermit',
-        ageStage: 'elderly',
-        calmTrait: 'quiet',
-        isThrowaway: true
-      })
-      return 'a lonely old ' + setup.profile(npc, 'woman')
-    },
-    'a beautiful witch': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
-        gender: 'woman',
-        background: 'acolyte',
-        note: 'This witch is very beautiful.',
-        isThrowaway: true
-      })
-      return 'a beautiful ' + setup.profile(npc, 'witch')
-    },
-    'a horrible witch': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
-        gender: 'woman',
-        background: 'acolyte',
-        calmTrait: 'mean',
-        stressTrait: 'cruel',
-        isThrowaway: true
-      })
-      return 'a horrible ' + setup.profile(npc, 'witch')
-    },
-    'an outcast dwarf': function (town) {
-      var npc = setup.createNPC(town, {
-        race: 'dwarf',
-        background: 'hermit',
-        hasClass: false,
-        calmTrait: 'quiet',
-        isThrowaway: true
-      })
-      return 'an outcast ' + setup.profile(npc, 'dwarf')
-    },
-    'a dwarf prospector': function (town) {
-      var npc = setup.createNPC(town, {
-        hasClass: false,
-        race: 'dwarf',
-        background: 'commoner',
-        profession: 'prospector',
-        isThrowaway: true
-      })
-      return 'a mining ' + setup.profile(npc, 'prospector')
-    },
-    'a wood elf druid': function (town) {
-      var npc = setup.createNPC(town, {
-        dndClass: 'druid',
-        background: 'outlander',
-        race: 'elf',
-        isThrowaway: true
-      })
-      return 'a wood elf ' + setup.profile(npc, 'druid')
-    },
-    'some irritable trolls': function () { return 'some irritable trolls' }
-  },
-  'locations': {
-    'a cavern behind a waterfall': function (town, biome) {
-      var cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is now home to ' + contents + '.</blockquote>'
-    },
-    'a small cave in the bank of a creek': function (town, biome) {
-      var cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a small cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
-    },
-    'an entrance to a rocky cave': function (town, biome) {
-      var cavern = setup.misc.cavern.create()
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
-      return 'a rocky cave. ' + cavern.readout + ' <blockquote>The cave is home to ' + contents + '.</blockquote>'
-    },
-    'a hole under a large tree': function (town, biome) {
-      var contents = setup.misc[biome].hole.seededrandom()
-      // this is lazy. Will change hole from an array to an object once I make more creators.
-      if (contents === 'a spider') {
-        var spider = setup.misc.spider.create()
-        contents = 'a ' + spider.tippyWord + '.'
-      }
-      var tree = setup.misc.tree.create(town, biome)
-      // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '.</blockquote>'
-    },
-    'a large burrow': function (town, biome) {
-      var contents = setup.misc[biome].hole.seededrandom()
-      // var contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-      return 'a large burrow <blockquote>Inside is ' + contents + '.</blockquote>'
-    },
-    'a peculiar cottage': function (town, biome) {
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cottageLives, setup.misc.encounters)
-      var cabin = setup.misc.cabin.create(town, biome, {
-        wordNoun: 'cottage'
-      })
-      return 'a peculiar ' + cabin.tippyWord + '. <blockquote>' + contents + ' lives here.</blockquote>'
-    },
-    "a woodsman's cabin": function (town, biome) {
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
-      var cabin = setup.misc.cabin.create(town, biome)
-      return "a woodsman's " + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
-    },
-    'a cozy little cabin': function (town, biome) {
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
-      var cabin = setup.misc.cabin.create(town, biome, {
-        wordNoun: 'cabin',
-        size: 'little'
-      })
-      return 'a cozy little ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
-    },
-    'an abandoned cabin': function (town, biome) {
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
-      var cabin = setup.misc.cabin.create(town, biome)
-      return 'an abandoned ' + cabin.tippyWord + '. <blockquote>' + setup.misc[biome].cabinLived.seededrandom() + ' once lived here. Now, ' + contents + ' lives here.</blockquote>'
-    },
-    'an abandoned campsite': function (town, biome) {
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
-      return 'an abandoned campsite, which looks to have been occupied previously by ' + contents
-    },
-    'a sacred grove': function () { return 'a sacred grove.' },
-    'a shrine': function (town, biome) {
-      var shrine = setup.misc.religion.shrine.create(town)
-      return 'a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
-    },
-    'a grave with an illegible headstone': function () { return 'a grave with an illegible headstone.' },
-    'ancient ruins': function (town, biome) {
-      var contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'ancient ruins. <blockquote>The ruins were built by ' + setup.misc[biome].ruinsLived.seededrandom() + '. Now, ' + contents + ' lives here.</blockquote>'
-    },
-    'a cavern in a canyon wall': function (town, biome) {
-      var cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
-    },
-    'a cave entrance, hidden by a boulder': function (town, biome) {
-      var cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
-    },
-    'a small cave next to a dry river bed': function (town, biome) {
-      var cavern = setup.misc.cavern.create()
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounter, setup.misc.encounters)
-      return 'a cavern. ' + cavern.readout + ' <blockquote>The cavern is home to ' + encounter + '.</blockquote>'
-    },
-    // mining is intentionally using the mountain biome
-    'an old mine in a canyon': function (town, biome) { return 'an old mine in a canyon <blockquote>The mine was built by by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() + '.</blockquote>' },
-    'an active mining camp': function (town, biome) { return 'an active mining camp, manned by ' + setup.misc.mountain.miners.seededrandom() + ', looking for ' + setup.misc.mountain.minersGoal.seededrandom() },
-    'a hole under a large boulder': function (town, biome) { return 'a hole under a large boulder <blockquote> Inside is ' + setup.misc.desert.hole.seededrandom() + '</blockquote>' },
-    'an abandoned stone house': function (town, biome) {
-      var lived = setup.misc[biome].houseLived.seededrandom()
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
-      var cabin = setup.misc.cabin.create(town, biome, {
-        material: 'stone',
-        wordNoun: 'house'
-      })
-      return 'an abandoned ' + cabin.tippy + '<b>stone house</b></span>. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
-    },
-    'a stone house': function (town, biome) {
-      var lived = setup.misc[biome].houseLived.seededrandom()
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
-      var cabin = setup.misc.cabin.create(town, biome, {
-        material: 'stone',
-        wordNoun: 'house'
-      })
-      return 'a ' + cabin.tippy + '<b>stone house</b></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].seededrandom() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
-    },
-    "a merchant caravan's camp": function (town, biome) {
-      var caravan = setup.misc.caravan.create(town)
-      return "a merchant caravan's camp. " + caravan.readout
-    },
-    'a peculiar tent': function (town, biome) {
-      var lived = setup.misc[biome].camped.seededrandom()
-      return 'an peculiar tent, which looks to have been occupied previously by ' + lived
-    },
-    'an old watchtower': function (town, biome) {
-      // intentionally uses the mountain biome
-      var encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
-      return 'a strategically located watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.seededrandom() + '. Now, it is controlled by ' + encounter + ' .</blockquote>'
-    },
-    'ruins of an ancient city': function (town, biome) {
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'ruins of an ancient city. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
-    },
-    'a temple ruin': function (town, biome) {
-      var encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
-      return 'a temple ruin. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
-    },
-    'a village of primitive canyon dwellers': function (town, biome) { return 'a village of primitive canyon dwellers' },
-    "some nomad's camp": function (town, biome) { return "some nomad's camp" },
-    'an ancient tomb': function (town, biome) { return 'an ancient tomb' }
-  },
   'cavern': {
     'entrance': ['wide and tall, letting much daylight into the entry chamber', 'a wide sinkhole', 'an easy to spot, narrow passage', 'a steep, slippery sloped tunnel', 'a man-made tunnel', 'a collapsed tunnel, impassable without excavation', 'marked with several warning signs', 'hidden by some boulders', 'hidden by a waterfall', 'hidden by a rocky overhang', 'hidden by a hillock', 'hidden by a briar patch', 'hidden by a curtain of moss', 'hidden by some enormous ancient tree roots', 'hidden by some overgrown vines', 'up a cliff face', 'down a deep hole', 'in an underwater tunnel'],
     'landmark': ['a trickle of water flowing down the walls and across the floor', 'an underground lake of potable water', 'a pool of stagnant water', 'a natural bridge over a chasm', 'a narrow chasm with walls close enough to climb between', 'a deep chasm with no bottom in sight', 'a shaft in the ceiling with no light coming from it', 'a shaft in the ceiling with dim light coming from it', 'a group of stalagmites arranged in a circle', 'an arrangement of two large stalactites and two large stalagmites, reminiscent of fangs in a yawning mouth', 'a pair of natural columns', 'a large stalactite that has broken off from the ceiling and fallen to the floor', 'an array of many small stalactites spreading across the ceiling', 'a damp wall covered in soft mold', 'a recess in the wall, covered in slimy mold', 'a large patch of glowing fungus', 'a large patch of small mushrooms', 'a group of enormous mushrooms', 'a large cavern with a strong echo', 'a claustrophobic tunnel with a low ceiling'],
@@ -2520,8 +769,8 @@ setup.misc = {
     'walls': ['slightly damp', 'dripping wet', 'slick with mold', 'covered in soft fungi', 'dry as a bone', 'rough and dry', 'dry and smooth', 'jagged', 'pockmarked', 'crumbling, with loose bits flaking off', 'crumbling, with large chunks falling off at a touch', 'covered in an unidentifiable slime'],
     'ceiling': ['uncomfortably close to your head', 'covered in stalactites (watch your head!)', 'smooth as glass', 'rough and jagged', 'connected to the floor by natural columns', 'so high it’s difficult to see'],
     'hazards': ['a colony of poisonous mushrooms', 'a patch of toxic mold', 'the ceiling caves in', 'several rocks tumble down a sloped wall', 'the floor is very slippery', 'your foot misses the floor as you step into a pit or chasm'],
-    'create': function (base) {
-      var cavern = Object.assign({
+    'create': base => {
+      let cavern = Object.assign({
         noun: 'cavern',
         entrance: setup.misc.cavern.entrance.seededrandom(),
         landmark: setup.misc.cavern.landmark.seededrandom(),
@@ -2535,9 +784,9 @@ setup.misc = {
     }
   },
   'tree': {
-    'create': function (town, biome, base) {
+    'create': (town, biome, base) => {
       biome = biome || ['forest', 'desert', 'mountain', 'plains'].seededrandom()
-      var tree = Object.assign({
+      let tree = Object.assign({
         species: setup.misc.tree.biome[biome].species.seededrandom(),
         size: setup.misc.tree.biome[biome].size.seededrandom(),
         feature: setup.misc.tree.biome[biome].feature.seededrandom()
@@ -2661,8 +910,8 @@ setup.misc = {
     }
   },
   'cabin': {
-    'create': function (town, base, biome) {
-      var cabin = Object.assign({
+    'create': (town, base, biome) => {
+      let cabin = Object.assign({
         material: ['wooden', 'wooden', 'wooden', 'stone'].seededrandom(),
         wordNoun: 'cabin',
         feature: setup.misc.cabin.feature.seededrandom(),
@@ -2680,8 +929,8 @@ setup.misc = {
       cabin.cleanliness = ''
       cabin.bedCleanliness = ''
 
-      var rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
-      rollDataVariables.forEach(function (propName) {
+      let rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
+      rollDataVariables.forEach((propName) => {
         setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
       })
 
@@ -2750,16 +999,16 @@ setup.misc = {
     }
   },
   'town': {
-    create: function (town) {
+    create: town => {
       return setup.weightedRandomFetcher(town, setup.plothooks, '', setup.misc.town.type.event)
     },
     type: {
-      event: function (town, arg) {
+      event: (town, arg) => {
       // console.log('Town event callback function')
       // console.log(arg)
         return arg.type.includes('event')
       },
-      paper: function (town, arg) {
+      paper: (town, arg) => {
       // console.log('Town event callback function')
       // console.log(arg)
         return arg.type.includes('paper')
@@ -2767,11 +1016,11 @@ setup.misc = {
     }
   },
   'road': {
-    'create': function (town, base) {
-      var type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
-      var encounterKey = setup.misc.road[type].encounters.seededrandom()
+    'create': (town, base) => {
+      let type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
+      let encounterKey = setup.misc.road[type].encounters.seededrandom()
       console.log(encounterKey)
-      var road = Object.assign({
+      let road = Object.assign({
         type: setup.misc.road[type].type.seededrandom(),
         traffic: setup.misc.road[type].traffic.seededrandom(),
         encounter: setup.misc.encounters[encounterKey](town)
@@ -2813,7 +1062,8 @@ setup.misc = {
       'type': ['simple path', 'overgrown dirt path', 'riding path'],
       'traffic': ['which looks to be desolate and abandoned', 'dotted with hoofprints', 'with heavy bootprints in the dirt', 'with the occassional burnt out campfire on the side'],
       'encounters': [
-        'the road wardens', 'a merchant caravan', 'a work gang heading home', 'another adventuring party', 'some escaped convicts', 'some of the local militia', 'a pair of travelling clerics', 'some graverobbers', 'a traveling peddler', 'some farmers', 'a plague-infested cabin', 'a hunting party', 'some farmers', 'some bandits', 'an adventurer on a horse', 'a band of mercenaries', 'a solitary troubador', 'a mounted messenger', 'some beserkers', 'some robbers', '[monster encounter]', 'some tribesmen', 'a caravan of gypsies', 'the undead', 'some raiders'
+        'the road wardens', 'a merchant caravan', 'a work gang heading home', 'another adventuring party', 'some escaped convicts', 'some of the local militia', 'a pair of travelling clerics', 'some graverobbers', 'a traveling peddler', 'some farmers', 'a plague-infested cabin', 'a hunting party', 'some farmers', 'some bandits', 'an adventurer on a horse', 'a band of mercenaries', 'a solitary troubador', 'a mounted messenger', 'some beserkers', 'some robbers', '[monster encounter]', 'some tribesmen', 'a caravan of gypsies', 'the undead',
+        // 'some raiders'
       ]
     },
     'road': {
@@ -2833,10 +1083,10 @@ setup.misc = {
     }
   },
   'desert': {
-    'create': function (town) {
-      var biome = 'desert'
-      var encounter
-      var encounterKey
+    'create': town => {
+      let biome = 'desert'
+      let encounter
+      let encounterKey
       if (random(1, 100) >= 50) {
         encounterKey = setup.misc.desert.location.seededrandom()
         encounter = setup.misc.locations[encounterKey](town, biome)
@@ -2905,10 +1155,10 @@ setup.misc = {
     'hole': ['a snake', 'a spider', 'beetles', 'scorpions', 'centipedes', 'a toad', 'a lizard', 'a fox']
   },
   'mountain': {
-    'create': function (town) {
-      var biome = 'mountain'
-      var encounter
-      var encounterKey
+    'create': town => {
+      let biome = 'mountain'
+      let encounter
+      let encounterKey
       if (random(1, 100) >= 50) {
         encounterKey = setup.misc.mountain.location.seededrandom()
         console.log(encounterKey)
@@ -2967,26 +1217,26 @@ setup.misc = {
     ],
     'location': [
       'a cavern behind a waterfall',
-      'a small cave in the crook of a rock wall',
       'an entrance to a rocky cave',
       'a hole under a sheer cliff face',
       'a dark tunnel leading under the mountain',
       'a tunnel in a cliff face',
       'a tunnel leading into an abandoned mine',
-      'a peculiar cabin',
       'a cozy little cabin',
       'an abandoned cabin',
       'an abandoned campsite',
       'a poorly marked grave or tomb',
       'an active mining camp',
-      'an isolated monastery',
       'a strategically located watchtower',
-      // 'a remote temple',
-      // 'an ancient temple',
-      // 'a ruined monastery',
       'an abandoned watchtower',
       'an enormous bird’s nest',
       'a shrine'
+      // 'a peculiar cabin',
+      // 'an isolated monastery',
+      // 'a remote temple',
+      // 'an ancient temple',
+      // 'a ruined monastery',
+      // 'a small cave in the crook of a rock wall',
     ],
     'cave': ['a mountain lion’s den', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", "some goblins' hideout", 'some abandoned mining equipment', 'bare rock', 'a potable spring', 'unidentifiable remains', 'some outlaws’ hideout', 'an orc war band', 'a hungry ettin', 'a band of dwarvish refugees', 'a griffon’s nest', 'a manticore’s den', 'a basilisk’s lair', 'a wyvern’s nest', 'a clan of stone giants', 'a sleeping dragon'],
     'cabinLives': ['an owlbear', 'an ogre', 'a troll', 'a mad witch', 'a reclusive shapeshifter', 'restless ghosts', 'an outcast orc', 'a strange hermit'],
@@ -3004,10 +1254,10 @@ setup.misc = {
     'hazards': ['a perilous rockslide', 'an icy rime across the path or road', 'a tumbling boulder', 'loose rocks that make for poor footing', 'a large boulder blocking the way', 'a place where the path has fallen away leaving a narrow ledge on which to walk', 'a place where the path or road slopes steeply down toward a cliff edge', 'a sudden storm bringing heavy snow']
   },
   'forest': {
-    'create': function (town) {
-      var biome = 'forest'
-      var encounter
-      var encounterKey
+    'create': town => {
+      let biome = 'forest'
+      let encounter
+      let encounterKey
       if (random(1, 100) >= 50) {
         encounterKey = setup.misc.forest.location.seededrandom()
         console.log(encounterKey)

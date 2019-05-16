@@ -16,6 +16,8 @@
 ## Live Build :rocket:
 Go to https://eigengrausgenerator.com/ to see the most current live build of EEEG in action!
 
+NOTE: The live build is often several weeks or months behind the current build here on GitHub. Compile the generator locally to see all the latest features and updates!
+
 ## Community :family:
 **Join our Discord to talk about the project in real time**
 * Learn more about the project
@@ -24,7 +26,7 @@ Go to https://eigengrausgenerator.com/ to see the most current live build of EEE
 
 **[DISCORD](https://discord.gg/A543VC5)**
 
-Also consider joining the [reddit.](https://www.reddit.com/r/EigengrausGenerator)
+Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Compiling :computer:
 To compile EEEG for local testing you will need the latest version of [TweeGo](http://www.motoslave.net/tweego/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). 
@@ -54,12 +56,12 @@ You can also find easy work to do on the generator [here.](https://github.com/ry
 
 ## Built With :hammer:
 * [Twine](https://twinery.org/) - The front end framework 
-* [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) - A format for Twine
+* [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) - A language for Twine
 * [TweeGo](https://www.motoslave.net/tweego/) - Twine command line compiler
 
 ##
 
-If you can't contribute pull requests consider supporting the generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
+If you can't contribute pull requests consider supporting the Generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
 
 We hope that you find it useful!
 
