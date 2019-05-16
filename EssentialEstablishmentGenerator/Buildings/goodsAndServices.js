@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.goodsAndServices = {
   default: {
     create: function (town, type, opts) {
@@ -310,7 +310,7 @@ setup.goodsAndServices = {
         cost: random(10, 15),
         description: 'A tasty looking fruit tart.',
         exclusions: function (town, building) {
-          if (building.roll.wealth > 70 || building.specialty.includes('pastries') && building.roll.wealth > 30) {
+          if ((building.roll.wealth > 70 || building.specialty.includes('pastries')) && building.roll.wealth > 30) {
             return true
           } else {
             return false
@@ -721,7 +721,7 @@ setup.goodsAndServices = {
         'Elite Clothes & Tailor',
         'Sew Wave',
         'Scissor Sisters',
-        "Thread n Needle",
+        'Thread n Needle',
         'True Cuts',
         'Fineland Crotchet',
         'Skilled Stitches',
@@ -730,7 +730,6 @@ setup.goodsAndServices = {
         'Sew New',
         'First Cut',
         'Dream Dresser'
-
 
       ],
       noun: [
@@ -812,7 +811,7 @@ setup.goodsAndServices = {
         profession: 'tailor',
         hasClass: false,
         idle: [
-          //There is a tailor currently _______
+          // There is a tailor currently _______
           'measuring a man for a fitted suit',
           'measuring a woman for a new dress',
           'taking the measurements of a particularly gruff looking half-orc',

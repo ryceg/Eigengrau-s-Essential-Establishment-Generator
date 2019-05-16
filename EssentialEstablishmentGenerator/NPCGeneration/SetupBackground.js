@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createBackground = function (npc) {
   console.log('assigning background traits to ' + npc.name + '...')
   var backgroundOrigin

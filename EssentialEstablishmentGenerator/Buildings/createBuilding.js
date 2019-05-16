@@ -1,4 +1,3 @@
-/* global setup State random */
 setup.createBuilding = function (town, type, base) {
 // Tables used later
   if (random(100) < setup.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {

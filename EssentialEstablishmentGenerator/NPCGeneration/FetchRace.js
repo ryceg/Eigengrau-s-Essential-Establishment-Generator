@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.fetchRace = function (town) {
   console.log('Fetching race...')
   var args = town.baseDemographics

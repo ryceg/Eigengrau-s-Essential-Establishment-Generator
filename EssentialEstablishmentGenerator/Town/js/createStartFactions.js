@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createStartFactions = function (town) {
   console.log('Creating starting factions...')
   var factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']

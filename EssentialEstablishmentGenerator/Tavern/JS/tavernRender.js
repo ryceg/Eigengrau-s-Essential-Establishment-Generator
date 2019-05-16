@@ -67,7 +67,6 @@ setup.tavernRender = function (tavern) {
     tavern.roughness = 'utterly serene'
   }
 
-
   /* ------------------------- CLEANLINESS -------------------------- */
 
   if (tavern.roll.cleanliness > 80) {
