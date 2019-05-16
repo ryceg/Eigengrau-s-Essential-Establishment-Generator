@@ -1,5 +1,3 @@
-/* global random setup */
-
 setup.ringData = {
   power: {
     'absorb': 'absorb ' + ['fire damage', 'lightning damage', 'memories', 'souls', 'spells', 'water'].random(),
