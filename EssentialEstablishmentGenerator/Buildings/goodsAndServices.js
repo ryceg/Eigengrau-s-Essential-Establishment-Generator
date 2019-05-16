@@ -17,7 +17,7 @@ setup.goodsAndServices = {
       building.wordNoun = (building.wordNoun || opts['wordNoun'] || setup.goodsAndServices[building.type].name.wordNoun.seededrandom() || 'building')
       building.PassageFormat = (building.PassageFormat || opts['PassageFormat'] || setup.goodsAndServices[building.type].PassageFormat)
       setup.goodsAndServices[building.type].create(town, building, opts)
-      setup.building.create(town, building)
+      setup.structure.create(town, building)
 
       console.groupEnd()
       return building
