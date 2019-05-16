@@ -246,7 +246,6 @@ setup.townRender = function (town) {
     town.hasBrothel = true
   }
 
-
   // if (town.hasBrothel === true && !State.variables.brothel){
   //     include "Brothel">>
   //   }

@@ -165,6 +165,6 @@ setup.createSocioPolitics = function (town) {
     delete town.factions['leader']
   }
 
-  console.groupEnd();
+  console.groupEnd()
   return town
 }

@@ -1,8 +1,8 @@
-var tippyLoaded = importScripts("https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js");
+var tippyLoaded = importScripts('https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js')
 setup.tippy = function (selector) {
-    tippyLoaded.then(function () {
-        tippy(selector);
-    });
+  tippyLoaded.then(function () {
+    tippy(selector)
+  })
 }
 
 const tip = tippy('[title]')
@@ -14,7 +14,6 @@ tippy.browser.onUserInputChange = type => {
   }
 }
 
-
 $(document).on(':passageend', function (ev) {
-    tippy('.tip');
-});
+  tippy('.tip')
+})

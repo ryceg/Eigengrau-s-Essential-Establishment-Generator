@@ -156,6 +156,6 @@ setup.createTavern = function (town, opts) {
 
   tavern.tippyDescription = 'A ' + tavern.size + ' ' + tavern.wordNoun + " that's " + tavern.cleanliness + ', and is known for ' + tavern.notableFeature + '.'
   console.log(tavern)
-  console.groupEnd();
+  console.groupEnd()
   return tavern
 }
