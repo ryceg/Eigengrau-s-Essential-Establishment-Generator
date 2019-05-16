@@ -1062,7 +1062,8 @@ setup.misc = {
       'type': ['simple path', 'overgrown dirt path', 'riding path'],
       'traffic': ['which looks to be desolate and abandoned', 'dotted with hoofprints', 'with heavy bootprints in the dirt', 'with the occassional burnt out campfire on the side'],
       'encounters': [
-        'the road wardens', 'a merchant caravan', 'a work gang heading home', 'another adventuring party', 'some escaped convicts', 'some of the local militia', 'a pair of travelling clerics', 'some graverobbers', 'a traveling peddler', 'some farmers', 'a plague-infested cabin', 'a hunting party', 'some farmers', 'some bandits', 'an adventurer on a horse', 'a band of mercenaries', 'a solitary troubador', 'a mounted messenger', 'some beserkers', 'some robbers', '[monster encounter]', 'some tribesmen', 'a caravan of gypsies', 'the undead', 'some raiders'
+        'the road wardens', 'a merchant caravan', 'a work gang heading home', 'another adventuring party', 'some escaped convicts', 'some of the local militia', 'a pair of travelling clerics', 'some graverobbers', 'a traveling peddler', 'some farmers', 'a plague-infested cabin', 'a hunting party', 'some farmers', 'some bandits', 'an adventurer on a horse', 'a band of mercenaries', 'a solitary troubador', 'a mounted messenger', 'some beserkers', 'some robbers', '[monster encounter]', 'some tribesmen', 'a caravan of gypsies', 'the undead',
+        // 'some raiders'
       ]
     },
     'road': {
@@ -1216,19 +1217,19 @@ setup.misc = {
     ],
     'location': [
       'a cavern behind a waterfall',
-      'a small cave in the crook of a rock wall',
+      // 'a small cave in the crook of a rock wall',
       'an entrance to a rocky cave',
       'a hole under a sheer cliff face',
       'a dark tunnel leading under the mountain',
       'a tunnel in a cliff face',
       'a tunnel leading into an abandoned mine',
-      'a peculiar cabin',
+      // 'a peculiar cabin',
       'a cozy little cabin',
       'an abandoned cabin',
       'an abandoned campsite',
       'a poorly marked grave or tomb',
       'an active mining camp',
-      'an isolated monastery',
+      // 'an isolated monastery',
       'a strategically located watchtower',
       // 'a remote temple',
       // 'an ancient temple',
