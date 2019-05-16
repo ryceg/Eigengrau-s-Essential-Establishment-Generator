@@ -1,5 +1,5 @@
 /* global setup */
-setup.building = {
+setup.structure = {
   create: function (town, building, opts) {
     if (!building) {
       building = {}
@@ -27,7 +27,7 @@ setup.building = {
         roof: {}
       }
     }
-    var tempMaterial = setup.weightedRandomFetcher(town, setup.building.material, '', '', 'object')
+    var tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
     if (Object.keys(tempMaterial).includes('variations')) {
       console.log('Has variations. ')
       tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
@@ -36,7 +36,7 @@ setup.building = {
     }
     building.structure.material = tempMaterial.words
 
-    var tempRoof = setup.weightedRandomFetcher(town, setup.building.roof.material, '', '', 'object')
+    var tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.material, '', '', 'object')
     if (Object.keys(tempRoof).includes('variations')) {
       console.log('Has variations. ')
       tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
@@ -44,15 +44,15 @@ setup.building = {
       console.log(tempRoof.words)
     }
     if (tempRoof.canBeColoured === true) {
-      var colour = setup.building.data.colour.seededrandom()
+      var colour = setup.structure.data.colour.seededrandom()
       Object.keys(tempRoof.words).forEach(function (roof) {
         tempRoof.words[roof] = colour + ' ' + tempRoof.words[roof]
       })
     }
     building.structure.roof = tempRoof.words
 
-    setup.defineRollDataGetter(building.structure.roof, setup.building.roof.rollData, 'wealth', 'wealth', '', building.roll)
-    setup.defineRollDataGetter(building.structure.material, setup.building.material.rollData, 'wealth', 'wealth', '', building.roll)
+    setup.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', '', building.roll)
+    setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
     building.structure.descriptors = [
       building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof',
       'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.verb + ' roof'
