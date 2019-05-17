@@ -630,7 +630,6 @@ setup.misc = {
     'markings': ['black toes on one foot', 'white toes on one foot', 'extremely long ears', 'a white tail', 'a black tail', 'no left ear', 'a scarred ear', 'a patch of missing fur', 'a twitchy pink nose', 'a black nose', 'a pink and black nose']
   },
   'cat': {
-
     'create': () => {
       let cat = {
         size: setup.misc.cat.size.seededrandom(),

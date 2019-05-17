@@ -132,5 +132,8 @@ setup.misc.locations = {
   },
   'a village of primitive canyon dwellers': (town, biome) => 'a village of primitive canyon dwellers',
   "some nomad's camp": (town, biome) => { return "some nomad's camp" },
-  'an ancient tomb': (town, biome) => 'an ancient tomb'
+  'an ancient tomb': (town, biome) => 'an ancient tomb',
+  'a dark tunnel leading under the mountain': (town, biome) => 'a dark tunnel leading under the mountain',
+  'a tunnel in a cliff face': (town, biome) => 'a tunnel in a cliff face',
+  'a tunnel leading into an abandoned mine': (town, biome) => 'a tunnel leading into an abandoned mine'
 }
