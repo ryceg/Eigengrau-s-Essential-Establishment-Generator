@@ -1,4 +1,4 @@
-/* global setup random */
+
 setup.createGuard = function (town) {
   console.groupCollapsed('creating the guard...')
   // console.log(townName + ' is the townName passed to the guard.')
@@ -33,6 +33,6 @@ setup.createGuard = function (town) {
     guard.name = 'The ' + setup.guardData.name.group.seededrandom() + ' ' + setup.guardData.name.noun.seededrandom() + ' of ' + town.name
   }
   console.log(guard.name + ' is the name of the guard.')
-  console.groupEnd();
+  console.groupEnd()
   return guard
 }

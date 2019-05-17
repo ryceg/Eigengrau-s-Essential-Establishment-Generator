@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.townSquare = {
   rollData: {
     cleanliness: [
@@ -276,8 +276,7 @@ setup.townSquare = {
           background: 'noble',
           note: 'Has some jewelry.'
         })
-        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some '['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.',
-      'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()
+        return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some ' + ['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.', 'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()
       }
     },
     'cart': {

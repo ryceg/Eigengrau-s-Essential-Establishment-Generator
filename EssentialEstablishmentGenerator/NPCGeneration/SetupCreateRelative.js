@@ -1,8 +1,6 @@
-/* global setup State dice random */
 setup.createRelative = function (town, npc, type, base) {
   console.groupCollapsed('Relative function called. Making a ' + type + ' for ' + npc.name + '...')
   console.log({ base })
-
 
   setup.relativeTypes = {
     'partner': function (town, npc, base) {

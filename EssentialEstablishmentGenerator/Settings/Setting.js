@@ -17,10 +17,10 @@ var settingShowTutorial = function () {
 var settingHideAds = function () {
   if (!settings.hideAds) {
     State.variables.ads = false
-    $.wiki( '<<remember $hideAds = false>>' )
+    $.wiki('<<remember $hideAds = false>>')
   } else {
     State.variables.ads = true
-     $.wiki( '<<remember $hideAds = true>>' )
+    $.wiki('<<remember $hideAds = true>>')
   }
 }
 

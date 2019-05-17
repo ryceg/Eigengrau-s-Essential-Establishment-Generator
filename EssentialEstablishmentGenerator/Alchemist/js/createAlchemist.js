@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createAlchemist = function (town, opts) {
   opts = opts || {}
   var alchemist = (opts['newBuilding'] || setup.createBuilding)(town, 'alchemist')

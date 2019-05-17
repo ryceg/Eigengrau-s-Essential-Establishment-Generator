@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.alchemistModifiers = function (alchemist) {
   if (alchemist.roll.size > 80) {
     alchemist.roll.activity -= 4

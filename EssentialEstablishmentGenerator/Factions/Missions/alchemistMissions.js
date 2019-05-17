@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.alchemistMission = function (town) {
   var missions = {
     'disappearing potions': function (town) {

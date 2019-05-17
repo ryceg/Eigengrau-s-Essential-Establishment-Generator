@@ -16,7 +16,7 @@
 ## Live Build :rocket:
 Go to https://eigengrausgenerator.com/ to see the most current live build of EEEG in action!
 
-NOTE: The live build is often several weeks or months behind the current build here on github. Compile the generator locally to see all the latest features and updates!
+NOTE: The live build is often several weeks or months behind the current build here on GitHub. Compile the generator locally to see all the latest features and updates!
 
 ## Community :family:
 **Join our Discord to talk about the project in real time**
@@ -26,7 +26,7 @@ NOTE: The live build is often several weeks or months behind the current build h
 
 **[DISCORD](https://discord.gg/A543VC5)**
 
-Also consider joining the [reddit.](https://www.reddit.com/r/EigengrausGenerator)
+Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Compiling :computer:
 To compile EEEG for local testing you will need the latest version of [TweeGo](http://www.motoslave.net/tweego/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). 
@@ -47,6 +47,8 @@ NOTE: You can save time once you've set your directories by saving that command 
 ## Contributing :black_nib:
 We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Contributing) 
 
+Once you've cloned the project, remember to `yarn` or `npm install` in order to install eslint.
+
 If you don't want to code, that's okay! The Generator is built out of a novel's worth of words, and we're always in need of more descriptions. You can find writing tasks [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3AWriting)
 
 You can also find easy work to do on the generator [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
@@ -59,7 +61,7 @@ You can also find easy work to do on the generator [here.](https://github.com/ry
 
 ##
 
-If you can't contribute pull requests consider supporting the generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
+If you can't contribute pull requests consider supporting the Generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
 
 We hope that you find it useful!
 

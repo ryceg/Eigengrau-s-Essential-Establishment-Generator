@@ -1,4 +1,4 @@
-/* global setup random */
+
 setup.renderWeather = function (town, biome, weather) {
   console.log('Rendering weather...')
   // console.log(weather)
@@ -27,16 +27,16 @@ setup.renderWeather = function (town, biome, weather) {
   // find one that's equal or lesser than tempVariationRoll to use as the final key
   finalKey = intKeys.find(function (key) {
     if (tempVariationRoll >= key) {
-      console.log({key})
+      console.log({ key })
       return key
     }
   }) || 0
   console.log('2')
   if (weather.timer.temperature < 1) {
     console.log('Timer for temperature has run out. Rolling temp timer!')
-    console.log({weather, finalKey})
+    console.log({ weather, finalKey })
     weather.timer.temperature = Math.trunc((setup.townData.terrain[biome].weather.tempVariation[finalKey].temperatureTimer || random(24, 48)) / 8)
-    console.log({weather})
+    console.log({ weather })
     // finalKey = intKeys.find(function (key) {
     //   if (tempVariationRoll >= key) {
     //     console.log('key is: ' + key)

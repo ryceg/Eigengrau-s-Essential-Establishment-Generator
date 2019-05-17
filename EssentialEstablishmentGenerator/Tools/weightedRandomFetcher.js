@@ -74,5 +74,4 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     console.log(selected[output])
     return selected[output]
   }
-
 }

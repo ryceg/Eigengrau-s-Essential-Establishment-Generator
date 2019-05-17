@@ -1,4 +1,4 @@
-// /* global setup */
+//
 // setup.createRumours = function (town) {
 //   var rumours = {
 //     'hedge': function (town) {

@@ -1,7 +1,7 @@
-var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, MinorBoon, MinorQuest, MinorEnemy, MajorBane, MajorBoon, MajorQuest, MajorEnemy, OnTheRun, Vendetta, BuyingOrSelling, GoodDeeds, EvilDeeds, Haunted, Cursed, Treasure, Emergency, Warning, SocialEvents, PoliticalEvents, ReligiousEvents, FaithTouched, WeaveTouched, MysteryCult
+// var PersonalInformation, LocalInformation, ItemInformation, Faction, MinorBane, MinorBoon, MinorQuest, MinorEnemy, MajorBane, MajorBoon, MajorQuest, MajorEnemy, OnTheRun, Vendetta, BuyingOrSelling, GoodDeeds, EvilDeeds, Haunted, Cursed, Treasure, Emergency, Warning, SocialEvents, PoliticalEvents, ReligiousEvents, FaithTouched, WeaveTouched, MysteryCult
 
 setup.createRumour = function (town) {
-  var Rnd = random(1, 2), Rumour
+  var Rnd = random(1, 2); var Rumour
   switch (Rnd) {
     case 1:
       Rumour = Motivations() + '. ' + PersonalInformation()
@@ -52,7 +52,7 @@ setup.createRumour = function (town) {
   // C – Item information
   function ItemInformation () {
     return [
-        ['artifact'],
+      ['artifact'],
       ['jewelry', 'chest', 'map', 'bucket', 'lantern', 'jar'].seededrandom(),
       ['piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'set of armor'].seededrandom(),
       ['common', 'common', 'common', 'common', 'common', 'common', 'rare', 'rare', 'rare', 'valuable'].seededrandom() + ['longsword', 'longbow', 'short sword', 'dagger', 'greataxe', 'crossbow'].seededrandom(),
@@ -63,31 +63,31 @@ setup.createRumour = function (town) {
   }
 
   // D – Faction
-  function Faction () {
-    return [
-      'mystery cult that ' + MysteryCult(),
-      'slavers',
-      'brutal overlords',
-      'religious warriors',
-      'clerics',
-      'law and justice officers or warriors',
-      'corrupt mercenaries',
-      'rogues',
-      'merchants guild',
-      'cabal of mages'].seededrandom()
-  }
+  // function Faction () {
+  //   return [
+  //     'mystery cult that ' + MysteryCult(),
+  //     'slavers',
+  //     'brutal overlords',
+  //     'religious warriors',
+  //     'clerics',
+  //     'law and justice officers or warriors',
+  //     'corrupt mercenaries',
+  //     'rogues',
+  //     'merchants guild',
+  //     'cabal of mages'].seededrandom()
+  // }
 
   // E – Minor Bane
-  function MinorBane () {
-    return [
-      'disease and pestilence',
-      'buildings destroyed',
-      'a ' + [MinorEnemy(), MajorEnemy()].seededrandom() + ' of the party is actively opposing them',
-      'loss of items of value',
-      'a curse of ' + Curse() + ' has been activated',
-      'people have been injured',
-      Haunted()].seededrandom()
-  }
+  // function MinorBane () {
+  //   return [
+  //     'disease and pestilence',
+  //     'buildings destroyed',
+  //     'a ' + [MinorEnemy(), MajorEnemy()].seededrandom() + ' of the party is actively opposing them',
+  //     'loss of items of value',
+  //     'a curse of ' + Curse() + ' has been activated',
+  //     'people have been injured',
+  //     Haunted()].seededrandom()
+  // }
 
   // F – Major Bane
   function MajorBane () {
@@ -233,28 +233,28 @@ setup.createRumour = function (town) {
       'a mysterious stranger named Morgoleth'].seededrandom()
   }
 
-  // S – Haunted
-  function Haunted () {
-    return [
-      'spirits locked in battle',
-      'a tortured revenant who must relive its brutal murder',
-      'a benign phantom who provides small comforts and messages',
-      'a crazed banshee',
-      'a spiteful haunt, who appears as dead loved ones and friends',
-      'a playful poltergeist, a childish trickster',
-      'an evil ghost, driven to consume lifeforce in a bid to regain life'].seededrandom()
-  }
+  // // S – Haunted
+  // function Haunted () {
+  //   return [
+  //     'spirits locked in battle',
+  //     'a tortured revenant who must relive its brutal murder',
+  //     'a benign phantom who provides small comforts and messages',
+  //     'a crazed banshee',
+  //     'a spiteful haunt, who appears as dead loved ones and friends',
+  //     'a playful poltergeist, a childish trickster',
+  //     'an evil ghost, driven to consume lifeforce in a bid to regain life'].seededrandom()
+  // }
 
-  // T – Cursed
-  function Cursed () {
-    return ['time moves at a different speed',
-      'sleep and rest is impossible',
-      'extreme heat or cold',
-      'an overwhelming aura of helplessness and suffering',
-      'plagues of vermin',
-      'foul weather',
-      'corruption of reality'].seededrandom()
-  }
+  // // T – Cursed
+  // function Cursed () {
+  //   return ['time moves at a different speed',
+  //     'sleep and rest is impossible',
+  //     'extreme heat or cold',
+  //     'an overwhelming aura of helplessness and suffering',
+  //     'plagues of vermin',
+  //     'foul weather',
+  //     'corruption of reality'].seededrandom()
+  // }
 
   // U – Treasure
   function Treasure () {
@@ -322,27 +322,27 @@ setup.createRumour = function (town) {
       'avatar appears and denounces/blesses the faithful and punishes/rewards with a bane/boon'].seededrandom()
   }
 
-  // AA – Faith Touched
-  function FaithTouched () {
-    return ['dreams of the lives of those who gave their lives in sacrifice for the faith',
-      'all skills relating to the practice of the faith are more easily accomplished. +1',
-      "hallucinations of the landscape of the deity's plane haunt the waking mind",
-      'those not of the faith will be psionically attacked by the environment, driving them out',
-      'animal servants of the deity roam the grounds here, protecting from heathen intruders',
-      'all divine spells are cast here as if the caster was 1 level higher.',
-      'manifestation of an avatar. its mood depends on the pcs interaction'].seededrandom()
-  }
+  // // AA – Faith Touched
+  // function FaithTouched () {
+  //   return ['dreams of the lives of those who gave their lives in sacrifice for the faith',
+  //     'all skills relating to the practice of the faith are more easily accomplished. +1',
+  //     "hallucinations of the landscape of the deity's plane haunt the waking mind",
+  //     'those not of the faith will be psionically attacked by the environment, driving them out',
+  //     'animal servants of the deity roam the grounds here, protecting from heathen intruders',
+  //     'all divine spells are cast here as if the caster was 1 level higher.',
+  //     'manifestation of an avatar. its mood depends on the pcs interaction'].seededrandom()
+  // }
 
-  // BB – Weave Touched
-  function WeaveTouched () {
-    return ['a living mask of a jester can be found here, hidden, but waiting. the parasite sleeps.',
-      'all skills relating to the practice of the arcane mysteries are more easily accomplished. +1',
-      'time and space are on vacation here. Non-causality is a possibility. Dimensionally weird. Non-euclidian geometry abounds.',
-      'all arcane objects are recharged here, but can only be used once per item per location',
-      'astral and ethereal creatures are feeding from this bountiful font. They are hostile',
-      'all arcane spells are cast here as if the caster were 1 level higher',
-      'wild magic regularly spawns here, bathing the area with random level spells and duration'].seededrandom()
-  }
+  // // BB – Weave Touched
+  // function WeaveTouched () {
+  //   return ['a living mask of a jester can be found here, hidden, but waiting. the parasite sleeps.',
+  //     'all skills relating to the practice of the arcane mysteries are more easily accomplished. +1',
+  //     'time and space are on vacation here. Non-causality is a possibility. Dimensionally weird. Non-euclidian geometry abounds.',
+  //     'all arcane objects are recharged here, but can only be used once per item per location',
+  //     'astral and ethereal creatures are feeding from this bountiful font. They are hostile',
+  //     'all arcane spells are cast here as if the caster were 1 level higher',
+  //     'wild magic regularly spawns here, bathing the area with random level spells and duration'].seededrandom()
+  // }
 
   // CC – Mystery Cult
   function MysteryCult () {

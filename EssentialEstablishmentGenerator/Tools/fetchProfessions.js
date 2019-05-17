@@ -1,4 +1,3 @@
-/* global setup dice randomFloat */
 setup.fetchProfessions = function (town) {
   // this is run on start up.
   // it returns the available town professions, with their support values.

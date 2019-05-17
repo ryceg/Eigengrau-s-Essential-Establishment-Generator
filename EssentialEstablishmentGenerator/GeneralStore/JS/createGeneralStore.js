@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createGeneralStore = function (town, opts) {
   opts = opts || {}
   let GeneralStore = (opts['newBuilding'] || setup.createBuilding)(town, 'GeneralStore')

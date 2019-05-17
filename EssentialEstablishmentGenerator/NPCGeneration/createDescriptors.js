@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createDescriptors = function (npc) {
   console.log('assigning descriptors to ' + npc.name + '...')
   // remember adjectival precedence!
