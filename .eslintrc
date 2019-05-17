@@ -1,5 +1,6 @@
 {
-  "extends": "standard",
+  "extends": ["standard"],
+  "plugins": ["compat"],
   "env": {
     "browser": true,
     "jest": true
@@ -11,5 +12,8 @@
     "State": true,
     "randomFloat": true,
     "clone": true
+  },
+  "rules": {
+    "compat/compat": "error"
   }
 }
