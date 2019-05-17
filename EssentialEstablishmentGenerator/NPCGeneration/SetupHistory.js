@@ -1,4 +1,4 @@
-/* global setup random dice */
+
 setup.createHistory = function (town, npc) {
   console.log('creating history for ' + npc.name + '...')
   var wealthModifier

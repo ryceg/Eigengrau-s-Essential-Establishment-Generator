@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.plothooks = {
   'Roleplay Questions': {
     probability: 50,

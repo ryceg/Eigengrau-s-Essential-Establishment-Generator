@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.influenceFaction = function (faction) {
   console.log('assigning influence...')
   if (faction.roll.age > 95) {

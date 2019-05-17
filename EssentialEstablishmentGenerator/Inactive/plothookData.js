@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.plothook = {
   'joke': [
     "A bard. Not a magic one. Just a bard. Like y'know. A minstrel or some shit he's ok I guess.",
@@ -694,12 +694,12 @@ setup.plothook = {
   ],
   'people': [
     "I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
-  	"There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.",
-  	// "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",
-  	"I know that you are not likely to believe me, but... I am the messenger for the Duke's brother- yes, he had a brother, who has been in exile for some time. I've been charged to deliver this letter to the Duke, but I fear that I'm being followed and may meet my fate soon; the exact details are better left unknown, lest you make yourself a permanent target for holding the knowledge that I do. You must get this message to him. But do not open it, as the Duke will not touch it if the wax seal has been broken.",
-  	"I'm looking for some guards to help me deliver some cargo some weeks' way away from $town.name; I can't promise that it's going to be easy, but if you keep me and my cargo safe, I can promise rewards well worth your time.",
-  	// "For many years, I've kept in contact with the priest of $town.name, Father <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>. But when I visited last spring, he was nowhere to be seen, and _bartender.firstName said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
-  	// "Many years ago, my sister <<print setup.npcData.raceTraits['human'].genderTraits['woman'].firstName.random()>> had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows.",
-  	"I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?"
+    "There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.",
+    // "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",
+    "I know that you are not likely to believe me, but... I am the messenger for the Duke's brother- yes, he had a brother, who has been in exile for some time. I've been charged to deliver this letter to the Duke, but I fear that I'm being followed and may meet my fate soon; the exact details are better left unknown, lest you make yourself a permanent target for holding the knowledge that I do. You must get this message to him. But do not open it, as the Duke will not touch it if the wax seal has been broken.",
+    "I'm looking for some guards to help me deliver some cargo some weeks' way away from $town.name; I can't promise that it's going to be easy, but if you keep me and my cargo safe, I can promise rewards well worth your time.",
+    // "For many years, I've kept in contact with the priest of $town.name, Father <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>. But when I visited last spring, he was nowhere to be seen, and _bartender.firstName said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
+    // "Many years ago, my sister <<print setup.npcData.raceTraits['human'].genderTraits['woman'].firstName.random()>> had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows.",
+    "I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?"
   ]
 }

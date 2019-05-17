@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.smithy = {
   'get': {
     'expertise': function (smithy) {

@@ -1,4 +1,4 @@
-/* global setup random dice */
+
 setup.createAllies = function (faction) {
   console.log('finding allies...')
   let _sizeRoll = dice(2, 50)

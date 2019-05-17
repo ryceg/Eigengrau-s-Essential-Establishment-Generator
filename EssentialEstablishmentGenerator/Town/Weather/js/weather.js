@@ -1,4 +1,4 @@
-/* global setup random dice */
+
 setup.weather = {
   precipitationIntensity: {
     1: {
