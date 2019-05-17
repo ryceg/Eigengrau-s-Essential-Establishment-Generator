@@ -47,7 +47,9 @@ NOTE: You can save time once you've set your directories by saving that command 
 ## Contributing :black_nib:
 We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Contributing) 
 
-Once you've cloned the project, remember to `yarn` or `npm install` in order to install eslint.
+Once you've cloned the project, remember to `yarn` or `npm install` to install eslint.
+
+Use `npm test` to run tests.
 
 If you don't want to code, that's okay! The Generator is built out of a novel's worth of words, and we're always in need of more descriptions. You can find writing tasks [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3AWriting)
 
