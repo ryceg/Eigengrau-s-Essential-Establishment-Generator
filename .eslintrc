@@ -1,5 +1,9 @@
 {
   "extends": "standard",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
   "globals": {
     "setup": true,
     "random": true,
