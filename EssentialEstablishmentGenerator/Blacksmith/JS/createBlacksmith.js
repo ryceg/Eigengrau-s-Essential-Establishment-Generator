@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createBlacksmith = function (town, smithy) {
   var blacksmith = setup.createNPC(town, {
     // associatedBuilding: smithy,

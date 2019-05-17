@@ -1,10 +1,9 @@
-/* global setup random randomFloat dice */
 setup.townData = {
   'name': {
     'prefix': ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
     'suffix': ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
   },
-  //Prefixes and Suffixes for the road names of the town
+  // Prefixes and Suffixes for the road names of the town
   'roads': {
     'name': ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'],
     'type': ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row', 'Avenue', 'Alley', 'Drive', 'Boulevard', 'Plaza']
@@ -33,7 +32,7 @@ setup.townData = {
     // ]
   },
   'type': {
-    //This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
+    // This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
     'hamlet': {
       'demographic': {
         // demographics must be in alphabetical order until I fix it to not be buggy
@@ -473,7 +472,7 @@ setup.townData = {
     }
   },
   'misc': {
-    //They harvest _
+    // They harvest _
     'primaryCrop': [
       'barley and oats',
       'beans and corn',
@@ -493,7 +492,7 @@ setup.townData = {
       'leeks',
       'corn',
       'fish'],
-      //the nearby region is rich with_
+    // the nearby region is rich with_
     'primaryExport': [
       'iron ore',
       'copper ore',
@@ -517,8 +516,8 @@ setup.townData = {
       'wild game',
       'common fauna used in alchemy',
       'rare fauna used in alchemy'],
-     //__ is currently taking place.
-      'currentEvent': [
+    // __ is currently taking place.
+    'currentEvent': [
       "an anniversary of a monarch's reign",
       'an anniversary of an important event',
       'an arena event',
@@ -667,10 +666,10 @@ setup.townData = {
       'a merchant in a heavily corroded outfit tries to sell his dishwashing invention. (contains a black pudding)',
       'you notice two thugs following a young woman from a distance, trying to look inconspicuous.',
       'a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.'],
-    
-    //The nearest landmark is _
-      'landmark': [
-      
+
+    // The nearest landmark is _
+    'landmark': [
+
       'a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.',
       "a cave hidden deep in the forest, with walls and floors that seem to shine with a fortunes worth of priceless gems that sparkle without any light. These 'priceless gems' immediately turn to useless stones once removed from the cave.",
       'a large cave system found in the middle of a jungle. The only known opening to the cave was found by a group of locals who were hunting in the jungle that day. The cave entrance spans an opening of roughly 100ft, and if seen from the sky looks like a large impact crater. The depth of the cave is unknown, and no one knows if it is inhabited by monsters.',
@@ -827,10 +826,10 @@ setup.townData = {
       },
       'start': ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
       'location': {
-        //town.Name is located in the _
+        // town.Name is located in the _
         'seacoast': {
           'precipitationIntensity': 3,
-          //town.Name grew around _
+          // town.Name grew around _
           'origin': [
             'a coastal harbor',
             'a calm, coastal bay',
@@ -843,7 +842,7 @@ setup.townData = {
             'a well-traveled crossroads',
             'a water source and a well-traveled road'
           ],
-          //where the vegetation is _
+          // where the vegetation is _
           'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
           'plants': ['shrubs', 'bush', 'windswept trees', 'windswept trees', 'windswept trees']
         },

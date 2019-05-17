@@ -1,4 +1,3 @@
-/* global setup dice */
 setup.createAlchemistName = function (chemistFirstName) {
   var alchemistNameRoll = dice(1, 5)
   var name

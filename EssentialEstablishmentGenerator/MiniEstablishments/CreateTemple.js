@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createTemple = function (town, opts) {
   console.log('Creating a temple...')
   opts = opts || {}

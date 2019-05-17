@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.structure = {
   create: function (town, building, opts) {
     if (!building) {

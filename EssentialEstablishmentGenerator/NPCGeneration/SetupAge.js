@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createAge = function (npc) {
   console.log('ageing ' + npc.name + '...')
   if (typeof setup.npcData.raceTraits[npc.race].ageTraits.ageDescriptors !== 'undefined') {

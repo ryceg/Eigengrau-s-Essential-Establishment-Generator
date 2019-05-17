@@ -1,4 +1,3 @@
-/* global setup random clone */
 setup.createTown = function (base) {
   var type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].seededrandom()
   var terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].seededrandom()

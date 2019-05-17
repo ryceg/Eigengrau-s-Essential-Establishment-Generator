@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.townBinder = function (town, building, buildingType) {
   console.log('binding ' + building.name + ' to ' + town.name)
   if (typeof town.buildings[buildingType] === 'undefined') {

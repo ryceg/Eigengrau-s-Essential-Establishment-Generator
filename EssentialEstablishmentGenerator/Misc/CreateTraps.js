@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createTrap = function (base) {
   var type = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
   // var twist = ['trap was never reset. Nothing dangerous happens',

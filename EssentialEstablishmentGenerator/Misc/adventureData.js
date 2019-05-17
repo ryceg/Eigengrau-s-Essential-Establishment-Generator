@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.adventure = {
   'create': function (town) {
     var adventure = {

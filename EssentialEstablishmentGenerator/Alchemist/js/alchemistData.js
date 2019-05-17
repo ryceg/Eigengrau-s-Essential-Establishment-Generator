@@ -1,5 +1,3 @@
-/* global setup */
-
 setup.alchemist = {
   'rollData': {
     'wealth': [

@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createChemist = function (town) {
   var chemist = setup.createNPC(town, {
     associatedTown: town.name,

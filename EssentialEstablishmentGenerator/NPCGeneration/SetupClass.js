@@ -1,4 +1,4 @@
-/* global setup */
+
 setup.createClass = function (npc) {
   console.log('assigning class traits to ' + npc.name + '...')
   var dndClassOrigin

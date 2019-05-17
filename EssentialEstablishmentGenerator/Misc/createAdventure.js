@@ -1,4 +1,3 @@
-/* global setup State */
 setup.createAdventure = function (town, base) {
 // Tables used later
 
