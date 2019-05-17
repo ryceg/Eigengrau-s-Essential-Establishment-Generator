@@ -162,7 +162,7 @@ setup.docks = {
         },
         'a suspiciously regal and seasick looking sailor': {
           profession: 'seasick sailor',
-          wealthClass: 'aristocracy',
+          socialClass: 'aristocracy',
           note: 'This character is a noble in hiding.'
         }
       },

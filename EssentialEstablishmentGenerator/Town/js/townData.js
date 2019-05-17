@@ -248,7 +248,7 @@ setup.townData = {
         'profession': 'lord',
         'background': 'noble',
         'title': 'Lord',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 45,
@@ -270,7 +270,7 @@ setup.townData = {
         'hasClass': false,
         'background': 'noble',
         'title': 'Lord',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -293,7 +293,7 @@ setup.townData = {
         'profession': 'prime minister',
         'background': 'commoner',
         'title': 'Lord',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': -15,
@@ -316,7 +316,7 @@ setup.townData = {
         'dndClass': 'rogue',
         'background': 'criminal',
         'title': 'High Thief',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': -35,
@@ -339,7 +339,7 @@ setup.townData = {
         'dndClass': 'wizard',
         'background': 'sage',
         'title': 'Archchancellor',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 2,
@@ -362,7 +362,7 @@ setup.townData = {
         'dndClass': 'fighter',
         'background': 'soldier',
         'title': 'Commander',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 25,
@@ -384,7 +384,7 @@ setup.townData = {
         'hasClass': false,
         'background': 'noble',
         'title': 'Lord',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -406,7 +406,7 @@ setup.townData = {
         'hasClass': false,
         'background': 'scholar',
         'title': 'Sir',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -430,7 +430,7 @@ setup.townData = {
         'background': 'acolyte',
         'title': 'High Priest',
         'gender': 'man',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 15,
@@ -453,7 +453,7 @@ setup.townData = {
         'profession': 'architect',
         'background': 'guild artisan',
         'title': 'Architect',
-        'wealthClass': 'aristocracy'
+        'socialClass': 'aristocracy'
       },
       'modifiers': {
         'economics': 35,

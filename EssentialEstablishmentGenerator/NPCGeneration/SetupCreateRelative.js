@@ -9,7 +9,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: npc.partnerGenderProbability(npc),
         ageStage: base.ageStage || npc.ageStage,
         lastName: base.lastName || npc.lastName,
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.setAsPartners(npc, relative)
@@ -23,7 +23,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'man',
         ageStage: base.ageStage || npc.ageStage,
         lastName: base.lastName || npc.lastName,
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.setAsPartners(npc, relative)
@@ -43,7 +43,7 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'man',
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
@@ -61,7 +61,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'man',
         lastName: base.lastName || npc.lastName,
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       }))
       setup.createRelationship(town, npc, relative, relative.parentNoun, npc.childNoun)
       console.groupEnd()
@@ -78,7 +78,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'man',
         ageYears: Math.clamp(npc.ageYears - dice(6, 6), 1, npc.ageYears),
         lastName: base.lastName || npc.lastName,
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.childNoun, npc.parentNoun)
@@ -98,7 +98,7 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         ageYears: Math.clamp(npc.ageYears - dice(6, 6), 1, npc.ageYears),
         lastName: base.lastName || npc.lastName,
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.childNoun, npc.parentNoun)
@@ -122,7 +122,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'man',
         ageStage: base.ageStage || npc.ageStage,
         ageYears: npc.ageYears + Math.clamp(random(-12, 12), 1, 900),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.siblingNoun, npc.siblingNoun)
@@ -141,7 +141,7 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'man',
         ageYears: State.variables.npcs[parent].ageYears + dice(6, 6),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
@@ -154,7 +154,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'woman',
         ageStage: base.ageStage || npc.ageStage,
         lastName: base.lastName || npc.lastName,
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.setAsPartners(npc, relative)
@@ -174,7 +174,7 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'woman',
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)
@@ -192,7 +192,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'woman',
         lastName: base.lastName || npc.lastName,
         ageYears: npc.ageYears + dice(6, 6),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.parentNoun, npc.childNoun)
@@ -210,7 +210,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'woman',
         ageYears: Math.clamp(npc.ageYears - dice(6, 6), 1, npc.ageYears),
         lastName: base.lastName || npc.lastName,
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.childNoun, npc.parentNoun)
@@ -234,7 +234,7 @@ setup.createRelative = function (town, npc, type, base) {
         gender: 'woman',
         ageStage: base.ageStage || npc.ageStage,
         ageYears: npc.ageYears + Math.clamp(random(-12, 12), 1, 900),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.siblingNoun, npc.siblingNoun)
@@ -254,7 +254,7 @@ setup.createRelative = function (town, npc, type, base) {
       Object.assign(base, {
         gender: 'woman',
         ageYears: Math.clamp(parent.ageYears - dice(6, 6), 1, npc.ageYears),
-        wealthClass: base.wealthClass || npc.wealthClass
+        socialClass: base.socialClass || npc.socialClass
       })
       var relative = setup.createNPC(town, base)
       setup.createRelationship(town, npc, relative, relative.niblingNoun, npc.niblingReciprocalNoun)

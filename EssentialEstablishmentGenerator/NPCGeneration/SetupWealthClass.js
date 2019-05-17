@@ -1,7 +1,7 @@
 
-setup.createWealthClass = function (town, npc) {
+setup.createsocialClass = function (town, npc) {
   console.log('Creating wealth class...')
-  setup.wealthClasses = [
+  setup.socialClasses = [
     [95, 'aristocracy'],
     [80, 'nobility'],
     // [75, 'high class'],
@@ -12,24 +12,24 @@ setup.createWealthClass = function (town, npc) {
     [10, 'paupery'],
     [0, 'indentured servitude']
   ]
-  if (!npc.wealthClass) {
+  if (!npc.socialClass) {
     console.log('Wealth class not predefined. Rolling for a ' + npc.profession + '...')
     if (setup.townData.professions[(npc.dndClass || npc.profession)]) {
-      var test = setup.townData.professions[(npc.dndClass || npc.profession)].wealthClassRoll(town, npc)
+      var test = setup.townData.professions[(npc.dndClass || npc.profession)].socialClassRoll(town, npc)
     } else {
       console.log('Unidentified profession- ' + npc.profession + ' does not exist in townData.professions!')
       test = 20 + dice(4, 10)
     }
-    npc.roll.wealthClass = test
-    console.log(npc.roll.wealthClass)
-    var array = setup.wealthClasses.find(function (desc) {
-      return desc[0] <= npc.roll.wealthClass
+    npc.roll.socialClass = test
+    console.log(npc.roll.socialClass)
+    var array = setup.socialClasses.find(function (desc) {
+      return desc[0] <= npc.roll.socialClass
     })
-    npc.wealthClass = array[1]
+    npc.socialClass = array[1]
   }
-  if (npc.wealthClass === undefined) {
-    console.log('Failed to set a wealth class that matched the roll of ' + npc.roll.wealthClass + ' for ' + npc.name + '.')
-    npc.wealthClass = setup.wealthClasses[random(0, setup.wealthClasses.length - 1)]
+  if (npc.socialClass === undefined) {
+    console.log('Failed to set a wealth class that matched the roll of ' + npc.roll.socialClass + ' for ' + npc.name + '.')
+    npc.socialClass = setup.socialClasses[random(0, setup.socialClasses.length - 1)]
   }
   return npc
 }

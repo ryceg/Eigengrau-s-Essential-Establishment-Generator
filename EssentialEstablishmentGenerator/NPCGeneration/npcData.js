@@ -112,14 +112,14 @@ setup.npcData = {
         if (random(100) > 50) {
           console.log('Finding an already existing friend!')
           var friend = Object.keys(State.variables.npcs).find(function (name) {
-            return (State.variables.npcs[name].wealthClass === npc.wealthClass &&
+            return (State.variables.npcs[name].socialClass === npc.socialClass &&
             (!State.variables.npcs[name].relationships[npc.key]))
           })
           if (friend === undefined) {
             console.log('Nobody was in the same caste as ' + npc.name)
             friend = setup.createNPC(town, {
               isShallow: true,
-              wealthClass: npc.wealthClass
+              socialClass: npc.socialClass
             })
           }
         } else {
