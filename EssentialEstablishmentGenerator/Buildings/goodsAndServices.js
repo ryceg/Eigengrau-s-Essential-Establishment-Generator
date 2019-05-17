@@ -832,23 +832,36 @@ setup.goodsAndServices = {
       }
     },
     goods: {
-      'Fine shirt': {
-        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+      'fine shirt': {
         cost: 10,
-        // description: used in tooltip.
         description: 'A fine shirt made out of cotton.'
       },
-      'Cheap shirt': {
-        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+      'cheap shirt': {
         cost: 5,
-        // description: used in tooltip.
         description: 'A poorly made and scratchy feeling shirt.'
       },
-      'Hole Repair': {
-        // cost: in copper pieces. The <<money>> macro handles currency conversion.
+      'hose': {
+        cost: 7,
+        description: 'Leggings.'
+      },
+
+      'undergarments': {
+        cost: 6,
+        description: 'Undergarments.'
+      },
+      'tailoring': {
+        cost: 7,
+        type: 'service',
+        description: 'A service offered to fit clothing, take up shirts, and generally tailor clothing to fit better.'
+      },
+      'hole repair': {
         cost: 30,
-        // description: used in tooltip.
+        type: 'service',
         description: 'A service offered to patch up holey or tattered clothing people may have.'
+      },
+      'belt': {
+        cost: 12,
+        description: 'A leather belt.'
       }
     },
     type: 'tailors',
