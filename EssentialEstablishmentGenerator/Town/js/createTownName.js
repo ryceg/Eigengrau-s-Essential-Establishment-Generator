@@ -17,7 +17,8 @@ setup.createTownName = function (town) {
   if (random(100) > 90) {
     console.log('Named a founder!')
     if (town) {
-      town.founder = setup.createNPC(town)
+      var npc = setup.createNPC(town)
+      town.founder = npc.key
       name = town.founder.lastName + suffix.seededrandom()
     } else {
       name = setup.npcData.raceTraits['human'].lastName.seededrandom() + suffix.seededrandom()
