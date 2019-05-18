@@ -1,4 +1,5 @@
 :: ChangelogFull
+<<nobr>>
 
 <h4>v.2.2.1</h4>
 <ul>
@@ -186,3 +187,5 @@
 <ul>
   <li class="tip" title="Babby's first steps!">First release</li>
 </ul>
+
+<<endnobr>>
