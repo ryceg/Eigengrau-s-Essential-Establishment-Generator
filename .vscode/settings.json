@@ -1,4 +1,4 @@
 {
     "deepscan.enable": true,
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
 }
