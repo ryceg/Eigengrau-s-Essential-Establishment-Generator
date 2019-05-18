@@ -1,5 +1,6 @@
 :: Changelog
 
+<<nobr>>
 <blockquote>
   <<run setup.tippy(".btn")>>
 
@@ -15,3 +16,4 @@
 
   [[Full changelog|ChangelogFull]]
 </blockquote>
+<<endnobr>>
