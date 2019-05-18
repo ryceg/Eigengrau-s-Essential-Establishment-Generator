@@ -51,10 +51,14 @@ Once you've cloned the project, remember to `yarn` or `npm install` to install e
 
 Use `npm test` to run tests.
 
+## Deploying :cloud:
+To deploy the latest version, build the html file as `dist/index.html` and run either `npm run deploy`, or `yarn deploy`.
+
+---
+
 If you don't want to code, that's okay! The Generator is built out of a novel's worth of words, and we're always in need of more descriptions. You can find writing tasks [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3AWriting)
 
 You can also find easy work to do on the generator [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-
 
 ## Built With :hammer:
 * [Twine](https://twinery.org/) - The front end framework 
