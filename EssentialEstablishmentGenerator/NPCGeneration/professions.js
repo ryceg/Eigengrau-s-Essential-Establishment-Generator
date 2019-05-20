@@ -244,7 +244,7 @@ setup.townData.professions = {
        sv: 650,
        type: 'labourer',
        sector: 'construction',
-       description: ''builds with mineral products such as stones, bricks, cinder blocks, or tiles, usually with the use of mortar as a bonding agent.',
+       description: 'builds with mineral products such as stones, bricks, cinder blocks, or tiles, usually with the use of mortar as a bonding agent.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 10 + dice(4, 6) }
       },
@@ -1280,1304 +1280,1296 @@ setup.townData.professions = {
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
-'Animal/Monster Handler': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'responsible for the safe keeping, dietary care, and exercise of animals or monsters.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Arborist': {
-	sv: ,
-	type: '',
-	sector: '',
+'arborist': {
+	sv: 500,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'maintains and cares for trees, often by surgically removing dying limbs.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Baler': {
-	sv: ,
-	type: '',
-	sector: '',
+'baler': {
+	sv: 320,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'bales hay, or in the mills, wool and cotton goods.',
-	socialClass: '',
+	socialClass: 'peasantry',
 	socialClassRoll: function () { return }
 	},
-'Beekeeper': {
-	sv: ,
-	type: '',
-	sector: '',
+'beekeeper': {
+	sv: 1200,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'owns and breeds bees, especially for their honey.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Breeder': {
-	sv: ,
-	type: '',
-	sector: '',
+'breeder': {
+	sv: 800,
+	type: 'business',
+	sector: 'agriculture',
 	description: 'breeds livestock, animals, or monsters.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Dairyboy/Dairymaid': {
-	sv: ,
-	type: '',
-	sector: '',
+'dairy worker': {
+	sv: 300,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'milks cows and makes cheese and butter.',
-	socialClass: '',
+	socialClass: 'peasantry',
 	socialClassRoll: function () { return }
 	},
-'Falconer': {
-	sv: ,
-	type: '',
-	sector: '',
+'falconer': {
+	sv: 2000,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'keeps, trains, and hunts with falcons, hawks, or other birds of prey.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Florist': {
-	sv: ,
-	type: '',
-	sector: '',
+'florist': {
+	sv: 2400,
+	type: 'business',
+	sector: 'agriculture',
 	description: 'grows and arranges plants and cut flowers.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Forager': {
-	sv: ,
-	type: '',
-	sector: '',
+'forager': {
+	sv: 800,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'searches for food in the wild.',
-	socialClass: '',
+	socialClass: 'paupery',
 	socialClassRoll: function () { return }
 	},
-'Forester': {
-	sv: ,
-	type: '',
-	sector: '',
+'forester': {
+	sv: 900,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'supervises the wellbeing of a forest.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Fowler': {
-	sv: ,
-	type: '',
-	sector: '',
+'fowler': {
+	sv: 400,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'catches or ensnares birds.',
-	socialClass: '',
+	socialClass: 'peasantry',
 	socialClassRoll: function () { return }
 	},
-'Gamekeeper': {
-	sv: ,
-	type: '',
-	sector: '',
+'gamekeeper': {
+	sv: 4000,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'breeds and protects game, typically for a large estate.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Groom': {
-	sv: ,
-	type: '',
-	sector: '',
+'groom': {
+	sv: 2000,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'cleans and brushes the coats horses, dogs, or other animals.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Herder': {
-	sv: ,
-	type: '',
-	sector: '',
+'herder': {
+	sv: 500,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'supervises a herd of livestock or makes a living from keeping livestock, especially in open country.',
-	socialClass: '',
+	socialClass: 'peasantry',
 	socialClassRoll: function () { return }
 	},
-'Horse Trainer': {
-	sv: ,
-	type: '',
-	sector: '',
+'horse Trainer': {
+	sv: 800,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'tends to horses and teaches them different disciplines.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Master-of-Horses': {
-	sv: ,
-	type: '',
-	sector: '',
+'master-of-Horses': {
+	sv: 6000,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'supervises and commands all horses under a jurisdiction.',
-	socialClass: '',
+	socialClass: 'nobility',
 	socialClassRoll: function () { return }
 	},
-'Master-of-Hounds': {
-	sv: ,
-	type: '',
-	sector: '',
+'master-of-Hounds': {
+	sv: 5000,
+	type: 'profession',
+	sector: 'agriculture',
 	description: 'maintains a pack of hounds and their associated staff, equipment, and hunting arrangements.',
-	socialClass: '',
+	socialClass: 'nobility',
 	socialClassRoll: function () { return }
 	},
-'Pathfinder': {
-	sv: ,
-	type: '',
-	sector: '',
+'pathfinder': {
+	sv: 3000,
+	type: 'labourer',
+	sector: 'exploration',
 	description: 'scouts ahead and discovers a path or way for others.',
-	socialClass: '',
+	socialClass: 'peasantry',
 	socialClassRoll: function () { return }
 	},
-'Plumer': {
-	sv: ,
-	type: '',
-	sector: '',
+'plumer': {
+	sv: 1000,
+	type: 'labourer',
+	sector: 'agriculture',
 	description: 'hunts birds for their plumes.',
-	socialClass: '',
+	socialClass: 'peasantry',
 	socialClassRoll: function () { return }
 	},
-'Prospector': {
-	sv: ,
-	type: '',
+'prospector': {
+	sv: 3000,
+	type: 'profession',
 	sector: '',
 	description: 'searches for mineral deposits, especially by drilling and excavation.',
-	socialClass: '',
+	socialClass: 'commoner',
 	socialClassRoll: function () { return }
 	},
-'Renderer': {
-	sv: ,
+'renderer': {
+	sv: 9000,
 	type: '',
-	sector: '',
+	sector: 'agriculture',
 	description: 'converts waste animal tissue into usable materials.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Thresher': {
-	sv: ,
+'thresher': {
+	sv: 9000,
 	type: '',
-	sector: '',
+	sector: 'agriculture',
 	description: 'separates grain from the plants by beating.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Trapper': {
-	sv: ,
+'trapper': {
+	sv: 9000,
 	type: '',
-	sector: '',
+	sector: 'agriculture',
 	description: 'traps wild animals, especially for their fur.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Zookeeper': {
-	sv: ,
+'zookeeper': {
+	sv: 9000,
 	type: '',
-	sector: '',
+	sector: 'agriculture',
 	description: 'maintains and cares for animals or monsters in a zoo.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Brickmason': {
-	sv: ,
+'brickmason': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'crafts bricks from clay, stone, or other materials.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Construction Worker': {
-	sv: ,
+'construction Worker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a laborer in the physical construction of a built environment and its infrastructure.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'General Contractor': {
-	sv: ,
+'general Contractor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'supervises a construction site, manages its vendors and trades, and communicates information to all involved parties.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Glazier': {
-	sv: ,
+'glazier': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'fits glass into windows and doors.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Plasterer': {
-	sv: ,
+'plasterer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'applies plaster to walls, ceilings, or other surfaces.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Roadlayer/Streetlayer': {
-	sv: ,
+'roadlayer/Streetlayer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'paves roads or streets.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Acrobat': {
-	sv: ,
+'acrobat': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs spectacular gymnastic feats.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Aerialist/Trapezist': {
-	sv: ,
+'aerialist/Trapezist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs acrobatics high above the ground on a tightrope or trapeze.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Arranger': {
-	sv: ,
+'arranger': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'adapts a musical composition for performance.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Athlete': {
-	sv: ,
+'athlete': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'proficient in sports and other forms of physical exercise.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Busker/Street Musician': {
-	sv: ,
+'busker/Street Musician': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs in a public place, often for money.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Celebrity': {
-	sv: ,
+'celebrity': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a famous person.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Choirmaster': {
-	sv: ,
+'choirmaster': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'trains a choir and orchestrates their singing when they perform.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Clown': {
-	sv: ,
+'clown': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'comic entertainer who wears a traditional costume and exaggerated makeup.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Comedian': {
-	sv: ,
+'comedian': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'entertainer whose act is designed to make an audience laugh.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Conductor': {
-	sv: ,
+'conductor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'directs the performance of an orchestra.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Contortionist': {
-	sv: ,
+'contortionist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'twists and bends their body into strange and unnatural positions.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Curator': {
-	sv: ,
+'curator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'keeper and custodian of a museum or other collections of precious items.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Costumer': {
-	sv: ,
+'costumer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes theatrical costumes.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Equilibrist': {
-	sv: ,
+'equilibrist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs balancing feats.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Fashion Designer': {
-	sv: ,
+'fashion Designer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'applies design, aesthetics and natural beauty to garments and their accessories.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Glasspainter': {
-	sv: ,
+'glasspainter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'produces colorful designs on or in glass.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Juggler': {
-	sv: ,
+'juggler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'keeps several objects in motion in the air at the same time by alternately tossing and catching them.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Illuminator': {
-	sv: ,
+'illuminator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'paints and calligraphs to adorn or enlighten scrolls and manuscripts.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Limner': {
-	sv: ,
+'limner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'paints portraits or miniatures.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Makeup Artist': {
-	sv: ,
+'makeup Artist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'applies cosmetics to models, actors, nobles, etc.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Model': {
-	sv: ,
+'model': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'poses as a subject for an artist, fashion designer, or sculptor.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Musician': {
-	sv: ,
+'musician': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'plays a musical instrument.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Playwright': {
-	sv: ,
+'playwright': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'writes plays or musicals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Poet': {
-	sv: ,
+'poet': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'writes ballads, epics, sonnets, or other forms of poetry.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ringmaster/Ringmistress': {
-	sv: ,
+'ringmaster/Ringmistress': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'master of ceremony who introduces the circus acts to the audience.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ropewalker': {
-	sv: ,
+'ropewalker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'walks along a tightrope to entertain others.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Singer/Soprano': {
-	sv: ,
+'singer/Soprano': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'sings with or without instrumental accompaniment.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Skald': {
-	sv: ,
+'skald': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'composes and recites poems honoring heroes and their deeds.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Stage Magician': {
-	sv: ,
+'stage Magician': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'deceives their audience with seemingly impossible feats while using only natural means.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Stuntman/Stuntwoman': {
-	sv: ,
+'stuntman/Stuntwoman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs dangerous stunts for their audience.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tattooist': {
-	sv: ,
+'tattooist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'illustrates the skin with indelible patterns, pictures, legends, etc.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Theater Director': {
-	sv: ,
+'theater Director': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'supervises and orchestrates the mounting of a theatre production by unifying various endeavors and aspects of production.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Accountant': {
-	sv: ,
+'accountant': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'keeps and inspects financial accounts.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Actuary': {
-	sv: ,
+'actuary': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'compiles and analyzes statistics and uses them to calculate risk.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Animal Collector/Monster Collector': {
-	sv: ,
+'animal Collector/Monster Collector': {
+	sv: 9000,
 	type: '',
-	sector: '',
+	sector: 'agriculture',
 	description: 'collects and deals in rare and exotic animals and monsters.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Business Owner': {
-	sv: ,
+'business Owner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'owns a business entity in an attempt to profit from its successful operations.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Debt Collector': {
-	sv: ,
+'debt Collector': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'recovers money owed on delinquent accounts.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Draper': {
-	sv: ,
+'draper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an alcohol merchant.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Appraiser': {
-	sv: ,
+'appraiser': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'assesses the monetary value of something.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Auctioneer': {
-	sv: ,
+'auctioneer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'conducts auctions by accepting bids and declaring goods sold.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bagniokeeper': {
-	sv: ,
+'bagniokeeper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'owner of a bath house or brothel.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bookkeeper': {
-	sv: ,
+'bookkeeper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'keeps records of financial affairs.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Collector': {
-	sv: ,
+'collector': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'collects things of a specified type, professionally or as a hobby.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Entrepreneur': {
-	sv: ,
+'entrepreneur': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'organizes and operates a business or businesses, taking on greater than normal financial risks in order to do so.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Moneychanger': {
-	sv: ,
+'moneychanger': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'exchanges one currency for another.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Moneylender': {
-	sv: ,
+'moneylender': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'lends money to others who pay interest.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Peddler': {
-	sv: ,
+'peddler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'travels from place to place selling assorted items.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Plantation Owner': {
-	sv: ,
+'plantation Owner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an owner of an estate on which crops are cultivated by resident labor, typically slave labor.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Speculator': {
-	sv: ,
+'speculator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'invests in stocks, property, or other ventures in the hope of making a profit.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Thriftdealer': {
-	sv: ,
+'thriftdealer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'deals in secondhand items.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tradesman': {
-	sv: ,
+'tradesman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'deals exclusively in bartering.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Billboardposter': {
-	sv: ,
+'billboardposter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person who puts up notices, signs and advertisements.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Courier': {
-	sv: ,
+'courier': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'transports packages and documents.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Interpreter': {
-	sv: ,
+'interpreter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: ' interprets language and its meaning, especially within ancient manuscripts.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Translator': {
-	sv: ,
+'translator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: ' translates between languages.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Accoutrementer/Coinsmith': {
-	sv: ,
+'accoutrementer/Coinsmith': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes currency for the government.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bladesmith': {
-	sv: ,
+'bladesmith': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'specializes in making and repairing bladed weapons, especially swords and daggers.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bookbinder': {
-	sv: ,
+'bookbinder': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'binds books and wraps scrolls.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bottler': {
-	sv: ,
+'bottler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'bottles drinks and other liquids.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bowyer': {
-	sv: ,
+'bowyer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes bows and crossbows.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Broom Maker': {
-	sv: ,
+'broom Maker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes brooms and brushes.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Candlemaker': {
-	sv: ,
+'candlemaker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes candles and wax from honey and tallow.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cartwright': {
-	sv: ,
+'cartwright': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs carts and wagons.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cutler': {
-	sv: ,
+'cutler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes cutlery.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Dyer': {
-	sv: ,
+'dyer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'dyes cloth and other materials.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Embroiderer': {
-	sv: ,
+'embroiderer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'ornaments with needlework.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Engraver': {
-	sv: ,
+'engraver': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'incises a design onto a hard surface by cutting grooves into it.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Farrier': {
-	sv: ,
+'farrier': {
+	sv: 9000,
 	type: '',
 	sector: '',
-	description: 'trims and shoes horses'
+	description: 'trims and shoes horses',
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},' hooves.
-'Fletcher': {
-	sv: ,
+	},
+'fletcher': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs arrows.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Furniture Artisan': {
-	sv: ,
+'furniture Artisan': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs furniture.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Glassworker': {
-	sv: ,
+'glassworker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'blows glass planes and items.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Instrument Maker': {
-	sv: ,
+'instrument Maker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs musical instruments.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Lapidary': {
-	sv: ,
+'lapidary': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'turns stone, minerals, or gemstones into decorative items such as cabochons, engraved gems, and faceted designs.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Luthier': {
-	sv: ,
+'luthier': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs stringed instruments.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Mercer': {
-	sv: ,
+'mercer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'weaves textile fabrics, especially silks, velvets, and other fine materials.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Optician': {
-	sv: ,
+'optician': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs eyeglasses.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Printer': {
-	sv: ,
+'printer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person who applies pressure to an inked surface resting upon a print medium (such as paper or cloth), thereby transferring the ink to manufacture a text.'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Restorer': {
-	sv: ,
+'restorer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'repairs or renovates a work of art so as to return it to its original condition.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Soaper': {
-	sv: ,
+'soaper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes soap from accumulated mutton fat, wood ash, and natural soda.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Taxidermist': {
-	sv: ,
+'taxidermist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'prepares, stuffs, and mounts the skins of animals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tinker': {
-	sv: ,
+'tinker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'travels from place to place mending utensils.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Weaponsmith': {
-	sv: ,
+'weaponsmith': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'specializes in making and repairing weapons.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Wheelwright': {
-	sv: ,
+'wheelwright': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes and repairs wooden wheels.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Assassin': {
-	sv: ,
+'assassin': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'murders through stealth for reasons pertaining to money, politics, or religion.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bandit': {
-	sv: ,
+'bandit': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a robber or outlaw belonging to a gang and typically operating in an isolated or lawless area.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Burglar': {
-	sv: ,
+'burglar': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'illegally enters buildings and steals things.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Charlatan/Conman': {
-	sv: ,
+'charlatan/Conman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'tricks people by gaining their trust and persuading them to believe something that is not true in order to benefit from the encounter.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cockfighter/Gamefighter': {
-	sv: ,
+'cockfighter/Gamefighter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'engages in arena matches in which animals or monsters are pitted against one another, typically to the death.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Crime Boss': {
-	sv: ,
+'crime Boss': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'controls and supervises a criminal organization.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cutpurse': {
-	sv: ,
+'cutpurse': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a pickpocket or thief.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Drug Dealer': {
-	sv: ,
+'drug Dealer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'dealer of illegal substances.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Drug Lord': {
-	sv: ,
+'drug Lord': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'controls a network of persons involved in the illegal drugs trade and transactions.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Extortioner': {
-	sv: ,
+'extortioner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'extorts money from someone by threatening to expose embarrassing information about them.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Fence': {
-	sv: ,
+'fence': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'deals in stolen goods.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Forger': {
-	sv: ,
+'forger': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'produces fraudulent copies or imitations.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Fugitive': {
-	sv: ,
+'fugitive': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person who has escaped from a place or is in hiding, especially to avoid arrest or persecution.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Highwayman': {
-	sv: ,
+'highwayman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'robs travelers on a road.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Kidnapper': {
-	sv: ,
+'kidnapper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'abducts people and holds them captive, typically to obtain a ransom.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Loan Shark': {
-	sv: ,
+'loan Shark': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'charges extremely high rates of interest for moneylending, typically under illegal conditions.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Pirate': {
-	sv: ,
+'pirate': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'attacks and robs ships at sea.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Poacher': {
-	sv: ,
+'poacher': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'hunts illegal game.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Poisoner': {
-	sv: ,
+'poisoner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes poisons to harm or kill.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Raider/Marauder': {
-	sv: ,
+'raider/Marauder': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes sudden, unprompted attacks against defenseless or near-defenseless settlements.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Smuggler': {
-	sv: ,
+'smuggler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'manages the import or export of goods secretly, in violation of the law, especially without payment of legal duty.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Affeeror': {
-	sv: ,
+'affeeror': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'determines the values of fines and amercements.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Agister': {
-	sv: ,
+'agister': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'affords pasture to the livestock of others for a price.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Alderman': {
-	sv: ,
+'alderman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a civic dignitary in the local council ranked below the mayor.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Alienist': {
-	sv: ,
+'alienist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'assesses the competence of a defendant in a court of law.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Assay Master': {
-	sv: ,
+'assay Master': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'oversees the testing of currency.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Baron/Baroness': {
-	sv: ,
+'baron/Baroness': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a member of the lowest order of the British nobility.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chancellor': {
-	sv: ,
+'chancellor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a senior state or legal official.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chief': {
-	sv: ,
+'chief': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'leads or rules a people or clan.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Conservationist': {
-	sv: ,
+'conservationist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'advocates for the protection and preservation of the environment and wildlife.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Count/Earl/Countess': {
-	sv: ,
+'count/Earl/Countess': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a nobleperson ranking above a viscount and below a marquess.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Duke/Duchess': {
-	sv: ,
+'duke/Duchess': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'rules over a duchy and is of the highest rank below the monarch.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Emperor/Empress': {
-	sv: ,
+'emperor/Empress': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the supreme sovereign ruler of an extensive group of states or countries under a single authority.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'King/Queen': {
-	sv: ,
+'king/Queen': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the ruler of an independent state and its people.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Lady-in-Waiting': {
-	sv: ,
+'lady-in-Waiting': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'attends a queen, princess, or other high-ranking feminine nobleperson.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Marquess/Marchioness': {
-	sv: ,
+'marquess/Marchioness': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a nobleperson ranking above a count and below a duke.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Master-of-Coin': {
-	sv: ,
+'master-of-Coin': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'supervises the royal treasury, advises the monarch on financial matters, and is responsible for raising money through taxation.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Master-of-the-Revels': {
-	sv: ,
+'master-of-the-Revels': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'responsible for overseeing royal festivities.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Notary': {
-	sv: ,
+'notary': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs certain legal formalities, especially to draw up or certify contracts, deeds, and other documents for use in other jurisdictions.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Orator/Spokesman': {
-	sv: ,
+'orator/Spokesman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes statements on behalf of a group or individual nobleperson.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Page': {
-	sv: ,
+'page': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a young attendant to a person of noble rank.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Prince/Princess': {
-	sv: ,
+'prince/Princess': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the direct descendant of a monarch.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Senator': {
-	sv: ,
+'senator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'partakes in governmental decision-making after being elected.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Sheriff': {
-	sv: ,
+'sheriff': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the chief executive officer in a county, having various administrative and judicial functions.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Spymaster': {
-	sv: ,
+'spymaster': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'directs a network of subordinate espionage agents for a state, kingdom, or empire.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Viscount/Viscountess': {
-	sv: ,
+'viscount/Viscountess': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a nobleperson ranking above a baron and below a count.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ward': {
-	sv: ,
+'ward': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a member of a noble house who has been taken in by another noble family to be raised for a time.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Acater': {
-	sv: ,
+'acater': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'provides and prepares foodstuffs or delicacies for events such as festivals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tunner': {
-	sv: ,
+'tunner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'fills casks in a brewery or winery.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Barkeep': {
-	sv: ,
+'barkeep': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'works and serves drinks in a bar.',
@@ -2585,280 +2577,280 @@ setup.townData.professions = {
 	socialClassRoll: function () { return }
 	},
 
-'Butler': {
-	sv: ,
+'butler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the chief servant of a household.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Caregiver': {
-	sv: ,
+'caregiver': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'looks after a sick, elderly, or disabled person.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Charcoal Maker': {
-	sv: ,
+'charcoal Maker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'manufactures charcoal by carbonizing wood in a kiln.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chatelaine/Majordomo': {
-	sv: ,
+'chatelaine/Majordomo': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person in charge of a large household.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chimney Sweeper': {
-	sv: ,
+'chimney Sweeper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a small person, typically a child, who ascends chimneys to clean them.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Clerk': {
-	sv: ,
+'clerk': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'undertakes routine administrative duties in a business or bank.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Copyist': {
-	sv: ,
+'copyist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes copies of handwritten documents or music.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Croupier': {
-	sv: ,
+'croupier': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'runs a gaming table by gathering in and paying out money or tokens.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Exterminator': {
-	sv: ,
+'exterminator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'exterminates unwanted rodents and insects.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Food & Drink Taster': {
-	sv: ,
+'food & Drink Taster': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'ingests food that was prepared for someone else to confirm it is safe to eat.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Gongfarmer': {
-	sv: ,
+'gongfarmer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'digs out and removes excrement from privies and cesspits.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Gravedigger': {
-	sv: ,
+'gravedigger': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'digs graves for the purposes of a funeral ceremony.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Groundskeeper': {
-	sv: ,
+'groundskeeper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'maintains an athletic field, a park, or the grounds of a graveyard or other institution.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Kitchen Drudge': {
-	sv: ,
+'kitchen Drudge': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs menial work in a kitchen.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Knacker': {
-	sv: ,
+'knacker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'disposes of dead or unwanted animals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Lamplighter': {
-	sv: ,
+'lamplighter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'lights street or road lights at dusk.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Laundry Worker': {
-	sv: ,
+'laundry Worker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a laborer who takes part in the washing, drying, and ironing of clothes and other fabric items.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Lector': {
-	sv: ,
+'lector': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'reads to others while they work for entertainment.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Longshoreman': {
-	sv: ,
+'longshoreman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'loads and unloads ships in a port.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Nanny/Nursemaid': {
-	sv: ,
+'nanny/Nursemaid': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a servant employed to look after a young child or children.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Operator': {
-	sv: ,
+'operator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a laborer who operates equipment, typically in construction.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Pastry Chef': {
-	sv: ,
+'pastry Chef': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes desserts, especially cakes and pastries.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Plumber': {
-	sv: ,
+'plumber': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'installs and repairs the fittings of water supply and sanitation.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Porter': {
-	sv: ,
+'porter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'carries luggage and other loads.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Prostitute': {
-	sv: ,
+'prostitute': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'engages in sexual activity for payment.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Quarryman/Quarrywoman': {
-	sv: ,
+'quarryman/Quarrywoman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'quarries stone.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Stagehand': {
-	sv: ,
+'stagehand': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'moves scenery or props before or during the performance of a theatrical production.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Street Cleaner': {
-	sv: ,
+'street Cleaner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'cleans streets and alleyways after dark.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Talent Scout': {
-	sv: ,
+'talent Scout': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'searches for talented individuals who can be employed or promoted.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Trainer': {
-	sv: ,
+'trainer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'trains someone in a particular skill, usually physical, for money.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Water Bearer': {
-	sv: ,
+'water Bearer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'brings water from rivers, wells, and lakes back to their settlement.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Abjurer': {
-	sv: ,
+'abjurer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a mage focused in protective spells.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Alchemist': {
-	sv: ,
+'alchemist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'transforms or creates something within nature through '
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},(usually) ritualist magic.
-'Archmage': {
-	sv: ,
+'archmage': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an extremely powerful mage.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Artificer': {
-	sv: ,
+'artificer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'unlocks magic in everyday objects as well as being an inventor.',
@@ -2866,488 +2858,488 @@ setup.townData.professions = {
 	socialClassRoll: function () { return }
 	},
 
-'Conjuror': {
-	sv: ,
+'conjuror': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'conjures spirits or familiars.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Elementalist': {
-	sv: ,
+'elementalist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'manipulates nature'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},’s elements to their will.
-'Enchanter/Enchantress': {
-	sv: ,
+'enchanter/Enchantress': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'uses sorcery to put someone or something under a spell.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Evoker': {
-	sv: ,
+'evoker': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'manipulates energy or taps into an unseen source of power in order to produce a desired kinetic end.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Hearth Witch/Hearth Wizard': {
-	sv: ,
+'hearth Witch/Hearth Wizard': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'incorporates spells and enchantments in cooking.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Illusionist': {
-	sv: ,
+'illusionist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'performs tricks and spells that deceive the senses.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Mage': {
-	sv: ,
+'mage': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a magic-user.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Medium': {
-	sv: ,
+'medium': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'uses extrasensory perception, magic, or divine powers to identify information hidden from the normal senses.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Meteorologist': {
-	sv: ,
+'meteorologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'forecasts and manipulates weather.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ritualist': {
-	sv: ,
+'ritualist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'practices or advocates the observance of ritual (formula intended to trigger a magical effect on a person or objects).'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Runecaster': {
-	sv: ,
+'runecaster': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'uses special alphabets to create runes (symbols possessing magical effects capable of being used multiple times)'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},.
-'Sage': {
-	sv: ,
+'sage': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a wise and experienced magic-user.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Shapeshifter': {
-	sv: ,
+'shapeshifter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person with the ability to change their physical form.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Summoner': {
-	sv: ,
+'summoner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a mage able to summon forth magical beasts, creatures, and monsters.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Transmuter': {
-	sv: ,
+'transmuter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'alters matter in form, appearance, or nature.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Witchdoctor': {
-	sv: ,
+'witchdoctor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a tribal mage with powers of healing, divination, and protection against the magic of others.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Witch': {
-	sv: ,
+'witch': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a woman who has supernatural powers and practices sorcery, typically in solitude.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Wordsmith': {
-	sv: ,
+'wordsmith': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'draws their power from language and casts by dictation.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Admiral': {
-	sv: ,
+'admiral': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'commands a fleet or naval squadron.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bailiff': {
-	sv: ,
+'bailiff': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'looks after prisoners.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bodyguard': {
-	sv: ,
+'bodyguard': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'escorts and protects another person, especially a dignitary.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bouncer': {
-	sv: ,
+'bouncer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'prevents troublemakers from entering or to eject them from the premises of an establishment.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Castellan': {
-	sv: ,
+'castellan': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the governor of a castle.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cavalryman/Cavalier': {
-	sv: ,
+'cavalryman/Cavalier': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a skilled horseback rider.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'City Watch': {
-	sv: ,
+'city Watch': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an officer of law enforcement who resides in larger towns or cities.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Commissar': {
-	sv: ,
+'commissar': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'teaches principles and policies to military units.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Constable': {
-	sv: ,
+'constable': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an officer with limited policing authority, typically in a small town.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Detective/Investigator': {
-	sv: ,
+'detective/Investigator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'investigates and solves crimes.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Drummer/Fifer': {
-	sv: ,
+'drummer/Fifer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a non-combatant foot soldier who sounds signals for changes in formation in combat.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Duelist': {
-	sv: ,
+'duelist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'skilled in one-on-one combat.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Executioner': {
-	sv: ,
+'executioner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'carries out a sentence of death on a legally condemned person.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Firefighter': {
-	sv: ,
+'firefighter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'extinguishes fires.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Inspection Officer': {
-	sv: ,
+'inspection Officer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'responsible for the inspection of military units to ensure they meet appropriate standards of training and efficiency.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Intelligence Officer': {
-	sv: ,
+'intelligence Officer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'collects, compiles and organizes information about the enemy.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Lieutenant': {
-	sv: ,
+'lieutenant': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an officer of middle rank in the armed forces.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Marksman/Archer': {
-	sv: ,
+'marksman/Archer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'in long-range weapons, such as the bow, crossbow, sling, etc. to inflict damage from afar.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Marshall': {
-	sv: ,
+'marshall': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'has the charge of the cavalry in the household of a monarch.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Medic': {
-	sv: ,
+'medic': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a medical practitioner equipped for the battlefield.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Mercenary': {
-	sv: ,
+'mercenary': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a soldier without allegiance who works for money, typically a member of a company or guild.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Quartermaster': {
-	sv: ,
+'quartermaster': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'responsible for providing quarters, rations, clothing, and other supplies.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Royal Guard': {
-	sv: ,
+'royal Guard': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'responsible for the protection of a royal person.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Runner': {
-	sv: ,
+'runner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'carries information between lines in wartime.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Sapper': {
-	sv: ,
+'sapper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a soldier responsible for tasks such as building and repairing roads and bridges, laying and clearing mines, etc.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Sergeant': {
-	sv: ,
+'sergeant': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an officer instructed with a protective duty, typically worth '
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Sergeant-at-Arms': {
-	sv: ,
+'sergeant-at-Arms': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'charged with keeping order during meetings and, if necessary, participates in battle.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Scout': {
-	sv: ,
+'scout': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'sent ahead of a main force so as to gather information about the enemy'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},'s position, strength, or movements.
-'Siege Artillerist': {
-	sv: ,
+'siege Artillerist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'works the artillery machines of an army.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Slave Driver': {
-	sv: ,
+'slave Driver': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'oversees and urges on slaves at work.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Special Force Soldier': {
-	sv: ,
+'special Force Soldier': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'carries out special operations.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Spy': {
-	sv: ,
+'spy': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'secretly collects and reports information on the activities, movements, and plans of an enemy or competitor.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tactician': {
-	sv: ,
+'tactician': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'uses a carefully planned military strategy to achieve a specific end.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tollkeeper': {
-	sv: ,
+'tollkeeper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'collects tolls at a bridge, road etc. where a charge is made.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Warden': {
-	sv: ,
+'warden': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'responsible for the supervision of a particular place or thing or for ensuring that regulations associated with it are obeyed.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Warmage': {
-	sv: ,
+'warmage': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a soldier skilled in destructive battle magic.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Abbot/Abbess': {
-	sv: ,
+'abbot/Abbess': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the head of an abbey of monks.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Acolyte': {
-	sv: ,
+'acolyte': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'assists the celebrant in a religious service or procession.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Almoner': {
-	sv: ,
+'almoner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'distributes money and food to poor people.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Archbishop': {
-	sv: ,
+'archbishop': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'responsible for an archdiocese, their surrounding district.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bishop': {
-	sv: ,
+'bishop': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a senior member of the clergy, usually in charge of a diocese and empowered to confer holy orders.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cantor': {
-	sv: ,
+'cantor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'sings liturgical music and leads prayer in a synagogue.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cardinal': {
-	sv: ,
+'cardinal': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a leading dignitary of a church, nominated by the highest official.',
@@ -3355,152 +3347,152 @@ setup.townData.professions = {
 	socialClassRoll: function () { return }
 	},
 
-'Confessor': {
-	sv: ,
+'confessor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'hears confessions and gives absolution and spiritual counsel.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cultist': {
-	sv: ,
+'cultist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a member of a cult who generally lives outside of conventional society and worships an unorthodox patron.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cult Leader': {
-	sv: ,
+'cult Leader': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the organizational leader of a cult who is occasionally also the founder.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Deacon': {
-	sv: ,
+'deacon': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an ordained minister of an order ranking below that of priest.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Diviner': {
-	sv: ,
+'diviner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'seeks ultimate divination in order to further understand or meet godly substance.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Exorcist': {
-	sv: ,
+'exorcist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'expels or attempts to expel evil spirits from a person or place.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'High Priest/Pope': {
-	sv: ,
+'high Priest/Pope': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the chief priest of a religion.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Inquisitor': {
-	sv: ,
+'inquisitor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'seeks to eliminate heresy and other things contrary to the doctrine or teachings of their faith.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Missionary': {
-	sv: ,
+'missionary': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'goes on a religious mission to promote their faith in a foreign place.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Monk': {
-	sv: ,
+'monk': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'able to manifest their spirituality through a calm, centered being and thus gain abilities which function similarly to magic.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Pardoner': {
-	sv: ,
+'pardoner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'raises money for religious works by soliciting offerings and granting indulgences.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Prophet': {
-	sv: ,
+'prophet': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'regarded as an inspired teacher or proclaimer of the will of God.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Sexton': {
-	sv: ,
+'sexton': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'looks after a church and churchyard, sometimes acting as bell-ringer and formerly as a gravedigger.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Templar': {
-	sv: ,
+'templar': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'fights in a religious military order.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Abecedarian': {
-	sv: ,
+'abecedarian': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'teaches the illiterate.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Anthropologist': {
-	sv: ,
+'anthropologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'studies the customs, beliefs, and relationships of humanoids and intellectually and culturally advanced creatures.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Apprentice': {
-	sv: ,
+'apprentice': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'studies a trade under a skilled employer.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Archaeologist': {
-	sv: ,
+'archaeologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'studies humanoid history and prehistory through the excavation of sites and the analysis of artifacts and other physical remains.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Assayer': {
-	sv: ,
+'assayer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'determiner of the proportions of metal in ore and the amount of copper, silver, gold, or platinum in coins.',
@@ -3508,216 +3500,216 @@ setup.townData.professions = {
 	socialClassRoll: function () { return }
 	},
 
-'Astronomer': {
-	sv: ,
+'astronomer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'makes observations of celestial and scientific phenomena within the material plane.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bloodletter': {
-	sv: ,
+'bloodletter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'surgically removes some of a patient'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},'s blood for therapeutic purposes.
-'Botanist': {
-	sv: ,
+'botanist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an expert in or student of the scientific study of plants.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chemist': {
-	sv: ,
+'chemist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'engaged in chemical research or experiments.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Dean': {
-	sv: ,
+'dean': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the head of a college or university.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Drakologist': {
-	sv: ,
+'drakologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'studies or is an expert in the branch of zoology concerned with dragons.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Engineer': {
-	sv: ,
+'engineer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'designer of a machine or structure.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Entomologist': {
-	sv: ,
+'entomologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'studies or is an expert in the branch of zoology concerned with insects.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Horologist': {
-	sv: ,
+'horologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a scholar of time and entropy.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Mathematician': {
-	sv: ,
+'mathematician': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a scholar of the abstract science of number, quantity, and space.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Optometrist': {
-	sv: ,
+'optometrist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'examines the eyes for visual defects and prescribes eyeglasses.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Scribe': {
-	sv: ,
+'scribe': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'copies out manuscripts.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Taxonomist': {
-	sv: ,
+'taxonomist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'groups organisms into categories.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Theologian': {
-	sv: ,
+'theologian': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'engages in the study of the nature of God and religious belief.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Tutor': {
-	sv: ,
+'tutor': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'charged with the instruction and guidance of another.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Zoologist': {
-	sv: ,
+'zoologist': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'an expert in or a student of the behavior, physiology, classification, and distribution of animals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Boatman': {
-	sv: ,
+'boatman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'mans a small seacraft.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bosun': {
-	sv: ,
+'bosun': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'in charge of organizing the equipment and crew of a ship.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cabbie/Wagoner': {
-	sv: ,
+'cabbie/Wagoner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'drives a horse-drawn wagon.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cabin Boy/Cabin Girl': {
-	sv: ,
+'cabin Boy/Cabin Girl': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'waits on the orders of a ships officers and passengers.'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Charioteer': {
-	sv: ,
+'charioteer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'drives a chariot.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Carter': {
-	sv: ,
+'carter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'transports goods by cart.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ferryman': {
-	sv: ,
+'ferryman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'operates a ferry.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'First Mate': {
-	sv: ,
+'first Mate': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'the deck officer second in command to the master of a ship.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Helmsman': {
-	sv: ,
+'helmsman': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'steers a ship or boat.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Navigator': {
-	sv: ,
+'navigator': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'directs the route or course of a ship or other form of transportation, especially by using instruments and maps.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Purser': {
-	sv: ,
+'purser': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'keeps the accounts of a ship, especially as the head steward on a passenger vessel.',
@@ -3725,216 +3717,216 @@ setup.townData.professions = {
 	socialClassRoll: function () { return }
 	},lClassRoll: function () { return }
 	},
-'Shipwright': {
-	sv: ,
+'shipwright': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a carpenter skilled in ship construction and repair.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Adventurer': {
-	sv: ,
+'adventurer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'wanders the world in search of knowledge, treasure, fame, glory or a multitude of additional wants and desires.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Beggar/Pauper': {
-	sv: ,
+'beggar/Pauper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'lives by asking for money or food.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Blood Hunter/Monster Hunter': {
-	sv: ,
+'blood Hunter/Monster Hunter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'takes on jobs to hunt down and kill or capture dangerous creatures.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bounty Hunter': {
-	sv: ,
+'bounty Hunter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'pursues a criminal or fugitive for whom a reward is offered.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Crossing Sweeper': {
-	sv: ,
+'crossing Sweeper': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'sweeps a path ahead of people crossing dirty urban streets in exchange for a gratuity.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Deserter': {
-	sv: ,
+'deserter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a member of the armed forces who has deserted.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Disgraced Noble': {
-	sv: ,
+'disgraced Noble': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person of high birth who has since loss their respect, honor, or esteem in some or all noble circles.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Drunkard': {
-	sv: ,
+'drunkard': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person who is habitually drunk and considers themselves a professional in the task.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Dungeon Delver': {
-	sv: ,
+'dungeon Delver': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'navigates underground labyrinths in search of any treasure they may find.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Elder': {
-	sv: ,
+'elder': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person of a greater age, especially one with a respected position in society.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Exile': {
-	sv: ,
+'exile': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'lives away from their native country, either from choice or compulsion.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Explorer': {
-	sv: ,
+'explorer': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'explores unfamiliar areas in search of geographical or scientific information.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ex-Criminal': {
-	sv: ,
+'ex-Criminal': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a person who has been convicted of a crime and has since served their sentence, or who has preemptively given up their life of crime.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Folk Hero': {
-	sv: ,
+'folk Hero': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a celebrity who is greatly admired by many people of a particular kind or in a particular place.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Gambler': {
-	sv: ,
+'gambler': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'bets money on sports, card games, or games of chance in the hope of a profit.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Grave Robber/Tomb Raider': {
-	sv: ,
+'grave Robber/Tomb Raider': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'steals valuables from graves and tombs.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Heretic': {
-	sv: ,
+'heretic': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'differs in opinion from established religious dogma.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Housewife/Househusband': {
-	sv: ,
+'housewife/Househusband': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'cares for his or her family by managing household affairs and completing housework.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Prisoner': {
-	sv: ,
+'prisoner': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'held in confinement as a punishment for crimes they have been convicted of.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Rag-and-Bone Man': {
-	sv: ,
+'rag-and-Bone Man': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'collects unwanted household items and sells them to merchants.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Rebel/Political Dissident': {
-	sv: ,
+'rebel/Political Dissident': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'rises in opposition or armed resistance against an established government or ruler.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Refugee': {
-	sv: ,
+'refugee': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'leaves their home in order to escape war, persecution, or natural disaster.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Runaway Slave': {
-	sv: ,
+'runaway Slave': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a slave who has left their master and traveled without authorization.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Squatter': {
-	sv: ,
+'squatter': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'unlawfully occupies an uninhabited building or unused land.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Traveler/Wanderer/Vagabond': {
-	sv: ,
+'traveler/Wanderer/Vagabond': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'wanders from place to place without a permanent home or job.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Urchin': {
-	sv: ,
+'urchin': {
+	sv: 9000,
 	type: '',
 	sector: '',
 	description: 'a child who lives or spends most of their time in the streets, occasionally working as a thief or pickpocket.',
