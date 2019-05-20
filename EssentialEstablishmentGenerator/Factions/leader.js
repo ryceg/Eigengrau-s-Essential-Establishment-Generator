@@ -13,8 +13,8 @@ setup.leaderFaction = function (town, faction) {
     faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.seededrandom()
   }
 
-  const isLargerThan = setup.createModifier(function (a, b) {
-    return a > b
+  const isLargerThan = setup.createModifier(function (value, key) {
+    return value > key
   })
 
   faction.leaderBribes = isLargerThan(faction.roll.leaderBribes, {
@@ -33,35 +33,21 @@ setup.leaderFaction = function (town, faction) {
     5: 'depend on circumstances'
   }, 'are expected')
 
-  if (faction.roll.leaderCompetence > 95) {
-    faction.leaderCompetence = 'ruthlessly efficient'
-  } else if (faction.roll.leaderCompetence > 90) {
-    faction.leaderCompetence = 'extremely efficient'
-  } else if (faction.roll.leaderCompetence > 80) {
-    faction.leaderCompetence = 'very competent'
-  } else if (faction.roll.leaderCompetence > 70) {
-    faction.leaderCompetence = 'quite competent'
-  } else if (faction.roll.leaderCompetence > 60) {
-    faction.leaderCompetence = 'reasonably competent'
-  } else if (faction.roll.leaderCompetence > 55) {
-    faction.leaderCompetence = 'usually competent'
-  } else if (faction.roll.leaderCompetence > 50) {
-    faction.leaderCompetence = 'of mild competence'
-  } else if (faction.roll.leaderCompetence > 45) {
-    faction.leaderCompetence = 'of mild incompetence'
-  } else if (faction.roll.leaderCompetence > 40) {
-    faction.leaderCompetence = 'somewhat incompetent'
-  } else if (faction.roll.leaderCompetence > 30) {
-    faction.leaderCompetence = 'quite incompetent'
-  } else if (faction.roll.leaderCompetence > 20) {
-    faction.leaderCompetence = 'very incompetent'
-  } else if (faction.roll.leaderCompetence > 10) {
-    faction.leaderCompetence = 'unbelievably incompetent'
-  } else if (faction.roll.leaderCompetence <= 5) {
-    faction.leaderCompetence = 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel'
-  } else {
-    faction.leaderCompetence = 'of mild competence'
-  }
+  faction.leaderCompetence = isLargerThan(faction.roll.leaderCompetence, {
+    95: 'ruthlessly efficient',
+    90: 'extremely efficient',
+    80: 'very competent',
+    70: 'quite competent',
+    60: 'reasonably competent',
+    55: 'usually competent',
+    50: 'of mild competence',
+    45: 'of mild incompetence',
+    40: 'somewhat incompetent',
+    30: 'quite incompetent',
+    20: 'very incompetent',
+    10: 'unbelievably incompetent',
+    5: 'of mild competence'
+  }, 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel')
 
   switch (faction.leadershipType) {
     case 'individual':
