@@ -4,7 +4,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'a warrior who gets lost in the craze of battle.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -12,7 +12,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'uses their artistic talents to induce magical effects.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -20,7 +20,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'has devoted their entire being to the will of their god, thus gaining magical powers.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -28,7 +28,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'a mage attuned to the magical forces of nature, able to shapeshift, call on the elements, communicate with flora and fauna, etc.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -36,15 +36,15 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'a common warrior.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
-    'friar': {
+    'monk': {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'a warrior of a holy order.',
        socialClass: 'commoner',
        socialClassRoll: function (town, npc) { return 50 + dice(8, 6) }
       },
@@ -60,7 +60,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'wanders or ranges over a particular area or domain.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -68,7 +68,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'a holy knight and divine spellcaster crusading in the name of their god.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -76,7 +76,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'magic user who derives their magical abilities innately rather than through study.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -84,7 +84,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'a mage who has gained their abilities by forming a pact with an otherworldly being.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -92,7 +92,7 @@ setup.townData.professions = {
        sv: 6500,
        type: 'dndClass',
        sector: 'adventuring',
-       description: '',
+       description: 'derives their magical abilities through study.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -100,7 +100,7 @@ setup.townData.professions = {
        sv: 2500,
        type: 'profession',
        sector: 'arts',
-       description: '',
+       description: 'impersonates characters, typically on stage in a theatrical production.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -108,7 +108,7 @@ setup.townData.professions = {
        sv: 3250,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'practices or studies law, typically an attorney or a counselor.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -116,7 +116,7 @@ setup.townData.professions = {
        sv: 780,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'advises some sort of government official on a specific area of governing.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -124,7 +124,7 @@ setup.townData.professions = {
        sv: 250,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'works with different animals for a variety of tasks, typically livestock',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -132,7 +132,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'business',
        sector: 'science',
-       description: '',
+       description: 'prepares and sells medicines, drugs, and potions.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -140,7 +140,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'profession',
        sector: 'construction',
-       description: '',
+       description: 'designs buildings or landscapes and in many cases supervises their construction.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -148,7 +148,7 @@ setup.townData.professions = {
        sv: 2450,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'maintains and is in charge of some sort archives.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 76 }
       },
@@ -156,15 +156,15 @@ setup.townData.professions = {
        sv: 750,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'specializes in making and repairing armor.',
        socialClass: 'commoner',
        socialClassRoll: function () { return dice(9, 10) }
       },
     'astrologer': {
        sv: 950,
-       type: '',
+       type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'uses astrology to tell others about their character or to predict their future.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 89 }
       },
@@ -172,7 +172,7 @@ setup.townData.professions = {
        sv: 800,
        type: 'business',
        sector: 'hospitality',
-       description: '',
+       description: 'makes all sorts of baked goods.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -180,7 +180,7 @@ setup.townData.professions = {
        sv: 2250,
        type: '',
        sector: 'business',
-       description: '',
+       description: 'an officer or owner of a bank or group of banks.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 89 }
       },
@@ -188,7 +188,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'business',
        sector: 'hospitality',
-       description: '',
+       description: 'cuts hair and shaves or trims beards.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(4, 6) }
       },
@@ -196,7 +196,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'business',
        sector: 'hospitality',
-       description: '',
+       description: 'pours drinks at taverns and other establishments',
        socialClass: 'peasantry',
        socialClassRoll: function () { return dice(3, 30) }
       },
@@ -204,7 +204,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'business',
        sector: 'hospitality',
-       description: '',
+       description: 'serves drinks and food in a bar as well as engaging with customers.',
        socialClass: 'commoner',
        socialClassRoll: function () { return dice(3, 15) }
       },
@@ -212,7 +212,7 @@ setup.townData.professions = {
        sv: 750,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'forges and repairs things in metal, including weapons, armor, utensils, etc.',
        socialClass: 'commoner',
        socialClassRoll: function () { return dice(2, 50) }
       },
@@ -220,7 +220,7 @@ setup.townData.professions = {
        sv: 800,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'serves under a blacksmith learning the trade of forging',
        socialClass: 'commoner',
        socialClassRoll: function () { return dice(2, 25) }
       },
@@ -228,7 +228,7 @@ setup.townData.professions = {
        sv: 6300,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'sells books from a shop or cart',
        socialClass: 'commoner',
        socialClassRoll: function () { return 65 }
       },
@@ -236,7 +236,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'brews ale.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -244,23 +244,23 @@ setup.townData.professions = {
        sv: 650,
        type: 'labourer',
        sector: 'construction',
-       description: '',
+       description: ''builds with mineral products such as stones, bricks, cinder blocks, or tiles, usually with the use of mortar as a bonding agent.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 10 + dice(4, 6) }
       },
-    'brothel keeper': {
+    'pimp': {
        sv: 850,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'controls prostitutes and arranges clients for them, taking part of their earnings in return.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
      'buccaneer': {
       sv: 1350,
       type: '',
-      sector: 'craftsmanship',
-      description: '',
+      sector: 'adventure',
+      description: 'a kind of privateer or free sailor',
       socialClass: 'commoner',
       socialClassRoll: function () { return 55 }
      },
@@ -268,7 +268,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'business',
        sector: 'hospitality',
-       description: '',
+       description: 'cuts up and sells meat.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -276,7 +276,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'an army officer of high rank in charge of commanding squadrons of soldiers.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -284,7 +284,7 @@ setup.townData.professions = {
        sv: 1450,
        type: 'labourer',
        sector: 'transportation',
-       description: '',
+       description: 'travels or lives in a caravan.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -292,7 +292,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs wooden objects and structures.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -300,7 +300,7 @@ setup.townData.professions = {
        sv: 1950,
        type: '',
        sector: 'science',
-       description: '',
+       description: 'a scholar and illustrator of maps.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 89 }
       },
@@ -308,7 +308,7 @@ setup.townData.professions = {
        sv: 700,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'deals in provisions and supplies.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -316,7 +316,7 @@ setup.townData.professions = {
        sv: 1850,
        type: 'labourer',
        sector: 'hospitality',
-       description: '',
+       description: 'a professional cook trained in the culinary arts.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 }
       },
@@ -324,7 +324,7 @@ setup.townData.professions = {
        sv: 40,
        type: 'profession',
        sector: 'religion',
-       description: '',
+       description: 'a member of the clergy attached to a private chapel, institution, ship, branch of the armed forces, etc.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -332,7 +332,7 @@ setup.townData.professions = {
        sv: 4550,
        type: 'profession',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs clocks.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -340,7 +340,7 @@ setup.townData.professions = {
        sv: 1550,
        type: '',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs footwear.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 45 }
       },
@@ -348,7 +348,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'labourer',
        sector: 'hospitality',
-       description: '',
+       description: 'prepares food for eating.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -356,23 +356,15 @@ setup.townData.professions = {
        sv: 700,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs casks and barrels.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
-      },
-    'counselor': {
-       sv: 1650,
-       type: 'profession',
-       sector: 'government and law',
-       description: '',
-       socialClass: 'nobility',
-       socialClassRoll: function () { return 50 + dice(8, 6) }
       },
     'courtesan': {
        sv: 1950,
        type: '',
        sector: 'hospitality',
-       description: '',
+       description: 'a prostitute with wealthy and noble clients',
        socialClass: 'commoner',
        socialClassRoll: function () { return 89 }
       },
@@ -380,7 +372,7 @@ setup.townData.professions = {
        sv: 1950,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'attends court as a companion or adviser to the king or queen.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -388,7 +380,7 @@ setup.townData.professions = {
        sv: 250,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'supervises grazing cattle.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -396,7 +388,7 @@ setup.townData.professions = {
        sv: 2250,
        type: 'profession',
        sector: 'arts',
-       description: '',
+       description: 'moves their body rhythmically with or without musical accompaniment.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -404,23 +396,15 @@ setup.townData.professions = {
        sv: 3450,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'an official representing a country abroad.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
-      },
-    'distiller': {
-       sv: 450,
-       type: 'business',
-       sector: 'craftsmanship',
-       description: '',
-       socialClass: 'commoner',
-       socialClassRoll: function () { return 40 + dice(4, 6) }
       },
     'diver': {
        sv: 3250,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'dives down deep to collect precious things from the sea floors.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -428,7 +412,7 @@ setup.townData.professions = {
        sv: 150,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'operates a farm or cultivates land.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -436,7 +420,7 @@ setup.townData.professions = {
        sv: 170,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'catches fish.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -444,7 +428,7 @@ setup.townData.professions = {
        sv: 250,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'sells fish.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -452,7 +436,7 @@ setup.townData.professions = {
        sv: 250,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'prepares furs for adornment.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -460,7 +444,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'tends and cultivates a garden.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -468,7 +452,7 @@ setup.townData.professions = {
        sv: 2250,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'the chief commander of an army.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -476,7 +460,7 @@ setup.townData.professions = {
        sv: 3250,
        type: '',
        sector: 'arts',
-       description: '',
+       description: 'fights against other people, wild animals, or monsters in an arena.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 89 }
       },
@@ -484,7 +468,7 @@ setup.townData.professions = {
        sv: 2400,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs gloves.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -492,7 +476,7 @@ setup.townData.professions = {
        sv: 6550,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'a smith who specializes in precious metals.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -500,7 +484,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'a food merchant.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 27 }
       },
@@ -508,7 +492,7 @@ setup.townData.professions = {
        sv: 150,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'a person who keeps watch, especially a soldier or other person formally assigned to protect a person or to control access to a place.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -516,15 +500,15 @@ setup.townData.professions = {
        sv: 4150,
        type: 'profession',
        sector: 'business',
-       description: '',
+       description: 'leads an economically independent producer (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
-    'hatmaker': {
+    'hatter': {
        sv: 950,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs headwear.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -532,13 +516,13 @@ setup.townData.professions = {
        sv: 950,
        type: 'profession',
        sector: 'magic',
-       description: '',
+       description: 'able to cure a disease or injury using magic.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
     'herald': {
        sv: 550,
-       type: '',
+       type: 'a messenger who carries important news.',
        sector: 'craftsmanship',
        description: '',
        socialClass: 'peasantry',
@@ -548,7 +532,7 @@ setup.townData.professions = {
        sv: 850,
        type: 'business',
        sector: 'science',
-       description: '',
+       description: 'practices healing by the use of herbs.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 60 + dice(4, 6) }
       },
@@ -556,7 +540,7 @@ setup.townData.professions = {
        sv: 950,
        type: 'profession',
        sector: 'outcast',
-       description: '',
+       description: 'lives in solitude, typically as a religious or spiritual discipline.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -564,7 +548,7 @@ setup.townData.professions = {
        sv: 4150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'an expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -572,7 +556,7 @@ setup.townData.professions = {
        sv: 250,
        type: 'labourer',
        sector: 'self employed',
-       description: '',
+       description: 'hunts game or other wild animals.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -580,7 +564,7 @@ setup.townData.professions = {
        sv: 1950,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'collects and sells ice',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 24 }
       },
@@ -588,7 +572,7 @@ setup.townData.professions = {
        sv: 750,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'owns and runs an inn.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -596,7 +580,7 @@ setup.townData.professions = {
        sv: 2250,
        type: 'profession',
        sector: 'business',
-       description: '',
+       description: 'invented a particular process or device, or invents things as an occupation.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -604,7 +588,7 @@ setup.townData.professions = {
        sv: 1250,
        type: 'labourer',
        sector: 'military',
-       description: '',
+       description: 'supervises a jail and the prisoners in it.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -612,7 +596,7 @@ setup.townData.professions = {
        sv: 2250,
        type: 'profession',
        sector: 'arts',
-       description: '',
+       description: 'professional joker',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 42 }
       },
@@ -620,7 +604,7 @@ setup.townData.professions = {
        sv: 400,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'designs, makes, and repairs necklaces, bracelets, rings, etc., often containing jewels.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -628,7 +612,7 @@ setup.townData.professions = {
        sv: 850,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'decides cases in a court of law.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -636,7 +620,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'serves his or her sovereign after being bestowed a rank of royal honor.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -644,7 +628,7 @@ setup.townData.professions = {
        sv: 1550,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'some sort of noble',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -652,7 +636,7 @@ setup.townData.professions = {
        sv: 750,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes items from leather such as pouches, scabbards, straps, etc.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -660,7 +644,7 @@ setup.townData.professions = {
        sv: 3150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'administers or assists in a library.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -668,7 +652,7 @@ setup.townData.professions = {
        sv: 5150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'studies the essence of communication, including the units, nature, structure, and modification of language.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -676,7 +660,7 @@ setup.townData.professions = {
        sv: 1900,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs locks.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -684,7 +668,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'some sort of noble',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -692,7 +676,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'fells trees, cuts them into logs, and transports them to a sawmill.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -700,23 +684,15 @@ setup.townData.professions = {
        sv: 250,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'a domestic servant of a household.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
-      },
-    'mason': {
-       sv: 500,
-       type: 'business',
-       sector: 'craftsmanship',
-       description: '',
-       socialClass: 'peasantry',
-       socialClassRoll: function () { return 40 + dice(4, 6) }
       },
     'masseur': {
        sv: 1550,
        type: 'profession',
        sector: 'business',
-       description: '',
+       description: 'performs massages',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -724,7 +700,7 @@ setup.townData.professions = {
        sv: 650,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'sells and trades goods.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -732,7 +708,7 @@ setup.townData.professions = {
        sv: 1250,
        type: 'labourer',
        sector: 'communications',
-       description: '',
+       description: 'carries messages between recipients.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -740,7 +716,7 @@ setup.townData.professions = {
        sv: 650,
        type: 'labourer',
        sector: 'science',
-       description: '',
+       description: 'assists in childbirth and the care of women giving birth.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -748,7 +724,7 @@ setup.townData.professions = {
        sv: 650,
        type: 'business',
        sector: 'agriculture',
-       description: '',
+       description: 'owns or works in a grain mill.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -756,7 +732,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'works underground in mines in order to obtain minerals such as coal, diamonds, or gold.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 }
       },
@@ -764,7 +740,7 @@ setup.townData.professions = {
        sv: 950,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'assists with the administration of business.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -772,15 +748,15 @@ setup.townData.professions = {
        sv: 1450,
        type: 'profession',
        sector: 'arts',
-       description: '',
+       description: 'recites lyric or heroic poetry for nobility.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
-    'monk': {
+    'friar': {
        sv: 1450,
        type: 'profession',
        sector: 'religion',
-       description: '',
+       description: 'a member of a religious community of men, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 5 + dice(8, 6) }
       },
@@ -788,7 +764,7 @@ setup.townData.professions = {
        sv: 650,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'prepares dead bodies for burial or cremation and makes arrangements for funerals.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -796,7 +772,7 @@ setup.townData.professions = {
        sv: 6150,
        type: 'profession',
        sector: 'magic',
-       description: '',
+       description: 'communicates with and conjures the spirits of the dead.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -804,15 +780,7 @@ setup.townData.professions = {
        sv: 3150,
        type: 'profession',
        sector: 'government and law',
-       description: '',
-       socialClass: 'nobility',
-       socialClassRoll: function () { return 50 + dice(8, 6) }
-      },
-    'nobleman': {
-       sv: 3150,
-       type: 'profession',
-       sector: 'government and law',
-       description: '',
+       description: 'a person belonging to a class with high social or political status.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -820,7 +788,7 @@ setup.townData.professions = {
        sv: 2150,
        type: 'profession',
        sector: 'religion',
-       description: '',
+       description: 'a member of a religious community of women, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -828,15 +796,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'profession',
        sector: 'science',
-       description: '',
-       socialClass: 'commoner',
-       socialClassRoll: function () { return 50 + dice(8, 6) }
-      },
-    'officer': {
-       sv: 1150,
-       type: 'profession',
-       sector: 'military',
-       description: '',
+       description: 'cares for the sick or infirm, especially in a hospital.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -844,7 +804,7 @@ setup.townData.professions = {
        sv: 1500,
        type: 'business',
        sector: 'arts',
-       description: '',
+       description: 'paints pictures using a variety of different substances.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -852,7 +812,7 @@ setup.townData.professions = {
        sv: 1500,
        type: 'business',
        sector: 'hospitality',
-       description: '',
+       description: 'maker or seller of pastries and cakes',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -860,7 +820,7 @@ setup.townData.professions = {
        sv: 3150,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'expert on creating perfume compositions',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -868,7 +828,7 @@ setup.townData.professions = {
        sv: 7150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'a scholar of the fundamental nature of knowledge, reality, and existence.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -876,7 +836,7 @@ setup.townData.professions = {
        sv: 4150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'a qualified practitioner of medicine.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -884,7 +844,7 @@ setup.townData.professions = {
        sv: 5150,
        type: 'labourer',
        sector: 'outcast',
-       description: '',
+       description: 'journeys to some sacred place as an act of religious devotion, occasionally to settle there.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 }
       },
@@ -892,7 +852,7 @@ setup.townData.professions = {
        sv: 4000,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: ' holding or seeking office in government.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -900,7 +860,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes pots, bowls, plates, etc., out of clay.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -908,7 +868,7 @@ setup.townData.professions = {
        sv: 750,
        type: 'profession',
        sector: 'religion',
-       description: '',
+       description: 'has the authority to perform certain rites and administer certain sacraments.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -916,7 +876,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'labourer',
        sector: 'military',
-       description: '',
+       description: 'engages in maritime warfare under a commission of war.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 }
       },
@@ -924,7 +884,7 @@ setup.townData.professions = {
        sv: 3150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'a teacher of the highest rank in a college or university.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -932,7 +892,7 @@ setup.townData.professions = {
        sv: 1800,
        type: 'labourer',
        sector: 'construction',
-       description: '',
+       description: 'builds and repairs roofs.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -940,7 +900,7 @@ setup.townData.professions = {
        sv: 1850,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'braids rope.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -948,7 +908,7 @@ setup.townData.professions = {
        sv: 1850,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs rugs by braiding, hooking, weaving, etc.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -956,7 +916,7 @@ setup.townData.professions = {
        sv: 1000,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs saddlery.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -964,23 +924,15 @@ setup.townData.professions = {
        sv: 150,
        type: 'labourer',
        sector: 'transportation',
-       description: '',
+       description: 'works as a member of the crew of a commercial or naval ship or boat.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
-      },
-    'scabbard maker': {
-       sv: 875,
-       type: 'business',
-       sector: 'craftsmanship',
-       description: '',
-       socialClass: 'peasantry',
-       socialClassRoll: function () { return 40 + dice(4, 6) }
       },
     'sculptor': {
        sv: 250,
        type: 'business',
        sector: 'arts',
-       description: '',
+       description: 'crafts art by carving or casting blocks of marble, stones, or other hardened minerals.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -988,7 +940,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'labourer',
        sector: 'unemployed',
-       description: '',
+       description: 'searches for and collects discarded items.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 22 }
       },
@@ -996,7 +948,7 @@ setup.townData.professions = {
        sv: 2250,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'a specialist in a particular branch of study who pursues the acquisition of knowledge.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1004,7 +956,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes, alters, repairs, as well as occasionally designing garments.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -1012,7 +964,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'profession',
        sector: 'magic',
-       description: '',
+       description: 'able to see what the future holds through supernatural insight.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1020,7 +972,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'labourer',
        sector: 'hospitality',
-       description: '',
+       description: 'performs duties for others, especially a person employed in a house or as a personal attendant.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 }
       },
@@ -1028,7 +980,7 @@ setup.townData.professions = {
        sv: 750,
        type: 'profession',
        sector: 'magic',
-       description: '',
+       description: 'accesses and influences the world of good and evil spirits.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1036,7 +988,7 @@ setup.townData.professions = {
        sv: 150,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'herds, tends, and guards sheep.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -1044,7 +996,7 @@ setup.townData.professions = {
        sv: 950,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'commands a ship.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1052,7 +1004,7 @@ setup.townData.professions = {
        sv: 150,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes shoes out of different materials',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1060,7 +1012,7 @@ setup.townData.professions = {
        sv: 1250,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'a smith who specializes in precious metals.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1068,7 +1020,7 @@ setup.townData.professions = {
        sv: 150,
        type: 'labourer',
        sector: 'outcast',
-       description: '',
+       description: 'a person who is the legal property of another and forced to obey them.',
        socialClass: 'indentured servitude',
        socialClassRoll: function () { return 40 }
       },
@@ -1076,15 +1028,7 @@ setup.townData.professions = {
        sv: 650,
        type: 'business',
        sector: 'business',
-       description: '',
-       socialClass: 'peasantry',
-       socialClassRoll: function () { return 40 + dice(4, 6) }
-      },
-    'smith': {
-       sv: 750,
-       type: 'business',
-       sector: 'craftsmanship',
-       description: '',
+       description: 'deals with or owns slaves',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1092,7 +1036,7 @@ setup.townData.professions = {
        sv: 1000,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'serves in an army.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1100,7 +1044,7 @@ setup.townData.professions = {
        sv: 1500,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'sells different kinds of spices',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1108,7 +1052,7 @@ setup.townData.professions = {
        sv: 950,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'acts as an attendant to a knight before attempting to become a knight themselves.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1116,7 +1060,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'labourer',
        sector: 'agriculture',
-       description: '',
+       description: 'works in a stable.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 }
       },
@@ -1124,7 +1068,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'labourer',
        sector: 'labour',
-       description: '',
+       description: 'loads and unloads cargo from ships',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -1132,7 +1076,7 @@ setup.townData.professions = {
        sv: 750,
        type: 'business',
        sector: 'construction',
-       description: '',
+       description: 'cuts and prepares stone for use in construction.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1140,7 +1084,7 @@ setup.townData.professions = {
        sv: 950,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'supervises both the estate and household of his lord or lady while they are away.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1148,7 +1092,7 @@ setup.townData.professions = {
        sv: 550,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'hocks goods on the street',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1156,7 +1100,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'labourer',
        sector: 'labour',
-       description: '',
+       description: 'cleans streets of a town',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 }
       },
@@ -1164,7 +1108,7 @@ setup.townData.professions = {
        sv: 3150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'attends school or learns under other to enter and pursue a particular subject.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1172,7 +1116,7 @@ setup.townData.professions = {
        sv: 4150,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'practices surgery.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1180,7 +1124,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'profession',
        sector: 'business',
-       description: '',
+       description: 'establishes maps and boundaries for ownership or other purposes required by government or civil law.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1188,7 +1132,7 @@ setup.townData.professions = {
        sv: 250,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes, alters, repairs, as well as occasionally designing garments.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1196,7 +1140,7 @@ setup.townData.professions = {
        sv: 200,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'treats the skins and hides of animals to produce leather.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1204,7 +1148,7 @@ setup.townData.professions = {
        sv: 450,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'owns or runs a tavern',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1212,7 +1156,7 @@ setup.townData.professions = {
        sv: 1850,
        type: 'profession',
        sector: 'government and law',
-       description: '',
+       description: 'collects unpaid taxes from people, guilds, or businesses.',
        socialClass: 'nobility',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1220,7 +1164,7 @@ setup.townData.professions = {
        sv: 1450,
        type: 'profession',
        sector: 'science',
-       description: '',
+       description: 'instructs on a particular skill or subject.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1228,7 +1172,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'labourer',
        sector: 'construction',
-       description: '',
+       description: 'builds and repairs roofs',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -1236,7 +1180,7 @@ setup.townData.professions = {
        sv: 850,
        type: 'profession',
        sector: 'crime',
-       description: '',
+       description: 'steals peoples property, especially by stealth and without using force or violence.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1244,7 +1188,7 @@ setup.townData.professions = {
        sv: 1850,
        type: 'profession',
        sector: 'military',
-       description: '',
+       description: 'inflicts severe pain on someone as a punishment or in order to force them to do or say something.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1252,15 +1196,15 @@ setup.townData.professions = {
        sv: 750,
        type: 'labourer',
        sector: 'communications',
-       description: '',
+       description: 'makes public announcements in the streets or marketplace.',
        socialClass: 'paupery',
        socialClassRoll: function () { return 40 }
       },
     'toymaker': {
-       sv: 2150,
+       sv: 2500,
        type: 'profession',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes and repairs toys.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1268,7 +1212,7 @@ setup.townData.professions = {
        sv: 1150,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'deals items in the street.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1276,7 +1220,7 @@ setup.townData.professions = {
        sv: 1250,
        type: 'profession',
        sector: 'agriculture',
-       description: '',
+       description: 'treats diseased or injured animals.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1284,7 +1228,7 @@ setup.townData.professions = {
        sv: 850,
        type: 'profession',
        sector: 'agriculture',
-       description: '',
+       description: 'engages in winemaking, especially with monitoring and harvesting the grapes.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1292,7 +1236,7 @@ setup.townData.professions = {
        sv: 600,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'makes fabric by weaving fiber together.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -1300,7 +1244,7 @@ setup.townData.professions = {
        sv: 350,
        type: 'labourer',
        sector: 'labour',
-       description: '',
+       description: "a woman employed to suckle another woman's child.",
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 }
       },
@@ -1308,7 +1252,7 @@ setup.townData.professions = {
        sv: 2450,
        type: 'business',
        sector: 'craftsmanship',
-       description: '',
+       description: 'fashions wood into various shapes.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1316,7 +1260,7 @@ setup.townData.professions = {
        sv: 2150,
        type: 'business',
        sector: 'business',
-       description: '',
+       description: 'sells wood, typically logs.',
        socialClass: 'peasantry',
        socialClassRoll: function () { return 40 + dice(4, 6) }
       },
@@ -1324,7 +1268,7 @@ setup.townData.professions = {
        sv: 6150,
        type: 'labourer',
        sector: 'craftsmanship',
-       description: '',
+       description: 'performs in matches involving grappling and grappling-type techniques.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 40 }
       },
@@ -1332,7 +1276,7 @@ setup.townData.professions = {
        sv: 7150,
        type: 'profession',
        sector: 'arts',
-       description: '',
+       description: 'commits his or her thoughts, ideas, etc., into written language.',
        socialClass: 'commoner',
        socialClassRoll: function () { return 50 + dice(8, 6) }
       },
@@ -1376,14 +1320,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cowherd': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'supervises grazing cattle.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Dairyboy/Dairymaid': {
 	sv: ,
 	type: '',
@@ -1397,22 +1333,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'keeps, trains, and hunts with falcons, hawks, or other birds of prey.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Farmer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'operates a farm or cultivates land.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Fisher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'catches fish.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1480,22 +1400,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Hunter': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'hunts game or other wild animals.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Lumberjack': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'fells trees, cuts them into logs, and transports them to a sawmill.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Master-of-Horses': {
 	sv: ,
 	type: '',
@@ -1509,22 +1413,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'maintains a pack of hounds and their associated staff, equipment, and hunting arrangements.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Miller': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'owns or works in a grain mill.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Miner': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'works underground in mines in order to obtain minerals such as coal, diamonds, or gold.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1552,35 +1440,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ranger': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'wanders or ranges over a particular area or domain.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Renderer': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'converts waste animal tissue into usable materials.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Shepherd': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'herds, tends, and guards sheep.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Stablehand': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'works in a stable.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1600,14 +1464,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Vintner': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'engages in winemaking, especially with monitoring and harvesting the grapes.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Zookeeper': {
 	sv: ,
 	type: '',
@@ -1616,35 +1472,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Architect': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'designs buildings or landscapes and in many cases supervises their construction.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Brickmaker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'crafts bricks from clay, stone, or other materials.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Brickmason': {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'builds with mineral products such as stones, bricks, cinder blocks, or tiles, usually with the use of mortar as a bonding agent.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Carpenter': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs wooden objects and structures.',
+	description: 'crafts bricks from clay, stone, or other materials.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1688,35 +1520,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Roofer/Thatcher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'builds and repairs roofs.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Stonemason': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'cuts and prepares stone for use in construction.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Acrobat': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'performs spectacular gymnastic feats.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Actor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'impersonates characters, typically on stage in a theatrical production.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1757,14 +1565,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'a famous person.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Chef': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a professional cook trained in the culinary arts.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1824,14 +1624,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Dancer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'moves their body rhythmically with or without musical accompaniment.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Equilibrist': {
 	sv: ,
 	type: '',
@@ -1848,27 +1640,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Gladiator': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'fights against other people, wild animals, or monsters in an arena.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Glasspainter': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'produces colorful designs on or in glass.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Jester': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'professional joker or (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1904,14 +1680,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Minstrel': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'recites lyric or heroic poetry for nobility.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Model': {
 	sv: ,
 	type: '',
@@ -1925,14 +1693,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'plays a musical instrument.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Painter': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'paints pictures.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -1965,14 +1725,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'walks along a tightrope to entertain others.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Sculptor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'crafts art by carving or casting blocks of marble, stones, or other hardened minerals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2021,22 +1773,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'supervises and orchestrates the mounting of a theatre production by unifying various endeavors and aspects of production.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Wrestler': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'performs in matches involving grappling and grappling-type techniques.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Writer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'commits his or her thoughts, ideas, etc., into written language.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2104,14 +1840,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Banker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'an officer or owner of a bank or group of banks.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Bagniokeeper': {
 	sv: ,
 	type: '',
@@ -2128,14 +1856,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chandler': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'deals in provisions and supplies.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Collector': {
 	sv: ,
 	type: '',
@@ -2149,46 +1869,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'organizes and operates a business or businesses, taking on greater than normal financial risks in order to do so.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Grocer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a food merchant.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Guild Master': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'leads an economically independent producer (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).'
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Innkeeper': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'owns and runs an inn.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Land Surveyor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'establishes maps and boundaries for ownership or other purposes required by government or civil law.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Merchant': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'sells and trades goods.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2213,14 +1893,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'travels from place to place selling assorted items.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Pimp/Madame': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'controls prostitutes and arranges clients for them, taking part of their earnings in return.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2256,14 +1928,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Vendor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'deals items in the street.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Billboardposter': {
 	sv: ,
 	type: '',
@@ -2280,43 +1944,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Herald': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: ' a messenger who carries important news.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Interpreter': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: ' interprets language and its meaning, especially within ancient manuscripts.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Linguist': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: ' studies the essence of communication, including the units, nature, structure, and modification of language.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Messenger': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: ' carries messages between recipients.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Town Crier': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: ' makes public announcements in the streets or marketplace.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2333,22 +1965,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'makes currency for the government.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Armorer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'specializes in making and repairing armor.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Blacksmith': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'forges and repairs things in metal, including weapons, armor, utensils, etc.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2384,14 +2000,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Brewer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'brews ale.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Broom Maker': {
 	sv: ,
 	type: '',
@@ -2413,22 +2021,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'makes and repairs carts and wagons.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Cobbler': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs footwear.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Cooper/Hooper': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs casks and barrels.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2488,43 +2080,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Furrier': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'prepares furs for adornment.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Glassworker': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'blows glass planes and items.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Glovemaker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs gloves.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Goldsmith/Silversmith': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a smith who specializes in precious metals.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Hatter/Milliner': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs headwear.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2541,30 +2101,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'turns stone, minerals, or gemstones into decorative items such as cabochons, engraved gems, and faceted designs.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Leatherworker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes items from leather such as pouches, scabbards, straps, etc.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Jeweler': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'designs, makes, and repairs necklaces, bracelets, watches, etc., often containing jewels.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Locksmith': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs locks.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2592,14 +2128,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Potter': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes pots, bowls, plates, etc., out of clay.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Printer': {
 	sv: ,
 	type: '',
@@ -2616,51 +2144,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Ropemaker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'braids rope.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Rugmaker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs rugs by braiding, hooking, weaving, etc.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Saddler': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs saddlery.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Seamstress/Tailor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes, alters, repairs, as well as occasionally designing garments.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Soaper': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'makes soap from accumulated mutton fat, wood ash, and natural soda.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Tanner': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'treats the skins and hides of animals to produce leather.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2680,22 +2168,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Toymaker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs toys.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Watchmaker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes and repairs watches and clocks.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Weaponsmith': {
 	sv: ,
 	type: '',
@@ -2704,27 +2176,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Weaver': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'makes fabric by weaving fiber together.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Wheelwright': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'makes and repairs wooden wheels.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Whittler/Woodcarver': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'fashions wood into various shapes.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -2896,14 +2352,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Thief': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'steals peoples property, especially by stealth and without using force or violence.'
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Affeeror': {
 	sv: ,
 	type: '',
@@ -2984,22 +2432,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Courtier': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'attends court as a companion or adviser to the king or queen.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Diplomat': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'an official representing a country abroad.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Duke/Duchess': {
 	sv: ,
 	type: '',
@@ -3016,14 +2448,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Judge': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'decides cases in a court of law.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'King/Queen': {
 	sv: ,
 	type: '',
@@ -3032,27 +2456,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Knight': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'serves his or her sovereign after being bestowed a rank of royal honor.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Lady-in-Waiting': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'attends a queen, princess, or other high-ranking feminine nobleperson.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Lawyer/Advocate': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'practices or studies law, typically an attorney or a counselor.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3077,22 +2485,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'responsible for overseeing royal festivities.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Minister': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'assists with the administration of business.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Noble/Aristocrat': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a person belonging to a class with high social or political status.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3152,30 +2544,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Steward': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'supervises both the estate and household of his lord or lady while they are away.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Squire': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'acts as an attendant to a knight before attempting to become a knight themselves.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Tax Collector': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'collects unpaid taxes from people, guilds, or businesses.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Viscount/Viscountess': {
 	sv: ,
 	type: '',
@@ -3208,22 +2576,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Baker': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'bakes bread and cakes.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Barber': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'cuts hair and shaves or trims beards.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Barkeep': {
 	sv: ,
 	type: '',
@@ -3232,22 +2584,7 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Barmaid/Barboy': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'serves drinks and food in a bar as well as engaging with customers.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Butcher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'cuts up and sells meat.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
+
 'Butler': {
 	sv: ,
 	type: '',
@@ -3296,14 +2633,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cook': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'prepares food for eating.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Copyist': {
 	sv: ,
 	type: '',
@@ -3333,14 +2662,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'ingests food that was prepared for someone else to confirm it is safe to eat.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Gardener/Landscaper': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'tends and cultivates a garden.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3416,14 +2737,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Maid': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a domestic servant of a household.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Nanny/Nursemaid': {
 	sv: ,
 	type: '',
@@ -3480,14 +2793,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Servant': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'performs duties for others, especially a person employed in a house or as a personal attendant.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Stagehand': {
 	sv: ,
 	type: '',
@@ -3528,14 +2833,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Wet Nurse': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a woman employed to suckle another woman'
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},'s child.
 'Abjurer': {
 	sv: ,
 	type: '',
@@ -3568,27 +2865,12 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Bard': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'uses their artistic talents to induce magical effects.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
+
 'Conjuror': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'conjures spirits or familiars.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Druid': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a mage attuned to the magical forces of nature, able to shapeshift, call on the elements, communicate with flora and fauna, etc.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3613,14 +2895,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'manipulates energy or taps into an unseen source of power in order to produce a desired kinetic end.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Healer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'able to cure a disease or injury using magic.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3664,14 +2938,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Necromancer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'communicates with and conjures the spirits of the dead.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Ritualist': {
 	sv: ,
 	type: '',
@@ -3696,35 +2962,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Seer/Oracle': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'able to see what the future holds through supernatural insight.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Shaman': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'accesses and influences the world of good and evil spirits.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Shapeshifter': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'a person with the ability to change their physical form.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Sorcerer/Sorceress': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'derives their magical abilities innately rather than through study.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3744,14 +2986,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Warlock': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a mage who has gained their abilities by forming a pact with an otherworldly being.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Witchdoctor': {
 	sv: ,
 	type: '',
@@ -3765,14 +2999,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'a woman who has supernatural powers and practices sorcery, typically in solitude.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Wizard': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'derives their magical abilities through study.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3813,14 +3039,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'prevents troublemakers from entering or to eject them from the premises of an establishment.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Captain': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'an army officer of high rank in charge of commanding squadrons of soldiers.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3904,22 +3122,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Guard/Sentinel': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a person who keeps watch, especially a soldier or other person formally assigned to protect a person or to control access to a place.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'General': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'the chief commander of an army.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Inspection Officer': {
 	sv: ,
 	type: '',
@@ -3933,14 +3135,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'collects, compiles and organizes information about the enemy.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Jailer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'supervises a jail and the prisoners in it.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -3981,14 +3175,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'a soldier without allegiance who works for money, typically a member of a company or guild.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Privateer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'engages in maritime warfare under a commission of war.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4064,14 +3250,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Soldier/Man-at-Arms': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'serves in an army.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Special Force Soldier': {
 	sv: ,
 	type: '',
@@ -4101,14 +3279,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'collects tolls at a bridge, road etc. where a charge is made.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Torturer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'inflicts severe pain on someone as a punishment or in order to force them to do or say something.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4184,22 +3354,7 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Chaplain': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a member of the clergy attached to a private chapel, institution, ship, branch of the armed forces, etc.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Cleric': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'has devoted their entire being to the will of their god, thus gaining magical powers.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
+
 'Confessor': {
 	sv: ,
 	type: '',
@@ -4280,35 +3435,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Nun': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a member of a religious community of women, especially a cloistered one, living under vows of poverty, chastity, and obedience.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Paladin': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a holy knight and divine spellcaster crusading in the name of good and order.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Pardoner': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'raises money for religious works by soliciting offerings and granting indulgences.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Priest': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'has the authority to perform certain rites and administer certain sacraments.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4344,27 +3475,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Accoucheur/Obstetrician/Midwife': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'assists in childbirth and the care of women giving birth.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Anthropologist': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'studies the customs, beliefs, and relationships of humanoids and intellectually and culturally advanced creatures.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Apothecary': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'prepares and sells medicines, drugs, and potions.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4384,14 +3499,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Archivist': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'maintains and is in charge of archives.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Assayer': {
 	sv: ,
 	type: '',
@@ -4400,14 +3507,7 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Astrologer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'uses astrology to tell others about their character or to predict their future.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
+
 'Astronomer': {
 	sv: ,
 	type: '',
@@ -4432,14 +3532,6 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Cartographer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a scholar and illustrator of maps.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Chemist': {
 	sv: ,
 	type: '',
@@ -4453,14 +3545,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'the head of a college or university.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Doctor/Physician': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a qualified practitioner of medicine.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4488,35 +3572,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Herbalist': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'practices healing by the use of herbs.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Historian': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'an expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Horologist': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'a scholar of time and entropy.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Librarian': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'administers or assists in a library.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4528,51 +3588,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Mortician': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'prepares dead bodies for burial or cremation and makes arrangements for funerals.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Nurse': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'cares for the sick or infirm, especially in a hospital.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Optometrist': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'examines the eyes for visual defects and prescribes eyeglasses.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Philosopher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a scholar of the fundamental nature of knowledge, reality, and existence.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Professor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a teacher of the highest rank in a college or university.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Scholar/Researcher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a specialist in a particular branch of study who pursues the acquisition of knowledge.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4584,35 +3604,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Student': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'attends school or learns under other to enter and pursue a particular subject.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Surgeon/Chirurgeon': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'practices surgery.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Taxonomist': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'groups organisms into categories.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Teacher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'instructs on a particular skill or subject.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4629,14 +3625,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'charged with the instruction and guidance of another.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Veterinarian': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'treats diseased or injured animals.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4676,15 +3664,7 @@ setup.townData.professions = {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'waits on the orders of a ship'
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},'s officers and passengers.
-'Caravaneer': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'travels or lives in a caravan.',
+	description: 'waits on the orders of a ships officers and passengers.'
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4743,22 +3723,7 @@ setup.townData.professions = {
 	description: 'keeps the accounts of a ship, especially as the head steward on a passenger vessel.',
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},
-'Sailor': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'works as a member of the crew of a commercial or naval ship or boat.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Sea Captain': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'commands a ship.',
-	socialClass: '',
-	socialClassRoll: function () { return }
+	},lClassRoll: function () { return }
 	},
 'Shipwright': {
 	sv: ,
@@ -4904,27 +3869,11 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
-'Hermit': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'lives in solitude, typically as a religious or spiritual discipline.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
 'Housewife/Househusband': {
 	sv: ,
 	type: '',
 	sector: '',
 	description: 'cares for his or her family by managing household affairs and completing housework.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Pilgrim': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'journeys to some sacred place as an act of religious devotion, occasionally to settle there.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
@@ -4965,22 +3914,6 @@ setup.townData.professions = {
 	type: '',
 	sector: '',
 	description: 'a slave who has left their master and traveled without authorization.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Scavenger/Mudlark/Tosher': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'searches for and collects discarded items.',
-	socialClass: '',
-	socialClassRoll: function () { return }
-	},
-'Slave': {
-	sv: ,
-	type: '',
-	sector: '',
-	description: 'a person who is the legal property of another and forced to obey them.',
 	socialClass: '',
 	socialClassRoll: function () { return }
 	},
