@@ -13,35 +13,25 @@ setup.leaderFaction = function (town, faction) {
     faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.seededrandom()
   }
 
-  if (faction.roll.leaderBribes > 95) {
-    faction.leaderBribes = 'will never, under any circumstances be accepted'
-  } else if (faction.roll.leaderBribes > 90) {
-    faction.leaderBribes = 'will never be accepted, and will be met with instant excommunication'
-  } else if (faction.roll.leaderBribes > 80) {
-    faction.leaderBribes = 'are treated as insults'
-  } else if (faction.roll.leaderBribes > 70) {
-    faction.leaderBribes = 'will be met with laughter'
-  } else if (faction.roll.leaderBribes > 60) {
-    faction.leaderBribes = 'are scorned'
-  } else if (faction.roll.leaderBribes > 55) {
-    faction.leaderBribes = 'are uncommon, and frowned upon'
-  } else if (faction.roll.leaderBribes > 50) {
-    faction.leaderBribes = 'will usually be rejected'
-  } else if (faction.roll.leaderBribes > 45) {
-    faction.leaderBribes = 'depend on circumstances'
-  } else if (faction.roll.leaderBribes > 40) {
-    faction.leaderBribes = 'are sometimes accepted'
-  } else if (faction.roll.leaderBribes > 30) {
-    faction.leaderBribes = 'will be bargained about'
-  } else if (faction.roll.leaderBribes > 20) {
-    faction.leaderBribes = 'will usually be accepted'
-  } else if (faction.roll.leaderBribes > 10) {
-    faction.leaderBribes = 'are a regular part of business'
-  } else if (faction.roll.leaderBribes <= 5) {
-    faction.leaderBribes = 'are expected'
-  } else {
-    faction.leaderBribes = 'depend on circumstances'
-  }
+  const isLargerThan = setup.createModifier(function (a, b) {
+    return a > b
+  })
+
+  faction.leaderBribes = isLargerThan(faction.roll.leaderBribes, {
+    95: 'will never, under any circumstances be accepted',
+    90: 'will never be accepted, and will be met with instant excommunication',
+    80: 'are treated as insults',
+    70: 'will be met with laughter',
+    60: 'are scorned',
+    55: 'are uncommon, and frowned upon',
+    50: 'will usually be rejected',
+    45: 'depend on circumstances',
+    40: 'are sometimes accepted',
+    30: 'will be bargained about',
+    20: 'will usually be accepted',
+    10: 'are a regular part of business',
+    5: 'depend on circumstances'
+  }, 'are expected')
 
   if (faction.roll.leaderCompetence > 95) {
     faction.leaderCompetence = 'ruthlessly efficient'
