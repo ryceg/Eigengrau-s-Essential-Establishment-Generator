@@ -44,11 +44,11 @@ setup.createRivals = function (faction) {
     let tempGroup
     let groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
 
-    const largerThanOrEqual = setup.createModifier(function (value, key) {
+    const byLargerOrEqual = setup.createModifier(function (value, key) {
       return value >= key
     })
 
-    const tempGroupSize = largerThanOrEqual(groupSizeRoll, {
+    const tempGroupSize = byLargerOrEqual(groupSizeRoll, {
       90: 'a guild of ',
       80: 'a veritable army of ',
       70: 'a large number of ',
