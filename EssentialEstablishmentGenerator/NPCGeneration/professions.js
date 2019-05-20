@@ -1868,10 +1868,10 @@ setup.townData.professions = {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'professional joker or '
+	description: 'professional joker or (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).'
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},“fool” at court, typically wearing a cap with bells on it and carrying a mock scepter.
+	},
 'Juggler': {
 	sv: ,
 	type: '',
@@ -2164,10 +2164,10 @@ setup.townData.professions = {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'leads an economically independent producer '
+	description: 'leads an economically independent producer (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).'
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},(a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).
+	},
 'Innkeeper': {
 	sv: ,
 	type: '',
@@ -2604,10 +2604,10 @@ setup.townData.professions = {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'a person who applies pressure to an inked surface resting upon a print medium '
+	description: 'a person who applies pressure to an inked surface resting upon a print medium (such as paper or cloth), thereby transferring the ink to manufacture a text.'
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},(such as paper or cloth), thereby transferring the ink to manufacture a text.
+	},
 'Restorer': {
 	sv: ,
 	type: '',
@@ -2900,10 +2900,10 @@ setup.townData.professions = {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'steals people'
+	description: 'steals peoples property, especially by stealth and without using force or violence.'
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},’s property, especially by stealth and without using force or violence.
+	},
 'Affeeror': {
 	sv: ,
 	type: '',
@@ -3676,18 +3676,18 @@ setup.townData.professions = {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'practices or advocates the observance of ritual '
+	description: 'practices or advocates the observance of ritual (formula intended to trigger a magical effect on a person or objects).'
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},(formula intended to trigger a magical effect on a person or objects).
+	},
 'Runecaster': {
 	sv: ,
 	type: '',
 	sector: '',
-	description: 'uses special alphabets to create runes '
+	description: 'uses special alphabets to create runes (symbols possessing magical effects capable of being used multiple times)'
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},(symbols possessing magical effects capable of being used multiple times).
+	},.
 'Sage': {
 	sv: ,
 	type: '',
@@ -4031,7 +4031,7 @@ setup.townData.professions = {
 	description: 'an officer instructed with a protective duty, typically worth '
 	socialClass: '',
 	socialClassRoll: function () { return }
-	},“half a knight” in regard.
+	},
 'Sergeant-at-Arms': {
 	sv: ,
 	type: '',
@@ -5008,4 +5008,5 @@ setup.townData.professions = {
 	socialClass: '',
 	socialClassRoll: function () { return }
 	}
-  }
+
+}
