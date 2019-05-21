@@ -1280,7 +1280,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
-  'Animal/Monster Handler': {
+  'animal/Monster Handler': {
     sv: 5000,
     type: 'profession',
     sector: 'agriculture',
@@ -1288,7 +1288,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Arborist: {
+  arborist: {
     sv: 1000,
     type: 'profession',
     sector: 'agriculture',
@@ -1296,7 +1296,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Baler: {
+  baler: {
     sv: 800,
     type: 'profession',
     sector: 'agriculture',
@@ -1304,7 +1304,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Beekeeper: {
+  beekeeper: {
     sv: 2000,
     type: 'profession',
     sector: 'agriculture',
@@ -1312,7 +1312,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Breeder: {
+  breeder: {
     sv: 1000,
     type: 'profession',
     sector: 'agriculture',
@@ -1320,7 +1320,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Dairymaid: {
+  dairymaid: {
     sv: 500,
     type: 'profession',
     sector: 'agriculture',
@@ -1328,7 +1328,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Falconer: {
+  falconer: {
     sv: 4000,
     type: 'profession',
     sector: 'agriculture',
@@ -1336,7 +1336,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Florist: {
+  florist: {
     sv: 3500,
     type: 'business',
     sector: 'agriculture',
@@ -1344,7 +1344,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Forager: {
+  forager: {
     sv: 500,
     type: 'profession',
     sector: 'agriculture',
@@ -1352,7 +1352,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Forester: {
+  forester: {
     sv: 1000,
     type: 'labourer',
     sector: 'agriculture',
@@ -1360,7 +1360,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Fowler: {
+  fowler: {
     sv: 750,
     type: 'profession',
     sector: 'agriculture',
@@ -1368,7 +1368,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Gamekeeper: {
+  gamekeeper: {
     sv: 4500,
     type: 'profession',
     sector: 'agriculture',
@@ -1376,7 +1376,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Groom: {
+  groom: {
     sv: 2500,
     type: 'profession',
     sector: 'agriculture',
@@ -1384,7 +1384,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Herder: {
+  herder: {
     sv: 100,
     type: 'profession',
     sector: 'agriculture',
@@ -1392,7 +1392,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Horse Trainer': {
+  'horse Trainer': {
     sv: 1000,
     type: 'profession',
     sector: 'agriculture',
@@ -1400,7 +1400,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Master-of-Horses': {
+  'master-of-Horses': {
     sv: 5000,
     type: 'profession',
     sector: 'agriculture',
@@ -1408,7 +1408,7 @@ setup.townData.professions = {
     socialClass: 'nobility',
     socialClassRoll () { }
   },
-  'Master-of-Hounds': {
+  'master-of-Hounds': {
     sv: 7500,
     type: 'profession',
     sector: 'agriculture',
@@ -1416,7 +1416,7 @@ setup.townData.professions = {
     socialClass: 'nobility',
     socialClassRoll () { }
   },
-  Pathfinder: {
+  pathfinder: {
     sv: 1000,
     type: 'profession',
     sector: 'agriculture',
@@ -1424,7 +1424,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Plumer: {
+  plumer: {
     sv: 2000,
     type: 'profession',
     sector: 'agriculture',
@@ -1432,7 +1432,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Prospector: {
+  prospector: {
     sv: 500,
     type: 'labourer',
     sector: 'mining',
@@ -1440,7 +1440,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Renderer: {
+  renderer: {
     sv: 3500,
     type: 'profession',
     sector: 'agriculture',
@@ -1448,7 +1448,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Thresher: {
+  thresher: {
     sv: 300,
     type: 'labourer',
     sector: 'agriculture',
@@ -1456,7 +1456,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Trapper: {
+  trapper: {
     sv: 800,
     type: 'profession',
     sector: 'agriculture',
@@ -1464,7 +1464,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Zookeeper: {
+  zookeeper: {
     sv: 10000,
     type: 'profession',
     sector: 'agriculture',
@@ -1472,7 +1472,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  'Construction Worker': {
+  'construction Worker': {
     sv: 300,
     type: 'labourer',
     sector: 'construction',
@@ -1480,7 +1480,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'General Contractor': {
+  'general Contractor': {
     sv: 5000,
     type: 'profession',
     sector: 'construction',
@@ -1488,7 +1488,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Glazier: {
+  glazier: {
     sv: 500,
     type: 'labourer',
     sector: 'construction',
@@ -1496,7 +1496,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Plasterer: {
+  plasterer: {
     sv: 750,
     type: 'labourer',
     sector: 'construction',
@@ -1504,7 +1504,7 @@ setup.townData.professions = {
     socialClass: 'peasnatry',
     socialClassRoll () { }
   },
-  'Roadlayer/Streetlayer': {
+  'roadlayer/Streetlayer': {
     sv: 3000,
     type: 'labourer',
     sector: 'construction',
@@ -1512,7 +1512,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Acrobat: {
+  acrobat: {
     sv: 2500,
     type: 'profession',
     sector: 'arts',
@@ -1520,7 +1520,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Trapezist: {
+  trapezist: {
     sv: 3500,
     type: 'profession',
     sector: 'arts',
@@ -1528,7 +1528,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Arranger: {
+  arranger: {
     sv: 2000,
     type: 'profession',
     sector: 'arts',
@@ -1536,7 +1536,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Athlete: {
+  athlete: {
     sv: 500,
     type: 'profession',
     sector: 'labourer',
@@ -1544,7 +1544,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Busker: {
+  busker: {
     sv: 2000,
     type: 'profession',
     sector: 'outcast',
@@ -1552,7 +1552,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Celebrity: {
+  celebrity: {
     sv: 10000,
     type: 'profession',
     sector: 'arts',
@@ -1560,7 +1560,7 @@ setup.townData.professions = {
     socialClass: 'nobility',
     socialClassRoll () { }
   },
-  Choirmaster: {
+  choirmaster: {
     sv: 1000,
     type: 'profession',
     sector: 'arts',
@@ -1568,7 +1568,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Clown: {
+  clown: {
     sv: 3000,
     type: 'profession',
     sector: 'arts',
@@ -1576,7 +1576,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Comedian: {
+  comedian: {
     sv: 5000,
     type: 'profession',
     sector: 'arts',
@@ -1584,7 +1584,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Conductor: {
+  conductor: {
     sv: 8000,
     type: 'profession',
     sector: 'arts',
@@ -1592,7 +1592,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Contortionist: {
+  contortionist: {
     sv: 5000,
     type: 'profession',
     sector: 'arts',
@@ -1600,7 +1600,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Curator: {
+  curator: {
     sv: 2500,
     type: 'business',
     sector: 'arts',
@@ -1608,7 +1608,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Costumer: {
+  costumer: {
     sv: 3500,
     type: 'profession',
     sector: 'arts',
@@ -1616,7 +1616,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Equilibrist: {
+  equilibrist: {
     sv: 3000,
     type: 'profession',
     sector: 'arts',
@@ -1624,7 +1624,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Fashion Designer': {
+  'fashion Designer': {
     sv: 5000,
     type: 'business',
     sector: 'arts',
@@ -1632,7 +1632,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Glasspainter: {
+  glasspainter: {
     sv: 5000,
     type: 'profession',
     sector: 'arts',
@@ -1640,7 +1640,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Juggler: {
+  juggler: {
     sv: 3000,
     type: 'profession',
     sector: 'arts',
@@ -1648,7 +1648,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Limner: {
+  limner: {
     sv: 7000,
     type: 'profession',
     sector: 'arts',
@@ -1656,7 +1656,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Makeup Artist': {
+  'makeup Artist': {
     sv: 4500,
     type: 'profession',
     sector: 'arts',
@@ -1664,7 +1664,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Model: {
+  model: {
     sv: 3500,
     type: 'profession',
     sector: 'arts',
@@ -1672,7 +1672,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Musician: {
+  musician: {
     sv: 800,
     type: 'profession',
     sector: 'arts',
@@ -1680,7 +1680,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Playwright: {
+  playwright: {
     sv: 2500,
     type: 'profession',
     sector: 'arts',
@@ -1688,7 +1688,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Poet: {
+  poet: {
     sv: 3500,
     type: 'profession',
     sector: 'arts',
@@ -1696,7 +1696,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Ringmaster: {
+  ringmaster: {
     sv: 3500,
     type: 'business',
     sector: 'arts',
@@ -1704,7 +1704,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Ropewalker: {
+  ropewalker: {
     sv: 4000,
     type: 'profession',
     sector: 'arts',
@@ -1712,7 +1712,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Singer: {
+  singer: {
     sv: 2000,
     type: 'profession',
     sector: 'arts',
@@ -1720,7 +1720,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Skald: {
+  skald: {
     sv: 5000,
     type: 'profession',
     sector: 'arts',
@@ -1728,7 +1728,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Stage Magician': {
+  'stage Magician': {
     sv: 3500,
     type: 'profession',
     sector: 'arts',
@@ -1736,7 +1736,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Stuntman: {
+  stuntman: {
     sv: 5000,
     type: 'profession',
     sector: 'arts',
@@ -1744,7 +1744,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Tattooist: {
+  tattooist: {
     sv: 3000,
     type: 'business',
     sector: 'arts',
@@ -1752,7 +1752,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Theater Director': {
+  'theater Director': {
     sv: 5000,
     type: 'business',
     sector: 'arts',
@@ -1760,7 +1760,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Accountant: {
+  accountant: {
     sv: 3000,
     type: 'business',
     sector: 'business',
@@ -1768,7 +1768,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Actuary: {
+  actuary: {
     sv: 6000,
     type: 'business',
     sector: 'government and law',
@@ -1776,7 +1776,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Animal Collector': {
+  'animal Collector': {
     sv: 10000,
     type: 'business',
     sector: 'agriculure',
@@ -1784,7 +1784,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  'Business Owner': {
+  'business Owner': {
     sv: 500,
     type: 'business',
     sector: 'business',
@@ -1792,7 +1792,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  'Debt Collector': {
+  'debt Collector': {
     sv: 3500,
     type: 'business',
     sector: 'business',
@@ -1800,7 +1800,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Draper: {
+  draper: {
     sv: 2500,
     type: 'business',
     sector: 'business',
@@ -1808,7 +1808,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Appraiser: {
+  appraiser: {
     sv: 5000,
     type: 'profession',
     sector: 'business',
@@ -1816,7 +1816,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Auctioneer: {
+  auctioneer: {
     sv: 4500,
     type: 'profession',
     sector: 'bbusiness',
@@ -1824,7 +1824,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Bagniokeeper: {
+  bagniokeeper: {
     sv: 1500,
     type: 'business',
     sector: 'business',
@@ -1832,7 +1832,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Bookkeeper: {
+  bookkeeper: {
     sv: 2500,
     type: 'business',
     sector: 'business',
@@ -1840,7 +1840,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Collector: {
+  collector: {
     sv: 3000,
     type: 'business',
     sector: 'business',
@@ -1848,7 +1848,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Entrepreneur: {
+  entrepreneur: {
     sv: 500,
     type: 'business',
     sector: 'business',
@@ -1856,7 +1856,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Moneychanger: {
+  moneychanger: {
     sv: 2500,
     type: 'business',
     sector: 'government and law',
@@ -1864,7 +1864,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Moneylender: {
+  moneylender: {
     sv: 1500,
     type: 'business',
     sector: 'business',
@@ -1872,7 +1872,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Peddler: {
+  peddler: {
     sv: 350,
     type: 'business',
     sector: 'business',
@@ -1880,7 +1880,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Plantation Owner': {
+  'plantation Owner': {
     sv: 1500,
     type: 'business',
     sector: 'business',
@@ -1888,7 +1888,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Thriftdealer: {
+  thriftdealer: {
     sv: 800,
     type: 'business',
     sector: 'business',
@@ -1896,7 +1896,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Tradesman: {
+  tradesman: {
     sv: 500,
     type: 'business',
     sector: 'business',
@@ -1904,7 +1904,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Billboard poster': {
+  'billboard poster': {
     sv: 1000,
     type: 'labourer',
     sector: 'business',
@@ -1912,7 +1912,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Courier: {
+  courier: {
     sv: 300,
     type: 'labourer',
     sector: 'business',
@@ -1920,7 +1920,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Interpreter: {
+  interpreter: {
     sv: 5000,
     type: 'profession',
     sector: 'business',
@@ -1928,7 +1928,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Translator: {
+  translator: {
     sv: 2000,
     type: 'profession',
     sector: 'hospitality',
@@ -1936,7 +1936,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Coinsmith: {
+  coinsmith: {
     sv: 10000,
     type: 'business',
     sector: 'craftsmanship',
@@ -1944,7 +1944,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Bladesmith: {
+  bladesmith: {
     sv: 3000,
     type: 'business',
     sector: 'craftsmanship',
@@ -1952,7 +1952,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Bookbinder: {
+  bookbinder: {
     sv: 5000,
     type: 'business',
     sector: 'craftsmanship',
@@ -1960,7 +1960,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Bottler: {
+  bottler: {
     sv: 3000,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -1968,7 +1968,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Bowyer: {
+  bowyer: {
     sv: 500,
     type: 'business',
     sector: 'craftsmanship',
@@ -1976,7 +1976,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Broom Maker': {
+  'broom Maker': {
     sv: 4500,
     type: 'business',
     sector: 'craftsmanship',
@@ -1984,7 +1984,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Candlemaker: {
+  candlemaker: {
     sv: 2000,
     type: 'business',
     sector: 'craftsmanship',
@@ -1992,7 +1992,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Cartwright: {
+  cartwright: {
     sv: 500,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2000,7 +2000,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Cutler: {
+  cutler: {
     sv: 7500,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2008,7 +2008,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Dyer: {
+  dyer: {
     sv: 5000,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2016,7 +2016,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Embroiderer: {
+  embroiderer: {
     sv: 2500,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2024,7 +2024,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Engraver: {
+  engraver: {
     sv: 1000,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2032,7 +2032,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Farrier: {
+  farrier: {
     sv: 2000,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2040,7 +2040,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Fletcher: {
+  fletcher: {
     sv: 1500,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2048,7 +2048,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Furniture Artisan': {
+  'furniture Artisan': {
     sv: 2500,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2056,7 +2056,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Glassworker: {
+  glassworker: {
     sv: 5000,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2064,7 +2064,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Instrument Maker': {
+  'instrument Maker': {
     sv: 7500,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2072,7 +2072,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Lapidary: {
+  lapidary: {
     sv: 5000,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2080,7 +2080,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Luthier: {
+  luthier: {
     sv: 8500,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2088,7 +2088,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Mercer: {
+  mercer: {
     sv: 2500,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2096,7 +2096,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Optician: {
+  optician: {
     sv: 6500,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2104,7 +2104,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Printer: {
+  printer: {
     sv: 2000,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2112,7 +2112,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Restorer: {
+  restorer: {
     sv: 10000,
     type: 'profession',
     sector: 'arts',
@@ -2120,7 +2120,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Soaper: {
+  soaper: {
     sv: 3000,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2128,7 +2128,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Taxidermist: {
+  taxidermist: {
     sv: 4000,
     type: 'profession',
     sector: 'craftsmanship',
@@ -2136,7 +2136,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Tinker: {
+  tinker: {
     sv: 3000,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2144,7 +2144,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Weaponsmith: {
+  weaponsmith: {
     sv: 2500,
     type: 'business',
     sector: 'craftsmanship',
@@ -2152,7 +2152,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Wheelwright: {
+  wheelwright: {
     sv: 1500,
     type: 'labourer',
     sector: 'craftsmanship',
@@ -2160,7 +2160,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Assassin: {
+  assassin: {
     sv: 5000,
     type: 'profession',
     sector: 'crime',
@@ -2168,7 +2168,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Bandit: {
+  bandit: {
     sv: 8000,
     type: 'profession',
     sector: 'crime',
@@ -2176,7 +2176,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Burglar: {
+  burglar: {
     sv: 500,
     type: 'profession',
     sector: 'crime',
@@ -2184,7 +2184,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Conman: {
+  conman: {
     sv: 750,
     type: 'profession',
     sector: 'crime',
@@ -2192,7 +2192,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Gamefighter: {
+  gamefighter: {
     sv: 2000,
     type: 'profession',
     sector: 'crime',
@@ -2200,7 +2200,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Crime Boss': {
+  'crime Boss': {
     sv: 6000,
     type: 'profession',
     sector: 'crime',
@@ -2208,7 +2208,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Cutpurse: {
+  cutpurse: {
     sv: 500,
     type: 'profession',
     sector: 'crime',
@@ -2216,7 +2216,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Drug Dealer': {
+  'drug Dealer': {
     sv: 1500,
     type: 'profession',
     sector: 'crime',
@@ -2224,7 +2224,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Drug Lord': {
+  'drug Lord': {
     sv: 6000,
     type: 'profession',
     sector: 'crime',
@@ -2232,7 +2232,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Extortioner: {
+  extortioner: {
     sv: 2000,
     type: 'profession',
     sector: 'crime',
@@ -2240,7 +2240,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Fence: {
+  fence: {
     sv: 10000,
     type: 'profession',
     sector: 'crime',
@@ -2248,7 +2248,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Forger: {
+  forger: {
     sv: 10000,
     type: 'profession',
     sector: 'crime',
@@ -2256,7 +2256,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Fugitive: {
+  fugitive: {
     sv: 2500,
     type: 'labourer',
     sector: 'crime',
@@ -2264,7 +2264,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Highwayman: {
+  highwayman: {
     sv: 500,
     type: 'profession',
     sector: 'crime',
@@ -2272,7 +2272,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Kidnapper: {
+  kidnapper: {
     sv: 1500,
     type: 'profession',
     sector: 'crime',
@@ -2280,7 +2280,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'Loan Shark': {
+  'loan Shark': {
     sv: 4500,
     type: 'profession',
     sector: 'crime',
@@ -2288,7 +2288,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  Pirate: {
+  pirate: {
     sv: 1500,
     type: 'profession',
     sector: 'crime',
@@ -2296,7 +2296,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Poacher: {
+  poacher: {
     sv: 5000,
     type: 'labourer',
     sector: 'crime',
@@ -2304,7 +2304,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Poisoner: {
+  poisoner: {
     sv: 7000,
     type: 'business',
     sector: 'crime',
@@ -2312,7 +2312,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Marauder: {
+  marauder: {
     sv: 3000,
     type: 'profession',
     sector: 'crime',
@@ -2320,7 +2320,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Smuggler: {
+  smuggler: {
     sv: 2500,
     type: 'profession',
     sector: 'crime',
@@ -2328,7 +2328,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  Affeeror: {
+  affeeror: {
     sv: 10000,
     type: '',
     sector: '',
@@ -2336,7 +2336,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Agister: {
+  agister: {
     sv: 1500,
     type: '',
     sector: '',
@@ -2344,7 +2344,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Alderman: {
+  alderman: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2352,7 +2352,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Alienist: {
+  alienist: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2360,7 +2360,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Assay Master': {
+  'assay Master': {
     sv: 10000,
     type: '',
     sector: '',
@@ -2368,7 +2368,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Baron: {
+  baron: {
     sv: 2500,
     type: '',
     sector: '',
@@ -2376,7 +2376,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Chancellor: {
+  chancellor: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2384,7 +2384,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Conservationist: {
+  conservationist: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2392,7 +2392,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Count: {
+  count: {
     sv: 7000,
     type: '',
     sector: '',
@@ -2400,7 +2400,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Duke: {
+  duke: {
     sv: 15000,
     type: '',
     sector: '',
@@ -2408,7 +2408,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Emperor/Empress': {
+  'emperor/Empress': {
     sv: 25000,
     type: '',
     sector: '',
@@ -2416,7 +2416,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  King: {
+  king: {
     sv: 20000,
     type: '',
     sector: '',
@@ -2424,7 +2424,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Lady-in-Waiting': {
+  'lady-in-Waiting': {
     sv: 3000,
     type: '',
     sector: '',
@@ -2432,7 +2432,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Marquess: {
+  marquess: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2440,7 +2440,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Master-of-Coin': {
+  'master-of-Coin': {
     sv: 7500,
     type: '',
     sector: '',
@@ -2448,7 +2448,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Master-of-the-Revels': {
+  'master-of-the-Revels': {
     sv: 1000,
     type: '',
     sector: '',
@@ -2456,7 +2456,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Notary: {
+  notary: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2464,7 +2464,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Orator: {
+  orator: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2472,7 +2472,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Page: {
+  page: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2480,7 +2480,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Prince: {
+  prince: {
     sv: 6000,
     type: '',
     sector: '',
@@ -2488,7 +2488,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Senator: {
+  senator: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2496,7 +2496,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Sheriff: {
+  sheriff: {
     sv: 4500,
     type: '',
     sector: '',
@@ -2504,7 +2504,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Spymaster: {
+  spymaster: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2512,7 +2512,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Viscount: {
+  viscount: {
     sv: 7000,
     type: '',
     sector: '',
@@ -2520,7 +2520,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Ward: {
+  ward: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2528,7 +2528,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Acater: {
+  acater: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2536,7 +2536,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Tunner: {
+  tunner: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2544,7 +2544,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Barkeep: {
+  barkeep: {
     sv: 500,
     type: '',
     sector: '',
@@ -2553,7 +2553,7 @@ setup.townData.professions = {
     socialClassRoll () { }
   },
 
-  Butler: {
+  butler: {
     sv: 2000,
     type: '',
     sector: '',
@@ -2561,7 +2561,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Caregiver: {
+  caregiver: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2569,7 +2569,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Charcoal Maker': {
+  'charcoal Maker': {
     sv: 2500,
     type: '',
     sector: '',
@@ -2577,7 +2577,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Chatelaine: {
+  chatelaine: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2585,7 +2585,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Chimney Sweeper': {
+  'chimney Sweeper': {
     sv: 2500,
     type: '',
     sector: '',
@@ -2593,7 +2593,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Clerk: {
+  clerk: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2601,7 +2601,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Copyist: {
+  copyist: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2609,7 +2609,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Croupier: {
+  croupier: {
     sv: 1500,
     type: '',
     sector: '',
@@ -2617,7 +2617,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Exterminator: {
+  exterminator: {
     sv: 2000,
     type: '',
     sector: '',
@@ -2625,7 +2625,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Food & Drink Taster': {
+  'food & Drink Taster': {
     sv: 3500,
     type: '',
     sector: '',
@@ -2633,7 +2633,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Gongfarmer: {
+  gongfarmer: {
     sv: 800,
     type: '',
     sector: '',
@@ -2641,7 +2641,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Gravedigger: {
+  gravedigger: {
     sv: 500,
     type: '',
     sector: '',
@@ -2649,7 +2649,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Groundskeeper: {
+  groundskeeper: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2657,7 +2657,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Kitchen Drudge': {
+  'kitchen Drudge': {
     sv: 500,
     type: '',
     sector: '',
@@ -2665,7 +2665,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Knacker: {
+  knacker: {
     sv: 2000,
     type: '',
     sector: '',
@@ -2673,7 +2673,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Lamplighter: {
+  lamplighter: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2681,7 +2681,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Laundry Worker': {
+  'laundry Worker': {
     sv: 2500,
     type: '',
     sector: '',
@@ -2689,7 +2689,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Lector: {
+  lector: {
     sv: 4000,
     type: '',
     sector: '',
@@ -2697,7 +2697,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Longshoreman: {
+  longshoreman: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2705,7 +2705,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Nanny/Nursemaid': {
+  'nanny/Nursemaid': {
     sv: 800,
     type: '',
     sector: '',
@@ -2713,7 +2713,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Operator: {
+  operator: {
     sv: 2500,
     type: '',
     sector: '',
@@ -2721,7 +2721,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Pastry Chef': {
+  'pastry Chef': {
     sv: 1500,
     type: '',
     sector: '',
@@ -2729,7 +2729,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Plumber: {
+  plumber: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2737,7 +2737,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Porter: {
+  porter: {
     sv: 3000,
     type: '',
     sector: '',
@@ -2745,7 +2745,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Prostitute: {
+  prostitute: {
     sv: 400,
     type: '',
     sector: '',
@@ -2753,7 +2753,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Quarryman/Quarrywoman': {
+  'quarryman/Quarrywoman': {
     sv: 1200,
     type: '',
     sector: '',
@@ -2761,7 +2761,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Stagehand: {
+  stagehand: {
     sv: 2500,
     type: '',
     sector: '',
@@ -2769,7 +2769,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Street Cleaner': {
+  'street Cleaner': {
     sv: 4000,
     type: '',
     sector: '',
@@ -2777,7 +2777,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Talent Scout': {
+  'talent Scout': {
     sv: 7000,
     type: '',
     sector: '',
@@ -2785,7 +2785,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Trainer: {
+  trainer: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2793,7 +2793,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Water Bearer': {
+  'water Bearer': {
     sv: 200,
     type: '',
     sector: '',
@@ -2801,7 +2801,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Abjurer: {
+  abjurer: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2809,7 +2809,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Alchemist: {
+  alchemist: {
     sv: 2000,
     type: '',
     sector: '',
@@ -2817,7 +2817,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Archmage: {
+  archmage: {
     sv: 15000,
     type: '',
     sector: '',
@@ -2825,7 +2825,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Artificer: {
+  artificer: {
     sv: 7500,
     type: '',
     sector: '',
@@ -2834,7 +2834,7 @@ setup.townData.professions = {
     socialClassRoll () { }
   },
 
-  Conjuror: {
+  conjuror: {
     sv: 7000,
     type: '',
     sector: '',
@@ -2842,7 +2842,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Elementalist: {
+  elementalist: {
     sv: 8000,
     type: '',
     sector: '',
@@ -2850,7 +2850,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Enchanter: {
+  enchanter: {
     sv: 7500,
     type: '',
     sector: '',
@@ -2858,7 +2858,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Evoker: {
+  evoker: {
     sv: 8000,
     type: '',
     sector: '',
@@ -2866,7 +2866,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Hearth Witch': {
+  'hearth Witch': {
     sv: 6000,
     type: '',
     sector: '',
@@ -2874,7 +2874,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Illusionist: {
+  illusionist: {
     sv: 7500,
     type: '',
     sector: '',
@@ -2882,7 +2882,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Mage: {
+  mage: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2890,7 +2890,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Medium: {
+  medium: {
     sv: 8000,
     type: '',
     sector: '',
@@ -2898,7 +2898,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Meteorologist: {
+  meteorologist: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2906,7 +2906,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Ritualist: {
+  ritualist: {
     sv: 4000,
     type: '',
     sector: '',
@@ -2914,7 +2914,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Runecaster: {
+  runecaster: {
     sv: 10000,
     type: '',
     sector: '',
@@ -2922,7 +2922,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Sage: {
+  sage: {
     sv: 10000,
     type: '',
     sector: '',
@@ -2930,7 +2930,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Shapeshifter: {
+  shapeshifter: {
     sv: 7000,
     type: '',
     sector: '',
@@ -2938,7 +2938,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Summoner: {
+  summoner: {
     sv: 8000,
     type: '',
     sector: '',
@@ -2946,7 +2946,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Transmuter: {
+  transmuter: {
     sv: 8000,
     type: '',
     sector: '',
@@ -2954,7 +2954,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Witchdoctor: {
+  witchdoctor: {
     sv: 3500,
     type: '',
     sector: '',
@@ -2962,7 +2962,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Witch: {
+  witch: {
     sv: 4000,
     type: '',
     sector: '',
@@ -2970,7 +2970,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Wordsmith: {
+  wordsmith: {
     sv: 9000,
     type: '',
     sector: '',
@@ -2978,7 +2978,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Admiral: {
+  admiral: {
     sv: 1000,
     type: '',
     sector: '',
@@ -2986,7 +2986,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Bailiff: {
+  bailiff: {
     sv: 5000,
     type: '',
     sector: '',
@@ -2994,7 +2994,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Bodyguard: {
+  bodyguard: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3002,7 +3002,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Bouncer: {
+  bouncer: {
     sv: 2500,
     type: '',
     sector: '',
@@ -3010,7 +3010,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Castellan: {
+  castellan: {
     sv: 8000,
     type: '',
     sector: '',
@@ -3018,7 +3018,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Cavalier: {
+  cavalier: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3026,7 +3026,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'City Watch': {
+  'city Watch': {
     sv: 4500,
     type: '',
     sector: '',
@@ -3034,7 +3034,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Commissar: {
+  commissar: {
     sv: 7500,
     type: '',
     sector: '',
@@ -3042,7 +3042,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Constable: {
+  constable: {
     sv: 500,
     type: '',
     sector: '',
@@ -3050,7 +3050,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Investigator: {
+  investigator: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3058,7 +3058,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Fifer: {
+  fifer: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3066,7 +3066,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Duelist: {
+  duelist: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3074,7 +3074,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Executioner: {
+  executioner: {
     sv: 2500,
     type: '',
     sector: '',
@@ -3082,7 +3082,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Firefighter: {
+  firefighter: {
     sv: 500,
     type: '',
     sector: '',
@@ -3090,7 +3090,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Inspection Officer': {
+  'inspection Officer': {
     sv: 4000,
     type: '',
     sector: '',
@@ -3098,7 +3098,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Intelligence Officer': {
+  'intelligence Officer': {
     sv: 10000,
     type: '',
     sector: '',
@@ -3106,7 +3106,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Lieutenant: {
+  lieutenant: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3114,7 +3114,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Marksman: {
+  marksman: {
     sv: 800,
     type: '',
     sector: '',
@@ -3122,7 +3122,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Marshall: {
+  marshall: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3130,7 +3130,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Medic: {
+  medic: {
     sv: 600,
     type: '',
     sector: '',
@@ -3138,7 +3138,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Mercenary: {
+  mercenary: {
     sv: 800,
     type: '',
     sector: '',
@@ -3146,7 +3146,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Quartermaster: {
+  quartermaster: {
     sv: 3500,
     type: '',
     sector: '',
@@ -3154,7 +3154,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Royal Guard': {
+  'royal Guard': {
     sv: 5000,
     type: '',
     sector: '',
@@ -3162,7 +3162,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Runner: {
+  runner: {
     sv: 750,
     type: '',
     sector: '',
@@ -3170,7 +3170,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Sapper: {
+  sapper: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3178,7 +3178,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Sergeant: {
+  sergeant: {
     sv: 8000,
     type: '',
     sector: '',
@@ -3186,7 +3186,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Sergeant-at-Arms': {
+  'sergeant-at-Arms': {
     sv: 5000,
     type: '',
     sector: '',
@@ -3194,7 +3194,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Scout: {
+  scout: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3202,7 +3202,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Siege Artillerist': {
+  'siege Artillerist': {
     sv: 10000,
     type: '',
     sector: '',
@@ -3210,7 +3210,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Slave Driver': {
+  'slave Driver': {
     sv: 1500,
     type: '',
     sector: '',
@@ -3218,7 +3218,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Special Force Soldier': {
+  'special Force Soldier': {
     sv: 6000,
     type: '',
     sector: '',
@@ -3226,7 +3226,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Spy: {
+  spy: {
     sv: 4500,
     type: '',
     sector: '',
@@ -3234,7 +3234,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Tactician: {
+  tactician: {
     sv: 7000,
     type: '',
     sector: '',
@@ -3242,7 +3242,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Tollkeeper: {
+  tollkeeper: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3250,7 +3250,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Warden: {
+  warden: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3258,7 +3258,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Warmage: {
+  warmage: {
     sv: 10000,
     type: '',
     sector: '',
@@ -3266,7 +3266,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Abbot: {
+  abbot: {
     sv: 6000,
     type: '',
     sector: '',
@@ -3274,7 +3274,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Acolyte: {
+  acolyte: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3282,7 +3282,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Almoner: {
+  almoner: {
     sv: 1500,
     type: '',
     sector: '',
@@ -3290,7 +3290,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Archbishop: {
+  archbishop: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3298,7 +3298,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Bishop: {
+  bishop: {
     sv: 10000,
     type: '',
     sector: '',
@@ -3306,7 +3306,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Cantor: {
+  cantor: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3314,7 +3314,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Cardinal: {
+  cardinal: {
     sv: 6500,
     type: '',
     sector: '',
@@ -3323,7 +3323,7 @@ setup.townData.professions = {
     socialClassRoll () { }
   },
 
-  Confessor: {
+  confessor: {
     sv: 4000,
     type: '',
     sector: '',
@@ -3331,7 +3331,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Cultist: {
+  cultist: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3339,7 +3339,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Cult Leader': {
+  'cult Leader': {
     sv: 6000,
     type: '',
     sector: '',
@@ -3347,7 +3347,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Deacon: {
+  deacon: {
     sv: 800,
     type: '',
     sector: '',
@@ -3355,7 +3355,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Diviner: {
+  diviner: {
     sv: 9000,
     type: '',
     sector: '',
@@ -3363,7 +3363,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Exorcist: {
+  exorcist: {
     sv: 6000,
     type: '',
     sector: '',
@@ -3371,7 +3371,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'High Priest': {
+  'high Priest': {
     sv: 15000,
     type: '',
     sector: '',
@@ -3379,7 +3379,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Inquisitor: {
+  inquisitor: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3387,7 +3387,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Missionary: {
+  missionary: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3395,7 +3395,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Pardoner: {
+  pardoner: {
     sv: 700,
     type: '',
     sector: '',
@@ -3403,7 +3403,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Prophet: {
+  prophet: {
     sv: 8000,
     type: '',
     sector: '',
@@ -3411,7 +3411,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Sexton: {
+  sexton: {
     sv: 800,
     type: '',
     sector: '',
@@ -3419,7 +3419,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Templar: {
+  templar: {
     sv: 500,
     type: '',
     sector: '',
@@ -3427,7 +3427,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Abecedarian: {
+  abecedarian: {
     sv: 1500,
     type: '',
     sector: '',
@@ -3435,7 +3435,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Anthropologist: {
+  anthropologist: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3443,7 +3443,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Apprentice: {
+  apprentice: {
     sv: 200,
     type: '',
     sector: '',
@@ -3451,7 +3451,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Archaeologist: {
+  archaeologist: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3459,7 +3459,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Assayer: {
+  assayer: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3468,7 +3468,7 @@ setup.townData.professions = {
     socialClassRoll () { }
   },
 
-  Astronomer: {
+  astronomer: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3476,7 +3476,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Bloodletter: {
+  bloodletter: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3484,7 +3484,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Botanist: {
+  botanist: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3492,7 +3492,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Chemist: {
+  chemist: {
     sv: 3500,
     type: '',
     sector: '',
@@ -3500,7 +3500,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Dean: {
+  dean: {
     sv: 8000,
     type: '',
     sector: '',
@@ -3508,7 +3508,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Drakologist: {
+  drakologist: {
     sv: 10000,
     type: '',
     sector: '',
@@ -3516,7 +3516,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Engineer: {
+  engineer: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3524,7 +3524,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Entomologist: {
+  entomologist: {
     sv: 6000,
     type: '',
     sector: '',
@@ -3532,7 +3532,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Horologist: {
+  horologist: {
     sv: 8000,
     type: '',
     sector: '',
@@ -3540,7 +3540,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Mathematician: {
+  mathematician: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3548,7 +3548,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Optometrist: {
+  optometrist: {
     sv: 3000,
     type: '',
     sector: '',
@@ -3556,7 +3556,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Scribe: {
+  scribe: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3564,7 +3564,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Taxonomist: {
+  taxonomist: {
     sv: 15000,
     type: '',
     sector: '',
@@ -3572,7 +3572,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Theologian: {
+  theologian: {
     sv: 6000,
     type: '',
     sector: '',
@@ -3580,7 +3580,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Tutor: {
+  tutor: {
     sv: 600,
     type: '',
     sector: '',
@@ -3588,7 +3588,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Zoologist: {
+  zoologist: {
     sv: 3500,
     type: '',
     sector: '',
@@ -3596,7 +3596,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Boatman: {
+  boatman: {
     sv: 500,
     type: '',
     sector: '',
@@ -3604,7 +3604,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Bosun: {
+  bosun: {
     sv: 1000,
     type: '',
     sector: '',
@@ -3612,7 +3612,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Cabbie/Wagoner': {
+  'cabbie/Wagoner': {
     sv: 400,
     type: '',
     sector: '',
@@ -3620,7 +3620,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Charioteer: {
+  charioteer: {
     sv: 300,
     type: '',
     sector: '',
@@ -3628,7 +3628,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Carter: {
+  carter: {
     sv: 500,
     type: '',
     sector: '',
@@ -3636,7 +3636,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Ferryman: {
+  ferryman: {
     sv: 2500,
     type: '',
     sector: '',
@@ -3644,7 +3644,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'First Mate': {
+  'first Mate': {
     sv: 1000,
     type: '',
     sector: '',
@@ -3652,7 +3652,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Helmsman: {
+  helmsman: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3660,7 +3660,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Navigator: {
+  navigator: {
     sv: 1500,
     type: '',
     sector: '',
@@ -3668,7 +3668,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Purser: {
+  purser: {
     sv: 2500,
     type: '',
     sector: '',
@@ -3676,7 +3676,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Shipwright: {
+  shipwright: {
     sv: 3500,
     type: '',
     sector: '',
@@ -3684,7 +3684,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Adventurer: {
+  adventurer: {
     sv: 2000,
     type: '',
     sector: '',
@@ -3692,7 +3692,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Beggar/Pauper': {
+  'beggar/Pauper': {
     sv: 2500,
     type: '',
     sector: '',
@@ -3700,7 +3700,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Monster Hunter': {
+  'monster Hunter': {
     sv: 4500,
     type: '',
     sector: '',
@@ -3708,7 +3708,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Bounty Hunter': {
+  'bounty Hunter': {
     sv: 3500,
     type: '',
     sector: '',
@@ -3716,7 +3716,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Crossing Sweeper': {
+  'crossing Sweeper': {
     sv: 6500,
     type: '',
     sector: '',
@@ -3724,7 +3724,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Deserter: {
+  deserter: {
     sv: 3500,
     type: '',
     sector: '',
@@ -3732,7 +3732,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Disgraced Noble': {
+  'disgraced Noble': {
     sv: 5000,
     type: '',
     sector: '',
@@ -3740,7 +3740,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Drunkard: {
+  drunkard: {
     sv: 550,
     type: '',
     sector: '',
@@ -3748,7 +3748,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Dungeon Delver': {
+  'dungeon Delver': {
     sv: 5500,
     type: '',
     sector: '',
@@ -3756,7 +3756,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Elder: {
+  elder: {
     sv: 600,
     type: '',
     sector: '',
@@ -3764,7 +3764,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Exile: {
+  exile: {
     sv: 750,
     type: '',
     sector: '',
@@ -3772,7 +3772,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Explorer: {
+  explorer: {
     sv: 3500,
     type: '',
     sector: '',
@@ -3780,7 +3780,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Ex-Criminal': {
+  'ex-Criminal': {
     sv: 1200,
     type: '',
     sector: '',
@@ -3788,7 +3788,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Folk Hero': {
+  'folk Hero': {
     sv: 4000,
     type: '',
     sector: '',
@@ -3796,7 +3796,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Gambler: {
+  gambler: {
     sv: 800,
     type: '',
     sector: '',
@@ -3804,7 +3804,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Grave Robber': {
+  'grave Robber': {
     sv: 100,
     type: '',
     sector: '',
@@ -3812,7 +3812,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Heretic: {
+  heretic: {
     sv: 2500,
     type: '',
     sector: '',
@@ -3820,7 +3820,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Housewife: {
+  housewife: {
     sv: 150,
     type: '',
     sector: '',
@@ -3828,7 +3828,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Prisoner: {
+  prisoner: {
     sv: 350,
     type: '',
     sector: '',
@@ -3836,7 +3836,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Rag-and-Bone Man': {
+  'rag-and-Bone Man': {
     sv: 750,
     type: '',
     sector: '',
@@ -3844,7 +3844,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Political Dissident': {
+  'political Dissident': {
     sv: 4500,
     type: '',
     sector: '',
@@ -3852,7 +3852,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Refugee: {
+  refugee: {
     sv: 5000,
     type: '',
     sector: '',
@@ -3860,7 +3860,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  'Runaway Slave': {
+  'runaway Slave': {
     sv: 3000,
     type: '',
     sector: '',
@@ -3868,7 +3868,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Squatter: {
+  squatter: {
     sv: 800,
     type: '',
     sector: '',
@@ -3876,7 +3876,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Vagabond: {
+  vagabond: {
     sv: 1000,
     type: '',
     sector: '',
@@ -3884,7 +3884,7 @@ setup.townData.professions = {
     socialClass: '',
     socialClassRoll () { }
   },
-  Urchin: {
+  urchin: {
     sv: 500,
     type: '',
     sector: '',
