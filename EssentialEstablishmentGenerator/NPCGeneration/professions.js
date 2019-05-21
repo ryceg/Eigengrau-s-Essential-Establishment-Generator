@@ -165,7 +165,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'uses astrology to tell others about their character or to predict their future.',
-    socialClass: 'nobility',
+    socialClass: 'commoner',
     socialClassRoll () { return 89 }
   },
   baker: {
@@ -298,7 +298,7 @@ setup.townData.professions = {
   },
   cartographer: {
     sv: 1950,
-    type: '',
+    type: 'profession',
     sector: 'science',
     description: 'a scholar and illustrator of maps.',
     socialClass: 'nobility',
@@ -2330,162 +2330,162 @@ setup.townData.professions = {
   },
   Affeeror: {
     sv: 10000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'determines the values of fines and amercements.',
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   Agister: {
     sv: 1500,
-    type: '',
-    sector: '',
+    type: 'business',
+    sector: 'business',
     description: 'affords pasture to the livestock of others for a price.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Alderman: {
     sv: 1000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'a civic dignitary in the local council ranked below the mayor.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Alienist: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'assesses the competence of a defendant in a court of law.',
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'Assay Master': {
     sv: 10000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'oversees the testing of currency.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Baron: {
     sv: 2500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'a member of the lowest order of the nobility.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Chancellor: {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'a senior state or legal official.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Conservationist: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'advocates for the protection and preservation of the environment and wildlife.',
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   Count: {
     sv: 7000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'a nobleperson ranking above a viscount and below a marquess.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Duke: {
     sv: 15000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'rules over a duchy and is of the highest rank below the monarch.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
-  'Emperor/Empress': {
+  Emperor: {
     sv: 25000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'the supreme sovereign ruler of an extensive group of states or countries under a single authority.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   King: {
     sv: 20000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'the ruler of an independent state and its people.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   'Lady-in-Waiting': {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'labourer',
+    sector: 'government and law',
     description: 'attends a queen, princess, or other high-ranking feminine nobleperson.',
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   Marquess: {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'a nobleperson ranking above a count and below a duke.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   'Master-of-Coin': {
     sv: 7500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'supervises the royal treasury, advises the monarch on financial matters, and is responsible for raising money through taxation.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   'Master-of-the-Revels': {
     sv: 1000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'responsible for overseeing royal festivities.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Notary: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'performs certain legal formalities, especially to draw up or certify contracts, deeds, and other documents for use in other jurisdictions.',
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   Orator: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'makes statements on behalf of a group or individual nobleperson.',
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   Page: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'a young attendant to a person of noble rank.',
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   Prince: {
     sv: 6000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'government and law',
     description: 'the direct descendant of a monarch.',
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   Senator: {
