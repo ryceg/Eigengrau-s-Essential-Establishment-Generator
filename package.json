@@ -22,7 +22,10 @@
   },
   "browserslist": [
     "> 1%",
-    "not ie < 9"
+    "not ie < 9",
+    "cover 99.5%",
+    "maintained node versions",
+    "not dead"
   ],
   "husky": {
     "hooks": {
