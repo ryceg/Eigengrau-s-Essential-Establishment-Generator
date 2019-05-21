@@ -165,7 +165,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'uses astrology to tell others about their character or to predict their future.',
-    socialClass: 'commoner',
+    socialClass: 'nobility',
     socialClassRoll () { return 89 }
   },
   baker: {
