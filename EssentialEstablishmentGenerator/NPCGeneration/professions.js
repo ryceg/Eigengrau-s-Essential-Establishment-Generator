@@ -1996,7 +1996,7 @@ setup.townData.professions = {
   'animal Collector': {
     sv: 10000,
     type: 'business',
-    sector: 'agriculure',
+    sector: 'agriculture',
     description: 'collects and deals in rare and exotic animals and monsters.',
     dailyWage: 100,
     socialClass: 'commoner',
@@ -2041,7 +2041,7 @@ setup.townData.professions = {
   auctioneer: {
     sv: 4500,
     type: 'profession',
-    sector: 'bbusiness',
+    sector: 'business',
     description: 'conducts auctions by accepting bids and declaring goods sold.',
     dailyWage: 100,
     socialClass: 'peasantry',
@@ -2127,7 +2127,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { }
   },
-  thriftdealer: {
+  'thrift dealer': {
     sv: 800,
     type: 'business',
     sector: 'business',
@@ -2902,7 +2902,7 @@ setup.townData.professions = {
   'charcoal Maker': {
     sv: 2500,
     type: 'labourer',
-    sector: 'bsuiness',
+    sector: 'business',
     description: 'manufactures charcoal by carbonizing wood in a kiln.',
     dailyWage: 100,
     socialClass: 'peasantry',
@@ -3211,7 +3211,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'magic',
     description: 'manipulates nature’s elements to their will.',
-    socialClass: 'commonercommoner',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   enchanter: {
@@ -3621,7 +3621,7 @@ setup.townData.professions = {
   'slave driver': {
     sv: 1500,
     type: 'profession',
-    sector: 'agiculture',
+    sector: 'agriculture',
     description: 'oversees and urges on slaves at work.',
     dailyWage: 100,
     socialClass: 'peasantry',
