@@ -77,7 +77,7 @@ setup.tavern = {
     ]
   },
   'games': [
-    {
+   /* {
       'name': 'Passe-dix',
       'type': 'chance game',
       'description': "You see a <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $NPCgamer.hisher winnings from a <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight <<print $NPCgamebanker.raceSingular>> with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print either ('boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing')>>.",
@@ -111,13 +111,13 @@ setup.tavern = {
       'description': "A <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> and a <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
       'rules': '<blockquote> <<print random(12, 25)>> DC Athletics Check</blockquote>',
       'bet': random(6, 12)
-    },
+    }, */
     {
       'name': 'Two-Up',
       'type': 'gambling game',
       'description': 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> groaning whenever they both turned heads, and another <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
       'rules': "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
-      'bet': 10
+      'bet': random(4, 10)
     }
   ],
   'fun': [
