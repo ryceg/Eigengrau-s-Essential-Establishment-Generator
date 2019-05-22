@@ -1508,7 +1508,7 @@ setup.townData.professions = {
     description: 'grows and arranges plants and cut flowers.',
     dailyWage: 20,
     socialClass: 'commoner',
-    socialClassRoll () { }
+    socialClassRoll () { return 40 + dice(4, 12) }
   },
   forager: {
     sv: 500,
