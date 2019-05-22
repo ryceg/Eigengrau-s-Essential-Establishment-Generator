@@ -21,11 +21,7 @@
     "deploy": "gh-pages -d dist"
   },
   "browserslist": [
-    "> 1%",
-    "not ie < 9",
-    "cover 99.5%",
-    "maintained node versions",
-    "not dead"
+    "cover 99.5%"
   ],
   "husky": {
     "hooks": {
