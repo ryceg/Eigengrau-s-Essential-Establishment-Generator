@@ -1,4 +1,5 @@
 setup.townData = {
+  ...(setup.townData || {}),
   'name': {
     'prefix': ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
     'suffix': ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
@@ -248,7 +249,7 @@ setup.townData = {
         'profession': 'lord',
         'background': 'noble',
         'title': 'Lord',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 45,
@@ -270,7 +271,7 @@ setup.townData = {
         'hasClass': false,
         'background': 'noble',
         'title': 'Lord',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 15,
@@ -293,7 +294,7 @@ setup.townData = {
         'profession': 'prime minister',
         'background': 'commoner',
         'title': 'Lord',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': -15,
@@ -316,7 +317,7 @@ setup.townData = {
         'dndClass': 'rogue',
         'background': 'criminal',
         'title': 'High Thief',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': -35,
@@ -339,7 +340,7 @@ setup.townData = {
         'dndClass': 'wizard',
         'background': 'sage',
         'title': 'Archchancellor',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 2,
@@ -362,7 +363,7 @@ setup.townData = {
         'dndClass': 'fighter',
         'background': 'soldier',
         'title': 'Commander',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 25,
@@ -384,7 +385,7 @@ setup.townData = {
         'hasClass': false,
         'background': 'noble',
         'title': 'Lord',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 15,
@@ -406,7 +407,7 @@ setup.townData = {
         'hasClass': false,
         'background': 'scholar',
         'title': 'Sir',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 15,
@@ -430,7 +431,7 @@ setup.townData = {
         'background': 'acolyte',
         'title': 'High Priest',
         'gender': 'man',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 15,
@@ -453,7 +454,7 @@ setup.townData = {
         'profession': 'architect',
         'background': 'guild artisan',
         'title': 'Architect',
-        'socialClass': 'aristocracy'
+        'socialClass': 'nobility'
       },
       'modifiers': {
         'economics': 35,
@@ -1373,8 +1374,6 @@ setup.townData = {
           'plants': []
         }
       }
-
     }
-  },
-  
+  }
 }

@@ -407,7 +407,7 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           hasClass: false,
           background: 'charlatan',
-          profession: 'scammer'
+          profession: 'conman'
         })
         return 'a ' + setup.profile(npc, npc.description) + ' who calls out to you, and says "You look lost. Do you know your way around the city? I can guide you, for just <<money 50>>". <blockquote>' + npc.heshe.toUpperFirst() + ' will lead the players down an alley where ' + npc.hisher + ' compatriots will attempt to rob the players.</blockquote>'
       }
@@ -538,7 +538,7 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
-          profession: 'political candidate'
+          profession: 'politician'
         })
         return 'a ' + setup.profile(npc, 'political candidate') + ' who is arguing with a man over something.'
       }
@@ -554,7 +554,7 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
-          profession: 'political candidate'
+          profession: 'politician'
         })
         return 'a ' + setup.profile(npc, 'political candidate') + " that's being shouted at by a member of <<guard $town.guard>>."
       }
@@ -570,7 +570,7 @@ setup.townSquare = {
         var npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
-          profession: 'political'
+          profession: 'politician'
         })
         return 'a ' + setup.profile(npc, 'beuraucrat') + " that's trying to calm an angry crowd."
       }
@@ -615,7 +615,7 @@ setup.townSquare = {
           hasClass: false,
           ageStage: 'elderly',
           background: 'commoner',
-          profession: 'doomsayer'
+          profession: 'town crier'
         })
         return 'an exasperated ' + setup.profile(npc, 'haggard old man') + ' trying to convince passerby’s that god had told him something terrible was about to happen. He’s not entirely sure what he is supposed to do about it.'
       }

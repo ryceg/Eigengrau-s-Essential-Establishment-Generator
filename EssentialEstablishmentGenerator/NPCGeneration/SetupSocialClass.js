@@ -1,5 +1,5 @@
 
-setup.createsocialClass = function (town, npc) {
+setup.createSocialClass = function (town, npc) {
   console.log('Creating wealth class...')
   setup.socialClasses = [
     [95, 'aristocracy'],

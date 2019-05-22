@@ -188,7 +188,7 @@ setup.createNPC = function (town, base) {
   }
 
   setup.createSexuality(npc)
-  setup.createsocialClass(town, npc)
+  setup.createSocialClass(town, npc)
 
   if (npc.hasHistory !== false) {
     setup.createHistory(town, npc)
