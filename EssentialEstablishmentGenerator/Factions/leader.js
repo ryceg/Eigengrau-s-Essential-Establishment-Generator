@@ -13,11 +13,11 @@ setup.leaderFaction = function (town, faction) {
     faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.seededrandom()
   }
 
-  const byLarger = setup.createModifier(function (value, key) {
+  const firstLargerThan = setup.createModifier(function (value, key) {
     return value > key
   })
 
-  faction.leaderBribes = byLarger(faction.roll.leaderBribes, {
+  faction.leaderBribes = firstLargerThan(faction.roll.leaderBribes, {
     95: 'will never, under any circumstances be accepted',
     90: 'will never be accepted, and will be met with instant excommunication',
     80: 'are treated as insults',
@@ -33,7 +33,7 @@ setup.leaderFaction = function (town, faction) {
     5: 'depend on circumstances'
   }, 'are expected')
 
-  faction.leaderCompetence = byLarger(faction.roll.leaderCompetence, {
+  faction.leaderCompetence = firstLargerThan(faction.roll.leaderCompetence, {
     95: 'ruthlessly efficient',
     90: 'extremely efficient',
     80: 'very competent',
