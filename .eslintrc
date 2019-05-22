@@ -13,7 +13,7 @@
     "randomFloat": true,
     "clone": true,
     "tippy": true,
-    "$": true,
+    "$": true
   },
   "rules": {
     "compat/compat": "error"
