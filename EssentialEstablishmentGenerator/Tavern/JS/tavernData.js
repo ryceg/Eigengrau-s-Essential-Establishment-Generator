@@ -674,7 +674,7 @@ setup.tavern = {
       return 'A poor ' + setup.profile(npc, 'farmer') + ' is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.'
     },
     'seacaptain': function (town) {
-      var npc = setup.createNPC(town, { background: 'sailor', profession: 'sea captain', gender: 'man' })
+      var npc = setup.createNPC(town, { background: 'sailor', profession: "ship's captain", gender: 'man' })
       return 'A ' + setup.profile(npc, 'sea-captain') + ' has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.'
     },
     'ranger': function (town) {
@@ -682,11 +682,11 @@ setup.tavern = {
       return 'A ' + setup.profile(npc, 'ranger') + ' sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.'
     },
     'troll': function (town) {
-      var npc = setup.createNPC(town, { background: 'commoner', profession: 'troll', gender: 'man' })
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'drunkard', gender: 'man' })
       return 'A lone ' + setup.profile(npc, 'troll') + ' is drinking at the end of the bar and softly crying and singing one country ballad after another.'
     },
     'wizard': function (town) {
-      var npc = setup.createNPC(town, { background: 'sage', profession: 'magician', dndClass: 'wizard', gender: 'man' })
+      var npc = setup.createNPC(town, { background: 'sage', profession: 'wizard', dndClass: 'wizard', gender: 'man' })
       return 'A stoned ' + setup.profile(npc, 'magician') + ' is fumbling his way through one awful card trick after another.'
     },
     'elves': function (town) {
@@ -729,7 +729,7 @@ setup.tavern = {
       return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
     },
     'mophand': function (town) {
-      var npc = setup.createNPC(town, { background: 'commoner', profession: 'mophand', hasClass: false })
+      var npc = setup.createNPC(town, { background: 'commoner', profession: 'maid-servant', hasClass: false })
       return 'The ' + setup.profile(npc, 'toothless mop-hand') + " reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there."
     },
     'doppelganger': function (town) {

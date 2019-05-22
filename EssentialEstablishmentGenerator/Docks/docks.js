@@ -162,7 +162,7 @@ setup.docks = {
         },
         'a suspiciously regal and seasick looking sailor': {
           profession: 'seasick sailor',
-          socialClass: 'aristocracy',
+          socialClass: 'nobility',
           note: 'This character is a noble in hiding.'
         }
       },
@@ -494,32 +494,32 @@ setup.docks = {
     typePool: ['caravel', 'dory', 'drifter', 'herring buss', 'carrack', 'crayer', 'hoy', 'picard', 'galley', 'longship', 'balinger', 'frigate', 'galleon', 'galleass', 'galley', 'nef', 'barque'],
     captain: {
       'a seasoned veteran': {
-        profession: 'captain',
+        profession: "ship's captain",
         hasClass: false,
         background: 'sailor'
       },
       'a reformed pirate': {
-        profession: 'captain',
+        profession: "ship's captain",
         hasClass: false,
         background: 'sailor',
         note: 'A reformed pirate.'
       },
       'a nobleman with more money than sense': {
-        profession: 'captain',
+        profession: "ship's captain",
         hasClass: false,
         background: 'noble',
         note: 'Inexperienced on the sea.',
         gender: 'man'
       },
       'a relatively inexperienced, but gifted young lad': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         hasClass: false,
         gender: 'man',
         calmTrait: 'quick on his feet'
       },
       'a woman with a temper': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         hasClass: false,
         gender: 'woman',
@@ -527,7 +527,7 @@ setup.docks = {
         stressTrait: 'extremely snappy'
       },
       'a stern man, with a long beard': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         hasClass: false,
         gender: 'man',
@@ -536,13 +536,13 @@ setup.docks = {
         stressTrait: 'shouty'
       },
       'a dwarf that wanted to see the seas': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         race: 'dwarf',
         hasClass: false
       },
       'a man searching for his long lost lover': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         gender: 'man',
         hasClass: false,
@@ -553,30 +553,30 @@ setup.docks = {
         hasClass: false
       },
       'a half-orc with a passion for marine life': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         race: 'half-orc',
         hasClass: false
       },
       'a stoic woman with a quiet voice': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         gender: 'woman',
         vocalPattern: 'has a quiet voice',
         hasClass: false
       },
       'an ex mercenary': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'soldier'
       },
       'a retired merchant': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'merchant',
         ageStage: 'elderly',
         hasClass: false
       },
       'a young boy who inherited the ship': {
-        profession: 'captain',
+        profession: "ship's captain",
         background: 'sailor',
         ageStage: 'young adult',
         note: 'Inherited the ship.',

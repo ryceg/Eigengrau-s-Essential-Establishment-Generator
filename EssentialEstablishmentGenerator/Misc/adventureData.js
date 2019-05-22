@@ -63,7 +63,7 @@ setup.adventure = {
       'rescue a captive.': function (town, adventure) {
         var npc = setup.createNPC(town, {
           background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble'].seededrandom(),
-          profession: 'captive',
+          profession: 'slave',
           hasClass: false,
           isThrowaway: true
         })
@@ -345,7 +345,7 @@ setup.adventure = {
       // var npc = setup.createNPC({
       isThrowaway: true,
       background: 'noble',
-      profession: 'ruler',
+      profession: 'king',
       hasClass: false
       // })
       // return setup.profile(npc, 'local ruler')
@@ -354,7 +354,7 @@ setup.adventure = {
       // var npc = setup.createNPC({
       isThrowaway: true,
       background: 'soldier',
-      profession: 'officer',
+      profession: 'city watch',
       dndClass: 'fighter'
       // })
       // return setup.profile(npc, 'military officer')
@@ -364,7 +364,7 @@ setup.adventure = {
       isThrowaway: true,
       hasClass: false,
       background: 'acolyte',
-      profession: 'temple official'
+      profession: 'clergyman'
       // })
       // return setup.profile(npc, 'temple official')
     },

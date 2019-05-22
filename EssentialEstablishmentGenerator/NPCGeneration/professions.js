@@ -549,7 +549,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
-  guardsman: {
+  guard: {
     sv: 150,
     type: 'profession',
     sector: 'military',
@@ -1044,6 +1044,15 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
+  'seasick sailor': {
+    sv: 150,
+    type: 'labourer',
+    sector: 'transportation',
+    description: 'works as a member of the crew of a commercial or naval ship or boat.',
+    dailyWage: 100,
+    socialClass: 'peasantry',
+    socialClassRoll () { return 20 + dice(8, 6) }
+  },
   sculptor: {
     sv: 250,
     type: 'business',
@@ -1294,6 +1303,24 @@ setup.townData.professions = {
     description: 'owns or runs a tavern.',
     dailyWage: 100,
     socialClass: 'commoner',
+    socialClassRoll () { return 50 + dice(8, 6) }
+  },
+  shopkeep: {
+    sv: 450,
+    type: 'business',
+    sector: 'business',
+    description: 'owns or runs a shop.',
+    dailyWage: 100,
+    socialClass: 'commoner',
+    socialClassRoll () { return 50 + dice(8, 6) }
+  },
+  "shopkeep's assistant": {
+    sv: 200,
+    type: 'business',
+    sector: 'business',
+    description: 'runs or assists in running a shop.',
+    dailyWage: 25,
+    socialClass: 'peasantry',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
   'tax collector': {
@@ -2581,6 +2608,15 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
+  'wannabe pirate': {
+    sv: 1500,
+    type: 'profession',
+    sector: 'crime',
+    description: 'dreams of becoming a full fledged pirate, but currently is just a rowdy sailor.',
+    dailyWage: 100,
+    socialClass: 'peasantry',
+    socialClassRoll () { return 20 + dice(8, 6) }
+  },
   poacher: {
     sv: 5000,
     type: 'labourer',
@@ -3095,7 +3131,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
-  prostitute: {
+  harlot: {
     sv: 400,
     type: 'profession',
     sector: 'business',
@@ -3410,7 +3446,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
-  'city Watch': {
+  'city watch': {
     sv: 4500,
     type: 'profession',
     sector: 'military',
