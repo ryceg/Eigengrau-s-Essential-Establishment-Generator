@@ -117,7 +117,7 @@ setup.tavern = {
       'type': 'gambling game',
       'description': 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> groaning whenever they both turned heads, and another <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
       'rules': "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
-      'bet': 10
+      'bet': random(4, 10)
     }
   ],
   'fun': [
