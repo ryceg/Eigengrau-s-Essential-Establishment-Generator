@@ -11,7 +11,9 @@
     "dice": true,
     "State": true,
     "randomFloat": true,
-    "clone": true
+    "clone": true,
+    "tippy": true,
+    "$": true
   },
   "rules": {
     "compat/compat": "error"
