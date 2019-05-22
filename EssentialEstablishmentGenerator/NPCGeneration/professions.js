@@ -1651,7 +1651,9 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'maintains and cares for animals or monsters in a zoo.',
     dailyWage: 100,
-    socialClass: ''
+    socialClass: 'commoner',
+    socialClassRoll () { return 50 + dice(8, 6) }
+
   },
   'construction Worker': {
     sv: 300,
@@ -1688,6 +1690,7 @@ setup.townData.professions = {
     dailyWage: 100,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
+
   },
   'roadlayer/Streetlayer': {
     sv: 3000,
@@ -1993,7 +1996,7 @@ setup.townData.professions = {
   'animal Collector': {
     sv: 10000,
     type: 'business',
-    sector: 'agriculure',
+    sector: 'agriculture',
     description: 'collects and deals in rare and exotic animals and monsters.',
     dailyWage: 100,
     socialClass: 'commoner',
@@ -2038,7 +2041,7 @@ setup.townData.professions = {
   auctioneer: {
     sv: 4500,
     type: 'profession',
-    sector: 'bbusiness',
+    sector: 'business',
     description: 'conducts auctions by accepting bids and declaring goods sold.',
     dailyWage: 100,
     socialClass: 'peasantry',
@@ -2123,7 +2126,7 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
-  thriftdealer: {
+  'thrift dealer': {
     sv: 800,
     type: 'business',
     sector: 'business',
@@ -2897,7 +2900,7 @@ setup.townData.professions = {
   'charcoal Maker': {
     sv: 2500,
     type: 'labourer',
-    sector: 'bsuiness',
+    sector: 'business',
     description: 'manufactures charcoal by carbonizing wood in a kiln.',
     dailyWage: 100,
     socialClass: 'peasantry',
@@ -3616,7 +3619,7 @@ setup.townData.professions = {
   'slave driver': {
     sv: 1500,
     type: 'profession',
-    sector: 'agiculture',
+    sector: 'agriculture',
     description: 'oversees and urges on slaves at work.',
     dailyWage: 100,
     socialClass: 'peasantry',
