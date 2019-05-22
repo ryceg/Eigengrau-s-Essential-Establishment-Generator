@@ -3,7 +3,7 @@
   "plugins": ["compat"],
   "env": {
     "browser": true,
-    "jest": true,
+    "jest": true
   },
   "globals": {
     "setup": true,
