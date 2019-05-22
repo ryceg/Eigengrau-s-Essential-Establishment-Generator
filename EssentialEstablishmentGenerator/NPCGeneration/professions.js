@@ -291,7 +291,7 @@ setup.townData.professions = {
   buccaneer: {
     sv: 1350,
     type: '',
-    sector: 'adventure',
+    sector: 'adventuring',
     description: 'a kind of privateer or free sailor.',
     dailyWage: 100,
     socialClass: 'commoner',
@@ -515,7 +515,7 @@ setup.townData.professions = {
   },
   gladiator: {
     sv: 3250,
-    type: '',
+    type: 'profession',
     sector: 'arts',
     description: 'fights against other people, wild animals, or monsters in an arena.',
     dailyWage: 100,
@@ -587,9 +587,9 @@ setup.townData.professions = {
   },
   herald: {
     sv: 550,
-    type: 'a messenger who carries important news.',
-    sector: 'craftsmanship',
-    description: '.',
+    type: 'labourer',
+    sector: 'communications',
+    description: 'a messenger who carries important news..',
     dailyWage: 100,
     socialClass: 'peasantry',
     socialClassRoll () { return 48 }
@@ -1851,15 +1851,6 @@ setup.townData.professions = {
     dailyWage: 100,
     socialClassRoll () { }
   },
-  illuminator: {
-    sv: 9000,
-    type: '',
-    sector: '',
-    description: 'paints and calligraphs to adorn or enlighten scrolls and manuscripts.',
-    dailyWage: 100,
-    socialClass: '',
-    socialClassRoll () { }
-  },
   limner: {
     sv: 7000,
     type: 'profession',
@@ -2673,20 +2664,12 @@ setup.townData.professions = {
     dailyWage: 100,
     socialClassRoll () { }
   },
-  'baron/Baroness': {
-    sv: 9000,
-    type: '',
-    sector: '',
-    description: 'a member of the lowest order of the British nobility.',
-    dailyWage: 100,
-    socialClass: 'nobility',
-    socialClassRoll () { }
-  },
   baron: {
     sv: 2500,
     type: 'profession',
     sector: 'government and law',
     description: 'a member of the lowest order of the nobility.',
+    dailyWage: 100,
     socialClass: 'nobility',
     socialClassRoll () { }
   },
@@ -2696,6 +2679,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'a senior state or legal official.',
     dailyWage: 100,
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   chief: {
@@ -2830,6 +2814,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'partakes in governmental decision-making after being elected.',
     dailyWage: 100,
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   sheriff: {
@@ -2838,6 +2823,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'the chief executive officer in a county, having various administrative and judicial functions.',
     dailyWage: 100,
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   spymaster: {
@@ -2846,6 +2832,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'directs a network of subordinate espionage agents for a state, kingdom, or empire.',
     dailyWage: 100,
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   viscount: {
@@ -2854,7 +2841,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'a nobleperson ranking above a baron and below a count.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   ward: {
@@ -2863,7 +2850,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'a member of a noble house who has been taken in by another noble family to be raised for a time.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
   acater: {
@@ -2872,7 +2859,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'provides and prepares foodstuffs or delicacies for events such as festivals.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   tunner: {
@@ -2881,7 +2868,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'fills casks in a brewery or winery.',
     dailyWage: 30,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   barkeep: {
@@ -2890,7 +2877,7 @@ setup.townData.professions = {
     sector: 'hospitality',
     description: 'works and serves drinks in a bar.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
 
@@ -2900,7 +2887,7 @@ setup.townData.professions = {
     sector: 'hospitality',
     description: 'the chief servant of a household.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   caregiver: {
@@ -2909,7 +2896,7 @@ setup.townData.professions = {
     sector: 'hospitality',
     description: 'looks after a sick, elderly, or disabled person.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'charcoal Maker': {
@@ -2918,7 +2905,7 @@ setup.townData.professions = {
     sector: 'bsuiness',
     description: 'manufactures charcoal by carbonizing wood in a kiln.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   chatelaine: {
@@ -2927,7 +2914,7 @@ setup.townData.professions = {
     sector: 'hospitality',
     description: 'a person in charge of a large household.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'chimney Sweeper': {
@@ -2936,7 +2923,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'a small person, typically a child, who ascends chimneys to clean them.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   clerk: {
@@ -2945,7 +2932,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'undertakes routine administrative duties in a business or bank.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   copyist: {
@@ -2954,7 +2941,7 @@ setup.townData.professions = {
     sector: 'communication',
     description: 'makes copies of handwritten documents or music.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   croupier: {
@@ -2963,7 +2950,7 @@ setup.townData.professions = {
     sector: 'hospitality',
     description: 'runs a gaming table by gathering in and paying out money or tokens.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   exterminator: {
@@ -2972,7 +2959,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'exterminates unwanted rodents and insects.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'food & Drink Taster': {
@@ -2981,7 +2968,7 @@ setup.townData.professions = {
     sector: 'hospitality',
     description: 'ingests food that was prepared for someone else to confirm it is safe to eat.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   gongfarmer: {
@@ -2990,7 +2977,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'digs out and removes excrement from privies and cesspits.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   gravedigger: {
@@ -2999,7 +2986,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'digs graves for the purposes of a funeral ceremony.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   groundskeeper: {
@@ -3008,7 +2995,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'maintains an athletic field, a park, or the grounds of a graveyard or other institution.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'kitchen Drudge': {
@@ -3017,7 +3004,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'performs menial work in a kitchen.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   knacker: {
@@ -3026,7 +3013,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'disposes of dead or unwanted animals.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   lamplighter: {
@@ -3035,7 +3022,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'lights street or road lights at dusk.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'laundry Worker': {
@@ -3044,7 +3031,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'a laborer who takes part in the washing, drying, and ironing of clothes and other fabric items.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   lector: {
@@ -3053,7 +3040,7 @@ setup.townData.professions = {
     sector: 'communications',
     description: 'reads to others while they work for entertainment.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   longshoreman: {
@@ -3062,7 +3049,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'loads and unloads ships in a port.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   nanny: {
@@ -3071,7 +3058,7 @@ setup.townData.professions = {
     sector: 'caregiver',
     description: 'a servant employed to look after a young child or children.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   operator: {
@@ -3080,7 +3067,7 @@ setup.townData.professions = {
     sector: 'construction',
     description: 'a laborer who operates equipment, typically in construction.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'pastry Chef': {
@@ -3089,7 +3076,7 @@ setup.townData.professions = {
     sector: 'food',
     description: 'makes desserts, especially cakes and pastries.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   plumber: {
@@ -3098,7 +3085,7 @@ setup.townData.professions = {
     sector: 'construction',
     description: 'installs and repairs the fittings of water supply and sanitation.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   porter: {
@@ -3107,7 +3094,7 @@ setup.townData.professions = {
     sector: 'labourer',
     description: 'carries luggage and other loads.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   prostitute: {
@@ -3116,7 +3103,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'engages in sexual activity for payment.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   quarryman: {
@@ -3125,7 +3112,7 @@ setup.townData.professions = {
     sector: 'construction',
     description: 'quarries stone.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   stagehand: {
@@ -3134,7 +3121,7 @@ setup.townData.professions = {
     sector: 'arts',
     description: 'moves scenery or props before or during the performance of a theatrical production.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'street Cleaner': {
@@ -3143,7 +3130,7 @@ setup.townData.professions = {
     sector: 'construction',
     description: 'cleans streets and alleyways after dark.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'talent Scout': {
@@ -3152,7 +3139,7 @@ setup.townData.professions = {
     sector: 'arts',
     description: 'searches for talented individuals who can be employed or promoted.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   trainer: {
@@ -3161,7 +3148,7 @@ setup.townData.professions = {
     sector: 'adventuring',
     description: 'trains someone in a particular skill, usually physical, for money.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'water Bearer': {
@@ -3170,7 +3157,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'brings water from rivers, wells, and lakes back to their settlement.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   abjurer: {
@@ -3179,7 +3166,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a mage focused in protective spells.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   alchemist: {
@@ -3188,7 +3175,7 @@ setup.townData.professions = {
     sector: 'science',
     description: 'transforms or creates something within nature through the magical and scientific manipulation of chemicals.',
     dailyWage: 1500,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   archmage: {
@@ -3197,7 +3184,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'an extremely powerful mage.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   artificer: {
@@ -3206,7 +3193,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'unlocks magic in everyday objects as well as being an inventor.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
 
@@ -3216,7 +3203,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'conjures spirits or familiars.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   elementalist: {
@@ -3224,7 +3211,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'magic',
     description: 'manipulates nature’s elements to their will.',
-    socialClass: 'commoner',
+    socialClass: 'commonercommoner',
     socialClassRoll () { }
   },
   enchanter: {
@@ -3233,7 +3220,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'uses sorcery to put someone or something under a spell.',
     dailyWage: 3000,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   evoker: {
@@ -3242,7 +3229,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'manipulates energy or taps into an unseen source of power in order to produce a desired kinetic end.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'hearth Witch': {
@@ -3251,7 +3238,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'incorporates spells and enchantments in cooking.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   illusionist: {
@@ -3260,7 +3247,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'performs tricks and spells that deceive the senses.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   mage: {
@@ -3269,7 +3256,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a magic-user.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   medium: {
@@ -3278,7 +3265,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'uses extrasensory perception, magic, or divine powers to identify information hidden from the normal senses.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   meteorologist: {
@@ -3287,7 +3274,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'forecasts and manipulates weather.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   ritualist: {
@@ -3296,7 +3283,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'practices or advocates the observance of ritual (formula intended to trigger a magical effect on a person or objects).',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   runecaster: {
@@ -3305,7 +3292,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'uses special alphabets to create runes (symbols possessing magical effects capable of being used multiple times).',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   sage: {
@@ -3314,7 +3301,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a wise and experienced magic-user.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   shapeshifter: {
@@ -3323,7 +3310,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a person with the ability to change their physical form.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   summoner: {
@@ -3332,7 +3319,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a mage able to summon forth magical beasts, creatures, and monsters.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   transmuter: {
@@ -3341,7 +3328,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'alters matter in form, appearance, or nature.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   witchdoctor: {
@@ -3350,7 +3337,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a tribal mage with powers of healing, divination, and protection against the magic of others.',
     dailyWage: 190,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   witch: {
@@ -3359,7 +3346,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'a woman who has supernatural powers and practices sorcery, typically in solitude.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   wordsmith: {
@@ -3368,7 +3355,7 @@ setup.townData.professions = {
     sector: 'magic',
     description: 'draws their power from language and casts by dictation.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   admiral: {
@@ -3377,7 +3364,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'commands a fleet or naval squadron.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   bailiff: {
@@ -3386,7 +3373,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'looks after prisoners.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   bodyguard: {
@@ -3395,7 +3382,7 @@ setup.townData.professions = {
     sector: 'adventuring',
     description: 'escorts and protects another person, especially a dignitary.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   bouncer: {
@@ -3404,7 +3391,7 @@ setup.townData.professions = {
     sector: 'adventuring',
     description: 'prevents troublemakers from entering or to eject them from the premises of an establishment.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   castellan: {
@@ -3413,7 +3400,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'the governor of a castle.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   cavalier: {
@@ -3422,7 +3409,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'a skilled horseback rider.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'city Watch': {
@@ -3431,7 +3418,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'an officer of law enforcement who resides in larger towns or cities.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   commissar: {
@@ -3440,7 +3427,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'teaches principles and policies to military units.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   constable: {
@@ -3449,7 +3436,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'an officer with limited policing authority, typically in a small town.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   investigator: {
@@ -3458,7 +3445,7 @@ setup.townData.professions = {
     sector: 'business',
     description: 'investigates and solves crimes.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   fifer: {
@@ -3467,7 +3454,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'a non-combatant foot soldier who sounds signals for changes in formation in combat.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   duelist: {
@@ -3476,7 +3463,7 @@ setup.townData.professions = {
     sector: 'adventuring',
     description: 'skilled in one-on-one combat.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   executioner: {
@@ -3485,7 +3472,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'carries out a sentence of death on a legally condemned person.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   firefighter: {
@@ -3494,7 +3481,7 @@ setup.townData.professions = {
     sector: 'government and law',
     description: 'extinguishes fires.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'inspection Officer': {
@@ -3503,7 +3490,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'responsible for the inspection of military units to ensure they meet appropriate standards of training and efficiency.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'intelligence Officer': {
@@ -3512,7 +3499,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'collects, compiles and organizes information about the enemy.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   lieutenant: {
@@ -3521,7 +3508,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'an officer of middle rank in the armed forces.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   marksman: {
@@ -3530,7 +3517,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'in long-range weapons, such as the bow, crossbow, sling, etc. to inflict damage from afar.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   marshall: {
@@ -3539,7 +3526,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'has the charge of the cavalry in the household of a monarch.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   medic: {
@@ -3548,7 +3535,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'a medical practitioner equipped for the battlefield.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   mercenary: {
@@ -3557,7 +3544,7 @@ setup.townData.professions = {
     sector: 'adventuring',
     description: 'a soldier without allegiance who works for money, typically a member of a company or guild.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   quartermaster: {
@@ -3566,7 +3553,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'responsible for providing quarters, rations, clothing, and other supplies.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'royal Guard': {
@@ -3575,7 +3562,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'responsible for the protection of a royal person.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   runner: {
@@ -3584,7 +3571,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'carries information between lines in wartime.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   sapper: {
@@ -3593,7 +3580,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'a soldier responsible for tasks such as building and repairing roads and bridges, laying and clearing mines, etc.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   sergeant: {
@@ -3602,7 +3589,7 @@ setup.townData.professions = {
     sector: '',
     description: 'an officer instructed with a protective duty, typically worth more than other officers.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'sergeant-at-arms': {
@@ -3611,7 +3598,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'charged with keeping order during meetings and, if necessary, participates in battle.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   scout: {
@@ -3628,7 +3615,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'works the artillery machines of an army.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'slave driver': {
@@ -3637,7 +3624,7 @@ setup.townData.professions = {
     sector: 'agiculture',
     description: 'oversees and urges on slaves at work.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'special force soldier': {
@@ -3646,7 +3633,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'carries out special operations.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   spy: {
@@ -3655,7 +3642,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'secretly collects and reports information on the activities, movements, and plans of an enemy or competitor.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   tactician: {
@@ -3664,7 +3651,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'uses a carefully planned military strategy to achieve a specific end.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   tollkeeper: {
@@ -3673,7 +3660,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'collects tolls at a bridge, road etc. where a charge is made.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   warden: {
@@ -3682,7 +3669,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'responsible for the supervision of a particular place or thing or for ensuring that regulations associated with it are obeyed.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   warmage: {
@@ -3691,7 +3678,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'a soldier skilled in destructive battle magic.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   abbot: {
@@ -3700,7 +3687,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'the head of an abbey of monks.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   acolyte: {
@@ -3709,7 +3696,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'assists the celebrant in a religious service or procession.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   almoner: {
@@ -3718,7 +3705,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'distributes money and food to poor people.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   archbishop: {
@@ -3727,7 +3714,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'responsible for an archdiocese, their surrounding district.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   bishop: {
@@ -3736,7 +3723,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a senior member of the clergy, usually in charge of a diocese and empowered to confer holy orders.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   cantor: {
@@ -3745,7 +3732,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'sings liturgical music and leads prayer in a synagogue.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   cardinal: {
@@ -3754,7 +3741,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a leading dignitary of a church, nominated by the highest official.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'nobility',
     socialClassRoll () { }
   },
 
@@ -3764,7 +3751,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'hears confessions and gives absolution and spiritual counsel.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   cultist: {
@@ -3773,7 +3760,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a member of a cult who generally lives outside of conventional society and worships an unorthodox patron.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'cult Leader': {
@@ -3782,7 +3769,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'the organizational leader of a cult who is occasionally also the founder.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   deacon: {
@@ -3791,7 +3778,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'an ordained minister of an order ranking below that of priest.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   diviner: {
@@ -3800,7 +3787,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'seeks ultimate divination in order to further understand or meet godly substance.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   exorcist: {
@@ -3809,7 +3796,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'expels or attempts to expel evil spirits from a person or place.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'high Priest': {
@@ -3818,7 +3805,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'the chief priest of a religion.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   inquisitor: {
@@ -3827,7 +3814,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'seeks to eliminate heresy and other things contrary to the doctrine or teachings of their faith.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   missionary: {
@@ -3836,7 +3823,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'goes on a religious mission to promote their faith in a foreign place.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   pardoner: {
@@ -3845,7 +3832,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'raises money for religious works by soliciting offerings and granting indulgences.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   prophet: {
@@ -3854,7 +3841,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'regarded as an inspired teacher or proclaimer of the will of God.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   sexton: {
@@ -3863,7 +3850,7 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'looks after a church and churchyard, sometimes acting as bell-ringer and formerly as a gravedigger.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   templar: {
@@ -3872,7 +3859,7 @@ setup.townData.professions = {
     sector: 'military',
     description: 'fights in a religious military order.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   abecedarian: {
@@ -3881,7 +3868,7 @@ setup.townData.professions = {
     sector: 'science',
     description: 'teaches the illiterate.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   anthropologist: {
@@ -3890,7 +3877,7 @@ setup.townData.professions = {
     sector: 'science',
     description: 'studies the customs, beliefs, and relationships of humanoids and intellectually and culturally advanced creatures.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   apprentice: {
@@ -3899,7 +3886,7 @@ setup.townData.professions = {
     sector: 'craftsmanship',
     description: 'studies a trade under a skilled employer.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   archaeologist: {
@@ -3908,7 +3895,7 @@ setup.townData.professions = {
     sector: 'science',
     description: 'studies humanoid history and prehistory through the excavation of sites and the analysis of artifacts and other physical remains.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   assayer: {
@@ -3917,493 +3904,484 @@ setup.townData.professions = {
     sector: 'science',
     description: 'determiner of the proportions of metal in ore and the amount of copper, silver, gold, or platinum in coins.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
 
   astronomer: {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'makes observations of celestial and scientific phenomena within the material plane.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   bloodletter: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: "surgically removes some of a patient's blood for therapeutic purposes.",
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   botanist: {
     sv: 2000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'an expert in or student of the scientific study of plants.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   chemist: {
     sv: 3500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'engaged in chemical research or experiments.',
     dailyWage: 150,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   dean: {
     sv: 8000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'the head of a college or university.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   drakologist: {
     sv: 10000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'studies or is an expert in the branch of zoology concerned with dragons.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   engineer: {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'designer of a machine or structure.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   entomologist: {
     sv: 6000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'studies or is an expert in the branch of zoology concerned with insects.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   horologist: {
     sv: 8000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'a scholar of time and entropy.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   mathematician: {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'a scholar of the abstract science of number, quantity, and space.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   optometrist: {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'examines the eyes for visual defects and prescribes eyeglasses.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   scribe: {
     sv: 2000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'business',
     description: 'copies out manuscripts.',
     dailyWage: 100,
-    socialClass: '',
-    socialClassRoll () { }
-  },
-  taxonomist: {
-    sv: 15000,
-    type: '',
-    sector: '',
-    description: 'groups organisms into categories.',
-    dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   theologian: {
     sv: 6000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'engages in the study of the nature of God and religious belief.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   tutor: {
     sv: 600,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'charged with the instruction and guidance of another.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   zoologist: {
     sv: 3500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'science',
     description: 'an expert in or a student of the behavior, physiology, classification, and distribution of animals.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   boatman: {
     sv: 500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'mans a small seacraft.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   bosun: {
     sv: 1000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'transportation',
     description: 'in charge of organizing the equipment and crew of a ship.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'cabbie/Wagoner': {
+  Wagoner: {
     sv: 400,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'transportation',
     description: 'drives a horse-drawn wagon.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
-  'cabin Boy/Cabin Girl': {
+  'cabin boy': {
     sv: 9000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'waits on the orders of a ships officers and passengers.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasnatry',
     socialClassRoll () { }
   },
   charioteer: {
     sv: 300,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'military',
     description: 'drives a chariot.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   carter: {
     sv: 500,
-    type: '',
-    sector: '',
+    type: 'business',
+    sector: 'transportation',
     description: 'transports goods by cart.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   ferryman: {
     sv: 2500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'operates a ferry.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'first Mate': {
     sv: 1000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'the deck officer second in command to the master of a ship.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   helmsman: {
     sv: 2000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'steers a ship or boat.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   navigator: {
     sv: 1500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'directs the route or course of a ship or other form of transportation, especially by using instruments and maps.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   purser: {
     sv: 2500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'naval',
     description: 'keeps the accounts of a ship, especially as the head steward on a passenger vessel.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   shipwright: {
     sv: 3500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'craftsmanship',
     description: 'a carpenter skilled in ship construction and repair.',
     dailyWage: 130,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   adventurer: {
     sv: 2000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'adventuring',
     description: 'wanders the world in search of knowledge, treasure, fame, glory or a multitude of additional wants and desires.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
-  'beggar/Pauper': {
+  'beggar': {
     sv: 2500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'lives by asking for money or food.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   'monster Hunter': {
     sv: 4500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'adventuring',
     description: 'takes on jobs to hunt down and kill or capture dangerous creatures.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'bounty Hunter': {
     sv: 3500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'adventuring',
     description: 'pursues a criminal or fugitive for whom a reward is offered.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'crossing Sweeper': {
     sv: 6500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'sweeps a path ahead of people crossing dirty urban streets in exchange for a gratuity.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   deserter: {
     sv: 3500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'a member of the armed forces who has deserted.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   'disgraced Noble': {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'a person of high birth who has since loss their respect, honor, or esteem in some or all noble circles.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   drunkard: {
     sv: 550,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'a person who is habitually drunk and considers themselves a professional in the task.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   'dungeon Delver': {
     sv: 5500,
-    type: '',
-    sector: '',
+    type: 'professional',
+    sector: 'adventuring',
     description: 'navigates underground labyrinths in search of any treasure they may find.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   elder: {
     sv: 600,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'hospitality',
     description: 'a person of a greater age, especially one with a respected position in society.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   exile: {
     sv: 750,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'lives away from their native country, either from choice or compulsion.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   explorer: {
     sv: 3500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'adventuring',
     description: 'explores unfamiliar areas in search of geographical or scientific information.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'ex-Criminal': {
     sv: 1200,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'a person who has been convicted of a crime and has since served their sentence, or who has preemptively given up their life of crime.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'folk Hero': {
     sv: 4000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'adventuring',
     description: 'a celebrity who is greatly admired by many people of a particular kind or in a particular place.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   gambler: {
     sv: 800,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'crime',
     description: 'bets money on sports, card games, or games of chance in the hope of a profit.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'grave Robber': {
     sv: 100,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'crime',
     description: 'steals valuables from graves and tombs.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   heretic: {
     sv: 2500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'differs in opinion from established religious dogma.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   housewife: {
     sv: 150,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'hospitality',
     description: 'cares for his or her family by managing household affairs and completing housework.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   prisoner: {
     sv: 350,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'crime',
     description: 'held in confinement as a punishment for crimes they have been convicted of.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   'rag-and-Bone Man': {
     sv: 750,
-    type: '',
-    sector: '',
+    type: 'labourer',
+    sector: 'business',
     description: 'collects unwanted household items and sells them to merchants.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   'political Dissident': {
     sv: 4500,
-    type: '',
-    sector: '',
+    type: 'labourer',
+    sector: 'government and law',
     description: 'rises in opposition or armed resistance against an established government or ruler.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   refugee: {
     sv: 5000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'leaves their home in order to escape war, persecution, or natural disaster.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'peasnatry',
     socialClassRoll () { }
   },
   'runaway Slave': {
     sv: 3000,
-    type: '',
-    sector: '',
+    type: 'labourer',
+    sector: 'outcast',
     description: 'a slave who has left their master and traveled without authorization.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   squatter: {
     sv: 800,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'crime',
     description: 'unlawfully occupies an uninhabited building or unused land.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   vagabond: {
     sv: 1000,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'wanders from place to place without a permanent home or job.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   },
   urchin: {
     sv: 500,
-    type: '',
-    sector: '',
+    type: 'profession',
+    sector: 'outcast',
     description: 'a child who lives or spends most of their time in the streets, occasionally working as a thief or pickpocket.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'paupery',
     socialClassRoll () { }
   }
 
