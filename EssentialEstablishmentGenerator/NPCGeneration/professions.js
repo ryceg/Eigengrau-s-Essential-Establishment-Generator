@@ -1150,7 +1150,7 @@ setup.townData.professions = {
     description: 'a person who is the legal property of another and forced to obey them.',
     dailyWage: 100,
     socialClass: 'indentured servitude',
-    socialClassRoll () { return 40 }
+    socialClassRoll () { return 5 }
   },
   slaver: {
     sv: 650,
@@ -1651,7 +1651,7 @@ setup.townData.professions = {
     sector: 'agriculture',
     description: 'maintains and cares for animals or monsters in a zoo.',
     dailyWage: 100,
-    socialClass: '',
+    socialClass: 'commoner',
     socialClassRoll () { }
   },
   'construction Worker': {
