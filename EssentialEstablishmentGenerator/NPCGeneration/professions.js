@@ -1687,7 +1687,7 @@ setup.townData.professions = {
     sector: 'construction',
     description: 'applies plaster to walls, ceilings, or other surfaces.',
     dailyWage: 100,
-    socialClass: 'peasnatry',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'roadlayer/Streetlayer': {
@@ -4075,7 +4075,7 @@ setup.townData.professions = {
     sector: 'naval',
     description: 'waits on the orders of a ships officers and passengers.',
     dailyWage: 100,
-    socialClass: 'peasnatry',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   charioteer: {
@@ -4345,7 +4345,7 @@ setup.townData.professions = {
     sector: 'outcast',
     description: 'leaves their home in order to escape war, persecution, or natural disaster.',
     dailyWage: 100,
-    socialClass: 'peasnatry',
+    socialClass: 'peasantry',
     socialClassRoll () { }
   },
   'runaway Slave': {
