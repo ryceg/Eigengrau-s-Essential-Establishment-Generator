@@ -31,12 +31,12 @@
 	\<</capture>>
 <</widget>>
 
-<<widget "tooltip">>
+\<<widget "tooltip">>
 	\<<set _target to $args[0]>>
-	\<<set _description to $args[1]>>
+	\<<set _description to $args[1] || $args[0]>>
 	\<<set _id to "tip-" + Util.slugify((_target.name || "tooltip")) + "-" + Math.floor(Math.random().toString(16))>>
 	\<span @id=_id class=tip @title=_description>_target</span>
-<</widget>>
+\<</widget>>
 
 <<widget "money">><<silently>>
 		<<set _copper to Number($args)>>\
