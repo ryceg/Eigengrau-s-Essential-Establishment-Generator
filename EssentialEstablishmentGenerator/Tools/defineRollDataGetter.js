@@ -16,7 +16,9 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
     indexNumber,
     rollLocation
   })
-  baseObj[propName] = ''
+  if (!baseObj[propName]) {
+    baseObj[propName] = ''
+  }
 
   Object.defineProperty(baseObj, propName, {
     get: function () {
