@@ -31,29 +31,29 @@ function downloadAndExtract (link, filePath) {
 
     function unzip () {
       yauzl.open(filePath, { lazyEntries: true }, (error, zip) => {
-        if (error) {
-          throw error
-        }
+        if (error) throw error
+
         utils.logAction('Unzipping...\n')
+
+        zip.on('entry', entry => isFolder(entry) ? zip.readEntry() : unzipEntry(zip, entry))
+        zip.on('end', resolve)
         zip.readEntry()
-        zip.on('entry', entry => {
-          if (isFolder(entry)) {
-            zip.readEntry()
-            return
-          }
-          zip.openReadStream(entry, (error, stream) => {
-            if (error) {
-              throw error
-            }
-            const fileFolder = path.resolve(utils.twineFolder, getFileDirectory(entry.fileName))
-            fs.mkdirSync(fileFolder, { recursive: true })
-            const filePath = path.resolve(utils.twineFolder, entry.fileName)
-            const writeStream = fs.createWriteStream(filePath)
-            stream.on('end', () => zip.readEntry()).pipe(writeStream)
-          })
-        }).on('end', resolve)
       })
     }
+  })
+}
+
+function unzipEntry (zip, entry) {
+  zip.openReadStream(entry, (error, stream) => {
+    if (error) throw error
+
+    const fileFolder = path.resolve(utils.twineFolder, getFileDirectory(entry.fileName))
+    const filePath = path.resolve(utils.twineFolder, entry.fileName)
+    const writeStream = fs.createWriteStream(filePath)
+
+    fs.mkdirSync(fileFolder, { recursive: true })
+    stream.on('end', () => zip.readEntry())
+    stream.pipe(writeStream)
   })
 }
 
