@@ -4,7 +4,7 @@ setup.fetchProfessionChance = function (town, npc) {
   var professions = Object.keys(town.professions)
 
   if (npc.socialClass) {
-    console.log('Wealth class for ' + npc.name + ' was defined, so filtering to the available professions!')
+    console.log('Social class for ' + npc.name + ' was defined, so filtering to the available professions!')
     professions.filter(function (profession) {
       return town.professions[profession].socialClass === npc.socialClass
     })
