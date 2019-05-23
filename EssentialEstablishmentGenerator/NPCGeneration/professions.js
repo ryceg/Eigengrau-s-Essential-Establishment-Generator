@@ -875,6 +875,7 @@ setup.townData.professions = {
   },
   noble: {
     sv: 3150,
+    synonyms: ['nobleman', 'noblewoman'],
     type: 'profession',
     sector: 'government and law',
     description: 'a person belonging to a class with high social or political status.',
@@ -956,9 +957,10 @@ setup.townData.professions = {
   },
   politician: {
     sv: 4000,
+    synonyms: ['prime minister', 'governor', 'lord'],
     type: 'profession',
     sector: 'government and law',
-    description: ' holding or seeking office in government.',
+    description: 'holding or seeking office in government.',
     dailyWage: 100,
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
@@ -3133,6 +3135,7 @@ setup.townData.professions = {
   },
   harlot: {
     sv: 400,
+    synonyms: ['prostitute', 'lady of the night', 'call girl', 'sex worker'],
     type: 'profession',
     sector: 'business',
     description: 'engages in sexual activity for payment.',
@@ -4238,7 +4241,7 @@ setup.townData.professions = {
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
-  'disgraced Noble': {
+  'disgraced noble': {
     sv: 5000,
     type: 'profession',
     sector: 'outcast',
