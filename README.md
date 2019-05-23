@@ -8,6 +8,7 @@
 
 
 **What It's For**
+
 * Generate thousands of unique towns for table play
 * Create new plothooks for games
 * Generate new NPCs to flesh out existing places
@@ -19,7 +20,9 @@ Go to https://eigengrausgenerator.com/ to see the most current live build of EEE
 NOTE: The live build is often several weeks or months behind the current build here on GitHub. Compile the generator locally to see all the latest features and updates!
 
 ## Community :family:
+
 **Join our Discord to talk about the project in real time**
+
 * Learn more about the project
 * Ask questions and learn from other contributors
 * Show off your work
@@ -29,6 +32,7 @@ NOTE: The live build is often several weeks or months behind the current build h
 Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Contributing :black_nib:
+
 We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Contributing) 
 
 Once you've cloned the project, remember to `yarn` or `npm install` to install the required dependencies.
@@ -42,18 +46,19 @@ If you don't want to code, that's okay! The Generator is built out of a novel's 
 You can also find easy work to do on the generator [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ## Deploying :cloud:
+
 To deploy the latest version, build the html file as `dist/index.html` and run either `npm run deploy`, or `yarn deploy`.
 
 ---
 
 ## Built With :hammer:
+
 * [Twine](https://twinery.org/) - The front end framework 
 * [Sugarcube 2](https://www.motoslave.net/sugarcube/2/) - A language for Twine
 * [TweeGo](https://www.motoslave.net/tweego/) - Twine command line compiler
 
-##
+---
 
 If you can't contribute pull requests consider supporting the Generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
 
 We hope that you find it useful!
-
