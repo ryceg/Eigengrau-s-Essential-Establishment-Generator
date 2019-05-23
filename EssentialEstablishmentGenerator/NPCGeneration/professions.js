@@ -284,7 +284,7 @@ setup.townData.professions = {
   },
   pimp: {
     sv: 850,
-    synonym: ['whoremonger'],
+    synonyms: ['whoremonger'],
     type: 'business',
     sector: 'business',
     description: 'controls prostitutes and arranges clients for them, taking part of their earnings in return.',
@@ -382,9 +382,18 @@ setup.townData.professions = {
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
+  'craftsman': {
+    sv: 4550,
+    type: 'profession',
+    sector: 'craftsmanship',
+    description: 'makes and repairs things.',
+    dailyWage: 140,
+    socialClass: 'commoner',
+    socialClassRoll () { return 50 + dice(8, 6) }
+  },
   cobbler: {
     sv: 1550,
-    type: '',
+    type: 'profession',
     sector: 'craftsmanship',
     description: 'makes and repairs footwear.',
     dailyWage: 110,
@@ -555,6 +564,7 @@ setup.townData.professions = {
   },
   guard: {
     sv: 150,
+    synonyms: ['guardsman', 'guard', 'watchman', 'town guard'],
     type: 'profession',
     sector: 'military',
     description: 'a person who keeps watch, especially a soldier or other person formally assigned to protect a person or to control access to a place.',
@@ -888,6 +898,16 @@ setup.townData.professions = {
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
   },
+  nobleman: {
+    sv: 3150,
+    synonyms: ['nobleman', 'noblewoman'],
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a person belonging to a class with high social or political status.',
+    dailyWage: 300,
+    socialClass: 'nobility',
+    socialClassRoll () { return 75 + dice(8, 6) }
+  },
   nun: {
     sv: 2150,
     type: 'profession',
@@ -962,11 +982,20 @@ setup.townData.professions = {
   },
   politician: {
     sv: 4000,
-    synonyms: ['prime minister', 'governor', 'lord'],
     type: 'profession',
     sector: 'government and law',
     description: 'holding or seeking office in government.',
-    dailyWage: 300,
+    dailyWage: 800,
+    socialClass: 'nobility',
+    socialClassRoll () { return 75 + dice(8, 6) }
+  },
+  'prime minister': {
+    sv: 4000,
+    synonyms: ['governor'],
+    type: 'profession',
+    sector: 'government and law',
+    description: 'democratically holds the highest position of office.',
+    dailyWage: 800,
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
   },
@@ -1900,6 +1929,16 @@ setup.townData.professions = {
     dailyWage: 100,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
+  },
+  'artist': {
+    sv: 4500,
+    synonyms: ['artisan', 'art maker'],
+    type: 'profession',
+    sector: 'arts',
+    description: 'creates some form of art.',
+    dailyWage: 100,
+    socialClass: 'commoner',
+    socialClassRoll () { return 40 + dice(8, 6) }
   },
   model: {
     sv: 3500,
