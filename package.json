@@ -20,9 +20,6 @@
     "lint-fix": "eslint **/*.js --fix",
     "deploy": "gh-pages -d dist"
   },
-  "browserslist": [
-    "cover 99.5%"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -37,7 +34,6 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-compat": "^3.1.1",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-node": "^9.0.1",
