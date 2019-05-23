@@ -13,65 +13,37 @@ setup.leaderFaction = function (town, faction) {
     faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.seededrandom()
   }
 
-  if (faction.roll.leaderBribes > 95) {
-    faction.leaderBribes = 'will never, under any circumstances be accepted'
-  } else if (faction.roll.leaderBribes > 90) {
-    faction.leaderBribes = 'will never be accepted, and will be met with instant excommunication'
-  } else if (faction.roll.leaderBribes > 80) {
-    faction.leaderBribes = 'are treated as insults'
-  } else if (faction.roll.leaderBribes > 70) {
-    faction.leaderBribes = 'will be met with laughter'
-  } else if (faction.roll.leaderBribes > 60) {
-    faction.leaderBribes = 'are scorned'
-  } else if (faction.roll.leaderBribes > 55) {
-    faction.leaderBribes = 'are uncommon, and frowned upon'
-  } else if (faction.roll.leaderBribes > 50) {
-    faction.leaderBribes = 'will usually be rejected'
-  } else if (faction.roll.leaderBribes > 45) {
-    faction.leaderBribes = 'depend on circumstances'
-  } else if (faction.roll.leaderBribes > 40) {
-    faction.leaderBribes = 'are sometimes accepted'
-  } else if (faction.roll.leaderBribes > 30) {
-    faction.leaderBribes = 'will be bargained about'
-  } else if (faction.roll.leaderBribes > 20) {
-    faction.leaderBribes = 'will usually be accepted'
-  } else if (faction.roll.leaderBribes > 10) {
-    faction.leaderBribes = 'are a regular part of business'
-  } else if (faction.roll.leaderBribes <= 5) {
-    faction.leaderBribes = 'are expected'
-  } else {
-    faction.leaderBribes = 'depend on circumstances'
-  }
+  faction.leaderBribes = setup.matchFirst.largerThan(faction.roll.leaderBribes, {
+    95: 'will never, under any circumstances be accepted',
+    90: 'will never be accepted, and will be met with instant excommunication',
+    80: 'are treated as insults',
+    70: 'will be met with laughter',
+    60: 'are scorned',
+    55: 'are uncommon, and frowned upon',
+    50: 'will usually be rejected',
+    45: 'depend on circumstances',
+    40: 'are sometimes accepted',
+    30: 'will be bargained about',
+    20: 'will usually be accepted',
+    10: 'are a regular part of business',
+    5: 'depend on circumstances'
+  }, 'are expected')
 
-  if (faction.roll.leaderCompetence > 95) {
-    faction.leaderCompetence = 'ruthlessly efficient'
-  } else if (faction.roll.leaderCompetence > 90) {
-    faction.leaderCompetence = 'extremely efficient'
-  } else if (faction.roll.leaderCompetence > 80) {
-    faction.leaderCompetence = 'very competent'
-  } else if (faction.roll.leaderCompetence > 70) {
-    faction.leaderCompetence = 'quite competent'
-  } else if (faction.roll.leaderCompetence > 60) {
-    faction.leaderCompetence = 'reasonably competent'
-  } else if (faction.roll.leaderCompetence > 55) {
-    faction.leaderCompetence = 'usually competent'
-  } else if (faction.roll.leaderCompetence > 50) {
-    faction.leaderCompetence = 'of mild competence'
-  } else if (faction.roll.leaderCompetence > 45) {
-    faction.leaderCompetence = 'of mild incompetence'
-  } else if (faction.roll.leaderCompetence > 40) {
-    faction.leaderCompetence = 'somewhat incompetent'
-  } else if (faction.roll.leaderCompetence > 30) {
-    faction.leaderCompetence = 'quite incompetent'
-  } else if (faction.roll.leaderCompetence > 20) {
-    faction.leaderCompetence = 'very incompetent'
-  } else if (faction.roll.leaderCompetence > 10) {
-    faction.leaderCompetence = 'unbelievably incompetent'
-  } else if (faction.roll.leaderCompetence <= 5) {
-    faction.leaderCompetence = 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel'
-  } else {
-    faction.leaderCompetence = 'of mild competence'
-  }
+  faction.leaderCompetence = setup.matchFirst.largerThan(faction.roll.leaderCompetence, {
+    95: 'ruthlessly efficient',
+    90: 'extremely efficient',
+    80: 'very competent',
+    70: 'quite competent',
+    60: 'reasonably competent',
+    55: 'usually competent',
+    50: 'of mild competence',
+    45: 'of mild incompetence',
+    40: 'somewhat incompetent',
+    30: 'quite incompetent',
+    20: 'very incompetent',
+    10: 'unbelievably incompetent',
+    5: 'of mild competence'
+  }, 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel')
 
   switch (faction.leadershipType) {
     case 'individual':

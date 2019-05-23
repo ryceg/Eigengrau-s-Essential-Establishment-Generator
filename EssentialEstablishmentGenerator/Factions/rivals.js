@@ -42,29 +42,19 @@ setup.createRivals = function (faction) {
 
   function getRivalGroup (bonus) {
     let tempGroup
-    let tempGroupSize
     let groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
-    if (groupSizeRoll >= 90) {
-      tempGroupSize = 'a guild of '
-    } else if (groupSizeRoll >= 80) {
-      tempGroupSize = 'a veritable army of '
-    } else if (groupSizeRoll >= 70) {
-      tempGroupSize = 'a large number of '
-    } else if (groupSizeRoll >= 60) {
-      tempGroupSize = 'quite a few '
-    } else if (groupSizeRoll >= 50) {
-      tempGroupSize = 'more than a couple '
-    } else if (groupSizeRoll >= 40) {
-      tempGroupSize = 'a couple '
-    } else if (groupSizeRoll >= 30) {
-      tempGroupSize = 'some '
-    } else if (groupSizeRoll >= 20) {
-      tempGroupSize = 'a few '
-    } else if (groupSizeRoll >= 10) {
-      tempGroupSize = 'a handful of '
-    } else {
-      tempGroupSize = 'three or four '
-    }
+
+    const tempGroupSize = setup.matchFirst.largerThanOrEqualTo(groupSizeRoll, {
+      90: 'a guild of ',
+      80: 'a veritable army of ',
+      70: 'a large number of ',
+      60: 'quite a few ',
+      50: 'more than a couple ',
+      40: 'a couple ',
+      30: 'some ',
+      20: 'a few',
+      10: 'a handful of '
+    }, 'three or four ')
 
     tempGroup = groupList.pluck()
     // console.log('rival tempGroup - ' + tempGroup)
