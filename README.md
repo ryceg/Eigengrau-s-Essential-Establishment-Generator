@@ -28,28 +28,14 @@ NOTE: The live build is often several weeks or months behind the current build h
 
 Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenerator)
 
-## Compiling :computer:
-To compile EEEG for local testing you will need the latest version of [TweeGo](http://www.motoslave.net/tweego/) and [SugarCube](http://www.motoslave.net/sugarcube/2/). 
-```bash
-# Show TweeGo knows where the SugarCube format is
-export TWEEGO_PATH=LOCATION_OF_SUGARCUBE
-
-# go to where you installed Tweego. If you installed it globally, feel free to skip this
-cd $TWEEGO_PATH
-
-# replace PROJECT_ROOT with wherever you git cloned the repository
-tweego -o EEEG.html {PROJECT_ROOT}/EssentialEstablishmentGenerator --head={PROJECT_ROOT}/main.txt
-```
-This generates `EEEG.html` in the project root directory that you can open in a browser.
-
-NOTE: You can save time once you've set your directories by saving that command as a `.bat` or `.sh` file.
-
 ## Contributing :black_nib:
 We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Contributing) 
 
-Once you've cloned the project, remember to `yarn` or `npm install` to install eslint.
+Once you've cloned the project, remember to `yarn` or `npm install` to install the required dependencies.
 
 Use `npm test` to run tests.
+Use `npm build` to build the output files.
+Use `npm start` to automatically rebuild on file changes.
 
 If you don't want to code, that's okay! The Generator is built out of a novel's worth of words, and we're always in need of more descriptions. You can find writing tasks [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3AWriting)
 
