@@ -4,7 +4,7 @@ setup.structure = {
     if (!building) {
       building = {}
     }
-    building.wordNoun = building.wordNoun || 'building'
+    building.wordNoun = building.wordNoun || opts.wordNoun || 'building'
 
     if (!building.structure) {
       building.structure = {
@@ -96,7 +96,7 @@ setup.structure = {
       'wealth': [
         [90, 'solid'],
         [70, 'well built'],
-        [50, ''],
+        [50, 'ageing'],
         [30, 'poorly made'],
         [20, 'run down'],
         [0, 'structurally unsound']
@@ -267,8 +267,8 @@ setup.structure = {
       wealth: [
         [90, 'perfectly maintained'],
         [80, 'well maintained'],
-        [60, ''],
-        [40, 'somewhat shabby'],
+        [60, 'weathered'],
+        [40, 'shabby'],
         [30, 'moss covered'],
         [20, 'patchy'],
         [0, 'hole riddled']
