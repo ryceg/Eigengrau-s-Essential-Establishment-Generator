@@ -76,7 +76,7 @@ setup.brothel = {
     'The Kings Head', 'The Queens Head', 'The Red Lion', 'The Drunken Sailor', 'The Plough', 'The Dancing Dragon', 'Lusty Maidens', 'Mermaid Gait', 'Lone Wenches Inn', 'The Sour Sow', 'The Rusty Tub', 'The Lacy Curtain',
     'The Porcelain Candle', 'Golden Embrace', 'The Pink Petticoat', 'The Silky Kisses', 'The Red Slipper', "The Lady's Skirt"
   ],
-  // Apparently, it specialises in __
+  // Apparently, it specializes in __
   'specialty': [
     'really weird stuff, for those with the most interesting fetishes',
     'illegal stuff. If this is found out, the place would be burnt down, and the owners hung. It is clearly kept in great secret',
@@ -95,7 +95,7 @@ setup.brothel = {
     'helping people live out their most twisted sexual fantasies',
     'incredibly dominant women'
   ],
-  // When people talke about the brothel, they say __
+  // When people talk about the brothel, they say __
   'talk': [
     [
       'you can pay for services with things other than coin',
@@ -145,7 +145,7 @@ setup.brothel = {
     'one of the workers is said to be carrying the baby of a god',
     'a powerful amulet of lust is supposedly hidden there',
     'several high ranking nobles are said to frequent here',
-    'many of the lesser known harlots have started dissapearing in the night',
+    'many of the lesser known harlots have started disappearing in the night',
     "the mayor's daughter is said to work here",
     'the owner is actually a philanthropist and gives part of all the profits to a nearby orphanage',
     'only bottom of the barrel nobles and wannabes would be caught dead here',
@@ -161,7 +161,7 @@ setup.brothel = {
     'the harlots here can change their looks at will to suit others',
     'the prostitutes here were all orphans taken in by the original owner',
     'the brothel is actually a vampire haven who suck the blood of their patrons',
-    'the brothel is actually a cult who sacrafice rude patrons to their dark god',
+    'the brothel is actually a cult who sacrifice rude patrons to their dark god',
     'the entire building is haunted and ghosts will harass you as you try to enjoy your time',
     'the brothel has a secret backroom where all the really crazy stuff happens',
     'the brothel is just a front for a local gambling ring',
@@ -413,7 +413,7 @@ setup.brothel = {
       'new to the place and always in trouble': {
         gender: 'woman',
         ageStage: 'young adult',
-        calmTrait: 'mischeivous'
+        calmTrait: 'mischievous'
       },
       'new to the place and eager to please': {
         gender: 'woman',
@@ -422,7 +422,7 @@ setup.brothel = {
       }
     },
     // She has __
-    'feature': ['a pretty smile', 'beautiful eyes', 'lovely, long eyelashes', 'lush, curly locks', 'short-cropped hair', 'a clean satin gown', 'broad shoulders', 'a slender jaw', 'thick, long hair', 'a very large bosom', 'a very curvacious body', 'long slender hands'],
+    'feature': ['a pretty smile', 'beautiful eyes', 'lovely, long eyelashes', 'lush, curly locks', 'short-cropped hair', 'a clean satin gown', 'broad shoulders', 'a slender jaw', 'thick, long hair', 'a very large bosom', 'a very curvaceous body', 'long slender hands'],
     // and is particularly good at __
     'skill': ['listening and offering emotional support', 'bringing a smile to her clients’ faces as soon as she touches them', 'embroidery and sewing', 'cooking and cleaning', 'drinking and swearing', 'certain lewd oral activities', 'getting clients in the mood', 'juggling'],
     // However, she has __
