@@ -1,60 +1,10 @@
 setup.thievesMission = function (town, mission) {
   mission.type = ['alchemy', 'assassination', 'blackmail', 'burglary', 'swindle', 'fence', 'fraud', 'gambling', 'kidnapping', 'narcotics', 'prostitution', 'protection', 'slavery', 'smuggling', 'street'].seededrandom()
-  let missionDetails
 
-  switch (mission.type) {
-    case 'alchemy':
-      missionDetails = alchemyMissionDetails(mission.difficulty)
-      break
-    case 'assassination':
-      missionDetails = assassinationMissionDetails(mission.difficulty)
-      break
-    case 'blackmail':
-      missionDetails = blackmailMissionDetails(mission.difficulty)
-      break
-    case 'burglary':
-      missionDetails = burglaryMissionDetails(mission.difficulty)
-      break
-    case 'swindle':
-      missionDetails = swindleMissionDetails(mission.difficulty)
-      break
-    case 'fence':
-      missionDetails = fenceMissionDetails(mission.difficulty)
-      break
-    case 'fraud':
-      missionDetails = fraudMissionDetails(mission.difficulty)
-      break
-    case 'gambling':
-      missionDetails = gamblingMissionDetails(mission.difficulty)
-      break
-    case 'kidnapping':
-      missionDetails = kidnappingMissionDetails(mission.difficulty)
-      break
-    case 'narcotics':
-      missionDetails = narcoticsMissionDetails(mission.difficulty)
-      break
-    case 'prostitution':
-      missionDetails = prostitutionMissionDetails(mission.difficulty)
-      break
-    case 'protection':
-      missionDetails = protectionMissionDetails(mission.difficulty)
-      break
-    case 'slavery':
-      missionDetails = slaveryMissionDetails(mission.difficulty)
-      break
-    case 'smuggling':
-      missionDetails = smugglingMissionDetails(mission.difficulty)
-      break
-    case 'street':
-      missionDetails = streetMissionDetails(mission.difficulty)
-      break
-    default:
-      missionDetails = defaultMissionDetails(mission.difficulty)
-      break
-  }
+  const details = missionDetails(mission)
 
-  if (missionDetails) {
-    mission.details = missionDetails
+  if (details) {
+    mission.details = details
   }
 
   if (mission.difficulty === 'easy') {
@@ -80,8 +30,45 @@ setup.thievesMission = function (town, mission) {
   return mission
 }
 
-function alchemyMissionDetails (difficulty) {
-  switch (difficulty) {
+function missionDetails (mission) {
+  switch (mission.type) {
+    case 'alchemy':
+      return alchemyMissionDetails(mission.difficulty)
+    case 'assassination':
+      return assassinationMissionDetails(mission.difficulty)
+    case 'blackmail':
+      return blackmailMissionDetails(mission.difficulty)
+    case 'burglary':
+      return burglaryMissionDetails(mission.difficulty)
+    case 'swindle':
+      return swindleMissionDetails(mission.difficulty)
+    case 'fence':
+      return fenceMissionDetails(mission.difficulty)
+    case 'fraud':
+      return fraudMissionDetails(mission.difficulty)
+    case 'gambling':
+      return gamblingMissionDetails(mission.difficulty)
+    case 'kidnapping':
+      return kidnappingMissionDetails(mission.difficulty)
+    case 'narcotics':
+      return narcoticsMissionDetails(mission.difficulty)
+    case 'prostitution':
+      return prostitutionMissionDetails(mission.difficulty)
+    case 'protection':
+      return protectionMissionDetails(mission.difficulty)
+    case 'slavery':
+      return slaveryMissionDetails(mission.difficulty)
+    case 'smuggling':
+      return smugglingMissionDetails(mission.difficulty)
+    case 'street':
+      return streetMissionDetails(mission.difficulty)
+    default:
+      return defaultMissionDetails(mission.difficulty)
+  }
+}
+
+function alchemyMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'go and pick up some basic reagents and return to the Guild without getting caught.',
@@ -109,8 +96,8 @@ function alchemyMissionDetails (difficulty) {
   }
 }
 
-function assassinationMissionDetails (difficulty) {
-  switch (difficulty) {
+function assassinationMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'track a target to a location and observe for 4 hours. Do not get caught or be seen. Signal a contact and return.',
@@ -138,8 +125,8 @@ function assassinationMissionDetails (difficulty) {
   }
 }
 
-function blackmailMissionDetails (difficulty) {
-  switch (difficulty) {
+function blackmailMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'pick up a payment from a dead drop without being seen. Return to the Guild.',
@@ -167,8 +154,8 @@ function blackmailMissionDetails (difficulty) {
   }
 }
 
-function burglaryMissionDetails (difficulty) {
-  switch (difficulty) {
+function burglaryMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'steal 10gp worth of goods from a home.',
@@ -196,8 +183,8 @@ function burglaryMissionDetails (difficulty) {
   }
 }
 
-function swindleMissionDetails (difficulty) {
-  switch (difficulty) {
+function swindleMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'swindle a target out of 10gp or equivalent goods. Escape.',
@@ -225,8 +212,8 @@ function swindleMissionDetails (difficulty) {
   }
 }
 
-function fenceMissionDetails (difficulty) {
-  switch (difficulty) {
+function fenceMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'successfully identify and evaluate goods worth at least 10gp.',
@@ -254,8 +241,8 @@ function fenceMissionDetails (difficulty) {
   }
 }
 
-function fraudMissionDetails (difficulty) {
-  switch (difficulty) {
+function fraudMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'steal an official paper without getting caught. Return to the Guild.',
@@ -283,8 +270,8 @@ function fraudMissionDetails (difficulty) {
   }
 }
 
-function gamblingMissionDetails (difficulty) {
-  switch (difficulty) {
+function gamblingMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'win at least 10gp in one day.',
@@ -312,8 +299,8 @@ function gamblingMissionDetails (difficulty) {
   }
 }
 
-function kidnappingMissionDetails (difficulty) {
-  switch (difficulty) {
+function kidnappingMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'track a target for at least 4 hours without being seen.',
@@ -341,8 +328,8 @@ function kidnappingMissionDetails (difficulty) {
   }
 }
 
-function narcoticsMissionDetails (difficulty) {
-  switch (difficulty) {
+function narcoticsMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'buy product from a rival worth at least 10gp and return to the Guild..',
@@ -370,8 +357,8 @@ function narcoticsMissionDetails (difficulty) {
   }
 }
 
-function prostitutionMissionDetails (difficulty) {
-  switch (difficulty) {
+function prostitutionMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'earn at least 10gp in 1 day.',
@@ -399,8 +386,8 @@ function prostitutionMissionDetails (difficulty) {
   }
 }
 
-function protectionMissionDetails (difficulty) {
-  switch (difficulty) {
+function protectionMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'intimidate a target into buying protection worth at least 10gp a week.',
@@ -428,8 +415,8 @@ function protectionMissionDetails (difficulty) {
   }
 }
 
-function slaveryMissionDetails (difficulty) {
-  switch (difficulty) {
+function slaveryMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'sell 1 slave worth at least 100gp.',
@@ -457,8 +444,8 @@ function slaveryMissionDetails (difficulty) {
   }
 }
 
-function smugglingMissionDetails (difficulty) {
-  switch (difficulty) {
+function smugglingMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'move goods worth at least 10gp.',
@@ -486,8 +473,8 @@ function smugglingMissionDetails (difficulty) {
   }
 }
 
-function streetMissionDetails (difficulty) {
-  switch (difficulty) {
+function streetMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'pickpocket 10gp or equivalent goods.',
@@ -515,8 +502,8 @@ function streetMissionDetails (difficulty) {
   }
 }
 
-function defaultMissionDetails (difficulty) {
-  switch (difficulty) {
+function defaultMissionDetails (mission) {
+  switch (mission.difficulty) {
     case 'easy':
       return [
         'pick up a payment from a dead drop without being seen. Return to the Guild.',
