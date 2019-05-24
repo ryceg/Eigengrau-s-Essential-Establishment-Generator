@@ -1,3 +1,4 @@
+
 setup.thievesMission = function (town, mission) {
   mission.type = ['alchemy', 'assassination', 'blackmail', 'burglary', 'swindle', 'fence', 'fraud', 'gambling', 'kidnapping', 'narcotics', 'prostitution', 'protection', 'slavery', 'smuggling', 'street'].seededrandom()
 
@@ -7,27 +8,49 @@ setup.thievesMission = function (town, mission) {
     mission.details = details.seededrandom()
   }
 
-  if (mission.difficulty === 'easy') {
-    mission.difficultyText =
-    ['Should be pretty easy.',
-      "It'll be a piece of cake.",
-      "Shouldn't be any trouble for you.",
-      'Should be no trouble for you.',
-      'Should be easy enough.'].seededrandom()
-  } else if (mission.difficulty === 'hard') {
-    mission.difficultyText =
-    ["It'll be a bit of a challenge.",
-      'Should be reasonably difficult.',
-      'It should be entertaining enough for you.',
-      'It might be a tad tricky.'].seededrandom()
-  } else { mission.difficultyText = '' };
+  mission.difficultyText = missionDifficulty(mission)
 
-  mission.readout = [
-    ["I've got a job for you.", 'Got a job for you to do.', "There's a job I need you to do.", "There's something I need you to do."].seededrandom() + ' ' + mission.difficultyText + ' ' + ["This one's a ", "It's a ", 'This is a '].seededrandom() + mission.type + ' job. I need you to ',
-    ["I've got a " + mission.type + ' job for you.', 'Got a ' + mission.type + ' job for you to do.', "There's a " + mission.type + ' job I need you to do.', "There's a " + mission.type + ' job I need you to do.'].seededrandom() + ' ' + mission.difficultyText + ' ' + ' I need you to '
-  ].seededrandom() + mission.details + ' ' + ["Don't fuck it up.", "Don't let me down.", "Don't disappoint me."].seededrandom()
+  const openingLine = [
+    [
+      "I've got a job for you.",
+      'Got a job for you to do.',
+      "There's a job I need you to do.",
+      "There's something I need you to do."
+    ].seededrandom() + ' ' + mission.difficultyText + ' ' + ["This one's a ", "It's a ", 'This is a '].seededrandom() + mission.type + ' job.',
+    [
+      "I've got a " + mission.type + ' job for you.',
+      'Got a ' + mission.type + ' job for you to do.',
+      "There's a " + mission.type + ' job I need you to do.',
+      "There's a " + mission.type + ' job I need you to do.'
+    ].seededrandom() + ' ' + mission.difficultyText
+  ].seededrandom()
+
+  const closingLine = ['fuck it up.', 'let me down.', 'disappoint me.'].seededrandom()
+
+  mission.readout = openingLine + ' I need you to ' + mission.details + " Don't " + closingLine
 
   return mission
+}
+
+function missionDifficulty (mission) {
+  switch (mission.difficulty) {
+    case 'easy':
+      return [
+        'Should be pretty easy.',
+        "It'll be a piece of cake.",
+        "Shouldn't be any trouble for you.",
+        'Should be no trouble for you.',
+        'Should be easy enough.'
+      ].seededrandom()
+    case 'hard':
+      return [
+        "It'll be a bit of a challenge.",
+        'Should be reasonably difficult.',
+        'It should be entertaining enough for you.',
+        'It might be a tad tricky.'
+      ].seededrandom()
+  }
+  return ''
 }
 
 function missionDetails (mission) {
