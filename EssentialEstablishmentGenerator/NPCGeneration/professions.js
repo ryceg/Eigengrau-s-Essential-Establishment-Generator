@@ -219,6 +219,7 @@ setup.townData.professions = {
   },
   bartender: {
     sv: 450,
+    synonyms: ['barkeep', 'tavern owner', 'innkeep'],
     type: 'business',
     sector: 'hospitality',
     description: 'pours drinks at taverns and other establishments.',
