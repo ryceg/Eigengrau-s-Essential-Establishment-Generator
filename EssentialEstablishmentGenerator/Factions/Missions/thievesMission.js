@@ -33,37 +33,37 @@ setup.thievesMission = function (town, mission) {
 function missionDetails (mission) {
   switch (mission.type) {
     case 'alchemy':
-      return alchemyMissionDetails(mission.difficulty)
+      return alchemyMissionDetails(mission)
     case 'assassination':
-      return assassinationMissionDetails(mission.difficulty)
+      return assassinationMissionDetails(mission)
     case 'blackmail':
-      return blackmailMissionDetails(mission.difficulty)
+      return blackmailMissionDetails(mission)
     case 'burglary':
-      return burglaryMissionDetails(mission.difficulty)
+      return burglaryMissionDetails(mission)
     case 'swindle':
-      return swindleMissionDetails(mission.difficulty)
+      return swindleMissionDetails(mission)
     case 'fence':
-      return fenceMissionDetails(mission.difficulty)
+      return fenceMissionDetails(mission)
     case 'fraud':
-      return fraudMissionDetails(mission.difficulty)
+      return fraudMissionDetails(mission)
     case 'gambling':
-      return gamblingMissionDetails(mission.difficulty)
+      return gamblingMissionDetails(mission)
     case 'kidnapping':
-      return kidnappingMissionDetails(mission.difficulty)
+      return kidnappingMissionDetails(mission)
     case 'narcotics':
-      return narcoticsMissionDetails(mission.difficulty)
+      return narcoticsMissionDetails(mission)
     case 'prostitution':
-      return prostitutionMissionDetails(mission.difficulty)
+      return prostitutionMissionDetails(mission)
     case 'protection':
-      return protectionMissionDetails(mission.difficulty)
+      return protectionMissionDetails(mission)
     case 'slavery':
-      return slaveryMissionDetails(mission.difficulty)
+      return slaveryMissionDetails(mission)
     case 'smuggling':
-      return smugglingMissionDetails(mission.difficulty)
+      return smugglingMissionDetails(mission)
     case 'street':
-      return streetMissionDetails(mission.difficulty)
+      return streetMissionDetails(mission)
     default:
-      return defaultMissionDetails(mission.difficulty)
+      return defaultMissionDetails(mission)
   }
 }
 
