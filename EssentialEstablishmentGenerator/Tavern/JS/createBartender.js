@@ -1,6 +1,5 @@
 setup.createBartender = function (town, associatedBuilding) {
   var bartender = setup.createNPC(town, {
-    // associatedBuilding: associatedBuilding,
     associatedTown: town.name,
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].seededrandom(),
     dndClass: ['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'].seededrandom(),

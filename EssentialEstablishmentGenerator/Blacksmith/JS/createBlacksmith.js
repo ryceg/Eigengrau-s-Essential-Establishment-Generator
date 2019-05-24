@@ -1,7 +1,6 @@
 
 setup.createBlacksmith = function (town, smithy) {
   var blacksmith = setup.createNPC(town, {
-    // associatedBuilding: smithy,
     dndClass: 'blacksmith',
     hasClass: false,
     profession: 'blacksmith',

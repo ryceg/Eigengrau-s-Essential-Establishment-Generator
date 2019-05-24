@@ -159,44 +159,13 @@ setup.plothook = {
     'A rumble in the earth is the first indication; soon your party can see the herd of buffalo-like creatures stampeding down the plain directly toward you!'
   ],
   'city': [
-    // "The town guard think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the real culprit before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?",
-    // 'The party is taken aside to the guardhouse upon first entering the city. They are told the guard captain wants to speak with them. When the captain arrives, he attempts to shake down the party under pain of death.',
-    // 'A woman falls into the street from the second story window in front of the party and dies on impact. Soon after, a PC notices a hooded figure skillfully dropping, uninjured, from another second story window facing into the alley. The figure quickly disappears into a maze of side streets.',
-    // 'The party is invited to a manor by an important socialite for a potential job opportunity. When they arrive, they are told to wait in an empty room. Soon after entering the room, the party realizes they are locked in with a magical ward.',
-    // 'The party stops to witness a funeral procession for a crime lord. Soon after passing, the party hears an explosion and sees a gigantic smoking fireball rise into the sky a block away.',
-    // 'In need of food and shelter from the elements (or from enemies), the characters come to a ruined tower full of revelling adventurers. But the Rules of the House say no one may enter until they have entertained the rabble with a rousing tale.',
-    // "As you step out of the tavern, a disheveled girl smashes into you. 'Wilkenson's dog is loose again!' she exclaims as she attempts to hide behind you. You turn back in the direction she came to see a metal construct resembling a dog charging toward you.",
-    // "The PCs spot a pregnant woman walking through the bazaar. As she passes the baker's stall she quickly grabs a loaf of bread and keeps walking, favouring one of the PCs with a wink as she goes. Is she a thief or the wife of the store owner?",
-    // "The PCs are resting in their inn room when suddenly the door bursts open. A well-armed man with weapon drawn storms in and says, 'Don't move, I've...crap, wrong room.' The intruder then quickly exits.",
-    // "The PCs find the item they have been seeking in the marketplace. As the purchase is completed and they are about to leave, a stranger rushes up to the merchant shouting, 'I know you have it Balthasar, and I want my back now!'",
-    // "The inhabitants of a large building start a war against an identical neighboring building. At the beginning it's because they are accused of stealing their water, but in fact they have held many petty grudges for years and this way they can vent them out violently. The party is hired by fearful authorities to stop the revolt that threatens to scale into a civil war, but one of the tenants in the rebel building is a PC's distant relative. Does the party intervene impartially, risking a family feud or do they help the relative exact revenge against his neighbors?",
-    // "The party is mistaken by a wealthy man as carriage caretakers in a shantytown neighborhood. He hands them money to protect his vehicle. The legitimate caretakers challenge the PCs and try to steal the wealthy wagon. Does the party protect the rich man's vehicle or do they leave the locals to do as they please, risking later persecution by the noble client?",
-    // 'The PCs arrive at the inn and find a large group (at least three times their number) of mercenaries leaving for the jail where they plan to execute all the prisoners. The party is connected to one of the inmates (an old, recurrent, but not particularly hated enemy, maybe they put him behind bars in the first place) and wishes him to remain alive for some reason. Do they face the killers, race to save the prisoner first, warn the prisoners or set them all free?',
-    // 'The city has a zoo filled with wondrous and dangerous creatures brought from far places. Just recently, some of the creatures escaped and now there is a royal reward for recovering the rare animals unharmed. How can this be done?',
-    // 'The sector of the city lies under quarantine after an outbreak of a mysterious fever. The party is being kept inside, and one of its members is starting to show symptoms of the illness. Do they try to escape, risking further contagion, or do they try to find a cure from the inside?',
-    // 'The PCs are being chased by a criminal party through the streets of a city that celebrates its anniversary with improvised shows over plazas. They get caught in the middle of a show, in front of a demanding audience. The only way the mob will let them leave is by doing a successful artistic performance.',
-    // 'A gypsy intercepts the most charismatic member of the party and tells him of a vision she had. She predicts the party member will find a beautiful person in this city and it will be the love of his life. She provides no further details. Later on, a beautiful person flirts with the character.',
-    // "One member of the party is seen carrying an exotic weapon and the authority of the local museum is told about it. This museum curator has been an adventurer and masters some kind of whip weapon. He prepares an ambush to steal the exotic weapon, yelling at the PCs on sight, 'That belongs in a museum!'",
-    // 'The Tourist. The PCs have messed up (possibly been framed) in the eyes of the King and have been apprehended. The King will release the party, if they allow a wealthy, influential and obese merchant to come along on a dungeon delve, where there are sure to be many tight spaces.',
-    // "Medieval Proliferation. Two blacksmiths are in competition to create better melee weapons for the King's army and only one can win the contract. One of the blacksmiths approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.",
-    // 'Kindergarten Magic. Street urchins are rumored to have special powers. A representative of the Magicians Guild approaches your party to investigate. In reality, they are learning magic from an unknown source. The children have less inhibition and magical control, but have much more mana and capability of replenishing mana, making them dangerous magic users.',
-    // 'As the PCs turn a corner, a law enforcement officer slams into them at breakneck speed. As they help him up, they notice he is covered in blood with grievous wounds. As he dies in their arms, he begs them to find his wife and relay his sincerest love and apologies.',
-    // "'Psst, do you want to buy a crystal ball that really works? It's cheap!' says a shady character while sneaking up on the PCs from an alley. The price really is cheap, and you might even lead the PCs to believe the ball works when they try to use it for petty things, but it is unreliable, maybe even cursed. And the big problem is that one or more groups of NPCs badly want this crystal ball.",
     'The PCs witness a break-in at a shop. If they intervene, then right at the end of the encounter the shop owner shows up and accuses the PCs of breaking in and causing damage in his shop. He immediately calls for the guard.',
     "The party runs over or mortally injures a shepherd's goat by accident. After apologizing, the shepherd starts demanding money equivalent to three or four times what the goat's value is. Then, as things settle down, another shepherd comes up and displays another goat injured. City guards start to show an interest in the event as well...",
     'A merchant discovers the PCs are buying something and comes to give them a more expensive offer for something of lesser quality. However, the merchant insists this is a good deal as his cousin works for the town hall and will cause great grief to the party if they refuse his offer.',
-    // 'Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the guards seem disinterested in assisting with either clearing the road or arbitrating between the families.',
     "Townspeople come up to the party and blame them for the local infestation of evil. If the PCs weren't there, so the argument goes, the evil would go elsewhere. A crowd gathers in support of their fellow citizens.",
-    // 'There is but one accepted religion in town. What about the party cleric who serves what is here deemed a false god?',
     "Young lovers have taken the PCs' room as refuge to meet in. They are sought after by families that do not approve.",
     'Injustice breaks out as revolution against a tyrant. The PCs are there to see the first flames, and may play a pivotal role in either supporting or crushing the uprising.',
-    // "A fast ship in the bay is bombarding the helpless port with siege engines. It's out of range for the locals to deal with, and possibly not alone.",
-    // 'The PCs hear shrieks from a dark alley where a young maiden just went. Under the full moon, she is painfully turning into a werewolf for the first time.',
-    // 'There have long been rumours of the cemetery being desecrated by someone stealing the corpses. One night the PCs chance upon the necromancer walking home with newly animated undead.',
     'One or more PCs are short-changed by a merchant who considers himself untouchable. Whether he truly is...',
-    // "An NPC seeks the protection of the PCs. To grant it makes her enemies the PCs' enemies, and gives them the responsibility to protect a high-profile, fragile person who can't or won't leave town.",
-    // 'PCs are marked by a guild of thieves or assassins for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.',
-    // "The spoiled child of a noble finds a PC has something he just *has to have*. The noble's staff does what it can to acquire it, by nearly any means necessary.",
     'The appearance of the PCs breaks the balance of a cold war between two rival mages. Each wishes their support to destroy the other, and fears that the other is successful in recruiting the PCs.',
     "A string of building construction accidents has occurred lately throughout the city. Fortunately, no one's been seriously hurt, but the accidents are increasing in size and damage. The local guild has put up flyers asking for help in solving their problem.",
     'As the PCs walk across a bridge over the river that cuts through town, they notice a couple of young boys standing near the edge of the bridge. They each have a large rock in their hands, and are watching one of the approaching river boats with smiles on their faces. As the boat gets closer, one of the boys raises his rock as if he is going to drop it.',
@@ -204,10 +173,7 @@ setup.plothook = {
     "The PCs come upon a sobbing woman holding a teenage boy who looks to have been severely beaten. If the PCs ask the woman if they can help, she explains her youngest son was beaten up by a gang of toughs. Of more immediate danger though, is that her oldest son has gone off to exact revenge on them, and she's afraid of what they will do to him.",
     "Down the dimly lit alley, two guards can be seen beating a kneeling man. One rips a coin purse from the kneeling man's belt and says, 'Don't be late next month, old man.'",
     'Storm clouds hang heavy, and thick cold rain pounds down as it has for hours. Gutters gurgle, and the sewers moan as if carrying some great weight. From a drain, a swarm of thousands of black rats burst out and charge the PCs.',
-    // 'As the PCs are travelling from one district to another they are confronted by a traffic jam. A building has fallen in and the umber hulk responsible is hiding, waiting for a snack to move near it.',
     'The PCs are hired as security for the auction of a mysterious artifact. While stopping repeated theft and auction-rigging attempts, they eventually learn of its evil nature and have to debate breaking their contract and destroying the thing while getting away with it.',
-    // "Someone falls out the window of a high building. It wasn't suicide as he had his hands and feet bound together and three large sacks of gold tied around his neck. What will be more important, the murder or the money?",
-    // 'A rich man walks through a bad part of town with obvious riches and money. If mugged, he gives it willingly. He has been doing this for the last three days.',
     'A small animal brushes past the PCs as they walk along a dock. After it jumps into the water, a group of sailors rushes onto the dock, firing crossbows and flinging harpoons at the ripples the animal left in the water. While the sailors curse and fire the last few missiles they have, one of the PCs notices the animal left a muddy gem on the top of her shoe.',
     'A local farmer asks the party to either scare off or kill a pack of wolves that have been terrorizing his cattle periodically. (u/Joemac-)',
     'Two opposing tailors each have half of the finest pair of pants ever created. You have been hired to repair the pants and reunite the halves. (u/ANEPICLIE)',
@@ -310,273 +276,6 @@ setup.plothook = {
     'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying the party drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
   ],
   papers: {
-    // 'Doppelganger Dead Or Alive': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own..."
-    //   }
-    // },
-    // 'Eggs': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return "The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high."
-    //   }
-    // },
-    // 'Orc Captain': {
-    //   // TO UPDATE needs to be updated with orc generation
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return '‘Wanted Dead or Alive – Bonecrusher, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: 1,000gp’'
-    //   }
-    // },
-    // 'Hubert': {
-    //   probability: 10,
-    //   exclusions: function (town) {
-    //     if (town.population > 3000 || town.roll.magic > 70) {
-    //       return true
-    //     }
-    //   },
-    //   function: function (town) {
-    //     var faction = setup.factionsForType(town, 'type', 'wizards')
-    //     return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $selected to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
-    //   }
-    // },
-    // 'Big Chickens': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       gender: 'woman',
-    //       dndClass: 'sorcerer'
-    //     })
-    //     var cabin = setup.misc.cabin.create()
-    //     return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. 1GP/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
-    //   }
-    // },
-    // 'Guard The Garlic': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     if (town.population > 500) {
-    //       return true
-    //     }
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       background: 'noble',
-    //       profession: 'noble',
-    //       note: 'Is hosting a banquet for vampires.'
-    //     })
-    //     return setup.profile(npc, 'I') + 'need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. 200gp per person, payed upfront. No questions asked. (All the guests are vampires.)'
-    //   }
-    // },
-    // 'Books': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       background: 'scholar',
-    //       profession: 'librarian'
-    //     })
-    //     return setup.profile(npc, 'My') + ' book store has a shipment of rare books coming in and needs people to help unload them. Will pay 100 gold per person and not responsible for any injuries incurred on the job. (Caution: dangerous magic and pet books around.)'
-    //   }
-    // },
-    // 'Rat Exterminator': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town)
-    //     return 'Exterminator needed: ' + setup.profile(npc, "I've") + ' got a mess of rats in my basement. Bring me 10 rat tails in return for payment. (Listed address has no basement and owner has no rat problem. The advert has a typo and should point to a house further down the way.)'
-    //   }
-    // },
-    // 'Sunk Ore': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return 'Strong Swimmer Needed! My simpleton apprentice left my ore cart unattended on the bridge and the blasted thing tumbled into the river! Hopefully the ore is still in there somewhere, I’ll pay gold to anyone who can get me my ore!'
-    //   }
-    // },
-    // 'Sick Granny': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       ageStage: 'elderly',
-    //       gender: 'woman'
-    //     })
-    //     return 'Sick Grandmother: My ' + setup.profile(npc, 'grandmother') + ' is sick and needs a shipment of medicine. Our normal courier has gone missing, so we desperately need it delivered. Expedited fee available with a bonus upon delivery (Grandma makes a mean elven bread.)'
-    //   }
-    // },
-    // 'Squirrel Hunting': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return 'Squirrel Hunting: A squirrel has been seen in town stealing jewelry from citizens. We think there may be more than one squirrel involved — they always head west after the theft. They need to be captured or killed; a bonus available if stolen items are returned.'
-    //   }
-    // },
-    // 'Stolen Earrings': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       gender: 'woman'
-    //     })
-    //     return 'Earrings Stolen: ' + setup.profile(npc, 'My') + ' wagon was robbed by bandits in the eastern forest. Among the items taken where heirloom earrings that were given to me by my mother. Please find them. Reward available.'
-    //   }
-    // },
-    // 'Magic Bakery': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       profession: 'baker',
-    //       hasClass: false
-    //     })
-    //     return 'TEST SUBJECT NEEDED! ' + setup.profile(npc, 'We') + ' at the Barrington Bakery are looking for subjects to test out our new magical breads. We infuse magic into the mixing process for a, hopefully, tasteful bread. You will need to taste each bread, and have our scholar review the side effects. You will be paid per day.'
-    //   }
-    // },
-    // 'Trophy Arrow': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       profession: 'alchemist',
-    //       hasClass: false
-    //     })
-    //     return 'Lost Arrow: While practicing with a bow, my son lost a trophy arrow (he was not supposed to use). He was practicing in the Northern plains and thinks the arrow went into the forbidden forest. Please retrieve this arrow. As an ' + setup.profile(npc, 'alchemist') + ', I will pay in healing potions.'
-    //   }
-    // },
-    // 'Goblin Encampment': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var goblins = setup.misc.goblins.create()
-    //     return 'Goblin encampment: A ' + goblins.tippy + '<b>goblin encampment</b></span> has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.'
-    //   }
-    // },
-    // 'Wandering Skeleton': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return 'Wandering Skeleton: Wandering Skeleton seen on the outskirts of town. It appears armed with a sword, shield and horned helmet. Dispatch this skeleton and we’ll offer you 10% off anything in town.'
-    //   }
-    // },
-    // 'Kobold Flour': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       profession: 'alchemist',
-    //       hasClass: false
-    //     })
-    //     return 'Kobold Flour: ' + setup.profile(npc, 'Local baker') + ' seeks Kobold Flour for the upcoming Monster festival. This specialty item can only be found in Kobold encampments. Will pay 10gp per pound (maximum of 100 pounds).'
-    //   }
-    // },
-    // 'Bard Wanted': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var tavernIndex = town.buildings.tavern.length.random()
-    //     var tavern = town.buildings.tavern[tavernIndex]
-    //     return '<<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).'
-    //   }
-    // },
-    // 'Armed Escort Needed': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       profession: 'merchant',
-    //       hasClass: false,
-    //       background: ['noble', 'commoner'].random()
-    //     })
-    //     return '' + setup.profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + setup.createTownName() + '.'
-    //   }
-    // },
-    // 'Mushroom Forager': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     return 'Our beloved mushroom forager, has not returned from the forest. He was last seen four days ago. Need help finding him(her?)!'
-    //   }
-    // },
-    // 'Lost Mail': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       background: 'noble',
-    //       hasClass: false
-    //     })
-    //     return 'Lost mail! Important documents might have been intercepted. The courier I’ve been expecting has not arrived. Please inquire at the City Hall, ask for ' + setup.profile(npc) + '.'
-    //   }
-    // },
-    // 'Sporting Match': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       hasClass: false
-    //     })
-    //     return 'The town of ' + setup.createTownName() + ' has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ' + setup.profile(npc) + ' for details.'
-    //   }
-    // },
-    // 'Tarot Cards': {
-    //   probability: 10,
-    //   exclusions: function (town, npc) {
-    //     return true
-    //   },
-    //   function: function (town) {
-    //     var npc = setup.createNPC(town, {
-    //       profession: 'seer',
-    //       gender: 'woman',
-    //       hasClass: false
-    //     })
-    //     return 'Lady ' + setup.profile(npc, npc.firstName) + ' will read your future in the cards. I know you will show up. Where am I? Don’t worry, dear. Fate will guide you.'
-    //   }
-    // }
   },
   'paper': [
     "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
@@ -627,62 +326,7 @@ setup.plothook = {
     'Sheep Numbers Dwindling – We don’t know who, or what, is killing our sheep, but we cant ignore it any longer. Over the last three months, we found several mother sheep and their newborns dead. We offer 10 gold coins for whoever finds out what has happened to our lifestock and ends this from happening again. (A were-sheep has been killing the other sheep, can be found out when the heard is observed, all sheep go away when this particular one comes close to them, or when the transformation happens during a clear moonlit night.)',
     'A notice to those on hard times that the mines are hiring, the tag line on the bottom says ‘We’ve cleared out the danger that once struck our mine and threatened the safety of the miners, we are confident that resuming our operations shall be fruitful and safe for all.’ (Underneath that is a hand written note directly under the text, ‘So much for your confidence.’)',
     'Deal of a lifetime! I’m willing to trade a lovely tin pot, painted with cornflowers and lilies (and showing a few holes, true, but that’s a plus, for you can add a few more and look at that, you’ve got a colander) for a cart. The cart needn’t be big, can even be tiny, in fact, just so that two, or better four, people could fit in it, with ample room for bags and sacks, if possible. Could be old, long as it rides well and has new wheels, and strong axles, so actually probably nothing made longer than a year or two ago would do. Leave a message with Bohddie.',
-
-    // 'Cleric needed – Daughter Ill and Dying (A local father is worried because his daughter’s health has been rapidly declining. He needs someone with knowledge of medicine to determine what kind of illness… or poison or curse… is affecting her.)',
-    // 'Adventurers needed! Our Kobold in our previous adventuring party is currently missing and is in possession of an ancient and dangerous artifact. Problem is, he ate it. Please return the artifact in tact! The Kobold (Skrazz) can be returned dead, alive, or not at all for all we care. 1000 GP Reward.',
-    // 'Multi-Linguist Needed: While going through my pappy’s attic I found this really old map that I’m pretty sure leads to something cool. The problem is, I can’t read it! Pretty sure it’s Celestial, Draconian or Elvish cuz the letters are all curly. If the map leads to some sweet treasure I’ll share it fairly with you!',
-    // 'Taste-Tester Needed: Lord _____ needs a qualified taste-tester for upcoming banquet to fill recently vacated position. Benefits include All you can eat food and drink, provided medical care, lodging and pay-per-taste. Dwarvish candidates preferred. Inquire at ______ Manor.',
-    // 'A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to the _____ tavern tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you 10g. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -Billie Doobie',
-    // 'FOUND: Stange child’s doll. Blue gingham dress, yellow yarn hair with blue satin bow, made of painted wood. Eyes are large and very lifelike, seeming to follow you around the room. IF YOU RECOGNIZE THIS DOLL PLEASE COME AND TAKE IT I’LL GIVE YOU 5G. -23 Wyverann St E',
-    // 'LOST SHORTS: please, this seems silly, but recently my favorite lucky shorts have gone missing! I’m sure someone stole them but I have no proof. I need them before the big poker tournament tomorrow and I will pay 100g to whoever finds them! They are purple with green polka-dots and the back pocket has a recently-patched up rip. Also my name is written on the waistband. -Marty Martingale, #4 Lake Park Ave. E',
-    // 'WHO AM I?: I woke up in a gutter this morning outside of the Hill Street Inn and Tavern. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.',
-    // 'Local Tavern needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!',
-    // 'BARD EXTRAORDINARE: Art is the purest expression of the soul, and no-one expresses themselves more eloquently than Clover Salvatore, the hottest Bard to grace the realm. The Golem Guardian newspaper has called him, ‘A fresh voice, Clover Salvatore will wow your tavern with his genre-bending style, and witty lyrics. A star in the making’. Send a pigeon and book him in now!',
-    // 'FIRST CLASS MALE: If you need a message that needs delivering, look no further than this First Class Male. With reasonable fees and lightning quick delivery, it’s not just the devilishly handsome good looks that make this the best way to tell someone you care. Speak to Dorian for more information.',
-    // 'Help wanted t’ return me property: Yesterday some o’ th’ young neighborhood scalawags stole me carved wooden leg while I were pissed in th’ gutter outside th’ Salty Strumpet. I can nah chase aft them t’ git it back ’cause me backup leg be mor’n ghastly. If’n ye can get back me leg I’ll pay ye 10 gold, it holds a lot o’ sentimental-type meanin’ t’ me.',
-    // 'BIG AWARD MONEY!! Near forest there is cave. In cave small monster. Need help with monster. WILL AWARD BIG MONEY!! (A barghest’s trap, prepared by goblins to lure adventurers in and devour them alive)',
-    // 'Someone stole my chicken that lays all sort of metal eggs. Help me find it.',
-    // 'My Family is about to find out about my secret. Good liars and problem solvers in need.',
-    // 'The bridge collapsed again and I lost my wagon. Will pay good gold if bridge repaired, and more if wagon retrieved. Contact Arkwright’s village store for reward. (Twist: Goblins have been booby trapping the bridge to steal the contents of wagons.)',
-    // 'What up? We’re three cool guys who are looking for other cool guys who want to hang out in our party mansion. Nothing sexual. Dudes in good shape encouraged. If you’re fat, you should be able to find humor in the little things. Again, nothing sexual.',
-    // 'Missing pet! My pet has been missing since three nights ago and has not returned home. If found return to , whoever finds him will be rewarded greatly! (Twist: the missing pet is actually a small dragon.)',
-    // 'Need basilisk eggs for experiment! Big reward!',
-    // 'Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. 50 GP & four (4) Stones of Farspeech upon return.',
-    // 'Love of my life! Please, I need your help to make me look cool in front of the love of my life, so that I can win her heart! I could never hope to win her by normal means since I’m poor. I will give you all of my life savings in return. Bonus if you look scary! //DM note: The plan is to have the players perform as crooks flirting and trying to pick up the girl and in turn be chased away by the contract giver to make him look cool.',
-    // 'Need to make silver quick? Why not platinum! Rent doesn’t pay itself ya’ know! Find Raul Sonderheim and ask him how you can become your own boss and never have to work a day in your life! (Can be a quest to thwart a predatory pyramid scheme OR be the starting branch in a murder investigation once Raul is found murdered, likely by one of the people he recruited.)',
-    // 'WORK FROM HOME: Easy money that anyone can do! Finally live your dream lifestyle! Be your own boss! Make thousands in your first week! Retire early! Don’t be left out!',
-    // 'Open minded and discrete healer wanted. Must interview.: Despite the suspicious wording, the job is treating people from discriminated-against ancestries or with embarrassing deformities that have been persecuted, passed over, or financially exploited by other healing organizations. The pay is low, but you make solid allegiances. Word of your kindness spreads among the hidden downtrodden and you may find welcome far away.',
-    // 'Sales assistant wanted. Incredible pay!: It’s a multi-level marketing job. The job poster gives you a sales talk about their wonderful liniments and gizmos. They do work, but they are overpriced. You have to make a bulk purchase of the items and then try to resell them for a profit. You are unlikely to find the buyers needed to turn a profit and are stuck with too much stock.',
-    // 'Horsebreaker needed! Inquire at the Post Office! The job is preparing young horses to accept the saddle and harness so they can be ridden or pull carts. They must also be taught basic commands and gaits. The job is successful if the handler can get the horses to calmly accept riders and obey simple orders.',
-    // 'Do you think you know your gems? A grand test awaits at Nappe and Klippe’s Emporium. Only those who truly appreciate mines and minerals should apply! A local jeweler’s outfit acquired a large stock of specialty mineral samples and gems from a flash sale of unclaimed shipments. They need them identified but want someone, preferentially a dwarf, who isn’t going to undersell them. The first part of the job is a basic knowledge test and then they move onto the unusual samples. They pay in wholesale gems of the player’s choice.',
-    // 'Music tutor: My son Stevie wants to be a bard, but the kid has absolutely no talent. I want to enjoy my time at home without the shrieking of his horrible electric lute destroying the peace. I’ll pay you 10g to give him some lessons, and if after a couple his ‘Music’ becomes less painful, I’ll give you a 100g bonus. Contact John Harris at 75 Leyton Ave.',
-    // 'Help! My mother-in-law is coming to town for a visit and I need someone professional to inflict me with some awful disease or other affliction so I have an excuse to stay in bed and not interact or be around her. Please no afflictions that cause perminant damage or death. Mildly life-threatening ok. Meet me at 10pm behind that bar that smells like old goat. You know the one. 50g upon disease delivery.',
-    // 'Help recovering property! This is your local bard Razzle, and if you’ve seen me lately you know that I haven’t quite been myself. The truth is I lost my prize peacock feather hat in a wager at the Lusty Mermaid two days ago. The man who won it from me said I could pay him back for the value of the hat, but when I went to the inn he was staying at I found he skipped town without even paying his tab! (And I found out he cheated at that game of cards by the by) Please, I need a skilled ranger or another who is good at tracking to get back my hat! I’ll pay you 4,000 gold to go with me to get it, and I’m willing increase the price to 5,000 if our quarry proves elusive.',
-    // 'URGENT: It is my little pookums birthday and the entertainment cancelled! Anyone may apply as replacements at the magistrates estate.',
-    // 'NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of me. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from the pub in order to discuss terms.',
-    // 'LOST: 3 peg legs, a hook, 5 eye patches, and a talking parrot. If found please return to ‘The Luckiest Crew’ down at the pier.',
-    // 'HELP WANTED: Poor old widow requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)',
     'MINIONS NEEDED – Local Lich Looking for Less than Lawful Lackeys. References not required, no paladins. Full training and benefits given.',
-    // '81. Fence need painted. Good pay. Contact Sythi at the Inn. Twist, the fence is 10 feet tall and almost a mile long.',
-    // 'ISO: Skilled toymaker, it’s my daughter’s birthday and she wants a teddy. I can compensate for any materials you use. This was posted by an orc and her human husband, there’s an address near the bottom with a smiley face. The 6-year old half-orc wants a GIANT teddy.',
-    // 'IN NEED OF DURABLE IDIOT, WILL BE WORKING WITH IMPOSSIBLE GEOMETRIES. IDIOCY NOT NEEDED BUT DESIRED. BRING FRIENDS. snacks provided! (This was wrote incredibly hastily by a desperate wizard, and his wife. The words ‘snacks provided’ are in much cleaner handwriting toward the bottom, obviously added as it was being posted.)',
-    // 'My brother an me want candy!!! (This note is barely legible and is tacked at the very bottom of the board.)',
-    // 'Hey, we’re having a party and we need booze. Bring any and all you can carry. (Posted by some broskis at the wizard college. There’re about 200 in need of whatever alcohol they can get their hands on.)',
-    // 'Having trouble stocking all these books! Will pay for some big and strong people to help me! (This was posted by a small old woman who owns the local library.)',
-    // 'A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.',
-    // 'Need demolition help: A demolition company is looking for outside help to clear out and then tear down a vacant house. The reward can be money or allowing the players to scavenge what they find inside the house. (What the company doesn’t tell the adventurers is that no one will do the job because of the powerful stench coming from the house. Exploring the house reveals a locked(mechanically or magically) wooden door leading to the basement of the house. The basement contains 1d4 Dretchs accidentally summoned by the previous owner.)',
-    // 'Mimic hunt! Mimics are running rampant throughout the town. Find and kill 2D6 mimics. 1-6 mimics gets 100gp, 7-11 gets 300gp, and 12 kills gets 500gp.',
-    // 'Being followed by crawling claws. Kill 1D4 crawling claws. Reward of 40gp.',
-    // 'House is overrun with rats. Exterminate 4D10 rats and 2D4 dire rats. Reward of 450gp.',
-    // 'Help find my lost pet cat! Reward of 3D10gp to anyone who finds him.',
-    // 'The baker has put out a poster, looking for someone to deliver pastries to the mischievous yet kind faeiry dragon that watches over the town from its lair in the woods outside.',
-    // 'Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.',
-    // 'WANTED: Internship with seasoned adventurers. I’ve admired heroes all my life and want to try my hand at it! I’m hardworking, loyal, and a team player.',
-    // 'Victimless Instigators of Loot Extraction is seeking henchmen for transportation of merchandise. Some risk is involved. Must be capable of intercepting and stopping pursuers. If interested, head to Church of St. Deegho and ask for Carmen.',
-    // 'Help! My good friend Smolik Droweater has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard Quinn.',
-    // 'Seasoned adventurers needed! Writer/Bard here, tell me the tales of your great adventures, I need some inspiration for my books/songs. Payment will be determined by how good your stories are.',
-    // 'Just bought the old mill outside of town. But there’s something living in it (make something up). Will pay 50GP and free milling service for a year to anybody who clears out the infestation and makes it safe for our family to set up!',
-    // 'Help settle a minor dispute between two noble Elven houses! House Alendrian is looking for adventurers to help draw the domain lines with the House Walopez border. If you are strong of arm and fleet of foot, inquire at the Dovestail Manor.',
     'Looking for adventure? Ready to leave this crummy town? Want to earn lots of gold? Ask for Captain Delwyn at the docks.',
     'Lost: pet rabbit named Fluffy. Reward: 2 gold.',
     'WANTED DEAD OR ALIVE: The assassin Reudelard (see attached picture).',
@@ -695,11 +339,8 @@ setup.plothook = {
   'people': [
     "I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
     "There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.",
-    // "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",
     "I know that you are not likely to believe me, but... I am the messenger for the Duke's brother- yes, he had a brother, who has been in exile for some time. I've been charged to deliver this letter to the Duke, but I fear that I'm being followed and may meet my fate soon; the exact details are better left unknown, lest you make yourself a permanent target for holding the knowledge that I do. You must get this message to him. But do not open it, as the Duke will not touch it if the wax seal has been broken.",
     "I'm looking for some guards to help me deliver some cargo some weeks' way away from $town.name; I can't promise that it's going to be easy, but if you keep me and my cargo safe, I can promise rewards well worth your time.",
-    // "For many years, I've kept in contact with the priest of $town.name, Father <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>. But when I visited last spring, he was nowhere to be seen, and _bartender.firstName said that he died last Autumn... I did not mention my trip to $town.name, and yet the letters from him continue.",
-    // "Many years ago, my sister <<print setup.npcData.raceTraits['human'].genderTraits['woman'].firstName.random()>> had a child out of wedlock. She loved it dearly, but it passed in the winter. But recently, she's been hearing its cries again, and swears to the Gods that she has seen it waving from in the paddocks, where the child played with the cows.",
     "I've been hearing strange rattling and moans coming from the abandoned house next door. Would you mind checking it out for me?"
   ]
 }

@@ -123,31 +123,6 @@ setup.tavernRender = function (tavern) {
 
   /* ------------------------- DIVERSITY -------------------------- */
   tavern.diversity = 'placeholder'
-  // if (tavern.diversityRoll > 80) {
-  //   tavern.diversity = 'a very diverse crowd, with no clear majority of one race'
-  // } else if (tavern.diversityRoll > 70 && tavern.roll.roughness > 70) {
-  //   tavern.diversity = 'a rather diverse crowd, the only common factor being their love of weaponry'
-  // } else if (tavern.diversityRoll > 70) {
-  //   tavern.diversity = 'a rather diverse crowd'
-  // } else if (tavern.diversityRoll > 60) {
-  //   tavern.diversity = 'a pretty diverse crowd, the majority being ' + bartender.racePlural + ''
-  // } else if (tavern.diversityRoll > 50) {
-  //   tavern.diversity = 'a relatively diverse crowd, the majority being ' + bartender.racePlural + ''
-  // } else if (tavern.diversityRoll > 40) {
-  //   tavern.diversity = 'a pretty diverse crowd, most being ' + bartender.racePlural + ''
-  // } else if (tavern.diversityRoll > 30 && tavern.roll.roughness > 70) {
-  //   tavern.diversity = bartender.racePlural + ", mostly, and it's clear that they like it that way"
-  // } else if (tavern.diversityRoll > 30) {
-  //   tavern.diversity = bartender.racePlural + ' for the most part'
-  // } else if (tavern.diversityRoll > 20 && tavern.roll.roughness > 70) {
-  //   tavern.diversity = 'mostly ' + bartender.racePlural + ", and it's very obvious that they like it that way"
-  // } else if (tavern.diversityRoll > 20) {
-  //   tavern.diversity = 'mostly ' + bartender.racePlural + ''
-  // } else if (tavern.diversityRoll <= 20 && tavern.roll.roughness > 70) {
-  //   tavern.diversity = 'almost all ' + bartender.racePlural + ', and they are extremely hostile to non-' + bartender.racePlural + ''
-  // } else if (tavern.diversityRoll <= 20) {
-  //   tavern.diversity = 'next to all are ' + bartender.racePlural + ''
-  // }
 
   /* ------------------------- REPUTATION -------------------------- */
 
@@ -162,15 +137,6 @@ setup.tavernRender = function (tavern) {
   } else if (tavern.roll.reputation <= 20) {
     tavern.reputation = 'infamous'
   }
-
-  // default
-  // if (tavern.hasBrawl === true) {
-  //   tavern.drawFeature = setup.tavernBrawl(town, tavern)
-  // } else if (tavern.guardPresent === true) {
-  //   tavern.drawFeature = "There's a member of <<guard $town.guard>> chatting with a tavern patron."
-  // } else {
-  //   tavern.drawFeature = "There's two men sitting in the corner, very intent on a thumbwrestling match."
-  // }
 
   return tavern
 }

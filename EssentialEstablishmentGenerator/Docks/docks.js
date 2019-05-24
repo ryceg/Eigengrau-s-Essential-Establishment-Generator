@@ -82,7 +82,6 @@ setup.docks = {
     'a pair of sailors accidentally dropping one of their crates of cargo into the water',
     'a sailor in the water trying to rescue a dropped supply barrel',
     'a crew unfurling the sails of their ship as they head for open waters',
-    // a(n) enormous/large/moderately sized/regular/small/tiny/single stall fish market selling a large variety of fish/an inconceivable number of fish, crabs, shrimp, and other sea creatures/a small selection of fish/a pitiful variety fish
     'a small group of men posing for a portrait with the carcass of an enormous sea monster strung up from a tall wooden pole',
     'a person in dirty rags attempting to sell a single fish to passersby',
     'an incredibly large <<print either("schooner", "barque", "frigate", "galleon", "caravel", "galley")>> docked out in the water. It is ornately painted with the figurehead of a magical animal',
@@ -107,10 +106,6 @@ setup.docks = {
       ship.size = ''
       ship.cleanliness = ''
 
-      // var rollDataVariables = ['size', 'cleanliness']
-      // rollDataVariables.forEach(function (propName) {
-      //   setup.defineRollDataGetter(ship, setup.docks.ships.rollData, propName)
-      // })
       return ship
     },
     crew: {

@@ -68,19 +68,13 @@ setup.createAllies = function (faction) {
     }
 
     tempGroup = groupList.pluck()
-    // console.log('tempGroup - ' + tempGroup)
     groupList.delete(tempGroup)
     if (tempGroup === faction.type) {
       tempGroup = 'fellow ' + tempGroup
     }
-    // while (alliedGroups.indexOf(tempGroup) !== -1) {
-    //   tempGroup = groupList.pluck()
-    // }
-    // alliedGroups.push(tempGroup)
+
     group = tempGroupSize + tempGroup
-    // console.log('group - ' + group)
     allies.push(group)
-    // console.log('allies - ' + allies)
     return allies
   }
   faction.allies = allies

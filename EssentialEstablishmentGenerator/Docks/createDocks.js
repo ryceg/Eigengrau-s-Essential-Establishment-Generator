@@ -15,7 +15,6 @@ setup.createDocks = function (town, opts) {
 
   docks.name = ['the' + [' Old ', ' New ', ' ', ' ', ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
 
-  // docks.wealth = ''
   docks.activity = ''
   docks.size = ''
   docks.cleanliness = ''

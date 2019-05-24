@@ -12,11 +12,8 @@ setup.fetchProfessions = function (town) {
   for (let profession of professions) {
     var townPop = town.population
     var newSv = profession.sv + (dice('4d4-10') * 10)
-    // console.log('sV: ' + profession.sv)
-    // console.log('new sV: ' + newSv)
     var professionRoll = townPop / newSv /* Set the number of professions equal = the town's population divided by how many people are needed = support that type of business */
     var professionRollPercentage = townPop / profession.sv * 100
-    // console.log('professionRollPercentage: ' + professionRollPercentage)
     var professionRollHundred = randomFloat(1, 100)
     var professionCount
     if (professionRoll < 1 && (professionRollPercentage >= professionRollHundred)) {
@@ -32,12 +29,6 @@ setup.fetchProfessions = function (town) {
       var name = professions.indexOf(profession)
       profession.name = professionNames[name]
       town.professions[profession.name] = profession
-    //   var professionIndex = professions.indexOf(profession)
-    //   console.log('professionIndex: ' + professionIndex)
-    //   var outputProfession = professionNames[professionIndex]
-    //   console.log(outputProfession)
-    //   professionArray.push(outputProfession)
-    //   professionCountArray.push(professionCount)
     }
   }
   console.log(town.professions)

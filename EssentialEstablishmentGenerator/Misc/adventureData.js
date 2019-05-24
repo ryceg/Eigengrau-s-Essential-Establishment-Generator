@@ -2,7 +2,6 @@
 setup.adventure = {
   'create': function (town) {
     var adventure = {
-      // villain: setup.adventure.villain[villainType],
       villainType: Object.keys(setup.adventure.villain).seededrandom(),
       villain: {
         name: 'Test',
@@ -18,8 +17,7 @@ setup.adventure = {
 
     adventure.ally = setup.createNPC(town, setup.adventure.ally[adventure.allyType])
     adventure.patron = setup.createNPC(town, setup.adventure.patron[adventure.patronType])
-    // setup.adventure.villain[adventure.villainType](town, adventure)
-    // console.log(adventure.villain)
+
     Object.assign(adventure, {
       climax: setup.adventure.climax.seededrandom(),
       introduction: setup.adventure.introduction.seededrandom(),
@@ -334,205 +332,127 @@ setup.adventure = {
   },
   'patron': {
     'retired adventurer': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       hasClass: true,
       ageStage: 'elderly'
-      // })
-      // return setup.profile(npc, 'retired adventurer')
     },
     'local ruler': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       background: 'noble',
       profession: 'king',
       hasClass: false
-      // })
-      // return setup.profile(npc, 'local ruler')
     },
     'military officer': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       background: 'soldier',
       profession: 'city watch',
       dndClass: 'fighter'
-      // })
-      // return setup.profile(npc, 'military officer')
     },
     'temple official': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       hasClass: false,
       background: 'acolyte',
       profession: 'clergyman'
-      // })
-      // return setup.profile(npc, 'temple official')
     },
     'sage': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       background: 'sage'
-      // })
-      // return setup.profile(npc, 'sage')
     },
     'respected elder': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       ageStage: 'elderly'
-      // })
-      // return setup.profile(npc, 'respected elder')
     },
     'deity or celestial': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       note: 'Is a deity or celestial.'
-      // })
-      // return setup.profile(npc, 'deity or celestial')
     },
     'mysterious fey': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       race: 'elf',
       note: 'Is a deity or celestial.'
-      // })
-      // return setup.profile(npc, 'mysterious fey')
     },
     'old friend': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       note: 'Is an old friend.'
-      // })
-      // return setup.profile(npc, 'old friend')
     },
     'former teacher': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       note: 'Is a former teacher.'
-      // })
-      // return setup.profile(npc, 'former teacher')
     },
     'parent or other family member': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       note: 'Is parent or family member to a party member.'
-      // })
-      // return setup.profile(npc, 'parent or other family member')
     },
     'desperate commoner': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       hasClass: false,
       background: 'commoner'
-      // })
-      // return setup.profile(npc, 'desperate commoner')
     },
     'embattled merchant': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       hasClass: false,
       background: 'merchant',
       profession: 'merchant'
-      // })
-      // return setup.profile(npc, 'embattled merchant')
     },
     'villain posing as a patron': {
-      // var npc = setup.createNPC({
       isThrowaway: true,
       note: 'Is actually a villain.'
-      // })
-      // return setup.profile(npc, 'villain posing as a patron')
     }
   },
   'ally': {
     'skilled adventurer': {
-      // var npc = setup.createNPC(town, {
       hasClass: true,
       ageStage: 'elderly',
       isThrowaway: true
-      // })
-      // return setup.profile(npc, 'skilled adventurer')
     },
     'inexperienced adventurer': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       hasClass: true
-      // })
-      // return setup.profile(npc, 'inexperienced adventurer')
     },
     'enthusiastic commoner': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       background: 'commoner',
       hasClass: false
-      // })
-      // return setup.profile(npc, 'enthusiastic commoner')
     },
     'soldier': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       background: 'soldier',
       dndClass: 'fighter'
-      // })
-      // return setup.profile(npc, 'soldier')
     },
     'priest': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       background: 'acolyte',
       dndClass: 'cleric'
-      // })
-      // return setup.profile(npc, 'priest')
     },
     'sage': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       background: 'sage',
       profession: 'sage'
-      // })
-      // return setup.profile(npc, 'sage')
     },
     'revenge seeker': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true
-      // })
-      // return setup.profile(npc, 'revenge seeker')
     },
     'raving lunatic adventurer': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       hasClass: true,
       calmTrait: 'mildly crazy',
       stressTrait: 'totally insane'
-      // })
-      // return setup.profile(npc, 'raving lunatic adventurer')
     },
     'celestial ally': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       note: 'Is a celestial being.'
-      // })
-      // return setup.profile(npc, 'celestial ally')
     },
     'fey ally': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       note: 'Is a fey.',
       race: 'elf'
-      // })
-      // return setup.profile(npc, 'fey ally')
     },
     'disguised monster': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true,
       note: 'Is a disguised monster'
-      // })
-      // return setup.profile(npc, 'disguised monster')
     },
     'villain posing as an ally': {
-      // var npc = setup.createNPC(town, {
       isThrowaway: true
-      // })
-      // return setup.profile(npc, 'villain') + ' posing as an ally'
     }
   },
   'villain': {
@@ -545,7 +465,6 @@ setup.adventure = {
         firstName: 'monster'
       }
       return adventure.villain
-      // return 'beast or monstrosity with no particular agenda'
     },
     'terrible aberration bent on corruption or domination': function (town, adventure) {
       adventure.villain = {
@@ -556,7 +475,6 @@ setup.adventure = {
         firstName: 'monster'
       }
       return adventure.villain
-      // return 'terrible aberration bent on corruption or domination'
     },
     'fiend bent on corruption or destruction': function (town, adventure) {
       adventure.villain = {
@@ -567,7 +485,6 @@ setup.adventure = {
         firstName: 'fiend'
       }
       return adventure.villain
-      // return 'fiend bent on corruption or destruction'
     },
     'dragon bent on domination and plunder': function (town, adventure) {
       adventure.villain = {
@@ -578,7 +495,6 @@ setup.adventure = {
         firstName: 'dragon'
       }
       return adventure.villain
-      // return 'dragon bent on domination and plunder'
     },
     'giant bent on plunder': function (town, adventure) {
       adventure.villain = {
@@ -589,7 +505,6 @@ setup.adventure = {
         firstName: 'giant'
       }
       return adventure.villain
-      // return 'giant bent on plunder'
     },
     'horrible undead with any agenda': function (town, adventure) {
       adventure.villain = {
@@ -600,7 +515,6 @@ setup.adventure = {
         firstName: 'undead'
       }
       return adventure.villain
-      // return 'horrible undead with any agenda'
     },
     'fey with a mysterious goal': function (town, adventure) {
       adventure.villain = {
@@ -611,7 +525,6 @@ setup.adventure = {
         firstName: 'fey'
       }
       return adventure.villain
-      // return 'fey with a mysterious goal'
     },
     '<<print setup.profile(adventure.villain, "cultist")>>': function (town, adventure) {
       adventure.villain = setup.createNPC({
@@ -619,7 +532,6 @@ setup.adventure = {
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, 'cultist')
     },
     '<<print setup.profile(adventure.villain, "conqueror")>>': function (town, adventure) {
       adventure.villain = setup.createNPC({
@@ -627,21 +539,18 @@ setup.adventure = {
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, 'conqueror')
     },
     '<<print "a " + setup.profile(adventure.villain, adventure.villain.race) + " seeking revenge">>': function (town, adventure) {
       adventure.villain = setup.createNPC({
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, adventure.villain.race) + ' seeking revenge'
     },
     '<<print "a " + setup.profile(adventure.villain, "schemer") + " seeking to rule">>': function (town, adventure) {
       adventure.villain = setup.createNPC({
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, 'schemer') + ' seeking to rule'
     },
     '<<print "a " + setup.profile(adventure.villain, "criminal mastermind")>>': function (town, adventure) {
       adventure.villain = setup.createNPC({
@@ -649,7 +558,6 @@ setup.adventure = {
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, 'criminal mastermind')
     },
     '<<print "a " + setup.profile(adventure.villain, "raider")>>': function (town, adventure) {
       adventure.villain = setup.createNPC({
@@ -658,7 +566,6 @@ setup.adventure = {
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, 'raider')
     },
     '<<print "a " + setup.profile(adventure.villain, adventure.villain.race) + " under a curse">>': function (town, adventure) {
       adventure.villain = setup.createNPC({
@@ -666,7 +573,6 @@ setup.adventure = {
         note: 'Is under a curse.'
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, adventure.villain.race) + ' under a curse'
     },
     '<<print "a " + setup.profile(adventure.villain, "misguided zealot")>>': function (town, adventure) {
       adventure.villain = setup.createNPC({
@@ -674,7 +580,6 @@ setup.adventure = {
         isThrowaway: true
       })
       return adventure.villain
-      // return 'a ' + setup.profile(adventure.villain, 'zealot')
     }
   }
 

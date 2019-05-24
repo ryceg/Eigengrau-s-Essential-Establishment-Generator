@@ -18,6 +18,5 @@ setup.createMarket = function (town, opts) {
     organisation: setup.market.organisation.seededrandom()
   })
   market.notableFeature = market.draw
-  // setup.townBinder(town, market, 'market')
   return market
 }

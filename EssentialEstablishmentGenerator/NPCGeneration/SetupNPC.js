@@ -53,7 +53,6 @@ setup.createNPC = function (town, base) {
     ageStage: ageStage,
     ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
     muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
-    // demeanour: data.demeanour.seededrandom(),
     calmTrait: data.calmTrait.seededrandom(),
     stressTrait: data.stressTrait.seededrandom(),
     pronouns: {
@@ -65,9 +64,6 @@ setup.createNPC = function (town, base) {
     roll: {
 
     },
-    // value: data.value.seededrandom(),
-    // drive: data.drive.seededrandom(),
-    // belief: data.belief.seededrandom(),
     hairColour: data.hairColour.seededrandom(),
     hairType: data.hairType.seededrandom(),
     get hair () {
@@ -102,7 +98,6 @@ setup.createNPC = function (town, base) {
     trait: data.trait.seededrandom(),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
-    // id: Math.floor(randomFloat(1) * 0x10000),
     idle: data.idle,
     get gender () {
       return this._gender
@@ -127,7 +122,6 @@ setup.createNPC = function (town, base) {
     },
     knownLanguages: data.raceTraits[race].knownLanguages,
     reading: data.reading.seededrandom()
-    // pubRumour: setup.createPubRumour()
   }, base)
 
   npc.gender = npc.gender || npc._gender
@@ -158,9 +152,7 @@ setup.createNPC = function (town, base) {
       npc.vocalPattern = data.vocalPattern.seededrandom()
     }
   }
-  // setup.createName(npc)
 
-  // console.log(npc)
   setup.createAge(npc)
 
   setup.createRace(npc)
@@ -204,8 +196,6 @@ setup.createNPC = function (town, base) {
   if (npc.callbackFunction) {
     npc.callbackFunction(town, npc, base)
   }
-
-  // npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
 
   console.log(npc)
   console.groupEnd()

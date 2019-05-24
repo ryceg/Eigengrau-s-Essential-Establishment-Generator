@@ -1,7 +1,5 @@
 setup.createMission = function (town, base) {
-  // var category = ['thieves', 'wizards', 'bartender', 'alchemist', 'merchant']
   var difficulty = ['easy', 'easy', 'easy', 'medium', 'medium', 'hard']
-  // var difficultyText
   var details
   var readout
   var targetNPC

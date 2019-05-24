@@ -57,15 +57,12 @@ setup.createRivals = function (faction) {
     }, 'three or four ')
 
     tempGroup = groupList.pluck()
-    // console.log('rival tempGroup - ' + tempGroup)
     groupList.delete(tempGroup)
     if (tempGroup === faction.type) {
       tempGroup = 'rival ' + tempGroup
     }
     group = tempGroupSize + tempGroup
-    // console.log('rival group - ' + group)
     rivals.push(group)
-    // console.log('rivals - ' + rivals)
     return rivals
   }
   faction.rivals = rivals

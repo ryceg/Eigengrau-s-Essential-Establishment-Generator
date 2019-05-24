@@ -578,18 +578,6 @@ setup.tavern = {
             return tavern
           }
         },
-        // {
-        //   draw: 'drunk wizard',
-        //   drawFunction: function (tavern) {
-        //     tavern.roll.magic += 10
-        //     var drunkWizard = setup.createNPC(town, {dndClass: 'wizard' })
-        //     return {
-        //       drunkWizard: drunkWizard,
-        //       tavern: tavern
-        //     }
-        //   },
-        //   drawFeature: "There's a " + drunkWizard.descriptor + ' thaumaturgist in the corner, who is practising cantrips as ' + drunkWizard.heshe + ' downs another pint. ' + drunkWizard.heshe.toUpperFirst() + " looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'"
-        // },
         {
           draw: 'huge fireplace',
           drawFeature: 'You see a huge fireplace in the centre of the ' + tavern.wordNoun + ', which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.'

@@ -262,8 +262,7 @@ setup.createRelative = function (town, npc, type, base) {
       return relative
     }
   }
-  // console.log('Function:')
-  // console.log(setup.relativeTypes[type](town, npc, base))
+
   if (!base) {
     base = {}
   }

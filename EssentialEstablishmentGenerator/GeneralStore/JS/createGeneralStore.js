@@ -30,9 +30,7 @@ setup.createGeneralStore = function (town, opts) {
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(GeneralStore, setup.GeneralStore.rollData, propName)
   })
-  // setup.GeneralStoreRenders(GeneralStore)
   console.log(GeneralStore)
-  // setup.townBinder(town, GeneralStore, 'GeneralStore')
   console.groupEnd()
   return GeneralStore
 }

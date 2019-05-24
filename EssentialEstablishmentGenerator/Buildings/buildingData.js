@@ -31,7 +31,6 @@ setup.structure = {
     if (Object.keys(tempMaterial).includes('variations')) {
       console.log('Has variations. ')
       tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
-      // tempMaterial = temp2
       console.log(tempMaterial.words)
     }
     building.structure.material = tempMaterial.words
@@ -40,7 +39,6 @@ setup.structure = {
     if (Object.keys(tempRoof).includes('variations')) {
       console.log('Has variations. ')
       tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
-      // tempMaterial = temp2
       console.log(tempRoof.words)
     }
     if (tempRoof.canBeColoured === true) {

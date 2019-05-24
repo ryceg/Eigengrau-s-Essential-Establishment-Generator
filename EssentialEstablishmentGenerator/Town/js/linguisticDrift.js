@@ -14,7 +14,6 @@ setup.linguisticDrift = function (name) {
     [1, /([a-z])\1\1/, '$1$1'],
     // Remove a doubled consonant when it has a consonant on both? ends
     [1, /([bcdfghjklmnpqrstvwxz])([bcdfghjklmnpqrstvwxz])\2([bcdfghjklmnpqrstvwxz])/g, '$1$2$3'],
-    // [1, /([bcdfghjklmnpqrstvwxz])\1([bcdfghjklmnpqrstvwxz])/g, '$1$2'],
     // No -lee at the end of a word
     [1, /([^Ff][^r])ee /g, '$1ey '],
     [1, /([^Ff][^r])ee$/, '$1ey'],
@@ -80,14 +79,12 @@ setup.linguisticDrift = function (name) {
 
   function modifyTown (modify) {
     if (randomFloat(1) <= modify[0]) {
-      // console.log('Successful modify!')
       name = name.replace(modify[1], modify[2])
     }
   };
 
   function fixTown (fix) {
     if (randomFloat(1) <= fix[0]) {
-      // console.log('Successful fix!')
       name = name.replace(fix[1], fix[2])
     }
   };

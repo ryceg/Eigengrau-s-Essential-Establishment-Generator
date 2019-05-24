@@ -24,7 +24,6 @@ setup.createAlchemist = function (town, opts) {
   })
   setup.alchemistModifiers(alchemist)
 
-  // setup.townBinder(town, alchemist, 'alchemist')
   console.groupEnd()
   return alchemist
 }

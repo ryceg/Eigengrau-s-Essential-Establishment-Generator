@@ -37,36 +37,6 @@ setup.resourcesFaction = function (faction) {
     faction.roll.resources += Math.fm(faction.roll.resources, 10)
   }
 
-  // if (faction.roll.age > 95) {
-  //   faction.roll.resources += 15
-  // } else if (faction.roll.age > 90) {
-  //   faction.roll.resources += 10
-  // } else if (faction.roll.age > 80) {
-  //   faction.roll.resources += 8
-  // } else if (faction.roll.age > 70) {
-  //   faction.roll.resources += 6
-  // } else if (faction.roll.age > 60) {
-  //   faction.roll.resources += 4
-  // } else if (faction.roll.age > 55) {
-  //   faction.roll.resources += 2
-  // } else if (faction.roll.age > 50) {
-  //   faction.roll.resources += 1
-  // } else if (faction.roll.age > 45) {
-  //   faction.roll.resources += -1
-  // } else if (faction.roll.age > 40) {
-  //   faction.roll.resources += -2
-  // } else if (faction.roll.age > 30) {
-  //   faction.roll.resources += -4
-  // } else if (faction.roll.age > 20) {
-  //   faction.roll.resources += -6
-  // } else if (faction.roll.age > 10) {
-  //   faction.roll.resources += -8
-  // } else if (faction.roll.age <= 5) {
-  //   faction.roll.resources += -10
-  // } else {
-  //   faction.roll.resources += 10
-  // }
-
   if (faction.roll.resources > 95) {
     faction.resourcesDescription = 'limitless'
     for (i = 1; i <= 5; ++i) { getResources(random(-10, 15)) }
@@ -144,13 +114,10 @@ setup.resourcesFaction = function (faction) {
     }
 
     tempGroup = resourcesList.pluck()
-    // console.log('resources tempGroup - ' + tempGroup)
     resourcesList.delete(tempGroup)
 
     var group = tempGroupSize + tempGroup
-    // console.log('resources group - ' + group)
     resources.push(group)
-    // console.log('resourcess - ' + resourcess)
     return resources
   }
   faction.resources = resources

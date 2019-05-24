@@ -6,7 +6,7 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
   // the indexNumber is an optional argument, which tells the function to look at a different location in the array for the string
   // this is most useful for when you have multiple descriptions tied to the same thing (long and short descriptions, or cleanliness controlling bedCleanliness as well.)
   indexNumber = indexNumber || 1
-  // rollLocation = rollLocation || baseObj.roll
+
   console.groupCollapsed('DefineRollDataGetters')
   console.log({
     baseObj,

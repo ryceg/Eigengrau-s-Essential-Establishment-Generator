@@ -38,22 +38,9 @@ setup.createClass = function (npc) {
     classWeapon = 'a dagger'
   }
 
-  // var checkValidity = function (npc, target) {
-  //   if (npc.hasClass !== false && typeof setup.npcData.classTraits[npc.dndClass] !== 'undefined') {
-  //     return setup.npcData.classTraits[npc.dndClass][target].seededrandom()
-  //   } else if (npc.hasClass === false && typeof setup.npcData.professionTraits[npc.profession] !== 'undefined') {
-  //     return setup.npcData.professionTraits[npc.profession][target].seededrandom()
-  //   } else {
-  //     return
-  //   }
-  // }
   npc.dndClassOrigin = npc.dndClassOrigin || dndClassOrigin
   npc.background = npc.background || background
   npc.weapon = npc.weapon || classWeapon
-
-  // npc.wealth += typeof setup.npcData.classTraits[npc.dndClass].wealth === 'function'
-  //   ? setup.npcData.classTraits[npc.dndClass].wealth()
-  //   : dice(2, 50)
 
   return npc
 }

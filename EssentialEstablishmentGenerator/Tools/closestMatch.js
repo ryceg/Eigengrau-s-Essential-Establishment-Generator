@@ -29,6 +29,5 @@ setup.closestMatch = function (array, readout, prop1, prop2, val1, val2) {
       closest = i
     }
   }
-  // console.log( array[closest][readout])
   return array[closest][readout]
 }

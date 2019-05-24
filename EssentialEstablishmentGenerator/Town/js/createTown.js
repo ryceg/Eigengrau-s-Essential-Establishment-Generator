@@ -30,7 +30,6 @@ setup.createTown = function (base) {
       console.log('Setting town type.')
       this._type = value
     },
-    // type: type,
     terrain: terrain,
     currentSeason: season.seededrandom(),
     season: season,
@@ -54,7 +53,6 @@ setup.createTown = function (base) {
       console.log(this.demographic)
     },
     get demographic () {
-      // console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
       var races = Object.keys(this._baseDemographics)
       // Calculate the sum of the raw demographic values.
@@ -184,7 +182,6 @@ setup.createTown = function (base) {
     console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
   })
-  // Object.assign(town.leader, setup.townData.politicalIdeology[town.politicalIdeology].data)
 
   setup.createSocioPolitics(town)
 

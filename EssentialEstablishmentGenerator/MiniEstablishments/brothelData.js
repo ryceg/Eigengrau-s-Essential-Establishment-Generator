@@ -386,7 +386,6 @@ setup.brothel = {
           var father = setup.createRelative(town, npc, 'father', {
             lastName: setup.npcData.raceTraits[npc.race].lastName.random(),
             race: npc.race
-            // callbackFunction: function (town, father, npc) 'Has a bastard daughter, ' + setup.profile(npc)
           })
           setup.createRelationship(town, npc, father, 'father', 'bastard daughter')
         }

@@ -1,7 +1,6 @@
 
 setup.renderWeather = function (town, biome, weather) {
   console.log('Rendering weather...')
-  // console.log(weather)
 
   // if weather is undefined, call the createWeather function
   if (!weather) {
@@ -9,7 +8,6 @@ setup.renderWeather = function (town, biome, weather) {
   }
   weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
   weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
-  // console.log(weather)
   biome = biome || town.terrain
 
   // tempVariationRoll
@@ -37,12 +35,6 @@ setup.renderWeather = function (town, biome, weather) {
     console.log({ weather, finalKey })
     weather.timer.temperature = Math.trunc((setup.townData.terrain[biome].weather.tempVariation[finalKey].temperatureTimer || random(24, 48)) / 8)
     console.log({ weather })
-    // finalKey = intKeys.find(function (key) {
-    //   if (tempVariationRoll >= key) {
-    //     console.log('key is: ' + key)
-    //     return key
-    //   }
-    // })
   }
   console.log('3')
   var tempVariation = (setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain['temperate'].weather.tempVariation[finalKey].temperature)
@@ -89,7 +81,6 @@ setup.renderWeather = function (town, biome, weather) {
 
   console.log('Rendering temperature...')
   for (var array of setup.weather.temperatureDescriptors) {
-    // console.log(array)
     if (weather.temperature >= array[0]) {
       weather.readout.temperature = '<span class=tip title=' + JSON.stringify(setup.toCelsius(weather.temperature) + ', to be precise.') + '><b>' + array[1] + '</b></span><<run setup.tippy("span")>>'
       break

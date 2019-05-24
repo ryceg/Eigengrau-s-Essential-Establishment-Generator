@@ -45,8 +45,6 @@ setup.createTavern = function (town, opts) {
       'brothel',
       'brothel'
     ].seededrandom(),
-    // entertainment: setup.tavern.entertainment.seededrandom(),
-    // patrons: setup.tavern.patrons.seededrandom(),
     game: setup.tavern.games.seededrandom()
   })
   tavern.roll.bedCleanliness = random(1, 100)
@@ -151,8 +149,6 @@ setup.createTavern = function (town, opts) {
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
   })
-  // setup.tavernRender(tavern)
-  // setup.townBinder(town, tavern, 'tavern')
 
   tavern.tippyDescription = 'A ' + tavern.size + ' ' + tavern.wordNoun + " that's " + tavern.cleanliness + ', and is known for ' + tavern.notableFeature + '.'
   console.log(tavern)

@@ -11,7 +11,6 @@ setup.createAlchemistName = function (chemistFirstName) {
       break
     case 2:
       name = chemistFirstName + ' and ' + adjective2
-      // name = 'The ' + adjective + ' ' + noun
       break
     case 3:
       name = 'The ' + noun + ' and ' + adjective2

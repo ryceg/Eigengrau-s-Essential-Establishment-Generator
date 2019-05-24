@@ -1,5 +1,4 @@
 setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, output, defaultProbability) {
-  // console.log(args)
   console.groupCollapsed('Running a weighted random search...')
   console.log({
     args,
@@ -27,33 +26,27 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   exclusionFunction = exclusionFunction || true
 
   for (var arg in args) {
-    // console.log(args[arg])
     if (args[arg].exclusions && typeof (args[arg].exclusions) === 'function') {
       var isValid = args[arg].exclusions(town, obj)
     } else {
       isValid = true
     }
-    // console.log('fnValid: ')
-    // console.log(args[arg])
+
     if (typeof (exclusionFunction) === 'function') {
       var fnValid = exclusionFunction(town, args[arg])
     } else {
       fnValid = true
     }
 
-    // console.log(fnValid)
     if (isValid === true && fnValid === true) {
       pool.push(args[arg])
       totalWeight += args[arg].probability || defaultProbability
     }
   }
-  // console.log('Starting the search.')
   var random = Math.floor(randomFloat(1) * totalWeight)
   for (var i = 0; i < pool.length; i++) {
     random -= pool[i].probability || defaultProbability
     if (random < 0) {
-      // console.log('Less than zero! Found one.')
-      // console.log(pool[i])
       var selected = pool[i]
       break
     }

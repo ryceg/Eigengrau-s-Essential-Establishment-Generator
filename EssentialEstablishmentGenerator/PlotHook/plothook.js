@@ -155,7 +155,6 @@ setup.plothooks = {
       var blacksmithPool = town.buildings.smithy
       var smithy = setup.objectArrayFetcher(blacksmithPool)
       console.log(smithy)
-      // var blacksmith = smithy.blacksmith
       var npc = setup.createNPC(town, {
         gender: 'man',
         profession: 'blacksmith',
@@ -299,21 +298,6 @@ setup.plothooks = {
       return 'As the PCs walk across a bridge over the river that cuts through town, they notice a couple of young boys standing near the edge of the bridge. They each have a large rock in their hands, and are watching one of the approaching river boats with smiles on their faces. As the boat gets closer, ' + setup.profile(npc, 'one of the boys') + ' raises his rock as if he is going to drop it.'
     }
   },
-  // 'Nobody Hurts Ma': {
-  //
-  //   exclusions: function (town) {
-  //     return true
-  //   },
-  //   function: function (town) {
-  //     var npc = setup.createNPC(town, {
-  //       background: 'noble',
-  //       gender: 'man',
-  //       profession: 'blacksmith',
-  //       background: 'blacksmith'
-  //     })
-  //     return "The PCs come upon a sobbing woman holding a teenage boy who looks to have been severely beaten. If the PCs ask the woman if they can help, she explains her youngest son was beaten up by a gang of toughs. Of more immediate danger though, is that her oldest son has gone off to exact revenge on them, and she's afraid of what they will do to him."
-  //   }
-  // },
   'The Corrupt Guards': {
     type: ['event'],
     function: function (town) {
@@ -1177,7 +1161,6 @@ setup.plothooks = {
         background: 'commoner'
       })
       // #
-      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $tavern to ' + tavern + '>><<goto "TavernOutput">><</link>>
       return 'Fence need painted. Good pay. Contact ' + setup.profile(npc) + ' at ' + setup.profile(building, '', 'town.buildings.tavern') + '. Twist is, the fence is 10 feet tall and almost a mile long.'
     }
   },
@@ -1229,10 +1212,6 @@ setup.plothooks = {
   'Thieves Cant Thieve Here': {
     type: ['paper'],
     function: function (town) {
-      // var npc = setup.createNPC(town, {
-      //   hasClass: false,
-      //   background: 'commoner'
-      // })
       // #
       return 'A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.'
     }
@@ -1303,10 +1282,6 @@ setup.plothooks = {
   'Riddle Maker Needed': {
     type: ['paper'],
     function: function (town) {
-      // var npc = setup.createNPC(town, {
-      //   hasClass: false,
-      //   background: 'commoner'
-      // })
       // #
       return 'Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.'
     }

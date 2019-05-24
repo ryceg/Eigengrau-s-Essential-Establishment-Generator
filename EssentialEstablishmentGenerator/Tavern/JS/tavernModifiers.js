@@ -1,10 +1,4 @@
 setup.tavernModifiers = function (town, tavern) {
-  // if (['Silver', 'Golden', 'Glorious', 'Beautiful', 'Handsome', 'Lovely', 'Educated', 'Ornate', 'Wealthy', 'Cleanly', 'Jeweled', 'Superior', 'Flawless', 'Exquisite', 'Elegant', 'Fine'].includes(tavern.adjective)) {
-  //   tavern.roll.wealth += 5
-  // } else if (['Blighted', 'Withered', 'Lecherous', 'Faulty', 'Cracked', 'Common'].includes(tavern.adjective)) {
-  //   tavern.roll.wealth -= 5
-  // }
-
   if (town.roll.wealth > 95) {
     tavern.roll.wealth += 10
   } else if (town.roll.wealth > 80) {

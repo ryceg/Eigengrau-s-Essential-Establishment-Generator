@@ -11,11 +11,7 @@ setup.createRelationship = function (town, npc, targetNPC, type, targetType) {
     console.error('Second argument was passed a string!')
     targetNPC = State.variables.npcs[targetNPC]
   }
-  // if (!npc || !targetNPC || !npc.key || !targetNPC.key) {
-  //   console.log('Called createRelationship() with a null/undefined argument')
-  //   return
-  // }
-  // console.log('Forming a relationship with ' + npc.name + ' and ' + targetNPC.name)
+
   var npcsToClean = []
   if (npc.relationships[targetNPC.key] && npcs[npc.relationships[targetNPC.key]]) {
     /* npc already had a valid partner; mark it for removal */

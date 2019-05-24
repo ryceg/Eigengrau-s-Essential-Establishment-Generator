@@ -1,12 +1,5 @@
 setup.stabilityFaction = function (faction) {
   console.log('determining stability...')
-  // switch (faction.leadershipType) {
-  //   case 'individual':
-  //     faction.roll.stability += [Math.fm(faction.roll.stability, 10), Math.fm(faction.roll.stability, -10)].seededrandom()
-  //     break
-  //   case 'group':
-  //     faction.roll.stability += [Math.fm(faction.roll.stability, 2), Math.fm(faction.roll.stability, -30)].seededrandom()
-  // }
 
   if (faction.roll.stability > 95) {
     faction.stability = 'rock solid'

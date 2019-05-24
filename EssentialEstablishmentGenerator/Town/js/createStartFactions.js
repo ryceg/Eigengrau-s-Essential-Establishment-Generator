@@ -16,13 +16,6 @@ setup.createStartFactions = function (town) {
       type: tempFactionType
     })
     town.factions[tempFaction.key] = tempFaction
-    // console.log(tempFaction)
-    // if (!town.factions[tempFaction]) {
-    //   town.factions[tempFaction] = []
-    // }
-    // town.factions[tempFaction].push(setup.createFaction(town, {
-    //   type: tempFaction
-    // }))
   }
   console.log('Finished creating start factions!')
   return town

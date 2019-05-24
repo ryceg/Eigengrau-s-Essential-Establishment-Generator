@@ -49,12 +49,6 @@ setup.createFaction = function (town, opts) {
 
   faction.tippyDescription = 'A ' + faction.size + ' ' + faction.type + ' ' + faction.wordNoun + ' called ' + faction.name
 
-  // if (faction.isThrowaway === undefined) {
-  //   console.log('and finally assigning to the faction roster.')
-  //   State.variables.factions.push(faction.id)
-  // } else {
-  //   console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
-  // }
   console.groupEnd()
   return faction
 }

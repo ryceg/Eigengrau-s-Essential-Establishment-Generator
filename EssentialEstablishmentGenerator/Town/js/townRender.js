@@ -1,8 +1,5 @@
 setup.townRender = function (town) {
   console.log('Rendering ' + town.name + '...')
-  // town.economicIdeologyIC = setup.townData.economicIdeology[town._economicIdeology].descriptors.economicIdeologyIC
-  // town.economicIdeologyIST = setup.townData.economicIdeology[town._economicIdeology].descriptors.economicIdeologyIST
-  // town.politicalIdeologyIC = setup.townData.politicalIdeology[town._politicalIdeology].data.politicalIdeologyIC
 
   town.roll.guardFunding = 0
 
@@ -238,17 +235,11 @@ setup.townRender = function (town) {
     town.guard.funding = 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
   }
 
-  // town.guard.funding = setup.townGuardFundingCat(town.roll.guardFunding)
-
   if (town.roll.sin > 75 && town.population > 300) {
     town.hasBrothel = true
   } else if (town.roll.sin > 20 && town.population > 1250) {
     town.hasBrothel = true
   }
-
-  // if (town.hasBrothel === true && !State.variables.brothel){
-  //     include "Brothel">>
-  //   }
 
   return town
 }

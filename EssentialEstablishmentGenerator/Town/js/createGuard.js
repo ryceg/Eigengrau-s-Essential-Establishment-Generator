@@ -1,7 +1,7 @@
 
 setup.createGuard = function (town) {
   console.groupCollapsed('creating the guard...')
-  // console.log(townName + ' is the townName passed to the guard.')
+
   var guard = {
     associatedTown: town.name,
     captain: setup.createNPC(town, {

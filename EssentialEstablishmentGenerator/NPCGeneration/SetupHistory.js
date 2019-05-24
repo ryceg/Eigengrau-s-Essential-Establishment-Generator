@@ -196,17 +196,6 @@ setup.createHistory = function (town, npc) {
       break
   }
 
-  // for (var i = npc.siblingNumber; i > 0; i--){
-  // var siblingPlaceRoll = random(1, 6) + random(1, 6);
-  //     if (siblingPlaceRoll == 2){
-  //       npc.siblingTwin += 1;
-  //     } else if (siblingPlaceRoll < 8){
-  //       npc.siblingOlder += 1;
-  //     } else if (siblingPlaceRoll >= 8){
-  //       npc.siblingYounger += 1;
-  //     }
-  // }
-
   if (!npc.familyUnit) {
     var parentRoll = random(1, 100)
     if (parentRoll >= 76) {

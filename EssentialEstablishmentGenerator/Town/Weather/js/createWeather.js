@@ -53,14 +53,12 @@ setup.createWeather = function (town, biome, weather, season, time) {
       precipitationIntensity: setup.townData.terrain[biome].weather.season[season].precipitationIntensity
     }
   }
-  // console.log('weather:')
-  // console.log(weather)
+
   weather.precipitationLevel.clamp(1, 4)
   weather.precipitationIntensity.clamp(1, 4)
 
   setup.renderWeather(town, biome, weather)
-  // console.log('weather after render:')
-  // console.log(weather)
+
   console.groupEnd()
   return weather
 }
