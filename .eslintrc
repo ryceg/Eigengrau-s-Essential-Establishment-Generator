@@ -11,5 +11,10 @@
     "State": true,
     "randomFloat": true,
     "clone": true
+  },
+  "rules": {
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "object-shorthand": ["warn", "always"]
   }
 }
