@@ -48,10 +48,10 @@ function unzipEntry (zip, entry) {
     if (error) throw error
 
     const fileFolder = path.resolve(utils.twineFolder, getFileDirectory(entry.fileName))
+    fs.mkdirSync(fileFolder, { recursive: true })
     const filePath = path.resolve(utils.twineFolder, entry.fileName)
     const writeStream = fs.createWriteStream(filePath)
 
-    fs.mkdirSync(fileFolder, { recursive: true })
     stream.on('end', () => zip.readEntry())
     stream.pipe(writeStream)
   })
