@@ -1229,13 +1229,13 @@ setup.misc = {
       'a strategically located watchtower',
       'an abandoned watchtower',
       'an enormous bird’s nest',
-      'a shrine'
-      // 'a peculiar cabin',
-      // 'an isolated monastery',
-      // 'a remote temple',
-      // 'an ancient temple',
-      // 'a ruined monastery',
-      // 'a small cave in the crook of a rock wall',
+      'a shrine',
+      'an isolated monastery',
+      'a remote temple',
+      'an ancient temple',
+      'a ruined monastery',
+      'a small cave in the crook of a rock wall'
+
     ],
     'cave': ['a mountain lion’s den', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", "some goblins' hideout", 'some abandoned mining equipment', 'bare rock', 'a potable spring', 'unidentifiable remains', 'some outlaws’ hideout', 'an orc war band', 'a hungry ettin', 'a band of dwarvish refugees', 'a griffon’s nest', 'a manticore’s den', 'a basilisk’s lair', 'a wyvern’s nest', 'a clan of stone giants', 'a sleeping dragon'],
     'cabinLives': ['an owlbear', 'an ogre', 'a troll', 'a mad witch', 'a reclusive shapeshifter', 'restless ghosts', 'an outcast orc', 'a strange hermit'],
@@ -1250,7 +1250,8 @@ setup.misc = {
     'monasteryHonour': ['the sun god', 'the god of the heavens', 'the moon goddess', 'the storm god', 'the earth mother goddess', 'a long-forgotten god'],
     'nestBuilt': ['a giant eagle', 'a giant owl', 'a clan of harpies', 'a griffon', 'a roc', 'a wyvern'],
     'watchtowerBuilt': ['an expansive empire', 'a nearby kingdom', 'an occupying army', 'elvish warriors from a past age', 'a clan of orcs', 'a goblin kingdom'],
-    'hazards': ['a perilous rockslide', 'an icy rime across the path or road', 'a tumbling boulder', 'loose rocks that make for poor footing', 'a large boulder blocking the way', 'a place where the path has fallen away leaving a narrow ledge on which to walk', 'a place where the path or road slopes steeply down toward a cliff edge', 'a sudden storm bringing heavy snow']
+    'hazards': ['a perilous rockslide', 'an icy rime across the path or road', 'a tumbling boulder', 'loose rocks that make for poor footing', 'a large boulder blocking the way', 'a place where the path has fallen away leaving a narrow ledge on which to walk', 'a place where the path or road slopes steeply down toward a cliff edge', 'a sudden storm bringing heavy snow'],
+    'religionLives': ['a congregation of monks', 'a group of nuns', 'an ancient religious order', 'the last of a holy order', 'a squad of exiled templars', 'a holy congregation', 'a rugged looking bunch of refugees', 'a single wise guru', 'the spirit of a vengeful god', 'the spirits of a religion long forgotten']
   },
   'forest': {
     'create': town => {
