@@ -2,7 +2,7 @@ const path = require('path')
 const chalk = require('chalk')
 
 // Folder to store the twine-related dependencies in.
-const twineFolder = path.resolve(__dirname, '..', 'node_modules', '.twine')
+const twineFolder = path.resolve(__dirname, '..', '.twine')
 
 module.exports = {
   // Useful paths.
