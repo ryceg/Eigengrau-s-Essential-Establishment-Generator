@@ -26,7 +26,9 @@ img, embed, object, video {
   padding: 1.5em;
   width: 95%;
 }
-
+#passages button {
+  border-radius: 4px;
+}
 img {
   width: 95%;
 }
@@ -69,7 +71,7 @@ font-size:          .705cm;
 
 h3{
 font-size:          .529cm;
-border-bottom:      2px solid #c9ad6a
+border-bottom:      3px ridge #c9ad6a
 }
 
 
