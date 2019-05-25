@@ -264,9 +264,9 @@ setup.market = {
       'permanent table with a tent set up around it',
       'racks of goods set up in a circle',
       'flat stones with merchandise piled on them',
-      'some dirty rags laid on the ground',
-      'a long foldout table',
-      'a hammock the vendor has set up'
+      'pile of dirty rags laid on the ground',
+      'long foldout table',
+      'hammock the vendor has set up'
     ]
   },
   'location': [
