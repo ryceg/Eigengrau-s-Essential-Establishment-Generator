@@ -1,19 +1,13 @@
 :: Popup
 <<nobr>><<set _roll to random(1, 99)>>
-<<if _roll gt 90>>
-      <blockquote>If you enjoy using this, please consider supporting me on [[Patreon|https://www.patreon.com/bePatron?c=1709078]] </blockquote>
-  <<elseif _roll gt 80>>
+  <<if roll gt 80>>
       <blockquote>Find us on Reddit at [[/r/EigengrausGenerator|www.reddit.com/r/EigengrausGenerator]]! </blockquote>
-  <<elseif _roll gt 70>>
-      <blockquote>Join the [[Discord server|https://discord.gg/4wYNwp2]] </blockquote>
-  <<elseif _roll gt 60>>
-      <<include "Changelog">>
   <<elseif _roll gt 55>>
       <blockquote><<include "PatreonSupporters">> </blockquote>
   <<elseif _roll gt 40>>
       <blockquote><<include "EmailSignUp">></blockquote>
   <<elseif _roll lte 40>>
-      If you have any bug reports, please click here: [[Submit a bug report|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/]]
+     <blockquote>If you have any bug reports, please click here: [[Submit a bug report|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/]]</blockquote>
 <</if>>
 
 <</nobr>>

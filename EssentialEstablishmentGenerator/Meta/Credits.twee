@@ -15,7 +15,7 @@ We have a [[subreddit!|www.reddit.com/r/EigengrausGenerator]]
 
 <strong>Version: $versionNumber</strong>
 
-<<linkappend "Changelog:">>
+<<linkappend "Changelog">>
 <<include "Changelog">><</linkappend>>
 <<include "PatreonSupporters">>
 <<include "Contributors">>
