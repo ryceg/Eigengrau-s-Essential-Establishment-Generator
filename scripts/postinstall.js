@@ -31,6 +31,7 @@ function downloadAndExtract (link, filePath) {
 
         const writeStream = fs.createWriteStream(filePath)
         response.pipe(writeStream)
+        writeStream.on('error', () => reject(new Error('Could not write file to disk.')))
         writeStream.on('finish', () => writeStream.close(unzip))
       })
       .on('error', utils.logError)
