@@ -253,7 +253,7 @@ setup.goodsAndServices = {
         description: 'A loaf of rye bread.',
         // exclusions for testing whether it is available. Can be ommitted if it is always available. Return truthiness.
         exclusions (town, building) {
-          if (town.wealth > 20 && building.wealth > 40) {
+          if (building.roll.wealth > 40) {
             return true
           } else {
             return false
@@ -269,7 +269,7 @@ setup.goodsAndServices = {
         cost: 18,
         description: 'A loaf of barley bread.',
         exclusions (town, building) {
-          if (town.wealth > 20 && building.wealth > 40) {
+          if (building.roll.wealth > 40) {
             return true
           } else {
             return false
@@ -280,7 +280,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
         exclusions (town, building) {
-          if (town.population > 1500 && building.wealth > 25) {
+          if (town.population > 1500 && building.roll.wealth > 25) {
             return true
           } else {
             return false
@@ -291,7 +291,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
         exclusions (town, building) {
-          if (town.population > 2000 && building.wealth > 50) {
+          if (town.population > 2000 && building.roll.wealth > 50) {
             return true
           } else {
             return false
@@ -310,7 +310,7 @@ setup.goodsAndServices = {
         cost: random(10, 15),
         description: 'A tasty looking fruit tart.',
         exclusions (town, building) {
-          if (building.wealth > 70) {
+          if (building.roll.wealth > 70) {
             return true
           } else {
             return false
@@ -321,7 +321,7 @@ setup.goodsAndServices = {
         cost: 1300,
         description: 'A loaf with gold leaf on top. Debug.',
         exclusions (town, building) {
-          if (town.wealth > 99 && building.wealth > 99) {
+          if (building.roll.wealth > 99) {
             return true
           } else {
             return false
