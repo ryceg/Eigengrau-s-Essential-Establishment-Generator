@@ -1,15 +1,35 @@
 setup.createTown = function (base) {
-  var type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].seededrandom()
-  var terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].seededrandom()
-  var season = ['summer', 'autumn', 'winter', 'spring']
-  var townName = setup.createTownName()
+  const type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].seededrandom()
+  const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].seededrandom()
+  const season = ['summer', 'autumn', 'winter', 'spring']
+  const townName = setup.createTownName()
   console.groupCollapsed(townName + ' is loading...')
-  var economicIdeology = setup.townData.type[type].economicIdeology.seededrandom()
-  var politicalSource = setup.townData.type[type].politicalSource.seededrandom()
-  var politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.seededrandom()
-  let town = Object.assign({
+  const economicIdeology = setup.townData.type[type].economicIdeology.seededrandom()
+  const politicalSource = setup.townData.type[type].politicalSource.seededrandom()
+  const politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.seededrandom()
+  const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    taxes: {
+      base: 7,
+      welfare: 1,
+      guard: 1,
+      tithe: 1
+    },
+    get taxRate () {
+      let totalTax = 0
+      Object.keys(this.taxes).forEach(function (tax) {
+        if (typeof tax === 'number') {
+          totalTax += tax
+        } else if (typeof tax === 'function') {
+          const temp = tax(this)
+          totalTax += temp
+        } else {
+          console.log('non-integer tax! ' + tax)
+        }
+        return totalTax
+      })
+    },
     get type () {
       console.log('Getting town type.')
       if (this.population > 3000) {
@@ -31,9 +51,9 @@ setup.createTown = function (base) {
       this._type = value
     },
     // type: type,
-    terrain: terrain,
+    terrain,
     currentSeason: season.seededrandom(),
-    season: season,
+    season,
     factions: {
     },
     buildings: {
@@ -56,9 +76,9 @@ setup.createTown = function (base) {
     get demographic () {
       // console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
-      var races = Object.keys(this._baseDemographics)
+      const races = Object.keys(this._baseDemographics)
       // Calculate the sum of the raw demographic values.
-      var sum = races
+      const sum = races
         .map(function (byRace) {
           return this._baseDemographics[byRace]
         }, this)
@@ -114,7 +134,7 @@ setup.createTown = function (base) {
     },
     get wealth () {
       console.log('Getting town wealth.')
-      var wealth = setup.townData.rollData.wealth.find(function (descriptor) {
+      let wealth = setup.townData.rollData.wealth.find(function (descriptor) {
         return descriptor[0] <= this.roll.wealth
       }, this)
       if (wealth === undefined) {

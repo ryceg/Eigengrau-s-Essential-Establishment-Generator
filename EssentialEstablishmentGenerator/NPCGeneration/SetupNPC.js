@@ -5,7 +5,7 @@ setup.createNPC = function (town, base) {
   console.log('Base:')
   console.log({ base })
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
-  var data = setup.npcData
+  const data = setup.npcData
   if (!base) {
     base = {
       isShallow: true
@@ -21,36 +21,36 @@ setup.createNPC = function (town, base) {
   if (base.canBeCustom === true && random(1, 100) > 99) {
     base = setup.objectArrayFetcher(setup.misc.patreonCharacters, town)
   }
-  var gender = base.gender || ['man', 'woman'].seededrandom()
-  var race = base.race || setup.fetchRace(town)
+  const gender = base.gender || ['man', 'woman'].seededrandom()
+  const race = base.race || setup.fetchRace(town)
   console.log('Loading profession:')
-  var profession = base.profession || setup.fetchProfessionChance(town, base)
+  const profession = base.profession || setup.fetchProfessionChance(town, base)
 
-  var firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.seededrandom().toUpperFirst()
-  var lastName = base.lastName || data.raceTraits[race].lastName.seededrandom().toUpperFirst()
+  const firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.seededrandom().toUpperFirst()
+  const lastName = base.lastName || data.raceTraits[race].lastName.seededrandom().toUpperFirst()
   console.groupCollapsed(firstName + ' ' + lastName)
-  var ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].seededrandom()
-  var dndClass = base.dndClass || data.dndClass.seededrandom()
+  const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].seededrandom()
+  const dndClass = base.dndClass || data.dndClass.seededrandom()
   if (base.dndClass) {
     base.hasClass = true
   }
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
-  var npc = Object.assign({
+  const npc = Object.assign({
     passageName: 'NPCProfile',
     _gender: gender,
     _race: race,
-    firstName: firstName,
-    lastName: lastName,
+    firstName,
+    lastName,
     get name () {
       return this.firstName + ' ' + this.lastName
     },
     set name (name) {
-      var words = name.toString().split(' ')
+      const words = name.toString().split(' ')
       this.firstName = words[0] || ''
       this.lastName = words[1] || ''
     },
-    ageStage: ageStage,
+    ageStage,
     ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
     muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
     // demeanour: data.demeanour.seededrandom(),
@@ -65,6 +65,10 @@ setup.createNPC = function (town, base) {
     roll: {
 
     },
+    finances: {
+      dailyWage: ''
+
+    },
     // value: data.value.seededrandom(),
     // drive: data.drive.seededrandom(),
     // belief: data.belief.seededrandom(),
@@ -74,7 +78,7 @@ setup.createNPC = function (town, base) {
       return this.hairType + ' ' + this.hairColour + ' hair'
     },
     set hair (hair) {
-      var hairs = hair.toString().split(' ')
+      const hairs = hair.toString().split(' ')
       this.hairType = hairs[0] || ''
       this.hairColour = hairs[1] || ''
     },
@@ -95,8 +99,8 @@ setup.createNPC = function (town, base) {
     },
     eyes: data.raceTraits[race].eyes.seededrandom(),
     skinColour: data.skinColour.seededrandom(),
-    dndClass: dndClass,
-    profession: profession,
+    dndClass,
+    profession,
     pockets: data.pockets.seededrandom(),
     wealth: dice(2, 50),
     trait: data.trait.seededrandom(),
@@ -165,7 +169,7 @@ setup.createNPC = function (town, base) {
 
   setup.createRace(npc)
 
-  var physicalTraitRoll = random(1, 11)
+  const physicalTraitRoll = random(1, 11)
   if (physicalTraitRoll > 8) {
     npc.physicalTrait = npc.physicalTrait || data.scar.seededrandom()
   } else if (physicalTraitRoll > 6) {
@@ -189,6 +193,7 @@ setup.createNPC = function (town, base) {
 
   setup.createSexuality(npc)
   setup.createSocialClass(town, npc)
+  setup.createLivingStandards(town, npc)
 
   if (npc.hasHistory !== false) {
     setup.createHistory(town, npc)
