@@ -1,14 +1,14 @@
 
 setup.goodsAndServices = {
   default: {
-    create: function (town, type, opts) {
+    create (town, type, opts) {
       // this is the template for the creation of generic buildings; i.e. those that are present in this list.
       // It is *not* for taverns, town squares, castles, or anything large scale.
       // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
       console.groupCollapsed('setup.goodsAndServices.default.create()ing a ' + type)
       opts = opts || {}
-      var building = {
-        type: type,
+      const building = {
+        type,
         BuildingType: type,
         passageName: 'GenericPassage',
         initPassage: 'GenericPassage'
@@ -25,7 +25,7 @@ setup.goodsAndServices = {
   },
   bakery: {
     // the bakery can be used as an example of how to add more features to a building.
-    create: function (town, building, opts) {
+    create (town, building, opts) {
       opts = opts || {}
       if (!building) {
         console.error('A building was not passed!')
@@ -43,9 +43,9 @@ setup.goodsAndServices = {
       return building
     },
     name: {
-      function: function (town, building) {
-        var name = setup.goodsAndServices[building.type].name
-        var unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + name.foodAdjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
@@ -252,8 +252,8 @@ setup.goodsAndServices = {
         // description: used in tooltip.
         description: 'A loaf of rye bread.',
         // exclusions for testing whether it is available. Can be ommitted if it is always available. Return truthiness.
-        exclusions: function (town, building) {
-          if (town.wealth > 20 && building.roll.wealth > 40) {
+        exclusions (town, building) {
+          if (town.wealth > 20 && building.wealth > 40) {
             return true
           } else {
             return false
@@ -268,8 +268,8 @@ setup.goodsAndServices = {
       'loaf of barley bread': {
         cost: 18,
         description: 'A loaf of barley bread.',
-        exclusions: function (town, building) {
-          if (town.wealth > 20 && building.roll.wealth > 40) {
+        exclusions (town, building) {
+          if (town.wealth > 20 && building.wealth > 40) {
             return true
           } else {
             return false
@@ -279,8 +279,8 @@ setup.goodsAndServices = {
       'loaf of dwarven bread': {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
-        exclusions: function (town, building) {
-          if (town.population > 1500 && building.roll.wealth > 25) {
+        exclusions (town, building) {
+          if (town.population > 1500 && building.wealth > 25) {
             return true
           } else {
             return false
@@ -290,8 +290,8 @@ setup.goodsAndServices = {
       'elven biscuits': {
         cost: 15,
         description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
-        exclusions: function (town, building) {
-          if (town.population > 2000 && building.roll.wealth > 50) {
+        exclusions (town, building) {
+          if (town.population > 2000 && building.wealth > 50) {
             return true
           } else {
             return false
@@ -309,8 +309,8 @@ setup.goodsAndServices = {
       'sweet tart': {
         cost: random(10, 15),
         description: 'A tasty looking fruit tart.',
-        exclusions: function (town, building) {
-          if ((building.roll.wealth > 70 || building.specialty.includes('pastries')) && building.roll.wealth > 30) {
+        exclusions (town, building) {
+          if (building.wealth > 70) {
             return true
           } else {
             return false
@@ -320,8 +320,8 @@ setup.goodsAndServices = {
       'gold loaf': {
         cost: 1300,
         description: 'A loaf with gold leaf on top. Debug.',
-        exclusions: function (town, building) {
-          if (town.wealth > 99 && building.roll.wealth > 99) {
+        exclusions (town, building) {
+          if (town.wealth > 99 && building.wealth > 99) {
             return true
           } else {
             return false
@@ -408,7 +408,7 @@ setup.goodsAndServices = {
     ]
   },
   florist: {
-    create: function (town, building, opts) {
+    create (town, building, opts) {
       opts = opts || {}
       if (!building) {
         console.error('A building was not passed!')
@@ -429,9 +429,9 @@ setup.goodsAndServices = {
       return building
     },
     name: {
-      function: function (town, building) {
-        var name = setup.goodsAndServices[building.type].name
-        var unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
@@ -688,7 +688,7 @@ setup.goodsAndServices = {
     ]
   },
   tailor: {
-    create: function (town, building, opts) {
+    create (town, building, opts) {
       opts = opts || {}
       if (!building) {
         console.error('A building was not passed!')
@@ -705,9 +705,9 @@ setup.goodsAndServices = {
       return building
     },
     name: {
-      function: function (town, building) {
-        var name = setup.goodsAndServices[building.type].name
-        var unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),

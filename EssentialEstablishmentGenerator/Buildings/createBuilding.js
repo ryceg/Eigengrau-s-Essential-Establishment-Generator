@@ -2,8 +2,8 @@ setup.createBuilding = function (town, type, base) {
 // Tables used later
   if (random(100) < setup.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
     // roads are currently only supported with two words
-    var randRoad = Object.keys(town.roads).seededrandom()
-    var roads = town.roads[randRoad].split(' ')
+    const randRoad = Object.keys(town.roads).seededrandom()
+    const roads = town.roads[randRoad].split(' ')
     var roadName = roads[0] || setup.townData.roads.name.seededrandom()
     var roadType = roads[1] || setup.townData.roads.type.seededrandom()
   } else {
@@ -11,8 +11,8 @@ setup.createBuilding = function (town, type, base) {
     roadType = setup.townData.roads.type.seededrandom()
   }
 
-  var lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].seededrandom()
-  var outside = [
+  const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].seededrandom()
+  const outside = [
     'a horse grazing on the bushes nearby',
     'a rusted shovel near a somewhat overgrown flowerbed',
     'a well with an old rope, but no bucket to go on the end',
@@ -21,18 +21,18 @@ setup.createBuilding = function (town, type, base) {
     'a muddy pair of boots by the door',
     "a sign from the local paper which reads '$newspaperheadline'"
   ].seededrandom()
-  var material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].seededrandom()
-  var building = Object.assign({
+  const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].seededrandom()
+  const building = Object.assign({
     // index: State.variables.buildings.length - 1,
     // index: Math.floor(randomFloat(1) * 0x10000),
     key: randomFloat(1).toString(16),
-    roadName: roadName,
-    roadType: roadType,
+    roadName,
+    roadType,
     get road () {
       return this.roadName + ' ' + this.roadType
     },
     set road (road) {
-      var roads = road.toString().split(' ')
+      const roads = road.toString().split(' ')
       this.roadName = roads[0] || ''
       this.roadType = roads[1] || ''
     },
@@ -52,10 +52,10 @@ setup.createBuilding = function (town, type, base) {
     //   }
     // },
     associatedTown: town.name,
-    type: type,
-    lighting: lighting,
-    outside: outside,
-    material: material,
+    type,
+    lighting,
+    outside,
+    material,
     roll: {
       magic: (Math.floor(randomFloat(1) * 80) + 20),
       size: (Math.floor(randomFloat(1) * 80) + 20),

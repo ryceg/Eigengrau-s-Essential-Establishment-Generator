@@ -3,7 +3,7 @@ setup.misc = {
   ...(setup.misc || {}), // keep any existing misc attributes, see "JS Spread Operator"
   'cheese': {
     create: () => {
-      let cheese = {
+      const cheese = {
         colour: setup.misc.cheese.colour.seededrandom(),
         texture: setup.misc.cheese.texture.seededrandom(),
         taste: setup.misc.cheese.taste.seededrandom(),
@@ -20,7 +20,7 @@ setup.misc = {
   },
   'treasureMap': {
     'create': base => {
-      let map = Object.assign({
+      const map = Object.assign({
         one: setup.misc.treasureMap.one.seededrandom(),
         two: setup.misc.treasureMap.two.seededrandom(),
         three: setup.misc.treasureMap.three.seededrandom(),
@@ -44,13 +44,13 @@ setup.misc = {
   },
   'caravan': {
     'create': (town, base) => {
-      let masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
-      let caravan = Object.assign({
+      const masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
+      const caravan = Object.assign({
         type: setup.misc.caravan.caravanType.seededrandom(),
         animals: setup.misc.caravan.animals.seededrandom(),
         transporting: setup.misc.caravan.transporting.seededrandom(),
         mood: setup.misc.caravan.mood.seededrandom(),
-        masterType: masterType,
+        masterType,
         masterLooking: setup.misc.caravan.masterLooking.seededrandom(),
         masterAvoid: setup.misc.caravan.masterAvoid.seededrandom(),
         masterCarry: setup.misc.caravan.masterCarry.seededrandom()
@@ -130,7 +130,7 @@ setup.misc = {
   },
   'ghost': {
     'create': base => {
-      let ghost = Object.assign({
+      const ghost = Object.assign({
         profession: setup.misc.ghost.profession.seededrandom(),
         cause: setup.misc.ghost.cause.seededrandom(),
         reason: setup.misc.ghost.reason.seededrandom(),
@@ -164,7 +164,7 @@ setup.misc = {
     'slaves': ['dwarves', 'gnomes', 'goblins', 'halflings', 'humans', 'kobolds', 'undead servitors', 'nothing; the orcs eat any captives they take', 'nothing; the orcs leave no survivors', 'nothing; the orcs believe in freedom for all beings'],
     'weapons': ['spears and large hunting knives', 'spears and javelins', 'exotic, curved blades and several bolas', 'huge, curved blades', 'exotic, curved blades and blowguns', 'pikes and shortswords', 'pikes and short bows', 'battleaxes and throwing axes', 'battleaxes and longbows', 'longswords and longbows', 'jagged greatswords and shortbows', 'greataxes and javelins'],
     'create': () => {
-      let orcs = {
+      const orcs = {
         type: setup.misc.orcs.type.seededrandom(),
         symbol: setup.misc.orcs.symbol.seededrandom(),
         value: setup.misc.orcs.value.seededrandom(),
@@ -186,7 +186,7 @@ setup.misc = {
   },
   'goblins': {
     'create': base => {
-      let goblins = Object.assign({
+      const goblins = Object.assign({
         business: setup.misc.goblins.business.seededrandom(),
         symbol: setup.misc.goblins.symbol.seededrandom(),
         colour: setup.misc.goblins.colour.seededrandom(),
@@ -220,7 +220,7 @@ setup.misc = {
   },
   'goblin': {
     'create': base => {
-      let goblin = Object.assign({
+      const goblin = Object.assign({
         type: setup.misc.goblin.type.seededrandom(),
         carry: setup.misc.goblin.carry.seededrandom(),
         wears: setup.misc.goblin.wears.seededrandom(),
@@ -253,7 +253,7 @@ setup.misc = {
     'lair': ['the residence of a prominent noble', 'the village’s market square', 'a wayside inn', 'a tavern', 'a brothel', 'an old lighthouse', 'an abandoned cabin', 'a waterfall', 'a cave', 'a dense forest'],
     'fearedBy': ['ambassadors and tax collectors', 'merchants and peddlers', 'politicians and magistrates', 'guards and sheriffs', 'soldiers and warriors', 'nobles and wealthy travelers', 'knights and loyalists', 'peasants and farmers', 'priests and sages', 'women and children'],
     'create': (town, base) => {
-      let bandits = {
+      const bandits = {
         business: setup.misc.bandits.business.seededrandom(),
         colours: setup.misc.bandits.colours.seededrandom(),
         symbol: setup.misc.bandits.symbol.seededrandom(),
@@ -528,8 +528,8 @@ setup.misc = {
   'religion': {
     'shrine': {
       'create': (town, base) => {
-        let sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
-        let shrine = Object.assign({
+        const sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
+        const shrine = Object.assign({
           god: [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom(),
           material: setup.misc.religion.shrine.material.seededrandom(),
           senses: setup.misc.religion.shrine.senses[sensesArray](town)
@@ -568,16 +568,16 @@ setup.misc = {
         'bread': town => 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.',
         'deadBird': town => 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.',
         'cat': town => {
-          let cat = setup.misc.cat.create()
+          const cat = setup.misc.cat.create()
           return "You hear a soft meow, and see that there's a " + cat.tippyWord + ' sitting near the shrine, watching you.'
         },
         'hissingCat': town => {
-          let cat = setup.misc.cat.create()
+          const cat = setup.misc.cat.create()
           return "You hear a hissing sound, and see that there's a " + cat.tippyWord + ' sitting near the shrine, almost guarding it.'
         },
         'bedding': town => { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
         'beddingWithNPC': town => {
-          let npc = setup.createNPC(town)
+          const npc = setup.createNPC(town)
           return 'You can see some bedding on the ground near the shrine. The ' + setup.profile(npc, 'owner') + ' is out hunting.'
         }
       }
@@ -585,12 +585,12 @@ setup.misc = {
     'createRelic': () => {
       // let holy = setup.misc.religion.holy.seededrandom()
       // let unholy = setup.misc.religion.unholy.seededrandom()
-      let adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
+      const adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
       // let namedGod = setup.misc.religion.namedGod.seededrandom()
       // let abstractGod = setup.misc.religion.abstractGod.seededrandom()
       // let saint = setup.misc.religion.saint.seededrandom()
-      let god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
-      let noun = setup.misc.religion.noun.seededrandom()
+      const god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
+      const noun = setup.misc.religion.noun.seededrandom()
       return 'The ' + adjective + ' ' + noun + ' of ' + god
     },
     holy: [
@@ -614,7 +614,7 @@ setup.misc = {
   },
   'bunny': {
     'create': () => {
-      let bunny = {
+      const bunny = {
         size: setup.misc.bunny.size.seededrandom(),
         coat: setup.misc.bunny.coat.seededrandom(),
         favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
@@ -631,7 +631,7 @@ setup.misc = {
   },
   'cat': {
     'create': () => {
-      let cat = {
+      const cat = {
         size: setup.misc.cat.size.seededrandom(),
         coat: setup.misc.cat.coat.seededrandom(),
         eyes: setup.misc.cat.eyes.seededrandom(),
@@ -656,7 +656,7 @@ setup.misc = {
   },
   'horse': {
     'create': () => {
-      let horse = {
+      const horse = {
         gender: setup.misc.horse.gender.seededrandom(),
         coat: setup.misc.horse.coat.seededrandom(),
         eyes: setup.misc.horse.eyes.seededrandom(),
@@ -685,7 +685,7 @@ setup.misc = {
   },
   'wolf': {
     'create': () => {
-      let wolf = {
+      const wolf = {
         colour: setup.misc.wolf.colour.seededrandom(),
         markings: setup.misc.wolf.markings.seededrandom(),
         eyes: setup.misc.wolf.eyes.seededrandom(),
@@ -711,7 +711,7 @@ setup.misc = {
   },
   'ogre': {
     'create': () => {
-      let ogre = {
+      const ogre = {
         hair: setup.misc.ogre.hair.seededrandom(),
         type: setup.misc.ogre.type.seededrandom(),
         eyes: setup.misc.ogre.eyes.seededrandom(),
@@ -737,7 +737,7 @@ setup.misc = {
   },
   'spider': {
     'create': () => {
-      let spider = {
+      const spider = {
         colour: setup.misc.spider.colour.seededrandom(),
         markings: setup.misc.spider.markings.seededrandom(),
         eyes: setup.misc.spider.eyes.seededrandom(),
@@ -769,7 +769,7 @@ setup.misc = {
     'ceiling': ['uncomfortably close to your head', 'covered in stalactites (watch your head!)', 'smooth as glass', 'rough and jagged', 'connected to the floor by natural columns', 'so high it’s difficult to see'],
     'hazards': ['a colony of poisonous mushrooms', 'a patch of toxic mold', 'the ceiling caves in', 'several rocks tumble down a sloped wall', 'the floor is very slippery', 'your foot misses the floor as you step into a pit or chasm'],
     'create': base => {
-      let cavern = Object.assign({
+      const cavern = Object.assign({
         noun: 'cavern',
         entrance: setup.misc.cavern.entrance.seededrandom(),
         landmark: setup.misc.cavern.landmark.seededrandom(),
@@ -785,7 +785,7 @@ setup.misc = {
   'tree': {
     'create': (town, biome, base) => {
       biome = biome || ['forest', 'desert', 'mountain', 'plains'].seededrandom()
-      let tree = Object.assign({
+      const tree = Object.assign({
         species: setup.misc.tree.biome[biome].species.seededrandom(),
         size: setup.misc.tree.biome[biome].size.seededrandom(),
         feature: setup.misc.tree.biome[biome].feature.seededrandom()
@@ -910,7 +910,7 @@ setup.misc = {
   },
   'cabin': {
     'create': (town, base, biome) => {
-      let cabin = Object.assign({
+      const cabin = Object.assign({
         material: ['wooden', 'wooden', 'wooden', 'stone'].seededrandom(),
         wordNoun: 'cabin',
         feature: setup.misc.cabin.feature.seededrandom(),
@@ -928,7 +928,7 @@ setup.misc = {
       cabin.cleanliness = ''
       cabin.bedCleanliness = ''
 
-      let rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
+      const rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
       rollDataVariables.forEach((propName) => {
         setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
       })
@@ -1016,10 +1016,10 @@ setup.misc = {
   },
   'road': {
     'create': (town, base) => {
-      let type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
-      let encounterKey = setup.misc.road[type].encounters.seededrandom()
+      const type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
+      const encounterKey = setup.misc.road[type].encounters.seededrandom()
       console.log(encounterKey)
-      let road = Object.assign({
+      const road = Object.assign({
         type: setup.misc.road[type].type.seededrandom(),
         traffic: setup.misc.road[type].traffic.seededrandom(),
         encounter: setup.misc.encounters[encounterKey](town)
@@ -1083,7 +1083,7 @@ setup.misc = {
   },
   'desert': {
     'create': town => {
-      let biome = 'desert'
+      const biome = 'desert'
       let encounter
       let encounterKey
       if (random(1, 100) >= 50) {
@@ -1155,7 +1155,7 @@ setup.misc = {
   },
   'mountain': {
     'create': town => {
-      let biome = 'mountain'
+      const biome = 'mountain'
       let encounter
       let encounterKey
       if (random(1, 100) >= 50) {
@@ -1254,7 +1254,7 @@ setup.misc = {
   },
   'forest': {
     'create': town => {
-      let biome = 'forest'
+      const biome = 'forest'
       let encounter
       let encounterKey
       if (random(1, 100) >= 50) {
