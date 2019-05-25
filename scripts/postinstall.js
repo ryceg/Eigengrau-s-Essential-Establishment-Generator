@@ -2,9 +2,10 @@ const path = require('path')
 const http = require('https')
 const fs = require('fs')
 const yauzl = require('yauzl')
+const shell = require('shelljs')
 const utils = require('./utils')
 
-fs.mkdirSync(utils.twineFolder, { recursive: true })
+shell.mkdir('-p', utils.twineFolder)
 
 const tweegoLink = getTweegoLink()
 
@@ -22,12 +23,17 @@ downloadAndExtract(tweegoLink, utils.tweegoZip).then(() => {
 
 function downloadAndExtract (link, filePath) {
   return new Promise((resolve, reject) => {
-    const writeStream = fs.createWriteStream(filePath)
-
     http
-      .get(link, response => response.pipe(writeStream))
+      .get(link, response => {
+        if (response.statusCode !== 200) {
+          return reject(new Error('Download error!'))
+        }
+
+        const writeStream = fs.createWriteStream(filePath)
+        response.pipe(writeStream)
+        writeStream.on('finish', () => writeStream.close(unzip))
+      })
       .on('error', utils.logError)
-      .on('close', unzip)
 
     function unzip () {
       yauzl.open(filePath, { lazyEntries: true }, (error, zip) => {
@@ -48,7 +54,7 @@ function unzipEntry (zip, entry) {
     if (error) throw error
 
     const fileFolder = path.resolve(utils.twineFolder, getFileDirectory(entry.fileName))
-    fs.mkdirSync(fileFolder, { recursive: true })
+    shell.mkdir('-p', fileFolder)
     const filePath = path.resolve(utils.twineFolder, entry.fileName)
     const writeStream = fs.createWriteStream(filePath)
 
