@@ -1,5 +1,5 @@
 :: Start [output]
-<span id="body"><h1>Eigengrau's Essential Establishment Generator</h1>
+<span id="body"><h1>[img[Banner]]</h1>
 <span class="firstcharacter">W</span>elcome to Eigengrau's Essential Establishment Generator, v$versionNumber! This is still in active development.
 <<linkappend "<h4>Changelog</h4>" t8n>><<include "Changelog">><</linkappend>>
 <<include "Popup">>
