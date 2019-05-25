@@ -11,6 +11,9 @@ body {
   margin-bottom: 4px;
   margin-top: 4px;
 }
+#story-title{
+  display: none;
+}
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
