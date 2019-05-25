@@ -23,15 +23,16 @@ setup.createLivingStandards = function (town, npc) {
   const note = wageVarianceNotes.find(function (desc) {
     return desc[0] <= npc.finances.wageVariation
   })
-  if (note !== '') {
-    npc.note.push(npc.firstName + ' ' + [
-      'has been',
-      'has recently been',
-      'is',
-      'is currently'
-    ].seededrandom() +
-        note + '.')
-  }
+  console.log(note)
+  // if (note !== '') {
+  //   npc.note.push(npc.firstName + ' ' + [
+  //     'has been',
+  //     'has recently been',
+  //     'is',
+  //     'is currently'
+  //   ].seededrandom() +
+  //       note + '.')
+  // }
 
   setup.addPercentage = function (target, integer) {
     return target / 100 * integer
