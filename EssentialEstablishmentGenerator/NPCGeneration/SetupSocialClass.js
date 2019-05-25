@@ -16,7 +16,7 @@ setup.createSocialClass = function (town, npc) {
   if (!npc.roll) {
     npc.roll = {}
   }
-  let profession = setup.findProfession(town, npc)
+  const profession = setup.findProfession(town, npc)
 
   npc.roll.socialClass = npc.roll.socialClass || profession.socialClassRoll || 40 + dice(8, 6)
 
@@ -30,7 +30,7 @@ setup.createSocialClass = function (town, npc) {
     // otherwise, just roll some dice.
     } else {
       console.log('No synonyms found for ' + npc.dndClass)
-      var array = setup.socialClasses.find(function (desc) {
+      const array = setup.socialClasses.find(function (desc) {
         return desc[0] <= npc.roll.socialClass
       })
       npc.socialClass = array[1]

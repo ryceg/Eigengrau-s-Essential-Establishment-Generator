@@ -2,8 +2,8 @@
 setup.createTemple = function (town, opts) {
   console.log('Creating a temple...')
   opts = opts || {}
-  let temple = (opts['newBuilding'] || setup.createBuilding)(town, 'temple')
-  var data = setup.temple
+  const temple = (opts['newBuilding'] || setup.createBuilding)(town, 'temple')
+  const data = setup.temple
 
   Object.assign(temple, {
     passageName: 'TempleOutput',
@@ -41,7 +41,7 @@ setup.createTemple = function (town, opts) {
   temple.size = ''
   temple.cleanliness = ''
 
-  var rollDataVariables = ['wealth', 'size', 'cleanliness']
+  const rollDataVariables = ['wealth', 'size', 'cleanliness']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(temple, data.rollData, propName)
   })

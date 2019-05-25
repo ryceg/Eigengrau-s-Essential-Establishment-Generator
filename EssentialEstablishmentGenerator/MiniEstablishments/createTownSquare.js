@@ -1,7 +1,7 @@
 setup.createTownSquare = function (town, opts) {
   console.groupCollapsed('Creating townSquare function')
   opts = opts || {}
-  let townSquare = (opts['newBuilding'] || setup.createBuilding)(town, 'townSquare')
+  const townSquare = (opts['newBuilding'] || setup.createBuilding)(town, 'townSquare')
   Object.assign(townSquare, {
     associatedTown: town.name,
     initPassage: 'TownSquareOutput',
@@ -16,7 +16,7 @@ setup.createTownSquare = function (town, opts) {
   townSquare.size = ''
   townSquare.cleanliness = ''
 
-  var rollDataVariables = ['size', 'cleanliness']
+  const rollDataVariables = ['size', 'cleanliness']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(townSquare, setup.townSquare.rollData, propName)
   })

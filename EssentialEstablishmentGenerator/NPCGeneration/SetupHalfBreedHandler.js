@@ -12,7 +12,7 @@ setup.halfbreedHandler = function (town, mother, father) {
 
   mother.race = mother.race || father.race || setup.fetchRace(town)
   father.race = father.race || mother.race || setup.fetchRace(town)
-  var races = []
+  const races = []
   races.push(mother.race, father.race)
 
   if (mother.race === father.race) {
@@ -24,9 +24,9 @@ setup.halfbreedHandler = function (town, mother, father) {
     } else if (races.includes('orc')) {
       return 'half-orc'
     }
-    var halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
+    const halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
     if (races.includes(halfbreeds)) {
-      var otherRace = races.filter(function (race) {
+      const otherRace = races.filter(function (race) {
         if (race !== 'human') {
           return race
         }

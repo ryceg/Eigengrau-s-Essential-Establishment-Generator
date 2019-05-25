@@ -1,9 +1,9 @@
 
 setup.createClass = function (npc) {
   console.log('assigning class traits to ' + npc.name + '...')
-  var dndClassOrigin
-  var background
-  var classWeapon
+  let dndClassOrigin
+  let background
+  let classWeapon
 
   if (npc.hasClass !== false && typeof setup.npcData.classTraits[npc.dndClass] !== 'undefined') {
     dndClassOrigin = Array.isArray(setup.npcData.classTraits[npc.dndClass].dndClassOrigin)

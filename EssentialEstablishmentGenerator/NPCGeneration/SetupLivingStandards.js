@@ -1,4 +1,5 @@
 setup.createLivingStandards = function (town, npc) {
+  // eslint-disable-next-line no-unused-vars
   const profession = setup.findProfession(town, npc)
   setup.livingStandards = [
     [1000, 'aristocratic'],
@@ -38,9 +39,10 @@ setup.createLivingStandards = function (town, npc) {
     return target / 100 * integer
   }
 
+  // eslint-disable-next-line no-unused-vars
   const townVariance = ((town.roll.wealth - 50) / 5)
 
-  Object.defineProperty(npc.finances.grossIncome, {
+  /* Object.defineProperty(npc.finances.grossIncome, {
     get: setup.addPercentage(
       setup.addPercentage(profession.dailyWage, npc.finances.wageVariation),
       townVariance)
@@ -49,7 +51,7 @@ setup.createLivingStandards = function (town, npc) {
     get: setup.livingStandards.find(function (desc) {
       return desc[0] <= npc.finances.grossIncome
     })
-  })
+  }) */
 
   return npc
 }

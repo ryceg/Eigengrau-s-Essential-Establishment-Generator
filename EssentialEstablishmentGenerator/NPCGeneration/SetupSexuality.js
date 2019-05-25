@@ -16,7 +16,7 @@ setup.createSexuality = function (npc) {
   }
 
   if (!npc.roll.kinsey) {
-    var roll = random(0, 100)
+    const roll = random(0, 100)
     npc.roll.sexuality = npc.roll.sexuality || roll || 47 + dice(13, 4)
     if (npc.roll.sexuality < 70) {
       npc.roll.kinsey = 0
@@ -34,17 +34,17 @@ setup.createSexuality = function (npc) {
       npc.roll.kinsey = 3
     }
   }
-  var kinsey = {
+  const kinsey = {
     // true = male, false = female. Very basic function, am aware.
     0: {
       sexuality: 'heterosexual',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         return setup.npcData.gender[npc.gender].oppositeGender
       }
     },
     1: {
       sexuality: 'heterosexual with passing interest in other $currentNPC.menwomen',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         if (random(100) < 90) {
           return setup.npcData.gender[npc.gender].oppositeGender
         } else {
@@ -54,7 +54,7 @@ setup.createSexuality = function (npc) {
     },
     2: {
       sexuality: 'predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         if (random(100) < 70) {
           return setup.npcData.gender[npc.gender].oppositeGender
         } else {
@@ -64,7 +64,7 @@ setup.createSexuality = function (npc) {
     },
     3: {
       sexuality: 'bisexual',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         if (random(100) < 50) {
           return setup.npcData.gender[npc.gender].oppositeGender
         } else {
@@ -74,7 +74,7 @@ setup.createSexuality = function (npc) {
     },
     4: {
       sexuality: 'mostly homosexual, but with more than a passing interest in the opposite sex',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         if (random(100) < 70) {
           return npc.gender
         } else {
@@ -84,7 +84,7 @@ setup.createSexuality = function (npc) {
     },
     5: {
       sexuality: 'homosexual with passing interest in the opposite sex',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         if (random(100) < 90) {
           return npc.gender
         } else {
@@ -94,7 +94,7 @@ setup.createSexuality = function (npc) {
     },
     6: {
       sexuality: 'homosexual',
-      partnerGenderProbability: function (npc) {
+      partnerGenderProbability (npc) {
         return npc.gender
       }
     }

@@ -1,6 +1,6 @@
 setup.createPubRumour = function () {
-  var pubRumour
-  var tempRumour = Object.assign({
+  let pubRumour
+  const tempRumour = Object.assign({
     origin: ['a child',
       'a fat merchant',
       'a priest',
@@ -704,6 +704,7 @@ setup.createPubRumour = function () {
       break
   }
 
+  // eslint-disable-next-line prefer-const
   pubRumour = ['Did you hear?', 'Did you hear the news?', 'Did you hear about the news?', 'Did you hear?'].seededrandom() + ' ' + tempRumour.origin.toUpperFirst() + ' ' + tempRumour.complication + ' and discovered ' + tempRumour.discovery + ', and now ' + tempRumour.result
 
   return pubRumour

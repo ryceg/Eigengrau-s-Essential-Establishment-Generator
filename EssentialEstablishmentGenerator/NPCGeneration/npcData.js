@@ -87,11 +87,11 @@ setup.npcData = {
   lifeEvents: {
     trinket: {
       probability: 10,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function () {
-        var trinket = setup.createMagicTrinket()
+      function () {
+        const trinket = setup.createMagicTrinket()
         console.log('called lifeEvents.trinket function')
         return [
           "I was given a magical trinket- it's a ",
@@ -104,13 +104,14 @@ setup.npcData = {
     },
     meetFriendNPC: {
       probability: 10,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.meetFriendNPC function')
         if (random(100) > 50) {
           console.log('Finding an already existing friend!')
+          // eslint-disable-next-line no-var
           var friend = Object.keys(State.variables.npcs).find(function (name) {
             return (State.variables.npcs[name].socialClass === npc.socialClass &&
             (!State.variables.npcs[name].relationships[npc.key]))
@@ -148,14 +149,14 @@ setup.npcData = {
     },
     meetEnemyNPC: {
       probability: 10,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.meetEnemyNPC function')
-        var enemy = setup.createNPC(town, {
+        const enemy = setup.createNPC(town, {
           gender: 'man',
           background: 'noble',
           isShallow: true
@@ -185,17 +186,17 @@ setup.npcData = {
     },
     meetPartnerNPC: {
       probability: 10,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.meetPartnerNPC function')
         if (npc.partnerID !== undefined) {
           console.log('Making a baby!')
-          var partner = State.variables.npcs[npc.partnerID]
-          var child = setup.createRelative(town, npc, 'child')
+          const partner = State.variables.npcs[npc.partnerID]
+          const child = setup.createRelative(town, npc, 'child')
           // var child = setup.createNPC(town, {
           //   ageStage: 'child',
           //   race: npc.race,
@@ -238,12 +239,12 @@ setup.npcData = {
     },
     backgroundWork: {
       probability: 20,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.backgroundWork function')
         npc.wealth += (dice('2d6') * 1000)
         return [
@@ -255,10 +256,10 @@ setup.npcData = {
     },
     meetImportantNPC: {
       probability: 5,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.meetImportantNPC function')
         return [
           ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].seededrandom() +
@@ -269,19 +270,20 @@ setup.npcData = {
     },
     adventure: {
       probability: 5,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.adventure function')
-        var adventureRoll = random(1, 100)
-        var adventureResults
+        const adventureRoll = random(1, 100)
+        let adventureResults
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
           return setup.npcData.lifeEvents.backgroundWork.function(town, npc)
         } else {
+          // eslint-disable-next-line no-var
           var adventurePrefix = [
             'I went on an adventure, and ',
             'I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ',
@@ -289,7 +291,7 @@ setup.npcData = {
             'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
             'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].seededrandom()
           if (adventureRoll === 100) {
-            var weapon = setup.createMagicWeapon()
+            const weapon = setup.createMagicWeapon()
             console.log('Called weapon function.')
             adventureResults = 'came across a magical weapon- this is my trusty ' + weapon.name + '<blockquote>' + '<h4>' + weapon.name + '</h4>' + weapon.description + '</blockquote>'
           } else if (adventureRoll >= 91) {
@@ -323,10 +325,10 @@ setup.npcData = {
     },
     supernatural: {
       probability: 5,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.supernatural function')
         return [
           'I came across a horde of ghouls feasting on a dead body in my youth.',
@@ -340,23 +342,23 @@ setup.npcData = {
     },
     war: {
       probability: 5,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.war function')
-        var warRoll = random(1, 12)
-        var warStart = [
+        const warRoll = random(1, 12)
+        const warStart = [
           'there was a minor skirmish with some orcs that I was involved with.',
           'there was a small skirmish with a rivaling faction that I was drafted into.',
           'there was a small war between a rival lord that I was forced to take part with.',
           'there were some goblin raids which I had to defend my town from.',
           'there was a pretty nasty zombie outbreak which I had to defend my town against.'
         ].seededrandom()
-        var warResults
-        var warDescription
+        let warResults
+        let warDescription
         if (warRoll === 12) {
           warResults = 'I acquitted myself well in battle, and was awarded a medal for bravery.'
         } else if (warRoll >= 10) {
@@ -371,20 +373,21 @@ setup.npcData = {
         } else if (warRoll === 1) {
           warResults = 'I was knocked out, and left for dead. I woke up hours later, after the battle was over, and had to walk injured for days to find aid.'
         }
+        // eslint-disable-next-line prefer-const
         warDescription = warStart + ' ' + warResults
         return warDescription
       }
     },
     crime: {
       probability: 5,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.crime function')
-        var crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting'].seededrandom()
-        var crimeRoll = random(1, 12)
-        var crimeReadout
+        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting'].seededrandom()
+        const crimeRoll = random(1, 12)
+        let crimeReadout
         if (crimeRoll >= 9) {
           crimeReadout = 'I was caught and convicted of ' + crime + ', and spent ' + random(1, 4) + ' years ' + ['in jail', 'chained to an oar', 'doing hard labour'].seededrandom() + ' before ' + ['being released.', 'managing to escape.'].seededrandom()
         } else if (crimeRoll >= 7) {
@@ -399,10 +402,10 @@ setup.npcData = {
     },
     arcaneMatters: {
       probability: 4,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
           'I once saw a demon!',
@@ -415,10 +418,10 @@ setup.npcData = {
     },
     weirdStuff: {
       probability: 1,
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         console.log('called lifeEvents.weirdStuff function')
         return [
           'I came across a genie, but squandered the wish on an ex lover.',
@@ -437,38 +440,38 @@ setup.npcData = {
     'wants to grow a beard': {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability)) {
           return false
         } else {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' wants to grow a beard.'
       }
     },
     'no longer loves partner': {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (!npc.partnerID) {
           return false
         } else {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' no longer loves ' + npc.hisher + ' ' + npc.partnerID.marriageNoun + ', ' + '<<profile `$npcs[' + JSON.stringify(npc.partnerID) + ']`>>'
       }
     },
     'has a sizeable inheritance': {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         return true
       },
-      function: function (town, npc) {
+      function (town, npc) {
         npc.wealth += 50000
         return npc.name + " doesn't say " + npc.heshe + ' has a sizeable inheritance.'
       }
@@ -476,12 +479,12 @@ setup.npcData = {
     'wants to run away': {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
-      exclusions: function (town, npc) {
+      exclusions (town, npc) {
         if (npc.background !== 'hermit') {
           return true
         }
       },
-      function: function (town, npc) {
+      function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' wants to run away and live far away from society.'
       }
     }
@@ -548,19 +551,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 50,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
           'baseAge': 20,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'young adult': {
           'baseAge': 13,
-          'ageModifier': function () { return dice(2, 4) }
+          'ageModifier' () { return dice(2, 4) }
         },
         'child': {
           'baseAge': 4,
-          'ageModifier': function () { return dice(3, 4) }
+          'ageModifier' () { return dice(3, 4) }
         }
       },
       'genderTraits': {
@@ -569,16 +572,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 60,
           'baseWeight': 130,
-          'heightModifier': function () { return dice(2, 8) },
-          'weightModifier': function () { return dice(2, 6) }
+          'heightModifier' () { return dice(2, 8) },
+          'weightModifier' () { return dice(2, 6) }
         },
         'man': {
           'firstName': ['Adrex', 'Arjhan', 'Azzakh', 'Balasar', 'Baradad', 'Bharash', 'Bidreked', 'Dadalan', 'Dazzazn', 'Direcris', 'Donaar', 'Fax', 'Gargax', 'Ghesh', 'Gorbundus', 'Greethen', 'Heskan', 'Hirrathak', 'Illdrex', 'Kaladan', 'Kerkad', 'Kiirith', 'Kriv', 'Maagog', 'Medrash', 'Mehen', 'Mozikth', 'Mreksh', 'Mugrunden', 'Nadarr', 'Nithther', 'Norkruuth', 'Nykkan', 'Pandjed', 'Patrin', 'Pijjink', 'Quarethon', 'Rathkran', 'Rhogar', 'Rivaan', 'Sethrekar', 'Shamash', 'Shedinn', 'Srorthen', 'Tarhun', 'Torinn', 'Trynnicus', 'Valorean', 'Vrondiss', 'Zedaar'],
           'beardProbability': 90,
           'baseHeight': 62,
           'baseWeight': 160,
-          'heightModifier': function () { return dice(2, 8) },
-          'weightModifier': function () { return dice(2, 6) }
+          'heightModifier' () { return dice(2, 8) },
+          'weightModifier' () { return dice(2, 6) }
         }
       },
       'lastName': ['Akambheryliiax', 'Argenthrixus', 'Baharoosh', 'Beryntolthropal', 'Bhenkumbyrznaax', 'Caavylteradyn', 'Chumbyxirinnish', 'Clethtinthiallor', 'Daardendrian', 'Delmirev', 'Dhyrktelonis', 'Ebynichtomonis', 'Esstyrlynn', 'Fharngnarthnost', 'Ghaallixirn', 'Grrrmmballhyst', 'Gygazzylyshrift', 'Hashphronyxadyn', 'Hshhsstoroth', 'lmbixtellrhyst', 'Jerynomonis', 'Jharthraxyn', 'Kerrhylon', 'Kimbatuul', 'Lhamboldennish', 'Linxakasendalor', 'Mohradyllion', 'Mystan', 'Nemmonis', 'Norixius', 'Ophinshtalajiir', 'Orexijandilin', 'Pfaphnyrennish', 'Phrahdrandon', 'Pyraxtallinost', 'Qyxpahrgh', 'Raghthroknaar', 'Shestendeliath', 'Skaarzborroosh', 'Sumnarghthrysh', 'Tiammanthyilish', 'Turnuroth', 'Umbyrphrael', 'Vangdondalor', 'Verthisathurgiesh', 'Wiwyrholdalphiax', 'Wystongjiir', 'Xephyrbahnor', 'Yarjerit', 'Zzzxaaxthroth'],
@@ -634,19 +637,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 197,
-          'ageModifier': function () { return dice(3, 50) }
+          'ageModifier' () { return dice(3, 50) }
         },
         'settled adult': {
           'baseAge': 50,
-          'ageModifier': function () { return dice(3, 50) }
+          'ageModifier' () { return dice(3, 50) }
         },
         'young adult': {
           'baseAge': 15,
-          'ageModifier': function () { return dice(4, 8) }
+          'ageModifier' () { return dice(4, 8) }
         },
         'child': {
           'baseAge': 4,
-          'ageModifier': function () { return dice(3, 6) }
+          'ageModifier' () { return dice(3, 6) }
         }
       },
       'genderTraits': {
@@ -655,16 +658,16 @@ setup.npcData = {
           'beardProbability': 80,
           'baseHeight': 43,
           'baseWeight': 120,
-          'heightModifier': function () { return dice(2, 4) },
-          'weightModifier': function () { return dice(2, 6) }
+          'heightModifier' () { return dice(2, 4) },
+          'weightModifier' () { return dice(2, 6) }
         },
         'man': {
           'firstName': ['Adrik', 'Alberich', 'Baern', 'Barendd', 'Beloril', 'Brottor', 'Dain', 'Dalgal', 'Darrak', 'Delg', 'Duergath', 'Dworic', 'Eberk', 'Einkil', 'Elaim', 'Erias', 'Fallond', 'Fargrim', 'Gardain', 'Garur', 'Gimgen', 'Gimurt', 'Harbek', 'Kildrak', 'Kilvar', 'Morgran', 'Morkral', 'Nalral', 'Nordak', 'Nuraval', 'Oloric', 'Olunt', 'Orsik', 'Oskar', 'Rangfim', 'Reirak', 'Rurik', 'Taklinn', 'Thoradin', 'Thorin', 'Thradal', 'Tordek', 'Traubon', 'Travok', 'Ulfgar', 'Urain', 'Veit', 'Vonbin', 'Vondal', 'Whurbin'],
           'beardProbability': 4,
           'baseHeight': 45,
           'baseWeight': 150,
-          'heightModifier': function () { return dice(2, 4) },
-          'weightModifier': function () { return dice(2, 6) }
+          'heightModifier' () { return dice(2, 4) },
+          'weightModifier' () { return dice(2, 6) }
         }
       },
       'lastName': ['Aranore', 'Balderk', 'Battlehammer', 'Bigtoe', 'Bloodkith', 'Bofdarm', 'Brawnanvil', 'Brazzik', 'Broodfist', 'Burrowfound', 'Caebrek', 'Daerdahk', 'Dankil', 'Daraln', 'Deepdelver', 'Durthane', 'Eversharp', 'FaHack', 'Fire-forge', 'Foamtankard', 'Frostbeard', 'Glanhig', 'Goblinbane', 'Goldfinder', 'Gorunn', 'Graybeard', 'Hammerstone', 'Helcral', 'Holderhek', 'Ironfist', 'Loderr', 'Lutgehr', 'Morigak', 'Orcfoe', 'Rakankrak', 'RubyEye', 'Rumnaheim', 'Silveraxe', 'Silverstone', 'Steelfist', 'Stoutale', 'Strakeln', 'Strongheart', 'Thrahak', 'Torevir', 'Torunn', 'Trollbleeder', 'Trueanvil', 'Trueblood', 'Ungart'],
@@ -722,19 +725,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 650,
-          'ageModifier': function () { return dice(3, 50) }
+          'ageModifier' () { return dice(3, 50) }
         },
         'settled adult': {
           'baseAge': 450,
-          'ageModifier': function () { return dice(3, 75) }
+          'ageModifier' () { return dice(3, 75) }
         },
         'young adult': {
           'baseAge': 100,
-          'ageModifier': function () { return dice(4, 75) }
+          'ageModifier' () { return dice(4, 75) }
         },
         'child': {
           'baseAge': 10,
-          'ageModifier': function () { return dice(4, 20) }
+          'ageModifier' () { return dice(4, 20) }
         }
       },
       'genderTraits': {
@@ -743,16 +746,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 61,
           'baseWeight': 90,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(1, 4) }
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(1, 4) }
         },
         'man': {
           'firstName': ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
           'beardProbability': 75,
           'baseHeight': 62,
           'baseWeight': 100,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(1, 4) }
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(1, 4) }
         }
       },
       'lastName': ['Aloro', 'Amakiir', 'Amastacia', 'Ariessus', 'Arnuanna', 'Berevan', 'Caerdonel', 'Caphaxath', 'Casilltenirra', 'Cithreth', 'Dalanthan', 'Eathalena', 'Erenaeth', 'Ethanasath', 'Fasharash', 'Firahel', 'Floshern', 'Galanodel', 'Goltorah', 'Hanali', 'Holimion', 'Horineth', 'Iathrana', 'temnr', 'lranapha', 'Koehlanna', 'Lathalas', 'Liadon', 'Meliamne', 'Mellerelel', 'Mystralath', 'Nalio', 'Netyoive', 'Ofandrus', 'Ostoroth', 'Othronus', 'Qualanthri', 'Raethran', 'Rothenel', 'Selevarun', 'Siannodel', 'Suithrasas', 'Sylvaranth', 'Teinithra', 'Tiltathana', 'Wasanthi', 'Withrethin', 'Xiloscient', 'Xistsrith', 'Yaeldrin'],
@@ -812,19 +815,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 200,
-          'ageModifier': function () { return dice(3, 100) }
+          'ageModifier' () { return dice(3, 100) }
         },
         'settled adult': {
           'baseAge': 40,
-          'ageModifier': function () { return dice(3, 75) }
+          'ageModifier' () { return dice(3, 75) }
         },
         'young adult': {
           'baseAge': 18,
-          'ageModifier': function () { return dice(2, 10) }
+          'ageModifier' () { return dice(2, 10) }
         },
         'child': {
           'baseAge': 6,
-          'ageModifier': function () { return dice(2, 6) }
+          'ageModifier' () { return dice(2, 6) }
         }
       },
       'genderTraits': {
@@ -833,16 +836,16 @@ setup.npcData = {
           'beardProbability': 98,
           'baseHeight': 35,
           'baseWeight': 30,
-          'heightModifier': function () { return dice(2, 4) },
-          'weightModifier': function () { return dice(1, 1) }
+          'heightModifier' () { return dice(2, 4) },
+          'weightModifier' () { return dice(1, 1) }
         },
         'man': {
           'firstName': ['Alston', 'Alvyn', 'Anverth', 'Arumawann', 'Bilbron', 'Boddynock', 'Brocc', 'Burgell', 'Cockaby', 'Crampernap', 'Dabbledob', 'Delebean', 'Dimble', 'Eberdeb', 'Eldon', 'Erky', 'Fablen', 'Fibblestib', 'Fonkin', 'Frouse', 'Frug', 'Gerbo', 'Gimble', 'Glim', 'lgden', 'Jabble', 'Jebeddo', 'Kellen', 'Kipper', 'Namfoodle', 'Oppleby', 'Orryn', 'Paggen', 'PaHabar', 'Pog', 'Qualen', 'Ribbles', 'Rimple', 'Roondar', 'Sappw', 'Seebo', 'Senteq', 'Sindri', 'Umpen', 'Warryn', 'Wiggens', 'Wobbles', 'Wrenn', 'Zaffrab', 'Zook'],
           'beardProbability': 37,
           'baseHeight': 36,
           'baseWeight': 35,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(1, 1) }
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(1, 1) }
         }
       },
       'lastName': ['Albaratie', 'Bafflestone', 'Beren', 'Boondiggles', 'Cobblelob', 'Daergel', 'Dunben', 'Fabblestabble', 'Fapplestamp', 'Fiddlefen', 'Folkor', 'Garrick', 'Gimlen', 'Glittergern', 'Gobblefirn', 'Gummen', 'Horcusporcus', 'Humplebumple', 'Ironhide', 'Leffery', 'Lingenhall', 'Loofollue', 'Maekkelferce', 'Miggledy', 'Munggen', 'Murnig', 'Musgraben', 'Nackle', 'Ningel', 'Nopenstallen', 'Nucklestamp', 'Offund', 'Oomtrowl', 'Pilwicken', 'Pingun', 'Quillsharpener', 'Raulnor', 'Reese', 'Rofierton', 'Scheppen', 'Shadowcloak', 'Silverthread', 'Sympony', 'Tarkelby', 'Timbers', 'Turen', 'Umbodoben', 'Waggletop', 'Welber', 'Wildwander'],
@@ -899,19 +902,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 150,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
           'baseAge': 50,
-          'ageModifier': function () { return dice(3, 50) }
+          'ageModifier' () { return dice(3, 50) }
         },
         'young adult': {
           'baseAge': 20,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'child': {
           'baseAge': 6,
-          'ageModifier': function () { return dice(3, 4) }
+          'ageModifier' () { return dice(3, 4) }
         }
       },
       'genderTraits': {
@@ -920,16 +923,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 61,
           'baseWeight': 90,
-          'heightModifier': function () { return dice(2, 8) },
-          'weightModifier': function () { return dice(2, 4) }
+          'heightModifier' () { return dice(2, 8) },
+          'weightModifier' () { return dice(2, 4) }
         },
         'man': {
           'firstName': ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
           'beardProbability': 57,
           'baseHeight': 62,
           'baseWeight': 110,
-          'heightModifier': function () { return dice(2, 8) },
-          'weightModifier': function () { return dice(2, 4) }
+          'heightModifier' () { return dice(2, 8) },
+          'weightModifier' () { return dice(2, 4) }
         }
       },
       'lastName': ['Alder', 'Ash', 'Ashdown', 'Atwood', 'Barnes', 'Becker', 'Berry', 'Briar', 'Briggs', 'Brock', 'Brook', 'Bundy', 'Burnside', 'Burroughs', 'Bush', 'Butcher', 'Butler', 'Clay', 'Court', 'Cox', 'Croft', 'Cross', 'Crump', 'Dale', 'Deane', 'Delaney', 'Dike', 'Dodd', 'Ford', 'Forrest', 'Fox', 'Freeman', 'Garside', 'Gorsuch', 'Graves', 'Green', 'Greeves', 'Gross', 'Grove', 'Grover', 'Hall', 'Hawthorne', 'Hazel', 'Head', 'Heather', 'Hill', 'Holley', 'Holmes', 'Holt', 'Homer', 'Hooke', 'Hope', 'House', 'Howe', 'Hume', 'Hyde', 'Johnston', 'Kaye', 'Keats', 'Kerry', 'Kirk', 'Lamb', 'Layne', 'Lea', 'Lowell', 'March', 'Marsh', 'Marshal', 'Martin', 'May', 'Millerchip', 'Mills', 'Moore', 'Newby', 'Paine', 'Paxton', 'Perrin', 'Pike', 'Pitt', 'Preacher', 'Provost', 'Purple', 'Ridge', 'Rock', 'Rose', 'Rowen', 'Sangster', 'Sellers', 'Shaw', 'Short', 'Thorne', 'Underwood', 'Walsh', 'Wells', 'West', 'Whitney', 'Wilde', 'Wood', 'Wragge', 'Wynne'],
@@ -986,19 +989,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 65,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
           'baseAge': 30,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'young adult': {
           'baseAge': 16,
-          'ageModifier': function () { return dice(2, 12) }
+          'ageModifier' () { return dice(2, 12) }
         },
         'child': {
           'baseAge': 4,
-          'ageModifier': function () { return dice(2, 6) }
+          'ageModifier' () { return dice(2, 6) }
         }
       },
       'genderTraits': {
@@ -1007,16 +1010,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 30,
           'baseWeight': 25,
-          'heightModifier': function () { return dice(2, 4) },
-          'weightModifier': function () { return dice(1, 1) }
+          'heightModifier' () { return dice(2, 4) },
+          'weightModifier' () { return dice(1, 1) }
         },
         'man': {
           'firstName': ['Alton', 'Ander', 'Bernie', 'Bobbin', 'Cade', 'Callus', 'Corrin', 'Dannad', 'Danniel', 'Eddie', 'Egart', 'Eldon', 'Errich', 'Fildo', 'Finnan', 'Franklin', 'Garret', 'Garth', 'Gilbert', 'Gob', 'Harol', 'Igor', 'Jasper', 'Keith', 'Kevin', 'Lazam', 'Lerry', 'Lindal', 'Lyle', 'Merric', 'Mican', 'Milo', 'Morrin', 'Nebin', 'Nevil', 'Osborn', 'Ostran', 'Oswalt', 'Perrin', 'Poppy', 'Reed', 'Roscoe', 'Sam', 'Shardon', 'Tye', 'Ulmo', 'Wellby', 'Wendel', 'Wenner', 'Wes'],
           'beardProbability': 87,
           'baseHeight': 32,
           'baseWeight': 25,
-          'heightModifier': function () { return dice(2, 4) },
-          'weightModifier': function () { return dice(1, 1) }
+          'heightModifier' () { return dice(2, 4) },
+          'weightModifier' () { return dice(1, 1) }
         }
       },
       'lastName': ['Appleblossom', 'Bigheart', 'Brightmoon', 'Brushgather', 'Cherrycheeks', 'Copperkettle', 'Deephollow', 'Elderberry', 'Fastfoot', 'Fastrabbit', 'Glenfellow', 'Goldfound', 'Goodbarrel', 'Goodearth', 'Goodbottle', 'Greenleaf', 'High-hill', 'Hilltopple', 'Hogcollar', 'Honeypot', 'Jamjar', 'Kettlewhistle', 'Leagallow', 'littlefoot', 'Nimblefingers', 'Porridgepot', 'Quickstep', 'Reedfellow', 'Shadowquick', 'Silvereyes', 'Smoothhands', 'Stonebridge', 'Stoutbridge', 'Stoutman', 'Strongbones', 'Sunmeadow', 'Swiftwhistle', 'Tallfellow', 'Tealeaf', 'Tenpenny', 'Thistletop', 'Thorngage', 'Tosscobble', 'Underbough', 'Underfoot', 'Warmwater', 'Whispermouse', 'Wildcloak', 'Wildheart', 'Wiseacre'],
@@ -1073,19 +1076,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 57,
-          'ageModifier': function () { return dice(3, 6) }
+          'ageModifier' () { return dice(3, 6) }
         },
         'settled adult': {
           'baseAge': 45,
-          'ageModifier': function () { return dice(3, 6) }
+          'ageModifier' () { return dice(3, 6) }
         },
         'young adult': {
           'baseAge': 15,
-          'ageModifier': function () { return dice(3, 12) }
+          'ageModifier' () { return dice(3, 12) }
         },
         'child': {
           'baseAge': 3,
-          'ageModifier': function () { return dice(3, 4) }
+          'ageModifier' () { return dice(3, 4) }
         }
       },
       'genderTraits': {
@@ -1094,16 +1097,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 53,
           'baseWeight': 150,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(2, 6) }
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(2, 6) }
         },
         'man': {
           'firstName': ['Argran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grurnbar', 'Gubrash', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mhflord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thrag', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed'],
           'beardProbability': 60,
           'baseHeight': 58,
           'baseWeight': 110,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(2, 6) }
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(2, 6) }
         }
       },
       'lastName': ['Gultch', 'Goresmasher', 'Karaktoth', 'Krokk', 'Bogdoth', 'Bracka', 'Dargakk', 'Darknath', "Gul'Tchanth", 'Prathka', 'Rathkann', 'Rangakk'],
@@ -1160,19 +1163,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 65,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
           'baseAge': 30,
-          'ageModifier': function () { return dice(3, 15) }
+          'ageModifier' () { return dice(3, 15) }
         },
         'young adult': {
           'baseAge': 15,
-          'ageModifier': function () { return dice(3, 6) }
+          'ageModifier' () { return dice(3, 6) }
         },
         'child': {
           'baseAge': 4,
-          'ageModifier': function () { return dice(3, 4) }
+          'ageModifier' () { return dice(3, 4) }
         }
       },
       'genderTraits': {
@@ -1180,16 +1183,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 53,
           'baseWeight': 85,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(2, 4) },
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(2, 4) },
           'firstName': ['Abigayl', 'Aebria', 'Aeobreia', 'Breia', 'Aedria', 'Aodreia', 'Dreia', 'Aeliya', 'Aliya', 'Aella', 'Aemilya', 'Aemma', 'Aemy', 'Amy', 'Ami', 'Aeria', 'Arya', 'Aeva', 'Aevelyn', 'Evylann', 'Alaexa', 'Alyxa', 'Alina', 'Aelina', 'Aelinea', 'Allisann', 'Allysann', 'Alyce', 'Alys', 'Alysea', 'Alyssia', 'Aelyssa', 'Amelya', 'Maelya', 'Andreya', 'Aendrea', 'Arianna', 'Aryanna', 'Arielle', 'Aryell', 'Ariella', 'Ashlena', 'Aurora', 'Avaery', 'Avyrie', 'Bella', 'Baella', 'Brooklinea', 'Bryanna', 'Brynna', 'Brinna', 'Caemila', 'Chloe', 'Chloeia', 'Claira', 'Clayre', 'Clayra', 'Delyla', 'Dalyla', 'Elisybeth', 'Aelisabeth', 'Ellia', 'Ellya', 'Elyana', 'Eliana', 'Eva', 'Falyne', 'Genaesis', 'Genaesys', 'Gianna', 'Jianna', 'Janna', 'Graece', 'Grassa', 'Haenna', 'Hanna', 'Halya', 'Harperia', 'Peria', 'Hazyl', 'Hazel', 'Jasmyne', 'Jasmine', 'Jocelyne', 'Joceline', 'Celine', 'Kaelia', 'Kaelya', 'Kathryne', 'Kathrine', 'Kayla', 'Kaila', 'Kymber', 'Kimbera', 'Layla', 'Laylanna', 'Leia', 'Leya', 'Leah', 'Lilia', 'Lylia', 'Luna', 'Maedisa', 'Maelania', 'Melania', 'Maya', 'Mya', 'Myla', 'Milae', 'Naomi', 'Naome', 'Natalya', 'Talya', 'Nathylie', 'Nataliae', 'Thalia', 'Nicola', 'Nikola', 'Nycola', 'Olivya', 'Alivya', 'Penelope', 'Paenelope', 'Pynelope', 'Rianna', 'Ryanna', 'Ruby', 'Ryla', 'Samaentha', 'Samytha', 'Sara', 'Sarah', 'Savannia', 'Scarletta', 'Sharlotta', 'Caerlotta', 'Sophya', 'Stella', 'Stylla', 'Valentyna', 'Valerya', 'Valeria', 'Valia', 'Valea', 'Victorya', 'Vilettia', 'Ximena', 'Imaena', 'Ysabel', 'Zoe', 'Zoeia', 'Zoea', 'Zoesia']
         },
         'man': {
           'beardProbability': 27,
           'baseHeight': 58,
           'baseWeight': 120,
-          'heightModifier': function () { return dice(2, 10) },
-          'weightModifier': function () { return dice(2, 4) },
+          'heightModifier' () { return dice(2, 10) },
+          'weightModifier' () { return dice(2, 4) },
           'firstName': ['Aaryn', 'Aaro', 'Aarus', 'Abramus', 'Abrahm', 'Abyl', 'Abelus', 'Adannius', 'Adanno', 'Aedam', 'Adym', 'Adamus', 'Aedrian', 'Aedrio', 'Aedyn', 'Aidyn', 'Aelijah', 'Elyjah', 'Aendro', 'Androe', 'Aenry', 'Hynroe', 'Hynrus', 'Aethan', 'Aethyn', 'Aevan', 'Evyn', 'Evanus', 'Alecks', 'Alyx', 'Alexandyr', 'Xandyr', 'Alyn', 'Alaen', 'Andrus', 'Aendrus', 'Anglo', 'Aenglo', 'Anglus', 'Antony', 'Antonyr', 'Astyn', 'Astinus', 'Axelus', 'Axyl', 'Benjamyn', 'Benjamyr', 'Braidyn', 'Brydus', 'Braddeus', 'Brandyn', 'Braendyn', 'Bryus', 'Bryne', 'Bryn', 'Branus', 'Caeleb', 'Caelyb', 'Caerlos', 'Carlus', 'Cameryn', 'Camerus', 'Cartus', 'Caertero', 'Charlus', 'Chaerles', 'Chyrles', 'Christophyr', 'Christo', 'Chrystian', 'Chrystan', 'Connorus', 'Connyr', 'Daemian', 'Damyan', 'Daenyel', 'Danyel', 'Davyd', 'Daevo', 'Dominac', 'Dylaen', 'Dylus', 'Elius', 'Aeli', 'Elyas', 'Helius', 'Helian', 'Emilyan', 'Emilanus', 'Emmanus', 'Emynwell', 'Ericus', 'Eryc', 'Eryck', 'Ezekius', 'Zeckus', 'Ezekio', 'Ezrus', 'Yzra', 'Gabrael', 'Gaebriel', 'Gael', 'Gayl', 'Gayel', 'Gaeus', 'Gavyn', 'Gaevyn', 'Goshwa', 'Joshoe', 'Graysus', 'Graysen', 'Gwann', 'Ewan', 'Gwyllam', 'Gwyllem', 'Haddeus', 'Hudsyn', 'Haesoe', 'Haesys', 'Haesus', 'Handus', 'Handyr', 'Hantus', 'Huntyr', 'Haroldus', 'Haryld', 'Horgus', 'Horus', 'Horys', 'Horyce', 'Hosea', 'Hosius', 'Iaen', 'Yan', 'Ianus', 'Ivaen', 'Yvan', 'Jaecoby', 'Jaecob', 'Jaeden', 'Jaedyn', 'Jaeremiah', 'Jeremus', 'Jasyn', 'Jaesen', 'Jaxon', 'Jaxyn', 'Jaxus', 'Johnus', 'Jonus', 'Jonaeth', 'Jonathyn', 'Jordus', 'Jordyn', 'Josaeth', 'Josephus', 'Josaeus', 'Josayah', 'Jovanus', 'Giovan', 'Julyan', 'Julyo', 'Jyck', 'Jaeck', 'Jacus', 'Kaevin', 'Kevyn', 'Vinkus', 'Laevi', 'Levy', 'Levius', 'Landyn', 'Laendus', 'Leo', 'Leonus', 'Leonaerdo', 'Leonyrdo', 'Lynardus', 'Lincon', 'Lyncon', 'Linconus', 'Logaen', 'Logus', 'Louis', 'Lucius', 'Lucae', 'Lucaen', 'Lucaes', 'Lucoe', 'Lucus', 'Lyam', 'Maeson', 'Masyn', 'Maetho', 'Mathoe', 'Matteus', 'Matto', 'Maxus', 'Maximus', 'Maximo', 'Maxymer', 'Mychael', 'Mygwell', 'Miglus', 'Mythro', 'Mithrus', 'Naemo', 'Naethyn', 'Nathanus', 'Naethynel', 'Nicholaes', 'Nycholas', 'Nicholys', 'Nicolus', 'Nolyn', 'Nolanus', 'Olivyr', 'Alivyr', 'Olivus', 'Oscarus', 'Oscoe', 'Raen', 'Ryn', 'Robertus', 'Robett', 'Bertus', 'Romyn', 'Romanus', 'Ryderus', 'Ridyr', 'Samwell', 'Saemuel', 'Santegus', 'Santaegus', 'Sybasten', 'Bastyen', 'Tago', 'Aemo', 'Tagus', 'Theodorus', 'Theodus', 'Thaeodore', 'Thomys', 'Thomas', 'Tommus', 'Tylus', 'Tilyr', 'Uwyn', 'Oewyn', 'Victor', 'Victyr', 'Victorus', 'Vincynt', 'Vyncent', 'Vincentus', 'Wyttus', 'Wyaett', 'Xavius', 'Havius', 'Xavyer', 'Yago', 'Tyago', 'Tyego', 'Ysaac', 'Aisaac', 'Ysaiah', 'Aisiah', 'Siahus', 'Zacharus', 'Zachar', 'Zachaery']
         }
       },
@@ -1246,19 +1249,19 @@ setup.npcData = {
         ],
         'elderly': {
           'baseAge': 70,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
           'baseAge': 40,
-          'ageModifier': function () { return dice(3, 10) }
+          'ageModifier' () { return dice(3, 10) }
         },
         'young adult': {
           'baseAge': 18,
-          'ageModifier': function () { return dice(3, 12) }
+          'ageModifier' () { return dice(3, 12) }
         },
         'child': {
           'baseAge': 4,
-          'ageModifier': function () { return dice(3, 4) }
+          'ageModifier' () { return dice(3, 4) }
         }
       },
       'genderTraits': {
@@ -1267,16 +1270,16 @@ setup.npcData = {
           'beardProbability': 100,
           'baseHeight': 54,
           'baseWeight': 85,
-          'heightModifier': function () { return dice(2, 8) },
-          'weightModifier': function () { return dice(2, 4) }
+          'heightModifier' () { return dice(2, 8) },
+          'weightModifier' () { return dice(2, 4) }
         },
         'man': {
           'firstName': ['Abad', 'Ahrun', 'Akwmn', 'Anmon', 'Andram', 'Astar', 'Bmam', 'Barakas', 'Bathin', 'Cann', 'Chem', 'Chner', 'Cressel', 'Danmkos', 'Ekmnon', 'Euron', 'Fennz', 'Forcas', 'Habor', 'Iados', 'Kauon', 'Leucs', 'Manmen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paynon', 'Pelaios', 'Purson', 'Qemud', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan'],
           'beardProbability': 60,
           'baseHeight': 58,
           'baseWeight': 120,
-          'heightModifier': function () { return dice(2, 8) },
-          'weightModifier': function () { return dice(2, 4) }
+          'heightModifier' () { return dice(2, 8) },
+          'weightModifier' () { return dice(2, 4) }
         }
       },
       'lastName': ['Amarzian', 'Carnago', 'Domarien', 'Iscitan', 'Meluzan', 'Menetrian', 'Paradas', 'Romazi', 'Sarzan', 'Serechor', 'Shadowhorn', 'Szereban', 'Torzalan', 'Trelenus', 'Trevethor', 'Tryphon', 'Vadu', 'Vrago'],
@@ -1309,7 +1312,7 @@ setup.npcData = {
       ],
       'background': ['charlatan', 'criminal', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'outlander', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
       'weapon': ['a huge greataxe', 'a battleaxe', 'a greatsword', 'two handaxes', 'two warhammers'],
-      'wealth': function () { return (dice('2d4') * 1000) }
+      'wealth' () { return (dice('2d4') * 1000) }
     },
     'bard': {
       'dndClassOrigin': [
@@ -1322,7 +1325,7 @@ setup.npcData = {
       ],
       'background': ['charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'noble', 'outlander', 'sailor', 'soldier', 'urchin'],
       'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers'],
-      'wealth': function () { return (dice('5d4') * 1000) }
+      'wealth' () { return (dice('5d4') * 1000) }
     },
     'cleric': {
       'dndClassOrigin': [
@@ -1334,7 +1337,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       'weapon': ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow'],
-      'wealth': function () { return (dice('5d4') * 1000) }
+      'wealth' () { return (dice('5d4') * 1000) }
     },
     'druid': {
       'dndClassOrigin': [
@@ -1346,7 +1349,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'charlatan', 'folk hero', 'folk hero', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       'weapon': ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow', 'a longbow', 'a longbow'],
-      'wealth': function () { return (dice('2d4') * 1000) }
+      'wealth' () { return (dice('2d4') * 1000) }
     },
     'fighter': {
       'dndClassOrigin': [
@@ -1359,7 +1362,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'charlatan', 'criminal', 'criminal', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'outlander', 'sage', 'sailor', 'sailor', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin'],
       'weapon': ['a huge greataxe', 'a battleaxe', 'a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a long sword', 'a long bow', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
-      'wealth': function () { return (dice('5d4') * 1000) }
+      'wealth' () { return (dice('5d4') * 1000) }
     },
     'monk': {
       'dndClassOrigin': [
@@ -1372,7 +1375,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'soldier', 'urchin'],
       'weapon': ['fists', 'fists', 'fists', 'a quarterstaff', 'a quarterstaff'],
-      'wealth': function () { return (dice('2d4') * 100) }
+      'wealth' () { return (dice('2d4') * 100) }
     },
     'paladin': {
       'dndClassOrigin': [
@@ -1385,7 +1388,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin'],
       'weapon': ['a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
-      'wealth': function () { return (dice('5d4') * 1000) }
+      'wealth' () { return (dice('5d4') * 1000) }
     },
     'ranger': {
       'dndClassOrigin': [
@@ -1397,7 +1400,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
       'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'a long bow', 'a long bow', 'two daggers'],
-      'wealth': function () { return (dice('4d4') * 1000) }
+      'wealth' () { return (dice('4d4') * 1000) }
     },
     'rogue': {
       'dndClassOrigin': [
@@ -1411,7 +1414,7 @@ setup.npcData = {
       ],
       'background': ['charlatan', 'charlatan', 'charlatan', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'noble', 'noble', 'outlander', 'sailor', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin', 'urchin'],
       'weapon': ['a long sword', 'a long sword', 'two daggers', 'two daggers', 'two daggers', 'two daggers', 'a crossbow', 'a crossbow', 'a crossbow'],
-      'wealth': function () { return (dice('4d4') * 1000) }
+      'wealth' () { return (dice('4d4') * 1000) }
     },
     'sorcerer': {
       'dndClassOrigin': [
@@ -1423,7 +1426,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'charlatan', 'charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers', 'a dagger', 'a dagger'],
-      'wealth': function () { return (dice('3d4') * 1000) }
+      'wealth' () { return (dice('3d4') * 1000) }
     },
     'warlock': {
       'dndClassOrigin': [
@@ -1436,7 +1439,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       'weapon': ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a dagger', 'a dagger', 'a dagger'],
-      'wealth': function () { return (dice('4d4') * 1000) }
+      'wealth' () { return (dice('4d4') * 1000) }
     },
     'wizard': {
       'dndClassOrigin': [
@@ -1449,7 +1452,7 @@ setup.npcData = {
       ],
       'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       'weapon': ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-      'wealth': function () { return (dice('4d4') * 1000) }
+      'wealth' () { return (dice('4d4') * 1000) }
     }
   },
   'backgroundTraits': {

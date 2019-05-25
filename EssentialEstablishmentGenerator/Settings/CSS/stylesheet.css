@@ -57,7 +57,9 @@ h1{
 column-span:        all;
 font-size:          .987cm;
 -webkit-column-span:all;
--moz-column-span:   all;}
+-moz-column-span:   all;
+border-bottom:      6px ridge #c9ad6a
+}
 
 
 /* H2 */

@@ -1,7 +1,7 @@
 
 setup.createBrothel = function (town, tavern) {
   console.log('Creating a brothel...')
-  let brothel = setup.createBuilding(town, 'brothel')
+  const brothel = setup.createBuilding(town, 'brothel')
   // if (tavern.hasBrothel) {
   //   brothel = tavern
   // } else {
@@ -26,7 +26,7 @@ setup.createBrothel = function (town, tavern) {
   brothel.size = ''
   brothel.cleanliness = ''
 
-  var rollDataVariables = ['wealth', 'size', 'cleanliness']
+  const rollDataVariables = ['wealth', 'size', 'cleanliness']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   })

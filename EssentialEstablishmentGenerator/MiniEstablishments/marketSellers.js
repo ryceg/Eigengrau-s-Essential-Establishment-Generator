@@ -1,8 +1,8 @@
 setup.createMarketSellers = function (town, obj, opts, number) {
   opts = opts || {}
-  var i
+  let i
   for (i = 0; i < number; i++) {
-    var npc = setup.createNPC(town, Object.assign({
+    const npc = setup.createNPC(town, Object.assign({
       profession: 'merchant',
       merchant: {
         selling: [

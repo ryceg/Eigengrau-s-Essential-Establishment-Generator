@@ -1,5 +1,5 @@
 setup.createMercenaries = function (town) {
-  var mercenaries = {
+  const mercenaries = {
     colours: [
       'black',
       'red',
@@ -219,7 +219,7 @@ setup.createMercenaries = function (town) {
       })
   }
 
-  var mercenariesCaptain = mercenaries.captain
+  const mercenariesCaptain = mercenaries.captain
   mercenaries.name = [
     'The ' + setup.factionData.type['mercenaries'].group.seededrandom() + ' of ' + setup.factionData.type['mercenaries'].adjective.seededrandom() + ' ' + setup.factionData.type['mercenaries'].main.seededrandom(),
     'The ' + setup.factionData.type['mercenaries'].group.seededrandom() + ' of ' + setup.factionData.type['mercenaries'].main.seededrandom(),

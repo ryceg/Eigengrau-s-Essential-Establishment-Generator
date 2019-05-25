@@ -1,21 +1,22 @@
 
 setup.fetchRace = function (town) {
   console.log('Fetching race...')
-  var args = town.baseDemographics
+  const args = town.baseDemographics
   console.log(args)
-  var pool = []
-  var namePool = Object.keys(args)
-  var totalWeight = 0
-  for (var arg in args) {
+  const pool = []
+  const namePool = Object.keys(args)
+  let totalWeight = 0
+  for (const arg in args) {
     pool.push(args[arg])
     totalWeight += args[arg]
   }
 
-  var random = Math.floor(randomFloat(1) * totalWeight)
+  let random = Math.floor(randomFloat(1) * totalWeight)
   // console.log(random)
-  for (var i = 0; i < pool.length; i++) {
+  for (let i = 0; i < pool.length; i++) {
     random -= pool[i]
     if (random < 0) {
+      // eslint-disable-next-line no-var
       var index = i
       break
     }

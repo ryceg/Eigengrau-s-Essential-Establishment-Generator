@@ -101,8 +101,8 @@ setup.townSquare = {
   ],
   crowd: {
     'shoeShine': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           ageStage: 'child',
           hasClass: false
         })
@@ -110,16 +110,16 @@ setup.townSquare = {
       }
     },
     'haggling': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor for ' + ['a pile of fish.', 'a piece of pottery.', 'a fine piece of art.', 'a cheap looking statue.',
           'a tattered looking map.', 'a dyed roll of cloth.', 'a pair of fleece leggings.', 'a checker patterned tunic.', 'a dusty old tome.', 'a pair of scrolls.', 'a fresh loaf of bread.',
           'a shiny green apple.', 'a large cheese wheel.', 'a caged owl.', 'a large tanned hide.', 'a small crate of torches.', 'a crude looking dagger.', 'a fine looking sword.'].random()
       }
     },
     'colorfulRobes': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: true,
           dndClass: 'wizard'
         })
@@ -129,73 +129,73 @@ setup.townSquare = {
       }
     },
     'animal': {
-      function: function (town) {
+      function (town) {
         return 'a large cage with ' + ['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
           'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() + ' inside of it.'
       }
     },
     'drunkard': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' clearly drunk off their ass just wandering about.'
       }
     },
     'bag': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' carrying a large bag.'
       }
     },
     'chest': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
-        var npc2 = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
+        const npc2 = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' and a ' + setup.profile(npc2, npc2.descriptor) + ' carrying a large and heavy looking chest.'
       }
     },
     'gawk': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby ' + ['beautiful woman.', 'handsome man.', 'rugged dwarf.', 'ethereal elf.'].random()
       }
     },
     'parcel': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is pushing through the square with an oddly shaped parcel in hand.'
       }
     },
     'hurry': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is clearly in a hurry.'
       }
     },
     'crutches': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           note: 'Is on crutches.'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is hobbling along on crutches.'
       }
     },
     'pegleg': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           note: 'Has a pegleg.'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is hobbling along with a pegleg.'
       }
     },
     'lost': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is obviously lost.'
       }
     },
     'noble': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           background: 'noble',
           hasClass: false
         })
@@ -203,8 +203,8 @@ setup.townSquare = {
       }
     },
     'showoff': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           background: 'noble',
           hasClass: false
         })
@@ -212,32 +212,32 @@ setup.townSquare = {
       }
     },
     'alley': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' ducking into an alley.'
       }
     },
     'store': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' stepping into a store.'
       }
     },
     'charity': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + [' toss a coin to a beggar.', ' give part of a loaf of bread to a small child.', ' feed some scraps to a mutt.',
           " drop some coins in a street performer's cup.", ' help an old woman cross the square.'].random()
       }
     },
     'guardBait': {
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.roll.guardFunding > 50 && town.roll.law > 50) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           background: 'criminal'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['being chased by guards.', 'being beaten by guards.', 'being pushed into a cell by guards.', 'having their hands tied up by guards.',
@@ -245,34 +245,34 @@ setup.townSquare = {
       }
     },
     'ridingMule': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a mule.'
       }
     },
     'ridingHorse': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a horse.'
       }
     },
     'ridingOtherAnimals': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + [' riding a camel.', ' riding an ox.', ' riding a cow.', ' riding a zebra.', ' riding an ostrich.', ' riding a reindeer.', ' riding a yak.',
           ' riding a giant tortoise.', ' riding a llama.', ' riding a water buffalo.', ' riding a large boar.', ' riding a hippo.', ' riding a lion.', ' riding an elephant.'].random()
       }
     },
     'chasingSomething': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is chasing a ' + ['child.', 'cat.', 'dog.', 'group of kids.', 'man holding a small bag.', 'woman holding a small chest.', 'horse.',
           'runaway cart.', 'chicken.', 'pig.', 'barrel rolling ahead of them.', 'piece of parchment blowing in the breeze.'].random()
       }
     },
     'Jewelry': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           background: 'noble',
           note: 'Has some jewelry.'
         })
@@ -280,8 +280,8 @@ setup.townSquare = {
       }
     },
     'cart': {
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           background: 'commoner'
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['pulling a cart.', 'pushing a cart stuck in a rut.', 'fixing a cart off to the side.', 'riding in a cart pulled by an ox.',
@@ -289,37 +289,37 @@ setup.townSquare = {
       }
     },
     'npcMovement': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['wandering aimlessly.', 'strutting with haste.', 'meandering through the crowds.', 'running through the square.', 'wandering as if lost.',
           'walking very slowly.', 'favoring their ' + ['right leg', 'left leg'].random() + ' as they limp by.', 'hastily walking past.'].random()
       }
     },
     'map': {
-      function: function (town) {
-        var map = setup.misc.treasureMap.create()
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const map = setup.misc.treasureMap.create()
+        const npc = setup.createNPC(town, {
           note: 'Has a ' + map.tippyWord
         })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is looking at a ' + map.tippyWord + '.'
       }
     },
     'bumping': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who keeps bumping into people.'
       }
     },
     'musician': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is playing ' + ['a sweet tune on a lute.', 'a beat on a small wooden box.', 'an off-key song on a lute.', 'a bitter tune on a harp.',
           'an interesting song on a sitar.', 'a merry tune on a flute.', 'a quick beat on a pair of drums.', 'a fine song on a fiddle.'].random()
       }
     },
     'singer': {
-      function: function (town) {
-        var npc = setup.createNPC(town)
+      function (town) {
+        const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['singing off-key', 'singing a single note', 'humming a sweet tune', 'singing a lovely song',
           'singing soft and sweetly', 'singing loudly', 'singing terribly', 'humming off-key', 'singing very badly', 'singing a funny song'].random() + ' as ' + npc.heshe + ' walks along.'
       }
@@ -330,20 +330,20 @@ setup.townSquare = {
     // these are passive events. Not meant to be adventure seeds.
     'stray cat': {
       type: ['event'],
-      function: function () {
-        var cat = setup.misc.cat.create()
+      function () {
+        const cat = setup.misc.cat.create()
         return 'a stray ' + cat.tippyWord + ' that wanders around.'
       }
     },
     'homeless': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 300 && town.roll.wealth < 90 && town.roll.welfare < 70) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           background: 'urchin',
           hasClass: false,
           profession: 'beggar'
@@ -353,13 +353,13 @@ setup.townSquare = {
     },
     'child': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population < 3000 && town.roll.wealth < 90) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           ageStage: 'child',
           hasClass: false
         })
@@ -368,13 +368,13 @@ setup.townSquare = {
     },
     'kite': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population < 3000 && town.roll.wealth < 90) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           ageStage: 'child',
           hasClass: false
         })
@@ -383,13 +383,13 @@ setup.townSquare = {
     },
     'childScammer': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 300 && town.roll.wealth < 90 && town.roll.guardFunding < 60) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           ageStage: 'child',
           hasClass: false
         })
@@ -398,13 +398,13 @@ setup.townSquare = {
     },
     'adultScammer': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 3000 && town.roll.wealth < 90 && town.roll.guardFunding < 60) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'charlatan',
           profession: 'conman'
@@ -414,9 +414,9 @@ setup.townSquare = {
     },
     'preacher': {
       type: ['event'],
-      function: function (town) {
-        var god = [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random()].random()
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const god = [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random()].random()
+        const npc = setup.createNPC(town, {
           hasClass: true,
           dndClass: 'cleric',
           note: 'Worships ' + god + '.'
@@ -426,13 +426,13 @@ setup.townSquare = {
     },
     'parlourWizard': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 1000 && town.roll.arcana > 40) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: true,
           dndClass: 'wizard'
         })
@@ -441,13 +441,13 @@ setup.townSquare = {
     },
     'bardImprov': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 1000 && town.roll.wealth > 40) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: true,
           dndClass: 'bard'
         })
@@ -456,25 +456,25 @@ setup.townSquare = {
     },
     'sheep': {
       type: ['event'],
-      function: function (town) {
+      function (town) {
         return 'a flock of sheep, being herded through by a dutiful dog, with the shepherd nowhere in sight.'
       }
     },
     'dead frog': {
       type: ['event'],
-      function: function (town) {
+      function (town) {
         return 'some children that are playing with a dead frog.'
       }
     },
     'tourist': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 1000 && town.roll.wealth > 40) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           profession: 'tourist',
           background: 'noble',
@@ -486,8 +486,8 @@ setup.townSquare = {
     },
     'drunk': {
       type: ['event'],
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner'
         })
@@ -496,8 +496,8 @@ setup.townSquare = {
     },
     'guards': {
       type: ['event'],
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
           profession: 'guard'
@@ -507,20 +507,20 @@ setup.townSquare = {
     },
     'mercs': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 2000) {
           return true
         }
       },
-      function: function (town) {
-        var mercenaries = setup.createMercenaries(town)
+      function (town) {
+        const mercenaries = setup.createMercenaries(town)
         return 'some ' + mercenaries.tippyWord + ' that are talking, waiting for their commander to get back from a meeting.'
       }
     },
     'haggling': {
       type: ['event'],
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner'
         })
@@ -529,13 +529,13 @@ setup.townSquare = {
     },
     'politicalCandidate': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 300 && town.politicalSource === 'republic') {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
           profession: 'politician'
@@ -545,13 +545,13 @@ setup.townSquare = {
     },
     'politicalCandidateBullied': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 300 && town.politicalSource === 'republic' && town.roll.guardFunding > 50) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
           profession: 'politician'
@@ -561,13 +561,13 @@ setup.townSquare = {
     },
     'bureaucrat': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 500) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
           profession: 'politician'
@@ -577,41 +577,41 @@ setup.townSquare = {
     },
     'looseHorse': {
       type: ['event'],
-      function: function (town) {
+      function (town) {
         return 'a horse that is running amok amidst the crowds of people.'
       }
     },
     'carriage': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.population > 500) {
           return true
         }
       },
-      function: function (town) {
+      function (town) {
         return 'an expensive looking carriage with armed guards that are warning people to get out of the way as it rolls by.'
       }
     },
     'theatre': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.roll.wealth > 20) {
           return true
         }
       },
-      function: function (town) {
+      function (town) {
         return 'a theatre troupe advertising their show tonight with an impromptu preview of their performance.'
       }
     },
     'doomsayer': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.roll.wealth > 20) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           ageStage: 'elderly',
           background: 'commoner',
@@ -622,13 +622,13 @@ setup.townSquare = {
     },
     'guardFriend': {
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.roll.military < 50) {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
           profession: 'guard'
@@ -639,13 +639,13 @@ setup.townSquare = {
     'guardThieves': {
       probability: 10,
       type: ['event'],
-      exclusions: function (town) {
+      exclusions (town) {
         if (town.politicalIdeology === 'kleptocracy') {
           return true
         }
       },
-      function: function (town) {
-        var npc = setup.createNPC(town, {
+      function (town) {
+        const npc = setup.createNPC(town, {
           hasClass: false,
           background: 'commoner',
           profession: 'guard'

@@ -67,7 +67,6 @@ setup.createNPC = function (town, base) {
     },
     finances: {
       dailyWage: ''
-
     },
     // value: data.value.seededrandom(),
     // drive: data.drive.seededrandom(),

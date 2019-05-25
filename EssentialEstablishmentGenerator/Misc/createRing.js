@@ -321,7 +321,7 @@ setup.ringData = {
 // ]
 
 setup.createRing = function (base) {
-  var ring = Object.assign({
+  const ring = Object.assign({
     power: Object.keys(setup.ringData.power).random(),
     cost: Object.keys(setup.ringData.cost).random(),
     activation: Object.keys(setup.ringData.activation).random(),

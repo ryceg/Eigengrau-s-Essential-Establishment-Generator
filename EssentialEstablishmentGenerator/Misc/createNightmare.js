@@ -1,5 +1,5 @@
 setup.createNightmare = function (base) {
-  var location = ['a graveyard. A blood-red moon hangs above',
+  const location = ['a graveyard. A blood-red moon hangs above',
     'the bedroom from your childhood. There is no door to exit the room',
     'the room you fell asleep in',
     'absolute darkness. In the silence you can hear your own heart beat',
@@ -9,7 +9,7 @@ setup.createNightmare = function (base) {
     'a prison cell. The walls are scratched and your fingernails are bloodied',
     "a long hallway with a door at the end. The door doesn't get closer as you approach",
     'knee deep swamp water. You can feel something touching your leg under the surface' ]
-  var figure = {
+  const figure = {
     'boy': {
       type: 'boy',
       prefix: 'a',
@@ -82,8 +82,8 @@ setup.createNightmare = function (base) {
     }
   }
 
-  var figureKey = Object.keys(figure)
-  var nightmare = Object.assign({
+  const figureKey = Object.keys(figure)
+  const nightmare = Object.assign({
     location: location.seededrandom(),
     figure: figure[figureKey[random(0, figureKey.length)]]
   }, base)

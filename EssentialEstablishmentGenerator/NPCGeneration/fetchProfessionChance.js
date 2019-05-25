@@ -1,7 +1,7 @@
 setup.fetchProfessionChance = function (town, npc) {
   console.log('Fetching profession...')
   town = town || State.variables.town
-  var professions = Object.keys(town.professions)
+  const professions = Object.keys(town.professions)
 
   if (npc.socialClass) {
     console.log('Social class for ' + npc.name + ' was defined, so filtering to the available professions!')
@@ -16,21 +16,22 @@ setup.fetchProfessionChance = function (town, npc) {
   // Calculate the sum of the raw demographic values.
 
   // console.log('professionRoll is: ' + professionRoll)
-  var sum = professions
+  const sum = professions
     .map(function (profession) {
       return town.professions[profession].population
     }, town)
   // console.log('sum is: ')
   // console.log(sum)
-  var totalWeight = 0
+  let totalWeight = 0
   sum.forEach(function (single) {
     totalWeight += single
   })
-  var random = Math.floor(randomFloat(1) * totalWeight)
+  let random = Math.floor(randomFloat(1) * totalWeight)
   // console.log(random)
-  for (var i = 0; i < sum.length; i++) {
+  for (let i = 0; i < sum.length; i++) {
     random -= sum[i]
     if (random < 0) {
+      // eslint-disable-next-line no-var
       var index = i
       break
     }

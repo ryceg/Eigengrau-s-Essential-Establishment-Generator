@@ -1,7 +1,7 @@
 
 setup.createMarket = function (town, opts) {
   opts = opts || {}
-  let market = (opts['newBuilding'] || setup.createBuilding)(town, 'market')
+  const market = (opts['newBuilding'] || setup.createBuilding)(town, 'market')
 
   Object.assign(market, {
     name: ['The Markets', 'The Markets of ' + town.name, 'The ' + town.name + ' Bazaar'].seededrandom(),

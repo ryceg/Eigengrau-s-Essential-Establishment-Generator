@@ -1,9 +1,9 @@
 
 setup.createBackground = function (npc) {
   console.log('assigning background traits to ' + npc.name + '...')
-  var backgroundOrigin
-  var bond
-  var ideal
+  let backgroundOrigin
+  let bond
+  let ideal
   if (typeof setup.npcData.backgroundTraits[npc.background] !== 'undefined') {
     backgroundOrigin = Array.isArray(setup.npcData.backgroundTraits[npc.background].backgroundOrigin)
       ? setup.npcData.backgroundTraits[npc.background].backgroundOrigin.seededrandom()
