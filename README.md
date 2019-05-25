@@ -1,4 +1,4 @@
-# Eigengrau's Essential Establishment Generator
+# ![](https://i.imgur.com/Cid7OS1.png)
 
 ### A Tabletop Generator Unlike Any Other :game_die:
 
