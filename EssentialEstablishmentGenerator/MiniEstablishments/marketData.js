@@ -37,6 +37,7 @@ setup.market = {
       'drums and bells',
       'exotic spices',
       'exotic teas',
+      'feathered hats',
       'firewood',
       'flower seeds',
       'foreign books',
@@ -52,6 +53,7 @@ setup.market = {
       'knives, forks, spoons and cooking utensils',
       'lamps, lanterns, and oil',
       'leather boots and caps',
+      'leather gloves',
       'live poultry',
       'lutes and fiddles',
       'manure',
@@ -137,7 +139,20 @@ setup.market = {
       'lost and found items at reasonable prices',
       'chickens, rabbits, ducks, and other small game',
       'venoms and poisons (all medicinal of course)',
-      'snake oils of every variety'
+      'snake oils of every variety',
+      'wooden toys for children',
+      'psychadelic plants',
+      'lesser known tomes',
+      'a variety of animal hides',
+      'pickled animal eyes',
+      'shrunken heads',
+      'what appears to be literal garbage',
+      'homemade pastries',
+      'several different types of chain',
+      'wigs in all different colors',
+      'a number of different disguise kits',
+      'makeup from far off lands',
+      'pet rocks'
     ],
     'shouts': [
       'Tasty meat pies, baked into the shape of otters! Delicious!',
@@ -147,6 +162,7 @@ setup.market = {
       'Painted shields! Of all different shapes and sizes! You supply it, we paint it!',
       'Statues of griffons with moving heads! Very realistic!',
       'Luxury leather carriage seats! Keep your seat sweet!',
+      'Buy a fantastical shrinking head!',
       'Colored rope! Handy for all occasions!',
       'Four-pint pewter mugs carved into the shape of a dragon! For those with a dragon-like thirst!',
       'Huge candles! Designed to burn for weeks! Very useful!',
@@ -203,7 +219,13 @@ setup.market = {
       'Buy your love a rose that never dies!<blockquote>A picture of a rose</blockquote>',
       "The finest wines you've ever tasted! Fruity or dry, oaky or herbal, we have them all!",
       "Cure that painful boil with my all-in-one healing tincture!<blockquote>It's just rancid vinegar</blockquote>",
-      'Pies! Fruit pies! Apple, cherry, peach, and plum!'
+      'Pies! Fruit pies! Apple, cherry, peach, and plum!',
+      'Never lose another bet! Get yourself some rigged dice!',
+      'Magical items for any occassion!',
+      'Self cleaning hankerchiefs in any color you want!',
+      "Pirelli's Miracle Elixir! For all your hair problems!",
+      'Skeleton keys from real skeletons!',
+      'Never forget another note! Buy my self playing instruments!'
     ],
     'suffix': [
       'Be the envy of your friends!',
@@ -220,7 +242,10 @@ setup.market = {
       'Trade your money for goods and services here!',
       'Even a dwarf would buy at this price!',
       'Your next purchase is right here!',
-      'Love yourself and buy something nice!'
+      'Love yourself and buy something nice!',
+      'Only a moron would ignore these low prices!',
+      "Don't miss this chance!",
+      "This bargain can't be beat!"
     ],
     'tent': [
       'little push cart',
@@ -238,22 +263,33 @@ setup.market = {
       "myriad of pockets in the vendor's clothes",
       'permanent table with a tent set up around it',
       'racks of goods set up in a circle',
-      'flat stones with merchandise piled on them'
+      'flat stones with merchandise piled on them',
+      'some dirty rags laid on the ground',
+      'a long foldout table',
+      'a hammock the vendor has set up'
     ]
   },
   'location': [
-    'wide, rectangular plaza',
-    'large, circular plaza',
-    'large plaza in a pentagon shape',
+    'a wide, rectangular plaza',
+    'a large, circular plaza',
+    'a large plaza in a pentagon shape',
     'the intersection of two wide roads',
-    'sprawling maze of small alleyways',
-    'sprawling maze of tunnels beneath the city streets',
-    'huge pavilion with a solid roof overhead',
-    'disorganized series of large tents',
-    'single long, wide, road stretching through the town',
-    'large clearing on the outside of town',
-    'circle of tents around a huge bonfire',
-    'scattered tents set randomly throughout town'
+    'a sprawling maze of small alleyways',
+    'a sprawling maze of tunnels beneath the city streets',
+    'a huge pavilion with a solid roof overhead',
+    'a disorganized series of large tents',
+    'a single long, wide, road stretching through the town',
+    'a large clearing on the outside of town',
+    'a circle of tents around a huge bonfire',
+    'a scattered number of tents set randomly throughout town',
+    'an enormous rundown looking building',
+    'a small, muddy plaza',
+    'a series of rooftops connect by large wooden planks',
+    'a series of small buildings connected by covered awnings',
+    'the very center of town',
+    'a large gated plaza',
+    'the seedier side of town',
+    'the hull of a large beached boat'
   ],
   'size': [
     'large and bustling',
@@ -269,7 +305,7 @@ setup.market = {
   'cleanliness': [
     'rather dirty',
     'somewhat dirty',
-    'riddled with refuse',
+    'riddled with the refuse of merchant horses and other livestock',
     'overflowing with detritus',
     'surprisingly clean',
     'astonishingly well-kempt',
@@ -277,7 +313,10 @@ setup.market = {
     'a victim to the chaos that is so common in markets',
     'religiously cleaned',
     'scattered with discarded food (and vermin eating it)',
-    'cats chase the endless mice between the stalls'
+    'a bit muddy in places',
+    'dirtier the further in you go',
+    'cleaner than one might imagine',
+    'littered with discarded junk and trash'
   ],
   'draw': [
     'the hot mead',
@@ -295,13 +334,18 @@ setup.market = {
     'being open at practically all hours',
     'being open once in a blue moon',
     'the fights that break out',
+    'the excellent bargains one can often find',
     'the merchants fighting each other for your business',
     'the interesting things you can find',
     'the wonderful scents and colors of the merchandise',
     'the lovely and attractive merchants',
     'the entertainers and musicians set up around the bazaar',
     'having every type of food imaginable',
-    'having trinkets from every corner of the world'
+    'having trinkets from every corner of the world',
+    'having cheap prices and friendly merchants',
+    'having a lot of knockoff goods',
+    'the loud phrases you hear buskers shout at passersby',
+    'being a pretty rough and tumble place'
   ],
   'organisation': [
     'type of merchandise',
@@ -313,6 +357,8 @@ setup.market = {
     'imported goods on one half of the market, local goods on the other half',
     'an intricate and archaic system put down in an ancient civic or religious document',
     'the social class to which the vendor caters',
-    'order of arrival at the marketplace on any given day'
+    'order of arrival at the marketplace on any given day',
+    'whoever got to what spot first',
+    'who bribed the market runners the most for the month'
   ]
 }

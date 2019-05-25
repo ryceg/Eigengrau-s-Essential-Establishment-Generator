@@ -12,7 +12,9 @@ setup.createMarketSellers = function (town, obj, opts, number) {
             'calling ',
             'calling to any who would listen: ',
             'hawking goods, saying ',
-            'shouting '
+            'shouting ',
+            'beckoning ',
+            'saying loudly '
           ].seededrandom() + '"' +
             setup.market.vendors.shouts.seededrandom() + ' ' + setup.market.vendors.suffix.seededrandom() + '"'
         ].seededrandom(),
