@@ -338,15 +338,15 @@ setup.brothel = {
   },
   // this creates a new NPC with specific traits for readout in the BrothelOutput
   'harlot': {
-    'create': function (town, brothel, base) {
-      var harlotType = Object.keys(setup.brothel.harlot.type).random()
-      var readout = {
+    'create' (town, brothel, base) {
+      const harlotType = Object.keys(setup.brothel.harlot.type).random()
+      const readout = {
         feature: setup.brothel.harlot.feature.random(),
         flawSeverity: setup.brothel.harlot.flawSeverity.random(),
         skill: setup.brothel.harlot.skill.random(),
         looks: setup.brothel.harlot.looks.random()
       }
-      var harlotTraits = Object.assign({
+      const harlotTraits = Object.assign({
         physicalTrait: setup.brothel.harlot.physicalTrait.random(),
         gender: 'woman',
         isShallow: true,
@@ -354,7 +354,7 @@ setup.brothel = {
         profession: 'harlot'
       }, base)
       Object.assign(harlotTraits, setup.brothel.harlot.type[harlotType])
-      var harlot = setup.createNPC(town, harlotTraits)
+      const harlot = setup.createNPC(town, harlotTraits)
       setup.createRelationship(town, harlot, State.variables.npcs[brothel.pimp.key], 'employer', 'employee')
       return 'This harlot is ' + harlotType + ' called ' + setup.profile(harlot) + '. She has ' + readout.feature + ' and is particularly good at ' + readout.skill + '. However, she has ' + harlot.physicalTrait + ', which is ' + readout.flawSeverity + '. She is looking to ' + readout.looks + '.'
     },
@@ -382,8 +382,8 @@ setup.brothel = {
         background: 'noble',
         gender: 'woman',
         note: 'The bastard daughter of a noble house.',
-        callbackFunction: function (town, npc) {
-          var father = setup.createRelative(town, npc, 'father', {
+        callbackFunction (town, npc) {
+          const father = setup.createRelative(town, npc, 'father', {
             lastName: setup.npcData.raceTraits[npc.race].lastName.random(),
             race: npc.race
             // callbackFunction: function (town, father, npc) 'Has a bastard daughter, ' + setup.profile(npc)
