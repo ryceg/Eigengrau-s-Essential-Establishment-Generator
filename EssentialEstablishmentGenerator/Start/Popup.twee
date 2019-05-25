@@ -1,6 +1,6 @@
 :: Popup
 <<nobr>><<set _roll to random(1, 99)>>
-  <<if roll gt 80>>
+  <<if _roll gt 80>>
       <blockquote>Find us on Reddit at [[/r/EigengrausGenerator|www.reddit.com/r/EigengrausGenerator]]! </blockquote>
   <<elseif _roll gt 55>>
       <blockquote><<include "PatreonSupporters">> </blockquote>
