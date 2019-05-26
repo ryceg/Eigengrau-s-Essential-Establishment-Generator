@@ -1,0 +1,58 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## Unreleased
+### Added
+- Generic structure creation function
+- Deployment overhaul (thanks, Glinkis!)
+- Link to Discord in the sidebar
+- Tailors
+- Bakeries
+- Florists
+- Taxation
+- Living standards
+- Daily wage
+- Profession descriptions
+### Changed
+- Plain text title to banner
+- Buildings can share streets
+- Grouping of buildings is now done via street _then_ type of building.
+- Bug fixes for Mountain scenarios
+### Removed
+- Dead code
+- Non-poster based plothooks from the tavern
+
+## v2.2
+### Added
+- More robust relationships system, including half-breed handling.
+- NPC sexuality
+- Social class system, which effects relationships and available occupations
+### Changed
+- Fixed most of the town slider bugs related to wealth and socioeconomic structure.
+- Fixed market vendors resetting each visit.
+- Fixed most of the weather bugs
+### Removed
+
+## v2.1
+### Added
+- Docks
+- Town squares
+- Town plothooks
+- Poster based plothooks
+- Option to omit weather
+- Relationship chart! Now, when people talk of their friend that they met while travelling, you can *meet* that friend!
+- Blacksmiths that reference sisters or sons etc will now actually have those sisters or sons.
+
+### Changed
+- Huge behind the scenes overhaul of how things are linked to, simplifying a lot of things.
+- Bug fixes for town leadership.
+- Properly clamped establishments so they won't have rolls out of bounds.
+- Fixed editing NPCs defaulting to male acolyte barbarians.
+- Fixed broken town rolls
+- Fixed NPC relationships not displaying properly
+- Minor change to the formatting of the start page
+### Removed
+- The annoying hyperlink symbol for the Patreon & Ko-Fi links
