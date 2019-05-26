@@ -96,9 +96,13 @@ setup.npcData = {
         return [
           "I was given a magical trinket- it's a ",
           'I happened across a ',
+          'I found my lost family heirloom, it is a ',
           'I was gifted a ',
           "I saved a wizard's life, and as a token of his thanks, he gave me a ",
-          "I came across a trinket in a field- It's a "
+          'I went on my own adventure and discovered a ',
+          'I met up with an adventurer who generously gave me a ',
+          "I came across a trinket in a field- It's a ",
+          'I was on a long journey when I found a '
         ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
@@ -135,7 +139,7 @@ setup.npcData = {
             'I met my ' + setup.profile(friend, 'best buddy') + ' on some travel.',
             'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
             'I made a ' + setup.profile(friend, 'good friend') + ' during a drinking contest.',
-            'We were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
+            'we were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
           ].seededrandom()
         } else {
           return [
@@ -164,6 +168,7 @@ setup.npcData = {
         setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
         return [
           'I made an ' + setup.profile(enemy, 'enemy') + ' for life in my travels- ',
+          'I was framed by a ' + setup.profile(enemy, 'scoundrel') + " for a crime I didn't commit- ",
           'I met a ' + setup.profile(enemy, 'man') + ', and we played cards. He decided that I was cheating- ',
           'I was a guest in the court of a ' + setup.profile(enemy, 'lord') + ', and made an embarassment of him- ',
           'I used to play cards in a pub, and one time supposedly cheated a ' + setup.profile(enemy, 'man') + ' out of his winnings; '
@@ -172,7 +177,10 @@ setup.npcData = {
           'I admit that I am at least partially at fault. ',
           "I suppose that I'm at least partially to blame. ",
           "I'll freely admit that I'm to blame. ",
-          "I'm ashamed to admit that I'm to blame. "
+          "I'm ashamed to admit that I'm to blame. ",
+          "I'm not quite sure what happened. ",
+          'it was all a setup, but a very good one. ',
+          "I'll never say what really happened. "
         ].seededrandom() + [
           'He hunts me to this day.',
           'I hope to apologise to him if I ever encounter him again.',
@@ -180,7 +188,10 @@ setup.npcData = {
           "I couldn't care less if he tries to do anything about it.",
           "I'll gut him like a fish if he crosses my path again.",
           "I'm afraid that he'll kill me in my sleep.",
-          'I would rather have backup the next time that I face him.'
+          'I would rather have backup the next time that I face him.',
+          "I doubt I'll ever meet him again.",
+          "That's all behind me now and I hope it stays that way.",
+          "I'm still on the lookout for him to this very day."
         ].seededrandom()
       }
     },
@@ -250,6 +261,10 @@ setup.npcData = {
         return [
           'I spent some time working as a ',
           'I did a stint as a ',
+          'I worked as a ',
+          'for a while a did some work as a ',
+          'because of a promise, I did some time as a ',
+          'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
           'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom()
       }
@@ -336,9 +351,70 @@ setup.npcData = {
           "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since.",
           'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls.',
           'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later.',
-          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, he vanished'
+          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, the boy vanished.'
         ].seededrandom()
       }
+    },
+    miracle: {
+      probability: 2,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.miracle function')
+        const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.seededrandom()
+        const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.seededrandom()
+        const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.seededrandom()
+        const miracle = setup.npcData.lifeEvents.miracle.miracle.seededrandom()
+        const curse = setup.npcData.lifeEvents.miracle.curse.seededrandom()
+        return [['I witnessed a miracle once- Honest to god. ', 'I once saw a true miracle. ', 'one time, I was part of a real miracle. '].seededrandom() + miracleGiver + ', ' + [trueBelief, falseBelief].seededrandom() + ' ' + miracle,
+          ['I witnessed a terrible curse once- Honest to god. ', 'I once saw a true curse. ', 'one time, I was part of a real curse. '].seededrandom() + miracleGiver + ', ' + [falseBelief].seededrandom() + ' ' + curse
+        ].seededrandom()
+      },
+      miracleGiver: [
+        'This old man had told us that he was the physical aspect of a deity and that he could prove it',
+        'An old woman once came into town claiming to be a god and told us she had cast a miracle on our town',
+        'A man stumbled into town claiming to be sent from a god and told us we were being blessed',
+        'My town was told by a passing prophet that a miracle was coming',
+        'My friends and I once came upon a snake who was trapped beneath a rock and we helped it out. The snake spoke to us and said a miracle would befall us soon'
+      ],
+      trueBelief: [
+        'and we all rejoiced.',
+        'and we were all a little skeptical at first.',
+        'but I was the only believer.',
+        'and some of us believed them.',
+        'and we were all very excited.',
+        'and the among believers us cried out in celebration.'
+      ],
+      falseBelief: [
+        'but one of us did not believe them.',
+        'but nobody believed them.',
+        'and I was the only one who did not believe them.',
+        'but nobody paid attention to them.',
+        'but some thought this to be blasphemy.',
+        'but my friend did not believe them.'
+      ],
+      miracle: [
+        'The next day all of the water in our well had been turned to mead.',
+        'That year we had the most plentiful harvest we had ever seen!',
+        'The next week, everyone in town had sprouted long thick beards, even the women!',
+        'For the next year we had a huge economic boom in our town.',
+        'The next day all of the sick and cripple in our town were suddenly cured of all their ailments!',
+        'That night silver rained down from the sky!',
+        'All who believed woke up to find a gold piece under their pillow!',
+        'The next day our town leader recovered from an illness we thought for sure would take their life.',
+        'Not long after that a band of adventurers came to our town and saved us from a terrible monster!',
+        'A month later all the rats in town were gone.',
+        'Overnight a statue of an unknown god appeared in the center of town.'
+      ],
+      curse: [
+        'The next morning all the town water had been turned to mud.',
+        'The next month the town granary burned to the ground.',
+        'The next day all the non-believers found all their savings missing.',
+        'That year all the town crops rotted in the fields.',
+        'The next morning all the town livestock were found dead.',
+        'That night the lost souls of our town rose from the dead and ransacked us.'
+      ]
     },
     war: {
       probability: 5,
@@ -385,7 +461,7 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
-        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting'].seededrandom()
+        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband'].seededrandom()
         const crimeRoll = random(1, 12)
         let crimeReadout
         if (crimeRoll >= 9) {
@@ -408,11 +484,14 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
-          'I once saw a demon!',
-          'I once saw a powerful wizard enchanting a weapon.',
-          'I once got caught in the cross-fires between two dueling wizards.',
-          'I had a mishap with a charm spell- an old friend tried to force me to hand over all my money, but I luckily managed to resist the spell.',
-          'I once drank a really strong potion- I swear to god, I could taste colours!'
+          'I once saw a demon! ' + ['', '', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
+          'I once saw a powerful wizard ' + [['enchanting', 'disenchanting', 'cursing'].seededrandom() + ' a ' + ['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].seededrandom(),
+            'casting a ' + ['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].seededrandom() + ' ' + ['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].seededrandom() + ' spell',
+            'riding on the back of a ' + ['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].seededrandom()].seededrandom(),
+          'I once ' + ['got caught in the cross-fires between two dueling', 'witnessed a battle between two', 'fought in a battle against', 'had my home destroyed by', 'settled down near a temple of'].seededrandom() + ' ' + ['wizards', 'dragons', 'demons', 'witches', 'warlocks', 'necromancers', 'minor gods', 'magical beings'].seededrandom(),
+          'I had a mishap with ' + ['a charm', 'an illusion', 'a mind control'].seededrandom() + ' spell- ' + ['an old friend', 'an enemy', 'a dear friend', 'a family member', 'someone I thought of as family', 'an old rival', 'a rival of mine'].seededrandom() + ' ' + ['tried to force me to hand over all my money', 'tried to take my family heirloom', 'tried to steal my fortune', 'tried to force me to give up my ancient relic', 'tried to fool me into giving up my title'].seededrandom() + ', ' + ['but I luckily managed to resist the spell.', 'but their spell failed', 'and sadly it worked', 'and I failed to resist the spell', 'but they were eventually caught by some brave adventurers', 'and I have been searching for them ever since'].seededrandom(),
+          'I once drank a ' + ['really strong', 'crazy strong', 'strong', 'pretty weak', 'kind of weak', 'fairly average', 'powerful', 'rather diluted'].seededrandom() + ' potion- ' + ['I swear to god, I could taste colours!', 'my hair was standing on end!', 'my skin turned bright ' + ['red', 'purple', 'white', 'yellow', 'green', 'orange', 'pink', 'blue', 'violet'].seededrandom() + ' for several days.', 'I grew a thick bushy beard in a few hours!', 'it sent me into a comma for weeks.', 'everyone thought I was attractive for the rest of the day.', 'it made my nose glow in the dark for a week!'].seededrandom(),
+          'I once found a cursed book. The book ' + ['kills all who who read it', 'turned the reader blind', "retold the reader's life but with a horrible twist ending", 'sucked the reader in to a nightmarish world', 'was alive and had gnarled teeth to bite anyone who dared to open it', 'forced you to see the dead'].seededrandom()
         ].seededrandom()
       }
     },
