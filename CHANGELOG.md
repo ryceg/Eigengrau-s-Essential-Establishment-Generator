@@ -16,11 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Living standards
 - Daily wage
 - Profession descriptions
+- Over 300 new professions
+- Generate a crewmember function for ships
+- Riddles
+- Druid and Clergy factions
 ### Changed
 - Plain text title to banner
 - Buildings can share streets
 - Grouping of buildings is now done via street _then_ type of building.
 - Bug fixes for Mountain scenarios
+- Dock ship descriptions expanded
+- Minor UI tweaks
+- Minor temple readout reformat
 ### Removed
 - Dead code
 - Non-poster based plothooks from the tavern
