@@ -1,19 +1,19 @@
 
 setup.createLifeEvents = function (town, npc) {
   console.groupCollapsed('creating life events for ' + npc.name + '...')
-  var lifeEventsNumber
+  let lifeEventsNumber
 
   npc.lifeEvents = []
   if (npc.ageYears > 60) {
     lifeEventsNumber = dice(2, 6)
   } else if (npc.ageYears > 50) {
-    lifeEventsNumber = random(1, 10)
+    lifeEventsNumber = random(1, 7)
   } else if (npc.ageYears > 40) {
-    lifeEventsNumber = random(1, 8)
+    lifeEventsNumber = random(1, 5)
   } else if (npc.ageYears > 30) {
-    lifeEventsNumber = random(1, 6)
-  } else if (npc.ageYears > 20) {
     lifeEventsNumber = random(1, 4)
+  } else if (npc.ageYears > 20) {
+    lifeEventsNumber = random(1, 2)
   } else if (npc.ageYears > 15) {
     lifeEventsNumber = 1
   } else if (npc.ageYears <= 15) {
@@ -35,7 +35,7 @@ setup.createLifeEvents = function (town, npc) {
   //   npc.lifeEventsAge.push()
   // }
 
-  var i
+  let i
   for (i = 0; i < lifeEventsNumber; i++) {
     npc.lifeEvents.push(setup.weightedRandomFetcher(town, setup.npcData.lifeEvents, npc))
     // lifeEventsRoll = random(1, 100)
