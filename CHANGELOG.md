@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Grouping of buildings is now done via street _then_ type of building.
 - Bug fixes for Mountain scenarios
 - Dock ship descriptions expanded
+- Market vendors no longer persist between different markets
 - Minor UI tweaks
 - Minor temple readout reformat
 ### Removed
