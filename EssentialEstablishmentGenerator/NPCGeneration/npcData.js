@@ -431,7 +431,8 @@ setup.npcData = {
           'there was a small skirmish with a rivaling faction that I was drafted into.',
           'there was a small war between a rival lord that I was forced to take part with.',
           'there were some goblin raids which I had to defend my town from.',
-          'there was a pretty nasty zombie outbreak which I had to defend my town against.'
+          'there was a pretty nasty zombie outbreak which I had to defend my town against.',
+          'there was a civil war within the town that I fought in.'
         ].seededrandom()
         let warResults
         let warDescription
@@ -461,13 +462,13 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
-        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband'].seededrandom()
+        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband '].seededrandom()
         const crimeRoll = random(1, 12)
         let crimeReadout
         if (crimeRoll >= 9) {
           crimeReadout = 'I was caught and convicted of ' + crime + ', and spent ' + random(1, 4) + ' years ' + ['in jail', 'chained to an oar', 'doing hard labour'].seededrandom() + ' before ' + ['being released.', 'managing to escape.'].seededrandom()
         } else if (crimeRoll >= 7) {
-          crimeReadout = 'I was nearly caught and convicted in the middle of a ' + crime + ', but managed to escape. They are still after me, though.'
+          crimeReadout = 'I was nearly caught and convicted in the middle of ' + crime + ', but managed to escape. They are still after me, though.'
         } else if (crimeRoll >= 4) {
           crimeReadout = 'I was caught aiding and abetting the crime of ' + crime + ', but due to ' + ['being forced to do it against my will', 'my amazing lawyer', 'being under a spell'].seededrandom() + ', I was found not guilty.'
         } else {
@@ -503,7 +504,7 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.weirdStuff function')
         return [
-          'I came across a genie, but squandered the wish on an ex lover.',
+          'I came across a genie, ' + ['but squandered the wish on an ex lover.', 'but wasted the wish on the perfect sandwich', 'and used my wish to set him free', 'and used my wish to bring prosperity to my town', 'and used my wish to curse a rival.', 'but never used my wishes'].seededrandom(),
           'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.',
           'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].seededrandom() + ' and lived to tell the tale.',
           'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.',
