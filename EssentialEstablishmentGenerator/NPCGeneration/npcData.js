@@ -277,9 +277,9 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.meetImportantNPC function')
         return [
-          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].seededrandom() +
-          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].seededrandom() +
-          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].seededrandom() + '.'
+          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous ', 'I got an autograph from a famous '].seededrandom() +
+          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse', 'adventurer', 'hero', 'blacksmith', 'armorer', 'alchemist', 'stage actor', 'playwright', 'artist', 'sculptor', 'painter', 'poet', 'knight', 'historian', 'gladiator', 'architect', 'crime boss', 'rogue', 'smuggler'].seededrandom() +
+          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background, ' while on a long journey', ' during one of my youthful adventures'].seededrandom() + '.'
         ].seededrandom()
       }
     },
