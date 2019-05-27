@@ -106,6 +106,69 @@ setup.npcData = {
         ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
+    nobleEvent: {
+      probability: 5,
+      exclusion (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        const noble = setup.createNPC(town, {
+          background: 'noble',
+          isShallow: true
+        })
+        const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.seededrandom()
+        const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.seededrandom()
+        const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
+        const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
+        return [prefix + ' a royal wedding of a local ' + setup.profile(noble, 'noble'),
+          prefix + ' a royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate,
+          prefix + ' a royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate,
+          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage].seededrandom()
+      },
+      prefix: [
+        'I was invited to',
+        'I got to attend',
+        'I had the honor to go to'
+      ],
+      banquetCelebrate: [
+        'a local hero',
+        'the remembrance of a past ruler',
+        'a local holiday',
+        'a bountiful summer harvest',
+        'the death of a nearby warlord',
+        "the completion of the noble's newest summer home",
+        'a triumphant adventuring party',
+        'a recent coronation'
+      ],
+      ballCelebrate: [
+        'a recent royal wedding',
+        'the beginning of a search for a suitable spouse for this noble',
+        'the end of a recent war',
+        'the passing of a nearby ruler',
+        'the local militia',
+        'the end of the hunting season',
+        'the presentation of the debutantes',
+        'a recent coronation'
+      ],
+      carriage: [
+        'rather plain, but still impressive',
+        'massive with eight elegant wheels',
+        'pulled by four massive white horses',
+        'being pulled by a single elephant',
+        'ornately decorated with gold trim',
+        'painted with bright yet regal colors',
+        'a true sight to behold',
+        'a clear waste of taxpayer money',
+        'pulled by several thickly muscled slaves',
+        "flying two massive banners for the noble's house",
+        'flanked by militia on both sides',
+        'being followed by a flock of adoring fans',
+        'being pelted with rotten fruit by the starving peasants',
+        'being cheered on by the adoring townsfolk',
+        'adorned with a beautiful floral mural',
+        'beaten and battered as if it had recently seen battle'
+      ]
+    },
     journey: {
       probability: 3,
       exclusions (town, npc) {
@@ -355,7 +418,7 @@ setup.npcData = {
           // Descriptions and stuff goes here
           return [
             'I met my ' + setup.profile(friend, 'best buddy') + ' on some travel.',
-            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
+            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + setup.profile(friend, friend.himher) + ' on a pilgrimage.',
             'I made a ' + setup.profile(friend, 'good friend') + ' during a drinking contest.',
             'we were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
           ].seededrandom()
@@ -480,7 +543,7 @@ setup.npcData = {
           'I spent some time working as a ',
           'I did a stint as a ',
           'I worked as a ',
-          'for a while a did some work as a ',
+          'for a while I did some work as a ',
           'because of a promise, I did some time as a ',
           'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
@@ -557,7 +620,7 @@ setup.npcData = {
       }
     },
     supernatural: {
-      probability: 5,
+      probability: 2,
       exclusions (town, npc) {
         return true
       },
