@@ -26,5 +26,14 @@ setup.flora = {
     'tree': [
       'apple', 'almond', 'apricot', 'cherry', 'orange', 'lemon', 'lime', 'elderberry', 'fig', 'mango', 'olive', 'mulberry', 'peach', 'plum', 'pomegranate', 'walnut', 'chestnut'
     ]
+  },
+  'tree': {
+    'typeS': [
+      'red maple', 'beech', 'spruce', 'ash', 'black cherry', 'oak', 'pine', 'maple', 'elm', 'fir', 'black walnut', 'birch', 'sycamore', 'alder', 'cedar', 'willow', 'red pine', 'silver birch', 'blue spruce', 'white oak', 'black spruce', 'hickory', 'cypress', 'scarlet oak', 'aspen', 'poplar', 'redwoord', 'cedar'
+    ],
+    // common tree types with proper articles
+    'typeArticle': [
+      'a red maple', 'a beech', 'a spruce', 'an ash', 'a black cherry', 'an oak', 'a pine', 'a maple', 'an elm', 'a fir', 'a black walnut', 'a birch', 'a sycamore', 'an alder', 'a cedar', 'a willow', 'a red pine', 'a silver birch', 'a blue spruce', 'a white oak', 'a black spruce', 'a hickory', 'a cypress', 'a scarlet oak', 'an aspen', 'a poplar', 'a redwoord', 'a cedar'
+    ]
   }
 }
