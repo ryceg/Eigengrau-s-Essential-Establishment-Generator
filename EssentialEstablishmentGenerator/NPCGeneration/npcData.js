@@ -106,6 +106,93 @@ setup.npcData = {
         ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
+    journey: {
+      probability: 3,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.journey function')
+        const prefix = setup.npcData.lifeEvents.journey.prefix.seededrandom()
+        const location = setup.npcData.lifeEvents.journey.location.seededrandom()
+        const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.seededrandom()
+        const found = setup.npcData.lifeEvents.journey.found.seededrandom()
+        const notFound = setup.npcData.lifeEvents.journey.notFound.seededrandom()
+        return [prefix + ' ' + location + ' ' + locationLocation + '. ' + ['I really did make it there, ', 'I got to see that place, ', 'My journey was succesful, '].seededrandom() + found,
+          prefix + ' ' + location + ' ' + locationLocation + '. ' + ['I never found it, ', 'I never got to see that place, ', 'My journey was a failure, ', 'I got lost along the way and never made it there, '].seededrandom() + notFound].seededrandom()
+      },
+      prefix: [
+        'I ventured out to see',
+        'I went on a journey to find',
+        'I struck out heading towards',
+        'a group of travelers and I went to find',
+        'my friends and I went on a long journey to'
+      ],
+      location: [
+        'a tower of knowledge',
+        'an elusive library made of marble',
+        'the statue of a forgotten hero',
+        'the palace of a sleeping god',
+        'the greatest fishing spot ever',
+        'a peaceful mountain retreat',
+        'the hidden cherry blossom grove',
+        'the dojo of a long lost martial art',
+        'the grand castle of a foreign noble',
+        'a crystal clear lake',
+        'the burial tomb of an ancient ruler',
+        'a city of dwarves',
+        'a city of elves',
+        'the ruins of a lost city',
+        'the remnants of a grand wizard tower',
+        'the battlegrounds of a long over war'
+      ],
+      locationLocation: [
+        'in an ever shifting desert',
+        'in a red sand desert',
+        'in a desert where the dunes whisper secrets',
+        'in a white sand desert',
+        'in an incredibly hot desert',
+        'on the peak of a snowy mountain',
+        'near the peak of a mountain',
+        'built into the side of a cliff',
+        'in a forest',
+        'near a forest',
+        'in a dark wood',
+        'out on the plains',
+        'near the ocean',
+        'on a floating dock in the ocean',
+        'on a secluded island',
+        'in the depths of a cavern',
+        'in an icy tundra',
+        'built into a glacier',
+        'at the bottom of a deep ravine',
+        'hidden inside a mountain'
+      ],
+      found: [
+        'and it was an incredible experience',
+        'and I learned much along the way',
+        'and it is a place I will never forget',
+        'and I like to think I became a better person from the trek',
+        'and I came back with several keepsakes',
+        'and I made some new friends along the way',
+        'and I made some important discoveries while I was there',
+        "but I don't like to brag about it",
+        'but it was not what I was truly looking for',
+        'but to be honest the place was kind of a let down'
+
+      ],
+      notFound: [
+        'and I have always regretted not going again',
+        'but I came out of the journey a better person',
+        'and I have always wondered what it would have looked like there',
+        'but I have not given up',
+        'and honestly I think the place may not exist',
+        'and to be honest I have given up on ever going there',
+        'but I do not regret trying',
+        'but I still made some new friends along the way',
+        "and to be honest I'm kind of glad I didn't make it"
+      ]
+    },
     lostChild: {
       probability: 3,
       exclusions (town, npc) {
@@ -133,7 +220,8 @@ setup.npcData = {
         'an ancient battlefield',
         'a forgotten city below the ground',
         'a dwarven ruin',
-        'an elven ruin'
+        'an elven ruin',
+        'a magic tower'
       ],
       time: [
         'for several weeks',
@@ -237,7 +325,7 @@ setup.npcData = {
       ]
     },
     meetFriendNPC: {
-      probability: 10,
+      probability: 8,
       exclusions (town, npc) {
         return true
       },
@@ -282,7 +370,7 @@ setup.npcData = {
       }
     },
     meetEnemyNPC: {
-      probability: 10,
+      probability: 8,
       exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
