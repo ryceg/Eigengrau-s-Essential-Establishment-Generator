@@ -106,10 +106,83 @@ setup.npcData = {
         ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
+    lostChild: {
+      probability: 3,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.lostChild function')
+        const treeType = setup.flora.tree.typeArticle.seededrandom()
+        const location = setup.npcData.lifeEvents.lostChild.location.seededrandom()
+        const time = setup.npcData.lifeEvents.lostChild.time.seededrandom()
+        const finder = setup.npcData.lifeEvents.lostChild.finder.seededrandom()
+        const ending = setup.npcData.lifeEvents.lostChild.ending.seededrandom()
+        return ['when I was young', 'as a young child', 'while I was still a kid'].seededrandom() + ' I got lost in ' + [location, treeType + ' tree forest'].seededrandom() + ' ' + time + '. ' + ['I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I found my own way back', 'I eventually found ' + finder].seededrandom() + ' ' + ending + '.'
+      },
+      location: [
+        'a strange desert',
+        'a large ruined maze',
+        'a twisting and winding maze',
+        'an enormous city',
+        'another realm',
+        'a deep cavern',
+        'the ruins of a city',
+        'a twisting system of tunnels underground',
+        'a mountain pass',
+        'an ancient battlefield',
+        'a forgotten city below the ground',
+        'a dwarven ruin',
+        'an elven ruin'
+      ],
+      time: [
+        'for several weeks',
+        'for a few hours',
+        'for a few days',
+        'for weeks',
+        'for days',
+        'for many moons',
+        'for a month',
+        'for months',
+        'for half a year at least',
+        'and I can not remember how long I was there',
+        'for years maybe',
+        'for years',
+        'for how long I can not be sure'
+      ],
+      finder: [
+        'a passing merchant',
+        'my parents',
+        'my mother',
+        'my father',
+        'my relative',
+        'a city guard',
+        'a hero out on an adventure',
+        'a hero party that had been questing for me',
+        'an equally lost bard',
+        'a traveling ranger',
+        'a haggard monk',
+        'a pack of wolves',
+        'a noble on a journey'
+      ],
+      ending: [
+        'and went back home',
+        'and learned a valuable lesson from it all',
+        'but have been haunted by that experience',
+        'but not before I hurt myself trying to get home',
+        'but not before I was roughed up by some bandits I ran into',
+        'and have not really ventured out much since',
+        'and have carried a compass ever since',
+        'but I still get lost from time to time',
+        'and I studied up on maps of the area so I would never get lost again'
+      ]
+    },
     pilgrimage: {
       probability: 5,
       exclusions (town, npc) {
-        return true
+        if (setup.townData.professions[npc.profession].sector === 'religion') {
+          return true
+        }
       },
       function (town, npc) {
         console.log('called lifeEvents.pilgrimage function')
@@ -513,9 +586,11 @@ setup.npcData = {
       }
     },
     crime: {
-      probability: 5,
+      probability: 10,
       exclusions (town, npc) {
-        return true
+        if (setup.townData.professions[npc.profession].sector === 'crime') {
+          return true
+        }
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
@@ -542,7 +617,7 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
-          'I once saw a demon! ' + ['', '', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
+          'I saw a demon I swear on my life! ' + ['', '', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
           'I once saw a powerful wizard ' + [['enchanting', 'disenchanting', 'cursing'].seededrandom() + ' a ' + ['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].seededrandom(),
             'casting a ' + ['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].seededrandom() + ' ' + ['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].seededrandom() + ' spell',
             'riding on the back of a ' + ['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].seededrandom()].seededrandom(),
