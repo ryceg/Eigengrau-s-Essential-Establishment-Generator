@@ -106,6 +106,63 @@ setup.npcData = {
         ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
+    pilgrimage: {
+      probability: 5,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.pilgrimage function')
+        const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.seededrandom()
+        const location = setup.npcData.lifeEvents.pilgrimage.location.seededrandom()
+        const journey = setup.npcData.lifeEvents.pilgrimage.journey.seededrandom()
+        const result = setup.npcData.lifeEvents.pilgrimage.result.seededrandom()
+        return prefix + ' ' + location + '. ' + journey + ', ' + result + '.'
+      },
+      prefix: [
+        'I set off on a pilgrimage by myself to',
+        'I went on a pilgrimage with a group to',
+        'I went on a holy journey to',
+        'I traveled a great distance on pilgrimage to'
+      ],
+      location: [
+        'the floating island of a god',
+        'a far away temple',
+        'see the holiest relic of my people',
+        'a holy landmark of my god',
+        'an isolated monastery in the <<print either("mountains", "desert", "forest", "depths of a cavern", "bottom of a canyon", "frozen tundra")>>',
+        'the birthplace of my god',
+        'the holy city of my god',
+        'the highest peak of a holy mountain',
+        'a far off nunnery',
+        'a town of heathens',
+        'see the holy art of my god',
+        'to pray at the feet of my deity',
+        'a distant shrine'
+      ],
+      journey: [
+        'The <<print either("journey", "pilgrimage", "travel", "trek", "trip")>> was <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>>',
+        'It was a <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>> <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        'I was not prepared enough for the <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        'I had waited my whole life for this'
+      ],
+      result: [
+        'and I came out a better person at the end of it',
+        'and my life was changed by it all',
+        "but in the end I'm not sure if it was worth it",
+        'but in the end it was worth it all',
+        'and my god rewarded me for my travels',
+        'but my god did not speak to me in my travels',
+        'and at the end of it all I had a holy vision',
+        'but my god did not show me what I was hoping for',
+        'and I feel so enlightened now',
+        'and my peers have respected me more since I returned',
+        'and I have found my place in my faith',
+        'and I was gifted holy sight for my troubles',
+        'but I do not feel any more enlightened from the experience',
+        'but I sacraficed much to finish the trip'
+      ]
+    },
     meetFriendNPC: {
       probability: 10,
       exclusions (town, npc) {
