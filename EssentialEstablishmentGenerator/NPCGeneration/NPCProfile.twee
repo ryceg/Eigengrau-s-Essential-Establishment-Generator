@@ -34,12 +34,18 @@ $currentNPC.firstName currently earns <<money $currentNPC.finances.grossIncome>>
         <<print either(
           "<<print _lifeEvents.toUpperFirst()>>",
           "<<print _lifeEvents.toUpperFirst()>>",
-          "How could I ever forget the time when _lifeEvents ",
+          "How could I ever forget the time _lifeEvents ",
           "After that, _lifeEvents",
           "Not to mention there was the time _lifeEvents",
           "Oh, and I can't forget the time _lifeEvents ",
           "There was this one time, _lifeEvents ",
-          "I forget exactly when, but at one point, _lifeEvents "
+          "Once _lifeEvents",
+          "One time _lifeEvents",
+          "You might not believe it, but _lifeEvents"
+          "I forget exactly when, but at one point, _lifeEvents ",
+          "At one point _lifeEvents",
+          "I'll always remember the time"
+
           )>>
     \<</for>>
     At one point, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
