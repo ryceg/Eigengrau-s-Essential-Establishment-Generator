@@ -25,23 +25,24 @@ $currentNPC.firstName currently earns <<money $currentNPC.finances.grossIncome>>
 
 <<linkreplace "Life events">><div class='descriptive'>Well, I certainly have a tale or two...
 \<<if $currentNPC.lifeEvents.length == 2>>
-    When I was about twenty, <<print $currentNPC.lifeEvents[0].toUpperFirst()>>. A couple years later, $currentNPC.lifeEvents[1]
+    When I was younger, <<print $currentNPC.lifeEvents[0]>>. Later in my life, $currentNPC.lifeEvents[1]
   \<<elseif $currentNPC.lifeEvents.length == 1>>
     $currentNPC.lifeEvents. <<print either("Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest.")>>
   \<<else>>
     \<<print $currentNPC.lifeEvents[0].toUpperFirst()>>.
     \<<for _lifeEvents range $currentNPC.lifeEvents.slice(1, -1)>>
         <<print either(
-          "_lifeEvents ",
-          "And then, after a couple weeks, _lifeEvents ",
-          "And then I spent a couple months at home. Then, when I next ventured out, _lifeEvents ",
+          "<<print _lifeEvents.toUpperFirst()>>",
+          "<<print _lifeEvents.toUpperFirst()>>",
+          "How could I ever forget the time when _lifeEvents ",
+          "After that, _lifeEvents",
+          "Not to mention there was the time _lifeEvents",
           "Oh, and I can't forget the time _lifeEvents ",
-          "And then, maybe a week after that, _lifeEvents ",
-          "I tried settling down for a bit. That didn't work so well, so _lifeEvents ",
+          "There was this one time, _lifeEvents ",
           "I forget exactly when, but at one point, _lifeEvents "
           )>>
     \<</for>>
-    Then last year, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
+    At one point, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
 <<if Object.getOwnPropertyNames($currentNPC.relationships).length !== 0>><div class='classTable'><<nobr>><table>
     <tr>
