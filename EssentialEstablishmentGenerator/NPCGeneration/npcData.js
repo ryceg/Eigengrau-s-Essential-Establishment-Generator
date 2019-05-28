@@ -2562,7 +2562,7 @@ setup.npcData = {
         'rather square shaped eyes',
         'brilliant eyes',
         'shifty eyes',
-        'deep crows feet around their eyes',
+        'deep crows feet around both eyes',
         'almond shaped eyes',
         'beady rat eyes',
         'a beseeching gaze',
@@ -2660,7 +2660,10 @@ setup.npcData = {
         'a rather noble nose',
         'a thin, sloped nose',
         'a broad, sloped nose',
-        'a warty nose'
+        'a warty nose',
+        'nose covered in blackheads',
+        'a rather greasy looking nose',
+        'a pockmarked nose'
       ],
       // covers mouth and cheeks
       mouth: [
