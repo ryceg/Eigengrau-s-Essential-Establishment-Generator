@@ -16,8 +16,8 @@
   "homepage": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/README.md",
   "scripts": {
     "install-compiler": "node scripts/install-compiler",
-    "build": "node scripts/build",
-    "start": "node scripts/build --watch",
+    "build": "webpack",
+    "start": "webpack-dev-server",
     "test": "jest",
     "lint": "eslint **/*.js",
     "lint-fix": "eslint **/*.js --fix",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "chalk": "^2.4.2",
+    "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.2",
@@ -44,10 +45,15 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lint-staged": "^8.1.7",
     "shelljs": "^0.8.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1",
     "yauzl": "^2.10.0"
   }
 }
