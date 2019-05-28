@@ -100,7 +100,7 @@ setup.npcData = {
           profession: apprenticeProfession,
           isShallow: true
         })
-        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, npc.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned
+        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, teacher.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned
       },
       profession: [
         'actor',
