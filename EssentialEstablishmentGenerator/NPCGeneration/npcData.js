@@ -139,7 +139,7 @@ setup.npcData = {
         'watched a parade that was full of magical effects',
         'saw an incredible troupe of dancing elves',
         'watched several dance troupes compete in a competition',
-        'listened to several live musical performance',
+        'listened to several live musical performances',
         'saw a marching bard in the parade',
         'drank deeply and merrily',
         'sang folk songs with the other festival goers',
