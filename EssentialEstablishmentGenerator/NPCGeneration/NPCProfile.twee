@@ -25,7 +25,7 @@ $currentNPC.firstName currently earns <<money $currentNPC.finances.grossIncome>>
 
 <<linkreplace "Life events">><div class='descriptive'>Well, I certainly have a tale or two...
 \<<if $currentNPC.lifeEvents.length == 2>>
-    When I was younger, <<print $currentNPC.lifeEvents[0]>>. Later in my life, <<print $currentNPC.lifeEvents[1]>>
+    When I was younger, <<print $currentNPC.lifeEvents[0]>> Later in my life, <<print $currentNPC.lifeEvents[1]>>
   \<<elseif $currentNPC.lifeEvents.length == 1>>
     $currentNPC.lifeEvents. <<print either("Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest.")>>
   \<<else>>
