@@ -11,5 +11,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './main.ejs'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
 }
