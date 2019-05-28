@@ -85,8 +85,84 @@ setup.npcData = {
     [0, 'impossibly small']
   ],
   lifeEvents: {
+    apprentice: {
+      probability: 6,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].socialClass === 'nobility') {
+          return false
+        } else { return true }
+      },
+      function (town, npc) {
+        const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.seededrandom()
+        const reputation = setup.npcData.lifeEvents.apprentice.reputation.seededrandom()
+        const learned = setup.npcData.lifeEvents.apprentice.learned.seededrandom()
+        const teacher = setup.createNPC(town, {
+          profession: apprenticeProfession,
+          isShallow: true
+        })
+        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, npc.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned
+      },
+      profession: [
+        'actor',
+        'architect',
+        'armorer',
+        'astrologer',
+        'barber',
+        'blacksmith',
+        'brewer',
+        'carpenter',
+        'cook',
+        'goldsmith',
+        'hatter',
+        'jeweler',
+        'leatherworker',
+        'locksmith',
+        'minstrel',
+        'painter',
+        'potter',
+        'rugmaker',
+        'sculptor',
+        'silversmith',
+        'toymaker',
+        'costumer',
+        'artist',
+        'musician',
+        'coinsmith',
+        'candlemaker',
+        'fletcher',
+        'weaponsmith',
+        'chemist'
+      ],
+      reputation: [
+        'a well known',
+        'a world renowned',
+        'a master',
+        'an incredibly talented',
+        'a legendary',
+        'a famous',
+        'a lesser known',
+        'an obscure',
+        'a mediocre',
+        'a decent',
+        'an alright',
+        'a rather unskilled',
+        'a piss poor'
+      ],
+      learned: [
+        'I learned a lot about myself',
+        "I realized being in that trade just wasn't for me",
+        'I learned a lot of valuable life lessons',
+        'I learned a lot about the trade',
+        "I realized my teacher wasn't that great",
+        'my master beat their teachings into me',
+        'my master was gentle with their teachings',
+        'my master taught me many things',
+        'I realized what I truly wanted in life',
+        "I learned I'm not very good at the trade"
+      ]
+    },
     trinket: {
-      probability: 10,
+      probability: 5,
       exclusions (town, npc) {
         return true
       },
@@ -107,7 +183,7 @@ setup.npcData = {
       }
     },
     nobleEvent: {
-      probability: 5,
+      probability: 6,
       exclusion (town, npc) {
         if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
           return true
@@ -123,16 +199,18 @@ setup.npcData = {
         const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
         const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
         const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
-        return [prefix + ' a royal wedding of a local ' + setup.profile(noble, 'noble'),
-          prefix + ' a royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate,
-          prefix + ' a royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate,
+        return [prefix + ' the royal wedding of a local ' + setup.profile(noble, 'noble'),
+          prefix + ' the royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate,
+          prefix + ' the royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate,
           'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage,
           'I shook the hand of a passing ' + setup.profile(noble, 'noble') + '. If I recall their handshake was ' + handshake].seededrandom()
       },
       prefix: [
         'I was invited to',
         'I got to attend',
-        'I had the honor to go to'
+        'I had the honor to go to',
+        'I had the pleasure of attending',
+        'I was forced to go to'
       ],
       banquetCelebrate: [
         'a local hero',
@@ -226,7 +304,7 @@ setup.npcData = {
         'the remnants of a grand wizard tower',
         'the battlegrounds of a long over war',
         'the still-burning carcass of an ancient behemoth',
-        'a '
+        'a secluded civilization, nearly forgotten by outsiders'
       ],
       locationLocation: [
         'in an ever shifting desert',
@@ -248,7 +326,17 @@ setup.npcData = {
         'in an icy tundra',
         'built into a glacier',
         'at the bottom of a deep ravine',
-        'hidden inside a mountain'
+        'hidden inside a mountain',
+        'ina secluded valley',
+        'ina tropical valley',
+        'on an arid tundra',
+        'in the black mountains',
+        'in the white mountains',
+        'in the red forest',
+        'on the edge of a great mountain range',
+        'encircled by mountains',
+        'at the edge of the world',
+        'on the back of a giant turtle'
       ],
       found: [
         'and it was an incredible experience',
@@ -787,7 +875,7 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
-          'I saw a demon I swear on my life! ' + ['', '', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
+          'I saw a demon I swear on my life! ' + ['', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
           'I once saw a powerful wizard ' + [['enchanting', 'disenchanting', 'cursing'].seededrandom() + ' a ' + ['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].seededrandom(),
             'casting a ' + ['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].seededrandom() + ' ' + ['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].seededrandom() + ' spell',
             'riding on the back of a ' + ['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].seededrandom()].seededrandom(),
