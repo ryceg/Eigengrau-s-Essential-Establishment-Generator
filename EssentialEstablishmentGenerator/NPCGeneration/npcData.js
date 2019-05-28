@@ -100,7 +100,7 @@ setup.npcData = {
           profession: apprenticeProfession,
           isShallow: true
         })
-        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, teacher.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned
+        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, teacher.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned + '.'
       },
       profession: [
         'actor',
@@ -179,7 +179,7 @@ setup.npcData = {
           'I met up with an adventurer who generously gave me a ',
           "I came across a trinket in a field- It's a ",
           'I was on a long journey when I found a '
-        ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
+        ].seededrandom() + trinket.name + '.' + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
     nobleEvent: {
@@ -609,7 +609,7 @@ setup.npcData = {
           // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
           setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
-          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
+          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID) + '.'
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
           // if (npc.gender === 'man') {
@@ -654,7 +654,7 @@ setup.npcData = {
           'because of a promise, I did some time as a ',
           'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
-          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom()
+          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom() + '.'
       }
     },
     meetImportantNPC: {
