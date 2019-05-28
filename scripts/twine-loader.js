@@ -1,6 +1,6 @@
 
 /**
- * COnverts twine syntax to ...something else...
+ * Converts twine syntax to ...something else...
  * @param {string} syntax
  */
 function twineLoader (syntax) {
