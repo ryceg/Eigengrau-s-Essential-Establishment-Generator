@@ -109,7 +109,9 @@ setup.npcData = {
     nobleEvent: {
       probability: 5,
       exclusion (town, npc) {
-        return true
+        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
+          return true
+        }
       },
       function (town, npc) {
         const noble = setup.createNPC(town, {
@@ -120,10 +122,12 @@ setup.npcData = {
         const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.seededrandom()
         const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
         const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
+        const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
         return [prefix + ' a royal wedding of a local ' + setup.profile(noble, 'noble'),
           prefix + ' a royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate,
           prefix + ' a royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate,
-          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage].seededrandom()
+          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage,
+          'I shook the hand of a passing ' + setup.profile(noble, 'noble') + '. If I recall their handshake was ' + handshake].seededrandom()
       },
       prefix: [
         'I was invited to',
@@ -167,6 +171,19 @@ setup.npcData = {
         'being cheered on by the adoring townsfolk',
         'adorned with a beautiful floral mural',
         'beaten and battered as if it had recently seen battle'
+      ],
+      handshake: [
+        'firm but friendly',
+        'a little too firm',
+        'rather limp',
+        'cold and clammy',
+        'much too sweaty',
+        'course and emotionless',
+        'nothing special',
+        'rather pathetic',
+        'pretty weak',
+        'strong and commanding',
+        'strangely hot'
       ]
     },
     journey: {
@@ -207,7 +224,9 @@ setup.npcData = {
         'a city of elves',
         'the ruins of a lost city',
         'the remnants of a grand wizard tower',
-        'the battlegrounds of a long over war'
+        'the battlegrounds of a long over war',
+        'the still-burning carcass of an ancient behemoth',
+        'a '
       ],
       locationLocation: [
         'in an ever shifting desert',
