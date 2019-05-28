@@ -86,7 +86,7 @@ setup.npcData = {
   ],
   lifeEvents: {
     festival: {
-      probability: 2,
+      probability: 6,
       exclusions (town, npc) {
         return true
       },
@@ -248,7 +248,7 @@ setup.npcData = {
       }
     },
     nobleEvent: {
-      probability: 6,
+      probability: 5,
       exclusion (town, npc) {
         if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
           return true
