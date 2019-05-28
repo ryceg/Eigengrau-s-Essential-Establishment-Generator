@@ -167,9 +167,18 @@ setup.createNPC = function (town, base) {
   setup.createAge(npc)
 
   setup.createRace(npc)
+  // This sets up the physical traits of NPCs
+  const hair = setup.npcData.bodyParts.head.hair.seededrandom()
+  const eyes = setup.npcData.bodyParts.head.eyes.seededrandom()
+  const nose = setup.npcData.bodyParts.head.nose.seededrandom()
+  const mouth = setup.npcData.bodyParts.head.mouth.seededrandom()
+  const chin = setup.npcData.bodyParts.head.chin.seededrandom()
+  const ears = setup.npcData.bodyParts.head.ears.seededrandom()
 
-  const physicalTraitRoll = random(1, 11)
-  if (physicalTraitRoll > 8) {
+  const physicalTraitRoll = random(1, 50)
+  if (physicalTraitRoll > 11) {
+    npc.physicalTrait = npc.physicalTrait || [hair, eyes, nose, mouth, chin, ears].seededrandom()
+  } else if (physicalTraitRoll > 8) {
     npc.physicalTrait = npc.physicalTrait || data.scar.seededrandom()
   } else if (physicalTraitRoll > 6) {
     npc.physicalTrait = npc.physicalTrait || data.tattoo.seededrandom()
