@@ -85,6 +85,71 @@ setup.npcData = {
     [0, 'impossibly small']
   ],
   lifeEvents: {
+    festival: {
+      probability: 2,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        const placement = setup.npcData.lifeEvents.festival.placement.seededrandom()
+        const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.seededrandom()
+        const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.seededrandom()
+        const fruit = setup.flora.fruit.fruitP.seededrandom()
+        const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
+        const flower = setup.flora.flowers.stemP.seededrandom()
+        const festivalDid = setup.npc.lifeEvents.festival.festivalDid.seededrandom()
+        return [['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' for my ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '.',
+          ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower,
+          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' where I saw some ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' where I saw some ' + flowerTrait + ' ' + flower + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid
+        ].seededrandom()
+      },
+      placement: [
+        'first place',
+        'second place',
+        'third place',
+        'gold',
+        'silver',
+        'bronze',
+        'runner up'
+      ],
+      foodTrait: [
+        'delicious',
+        'colorful',
+        'giant',
+        'enormous',
+        'vibrant',
+        'fresh',
+        'durable'
+      ],
+      flowerTrait: [
+        'colorful',
+        'giant',
+        'enormous',
+        'vibrant',
+        'fresh',
+        'sweet-smelling',
+        'pollen covered'
+      ],
+      festivalDid: [
+        'saw a spectacular parade',
+        'saw a parade with enormous floats made of flowers',
+        'watched a parade that was full of magical effects',
+        'saw an incredible troupe of dancing elves',
+        'watched several dance troupes compete in a competition',
+        'listened to several live musical performance',
+        'saw a marching bard in the parade',
+        'drank deeply and merrily',
+        'sang folk songs with the other festival goers',
+        'danced the day away with the other merrymakers',
+        'partook in several festival traditions',
+        'watched a fantastic play performed on a moving stage in the parade',
+        'saw a huge dragon puppet march through the streets',
+        'visited several shops and stalls full of delicious food',
+        "visited several brewing stalls and drank to my heart's content"
+      ]
+    },
     apprentice: {
       probability: 6,
       exclusions (town, npc) {
