@@ -97,11 +97,12 @@ setup.npcData = {
         const fruit = setup.flora.fruit.fruitP.seededrandom()
         const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
         const flower = setup.flora.flowers.stemP.seededrandom()
-        const festivalDid = setup.npc.lifeEvents.festival.festivalDid.seededrandom()
+        const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.seededrandom()
         return [['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' for my ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '.',
-          ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower,
+          ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower + '.',
           ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' where I saw some ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '. I think they won ' + placement + ' in the growers competition.',
           ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' where I saw some ' + flowerTrait + ' ' + flower + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.',
           ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.'
         ].seededrandom()
       },
@@ -264,11 +265,11 @@ setup.npcData = {
         const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
         const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
         const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
-        return [prefix + ' the royal wedding of a local ' + setup.profile(noble, 'noble'),
-          prefix + ' the royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate,
-          prefix + ' the royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate,
-          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage,
-          'I shook the hand of a passing ' + setup.profile(noble, 'noble') + '. If I recall their handshake was ' + handshake].seededrandom()
+        return [prefix + ' the royal wedding of a local ' + setup.profile(noble, 'noble') + '.',
+          prefix + ' the royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate + '.',
+          prefix + ' the royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate + '.',
+          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage + '.',
+          'I shook the hand of a passing ' + setup.profile(noble, 'noble') + '. If I recall their handshake was ' + handshake + '.'].seededrandom()
       },
       prefix: [
         'I was invited to',
