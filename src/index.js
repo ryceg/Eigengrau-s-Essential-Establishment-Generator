@@ -28,3 +28,5 @@ function requireAll (requires) {
 requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.js$/))
 requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.css$/))
 requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.tw(ee)?$/))
+
+console.log(window.passages)
