@@ -19,9 +19,12 @@ window.Setting = {
   save () { }
 }
 
+window.passages = {}
+
 function requireAll (requires) {
   return requires.keys().map(requires)
 }
 
 requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.js$/))
 requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.css$/))
+requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.tw(ee)?$/))
