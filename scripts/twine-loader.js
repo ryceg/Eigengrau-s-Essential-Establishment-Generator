@@ -4,11 +4,14 @@
  * @param {string} syntax
  */
 function twineLoader (syntax) {
-  const [, passageTitle, misc] = syntax.match(/::\s([^\s]+)([\s\S]*)/)
+  const [, passageTitle, misc] = syntax.match(/::\s+([^\s]+)([\s\S]*)/)
+
+  const splitByTwineTags = misc.match(/<<\/?(".*?"|.*?)\s?>>/g)
 
   return stringify`
     window.passages[${passageTitle}] = {
       title: ${passageTitle},
+      split: ${splitByTwineTags},
       body: ${misc}
     }
   `
