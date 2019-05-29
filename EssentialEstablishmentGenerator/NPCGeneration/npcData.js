@@ -322,7 +322,7 @@ setup.npcData = {
         'rather limp',
         'cold and clammy',
         'much too sweaty',
-        'course and emotionless',
+        'coarse and emotionless',
         'nothing special',
         'rather pathetic',
         'pretty weak',
@@ -504,7 +504,7 @@ setup.npcData = {
     pilgrimage: {
       probability: 5,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'religion') {
+        if (setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75) {
           return true
         } else return false
       },
@@ -912,7 +912,7 @@ setup.npcData = {
     crime: {
       probability: 10,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'crime') {
+        if (setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60) {
           return true
         }
       },
