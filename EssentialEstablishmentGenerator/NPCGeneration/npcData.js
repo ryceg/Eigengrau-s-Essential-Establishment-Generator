@@ -506,7 +506,7 @@ setup.npcData = {
       exclusions (town, npc) {
         if (setup.townData.professions[npc.profession].sector === 'religion') {
           return true
-        }
+        } else return false
       },
       function (town, npc) {
         console.log('called lifeEvents.pilgrimage function')
