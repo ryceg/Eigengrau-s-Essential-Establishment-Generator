@@ -3,6 +3,9 @@ const { DefinePlugin } = require('webpack')
 const { addBeforeLoader, loaderByName } = require('@craco/craco')
 
 module.exports = {
+  eslint: {
+    mode: 'file'
+  },
   webpack: {
     configure: config => {
       // Load twine files before file-loader does.
@@ -20,6 +23,13 @@ module.exports = {
             passages: 'window.passages'
           })
         ],
+        resolve: {
+          ...config.resolve,
+          alias: {
+            ...config.resolve.alias,
+            'react-dom': '@hot-loader/react-dom'
+          }
+        },
         resolveLoader: {
           ...config.resolveLoader,
           alias: {
