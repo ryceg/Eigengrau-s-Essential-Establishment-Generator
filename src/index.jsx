@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './test'
+import App from './App'
 
 import './twine/globals'
 import './twine/extensions'
