@@ -1,6 +1,7 @@
 const path = require('path')
-const { DefinePlugin } = require('webpack')
-const { addBeforeLoader, loaderByName } = require('@craco/craco')
+const webpack = require('webpack')
+const craco = require('@craco/craco')
+const merge = require('webpack-merge')
 
 module.exports = {
   eslint: {
@@ -9,37 +10,31 @@ module.exports = {
   webpack: {
     configure: config => {
       // Load twine files before file-loader does.
-      addBeforeLoader(config, loaderByName('file-loader'), {
+      craco.addBeforeLoader(config, craco.loaderByName('file-loader'), {
         test: /\.tw(ee)?$/,
         use: 'twine-loader'
       })
 
-      return {
-        ...config,
+      return merge(config, {
         plugins: [
-          ...config.plugins,
-          new DefinePlugin({
+          new webpack.DefinePlugin({
             setup: 'window.setup',
             passages: 'window.passages'
           })
         ],
         resolve: {
-          ...config.resolve,
           alias: {
-            ...config.resolve.alias,
             'react-dom': '@hot-loader/react-dom'
           }
         },
         resolveLoader: {
-          ...config.resolveLoader,
           alias: {
-            ...config.resolveLoader.alias,
             'twine-loader': require.resolve(
               path.join(__dirname, './scripts/twine-loader.js')
             )
           }
         }
-      }
+      })
     }
   }
 }
