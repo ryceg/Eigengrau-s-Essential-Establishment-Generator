@@ -1,7 +1,7 @@
 
 
 body {
-  background-image: [img[backgroundpaper]];
+  background-image: url('../../Resources/backgroundpaper.webp');
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
@@ -14,8 +14,6 @@ body {
 #story-title{
   display: none;
 }
-
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
 img, embed, object, video {
     max-width: 100%;
@@ -171,7 +169,7 @@ blockquote {
     background-color: #e0e5c1;
     border-style: solid;
     border-width: 11px;
-    border-image: [img[note-wrap]] 11;
+    border-image: url('../../Resources/note-wrap.png') 11;
     border-image-outset: 9px 0;
     box-shadow: 1px 4px 14px #888
 }
@@ -205,7 +203,7 @@ blockquote h5 {
         font-family:ScalySans;
         border-style:solid;
         border-width:7px;
-        border-image: [img[sidebars]] 12 round;
+        border-image:  url('../../Resources/sidebars.png') 12 round;
         border-image-outset:4px;
         box-shadow:0 0 6px #faf7ea
     }
@@ -237,7 +235,7 @@ blockquote h5 {
         font-family:ScalySans;
         border-style:solid;
         border-width:7px;
-        border-image: [img[sidebars]] 12 round;
+        border-image:  url('../../Resources/sidebars.png') 12 round;
         border-image-outset:4px;
         box-shadow:0 0 6px #faf7ea
     }
@@ -289,7 +287,7 @@ blockquote h5 {
         left: 0;
         height: 55px;
         width: 100%;
-        background-image: [img[footer]];
+        background-image:  url('../../Resources/footer.png');
         background-size: cover
     }
     .body:nth-child(even):after {transform: scaleX(-1)}
@@ -2324,7 +2322,7 @@ pre code {
     border-image-outset:25px 17px;
     border-image-repeat:round;
     border-image-slice:150 200 150 200;
-    border-image-source: [img[table-wrap]];
+    border-image-source:  url('../../Resources/table-wrap.png');
     border-image-width:47px
 }
 .classTable h5{
