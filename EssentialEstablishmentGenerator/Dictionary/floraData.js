@@ -27,6 +27,16 @@ setup.flora = {
       'apple', 'almond', 'apricot', 'cherry', 'orange', 'lemon', 'lime', 'elderberry', 'fig', 'mango', 'olive', 'mulberry', 'peach', 'plum', 'pomegranate', 'walnut', 'chestnut'
     ]
   },
+  'vegetable': {
+    // list of common vegetables, plural
+    'vegetableP': [
+      'potatoes', 'corn', 'carrots', 'broccoli', 'green beans', 'garlics', 'cucumbers', 'spinach', 'onions', 'sweet potatoes', 'mushrooms', 'peas', 'asparaguses', 'cauliflowers', 'bell peppers', 'heads of lettuce', 'olives', 'avocadoes', 'cabbages', 'zucchinis', 'celery', 'jalapeños', 'chives', 'okra', 'collard greens', 'sugar beets', 'beets', 'artichokes', 'tomatoes', 'radishes', 'pumpkins', 'turnips', 'rutabagas', 'eggplants', 'parsnips', 'beans', 'squashes', 'shallots'
+    ],
+    // list of common vegetables, singular
+    'vegetableS': [
+      'potato', 'corn', 'carrot', 'broccoli', 'green bean', 'garlic', 'cucumber', 'spinach', 'onion', 'sweet potato', 'mushroom', 'pea', 'asparagus', 'cauliflower', 'bell pepper', 'lettuce', 'olive', 'avocado', 'cabbage', 'zucchini', 'celery', 'jalapeño', 'chive', 'okra', 'collard green', 'sugar beet', 'beet', 'artichoke', 'tomato', 'radish', 'pumpkin', 'turnip', 'rutabaga', 'eggplant', 'parsnip', 'bean', 'squash', 'shallot'
+    ]
+  },
   'tree': {
     'typeS': [
       'red maple', 'beech', 'spruce', 'ash', 'black cherry', 'oak', 'pine', 'maple', 'elm', 'fir', 'black walnut', 'birch', 'sycamore', 'alder', 'cedar', 'willow', 'red pine', 'silver birch', 'blue spruce', 'white oak', 'black spruce', 'hickory', 'cypress', 'scarlet oak', 'aspen', 'poplar', 'redwoord', 'cedar'

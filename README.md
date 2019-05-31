@@ -49,7 +49,6 @@ You can also find easy work to do on the generator [here.](https://github.com/ry
 
 To deploy the latest version, build the html file as `dist/index.html` and run either `npm run deploy`, or `yarn deploy`.
 
----
 
 ## Built With :hammer:
 
