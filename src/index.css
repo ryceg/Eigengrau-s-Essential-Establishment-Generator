@@ -22,3 +22,28 @@ html {
   padding: 0;
   margin: 0;
 }
+
+#app {
+  display: flex;
+  height: 100vh;
+}
+
+.content,
+.sidebar {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  flex: 1;
+  padding: 1.5em;
+  overflow: auto;
+}
+
+.sidebar {
+  flex-basis: 17.5em;
+  padding: 1.5em;
+  background: #eee;
+  border: 1px solid #ccc;
+  overflow: auto;
+}

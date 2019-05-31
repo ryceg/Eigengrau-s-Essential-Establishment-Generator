@@ -1,17 +1,16 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import Navigation from './components/Navigation'
+import Sidebar from './components/Sidebar'
 import Content from './components/Content'
-import './App.css'
 
 /**
  * @type {React.FC}
  */
-const App = props => {
+const App = () => {
   return (
     <React.Fragment>
-      <Navigation/>
+      <Sidebar/>
       <Content />
     </React.Fragment>
   )

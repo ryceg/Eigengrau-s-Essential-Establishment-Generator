@@ -1,12 +1,11 @@
 import React from 'react'
-import styles from './Content.module.css'
 
 /**
  * The application main content body.
  * @type {React.FC}
  */
 const Content = () => {
-  return <section className={styles.content} />
+  return <main className="content">the main content body</main>
 }
 
 export default Content
