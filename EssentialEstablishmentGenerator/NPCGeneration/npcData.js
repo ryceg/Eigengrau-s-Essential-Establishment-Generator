@@ -85,8 +85,150 @@ setup.npcData = {
     [0, 'impossibly small']
   ],
   lifeEvents: {
+    festival: {
+      probability: 6,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        const placement = setup.npcData.lifeEvents.festival.placement.seededrandom()
+        const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.seededrandom()
+        const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.seededrandom()
+        const fruit = setup.flora.fruit.fruitP.seededrandom()
+        const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
+        const flower = setup.flora.flowers.stemP.seededrandom()
+        const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.seededrandom()
+        return [['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' for my ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '.',
+          ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower + '.',
+          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' where I saw some ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' where I saw some ' + flowerTrait + ' ' + flower + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.',
+          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.'
+        ].seededrandom()
+      },
+      placement: [
+        'first place',
+        'second place',
+        'third place',
+        'gold',
+        'silver',
+        'bronze',
+        'runner up'
+      ],
+      foodTrait: [
+        'delicious',
+        'colorful',
+        'giant',
+        'enormous',
+        'vibrant',
+        'fresh',
+        'durable'
+      ],
+      flowerTrait: [
+        'colorful',
+        'giant',
+        'enormous',
+        'vibrant',
+        'fresh',
+        'sweet-smelling',
+        'pollen covered'
+      ],
+      festivalDid: [
+        'saw a spectacular parade',
+        'saw a parade with enormous floats made of flowers',
+        'watched a parade that was full of magical effects',
+        'saw an incredible troupe of dancing elves',
+        'watched several dance troupes compete in a competition',
+        'listened to several live musical performances',
+        'saw a marching bard in the parade',
+        'drank deeply and merrily',
+        'sang folk songs with the other festival goers',
+        'danced the day away with the other merrymakers',
+        'partook in several festival traditions',
+        'watched a fantastic play performed on a moving stage in the parade',
+        'saw a huge dragon puppet march through the streets',
+        'visited several shops and stalls full of delicious food',
+        "visited several brewing stalls and drank to my heart's content"
+      ]
+    },
+    apprentice: {
+      probability: 6,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].socialClass === 'nobility') {
+          return false
+        } else { return true }
+      },
+      function (town, npc) {
+        const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.seededrandom()
+        const reputation = setup.npcData.lifeEvents.apprentice.reputation.seededrandom()
+        const learned = setup.npcData.lifeEvents.apprentice.learned.seededrandom()
+        const teacher = setup.createNPC(town, {
+          profession: apprenticeProfession,
+          isShallow: true
+        })
+        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, teacher.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned + '.'
+      },
+      profession: [
+        'actor',
+        'architect',
+        'armorer',
+        'astrologer',
+        'barber',
+        'blacksmith',
+        'brewer',
+        'carpenter',
+        'cook',
+        'goldsmith',
+        'hatter',
+        'jeweler',
+        'leatherworker',
+        'locksmith',
+        'minstrel',
+        'painter',
+        'potter',
+        'rugmaker',
+        'sculptor',
+        'silversmith',
+        'toymaker',
+        'costumer',
+        'artist',
+        'musician',
+        'coinsmith',
+        'candlemaker',
+        'fletcher',
+        'weaponsmith',
+        'chemist'
+      ],
+      reputation: [
+        'a well known',
+        'a world renowned',
+        'a master',
+        'an incredibly talented',
+        'a legendary',
+        'a famous',
+        'a lesser known',
+        'an obscure',
+        'a mediocre',
+        'a decent',
+        'an alright',
+        'a rather unskilled',
+        'a piss poor'
+      ],
+      learned: [
+        'I learned a lot about myself',
+        "I realized being in that trade just wasn't for me",
+        'I learned a lot of valuable life lessons',
+        'I learned a lot about the trade',
+        "I realized my teacher wasn't that great",
+        'my master beat their teachings into me',
+        'my master was gentle with their teachings',
+        'my master taught me many things',
+        'I realized what I truly wanted in life',
+        "I learned I'm not very good at the trade"
+      ]
+    },
     trinket: {
-      probability: 10,
+      probability: 5,
       exclusions (town, npc) {
         return true
       },
@@ -96,14 +238,330 @@ setup.npcData = {
         return [
           "I was given a magical trinket- it's a ",
           'I happened across a ',
+          'I found my lost family heirloom, it is a ',
           'I was gifted a ',
           "I saved a wizard's life, and as a token of his thanks, he gave me a ",
-          "I came across a trinket in a field- It's a "
-        ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
+          'I went on my own adventure and discovered a ',
+          'I met up with an adventurer who generously gave me a ',
+          "I came across a trinket in a field- It's a ",
+          'I was on a long journey when I found a '
+        ].seededrandom() + trinket.name + '.' + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
+    nobleEvent: {
+      probability: 5,
+      exclusion (town, npc) {
+        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
+          return true
+        }
+      },
+      function (town, npc) {
+        const noble = setup.createNPC(town, {
+          background: 'noble',
+          isShallow: true
+        })
+        const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.seededrandom()
+        const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.seededrandom()
+        const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
+        const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
+        const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
+        return [prefix + ' the royal wedding of a local ' + setup.profile(noble, 'noble') + '.',
+          prefix + ' the royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate + '.',
+          prefix + ' the royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate + '.',
+          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage + '.',
+          'I shook the hand of a passing ' + setup.profile(noble, 'noble') + '. If I recall their handshake was ' + handshake + '.'].seededrandom()
+      },
+      prefix: [
+        'I was invited to',
+        'I got to attend',
+        'I had the honor to go to',
+        'I had the pleasure of attending',
+        'I was forced to go to'
+      ],
+      banquetCelebrate: [
+        'a local hero',
+        'the remembrance of a past ruler',
+        'a local holiday',
+        'a bountiful summer harvest',
+        'the death of a nearby warlord',
+        "the completion of the noble's newest summer home",
+        'a triumphant adventuring party',
+        'a recent coronation'
+      ],
+      ballCelebrate: [
+        'a recent royal wedding',
+        'the beginning of a search for a suitable spouse for this noble',
+        'the end of a recent war',
+        'the passing of a nearby ruler',
+        'the local militia',
+        'the end of the hunting season',
+        'the presentation of the debutantes',
+        'a recent coronation'
+      ],
+      carriage: [
+        'rather plain, but still impressive',
+        'massive with eight elegant wheels',
+        'pulled by four massive white horses',
+        'being pulled by a single elephant',
+        'ornately decorated with gold trim',
+        'painted with bright yet regal colors',
+        'a true sight to behold',
+        'a clear waste of taxpayer money',
+        'pulled by several thickly muscled slaves',
+        "flying two massive banners for the noble's house",
+        'flanked by militia on both sides',
+        'being followed by a flock of adoring fans',
+        'being pelted with rotten fruit by the starving peasants',
+        'being cheered on by the adoring townsfolk',
+        'adorned with a beautiful floral mural',
+        'beaten and battered as if it had recently seen battle'
+      ],
+      handshake: [
+        'firm but friendly',
+        'a little too firm',
+        'rather limp',
+        'cold and clammy',
+        'much too sweaty',
+        'coarse and emotionless',
+        'nothing special',
+        'rather pathetic',
+        'pretty weak',
+        'strong and commanding',
+        'strangely hot'
+      ]
+    },
+    journey: {
+      probability: 3,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.journey function')
+        const prefix = setup.npcData.lifeEvents.journey.prefix.seededrandom()
+        const location = setup.npcData.lifeEvents.journey.location.seededrandom()
+        const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.seededrandom()
+        const found = setup.npcData.lifeEvents.journey.found.seededrandom()
+        const notFound = setup.npcData.lifeEvents.journey.notFound.seededrandom()
+        return [prefix + ' ' + location + ' ' + locationLocation + '. ' + ['I really did make it there, ', 'I got to see that place, ', 'My journey was succesful, '].seededrandom() + found,
+          prefix + ' ' + location + ' ' + locationLocation + '. ' + ['I never found it, ', 'I never got to see that place, ', 'My journey was a failure, ', 'I got lost along the way and never made it there, '].seededrandom() + notFound].seededrandom() + '.'
+      },
+      prefix: [
+        'I ventured out to see',
+        'I went on a journey to find',
+        'I struck out heading towards',
+        'a group of travelers and I went to find',
+        'my friends and I went on a long journey to'
+      ],
+      location: [
+        'a tower of knowledge',
+        'an elusive library made of marble',
+        'the statue of a forgotten hero',
+        'the palace of a sleeping god',
+        'the greatest fishing spot ever',
+        'a peaceful mountain retreat',
+        'the hidden cherry blossom grove',
+        'the dojo of a long lost martial art',
+        'the grand castle of a foreign noble',
+        'a crystal clear lake',
+        'the burial tomb of an ancient ruler',
+        'a city of dwarves',
+        'a city of elves',
+        'the ruins of a lost city',
+        'the remnants of a grand wizard tower',
+        'the battlegrounds of a long over war',
+        'the still-burning carcass of an ancient behemoth',
+        'a secluded civilization, nearly forgotten by outsiders'
+      ],
+      locationLocation: [
+        'in an ever shifting desert',
+        'in a red sand desert',
+        'in a desert where the dunes whisper secrets',
+        'in a white sand desert',
+        'in an incredibly hot desert',
+        'on the peak of a snowy mountain',
+        'near the peak of a mountain',
+        'built into the side of a cliff',
+        'in a forest',
+        'near a forest',
+        'in a dark wood',
+        'out on the plains',
+        'near the ocean',
+        'on a floating dock in the ocean',
+        'on a secluded island',
+        'in the depths of a cavern',
+        'in an icy tundra',
+        'built into a glacier',
+        'at the bottom of a deep ravine',
+        'hidden inside a mountain',
+        'ina secluded valley',
+        'ina tropical valley',
+        'on an arid tundra',
+        'in the black mountains',
+        'in the white mountains',
+        'in the red forest',
+        'on the edge of a great mountain range',
+        'encircled by mountains',
+        'at the edge of the world',
+        'on the back of a giant turtle'
+      ],
+      found: [
+        'and it was an incredible experience',
+        'and I learned much along the way',
+        'and it is a place I will never forget',
+        'and I like to think I became a better person from the trek',
+        'and I came back with several keepsakes',
+        'and I made some new friends along the way',
+        'and I made some important discoveries while I was there',
+        "but I don't like to brag about it",
+        'but it was not what I was truly looking for',
+        'but to be honest the place was kind of a let down'
+
+      ],
+      notFound: [
+        'and I have always regretted not going again',
+        'but I came out of the journey a better person',
+        'and I have always wondered what it would have looked like there',
+        'but I have not given up',
+        'and honestly I think the place may not exist',
+        'and to be honest I have given up on ever going there',
+        'but I do not regret trying',
+        'but I still made some new friends along the way',
+        "and to be honest I'm kind of glad I didn't make it"
+      ]
+    },
+    lostChild: {
+      probability: 3,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.lostChild function')
+        const treeType = setup.flora.tree.typeArticle.seededrandom()
+        const location = setup.npcData.lifeEvents.lostChild.location.seededrandom()
+        const time = setup.npcData.lifeEvents.lostChild.time.seededrandom()
+        const finder = setup.npcData.lifeEvents.lostChild.finder.seededrandom()
+        const ending = setup.npcData.lifeEvents.lostChild.ending.seededrandom()
+        return ['when I was young', 'as a young child', 'while I was still a kid'].seededrandom() + ' I got lost in ' + [location, treeType + ' tree forest'].seededrandom() + ' ' + time + '. ' + ['I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I found my own way back', 'I eventually found ' + finder].seededrandom() + ' ' + ending + '.'
+      },
+      location: [
+        'a strange desert',
+        'a large ruined maze',
+        'a twisting and winding maze',
+        'an enormous city',
+        'another realm',
+        'a deep cavern',
+        'the ruins of a city',
+        'a twisting system of tunnels underground',
+        'a mountain pass',
+        'an ancient battlefield',
+        'a forgotten city below the ground',
+        'a dwarven ruin',
+        'an elven ruin',
+        'a magic tower'
+      ],
+      time: [
+        'for several weeks',
+        'for a few hours',
+        'for a few days',
+        'for weeks',
+        'for days',
+        'for many moons',
+        'for a month',
+        'for months',
+        'for half a year at least',
+        'and I can not remember how long I was there',
+        'for years maybe',
+        'for years',
+        'for how long I can not be sure'
+      ],
+      finder: [
+        'a passing merchant',
+        'my parents',
+        'my mother',
+        'my father',
+        'my relative',
+        'a city guard',
+        'a hero out on an adventure',
+        'a hero party that had been questing for me',
+        'an equally lost bard',
+        'a traveling ranger',
+        'a haggard monk',
+        'a pack of wolves',
+        'a noble on a journey'
+      ],
+      ending: [
+        'and went back home',
+        'and learned a valuable lesson from it all',
+        'but have been haunted by that experience',
+        'but not before I hurt myself trying to get home',
+        'but not before I was roughed up by some bandits I ran into',
+        'and have not really ventured out much since',
+        'and have carried a compass ever since',
+        'but I still get lost from time to time',
+        'and I studied up on maps of the area so I would never get lost again'
+      ]
+    },
+    pilgrimage: {
+      probability: 5,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75) {
+          return true
+        } else return false
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.pilgrimage function')
+        const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.seededrandom()
+        const location = setup.npcData.lifeEvents.pilgrimage.location.seededrandom()
+        const journey = setup.npcData.lifeEvents.pilgrimage.journey.seededrandom()
+        const result = setup.npcData.lifeEvents.pilgrimage.result.seededrandom()
+        return prefix + ' ' + location + '. ' + journey + ', ' + result + '.'
+      },
+      prefix: [
+        'I set off on a pilgrimage by myself to',
+        'I went on a pilgrimage with a group to',
+        'I went on a holy journey to',
+        'I traveled a great distance on pilgrimage to'
+      ],
+      location: [
+        'the floating island of a god',
+        'a far away temple',
+        'see the holiest relic of my people',
+        'a holy landmark of my god',
+        'an isolated monastery in the <<print either("mountains", "desert", "forest", "depths of a cavern", "bottom of a canyon", "frozen tundra")>>',
+        'the birthplace of my god',
+        'the holy city of my god',
+        'the highest peak of a holy mountain',
+        'a far off nunnery',
+        'a town of heathens',
+        'see the holy art of my god',
+        'to pray at the feet of my deity',
+        'a distant shrine'
+      ],
+      journey: [
+        'The <<print either("journey", "pilgrimage", "travel", "trek", "trip")>> was <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>>',
+        'It was a <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>> <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        'I was not prepared enough for the <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        'I had waited my whole life for this'
+      ],
+      result: [
+        'and I came out a better person at the end of it',
+        'and my life was changed by it all',
+        "but in the end I'm not sure if it was worth it",
+        'but in the end it was worth it all',
+        'and my god rewarded me for my travels',
+        'but my god did not speak to me in my travels',
+        'and at the end of it all I had a holy vision',
+        'but my god did not show me what I was hoping for',
+        'and I feel so enlightened now',
+        'and my peers have respected me more since I returned',
+        'and I have found my place in my faith',
+        'and I was gifted holy sight for my troubles',
+        'but I do not feel any more enlightened from the experience',
+        'but I sacraficed much to finish the trip'
+      ]
+    },
     meetFriendNPC: {
-      probability: 10,
+      probability: 8,
       exclusions (town, npc) {
         return true
       },
@@ -133,9 +591,9 @@ setup.npcData = {
           // Descriptions and stuff goes here
           return [
             'I met my ' + setup.profile(friend, 'best buddy') + ' on some travel.',
-            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
+            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + setup.profile(friend, friend.himher) + ' on a pilgrimage.',
             'I made a ' + setup.profile(friend, 'good friend') + ' during a drinking contest.',
-            'We were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
+            'we were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
           ].seededrandom()
         } else {
           return [
@@ -148,7 +606,7 @@ setup.npcData = {
       }
     },
     meetEnemyNPC: {
-      probability: 10,
+      probability: 8,
       exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
@@ -164,6 +622,7 @@ setup.npcData = {
         setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
         return [
           'I made an ' + setup.profile(enemy, 'enemy') + ' for life in my travels- ',
+          'I was framed by a ' + setup.profile(enemy, 'scoundrel') + " for a crime I didn't commit- ",
           'I met a ' + setup.profile(enemy, 'man') + ', and we played cards. He decided that I was cheating- ',
           'I was a guest in the court of a ' + setup.profile(enemy, 'lord') + ', and made an embarassment of him- ',
           'I used to play cards in a pub, and one time supposedly cheated a ' + setup.profile(enemy, 'man') + ' out of his winnings; '
@@ -172,7 +631,10 @@ setup.npcData = {
           'I admit that I am at least partially at fault. ',
           "I suppose that I'm at least partially to blame. ",
           "I'll freely admit that I'm to blame. ",
-          "I'm ashamed to admit that I'm to blame. "
+          "I'm ashamed to admit that I'm to blame. ",
+          "I'm not quite sure what happened. ",
+          'it was all a setup, but a very good one. ',
+          "I'll never say what really happened. "
         ].seededrandom() + [
           'He hunts me to this day.',
           'I hope to apologise to him if I ever encounter him again.',
@@ -180,7 +642,10 @@ setup.npcData = {
           "I couldn't care less if he tries to do anything about it.",
           "I'll gut him like a fish if he crosses my path again.",
           "I'm afraid that he'll kill me in my sleep.",
-          'I would rather have backup the next time that I face him.'
+          'I would rather have backup the next time that I face him.',
+          "I doubt I'll ever meet him again.",
+          "That's all behind me now and I hope it stays that way.",
+          "I'm still on the lookout for him to this very day."
         ].seededrandom()
       }
     },
@@ -210,7 +675,7 @@ setup.npcData = {
           // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
           setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
-          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
+          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID) + '.'
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
           // if (npc.gender === 'man') {
@@ -250,8 +715,12 @@ setup.npcData = {
         return [
           'I spent some time working as a ',
           'I did a stint as a ',
+          'I worked as a ',
+          'for a while I did some work as a ',
+          'because of a promise, I did some time as a ',
+          'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
-          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom()
+          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom() + '.'
       }
     },
     meetImportantNPC: {
@@ -262,9 +731,9 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.meetImportantNPC function')
         return [
-          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].seededrandom() +
-          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].seededrandom() +
-          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].seededrandom() + '.'
+          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous ', 'I got an autograph from a famous '].seededrandom() +
+          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse', 'adventurer', 'hero', 'blacksmith', 'armorer', 'alchemist', 'stage actor', 'playwright', 'artist', 'sculptor', 'painter', 'poet', 'knight', 'historian', 'gladiator', 'architect', 'crime boss', 'rogue', 'smuggler'].seededrandom() +
+          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background, ' while on a long journey', ' during one of my youthful adventures'].seededrandom() + '.'
         ].seededrandom()
       }
     },
@@ -324,7 +793,7 @@ setup.npcData = {
       }
     },
     supernatural: {
-      probability: 5,
+      probability: 2,
       exclusions (town, npc) {
         return true
       },
@@ -336,9 +805,70 @@ setup.npcData = {
           "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since.",
           'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls.',
           'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later.',
-          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, he vanished'
+          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, the boy vanished.'
         ].seededrandom()
       }
+    },
+    miracle: {
+      probability: 2,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.miracle function')
+        const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.seededrandom()
+        const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.seededrandom()
+        const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.seededrandom()
+        const miracle = setup.npcData.lifeEvents.miracle.miracle.seededrandom()
+        const curse = setup.npcData.lifeEvents.miracle.curse.seededrandom()
+        return [['I witnessed a miracle once- Honest to god. ', 'I once saw a true miracle. ', 'one time, I was part of a real miracle. '].seededrandom() + miracleGiver + ', ' + [trueBelief, falseBelief].seededrandom() + ' ' + miracle,
+          ['I witnessed a terrible curse once- Honest to god. ', 'I once saw a true curse. ', 'one time, I was part of a real curse. '].seededrandom() + miracleGiver + ', ' + [falseBelief].seededrandom() + ' ' + curse
+        ].seededrandom()
+      },
+      miracleGiver: [
+        'This old man had told us that he was the physical aspect of a deity and that he could prove it',
+        'An old woman once came into town claiming to be a god and told us she had cast a miracle on our town',
+        'A man stumbled into town claiming to be sent from a god and told us we were being blessed',
+        'My town was told by a passing prophet that a miracle was coming',
+        'My friends and I once came upon a snake who was trapped beneath a rock and we helped it out. The snake spoke to us and said a miracle would befall us soon'
+      ],
+      trueBelief: [
+        'and we all rejoiced.',
+        'and we were all a little skeptical at first.',
+        'but I was the only believer.',
+        'and some of us believed them.',
+        'and we were all very excited.',
+        'and the among believers us cried out in celebration.'
+      ],
+      falseBelief: [
+        'but one of us did not believe them.',
+        'but nobody believed them.',
+        'and I was the only one who did not believe them.',
+        'but nobody paid attention to them.',
+        'but some thought this to be blasphemy.',
+        'but my friend did not believe them.'
+      ],
+      miracle: [
+        'The next day all of the water in our well had been turned to mead.',
+        'That year we had the most plentiful harvest we had ever seen!',
+        'The next week, everyone in town had sprouted long thick beards, even the women!',
+        'For the next year we had a huge economic boom in our town.',
+        'The next day all of the sick and cripple in our town were suddenly cured of all their ailments!',
+        'That night silver rained down from the sky!',
+        'All who believed woke up to find a gold piece under their pillow!',
+        'The next day our town leader recovered from an illness we thought for sure would take their life.',
+        'Not long after that a band of adventurers came to our town and saved us from a terrible monster!',
+        'A month later all the rats in town were gone.',
+        'Overnight a statue of an unknown god appeared in the center of town.'
+      ],
+      curse: [
+        'The next morning all the town water had been turned to mud.',
+        'The next month the town granary burned to the ground.',
+        'The next day all the non-believers found all their savings missing.',
+        'That year all the town crops rotted in the fields.',
+        'The next morning all the town livestock were found dead.',
+        'That night the lost souls of our town rose from the dead and ransacked us.'
+      ]
     },
     war: {
       probability: 5,
@@ -355,7 +885,8 @@ setup.npcData = {
           'there was a small skirmish with a rivaling faction that I was drafted into.',
           'there was a small war between a rival lord that I was forced to take part with.',
           'there were some goblin raids which I had to defend my town from.',
-          'there was a pretty nasty zombie outbreak which I had to defend my town against.'
+          'there was a pretty nasty zombie outbreak which I had to defend my town against.',
+          'there was a civil war within the town that I fought in.'
         ].seededrandom()
         let warResults
         let warDescription
@@ -379,19 +910,21 @@ setup.npcData = {
       }
     },
     crime: {
-      probability: 5,
+      probability: 10,
       exclusions (town, npc) {
-        return true
+        if (setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60) {
+          return true
+        }
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
-        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting'].seededrandom()
+        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband '].seededrandom()
         const crimeRoll = random(1, 12)
         let crimeReadout
         if (crimeRoll >= 9) {
           crimeReadout = 'I was caught and convicted of ' + crime + ', and spent ' + random(1, 4) + ' years ' + ['in jail', 'chained to an oar', 'doing hard labour'].seededrandom() + ' before ' + ['being released.', 'managing to escape.'].seededrandom()
         } else if (crimeRoll >= 7) {
-          crimeReadout = 'I was nearly caught and convicted in the middle of a ' + crime + ', but managed to escape. They are still after me, though.'
+          crimeReadout = 'I was nearly caught and convicted in the middle of ' + crime + ', but managed to escape. They are still after me, though.'
         } else if (crimeRoll >= 4) {
           crimeReadout = 'I was caught aiding and abetting the crime of ' + crime + ', but due to ' + ['being forced to do it against my will', 'my amazing lawyer', 'being under a spell'].seededrandom() + ', I was found not guilty.'
         } else {
@@ -408,11 +941,14 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
-          'I once saw a demon!',
-          'I once saw a powerful wizard enchanting a weapon.',
-          'I once got caught in the cross-fires between two dueling wizards.',
-          'I had a mishap with a charm spell- an old friend tried to force me to hand over all my money, but I luckily managed to resist the spell.',
-          'I once drank a really strong potion- I swear to god, I could taste colours!'
+          'I saw a demon I swear on my life! ' + ['', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
+          'I once saw a powerful wizard ' + [['enchanting', 'disenchanting', 'cursing'].seededrandom() + ' a ' + ['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].seededrandom() + '.',
+            'casting a ' + ['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].seededrandom() + ' ' + ['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].seededrandom() + ' spell.',
+            'riding on the back of a ' + ['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].seededrandom()].seededrandom(),
+          'I once ' + ['got caught in the cross-fires between two dueling', 'witnessed a battle between two', 'fought in a battle against', 'had my home destroyed by', 'settled down near a temple of'].seededrandom() + ' ' + ['wizards', 'dragons', 'demons', 'witches', 'warlocks', 'necromancers', 'minor gods', 'magical beings'].seededrandom() + '.',
+          'I had a mishap with ' + ['a charm', 'an illusion', 'a mind control'].seededrandom() + ' spell- ' + ['an old friend', 'an enemy', 'a dear friend', 'a family member', 'someone I thought of as family', 'an old rival', 'a rival of mine'].seededrandom() + ' ' + ['tried to force me to hand over all my money', 'tried to take my family heirloom', 'tried to steal my fortune', 'tried to force me to give up my ancient relic', 'tried to fool me into giving up my title'].seededrandom() + ', ' + ['but I luckily managed to resist the spell.', 'but their spell failed', 'and sadly it worked', 'and I failed to resist the spell', 'but they were eventually caught by some brave adventurers', 'and I have been searching for them ever since'].seededrandom() + '.',
+          'I once drank a ' + ['really strong', 'crazy strong', 'strong', 'pretty weak', 'kind of weak', 'fairly average', 'powerful', 'rather diluted'].seededrandom() + ' potion- ' + ['I swear to god, I could taste colours!', 'my hair was standing on end!', 'my skin turned bright ' + ['red', 'purple', 'white', 'yellow', 'green', 'orange', 'pink', 'blue', 'violet'].seededrandom() + ' for several days.', 'I grew a thick bushy beard in a few hours!', 'it sent me into a comma for weeks.', 'everyone thought I was attractive for the rest of the day.', 'it made my nose glow in the dark for a week!'].seededrandom(),
+          'I once found a cursed book. The book ' + ['kills all who who read it', 'turned the reader blind', "retold the reader's life but with a horrible twist ending", 'sucked the reader in to a nightmarish world', 'was alive and had gnarled teeth to bite anyone who dared to open it', 'forced you to see the dead'].seededrandom() + '.'
         ].seededrandom()
       }
     },
@@ -424,7 +960,7 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.weirdStuff function')
         return [
-          'I came across a genie, but squandered the wish on an ex lover.',
+          'I came across a genie, ' + ['but squandered the wish on an ex lover', 'but wasted the wish on the perfect sandwich', 'and used my wish to set him free', 'and used my wish to bring prosperity to my town', 'and used my wish to curse a rival', 'but never used my wishes'].seededrandom() + '.',
           'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.',
           'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].seededrandom() + ' and lived to tell the tale.',
           'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.',
@@ -504,7 +1040,7 @@ setup.npcData = {
   'stressTrait': ['withdrawn', 'murderous', 'obsessive', 'authoritarian', 'determined', 'brave', 'spiteful', 'belligerent', 'caustic', 'reckless', 'argumentative', 'gluttonous', 'overly protective', 'angry', 'cowardly', 'meticulous', 'sarcastic', 'stubborn', 'destructive', 'practical', 'pushy', 'fanatical', 'secretive', 'scornful', 'courageous', 'impractical', 'calculating', 'industrious', 'manipulative', 'destructive', 'compulsive', 'intolerant'],
   'adventure': ['retired from adventuring', 'currently looking for an adventure', 'looking for assistance', 'recuperating from an adventure', 'on a holiday from adventuring', 'taking a short break from adventuring'],
   'hairColour': ['brunette', 'brunette', 'brown', 'brownish', 'auburn', 'amber', 'hazel', 'red', 'dark red', 'blonde', 'dark blonde', 'white', 'platinum', 'black', 'black'],
-  'hairType': ['thick', 'wispy', 'straight', 'straight', 'wavy', 'wavy', 'curly', 'wiry', 'oily', 'lush', 'poofy', 'long', 'braided', 'very long', 'greasy', 'unruly', 'unusually styled', 'short cropped hair'],
+  'hairType': ['thick', 'wispy', 'straight', 'straight', 'wavy', 'wavy', 'curly', 'wiry', 'oily', 'lush', 'poofy', 'long', 'braided', 'very long', 'greasy', 'unruly', 'unusually styled', 'short cropped'],
   'dndClass': ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'],
   'background': ['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'],
   'pockets': ['5 cp', '6 cp', '15 cp', '22 cp', '27 cp', '5 sp', '5 sp', '6 sp', '7 sp', '2 gp', '34 cp and 4 sp', '12 sp and 7 gp', 'a clove of garlic', 'a vial of ink worth 8sp', 'hardtack', 'an explosive rune, dealing 2d4 fire damage', 'a palm-sized glass sphere', 'a wooden comb', 'fragments of a shattered sword', 'a deck of tarot cards', 'map of a nearby castle', 'map of the local area', 'a tin spoon', 'a mess kit', 'lacy undergarments', 'spectacles worth 5gp', 'a spool of thread', 'a piece of chalk', 'a necklace of animal teeth', "a headhunter's contract", 'a list of people in a nearby city', 'a worn leather strap', 'a ring of iron keys', 'a flask full of salt water', 'a box of candles', 'a vial of quicksilver', "a traveller's journal", 'a lead amulet', 'a signet ring for a noble house', 'a list of local taverns', 'a golden yellow topaz gem worth 50gp', 'a page torn from a spellbook', 'scraps of bad poetry', 'a pair of bloodstained gloves', 'thirteen mouse teeth', 'a pouch full of dried berries', 'an invitation to a wedding that happened a few weeks ago', 'a brass ring', 'a shopping list', 'the cork from a wine bottle', 'a scrap of paper with uninteligible writing on it', 'a smoking pipe', 'a pouch of ruby powder', 'a deed to a ruined tower', 'a bottle of honey', 'a sling with 10 bullets', 'a broken buckle', 'a knot of silk ribbons', 'a silver pearl worth 10gp', 'a potion of Polymorph Self worth 350gp', '1pp wrapped in a crude map', 'pocket sand', 'a wedge of cheese', 'a string of wooden prayer beads', 'a lock of hair', 'a dead mouse', 'a compass', 'an empty flask', '85gp', 'three diamonds worth 30gp each', 'a black pearl worth 50gp', 'a black opal worth 100gp'],

@@ -6,7 +6,7 @@ setup.findProfession = function (town, npc, profession) {
     return setup.townData.professions[profession]
   } else {
     console.log('could not find it. Looking for synonyms...')
-    let find = setup.findInContainer(setup.townData.professions, 'synonyms', profession)
+    const find = setup.findInContainer(setup.townData.professions, 'synonyms', profession)
     if (typeof find !== 'undefined') {
       return find
     } else {
