@@ -23,31 +23,25 @@ html {
   margin: 0;
 }
 
-
 #app {
   display: flex;
   height: 100vh;
 }
 
-.content,
-.sidebar {
+.sidebar,
+.content {
   display: flex;
   justify-content: center;
-}
-
-.content {
-  flex: 1;
-  padding: 1.5em;
-  overflow: auto;
 }
 
 .sidebar {
   flex-basis: 17.5em;
   padding: 1.5em;
   background: #eee;
-  border: 1px solid #ccc;
+  border-right: 1px solid #bbb;
   text-align: center;
   overflow: auto;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1)
 }
 
 .sidebar .title {
@@ -56,12 +50,17 @@ html {
 }
 
 .sidebar .title h1 {
+  margin: 0;
   font-size: 1.65em;
 }
 
-.sidebar .author {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 20em;
+.sidebar .author > * {
+  display: block;
+  margin: 1em 0;
+}
+
+.content {
+  flex: 1;
+  padding: 1.5em;
+  overflow: auto;
 }
