@@ -1,9 +1,5 @@
 {
-  "extends": ["standard", "plugin:react/recommended"],
-  "env": {
-    "browser": true,
-    "jest": true
-  },
+  "extends": ["react-app", "standard"],
   "globals": {
     "setup": true,
     "random": true,
@@ -15,7 +11,6 @@
   "rules": {
     "no-var": "warn",
     "prefer-const": "warn",
-    "object-shorthand": ["warn", "always"],
-    "react/prop-types": "off"
+    "object-shorthand": ["warn", "always"]
   }
 }
