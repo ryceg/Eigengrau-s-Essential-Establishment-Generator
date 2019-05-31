@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^5.2.1",
+    "@dvhb/craco-extend-scope": "^1.0.1",
     "craco-plugin-react-hot-reload": "^0.0.3",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",

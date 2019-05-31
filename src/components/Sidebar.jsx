@@ -1,11 +1,28 @@
 import React from 'react'
+import patreon from '../../EssentialEstablishmentGenerator/Resources/patreonbutton.png'
+import kofi from '../../EssentialEstablishmentGenerator/Resources/kofi.png'
 
 /**
  * The navigation menu.
  * @type {React.FC}
  */
-const Sidebar = ({ children }) => {
-  return <aside className="sidebar">{children}</aside>
+const Sidebar = () => {
+  return (
+    <aside className="sidebar">
+      <header className="title" role="banner">
+        <h1>Eigengrau's Generator</h1>
+        <section className="author">
+          <span>Created by /u/rcgy</span>
+          <a href="https://discord.gg/A543VC5">
+            <img src={patreon} alt="patreon button" />
+          </a>
+          <a href="https://ko-fi.com/Q5Q8O5AA">
+            <img src={kofi} alt="ko-fi button" />
+          </a>
+        </section>
+      </header>
+    </aside>
+  )
 }
 
 export default Sidebar

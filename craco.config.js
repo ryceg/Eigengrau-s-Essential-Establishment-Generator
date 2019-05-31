@@ -1,9 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
 const craco = require('@craco/craco')
+const cracoExtendScope = require('@dvhb/craco-extend-scope')
 const merge = require('webpack-merge')
 
 module.exports = {
+  plugins: [
+    {
+      plugin: cracoExtendScope,
+      options: { path: '' }
+    }
+  ],
   eslint: {
     mode: 'file'
   },

@@ -23,6 +23,7 @@ html {
   margin: 0;
 }
 
+
 #app {
   display: flex;
   height: 100vh;
@@ -45,5 +46,22 @@ html {
   padding: 1.5em;
   background: #eee;
   border: 1px solid #ccc;
+  text-align: center;
   overflow: auto;
+}
+
+.sidebar .title {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .title h1 {
+  font-size: 1.65em;
+}
+
+.sidebar .author {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20em;
 }
