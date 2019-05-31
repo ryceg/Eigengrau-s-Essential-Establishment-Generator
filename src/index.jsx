@@ -1,5 +1,4 @@
 import 'react-hot-loader'
-import './index.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -19,3 +18,6 @@ requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.css$/
 requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.tw(ee)?$/))
 
 ReactDOM.render(<App>Hello!</App>, document.getElementById('app'))
+
+// eslint-disable-next-line import/first
+import './index.css'
