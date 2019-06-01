@@ -2776,7 +2776,12 @@ setup.npcData = {
         'thin ruddy cheeks',
         'pale, sunken cheeks',
         'freckled cheeks',
-        'a freckled face'
+        'large buck teeth',
+        'teeth like a beaver',
+        'teeth like a horse',
+        'a large gap between the two front teeth',
+        'an underbite',
+        'an overbite'
       ],
       // covers chin, jaw, and neck
       chin: [
@@ -2852,6 +2857,7 @@ setup.npcData = {
         'a desnely pockmarked face',
         'an incredibly freckly face',
         'a face covered in freckles',
+        'a well freckled face',
         'a rather angular face',
         'a soft rounded face',
         'a friendly looking face',
@@ -2868,6 +2874,42 @@ setup.npcData = {
         'a flabby face',
         'a youthful looking face'
       ]
+    },
+    torso: {
+      descriptions: [
+        'a hunched back',
+        'an incredibly large hunch',
+        'very broad shoulders',
+        'incredibly broad shoulders',
+        'quite broad shoulders',
+        'narrow shoulders',
+        'quite rounded shoulders',
+        'terrible posture',
+        'perfect posture',
+        'a large barrel chest',
+        'a barrel chest',
+        'very bony shoulders',
+        'wide set shoulders',
+        'a sunken chest',
+        'a wide ribcage',
+        'a narrow ribcage',
+        'a very narrow waist',
+        'a rather wide waist',
+        'a distended stomach',
+        'rather drooped shoulders',
+        'strong, square shoulders',
+        'broad, powerful shoulders',
+        'very pronounced collar bones',
+        'wide, bony hips',
+        'very narrows hips',
+        'very wide set hips'
+      ]
+    },
+    arms: {
+
+    },
+    legs: {
+
     }
   }
 }
