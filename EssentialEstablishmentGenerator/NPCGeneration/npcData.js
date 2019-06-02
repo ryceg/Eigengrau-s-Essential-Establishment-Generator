@@ -2902,11 +2902,41 @@ setup.npcData = {
         'very pronounced collar bones',
         'wide, bony hips',
         'very narrows hips',
-        'very wide set hips'
+        'very wide set hips',
+        'a misshapen ribcage'
       ]
     },
     arms: {
-
+      description: [
+        'long, gangly arms',
+        'quite short arms',
+        'arms like a gorilla',
+        'long, spindly fingers',
+        'short, stubby arms',
+        'short, stubby fingers',
+        'child-sized hands',
+        'very hairy forearms',
+        'incredibly veiny arms',
+        'swollen, red knuckles',
+        'quite bony elbows',
+        'fingers like sausages',
+        'heavily calloused hands',
+        'fingernails cut to the quick',
+        'long, brittle fingernails',
+        'colorfully painted nails',
+        'talon-like nails',
+        'nails sharpened to a point',
+        'neatly trimmed fingernails',
+        'small webs between each finger',
+        'long, elegant fingers',
+        'rough, cracked hands',
+        'large swollen knuckles',
+        'impossibly enormous hands',
+        'very muscular hands',
+        'quite muscular arms',
+        'grimy looking fingernails',
+        'yellow-ish fingernails'
+      ]
     },
     legs: {
 
