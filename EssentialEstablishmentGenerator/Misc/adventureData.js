@@ -37,8 +37,8 @@ setup.adventure = {
     console.log(adventure)
     return adventure
   },
-  'location': {
-    'dungeon': {
+  location: {
+    dungeon: {
       "stop the dungeon's monstrous inhabitants from raiding the surface world." (town, adventure) {
         return "stop the dungeon's monstrous inhabitants from raiding the surface world."
       },
@@ -109,7 +109,7 @@ setup.adventure = {
         return 'hide from a threat outside the dungeon.'
       }
     },
-    'wilderness': {
+    wilderness: {
       'assess the scope of a natural or unnatural disaster.' (town, adventure) {
         return ''
       },
@@ -183,7 +183,7 @@ setup.adventure = {
         return ''
       }
     },
-    'other': {
+    other: {
       'seize control of a fortified location such as a fortress, town, or ship.' (town, adventure) {
         return 'seize control of a fortified location such as a fortress, town, or ship.'
       },
@@ -224,7 +224,7 @@ setup.adventure = {
       }
     }
   },
-  'introduction': [
+  introduction: [
     'While traveling in the wilderness, the characters fall into a sinkhole that opens beneath their feet, dropping them into the adventure location.',
     'While traveling in the wilderness, the characters notice the entrance to the adventure location.',
     'While traveling on a road, the characters are attacked by monsters that flee into the nearby adventure location.',
@@ -238,7 +238,7 @@ setup.adventure = {
     'One night, the characters all dream about entering the adventure location.',
     'A ghost appears and terrorizes a village. Research reveals that it can be put to rest only by entering the adventure location.'
   ],
-  'climax': [
+  climax: [
     'The adventurers confront $adventure.villain.name and a group of minions in a bloody battle to the finish.',
     "The adventurers chase $adventure.villain.name while dodging obstacles designed to thwart them, leading to a final confrontation in or outside $adventure.villain.firstName's refuge",
     'The actions of the adventurers or $adventure.villain.name result in a cataclysmic even that the adventurers must escape',
@@ -252,7 +252,7 @@ setup.adventure = {
     'The adventurers must choose whether to pursue the fleeing $adventure.villain.name or save an NPC they care about or a group of innocents. ',
     "The adventurers must discover $adventure.villain.firstName's secret weakness before they can hope to defeat $adventure.villain.himher"
   ],
-  'otherGoal': [
+  otherGoal: [
     'Bring $adventure.villain.name to justice.',
     'Clear the name of an innocent NPC.',
     'Protect or hide an NPC.',
@@ -273,13 +273,13 @@ setup.adventure = {
     'Locate a stolen item.',
     'Make sure a wedding goes off without a hitch.'
   ],
-  'backdrop': [
+  backdrop: [
     "anniversary of a monarch's reign", 'anniversary of an important event', 'arena event', 'arrival of a caravan or ship', 'arrival of a circus', 'arrival of an important npc', 'arrival of marching modrons', 'artistic performance', 'athletic event', 'birth of a child', 'birthday of an important npc', 'civic festival', 'comet appearance', 'commemoration of a past tragedy', 'consecration of a new temple', 'coronation', 'council meeting', 'equinox or solstice', 'execution', 'fertility festival', 'full moon', 'funeral', 'graduation of cadets or wizards', 'harvest festival', 'holy day', 'investiture of a knight or other noble', 'lunar eclipse', 'midsummer festival', 'midwinter festival', 'migration of monsters', "monarch's ball", 'new moon', 'new year', 'pardoning of a prisoner', 'planar conjunction', 'planetary alignment', 'priestly investiture', 'procession of ghosts', 'remembrance for soldiers lost in war', 'royal address or proclamation', 'royal audience day', 'signing of a treaty', 'solar eclipse', 'tournament', 'trial', 'violent uprising', 'wedding or wedding anniversary'
   ],
-  'quandary': [
+  quandary: [
     'Ally quandary', 'Friend quandary', 'Honor quandary', 'Rescue quandary', 'Respect quandary'
   ],
-  'twist': [
+  twist: [
     'The adventurers are racing against other creatures with the same or opposite goal.',
     'The adventurers become responsible for the safety of a noncombatant NPC.',
     'The adventurers are prohibited from killing $adventure.villain.name, but $adventure.villain.heshe has no compunctions about killing them.',
@@ -291,8 +291,8 @@ setup.adventure = {
     'The adventurers must cooperate with a known enemy to achieve the goal.',
     'The adventurers are under magical compulsion (such as a geas spell) to complete their goal'
   ],
-  'villainActions': ['by doing one big event', 'by a crime spree', 'by growing corruption throughout the land', 'by serial crimes', 'step by step'],
-  'sidequest': {
+  villainActions: ['by doing one big event', 'by a crime spree', 'by growing corruption throughout the land', 'by serial crimes', 'step by step'],
+  sidequest: {
     'find a specific item rumored to be in the area.' (town, adventure) {
       return 'find a specific item rumored to be in the area.'
     },
@@ -332,7 +332,7 @@ setup.adventure = {
     }
 
   },
-  'patron': {
+  patron: {
     'retired adventurer': {
       // var npc = setup.createNPC({
       isThrowaway: true,
@@ -443,7 +443,7 @@ setup.adventure = {
       // return setup.profile(npc, 'villain posing as a patron')
     }
   },
-  'ally': {
+  ally: {
     'skilled adventurer': {
       // var npc = setup.createNPC(town, {
       hasClass: true,
@@ -535,7 +535,7 @@ setup.adventure = {
       // return setup.profile(npc, 'villain') + ' posing as an ally'
     }
   },
-  'villain': {
+  villain: {
     'beast or monstrosity with no particular agenda' (town, adventure) {
       adventure.villain = {
         himher: 'it',
