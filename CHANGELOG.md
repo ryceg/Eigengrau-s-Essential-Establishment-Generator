@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Generate a crewmember function for ships
 - Riddles
 - Druid and Clergy factions
+- Over 100 new prefixes and suffixes for town name generation
 
 ### Changed
 
@@ -34,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Market vendors no longer persist between different markets
 - Minor UI tweaks
 - Minor temple readout reformat
+- Minor Brothel readout reformat
 
 ### Removed
 
