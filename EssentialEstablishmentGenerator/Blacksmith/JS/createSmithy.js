@@ -1,7 +1,7 @@
 
 setup.createSmithy = function (town, opts) {
   opts = opts || {}
-  let smithy = (opts['newBuilding'] || setup.createBuilding)(town, 'smithy')
+  const smithy = (opts['newBuilding'] || setup.createBuilding)(town, 'smithy')
   console.groupCollapsed('Smithy loading...')
   smithy.blacksmith = setup.createBlacksmith(town, smithy)
   setup.createSmithyName(town, smithy)
@@ -13,7 +13,6 @@ setup.createSmithy = function (town, opts) {
     associatedTown: town.name,
     weapons: ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick'],
     mundane: ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
-    // id: Math.floor(randomFloat(1) * 0x10000)
   })
   smithy.wealth = ''
   smithy.size = ''
@@ -21,7 +20,7 @@ setup.createSmithy = function (town, opts) {
   smithy.expertise = ''
   smithy.activity = ''
 
-  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']
+  const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(smithy, setup.smithy.rollData, propName)
   })
