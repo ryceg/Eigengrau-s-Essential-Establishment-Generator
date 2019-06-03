@@ -1,6 +1,6 @@
 import { createAlchemist } from './js/createAlchemist'
-import story from '../../src/engine/story'
+import { set, get } from '../../src/engine/story'
 
 export function Alchemist () {
-  story.set('alchemist', createAlchemist(story.get('town')))
+  set('alchemist', createAlchemist(get('town')))
 }
