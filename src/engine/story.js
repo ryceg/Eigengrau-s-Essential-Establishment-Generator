@@ -2,15 +2,15 @@
  * Stores the story state.
  * @type {Object.<string, any>}
  */
-const state = {}
+const story = {}
 
 /**
  * Gets a value from the story.
  * @param {string} name
  */
 export function get (name) {
-  if (name in state) {
-    return state[name]
+  if (name in story) {
+    return story[name]
   }
   throw new ReferenceError(`The variable ${name} does not exist.`)
 }
@@ -21,5 +21,16 @@ export function get (name) {
  * @param {any} value
  */
 export function set (name, value) {
-  state[name] = value
+  story[name] = value
+}
+
+/**
+ * Removes a value from the story.
+ * @param {string} name
+ */
+export function unset (name) {
+  if (name in story) {
+    delete story[name]
+  }
+  throw new ReferenceError(`The variable ${name} does not exist.`)
 }
