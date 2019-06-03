@@ -1,0 +1,24 @@
+/*
+ * Used to normalize css across browsers
+ * (Special command from create-react-app)
+ */
+@import-normalize;
+
+/*
+ * Use box-sizing in the whole document.
+ * https://css-tricks.com/box-sizing/
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+
+  /* Reset all margins and paddings. */
+  padding: 0;
+  margin: 0;
+}

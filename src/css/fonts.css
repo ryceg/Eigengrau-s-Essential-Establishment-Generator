@@ -1,0 +1,117 @@
+/*
+ * DnD Fonts
+ * https://github.com/jonathonf/solbera-dnd-fonts
+ * "This is every font used in base 5th Edition, free of all restrictions."
+ * "This contains contains 22 Fonts in 7 Families."
+ * "They Have Unique Names Based on the Original Fonts Name."
+ */
+
+@font-face {
+  font-family: "Bookinsanity Bold Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Bookinsanity Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Bookinsanity Bold";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Bookinsanity Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Bookinsanity Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Bookinsanity Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Bookinsanity";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Bookinsanity.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Mr Eaves Small Caps";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Mr Eaves Small Caps.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Nodesto Caps Condensed Bold Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Nodesto Caps Condensed Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Nodesto Caps Condensed Bold";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Nodesto Caps Condensed Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Nodesto Caps Condensed Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Nodesto Caps Condensed Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Nodesto Caps Condensed";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Nodesto Caps Condensed.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Bold Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Bold";
+  src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Caps Bold Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Caps Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Caps Bold";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Caps Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Caps Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Caps Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Caps";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Caps.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Scaly Sans";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Scaly Sans.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Solbera Imitation";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Solbera Imitation.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Zatanna Misdirection Bold Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Zatanna Misdirection Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Zatanna Misdirection Bold";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Zatanna Misdirection Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Zatanna Misdirection Italic";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Zatanna Misdirection Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Zatanna Misdirection";
+	src: url("../../EssentialEstablishmentGenerator/Resources/Fonts/Zatanna Misdirection.otf") format("opentype");
+}

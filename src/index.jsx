@@ -20,4 +20,8 @@ requireAll(require.context('../EssentialEstablishmentGenerator/', true, /\.tw(ee
 ReactDOM.render(<App>Hello!</App>, document.getElementById('app'))
 
 // eslint-disable-next-line import/first
+import './css/reset.css'
+// eslint-disable-next-line import/first
+import './css/fonts.css'
+// eslint-disable-next-line import/first
 import './index.css'
