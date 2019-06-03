@@ -22,3 +22,12 @@ export function random (max) {
 export function randomRange (min, max) {
   return seeded.integerInRange(min, max)
 }
+
+/**
+ * Returns a random value from an array.
+ * @template T
+ * @param {T[]} array
+ */
+export function randomValue (array) {
+  return array[seeded.integerInRange(0, array.length - 1)]
+}

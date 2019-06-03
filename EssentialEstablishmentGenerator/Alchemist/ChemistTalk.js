@@ -1,5 +1,5 @@
-const random = array => {}
-const either = array => {}
+import { randomValue } from '../../src/engine/rolls'
+
 const linkappend = (title, text) => {}
 
 export function ChemistTalk (story) {
@@ -7,5 +7,5 @@ export function ChemistTalk (story) {
 
   const inspectBrew = `Looking inside the ${brew.vesselType}, you see a ${brew.liquidDescription} bubbling away`
 
-  return `${chemist.firstName} looks ${random(chemist.currentMood)}, and idly shifts a box of ${either(chemist.ingredients)} as ${chemist.heshe} talks. The ${chemist.raceNote} ${random(chemist.chitchat)} as you peruse the shop. ${chemist.firstName} tells you that ${chemist.heshe} is working on a ${brew.potionPurpose}, and points to the ${linkappend(`${brew.containerDescription}.`, inspectBrew)}.`
+  return `${chemist.firstName} looks ${randomValue(chemist.currentMood)}, and idly shifts a box of ${randomValue(chemist.ingredients)} as ${chemist.heshe} talks. The ${chemist.raceNote} ${randomValue(chemist.chitchat)} as you peruse the shop. ${chemist.firstName} tells you that ${chemist.heshe} is working on a ${brew.potionPurpose}, and points to the ${linkappend(`${brew.containerDescription}.`, inspectBrew)}.`
 }
