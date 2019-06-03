@@ -1,8 +1,6 @@
-const createAlchemist = town => {}
+import { createAlchemist } from './js/createAlchemist'
+import story from '../../src/engine/story'
 
-/**
- * @param {*} story - Holds all shared story information.
- */
-export function Alchemist (story) {
-  story.alchemist = createAlchemist(story.town)
+export function Alchemist () {
+  story.set('alchemist', createAlchemist(story.get('town')))
 }
