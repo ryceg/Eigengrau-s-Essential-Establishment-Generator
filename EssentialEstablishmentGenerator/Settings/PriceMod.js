@@ -1,18 +1,19 @@
+/* eslint-disable no-undef */
 setup.getPriceMod = function () {
   if (tags().length === 0) {
-    return 0
+    return 1
   }
 
-  var locations = ['blacksmith', 'tavern', 'alchemist', 'GeneralStore', 'docks', 'smithy']
-  var loc = tags().find(function (tag) {
+  const locations = ['blacksmith', 'tavern', 'alchemist', 'GeneralStore', 'docks', 'smithy']
+  const loc = tags().find(function (tag) {
     return locations.includes(tag)
   })
 
   if (!loc) {
-    return 0
+    return 1
   }
 
-  var V = State.variables
+  const V = State.variables
 
-  return Number(V[loc].priceModifier + 'e-2') || 0
+  return Number(V[loc].priceModifier + 'e-2') || 1
 }
