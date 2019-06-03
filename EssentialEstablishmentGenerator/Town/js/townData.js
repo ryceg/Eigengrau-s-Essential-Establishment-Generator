@@ -1,16 +1,25 @@
 setup.townData = {
   ...(setup.townData || {}),
-  'name': {
-    'prefix': ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
-    'suffix': ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
+  name: {
+    prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
+    suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
   },
   // Prefixes and Suffixes for the road names of the town
-  'roads': {
-    'name': ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'],
-    'type': ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row', 'Avenue', 'Alley', 'Drive', 'Boulevard', 'Plaza']
+  roads: {
+    name: ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'],
+    type: ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row', 'Avenue', 'Alley', 'Drive', 'Boulevard', 'Plaza']
   },
-  'rollData': {
-    'wealth': [
+  livingStandards: [
+    [1000, 'aristocratic'],
+    [400, 'wealthy'],
+    [200, 'comfortable'],
+    [100, 'modest'],
+    [20, 'poor'],
+    [10, 'squalid'],
+    [0, 'wretched']
+  ],
+  rollData: {
+    wealth: [
       [95, 'kingly'],
       [80, 'aristocratic'],
       [70, 'wealthy'],
@@ -19,6 +28,18 @@ setup.townData = {
       [25, 'poor'],
       [15, 'squalid'],
       [0, 'destitute']
+    ],
+    equality: [
+      [95, 'It is overwhelmingly patriarchal.'],
+      [80, 'It is a patriarchal society.'],
+      [70, 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
+      [60, 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
+      [50, "Gender is irrelevant to one's place in society here."],
+      [40, 'Femininity is celebrated, and women enjoy equal opportunities here.'],
+      [30, 'Women have cooler heads than men, and are therefore the heads of households here.'],
+      [20, 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
+      [10, 'This is a matriarchal society.'],
+      [0, 'It is overwhelmingly matriarchal.']
     ]
     // 'economics': [
     //   [90, 'Trade in ' + this.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + this.name + ' are high.'],
@@ -32,10 +53,10 @@ setup.townData = {
     //   [0, 'Caveat emptor is the guiding philosophy of ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. Without any taxes or regulations, the free market reigns supreme here.']
     // ]
   },
-  'type': {
+  type: {
     // This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
-    'hamlet': {
-      'demographic': {
+    hamlet: {
+      demographic: {
         // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 2),
         'dwarf': randomFloat(1, 10),
@@ -47,21 +68,21 @@ setup.townData = {
         'human': randomFloat(85, 95),
         'tiefling': randomFloat(1, 2)
       },
-      'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
-      'politicalSource': ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
-      'population': function () { return random(30, 300) },
-      'startFactionsNumber': function () { return [1, 1, 1, 1, 1, 2].seededrandom() },
+      economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
+      politicalSource: ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      'population' () { return random(30, 300) },
+      'startFactionsNumber' () { return [1, 1, 1, 1, 1, 2].seededrandom() },
       // roadDuplication: d100 of whether to create a new road (new one if under).
-      'roadDuplication': 40,
-      'modifiers': {
-        'wealth': -20,
-        'reputation': -40,
-        'sin': -25,
-        'diversity': -20
+      roadDuplication: 40,
+      modifiers: {
+        wealth: -20,
+        reputation: -40,
+        sin: -25,
+        diversity: -20
       }
     },
-    'village': {
-      'demographic': {
+    village: {
+      demographic: {
         // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 2),
         'dwarf': randomFloat(1, 10),
@@ -73,20 +94,20 @@ setup.townData = {
         'human': randomFloat(85, 95),
         'tiefling': randomFloat(1, 2)
       },
-      'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
-      'politicalSource': ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
-      'population': function () { return random(301, 1000) },
-      'startFactionsNumber': function () { return [1, 1, 1, 2, 2, 2].seededrandom() },
-      'roadDuplication': 50,
-      'modifiers': {
-        'wealth': -10,
-        'reputation': -20,
-        'sin': -15,
-        'diversity': 10
+      economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
+      politicalSource: ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      'population' () { return random(301, 1000) },
+      'startFactionsNumber' () { return [1, 1, 1, 2, 2, 2].seededrandom() },
+      roadDuplication: 50,
+      modifiers: {
+        wealth: -10,
+        reputation: -20,
+        sin: -15,
+        diversity: 10
       }
     },
-    'town': {
-      'demographic': {
+    town: {
+      demographic: {
         // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 2),
         'dwarf': randomFloat(1, 15),
@@ -98,20 +119,20 @@ setup.townData = {
         'human': randomFloat(75, 95),
         'tiefling': randomFloat(1, 2)
       },
-      'economicIdeology': ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
-      'politicalSource': ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
-      'population': function () { return random(1001, 3000) },
-      'startFactionsNumber': function () { return [1, 1, 2, 2, 2, 3, 3].seededrandom() },
-      'roadDuplication': 70,
-      'modifiers': {
-        'wealth': 15,
-        'reputation': 5,
-        'sin': 5,
-        'diversity': 15
+      economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
+      politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      'population' () { return random(1001, 3000) },
+      'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3].seededrandom() },
+      roadDuplication: 70,
+      modifiers: {
+        wealth: 15,
+        reputation: 5,
+        sin: 5,
+        diversity: 15
       }
     },
-    'city': {
-      'demographic': {
+    city: {
+      demographic: {
         // demographics must be in alphabetical order until I fix it to not be buggy
         'dragonborn': randomFloat(1, 4),
         'dwarf': randomFloat(1, 20),
@@ -123,358 +144,358 @@ setup.townData = {
         'human': randomFloat(70, 95),
         'tiefling': randomFloat(1, 2)
       },
-      'economicIdeology': ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
-      'politicalSource': ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
-      'population': function () { return random(3001, 6000) },
-      'startFactionsNumber': function () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].seededrandom() },
-      'roadDuplication': 90,
-      'modifiers': {
-        'wealth': 5,
-        'reputation': 20,
-        'sin': 25,
-        'diversity': 25
+      economicIdeology: ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
+      politicalSource: ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      'population' () { return random(3001, 6000) },
+      'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].seededrandom() },
+      roadDuplication: 90,
+      modifiers: {
+        wealth: 5,
+        reputation: 20,
+        sin: 25,
+        diversity: 25
       }
     }
   },
-  'economicIdeology': {
-    'feudalism': {
-      'modifiers': {
-        'economics': 15,
-        'welfare': -25,
-        'law': 15,
-        'military': 20
+  economicIdeology: {
+    feudalism: {
+      modifiers: {
+        economics: 15,
+        welfare: -25,
+        law: 15,
+        military: 20
       },
-      'descriptors': {
-        'economicIdeologyIC': 'feudalistic',
-        'economicIdeologyIST': 'feudalist',
-        'economicIdeologyDescription': "The people of $town.name work the land in exchange for working their lord's lands.",
-        'tippy': "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands."
+      descriptors: {
+        economicIdeologyIC: 'feudalistic',
+        economicIdeologyIST: 'feudalist',
+        economicIdeologyDescription: "The people of $town.name work the land in exchange for working their lord's lands.",
+        tippy: "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands."
       }
     },
-    'capitalism': {
-      'modifiers': {
-        'economics': -20,
-        'welfare': -25,
-        'law': 15,
-        'military': 20
+    capitalism: {
+      modifiers: {
+        economics: -20,
+        welfare: -25,
+        law: 15,
+        military: 20
       },
-      'descriptors': {
-        'economicIdeologyIC': 'capitalistic',
-        'economicIdeologyIST': 'capitalist',
-        'economicIdeologyDescription': 'The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.',
-        'tippy': 'Trade and industry are controlled by private owners for profit, rather than the state.'
+      descriptors: {
+        economicIdeologyIC: 'capitalistic',
+        economicIdeologyIST: 'capitalist',
+        economicIdeologyDescription: 'The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.',
+        tippy: 'Trade and industry are controlled by private owners for profit, rather than the state.'
       }
     },
-    'syndicalism': {
-      'modifiers': {
-        'economics': 35,
-        'welfare': 25,
-        'law': -15,
-        'military': -15
+    syndicalism: {
+      modifiers: {
+        economics: 35,
+        welfare: 25,
+        law: -15,
+        military: -15
       },
-      'descriptors': {
-        'economicIdeologyIC': 'syndicalistic',
-        'economicIdeologyIST': 'syndicalist',
-        'economicIdeologyDescription': 'The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.',
-        'tippy': 'The workers own the lands they work on collectively, and together benefit from its prosperity.'
+      descriptors: {
+        economicIdeologyIC: 'syndicalistic',
+        economicIdeologyIST: 'syndicalist',
+        economicIdeologyDescription: 'The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.',
+        tippy: 'The workers own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
-    'communism': {
-      'modifiers': {
-        'economics': 40,
-        'welfare': 30,
-        'law': -15,
-        'military': -30
+    communism: {
+      modifiers: {
+        economics: 40,
+        welfare: 30,
+        law: -15,
+        military: -30
       },
-      'descriptors': {
-        'economicIdeologyIC': 'communistic',
-        'economicIdeologyIST': 'communist',
-        'economicIdeologyDescription': 'The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
-        'tippy': 'People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
+      descriptors: {
+        economicIdeologyIC: 'communistic',
+        economicIdeologyIST: 'communist',
+        economicIdeologyDescription: 'The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
+        tippy: 'People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
-    'primitivism': {
-      'modifiers': {
-        'economics': 40,
-        'welfare': -25,
-        'law': -30,
-        'military': -30
+    primitivism: {
+      modifiers: {
+        economics: 40,
+        welfare: -25,
+        law: -30,
+        military: -30
       },
-      'descriptors': {
-        'economicIdeologyIC': 'primitivistic',
-        'economicIdeologyIST': 'primitivist',
-        'economicIdeologyDescription': "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
-        'tippy': 'There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.'
+      descriptors: {
+        economicIdeologyIC: 'primitivistic',
+        economicIdeologyIST: 'primitivist',
+        economicIdeologyDescription: "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
+        tippy: 'There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.'
       }
     }
   },
-  'politicalSource': {
+  politicalSource: {
     'absolute monarchy': {
-      'politicalIdeology': ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'autocracy': {
-        'politicalSourceDescription': "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
-        'description': 'The crown holds both supreme executive and judicial powers.'
+      politicalIdeology: ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      autocracy: {
+        politicalSourceDescription: "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
+        description: 'The crown holds both supreme executive and judicial powers.'
       },
-      'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
-        'description': 'The crown holds supreme judicial power, but the executive power is held by a parliamentary.'
+      default: {
+        politicalSourceDescription: '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        description: 'The crown holds supreme judicial power, but the executive power is held by a parliamentary.'
       }
     },
     'constitutional monarchy': {
-      'politicalIdeology': ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'autocracy': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.',
-        'description': 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
+      politicalIdeology: ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      autocracy: {
+        politicalSourceDescription: '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.',
+        description: 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
       },
-      'default': {
-        'politicalSourceDescription': '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
-        'description': 'The crown holds supreme judicial power, but day to day affairs are held by parliament.'
+      default: {
+        politicalSourceDescription: '<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        description: 'The crown holds supreme judicial power, but day to day affairs are held by parliament.'
       }
     },
     'republic': {
-      'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
-      'description': 'The crown holds both supreme executive and judicial powers.'
+      politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      politicalSourceDescription: 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
+      description: 'The crown holds both supreme executive and judicial powers.'
     },
     'anarchy': {
-      'politicalIdeology': ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
-      'politicalSourceDescription': 'None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
-      'description': 'No formal political system exists.'
+      politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      politicalSourceDescription: 'None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+      description: 'No formal political system exists.'
     }
   },
-  'politicalIdeology': {
-    'autocracy': {
-      'leaderTraits': {
-        'hasClass': false,
-        'profession': 'lord',
-        'background': 'noble',
-        'title': 'Lord',
-        'socialClass': 'nobility'
+  politicalIdeology: {
+    autocracy: {
+      leaderTraits: {
+        hasClass: false,
+        profession: 'lord',
+        background: 'noble',
+        title: 'Lord',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 45,
-        'welfare': -25,
-        'law': 15,
-        'military': 25,
-        'arcana': -5
+      modifiers: {
+        economics: 45,
+        welfare: -25,
+        law: 15,
+        military: 25,
+        arcana: -5
       },
-      'data': {
-        'isFaction': false,
-        'leaderType': 'the supreme leader',
-        'governmentType': 'nobles',
-        'politicalIdeologyIC': 'autocratic',
-        'description': 'Governed by one person.'
+      data: {
+        isFaction: false,
+        leaderType: 'the supreme leader',
+        governmentType: 'nobles',
+        politicalIdeologyIC: 'autocratic',
+        description: 'Governed by one person.'
       }
     },
-    'meritocracy': {
-      'leaderTraits': {
-        'hasClass': false,
-        'background': 'noble',
-        'title': 'Lord',
-        'socialClass': 'nobility'
+    meritocracy: {
+      leaderTraits: {
+        hasClass: false,
+        background: 'noble',
+        title: 'Lord',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 15,
-        'welfare': 5,
-        'law': -5,
-        'military': -5,
-        'arcana': 15
+      modifiers: {
+        economics: 15,
+        welfare: 5,
+        law: -5,
+        military: -5,
+        arcana: 15
       },
-      'data': {
-        'isFaction': false,
-        'leaderType': 'the competent',
-        'governmentType': 'commoners',
-        'politicalIdeologyIC': 'meritocratic',
-        'description': 'Governed by the best.'
+      data: {
+        isFaction: false,
+        leaderType: 'the competent',
+        governmentType: 'commoners',
+        politicalIdeologyIC: 'meritocratic',
+        description: 'Governed by the best.'
       }
     },
-    'democracy': {
-      'leaderTraits': {
-        'hasClass': false,
-        'profession': 'prime minister',
-        'background': 'commoner',
-        'title': 'Lord',
-        'socialClass': 'nobility'
+    democracy: {
+      leaderTraits: {
+        hasClass: false,
+        profession: 'prime minister',
+        background: 'commoner',
+        title: 'Lord',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': -15,
-        'welfare': 25,
-        'law': 15,
-        'military': -5,
-        'arcana': 15
+      modifiers: {
+        economics: -15,
+        welfare: 25,
+        law: 15,
+        military: -5,
+        arcana: 15
       },
-      'data': {
-        'isFaction': false,
-        'leaderType': 'the people',
-        'governmentType': 'commoners',
-        'politicalIdeologyIC': 'democratic',
-        'description': 'Governed by the elected.'
+      data: {
+        isFaction: false,
+        leaderType: 'the people',
+        governmentType: 'commoners',
+        politicalIdeologyIC: 'democratic',
+        description: 'Governed by the elected.'
       }
     },
-    'kleptocracy': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'rogue',
-        'background': 'criminal',
-        'title': 'High Thief',
-        'socialClass': 'nobility'
+    kleptocracy: {
+      leaderTraits: {
+        hasClass: true,
+        dndClass: 'rogue',
+        background: 'criminal',
+        title: 'High Thief',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': -35,
-        'welfare': -25,
-        'law': -30,
-        'military': -5,
-        'arcana': 15
+      modifiers: {
+        economics: -35,
+        welfare: -25,
+        law: -30,
+        military: -5,
+        arcana: 15
       },
-      'data': {
-        'isFaction': true,
-        'leaderType': "the Thieves' Guild",
-        'governmentType': 'thieves',
-        'politicalIdeologyIC': 'kleptocratic',
-        'description': 'Governed by the thieves.'
+      data: {
+        isFaction: true,
+        leaderType: "the Thieves' Guild",
+        governmentType: 'thieves',
+        politicalIdeologyIC: 'kleptocratic',
+        description: 'Governed by the thieves.'
       }
     },
-    'magocracy': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'wizard',
-        'background': 'sage',
-        'title': 'Archchancellor',
-        'socialClass': 'nobility'
+    magocracy: {
+      leaderTraits: {
+        hasClass: true,
+        dndClass: 'wizard',
+        background: 'sage',
+        title: 'Archchancellor',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 2,
-        'welfare': 5,
-        'law': -5,
-        'military': -5,
-        'arcana': 50
+      modifiers: {
+        economics: 2,
+        welfare: 5,
+        law: -5,
+        military: -5,
+        arcana: 50
       },
-      'data': {
-        'isFaction': true,
-        'leaderType': 'the wizards',
-        'governmentType': 'wizards',
-        'politicalIdeologyIC': 'magocratic',
-        'description': 'Governed by the wizards.'
+      data: {
+        isFaction: true,
+        leaderType: 'the wizards',
+        governmentType: 'wizards',
+        politicalIdeologyIC: 'magocratic',
+        description: 'Governed by the wizards.'
       }
     },
-    'militocracy': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'fighter',
-        'background': 'soldier',
-        'title': 'Commander',
-        'socialClass': 'nobility'
+    militocracy: {
+      leaderTraits: {
+        hasClass: true,
+        dndClass: 'fighter',
+        background: 'soldier',
+        title: 'Commander',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 25,
-        'welfare': -5,
-        'law': 30,
-        'military': 50,
-        'arcana': -15
+      modifiers: {
+        economics: 25,
+        welfare: -5,
+        law: 30,
+        military: 50,
+        arcana: -15
       },
-      'data': {
-        'isFaction': true,
-        'leaderType': 'the military',
-        'governmentType': 'military',
-        'politicalIdeologyIC': 'militocratic',
-        'description': 'Governed by the military.'
+      data: {
+        isFaction: true,
+        leaderType: 'the military',
+        governmentType: 'military',
+        politicalIdeologyIC: 'militocratic',
+        description: 'Governed by the military.'
       }
     },
-    'oligarchy': {
-      'leaderTraits': {
-        'hasClass': false,
-        'background': 'noble',
-        'title': 'Lord',
-        'socialClass': 'nobility'
+    oligarchy: {
+      leaderTraits: {
+        hasClass: false,
+        background: 'noble',
+        title: 'Lord',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 15,
-        'welfare': -15,
-        'law': 5,
-        'military': 5,
-        'arcana': -5
+      modifiers: {
+        economics: 15,
+        welfare: -15,
+        law: 5,
+        military: 5,
+        arcana: -5
       },
-      'data': {
-        'isFaction': false,
-        'leaderType': 'the powerful few',
-        'governmentType': 'nobles',
-        'politicalIdeologyIC': 'oligarchic',
-        'description': 'Governed by the powerful few.'
+      data: {
+        isFaction: false,
+        leaderType: 'the powerful few',
+        governmentType: 'nobles',
+        politicalIdeologyIC: 'oligarchic',
+        description: 'Governed by the powerful few.'
       }
     },
-    'pedocracy': {
-      'leaderTraits': {
-        'hasClass': false,
-        'background': 'scholar',
-        'title': 'Sir',
-        'socialClass': 'nobility'
+    pedocracy: {
+      leaderTraits: {
+        hasClass: false,
+        background: 'scholar',
+        title: 'Sir',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 15,
-        'welfare': 50,
-        'law': -5,
-        'military': -5,
-        'arcana': 15
+      modifiers: {
+        economics: 15,
+        welfare: 50,
+        law: -5,
+        military: -5,
+        arcana: 15
       },
-      'data': {
-        'isFaction': true,
-        'leaderType': 'the scholars',
-        'governmentType': 'scholars',
-        'politicalIdeologyIC': 'pedocratic',
-        'description': 'Governed by the scholars.'
+      data: {
+        isFaction: true,
+        leaderType: 'the scholars',
+        governmentType: 'scholars',
+        politicalIdeologyIC: 'pedocratic',
+        description: 'Governed by the scholars.'
       }
     },
-    'theocracy': {
-      'leaderTraits': {
-        'hasClass': true,
-        'dndClass': 'cleric',
-        'background': 'acolyte',
-        'title': 'High Priest',
-        'gender': 'man',
-        'socialClass': 'nobility'
+    theocracy: {
+      leaderTraits: {
+        hasClass: true,
+        dndClass: 'cleric',
+        background: 'acolyte',
+        title: 'High Priest',
+        gender: 'man',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 15,
-        'welfare': 30,
-        'law': 15,
-        'military': -15,
-        'arcana': 35
+      modifiers: {
+        economics: 15,
+        welfare: 30,
+        law: 15,
+        military: -15,
+        arcana: 35
       },
-      'data': {
-        'isFaction': true,
-        'leaderType': 'the holy',
-        'governmentType': 'priests',
-        'politicalIdeologyIC': 'theocratic',
-        'description': 'Governed by the church.'
+      data: {
+        isFaction: true,
+        leaderType: 'the holy',
+        governmentType: 'priests',
+        politicalIdeologyIC: 'theocratic',
+        description: 'Governed by the church.'
       }
     },
-    'technocracy': {
-      'leaderTraits': {
-        'hasClass': false,
-        'profession': 'architect',
-        'background': 'guild artisan',
-        'title': 'Architect',
-        'socialClass': 'nobility'
+    technocracy: {
+      leaderTraits: {
+        hasClass: false,
+        profession: 'architect',
+        background: 'guild artisan',
+        title: 'Architect',
+        socialClass: 'nobility'
       },
-      'modifiers': {
-        'economics': 35,
-        'welfare': 15,
-        'law': -15,
-        'military': -5,
-        'arcana': 25
+      modifiers: {
+        economics: 35,
+        welfare: 15,
+        law: -15,
+        military: -5,
+        arcana: 25
       },
-      'data': {
-        'isFaction': false,
-        'leaderType': 'the engineers',
-        'governmentType': 'craftsmen',
-        'politicalIdeologyIC': 'technocratic',
-        'description': 'Governed by the engineers.'
+      data: {
+        isFaction: false,
+        leaderType: 'the engineers',
+        governmentType: 'craftsmen',
+        politicalIdeologyIC: 'technocratic',
+        description: 'Governed by the engineers.'
       }
     }
   },
-  'misc': {
+  misc: {
     // They harvest _
-    'primaryCrop': [
+    primaryCrop: [
       'barley and oats',
       'beans and corn',
       'nuts and olives',
@@ -494,7 +515,7 @@ setup.townData = {
       'corn',
       'fish'],
     // the nearby region is rich with_
-    'primaryExport': [
+    primaryExport: [
       'iron ore',
       'copper ore',
       'cobalt ore',
@@ -518,7 +539,7 @@ setup.townData = {
       'common fauna used in alchemy',
       'rare fauna used in alchemy'],
     // __ is currently taking place.
-    'currentEvent': [
+    currentEvent: [
       "an anniversary of a monarch's reign",
       'an anniversary of an important event',
       'an arena event',
@@ -567,7 +588,7 @@ setup.townData = {
       'a violent uprising',
       'a wedding or wedding anniversary',
       'a travelling carnival'],
-    'microEvent': [
+    microEvent: [
       "a gnarled old man offers to sell you a 'lucky' trinket for a gold coin",
       'a young boy wants to see a demonstration of your weapon',
       'a little girl is crying because she broke her favorite toy',
@@ -669,7 +690,7 @@ setup.townData = {
       'a gnome accosts you, insisting you help him find his runaway pet cat, a tabby named Blingtangle. He offers no reward.'],
 
     // The nearest landmark is _
-    'landmark': [
+    landmark: [
 
       'a large oak tree that is swarming with beautiful blue butterflies in the morning, and blue fireflies at night.',
       "a cave hidden deep in the forest, with walls and floors that seem to shine with a fortunes worth of priceless gems that sparkle without any light. These 'priceless gems' immediately turn to useless stones once removed from the cave.",
@@ -769,10 +790,10 @@ setup.townData = {
       'a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.',
       'a cave full of phosphorescent mushrooms that glow at night.']
   },
-  'terrain': {
-    'temperate': {
-      'weather': {
-        'tempVariation': {
+  terrain: {
+    temperate: {
+      weather: {
+        tempVariation: {
           95: {
             temperature: dice(3, 10),
             temperatureTimer: random(24, 48)
@@ -803,35 +824,35 @@ setup.townData = {
           }
         },
         season: {
-          'summer': {
+          summer: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 80
           },
-          'autumn': {
+          autumn: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 60
           },
-          'winter': {
+          winter: {
             precipitationLevel: 2,
             precipitationIntensity: 1,
             baseTemp: 30
           },
-          'spring': {
+          spring: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 60
           }
         }
       },
-      'start': ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
-      'location': {
+      start: ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
+      location: {
         // town.Name is located in the _
         'seacoast': {
-          'precipitationIntensity': 3,
+          precipitationIntensity: 3,
           // town.Name grew around _
-          'origin': [
+          origin: [
             'a coastal harbor',
             'a calm, coastal bay',
             'a large freshwater lake',
@@ -844,12 +865,12 @@ setup.townData = {
             'a water source and a well-traveled road'
           ],
           // where the vegetation is _
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': ['shrubs', 'bush', 'windswept trees', 'windswept trees', 'windswept trees']
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: ['shrubs', 'bush', 'windswept trees', 'windswept trees', 'windswept trees']
         },
         'forest': {
-          'precipitationIntensity': 2,
-          'origin': [
+          precipitationIntensity: 2,
+          origin: [
             'a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
@@ -861,12 +882,12 @@ setup.townData = {
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'
           ],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-          'plants': ['oak trees', 'oak trees', 'oak trees', 'pine trees', 'maple trees', 'birch trees', 'ash trees', 'elm trees', 'fir trees', 'spruce trees', 'sycamore trees', 'alder trees', 'cypress trees', 'yew trees']
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          plants: ['oak trees', 'oak trees', 'oak trees', 'pine trees', 'maple trees', 'birch trees', 'ash trees', 'elm trees', 'fir trees', 'spruce trees', 'sycamore trees', 'alder trees', 'cypress trees', 'yew trees']
         },
         'hills': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'a road traveled by merchants on the way to another, larger city',
@@ -874,23 +895,23 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'plains': {
-          'precipitationIntensity': 2,
-          'origin': ['a wide, navigable river',
+          precipitationIntensity: 2,
+          origin: ['a wide, navigable river',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'mountains': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a river navigable by small craft',
             'a series of natural springs',
             'a road that connects two other cities',
@@ -898,23 +919,23 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'river coast': {
-          'precipitationIntensity': 2,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 2,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         }
       }
     },
-    'tropical': {
-      'weather': {
-        'tempVariation': {
+    tropical: {
+      weather: {
+        tempVariation: {
           85: {
             temperature: dice(2, 10),
             temperatureTimer: random(24, 48)
@@ -937,33 +958,33 @@ setup.townData = {
           }
         },
         season: {
-          'summer': {
+          summer: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 90
           },
-          'autumn': {
+          autumn: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 75
           },
-          'winter': {
+          winter: {
             precipitationLevel: 2,
             precipitationIntensity: 1,
             baseTemp: 50
           },
-          'spring': {
+          spring: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 75
           }
         }
       },
-      'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'jungle', 'volcanic field'],
-      'location': {
+      start: ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'jungle', 'volcanic field'],
+      location: {
         'seacoast': {
-          'precipitationIntensity': 3,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 3,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a large freshwater lake',
             'a wide, navigable river',
@@ -973,12 +994,12 @@ setup.townData = {
             'a series of natural springs',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'forest': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'the mouth of a river',
@@ -988,35 +1009,35 @@ setup.townData = {
             'a well-traveled crossroads',
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'hills': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'plains': {
-          'precipitationIntensity': 2,
-          'origin': ['a wide, navigable river',
+          precipitationIntensity: 2,
+          origin: ['a wide, navigable river',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'mountains': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a river navigable by small craft',
             'a series of natural springs',
             'a road that connects two other cities',
@@ -1024,32 +1045,32 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'river coast': {
-          'precipitationIntensity': 2,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 2,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'jungle': {
-          'precipitationIntensity': 2,
-          'origin': ['a river navigable by small craft',
+          precipitationIntensity: 2,
+          origin: ['a river navigable by small craft',
             'a series of natural springs',
             'a road that connects two other cities',
             'a road that leads through the jungle',
             'a trade route through the jungle',
             'a water source and a well-traveled road that leads through the jungle'],
-          'vegetation': ['sparse', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'volcanic field': {
-          'precipitationIntensity': 3,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 3,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'the mouth of a river',
@@ -1057,14 +1078,14 @@ setup.townData = {
             'a series of natural springs',
             'a series of natural springs',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          plants: []
         }
       }
     },
-    'arid': {
-      'weather': {
-        'tempVariation': {
+    arid: {
+      weather: {
+        tempVariation: {
           95: {
             temperature: dice(3, 10),
             temperatureTimer: random(24, 48)
@@ -1095,33 +1116,33 @@ setup.townData = {
           }
         },
         season: {
-          'summer': {
+          summer: {
             precipitationLevel: 3,
             precipitationIntensity: -1,
             baseTemp: 95
           },
-          'autumn': {
+          autumn: {
             precipitationLevel: 3,
             precipitationIntensity: -1,
             baseTemp: 75
           },
-          'winter': {
+          winter: {
             precipitationLevel: 2,
             precipitationIntensity: -1,
             baseTemp: 50
           },
-          'spring': {
+          spring: {
             precipitationLevel: 2,
             precipitationIntensity: -1,
             baseTemp: 75
           }
         }
       },
-      'start': ['desert', 'hills', 'plains', 'mountains', 'river coast', 'wasteland', 'oasis'],
-      'location': {
+      start: ['desert', 'hills', 'plains', 'mountains', 'river coast', 'wasteland', 'oasis'],
+      location: {
         'desert': {
-          'precipitationIntensity': 2,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 2,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a large freshwater lake',
             'a wide, navigable river',
@@ -1131,12 +1152,12 @@ setup.townData = {
             'a series of natural springs',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'forest': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'the mouth of a river',
@@ -1146,12 +1167,12 @@ setup.townData = {
             'a well-traveled crossroads',
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'],
-          'vegetation': ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'hills': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'a road traveled by merchants on the way to another, larger city',
@@ -1159,23 +1180,23 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'plains': {
-          'precipitationIntensity': 2,
-          'origin': ['a wide, navigable river',
+          precipitationIntensity: 2,
+          origin: ['a wide, navigable river',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'mountains': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a river navigable by small craft',
             'a series of natural springs',
             'a road that connects two other cities',
@@ -1183,44 +1204,44 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'river coast': {
-          'precipitationIntensity': 2,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 2,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'wasteland': {
-          'precipitationIntensity': 2,
-          'origin': ['a road traveled by merchants on the way to another, larger city',
+          precipitationIntensity: 2,
+          origin: ['a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          plants: []
         },
         'oasis': {
-          'origin': ['a series of natural springs',
+          origin: ['a series of natural springs',
             'a series of natural springs',
             'a large oasis of water',
             'a large oasis of water',
             'a large oasis of water',
             'a large oasis of water',
             'a water source and a well-traveled road'],
-          'vegetation': ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         }
       }
     },
-    'polar': {
-      'weather': {
-        'tempVariation': {
+    polar: {
+      weather: {
+        tempVariation: {
           100: {
             temperature: dice(3, 10),
             temperatureTimer: random(24, 48)
@@ -1251,33 +1272,33 @@ setup.townData = {
           }
         },
         season: {
-          'summer': {
+          summer: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 40
           },
-          'autumn': {
+          autumn: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 30
           },
-          'winter': {
+          winter: {
             precipitationLevel: 2,
             precipitationIntensity: 1,
             baseTemp: 20
           },
-          'spring': {
+          spring: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 30
           }
         }
       },
-      'start': ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'tundra', 'ice sheet', 'seacoast'],
-      'location': {
+      start: ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'tundra', 'ice sheet', 'seacoast'],
+      location: {
         'seacoast': {
-          'precipitationIntensity': 3,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 3,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a large freshwater lake',
             'a wide, navigable river',
@@ -1287,12 +1308,12 @@ setup.townData = {
             'a series of natural springs',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'forest': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'the mouth of a river',
@@ -1302,12 +1323,12 @@ setup.townData = {
             'a well-traveled crossroads',
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'],
-          'vegetation': ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'hills': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a wide, navigable river',
             'a river navigable by small craft',
             'a road traveled by merchants on the way to another, larger city',
@@ -1315,23 +1336,23 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'plains': {
-          'precipitationIntensity': 2,
-          'origin': ['a wide, navigable river',
+          precipitationIntensity: 2,
+          origin: ['a wide, navigable river',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'mountains': {
-          'precipitationIntensity': 2,
-          'origin': ['a large freshwater lake',
+          precipitationIntensity: 2,
+          origin: ['a large freshwater lake',
             'a river navigable by small craft',
             'a series of natural springs',
             'a road that connects two other cities',
@@ -1339,39 +1360,39 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'sparse', 'sparse', 'lush', 'thick'],
+          plants: []
         },
         'river coast': {
-          'precipitationIntensity': 2,
-          'origin': ['a coastal harbor',
+          precipitationIntensity: 2,
+          origin: ['a coastal harbor',
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'sparse', 'lush', 'lush', 'lush', 'lush', 'thick', 'thick', 'thick'],
+          plants: []
         },
         'tundra': {
-          'precipitationIntensity': 2,
-          'origin': ['a wide, navigable river',
+          precipitationIntensity: 2,
+          origin: ['a wide, navigable river',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          plants: []
         },
         'ice sheet': {
-          'precipitationIntensity': 3,
-          'origin': ['a wide, navigable river',
+          precipitationIntensity: 3,
+          origin: ['a wide, navigable river',
             'a road traveled by merchants on the way to another, larger city',
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          'vegetation': ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
-          'plants': []
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          plants: []
         }
       }
     }
