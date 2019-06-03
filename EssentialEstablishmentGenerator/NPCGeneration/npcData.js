@@ -1,49 +1,49 @@
 setup.npcData = {
-  'gender': {
-    'man': {
-      'title': 'Mr',
-      'altTitle': 'Master',
-      'heshe': 'he',
-      'himher': 'him',
-      'himherself': 'himself',
-      'hisher': 'his',
-      'hisherself': 'hisself',
-      'boygirl': 'boy',
-      'manwoman': 'man',
-      'menwomen': 'men',
-      'malefemale': 'male',
-      'guygirl': 'guy',
-      'marriageNoun': 'husband',
-      'niblingReciprocalNoun': 'uncle',
-      'parentNoun': 'father',
-      'childNoun': 'son',
-      'siblingNoun': 'brother',
-      'niblingNoun': 'nephew',
-      'oppositeGender': 'woman'
+  gender: {
+    man: {
+      title: 'Mr',
+      altTitle: 'Master',
+      heshe: 'he',
+      himher: 'him',
+      himherself: 'himself',
+      hisher: 'his',
+      hisherself: 'hisself',
+      boygirl: 'boy',
+      manwoman: 'man',
+      menwomen: 'men',
+      malefemale: 'male',
+      guygirl: 'guy',
+      marriageNoun: 'husband',
+      niblingReciprocalNoun: 'uncle',
+      parentNoun: 'father',
+      childNoun: 'son',
+      siblingNoun: 'brother',
+      niblingNoun: 'nephew',
+      oppositeGender: 'woman'
     },
-    'woman': {
-      'title': 'Ms',
-      'altTitle': 'Mistress',
-      'heshe': 'she',
-      'himher': 'her',
-      'himherself': 'herself',
-      'hisher': 'her',
-      'hisherself': 'herself',
-      'boygirl': 'girl',
-      'manwoman': 'woman',
-      'menwomen': 'women',
-      'malefemale': 'female',
-      'guygirl': 'girl',
-      'marriageNoun': 'wife',
-      'niblingReciprocalNoun': 'aunt',
-      'parentNoun': 'mother',
-      'childNoun': 'daughter',
-      'siblingNoun': 'sister',
-      'niblingNoun': 'neice',
-      'oppositeGender': 'man'
+    woman: {
+      title: 'Ms',
+      altTitle: 'Mistress',
+      heshe: 'she',
+      himher: 'her',
+      himherself: 'herself',
+      hisher: 'her',
+      hisherself: 'herself',
+      boygirl: 'girl',
+      manwoman: 'woman',
+      menwomen: 'women',
+      malefemale: 'female',
+      guygirl: 'girl',
+      marriageNoun: 'wife',
+      niblingReciprocalNoun: 'aunt',
+      parentNoun: 'mother',
+      childNoun: 'daughter',
+      siblingNoun: 'sister',
+      niblingNoun: 'neice',
+      oppositeGender: 'man'
     }
   },
-  'heightChart': [
+  heightChart: [
     [78, 'giraffe-like'],
     [77, 'extremely tall'],
     [76, 'very tall'],
@@ -85,8 +85,150 @@ setup.npcData = {
     [0, 'impossibly small']
   ],
   lifeEvents: {
+    festival: {
+      probability: 6,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        const placement = setup.npcData.lifeEvents.festival.placement.seededrandom()
+        const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.seededrandom()
+        const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.seededrandom()
+        const fruit = setup.flora.fruit.fruitP.seededrandom()
+        const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
+        const flower = setup.flora.flowers.stemP.seededrandom()
+        const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.seededrandom()
+        return [['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' for my ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '.',
+          ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower + '.',
+          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' where I saw some ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' where I saw some ' + flowerTrait + ' ' + flower + '. I think they won ' + placement + ' in the growers competition.',
+          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.',
+          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.'
+        ].seededrandom()
+      },
+      placement: [
+        'first place',
+        'second place',
+        'third place',
+        'gold',
+        'silver',
+        'bronze',
+        'runner up'
+      ],
+      foodTrait: [
+        'delicious',
+        'colorful',
+        'giant',
+        'enormous',
+        'vibrant',
+        'fresh',
+        'durable'
+      ],
+      flowerTrait: [
+        'colorful',
+        'giant',
+        'enormous',
+        'vibrant',
+        'fresh',
+        'sweet-smelling',
+        'pollen covered'
+      ],
+      festivalDid: [
+        'saw a spectacular parade',
+        'saw a parade with enormous floats made of flowers',
+        'watched a parade that was full of magical effects',
+        'saw an incredible troupe of dancing elves',
+        'watched several dance troupes compete in a competition',
+        'listened to several live musical performances',
+        'saw a marching bard in the parade',
+        'drank deeply and merrily',
+        'sang folk songs with the other festival goers',
+        'danced the day away with the other merrymakers',
+        'partook in several festival traditions',
+        'watched a fantastic play performed on a moving stage in the parade',
+        'saw a huge dragon puppet march through the streets',
+        'visited several shops and stalls full of delicious food',
+        "visited several brewing stalls and drank to my heart's content"
+      ]
+    },
+    apprentice: {
+      probability: 6,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].socialClass === 'nobility') {
+          return false
+        } else { return true }
+      },
+      function (town, npc) {
+        const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.seededrandom()
+        const reputation = setup.npcData.lifeEvents.apprentice.reputation.seededrandom()
+        const learned = setup.npcData.lifeEvents.apprentice.learned.seededrandom()
+        const teacher = setup.createNPC(town, {
+          profession: apprenticeProfession,
+          isShallow: true
+        })
+        return ['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom() + ' ' + setup.profile(teacher, teacher.name) + ' ' + reputation + ' ' + apprenticeProfession + '. During that time ' + learned + '.'
+      },
+      profession: [
+        'actor',
+        'architect',
+        'armorer',
+        'astrologer',
+        'barber',
+        'blacksmith',
+        'brewer',
+        'carpenter',
+        'cook',
+        'goldsmith',
+        'hatter',
+        'jeweler',
+        'leatherworker',
+        'locksmith',
+        'minstrel',
+        'painter',
+        'potter',
+        'rugmaker',
+        'sculptor',
+        'silversmith',
+        'toymaker',
+        'costumer',
+        'artist',
+        'musician',
+        'coinsmith',
+        'candlemaker',
+        'fletcher',
+        'weaponsmith',
+        'chemist'
+      ],
+      reputation: [
+        'a well known',
+        'a world renowned',
+        'a master',
+        'an incredibly talented',
+        'a legendary',
+        'a famous',
+        'a lesser known',
+        'an obscure',
+        'a mediocre',
+        'a decent',
+        'an alright',
+        'a rather unskilled',
+        'a piss poor'
+      ],
+      learned: [
+        'I learned a lot about myself',
+        "I realized being in that trade just wasn't for me",
+        'I learned a lot of valuable life lessons',
+        'I learned a lot about the trade',
+        "I realized my teacher wasn't that great",
+        'my master beat their teachings into me',
+        'my master was gentle with their teachings',
+        'my master taught me many things',
+        'I realized what I truly wanted in life',
+        "I learned I'm not very good at the trade"
+      ]
+    },
     trinket: {
-      probability: 10,
+      probability: 5,
       exclusions (town, npc) {
         return true
       },
@@ -96,14 +238,330 @@ setup.npcData = {
         return [
           "I was given a magical trinket- it's a ",
           'I happened across a ',
+          'I found my lost family heirloom, it is a ',
           'I was gifted a ',
           "I saved a wizard's life, and as a token of his thanks, he gave me a ",
-          "I came across a trinket in a field- It's a "
-        ].seededrandom() + trinket.name + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
+          'I went on my own adventure and discovered a ',
+          'I met up with an adventurer who generously gave me a ',
+          "I came across a trinket in a field- It's a ",
+          'I was on a long journey when I found a '
+        ].seededrandom() + trinket.name + '.' + '<blockquote>' + '<h4>' + trinket.name + '</h4>' + trinket.description + '</blockquote>'
       }
     },
+    nobleEvent: {
+      probability: 5,
+      exclusion (town, npc) {
+        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
+          return true
+        }
+      },
+      function (town, npc) {
+        const noble = setup.createNPC(town, {
+          background: 'noble',
+          isShallow: true
+        })
+        const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.seededrandom()
+        const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.seededrandom()
+        const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
+        const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
+        const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
+        return [prefix + ' the royal wedding of a local ' + setup.profile(noble, 'noble') + '.',
+          prefix + ' the royal ' + ['banquet', 'feast', 'gathering'].seededrandom() + ' of a local ' + setup.profile(noble, 'noble') + ' in celebration of ' + banquetCelebrate + '.',
+          prefix + ' the royal ' + ['ball', 'dance', 'gala', 'masquerade ball'].seededrandom() + ' hosted by a local ' + setup.profile(noble, 'noble') + ' in honor of ' + ballCelebrate + '.',
+          'I saw the carriage of a ' + setup.profile(noble, 'noble') + ' ' + ['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom() + ', and it was ' + carriage + '.',
+          'I shook the hand of a passing ' + setup.profile(noble, 'noble') + '. If I recall their handshake was ' + handshake + '.'].seededrandom()
+      },
+      prefix: [
+        'I was invited to',
+        'I got to attend',
+        'I had the honor to go to',
+        'I had the pleasure of attending',
+        'I was forced to go to'
+      ],
+      banquetCelebrate: [
+        'a local hero',
+        'the remembrance of a past ruler',
+        'a local holiday',
+        'a bountiful summer harvest',
+        'the death of a nearby warlord',
+        "the completion of the noble's newest summer home",
+        'a triumphant adventuring party',
+        'a recent coronation'
+      ],
+      ballCelebrate: [
+        'a recent royal wedding',
+        'the beginning of a search for a suitable spouse for this noble',
+        'the end of a recent war',
+        'the passing of a nearby ruler',
+        'the local militia',
+        'the end of the hunting season',
+        'the presentation of the debutantes',
+        'a recent coronation'
+      ],
+      carriage: [
+        'rather plain, but still impressive',
+        'massive with eight elegant wheels',
+        'pulled by four massive white horses',
+        'being pulled by a single elephant',
+        'ornately decorated with gold trim',
+        'painted with bright yet regal colors',
+        'a true sight to behold',
+        'a clear waste of taxpayer money',
+        'pulled by several thickly muscled slaves',
+        "flying two massive banners for the noble's house",
+        'flanked by militia on both sides',
+        'being followed by a flock of adoring fans',
+        'being pelted with rotten fruit by the starving peasants',
+        'being cheered on by the adoring townsfolk',
+        'adorned with a beautiful floral mural',
+        'beaten and battered as if it had recently seen battle'
+      ],
+      handshake: [
+        'firm but friendly',
+        'a little too firm',
+        'rather limp',
+        'cold and clammy',
+        'much too sweaty',
+        'coarse and emotionless',
+        'nothing special',
+        'rather pathetic',
+        'pretty weak',
+        'strong and commanding',
+        'strangely hot'
+      ]
+    },
+    journey: {
+      probability: 3,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.journey function')
+        const prefix = setup.npcData.lifeEvents.journey.prefix.seededrandom()
+        const location = setup.npcData.lifeEvents.journey.location.seededrandom()
+        const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.seededrandom()
+        const found = setup.npcData.lifeEvents.journey.found.seededrandom()
+        const notFound = setup.npcData.lifeEvents.journey.notFound.seededrandom()
+        return [prefix + ' ' + location + ' ' + locationLocation + '. ' + ['I really did make it there, ', 'I got to see that place, ', 'My journey was succesful, '].seededrandom() + found,
+          prefix + ' ' + location + ' ' + locationLocation + '. ' + ['I never found it, ', 'I never got to see that place, ', 'My journey was a failure, ', 'I got lost along the way and never made it there, '].seededrandom() + notFound].seededrandom() + '.'
+      },
+      prefix: [
+        'I ventured out to see',
+        'I went on a journey to find',
+        'I struck out heading towards',
+        'a group of travelers and I went to find',
+        'my friends and I went on a long journey to'
+      ],
+      location: [
+        'a tower of knowledge',
+        'an elusive library made of marble',
+        'the statue of a forgotten hero',
+        'the palace of a sleeping god',
+        'the greatest fishing spot ever',
+        'a peaceful mountain retreat',
+        'the hidden cherry blossom grove',
+        'the dojo of a long lost martial art',
+        'the grand castle of a foreign noble',
+        'a crystal clear lake',
+        'the burial tomb of an ancient ruler',
+        'a city of dwarves',
+        'a city of elves',
+        'the ruins of a lost city',
+        'the remnants of a grand wizard tower',
+        'the battlegrounds of a long over war',
+        'the still-burning carcass of an ancient behemoth',
+        'a secluded civilization, nearly forgotten by outsiders'
+      ],
+      locationLocation: [
+        'in an ever shifting desert',
+        'in a red sand desert',
+        'in a desert where the dunes whisper secrets',
+        'in a white sand desert',
+        'in an incredibly hot desert',
+        'on the peak of a snowy mountain',
+        'near the peak of a mountain',
+        'built into the side of a cliff',
+        'in a forest',
+        'near a forest',
+        'in a dark wood',
+        'out on the plains',
+        'near the ocean',
+        'on a floating dock in the ocean',
+        'on a secluded island',
+        'in the depths of a cavern',
+        'in an icy tundra',
+        'built into a glacier',
+        'at the bottom of a deep ravine',
+        'hidden inside a mountain',
+        'ina secluded valley',
+        'ina tropical valley',
+        'on an arid tundra',
+        'in the black mountains',
+        'in the white mountains',
+        'in the red forest',
+        'on the edge of a great mountain range',
+        'encircled by mountains',
+        'at the edge of the world',
+        'on the back of a giant turtle'
+      ],
+      found: [
+        'and it was an incredible experience',
+        'and I learned much along the way',
+        'and it is a place I will never forget',
+        'and I like to think I became a better person from the trek',
+        'and I came back with several keepsakes',
+        'and I made some new friends along the way',
+        'and I made some important discoveries while I was there',
+        "but I don't like to brag about it",
+        'but it was not what I was truly looking for',
+        'but to be honest the place was kind of a let down'
+
+      ],
+      notFound: [
+        'and I have always regretted not going again',
+        'but I came out of the journey a better person',
+        'and I have always wondered what it would have looked like there',
+        'but I have not given up',
+        'and honestly I think the place may not exist',
+        'and to be honest I have given up on ever going there',
+        'but I do not regret trying',
+        'but I still made some new friends along the way',
+        "and to be honest I'm kind of glad I didn't make it"
+      ]
+    },
+    lostChild: {
+      probability: 3,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.lostChild function')
+        const treeType = setup.flora.tree.typeArticle.seededrandom()
+        const location = setup.npcData.lifeEvents.lostChild.location.seededrandom()
+        const time = setup.npcData.lifeEvents.lostChild.time.seededrandom()
+        const finder = setup.npcData.lifeEvents.lostChild.finder.seededrandom()
+        const ending = setup.npcData.lifeEvents.lostChild.ending.seededrandom()
+        return ['when I was young', 'as a young child', 'while I was still a kid'].seededrandom() + ' I got lost in ' + [location, treeType + ' tree forest'].seededrandom() + ' ' + time + '. ' + ['I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I was found by ' + finder, 'I found my own way back', 'I eventually found ' + finder].seededrandom() + ' ' + ending + '.'
+      },
+      location: [
+        'a strange desert',
+        'a large ruined maze',
+        'a twisting and winding maze',
+        'an enormous city',
+        'another realm',
+        'a deep cavern',
+        'the ruins of a city',
+        'a twisting system of tunnels underground',
+        'a mountain pass',
+        'an ancient battlefield',
+        'a forgotten city below the ground',
+        'a dwarven ruin',
+        'an elven ruin',
+        'a magic tower'
+      ],
+      time: [
+        'for several weeks',
+        'for a few hours',
+        'for a few days',
+        'for weeks',
+        'for days',
+        'for many moons',
+        'for a month',
+        'for months',
+        'for half a year at least',
+        'and I can not remember how long I was there',
+        'for years maybe',
+        'for years',
+        'for how long I can not be sure'
+      ],
+      finder: [
+        'a passing merchant',
+        'my parents',
+        'my mother',
+        'my father',
+        'my relative',
+        'a city guard',
+        'a hero out on an adventure',
+        'a hero party that had been questing for me',
+        'an equally lost bard',
+        'a traveling ranger',
+        'a haggard monk',
+        'a pack of wolves',
+        'a noble on a journey'
+      ],
+      ending: [
+        'and went back home',
+        'and learned a valuable lesson from it all',
+        'but have been haunted by that experience',
+        'but not before I hurt myself trying to get home',
+        'but not before I was roughed up by some bandits I ran into',
+        'and have not really ventured out much since',
+        'and have carried a compass ever since',
+        'but I still get lost from time to time',
+        'and I studied up on maps of the area so I would never get lost again'
+      ]
+    },
+    pilgrimage: {
+      probability: 5,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75) {
+          return true
+        } else return false
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.pilgrimage function')
+        const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.seededrandom()
+        const location = setup.npcData.lifeEvents.pilgrimage.location.seededrandom()
+        const journey = setup.npcData.lifeEvents.pilgrimage.journey.seededrandom()
+        const result = setup.npcData.lifeEvents.pilgrimage.result.seededrandom()
+        return prefix + ' ' + location + '. ' + journey + ', ' + result + '.'
+      },
+      prefix: [
+        'I set off on a pilgrimage by myself to',
+        'I went on a pilgrimage with a group to',
+        'I went on a holy journey to',
+        'I traveled a great distance on pilgrimage to'
+      ],
+      location: [
+        'the floating island of a god',
+        'a far away temple',
+        'see the holiest relic of my people',
+        'a holy landmark of my god',
+        'an isolated monastery in the <<print either("mountains", "desert", "forest", "depths of a cavern", "bottom of a canyon", "frozen tundra")>>',
+        'the birthplace of my god',
+        'the holy city of my god',
+        'the highest peak of a holy mountain',
+        'a far off nunnery',
+        'a town of heathens',
+        'see the holy art of my god',
+        'to pray at the feet of my deity',
+        'a distant shrine'
+      ],
+      journey: [
+        'The <<print either("journey", "pilgrimage", "travel", "trek", "trip")>> was <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>>',
+        'It was a <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>> <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        'I was not prepared enough for the <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        'I had waited my whole life for this'
+      ],
+      result: [
+        'and I came out a better person at the end of it',
+        'and my life was changed by it all',
+        "but in the end I'm not sure if it was worth it",
+        'but in the end it was worth it all',
+        'and my god rewarded me for my travels',
+        'but my god did not speak to me in my travels',
+        'and at the end of it all I had a holy vision',
+        'but my god did not show me what I was hoping for',
+        'and I feel so enlightened now',
+        'and my peers have respected me more since I returned',
+        'and I have found my place in my faith',
+        'and I was gifted holy sight for my troubles',
+        'but I do not feel any more enlightened from the experience',
+        'but I sacraficed much to finish the trip'
+      ]
+    },
     meetFriendNPC: {
-      probability: 10,
+      probability: 8,
       exclusions (town, npc) {
         return true
       },
@@ -133,9 +591,9 @@ setup.npcData = {
           // Descriptions and stuff goes here
           return [
             'I met my ' + setup.profile(friend, 'best buddy') + ' on some travel.',
-            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + friend.himher + ' on a pilgrimage.',
+            'I lost contact with an ' + setup.profile(friend, 'old friend') + ', and reconnected with ' + setup.profile(friend, friend.himher) + ' on a pilgrimage.',
             'I made a ' + setup.profile(friend, 'good friend') + ' during a drinking contest.',
-            'We were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
+            'we were attacked by raiders, and I was saved by a ' + setup.profile(friend, 'traveler') + ' passing through. We are best of friends to this day.'
           ].seededrandom()
         } else {
           return [
@@ -148,7 +606,7 @@ setup.npcData = {
       }
     },
     meetEnemyNPC: {
-      probability: 10,
+      probability: 8,
       exclusions (town, npc) {
         if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
           return true
@@ -164,6 +622,7 @@ setup.npcData = {
         setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
         return [
           'I made an ' + setup.profile(enemy, 'enemy') + ' for life in my travels- ',
+          'I was framed by a ' + setup.profile(enemy, 'scoundrel') + " for a crime I didn't commit- ",
           'I met a ' + setup.profile(enemy, 'man') + ', and we played cards. He decided that I was cheating- ',
           'I was a guest in the court of a ' + setup.profile(enemy, 'lord') + ', and made an embarassment of him- ',
           'I used to play cards in a pub, and one time supposedly cheated a ' + setup.profile(enemy, 'man') + ' out of his winnings; '
@@ -172,7 +631,10 @@ setup.npcData = {
           'I admit that I am at least partially at fault. ',
           "I suppose that I'm at least partially to blame. ",
           "I'll freely admit that I'm to blame. ",
-          "I'm ashamed to admit that I'm to blame. "
+          "I'm ashamed to admit that I'm to blame. ",
+          "I'm not quite sure what happened. ",
+          'it was all a setup, but a very good one. ',
+          "I'll never say what really happened. "
         ].seededrandom() + [
           'He hunts me to this day.',
           'I hope to apologise to him if I ever encounter him again.',
@@ -180,7 +642,10 @@ setup.npcData = {
           "I couldn't care less if he tries to do anything about it.",
           "I'll gut him like a fish if he crosses my path again.",
           "I'm afraid that he'll kill me in my sleep.",
-          'I would rather have backup the next time that I face him.'
+          'I would rather have backup the next time that I face him.',
+          "I doubt I'll ever meet him again.",
+          "That's all behind me now and I hope it stays that way.",
+          "I'm still on the lookout for him to this very day."
         ].seededrandom()
       }
     },
@@ -210,7 +675,7 @@ setup.npcData = {
           // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
           // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
           setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
-          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID)
+          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID) + '.'
         } else if (npc.partnerID === undefined) {
           console.log(npc.name + ' met somebody!')
           // if (npc.gender === 'man') {
@@ -250,8 +715,12 @@ setup.npcData = {
         return [
           'I spent some time working as a ',
           'I did a stint as a ',
+          'I worked as a ',
+          'for a while I did some work as a ',
+          'because of a promise, I did some time as a ',
+          'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
-          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom()
+          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom() + '.'
       }
     },
     meetImportantNPC: {
@@ -262,9 +731,9 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.meetImportantNPC function')
         return [
-          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous '].seededrandom() +
-          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse'].seededrandom() +
-          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background].seededrandom() + '.'
+          ['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous ', 'I got an autograph from a famous '].seededrandom() +
+          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse', 'adventurer', 'hero', 'blacksmith', 'armorer', 'alchemist', 'stage actor', 'playwright', 'artist', 'sculptor', 'painter', 'poet', 'knight', 'historian', 'gladiator', 'architect', 'crime boss', 'rogue', 'smuggler'].seededrandom() +
+          [' in my travels', ' on the road', ' while I was traveling', ' when I was spending some time as a ' + npc.background, ' while on a long journey', ' during one of my youthful adventures'].seededrandom() + '.'
         ].seededrandom()
       }
     },
@@ -324,7 +793,7 @@ setup.npcData = {
       }
     },
     supernatural: {
-      probability: 5,
+      probability: 2,
       exclusions (town, npc) {
         return true
       },
@@ -336,9 +805,70 @@ setup.npcData = {
           "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since.",
           'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls.',
           'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later.',
-          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, he vanished'
+          'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, the boy vanished.'
         ].seededrandom()
       }
+    },
+    miracle: {
+      probability: 2,
+      exclusions (town, npc) {
+        return true
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.miracle function')
+        const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.seededrandom()
+        const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.seededrandom()
+        const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.seededrandom()
+        const miracle = setup.npcData.lifeEvents.miracle.miracle.seededrandom()
+        const curse = setup.npcData.lifeEvents.miracle.curse.seededrandom()
+        return [['I witnessed a miracle once- Honest to god. ', 'I once saw a true miracle. ', 'one time, I was part of a real miracle. '].seededrandom() + miracleGiver + ', ' + [trueBelief, falseBelief].seededrandom() + ' ' + miracle,
+          ['I witnessed a terrible curse once- Honest to god. ', 'I once saw a true curse. ', 'one time, I was part of a real curse. '].seededrandom() + miracleGiver + ', ' + [falseBelief].seededrandom() + ' ' + curse
+        ].seededrandom()
+      },
+      miracleGiver: [
+        'This old man had told us that he was the physical aspect of a deity and that he could prove it',
+        'An old woman once came into town claiming to be a god and told us she had cast a miracle on our town',
+        'A man stumbled into town claiming to be sent from a god and told us we were being blessed',
+        'My town was told by a passing prophet that a miracle was coming',
+        'My friends and I once came upon a snake who was trapped beneath a rock and we helped it out. The snake spoke to us and said a miracle would befall us soon'
+      ],
+      trueBelief: [
+        'and we all rejoiced.',
+        'and we were all a little skeptical at first.',
+        'but I was the only believer.',
+        'and some of us believed them.',
+        'and we were all very excited.',
+        'and the among believers us cried out in celebration.'
+      ],
+      falseBelief: [
+        'but one of us did not believe them.',
+        'but nobody believed them.',
+        'and I was the only one who did not believe them.',
+        'but nobody paid attention to them.',
+        'but some thought this to be blasphemy.',
+        'but my friend did not believe them.'
+      ],
+      miracle: [
+        'The next day all of the water in our well had been turned to mead.',
+        'That year we had the most plentiful harvest we had ever seen!',
+        'The next week, everyone in town had sprouted long thick beards, even the women!',
+        'For the next year we had a huge economic boom in our town.',
+        'The next day all of the sick and cripple in our town were suddenly cured of all their ailments!',
+        'That night silver rained down from the sky!',
+        'All who believed woke up to find a gold piece under their pillow!',
+        'The next day our town leader recovered from an illness we thought for sure would take their life.',
+        'Not long after that a band of adventurers came to our town and saved us from a terrible monster!',
+        'A month later all the rats in town were gone.',
+        'Overnight a statue of an unknown god appeared in the center of town.'
+      ],
+      curse: [
+        'The next morning all the town water had been turned to mud.',
+        'The next month the town granary burned to the ground.',
+        'The next day all the non-believers found all their savings missing.',
+        'That year all the town crops rotted in the fields.',
+        'The next morning all the town livestock were found dead.',
+        'That night the lost souls of our town rose from the dead and ransacked us.'
+      ]
     },
     war: {
       probability: 5,
@@ -355,7 +885,8 @@ setup.npcData = {
           'there was a small skirmish with a rivaling faction that I was drafted into.',
           'there was a small war between a rival lord that I was forced to take part with.',
           'there were some goblin raids which I had to defend my town from.',
-          'there was a pretty nasty zombie outbreak which I had to defend my town against.'
+          'there was a pretty nasty zombie outbreak which I had to defend my town against.',
+          'there was a civil war within the town that I fought in.'
         ].seededrandom()
         let warResults
         let warDescription
@@ -379,19 +910,21 @@ setup.npcData = {
       }
     },
     crime: {
-      probability: 5,
+      probability: 10,
       exclusions (town, npc) {
-        return true
+        if (setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60) {
+          return true
+        }
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
-        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting'].seededrandom()
+        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband '].seededrandom()
         const crimeRoll = random(1, 12)
         let crimeReadout
         if (crimeRoll >= 9) {
           crimeReadout = 'I was caught and convicted of ' + crime + ', and spent ' + random(1, 4) + ' years ' + ['in jail', 'chained to an oar', 'doing hard labour'].seededrandom() + ' before ' + ['being released.', 'managing to escape.'].seededrandom()
         } else if (crimeRoll >= 7) {
-          crimeReadout = 'I was nearly caught and convicted in the middle of a ' + crime + ', but managed to escape. They are still after me, though.'
+          crimeReadout = 'I was nearly caught and convicted in the middle of ' + crime + ', but managed to escape. They are still after me, though.'
         } else if (crimeRoll >= 4) {
           crimeReadout = 'I was caught aiding and abetting the crime of ' + crime + ', but due to ' + ['being forced to do it against my will', 'my amazing lawyer', 'being under a spell'].seededrandom() + ', I was found not guilty.'
         } else {
@@ -408,11 +941,14 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
-          'I once saw a demon!',
-          'I once saw a powerful wizard enchanting a weapon.',
-          'I once got caught in the cross-fires between two dueling wizards.',
-          'I had a mishap with a charm spell- an old friend tried to force me to hand over all my money, but I luckily managed to resist the spell.',
-          'I once drank a really strong potion- I swear to god, I could taste colours!'
+          'I saw a demon I swear on my life! ' + ['', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom(),
+          'I once saw a powerful wizard ' + [['enchanting', 'disenchanting', 'cursing'].seededrandom() + ' a ' + ['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].seededrandom() + '.',
+            'casting a ' + ['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].seededrandom() + ' ' + ['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].seededrandom() + ' spell.',
+            'riding on the back of a ' + ['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].seededrandom()].seededrandom(),
+          'I once ' + ['got caught in the cross-fires between two dueling', 'witnessed a battle between two', 'fought in a battle against', 'had my home destroyed by', 'settled down near a temple of'].seededrandom() + ' ' + ['wizards', 'dragons', 'demons', 'witches', 'warlocks', 'necromancers', 'minor gods', 'magical beings'].seededrandom() + '.',
+          'I had a mishap with ' + ['a charm', 'an illusion', 'a mind control'].seededrandom() + ' spell- ' + ['an old friend', 'an enemy', 'a dear friend', 'a family member', 'someone I thought of as family', 'an old rival', 'a rival of mine'].seededrandom() + ' ' + ['tried to force me to hand over all my money', 'tried to take my family heirloom', 'tried to steal my fortune', 'tried to force me to give up my ancient relic', 'tried to fool me into giving up my title'].seededrandom() + ', ' + ['but I luckily managed to resist the spell.', 'but their spell failed', 'and sadly it worked', 'and I failed to resist the spell', 'but they were eventually caught by some brave adventurers', 'and I have been searching for them ever since'].seededrandom() + '.',
+          'I once drank a ' + ['really strong', 'crazy strong', 'strong', 'pretty weak', 'kind of weak', 'fairly average', 'powerful', 'rather diluted'].seededrandom() + ' potion- ' + ['I swear to god, I could taste colours!', 'my hair was standing on end!', 'my skin turned bright ' + ['red', 'purple', 'white', 'yellow', 'green', 'orange', 'pink', 'blue', 'violet'].seededrandom() + ' for several days.', 'I grew a thick bushy beard in a few hours!', 'it sent me into a comma for weeks.', 'everyone thought I was attractive for the rest of the day.', 'it made my nose glow in the dark for a week!'].seededrandom(),
+          'I once found a cursed book. The book ' + ['kills all who who read it', 'turned the reader blind', "retold the reader's life but with a horrible twist ending", 'sucked the reader in to a nightmarish world', 'was alive and had gnarled teeth to bite anyone who dared to open it', 'forced you to see the dead'].seededrandom() + '.'
         ].seededrandom()
       }
     },
@@ -424,7 +960,7 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.weirdStuff function')
         return [
-          'I came across a genie, but squandered the wish on an ex lover.',
+          'I came across a genie, ' + ['but squandered the wish on an ex lover', 'but wasted the wish on the perfect sandwich', 'and used my wish to set him free', 'and used my wish to bring prosperity to my town', 'and used my wish to curse a rival', 'but never used my wishes'].seededrandom() + '.',
           'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.',
           'I met a ' + ['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].seededrandom() + ' and lived to tell the tale.',
           'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.',
@@ -490,36 +1026,36 @@ setup.npcData = {
     }
   },
 
-  'skinColour': ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown'],
-  'profession': ['actor', 'advocate', 'advisor', 'animal handler', 'apothecary', 'architect', 'archivist', 'armorer', 'astrologer', 'baker', 'banker', 'barber', 'barkeep', 'blacksmith', 'bookseller', 'brewer', 'bricklayer', 'brothel keeper', 'buccaneer', 'butcher', 'caravanner', 'carpenter', 'cartographer', 'chandler', 'chef', 'clock maker', 'cobbler', 'cook', 'counselor', 'courtesan', 'courtier', 'cowherd', 'dancer', 'diplomat', 'distiller', 'diver', 'farmer', 'fisherman', 'fishmonger', 'gardener', 'general', 'gladiator', 'glovemaker', 'goldsmith', 'grocer', 'guardsman', 'guildmaster', 'hatmaker', 'healer', 'herald', 'herbalist', 'hermit', 'historian', 'hunter', 'ice seller', 'innkeeper', 'inventor', 'jailer', 'jester', 'jeweler', 'judge', 'knight', 'lady', 'leatherworker', 'librarian', 'linguist', 'locksmith', 'lord', 'lumberjack', 'mason', 'masseur', 'merchant', 'messenger', 'midwife', 'miller', 'miner', 'minister', 'minstrel', 'monk', 'mortician', 'necromancer', 'noble', 'nun', 'nurse', 'officer', 'painter', 'patissier', 'perfumer', 'philosopher', 'physician', 'pilgrim', 'potter', 'priest', 'privateer', 'professor', 'roofer', 'ropemaker', 'rugmaker', 'saddler', 'sailor', 'scabbard maker', 'sculptor', 'scavenger', 'scholar', 'seamstress', 'servant', 'shaman', 'shepherd', "ship's captain", 'silversmith', 'slave', 'slaver', 'smith', 'soldier', 'spice merchant', 'squire', 'stablehand', 'stevedore', 'stonemason', 'steward', 'street seller', 'street sweeper', 'student', 'surgeon', 'surveyor', 'sailor', 'tanner', 'tavernkeeper', 'tax collector', 'teacher', 'thatcher', 'thief', 'torturer', 'town crier', 'toymaker', 'vendor', 'veterinarian', 'vintner', 'weaver', 'wetnurse', 'woodcarver', 'wood seller', 'wrestler', 'writer'],
-  'trait': ['fidgets', 'drinks too much', 'eats too much', 'swears often', 'has poor hygiene', 'cannot resist flirting', 'cannot stop staring at you', 'sweats profusely and easily', 'is a habitual liar', 'embellishes the truth', 'exaggerates details', 'has a short temper', 'is melodramatic', 'gossips about the most mundane things', 'cannot resist a juicy secret', 'chews with an open mouth', 'often sniffs audibly', 'is incredibly gullible', 'is skeptical of everything', 'paces about incessantly', 'makes poor eye contact', 'is a know it all', "corrects people's grammar when they speak", 'blinks constantly', 'bobs head back and forth when speaking', 'is often sarcastic', 'cannot resist making snide comments', 'loses train of thought easily', 'is always shaking'],
-  'idle': ['sitting, with a piece of bread in hand', 'sitting, mug in hand', 'poring over some map', 'reading some letter intently', 'reading a book', 'shuffling a pack of cards', 'chewing on a piece of hay', 'sharpening a knife', 'buffing a piece of armour', 'polishing a shield', 'sharpening the blade on a fearsome looking dagger', 'cutting an apple into bite sized pieces', 'biting into an apple', 'eating an apple while looking at some book', 'eating a hunk of cheese while reading a book', 'sipping out of a huge mug while reading a book', "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'"],
-  'reading': ["a piece of history- my forefather's journal, detailing his life in $town.name when it was just a settlement.", 'my journal, from many years ago.', "my mother's journal, from just before she disappeared", 'a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.', "a traitor's memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.", "some sort of spell, though I don't know how to read it.", 'a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.', "a book which I bought, believing it to be blank, and suitable for a journal. However, now there's this strange foreign script that I can't read in it.", 'a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read.'],
-  'currentMood': ['annoyed', 'scared', 'relaxed', 'concerned', 'bemused', 'stressed', 'amused', 'content', 'distracted', 'discontent'],
-  'scar': ['a jagged scar', 'a dark purple scar', 'an angry red scar', 'a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'],
-  'tattoo': ['a dagger tattoo', 'an arrow tattoo', 'an anchor tattoo', 'a skull tattoo', 'a pair of crossed bones tattoo', 'a snake tattoo', 'a scorpion tattoo', 'a spider web tattoo', 'a heart tattoo', 'a ring of thorns tattoo', 'a mermaid tattoo', 'a dragon tattoo'],
-  'demeanour': ['calm', 'moody', 'kind', 'conceited', 'cruel', 'mean', 'careful', 'polite', 'happy'],
-  'vocalPattern': ['is incoherent except for a few key words', 'stutters', 'says ‘um’ a lot', 'says ‘like’ a lot', 'swears', "uses thee's and thou's", 'never stops to breathe', 'uses short, clipped sentences', 'talks in third person', "doesn't conjugate well (‘me make good soup’)", 'rolls R’s', 'never uses contractions', 'is whiny', 'obviously has a stuffy nose', 'tongue stuck to back of teeth', 'does so through clenched teeth', 'speaks in a sing-song voice', 'likes to rhyme', "spits on every 's' sound", 'makes all Th-sounds become Z-sounds', 'repeats the last few words of a sentence/thought (‘nice to meet you, meet you’)', 'uses full titles or descriptions of how he knows you (‘ellen-farmers-daughter is pretty’)', 'strings together adjectives/adverbs for more impact (‘wow, your dress is pretty-pretty!’ ‘I am short-short-short.’)', 'all non-proper nouns end with ‘en’/’sen’ (‘may I have some applesen?’ ‘I saw a big moosen!’)', 'all L-sounds become w-sounds', 'repeats the last word you say before responding', 'sings everything', 'does the wrong emphasis on the wrong syllables', 'pauses often', 'has a clipped pattern of speech', 'is rather monotonous', 'whistles on S-sounds', 'spits on Th-sounds and S-sounds (think Sylvester the cat from Looney toons)', 'has a light lisp', 'makes all r-sounds become w-sounds', 'has a severe underbite', 'has a severe overbite', 'speaks out of the corner of his mouth', 'is always pouting', 'makes ‘ar/er’ sounds become ‘aye’ sounds (fart will sound like fight, water will sound like watay)', 'makes soft letters elongated (‘ssssso, hhhhhhow are you?’)', 'slurs words', 'always has a full mouth while talking', 'sighs after each sentence', 'never uses am/is/are/was/were (‘I big.’ ‘She pretty.’)}', 'responds in the form of questions', 'mutters'],
-  'calmTrait': ['compassionate', 'cheerful', 'reserved', 'outspoken', 'uninterested', 'gruff', 'eager', 'deceitful', 'foolish', 'strict', 'agreeable', 'mischeivious', 'angry', 'fearful', 'manipulative', 'devout', 'greedy', 'funny', 'dour', 'fun-loving', 'lazy', 'driven', 'boastful', 'artistic', 'assertive', 'carefree', 'cautious', 'confident', 'thoughtful', 'loyal', 'sophisticated', 'weak-willed'],
-  'stressTrait': ['withdrawn', 'murderous', 'obsessive', 'authoritarian', 'determined', 'brave', 'spiteful', 'belligerent', 'caustic', 'reckless', 'argumentative', 'gluttonous', 'overly protective', 'angry', 'cowardly', 'meticulous', 'sarcastic', 'stubborn', 'destructive', 'practical', 'pushy', 'fanatical', 'secretive', 'scornful', 'courageous', 'impractical', 'calculating', 'industrious', 'manipulative', 'destructive', 'compulsive', 'intolerant'],
-  'adventure': ['retired from adventuring', 'currently looking for an adventure', 'looking for assistance', 'recuperating from an adventure', 'on a holiday from adventuring', 'taking a short break from adventuring'],
-  'hairColour': ['brunette', 'brunette', 'brown', 'brownish', 'auburn', 'amber', 'hazel', 'red', 'dark red', 'blonde', 'dark blonde', 'white', 'platinum', 'black', 'black'],
-  'hairType': ['thick', 'wispy', 'straight', 'straight', 'wavy', 'wavy', 'curly', 'wiry', 'oily', 'lush', 'poofy', 'long', 'braided', 'very long', 'greasy', 'unruly', 'unusually styled', 'short cropped hair'],
-  'dndClass': ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'],
-  'background': ['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'],
-  'pockets': ['5 cp', '6 cp', '15 cp', '22 cp', '27 cp', '5 sp', '5 sp', '6 sp', '7 sp', '2 gp', '34 cp and 4 sp', '12 sp and 7 gp', 'a clove of garlic', 'a vial of ink worth 8sp', 'hardtack', 'an explosive rune, dealing 2d4 fire damage', 'a palm-sized glass sphere', 'a wooden comb', 'fragments of a shattered sword', 'a deck of tarot cards', 'map of a nearby castle', 'map of the local area', 'a tin spoon', 'a mess kit', 'lacy undergarments', 'spectacles worth 5gp', 'a spool of thread', 'a piece of chalk', 'a necklace of animal teeth', "a headhunter's contract", 'a list of people in a nearby city', 'a worn leather strap', 'a ring of iron keys', 'a flask full of salt water', 'a box of candles', 'a vial of quicksilver', "a traveller's journal", 'a lead amulet', 'a signet ring for a noble house', 'a list of local taverns', 'a golden yellow topaz gem worth 50gp', 'a page torn from a spellbook', 'scraps of bad poetry', 'a pair of bloodstained gloves', 'thirteen mouse teeth', 'a pouch full of dried berries', 'an invitation to a wedding that happened a few weeks ago', 'a brass ring', 'a shopping list', 'the cork from a wine bottle', 'a scrap of paper with uninteligible writing on it', 'a smoking pipe', 'a pouch of ruby powder', 'a deed to a ruined tower', 'a bottle of honey', 'a sling with 10 bullets', 'a broken buckle', 'a knot of silk ribbons', 'a silver pearl worth 10gp', 'a potion of Polymorph Self worth 350gp', '1pp wrapped in a crude map', 'pocket sand', 'a wedge of cheese', 'a string of wooden prayer beads', 'a lock of hair', 'a dead mouse', 'a compass', 'an empty flask', '85gp', 'three diamonds worth 30gp each', 'a black pearl worth 50gp', 'a black opal worth 100gp'],
-  'value': ['experience', 'family', 'progeny', 'learning', 'wealth', 'masterwork', 'revenge', 'intelligence', 'discovery', 'pilgrimage', 'invention', 'miracle', 'secret', 'martyrdom', 'collection', 'patronage', 'fame'],
-  'drive': ['health', 'beauty', 'thrills', 'knowledge', 'power', 'partnership', 'networking', 'glory', 'entertainment', 'helpfulness', 'bravery', 'compassion', 'piety', 'solitude', 'relationships', 'hedonism', 'privacy'],
-  'belief': ['piety', 'pragmatism', 'cleverness', 'stoicism', 'reason', 'self-deserving', 'dogma', 'forgiveness', 'learning', 'tough love', 'honor', 'loyalty', 'optimism', 'respect', 'self-discipline', 'integrity'],
-  'race': ['human', 'half-elf', 'elf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling'],
-  'standardLanguages': ['Common', 'Dwarvish', 'Elvish', 'Gnomish', 'Giant', 'Goblin', 'Halfling', 'Orc'],
-  'exoticLanguages': ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon'],
-  'raceTraits': {
+  skinColour: ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown'],
+  profession: ['actor', 'advocate', 'advisor', 'animal handler', 'apothecary', 'architect', 'archivist', 'armorer', 'astrologer', 'baker', 'banker', 'barber', 'barkeep', 'blacksmith', 'bookseller', 'brewer', 'bricklayer', 'brothel keeper', 'buccaneer', 'butcher', 'caravanner', 'carpenter', 'cartographer', 'chandler', 'chef', 'clock maker', 'cobbler', 'cook', 'counselor', 'courtesan', 'courtier', 'cowherd', 'dancer', 'diplomat', 'distiller', 'diver', 'farmer', 'fisherman', 'fishmonger', 'gardener', 'general', 'gladiator', 'glovemaker', 'goldsmith', 'grocer', 'guardsman', 'guildmaster', 'hatmaker', 'healer', 'herald', 'herbalist', 'hermit', 'historian', 'hunter', 'ice seller', 'innkeeper', 'inventor', 'jailer', 'jester', 'jeweler', 'judge', 'knight', 'lady', 'leatherworker', 'librarian', 'linguist', 'locksmith', 'lord', 'lumberjack', 'mason', 'masseur', 'merchant', 'messenger', 'midwife', 'miller', 'miner', 'minister', 'minstrel', 'monk', 'mortician', 'necromancer', 'noble', 'nun', 'nurse', 'officer', 'painter', 'patissier', 'perfumer', 'philosopher', 'physician', 'pilgrim', 'potter', 'priest', 'privateer', 'professor', 'roofer', 'ropemaker', 'rugmaker', 'saddler', 'sailor', 'scabbard maker', 'sculptor', 'scavenger', 'scholar', 'seamstress', 'servant', 'shaman', 'shepherd', "ship's captain", 'silversmith', 'slave', 'slaver', 'smith', 'soldier', 'spice merchant', 'squire', 'stablehand', 'stevedore', 'stonemason', 'steward', 'street seller', 'street sweeper', 'student', 'surgeon', 'surveyor', 'sailor', 'tanner', 'tavernkeeper', 'tax collector', 'teacher', 'thatcher', 'thief', 'torturer', 'town crier', 'toymaker', 'vendor', 'veterinarian', 'vintner', 'weaver', 'wetnurse', 'woodcarver', 'wood seller', 'wrestler', 'writer'],
+  trait: ['fidgets', 'drinks too much', 'eats too much', 'swears often', 'has poor hygiene', 'cannot resist flirting', 'cannot stop staring at you', 'sweats profusely and easily', 'is a habitual liar', 'embellishes the truth', 'exaggerates details', 'has a short temper', 'is melodramatic', 'gossips about the most mundane things', 'cannot resist a juicy secret', 'chews with an open mouth', 'often sniffs audibly', 'is incredibly gullible', 'is skeptical of everything', 'paces about incessantly', 'makes poor eye contact', 'is a know it all', "corrects people's grammar when they speak", 'blinks constantly', 'bobs head back and forth when speaking', 'is often sarcastic', 'cannot resist making snide comments', 'loses train of thought easily', 'is always shaking'],
+  idle: ['sitting, with a piece of bread in hand', 'sitting, mug in hand', 'poring over some map', 'reading some letter intently', 'reading a book', 'shuffling a pack of cards', 'chewing on a piece of hay', 'sharpening a knife', 'buffing a piece of armour', 'polishing a shield', 'sharpening the blade on a fearsome looking dagger', 'cutting an apple into bite sized pieces', 'biting into an apple', 'eating an apple while looking at some book', 'eating a hunk of cheese while reading a book', 'sipping out of a huge mug while reading a book', "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'", "reading a book titled '<<print $book.pun.pluck()>>'"],
+  reading: ["a piece of history- my forefather's journal, detailing his life in $town.name when it was just a settlement.", 'my journal, from many years ago.', "my mother's journal, from just before she disappeared", 'a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.', "a traitor's memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.", "some sort of spell, though I don't know how to read it.", 'a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.', "a book which I bought, believing it to be blank, and suitable for a journal. However, now there's this strange foreign script that I can't read in it.", 'a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read.'],
+  currentMood: ['annoyed', 'scared', 'relaxed', 'concerned', 'bemused', 'stressed', 'amused', 'content', 'distracted', 'discontent'],
+  scar: ['a jagged scar', 'a dark purple scar', 'an angry red scar', 'a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'],
+  tattoo: ['a dagger tattoo', 'an arrow tattoo', 'an anchor tattoo', 'a skull tattoo', 'a pair of crossed bones tattoo', 'a snake tattoo', 'a scorpion tattoo', 'a spider web tattoo', 'a heart tattoo', 'a ring of thorns tattoo', 'a mermaid tattoo', 'a dragon tattoo'],
+  demeanour: ['calm', 'moody', 'kind', 'conceited', 'cruel', 'mean', 'careful', 'polite', 'happy'],
+  vocalPattern: ['is incoherent except for a few key words', 'stutters', 'says ‘um’ a lot', 'says ‘like’ a lot', 'swears', "uses thee's and thou's", 'never stops to breathe', 'uses short, clipped sentences', 'talks in third person', "doesn't conjugate well (‘me make good soup’)", 'rolls R’s', 'never uses contractions', 'is whiny', 'obviously has a stuffy nose', 'tongue stuck to back of teeth', 'does so through clenched teeth', 'speaks in a sing-song voice', 'likes to rhyme', "spits on every 's' sound", 'makes all Th-sounds become Z-sounds', 'repeats the last few words of a sentence/thought (‘nice to meet you, meet you’)', 'uses full titles or descriptions of how he knows you (‘ellen-farmers-daughter is pretty’)', 'strings together adjectives/adverbs for more impact (‘wow, your dress is pretty-pretty!’ ‘I am short-short-short.’)', 'all non-proper nouns end with ‘en’/’sen’ (‘may I have some applesen?’ ‘I saw a big moosen!’)', 'all L-sounds become w-sounds', 'repeats the last word you say before responding', 'sings everything', 'does the wrong emphasis on the wrong syllables', 'pauses often', 'has a clipped pattern of speech', 'is rather monotonous', 'whistles on S-sounds', 'spits on Th-sounds and S-sounds (think Sylvester the cat from Looney toons)', 'has a light lisp', 'makes all r-sounds become w-sounds', 'has a severe underbite', 'has a severe overbite', 'speaks out of the corner of his mouth', 'is always pouting', 'makes ‘ar/er’ sounds become ‘aye’ sounds (fart will sound like fight, water will sound like watay)', 'makes soft letters elongated (‘ssssso, hhhhhhow are you?’)', 'slurs words', 'always has a full mouth while talking', 'sighs after each sentence', 'never uses am/is/are/was/were (‘I big.’ ‘She pretty.’)}', 'responds in the form of questions', 'mutters'],
+  calmTrait: ['compassionate', 'cheerful', 'reserved', 'outspoken', 'uninterested', 'gruff', 'eager', 'deceitful', 'foolish', 'strict', 'agreeable', 'mischeivious', 'angry', 'fearful', 'manipulative', 'devout', 'greedy', 'funny', 'dour', 'fun-loving', 'lazy', 'driven', 'boastful', 'artistic', 'assertive', 'carefree', 'cautious', 'confident', 'thoughtful', 'loyal', 'sophisticated', 'weak-willed'],
+  stressTrait: ['withdrawn', 'murderous', 'obsessive', 'authoritarian', 'determined', 'brave', 'spiteful', 'belligerent', 'caustic', 'reckless', 'argumentative', 'gluttonous', 'overly protective', 'angry', 'cowardly', 'meticulous', 'sarcastic', 'stubborn', 'destructive', 'practical', 'pushy', 'fanatical', 'secretive', 'scornful', 'courageous', 'impractical', 'calculating', 'industrious', 'manipulative', 'destructive', 'compulsive', 'intolerant'],
+  adventure: ['retired from adventuring', 'currently looking for an adventure', 'looking for assistance', 'recuperating from an adventure', 'on a holiday from adventuring', 'taking a short break from adventuring'],
+  hairColour: ['brunette', 'brunette', 'brown', 'brownish', 'auburn', 'amber', 'hazel', 'red', 'dark red', 'blonde', 'dark blonde', 'white', 'platinum', 'black', 'black'],
+  hairType: ['thick', 'wispy', 'straight', 'straight', 'wavy', 'wavy', 'curly', 'wiry', 'oily', 'lush', 'poofy', 'long', 'braided', 'very long', 'greasy', 'unruly', 'unusually styled', 'short cropped'],
+  dndClass: ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'],
+  background: ['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'],
+  pockets: ['5 cp', '6 cp', '15 cp', '22 cp', '27 cp', '5 sp', '5 sp', '6 sp', '7 sp', '2 gp', '34 cp and 4 sp', '12 sp and 7 gp', 'a clove of garlic', 'a vial of ink worth 8sp', 'hardtack', 'an explosive rune, dealing 2d4 fire damage', 'a palm-sized glass sphere', 'a wooden comb', 'fragments of a shattered sword', 'a deck of tarot cards', 'map of a nearby castle', 'map of the local area', 'a tin spoon', 'a mess kit', 'lacy undergarments', 'spectacles worth 5gp', 'a spool of thread', 'a piece of chalk', 'a necklace of animal teeth', "a headhunter's contract", 'a list of people in a nearby city', 'a worn leather strap', 'a ring of iron keys', 'a flask full of salt water', 'a box of candles', 'a vial of quicksilver', "a traveller's journal", 'a lead amulet', 'a signet ring for a noble house', 'a list of local taverns', 'a golden yellow topaz gem worth 50gp', 'a page torn from a spellbook', 'scraps of bad poetry', 'a pair of bloodstained gloves', 'thirteen mouse teeth', 'a pouch full of dried berries', 'an invitation to a wedding that happened a few weeks ago', 'a brass ring', 'a shopping list', 'the cork from a wine bottle', 'a scrap of paper with uninteligible writing on it', 'a smoking pipe', 'a pouch of ruby powder', 'a deed to a ruined tower', 'a bottle of honey', 'a sling with 10 bullets', 'a broken buckle', 'a knot of silk ribbons', 'a silver pearl worth 10gp', 'a potion of Polymorph Self worth 350gp', '1pp wrapped in a crude map', 'pocket sand', 'a wedge of cheese', 'a string of wooden prayer beads', 'a lock of hair', 'a dead mouse', 'a compass', 'an empty flask', '85gp', 'three diamonds worth 30gp each', 'a black pearl worth 50gp', 'a black opal worth 100gp'],
+  value: ['experience', 'family', 'progeny', 'learning', 'wealth', 'masterwork', 'revenge', 'intelligence', 'discovery', 'pilgrimage', 'invention', 'miracle', 'secret', 'martyrdom', 'collection', 'patronage', 'fame'],
+  drive: ['health', 'beauty', 'thrills', 'knowledge', 'power', 'partnership', 'networking', 'glory', 'entertainment', 'helpfulness', 'bravery', 'compassion', 'piety', 'solitude', 'relationships', 'hedonism', 'privacy'],
+  belief: ['piety', 'pragmatism', 'cleverness', 'stoicism', 'reason', 'self-deserving', 'dogma', 'forgiveness', 'learning', 'tough love', 'honor', 'loyalty', 'optimism', 'respect', 'self-discipline', 'integrity'],
+  race: ['human', 'half-elf', 'elf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling'],
+  standardLanguages: ['Common', 'Dwarvish', 'Elvish', 'Gnomish', 'Giant', 'Goblin', 'Halfling', 'Orc'],
+  exoticLanguages: ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon'],
+  raceTraits: {
     'dragonborn': {
-      'probability': 1,
-      'muscleMass': 11,
-      'bmiModifier': 650,
-      'ageTraits': {
+      probability: 1,
+      muscleMass: 11,
+      bmiModifier: 650,
+      ageTraits: {
         'ageDescriptors': [
           [80, 'vulnerably elderly'],
           [75, 'withered'],
@@ -550,62 +1086,62 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 50,
+          baseAge: 50,
           'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
-          'baseAge': 20,
+          baseAge: 20,
           'ageModifier' () { return dice(3, 10) }
         },
         'young adult': {
-          'baseAge': 13,
+          baseAge: 13,
           'ageModifier' () { return dice(2, 4) }
         },
         'child': {
-          'baseAge': 4,
+          baseAge: 4,
           'ageModifier' () { return dice(3, 4) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Akra', 'Aasathra', 'Antrara', 'Arava', 'Biri', 'Blendaeth', 'Burana', 'Chassath', 'Daar', 'Dentratha', 'Doudra', 'Driindar', 'Eggren', 'Farideh', 'Findex', 'Furrele', 'Gesrethe', 'Gilkass', 'Harann', 'Havilar', 'Hethress', 'Hillanot', 'Jaxi', 'Jezean', 'Jheri', 'Kadana', 'Kava', 'Koflnn', 'Megren', 'Mijira', 'Mishann', 'Nala', 'Nuthra', 'Perra', 'Pogranix', 'Pyxrin', 'Quespa', 'Raiann', 'Rezena', 'Ruloth', 'Saphara', 'Savaran', 'Sora', 'Surina', 'Synthrin', 'Tatyan', 'Thava', 'Uadflt', 'Vezera', 'Zykrofl'],
-          'beardProbability': 100,
-          'baseHeight': 60,
-          'baseWeight': 130,
+      genderTraits: {
+        woman: {
+          firstName: ['Akra', 'Aasathra', 'Antrara', 'Arava', 'Biri', 'Blendaeth', 'Burana', 'Chassath', 'Daar', 'Dentratha', 'Doudra', 'Driindar', 'Eggren', 'Farideh', 'Findex', 'Furrele', 'Gesrethe', 'Gilkass', 'Harann', 'Havilar', 'Hethress', 'Hillanot', 'Jaxi', 'Jezean', 'Jheri', 'Kadana', 'Kava', 'Koflnn', 'Megren', 'Mijira', 'Mishann', 'Nala', 'Nuthra', 'Perra', 'Pogranix', 'Pyxrin', 'Quespa', 'Raiann', 'Rezena', 'Ruloth', 'Saphara', 'Savaran', 'Sora', 'Surina', 'Synthrin', 'Tatyan', 'Thava', 'Uadflt', 'Vezera', 'Zykrofl'],
+          beardProbability: 100,
+          baseHeight: 60,
+          baseWeight: 130,
           'heightModifier' () { return dice(2, 8) },
           'weightModifier' () { return dice(2, 6) }
         },
-        'man': {
-          'firstName': ['Adrex', 'Arjhan', 'Azzakh', 'Balasar', 'Baradad', 'Bharash', 'Bidreked', 'Dadalan', 'Dazzazn', 'Direcris', 'Donaar', 'Fax', 'Gargax', 'Ghesh', 'Gorbundus', 'Greethen', 'Heskan', 'Hirrathak', 'Illdrex', 'Kaladan', 'Kerkad', 'Kiirith', 'Kriv', 'Maagog', 'Medrash', 'Mehen', 'Mozikth', 'Mreksh', 'Mugrunden', 'Nadarr', 'Nithther', 'Norkruuth', 'Nykkan', 'Pandjed', 'Patrin', 'Pijjink', 'Quarethon', 'Rathkran', 'Rhogar', 'Rivaan', 'Sethrekar', 'Shamash', 'Shedinn', 'Srorthen', 'Tarhun', 'Torinn', 'Trynnicus', 'Valorean', 'Vrondiss', 'Zedaar'],
-          'beardProbability': 90,
-          'baseHeight': 62,
-          'baseWeight': 160,
+        man: {
+          firstName: ['Adrex', 'Arjhan', 'Azzakh', 'Balasar', 'Baradad', 'Bharash', 'Bidreked', 'Dadalan', 'Dazzazn', 'Direcris', 'Donaar', 'Fax', 'Gargax', 'Ghesh', 'Gorbundus', 'Greethen', 'Heskan', 'Hirrathak', 'Illdrex', 'Kaladan', 'Kerkad', 'Kiirith', 'Kriv', 'Maagog', 'Medrash', 'Mehen', 'Mozikth', 'Mreksh', 'Mugrunden', 'Nadarr', 'Nithther', 'Norkruuth', 'Nykkan', 'Pandjed', 'Patrin', 'Pijjink', 'Quarethon', 'Rathkran', 'Rhogar', 'Rivaan', 'Sethrekar', 'Shamash', 'Shedinn', 'Srorthen', 'Tarhun', 'Torinn', 'Trynnicus', 'Valorean', 'Vrondiss', 'Zedaar'],
+          beardProbability: 90,
+          baseHeight: 62,
+          baseWeight: 160,
           'heightModifier' () { return dice(2, 8) },
           'weightModifier' () { return dice(2, 6) }
         }
       },
-      'lastName': ['Akambheryliiax', 'Argenthrixus', 'Baharoosh', 'Beryntolthropal', 'Bhenkumbyrznaax', 'Caavylteradyn', 'Chumbyxirinnish', 'Clethtinthiallor', 'Daardendrian', 'Delmirev', 'Dhyrktelonis', 'Ebynichtomonis', 'Esstyrlynn', 'Fharngnarthnost', 'Ghaallixirn', 'Grrrmmballhyst', 'Gygazzylyshrift', 'Hashphronyxadyn', 'Hshhsstoroth', 'lmbixtellrhyst', 'Jerynomonis', 'Jharthraxyn', 'Kerrhylon', 'Kimbatuul', 'Lhamboldennish', 'Linxakasendalor', 'Mohradyllion', 'Mystan', 'Nemmonis', 'Norixius', 'Ophinshtalajiir', 'Orexijandilin', 'Pfaphnyrennish', 'Phrahdrandon', 'Pyraxtallinost', 'Qyxpahrgh', 'Raghthroknaar', 'Shestendeliath', 'Skaarzborroosh', 'Sumnarghthrysh', 'Tiammanthyilish', 'Turnuroth', 'Umbyrphrael', 'Vangdondalor', 'Verthisathurgiesh', 'Wiwyrholdalphiax', 'Wystongjiir', 'Xephyrbahnor', 'Yarjerit', 'Zzzxaaxthroth'],
-      'eyes': ['yellow', 'amber', 'yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'aqua', 'red', 'purple', 'gold', 'gold'],
-      'raceWords': {
-        'raceName': 'dragonborn',
-        'racePlural': 'drakes',
-        'raceSingular': 'dragonborn',
-        'raceAdjective': 'draconian',
-        'raceLanguage': 'Draconic'
+      lastName: ['Akambheryliiax', 'Argenthrixus', 'Baharoosh', 'Beryntolthropal', 'Bhenkumbyrznaax', 'Caavylteradyn', 'Chumbyxirinnish', 'Clethtinthiallor', 'Daardendrian', 'Delmirev', 'Dhyrktelonis', 'Ebynichtomonis', 'Esstyrlynn', 'Fharngnarthnost', 'Ghaallixirn', 'Grrrmmballhyst', 'Gygazzylyshrift', 'Hashphronyxadyn', 'Hshhsstoroth', 'lmbixtellrhyst', 'Jerynomonis', 'Jharthraxyn', 'Kerrhylon', 'Kimbatuul', 'Lhamboldennish', 'Linxakasendalor', 'Mohradyllion', 'Mystan', 'Nemmonis', 'Norixius', 'Ophinshtalajiir', 'Orexijandilin', 'Pfaphnyrennish', 'Phrahdrandon', 'Pyraxtallinost', 'Qyxpahrgh', 'Raghthroknaar', 'Shestendeliath', 'Skaarzborroosh', 'Sumnarghthrysh', 'Tiammanthyilish', 'Turnuroth', 'Umbyrphrael', 'Vangdondalor', 'Verthisathurgiesh', 'Wiwyrholdalphiax', 'Wystongjiir', 'Xephyrbahnor', 'Yarjerit', 'Zzzxaaxthroth'],
+      eyes: ['yellow', 'amber', 'yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'aqua', 'red', 'purple', 'gold', 'gold'],
+      raceWords: {
+        raceName: 'dragonborn',
+        racePlural: 'drakes',
+        raceSingular: 'dragonborn',
+        raceAdjective: 'draconian',
+        raceLanguage: 'Draconic'
       },
-      'knownLanguages': ['Common', 'Draconic'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Draconic'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Draconic Ancestry': "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table. (Player's Handbook p. 34)",
         'Breath Weapon': "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.,,When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.,,After you use your breath weapon, you can't use it again until you complete a short or long rest.",
         'Damage Resistance': 'You have resistance to the damage type associated with your draconic ancestry.'
       }
     },
     'dwarf': {
-      'probability': 2,
-      'muscleMass': 11,
-      'bmiModifier': 500,
-      'ageTraits': {
+      probability: 2,
+      muscleMass: 11,
+      bmiModifier: 500,
+      ageTraits: {
         'ageDescriptors': [
           [200, 'vulnerably elderly'],
           [190, 'withered'],
@@ -636,52 +1172,52 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 197,
+          baseAge: 197,
           'ageModifier' () { return dice(3, 50) }
         },
         'settled adult': {
-          'baseAge': 50,
+          baseAge: 50,
           'ageModifier' () { return dice(3, 50) }
         },
         'young adult': {
-          'baseAge': 15,
+          baseAge: 15,
           'ageModifier' () { return dice(4, 8) }
         },
         'child': {
-          'baseAge': 4,
+          baseAge: 4,
           'ageModifier' () { return dice(3, 6) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Anbera', 'Artin', 'Audhild', 'Balifra', 'Barbena', 'Bardryn', 'Bolhild', 'Dagnal', 'Dafifi', 'Delre', 'Diesa', 'Hdeth', 'Eridred', 'Falkrann', 'Fallthra', 'Finelien', 'Gillydd', 'Gunnloa', 'Gurdis', 'Helgret', 'Helja', 'Hihna', 'Illde', 'Jarana', 'Kathra', 'Kilia', 'Kristryd', 'Liftrasa', 'Marastyr', 'Mardred', 'Morana', 'Nalaed', 'Nora', 'Nurkara', 'Orifi', 'Ovina', 'Riswynn', 'Sannl', 'Therlin', 'Thodris', 'Torbera', 'Tordrid', 'Torgga', 'Urshar', 'Valida', 'Vistra', 'Vonana', 'Werydd', 'Whurdred', 'Yurgunn'],
-          'beardProbability': 80,
-          'baseHeight': 43,
-          'baseWeight': 120,
+      genderTraits: {
+        woman: {
+          firstName: ['Anbera', 'Artin', 'Audhild', 'Balifra', 'Barbena', 'Bardryn', 'Bolhild', 'Dagnal', 'Dafifi', 'Delre', 'Diesa', 'Hdeth', 'Eridred', 'Falkrann', 'Fallthra', 'Finelien', 'Gillydd', 'Gunnloa', 'Gurdis', 'Helgret', 'Helja', 'Hihna', 'Illde', 'Jarana', 'Kathra', 'Kilia', 'Kristryd', 'Liftrasa', 'Marastyr', 'Mardred', 'Morana', 'Nalaed', 'Nora', 'Nurkara', 'Orifi', 'Ovina', 'Riswynn', 'Sannl', 'Therlin', 'Thodris', 'Torbera', 'Tordrid', 'Torgga', 'Urshar', 'Valida', 'Vistra', 'Vonana', 'Werydd', 'Whurdred', 'Yurgunn'],
+          beardProbability: 80,
+          baseHeight: 43,
+          baseWeight: 120,
           'heightModifier' () { return dice(2, 4) },
           'weightModifier' () { return dice(2, 6) }
         },
-        'man': {
-          'firstName': ['Adrik', 'Alberich', 'Baern', 'Barendd', 'Beloril', 'Brottor', 'Dain', 'Dalgal', 'Darrak', 'Delg', 'Duergath', 'Dworic', 'Eberk', 'Einkil', 'Elaim', 'Erias', 'Fallond', 'Fargrim', 'Gardain', 'Garur', 'Gimgen', 'Gimurt', 'Harbek', 'Kildrak', 'Kilvar', 'Morgran', 'Morkral', 'Nalral', 'Nordak', 'Nuraval', 'Oloric', 'Olunt', 'Orsik', 'Oskar', 'Rangfim', 'Reirak', 'Rurik', 'Taklinn', 'Thoradin', 'Thorin', 'Thradal', 'Tordek', 'Traubon', 'Travok', 'Ulfgar', 'Urain', 'Veit', 'Vonbin', 'Vondal', 'Whurbin'],
-          'beardProbability': 4,
-          'baseHeight': 45,
-          'baseWeight': 150,
+        man: {
+          firstName: ['Adrik', 'Alberich', 'Baern', 'Barendd', 'Beloril', 'Brottor', 'Dain', 'Dalgal', 'Darrak', 'Delg', 'Duergath', 'Dworic', 'Eberk', 'Einkil', 'Elaim', 'Erias', 'Fallond', 'Fargrim', 'Gardain', 'Garur', 'Gimgen', 'Gimurt', 'Harbek', 'Kildrak', 'Kilvar', 'Morgran', 'Morkral', 'Nalral', 'Nordak', 'Nuraval', 'Oloric', 'Olunt', 'Orsik', 'Oskar', 'Rangfim', 'Reirak', 'Rurik', 'Taklinn', 'Thoradin', 'Thorin', 'Thradal', 'Tordek', 'Traubon', 'Travok', 'Ulfgar', 'Urain', 'Veit', 'Vonbin', 'Vondal', 'Whurbin'],
+          beardProbability: 4,
+          baseHeight: 45,
+          baseWeight: 150,
           'heightModifier' () { return dice(2, 4) },
           'weightModifier' () { return dice(2, 6) }
         }
       },
-      'lastName': ['Aranore', 'Balderk', 'Battlehammer', 'Bigtoe', 'Bloodkith', 'Bofdarm', 'Brawnanvil', 'Brazzik', 'Broodfist', 'Burrowfound', 'Caebrek', 'Daerdahk', 'Dankil', 'Daraln', 'Deepdelver', 'Durthane', 'Eversharp', 'FaHack', 'Fire-forge', 'Foamtankard', 'Frostbeard', 'Glanhig', 'Goblinbane', 'Goldfinder', 'Gorunn', 'Graybeard', 'Hammerstone', 'Helcral', 'Holderhek', 'Ironfist', 'Loderr', 'Lutgehr', 'Morigak', 'Orcfoe', 'Rakankrak', 'RubyEye', 'Rumnaheim', 'Silveraxe', 'Silverstone', 'Steelfist', 'Stoutale', 'Strakeln', 'Strongheart', 'Thrahak', 'Torevir', 'Torunn', 'Trollbleeder', 'Trueanvil', 'Trueblood', 'Ungart'],
-      'eyes': ['yellow', 'amber', 'brown', 'dark brown', 'hazel', 'green', 'blue', 'gray', 'brown', 'dark brown', 'hazel', 'green', 'blue', 'gray', 'aqua'],
-      'raceWords': {
-        'raceName': 'dwarf',
-        'racePlural': 'dwarves',
-        'raceSingular': 'dwarf',
-        'raceAdjective': 'dwarven',
-        'raceLanguage': 'Dwarven'
+      lastName: ['Aranore', 'Balderk', 'Battlehammer', 'Bigtoe', 'Bloodkith', 'Bofdarm', 'Brawnanvil', 'Brazzik', 'Broodfist', 'Burrowfound', 'Caebrek', 'Daerdahk', 'Dankil', 'Daraln', 'Deepdelver', 'Durthane', 'Eversharp', 'FaHack', 'Fire-forge', 'Foamtankard', 'Frostbeard', 'Glanhig', 'Goblinbane', 'Goldfinder', 'Gorunn', 'Graybeard', 'Hammerstone', 'Helcral', 'Holderhek', 'Ironfist', 'Loderr', 'Lutgehr', 'Morigak', 'Orcfoe', 'Rakankrak', 'RubyEye', 'Rumnaheim', 'Silveraxe', 'Silverstone', 'Steelfist', 'Stoutale', 'Strakeln', 'Strongheart', 'Thrahak', 'Torevir', 'Torunn', 'Trollbleeder', 'Trueanvil', 'Trueblood', 'Ungart'],
+      eyes: ['yellow', 'amber', 'brown', 'dark brown', 'hazel', 'green', 'blue', 'gray', 'brown', 'dark brown', 'hazel', 'green', 'blue', 'gray', 'aqua'],
+      raceWords: {
+        raceName: 'dwarf',
+        racePlural: 'dwarves',
+        raceSingular: 'dwarf',
+        raceAdjective: 'dwarven',
+        raceLanguage: 'Dwarven'
       },
-      'knownLanguages': ['Common', 'Dwarvish'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'well-groomed beard going down to his chest', 'goatee', 'goatee that seems to be trying to level up into a beard', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Dwarvish'],
+      beard: ['scraggly beard', 'long, flowing beard', 'well-groomed beard going down to his chest', 'goatee', 'goatee that seems to be trying to level up into a beard', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Darkvision': "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         'Dwarven Resilience': 'You have advantage on saving throws against poison, and you have resistance against poison damage.',
         'Dwarven Combat Training': 'You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.',
@@ -691,10 +1227,10 @@ setup.npcData = {
       }
     },
     'elf': {
-      'probability': 2,
-      'muscleMass': 9,
-      'bmiModifier': 703,
-      'ageTraits': {
+      probability: 2,
+      muscleMass: 9,
+      bmiModifier: 703,
+      ageTraits: {
         'ageDescriptors': [
           [800, 'vulnerably elderly'],
           [750, 'withered'],
@@ -724,52 +1260,52 @@ setup.npcData = {
           [10, 'kid']
         ],
         'elderly': {
-          'baseAge': 650,
+          baseAge: 650,
           'ageModifier' () { return dice(3, 50) }
         },
         'settled adult': {
-          'baseAge': 450,
+          baseAge: 450,
           'ageModifier' () { return dice(3, 75) }
         },
         'young adult': {
-          'baseAge': 100,
+          baseAge: 100,
           'ageModifier' () { return dice(4, 75) }
         },
         'child': {
-          'baseAge': 10,
+          baseAge: 10,
           'ageModifier' () { return dice(4, 20) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Adria', 'Ahinar', 'Althaea', 'Anastrianna', 'Andraste', 'Antinua', 'Arara', 'Baelitae', 'Bethrynna', 'Birel', 'Caelynn', 'Chaedi', 'Claira', 'Dara', 'Drusilia', 'Elama', 'Enna', 'Faral', 'Felosial', 'Hatae', 'Ielenia', 'Ilanis', 'Irann', 'Jarsali', 'Jelenneth', 'Keyleth', 'Leshanna', 'Lia', 'Maiathah', 'Malquis', 'Meriele', 'Mialee', 'Myathethil', 'Naivara', 'Quelenna', 'Quillathe', 'Ridaro', 'Sariel', 'Shanairla', 'Shava', 'Silaqui', 'Sumnes', 'Theirastra', 'Thiala', 'Tiaathque', 'Traulam', 'Vadania', 'Valanthe', 'Valna', 'Xanaphia'],
-          'beardProbability': 100,
-          'baseHeight': 61,
-          'baseWeight': 90,
+      genderTraits: {
+        woman: {
+          firstName: ['Adria', 'Ahinar', 'Althaea', 'Anastrianna', 'Andraste', 'Antinua', 'Arara', 'Baelitae', 'Bethrynna', 'Birel', 'Caelynn', 'Chaedi', 'Claira', 'Dara', 'Drusilia', 'Elama', 'Enna', 'Faral', 'Felosial', 'Hatae', 'Ielenia', 'Ilanis', 'Irann', 'Jarsali', 'Jelenneth', 'Keyleth', 'Leshanna', 'Lia', 'Maiathah', 'Malquis', 'Meriele', 'Mialee', 'Myathethil', 'Naivara', 'Quelenna', 'Quillathe', 'Ridaro', 'Sariel', 'Shanairla', 'Shava', 'Silaqui', 'Sumnes', 'Theirastra', 'Thiala', 'Tiaathque', 'Traulam', 'Vadania', 'Valanthe', 'Valna', 'Xanaphia'],
+          beardProbability: 100,
+          baseHeight: 61,
+          baseWeight: 90,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(1, 4) }
         },
-        'man': {
-          'firstName': ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
-          'beardProbability': 75,
-          'baseHeight': 62,
-          'baseWeight': 100,
+        man: {
+          firstName: ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
+          beardProbability: 75,
+          baseHeight: 62,
+          baseWeight: 100,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(1, 4) }
         }
       },
-      'lastName': ['Aloro', 'Amakiir', 'Amastacia', 'Ariessus', 'Arnuanna', 'Berevan', 'Caerdonel', 'Caphaxath', 'Casilltenirra', 'Cithreth', 'Dalanthan', 'Eathalena', 'Erenaeth', 'Ethanasath', 'Fasharash', 'Firahel', 'Floshern', 'Galanodel', 'Goltorah', 'Hanali', 'Holimion', 'Horineth', 'Iathrana', 'temnr', 'lranapha', 'Koehlanna', 'Lathalas', 'Liadon', 'Meliamne', 'Mellerelel', 'Mystralath', 'Nalio', 'Netyoive', 'Ofandrus', 'Ostoroth', 'Othronus', 'Qualanthri', 'Raethran', 'Rothenel', 'Selevarun', 'Siannodel', 'Suithrasas', 'Sylvaranth', 'Teinithra', 'Tiltathana', 'Wasanthi', 'Withrethin', 'Xiloscient', 'Xistsrith', 'Yaeldrin'],
-      'eyes': ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
-      'raceWords': {
-        'raceName': 'elf',
-        'racePlural': 'elves',
-        'raceSingular': 'elf',
-        'raceAdjective': 'elfish',
-        'raceLanguage': 'Elvish'
+      lastName: ['Aloro', 'Amakiir', 'Amastacia', 'Ariessus', 'Arnuanna', 'Berevan', 'Caerdonel', 'Caphaxath', 'Casilltenirra', 'Cithreth', 'Dalanthan', 'Eathalena', 'Erenaeth', 'Ethanasath', 'Fasharash', 'Firahel', 'Floshern', 'Galanodel', 'Goltorah', 'Hanali', 'Holimion', 'Horineth', 'Iathrana', 'temnr', 'lranapha', 'Koehlanna', 'Lathalas', 'Liadon', 'Meliamne', 'Mellerelel', 'Mystralath', 'Nalio', 'Netyoive', 'Ofandrus', 'Ostoroth', 'Othronus', 'Qualanthri', 'Raethran', 'Rothenel', 'Selevarun', 'Siannodel', 'Suithrasas', 'Sylvaranth', 'Teinithra', 'Tiltathana', 'Wasanthi', 'Withrethin', 'Xiloscient', 'Xistsrith', 'Yaeldrin'],
+      eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
+      raceWords: {
+        raceName: 'elf',
+        racePlural: 'elves',
+        raceSingular: 'elf',
+        raceAdjective: 'elfish',
+        raceLanguage: 'Elvish'
       },
-      'knownLanguages': ['Common', 'Elvish'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Elvish'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Darkvision': "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         'Keen Senses': 'You have proficiency in the Perception skill.',
         'Fey Ancestry': "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
@@ -780,10 +1316,10 @@ setup.npcData = {
       }
     },
     'gnome': {
-      'probability': 1,
-      'muscleMass': 10,
-      'bmiModifier': 703,
-      'ageTraits': {
+      probability: 1,
+      muscleMass: 10,
+      bmiModifier: 703,
+      ageTraits: {
         'ageDescriptors': [
           [400, 'vulnerably elderly'],
           [360, 'withered'],
@@ -814,52 +1350,52 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 200,
+          baseAge: 200,
           'ageModifier' () { return dice(3, 100) }
         },
         'settled adult': {
-          'baseAge': 40,
+          baseAge: 40,
           'ageModifier' () { return dice(3, 75) }
         },
         'young adult': {
-          'baseAge': 18,
+          baseAge: 18,
           'ageModifier' () { return dice(2, 10) }
         },
         'child': {
-          'baseAge': 6,
+          baseAge: 6,
           'ageModifier' () { return dice(2, 6) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Abalaba', 'Bimpnottin', 'Breena', 'Buvvie', 'Callybon', 'Caramip', 'Carlin', 'Cumpen', 'Dalaba', 'Donella', 'Duvamil', 'Ella', 'Ellyjoybell', 'Ellywick', 'Enidda', 'Lilli', 'Loopmottin', 'Lorilla', 'Luthra', 'Mardnab', 'Meena', 'Menny', 'Mumpena', 'Nissa', 'Numba', 'Nyx', 'Oda', 'Oppah', 'Orla', 'Panana', 'Pynfle', 'Quilla', 'Ranala', 'Reddlepop', 'Roywyn', 'Salanop', 'Shamil', 'Sifiress', 'Symma', 'Tana', 'Tenena', 'Tervaround', 'Tippletoe', 'Ulia', 'Unvera', 'Veloptima', 'Virra', 'Waywocket', 'Yebe', 'Zanna'],
-          'beardProbability': 98,
-          'baseHeight': 35,
-          'baseWeight': 30,
+      genderTraits: {
+        woman: {
+          firstName: ['Abalaba', 'Bimpnottin', 'Breena', 'Buvvie', 'Callybon', 'Caramip', 'Carlin', 'Cumpen', 'Dalaba', 'Donella', 'Duvamil', 'Ella', 'Ellyjoybell', 'Ellywick', 'Enidda', 'Lilli', 'Loopmottin', 'Lorilla', 'Luthra', 'Mardnab', 'Meena', 'Menny', 'Mumpena', 'Nissa', 'Numba', 'Nyx', 'Oda', 'Oppah', 'Orla', 'Panana', 'Pynfle', 'Quilla', 'Ranala', 'Reddlepop', 'Roywyn', 'Salanop', 'Shamil', 'Sifiress', 'Symma', 'Tana', 'Tenena', 'Tervaround', 'Tippletoe', 'Ulia', 'Unvera', 'Veloptima', 'Virra', 'Waywocket', 'Yebe', 'Zanna'],
+          beardProbability: 98,
+          baseHeight: 35,
+          baseWeight: 30,
           'heightModifier' () { return dice(2, 4) },
           'weightModifier' () { return dice(1, 1) }
         },
-        'man': {
-          'firstName': ['Alston', 'Alvyn', 'Anverth', 'Arumawann', 'Bilbron', 'Boddynock', 'Brocc', 'Burgell', 'Cockaby', 'Crampernap', 'Dabbledob', 'Delebean', 'Dimble', 'Eberdeb', 'Eldon', 'Erky', 'Fablen', 'Fibblestib', 'Fonkin', 'Frouse', 'Frug', 'Gerbo', 'Gimble', 'Glim', 'lgden', 'Jabble', 'Jebeddo', 'Kellen', 'Kipper', 'Namfoodle', 'Oppleby', 'Orryn', 'Paggen', 'PaHabar', 'Pog', 'Qualen', 'Ribbles', 'Rimple', 'Roondar', 'Sappw', 'Seebo', 'Senteq', 'Sindri', 'Umpen', 'Warryn', 'Wiggens', 'Wobbles', 'Wrenn', 'Zaffrab', 'Zook'],
-          'beardProbability': 37,
-          'baseHeight': 36,
-          'baseWeight': 35,
+        man: {
+          firstName: ['Alston', 'Alvyn', 'Anverth', 'Arumawann', 'Bilbron', 'Boddynock', 'Brocc', 'Burgell', 'Cockaby', 'Crampernap', 'Dabbledob', 'Delebean', 'Dimble', 'Eberdeb', 'Eldon', 'Erky', 'Fablen', 'Fibblestib', 'Fonkin', 'Frouse', 'Frug', 'Gerbo', 'Gimble', 'Glim', 'lgden', 'Jabble', 'Jebeddo', 'Kellen', 'Kipper', 'Namfoodle', 'Oppleby', 'Orryn', 'Paggen', 'PaHabar', 'Pog', 'Qualen', 'Ribbles', 'Rimple', 'Roondar', 'Sappw', 'Seebo', 'Senteq', 'Sindri', 'Umpen', 'Warryn', 'Wiggens', 'Wobbles', 'Wrenn', 'Zaffrab', 'Zook'],
+          beardProbability: 37,
+          baseHeight: 36,
+          baseWeight: 35,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(1, 1) }
         }
       },
-      'lastName': ['Albaratie', 'Bafflestone', 'Beren', 'Boondiggles', 'Cobblelob', 'Daergel', 'Dunben', 'Fabblestabble', 'Fapplestamp', 'Fiddlefen', 'Folkor', 'Garrick', 'Gimlen', 'Glittergern', 'Gobblefirn', 'Gummen', 'Horcusporcus', 'Humplebumple', 'Ironhide', 'Leffery', 'Lingenhall', 'Loofollue', 'Maekkelferce', 'Miggledy', 'Munggen', 'Murnig', 'Musgraben', 'Nackle', 'Ningel', 'Nopenstallen', 'Nucklestamp', 'Offund', 'Oomtrowl', 'Pilwicken', 'Pingun', 'Quillsharpener', 'Raulnor', 'Reese', 'Rofierton', 'Scheppen', 'Shadowcloak', 'Silverthread', 'Sympony', 'Tarkelby', 'Timbers', 'Turen', 'Umbodoben', 'Waggletop', 'Welber', 'Wildwander'],
-      'eyes': ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
-      'raceWords': {
-        'raceName': 'gnome',
-        'racePlural': 'gnomes',
-        'raceSingular': 'gnome',
-        'raceAdjective': 'gnomish',
-        'raceLanguage': 'Gnomish'
+      lastName: ['Albaratie', 'Bafflestone', 'Beren', 'Boondiggles', 'Cobblelob', 'Daergel', 'Dunben', 'Fabblestabble', 'Fapplestamp', 'Fiddlefen', 'Folkor', 'Garrick', 'Gimlen', 'Glittergern', 'Gobblefirn', 'Gummen', 'Horcusporcus', 'Humplebumple', 'Ironhide', 'Leffery', 'Lingenhall', 'Loofollue', 'Maekkelferce', 'Miggledy', 'Munggen', 'Murnig', 'Musgraben', 'Nackle', 'Ningel', 'Nopenstallen', 'Nucklestamp', 'Offund', 'Oomtrowl', 'Pilwicken', 'Pingun', 'Quillsharpener', 'Raulnor', 'Reese', 'Rofierton', 'Scheppen', 'Shadowcloak', 'Silverthread', 'Sympony', 'Tarkelby', 'Timbers', 'Turen', 'Umbodoben', 'Waggletop', 'Welber', 'Wildwander'],
+      eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
+      raceWords: {
+        raceName: 'gnome',
+        racePlural: 'gnomes',
+        raceSingular: 'gnome',
+        raceAdjective: 'gnomish',
+        raceLanguage: 'Gnomish'
       },
-      'knownLanguages': ['Common', 'Gnomish'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Gnomish'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Darkvision': "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         'Gnome Cunning': 'You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.',
         "Artificer's Lore": 'Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.',
@@ -867,10 +1403,10 @@ setup.npcData = {
       }
     },
     'half-elf': {
-      'probability': 2,
-      'muscleMass': 10,
-      'bmiModifier': 703,
-      'ageTraits': {
+      probability: 2,
+      muscleMass: 10,
+      bmiModifier: 703,
+      ageTraits: {
         'ageDescriptors': [
           [180, 'vulnerably elderly'],
           [150, 'withered'],
@@ -901,52 +1437,52 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 150,
+          baseAge: 150,
           'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
-          'baseAge': 50,
+          baseAge: 50,
           'ageModifier' () { return dice(3, 50) }
         },
         'young adult': {
-          'baseAge': 20,
+          baseAge: 20,
           'ageModifier' () { return dice(3, 10) }
         },
         'child': {
-          'baseAge': 6,
+          baseAge: 6,
           'ageModifier' () { return dice(3, 4) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Abigayl', 'Aebria', 'Aeobreia', 'Breia', 'Aedria', 'Aodreia', 'Dreia', 'Aeliya', 'Aliya', 'Aella', 'Aemilya', 'Aemma', 'Aemy', 'Amy', 'Ami', 'Aeria', 'Arya', 'Aeva', 'Aevelyn', 'Evylann', 'Alaexa', 'Alyxa', 'Alina', 'Aelina', 'Aelinea', 'Allisann', 'Allysann', 'Alyce', 'Alys', 'Alysea', 'Alyssia', 'Aelyssa', 'Amelya', 'Maelya', 'Andreya', 'Aendrea', 'Arianna', 'Aryanna', 'Arielle', 'Aryell', 'Ariella', 'Ashlena', 'Aurora', 'Avaery', 'Avyrie', 'Bella', 'Baella', 'Brooklinea', 'Bryanna', 'Brynna', 'Brinna', 'Caemila', 'Chloe', 'Chloeia', 'Claira', 'Clayre', 'Clayra', 'Delyla', 'Dalyla', 'Elisybeth', 'Aelisabeth', 'Ellia', 'Ellya', 'Elyana', 'Eliana', 'Eva', 'Falyne', 'Genaesis', 'Genaesys', 'Gianna', 'Jianna', 'Janna', 'Graece', 'Grassa', 'Haenna', 'Hanna', 'Halya', 'Harperia', 'Peria', 'Hazyl', 'Hazel', 'Jasmyne', 'Jasmine', 'Jocelyne', 'Joceline', 'Celine', 'Kaelia', 'Kaelya', 'Kathryne', 'Kathrine', 'Kayla', 'Kaila', 'Kymber', 'Kimbera', 'Layla', 'Laylanna', 'Leia', 'Leya', 'Leah', 'Lilia', 'Lylia', 'Luna', 'Maedisa', 'Maelania', 'Melania', 'Maya', 'Mya', 'Myla', 'Milae', 'Naomi', 'Naome', 'Natalya', 'Talya', 'Nathylie', 'Nataliae', 'Thalia', 'Nicola', 'Nikola', 'Nycola', 'Olivya', 'Alivya', 'Penelope', 'Paenelope', 'Pynelope', 'Rianna', 'Ryanna', 'Ruby', 'Ryla', 'Samaentha', 'Samytha', 'Sara', 'Sarah', 'Savannia', 'Scarletta', 'Sharlotta', 'Caerlotta', 'Sophya', 'Stella', 'Stylla', 'Valentyna', 'Valerya', 'Valeria', 'Valia', 'Valea', 'Victorya', 'Vilettia', 'Ximena', 'Imaena', 'Ysabel', 'Zoe', 'Zoeia', 'Zoea', 'Zoesia'],
-          'beardProbability': 100,
-          'baseHeight': 61,
-          'baseWeight': 90,
+      genderTraits: {
+        woman: {
+          firstName: ['Abigayl', 'Aebria', 'Aeobreia', 'Breia', 'Aedria', 'Aodreia', 'Dreia', 'Aeliya', 'Aliya', 'Aella', 'Aemilya', 'Aemma', 'Aemy', 'Amy', 'Ami', 'Aeria', 'Arya', 'Aeva', 'Aevelyn', 'Evylann', 'Alaexa', 'Alyxa', 'Alina', 'Aelina', 'Aelinea', 'Allisann', 'Allysann', 'Alyce', 'Alys', 'Alysea', 'Alyssia', 'Aelyssa', 'Amelya', 'Maelya', 'Andreya', 'Aendrea', 'Arianna', 'Aryanna', 'Arielle', 'Aryell', 'Ariella', 'Ashlena', 'Aurora', 'Avaery', 'Avyrie', 'Bella', 'Baella', 'Brooklinea', 'Bryanna', 'Brynna', 'Brinna', 'Caemila', 'Chloe', 'Chloeia', 'Claira', 'Clayre', 'Clayra', 'Delyla', 'Dalyla', 'Elisybeth', 'Aelisabeth', 'Ellia', 'Ellya', 'Elyana', 'Eliana', 'Eva', 'Falyne', 'Genaesis', 'Genaesys', 'Gianna', 'Jianna', 'Janna', 'Graece', 'Grassa', 'Haenna', 'Hanna', 'Halya', 'Harperia', 'Peria', 'Hazyl', 'Hazel', 'Jasmyne', 'Jasmine', 'Jocelyne', 'Joceline', 'Celine', 'Kaelia', 'Kaelya', 'Kathryne', 'Kathrine', 'Kayla', 'Kaila', 'Kymber', 'Kimbera', 'Layla', 'Laylanna', 'Leia', 'Leya', 'Leah', 'Lilia', 'Lylia', 'Luna', 'Maedisa', 'Maelania', 'Melania', 'Maya', 'Mya', 'Myla', 'Milae', 'Naomi', 'Naome', 'Natalya', 'Talya', 'Nathylie', 'Nataliae', 'Thalia', 'Nicola', 'Nikola', 'Nycola', 'Olivya', 'Alivya', 'Penelope', 'Paenelope', 'Pynelope', 'Rianna', 'Ryanna', 'Ruby', 'Ryla', 'Samaentha', 'Samytha', 'Sara', 'Sarah', 'Savannia', 'Scarletta', 'Sharlotta', 'Caerlotta', 'Sophya', 'Stella', 'Stylla', 'Valentyna', 'Valerya', 'Valeria', 'Valia', 'Valea', 'Victorya', 'Vilettia', 'Ximena', 'Imaena', 'Ysabel', 'Zoe', 'Zoeia', 'Zoea', 'Zoesia'],
+          beardProbability: 100,
+          baseHeight: 61,
+          baseWeight: 90,
           'heightModifier' () { return dice(2, 8) },
           'weightModifier' () { return dice(2, 4) }
         },
-        'man': {
-          'firstName': ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
-          'beardProbability': 57,
-          'baseHeight': 62,
-          'baseWeight': 110,
+        man: {
+          firstName: ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
+          beardProbability: 57,
+          baseHeight: 62,
+          baseWeight: 110,
           'heightModifier' () { return dice(2, 8) },
           'weightModifier' () { return dice(2, 4) }
         }
       },
-      'lastName': ['Alder', 'Ash', 'Ashdown', 'Atwood', 'Barnes', 'Becker', 'Berry', 'Briar', 'Briggs', 'Brock', 'Brook', 'Bundy', 'Burnside', 'Burroughs', 'Bush', 'Butcher', 'Butler', 'Clay', 'Court', 'Cox', 'Croft', 'Cross', 'Crump', 'Dale', 'Deane', 'Delaney', 'Dike', 'Dodd', 'Ford', 'Forrest', 'Fox', 'Freeman', 'Garside', 'Gorsuch', 'Graves', 'Green', 'Greeves', 'Gross', 'Grove', 'Grover', 'Hall', 'Hawthorne', 'Hazel', 'Head', 'Heather', 'Hill', 'Holley', 'Holmes', 'Holt', 'Homer', 'Hooke', 'Hope', 'House', 'Howe', 'Hume', 'Hyde', 'Johnston', 'Kaye', 'Keats', 'Kerry', 'Kirk', 'Lamb', 'Layne', 'Lea', 'Lowell', 'March', 'Marsh', 'Marshal', 'Martin', 'May', 'Millerchip', 'Mills', 'Moore', 'Newby', 'Paine', 'Paxton', 'Perrin', 'Pike', 'Pitt', 'Preacher', 'Provost', 'Purple', 'Ridge', 'Rock', 'Rose', 'Rowen', 'Sangster', 'Sellers', 'Shaw', 'Short', 'Thorne', 'Underwood', 'Walsh', 'Wells', 'West', 'Whitney', 'Wilde', 'Wood', 'Wragge', 'Wynne'],
-      'eyes': ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
-      'raceWords': {
-        'raceName': 'half-elf',
-        'racePlural': 'half-elves',
-        'raceSingular': 'half-elf',
-        'raceAdjective': 'elfish',
-        'raceLanguage': 'Elven'
+      lastName: ['Alder', 'Ash', 'Ashdown', 'Atwood', 'Barnes', 'Becker', 'Berry', 'Briar', 'Briggs', 'Brock', 'Brook', 'Bundy', 'Burnside', 'Burroughs', 'Bush', 'Butcher', 'Butler', 'Clay', 'Court', 'Cox', 'Croft', 'Cross', 'Crump', 'Dale', 'Deane', 'Delaney', 'Dike', 'Dodd', 'Ford', 'Forrest', 'Fox', 'Freeman', 'Garside', 'Gorsuch', 'Graves', 'Green', 'Greeves', 'Gross', 'Grove', 'Grover', 'Hall', 'Hawthorne', 'Hazel', 'Head', 'Heather', 'Hill', 'Holley', 'Holmes', 'Holt', 'Homer', 'Hooke', 'Hope', 'House', 'Howe', 'Hume', 'Hyde', 'Johnston', 'Kaye', 'Keats', 'Kerry', 'Kirk', 'Lamb', 'Layne', 'Lea', 'Lowell', 'March', 'Marsh', 'Marshal', 'Martin', 'May', 'Millerchip', 'Mills', 'Moore', 'Newby', 'Paine', 'Paxton', 'Perrin', 'Pike', 'Pitt', 'Preacher', 'Provost', 'Purple', 'Ridge', 'Rock', 'Rose', 'Rowen', 'Sangster', 'Sellers', 'Shaw', 'Short', 'Thorne', 'Underwood', 'Walsh', 'Wells', 'West', 'Whitney', 'Wilde', 'Wood', 'Wragge', 'Wynne'],
+      eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
+      raceWords: {
+        raceName: 'half-elf',
+        racePlural: 'half-elves',
+        raceSingular: 'half-elf',
+        raceAdjective: 'elfish',
+        raceLanguage: 'Elven'
       },
-      'knownLanguages': ['Common', 'Elvish'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Elvish'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Darkvision': "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         'Fey Ancestry': "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
         'Skill Versatility': 'You gain proficiency in two skills of your choice.',
@@ -954,10 +1490,10 @@ setup.npcData = {
       }
     },
     'halfling': {
-      'probability': 1,
-      'muscleMass': 9,
-      'bmiModifier': 703,
-      'ageTraits': {
+      probability: 1,
+      muscleMass: 9,
+      bmiModifier: 703,
+      ageTraits: {
         'ageDescriptors': [
           [180, 'vulnerably elderly'],
           [150, 'withered'],
@@ -988,52 +1524,52 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 65,
+          baseAge: 65,
           'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
-          'baseAge': 30,
+          baseAge: 30,
           'ageModifier' () { return dice(3, 10) }
         },
         'young adult': {
-          'baseAge': 16,
+          baseAge: 16,
           'ageModifier' () { return dice(2, 12) }
         },
         'child': {
-          'baseAge': 4,
+          baseAge: 4,
           'ageModifier' () { return dice(2, 6) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Alain', 'Andry', 'Anne', 'Bella', 'Blossom', 'Bree', 'Callie', 'Chenna', 'Cora', 'Dee', 'Dell', 'Eida', 'Eran', 'Euphamia', 'Georgina', 'Gynnie', 'Harriet', 'Jasmine', 'Jillian', 'Jo', 'Kithri', 'Lavinia', 'Lidda', 'Maegan', 'Marigold', 'Merla', 'Myria', 'Nedda', 'Nikki', 'Nora', 'Olivia', 'Paela', 'Pearl', 'Pennie', 'Philomena', 'Portia', 'Robbie', 'Rose', 'Saral', 'Seraphina', 'Shaena', 'Stacee', 'Tawna', 'Thea', 'Trym', 'Tyna', 'Vani', 'Verna', 'Wella', 'Willow'],
-          'beardProbability': 100,
-          'baseHeight': 30,
-          'baseWeight': 25,
+      genderTraits: {
+        woman: {
+          firstName: ['Alain', 'Andry', 'Anne', 'Bella', 'Blossom', 'Bree', 'Callie', 'Chenna', 'Cora', 'Dee', 'Dell', 'Eida', 'Eran', 'Euphamia', 'Georgina', 'Gynnie', 'Harriet', 'Jasmine', 'Jillian', 'Jo', 'Kithri', 'Lavinia', 'Lidda', 'Maegan', 'Marigold', 'Merla', 'Myria', 'Nedda', 'Nikki', 'Nora', 'Olivia', 'Paela', 'Pearl', 'Pennie', 'Philomena', 'Portia', 'Robbie', 'Rose', 'Saral', 'Seraphina', 'Shaena', 'Stacee', 'Tawna', 'Thea', 'Trym', 'Tyna', 'Vani', 'Verna', 'Wella', 'Willow'],
+          beardProbability: 100,
+          baseHeight: 30,
+          baseWeight: 25,
           'heightModifier' () { return dice(2, 4) },
           'weightModifier' () { return dice(1, 1) }
         },
-        'man': {
-          'firstName': ['Alton', 'Ander', 'Bernie', 'Bobbin', 'Cade', 'Callus', 'Corrin', 'Dannad', 'Danniel', 'Eddie', 'Egart', 'Eldon', 'Errich', 'Fildo', 'Finnan', 'Franklin', 'Garret', 'Garth', 'Gilbert', 'Gob', 'Harol', 'Igor', 'Jasper', 'Keith', 'Kevin', 'Lazam', 'Lerry', 'Lindal', 'Lyle', 'Merric', 'Mican', 'Milo', 'Morrin', 'Nebin', 'Nevil', 'Osborn', 'Ostran', 'Oswalt', 'Perrin', 'Poppy', 'Reed', 'Roscoe', 'Sam', 'Shardon', 'Tye', 'Ulmo', 'Wellby', 'Wendel', 'Wenner', 'Wes'],
-          'beardProbability': 87,
-          'baseHeight': 32,
-          'baseWeight': 25,
+        man: {
+          firstName: ['Alton', 'Ander', 'Bernie', 'Bobbin', 'Cade', 'Callus', 'Corrin', 'Dannad', 'Danniel', 'Eddie', 'Egart', 'Eldon', 'Errich', 'Fildo', 'Finnan', 'Franklin', 'Garret', 'Garth', 'Gilbert', 'Gob', 'Harol', 'Igor', 'Jasper', 'Keith', 'Kevin', 'Lazam', 'Lerry', 'Lindal', 'Lyle', 'Merric', 'Mican', 'Milo', 'Morrin', 'Nebin', 'Nevil', 'Osborn', 'Ostran', 'Oswalt', 'Perrin', 'Poppy', 'Reed', 'Roscoe', 'Sam', 'Shardon', 'Tye', 'Ulmo', 'Wellby', 'Wendel', 'Wenner', 'Wes'],
+          beardProbability: 87,
+          baseHeight: 32,
+          baseWeight: 25,
           'heightModifier' () { return dice(2, 4) },
           'weightModifier' () { return dice(1, 1) }
         }
       },
-      'lastName': ['Appleblossom', 'Bigheart', 'Brightmoon', 'Brushgather', 'Cherrycheeks', 'Copperkettle', 'Deephollow', 'Elderberry', 'Fastfoot', 'Fastrabbit', 'Glenfellow', 'Goldfound', 'Goodbarrel', 'Goodearth', 'Goodbottle', 'Greenleaf', 'High-hill', 'Hilltopple', 'Hogcollar', 'Honeypot', 'Jamjar', 'Kettlewhistle', 'Leagallow', 'littlefoot', 'Nimblefingers', 'Porridgepot', 'Quickstep', 'Reedfellow', 'Shadowquick', 'Silvereyes', 'Smoothhands', 'Stonebridge', 'Stoutbridge', 'Stoutman', 'Strongbones', 'Sunmeadow', 'Swiftwhistle', 'Tallfellow', 'Tealeaf', 'Tenpenny', 'Thistletop', 'Thorngage', 'Tosscobble', 'Underbough', 'Underfoot', 'Warmwater', 'Whispermouse', 'Wildcloak', 'Wildheart', 'Wiseacre'],
-      'eyes': ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
-      'raceWords': {
-        'raceName': 'halfling',
-        'racePlural': 'hobbits',
-        'raceSingular': 'halfling',
-        'raceAdjective': 'halfling',
-        'raceLanguage': 'Halfling'
+      lastName: ['Appleblossom', 'Bigheart', 'Brightmoon', 'Brushgather', 'Cherrycheeks', 'Copperkettle', 'Deephollow', 'Elderberry', 'Fastfoot', 'Fastrabbit', 'Glenfellow', 'Goldfound', 'Goodbarrel', 'Goodearth', 'Goodbottle', 'Greenleaf', 'High-hill', 'Hilltopple', 'Hogcollar', 'Honeypot', 'Jamjar', 'Kettlewhistle', 'Leagallow', 'littlefoot', 'Nimblefingers', 'Porridgepot', 'Quickstep', 'Reedfellow', 'Shadowquick', 'Silvereyes', 'Smoothhands', 'Stonebridge', 'Stoutbridge', 'Stoutman', 'Strongbones', 'Sunmeadow', 'Swiftwhistle', 'Tallfellow', 'Tealeaf', 'Tenpenny', 'Thistletop', 'Thorngage', 'Tosscobble', 'Underbough', 'Underfoot', 'Warmwater', 'Whispermouse', 'Wildcloak', 'Wildheart', 'Wiseacre'],
+      eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
+      raceWords: {
+        raceName: 'halfling',
+        racePlural: 'hobbits',
+        raceSingular: 'halfling',
+        raceAdjective: 'halfling',
+        raceLanguage: 'Halfling'
       },
-      'knownLanguages': ['Common', 'Halfling'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Halfling'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Lucky': 'When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.',
         'Brave': 'You have advantage on saving throws against being frightened.',
         'Halfling': 'Nimbleness You can move through the space of any creature that is of a size larger than yours.',
@@ -1041,10 +1577,10 @@ setup.npcData = {
       }
     },
     'half-orc': {
-      'probability': 1,
-      'muscleMass': 12,
-      'bmiModifier': 600,
-      'ageTraits': {
+      probability: 1,
+      muscleMass: 12,
+      bmiModifier: 600,
+      ageTraits: {
         'ageDescriptors': [
           [80, 'vulnerably elderly'],
           [75, 'withered'],
@@ -1075,52 +1611,52 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 57,
+          baseAge: 57,
           'ageModifier' () { return dice(3, 6) }
         },
         'settled adult': {
-          'baseAge': 45,
+          baseAge: 45,
           'ageModifier' () { return dice(3, 6) }
         },
         'young adult': {
-          'baseAge': 15,
+          baseAge: 15,
           'ageModifier' () { return dice(3, 12) }
         },
         'child': {
-          'baseAge': 3,
+          baseAge: 3,
           'ageModifier' () { return dice(3, 4) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Arha', 'Baggi', 'Bendoo', 'Bilga', 'Brakka', 'Creega', 'Drenna', 'Ekk', 'Emen', 'Engong', 'Fistula', 'Gaaki', 'Gorga', 'Grai', 'Greeba', 'Grigi', 'Gynk', 'Hrathy', 'Huru', 'Ilga', 'Kabbarg', 'Kansif', 'Lagazi', 'Lexre', 'Murgen', 'Murook', 'Myev', 'Nagarette', 'Neega', 'Nella', 'Nogu', 'Oolah', 'Ootah', 'Ovak', 'Ownka', 'Puyet', 'Reeza', 'Shautha', 'Silgre', 'Sutha', 'Tagga', 'Tawar', 'Tomph', 'Ubada', 'Vanchu', 'Vola', 'Volen', 'Vorka', 'Yevelda', 'Zagga'],
-          'beardProbability': 100,
-          'baseHeight': 53,
-          'baseWeight': 150,
+      genderTraits: {
+        woman: {
+          firstName: ['Arha', 'Baggi', 'Bendoo', 'Bilga', 'Brakka', 'Creega', 'Drenna', 'Ekk', 'Emen', 'Engong', 'Fistula', 'Gaaki', 'Gorga', 'Grai', 'Greeba', 'Grigi', 'Gynk', 'Hrathy', 'Huru', 'Ilga', 'Kabbarg', 'Kansif', 'Lagazi', 'Lexre', 'Murgen', 'Murook', 'Myev', 'Nagarette', 'Neega', 'Nella', 'Nogu', 'Oolah', 'Ootah', 'Ovak', 'Ownka', 'Puyet', 'Reeza', 'Shautha', 'Silgre', 'Sutha', 'Tagga', 'Tawar', 'Tomph', 'Ubada', 'Vanchu', 'Vola', 'Volen', 'Vorka', 'Yevelda', 'Zagga'],
+          beardProbability: 100,
+          baseHeight: 53,
+          baseWeight: 150,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(2, 6) }
         },
-        'man': {
-          'firstName': ['Argran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grurnbar', 'Gubrash', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mhflord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thrag', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed'],
-          'beardProbability': 60,
-          'baseHeight': 58,
-          'baseWeight': 110,
+        man: {
+          firstName: ['Argran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grurnbar', 'Gubrash', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mhflord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thrag', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed'],
+          beardProbability: 60,
+          baseHeight: 58,
+          baseWeight: 110,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(2, 6) }
         }
       },
-      'lastName': ['Gultch', 'Goresmasher', 'Karaktoth', 'Krokk', 'Bogdoth', 'Bracka', 'Dargakk', 'Darknath', "Gul'Tchanth", 'Prathka', 'Rathkann', 'Rangakk'],
-      'eyes': ['yellow', 'amber', 'orange', 'brown', 'hazel', 'yellow', 'amber', 'orange', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red'],
-      'raceWords': {
-        'raceName': 'half-orc',
-        'racePlural': 'half-orcs',
-        'raceSingular': 'half-orc',
-        'raceAdjective': 'orcish',
-        'raceLanguage': 'Orcish'
+      lastName: ['Gultch', 'Goresmasher', 'Karaktoth', 'Krokk', 'Bogdoth', 'Bracka', 'Dargakk', 'Darknath', "Gul'Tchanth", 'Prathka', 'Rathkann', 'Rangakk'],
+      eyes: ['yellow', 'amber', 'orange', 'brown', 'hazel', 'yellow', 'amber', 'orange', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'red'],
+      raceWords: {
+        raceName: 'half-orc',
+        racePlural: 'half-orcs',
+        raceSingular: 'half-orc',
+        raceAdjective: 'orcish',
+        raceLanguage: 'Orcish'
       },
-      'knownLanguages': ['Common', 'Orc'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Orc'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Darkvision': "Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         'Menacing': 'You gain proficiency in the Intimidation skill.',
         'Relentless Endurance': "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.",
@@ -1128,10 +1664,10 @@ setup.npcData = {
       }
     },
     'human': {
-      'probability': 6,
-      'muscleMass': 10,
-      'bmiModifier': 703,
-      'ageTraits': {
+      probability: 6,
+      muscleMass: 10,
+      bmiModifier: 703,
+      ageTraits: {
         'ageDescriptors': [
           [80, 'vulnerably elderly'],
           [75, 'withered'],
@@ -1162,62 +1698,62 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 65,
+          baseAge: 65,
           'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
-          'baseAge': 30,
+          baseAge: 30,
           'ageModifier' () { return dice(3, 15) }
         },
         'young adult': {
-          'baseAge': 15,
+          baseAge: 15,
           'ageModifier' () { return dice(3, 6) }
         },
         'child': {
-          'baseAge': 4,
+          baseAge: 4,
           'ageModifier' () { return dice(3, 4) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'beardProbability': 100,
-          'baseHeight': 53,
-          'baseWeight': 85,
+      genderTraits: {
+        woman: {
+          beardProbability: 100,
+          baseHeight: 53,
+          baseWeight: 85,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(2, 4) },
-          'firstName': ['Abigayl', 'Aebria', 'Aeobreia', 'Breia', 'Aedria', 'Aodreia', 'Dreia', 'Aeliya', 'Aliya', 'Aella', 'Aemilya', 'Aemma', 'Aemy', 'Amy', 'Ami', 'Aeria', 'Arya', 'Aeva', 'Aevelyn', 'Evylann', 'Alaexa', 'Alyxa', 'Alina', 'Aelina', 'Aelinea', 'Allisann', 'Allysann', 'Alyce', 'Alys', 'Alysea', 'Alyssia', 'Aelyssa', 'Amelya', 'Maelya', 'Andreya', 'Aendrea', 'Arianna', 'Aryanna', 'Arielle', 'Aryell', 'Ariella', 'Ashlena', 'Aurora', 'Avaery', 'Avyrie', 'Bella', 'Baella', 'Brooklinea', 'Bryanna', 'Brynna', 'Brinna', 'Caemila', 'Chloe', 'Chloeia', 'Claira', 'Clayre', 'Clayra', 'Delyla', 'Dalyla', 'Elisybeth', 'Aelisabeth', 'Ellia', 'Ellya', 'Elyana', 'Eliana', 'Eva', 'Falyne', 'Genaesis', 'Genaesys', 'Gianna', 'Jianna', 'Janna', 'Graece', 'Grassa', 'Haenna', 'Hanna', 'Halya', 'Harperia', 'Peria', 'Hazyl', 'Hazel', 'Jasmyne', 'Jasmine', 'Jocelyne', 'Joceline', 'Celine', 'Kaelia', 'Kaelya', 'Kathryne', 'Kathrine', 'Kayla', 'Kaila', 'Kymber', 'Kimbera', 'Layla', 'Laylanna', 'Leia', 'Leya', 'Leah', 'Lilia', 'Lylia', 'Luna', 'Maedisa', 'Maelania', 'Melania', 'Maya', 'Mya', 'Myla', 'Milae', 'Naomi', 'Naome', 'Natalya', 'Talya', 'Nathylie', 'Nataliae', 'Thalia', 'Nicola', 'Nikola', 'Nycola', 'Olivya', 'Alivya', 'Penelope', 'Paenelope', 'Pynelope', 'Rianna', 'Ryanna', 'Ruby', 'Ryla', 'Samaentha', 'Samytha', 'Sara', 'Sarah', 'Savannia', 'Scarletta', 'Sharlotta', 'Caerlotta', 'Sophya', 'Stella', 'Stylla', 'Valentyna', 'Valerya', 'Valeria', 'Valia', 'Valea', 'Victorya', 'Vilettia', 'Ximena', 'Imaena', 'Ysabel', 'Zoe', 'Zoeia', 'Zoea', 'Zoesia']
+          firstName: ['Abigayl', 'Aebria', 'Aeobreia', 'Breia', 'Aedria', 'Aodreia', 'Dreia', 'Aeliya', 'Aliya', 'Aella', 'Aemilya', 'Aemma', 'Aemy', 'Amy', 'Ami', 'Aeria', 'Arya', 'Aeva', 'Aevelyn', 'Evylann', 'Alaexa', 'Alyxa', 'Alina', 'Aelina', 'Aelinea', 'Allisann', 'Allysann', 'Alyce', 'Alys', 'Alysea', 'Alyssia', 'Aelyssa', 'Amelya', 'Maelya', 'Andreya', 'Aendrea', 'Arianna', 'Aryanna', 'Arielle', 'Aryell', 'Ariella', 'Ashlena', 'Aurora', 'Avaery', 'Avyrie', 'Bella', 'Baella', 'Brooklinea', 'Bryanna', 'Brynna', 'Brinna', 'Caemila', 'Chloe', 'Chloeia', 'Claira', 'Clayre', 'Clayra', 'Delyla', 'Dalyla', 'Elisybeth', 'Aelisabeth', 'Ellia', 'Ellya', 'Elyana', 'Eliana', 'Eva', 'Falyne', 'Genaesis', 'Genaesys', 'Gianna', 'Jianna', 'Janna', 'Graece', 'Grassa', 'Haenna', 'Hanna', 'Halya', 'Harperia', 'Peria', 'Hazyl', 'Hazel', 'Jasmyne', 'Jasmine', 'Jocelyne', 'Joceline', 'Celine', 'Kaelia', 'Kaelya', 'Kathryne', 'Kathrine', 'Kayla', 'Kaila', 'Kymber', 'Kimbera', 'Layla', 'Laylanna', 'Leia', 'Leya', 'Leah', 'Lilia', 'Lylia', 'Luna', 'Maedisa', 'Maelania', 'Melania', 'Maya', 'Mya', 'Myla', 'Milae', 'Naomi', 'Naome', 'Natalya', 'Talya', 'Nathylie', 'Nataliae', 'Thalia', 'Nicola', 'Nikola', 'Nycola', 'Olivya', 'Alivya', 'Penelope', 'Paenelope', 'Pynelope', 'Rianna', 'Ryanna', 'Ruby', 'Ryla', 'Samaentha', 'Samytha', 'Sara', 'Sarah', 'Savannia', 'Scarletta', 'Sharlotta', 'Caerlotta', 'Sophya', 'Stella', 'Stylla', 'Valentyna', 'Valerya', 'Valeria', 'Valia', 'Valea', 'Victorya', 'Vilettia', 'Ximena', 'Imaena', 'Ysabel', 'Zoe', 'Zoeia', 'Zoea', 'Zoesia']
         },
-        'man': {
-          'beardProbability': 27,
-          'baseHeight': 58,
-          'baseWeight': 120,
+        man: {
+          beardProbability: 27,
+          baseHeight: 58,
+          baseWeight: 120,
           'heightModifier' () { return dice(2, 10) },
           'weightModifier' () { return dice(2, 4) },
-          'firstName': ['Aaryn', 'Aaro', 'Aarus', 'Abramus', 'Abrahm', 'Abyl', 'Abelus', 'Adannius', 'Adanno', 'Aedam', 'Adym', 'Adamus', 'Aedrian', 'Aedrio', 'Aedyn', 'Aidyn', 'Aelijah', 'Elyjah', 'Aendro', 'Androe', 'Aenry', 'Hynroe', 'Hynrus', 'Aethan', 'Aethyn', 'Aevan', 'Evyn', 'Evanus', 'Alecks', 'Alyx', 'Alexandyr', 'Xandyr', 'Alyn', 'Alaen', 'Andrus', 'Aendrus', 'Anglo', 'Aenglo', 'Anglus', 'Antony', 'Antonyr', 'Astyn', 'Astinus', 'Axelus', 'Axyl', 'Benjamyn', 'Benjamyr', 'Braidyn', 'Brydus', 'Braddeus', 'Brandyn', 'Braendyn', 'Bryus', 'Bryne', 'Bryn', 'Branus', 'Caeleb', 'Caelyb', 'Caerlos', 'Carlus', 'Cameryn', 'Camerus', 'Cartus', 'Caertero', 'Charlus', 'Chaerles', 'Chyrles', 'Christophyr', 'Christo', 'Chrystian', 'Chrystan', 'Connorus', 'Connyr', 'Daemian', 'Damyan', 'Daenyel', 'Danyel', 'Davyd', 'Daevo', 'Dominac', 'Dylaen', 'Dylus', 'Elius', 'Aeli', 'Elyas', 'Helius', 'Helian', 'Emilyan', 'Emilanus', 'Emmanus', 'Emynwell', 'Ericus', 'Eryc', 'Eryck', 'Ezekius', 'Zeckus', 'Ezekio', 'Ezrus', 'Yzra', 'Gabrael', 'Gaebriel', 'Gael', 'Gayl', 'Gayel', 'Gaeus', 'Gavyn', 'Gaevyn', 'Goshwa', 'Joshoe', 'Graysus', 'Graysen', 'Gwann', 'Ewan', 'Gwyllam', 'Gwyllem', 'Haddeus', 'Hudsyn', 'Haesoe', 'Haesys', 'Haesus', 'Handus', 'Handyr', 'Hantus', 'Huntyr', 'Haroldus', 'Haryld', 'Horgus', 'Horus', 'Horys', 'Horyce', 'Hosea', 'Hosius', 'Iaen', 'Yan', 'Ianus', 'Ivaen', 'Yvan', 'Jaecoby', 'Jaecob', 'Jaeden', 'Jaedyn', 'Jaeremiah', 'Jeremus', 'Jasyn', 'Jaesen', 'Jaxon', 'Jaxyn', 'Jaxus', 'Johnus', 'Jonus', 'Jonaeth', 'Jonathyn', 'Jordus', 'Jordyn', 'Josaeth', 'Josephus', 'Josaeus', 'Josayah', 'Jovanus', 'Giovan', 'Julyan', 'Julyo', 'Jyck', 'Jaeck', 'Jacus', 'Kaevin', 'Kevyn', 'Vinkus', 'Laevi', 'Levy', 'Levius', 'Landyn', 'Laendus', 'Leo', 'Leonus', 'Leonaerdo', 'Leonyrdo', 'Lynardus', 'Lincon', 'Lyncon', 'Linconus', 'Logaen', 'Logus', 'Louis', 'Lucius', 'Lucae', 'Lucaen', 'Lucaes', 'Lucoe', 'Lucus', 'Lyam', 'Maeson', 'Masyn', 'Maetho', 'Mathoe', 'Matteus', 'Matto', 'Maxus', 'Maximus', 'Maximo', 'Maxymer', 'Mychael', 'Mygwell', 'Miglus', 'Mythro', 'Mithrus', 'Naemo', 'Naethyn', 'Nathanus', 'Naethynel', 'Nicholaes', 'Nycholas', 'Nicholys', 'Nicolus', 'Nolyn', 'Nolanus', 'Olivyr', 'Alivyr', 'Olivus', 'Oscarus', 'Oscoe', 'Raen', 'Ryn', 'Robertus', 'Robett', 'Bertus', 'Romyn', 'Romanus', 'Ryderus', 'Ridyr', 'Samwell', 'Saemuel', 'Santegus', 'Santaegus', 'Sybasten', 'Bastyen', 'Tago', 'Aemo', 'Tagus', 'Theodorus', 'Theodus', 'Thaeodore', 'Thomys', 'Thomas', 'Tommus', 'Tylus', 'Tilyr', 'Uwyn', 'Oewyn', 'Victor', 'Victyr', 'Victorus', 'Vincynt', 'Vyncent', 'Vincentus', 'Wyttus', 'Wyaett', 'Xavius', 'Havius', 'Xavyer', 'Yago', 'Tyago', 'Tyego', 'Ysaac', 'Aisaac', 'Ysaiah', 'Aisiah', 'Siahus', 'Zacharus', 'Zachar', 'Zachaery']
+          firstName: ['Aaryn', 'Aaro', 'Aarus', 'Abramus', 'Abrahm', 'Abyl', 'Abelus', 'Adannius', 'Adanno', 'Aedam', 'Adym', 'Adamus', 'Aedrian', 'Aedrio', 'Aedyn', 'Aidyn', 'Aelijah', 'Elyjah', 'Aendro', 'Androe', 'Aenry', 'Hynroe', 'Hynrus', 'Aethan', 'Aethyn', 'Aevan', 'Evyn', 'Evanus', 'Alecks', 'Alyx', 'Alexandyr', 'Xandyr', 'Alyn', 'Alaen', 'Andrus', 'Aendrus', 'Anglo', 'Aenglo', 'Anglus', 'Antony', 'Antonyr', 'Astyn', 'Astinus', 'Axelus', 'Axyl', 'Benjamyn', 'Benjamyr', 'Braidyn', 'Brydus', 'Braddeus', 'Brandyn', 'Braendyn', 'Bryus', 'Bryne', 'Bryn', 'Branus', 'Caeleb', 'Caelyb', 'Caerlos', 'Carlus', 'Cameryn', 'Camerus', 'Cartus', 'Caertero', 'Charlus', 'Chaerles', 'Chyrles', 'Christophyr', 'Christo', 'Chrystian', 'Chrystan', 'Connorus', 'Connyr', 'Daemian', 'Damyan', 'Daenyel', 'Danyel', 'Davyd', 'Daevo', 'Dominac', 'Dylaen', 'Dylus', 'Elius', 'Aeli', 'Elyas', 'Helius', 'Helian', 'Emilyan', 'Emilanus', 'Emmanus', 'Emynwell', 'Ericus', 'Eryc', 'Eryck', 'Ezekius', 'Zeckus', 'Ezekio', 'Ezrus', 'Yzra', 'Gabrael', 'Gaebriel', 'Gael', 'Gayl', 'Gayel', 'Gaeus', 'Gavyn', 'Gaevyn', 'Goshwa', 'Joshoe', 'Graysus', 'Graysen', 'Gwann', 'Ewan', 'Gwyllam', 'Gwyllem', 'Haddeus', 'Hudsyn', 'Haesoe', 'Haesys', 'Haesus', 'Handus', 'Handyr', 'Hantus', 'Huntyr', 'Haroldus', 'Haryld', 'Horgus', 'Horus', 'Horys', 'Horyce', 'Hosea', 'Hosius', 'Iaen', 'Yan', 'Ianus', 'Ivaen', 'Yvan', 'Jaecoby', 'Jaecob', 'Jaeden', 'Jaedyn', 'Jaeremiah', 'Jeremus', 'Jasyn', 'Jaesen', 'Jaxon', 'Jaxyn', 'Jaxus', 'Johnus', 'Jonus', 'Jonaeth', 'Jonathyn', 'Jordus', 'Jordyn', 'Josaeth', 'Josephus', 'Josaeus', 'Josayah', 'Jovanus', 'Giovan', 'Julyan', 'Julyo', 'Jyck', 'Jaeck', 'Jacus', 'Kaevin', 'Kevyn', 'Vinkus', 'Laevi', 'Levy', 'Levius', 'Landyn', 'Laendus', 'Leo', 'Leonus', 'Leonaerdo', 'Leonyrdo', 'Lynardus', 'Lincon', 'Lyncon', 'Linconus', 'Logaen', 'Logus', 'Louis', 'Lucius', 'Lucae', 'Lucaen', 'Lucaes', 'Lucoe', 'Lucus', 'Lyam', 'Maeson', 'Masyn', 'Maetho', 'Mathoe', 'Matteus', 'Matto', 'Maxus', 'Maximus', 'Maximo', 'Maxymer', 'Mychael', 'Mygwell', 'Miglus', 'Mythro', 'Mithrus', 'Naemo', 'Naethyn', 'Nathanus', 'Naethynel', 'Nicholaes', 'Nycholas', 'Nicholys', 'Nicolus', 'Nolyn', 'Nolanus', 'Olivyr', 'Alivyr', 'Olivus', 'Oscarus', 'Oscoe', 'Raen', 'Ryn', 'Robertus', 'Robett', 'Bertus', 'Romyn', 'Romanus', 'Ryderus', 'Ridyr', 'Samwell', 'Saemuel', 'Santegus', 'Santaegus', 'Sybasten', 'Bastyen', 'Tago', 'Aemo', 'Tagus', 'Theodorus', 'Theodus', 'Thaeodore', 'Thomys', 'Thomas', 'Tommus', 'Tylus', 'Tilyr', 'Uwyn', 'Oewyn', 'Victor', 'Victyr', 'Victorus', 'Vincynt', 'Vyncent', 'Vincentus', 'Wyttus', 'Wyaett', 'Xavius', 'Havius', 'Xavyer', 'Yago', 'Tyago', 'Tyego', 'Ysaac', 'Aisaac', 'Ysaiah', 'Aisiah', 'Siahus', 'Zacharus', 'Zachar', 'Zachaery']
         }
       },
-      'lastName': ['Alder', 'Ash', 'Ashdown', 'Atwood', 'Barnes', 'Becker', 'Berry', 'Briar', 'Briggs', 'Brock', 'Brook', 'Bundy', 'Burnside', 'Burroughs', 'Bush', 'Butcher', 'Butler', 'Clay', 'Court', 'Cox', 'Croft', 'Cross', 'Crump', 'Dale', 'Deane', 'Delaney', 'Dike', 'Dodd', 'Ford', 'Forrest', 'Fox', 'Freeman', 'Garside', 'Gorsuch', 'Graves', 'Green', 'Greeves', 'Gross', 'Grove', 'Grover', 'Hall', 'Hawthorne', 'Hazel', 'Head', 'Heather', 'Hill', 'Holley', 'Holmes', 'Holt', 'Homer', 'Hooke', 'Hope', 'House', 'Howe', 'Hume', 'Hyde', 'Johnston', 'Kaye', 'Keats', 'Kerry', 'Kirk', 'Lamb', 'Layne', 'Lea', 'Lowell', 'March', 'Marsh', 'Marshal', 'Martin', 'May', 'Millerchip', 'Mills', 'Moore', 'Newby', 'Paine', 'Paxton', 'Perrin', 'Pike', 'Pitt', 'Preacher', 'Provost', 'Purple', 'Ridge', 'Rock', 'Rose', 'Rowen', 'Sangster', 'Sellers', 'Shaw', 'Short', 'Thorne', 'Underwood', 'Walsh', 'Wells', 'West', 'Whitney', 'Wilde', 'Wood', 'Wragge', 'Wynne'],
-      'eyes': ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
-      'raceWords': {
-        'raceName': 'human',
-        'racePlural': 'humans',
-        'raceSingular': 'person',
-        'raceAdjective': 'human',
-        'raceLanguage': 'Common'
+      lastName: ['Alder', 'Ash', 'Ashdown', 'Atwood', 'Barnes', 'Becker', 'Berry', 'Briar', 'Briggs', 'Brock', 'Brook', 'Bundy', 'Burnside', 'Burroughs', 'Bush', 'Butcher', 'Butler', 'Clay', 'Court', 'Cox', 'Croft', 'Cross', 'Crump', 'Dale', 'Deane', 'Delaney', 'Dike', 'Dodd', 'Ford', 'Forrest', 'Fox', 'Freeman', 'Garside', 'Gorsuch', 'Graves', 'Green', 'Greeves', 'Gross', 'Grove', 'Grover', 'Hall', 'Hawthorne', 'Hazel', 'Head', 'Heather', 'Hill', 'Holley', 'Holmes', 'Holt', 'Homer', 'Hooke', 'Hope', 'House', 'Howe', 'Hume', 'Hyde', 'Johnston', 'Kaye', 'Keats', 'Kerry', 'Kirk', 'Lamb', 'Layne', 'Lea', 'Lowell', 'March', 'Marsh', 'Marshal', 'Martin', 'May', 'Millerchip', 'Mills', 'Moore', 'Newby', 'Paine', 'Paxton', 'Perrin', 'Pike', 'Pitt', 'Preacher', 'Provost', 'Purple', 'Ridge', 'Rock', 'Rose', 'Rowen', 'Sangster', 'Sellers', 'Shaw', 'Short', 'Thorne', 'Underwood', 'Walsh', 'Wells', 'West', 'Whitney', 'Wilde', 'Wood', 'Wragge', 'Wynne'],
+      eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'brown', 'hazel', 'green', 'blue', 'gray', 'aqua', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray'],
+      raceWords: {
+        raceName: 'human',
+        racePlural: 'humans',
+        raceSingular: 'person',
+        raceAdjective: 'human',
+        raceLanguage: 'Common'
       },
-      'knownLanguages': ['Common'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Ability Score': 'Increase Two different ability scores of your choice increase by 1.',
         'Skills': 'You gain proficiency in one skill of your choice.',
         'Feat': 'You gain one feat of your choice.'
       }
     },
     'tiefling': {
-      'probability': 1,
-      'muscleMass': 10,
-      'bmiModifier': 703,
-      'ageTraits': {
+      probability: 1,
+      muscleMass: 10,
+      bmiModifier: 703,
+      ageTraits: {
         'ageDescriptors': [
           [80, 'vulnerably elderly'],
           [75, 'withered'],
@@ -1248,61 +1784,61 @@ setup.npcData = {
           [6, 'kid']
         ],
         'elderly': {
-          'baseAge': 70,
+          baseAge: 70,
           'ageModifier' () { return dice(3, 10) }
         },
         'settled adult': {
-          'baseAge': 40,
+          baseAge: 40,
           'ageModifier' () { return dice(3, 10) }
         },
         'young adult': {
-          'baseAge': 18,
+          baseAge: 18,
           'ageModifier' () { return dice(3, 12) }
         },
         'child': {
-          'baseAge': 4,
+          baseAge: 4,
           'ageModifier' () { return dice(3, 4) }
         }
       },
-      'genderTraits': {
-        'woman': {
-          'firstName': ['Akta', 'Anakis', 'Armara', 'Astaro', 'Aym', 'Azza', 'Beleth', 'Bryseis', 'Bune', 'Criella', 'Damaia', 'Decarabia', 'Ea', 'Gadreel', 'Gomory', 'Hecat', 'Ishte', 'Jezebeth', 'Kali', 'Kalista', 'Kasdeya', 'Lerissa', 'Lilith', 'Makaria', 'Manea', 'Markosian', 'Mastema', 'Namnah', 'Nemem', 'Nija', 'Orianna', 'Osah', 'Phelaia', 'Prosperine', 'Purah', 'Pyra', 'Pyranna', 'Ronobe', 'Ronwe', 'Seddit', 'Seere', 'Sekhmet', 'Semyaza', 'Shava', 'Shax', 'Sorath', 'Uzza', 'Vapula', 'Vepar', 'Verin'],
-          'beardProbability': 100,
-          'baseHeight': 54,
-          'baseWeight': 85,
+      genderTraits: {
+        woman: {
+          firstName: ['Akta', 'Anakis', 'Armara', 'Astaro', 'Aym', 'Azza', 'Beleth', 'Bryseis', 'Bune', 'Criella', 'Damaia', 'Decarabia', 'Ea', 'Gadreel', 'Gomory', 'Hecat', 'Ishte', 'Jezebeth', 'Kali', 'Kalista', 'Kasdeya', 'Lerissa', 'Lilith', 'Makaria', 'Manea', 'Markosian', 'Mastema', 'Namnah', 'Nemem', 'Nija', 'Orianna', 'Osah', 'Phelaia', 'Prosperine', 'Purah', 'Pyra', 'Pyranna', 'Ronobe', 'Ronwe', 'Seddit', 'Seere', 'Sekhmet', 'Semyaza', 'Shava', 'Shax', 'Sorath', 'Uzza', 'Vapula', 'Vepar', 'Verin'],
+          beardProbability: 100,
+          baseHeight: 54,
+          baseWeight: 85,
           'heightModifier' () { return dice(2, 8) },
           'weightModifier' () { return dice(2, 4) }
         },
-        'man': {
-          'firstName': ['Abad', 'Ahrun', 'Akwmn', 'Anmon', 'Andram', 'Astar', 'Bmam', 'Barakas', 'Bathin', 'Cann', 'Chem', 'Chner', 'Cressel', 'Danmkos', 'Ekmnon', 'Euron', 'Fennz', 'Forcas', 'Habor', 'Iados', 'Kauon', 'Leucs', 'Manmen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paynon', 'Pelaios', 'Purson', 'Qemud', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan'],
-          'beardProbability': 60,
-          'baseHeight': 58,
-          'baseWeight': 120,
+        man: {
+          firstName: ['Abad', 'Ahrun', 'Akwmn', 'Anmon', 'Andram', 'Astar', 'Bmam', 'Barakas', 'Bathin', 'Cann', 'Chem', 'Chner', 'Cressel', 'Danmkos', 'Ekmnon', 'Euron', 'Fennz', 'Forcas', 'Habor', 'Iados', 'Kauon', 'Leucs', 'Manmen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paynon', 'Pelaios', 'Purson', 'Qemud', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan'],
+          beardProbability: 60,
+          baseHeight: 58,
+          baseWeight: 120,
           'heightModifier' () { return dice(2, 8) },
           'weightModifier' () { return dice(2, 4) }
         }
       },
-      'lastName': ['Amarzian', 'Carnago', 'Domarien', 'Iscitan', 'Meluzan', 'Menetrian', 'Paradas', 'Romazi', 'Sarzan', 'Serechor', 'Shadowhorn', 'Szereban', 'Torzalan', 'Trelenus', 'Trevethor', 'Tryphon', 'Vadu', 'Vrago'],
-      'eyes': ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray', 'violet red', 'aquamarine', 'deep blue', 'spring green', 'sea green', 'emerald green'],
-      'raceWords': {
-        'raceName': 'tiefling',
-        'racePlural': 'tieflings',
-        'raceSingular': 'tiefling',
-        'raceAdjective': 'devilish',
-        'raceLanguage': 'Infernal'
+      lastName: ['Amarzian', 'Carnago', 'Domarien', 'Iscitan', 'Meluzan', 'Menetrian', 'Paradas', 'Romazi', 'Sarzan', 'Serechor', 'Shadowhorn', 'Szereban', 'Torzalan', 'Trelenus', 'Trevethor', 'Tryphon', 'Vadu', 'Vrago'],
+      eyes: ['yellow', 'amber', 'brown', 'hazel', 'green', 'blue', 'aqua', 'red', 'purple', 'pale brown', 'pale blue', 'pale green', 'ash gray', 'violet red', 'aquamarine', 'deep blue', 'spring green', 'sea green', 'emerald green'],
+      raceWords: {
+        raceName: 'tiefling',
+        racePlural: 'tieflings',
+        raceSingular: 'tiefling',
+        raceAdjective: 'devilish',
+        raceLanguage: 'Infernal'
       },
-      'knownLanguages': ['Common', 'Infernal'],
-      'beard': ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
-      'abilities': {
+      knownLanguages: ['Common', 'Infernal'],
+      beard: ['scraggly beard', 'long, flowing beard', 'five o clock shadow', 'neckbeard', 'well-groomed moustache', 'goatee', 'well-loved beard, with ornamental beads woven into it', 'sideburns', 'smattering of hairs on his face', 'bit of peach fuzz on his chin', 'long, luxurious beard', 'long, well-kempt beard', 'rather wild, unkempt beard', 'dreadful beard'],
+      abilities: {
         'Darkvision': "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         'Hellish Resistance': 'You have resistance to fire damage.',
         'Infernal Legacy': 'You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell; you must finish a long rest in order to cast the spell again using this trait. Once you reach 5th level, you can also cast the darkness spell; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells.'
       }
     }
   },
-  'classTraits': {
-    'barbarian': {
-      'dndClassOrigin': [
+  classTraits: {
+    barbarian: {
+      dndClassOrigin: [
         'My devotion to my people lifted me in battle, and I learned to control my bloodlust.',
         'The spirits of my ancestors called out to me to complete a task, so I took up the way of the barbarian.',
         'I lost control in battle one day, as if something else was guiding me as I slaughtered my enemies.',
@@ -1310,12 +1846,12 @@ setup.npcData = {
         "I was struck by lightning, but miraculously lived. Ever since that day, I've been stronger, faster, and able to push through any struggle.",
         'I needed an outlet to channel my anger, otherwise I would have snapped, and killed an innocent person.'
       ],
-      'background': ['charlatan', 'criminal', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'outlander', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
-      'weapon': ['a huge greataxe', 'a battleaxe', 'a greatsword', 'two handaxes', 'two warhammers'],
+      background: ['charlatan', 'criminal', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'outlander', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
+      weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'two handaxes', 'two warhammers'],
       'wealth' () { return (dice('2d4') * 1000) }
     },
-    'bard': {
-      'dndClassOrigin': [
+    bard: {
+      dndClassOrigin: [
         'I awakened my latent bardic abilities through trial and error.',
         'I was a gifted performer, and eventually attracted the attention of a legendary bard, who decided to teach me to further my talents into the realm of magic.',
         'I joined a society of scholars and orators, who helped teach me how to harness my music and turn it into magic.',
@@ -1323,36 +1859,36 @@ setup.npcData = {
         'I joined one of the great colleges to learn old lore, and did music as an elective.',
         'I picked up an instrument one day, and found that I could play it perfectly.'
       ],
-      'background': ['charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'noble', 'outlander', 'sailor', 'soldier', 'urchin'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers'],
+      background: ['charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'noble', 'outlander', 'sailor', 'soldier', 'urchin'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers'],
       'wealth' () { return (dice('5d4') * 1000) }
     },
-    'cleric': {
-      'dndClassOrigin': [
+    cleric: {
+      dndClassOrigin: [
         'My god called on me to serve the faith as a cleric, so I abandoned my previous life, and set out for the nearest temple.',
         "I saw the injustice and horrors of the world, and felt that I couldn't live without trying to do something about it.",
         "My god gave me a sign that I was needed to do something important, some time in the future. I'm still waiting for my time to serve, but when it happens, I'll be ready.",
         "I've always been devout, but it wasn't until I completed a pilgrimage to a sacred site that I found my true calling.",
         'I used to serve in the beauracracy of the church, but found the work unrewarding. Being able to spread the message to the farthest corners of the land is much more satisfying work.'
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
-      'weapon': ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+      weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow'],
       'wealth' () { return (dice('5d4') * 1000) }
     },
-    'druid': {
-      'dndClassOrigin': [
+    druid: {
+      dndClassOrigin: [
         'I found a place among a group of druids after I fled a catastrophe.',
         'I saw too much devastation in the wilds where I used to play for days as a child, and decided to protect the wilderness.',
         'I have always had an affinity with animals, so I decided to explore it, and found that I had a gift to converse with them.',
         'I befriended a druid that frequented an old pub, and he convinced me that the world needed me to carry on his work as a druid.',
         'Whiie l was growing up, I saw spirits all around me— entities no one else could perceive. I sought out the druids to help me understand the visions, and communicate with these beings.'
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'charlatan', 'folk hero', 'folk hero', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
-      'weapon': ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow', 'a longbow', 'a longbow'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'charlatan', 'folk hero', 'folk hero', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+      weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow', 'a longbow', 'a longbow'],
       'wealth' () { return (dice('2d4') * 1000) }
     },
-    'fighter': {
-      'dndClassOrigin': [
+    fighter: {
+      dndClassOrigin: [
         'I wanted to hone my combat skills, and so I joined a war college',
         'I  grew up fighting, and I refined my talents by defending myself against people who crossed me.',
         'I squired for a knight, who taught me how to fight, care for my steed, and conduct myself with honor. I decided to take up that path for myself.',
@@ -1360,12 +1896,12 @@ setup.npcData = {
         'I joined the army, and learnt how to fight in a group as a team against a common enemy.',
         'I always had a knack for just about any weapon which I picked up.'
       ],
-      'background': ['acolyte', 'charlatan', 'criminal', 'criminal', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'outlander', 'sage', 'sailor', 'sailor', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin'],
-      'weapon': ['a huge greataxe', 'a battleaxe', 'a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a long sword', 'a long bow', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
+      background: ['acolyte', 'charlatan', 'criminal', 'criminal', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'outlander', 'sage', 'sailor', 'sailor', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin'],
+      weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a long sword', 'a long bow', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
       'wealth' () { return (dice('5d4') * 1000) }
     },
-    'monk': {
-      'dndClassOrigin': [
+    monk: {
+      dndClassOrigin: [
         'I stumbled into a portal and took refuge in a strange monastery, where I learned how to defend mysel fagainst the forces of darkness.',
         'I was chosen to study at a secluded monastery, where I learnt the fundamental techniques to set me on the path to eventual mastery.',
         'I sought out the instruction of a monk to gain a greater understanding of my world, and my purpose in it.',
@@ -1373,12 +1909,12 @@ setup.npcData = {
         'I always felt a power within me, and sought out an order of monks to help me understand it and harness that energy for good.',
         'I was wild, and undisciplined as a child, until I realised the error of my ways. I sought out the monks to atone for my sins.'
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'soldier', 'urchin'],
-      'weapon': ['fists', 'fists', 'fists', 'a quarterstaff', 'a quarterstaff'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'soldier', 'urchin'],
+      weapon: ['fists', 'fists', 'fists', 'a quarterstaff', 'a quarterstaff'],
       'wealth' () { return (dice('2d4') * 100) }
     },
-    'paladin': {
-      'dndClassOrigin': [
+    paladin: {
+      dndClassOrigin: [
         'A magical being appeared before me, and called on me to undertake a holy quest.',
         'One of my ancestors left a holy quest unfulfilled, so I seek to rectify this.',
         'The world is a dark and terrible place. I seek to be a beacon of hope for those that may not have the courage to go on otherwise.',
@@ -1386,24 +1922,24 @@ setup.npcData = {
         'Evil must be opposed on all fronts, and I decided to be the first line of defense against such scum.',
         'Becoming a paladin was a natural consequence of my unwavering faith. I saw the need for the faith to be protected with sword and shield.'
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin'],
-      'weapon': ['a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin'],
+      weapon: ['a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
       'wealth' () { return (dice('5d4') * 1000) }
     },
-    'ranger': {
-      'dndClassOrigin': [
+    ranger: {
+      dndClassOrigin: [
         'I always had a way with animals, and was able to calm them with a gentle touch and soothing word.',
         'I found purpose while I was honing my hunting skills by bringing dangerous beasts down from the outskirts of civilisation.',
         'I suffer from wanderlust, so I found the life of the ranger to be freeing; to me, wandering without a fixed home is freeing.',
         'I met a grizzled ranger who taught me the secrets of woodcraft and surviving in the wild.',
         'I served in the army, and led my division by scouting ahead, blazing trails and tracking our enemies.'
       ],
-      'background': ['acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'a long bow', 'a long bow', 'two daggers'],
+      background: ['acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'a long bow', 'a long bow', 'two daggers'],
       'wealth' () { return (dice('4d4') * 1000) }
     },
-    'rogue': {
-      'dndClassOrigin': [
+    rogue: {
+      dndClassOrigin: [
         "I've always been nimble and quick of wit, so I decided to use those talents to help me make my way in the world.",
         'A thief wronged me, so I focused my training on mastering those skills to better combat foes of that sort.',
         "Know thy enemy. I aim to learn everything there is to know about the Thieves' guild, and then I'll bring it all tumbling down.",
@@ -1412,24 +1948,24 @@ setup.npcData = {
         "I'm a sucker for a shiny bauble or bag of coins, as long as I can get it without risking life and limb.",
         "I just love the thrill of the heist. There's nothing that makes me feel more alive than taking something from right under someone's nose."
       ],
-      'background': ['charlatan', 'charlatan', 'charlatan', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'noble', 'noble', 'outlander', 'sailor', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin', 'urchin'],
-      'weapon': ['a long sword', 'a long sword', 'two daggers', 'two daggers', 'two daggers', 'two daggers', 'a crossbow', 'a crossbow', 'a crossbow'],
+      background: ['charlatan', 'charlatan', 'charlatan', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'noble', 'noble', 'outlander', 'sailor', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin', 'urchin'],
+      weapon: ['a long sword', 'a long sword', 'two daggers', 'two daggers', 'two daggers', 'two daggers', 'a crossbow', 'a crossbow', 'a crossbow'],
       'wealth' () { return (dice('4d4') * 1000) }
     },
-    'sorcerer': {
-      'dndClassOrigin': [
+    sorcerer: {
+      dndClassOrigin: [
         'When I was born, all of the milk turned to cheese. My family is convinced that it was a harbinger for my powers.',
         'I suffered a terrible strain, which brought forth my dormant powers. I have fought to control it ever since.',
         "My immediate family never spoke of my ancestors, and when I asked, they would change the subject. It wasn't until I started displaying strange talents that the full truth of my heritage came out.",
         'A monster attacked one of my friends when I was younger, and I lashed out in a burst of energy, saving my friend, but unlocking the torrent of power which I still struggle to control.',
         "After a magical conflagration, I realised that while I was unharmed, I had been fundamentally changed by the outburst of magical energy. I'm only just beginning to understand what has happened to me."
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'charlatan', 'charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers', 'a dagger', 'a dagger'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'charlatan', 'charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers', 'a dagger', 'a dagger'],
       'wealth' () { return (dice('3d4') * 1000) }
     },
-    'warlock': {
-      'dndClassOrigin': [
+    warlock: {
+      dndClassOrigin: [
         'I was examining a strange tome I found in an abandoned library when the entity that would become my patron suddenly appeared before me.',
         'While wandering through a forbidden place, I came across a magical entity, which offered to form a pact with me.',
         'I stumbled into the clutches of my patron after I accidentally stepped through a magical doorway.',
@@ -1437,12 +1973,12 @@ setup.npcData = {
         'My future patron visited me in my dreams, and offered great power in exchange for my servie.',
         'One of my ancestors had a pact with my patron, which bound me to the same fate.'
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
-      'weapon': ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a dagger', 'a dagger', 'a dagger'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+      weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a dagger', 'a dagger', 'a dagger'],
       'wealth' () { return (dice('4d4') * 1000) }
     },
-    'wizard': {
-      'dndClassOrigin': [
+    wizard: {
+      dndClassOrigin: [
         'An old wizard chose me from among several candidates to serve an apprenticeship.',
         'When I became lost in a magical forest, a hedge wizard took me in, and taught me the fundamentals of magic so that I could navigate my way out.',
         'I grew up listening to tales of great wizards that could change reality with a flick of their hand. I knew from a young age that I wanted to hold that sort of power.',
@@ -1450,20 +1986,20 @@ setup.npcData = {
         'While exploring the restricted section of a library, I came across a magical tome, which sparked the interest in me.',
         'I was a prodigy that demonstrated mastery of the arcane arts at a very young age. When I became old enough to set out on my own, I did so to continue my studies and expand my powers.'
       ],
-      'background': ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
-      'weapon': ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+      weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
       'wealth' () { return (dice('4d4') * 1000) }
     }
   },
-  'backgroundTraits': {
+  backgroundTraits: {
     'acolyte': {
       // 'knownLanguages': function (npc) {
       //   var allLanguages = setup.npcData.standardLanguages.concatUnique(setup.npcData.exoticLanguages)
       //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
       //   return availableLanguages.pluck()
       // },
-      'extraLanguage': true,
-      'backgroundOrigin': [
+      extraLanguage: true,
+      backgroundOrigin: [
         'I ran away from home at a young age, and found refuge in a temple.',
         'My family gave me to a temple, since they were unable to care for me.',
         'I grew up in a household with strong religious convictions. Entering the service of the Gods seemed to be the natural progression.',
@@ -1479,7 +2015,7 @@ setup.npcData = {
         'I trust that my deity will guide my actions, I have faith that if I work hard, things will go well.',
         "I seek to prove myself worthy of my god's favor by matching my actions against their teachings."
       ],
-      'personalityTrait': [
+      personalityTrait: [
         'I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.',
         'I can find common ground between the fiercest of enemies, and can work towards peace no matter what the conditions.',
         'I see omens in every event and action. The gods try to speak to us, we just need to listen!',
@@ -1489,7 +2025,7 @@ setup.npcData = {
         "I've enjoyed fine food, drink, and high society among my temple’s elite. Rough living grates on me.",
         'I’ve spent so long in the temple that I have little practical experience dealing with people in the outside world.'
       ],
-      'bond': [
+      bond: [
         'I would die to recover an ancient artifact of my faith that was lost long ago.',
         'I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.',
         'I owe me life to the priest who took me in when my parents died.',
@@ -1497,11 +2033,11 @@ setup.npcData = {
         'I will do anything to protect the temple where I served.',
         'I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.'
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'charlatan': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'As a youngster, I was left to my own devices. My knack for manipulating people helped me survive.',
         'I learned early on that people are easy to exploit, and are gullible and too trusting.',
         'I often got into trouble as a youngster, but talked my way out of it.',
@@ -1516,7 +2052,7 @@ setup.npcData = {
         'I believe that Material goods come and go. Bonds of friendship last forever.',
         "I'm determined to make something of myself."
       ],
-      'personalityTrait': [
+      personalityTrait: [
         'I fall in and out of love easily, and am always pursuing someone.',
         'I have ajoke for every occasion, especially occasions where humor is inappropriate.',
         'Flattery is my preferred trick for getting what I want.',
@@ -1526,7 +2062,7 @@ setup.npcData = {
         'I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.',
         'I pocket anything I see that might have some value.'
       ],
-      'bond': [
+      bond: [
         'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].firstName.seededrandom()>>, and must work to ensure that he never crosses paths with me or those I care about.',
         "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>--a horrible person who's probably rotting in jail somewhere.",
         "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>, who doesn't know me. I'm going to try and make the world better for him.",
@@ -1534,11 +2070,11 @@ setup.npcData = {
         "A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>, killed someone I love. Some day soon, I'll have my revenge.",
         "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself."
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'criminal': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'I resented authority in my younger days, and I saw a life of crime as a way to get back at those that I thought had wronged me.',
         'I resented authority as a youngster, and saw a life of crime as the best way to fight back against tyranny and oppression.',
         'I fell in with a gang of reprobates and ne’er-do- wells, and I learned my specialty from them.',
@@ -1557,7 +2093,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         "I'm trying to pay off an old debt I owe to a generous benefactor.",
         'My ill-gotten gains go to support my family.',
         'Something important was taken from me, and I aim to steal it back.',
@@ -1565,11 +2101,11 @@ setup.npcData = {
         "I'm guilty of a terrible crime. I hope I can redeem myself for it.",
         'Someone I loved died because of a mistake I made. That will never happen again.'
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'entertainer': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'Members of my family made ends meet by performing, so it was fitting for me to follow their example',
         'I always had a keen insight into what made other people laugh and cry. A life as an entertainer seemed to be the natural continuation of that.',
         'I saw a bard perform once, and it inspired me so much that I decided to follow in his footsteps.',
@@ -1588,7 +2124,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'My instrument is my most treasured possession, and it reminds me of someone I love.',
         "Someone stole my precious instrument, and someday I'll get it back.",
         'I want to be famous, whatever it takes.',
@@ -1596,11 +2132,11 @@ setup.npcData = {
         'I will do anything to prove myself superior to my hated rival.',
         'I would do anything for the other members of my old party.'
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'folk hero': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'I learned what was right and wrong from my family.',
         'I was always enamored by tales of heroes and wished I could be something more than ordinary.',
         'I hated my mundane life, so when it was time for someone to step up and do the right thing, I took my chance.',
@@ -1619,7 +2155,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'I have a family, but I have no idea where they are.  One day, I hope to see them again.',
         'I worked the land, I love the land, and I will protect the land.',
         'A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.',
@@ -1627,10 +2163,10 @@ setup.npcData = {
         'I protect those who cannot protect themselves.',
         'I wish my childhood sweetheart had come with me to pursue my destiny.'
       ],
-      'wealth': 1000
+      wealth: 1000
     },
     'gladiator': {
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'I found myself in a fight, and the drunkards around me started to bet on whether I would win. I found that strangely exhilarating, and continued to fight, seeking that thrill.',
         'I was a slave, and was forced to fight for my supper and eventual freedom. By the time I got out, there was nothing else I knew.',
         'I entered a fight as a drunken bet, and somehow managed to win. The money was too good for me to quit.',
@@ -1647,7 +2183,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'My weapon has seen me through many a battle, and it means everything to me.',
         'The costume that I wear when fighting is part of me and my being.',
         'I have seen countless friends die around me, many at my own hands, so I find it difficult to make new ones.',
@@ -1655,11 +2191,11 @@ setup.npcData = {
         'I feel like I am still a part of my old arena team.',
         'Sometimes, I feel like I cannot leave who I was in the arena.'
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'guild artisan': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'I was apprenticed to a master who taught me the guild’s business.',
         'I helped a guild artisan keep a secret, and in return, I was taken on as an apprentice.',
         'One of my relatives who belonged to the guild made a place for me.',
@@ -1678,7 +2214,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'The workshop where I learned my trade is the most important place in the world to me.',
         "I created a great work for someone, and then found them unworthy to receive it; I'm still looking for someone worthy.",
         'I owe my guild a great debt for forging me into the person I am today.',
@@ -1686,11 +2222,11 @@ setup.npcData = {
         'One day I will return to my guild and prove that I am the greatest artisan of them all.',
         'I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood.'
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'hermit': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'My enemy ruined my reputation, and I had to flee to a life of solitude to escape further disparagement.',
         'I am comfortable with isolation, as I seek inner peace.',
         'I find myself in love with nature, and prefer the company of the animals and plants to that of people.',
@@ -1708,7 +2244,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'Nothing is more important than the other members of my hermitage, order, or association.',
         'I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.',
         "I'm still seeking the enlightenment I pursued in my seclusion, and it still eludes me.",
@@ -1716,7 +2252,7 @@ setup.npcData = {
         'Should my discovery come to light, it could bring ruin to the world.',
         'My isolation gave me great insight into a great evil that only I can destroy.'
       ],
-      'wealth': 500
+      wealth: 500
     },
     'noble': {
       // 'knownLanguages': function (npc) {
@@ -1724,8 +2260,8 @@ setup.npcData = {
       //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
       //   return availableLanguages.pluck()
       // },
-      'extraLanguage': true,
-      'backgroundOrigin': [
+      extraLanguage: true,
+      backgroundOrigin: [
         'My family has been disgraced, and I intend to restore our once pristine reputation.',
         'I come from an old and storied family, and it fell to me to preserve the family name.',
         'My family recently came by its title, and that elevation thrust us into a new and strange world.',
@@ -1744,7 +2280,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'I will face any challenge to win the approval of my family.',
         "My house's alliance with another noble family must be sustained at all costs.",
         'Nothing is more important that the other members of my family.',
@@ -1752,11 +2288,11 @@ setup.npcData = {
         'My loyalty to my sovereign is unwavering.',
         'The common folk must see me as a hero of the people.'
       ],
-      'wealth': 2500
+      wealth: 2500
     },
     'outlander': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'I spent a lot of time in the wilderness as a youngster, and I came to love that way of life.',
         "From a young age, I couldn't abide the stink of cities, and sought out the wilderness for respite from the chaos of people.",
         'I came to understand the darkness that lurks in the wilds, and l vowed to combat it.',
@@ -1775,7 +2311,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'My family, clan, or tribe is the most important thing in my life, even when they are far from me.',
         'An injury to the unspoiled wilderness of my home is an injury to me.',
         'I will bring terrible wrath down on the evildoers who destroyed my homeland.',
@@ -1783,7 +2319,7 @@ setup.npcData = {
         'I suffer awful visions of a coming disaster and will do anything to prevent it.',
         'It is my duty to provide children to sustain my tribe.'
       ],
-      'wealth': 1000
+      wealth: 1000
     },
     'sage': {
       // 'knownLanguages': function (npc) {
@@ -1791,8 +2327,8 @@ setup.npcData = {
       //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
       //   return availableLanguages.pluck()
       // },
-      'extraLanguage': true,
-      'backgroundOrigin': [
+      extraLanguage: true,
+      backgroundOrigin: [
         'I was naturally curious, so I packed up and went to a university to learn more about the world.',
         'My mentor’s teachings opened my mind to new possibilities in that field of study.',
         'I was always an avid reader, and became a sage to learn more from the thousands of books that I tended to.',
@@ -1811,7 +2347,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'It is my duty to protect my students.',
         'I have an ancient text that holds terrible secrets that must not fall into the wrong hands.',
         'I work to preserve a library, university, scriptorium, or monastery.',
@@ -1819,11 +2355,11 @@ setup.npcData = {
         "I've been searching my whole life for the answer to a certain question.",
         'I sold my soul for knowledge; I hope to do great deeds and win it back.'
       ],
-      'wealth': 1000
+      wealth: 1000
     },
     'sailor': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'I was press-ganged by pirates and forced to serve as a deck-hand on their ship until I could escape from their clutches.',
         'I wanted to see the world, so I signed on as a deck- hand for a merchant ship.',
         'One of my relatives was a sailor, and took me to sea when I was young, which inspired a life-long love of the oceans and the water.',
@@ -1842,7 +2378,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         "I'm loyal to my captain first, everything else second.",
         'The ship is most important--crewmates and captains come and go.',
         "I'll always remember my first ship.",
@@ -1850,11 +2386,11 @@ setup.npcData = {
         'I was cheated of my fair share of the profits, and I want to get my due.',
         'Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.'
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'soldier': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         "I wanted fame and fortune, so I signed up to the militia to prove my mettle. I don't think I knew what I was doing, but my determination carried me through my contract, and I never stopped.",
         'I wanted to protect my village from monsters, so I learnt swordcraft and how to fight. Then I learnt that you could earn coin for it, too.',
         'I was forced to enlist in the local militia to fight for my lord. Many of my friends are dead because of him.',
@@ -1871,7 +2407,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'I would lay down my life for the people I served with.',
         'Someone saved my life on the battlefield. To this day, I will never leave a friend behind.',
         'My honor is my life.',
@@ -1879,11 +2415,11 @@ setup.npcData = {
         'Those who fight beside me are those worth dying for.',
         'I fight for those who cannot fight for themselves.'
       ],
-      'wealth': 1000
+      wealth: 1000
     },
     'urchin': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         'My parents died, leaving nobody to look after me, so I took care of myself.',
         'I had to escape my homelife. I lived off crumbs and scraps, but it was better than the alternative.',
         'Raiders attacked my village when I was a child, leaving me the only survivor. I had to walk for three days to the next town over, and begged to survive.',
@@ -1901,7 +2437,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         "My town or city is my home, and I'll fight to defend it.",
         'I sponsor an orphanage to keep others from enduring what I was forced to endure.',
         'I owe my survival to another urchin who taught me to live on the streets.',
@@ -1909,11 +2445,11 @@ setup.npcData = {
         "I escaped my life of poverty by robbing an important person, and I'm wanted for it.",
         "No one else is going to have to endure the hardships I've been through."
       ],
-      'wealth': 1500
+      wealth: 1500
     },
     'commoner': {
       // 'knownLanguages': function (npc) { return npc },
-      'backgroundOrigin': [
+      backgroundOrigin: [
         "I was born into poverty. I've slowly worked my way to where I am today.",
         'I had a bad string of bets which left me with no other choice than to skip town.',
         "I was born into a lowly family, and that's where I'll likely stay.",
@@ -1936,7 +2472,7 @@ setup.npcData = {
       personalityTrait: [
 
       ],
-      'bond': [
+      bond: [
         'I am trying to pay off a debt that I inherited from my father.',
         'I was swindled out of a large inheritance, and had to go into hiding to keep my family safe.',
         'I was a nobleman once, but made the wrong man an enemy.',
@@ -1971,12 +2507,12 @@ setup.npcData = {
         'I love haggling, meeting new folks, and helping people find what they need. My dream is to build the finest tavern and shop.',
         'I was petrified 1000 years ago by a medusa while foraging for mushrooms. A wizard found and cured me but left without explaining anything. I must readjust and relearn everything!'
       ],
-      'wealth': 500
+      wealth: 500
     }
   },
-  'professionTraits': {
-    'bartender': {
-      'dndClassOrigin': [
+  professionTraits: {
+    bartender: {
+      dndClassOrigin: [
         'I came across $tavern.name as a youngster, and spent many a night here drinking with my buddies. When the old owner died, it went to auction, and I tried to kep the dream alive by buying it. One by one all my friends grew out of it, or moved away.',
         "Before I ran $tavern.name, it was my dad's. I kept the family business going to support him in his old age.",
         "When I first got to $town.name, it was practically a ghost town. We built $tavern.name as a social hub for the folk, and it's now what it is today.",
@@ -1986,12 +2522,12 @@ setup.npcData = {
         'I was just a kitchen hand when this place started. The owner and I worked through thick and thin, and when his daughter died, he had nobody to leave it to, except for me.',
         "My parents bought this place as an investment. I don't know what they were thinking- when have you ever heard of a pub being profitable?"
       ],
-      'background': ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-      'wealth': 1400
+      background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
+      wealth: 1400
     },
-    'blacksmith': {
-      'dndClassOrigin': [
+    blacksmith: {
+      dndClassOrigin: [
         'I was an apprentice in $smithy.name, and took up the title when my old master passed on.',
         'I was a tinkerer, and just drifted from town to town doing odd jobs for people until I came to $town.name. I fell in love with the place, and then settled here.',
         "I followed my love here, set up shop, and now we're happily married, with a steady job and a roof over our heads.",
@@ -1999,30 +2535,30 @@ setup.npcData = {
         "I was an apprentice, and my old master bitterly despised me because my father married his love. I worked so hard to perfect my craft to impress him thinking that the issue was with me, and then the bastard had a heart attack. Left everything to her. What's my mum gonna do with a smithy?!",
         'I spent a lot of time in the mountains with the Dwarves, and they taught me a thing or two while I was there.'
       ],
-      'background': ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-      'wealth': 2400
+      background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
+      wealth: 2400
     },
-    'merchant': {
-      'dndClassOrigin': [
+    merchant: {
+      dndClassOrigin: [
         'I grew up poor. I learnt to hock stuff off to feed myself.',
         'Some people just have the gift of the gab- I just have a talent for sales.',
         'I love gold. Unashamedly, I really do. So what? Selling is an honest living. Sue me.',
         'I spent my youth selling whatever scraps I could find, never got tired of it.'
       ],
-      'background': ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-      'wealth': 2400
+      background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
+      wealth: 2400
     },
-    'politician': {
-      'dndClassOrigin': [
+    politician: {
+      dndClassOrigin: [
         'I dared to dream that I could change the world, and rise above the others.',
         'I became furious with the corruption in politics, so I decided to enter the rat-race myself.',
         'I thought that I could do a better job than the last guy. I was right.'
       ],
-      'background': ['commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble', 'criminal'],
-      'weapon': ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-      'wealth': 2400
+      background: ['commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble', 'noble', 'criminal'],
+      weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
+      wealth: 2400
     }
   }
 }
