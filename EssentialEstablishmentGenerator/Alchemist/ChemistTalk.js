@@ -2,9 +2,6 @@ const random = array => {}
 const either = array => {}
 const linkappend = (title, text) => {}
 
-/**
- * @param {*} story - Holds all shared story information.
- */
 export function ChemistTalk (story) {
   const { chemist, brew } = story
 
