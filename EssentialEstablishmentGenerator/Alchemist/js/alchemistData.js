@@ -1,6 +1,6 @@
 setup.alchemist = {
-  'rollData': {
-    'wealth': [
+  rollData: {
+    wealth: [
       [95, 'kingly'],
       [80, 'aristocratic'],
       [70, 'wealthy'],
@@ -10,7 +10,7 @@ setup.alchemist = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    'size': [
+    size: [
       [95, 'cavernous'],
       [80, 'huge'],
       [70, 'quite large'],
@@ -22,7 +22,7 @@ setup.alchemist = {
       [10, 'tiny'],
       [0, 'extremely cramped']
     ],
-    'cleanliness': [
+    cleanliness: [
       [80, 'fastidious'],
       [70, 'very tidy'],
       [60, 'tidy'],
@@ -33,7 +33,7 @@ setup.alchemist = {
       [10, 'extremely messy'],
       [0, 'dangerously messy']
     ],
-    'expertise': [
+    expertise: [
       [80, 'masterful'],
       [70, 'exceptional'],
       [60, 'superior quality'],
@@ -45,9 +45,9 @@ setup.alchemist = {
       [0, 'blatantly amateur']
     ]
   },
-  'get': {
-    'lookAround': function (alchemist) {
-      var lookAround = [
+  get: {
+    lookAround (alchemist) {
+      const lookAround = [
         {
           cleanliness: 80,
           wealth: 10,
@@ -91,8 +91,8 @@ setup.alchemist = {
       ]
       return lookAround
     },
-    'priceTalk': function (alchemist) {
-      var priceTalk = [
+    priceTalk (alchemist) {
+      const priceTalk = [
         {
           priceModifier: 5,
           wealth: 80,
