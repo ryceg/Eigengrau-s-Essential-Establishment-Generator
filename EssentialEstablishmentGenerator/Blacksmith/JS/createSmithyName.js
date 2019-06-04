@@ -1,13 +1,13 @@
 
 setup.createSmithyName = function (town, smithy) {
-  var smithyNameRoll = random(1, 5)
-  var adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].seededrandom()
-  var noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].seededrandom()
-  var family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].seededrandom()
-  var rider = ['Shop', 'Blacksmith', 'Fabricator', 'Smith', 'Smithy', 'Farrier', 'Metalsmith', 'Swordsmith'].seededrandom()
+  const smithyNameRoll = random(1, 5)
+  const adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].seededrandom()
+  const noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].seededrandom()
+  const family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].seededrandom()
+  const rider = ['Shop', 'Blacksmith', 'Fabricator', 'Smith', 'Smithy', 'Farrier', 'Metalsmith', 'Swordsmith'].seededrandom()
 
-  var fam = {
-    'son': {
+  const fam = {
+    son: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.parentNoun
       },
@@ -17,7 +17,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: 'young adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'daughter': {
+    daughter: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.parentNoun
       },
@@ -27,7 +27,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: 'young adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'brother': {
+    brother: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun
       },
@@ -37,7 +37,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: smithy.blacksmith.ageStage,
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'sister': {
+    sister: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun
       },
@@ -47,7 +47,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: smithy.blacksmith.ageStage,
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'uncle': {
+    uncle: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun
       },
@@ -57,7 +57,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'aunt': {
+    aunt: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun
       },
@@ -67,7 +67,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'father': {
+    father: {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.childNoun
       },
@@ -77,14 +77,14 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'friend': {
+    friend: {
       relationships: {
         [smithy.blacksmith.key]: 'friend'
       },
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'family': {
+    family: {
       relationships: {
         [smithy.blacksmith.key]: 'relative'
       },
@@ -93,7 +93,7 @@ setup.createSmithyName = function (town, smithy) {
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].seededrandom()
     },
-    'employee': {
+    employee: {
       relationships: {
         [smithy.blacksmith.key]: 'employer'
       },
