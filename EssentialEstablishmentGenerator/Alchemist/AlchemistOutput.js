@@ -15,23 +15,17 @@ export function AlchemistOutput () {
   unset('$selectedBuilding')
 
   const $town = get('$town')
-  const $selected = get('$selected')
-  const $currentPassage = get('$currentPassage')
+
   const $alchemist =
-    $town.buildings.alchemist[$selected.key] ||
-    $town.buildings.alchemist[$currentPassage.key]
+    $town.buildings.alchemist[get('$selected').key] ||
+    $town.buildings.alchemist[get('$currentPassage').key]
 
   set('$alchemist', $alchemist)
 
-  const $npcs = get('$npcs')
-  const $chemist = $npcs[$alchemist.chemist.key]
-
-  set('$chemist', $chemist)
+  const $chemist = set('$chemist', get('$npcs')[$alchemist.chemist.key])
 
   function generatePlothook () {
-    const $chemistPlot = setup.alchemistMission($town)
-
-    set('$chemistPlot', $chemistPlot)
+    const $chemistPlot = set('$chemistPlot', setup.alchemistMission($town))
 
     replace('#chemistMission', () => {
       return `${randomValue([`When you say that you're adventurers, ${$chemist.hisher} ${$chemist.eyes} eyes light up, and ${$chemist.heshe} says`, `You chat for a while, and then ${$chemist.firstName} says `, `You discuss business, and when you talk about your adventures, ${$chemist.firstName} asks `])} ${$chemistPlot}`

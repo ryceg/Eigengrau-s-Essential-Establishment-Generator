@@ -22,6 +22,7 @@ export function get (name) {
  */
 export function set (name, value) {
   story[name] = value
+  return value
 }
 
 /**
