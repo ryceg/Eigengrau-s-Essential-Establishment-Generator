@@ -1,4 +1,4 @@
-setup.createAlchemistName = function (chemistFirstName) {
+export function createAlchemistName (chemistFirstName) {
   const alchemistNameRoll = dice(1, 5)
   let name
   const adjective = ['Bubbling', 'Spicy', 'Soggy', 'Fizzy', 'Liquid', 'Fluorescent', 'Clear', 'Alcoholic', 'Abyssal', 'Angelic', 'Elven', 'Measured', 'Marked', 'Glass', 'Glass', 'Copper', 'Corked', 'Burning', 'Red', 'Blue', 'Green', 'Gold', 'Yellow', 'Vile', 'Genuine', 'Original'].seededrandom()

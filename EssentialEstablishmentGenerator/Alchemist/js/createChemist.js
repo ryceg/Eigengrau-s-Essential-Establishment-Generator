@@ -1,5 +1,5 @@
 
-setup.createChemist = function (town) {
+export function createChemist (town) {
   const chemist = setup.createNPC(town, {
     associatedTown: town.name,
     dndClass: ['wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].seededrandom(),

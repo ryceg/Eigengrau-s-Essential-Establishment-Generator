@@ -1,5 +1,4 @@
-
-setup.alchemistModifiers = function (alchemist) {
+export function alchemistModifiers (alchemist) {
   if (alchemist.roll.size > 80) {
     alchemist.roll.activity -= 4
   } else if (alchemist.roll.size > 70) {
