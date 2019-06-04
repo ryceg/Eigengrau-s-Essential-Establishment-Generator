@@ -174,10 +174,20 @@ setup.createNPC = function (town, base) {
   const mouth = setup.npcData.bodyParts.head.mouth.seededrandom()
   const chin = setup.npcData.bodyParts.head.chin.seededrandom()
   const ears = setup.npcData.bodyParts.head.ears.seededrandom()
+  const headMisc = setup.npcData.bodyParts.head.misc.seededrandom()
+  const torso = setup.npcData.bodyParts.torso.descriptions.seededrandom()
+  const arms = setup.npcData.bodyParts.arms.descriptions.seededrandom()
+  const legs = setup.npcData.bodyParts.legs.descriptions.seededrandom()
 
-  const physicalTraitRoll = random(1, 50)
-  if (physicalTraitRoll > 11) {
-    npc.physicalTrait = npc.physicalTrait || [hair, eyes, nose, mouth, chin, ears].seededrandom()
+  const physicalTraitRoll = random(1, 100)
+  if (physicalTraitRoll > 40) {
+    npc.physicalTrait = npc.physicalTrait || [hair, eyes, nose, mouth, chin, ears, headMisc].seededrandom()
+  } else if (physicalTraitRoll > 30) {
+    npc.physicalTrait = npc.physicalTrait || torso
+  } else if (physicalTraitRoll > 20) {
+    npc.physicalTrait = npc.physicalTrait || arms
+  } else if (physicalTraitRoll > 15) {
+    npc.physicalTrait = npc.physicalTrait || legs
   } else if (physicalTraitRoll > 8) {
     npc.physicalTrait = npc.physicalTrait || data.scar.seededrandom()
   } else if (physicalTraitRoll > 6) {

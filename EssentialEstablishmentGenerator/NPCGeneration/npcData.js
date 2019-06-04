@@ -2907,7 +2907,7 @@ setup.npcData = {
       ]
     },
     arms: {
-      description: [
+      descriptions: [
         'long, gangly arms',
         'quite short arms',
         'arms like a gorilla',
@@ -2939,7 +2939,20 @@ setup.npcData = {
       ]
     },
     legs: {
-
+      descriptions: [
+        'more legs than torso',
+        'widely bowed legs',
+        'very notcieable knock knees',
+        'large, knobly knees',
+        'quite stumpy legs',
+        'large, wide feet',
+        'very tiny feet',
+        'feet like a toddler',
+        'feet like a chimp',
+        'almost no kneecaps',
+        'long, monkey like toes',
+        'pale, veiny legs'
+      ]
     }
   }
 }
