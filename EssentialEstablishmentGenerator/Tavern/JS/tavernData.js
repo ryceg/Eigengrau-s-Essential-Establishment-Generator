@@ -118,6 +118,13 @@ setup.tavern = {
       description: 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> groaning whenever they both turned heads, and another <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
       rules: "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
       bet: random(4, 10)
+    },
+    {
+      name: 'Morra',
+      type: 'guessing game',
+      description: 'A drunk looking <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> pulls his hand out from behind his back and shouts <<print random(0, 15)>>. Two other people do the same thing and after a moment the $NPCgamer.raceNote <<print either("cries out in joy", "cheers loudly", "hangs his head in defeat", "lots out a quiet sob, and hands another person a small coin purse")>>.',
+      rules: 'Between two and four people throw out a single hand with any number of fingers held up. Right before the hands are shown, each player will call out how many fingers they think will be held up in total between each player. If a player guesses the correct number of fingers they get a point, and it takes three points to win.',
+      bet: random(4, 10)
     }
   ],
   fun: [

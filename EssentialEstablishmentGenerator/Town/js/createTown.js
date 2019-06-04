@@ -16,19 +16,19 @@ setup.createTown = function (base) {
       guard: 1,
       tithe: 1
     },
-    get taxRate () {
+    taxRate (town) {
       let totalTax = 0
-      Object.keys(this.taxes).forEach(function (tax) {
-        if (typeof tax === 'number') {
-          totalTax += tax
-        } else if (typeof tax === 'function') {
-          const temp = tax(this)
+      Object.keys(town.taxes).forEach(function (tax) {
+        if (typeof town.taxes[tax] === 'number') {
+          totalTax += town.taxes[tax]
+        } else if (typeof town.taxes[tax] === 'function') {
+          const temp = town.taxes[tax](this)
           totalTax += temp
         } else {
-          console.log('non-integer tax! ' + tax)
+          console.log('non-integer tax! ' + town.taxes[tax])
         }
-        return totalTax
       })
+      return totalTax
     },
     get type () {
       console.log('Getting town type.')
@@ -166,7 +166,8 @@ setup.createTown = function (base) {
       welfare: random(1, 100),
       military: random(1, 100),
       law: random(1, 100),
-      arcana: random(1, 100)
+      arcana: random(1, 100),
+      equality: Math.clamp(dice(2, 50) + 20, 1, 100)
     }
   }, base)
 

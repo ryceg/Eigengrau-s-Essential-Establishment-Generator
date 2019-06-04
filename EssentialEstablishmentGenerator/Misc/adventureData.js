@@ -93,7 +93,7 @@ setup.adventure = {
       'escape from captivity in the dungeon.' (town, adventure) {
         return 'escape from captivity in the dungeon.'
       },
-      'clear a ruin so it can be rebuilt and reoccupied.' (town, adventure) {
+      'clear a ruin so it can be rebuilt and reoccupied.' (town) {
         return 'clear a ruin so it can be rebuilt and reoccupied.'
       },
       'discover why a villain is interested in the dungeon.' (town, adventure) {

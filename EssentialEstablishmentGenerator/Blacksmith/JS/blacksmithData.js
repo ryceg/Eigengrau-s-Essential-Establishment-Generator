@@ -1,8 +1,8 @@
 
 setup.smithy = {
-  'get': {
-    'expertise': function (smithy) {
-      var expertise = [
+  get: {
+    expertise (smithy) {
+      const expertise = [
         {
           expertise: 80,
           wealth: 10,
@@ -46,9 +46,9 @@ setup.smithy = {
       ]
       return expertise
     },
-    'lookAround': function (smithy) {
-      var blacksmith = smithy.blacksmith
-      var lookAround = [
+    lookAround (smithy) {
+      const blacksmith = smithy.blacksmith
+      const lookAround = [
         {
           cleanliness: 80,
           wealth: 10,
@@ -93,8 +93,8 @@ setup.smithy = {
       return lookAround
     }
   },
-  'rollData': {
-    'wealth': [
+  rollData: {
+    wealth: [
       [95, 'kingly'],
       [80, 'aristocratic'],
       [70, 'wealthy'],
@@ -104,7 +104,7 @@ setup.smithy = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    'size': [
+    size: [
       [95, 'cavernous'],
       [80, 'huge'],
       [70, 'quite large'],
@@ -116,7 +116,7 @@ setup.smithy = {
       [10, 'tiny'],
       [0, 'extremely cramped']
     ],
-    'cleanliness': [
+    cleanliness: [
       [80, 'fastidious'],
       [70, 'very tidy'],
       [60, 'tidy'],
@@ -127,7 +127,7 @@ setup.smithy = {
       [10, 'extremely messy'],
       [0, 'dangerously messy']
     ],
-    'expertise': [
+    expertise: [
       [80, 'masterful'],
       [70, 'exceptional'],
       [60, 'superior quality'],
@@ -138,7 +138,7 @@ setup.smithy = {
       [10, 'amateur'],
       [0, 'blatantly amateur']
     ],
-    'activity': [
+    activity: [
       [80, 'extremely busy'],
       [70, 'very busy'],
       [60, 'rather busy'],

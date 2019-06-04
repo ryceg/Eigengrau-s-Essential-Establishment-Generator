@@ -6,7 +6,7 @@
     "<<print random(2, 10)>> CP per week from each family",
     "<<print random(5, 12)>> CP per week from each family",
     "<<print random(2, 5)>> SP per month from each family",
-    "<<print random(1, 6)>> SP per month fromeach family"]),
+    "<<print random(1, 6)>> SP per month from each family"]),
   demand: either([
     "that we give them half of all the food we grow",
     "that we provide free room and board whenever they travel through our territory",
