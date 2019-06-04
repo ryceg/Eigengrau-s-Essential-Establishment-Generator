@@ -1,9 +1,11 @@
 import { randomValue } from '../../src/engine/rolls'
+import { get } from '../../src/engine/story'
 
 const linkappend = (title, text) => {}
 
-export function ChemistTalk (story) {
-  const { chemist, brew } = story
+export function ChemistTalk () {
+  const chemist = get('chemist')
+  const brew = get('brew')
 
   const inspectBrew = `Looking inside the ${brew.vesselType}, you see a ${brew.liquidDescription} bubbling away`
 
