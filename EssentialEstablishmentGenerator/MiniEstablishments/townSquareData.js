@@ -100,7 +100,7 @@ setup.townSquare = {
     ' There are several guards next to or near the plinth.'
   ],
   crowd: {
-    'shoeShine': {
+    shoeShine: {
       function (town) {
         const npc = setup.createNPC(town, {
           ageStage: 'child',
@@ -109,7 +109,7 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, 'child') + ' shining shoes with small rag from a battered box.'
       }
     },
-    'haggling': {
+    haggling: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' haggling with a street vendor for ' + ['a pile of fish.', 'a piece of pottery.', 'a fine piece of art.', 'a cheap looking statue.',
@@ -117,7 +117,7 @@ setup.townSquare = {
           'a shiny green apple.', 'a large cheese wheel.', 'a caged owl.', 'a large tanned hide.', 'a small crate of torches.', 'a crude looking dagger.', 'a fine looking sword.'].random()
       }
     },
-    'colorfulRobes': {
+    colorfulRobes: {
       function (town) {
         const npc = setup.createNPC(town, {
           hasClass: true,
@@ -128,50 +128,50 @@ setup.townSquare = {
           'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe'].random() + ' coloured robes.'
       }
     },
-    'animal': {
+    animal: {
       function (town) {
         return 'a large cage with ' + ['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
           'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random() + ' inside of it.'
       }
     },
-    'drunkard': {
+    drunkard: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' clearly drunk off their ass just wandering about.'
       }
     },
-    'bag': {
+    bag: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' carrying a large bag.'
       }
     },
-    'chest': {
+    chest: {
       function (town) {
         const npc = setup.createNPC(town)
         const npc2 = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' and a ' + setup.profile(npc2, npc2.descriptor) + ' carrying a large and heavy looking chest.'
       }
     },
-    'gawk': {
+    gawk: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is gawking at a nearby ' + ['beautiful woman.', 'handsome man.', 'rugged dwarf.', 'ethereal elf.'].random()
       }
     },
-    'parcel': {
+    parcel: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is pushing through the square with an oddly shaped parcel in hand.'
       }
     },
-    'hurry': {
+    hurry: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is clearly in a hurry.'
       }
     },
-    'crutches': {
+    crutches: {
       function (town) {
         const npc = setup.createNPC(town, {
           note: 'Is on crutches.'
@@ -179,7 +179,7 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is hobbling along on crutches.'
       }
     },
-    'pegleg': {
+    pegleg: {
       function (town) {
         const npc = setup.createNPC(town, {
           note: 'Has a pegleg.'
@@ -187,13 +187,13 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is hobbling along with a pegleg.'
       }
     },
-    'lost': {
+    lost: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is obviously lost.'
       }
     },
-    'noble': {
+    noble: {
       function (town) {
         const npc = setup.createNPC(town, {
           background: 'noble',
@@ -202,7 +202,7 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, 'noble') + ' strutting around, accompanied by a servant.'
       }
     },
-    'showoff': {
+    showoff: {
       function (town) {
         const npc = setup.createNPC(town, {
           background: 'noble',
@@ -211,26 +211,26 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, 'noble') + ' attempting to show off to a group of lovely looking commoners.'
       }
     },
-    'alley': {
+    alley: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' ducking into an alley.'
       }
     },
-    'store': {
+    store: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' stepping into a store.'
       }
     },
-    'charity': {
+    charity: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + [' toss a coin to a beggar.', ' give part of a loaf of bread to a small child.', ' feed some scraps to a mutt.',
           " drop some coins in a street performer's cup.", ' help an old woman cross the square.'].random()
       }
     },
-    'guardBait': {
+    guardBait: {
       exclusions (town) {
         if (town.roll.guardFunding > 50 && town.roll.law > 50) {
           return true
@@ -244,33 +244,33 @@ setup.townSquare = {
           'being surrounded by several guards.', 'being told off by a guard.'].random()
       }
     },
-    'ridingMule': {
+    ridingMule: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a mule.'
       }
     },
-    'ridingHorse': {
+    ridingHorse: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' riding a horse.'
       }
     },
-    'ridingOtherAnimals': {
+    ridingOtherAnimals: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + [' riding a camel.', ' riding an ox.', ' riding a cow.', ' riding a zebra.', ' riding an ostrich.', ' riding a reindeer.', ' riding a yak.',
           ' riding a giant tortoise.', ' riding a llama.', ' riding a water buffalo.', ' riding a large boar.', ' riding a hippo.', ' riding a lion.', ' riding an elephant.'].random()
       }
     },
-    'chasingSomething': {
+    chasingSomething: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is chasing a ' + ['child.', 'cat.', 'dog.', 'group of kids.', 'man holding a small bag.', 'woman holding a small chest.', 'horse.',
           'runaway cart.', 'chicken.', 'pig.', 'barrel rolling ahead of them.', 'piece of parchment blowing in the breeze.'].random()
       }
     },
-    'Jewelry': {
+    Jewelry: {
       function (town) {
         const npc = setup.createNPC(town, {
           background: 'noble',
@@ -279,7 +279,7 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is wearing some ' + ['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.', 'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()
       }
     },
-    'cart': {
+    cart: {
       function (town) {
         const npc = setup.createNPC(town, {
           background: 'commoner'
@@ -288,14 +288,14 @@ setup.townSquare = {
           'riding in a cart pulled by a horse.', 'riding in a large cart pulled by horses.', 'riding in a cart pulled by slaves.', 'loading a cart full of goods from the market.', 'unloading goods from a cart.'].random()
       }
     },
-    'npcMovement': {
+    npcMovement: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['wandering aimlessly.', 'strutting with haste.', 'meandering through the crowds.', 'running through the square.', 'wandering as if lost.',
           'walking very slowly.', 'favoring their ' + ['right leg', 'left leg'].random() + ' as they limp by.', 'hastily walking past.'].random()
       }
     },
-    'map': {
+    map: {
       function (town) {
         const map = setup.misc.treasureMap.create()
         const npc = setup.createNPC(town, {
@@ -304,20 +304,20 @@ setup.townSquare = {
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is looking at a ' + map.tippyWord + '.'
       }
     },
-    'bumping': {
+    bumping: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who keeps bumping into people.'
       }
     },
-    'musician': {
+    musician: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is playing ' + ['a sweet tune on a lute.', 'a beat on a small wooden box.', 'an off-key song on a lute.', 'a bitter tune on a harp.',
           'an interesting song on a sitar.', 'a merry tune on a flute.', 'a quick beat on a pair of drums.', 'a fine song on a fiddle.'].random()
       }
     },
-    'singer': {
+    singer: {
       function (town) {
         const npc = setup.createNPC(town)
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is ' + ['singing off-key', 'singing a single note', 'humming a sweet tune', 'singing a lovely song',
