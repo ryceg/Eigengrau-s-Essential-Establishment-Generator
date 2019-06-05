@@ -1,6 +1,6 @@
 setup.market = {
-  'vendors': {
-    'selling': [
+  vendors: {
+    selling: [
       'ale by the pint',
       'amulets and totems',
       'apples',
@@ -154,7 +154,7 @@ setup.market = {
       'makeup from far off lands',
       'pet rocks'
     ],
-    'shouts': [
+    shouts: [
       'Tasty meat pies, baked into the shape of otters! Delicious!',
       "Bows carved into the likeness of swans! Everyone's buying them!",
       'Giant spider silk role! Ideal for adventuring! <blockquote>This is just spider silk in a bag, which is incredibly sticky.</blockquote>',
@@ -227,7 +227,7 @@ setup.market = {
       'Skeleton keys from real skeletons!',
       'Never forget another note! Buy my self playing instruments!'
     ],
-    'suffix': [
+    suffix: [
       'Be the envy of your friends!',
       'Essential for the intrepid adventurer!',
       'Half price!',
@@ -247,7 +247,7 @@ setup.market = {
       "Don't miss this chance!",
       "This bargain can't be beat!"
     ],
-    'tent': [
+    tent: [
       'little push cart',
       'small, mule-drawn cart',
       'sizable ox-drawn wagon',
@@ -269,7 +269,7 @@ setup.market = {
       'hammock the vendor has set up'
     ]
   },
-  'location': [
+  location: [
     'a wide, rectangular plaza',
     'a large, circular plaza',
     'a large plaza in a pentagon shape',
@@ -291,7 +291,7 @@ setup.market = {
     'the seedier side of town',
     'the hull of a large beached boat'
   ],
-  'size': [
+  size: [
     'large and bustling',
     'somewhat cramped',
     'rather packed',
@@ -302,11 +302,11 @@ setup.market = {
     'large enough to service an entire kingdom',
     'too small for the growing town'
   ],
-  'cleanliness': [
+  cleanliness: [
     'rather dirty',
     'somewhat dirty',
     'riddled with the refuse of merchant horses and other livestock',
-    'overflowing with detritus',
+    'overflowing with refuse',
     'surprisingly clean',
     'astonishingly well-kempt',
     'surprisingly tidy',
@@ -318,7 +318,7 @@ setup.market = {
     'cleaner than one might imagine',
     'littered with discarded junk and trash'
   ],
-  'draw': [
+  draw: [
     'the hot mead',
     'the delicious spiced wines',
     'cutthroat merchants',
@@ -347,7 +347,7 @@ setup.market = {
     'the loud phrases you hear buskers shout at passersby',
     'being a pretty rough and tumble place'
   ],
-  'organisation': [
+  organisation: [
     'type of merchandise',
     'nation of origin of the merchandise',
     'race or ethnicity of the merchants',
