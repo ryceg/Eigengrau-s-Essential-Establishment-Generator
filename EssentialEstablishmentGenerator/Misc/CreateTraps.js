@@ -1,6 +1,6 @@
 
 setup.createTrap = function (base) {
-  var type = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
+  const type = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
   // var twist = ['trap was never reset. Nothing dangerous happens',
   //   'the trap does multiple things, roll twice on the effect table',
   //   'enemies in the room knowingly trigger the trap and then run from it',
@@ -12,7 +12,7 @@ setup.createTrap = function (base) {
   //   'the trap fails, but not before scaring the pants off the party',
   //   'delay of ten seconds. Count out loud' ].seededrandom()
 
-  var trap = Object.assign({
+  const trap = Object.assign({
     type: type.seededrandom()
   }, base)
 

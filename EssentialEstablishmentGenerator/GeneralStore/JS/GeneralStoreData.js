@@ -1,5 +1,5 @@
 setup.GeneralStore = {
-  'crud': [
+  crud: [
     'rusty knives',
     'dull knives',
     'mismatched armor',
@@ -101,8 +101,8 @@ setup.GeneralStore = {
     'saintly relics and pungent incense',
     'brushes of various sorts'
   ],
-  'rollData': {
-    'wealth': [
+  rollData: {
+    wealth: [
       [95, 'kingly'],
       [80, 'aristocratic'],
       [70, 'wealthy'],
@@ -112,7 +112,7 @@ setup.GeneralStore = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    'size': [
+    size: [
       [95, 'cavernous'],
       [80, 'huge'],
       [70, 'quite large'],
@@ -124,7 +124,7 @@ setup.GeneralStore = {
       [10, 'tiny'],
       [0, 'extremely cramped']
     ],
-    'cleanliness': [
+    cleanliness: [
       [80, 'fastidious'],
       [70, 'very tidy'],
       [60, 'tidy'],
@@ -135,7 +135,7 @@ setup.GeneralStore = {
       [10, 'extremely messy'],
       [0, 'dangerously messy']
     ],
-    'expertise': [
+    expertise: [
       [80, 'masterful'],
       [70, 'exceptional'],
       [60, 'superior quality'],
@@ -147,10 +147,10 @@ setup.GeneralStore = {
       [0, 'blatantly amateur']
     ]
   },
-  'get': {
-    'note': function (GeneralStore) {
-      var shopkeep = GeneralStore.shopkeep
-      var note = [
+  get: {
+    note (GeneralStore) {
+      const shopkeep = GeneralStore.shopkeep
+      const note = [
         'It looks like ' + shopkeep.firstName + ' lives in a room attached to the shop',
         shopkeep.firstName + ' does not seem to belong there, and looks very uncomfortable',
         'A bell rings every time someone enters the shop',
@@ -196,8 +196,8 @@ setup.GeneralStore = {
         'Constables of the local guard, $town.guard.name are interviewing everyone in the shop']
       return note.seededrandom()
     },
-    'priceTalk': function (GeneralStore) {
-      var priceTalk = [
+    priceTalk (GeneralStore) {
+      const priceTalk = [
         {
           priceModifier: 5,
           wealth: 80,

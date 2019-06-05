@@ -1,8 +1,8 @@
 
 setup.brothel = {
 
-  'rollData': {
-    'wealth': [
+  rollData: {
+    wealth: [
       [95, 'kingly'],
       [80, 'aristocratic'],
       [70, 'wealthy'],
@@ -12,7 +12,7 @@ setup.brothel = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    'size': [
+    size: [
       [95, 'cavernous'],
       [80, 'huge'],
       [70, 'quite large'],
@@ -24,7 +24,7 @@ setup.brothel = {
       [10, 'tiny'],
       [0, 'extremely cramped']
     ],
-    'cleanliness': [
+    cleanliness: [
       [80, 'fastidious'],
       [70, 'very tidy'],
       [60, 'tidy'],
@@ -35,7 +35,7 @@ setup.brothel = {
       [10, 'extremely messy'],
       [0, 'dangerously messy']
     ],
-    'bedCleanliness': [
+    bedCleanliness: [
       [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
       [75, 'recently prepared and well cleaned'],
       [70, 'freshly cleaned and neat'],
@@ -49,7 +49,7 @@ setup.brothel = {
     ]
   },
   // Name of the brothel
-  'name': [
+  name: [
     'Daisies', 'The Don', 'Blinkers', "The Prude's Suspenders", 'Gold’s Dust', 'The Velvet Fang', 'The Whisper Home', 'The Hook', 'Over the River', 'Slooshes', 'The Rapid Rascal', 'The Stoat',
     'The Fidgety Ferret', 'Long Shaft', 'The Guards', 'Chastity’s', 'The Mask', 'The Red Dress', 'Jewels', 'Silken Flute', 'The Nag’s Head', 'Drummers', 'Sailors Choice', 'Blacksmiths Envy',
     'The Nagging Wife', 'Colins Rubble', "Dron's Beat", 'The Wink', 'Maggie’s Horn', 'The Sun & Cider', 'The Oakworm', 'Tickle & Feather', 'The Mistress', "Madam Zersannies's", "The King's Court",
@@ -77,7 +77,7 @@ setup.brothel = {
     'The Porcelain Candle', 'Golden Embrace', 'The Pink Petticoat', 'The Silky Kisses', 'The Red Slipper', "The Lady's Skirt"
   ],
   // Apparently, it specializes in __
-  'specialty': [
+  specialty: [
     'really weird stuff, for those with the most interesting fetishes',
     'illegal stuff. If this is found out, the place would be burnt down, and the owners hung. It is clearly kept in great secret',
     'performances involving food',
@@ -96,7 +96,7 @@ setup.brothel = {
     'incredibly dominant women'
   ],
   // When people talk about the brothel, they say __
-  'talk': [
+  talk: [
     [
       'you can pay for services with things other than coin',
       'you can pay for the services by doing contract work',
@@ -130,7 +130,7 @@ setup.brothel = {
   ],
   // these are the brothel rumors for BrothelOutput
   // apparently __
-  'rumour': [
+  rumour: [
     'a nobleman got one of the girls with child but refuses to acknowledge her or the baby',
     'someone slaughtered half of the workers and clients in the night',
     'a client was stabbed with a letter opener',
@@ -177,7 +177,7 @@ setup.brothel = {
   ],
   // these are the lines used to select the notice action in BrothelOutput
   // You notice_
-  'notice': [
+  notice: [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
     'the scent of ginger and cinnamon hanging in the air',
@@ -242,7 +242,7 @@ setup.brothel = {
   ],
   // these are the lines used to pick the pimp's idle action in brothelOutput
   // The master/mistress is _
-  'idle': [
+  idle: [
     'sitting, with a piece of bread in hand',
     'sitting, mug in hand',
     'casually looking over a letter',
@@ -271,7 +271,7 @@ setup.brothel = {
     'sticking fake jewels on a feathery headdress',
     'sewing a patch onto some sparkling undergarments'
   ],
-  'pimp': {
+  pimp: {
     'a mean old madam': {
       age: 'venerable',
       gender: 'woman',
@@ -337,7 +337,7 @@ setup.brothel = {
     }
   },
   // this creates a new NPC with specific traits for readout in the BrothelOutput
-  'harlot': {
+  harlot: {
     'create' (town, brothel, base) {
       const harlotType = Object.keys(setup.brothel.harlot.type).random()
       const readout = {
@@ -358,7 +358,7 @@ setup.brothel = {
       setup.createRelationship(town, harlot, State.variables.npcs[brothel.pimp.key], 'employer', 'employee')
       return 'This harlot is ' + harlotType + ' called ' + setup.profile(harlot) + '. She has ' + readout.feature + ' and is particularly good at ' + readout.skill + '. However, she has ' + harlot.physicalTrait + ', which is ' + readout.flawSeverity + '. She is looking to ' + readout.looks + '.'
     },
-    'type': {
+    type: {
       'a veteran who may have been beautiful': {
         gender: 'woman',
         note: "A seasoned hand at the world's oldest trade."
@@ -422,15 +422,15 @@ setup.brothel = {
       }
     },
     // She has __
-    'feature': ['a pretty smile', 'beautiful eyes', 'lovely, long eyelashes', 'lush, curly locks', 'short-cropped hair', 'a clean satin gown', 'broad shoulders', 'a slender jaw', 'thick, long hair', 'a very large bosom', 'a very curvaceous body', 'long slender hands'],
+    feature: ['a pretty smile', 'beautiful eyes', 'lovely, long eyelashes', 'lush, curly locks', 'short-cropped hair', 'a clean satin gown', 'broad shoulders', 'a slender jaw', 'thick, long hair', 'a very large bosom', 'a very curvaceous body', 'long slender hands'],
     // and is particularly good at __
-    'skill': ['listening and offering emotional support', 'bringing a smile to her clients’ faces as soon as she touches them', 'embroidery and sewing', 'cooking and cleaning', 'drinking and swearing', 'certain lewd oral activities', 'getting clients in the mood', 'juggling'],
+    skill: ['listening and offering emotional support', 'bringing a smile to her clients’ faces as soon as she touches them', 'embroidery and sewing', 'cooking and cleaning', 'drinking and swearing', 'certain lewd oral activities', 'getting clients in the mood', 'juggling'],
     // However, she has __
-    'physicalTrait': ['a gimpy leg', 'trout lips', 'a missing hand', 'dirty, matted hair', 'quite strong body odor', 'a very hairy body', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
+    physicalTrait: ['a gimpy leg', 'trout lips', 'a missing hand', 'dirty, matted hair', 'quite strong body odor', 'a very hairy body', 'crooked teeth', 'an unsightly scar', 'an unfortunately shaped nose', 'a large mole on her face', 'crossed-eyes', 'a mustache', 'a large beauty mark', 'a large number of freckles'],
     // whish is __.
-    'flawSeverity': ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
+    flawSeverity: ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
     // She is looking to __
-    'looks': [
+    looks: [
       'earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away', 'hatch a plan for revenge against the man who ruined her life', 'drink some wine and have a laugh', 'seduce a noble and live a life of luxury', 'learn more about the whorehouse practice for her erotic fiction', 'leave this place with her bastard children', 'learn a trade and get out of this dreadful line of work', 'simply have all the sex her heart desires, and the gold is a nice bonus', 'make connections with powerful people'
     ]
   }

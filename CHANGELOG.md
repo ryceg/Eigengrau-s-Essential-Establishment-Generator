@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Druid and Clergy factions
 - Over 100 new prefixes and suffixes for town name generation
 - Physical traits based on body parts
+- 7 new potential life events
 
 ### Changed
 

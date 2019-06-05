@@ -1,7 +1,7 @@
 setup.updateSocioPolitics = function (town) {
-  var economicIdeologyIST = town.economicIdeologyIST
-  var politicalIdeologyIC = town.politicalIdeologyIC
-  var economicPairs = {
+  const economicIdeologyIST = town.economicIdeologyIST
+  const politicalIdeologyIC = town.politicalIdeologyIC
+  const economicPairs = {
     feudalist: 'feudalism',
     capitalist: 'capitalism',
     syndicalist: 'syndicalism',
@@ -9,7 +9,7 @@ setup.updateSocioPolitics = function (town) {
     communist: 'communism'
   }
 
-  var politicalIdeologyPairs = {
+  const politicalIdeologyPairs = {
     autocratic: 'autocracy',
     meritocratic: 'meritocracy',
     democratic: 'democracy',

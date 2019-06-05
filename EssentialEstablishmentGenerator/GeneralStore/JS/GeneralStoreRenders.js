@@ -77,7 +77,7 @@ setup.GeneralStoreRenders = function (GeneralStore) {
   Object.keys(attributes).map(key => {
     const array = attributes[key]
     GeneralStore[key] = array[0][1] // default value
-    for (let [num, descript] of array) { // update value
+    for (const [num, descript] of array) { // update value
       if (GeneralStore.roll[key] > num) GeneralStore[key] = descript
     }
   })

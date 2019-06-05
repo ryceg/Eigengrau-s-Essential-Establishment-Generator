@@ -1,6 +1,6 @@
 
 setup.plothook = {
-  'joke': [
+  joke: [
     "A bard. Not a magic one. Just a bard. Like y'know. A minstrel or some shit he's ok I guess.",
     'Man chasing after a woman through a corn field. Distant saxophone is heard before both get eaten by a troll which chokes to death on them.',
     "The world's highest dragon lands, eats three deer, tries to fly, crashes, then just sleeps where he fell.",
@@ -89,7 +89,7 @@ setup.plothook = {
     'The fighter finds a flask of good booze they had forgot about amongst their belongings.',
     'The cleric finds a bag of honeyed nuts amongst her belongings.'
   ],
-  'wilderness': [
+  wilderness: [
     'You see a gazebo by the side of the road. It has an arrow sticking from it.',
     'There is a hanged corpse swaying in the wind. It seems he was tortured before being hanged. A sign around his neck says "Looter of the dead".',
     'There is a badly written sign by the road saying "Tresur hier" with an arrow pointing to a dark, thick forest.',
@@ -158,7 +158,7 @@ setup.plothook = {
     'A massive stag comes up to you as you are settling down to sleep. It does not attack, and simply walks up to the fire and lays down. It sits there calmly and stares into the fire. Anyone watching the deer immediately at daybreak sees it slowly dissolve into smoke.',
     'A rumble in the earth is the first indication; soon your party can see the herd of buffalo-like creatures stampeding down the plain directly toward you!'
   ],
-  'city': [
+  city: [
     // "The town guard think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the real culprit before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?",
     // 'The party is taken aside to the guardhouse upon first entering the city. They are told the guard captain wants to speak with them. When the captain arrives, he attempts to shake down the party under pain of death.',
     // 'A woman falls into the street from the second story window in front of the party and dies on impact. Soon after, a PC notices a hooded figure skillfully dropping, uninjured, from another second story window facing into the alley. The figure quickly disappears into a maze of side streets.',
@@ -578,7 +578,7 @@ setup.plothook = {
     //   }
     // }
   },
-  'paper': [
+  paper: [
     "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...",
     "The paper states 'WANTED: DEAD OR ALIVE', with the fine print reading 'For the crimes of theft, robbery, burglary, and arson, the $town.name Bandit is wanted dead or alive.' You ask _bartender.firstName about what the crimes entailed, and apparently there's been a huge rash of thefts of food in $town.name recently, resulting in food shortages. The $town.type's council has hired bounty hunters to catch the criminal.",
     "The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high.",
@@ -692,7 +692,7 @@ setup.plothook = {
     'REPENT SINNERS - Temple of the Lady of Spring',
     'Attend the public execution of: Johnny "Two Heads" McGee, Kevin "The Fireball Kid" Laristan, and "Bob".'
   ],
-  'people': [
+  people: [
     "I overheard from two servants that they plan to poison the Lord of $town.name! I've tried to get in to his grounds, but the doorguard won't listen to me because I'm just a nobody... Please, save him!",
     "There's a tournament coming up, not far from here. We need strong, trustworthy people as the Lord of $town.name's security detail.",
     // "There's a bard, of great renown that lives not far from $town.name- perhaps you know of him, the Great <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>? Well, last week, thieves broke in to the Songsmith's mansion, but the only thing that the scoundrels took was the bard's voice. There's a handsome reward for the return of it, too.",

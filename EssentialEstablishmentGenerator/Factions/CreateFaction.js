@@ -1,14 +1,14 @@
 setup.createFaction = function (town, opts) {
   opts = opts || {}
-  var type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].seededrandom()
+  const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].seededrandom()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
-  var faction = (opts['newFaction'] || Object.assign({
+  const faction = (opts['newFaction'] || Object.assign({
     id: [State.variables.factions.length - 1],
     key: randomFloat(1).toString(16),
     passageName: 'FactionProfile',
     associatedTown: town.name,
-    type: type,
+    type,
     wordNoun: setup.factionData.type[type].wordNoun,
     motivation: setup.factionData.type[type].motivation.seededrandom(),
     membersTrait: setup.factionData.type[type].membersTrait.seededrandom(),

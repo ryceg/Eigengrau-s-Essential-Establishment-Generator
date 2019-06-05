@@ -3,7 +3,7 @@ setup.plothooks = {
   'Roleplay Questions': {
     probability: 50,
     type: ['event'],
-    function: function () {
+    function () {
       return [
         'Nothing much ' + ['happens', 'seems to be going on', 'is happening'].seededrandom(),
         'Nothing of note ' + ['happens', 'seems to be going on', 'is happening'].seededrandom(),
@@ -21,11 +21,11 @@ setup.plothooks = {
   },
   'The Magic Duel': {
     type: ['event'],
-    exclusions: function (town) {
+    exclusions (town) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         dndClass: ['sorcerer', 'wizard', 'warlock'].seededrandom(),
         gender: 'man'
       })
@@ -34,8 +34,8 @@ setup.plothooks = {
   },
   'The Falling Woman': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         dndClass: 'rogue',
         gender: 'man'
       })
@@ -44,8 +44,8 @@ setup.plothooks = {
   },
   'The Godfather': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'criminal'
       })
       return 'The party stops to witness a funeral procession for a ' + setup.profile(npc, 'crime lord') + '. Soon after passing, the party hears an explosion and sees a gigantic smoking fireball rise into the sky a block away.'
@@ -53,8 +53,8 @@ setup.plothooks = {
   },
   'The Cage': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble'
       })
       return 'The party is invited to a manor by an ' + setup.profile(npc, 'important socialite') + ' for a potential job opportunity. When they arrive, they are told to wait in an empty room. Soon after entering the room, the party realizes they are locked in with a magical ward.'
@@ -66,8 +66,8 @@ setup.plothooks = {
       object: 'building',
       type: 'tavern'
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         gender: 'woman',
         ageStage: 'child',
         background: 'orphan'
@@ -82,11 +82,11 @@ setup.plothooks = {
       object: 'building',
       type: 'market'
     },
-    exclusions: function (town) {
+    exclusions (town) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         gender: 'woman',
         background: 'commoner',
         note: 'Is currently pregnant.'
@@ -96,8 +96,8 @@ setup.plothooks = {
   },
   'The Carriage Caretakers': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man'
       })
@@ -106,25 +106,25 @@ setup.plothooks = {
   },
   'The Zoo': {
     type: ['event'],
-    exclusions: function (town) {
+    exclusions (town) {
       if (town.population > 4000 && town.wealth > 50) {
         return true
       }
     },
-    function: function (town) {
+    function (town) {
       return 'The city has a zoo filled with wondrous and dangerous creatures brought from far places. Just recently, some of the creatures escaped and now there is a royal reward for recovering the rare animals unharmed. How can this be done?'
     }
   },
   'The Plague': {
     type: ['event'],
-    function: function (town) {
+    function (town) {
       return 'The sector of the city lies under quarantine after an outbreak of a mysterious fever. The party is being kept inside, and one of its members is starting to show symptoms of the illness. Do they try to escape, risking further contagion, or do they try to find a cure from the inside?'
     }
   },
   'Indie': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man',
         profession: 'museum curator',
@@ -135,8 +135,8 @@ setup.plothooks = {
   },
   'The Tourist': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man',
         weight: 'obese',
@@ -151,12 +151,12 @@ setup.plothooks = {
       object: 'building',
       type: 'smithy'
     },
-    function: function (town) {
-      var blacksmithPool = town.buildings.smithy
-      var smithy = setup.objectArrayFetcher(blacksmithPool)
+    function (town) {
+      const blacksmithPool = town.buildings.smithy
+      const smithy = setup.objectArrayFetcher(blacksmithPool)
       console.log(smithy)
       // var blacksmith = smithy.blacksmith
-      var npc = setup.createNPC(town, {
+      const npc = setup.createNPC(town, {
         gender: 'man',
         profession: 'blacksmith',
         background: 'blacksmith'
@@ -170,14 +170,14 @@ setup.plothooks = {
       object: 'faction',
       type: 'wizards'
     },
-    exclusions: function (town) {
+    exclusions (town) {
       if (town.population > 3000 && town.roll.wealth < 90) {
         return true
       }
     },
-    function: function (town) {
-      var faction = setup.factionsForType(town, 'type', 'wizards')
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const faction = setup.factionsForType(town, 'type', 'wizards')
+      const npc = setup.createNPC(town, {
         background: 'scholar',
         dndClass: 'wizard',
         gender: 'man'
@@ -187,8 +187,8 @@ setup.plothooks = {
   },
   'The Crystal Ball': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'merchant',
         gender: 'man',
         profession: 'merchant'
@@ -198,12 +198,12 @@ setup.plothooks = {
   },
   'The Coach Crash': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man'
       })
-      var secondNpc = setup.createNPC(town, {
+      const secondNpc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man'
       })
@@ -212,7 +212,7 @@ setup.plothooks = {
   },
   'The One True God': {
     type: ['event'],
-    function: function (town) {
+    function (town) {
       return 'There is but one accepted religion in town. What about the party cleric who serves what is here deemed a false god?'
     }
   },
@@ -222,18 +222,18 @@ setup.plothooks = {
       object: 'building',
       type: 'docks'
     },
-    function: function (town) {
+    function (town) {
       return "A fast ship in the bay is bombarding the helpless port with siege engines. It's out of range for the locals to deal with, and possibly not alone."
     }
   },
   'The Werewolf Maiden': {
 
     type: ['event'],
-    exclusions: function (town) {
+    exclusions (town) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'commoner',
         gender: 'woman',
         note: 'Is a werewolf.'
@@ -243,8 +243,8 @@ setup.plothooks = {
   },
   'The Disturbed Cemetary': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         dndClass: 'wizard',
         gender: 'man'
       })
@@ -253,8 +253,8 @@ setup.plothooks = {
   },
   'The Convalescent': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'woman'
       })
@@ -267,15 +267,15 @@ setup.plothooks = {
       object: 'faction',
       type: ['thieves', 'assassins']
     },
-    function: function (town) {
-      var faction = setup.factionsForType(town, 'type', 'thieves')
+    function (town) {
+      const faction = setup.factionsForType(town, 'type', 'thieves')
       return 'PCs are marked by a ' + setup.profile(faction, 'guild of thieves', 'town.factions') + ', for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.'
     }
   },
   'The Spoiled Kid': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man',
         ageStage: 'child'
@@ -285,14 +285,14 @@ setup.plothooks = {
   },
   'The Bad Architect': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return "A string of building construction accidents has occurred lately throughout the city. Fortunately, no one's been seriously hurt, but the accidents are increasing in size and damage. The local guild has put up flyers asking for help in solving their problem."
     }
   },
   'Pooh Sticks': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         gender: 'man',
         ageStage: 'child'
       })
@@ -316,8 +316,8 @@ setup.plothooks = {
   // },
   'The Corrupt Guards': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'soldier',
         gender: 'man',
         profession: 'guard'
@@ -327,19 +327,19 @@ setup.plothooks = {
   },
   'The Umber Hulk': {
     type: ['event'],
-    exclusions: function (town) {
+    exclusions (town) {
       if (town.population > 3500) {
         return true
       }
     },
-    function: function (town) {
+    function (town) {
       return 'As the PCs are travelling from one district to another they are confronted by a traffic jam. A building has fallen in and the umber hulk responsible is hiding, waiting for a snack to move near it.'
     }
   },
   'The Double Gunshot Suicide': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man'
       })
@@ -348,8 +348,8 @@ setup.plothooks = {
   },
   'The Generous Mark': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man'
       })
@@ -358,20 +358,20 @@ setup.plothooks = {
   },
   'Doppelganger Dead Or Alive': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own..."
     }
   },
   'Eggs': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return "The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high."
     }
   },
   'Orc Captain': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         race: 'orc',
         hasClass: true,
         dndClass: 'barbarian',
@@ -382,39 +382,39 @@ setup.plothooks = {
   },
   'Hubert': {
     type: ['paper'],
-    exclusions: function (town) {
+    exclusions (town) {
       if (town.population > 3000 || town.roll.magic > 70) {
         return true
       }
     },
-    function: function (town) {
-      var faction = setup.factionsForType(town, 'type', 'wizards')
+    function (town) {
+      const faction = setup.factionsForType(town, 'type', 'wizards')
       return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $selected to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
     }
   },
   'Big Chickens': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         gender: 'woman',
         dndClass: 'sorcerer'
       })
-      var cabin = setup.misc.cabin.create()
+      const cabin = setup.misc.cabin.create()
       return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
     }
   },
   'Guard The Garlic': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       if (town.population > 500) {
         return true
       }
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         profession: 'noble',
         note: 'Is hosting a banquet for vampires.'
@@ -424,8 +424,8 @@ setup.plothooks = {
   },
   'Books': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'scholar',
         profession: 'librarian'
       })
@@ -434,21 +434,21 @@ setup.plothooks = {
   },
   'Rat Exterminator': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town)
+    function (town) {
+      const npc = setup.createNPC(town)
       return 'Exterminator needed: ' + setup.profile(npc, "I've") + ' got a mess of rats in my basement. Bring me 10 rat tails in return for payment. (Listed address has no basement and owner has no rat problem. The advert has a typo and should point to a house further down the way.)'
     }
   },
   'Sunk Ore': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return 'Strong Swimmer Needed! My simpleton apprentice left my ore cart unattended on the bridge and the blasted thing tumbled into the river! Hopefully the ore is still in there somewhere, I’ll pay gold to anyone who can get me my ore!'
     }
   },
   'Sick Granny': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         ageStage: 'elderly',
         gender: 'woman',
         hasClass: false
@@ -459,17 +459,17 @@ setup.plothooks = {
   'Squirrel Hunting': {
 
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
+    function (town) {
       return 'Squirrel Hunting: A squirrel has been seen in town stealing jewelry from citizens. We think there may be more than one squirrel involved — they always head west after the theft. They need to be captured or killed; a bonus available if stolen items are returned.'
     }
   },
   'Stolen Earrings': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         gender: 'woman'
       })
       return 'Earrings Stolen: ' + setup.profile(npc, 'My') + ' wagon was robbed by bandits in the eastern forest. Among the items taken where heirloom earrings that were given to me by my mother. Please find them. Reward available.'
@@ -477,8 +477,8 @@ setup.plothooks = {
   },
   'Magic Bakery': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         profession: 'baker',
         hasClass: false
       })
@@ -487,8 +487,8 @@ setup.plothooks = {
   },
   'Trophy Arrow': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         profession: 'alchemist',
         hasClass: false
       })
@@ -497,21 +497,21 @@ setup.plothooks = {
   },
   'Goblin Encampment': {
     type: ['paper'],
-    function: function (town) {
-      var goblins = setup.misc.goblins.create()
+    function (town) {
+      const goblins = setup.misc.goblins.create()
       return 'Goblin encampment: A ' + goblins.tippy + '<b>goblin encampment</b></span> has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.'
     }
   },
   'Wandering Skeleton': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return 'Wandering Skeleton: Wandering Skeleton seen on the outskirts of town. It appears armed with a sword, shield and horned helmet. Dispatch this skeleton and we’ll offer you 10% off anything in town.'
     }
   },
   'Kobold Flour': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         profession: 'alchemist',
         hasClass: false
       })
@@ -520,8 +520,8 @@ setup.plothooks = {
   },
   'Bard Wanted': {
     type: ['paper'],
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
       console.log('Taverns:')
       console.log(building)
       return setup.profile(building, '', 'town.buildings.tavern') + ' is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).'
@@ -529,8 +529,8 @@ setup.plothooks = {
   },
   'Armed Escort Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         profession: 'merchant',
         hasClass: false,
         background: ['noble', 'commoner'].seededrandom()
@@ -540,14 +540,14 @@ setup.plothooks = {
   },
   'Mushroom Forager': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return 'Our beloved mushroom forager, has not returned from the forest. He was last seen four days ago. Need help finding him(her?)!'
     }
   },
   'Lost Mail': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         background: 'noble',
         hasClass: false
       })
@@ -557,11 +557,11 @@ setup.plothooks = {
   'Sporting Match': {
 
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false
       })
       return 'The town of ' + setup.createTownName() + ' has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ' + setup.profile(npc) + ' for details.'
@@ -569,8 +569,8 @@ setup.plothooks = {
   },
   'Tarot Cards': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         profession: 'seer',
         gender: 'woman',
         hasClass: false
@@ -580,16 +580,16 @@ setup.plothooks = {
   },
   'Koboliam Ore': {
     type: ['paper'],
-    function: function (town) {
-      var blacksmithPool = town.buildings.smithy
-      var smithy = setup.objectArrayFetcher(blacksmithPool)
+    function (town) {
+      const blacksmithPool = town.buildings.smithy
+      const smithy = setup.objectArrayFetcher(blacksmithPool)
       return 'Koboliam Ore Needed: A local ' + setup.profile(smithy.blacksmith, 'blacksmith') + ' needs Koboliam Ore, which is only found in the Myriad caves to the North. Once a Kobold stronghold, this abandoned cave is full of traps and possibly other dangers — will pay top gold for each block of Ore.'
     }
   },
   'Burial Escort Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false
       })
       return 'Burial Escort needed: Our recently deceased father needs to be buried in the family lot, six miles north through the badlands. A small party escort is required in case of trouble. Contact ' + setup.profile(npc) + ' for details.'
@@ -597,8 +597,8 @@ setup.plothooks = {
   },
   'Bandit Kidnappers': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
         gender: 'woman',
@@ -609,8 +609,8 @@ setup.plothooks = {
   },
   'Family Bandits': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'fighter',
         ageStage: ['child', 'young adult'].seededrandom(),
@@ -621,8 +621,8 @@ setup.plothooks = {
   },
   'Flying Monkeys': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -631,15 +631,15 @@ setup.plothooks = {
   },
   'Magnificent Seven': {
     type: ['paper'],
-    function: function (town) {
-      var bandits = setup.misc.bandits.create(town)
+    function (town) {
+      const bandits = setup.misc.bandits.create(town)
       return 'Magnificent Seven: Our villagers overheard ' + bandits.tippyWord + ' who plan on raiding our town in one week’s town. We seek seven or more strong warriors who will help defend us.'
     }
   },
   'Traveling Bards': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'bard'
       })
@@ -648,8 +648,8 @@ setup.plothooks = {
   },
   'Door to Door': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'merchant',
         note: 'Is definitely not involved in a pyramid scheme.'
@@ -659,8 +659,8 @@ setup.plothooks = {
   },
   'Library Guards': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'wizard'
       })
@@ -669,13 +669,13 @@ setup.plothooks = {
   },
   'Destroy The Bell': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       if (town.population > 5000) {
         return true
       }
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false
       })
       return 'Tower Demolition Sought: The four story bell tower has been deemed by the city council as a stain on the communities reputation, as it was built with ‘ill-gotten’ funds by the rencently disgraced and now former mayor, Cornul Glassen. The council is offering 500 gold to anyone who can reduce the bell tower, which was dedicated in his honor, to rubble without loss of life or other property in the town square. Plans must be approved by council before work can begin. Please contact ' + setup.profile(npc) + ' for details.'
@@ -683,28 +683,28 @@ setup.plothooks = {
   },
   'Bucket Festival': {
     type: ['paper'],
-    function: function (town) {
-      var house = setup.misc.cabin.create()
+    function (town) {
+      const house = setup.misc.cabin.create()
       return 'Come join us for the first annual bucket festival! Bring a bucket and you favourite drinks to join in the festivities. Meet out back the delapited ' + house.tippyWord + ' on the edge of town at any time. You know the one, you’ve seen it in your dreams.'
     }
   },
   'Need Bartender': {
     type: ['paper'],
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
       return 'Needed bartender. Looking to employ a bartender for my inn, ' + setup.profile(building, '', 'town.buildings.tavern') + '. Must be able to listen to political rants on the slower days. NO GOBLINS'
     }
   },
   'Weird Well Water': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return 'The well water has started tasting funny, someone should look into that.'
     }
   },
   'Lost Boy': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         ageStage: 'child',
         gender: 'man'
@@ -714,11 +714,11 @@ setup.plothooks = {
   },
   'Lab Assistant': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'wizard'
       })
@@ -727,11 +727,11 @@ setup.plothooks = {
   },
   'Mole Dispatch': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -740,11 +740,11 @@ setup.plothooks = {
   },
   'Sheep Disappearing': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'farmer',
         background: 'commoner'
@@ -754,20 +754,20 @@ setup.plothooks = {
   },
   'Mines Hiring': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
+    function (town) {
       return 'A notice to those on hard times that the mines are hiring, the tag line on the bottom says ‘We’ve cleared out the danger that once struck our mine and threatened the safety of the miners, we are confident that resuming our operations shall be fruitful and safe for all.’ (Underneath that is a hand written note directly under the text, ‘So much for your confidence.’)'
     }
   },
   'Deal of a Lifetime': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false
       })
       return 'Deal of a lifetime! I’m willing to trade a lovely tin pot, painted with cornflowers and lilies (and showing a few holes, true, but that’s a plus, for you can add a few more and look at that, you’ve got a colander) for a cart. The cart needn’t be big, can even be tiny, in fact, just so that two, or better four, people could fit in it, with ample room for bags and sacks, if possible. Could be old, long as it rides well and has new wheels, and strong axles, so actually probably nothing made longer than a year or two ago would do. Please contact ' + setup.profile(npc) + ' for details.'
@@ -775,11 +775,11 @@ setup.plothooks = {
   },
   'Daughter Dying': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -788,11 +788,11 @@ setup.plothooks = {
   },
   'Kobold Ate It': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true
       })
       return 'Adventurers needed! Our Kobold in our previous adventuring party is currently missing and is in possession of an ancient and dangerous artifact. Problem is, he ate it. Please return the artifact in tact! The Kobold (Skrazz) can be returned dead, alive, or not at all for all we care. <<money 100000>> Reward. Please contact ' + setup.profile(npc) + ' for details.'
@@ -800,12 +800,12 @@ setup.plothooks = {
   },
   'Linguist Needed': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var map = setup.misc.treasureMap.create()
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const map = setup.misc.treasureMap.create()
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         note: 'has a ' + map.tippyWord
@@ -815,11 +815,11 @@ setup.plothooks = {
   },
   'Taste Tester': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
         profession: 'noble'
@@ -829,12 +829,12 @@ setup.plothooks = {
   },
   'A Muse-ment': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
         profession: 'entertainer'
@@ -844,11 +844,11 @@ setup.plothooks = {
   },
   'Strange Doll': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -857,11 +857,11 @@ setup.plothooks = {
   },
   'Lost Shorts': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -870,12 +870,12 @@ setup.plothooks = {
   },
   'Who Am I': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
       })
@@ -885,22 +885,22 @@ setup.plothooks = {
   },
   'Bouncers Needed': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
       // #
       return setup.profile(building, '', 'town.buildings.tavern') + ' needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!'
     }
   },
   'Bard for Hire': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'bard',
         gender: 'man'
@@ -910,11 +910,11 @@ setup.plothooks = {
   },
   'First Class Male': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         gender: 'man',
@@ -926,11 +926,11 @@ setup.plothooks = {
   },
   'Poor Pirate': {
     type: ['paper'],
-    exclusions: function (town, npc) {
+    exclusions (town, npc) {
       return true
     },
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'sailor',
         profession: 'pirate'
@@ -940,14 +940,14 @@ setup.plothooks = {
   },
   'Barghests Trap': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       return 'BIG AWARD MONEY!! Near forest there is cave. In cave small monster. Need help with monster. WILL AWARD BIG MONEY!! (A barghest’s trap, prepared by goblins to lure adventurers in and devour them alive)'
     }
   },
   'The Golden Goose': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -956,8 +956,8 @@ setup.plothooks = {
   },
   'Secret About To Be Revealed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
       })
@@ -966,8 +966,8 @@ setup.plothooks = {
   },
   'Bridge Collapsed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'merchant',
         profession: 'merchant'
@@ -977,8 +977,8 @@ setup.plothooks = {
   },
   'Nothing Sexual': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
         gender: 'man'
@@ -988,8 +988,8 @@ setup.plothooks = {
   },
   'Missing Pet': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -998,8 +998,8 @@ setup.plothooks = {
   },
   'Basilisk Eggs Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: ['warlock', 'wizard'].seededrandom()
       })
@@ -1008,8 +1008,8 @@ setup.plothooks = {
   },
   'Missing Skeletons': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: ['warlock', 'wizard'].seededrandom()
       })
@@ -1018,8 +1018,8 @@ setup.plothooks = {
   },
   'Nice Guy': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1028,8 +1028,8 @@ setup.plothooks = {
   },
   'Be Your Own Boss': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1038,8 +1038,8 @@ setup.plothooks = {
   },
   'Work From Home': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1048,8 +1048,8 @@ setup.plothooks = {
   },
   'Discrete Healer Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
         note: 'Runs a charity for helping disadvantaged or discriminated minorities.'
@@ -1059,8 +1059,8 @@ setup.plothooks = {
   },
   'Incredible Opportunity': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1069,8 +1069,8 @@ setup.plothooks = {
   },
   'Horsebreaker Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         profession: 'postmaster'
@@ -1080,8 +1080,8 @@ setup.plothooks = {
   },
   'Jeweler Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'merchant',
         profession: 'jeweler'
@@ -1091,8 +1091,8 @@ setup.plothooks = {
   },
   'Music Tutor Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1101,8 +1101,8 @@ setup.plothooks = {
   },
   'Just No MIL': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1111,8 +1111,8 @@ setup.plothooks = {
   },
   'Lost Hat': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         background: 'entertainer',
         dndClass: 'bard'
@@ -1122,8 +1122,8 @@ setup.plothooks = {
   },
   'Birthday Party': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
       })
@@ -1132,9 +1132,9 @@ setup.plothooks = {
   },
   'Berate Me': {
     type: ['paper'],
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         note: 'For whatever reason, loves being abused.'
@@ -1145,8 +1145,8 @@ setup.plothooks = {
   },
   'Pirates Lost Stuff': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'sailor',
         profession: 'pirate'
@@ -1157,8 +1157,8 @@ setup.plothooks = {
   },
   'Furniture Movers': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         ageStage: 'elderly',
         gender: 'woman',
@@ -1170,9 +1170,9 @@ setup.plothooks = {
   },
   'Huckleberry': {
     type: ['paper'],
-    function: function (town) {
-      var building = setup.objectArrayFetcher(town.buildings.tavern)
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1183,8 +1183,8 @@ setup.plothooks = {
   },
   'Teddy Wanted': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         gender: 'woman',
@@ -1195,8 +1195,8 @@ setup.plothooks = {
   },
   'Durable Idiot': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'wizard'
       })
@@ -1205,8 +1205,8 @@ setup.plothooks = {
   },
   'Candy Wanted': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         ageStage: 'child'
@@ -1216,8 +1216,8 @@ setup.plothooks = {
   },
   'Book Stacking': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'librarian',
         ageStage: 'elderly',
@@ -1228,7 +1228,7 @@ setup.plothooks = {
   },
   'Thieves Cant Thieve Here': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       // var npc = setup.createNPC(town, {
       //   hasClass: false,
       //   background: 'commoner'
@@ -1239,8 +1239,8 @@ setup.plothooks = {
   },
   'Demolition Help Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         profession: 'demolition company contractor'
@@ -1250,8 +1250,8 @@ setup.plothooks = {
   },
   'Mimic Hunt': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1260,8 +1260,8 @@ setup.plothooks = {
   },
   'Crawling Claws': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1270,8 +1270,8 @@ setup.plothooks = {
   },
   'More Rats': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1280,9 +1280,9 @@ setup.plothooks = {
   },
   'Lost Cat': {
     type: ['paper'],
-    function: function (town) {
-      var cat = setup.misc.cat.create()
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const cat = setup.misc.cat.create()
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1291,8 +1291,8 @@ setup.plothooks = {
   },
   'Bakery Delivery': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         profession: 'baker'
@@ -1302,7 +1302,7 @@ setup.plothooks = {
   },
   'Riddle Maker Needed': {
     type: ['paper'],
-    function: function (town) {
+    function (town) {
       // var npc = setup.createNPC(town, {
       //   hasClass: false,
       //   background: 'commoner'
@@ -1313,8 +1313,8 @@ setup.plothooks = {
   },
   'Internship Wanted': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         profession: 'aspiring intern',
@@ -1326,8 +1326,8 @@ setup.plothooks = {
   },
   'Thieves Guild Movers Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'acolyte',
         profession: 'priest (and also mobster)'
@@ -1337,12 +1337,12 @@ setup.plothooks = {
   },
   'Trapped': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'wizard'
       })
-      var secondNpc = setup.createNPC(town, {
+      const secondNpc = setup.createNPC(town, {
         hasClass: true,
         gender: 'man'
       })
@@ -1352,8 +1352,8 @@ setup.plothooks = {
   },
   'Bardic Inspiration Needed': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         background: 'entertainer',
         dndClass: 'bard'
@@ -1363,8 +1363,8 @@ setup.plothooks = {
   },
   'The Old Mill': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         profession: 'miller'
@@ -1374,13 +1374,13 @@ setup.plothooks = {
   },
   'Domain Lines': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
         race: 'elf'
       })
-      var secondNpc = setup.createNPC(town, {
+      const secondNpc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
         race: 'elf'
@@ -1391,30 +1391,30 @@ setup.plothooks = {
   },
   'The Cock-Fight': {
     type: ['event'],
-    exclusions: function (town) {
+    exclusions (town) {
       if (town.population < 500 && town.wealth < 10) {
         return true
       }
     },
-    function: function (town) {
-      var druid1 = setup.createNPC(town, {
+    function (town) {
+      const druid1 = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'druid',
         ageStage: 'adult'
       })
-      var druid2 = setup.createNPC(town, {
+      const druid2 = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'druid',
         ageStage: 'adult'
       })
-      var faction = setup.factionsForType(town, 'type', 'druids')
+      const faction = setup.factionsForType(town, 'type', 'druids')
       return 'A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ' + druid1 + ' and ' + druid2 + ', are more than happy to introduce the party to ' + setup.profile(faction, '', 'town.factions') + '.'
     }
   },
   'The Painted Devil': {
     type: ['event'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: 'false',
         background: 'noble',
         race: 'elf'
@@ -1424,8 +1424,8 @@ setup.plothooks = {
   },
   'The Crack': {
     type: ['event'],
-    function: function (town) {
-      var faction = setup.factionsForType(town, 'type', 'mercenaries')
+    function (town) {
+      const faction = setup.factionsForType(town, 'type', 'mercenaries')
       return 'A huge crack has recently appeared in the center of the town square. ' + setup.profile(faction, '', 'town.factions') + ' are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.'
     }
   },
@@ -1435,14 +1435,14 @@ setup.plothooks = {
       object: 'building',
       type: 'tavern'
     },
-    function: function (town) {
+    function (town) {
       return 'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying you all drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
     }
   },
   'The Merchant Ship': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'soldier',
         profession: 'merchant'
@@ -1452,9 +1452,9 @@ setup.plothooks = {
   },
   'A Lost Bunny': {
     type: ['paper'],
-    function: function (town) {
-      var bunny = setup.misc.bunny.create()
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const bunny = setup.misc.bunny.create()
+      const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
@@ -1463,8 +1463,8 @@ setup.plothooks = {
   },
   'Dead or Alive': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'rogue',
         background: 'assassin'
@@ -1474,15 +1474,15 @@ setup.plothooks = {
   },
   'Brimstone!': {
     type: ['paper'],
-    function: function (town) {
-      var faction = setup.factionsForType(town, 'type', 'clergy')
+    function (town) {
+      const faction = setup.factionsForType(town, 'type', 'clergy')
       return 'Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ' + setup.profile(faction, '', 'town.factions') + '!'
     }
   },
   'Experiment Subjects': {
     type: ['paper'],
-    function: function (town) {
-      var npc = setup.createNPC(town, {
+    function (town) {
+      const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'wizard'
       })

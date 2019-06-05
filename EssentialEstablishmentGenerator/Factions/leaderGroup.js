@@ -1,6 +1,6 @@
 setup.createLeaderGroup = function (faction) {
-  var meetingAccessibilityRoll = dice(2, 50)
-  var meetingRegularityRoll = dice(2, 50) + Math.fairmath(faction.roll.stability, -50)
+  const meetingAccessibilityRoll = dice(2, 50)
+  const meetingRegularityRoll = dice(2, 50) + Math.fairmath(faction.roll.stability, -50)
   faction.leaderGroupSizeRoll = dice(3, 4)
 
   if (meetingRegularityRoll > 95) {

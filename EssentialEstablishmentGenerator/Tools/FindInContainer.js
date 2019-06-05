@@ -6,7 +6,7 @@ setup.findInContainer = function (container, key, value) {
     key,
     value
   })
-  var found = Object.keys(container).forEach(function (object) {
+  const found = Object.keys(container).forEach(function (object) {
     if (container[object][key].includes(value)) {
       console.log('Found ' + value + ' in ' + object)
       return container[object]

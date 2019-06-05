@@ -1,12 +1,12 @@
 setup.createGeneralStoreName = function (town, GeneralStore) {
   // var name
-  var roll = dice(1, 5)
-  var adjective = ['Dependable', 'Reliable', 'Expendable', 'Indispensible', 'Incomparable', 'Incredible', 'Excellent', 'Important', 'Cheap', 'Affordable', 'Affable', 'Discount', 'Low-Cost'].seededrandom()
-  var noun = ['Mount', 'Saddle', 'Guild', 'Fangs', 'Man', 'Pardon', 'Pleasure', 'Belt', 'Staff', 'Shield', 'Prince', 'Master', 'Servant', 'Meal', 'Prince', 'Favor', 'Love', 'Word', 'Scribe', 'Apprentice', 'Acolyte', 'Dress', 'Goddess', 'God', 'Gold', 'Purse', 'Trap', 'King', 'Son', 'Sister', 'Mother', 'Daughter', 'Cry', 'Shout', 'Cupboard', 'Pantry', 'Queen', 'Wealth', 'Star', 'Void', 'Woman', 'Man', 'Whore', 'Butcher', 'Anvil', 'Tome', 'Sacrifice', 'Armor', 'Cup', 'Pot', 'Stove', 'Stool', 'Princess', 'Chain', 'Sword', 'Pork', 'Grain', 'Tooth', 'Lance', 'Axe', 'Scabbard', 'Knife', 'Dagger', 'Spear', 'Bow', 'Crossbow', 'Quarterstaff', 'Staff', 'Fire', 'Ice', 'Wind', 'Earth', 'Water', 'Stone', 'Ladle', 'Monastery', 'Chalice', 'Goblet', 'Dungeon', 'Lust', 'Lantern', 'Bone', 'Life', 'Stone', 'Mistress', 'Mind', 'Treasure', 'Barter', 'Armorer', 'Butler', 'Page', 'Tome', 'Feather', 'Shadow', 'Friend', 'Labyrinth', 'Mountain', 'Hope', 'Boot', 'Gauntlet'].seededrandom()
-  var family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].seededrandom()
-  var rider = ['Shop', 'Bazaar', 'Convenience Store', 'Trading Post', 'Warehouse', 'Antiquerie', 'Adventure Supplier', 'Supplier', 'Goods', 'Goods and Bads', 'Stock Shop', 'Wares'].seededrandom()
-  var fam = {
-    'son': {
+  const roll = dice(1, 5)
+  const adjective = ['Dependable', 'Reliable', 'Expendable', 'Indispensible', 'Incomparable', 'Incredible', 'Excellent', 'Important', 'Cheap', 'Affordable', 'Affable', 'Discount', 'Low-Cost'].seededrandom()
+  const noun = ['Mount', 'Saddle', 'Guild', 'Fangs', 'Man', 'Pardon', 'Pleasure', 'Belt', 'Staff', 'Shield', 'Prince', 'Master', 'Servant', 'Meal', 'Prince', 'Favor', 'Love', 'Word', 'Scribe', 'Apprentice', 'Acolyte', 'Dress', 'Goddess', 'God', 'Gold', 'Purse', 'Trap', 'King', 'Son', 'Sister', 'Mother', 'Daughter', 'Cry', 'Shout', 'Cupboard', 'Pantry', 'Queen', 'Wealth', 'Star', 'Void', 'Woman', 'Man', 'Whore', 'Butcher', 'Anvil', 'Tome', 'Sacrifice', 'Armor', 'Cup', 'Pot', 'Stove', 'Stool', 'Princess', 'Chain', 'Sword', 'Pork', 'Grain', 'Tooth', 'Lance', 'Axe', 'Scabbard', 'Knife', 'Dagger', 'Spear', 'Bow', 'Crossbow', 'Quarterstaff', 'Staff', 'Fire', 'Ice', 'Wind', 'Earth', 'Water', 'Stone', 'Ladle', 'Monastery', 'Chalice', 'Goblet', 'Dungeon', 'Lust', 'Lantern', 'Bone', 'Life', 'Stone', 'Mistress', 'Mind', 'Treasure', 'Barter', 'Armorer', 'Butler', 'Page', 'Tome', 'Feather', 'Shadow', 'Friend', 'Labyrinth', 'Mountain', 'Hope', 'Boot', 'Gauntlet'].seededrandom()
+  const family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].seededrandom()
+  const rider = ['Shop', 'Bazaar', 'Convenience Store', 'Trading Post', 'Warehouse', 'Antiquerie', 'Adventure Supplier', 'Supplier', 'Goods', 'Goods and Bads', 'Stock Shop', 'Wares'].seededrandom()
+  const fam = {
+    son: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.parentNoun
       },
@@ -16,7 +16,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'daughter': {
+    daughter: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.parentNoun
       },
@@ -26,7 +26,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'brother': {
+    brother: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.siblingNoun
       },
@@ -36,7 +36,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: GeneralStore.shopkeep.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'sister': {
+    sister: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.siblingNoun
       },
@@ -46,7 +46,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: GeneralStore.shopkeep.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'uncle': {
+    uncle: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.niblingNoun
       },
@@ -56,7 +56,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'aunt': {
+    aunt: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.niblingNoun
       },
@@ -66,7 +66,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'father': {
+    father: {
       relationships: {
         [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.childNoun
       },
@@ -76,14 +76,14 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'friend': {
+    friend: {
       relationships: {
         [GeneralStore.shopkeep.key]: 'friend'
       },
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'family': {
+    family: {
       relationships: {
         [GeneralStore.shopkeep.key]: 'relative'
       },
@@ -92,7 +92,7 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
-    'employee': {
+    employee: {
       relationships: {
         [GeneralStore.shopkeep.key]: 'employer'
       },
