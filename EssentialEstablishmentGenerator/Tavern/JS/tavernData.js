@@ -697,7 +697,7 @@ setup.tavern = {
       return 'A stoned ' + setup.profile(npc, 'magician') + ' is fumbling his way through one awful card trick after another.'
     },
     elves (town) {
-      const npc = setup.createNPC(town, { background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: 'obsidian bow' })
+      const npc = setup.createNPC(town, { background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: 'an obsidian bow' })
       return 'A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. ' + setup.profile(npc, 'One') + ' has an obsidian bow strapped to her back.'
     },
     clown (town) {
