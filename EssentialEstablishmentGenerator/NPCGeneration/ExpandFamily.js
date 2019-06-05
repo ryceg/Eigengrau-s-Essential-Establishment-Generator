@@ -8,7 +8,7 @@ const insertRelative = function (town, family, base) {
 
   // Avoid secondary NPC spam
   if (random(1, 100) <= setup.familyData.absencePercent) return undefined
-  if (base.ageYears >= setup.npcData.raceTraits[base.race].ageTraits['elderly'].baseAge) {
+  if (setup.isOfAge('elderly', base.race, base.ageYears)) {
     if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
     if (base.ageYears >= setup.npcData.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
       if (random(1, 100) <= setup.familyData.veryOldAbsencePercent) return undefined
@@ -36,7 +36,8 @@ const populateMarriage = function (town, family, npc, marriageMin) {
   const partnerBase = Object.assign({}, setup.familyData.relativeBase(npc), {
     gender: setup.npcData.gender[npc.gender].oppositeGender,
     ageYears: npc.ageYears + setup.familyData.partnerAgeDelta(npc),
-    race: setup.findPartnerRace(town, npc)
+    race: setup.findPartnerRace(town, npc),
+    socialClass: setup.relativeSocialClass(setup.relativeSocialClass(npc.socialClass))
   })
   partnerBase.ageYears = Math.max(partnerBase.ageYears, marriageMin)
 
@@ -49,14 +50,17 @@ const populateMarriage = function (town, family, npc, marriageMin) {
 
   const nChildren = setup.familyData.siblingRoll()
   const surname = setup.getChildSurname(newMarriage)
-  console.log(surname)
+  const childClass = setup.familySocialClass(newMarriage)
   for (let k = 0; k < nChildren; k++) {
     const childBase = Object.assign({}, setup.familyData.relativeBase(npc), {
       race: setup.marriageChildRace(town, npc.race, partnerBase.race),
       gender: setup.familyData.siblingGender(),
       ageYears: npc.ageYears + setup.familyData.childAgeDelta(npc),
-      lastName: surname
+      lastName: surname,
+      socialClass: childClass
     })
+
+    if (setup.isOfAge('young adult', childBase.race, childBase.ageYears)) { childBase.socialClass = setup.relativeSocialClass(childClass) }
 
     const child = insertRelative(town, family, childBase)
     if (child) {
@@ -92,13 +96,15 @@ setup.ExpandFamily = function (town, npc) {
         gender: 'man',
         ageYears: npc.ageYears + setup.familyData.parentAgeDelta(npc),
         race: fatherRace,
-        lastName: fatherSurname
+        lastName: fatherSurname,
+        socialClass: setup.relativeSocialClass(npc.socialClass)
       })
       const motherBase = Object.assign({}, setup.familyData.relativeBase(npc), {
         gender: 'woman',
         ageYears: npc.ageYears + setup.familyData.parentAgeDelta(npc),
         race: motherRace,
-        lastName: motherSurname
+        lastName: motherSurname,
+        socialClass: setup.relativeSocialClass(npc.socialClass)
       })
 
       // TODO finish support for non-heterosexual marriages
@@ -115,15 +121,17 @@ setup.ExpandFamily = function (town, npc) {
 
       const nSiblings = setup.familyData.siblingRoll() - 1
       const surname = setup.getChildSurname(marriage)
-      console.log(surname)
+      const siblingClass = setup.familySocialClass(marriage)
       for (let k = 0; k < nSiblings; k++) {
         const siblingBase = Object.assign({}, setup.familyData.relativeBase(npc), {
-          // TODO handle absent halfbreeds correctly
           race: setup.marriageChildRace(town, motherRace, fatherRace),
           gender: setup.familyData.siblingGender(),
           ageYears: npc.ageYears + setup.familyData.siblingAgeDelta(npc),
-          lastName: surname
+          lastName: surname,
+          socialClass: siblingClass
         })
+
+        if (setup.isOfAge('young adult', siblingBase.race, siblingBase.ageYears)) { siblingBase.socialClass = setup.relativeSocialClass(siblingClass) }
 
         const sibling = insertRelative(town, family, siblingBase)
         if (sibling) {

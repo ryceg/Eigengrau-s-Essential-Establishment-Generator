@@ -17,3 +17,7 @@ setup.createAge = function (npc) {
   }
   return npc
 }
+
+setup.isOfAge = function (ageStage, race, ageYears) {
+  return ageYears >= setup.npcData.raceTraits[race].ageTraits[ageStage].baseAge
+}

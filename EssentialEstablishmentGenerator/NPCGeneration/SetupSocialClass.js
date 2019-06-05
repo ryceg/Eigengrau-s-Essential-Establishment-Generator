@@ -1,18 +1,29 @@
 
+setup.socialClasses = [
+  [195, 'aristocracy', 5],
+  [95, 'aristocracy', 5],
+  [80, 'nobility', 4],
+  // [75, 'high class'],
+  // [65, 'upper-middle class'],
+  [60, 'commoner', 3],
+  // [40, 'lower-middle class'],
+  [20, 'peasantry', 2],
+  [10, 'paupery', 1],
+  [0, 'indentured servitude', 0]
+]
+setup.socialClassArray = ['indentured servitude', 'paupery', 'peasantry', 'commoner', 'nobility', 'aristocracy']
+setup.socialClassKeys = {
+  'aristocracy': 5,
+  'nobility': 4,
+  'commoner': 3,
+  'peasantry': 2,
+  'paupery': 1,
+  'indentured servitude': 0
+}
+
 setup.createSocialClass = function (town, npc) {
   console.log('Creating social class...')
-  setup.socialClasses = [
-    [195, 'aristocracy', 5],
-    [95, 'aristocracy', 5],
-    [80, 'nobility', 4],
-    // [75, 'high class'],
-    // [65, 'upper-middle class'],
-    [60, 'commoner', 3],
-    // [40, 'lower-middle class'],
-    [20, 'peasantry', 2],
-    [10, 'paupery', 1],
-    [0, 'indentured servitude', 0]
-  ]
+
   if (!npc.roll) {
     npc.roll = {}
   }
@@ -42,4 +53,47 @@ setup.createSocialClass = function (town, npc) {
     npc.socialClass = setup.socialClasses[random(0, setup.socialClasses.length - 1)]
   }
   return npc
+}
+
+// Introduce modifiers for adult family members.
+setup.adultSocialMobilityTable = [
+  [6, -2],
+  [24, -1],
+  [84, 0],
+  [98, 1],
+  [100, 2]
+]
+
+setup.relativeSocialClass = function (npcClass) {
+  let classIndex = setup.socialClassKeys[npcClass]
+  if (classIndex < 0) classIndex = 3
+
+  const roll = random(1, 100)
+  let delta = 0
+  for (let i = 0; i < setup.adultSocialMobilityTable.length; i++) {
+    const [percentile, modifier] = setup.adultSocialMobilityTable[i]
+    if (roll <= percentile) {
+      delta = modifier
+      break
+    }
+  }
+
+  const newIndex = Math.clamp(classIndex + delta, 0, setup.socialClassArray.length - 1)
+  return setup.socialClassArray[newIndex]
+}
+
+setup.familySocialClass = function (marriage) {
+  if (marriage.parents.length === 0) {
+    if (marriage.children.length === 0) {
+      return 'commoner'
+    } else {
+      return State.variables.npcs[marriage.children[0]].socialClass
+    }
+  } else {
+    const classArray = marriage.parents.map(key =>
+      setup.socialClassKeys[State.variables.npcs[key].socialClass])
+
+    const mean = Math.round(classArray.reduce((a, b) => (a + b)) / classArray.length)
+    return setup.socialClassArray[mean]
+  }
 }
