@@ -2611,7 +2611,7 @@ setup.npcData = {
         "a rat's nest for hair",
         'a shaved head',
         'long sideburns',
-        'thiny, very trimmed sideburns',
+        'thin, neatly trimmed sideburns',
         'thick, tangled hair',
         'neatly combed hair'
       ],
