@@ -14,6 +14,9 @@ setup.fetchFamily = function (town, npc, depth = 2) {
         : 'relative'
 
       if (relativeList[ptr].depth < depth) {
+        // Expand node first before fetching
+        setup.ExpandFamily(town, State.variables.npcs[relativeList[ptr].key])
+
         const familyNode = family.members[relativeList[ptr].key]
         if (familyNode.parentMarriage) {
           relativeList.push(...familyNode.parentMarriage.parents.map(relativeKey => ({
