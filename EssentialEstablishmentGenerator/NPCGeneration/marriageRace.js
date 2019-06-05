@@ -118,8 +118,9 @@ setup.marriageChildRace = function (town, motherRace, fatherRace) {
       return 'half-orc'
     }
     const halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
-    if (races.includes(halfbreeds)) {
+    if (races.find(race => (halfbreeds.includes(race)))) {
       const otherRace = races.find(race => (race !== 'human'))
+      console.log(races, otherRace)
       if (random(100) > 70) {
         return otherRace
       } else {

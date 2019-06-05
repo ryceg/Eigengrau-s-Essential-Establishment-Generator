@@ -4497,11 +4497,3 @@ setup.townData.professions = {
   }
 
 }
-
-setup.professionsByClass = {}
-for (const key in setup.townData.professions) {
-  const socialClass = setup.townData.professions[key].socialClass
-  if (!(socialClass in setup.professionsByClass)) { setup.professionsByClass[socialClass] = [] }
-
-  setup.professionsByClass[socialClass].push(key)
-}
