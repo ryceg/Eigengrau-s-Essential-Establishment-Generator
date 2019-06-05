@@ -28,11 +28,13 @@ const insertRelative = function (town, family, base, force = false) {
   return relative
 }
 
-const insertChildren = function (town, family, npc, marriage, motherRace, fatherRace, amount, force = false) {
+setup.insertChildren = function (town, family, npc, marriage, motherRace, fatherRace, amount, force = false) {
   if (!force) amount -= marriage.children.length
 
   const surname = setup.getChildSurname(marriage)
   const siblingClass = setup.familySocialClass(marriage)
+
+  const inserted = []
   for (let k = 0; k < amount; k++) {
     const siblingBase = Object.assign({}, setup.familyData.relativeBase(npc), {
       race: setup.marriageChildRace(town, motherRace, fatherRace),
@@ -47,10 +49,13 @@ const insertChildren = function (town, family, npc, marriage, motherRace, father
     const sibling = insertRelative(town, family, siblingBase, force)
     if (sibling) {
       marriage.children.push(sibling.key)
+      inserted.push(sibling.key)
       family.members[sibling.key].parentMarriage = marriage
       family.members[sibling.key].siblings = marriage.children
     }
   }
+
+  return inserted
 }
 
 const insertParentage = function (town, family, npc, forceFather = false, forceMother = false) {
@@ -97,7 +102,7 @@ const insertParentage = function (town, family, npc, forceFather = false, forceM
         family.members[mother.key].marriages = [marriage]
       }
 
-      insertChildren(town, family, npc, marriage, motherRace, fatherRace, setup.familyData.siblingRoll())
+      setup.insertChildren(town, family, npc, marriage, motherRace, fatherRace, setup.familyData.siblingRoll())
 
       node.parentMarriage = marriage
       node.siblings = marriage.children
@@ -105,7 +110,7 @@ const insertParentage = function (town, family, npc, forceFather = false, forceM
   }
 }
 
-const populateMarriage = function (town, family, npc, marriageMin = undefined) {
+setup.populateMarriage = function (town, family, npc, marriageMin = undefined, force = false) {
   if (marriageMin === undefined) marriageMin = setup.familyData.marriageAgeMin(npc)
   const newMarriage = {
     parents: [npc.key],
@@ -121,14 +126,14 @@ const populateMarriage = function (town, family, npc, marriageMin = undefined) {
   })
   partnerBase.ageYears = Math.max(partnerBase.ageYears, marriageMin)
 
-  const partner = insertRelative(town, family, partnerBase)
+  const partner = insertRelative(town, family, partnerBase, force)
 
   if (partner) {
     newMarriage.parents.push(partner.key)
     family.members[partner.key].marriages = [newMarriage]
   }
 
-  insertChildren(town, family, npc, newMarriage, npc.race, partnerBase.race, setup.familyData.siblingRoll())
+  setup.insertChildren(town, family, npc, newMarriage, npc.race, partnerBase.race, setup.familyData.siblingRoll())
 
   return newMarriage
 }
@@ -145,14 +150,14 @@ setup.ExpandFamily = function (town, npc) {
   if (node.marriages === undefined) {
     node.marriages = []
     if (random(1, 100) <= setup.familyData.marriagePercent) {
-      const newMarriage = populateMarriage(town, family, npc, marriageMin)
+      const newMarriage = setup.populateMarriage(town, family, npc, marriageMin)
       node.marriages.push(newMarriage)
     }
   }
 
   while (node.canRemarry) {
     if (random(1, 100) <= setup.familyData.remarriagePercent) {
-      const newMarriage = populateMarriage(town, family, npc, marriageMin)
+      const newMarriage = setup.populateMarriage(town, family, npc, marriageMin)
       node.marriages.push(newMarriage)
     } else {
       node.canRemarry = false

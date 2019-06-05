@@ -9,7 +9,7 @@ setup.createHistory = function (town, npc) {
     } else {
       npc.knewParents = true
     }
-  } */
+  }
 
   if (!npc.parentalLineage) {
     const parentalLineageRoll = random(1, 8)
@@ -108,7 +108,7 @@ setup.createHistory = function (town, npc) {
         }
         break
     }
-  }
+  } */
 
   if (!npc.birthplace) {
     const birthplaceRoll = random(1, 100)
