@@ -4494,15 +4494,6 @@ setup.townData.professions = {
     dailyWage: 5,
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
-  },
-  'tourist': {
-    sv: 5500,
-    type: 'recreation',
-    sector: 'adventuring',
-    description: 'Goes to new cities and countries and obnoxiously explores them',
-    dailyWage: 1,
-    socialClass: 'commoner',
-    socialClassRoll () { return 50 + dice(8, 6) }
   }
 
 }

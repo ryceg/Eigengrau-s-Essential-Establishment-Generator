@@ -1083,7 +1083,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 50,
@@ -1169,7 +1170,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 197,
@@ -1257,7 +1259,8 @@ setup.npcData = {
           [30, 'prepubescent'],
           [20, 'child'],
           [15, 'young child'],
-          [10, 'kid']
+          [10, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 650,
@@ -1347,7 +1350,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 200,
@@ -1434,7 +1438,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 150,
@@ -1521,7 +1526,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 65,
@@ -1608,7 +1614,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 57,
@@ -1695,7 +1702,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 65,
@@ -1781,7 +1789,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 70,

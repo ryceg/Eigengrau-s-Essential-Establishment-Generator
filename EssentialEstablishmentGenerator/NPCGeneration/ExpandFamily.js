@@ -1,0 +1,162 @@
+// One-size-fits-all function for inserting relatives.
+// Returns the corresponding relative, or undefined
+const insertRelative = function (town, family, base) {
+  // sanity-check
+  if (base.ageYears <= 0) return undefined
+  if (base.race === 'devil') return undefined
+  if (!base.lastName) delete base.lastName
+
+  // Avoid secondary NPC spam
+  if (random(1, 100) <= setup.familyData.absencePercent) return undefined
+  if (base.ageYears >= setup.npcData.raceTraits[base.race].ageTraits['elderly'].baseAge) {
+    if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
+    if (base.ageYears >= setup.npcData.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
+      if (random(1, 100) <= setup.familyData.veryOldAbsencePercent) return undefined
+    }
+  }
+
+  const relative = setup.createNPC(town, base)
+  family.members[relative.key] = {
+    key: relative.key,
+    parentMarriage: undefined,
+    marriages: undefined,
+    canRemarry: true
+  }
+
+  return relative
+}
+
+const populateMarriage = function (town, family, npc, marriageMin) {
+  const newMarriage = {
+    parents: [npc.key],
+    children: []
+  }
+
+  // TODO finish support for non-heterosexual marriages
+  const partnerBase = Object.assign({}, setup.familyData.relativeBase(npc), {
+    gender: setup.npcData.gender[npc.gender].oppositeGender,
+    ageYears: npc.ageYears + setup.familyData.partnerAgeDelta(npc),
+    race: setup.findPartnerRace(town, npc)
+  })
+  partnerBase.ageYears = Math.max(partnerBase.ageYears, marriageMin)
+
+  const partner = insertRelative(town, family, partnerBase)
+
+  if (partner) {
+    newMarriage.parents.push(partner.key)
+    family.members[partner.key].marriages = [newMarriage]
+  }
+
+  const nChildren = setup.familyData.siblingRoll()
+  const surname = setup.getChildSurname(newMarriage)
+  console.log(surname)
+  for (let k = 0; k < nChildren; k++) {
+    const childBase = Object.assign({}, setup.familyData.relativeBase(npc), {
+      race: setup.marriageChildRace(town, npc.race, partnerBase.race),
+      gender: setup.familyData.siblingGender(),
+      ageYears: npc.ageYears + setup.familyData.childAgeDelta(npc),
+      lastName: surname
+    })
+
+    const child = insertRelative(town, family, childBase)
+    if (child) {
+      newMarriage.children.push(child.key)
+      family.members[child.key].parentMarriage = newMarriage
+      family.members[child.key].siblings = newMarriage.children
+    }
+  }
+
+  return newMarriage
+}
+
+setup.ExpandFamily = function (town, npc) {
+  const family = town.families[npc.family]
+  const node = family.members[npc.key]
+
+  if (node.parentMarriage === undefined) {
+    if (random(1, 100) > 90) {
+      npc.knewParents = false
+      node.parentMarriage = null
+    } else {
+      npc.knewParents = true
+      const marriage = {
+        parents: [],
+        children: [npc.key]
+      }
+
+      const { motherRace, fatherRace, lineage } = setup.findParentage(npc)
+      npc.parentalLineage = lineage
+      const { fatherSurname, motherSurname } = setup.getParentSurnames(marriage)
+
+      const fatherBase = Object.assign({}, setup.familyData.relativeBase(npc), {
+        gender: 'man',
+        ageYears: npc.ageYears + setup.familyData.parentAgeDelta(npc),
+        race: fatherRace,
+        lastName: fatherSurname
+      })
+      const motherBase = Object.assign({}, setup.familyData.relativeBase(npc), {
+        gender: 'woman',
+        ageYears: npc.ageYears + setup.familyData.parentAgeDelta(npc),
+        race: motherRace,
+        lastName: motherSurname
+      })
+
+      // TODO finish support for non-heterosexual marriages
+      const father = insertRelative(town, family, fatherBase)
+      const mother = insertRelative(town, family, motherBase)
+      if (father) {
+        marriage.parents.push(father.key)
+        family.members[father.key].marriages = [marriage]
+      }
+      if (mother) {
+        marriage.parents.push(mother.key)
+        family.members[mother.key].marriages = [marriage]
+      }
+
+      const nSiblings = setup.familyData.siblingRoll() - 1
+      const surname = setup.getChildSurname(marriage)
+      console.log(surname)
+      for (let k = 0; k < nSiblings; k++) {
+        const siblingBase = Object.assign({}, setup.familyData.relativeBase(npc), {
+          // TODO handle absent halfbreeds correctly
+          race: setup.marriageChildRace(town, motherRace, fatherRace),
+          gender: setup.familyData.siblingGender(),
+          ageYears: npc.ageYears + setup.familyData.siblingAgeDelta(npc),
+          lastName: surname
+        })
+
+        const sibling = insertRelative(town, family, siblingBase)
+        if (sibling) {
+          marriage.children.push(sibling.key)
+          family.members[sibling.key].parentMarriage = marriage
+          family.members[sibling.key].siblings = marriage.children
+        }
+      }
+
+      node.parentMarriage = marriage
+      node.siblings = marriage.children
+    }
+  }
+
+  // Marriages and descendants
+  const marriageMin = setup.familyData.marriageAgeMin(npc)
+  if (npc.ageYears <= marriageMin) node.marriages = []
+  if (node.marriages === undefined) {
+    node.marriages = []
+    if (random(1, 100) <= setup.familyData.marriagePercent) {
+      const newMarriage = populateMarriage(town, family, npc, marriageMin)
+      node.marriages.push(newMarriage)
+    }
+  }
+
+  while (node.canRemarry) {
+    if (random(1, 100) <= setup.familyData.remarriagePercent) {
+      const newMarriage = populateMarriage(town, family, npc, marriageMin)
+      node.marriages.push(newMarriage)
+    } else {
+      node.canRemarry = false
+    }
+  }
+
+  console.log(family)
+}

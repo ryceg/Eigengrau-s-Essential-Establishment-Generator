@@ -3,13 +3,13 @@ setup.createHistory = function (town, npc) {
   console.log('creating history for ' + npc.name + '...')
   let wealthModifier
 
-  if (!npc.knewParents) {
+  /* if (!npc.knewParents) {
     if (random(1, 100) > 95) {
       npc.knewParents = false
     } else {
       npc.knewParents = true
     }
-  }
+  } */
 
   if (!npc.parentalLineage) {
     const parentalLineageRoll = random(1, 8)

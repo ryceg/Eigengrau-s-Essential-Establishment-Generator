@@ -14,7 +14,7 @@ setup.createNPC = function (town, base) {
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
     base.isThrowaway = base.isThrowaway || true
-    base.canBeCustom = base.canBeCustom || true
+    // base.canBeCustom = base.canBeCustom || true
     base.hasHistory = base.hasHistory || false
   }
 
@@ -129,7 +129,9 @@ setup.createNPC = function (town, base) {
       }
     },
     knownLanguages: data.raceTraits[race].knownLanguages,
-    reading: data.reading.seededrandom()
+    reading: data.reading.seededrandom(),
+
+    family: undefined
     // pubRumour: setup.createPubRumour()
   }, base)
 
