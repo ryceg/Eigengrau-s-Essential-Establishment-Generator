@@ -66,7 +66,6 @@ setup.structure = {
   data: {
     colour: [
       'red',
-      'red',
       'blue',
       'grey',
       'grey',
