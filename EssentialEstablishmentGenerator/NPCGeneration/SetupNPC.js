@@ -186,14 +186,14 @@ setup.createNPC = function (town, base) {
     npc.physicalTrait = npc.physicalTrait || torso
   } else if (physicalTraitRoll > 20) {
     npc.physicalTrait = npc.physicalTrait || arms
-  } else if (physicalTraitRoll > 15) {
+  } else if (physicalTraitRoll > 13) {
     npc.physicalTrait = npc.physicalTrait || legs
   } else if (physicalTraitRoll > 8) {
     npc.physicalTrait = npc.physicalTrait || data.scar.seededrandom()
-  } else if (physicalTraitRoll > 6) {
-    npc.physicalTrait = npc.physicalTrait || data.tattoo.seededrandom()
-  } else if (physicalTraitRoll <= 6) {
+  } else if (physicalTraitRoll > 5) {
     npc.physicalTrait = npc.physicalTrait || npc.hair
+  } else if (physicalTraitRoll <= 2) {
+    npc.physicalTrait = npc.physicalTrait || data.tattoo.seededrandom()
   }
 
   setup.createClass(npc)
