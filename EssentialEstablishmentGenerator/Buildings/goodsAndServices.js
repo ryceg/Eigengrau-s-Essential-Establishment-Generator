@@ -1050,7 +1050,7 @@ setup.goodsAndServices = {
     },
     goods: {
       'chicken': {
-        cost: 50,
+        cost: 30,
         description: 'A full chicken, defeatheread and ready to cook.'
       },
       'sausage': {
@@ -1058,7 +1058,7 @@ setup.goodsAndServices = {
         description: "A large sausage; it is unclear what it's stuffed with."
       },
       'prime roast': {
-        cost: 90,
+        cost: 40,
         description: 'A juicy looking roast tied with a butcher knot.'
       },
       'sliced ham': {
