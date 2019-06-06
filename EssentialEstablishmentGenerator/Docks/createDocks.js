@@ -1,6 +1,6 @@
 setup.createDocks = function (town, opts) {
   opts = opts || {}
-  var docks = (opts['newBuilding'] || setup.createBuilding)(town, 'docks')
+  const docks = (opts['newBuilding'] || setup.createBuilding)(town, 'docks')
   Object.assign(docks, {
     notableFeature: setup.docks.notableFeature.seededrandom(),
     notice: setup.docks.notice.seededrandom(),
@@ -20,7 +20,7 @@ setup.createDocks = function (town, opts) {
   docks.size = ''
   docks.cleanliness = ''
 
-  var rollDataVariables = ['size', 'cleanliness', 'activity']
+  const rollDataVariables = ['size', 'cleanliness', 'activity']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(docks, setup.docks.rollData, propName)
   })

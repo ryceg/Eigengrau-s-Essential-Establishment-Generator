@@ -21,10 +21,10 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
   }
 
   Object.defineProperty(baseObj, propName, {
-    get: function () {
+    get () {
       console.log('Fetching ' + this.name + ' ' + propName + '.')
-      var rollArray = rollDataObj[keyName]
-      var result = rollArray.find(function (desc) {
+      const rollArray = rollDataObj[keyName]
+      let result = rollArray.find(function (desc) {
         if (rollLocation) {
           return desc[0] <= rollLocation[keyName]
         } else {
@@ -41,10 +41,10 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
       this['_' + propName] = result[indexNumber]
       return this['_' + propName]
     },
-    set: function (val) {
+    set (val) {
       console.log('Setting ' + this.name + ' ' + propName + '.')
-      var rollArray = rollDataObj[keyName]
-      var result = rollArray.find(function (desc) {
+      const rollArray = rollDataObj[keyName]
+      let result = rollArray.find(function (desc) {
         if (rollLocation) {
           return desc[0] <= rollLocation[keyName]
         } else {

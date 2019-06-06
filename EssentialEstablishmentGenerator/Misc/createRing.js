@@ -19,11 +19,11 @@ setup.ringData = {
     'teleport': 'teleport ' + ['up to ten feet', 'to another room nearby', 'to a well-known temple', 'to a previously prepared teleportation circle', 'to the presence of a powerful fiend', 'to an ancient crypt'].random()
   },
   cost: {
-    'temporary': 'upon activation, it causes temporary ' + ['chills all over', 'fatigue', 'flatulence', 'head-splitting headaches', 'nausea', 'unsightly and rapid hair growth'].random(),
-    'chronic': 'while attuned, it causes permanent ' + ['blurred vision', 'blindness', 'loss of the power of speech', 'painful scarring and deformity', 'poor wound healing', 'tumorous growths and deformities', 'debilitating nausea'].random(),
-    'mental': 'it brings on ' + ['anxiety', 'bad dreams', 'compulsive behavior (drinking, smoking, scratching, hygiene, etc.)', 'insomnia', 'a short temper', 'weight gain (stress eating)'].random() + ' while it is being worn',
-    'attention': 'it attracts the attention of ' + ['aberrations', 'dragons', 'fiends', 'ghosts and wraiths', 'spiders', 'snakes', 'zombies and wights', 'devils', 'demons', 'liches'].random(),
-    'accompanied': 'activation of its powers is occasionally accompanied by ' + ['a blizzard', 'earthquakes', 'rapid plant growth', 'thick fog', 'thunderstorms', 'volcanic eruptions'].random()
+    temporary: 'upon activation, it causes temporary ' + ['chills all over', 'fatigue', 'flatulence', 'head-splitting headaches', 'nausea', 'unsightly and rapid hair growth'].random(),
+    chronic: 'while attuned, it causes permanent ' + ['blurred vision', 'blindness', 'loss of the power of speech', 'painful scarring and deformity', 'poor wound healing', 'tumorous growths and deformities', 'debilitating nausea'].random(),
+    mental: 'it brings on ' + ['anxiety', 'bad dreams', 'compulsive behavior (drinking, smoking, scratching, hygiene, etc.)', 'insomnia', 'a short temper', 'weight gain (stress eating)'].random() + ' while it is being worn',
+    attention: 'it attracts the attention of ' + ['aberrations', 'dragons', 'fiends', 'ghosts and wraiths', 'spiders', 'snakes', 'zombies and wights', 'devils', 'demons', 'liches'].random(),
+    accompanied: 'activation of its powers is occasionally accompanied by ' + ['a blizzard', 'earthquakes', 'rapid plant growth', 'thick fog', 'thunderstorms', 'volcanic eruptions'].random()
   },
   activation: {
     'on a particular plane': 'when worn in ' + [

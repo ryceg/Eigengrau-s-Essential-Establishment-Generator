@@ -1,9 +1,9 @@
 setup.resourcesFaction = function (faction) {
   console.log('assigning resources...')
-  var resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']
-  var groupSizeModifier = ((faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2)
-  var resources = []
-  var i
+  const resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']
+  const groupSizeModifier = ((faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2)
+  const resources = []
+  let i
   // this is where weighting different groups happens. Needs updating with each new faction.
   resourcesList.concat(setup.factionData.type[faction.type].resources)
 
@@ -118,9 +118,9 @@ setup.resourcesFaction = function (faction) {
   }
 
   function getResources (bonus) {
-    var tempGroup
-    var tempGroupSize
-    var groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
+    let tempGroup
+    let tempGroupSize
+    const groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
       tempGroupSize = 'an enormous amount of '
     } else if (groupSizeRoll >= 80) {
@@ -147,7 +147,7 @@ setup.resourcesFaction = function (faction) {
     // console.log('resources tempGroup - ' + tempGroup)
     resourcesList.delete(tempGroup)
 
-    var group = tempGroupSize + tempGroup
+    const group = tempGroupSize + tempGroup
     // console.log('resources group - ' + group)
     resources.push(group)
     // console.log('resourcess - ' + resourcess)

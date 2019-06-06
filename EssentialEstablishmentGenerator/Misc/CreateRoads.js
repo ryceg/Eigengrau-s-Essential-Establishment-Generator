@@ -1,10 +1,10 @@
 
 setup.createRoad = function (base) {
-  var type = ['trail', 'path', 'path', 'road', 'road', 'road']
-  var noEncounter = [true, true, true, false, false].seededrandom()
-  var road = Object.assign({
+  const type = ['trail', 'path', 'path', 'road', 'road', 'road']
+  const noEncounter = [true, true, true, false, false].seededrandom()
+  const road = Object.assign({
     type: type.seededrandom(),
-    noEncounter: noEncounter
+    noEncounter
   }, base)
 
   switch (road.type) {

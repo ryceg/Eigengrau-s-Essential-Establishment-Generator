@@ -1,12 +1,12 @@
 setup.temple = {
-  'name': {
-    'wordNoun': ['temple', 'holy house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine'],
-    'soleNoun': ['desire', 'restoration', 'humility', 'white', 'sorrow'],
-    'adjective': ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding'],
-    'plural': ['souls', 'men', 'sinners', 'warriors', 'wretches', 'tools', 'pawns']
+  name: {
+    wordNoun: ['temple', 'holy house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine'],
+    soleNoun: ['desire', 'restoration', 'humility', 'white', 'sorrow'],
+    adjective: ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding'],
+    plural: ['souls', 'men', 'sinners', 'warriors', 'wretches', 'tools', 'pawns']
   },
-  'rollData': {
-    'wealth': [
+  rollData: {
+    wealth: [
       [95, 'kingly'],
       [80, 'aristocratic'],
       [70, 'wealthy'],
@@ -16,7 +16,7 @@ setup.temple = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    'size': [
+    size: [
       [95, 'cavernous'],
       [80, 'huge'],
       [70, 'quite large'],
@@ -28,7 +28,7 @@ setup.temple = {
       [10, 'tiny'],
       [0, 'extremely cramped']
     ],
-    'cleanliness': [
+    cleanliness: [
       [90, 'totally spotless (cleanliness being next to godliness)'],
       [80, 'fastidious'],
       [70, 'very tidy'],
@@ -40,7 +40,7 @@ setup.temple = {
       [10, 'extremely messy'],
       [0, 'dangerously messy']
     ],
-    'bedCleanliness': [
+    bedCleanliness: [
       [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
       [75, 'recently prepared and well cleaned'],
       [70, 'freshly cleaned and neat'],
@@ -53,7 +53,7 @@ setup.temple = {
       [0, 'festering with bugs']
     ]
   },
-  'prayerSubject': [
+  prayerSubject: [
     // They pray to
     'one god and only one god',
     'one god primarily, but other gods occasionally or for specific petitions',
@@ -62,7 +62,7 @@ setup.temple = {
     'one god, but not the one the temple was originally dedicated to',
     'several gods within a pantheon to whom the temple was not originally dedicated'
   ],
-  'dedicated': [
+  dedicated: [
     // the temple is dedicated to
     'the sun',
     'the sky',
@@ -89,7 +89,7 @@ setup.temple = {
     'law and order'
 
   ],
-  'knownFor': [
+  knownFor: [
     // and is known for _
     'miraculous healers',
     'compassionate healers',
@@ -159,7 +159,7 @@ setup.temple = {
     'colorful hanging gardens'
   ],
   // The temple is protected by
-  'guardedBy': [
+  guardedBy: [
     'a sworn order of devout warriors',
     'sellswords',
     'frightening statues of monstrous beings',
@@ -168,7 +168,7 @@ setup.temple = {
     'nothing; the temple welcomes all'
   ],
   // The main room is __ in shape
-  'floorPlan': [
+  floorPlan: [
     'circular',
     'ellipsoidal',
     'triangular',
@@ -177,7 +177,7 @@ setup.temple = {
     'pentagonal'
   ],
   // The temple was designed by __
-  'architect': [
+  architect: [
     'the local priest',
     'a poor local farmer who was mistaken for the architect',
     "a local architect; he's not the best",
@@ -191,7 +191,7 @@ setup.temple = {
     'the son of the local priest'
   ],
   // and it is __.
-  'complex': [
+  complex: [
     'simple; with only a large main worship chamber and a handful of functional rooms adjoining',
     'simple with a large annex; the annex contains many chambers',
     'simple with fortifications',
@@ -202,7 +202,7 @@ setup.temple = {
     'simple with an intricate complex hidden beneath the main worship chamber'
   ],
   // The walls of the temple are
-  'walls': [
+  walls: [
     'impenetrable stone walls',
     'an intricate structure of stone arches and columns',
     'a colorful structure of painted wood and plaster',
@@ -228,7 +228,7 @@ setup.temple = {
     'covered in sacred texts and runes'
   ],
   // the ceiling is __
-  'ceiling': [
+  ceiling: [
     'uncomfortably close to your head',
     'connected to the floor by columns',
     'painted with mythological scenes',
@@ -236,7 +236,7 @@ setup.temple = {
     'vaulted',
     'domed'
   ],
-  'rooms': [
+  rooms: [
     'an armory', 'a barracks',
     'a guardroom', 'a sentry post',
     'a cell for solitary prayer',
@@ -260,7 +260,7 @@ setup.temple = {
     'a workshop for temple craftsmen'
   ],
   // You enter the temple and notice __
-  'features': [
+  features: [
     'a small altar set in an alcove in the wall',
     'the sound of bells ringing in a tower',
     'a wall sconce holding many candles',

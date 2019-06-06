@@ -92,8 +92,8 @@ setup.docks = {
     'a haggard old woman weaving baskets out of seaweed'
   ],
   ships: {
-    create: function (town, docks, opts) {
-      var ship = {
+    create (town, docks, opts) {
+      const ship = {
         name: setup.docks.ships.name.seededrandom(),
         type: docks.typePool.seededrandom(),
         captainType: Object.keys(setup.docks.ships.captain).seededrandom(),
@@ -114,26 +114,26 @@ setup.docks = {
       return ship
     },
     crew: {
-      'create': function (town) {
-        var crewType = Object.keys(setup.docks.ships.crew.type).seededrandom()
+      create (town) {
+        const crewType = Object.keys(setup.docks.ships.crew.type).seededrandom()
 
-        var readout = {
+        const readout = {
           bodyFeature: setup.docks.ships.crew.bodyFeature.seededrandom(),
           itemFeature: setup.docks.ships.crew.itemFeature.seededrandom(),
           sailReason: setup.docks.ships.crew.sailing.seededrandom()
         }
-        var crewTraits = Object.assign({
+        const crewTraits = Object.assign({
           isShallow: true,
           hasClass: false,
           profession: 'sailor'
         })
         Object.assign(crewTraits, setup.docks.ships.crew.type[crewType])
-        var crew = setup.createNPC(town, crewTraits)
-        var heShe = crew.heshe
-        var hisHer = crew.hisher
+        const crew = setup.createNPC(town, crewTraits)
+        const heShe = crew.heshe
+        const hisHer = crew.hisher
         return 'Out of the crew steps ' + crewType + ' named ' + setup.profile(crew) + '. ' + heShe.toUpperFirst() + ' ' + readout.bodyFeature + ' and ' + readout.itemFeature + '. When asked about why ' + heShe + ' took to the sea, ' + hisHer + ' reason is "' + readout.sailReason + '".'
       },
-      'type': {
+      type: {
         'a veteran of the sea who may have been beautiful at one point': {
           gender: 'woman',
           note: 'A woman whose skin has been brined by the salt water.'
@@ -354,7 +354,7 @@ setup.docks = {
       'singing a jaunty sea shanty about <<print either("beautiful women", "rough storms", "rum and wine", "good fortunes", "sea monsters", "ancient treasures")>> at the tops of their lungs'
     ],
     type: {
-      caravel: {
+      'caravel': {
         masts: random(2, 3),
         rigging: 'lateen',
         length: random(468, 708),
@@ -362,7 +362,7 @@ setup.docks = {
         hasOars: false,
         crewMen: random(20, 30)
       },
-      rowboat: {
+      'rowboat': {
         masts: 0,
         rigging: 'no',
         length: random(180, 240),
@@ -370,7 +370,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(1, 3)
       },
-      dory: {
+      'dory': {
         masts: 0,
         rigging: 'no',
         length: random(180, 400),
@@ -378,7 +378,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(1, 10)
       },
-      drifter: {
+      'drifter': {
         masts: 0,
         rigging: 'no',
         length: random(180, 400),
@@ -394,7 +394,7 @@ setup.docks = {
         hasOars: false,
         crewMen: random(5, 25)
       },
-      carrack: {
+      'carrack': {
         masts: random(3, 4),
         rigging: 'square',
         length: random(800, 920),
@@ -402,7 +402,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(30, 40)
       },
-      crayer: {
+      'crayer': {
         masts: 3,
         rigging: 'square',
         length: random(468, 708),
@@ -410,7 +410,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(30, 40)
       },
-      hoy: {
+      'hoy': {
         masts: 1,
         rigging: 'square',
         length: random(400, 460),
@@ -418,7 +418,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(30, 40)
       },
-      picard: {
+      'picard': {
         masts: 1,
         rigging: 'square',
         length: random(150, 240),
@@ -426,7 +426,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(5, 20)
       },
-      galley: {
+      'galley': {
         masts: 3,
         rigging: 'lateen',
         length: random(3800, 4200),
@@ -434,7 +434,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(80, 120)
       },
-      longship: {
+      'longship': {
         masts: 1,
         rigging: 'square',
         length: random(1600, 1800),
@@ -442,7 +442,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(80, 120)
       },
-      balinger: {
+      'balinger': {
         masts: 1,
         rigging: 'square',
         length: random(800, 1200),
@@ -450,7 +450,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(30, 80)
       },
-      frigate: {
+      'frigate': {
         masts: 3,
         rigging: 'square',
         length: random(1500, 1700),
@@ -458,7 +458,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(30, 40)
       },
-      galleon: {
+      'galleon': {
         masts: 3,
         rigging: 'lateen',
         length: random(3800, 4200),
@@ -466,7 +466,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(80, 120)
       },
-      galleass: {
+      'galleass': {
         masts: 3,
         rigging: 'square',
         length: random(3800, 4200),
@@ -474,7 +474,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(80, 140)
       },
-      nef: {
+      'nef': {
         masts: 3,
         rigging: 'square',
         length: random(2400, 2800),
@@ -482,7 +482,7 @@ setup.docks = {
         hasOars: true,
         crewMen: random(40, 120)
       },
-      barque: {
+      'barque': {
         masts: random(3, 5),
         rigging: 'square',
         length: (3000, 5000),

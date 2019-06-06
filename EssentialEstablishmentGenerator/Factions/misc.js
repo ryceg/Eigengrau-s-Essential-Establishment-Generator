@@ -1,5 +1,5 @@
 setup.createMisc = function (faction) {
-  var miscList = [
+  const miscList = [
     'currently recruiting',
     'adjusting to a change in leadership',
     'extremely secretive',

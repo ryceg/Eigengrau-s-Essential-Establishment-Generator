@@ -8,7 +8,7 @@ setup.townSquare = {
       [40, 'somewhat dirty'],
       [30, 'rather dirty'],
       [20, 'riddled with refuse'],
-      [10, 'overflowing with detritus']
+      [10, 'overflowing with refuse and other garbage']
     ],
     size: [
       [80, 'huge and hectic'],
@@ -635,7 +635,7 @@ setup.townSquare = {
         })
         return 'a ' + setup.profile(npc, 'guard') + " that's wrestling with one of the villagers. It looks like a friendly bout."
       }
-    },
+    } /* ,
     'guardThieves': {
       probability: 10,
       type: ['event'],
@@ -656,6 +656,6 @@ setup.townSquare = {
           return 'a ' + setup.profile(npc, 'guard') + ' who watches as a man gets mugged. The man takes a hit to the groin, and the guard chuckles to ' + npc.himherself + '.'
         }
       }
-    }
+    } */
   }
 }

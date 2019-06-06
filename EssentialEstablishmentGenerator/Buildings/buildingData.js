@@ -1,6 +1,6 @@
 
 setup.structure = {
-  create: function (town, building, opts) {
+  create (town, building, opts) {
     if (!building) {
       building = {}
     }
@@ -27,7 +27,7 @@ setup.structure = {
         roof: {}
       }
     }
-    var tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
+    let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
     if (Object.keys(tempMaterial).includes('variations')) {
       console.log('Has variations. ')
       tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
@@ -36,7 +36,7 @@ setup.structure = {
     }
     building.structure.material = tempMaterial.words
 
-    var tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.material, '', '', 'object')
+    let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.material, '', '', 'object')
     if (Object.keys(tempRoof).includes('variations')) {
       console.log('Has variations. ')
       tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
@@ -44,7 +44,7 @@ setup.structure = {
       console.log(tempRoof.words)
     }
     if (tempRoof.canBeColoured === true) {
-      var colour = setup.structure.data.colour.seededrandom()
+      const colour = setup.structure.data.colour.seededrandom()
       Object.keys(tempRoof.words).forEach(function (roof) {
         tempRoof.words[roof] = colour + ' ' + tempRoof.words[roof]
       })
@@ -77,7 +77,7 @@ setup.structure = {
       'orange'
     ],
     rollData: {
-      'size': [
+      size: [
         [95, 'cavernous'],
         [80, 'huge'],
         [70, 'quite large'],
@@ -92,8 +92,8 @@ setup.structure = {
     }
   },
   material: {
-    rollData: {
-      'wealth': [
+    'rollData': {
+      wealth: [
         [90, 'solid'],
         [70, 'well built'],
         [50, 'ageing'],
@@ -141,7 +141,7 @@ setup.structure = {
             noun: 'plank'
           }
         },
-        exclusion: function (town, building) {
+        'exclusion' (_town, building) {
           if (building.exclusions.material.includes('wood')) {
             return false
           } else {
@@ -230,32 +230,32 @@ setup.structure = {
   },
   roof: {
     material: {
-      'thatch': {
+      thatch: {
         words: {
           noun: 'thatch',
           verb: 'thatched'
         }
       },
-      'straw': {
+      straw: {
         words: {
           noun: 'straw',
           verb: 'straw'
         }
       },
-      'plank': {
+      plank: {
         words: {
           noun: 'plank',
           verb: 'planked'
         }
       },
-      'tile': {
+      tile: {
         canBeColoured: true,
         words: {
           noun: 'tile',
           verb: 'tiled'
         }
       },
-      'shingle': {
+      shingle: {
         canBeColoured: true,
         words: {
           noun: 'shingle',

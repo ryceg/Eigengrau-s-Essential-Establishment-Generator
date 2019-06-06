@@ -1,7 +1,7 @@
 
 setup.createGeneralStore = function (town, opts) {
   opts = opts || {}
-  let GeneralStore = (opts['newBuilding'] || setup.createBuilding)(town, 'GeneralStore')
+  const GeneralStore = (opts['newBuilding'] || setup.createBuilding)(town, 'GeneralStore')
   console.groupCollapsed('General Store loading...')
   GeneralStore.shopkeep = (opts['newShopkeep'] || setup.createNPC)(town, {
     profession: 'merchant',
@@ -26,7 +26,7 @@ setup.createGeneralStore = function (town, opts) {
   GeneralStore.expertise = ''
   setup.GeneralStoreModifiers(town, GeneralStore)
 
-  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
+  const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(GeneralStore, setup.GeneralStore.rollData, propName)
   })

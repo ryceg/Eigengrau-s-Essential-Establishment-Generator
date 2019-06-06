@@ -1,10 +1,10 @@
 setup.createRivals = function (faction) {
   console.log('accruing enemies...')
-  let _sizeRoll = dice(2, 50)
+  const _sizeRoll = dice(2, 50)
   let group
-  let groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
-  let groupSizeModifier = ((_sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.influence - 50)))
-  let rivals = []
+  const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
+  const groupSizeModifier = ((_sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.influence - 50)))
+  const rivals = []
   let i
 
   // this is where weighting different groups happens. Needs updating with each new faction.
@@ -42,7 +42,7 @@ setup.createRivals = function (faction) {
 
   function getRivalGroup (bonus) {
     let tempGroup
-    let groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
+    const groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
 
     const tempGroupSize = setup.matchFirst.largerThanOrEqualTo(groupSizeRoll, {
       90: 'a guild of ',
