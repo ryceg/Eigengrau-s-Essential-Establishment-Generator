@@ -674,18 +674,20 @@ setup.npcData = {
           return 'I met the love of my life, ' + setup.profile(partnerKey) + '.'
         } else {
           console.log('Making a baby!')
-
+          console.log(node.marriages)
           const marriage = node.marriages[0]
           partnerKey = marriage.parents.find(key => (key !== npc.key))
           const partnerRace = partnerKey ? State.variables.npcs[partnerKey].race : npc.race
-          const inserted = setup.insertChildren(town, family, npc, marriage, npc.race, partnerRace, 1, true)
 
+          const inserted = setup.insertChildren(town, family, npc, marriage, npc.race, partnerRace, 1, true)
+          console.log(marriage)
+          console.log(inserted)
           if (inserted.length > 0) childKey = inserted[0]
           const childMsg = childKey
-            ? 'I had a child, ' + setup.profile(childKey)
+            ? 'I had a child, ' + setup.profile(State.variables.npcs[childKey])
             : 'I had a child,'
           const partnerMsg = partnerKey
-            ? ' with my dear partner ' + setup.profile(partnerKey) + '.'
+            ? ' with my dear partner ' + setup.profile(State.variables.npcs[partnerKey]) + '.'
             : ' with my dear partner, who is no longer with me.'
           return childMsg + partnerMsg
         }

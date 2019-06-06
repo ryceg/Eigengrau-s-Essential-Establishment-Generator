@@ -8,7 +8,9 @@ const insertRelative = function (town, family, base, force = false) {
 
   // Avoid secondary NPC spam
   if (!force) {
-    if (random(1, 100) <= setup.familyData.absencePercent) return undefined
+    if (random(1, 100) <= setup.familyData.absencePercent) {
+      return undefined
+    }
     if (setup.isOfAge('elderly', base.race, base.ageYears)) {
       if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
       if (base.ageYears >= setup.npcData.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
@@ -30,6 +32,7 @@ const insertRelative = function (town, family, base, force = false) {
 
 setup.insertChildren = function (town, family, npc, marriage, motherRace, fatherRace, amount, force = false) {
   if (!force) amount -= marriage.children.length
+  console.log(`Creating ${amount} siblings...`)
 
   const surname = setup.getChildSurname(marriage)
   const siblingClass = setup.familySocialClass(marriage)

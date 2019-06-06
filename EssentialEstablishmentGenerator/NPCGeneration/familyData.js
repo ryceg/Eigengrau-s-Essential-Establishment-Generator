@@ -44,16 +44,16 @@ setup.familyData = {
     'partner-partner-woman': 'co-wife'
   },
   // These numbers are all made up, feel free to change them
-  absencePercent: 40,
+  absencePercent: 72,
   oldAbsencePercent: 40,
-  veryOldAbsencePercent: 80,
+  veryOldAbsencePercent: 70,
 
-  marriagePercent: 90,
-  remarriagePercent: 3,
+  marriagePercent: 50,
+  remarriagePercent: 6,
 
   childAgePercentiles: [
-    [65, 'young adult'],
-    [97, 'settled adult'],
+    [55, 'young adult'],
+    [90, 'settled adult'],
     [100, 'elderly']
   ],
 
