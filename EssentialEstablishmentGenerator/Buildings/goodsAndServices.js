@@ -969,7 +969,8 @@ setup.goodsAndServices = {
         'cutting board',
         'ham',
         'turkey',
-        'boar'
+        'boar',
+        'cow'
       ],
       adjective: [
         'fatty',
@@ -1044,7 +1045,8 @@ setup.goodsAndServices = {
           'hanging a few dead chickens upside down',
           'starting to doze off in a corner of the shop',
           'weighing out some meat for another customer',
-          'seasoning a fine looking roast'
+          'seasoning a fine looking roast',
+          'sliding a tray full of cuts of meat into a large clay smoker'
         ]
       }
     },
@@ -1082,7 +1084,11 @@ setup.goodsAndServices = {
       'the shop is full of live chickens',
       'the store is nearly spotless despite working with bloody meat all day',
       'several buckets of blood sitting on tables behind the counter',
-      'a large, eyeless pig head sitting on the counter'
+      'a large, eyeless pig head sitting on the counter',
+      'a sign in the window that reads "Huge sale on ham hocks, today only!"',
+      'an open barrel filled with pigs feet against one wall; a sign sticking out has "Sale!" painted on it in bright red letters',
+      'several jars full of eyes floating in a murky liquid on a shelf behind the counter',
+      'several jars sitting on the counter labeled "pickled pig tongue"'
     ],
     specialty: [
       // the butchers is known for _______
@@ -1094,7 +1100,14 @@ setup.goodsAndServices = {
       'acquiring their meats in an unknown and mysterious manner',
       'oversalting all their meats to mask the age',
       'having highly exotic meat varieties',
-      'their deliciously smoked meats'
+      'their deliciously smoked meats',
+      'carrying a wide variety of meats',
+      'killing the animals right out back to keep the meat fresh',
+      'the questionable treatment of their livestock',
+      'always trying to underweigh customer orders',
+      'using the leftover animal bones to make jewelry',
+      'selling a variety of pickled tongues',
+      'keeping their meats in a locker that has been enchanted with a permanent cold spell'
     ]
   }
 }
