@@ -201,10 +201,10 @@ setup.createNPC = function (town, base) {
     setup.createLifeEvents(town, npc)
   }
 
-  if (npc.partnerID) {
+  /* if (npc.partnerID) {
     console.log('assigning ' + npc.name + ' ' + State.variables.npcs[npc.partnerID].name + ' as a partner...')
     setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
-  }
+  } */
   State.temporary.newNPC = npc
 
   if (npc.callbackFunction) {
