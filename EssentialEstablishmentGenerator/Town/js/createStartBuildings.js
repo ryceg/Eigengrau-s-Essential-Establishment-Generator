@@ -22,5 +22,8 @@ setup.createStartBuildings = function (town) {
 
   const tailor = setup.goodsAndServices.default.create(town, 'tailor')
   town.buildings.tailor[tailor.key] = tailor
+
+  const butcher = setup.goodsAndServices.default.create(town, 'butcher')
+  town.buildings.butcher[butcher.key] = butcher
   return town
 }

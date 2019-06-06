@@ -554,7 +554,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -800,7 +803,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -827,7 +833,7 @@ setup.goodsAndServices = {
           'cleaning loose threads off the counter',
           'fashioning a tunic from some sort of hide',
           'restocking a shelf with new socks',
-          'tending to a large trough '
+          'tending to a large trough of dye'
         ]
       }
     },
@@ -895,6 +901,200 @@ setup.goodsAndServices = {
       'charging far too much for far too little fabric.',
       'having a large collection of all black clothing.',
       'their skill with leather working.'
+    ]
+  },
+  butcher: {
+    create (town, building, opts) {
+      opts = opts || {}
+      if (!building) {
+        console.error('A building was not passed!')
+        return
+      }
+
+      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      return building
+    },
+    name: {
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        return [
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
+          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          unique
+        ].seededrandom()
+      },
+      unique: [
+        'A Cut Above',
+        "Packin' Meat",
+        'Fresh Meat',
+        'Nice to Meat You',
+        'High Steaks',
+        'Meat n Greet',
+        "Carne Val's",
+        'Choice Cuts',
+        'From Meat to You',
+        'The Chop Shop',
+        'Meating Place',
+        'Slabbed',
+        'Meat Street',
+        'The Prime Cut',
+        'Top Chop',
+        'A Cut Above the Rest',
+        'The Meat Grinder',
+        'Fantastic Flesh',
+        'The Strip Club',
+        'No Misteak'
+
+      ],
+      noun: [
+        'strip',
+        'chop',
+        'cut',
+        'rib',
+        'roast',
+        'steak',
+        'pork',
+        'veal',
+        'slab',
+        'cleaver',
+        'cutting board',
+        'ham',
+        'turkey',
+        'boar'
+      ],
+      adjective: [
+        'fatty',
+        'juicy',
+        'tasty',
+        'thick',
+        'thin',
+        'angry',
+        'choice',
+        'bloody',
+        'wild'
+
+      ],
+      adjectivePerson: [
+        'cheery',
+        'happy',
+        'hopeful',
+        'morning',
+        'magical',
+        'sassy',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'fat',
+        'stoic',
+        'colorful',
+        'silly',
+        'big',
+        'slim'
+      ],
+      wordNoun: [
+        'butchers',
+        'butcher shop',
+        'meat shop',
+        'meat market'
+      ]
+    },
+    PassageFormat: [
+      // each array string will be a new line.
+      // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature.',
+      '',
+      'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<goods $building setup.goodsAndServices[$building.type].goods>>'
+    ],
+    profession: {
+      name: 'butcher',
+      opts: {
+        profession: 'butcher',
+        hasClass: false,
+        idle: [
+          // There is a butcher currently _______
+          'thinly slicing some meats',
+          'hanging a large slab of meat from a hook',
+          'sharpening a fine looking cleaver',
+          'mopping up some red juices on the floor',
+          'stuffing some sausages',
+          'sawing off a thick cut of meat',
+          'tying up a roast',
+          'wrapping up some meat for another customer',
+          'salting a large spread of different meats',
+          'showing a customer some of the different roast options',
+          'reading a book on exotic animal meat',
+          'hanging a few dead chickens upside down',
+          'starting to doze off in a corner of the shop',
+          'weighing out some meat for another customer',
+          'seasoning a fine looking roast'
+        ]
+      }
+    },
+    goods: {
+      'chicken': {
+        cost: 50,
+        description: 'A full chicken, defeatheread and ready to cook.'
+      },
+      'sausage': {
+        cost: 20,
+        description: "A large sausage; it is unclear what it's stuffed with."
+      },
+      'prime roast': {
+        cost: 90,
+        description: 'A juicy looking roast tied with a butcher knot.'
+      },
+      'sliced ham': {
+        cost: 30,
+        description: 'Thin cut slices of ham perfect for a meal.'
+      }
+    },
+    type: 'butchers',
+    notableFeature: [
+      // you notice _______
+      'several large hunks of meat hanging from hooks in the ceiling',
+      'a large glass case full of different roasts',
+      'a large oaken butcher table with a cleaver stuck into it',
+      'a big set of weighing scales behind the counter',
+      'several sacks of salt stacked up near the entrance',
+      'an assortment of sausage links hanging from the ceiling',
+      'a rather large puddle of blood near the counter',
+      'a big crate full of chicken feathers behind the counter',
+      'strange sculptures made of animal bones on the walls',
+      'a small rack on the counter is selling necklaces made of animal teeth',
+      'the shop is full of live chickens',
+      'the store is nearly spotless despite working with bloody meat all day',
+      'several buckets of blood sitting on tables behind the counter',
+      'a large, eyeless pig head sitting on the counter'
+    ],
+    specialty: [
+      // the butchers is known for _______
+      'their prime cuts of meat',
+      'the high quality sausages they make',
+      'the interesting ways they tie their roasts',
+      'the questionable quality of their meat',
+      'always having some unlabeled cheap cuts of meat',
+      'acquiring their meats in an unknown and mysterious manner',
+      'oversalting all their meats to mask the age',
+      'having highly exotic meat varieties',
+      'their deliciously smoked meats'
     ]
   }
 }
