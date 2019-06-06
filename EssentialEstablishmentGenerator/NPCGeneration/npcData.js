@@ -70,7 +70,7 @@ setup.npcData = {
     [55, 'small'],
     [54, 'squat'],
     [53, 'somewhat squat'],
-    [52, 'squite squat'],
+    [52, 'quite squat'],
     [50, 'rather squat'],
     [48, 'somewhat tiny'],
     [46, 'rather small'],
