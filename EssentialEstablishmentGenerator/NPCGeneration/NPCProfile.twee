@@ -59,16 +59,4 @@ $currentNPC.firstName currently earns <<money $currentNPC.finances.grossIncome>>
   <td><<profile $npcs[_key]>></td><td><<print _relationship.toUpperFirst()>></td>
 </tr><</for>></table><</nobr>></div><</if>>
 
-<<if $currentNPC.family !== undefined >><div class='classTable'><<nobr>><table>
-    <h2> Family </h2>
-    <tr>
-        <th>Name</th>
-        <th>Relationship</th>
-    </tr>
-<<set $family to setup.fetchFamily($town, $currentNPC)>>
-<<for _key, _relationship range $family>>
-<tr>
-  <td><<profile $npcs[_key]>></td><td><<print _relationship.toUpperFirst()>></td>
-</tr><</for>></table><</nobr>></div><</if>>
-
 [[Return|previous()]]

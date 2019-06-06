@@ -22,11 +22,11 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     defaultProbability = 10
   }
 
-  var pool = []
-  var totalWeight = 0
+  const pool = []
+  let totalWeight = 0
   exclusionFunction = exclusionFunction || true
 
-  for (var arg in args) {
+  for (const arg in args) {
     // console.log(args[arg])
     if (args[arg].exclusions && typeof (args[arg].exclusions) === 'function') {
       var isValid = args[arg].exclusions(town, obj)
@@ -48,16 +48,19 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     }
   }
   // console.log('Starting the search.')
-  var random = Math.floor(randomFloat(1) * totalWeight)
-  for (var i = 0; i < pool.length; i++) {
+  let random = Math.floor(randomFloat(1) * totalWeight)
+  let selected
+  for (let i = 0; i < pool.length; i++) {
     random -= pool[i].probability || defaultProbability
     if (random < 0) {
       // console.log('Less than zero! Found one.')
       // console.log(pool[i])
-      var selected = pool[i]
+      selected = pool[i]
       break
     }
   }
+
+  console.log(selected)
   if (!selected[output] && output !== 'object') {
     console.error('The randomly fetched object does not have the attribute ' + output + '.')
     console.log({ selected })

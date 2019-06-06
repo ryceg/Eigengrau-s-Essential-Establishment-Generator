@@ -196,10 +196,7 @@ setup.createNPC = function (town, base) {
   setup.createSocialClass(town, npc)
   setup.createLivingStandards(town, npc)
 
-  if (npc.hasHistory !== false) {
-    setup.createHistory(town, npc)
-    setup.createLifeEvents(town, npc)
-  }
+  if (npc.hasHistory !== false) setup.ExpandNPC(town, npc)
 
   /* if (npc.partnerID) {
     console.log('assigning ' + npc.name + ' ' + State.variables.npcs[npc.partnerID].name + ' as a partner...')

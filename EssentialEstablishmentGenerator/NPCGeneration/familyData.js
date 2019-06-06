@@ -1,48 +1,71 @@
 setup.familyData = {
   // Specific names when traversing the family tree
   // (the bracketed ones should never occur)
+  // the capital letters stand for the four types of relationship:
+  // B = brother / sister
+  // C = couple (marriage)
+  // D = descendant (child)
+  // E = elder (parent)
   relationshipNouns: {
-    'parent-man': 'father',
-    'parent-woman': 'mother',
-    'child-man': 'son',
-    'child-woman': 'daughter',
-    'sibling-man': 'brother',
-    'sibling-woman': 'sister',
-    'partner-man': 'husband',
-    'partner-woman': 'wife',
-    'parent-parent-man': 'grandfather',
-    'parent-parent-woman': 'grandmother',
-    'parent-child-man': 'half-brother',
-    'parent-child-woman': 'half-sister',
-    'parent-sibling-man': 'uncle',
-    'parent-sibling-woman': 'aunt',
-    'parent-partner-man': 'stepfather',
-    'parent-partner-woman': 'stepmother',
-    'child-parent-man': '(self/partner)',
-    'child-parent-woman': '(self/partner)',
-    'child-child-man': 'grandson',
-    'child-child-woman': 'granddaughter',
-    'child-sibling-man': '(son)',
-    'child-sibling-woman': '(daughter)',
-    'child-partner-man': 'son-in-law',
-    'child-partner-woman': 'daughter-in-law',
-    'sibling-parent-man': '(father)',
-    'sibling-parent-woman': '(mother)',
-    'sibling-child-man': 'nephew',
-    'sibling-child-woman': 'niece',
-    'sibling-sibling-man': '(brother)',
-    'sibling-sibling-woman': '(sister)',
-    'sibling-partner-man': 'brother-in-law',
-    'sibling-partner-woman': 'sister-in-law',
-    'partner-parent-man': 'father-in-law',
-    'partner-parent-woman': 'mother-in-law',
-    'partner-child-man': 'stepson',
-    'partner-child-woman': 'stepdaughter',
-    'partner-sibling-man': 'brother-in-law',
-    'partner-sibling-woman': 'sister-in-law',
-    'partner-partner-man': 'co-husband',
-    'partner-partner-woman': 'co-wife'
+    Em: 'father',
+    Ew: 'mother',
+    Dm: 'son',
+    Dw: 'daughter',
+    Bm: 'brother',
+    Bw: 'sister',
+    Cm: 'husband',
+    Cw: 'wife',
+    EEm: 'grandfather',
+    EEw: 'grandmother',
+    EDm: 'half-brother',
+    EDw: 'half-sister',
+    EBm: 'uncle',
+    EBw: 'aunt',
+    ECm: 'stepfather',
+    ECw: 'stepmother',
+    DEm: '(self/partner)',
+    DEw: '(self/partner)',
+    DDm: 'grandson',
+    DDw: 'granddaughter',
+    DBm: '(son)',
+    DBw: '(daughter)',
+    DCm: 'son-in-law',
+    DCw: 'daughter-in-law',
+    BEm: '(father)',
+    BEw: '(mother)',
+    BDm: 'nephew',
+    BDw: 'niece',
+    BBm: '(brother)',
+    BBw: '(sister)',
+    BCm: 'brother-in-law',
+    BCw: 'sister-in-law',
+    CEm: 'father-in-law',
+    CEw: 'mother-in-law',
+    CDm: 'stepson',
+    CDw: 'stepdaughter',
+    CBm: 'brother-in-law',
+    CBw: 'sister-in-law',
+    CCm: 'co-husband',
+    CCw: 'co-wife'
   },
+  verboseRelationship: (key) => {
+    if (key in setup.familyData.relationshipNouns) return setup.familyData.relationshipNouns[key]
+    return 'relative'
+  },
+  relationshipInverseKey: (npc, relationshipKey) => {
+    let inverse = ''
+    for (let i = 0; i < relationshipKey.length - 1; i++) {
+      if (relationshipKey[i] === 'E') {
+        inverse = inverse + 'D'
+      } else if (relationshipKey[i] === 'D') {
+        inverse = inverse + 'E'
+      } else {
+        inverse = inverse + relationshipKey[i]
+      }
+    }
+    return inverse.split('').reverse().join('') + npc.gender[0]
+  },
+
   // These numbers are all made up, feel free to change them
   absencePercent: 72,
   oldAbsencePercent: 40,
@@ -108,7 +131,6 @@ setup.familyData = {
     }
     return siblingNumber
   },
-  siblingGender: () => (random(1, 2) === 1 ? 'man' : 'woman'),
 
   marriageAgeMin: (npc) => {
     const race = npc.race || 'human'

@@ -4,6 +4,7 @@ setup.townData.professions = {
     sv: 10000,
     type: 'family',
     sector: 'family',
+    synonyms: ['prepubescent'],
     description: 'a child, specifically one that is not working.',
     dailyWage: 4,
     socialClass: 'commoner',

@@ -8,10 +8,8 @@ setup.fetchFamily = function (town, npc, depth = 2) {
   console.log(family)
   while (ptr < relativeList.length) {
     if (!(relativeList[ptr].key in relatives)) {
-      const nounKey = `${relativeList[ptr].relationship}${State.variables.npcs[relativeList[ptr].key].gender}`
-      relatives[relativeList[ptr].key] = nounKey in setup.familyData.relationshipNouns
-        ? setup.familyData.relationshipNouns[nounKey]
-        : 'relative'
+      const nounKey = `${relativeList[ptr].relationship}${State.variables.npcs[relativeList[ptr].key].gender[0]}`
+      relatives[relativeList[ptr].key] = nounKey
 
       if (relativeList[ptr].depth < depth) {
         // Expand node first before fetching
@@ -22,7 +20,7 @@ setup.fetchFamily = function (town, npc, depth = 2) {
           relativeList.push(...familyNode.parentMarriage.parents.map(relativeKey => ({
             key: relativeKey,
             depth: relativeList[ptr].depth + 1,
-            relationship: `${relativeList[ptr].relationship}parent-`
+            relationship: `${relativeList[ptr].relationship}E`
           })))
         }
 
@@ -31,7 +29,7 @@ setup.fetchFamily = function (town, npc, depth = 2) {
             .map(relativeKey => ({
               key: relativeKey,
               depth: relativeList[ptr].depth + 1,
-              relationship: `${relativeList[ptr].relationship}sibling-`
+              relationship: `${relativeList[ptr].relationship}B`
             })))
         }
 
@@ -41,13 +39,13 @@ setup.fetchFamily = function (town, npc, depth = 2) {
             relativeList.push(...partners.map(relativeKey => ({
               key: relativeKey,
               depth: relativeList[ptr].depth + 1,
-              relationship: `${relativeList[ptr].relationship}partner-`
+              relationship: `${relativeList[ptr].relationship}C`
             })))
 
             relativeList.push(...marriage.children.map(relativeKey => ({
               key: relativeKey,
               depth: relativeList[ptr].depth + 1,
-              relationship: `${relativeList[ptr].relationship}child-`
+              relationship: `${relativeList[ptr].relationship}D`
             })))
           })
         }

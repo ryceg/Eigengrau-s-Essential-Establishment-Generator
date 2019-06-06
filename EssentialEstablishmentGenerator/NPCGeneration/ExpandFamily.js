@@ -41,7 +41,7 @@ setup.insertChildren = function (town, family, npc, marriage, motherRace, father
   for (let k = 0; k < amount; k++) {
     const siblingBase = Object.assign({}, setup.familyData.relativeBase(npc), {
       race: setup.marriageChildRace(town, motherRace, fatherRace),
-      gender: setup.familyData.siblingGender(),
+      gender: ['man', 'woman'].seededrandom(),
       ageYears: npc.ageYears + setup.familyData.siblingAgeDelta(npc),
       lastName: surname,
       socialClass: siblingClass
@@ -150,7 +150,11 @@ setup.ExpandFamily = function (town, npc) {
 
   // Marriages and descendants
   const marriageMin = setup.familyData.marriageAgeMin(npc)
-  if (npc.ageYears <= marriageMin) node.marriages = []
+  if (npc.ageYears <= marriageMin) {
+    node.marriages = []
+    node.canRemarry = false
+  }
+
   if (node.marriages === undefined) {
     node.marriages = []
     if (random(1, 100) <= setup.familyData.marriagePercent) {
