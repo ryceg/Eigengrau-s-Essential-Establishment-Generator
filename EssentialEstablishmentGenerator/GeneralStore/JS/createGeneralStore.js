@@ -16,7 +16,7 @@ setup.createGeneralStore = function (town, opts) {
     notableFeature: 'wide range of goods on sale',
     passageName: 'GeneralStoreOutput',
     initPassage: 'InitGeneralStore',
-    BuildingType: 'GeneralStore'
+    buildingType: 'GeneralStore'
   })
 
   setup.createGeneralStoreName(town, GeneralStore)

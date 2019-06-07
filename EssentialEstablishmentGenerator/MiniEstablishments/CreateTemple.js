@@ -8,7 +8,7 @@ setup.createTemple = function (town, opts) {
   Object.assign(temple, {
     passageName: 'TempleOutput',
     initPassage: 'TempleOutput',
-    BuildingType: 'temple',
+    buildingType: 'temple',
     wordNoun: data.name.wordNoun.seededrandom(),
     priest: setup.createNPC(town, {
       dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].seededrandom(),

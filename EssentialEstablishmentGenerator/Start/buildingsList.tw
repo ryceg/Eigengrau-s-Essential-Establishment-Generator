@@ -5,7 +5,7 @@
   \<<if def _previousBuilding && _previousBuilding.road === _building.road>>
     \<<print either("Also on _building.road is ", "Down from _previousBuilding.name is ", "Nearby is ")>>
     \<<else>>
-  <<print either("On ", "Along ", "Over on ")>> _building.road is <</if>><<if _building.needsWordNoun !== false>>the _building.wordNoun <</if>><span @id="_building.tooltip" class="tip"><<link "_building.name">><<set $selected to {BuildingType: _buildingType, key: _key, building: _building}>><<set $currentPassage to _building>>
+  <<print either("On ", "Along ", "Over on ")>> _building.road is <</if>><<if _building.needsWordNoun !== false>>the _building.wordNoun <</if>><span @id="_building.tooltip" class="tip"><<link "_building.name">><<set $selected to {buildingType: _buildingType, key: _key, building: _building}>><<set $currentPassage to _building>>
       \<<if settings.showSliders>>
           \<<goto _building.initPassage>>
         \<<else>>

@@ -9,7 +9,7 @@ setup.goodsAndServices = {
       opts = opts || {}
       const building = {
         type,
-        BuildingType: type,
+        buildingType: type,
         passageName: 'GenericPassage',
         initPassage: 'GenericPassage'
       }
@@ -359,7 +359,7 @@ setup.goodsAndServices = {
       'a rack of discount breads near the front door.',
       'a large and intricate cake display near the front window.',
       'a make your own tart station in one corner of the shop.',
-      'a bread slicing station for the commoners without bread knives.',
+      'a bread slicing station for the commoners without bread knives set up in a corner of the shop.',
       'a large embroidery bread loaf hanging on a wall.',
       'several caged hens in the back of the shop that lay fresh eggs for the bakers.',
       'a large moose head hanging above the entryway.',
@@ -554,7 +554,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -800,7 +803,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step into the doorway of', 'come off the street into'].random() + ' $building.name. You notice $building.notableFeature',
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature',
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -827,7 +833,7 @@ setup.goodsAndServices = {
           'cleaning loose threads off the counter',
           'fashioning a tunic from some sort of hide',
           'restocking a shelf with new socks',
-          'tending to a large trough '
+          'tending to a large trough of dye'
         ]
       }
     },
@@ -895,6 +901,488 @@ setup.goodsAndServices = {
       'charging far too much for far too little fabric.',
       'having a large collection of all black clothing.',
       'their skill with leather working.'
+    ]
+  },
+  butcher: {
+    create (town, building, opts) {
+      opts = opts || {}
+      if (!building) {
+        console.error('A building was not passed!')
+        return
+      }
+
+      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      return building
+    },
+    name: {
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        return [
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
+          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          unique
+        ].seededrandom()
+      },
+      unique: [
+        'A Cut Above',
+        "Packin' Meat",
+        'Fresh Meat',
+        'Nice to Meat You',
+        'High Steaks',
+        'Meat n Greet',
+        "Carne Val's",
+        'Choice Cuts',
+        'From Meat to You',
+        'The Chop Shop',
+        'Meating Place',
+        'Slabbed',
+        'Meat Street',
+        'The Prime Cut',
+        'Top Chop',
+        'A Cut Above the Rest',
+        'The Meat Grinder',
+        'Fantastic Flesh',
+        'The Strip Club',
+        'No Misteak'
+
+      ],
+      noun: [
+        'strip',
+        'chop',
+        'cut',
+        'rib',
+        'roast',
+        'steak',
+        'pork',
+        'veal',
+        'slab',
+        'cleaver',
+        'cutting board',
+        'ham',
+        'turkey',
+        'boar',
+        'cow',
+        'pig',
+        'brisket',
+        'tenderloin',
+        'flank'
+      ],
+      adjective: [
+        'fatty',
+        'juicy',
+        'tasty',
+        'thick',
+        'thin',
+        'angry',
+        'choice',
+        'bloody',
+        'wild',
+        'prime',
+        'marbled',
+        'raw'
+
+      ],
+      adjectivePerson: [
+        'cheery',
+        'happy',
+        'hopeful',
+        'morning',
+        'magical',
+        'sassy',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'fat',
+        'stoic',
+        'colorful',
+        'silly',
+        'big',
+        'slim'
+      ],
+      wordNoun: [
+        'butchers',
+        'butcher shop',
+        'meat shop',
+        'meat market'
+      ]
+    },
+    PassageFormat: [
+      // each array string will be a new line.
+      // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature.',
+      '',
+      'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<goods $building setup.goodsAndServices[$building.type].goods>>'
+    ],
+    profession: {
+      name: 'butcher',
+      opts: {
+        profession: 'butcher',
+        hasClass: false,
+        idle: [
+          // There is a butcher currently _______
+          'thinly slicing some meats',
+          'hanging a large slab of meat from a hook',
+          'sharpening a fine looking cleaver',
+          'mopping up some red juices on the floor',
+          'stuffing some sausages',
+          'sawing off a thick cut of meat',
+          'tying up a roast',
+          'wrapping up some meat for another customer',
+          'salting a large spread of different meats',
+          'showing a customer some of the different roast options',
+          'reading a book on exotic animal meat',
+          'hanging a few dead chickens upside down from the rafters',
+          'starting to doze off in a corner of the shop',
+          'weighing out some meat for another customer',
+          'seasoning a fine looking roast',
+          'sliding a tray full of cuts of meat into a large clay smoker',
+          're-arranging some different cuts of meat on a shelf',
+          'wiping down an old looking cutting board',
+          'coming out from a large freezer in the back of the building',
+          'grinding up some meat in a large meat grinder'
+        ]
+      }
+    },
+    goods: {
+      'chicken': {
+        cost: 30,
+        description: 'A full chicken, defeatheread and ready to cook.'
+      },
+      'sausage': {
+        cost: 20,
+        description: "A large sausage; it is unclear what it's stuffed with."
+      },
+      'prime roast': {
+        cost: 40,
+        description: 'A juicy looking roast tied with a butcher knot.'
+      },
+      'sliced ham': {
+        cost: 30,
+        description: 'Thin cut slices of ham perfect for a meal.'
+      }
+    },
+    type: 'butchers',
+    notableFeature: [
+      // you notice _______
+      'several large hunks of meat hanging from hooks in the ceiling',
+      'a large glass case full of different roasts',
+      'a large oaken butcher table with a cleaver stuck into it',
+      'a big set of brass weighing scales behind the counter',
+      'several sacks of salt stacked up near the entrance',
+      'an assortment of sausage links hanging from the ceiling',
+      'a rather large puddle of blood near the counter',
+      'a big crate full of chicken feathers behind the counter',
+      'strange sculptures made of animal bones on the walls',
+      'a small rack on the counter is selling necklaces made of animal teeth',
+      'the shop is full of live chickens',
+      'the store is nearly spotless despite working with bloody meat all day',
+      'several buckets of blood sitting on tables behind the counter',
+      'a large, eyeless pig head sitting on the counter',
+      'a sign in the window that reads "Huge sale on ham hocks, today only!"',
+      'an open barrel filled with pigs feet against one wall; a sign sticking out has "Sale!" painted on it in bright red letters',
+      'several jars full of eyes floating in a murky liquid on a shelf behind the counter',
+      'several jars sitting on the counter labeled "pickled pig tongue"',
+      'a huge silver meat grinder mounted to a table in the back of the shop',
+      'a large collection of knives hanging above a table behind the counter',
+      'several rabbits and ducks strung up from the ceiling',
+      'a large shelf with different jars full of spice rubs',
+      "a bargain bin full of old chicken's feet",
+      'A large sign by the counter that reads "Beef tongue half off!"'
+    ],
+    specialty: [
+      // the butchers is known for _______
+      'their prime cuts of meat',
+      'the high quality sausages they make',
+      'the interesting ways they tie their roasts',
+      'the questionable quality of their meat',
+      'always having some unlabeled cheap cuts of meat',
+      'acquiring their meats in an unknown and mysterious manner',
+      'oversalting all their meats to mask the age',
+      'having highly exotic meat varieties',
+      'their deliciously smoked meats',
+      'carrying a wide variety of meats',
+      'killing the animals right out back to keep the meat fresh',
+      'the questionable treatment of their livestock',
+      'always trying to underweigh customer orders',
+      'using the leftover animal bones to make jewelry',
+      'selling a variety of pickled tongues',
+      'keeping their meats in a locker that has been enchanted with a permanent cold spell',
+      'running excellent sales throughout the week',
+      'buying meat that is going bad and reselling it',
+      'being extraordinarily overpriced for the meats they have',
+      'offering excellent wine pairing suggestions with any meat you buy',
+      'giving discounts to adventurers that frequently buy rations here',
+      'raising their own livestock for slaughter',
+      'trying to pass of strange vegetable creations as real meat'
+    ]
+  },
+  cobbler: {
+    create (town, building, opts) {
+      opts = opts || {}
+      if (!building) {
+        console.error('A building was not passed!')
+        return
+      }
+
+      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      return building
+    },
+    name: {
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        return [
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
+          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.lastName + "'s Shoe Repair",
+          unique
+        ].seededrandom()
+      },
+      unique: [
+        'Shoes and More',
+        'The Heeler',
+        'Shoes Rescued',
+        'The Cobblers Closet',
+        'Old Soles',
+        'Sole Provider',
+        'Heel to Toe',
+        'Shoes, Shoes, and more Shoes',
+        'Foot First',
+        'Lace It',
+        'Heels for Walking',
+        'Just for Kicks',
+        'Heels and Feels',
+        'Shoe Secret',
+        'Solestruck',
+        'Taps',
+        'Up the Heel',
+        'Boots',
+        'Killer Heels',
+        'Down the Sole',
+        'Happy Feet',
+        'Shoe Magic',
+        'The Boot',
+        'Tipsy Taps',
+        'Stilettos',
+        'Perfect Pair',
+        'New Steps',
+        'Foot by Foot',
+        'Paired Perfect',
+        'Splendid Shoes',
+        'Suited Shoes',
+        'A Foor Ahead',
+        'Clogged Up',
+        'Pretty Pumps',
+        'Save Your Sole'
+      ],
+      noun: [
+        'shoe',
+        'heel',
+        'stiletto',
+        'boot',
+        'bootstrap',
+        'laces',
+        'loafer',
+        'slipper',
+        'clog',
+        'sole',
+        'sandal'
+      ],
+      adjective: [
+        'colorful',
+        'brilliant',
+        'radiant',
+        'vibrant',
+        'dirty',
+        'polished',
+        'weathered',
+        'leathery',
+        'happy',
+        'cheery',
+        'waxed',
+        'crafty',
+        'red'
+      ],
+      adjectivePerson: [
+        'cheery',
+        'happy',
+        'hopeful',
+        'morning',
+        'magical',
+        'sassy',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'fat',
+        'stoic',
+        'colorful',
+        'silly',
+        'big',
+        'slim',
+        'crafty'
+      ],
+      wordNoun: [
+        'cobblers',
+        'cobbler shop',
+        'shoemaker shop',
+        'cordwainer shop',
+        'shoe store',
+        'boot shop'
+      ]
+    },
+    PassageFormat: [
+      // each array string will be a new line.
+      // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature.',
+      '',
+      'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<goods $building setup.goodsAndServices[$building.type].goods>>'
+    ],
+    profession: {
+      name: 'cobbler',
+      opts: {
+        profession: 'cobbler',
+        hasClass: false,
+        idle: [
+          // There is a cobbler currently _______
+          'helping a customer try on a nice pair of leather boots',
+          'hammering at the sole of a shoe',
+          'fitting an insole into a large boot',
+          'lacing up a fine looking pair of shoes',
+          'shining up a dirty pair of dress shoes',
+          'waxing some thick, leathery boots',
+          'prying the heel off a shoe with a thin piece of metal',
+          'repairing the damaged eyelet on a shoe',
+          'sewing up a hole at the toe of a large boot',
+          'carving a new heel for an expensive looking pair of stilettos',
+          'replacing the sole on a very colorful pair of shoes',
+          'trying to press out the wrinkles on a rough looking boot',
+          'shining up a new pair of shoes',
+          'adjusting shoes on a shelf to one side of the store',
+          'starting to knod off in a corner of the room',
+          'chatting with a customer about proper footwear care',
+          'reading a book titled "A Guide to Saving Soles"',
+          'using a large wooden block to stretch the inside of a pair of pointed shoes',
+          'applying a thick coating of shoe polish to a pair of dirty boots',
+          'wrapping some heavy leather around a shoe form',
+          'sewing together two parts of a new shoe',
+          'measuring a customers foot size for a proper fitting',
+          'dying a new pair of shoes a deep, rich brown',
+          'rummaging through a box full of shoe laces',
+          'working on a pair of expensive looking high heels',
+          'ripping crooked seams out of the side of a poorly made dress shoe'
+        ]
+      }
+    },
+    goods: {
+      'short boots': {
+        cost: 10,
+        description: 'A pair of barely ankle height boots made of some kind of leather'
+      },
+      'high boots': {
+        cost: 15,
+        description: 'A tall pair of thick leather boots'
+      },
+      'heeled shoes': {
+        cost: 10,
+        description: 'A fine looking pair of shoes with a thick heel on the back'
+      },
+      'dress shoes': {
+        cost: 25,
+        description: 'A fancy looking pair of shoes made to wear to formal events'
+      },
+      'shoe repair': {
+        cost: random(10, 30),
+        description: 'Repair services for shoes or boots of any kind within reason'
+      }
+    },
+    type: 'cobblers',
+    notableFeature: [
+      // you notice _______
+      'quite a few large hides of leather hanging from a back wall with shoe patterns drawn onto them',
+      'a large variety of wooden shoe forms hanging from pegs on a wall',
+      'a large window display full of exclusively thigh-high black boots',
+      'boxes and boxes of different colored shoelaces stacked up in one corner of the shop',
+      'a sign reading "free foot measurements" set up at the shop counter',
+      'one of the store shelves is brimming with nothing but different kinds of shoe polishes',
+      'a large jar on the counter labeled "homemade boot wax"; the substance inside is yellowish and creamy looking',
+      'there are almost no shoes out on display',
+      'the shop appears to only make fancy pointed dress shoes',
+      'an incredibly large variety of shoes are on display',
+      'several unfinished shoes strewn across a table in the back of the shop',
+      'a large selection of boot soles sitting on small shelves behind the counter',
+      "there are so many shoes in the shop that it's hard to move, there are even shoes hanging from the ceilings",
+      'a great many different shoe patterns tacked to one wall',
+      'a large book filled with sketches of shoes with the label "Custom Shoes; Made to Order" on the front',
+      'several finely made paintings of shoes hanging on different walls',
+      'a shoe made entirely of gold sitting on a plinth in the middle of the store',
+      'several large boots hanging from racks on the ceiling',
+      'an assortment of well made cobbler tools hung up in the back of the store',
+      'several strange looking machines in the back of the store used for making and stretching shoes',
+      'a large vat of dye behind the counter',
+      'a cozy looking fireplace on the far side of the shop',
+      'a collection of different threads arranged neatly in small cubbies in the wall'
+    ],
+    specialty: [
+      // the cobblers is known for _______
+      'making thick hide boots',
+      'the interesting colors they dye their shoes',
+      'giving good prices on repairs for adventurers',
+      'giving decent repair prices',
+      'giving discounts on new pairs of shoes if you trade in your current pair',
+      'their incredible craftsmanship',
+      'the shoddy craftsmanship their cobbler produces',
+      'the unique style of their dress shoes',
+      'giving free foot measurements every first Tuesday of the month',
+      'sourcing only the finest leather for their shoes',
+      'using magical tiny creatures to repair shoes',
+      'often working with artisans to create high art shoes',
+      'being frequented by nobles of the area',
+      'making shoes that they gaurantee will last a lifetime',
+      'working with a local warlock to enchant every pair of shoes they produce',
+      'charging ridiculously high prices',
+      'repairing any shoe or boot in only a single day',
+      'the handcrafted heels on their boots',
+      'mostly making shoes for women',
+      'mostly doing repairs on shoes',
+      'the assortment of homemade shoe polishes they produce',
+      'giving excellent tips on keeping your shoes healthy',
+      'the charity work they do around town giving shoes to the shoeless',
+      'having once made a pair of shoes for a local ruler'
     ]
   }
 }

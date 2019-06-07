@@ -58,7 +58,7 @@ column-span:        all;
 font-size:          .987cm;
 -webkit-column-span:all;
 -moz-column-span:   all;
-border-bottom:      6px ridge #c9ad6a
+border-bottom:      6px solid #c9ad6a
 }
 
 
@@ -73,7 +73,7 @@ font-size:          .705cm;
 
 h3{
 font-size:          .529cm;
-border-bottom:      3px ridge #c9ad6a
+border-bottom:      3px solid #c9ad6a
 }
 
 
@@ -166,7 +166,6 @@ blockquote {
     font-family: Scaly Sans;
     box-sizing: border-box;
     margin-bottom: 1em;
-    margin-top: 9px;
     padding: 5px 10px;
     background-color: #e0e5c1;
     border-style: solid;
@@ -316,26 +315,34 @@ span.link-disabled {
 	color: #777;
 }
 button {
+  margin-top: 20px;
 	color: #111;
-	background-color: #acf;
-	border-color: #8ad;
+  background-color: rgb(253, 253, 234);
+  border-width: 2px;
+  border-color: #c9ad6a;
+  border-style: inset;
 }
 button:hover {
-	background-color: #8ad;
-	border-color: #68b;
+	background-color: rgb(240, 217, 140);
+	border-color: rgb(194, 163, 61);
 }
 button:disabled {
 	background-color: #ccc;
 	border-color: #aaa;
 }
+
 input, select, textarea {
+  margin-top: 20px;
 	color: #111;
-	border-color: #ccc;
+  border-color: #c9ad6a;
+  border-width: 2px;
+  border-style: inset;
+  background-color: rgb(253, 253, 234);
 }
 input:not(:disabled):focus, select:not(:disabled):focus, textarea:not(:disabled):focus,
 input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled):hover {
-	background-color: #eee;
-	border-color: #111;
+	background-color: rgb(240, 217, 140);
+	border-color: rgb(194, 163, 61);
 }
 hr {
 	border-color: #111;
@@ -351,12 +358,17 @@ hr {
 
 #ui-bar {
 	background-color: #eee;
-	border-color: #ccc;
+  border-right-width: 10px;
+  border-right-color: #c9ad6a;
+  border-right-style: double;
 }
 #ui-bar hr {
 	border-color: #ccc;
 }
-#ui-bar-toggle,
+#ui-bar-toggle{
+  color: #111;
+	border-color: #ccc;
+}
 #ui-bar-history [id|="history"] {
 	color: #111;
 	border-color: #ccc;

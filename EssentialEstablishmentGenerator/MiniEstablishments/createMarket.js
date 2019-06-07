@@ -8,7 +8,7 @@ setup.createMarket = function (town, opts) {
     associatedTown: town.name,
     initPassage: 'MarketOutput',
     passageName: 'MarketOutput',
-    BuildingType: 'market',
+    buildingType: 'market',
     wordNoun: 'market',
     needsWordNoun: false,
     location: setup.market.location.seededrandom(),

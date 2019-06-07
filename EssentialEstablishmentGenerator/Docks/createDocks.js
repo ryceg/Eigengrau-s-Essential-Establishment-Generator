@@ -6,7 +6,7 @@ setup.createDocks = function (town, opts) {
     notice: setup.docks.notice.seededrandom(),
     passageName: 'DocksOutput',
     initPassage: 'DocksOutput',
-    BuildingType: 'docks',
+    buildingType: 'docks',
     needsWordNoun: false,
     wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina'].seededrandom(),
     ships: {},

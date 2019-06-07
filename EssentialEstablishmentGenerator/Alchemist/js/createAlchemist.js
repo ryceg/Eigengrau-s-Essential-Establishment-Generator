@@ -9,7 +9,7 @@ setup.createAlchemist = function (town, opts) {
     associatedTown: town.name,
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',
-    BuildingType: 'alchemist',
+    buildingType: 'alchemist',
     notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].seededrandom()
   })
 

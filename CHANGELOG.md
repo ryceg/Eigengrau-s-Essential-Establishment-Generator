@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tailors
 - Bakeries
 - Florists
+- Butchers
+- Cobblers
 - Taxation
 - Living standards
 - Daily wage
