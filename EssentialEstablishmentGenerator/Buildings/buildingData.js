@@ -68,7 +68,6 @@ setup.structure = {
       'red',
       'blue',
       'grey',
-      'grey',
       'black',
       'white',
       'white',
