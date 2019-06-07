@@ -970,7 +970,11 @@ setup.goodsAndServices = {
         'ham',
         'turkey',
         'boar',
-        'cow'
+        'cow',
+        'pig',
+        'brisket',
+        'tenderloin',
+        'flank'
       ],
       adjective: [
         'fatty',
@@ -1046,7 +1050,11 @@ setup.goodsAndServices = {
           'starting to doze off in a corner of the shop',
           'weighing out some meat for another customer',
           'seasoning a fine looking roast',
-          'sliding a tray full of cuts of meat into a large clay smoker'
+          'sliding a tray full of cuts of meat into a large clay smoker',
+          're-arranging some different cuts of meat on a shelf',
+          'wiping down an old looking cutting board',
+          'coming out from a large freezer in the back of the building',
+          'grinding up some meat in a large meat grinder'
         ]
       }
     },
@@ -1088,7 +1096,13 @@ setup.goodsAndServices = {
       'a sign in the window that reads "Huge sale on ham hocks, today only!"',
       'an open barrel filled with pigs feet against one wall; a sign sticking out has "Sale!" painted on it in bright red letters',
       'several jars full of eyes floating in a murky liquid on a shelf behind the counter',
-      'several jars sitting on the counter labeled "pickled pig tongue"'
+      'several jars sitting on the counter labeled "pickled pig tongue"',
+      'a huge silver meat grinder mounted to a table in the back of the shop',
+      'a large collection of knives hanging above a table behind the counter',
+      'several rabbits and ducks strung up from the ceiling',
+      'a large shelf with different jars full of spice rubs',
+      "a bargain bin full of old chicken's feet",
+      'A large sign by the counter that reads "Beef tongue half off!"'
     ],
     specialty: [
       // the butchers is known for _______
@@ -1107,7 +1121,14 @@ setup.goodsAndServices = {
       'always trying to underweigh customer orders',
       'using the leftover animal bones to make jewelry',
       'selling a variety of pickled tongues',
-      'keeping their meats in a locker that has been enchanted with a permanent cold spell'
+      'keeping their meats in a locker that has been enchanted with a permanent cold spell',
+      'running excellent sales throughout the week',
+      'buying meat that is going bad and reselling it',
+      'being extraordinarily overpriced for the meats they have',
+      'offering excellent wine pairing suggestions with any meat you buy',
+      'giving discounts to adventurers that frequently buy rations here',
+      'raising their own livestock for slaughter',
+      'trying to pass of strange vegetable creations as real meat'
     ]
   }
 }
