@@ -1,6 +1,6 @@
 :: BrothelOutput [brothel]
 <<unset $selectedBuilding>><<set $brothel to ($town.buildings.brothel[$selected.key] || $town.buildings.brothel[$currentPassage.key])>><<set $pimp to $npcs[$brothel.pimp.key]>>
-<h1>$brothel.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>You make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say $brothel.talk. Apparently, it specialises in $brothel.specialty.
+<h1>$brothel.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $brothel.road, and enter $brothel.name. When people talk about $brothel.name, they say $brothel.talk. Apparently, it specialises in $brothel.specialty.
 
 Inside, the $brothel.size $brothel.material building is $brothel.cleanliness. You notice $brothel.notice. The $pimp.altTitle is $brothel.idle, $pimp.heshe appears to be $brothel.owner. <<print either('Upon seeing you come in', 'Upon noticing your arrival', 'Once $pimp.heshe notices you', 'After a few minutes', 'As soon as you enter')>> the $pimp.raceNote <<print either($pimp.greeting)>>, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "swaggers", "quickly walks", "slides", 'quickly walks', 'casually saunters', 'ambles', 'trudges', 'strides', 'slowly wanders', 'marches' )>> over to where you are. <<print $pimp.heshe.toUpperFirst()>> introduces $pimp.himherself as <<profile $pimp>>, the $pimp.altTitle of $brothel.name, and asks what $pimp.heshe can do for you.
 
