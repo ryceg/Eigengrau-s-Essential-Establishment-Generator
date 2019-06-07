@@ -263,7 +263,7 @@ setup.market = {
       "myriad of pockets in the vendor's clothes",
       'permanent table with a tent set up around it',
       'racks of goods set up in a circle',
-      'flat stones with merchandise piled on them',
+      'group of flat stones with merchandise piled on them',
       'pile of dirty rags laid on the ground',
       'long foldout table',
       'hammock the vendor has set up'

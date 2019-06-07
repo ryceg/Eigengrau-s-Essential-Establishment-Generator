@@ -312,7 +312,9 @@ setup.townSquare = {
     },
     musician: {
       function (town) {
-        const npc = setup.createNPC(town)
+        const npc = setup.createNPC(town, {
+          profession: 'bard'
+        })
         return 'a ' + setup.profile(npc, npc.descriptor) + ' who is playing ' + ['a sweet tune on a lute.', 'a beat on a small wooden box.', 'an off-key song on a lute.', 'a bitter tune on a harp.',
           'an interesting song on a sitar.', 'a merry tune on a flute.', 'a quick beat on a pair of drums.', 'a fine song on a fiddle.'].random()
       }
@@ -436,7 +438,7 @@ setup.townSquare = {
           hasClass: true,
           dndClass: 'wizard'
         })
-        return 'a ' + setup.profile(npc, npc.description) + ' who is doing conjuring tricks for an appreciative audience.'
+        return 'a ' + setup.profile(npc, 'magic user') + 'of some sort who is doing conjuring tricks for an appreciative audience.'
       }
     },
     'bardImprov': {
@@ -522,9 +524,10 @@ setup.townSquare = {
       function (town) {
         const npc = setup.createNPC(town, {
           hasClass: false,
+          profession: 'merchant',
           background: 'commoner'
         })
-        return 'a ' + setup.profile(npc, npc.description) + ' who is arguing with a man over something.'
+        return 'a ' + setup.profile(npc, 'merchant') + ' who is arguing with a man over some attempted haggling.'
       }
     },
     'politicalCandidate': {

@@ -92,10 +92,13 @@ setup.structure = {
     'rollData': {
       wealth: [
         [90, 'solid'],
+        [80, 'finely crafted'],
         [70, 'well built'],
+        [60, 'decently built'],
         [50, 'ageing'],
         [30, 'poorly made'],
         [20, 'run down'],
+        [10, 'crumbling'],
         [0, 'structurally unsound']
       ]
     },
@@ -222,6 +225,27 @@ setup.structure = {
       words: {
         indefiniteArticle: 'a',
         noun: 'clay'
+      }
+    },
+    'cobblestone': {
+      probability: 5,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'cobblestone'
+      }
+    },
+    'limestone': {
+      probability: 5,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'limestone'
+      }
+    },
+    'gypsum': {
+      probability: 5,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'gypsum'
       }
     }
   },

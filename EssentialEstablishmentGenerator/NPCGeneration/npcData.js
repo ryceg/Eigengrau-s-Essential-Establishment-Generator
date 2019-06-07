@@ -2854,7 +2854,7 @@ setup.npcData = {
         'rather hairy ears'
       ],
       misc: [
-        'a desnely pockmarked face',
+        'a densely pockmarked face',
         'an incredibly freckly face',
         'a face covered in freckles',
         'a well freckled face',
