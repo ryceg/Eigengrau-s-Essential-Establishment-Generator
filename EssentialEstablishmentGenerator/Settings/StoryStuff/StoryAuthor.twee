@@ -5,4 +5,4 @@
 
 Created by /u/rcgy
 
-<<if settings.hideAds !== true or $hideAds !== true>><span class="tip" title="Thank you for your continued support!"><div id="patreon">[img[patreonbutton][https://www.patreon.com/bePatron?u=399997]]</div></span><span class="tip" title="Thank you for your continued support!"><div id="kofi">[img[kofi][https://ko-fi.com/Q5Q8O5AA]]</div></span><span class="tip" title="Come join our community!"><div id="patreon">[img[discord][https://discord.gg/A543VC5]]</div></span><</if>>
+<<if settings.hideAds !== true or $hideAds !== true>><span class="tip" title="Thank you for your continued support!"><div id="patreon">[img[patreonbutton][https://www.patreon.com/bePatron?u=399997]]</div></span><span class="tip" title="Thank you for your continued support!"><div id="kofi">[img[kofi][https://ko-fi.com/Q5Q8O5AA]]</div></span><span class="tip" title="Come join our community!"><div id="patreon">[img[discord][https://discord.gg/A543VC5]]</div></span><span class="tip" title="Check out the repository!"><div id="github">[img[github][https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator]]</div></span><</if>>
