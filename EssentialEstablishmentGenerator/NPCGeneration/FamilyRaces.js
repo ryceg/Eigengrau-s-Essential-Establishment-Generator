@@ -8,25 +8,7 @@ setup.marriagePools = {
   'tiefling': ['human', 'tiefling']
 }
 
-setup.findPartnerRace = function (town, npc) {
-  if (!(npc.race in setup.marriagePools)) return npc.race
-
-  const pool = setup.marriagePools[npc.race]
-    .filter((race) => typeof town.baseDemographics[race] === 'number')
-  const poolSum = pool.map((race) => town.baseDemographics[race])
-    .reduce((a, b) => (a + b), 0)
-
-  let roll = Math.random() * poolSum
-  for (let i = 0; i < pool.length; i++) {
-    roll -= town.baseDemographics[pool[i]]
-    if (roll <= 0) return pool[i]
-  }
-
-  return npc.race
-}
-
-// Determine the parentage of a particular NPC
-setup.findParentage = function (npc) {
+setup.findParentRaces = function (npc) {
   const parentalLineageRoll = random(1, 8)
 
   let lineage, fatherRace, motherRace
@@ -99,8 +81,7 @@ setup.findParentage = function (npc) {
   return { motherRace, fatherRace, lineage }
 }
 
-// Given a marriage, determine the offspring race
-setup.marriageChildRace = function (town, motherRace, fatherRace) {
+setup.findChildRace = function (town, motherRace, fatherRace) {
   console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
 
   motherRace = motherRace || fatherRace || setup.fetchRace(town)
@@ -130,4 +111,21 @@ setup.marriageChildRace = function (town, motherRace, fatherRace) {
   } else {
     return motherRace
   }
+}
+
+setup.findPartnerRace = function (town, npc) {
+  if (!(npc.race in setup.marriagePools)) return npc.race
+
+  const pool = setup.marriagePools[npc.race]
+    .filter((race) => typeof town.baseDemographics[race] === 'number')
+  const poolSum = pool.map((race) => town.baseDemographics[race])
+    .reduce((a, b) => (a + b), 0)
+
+  let roll = Math.random() * poolSum
+  for (let i = 0; i < pool.length; i++) {
+    roll -= town.baseDemographics[pool[i]]
+    if (roll <= 0) return pool[i]
+  }
+
+  return npc.race
 }

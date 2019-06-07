@@ -384,7 +384,7 @@ setup.brothel = {
         note: 'The bastard daughter of a noble house.',
         callbackFunction (town, npc) {
           if (!npc.family) setup.createFamily(town, npc)
-          setup.insertParentage(town, npc.family, npc, true)
+          setup.createParentage(town, npc.family, npc, true)
         }
       },
       'a young foreigner': {

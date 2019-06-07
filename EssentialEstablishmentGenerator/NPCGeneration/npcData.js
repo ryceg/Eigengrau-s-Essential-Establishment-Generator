@@ -666,7 +666,7 @@ setup.npcData = {
         if (node.marriages === undefined || node.marriages === []) {
           console.log(npc.name + ' met somebody!')
 
-          const newMarriage = setup.populateMarriage(town, family, npc, undefined, true)
+          const newMarriage = setup.createMarriage(town, family, npc, undefined, true)
           node.marriages = [newMarriage]
           partnerKey = newMarriage.parents.find(key => (key !== npc.key))
 
@@ -679,7 +679,7 @@ setup.npcData = {
           partnerKey = marriage.parents.find(key => (key !== npc.key))
           const partnerRace = partnerKey ? State.variables.npcs[partnerKey].race : npc.race
 
-          const inserted = setup.insertChildren(town, family, npc, marriage, npc.race, partnerRace, 1, true)
+          const inserted = setup.createChildren(town, family, npc, marriage, npc.race, partnerRace, 1, true)
           console.log(marriage)
           console.log(inserted)
           if (inserted.length > 0) childKey = inserted[0]

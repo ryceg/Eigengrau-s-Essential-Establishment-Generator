@@ -1,5 +1,4 @@
 setup.ExpandNPC = function (town, npc) {
-  console.log(`expanding ${npc.race} ${npc.key}...`)
   npc.hasHistory = true
   npc.isShallow = false
 
@@ -12,7 +11,9 @@ setup.ExpandNPC = function (town, npc) {
   Object.keys(setup.fetchFamily(town, npc)).forEach((key) => {
     const relative = State.variables.npcs[key]
     const relationship = relatives[key]
-    const inverse = setup.familyData.relationshipInverseKey(npc, relationship)
-    setup.createRelationship(town, npc, relative, setup.familyData.verboseRelationship(relationship), setup.familyData.verboseRelationship(inverse))
+    const inverse = setup.familyRelationships.inverse(npc, relationship)
+    setup.createRelationship(town, npc, relative,
+      setup.familyRelationships.verbose(relationship),
+      setup.familyRelationships.verbose(inverse))
   })
 }
