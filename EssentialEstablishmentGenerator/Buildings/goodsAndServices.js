@@ -986,7 +986,9 @@ setup.goodsAndServices = {
         'choice',
         'bloody',
         'wild',
-        'prime'
+        'prime',
+        'marbled',
+        'raw'
 
       ],
       adjectivePerson: [
@@ -1047,7 +1049,7 @@ setup.goodsAndServices = {
           'salting a large spread of different meats',
           'showing a customer some of the different roast options',
           'reading a book on exotic animal meat',
-          'hanging a few dead chickens upside down',
+          'hanging a few dead chickens upside down from the rafters',
           'starting to doze off in a corner of the shop',
           'weighing out some meat for another customer',
           'seasoning a fine looking roast',
