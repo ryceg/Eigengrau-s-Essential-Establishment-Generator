@@ -1,7 +1,7 @@
 
 setup.createTavern = function (town, opts) {
   opts = opts || {}
-  var tavern = (opts['newBuilding'] || setup.createBuilding)(town, 'tavern')
+  const tavern = (opts['newBuilding'] || setup.createBuilding)(town, 'tavern')
 
   tavern.name = setup.createTavernName()
   console.groupCollapsed(tavern.name)
@@ -18,7 +18,7 @@ setup.createTavern = function (town, opts) {
   Object.assign(tavern, {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
-    BuildingType: 'tavern',
+    buildingType: 'tavern',
     wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].seededrandom(),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
     fun: setup.tavern.fun.seededrandom(),
@@ -79,9 +79,9 @@ setup.createTavern = function (town, opts) {
   tavern.bedCleanliness = ''
 
   Object.defineProperty(tavern, 'lodging', {
-    get: function () {
+    get () {
       console.log('Fetching ' + tavern.name + ' lodging.')
-      var lodging = rollData.wealth.find(function (descriptor) {
+      let lodging = rollData.wealth.find(function (descriptor) {
         return descriptor[0] <= this.roll.wealth
       }, this)
       if (lodging === undefined) {
@@ -92,9 +92,9 @@ setup.createTavern = function (town, opts) {
     }
   })
   Object.defineProperty(tavern, 'food', {
-    get: function () {
+    get () {
       console.log('Fetching ' + tavern.name + ' food.')
-      var food = rollData.wealth.find(function (descriptor) {
+      let food = rollData.wealth.find(function (descriptor) {
         return descriptor[0] <= this.roll.wealth
       }, this)
       if (food === undefined) {
@@ -105,9 +105,9 @@ setup.createTavern = function (town, opts) {
     }
   })
   Object.defineProperty(tavern, 'bedCleanliness', {
-    get: function () {
+    get () {
       console.log('Fetching ' + tavern.name + ' bed cleanliness.')
-      var bedCleanliness = rollData.cleanliness.find(function (descriptor) {
+      let bedCleanliness = rollData.cleanliness.find(function (descriptor) {
         return descriptor[0] <= this.roll.bedCleanliness
       }, this)
       if (bedCleanliness === undefined) {
@@ -118,7 +118,7 @@ setup.createTavern = function (town, opts) {
     }
   })
   Object.defineProperty(tavern, 'sin', {
-    get: function () {
+    get () {
       console.log('Fetching ' + tavern.name + ' sin.')
       if (this.roll.sin > 80) {
         this._sin = 'corrupt'
@@ -147,7 +147,7 @@ setup.createTavern = function (town, opts) {
     }
   })
   var rollData = setup.tavern.rollData
-  var rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
+  const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   rollDataVariables.forEach(function (propName) {
     setup.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
   })

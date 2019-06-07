@@ -9,7 +9,7 @@ setup.goodsAndServices = {
       opts = opts || {}
       const building = {
         type,
-        BuildingType: type,
+        buildingType: type,
         passageName: 'GenericPassage',
         initPassage: 'GenericPassage'
       }

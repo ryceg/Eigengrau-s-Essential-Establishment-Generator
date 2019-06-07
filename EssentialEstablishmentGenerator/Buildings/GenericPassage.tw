@@ -1,5 +1,5 @@
 :: GenericPassage
-<<set $building to ($town.buildings[$selected.BuildingType][$selected.key] || $town.buildings[$currentPassage.BuildingType][$currentPassage.key])>><<set $owner to $building.owner>><h1>$building.name</h1>
+<<set $building to ($town.buildings[$selected.buildingType][$selected.key] || $town.buildings[$currentPassage.buildingType][$currentPassage.key])>><<set $owner to $building.owner>><h1>$building.name</h1>
 <<for _i to 0; _i < $building.PassageFormat.length; _i++>>
 <<print $building.PassageFormat[_i]>>
 <</for>>

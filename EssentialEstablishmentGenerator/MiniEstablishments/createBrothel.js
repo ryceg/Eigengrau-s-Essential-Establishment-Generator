@@ -11,7 +11,7 @@ setup.createBrothel = function (town, tavern) {
     name: setup.brothel.name.seededrandom(),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
-    BuildingType: 'brothel',
+    buildingType: 'brothel',
     wordNoun: ['brothel', 'whorehouse', "gentleman's club", 'bordello', 'cathouse', 'house of ill-repute', 'massage parlor', 'den of vice'].seededrandom(),
     specialty: setup.brothel.specialty.seededrandom(),
     talk: setup.brothel.talk.seededrandom(),
