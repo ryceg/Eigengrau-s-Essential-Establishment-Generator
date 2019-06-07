@@ -25,5 +25,8 @@ setup.createStartBuildings = function (town) {
 
   const butcher = setup.goodsAndServices.default.create(town, 'butcher')
   town.buildings.butcher[butcher.key] = butcher
+
+  const cobbler = setup.goodsAndServices.default.create(town, 'cobbler')
+  town.buildings.cobbler[cobbler.key] = cobbler
   return town
 }
