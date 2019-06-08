@@ -11,6 +11,12 @@ body {
   margin-bottom: 4px;
   margin-top: 4px;
 }
+
+.version{
+ color: rgba(94, 72, 69, 0.651);
+ font-size: 16px;
+ margin-bottom: 10px;
+}
 #story-title{
   display: none;
 }
