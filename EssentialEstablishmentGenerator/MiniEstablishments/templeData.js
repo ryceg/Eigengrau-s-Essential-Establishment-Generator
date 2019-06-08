@@ -1,9 +1,9 @@
 setup.temple = {
   name: {
-    wordNoun: ['temple', 'holy house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine'],
-    soleNoun: ['desire', 'restoration', 'humility', 'white', 'sorrow'],
-    adjective: ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding'],
-    plural: ['souls', 'men', 'sinners', 'warriors', 'wretches', 'tools', 'pawns']
+    wordNoun: ['temple', 'holy house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine', 'church', 'parish', 'sanctuary', 'tabernacle', 'chapel', 'chantry'],
+    soleNoun: ['desire', 'restoration', 'humility', 'white', 'sorrow', 'will', 'commandment', 'love', 'divine', 'redemption', 'sacrament', 'sacrafice'],
+    adjective: ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding', 'petrified', 'holy', 'redeemed', 'golden', 'heavenly'],
+    plural: ['souls', 'men', 'sinners', 'warriors', 'wretches', 'pawns', 'lovers', 'priests', 'congregation', 'saints', 'slaves', 'followers', 'relics', 'angels', 'gods']
   },
   rollData: {
     wealth: [

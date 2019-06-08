@@ -330,7 +330,6 @@ button:disabled {
 	background-color: #ccc;
 	border-color: #aaa;
 }
-
 input, select, textarea {
   margin-top: 20px;
 	color: #111;
@@ -402,6 +401,7 @@ hr {
 	background-color: #777;
 }
 #ui-dialog-titlebar {
+  text-align: center;
 	background-color: #ccc;
 }
 #ui-dialog-close:hover {
@@ -409,13 +409,17 @@ hr {
 	border-color: #a33;
 }
 #ui-dialog-body {
-	background-color: #fff;
+	background-color: rgb(255, 253, 226);
 	border-color: #ccc;
 }
 #ui-dialog-body hr {
 	background-color: #ccc;
 }
-
+#ui-dialog-body.restart {
+  text-align: center;
+	background-color: rgb(255, 253, 226);
+	border-color: #ccc;
+}
 /* List-based dialog styling */
 #ui-dialog-body.list li:not(:first-child) {
 	border-top-color: #ccc;
@@ -431,10 +435,12 @@ hr {
 /* Saves dialog styling */
 #ui-dialog-body.saves > *:not(:first-child),
 #ui-dialog-body.saves tr:not(:first-child) {
-	border-top-color: #ccc;
+  border-top-color: #ccc;
+  text-align: left;
 }
 #ui-dialog-body.saves .empty {
-	color: #777;
+  color: #777;
+  text-align: left;
 }
 
 /* Settings dialog styling */
