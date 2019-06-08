@@ -1,3 +1,18 @@
+/**
+ * @param town Needed because everything needs town to evaluate
+ *
+ * @param args The object containing the objects that you're drawing from
+ *
+ * @param obj The optional npc, building, or whatever that is needed for functions.
+ *
+ * @param exclusionFunction The optional global exclusion testing function;
+ * this is for things like pulling just the paper type objects from plothooks.
+ * Saves on LoC. Leave exclusionFunction blank if everyting in your object is
+ * always going to be allowed.
+ *
+ * @param output What should be outputted at the end. Set to 'object' to return the whole object.
+ * defaultProbability is the optional default unit. You won't usually need to supply this.
+ */
 setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, output, defaultProbability) {
   // console.log(args)
   console.groupCollapsed('Running a weighted random search...')
@@ -8,13 +23,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     output,
     defaultProbability
   })
-  // town is needed because everything needs town to evaluate
-  // args is the object containing the objects that you're drawing from
-  // obj is the optional npc, building, or whatever that is needed for functions.
-  // exclusionFunction is the optional global exclusion testing function; this is for things like pulling just the paper type objects from plothooks. Saves on LoC.
-  // leave exclusionFunction blank if everyting in your object is always going to be allowed.
-  // output is what should be outputted at the end. Set to 'object' to return the whole object.
-  // defaultProbability is the optional default unit. You won't usually need to supply this.
+
   if (!output) {
     output = 'function'
   }
