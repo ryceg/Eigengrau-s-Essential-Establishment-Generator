@@ -1,9 +1,10 @@
 setup.temple = {
   name: {
     wordNoun: ['temple', 'holy house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine', 'church', 'parish', 'sanctuary', 'tabernacle', 'chapel', 'chantry'],
-    soleNoun: ['desire', 'restoration', 'humility', 'white', 'sorrow', 'will', 'commandment', 'love', 'divine', 'redemption', 'sacrament', 'sacrafice'],
-    adjective: ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding', 'petrified', 'holy', 'redeemed', 'golden', 'heavenly'],
-    plural: ['souls', 'men', 'sinners', 'warriors', 'wretches', 'pawns', 'lovers', 'priests', 'congregation', 'saints', 'slaves', 'followers', 'relics', 'angels', 'gods']
+    soleNoun: ['desire', 'restoration', 'humility', 'sorrow', 'will', 'commandment', 'love', 'divine', 'redemption', 'sacrament', 'sacrafice', 'fire', 'water', 'earth', 'nature', 'air', 'prayer', 'devotion', 'worship', 'service', 'invocation', 'grace'],
+    adjective: ['forgiving', 'ever-loving', 'faithful', 'repentant', 'fallen', 'damned', 'stone', 'silent', 'understanding', 'petrified', 'holy', 'redeemed', 'golden', 'heavenly', 'graceful', 'devoted', 'sacred', 'hallowed', 'blessed', 'religious', 'consecrated', 'revered', 'humble', 'righteous', 'sublime', 'faithful'],
+    plural: ['souls', 'men', 'sinners', 'warriors', 'wretches', 'pawns', 'lovers', 'priests', 'congregations', 'saints', 'slaves', 'followers', 'relics', 'angels', 'gods', 'demons', 'monks', 'nuns', 'mothers', 'fathers', 'believers'],
+    colour: ['Maroon', 'Olive', 'Teal', 'Navy', 'Black', 'Black', 'Red', 'Orange', 'Yellow', 'Lime', 'Green', 'Cyan', 'Blue', 'Purple', 'Magenta', 'Gray', 'Pink', 'Lavendar', 'Golden', 'Silver', 'Emerald', 'Ruby']
   },
   rollData: {
     wealth: [
