@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Generic structure creation function
 - Deployment overhaul (thanks, Glinkis!)
 - Link to Discord in the sidebar
+- Link to Github Repository in the sidebar
 - Tailors
 - Bakeries
 - Florists
