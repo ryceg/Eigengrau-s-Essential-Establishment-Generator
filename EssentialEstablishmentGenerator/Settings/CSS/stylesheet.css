@@ -345,9 +345,17 @@ input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled)
 	border-color: rgb(194, 163, 61);
 }
 hr {
-	border-color: #111;
+	border-color: rgb(41, 41, 41);
 }
-
+input#mce-EMAIL.required.email{
+  border-color: rgb(99, 99, 99);
+  border-style: solid;
+  border-width: 1px;
+}
+input#mce-EMAIL.required.email:focus,
+input#mce-EMAIL.required.email:hover {
+  background-color: rgb(238, 238, 238);
+}
 .error-view {
 	background-color: #eaa;
 	border-left-color: #d77;
