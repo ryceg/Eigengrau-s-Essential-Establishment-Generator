@@ -1,10 +1,11 @@
 :: AdventureOutput
-<<nobr>><<set $adventureMerchant to setup.createNPC($town, {gender: "man", hasClass: false, profession: "merchant"})>>
-<<set $adventureMadameBeaudry to setup.createNPC($town, {gender: "woman", race: "human", lastName: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged"})>>
-<<set $adventureMurderer to setup.createNPC($town, {gender: "man", hasClass: false, profession: "apothecarist"})>>
-<<set $adventureAlchemist to setup.createNPC($town, {gender: "man", hasClass: false, profession: "alchemist"})>>
-<<set $adventureHerbs to setup.createAlchemy({type: "preserved herb"})>><</nobr>>
-<h3>Place #1 - The Murder Site</h3>You come across the body of a woman lying in one of the back alleys near $tavern.name. She's well dressed, very pale, and roughly 45 years of age. It is not exactly clear how she died, but her eyes are bulging.
+<<nobr>><<if ndef $adventure>><<set $adventure to {}>><<set $adventure.merchant to setup.createNPC($town, {gender: "man", hasClass: false, profession: "merchant"})>>
+<<set $adventure.madame to setup.createNPC($town, {gender: "woman", race: "human", lastName: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged", canBeCustom: false})>>
+<<set $adventure.murderer to setup.createNPC($town, {gender: "man", hasClass: false, profession: "apothecarist"})>>
+<<set $adventure.alchemist to setup.createNPC($town, {gender: "man", hasClass: false, profession: "alchemist"})>>
+<<set $adventure.tavern to setup.objectArrayFetcher($town.buildings.tavern)>>
+<<set $adventure.herbs to setup.createAlchemy({type: "preserved herb"})>><</if>><</nobr>>
+<h3>Place #1 - The Murder Site</h3>You come across the body of a woman lying in one of the back alleys near $adventure.tavern.name. She's well dressed, very pale, and roughly 45 years of age. It is not exactly clear how she died, but her eyes are bulging.
 <<linkreplace "<h4>Inspect the body (Medicine (Wis) DC 10 Check)</h4>">><h4>Clue #1 - The Woman's Body</h4>It looks as though she was gagging before dying.<</linkreplace>>
 
 <h4>Clue #2 - The Bloody Vomit</h4>There are two puddles of vomit and blood, each one next to a body. It is as if theirs innards were all they could retch.
@@ -21,7 +22,7 @@
 <<linkreplace "Compare it to the glass vial (Investigation (Int) DC 10)">>The red liquid is the same in both cases.<</linkreplace>><</linkreplace>>
 <<linkreplace "If your players get lost">>On your way to the crime scene, you remember that you passed through a merchant stall that had really cheap healing potions for sale and it was located on a street with the same name as the one found in the ledger.<</linkreplace>>
 
-<h3>Place #2 - Merchant Stall</h3>This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a $adventureMerchant.descriptor manning the stall that matches the address you found. He introduces himself as <<profile $adventureMerchant>>, and asks what he can do for you.
+<h3>Place #2 - Merchant Stall</h3>This merchant stall is located a few blocks away from the crime scene. Even though it's a small stand, it sells a wide variety of items. There's a $adventure.merchant.descriptor manning the stall that matches the address you found. He introduces himself as <<profile $adventure.merchant>>, and asks what he can do for you.
 
 <h4>Clue #1 - Purses</h4> There are numerous purses for sale, though some are rather expensive. Looks like they use the same gold-leaf embroidery technique as the dead woman's purse.
 
@@ -32,15 +33,15 @@ Example: If a character drinks this potion 4 times, he's gonna "heal" 1d8-4 if h
 <h4>Clue #3 - Tonic bottle</h4>An exact match to the bottle that you've found at the crime scene except it's sealed. You can't tell the color of the contents inside.
 
 <h4>Clue #4 - Merchant's statment*</h4>
-<<linkreplace "About the purse:">>Inspecting the purse, <<print $adventureMerchant.name>> says "This purse belonged to my boss, <<profile $adventureMadameBeaudry>>."<</linkreplace>>
+<<linkreplace "About the purse:">>Inspecting the purse, <<print $adventure.merchant.name>> says "This purse belonged to my boss, <<profile $adventure.madame>>."<</linkreplace>>
 <<linkreplace "About his boss:">>"She hasn't come into work yet."<</linkreplace>>
-<<linkreplace "About a possible enemy of Madame Beaudry:">>"Her and <<profile $adventureMurderer>>, the apothecarist had a bitter rivalry... I'd say hateful would be a mild way to sum up their relationship."<</linkreplace>>
+<<linkreplace "About a possible enemy of Madame Beaudry:">>"Her and <<profile $adventure.murderer>>, the apothecarist had a bitter rivalry... I'd say hateful would be a mild way to sum up their relationship."<</linkreplace>>
 <<linkreplace "About the bottle:">>"We sell plenty of potions, but without the label I can't tell you if this one is ours."<</linkreplace>>
-<<linkreplace "About someone who could know more about the bottle:">>Our alchemist <<profile $adventureAlchemist>> would know if it's ours- he's at the workshop preparing this week's potions. Or you could talk to <<profile $adventureMurderer>>, the apothecarist. He sells the same potion.<</linkreplace>>
+<<linkreplace "About someone who could know more about the bottle:">>Our alchemist <<profile $adventure.alchemist>> would know if it's ours- he's at the workshop preparing this week's potions. Or you could talk to <<profile $adventure.murderer>>, the apothecarist. He sells the same potion.<</linkreplace>>
 <blockquote>After the merchant's statment (Clue #4) the characters have two possible locations to visit. The Apothecary (Place #3) and Madame Beaudry's Workshop (Place #4).
 The critical clue that the characters need to solve the whole mystery is at the Workshop.</blockquote>
 
-<h3>Place #3 - $adventureMurderer.firstName's Apothecary Stand</h3>This stand is relatively bigger than the first one but the items on display here are more focused on potions and concoctions.
+<h3>Place #3 - $adventure.murderer.firstName's Apothecary Stand</h3>This stand is relatively bigger than the first one but the items on display here are more focused on potions and concoctions.
 
 <h4>Clue #1 - Pestle and mortar</h4>A pestle and mortar set to pulverize ingredients.
 <<linkreplace "On a Medicine (Wis) DC 10 check: (advantage if the player passed on the same test on Clue #6 at the Alley)">>It's giving off a strong smell of a harsh medicinal tonic.<</linkreplace>>
@@ -54,10 +55,10 @@ The critical clue that the characters need to solve the whole mystery is at the 
 
 <h4>Clue #4 - Alchemist books and journals</h4>A variety of alchemist and medical journals. Provides for extensive reading.
 
-<h4>Clue #5 - $adventureMurderer.name's statment</h4><<linkreplace "About the bottle:">>"That's not my tonic. You see the cork there? I always mark mine when counting stock. No mark means it's Madame Beaudry's."<</linkreplace>>
-<<linkreplace "If the players don't give a hint that they know that Mme. Beaudry is dead and if $adventureMurderer.firstName thinks that the players are trustworthy, or if they convince him that they are only asking this because they had a problem with one of the Mme. Beaudry's products. $adventureMurderer.firstName confesses this to them:">>"That wretched merchant dilutes her potions with all sorts of ingredients to keep her prices down. It's putting me out of business! You take too much of that poison and you'll be a dead man."<</linkreplace>>
+<h4>Clue #5 - $adventure.murderer.name's statment</h4><<linkreplace "About the bottle:">>"That's not my tonic. You see the cork there? I always mark mine when counting stock. No mark means it's Madame Beaudry's."<</linkreplace>>
+<<linkreplace "If the players don't give a hint that they know that Mme. Beaudry is dead and if $adventure.murderer.firstName thinks that the players are trustworthy, or if they convince him that they are only asking this because they had a problem with one of the Mme. Beaudry's products. $adventure.murderer.firstName confesses this to them:">>"That wretched merchant dilutes her potions with all sorts of ingredients to keep her prices down. It's putting me out of business! You take too much of that poison and you'll be a dead man."<</linkreplace>>
 
-<h3>Place #4 - Madame Beaudry's Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventureAlchemist>> is stacking some boxes when you arrive, and welcomes you.
+<h3>Place #4 - Madame Beaudry's Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventure.alchemist>> is stacking some boxes when you arrive, and welcomes you.
 
 <h4>Clue #1 - Pestle and mortar</h4>A pestle and mortar set to pulverize ingredients.
 <<linkreplace "On an Investigation (Int) DC 10 check:">>It seems like they were freshly used.<</linkreplace>>
@@ -65,14 +66,14 @@ The critical clue that the characters need to solve the whole mystery is at the 
 <h4>Clue #2 - Medicine bottles</h4>More medicinal tonic bottles that match the bottle that you've found at the crime scene.
 
 <h4>Clue #3 - Notebook</h4>A notebook filled with ingredient compositions and potions recipes. A few of them look to be mixtures that can easily be cut with sugar.
-<<linkappend "<h4>Clue #4 - Letter from $adventureMurderer.name*</h4>">>
+<<linkappend "<h4>Clue #4 - Letter from $adventure.murderer.name*</h4>">>
 Mme. Beaudry,
 
 I realize our last few conversations have been quite unpleasant for the both of us. But as good faith gesture, here is a fresh new potion for you to try. It is included in the package. I am certain you will enjoy it even more than the usual mixture.
 
-Best, $adventureMurderer.name
+Best, $adventure.murderer.name
 <</linkappend>>
 
-<h4>Clue #5 - $adventureAlchemist.firstName's statment</h4><<linkreplace "About the bottle:">>"Yeah that bottle is from Madame Beaudry's shop, I'd recognize it anywhere."<</linkreplace>>
+<h4>Clue #5 - $adventure.alchemist.firstName's statment</h4><<linkreplace "About the bottle:">>"Yeah that bottle is from Madame Beaudry's shop, I'd recognize it anywhere."<</linkreplace>>
 <<linkreplace "If the players don't tell him that Mme. Beaudry is dead, he confesses to them this:">>"Thank the gods that awful wretch isn't here today. She pays me nothing and I've had enough!"<</linkreplace>>
-<<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventureMurderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>>
+<<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventure.murderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>>
