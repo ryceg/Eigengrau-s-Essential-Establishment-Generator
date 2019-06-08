@@ -1,6 +1,7 @@
 
 setup.structure = {
   create (town, building, opts) {
+    console.groupCollapsed('Creating the structure for a ' + (building.wordNoun || 'building'))
     if (!building) {
       building = {}
     }
@@ -29,16 +30,16 @@ setup.structure = {
     }
     let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
     if (Object.keys(tempMaterial).includes('variations')) {
-      console.log('Has variations. ')
+      console.log('Building material has variations. ')
       tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
-      // tempMaterial = temp2
-      console.log(tempMaterial.words)
     }
+    console.log('tempMaterial')
+    console.log(tempMaterial)
     building.structure.material = tempMaterial.words
 
     let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.material, '', '', 'object')
     if (Object.keys(tempRoof).includes('variations')) {
-      console.log('Has variations. ')
+      console.log('Building roof has variations. ')
       tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
       // tempMaterial = temp2
       console.log(tempRoof.words)
@@ -50,9 +51,14 @@ setup.structure = {
       })
     }
     building.structure.roof = tempRoof.words
+    console.log(`Got up to here`)
+    console.log({ building })
 
+    console.log('Roof getter:')
     setup.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', '', building.roll)
+    console.log('Material getter:')
     setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
+
     building.structure.descriptors = [
       building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof',
       'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.verb + ' roof'
@@ -62,6 +68,7 @@ setup.structure = {
       building.structure.descriptorsAdd('a ' + building.size + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof')
     }
     console.log(building.structure)
+    console.groupEnd()
     return building
   },
   data: {
@@ -91,6 +98,7 @@ setup.structure = {
   },
   material: {
     'rollData': {
+      exclusions () { return false },
       wealth: [
         [90, 'solid'],
         [80, 'finely crafted'],
@@ -140,13 +148,6 @@ setup.structure = {
           words: {
             indefiniteArticle: 'a',
             noun: 'plank'
-          }
-        },
-        'exclusion' (_town, building) {
-          if (building.exclusions.material.includes('wood')) {
-            return false
-          } else {
-            return true
           }
         }
       }
