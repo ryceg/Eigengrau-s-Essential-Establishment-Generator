@@ -143,11 +143,7 @@ setup.structure = {
           }
         },
         'exclusion' (_town, building) {
-          if (building.exclusions.material.includes('wood')) {
-            return false
-          } else {
-            return true
-          }
+          return !building.exclusions.material.includes('wood')
         }
       }
     },
