@@ -49,15 +49,18 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   }
   // console.log('Starting the search.')
   let random = Math.floor(randomFloat(1) * totalWeight)
+  let selected
   for (let i = 0; i < pool.length; i++) {
     random -= pool[i].probability || defaultProbability
     if (random < 0) {
       // console.log('Less than zero! Found one.')
       // console.log(pool[i])
-      var selected = pool[i]
+      selected = pool[i]
       break
     }
   }
+
+  console.log(selected)
   if (!selected[output] && output !== 'object') {
     console.error('The randomly fetched object does not have the attribute ' + output + '.')
     console.log({ selected })

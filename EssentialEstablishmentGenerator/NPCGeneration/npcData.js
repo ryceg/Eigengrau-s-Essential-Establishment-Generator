@@ -658,48 +658,42 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.meetPartnerNPC function')
-        if (npc.partnerID !== undefined) {
-          console.log('Making a baby!')
-          const partner = State.variables.npcs[npc.partnerID]
-          const child = setup.createRelative(town, npc, 'child')
-          // var child = setup.createNPC(town, {
-          //   ageStage: 'child',
-          //   race: npc.race,
-          //   lastName: npc.lastName,
-          //   isShallow: true,
-          //   relationships: {
-          //     [npc.key]: npc.parentNoun,
-          //     [npc.partnerID]: partner.parentNoun
-          //   }
-          // })
-          // setup.createRelationship(town, npc, child, child.childNoun, npc.parentNoun)
-          // console.log('The other parent is a ' + State.variables.npcs[npc.partnerID].parentNoun)
-          setup.createRelationship(town, npc.partnerID, child, child.childNoun, partner.parentNoun)
-          return 'I had a child, ' + setup.profile(child) + ' with my dear partner ' + setup.profile(npc.partnerID) + '.'
-        } else if (npc.partnerID === undefined) {
+        const family = town.families[npc.family]
+        const node = family.members[npc.key]
+        let partnerKey, childKey
+
+        // force creation of family members when applicable
+        if (node.marriages === undefined || node.marriages === []) {
           console.log(npc.name + ' met somebody!')
-          // if (npc.gender === 'man') {
-          setup.createRelative(town, npc, 'partner')
-          // partner = setup.createNPC(town, {
-          //   gender: npc.partnerGenderProbability(npc),
-          //   lastName: npc.lastName,
-          //   isShallow: true,
-          //   partnerID: npc.key
-          // })
-          // setup.setAsPartners(npc, partner)
-          // setup.createRelationship(town, npc, partner, State.variables.npcs[npc.partnerID].marriageNoun, npc.marriageNoun)
-          // } else {
-          //   partner = setup.createNPC(town, {
-          //     gender: 'man',
-          //     lastName: npc.lastName,
-          //     isShallow: true,
-          //     partnerID: npc.key
-          //   })
-          //   setup.setAsPartners(npc, partner)
-          //   setup.createRelationship(town, npc, partner, 'husband', 'wife')
-          // }
-          return 'I met the love of my life, ' + setup.profile(npc.partnerID) + '.'
+
+          const newMarriage = setup.createMarriage(town, family, npc, undefined, true)
+          node.marriages = [newMarriage]
+          partnerKey = newMarriage.parents.find(key => (key !== npc.key))
+
+          if (!partnerKey) { return 'I met the love of my life, who is no longer with me.' }
+          return 'I met the love of my life, ' + setup.profile(partnerKey) + '.'
+        } else {
+          console.log(npc.name + ' already met somebody!')
+          console.log(node.marriages)
+          const marriage = node.marriages[0]
+          partnerKey = marriage.parents.find(key => (key !== npc.key))
+
+          if (marriage.children.length > 0) { childKey = marriage.children[0] }
         }
+
+        let childMsg, partnerMsg
+        if (childKey) {
+          childMsg = 'I had a child, ' + setup.profile(State.variables.npcs[childKey])
+          partnerMsg = partnerKey
+            ? ' with my dear partner ' + setup.profile(State.variables.npcs[partnerKey]) + '.'
+            : ' with my dear partner, who is no longer with me.'
+        } else {
+          partnerMsg = partnerKey
+            ? 'I met the love of my life, ' + setup.profile(partnerKey) + '.'
+            : 'I met the love of my life, who is no longer with me.'
+          return
+        }
+        return childMsg + partnerMsg
       }
     },
     backgroundWork: {
@@ -1083,7 +1077,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 50,
@@ -1169,7 +1164,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 197,
@@ -1257,7 +1253,8 @@ setup.npcData = {
           [30, 'prepubescent'],
           [20, 'child'],
           [15, 'young child'],
-          [10, 'kid']
+          [10, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 650,
@@ -1347,7 +1344,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 200,
@@ -1434,7 +1432,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 150,
@@ -1521,7 +1520,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 65,
@@ -1608,7 +1608,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 57,
@@ -1695,7 +1696,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 65,
@@ -1781,7 +1783,8 @@ setup.npcData = {
           [12, 'prepubescent'],
           [10, 'child'],
           [8, 'young child'],
-          [6, 'kid']
+          [6, 'toddler'],
+          [0, 'newborn']
         ],
         'elderly': {
           baseAge: 70,

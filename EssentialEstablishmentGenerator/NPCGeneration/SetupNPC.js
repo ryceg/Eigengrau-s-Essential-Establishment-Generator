@@ -14,7 +14,7 @@ setup.createNPC = function (town, base) {
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
     base.isThrowaway = base.isThrowaway || true
-    base.canBeCustom = base.canBeCustom || true
+    // base.canBeCustom = base.canBeCustom || true
     base.hasHistory = base.hasHistory || false
   }
 
@@ -129,7 +129,9 @@ setup.createNPC = function (town, base) {
       }
     },
     knownLanguages: data.raceTraits[race].knownLanguages,
-    reading: data.reading.seededrandom()
+    reading: data.reading.seededrandom(),
+
+    family: undefined
     // pubRumour: setup.createPubRumour()
   }, base)
 
@@ -213,15 +215,12 @@ setup.createNPC = function (town, base) {
   setup.createSocialClass(town, npc)
   setup.createLivingStandards(town, npc)
 
-  if (npc.hasHistory !== false) {
-    setup.createHistory(town, npc)
-    setup.createLifeEvents(town, npc)
-  }
+  if (npc.hasHistory !== false) setup.ExpandNPC(town, npc)
 
-  if (npc.partnerID) {
+  /* if (npc.partnerID) {
     console.log('assigning ' + npc.name + ' ' + State.variables.npcs[npc.partnerID].name + ' as a partner...')
     setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
-  }
+  } */
   State.temporary.newNPC = npc
 
   if (npc.callbackFunction) {

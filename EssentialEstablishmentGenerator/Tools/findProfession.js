@@ -1,5 +1,6 @@
 setup.findProfession = function (town, npc, profession) {
   profession = profession || npc.dndClass || npc.profession
+  if (!profession && npc.socialClass) { profession = setup.fetchProfessionChance(town, npc) }
   console.groupCollapsed('running setup.findProfession; looking for a ' + profession)
   console.log({
     town,

@@ -383,12 +383,8 @@ setup.brothel = {
         gender: 'woman',
         note: 'The bastard daughter of a noble house.',
         callbackFunction (town, npc) {
-          const father = setup.createRelative(town, npc, 'father', {
-            lastName: setup.npcData.raceTraits[npc.race].lastName.random(),
-            race: npc.race
-            // callbackFunction: function (town, father, npc) 'Has a bastard daughter, ' + setup.profile(npc)
-          })
-          setup.createRelationship(town, npc, father, 'father', 'bastard daughter')
+          if (!npc.family) setup.createFamily(town, npc)
+          setup.createParentage(town, npc.family, npc, true)
         }
       },
       'a young foreigner': {

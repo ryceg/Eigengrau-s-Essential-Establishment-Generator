@@ -58,6 +58,8 @@ setup.createTown = function (base) {
     },
     buildings: {
     },
+    families: {
+    },
     population: setup.townData.type[type].population(),
     _demographic: {},
     // Clone the raw demographic data for the town type.
