@@ -28,6 +28,10 @@ setup.misc.locations = {
     // let contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
     return 'a hole under a large ' + tree.tippyWord + '. <blockquote>Inside is ' + contents + '.</blockquote>'
   },
+  'a hole under a sheer cliff': (town, biome) => {
+    const contents = setup.misc[biome].hole.seededrandom()
+    return 'a hole under a sheer cliff. <blockquote> Inside is ' + contents + '.</blockquote>'
+  },
   'a hole under a sheer cliff face': (town, biome) => {
     const contents = setup.misc[biome].hole.seededrandom()
     return 'a hole under a sheer cliff face. <blockquote> Inside is ' + contents + '.</blockquote>'
@@ -129,6 +133,16 @@ setup.misc.locations = {
   'an old watchtower': (town, biome) => {
     // intentionally uses the mountain biome
     const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
+    return 'an old, weathered watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.seededrandom() + '. Now, it is controlled by ' + encounter + ' .</blockquote>'
+  },
+  'an abandoned watchtower': (town, biome) => {
+    // intentionally uses the mountain biome
+    const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
+    return 'a run down, abandoned watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.seededrandom() + '. Now, it is inhabited by ' + encounter + ' .</blockquote>'
+  },
+  'a strategically located watchtower': (town, biome) => {
+    // intentionally uses the mountain biome
+    const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
     return 'a strategically located watchtower. <blockquote>The watchtower was built by ' + setup.misc.mountain.watchtowerBuilt.seededrandom() + '. Now, it is controlled by ' + encounter + ' .</blockquote>'
   },
   'ruins of an ancient city': (town, biome) => {
@@ -139,7 +153,7 @@ setup.misc.locations = {
     const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
     return 'a temple ruin. <blockquote>The city was built by ' + setup.misc[biome].ruinsLived.seededrandom() + ' Now, ' + encounter + ' lives here.</blockquote>'
   },
-  ' an isolated monastery': (town, biome) => {
+  'an isolated monastery': (town, biome) => {
     const lives = setup.misc[biome].religionLives.seededrandom()
     return 'an isolated monastery. <blockquote>Living inside lives ' + lives + ', hiding from the outside world.</blockquote>'
   },
