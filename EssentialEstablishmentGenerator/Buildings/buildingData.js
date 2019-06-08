@@ -63,7 +63,7 @@ setup.structure = {
       building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof',
       'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.verb + ' roof'
     ]
-    building.structure.templeDescriptor = 'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof'
+
     if (building.size) {
       building.structure.descriptorsAdd('a ' + building.size + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof')
     }

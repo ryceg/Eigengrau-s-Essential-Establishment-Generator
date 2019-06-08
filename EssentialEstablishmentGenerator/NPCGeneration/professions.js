@@ -27,6 +27,15 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { return 30 + dice(8, 6) }
   },
+  'mountaineer': {
+    sv: 1500,
+    type: 'recreation',
+    sector: 'adventuring',
+    description: 'a person living in a mountainous area.',
+    dailyWage: 50,
+    socialClass: 'commoner',
+    socialClassRoll () { return 50 + dice(8, 6) }
+  },
   'barbarian': {
     sv: 6500,
     type: 'dndClass',
