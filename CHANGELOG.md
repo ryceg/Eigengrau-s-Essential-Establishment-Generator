@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dock ship descriptions expanded
 - Market vendors no longer persist between different markets
 - Minor UI tweaks
+- Button reskinning
 - Minor temple readout reformat
 - Minor Brothel readout reformat
 
