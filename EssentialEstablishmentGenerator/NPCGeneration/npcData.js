@@ -673,24 +673,27 @@ setup.npcData = {
           if (!partnerKey) { return 'I met the love of my life, who is no longer with me.' }
           return 'I met the love of my life, ' + setup.profile(partnerKey) + '.'
         } else {
-          console.log('Making a baby!')
+          console.log(npc.name + ' already met somebody!')
           console.log(node.marriages)
           const marriage = node.marriages[0]
           partnerKey = marriage.parents.find(key => (key !== npc.key))
-          const partnerRace = partnerKey ? State.variables.npcs[partnerKey].race : npc.race
 
-          const inserted = setup.createChildren(town, family, npc, marriage, npc.race, partnerRace, 1, true)
-          console.log(marriage)
-          console.log(inserted)
-          if (inserted.length > 0) childKey = inserted[0]
-          const childMsg = childKey
-            ? 'I had a child, ' + setup.profile(State.variables.npcs[childKey])
-            : 'I had a child,'
-          const partnerMsg = partnerKey
+          if (marriage.children.length > 0) { childKey = marriage.children[0] }
+        }
+
+        let childMsg, partnerMsg
+        if (childKey) {
+          childMsg = 'I had a child, ' + setup.profile(State.variables.npcs[childKey])
+          partnerMsg = partnerKey
             ? ' with my dear partner ' + setup.profile(State.variables.npcs[partnerKey]) + '.'
             : ' with my dear partner, who is no longer with me.'
-          return childMsg + partnerMsg
+        } else {
+          partnerMsg = partnerKey
+            ? 'I met the love of my life, ' + setup.profile(partnerKey) + '.'
+            : 'I met the love of my life, who is no longer with me.'
+          return
         }
+        return childMsg + partnerMsg
       }
     },
     backgroundWork: {
