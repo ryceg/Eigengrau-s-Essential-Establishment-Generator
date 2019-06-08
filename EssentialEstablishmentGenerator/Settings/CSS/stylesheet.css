@@ -316,6 +316,7 @@ span.link-disabled {
 }
 button {
   margin-top: 20px;
+  margin-bottom: 5px;
 	color: #111;
   background-color: rgb(253, 253, 234);
   border-width: 2px;
