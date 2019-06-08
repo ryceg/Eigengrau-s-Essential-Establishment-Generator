@@ -1,5 +1,10 @@
+/**
+ * Clamps every value presented to the 1-100 range.
+ * Most useful for rolls.
+ *
+ * @param {Record<number, number>} rolls
+ */
 setup.clampRolls = function (rolls) {
-  // this clamps every value presented to the 1-100 range. Most useful for rolls.
   Object.keys(rolls).forEach(function (roll) {
     rolls[roll].clamp(1, 100)
     Math.clamp(rolls[roll], 1, 100)
