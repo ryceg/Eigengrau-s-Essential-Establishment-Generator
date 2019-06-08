@@ -1,7 +1,11 @@
+/**
+ * This is run on start up.
+ * It returns the available town professions, with their support values.
+ *
+ * Individual professions are returned by the `fetchProfessionChance()`
+ * function located in `NPCGeneration/fetchProfessionChance.js`
+ */
 setup.fetchProfessions = function (town) {
-  // this is run on start up.
-  // it returns the available town professions, with their support values.
-  // individual professions are returned by the fetchProfessionChance() function located in NPCGeneration/fetchProfessionChance.js
   town = town || State.variables.town
   town.professions = {}
   const professionNames = Object.keys(setup.townData.professions)
