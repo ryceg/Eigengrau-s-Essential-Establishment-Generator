@@ -33,7 +33,8 @@ setup.createRelative = function (town, family, base, force = false) {
 setup.createParentage = function (town, family, npc, forceFather = false, forceMother = false) {
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {
-    if (random(1, 100) > 90 && (!forceFather) && (!forceMother)) {
+    if (random(1, 100) <= setup.familyData.orphanPercent &&
+      (!forceFather) && (!forceMother)) {
       node.parentMarriage = null
     } else {
       const marriage = {

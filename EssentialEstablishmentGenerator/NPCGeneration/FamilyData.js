@@ -1,12 +1,13 @@
 setup.familyData = {
 
   // These numbers are all made up, feel free to change them
-  absencePercent: 72,
+  absencePercent: 74,
   oldAbsencePercent: 40,
   veryOldAbsencePercent: 70,
 
-  marriagePercent: 50,
-  remarriagePercent: 6,
+  orphanPercent: 10,
+  marriagePercent: 55,
+  remarriagePercent: 9,
 
   parentStageTable: [
     [55, 'young adult'],
