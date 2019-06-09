@@ -74,13 +74,15 @@ setup.GeneralStoreRenders = function (GeneralStore) {
     ].reverse()
   }
   // actually add attributes to store object
-  Object.keys(attributes).map(key => {
+  for (const key of attributes) {
     const array = attributes[key]
     GeneralStore[key] = array[0][1] // default value
     for (const [num, descript] of array) { // update value
-      if (GeneralStore.roll[key] > num) GeneralStore[key] = descript
+      if (GeneralStore.roll[key] > num) {
+        GeneralStore[key] = descript
+      }
     }
-  })
+  }
 
   return GeneralStore
 }
