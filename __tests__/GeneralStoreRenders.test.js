@@ -21,7 +21,7 @@ test('Testing general store rendering...', () => {
       warmth: 65.5
     },
     size: 'slightly cramped',
-    'warmth': 'uncomfortably warm',
+    warmth: 'uncomfortably warm',
     cleanliness: 'somewhat messy',
     expertise: 'well-crafted',
     activity: 'not terribly busy'

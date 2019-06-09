@@ -1,6 +1,6 @@
 setup.linguisticDrift = function (name) {
 // These rules get applied repeatedly until they cannot be applied any more
-  let fix = [
+  const fix = [
     // Some vowels should never be doubled
     [1, /aa/g, 'a'],
     [1, /ii/g, 'i'],
@@ -27,7 +27,7 @@ setup.linguisticDrift = function (name) {
   ]
 
   // Simplify out some problematic combinations
-  let modify = [
+  const modify = [
     // Sometimes remove a doubled consonant no matter where
     [0.50, /([bcdfghjkmnpqrstvwxyz])\1(\w)/, '$1$2'],
     // Some of the time turn a ph into f

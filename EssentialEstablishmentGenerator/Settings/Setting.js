@@ -6,7 +6,7 @@ Setting.addToggle('showSliders', {
   onInit: false
 })
 
-var settingShowTutorial = function () {
+const settingShowTutorial = function () {
   if (settings.showTutorial) {
     Config.passages.start = 'Start'
   } else {
@@ -14,7 +14,7 @@ var settingShowTutorial = function () {
   }
 }
 
-var settingHideAds = function () {
+const settingHideAds = function () {
   if (!settings.hideAds) {
     State.variables.ads = false
     $.wiki('<<remember $hideAds = false>>')

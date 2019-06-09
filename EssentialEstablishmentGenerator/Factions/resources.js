@@ -118,7 +118,6 @@ setup.resourcesFaction = function (faction) {
   }
 
   function getResources (bonus) {
-    let tempGroup
     let tempGroupSize
     const groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
@@ -143,7 +142,7 @@ setup.resourcesFaction = function (faction) {
       tempGroupSize = 'some '
     }
 
-    tempGroup = resourcesList.pluck()
+    const tempGroup = resourcesList.pluck()
     // console.log('resources tempGroup - ' + tempGroup)
     resourcesList.delete(tempGroup)
 

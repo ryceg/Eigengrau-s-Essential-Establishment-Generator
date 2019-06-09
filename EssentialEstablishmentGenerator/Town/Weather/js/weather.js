@@ -2,7 +2,7 @@
 setup.weather = {
   precipitationIntensity: {
     1: {
-      'cloud': function (weather) {
+      cloud (weather) {
         if (weather.roll.cloud > 85) {
           weather.cloudIntensity = 'overcast'
           weather.timer.cloud = random(8, 12)
@@ -20,7 +20,7 @@ setup.weather = {
           weather.timer.cloud = dice(2, 12)
         }
       },
-      'freezing': function (weather) {
+      freezing (weather) {
         if (weather.roll.precipitationIntensity > 75) {
           weather.precipitation = 'light snow'
           weather.timer.precipitation = dice(2, 12)
@@ -41,7 +41,7 @@ setup.weather = {
           weather.timer.precipitation = random(1, 6)
         }
       },
-      'raining': function (weather) {
+      raining (weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'light rain'
           weather.timer.precipitation = 1
@@ -64,7 +64,7 @@ setup.weather = {
       }
     },
     2: {
-      'cloud': function (weather) {
+      cloud (weather) {
         if (weather.roll.cloud > 85) {
           weather.cloudIntensity = 'overcast'
           weather.timer.cloud = random(8, 12)
@@ -82,7 +82,7 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         }
       },
-      'freezing': function (weather) {
+      freezing (weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'medium snow'
           weather.timer.precipitation = dice(2, 12)
@@ -103,7 +103,7 @@ setup.weather = {
           weather.timer.precipitation = random(1, 6)
         }
       },
-      'raining': function (weather) {
+      raining (weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'rain'
           weather.timer.precipitation = dice(1, 4)
@@ -126,7 +126,7 @@ setup.weather = {
       }
     },
     3: {
-      'cloud': function (weather) {
+      cloud (weather) {
         if (weather.roll.cloud > 35) {
           weather.cloudIntensity = 'extremely overcase'
           weather.timer.cloud = random(8, 12)
@@ -138,7 +138,7 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         }
       },
-      'freezing': function (weather) {
+      freezing (weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'heavy snow'
           weather.timer.precipitation = dice(1, 6)
@@ -156,7 +156,7 @@ setup.weather = {
           weather.timer.precipitation = random(1, 6)
         }
       },
-      'raining': function (weather) {
+      raining (weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'thunderstorm'
           weather.timer.precipitation = dice(1, 3)
@@ -182,7 +182,7 @@ setup.weather = {
       }
     },
     4: {
-      'cloud': function (weather) {
+      cloud (weather) {
         if (weather.roll.cloud > 35) {
           weather.cloudIntensity = 'extremely overcast'
           weather.timer.cloud = random(8, 12)
@@ -194,7 +194,7 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         }
       },
-      'freezing': function (weather) {
+      freezing (weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'heavy snow'
           weather.timer.precipitation = dice(2, 12)
@@ -212,7 +212,7 @@ setup.weather = {
           weather.timer.precipitation = random(1, 7)
         }
       },
-      'raining': function (weather) {
+      raining (weather) {
         if (weather.roll.precipitationIntensity > 95) {
           weather.precipitation = 'thunderstorm'
           weather.timer.precipitation = dice(1, 6)
@@ -239,27 +239,27 @@ setup.weather = {
     }
   },
   precipitationLevel: {
-    1: function (weather) {
+    1 (weather) {
       if (weather.roll.precipitation >= 95) {
         return true
       }
     },
-    2: function (weather) {
+    2 (weather) {
       if (weather.roll.precipitation >= 85) {
         return true
       }
     },
-    3: function (weather) {
+    3 (weather) {
       if (weather.roll.precipitation >= 70) {
         return true
       }
     },
-    4: function (weather) {
+    4 (weather) {
       if (weather.roll.precipitation >= 40) {
         return true
       }
     },
-    5: function (weather) {
+    5 (weather) {
       if (weather.roll.precipitation >= 5) {
         return true
       }
