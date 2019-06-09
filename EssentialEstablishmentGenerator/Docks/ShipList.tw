@@ -8,7 +8,7 @@
 <<for _key, _ship range $docks.ships>><<capture _key, _ship>>
   <tr>
     <td><<link "_ship.name">><<set $selected to {shipKey: _key}>><<goto "ShipProfile">><</link>></td>
-    <td>_ship.type</td>
+    <td><<print _ship.type.toUpperFirst()>></td>
     <td><<link "x">>
     <<set _deleted to $docks.ships[_ship.key]>><<run delete $town.buildings.docks[$selected.index].ships[_ship.key]>><<notify 5000>>Deleted _deleted.name<</notify>>
     <</link>></td></tr>
