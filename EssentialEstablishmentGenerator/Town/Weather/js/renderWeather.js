@@ -13,11 +13,10 @@ setup.renderWeather = function (town, biome, weather) {
   biome = biome || town.terrain
 
   // tempVariationRoll
-  var tempVariationRoll = random(0, 100)
+  const tempVariationRoll = random(0, 100)
 
-  var tempVariationKeys = Object.keys(setup.townData.terrain[biome].weather.tempVariation).reverse()
-  var intKeys = []
-  var finalKey
+  const tempVariationKeys = Object.keys(setup.townData.terrain[biome].weather.tempVariation).reverse()
+  const intKeys = []
 
   // interpret the key for each tempVariation object as an integer
   tempVariationKeys.forEach(function (key) {
@@ -25,7 +24,7 @@ setup.renderWeather = function (town, biome, weather) {
   })
 
   // find one that's equal or lesser than tempVariationRoll to use as the final key
-  finalKey = intKeys.find(function (key) {
+  const finalKey = intKeys.find(function (key) {
     if (tempVariationRoll >= key) {
       console.log({ key })
       return key
@@ -45,7 +44,7 @@ setup.renderWeather = function (town, biome, weather) {
     // })
   }
   console.log('3')
-  var tempVariation = (setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain['temperate'].weather.tempVariation[finalKey].temperature)
+  const tempVariation = (setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain['temperate'].weather.tempVariation[finalKey].temperature)
   console.log('tempVariation: ' + tempVariation)
 
   weather.temperature = (setup.townData.terrain[biome].weather.season[weather.season].baseTemp || setup.townData.terrain['temperate'].weather['spring'].baseTemp) + tempVariation - random(-2, 2)
@@ -88,7 +87,7 @@ setup.renderWeather = function (town, biome, weather) {
   weather.readout.cloud = setup.weather.cloudIntensityDescriptors[weather.cloudIntensity].seededrandom()
 
   console.log('Rendering temperature...')
-  for (var array of setup.weather.temperatureDescriptors) {
+  for (const array of setup.weather.temperatureDescriptors) {
     // console.log(array)
     if (weather.temperature >= array[0]) {
       weather.readout.temperature = '<span class=tip title=' + JSON.stringify(setup.toCelsius(weather.temperature) + ', to be precise.') + '><b>' + array[1] + '</b></span><<run setup.tippy("span")>>'
