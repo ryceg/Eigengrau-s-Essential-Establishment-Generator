@@ -10,13 +10,13 @@ setup.familyData = {
 
   parentStageTable: [
     [55, 'young adult'],
-    [90, 'settled adult'],
-    [100, 'elderly']
+    [35, 'settled adult'],
+    [10, 'elderly']
   ],
 
   parentAgeDelta: (npc) => {
     const race = npc.race || 'human'
-    const parentStage = setup.rollFromTable(setup.familyData.parentStageTable)
+    const parentStage = setup.rollFromTable(setup.familyData.parentStageTable, 100)
     const { baseAge, ageModifier } = setup.npcData.raceTraits[race].ageTraits[parentStage]
     return baseAge + ageModifier()
   },

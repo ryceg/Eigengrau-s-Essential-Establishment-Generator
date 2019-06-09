@@ -11,36 +11,36 @@ setup.livingStandards = [
 setup.lifestyleTables = {
   'aristocracy': [
     [5, 'comfortable'],
-    [20, 'wealthy'],
-    [100, 'aristocratic']
+    [15, 'wealthy'],
+    [80, 'aristocratic']
   ],
   'nobility': [
     [5, 'modest'],
-    [35, 'comfortable'],
-    [95, 'wealthy'],
-    [100, 'aristocratic']
+    [30, 'comfortable'],
+    [60, 'wealthy'],
+    [5, 'aristocratic']
   ],
   'commoner': [
     [5, 'poor'],
-    [50, 'modest'],
-    [95, 'comfortable'],
-    [100, 'wealthy']
+    [45, 'modest'],
+    [45, 'comfortable'],
+    [5, 'wealthy']
   ],
   'peasantry': [
     [5, 'squalid'],
-    [65, 'poor'],
-    [95, 'modest'],
-    [100, 'comfortable']
+    [60, 'poor'],
+    [30, 'modest'],
+    [5, 'comfortable']
   ],
   'paupery': [
     [5, 'wretched'],
-    [80, 'squalid'],
-    [95, 'poor'],
-    [100, 'modest']
+    [75, 'squalid'],
+    [15, 'poor'],
+    [5, 'modest']
   ],
   'indentured servitude': [
     [95, 'wretched'],
-    [100, 'squalid']
+    [5, 'squalid']
   ]
 }
 
@@ -55,16 +55,16 @@ setup.homeBiases = {
 }
 
 setup.homeTable = [
-  [0, 'on the streets'],
+  [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
-  [30, 'no real permanent address'],
-  [35, 'a village in the middle of the wilderness'],
-  [40, 'an encampment'],
-  [50, 'an apartment in a rundown neighborhood'],
-  [70, 'a small house'],
-  [90, 'a large house'],
-  [110, 'a mansion'],
-  [150, 'a palace']
+  [10, 'no real permanent address'],
+  [5, 'a village in the middle of the wilderness'],
+  [5, 'an encampment'],
+  [10, 'an apartment in a rundown neighborhood'],
+  [20, 'a small house'],
+  [20, 'a large house'],
+  [20, 'a mansion'],
+  [40, 'a palace'] // unreachable without biases
 ]
 
 setup.createLivingStandards = function (town, npc) {
@@ -118,7 +118,7 @@ setup.createLivingStandards = function (town, npc) {
 
 setup.createFamilyLifestyle = function (marriage) {
   const lifestyle = setup.rollFromTable(
-    setup.lifestyleTables[marriage.socialClass])
+    setup.lifestyleTables[marriage.socialClass], 100)
 
   const home = setup.rollFromTable(
     setup.homeTable, 100, setup.homeBiases[marriage.lifestyle])

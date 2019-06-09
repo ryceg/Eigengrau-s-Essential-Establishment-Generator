@@ -1,36 +1,36 @@
 
 setup.birthplaceTable = [
   [50, 'at home'],
-  [55, 'in the home of a friend'],
-  [64, 'in the home of a midwife'],
-  [65, 'on a wagon'],
-  [66, 'in a cart'],
-  [67, 'in a shed'],
-  [68, 'in a barn'],
-  [70, 'in a cave'],
-  [72, 'in a field'],
-  [74, 'in a forest'],
-  [77, 'in a temple'],
-  [78, 'on a battlefield'],
-  [79, 'in a street'],
-  [80, 'in an alley'],
-  [81, 'in a tavern'],
-  [82, 'in a brothel'],
-  [83, 'in a tower'],
-  [84, 'in a castle'],
-  [85, 'in a rubbish heap'],
-  [88, 'among people of a different race'],
-  [90, 'on a boat'],
-  [91, 'on a ship'],
-  [92, 'in a prison'],
-  [93, 'in the headquarters of a secret organisation'],
-  [94, 'in a sage\'s laboratory'],
-  [95, 'on the Ethereal Plane'],
-  [96, 'in the Feywild'],
-  [97, 'in the Shadowfell'],
-  [98, 'on the Astral Plane'],
-  [99, 'on an Inner Plane'],
-  [100, 'on an Outer Plane']
+  [5, 'in the home of a friend'],
+  [9, 'in the home of a midwife'],
+  [1, 'on a wagon'],
+  [1, 'in a cart'],
+  [1, 'in a shed'],
+  [1, 'in a barn'],
+  [2, 'in a cave'],
+  [2, 'in a field'],
+  [2, 'in a forest'],
+  [3, 'in a temple'],
+  [1, 'on a battlefield'],
+  [1, 'in a street'],
+  [1, 'in an alley'],
+  [1, 'in a tavern'],
+  [1, 'in a brothel'],
+  [1, 'in a tower'],
+  [1, 'in a castle'],
+  [1, 'in a rubbish heap'],
+  [3, 'among people of a different race'],
+  [2, 'on a boat'],
+  [1, 'on a ship'],
+  [1, 'in a prison'],
+  [1, 'in the headquarters of a secret organisation'],
+  [1, 'in a sage\'s laboratory'],
+  [1, 'on the Ethereal Plane'],
+  [1, 'in the Feywild'],
+  [1, 'in the Shadowfell'],
+  [1, 'on the Astral Plane'],
+  [1, 'on an Inner Plane'],
+  [1, 'on an Outer Plane']
 ]
 
 setup.familyUnits = {
@@ -113,7 +113,7 @@ setup.createHistory = function (town, npc) {
   console.log('creating history for ' + npc.name + '...')
   // let wealthModifier
 
-  if (!npc.birthplace) npc.birthplace = setup.rollFromTable(setup.birthplaceTable)
+  if (!npc.birthplace) npc.birthplace = setup.rollFromTable(setup.birthplaceTable, 100)
 
   let parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
