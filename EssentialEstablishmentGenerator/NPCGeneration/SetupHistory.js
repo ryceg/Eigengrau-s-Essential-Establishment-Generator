@@ -1,214 +1,138 @@
 
+setup.birthplaceTable = [
+  [50, 'at home'],
+  [5, 'in the home of a friend'],
+  [9, 'in the home of a midwife'],
+  [1, 'on a wagon'],
+  [1, 'in a cart'],
+  [1, 'in a shed'],
+  [1, 'in a barn'],
+  [2, 'in a cave'],
+  [2, 'in a field'],
+  [2, 'in a forest'],
+  [3, 'in a temple'],
+  [1, 'on a battlefield'],
+  [1, 'in a street'],
+  [1, 'in an alley'],
+  [1, 'in a tavern'],
+  [1, 'in a brothel'],
+  [1, 'in a tower'],
+  [1, 'in a castle'],
+  [1, 'in a rubbish heap'],
+  [3, 'among people of a different race'],
+  [2, 'on a boat'],
+  [1, 'on a ship'],
+  [1, 'in a prison'],
+  [1, 'in the headquarters of a secret organisation'],
+  [1, 'in a sage\'s laboratory'],
+  [1, 'on the Ethereal Plane'],
+  [1, 'in the Feywild'],
+  [1, 'in the Shadowfell'],
+  [1, 'on the Astral Plane'],
+  [1, 'on an Inner Plane'],
+  [1, 'on an Outer Plane']
+]
+
+setup.familyUnits = {
+  bothParents: {
+    probability: 25,
+    exclusions: (town, obj) => obj.npc.knewParents,
+    descriptor: 'my mother and father'
+  },
+  singleStepmother: {
+    probability: 6,
+    exclusions: (town, obj) =>
+      setup.getMarriages(town, State.variables.npcs[obj.father]).length > 1,
+    descriptor: 'my single stepmother'
+  },
+  singleMother: {
+    probability: 14,
+    exclusions: (town, obj) => obj.npc.knewParents && (!obj.father),
+    descriptor: 'my single mother'
+  },
+  singleStepfather: {
+    probability: 6,
+    exclusions: (town, obj) =>
+      setup.getMarriages(town, State.variables.npcs[obj.mother]).length > 1,
+    descriptor: 'my single stepfather'
+  },
+  singleFather: {
+    probability: 14,
+    exclusions: (town, obj) => obj.npc.knewParents && (!obj.mother),
+    descriptor: 'my single father'
+  },
+  adoptiveFamily: {
+    probability: 10,
+    exclusions: (town, obj) => !obj.npc.knewParents,
+    descriptor: 'my adoptive family'
+  },
+  maternalGrandparents: {
+    probability: 6,
+    exclusions: (town, obj) => obj.mother && setup.knewParents(obj.mother),
+    descriptor: 'my maternal grandparents'
+  },
+  paternalGrandparents: {
+    probability: 4,
+    exclusions: (town, obj) => obj.father && setup.knewParents(obj.father),
+    descriptor: 'my paternal grandparents'
+  },
+  extendedFamily: {
+    probability: 8,
+    exclusions: (town, obj) => obj.npc.knewParents,
+    descriptor: 'my extended family'
+  },
+  guardian: {
+    probability: 2,
+    exclusions: (town, obj) => !obj.npc.knewParents,
+    descriptor: 'my guardian'
+  },
+  orphanage: {
+    probability: 2,
+    exclusions: (town, obj) => !obj.npc.knewParents,
+    descriptor: 'the orphanage'
+  },
+  temple: {
+    probability: 1,
+    exclusions: (town, obj) => !obj.npc.knewParents,
+    descriptor: 'the temple'
+  },
+  institution: {
+    probability: 1,
+    exclusions: (town, obj) => !obj.npc.knewParents,
+    descriptor: 'the institution'
+  },
+  streets: {
+    probability: 1,
+    exclusions: (town, obj) => !obj.npc.knewParents &&
+      !(['aristocracy', 'nobility'].includes(obj.npc.socialClass)),
+    descriptor: 'the streets'
+  }
+}
+
 setup.createHistory = function (town, npc) {
   console.log('creating history for ' + npc.name + '...')
-  let wealthModifier
+  // let wealthModifier
 
-  /* if (!npc.knewParents) {
-    if (random(1, 100) > 95) {
-      npc.knewParents = false
-    } else {
-      npc.knewParents = true
-    }
-  }
+  if (!npc.birthplace) npc.birthplace = setup.rollFromTable(setup.birthplaceTable, 100)
 
-  if (!npc.parentalLineage) {
-    const parentalLineageRoll = random(1, 8)
-    switch (npc.race) {
-      case 'half-orc':
-        if (parentalLineageRoll === 8) {
-          npc.parentalLineage = 'Both parents were half-orcs'
-          setup.createRelative(town, npc, 'father', {
-            race: 'half-orc'
-          })
-          setup.createRelative(town, npc, 'mother', {
-            race: 'half-orc'
-          })
-        } else if (parentalLineageRoll >= 6) {
-          npc.parentalLineage = 'One parent was a human, the other was a half orc'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-          setup.createRelative(town, npc, 'father', {
-            race: 'half-orc'
-          })
-        } else if (parentalLineageRoll >= 4) {
-          npc.parentalLineage = 'One parent was a half-orc, the other was an orc'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'half-orc'
-          })
-        } else if (parentalLineageRoll < 4) {
-          npc.parentalLineage = 'One parent was a human, the other was an orc'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-        }
-        break
-      case 'half-elf':
-        if (parentalLineageRoll === 8) {
-          npc.parentalLineage = 'Both parents were half-elves'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'half-elf'
-          })
-          setup.createRelative(town, npc, 'father', {
-            race: 'half-elf'
-          })
-        } else if (parentalLineageRoll === 7) {
-          npc.parentalLineage = 'One parent was a human, the other was a half elf'
-          setup.createRelative(town, npc, 'father', {
-            race: 'half-elf'
-          })
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-        } else if (parentalLineageRoll === 6) {
-          npc.parentalLineage = 'One parent was a half-elf, the other was an elf'
-          setup.createRelative(town, npc, 'father', {
-            race: 'half-elf'
-          })
-          setup.createRelative(town, npc, 'mother', {
-            race: 'elf'
-          })
-        } else if (parentalLineageRoll < 6) {
-          npc.parentalLineage = 'One parent was a human, the other was an elf'
-          setup.createRelative(town, npc, 'father', {
-            race: 'elf'
-          })
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-        }
-        break
-      case 'tiefling':
-        if (parentalLineageRoll === 8) {
-          npc.parentalLineage = 'One parent was a human, the other was a devil'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-        } else if (parentalLineageRoll === 7) {
-          npc.parentalLineage = 'One parent was a tiefling, the other was a devil'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'tiefling'
-          })
-        } else if (parentalLineageRoll >= 4) {
-          npc.parentalLineage = 'One parent was a human, the other was a tiefling'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-          setup.createRelative(town, npc, 'father', {
-            race: 'tiefling'
-          })
-        } else if (parentalLineageRoll < 4) {
-          npc.parentalLineage = 'Both parents were human, with their infernal ancestry manifesting in me later in life'
-          setup.createRelative(town, npc, 'mother', {
-            race: 'human'
-          })
-          setup.createRelative(town, npc, 'father', {
-            race: 'human'
-          })
-        }
-        break
-    }
-  } */
+  let parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
+  console.log(parentMarriage)
 
-  if (!npc.birthplace) {
-    const birthplaceRoll = random(1, 100)
-    if (birthplaceRoll === 100) {
-      npc.birthplace = 'on an Outer Plane'
-    } else if (birthplaceRoll === 99) {
-      npc.birthplace = 'on an Inner Plane'
-    } else if (birthplaceRoll === 98) {
-      npc.birthplace = 'on the Astral Plane'
-    } else if (birthplaceRoll === 97) {
-      npc.birthplace = 'in the Shadowfell'
-    } else if (birthplaceRoll === 96) {
-      npc.birthplace = 'in the Feywild'
-    } else if (birthplaceRoll === 95) {
-      npc.birthplace = 'on the Ethereal Plane'
-    } else if (birthplaceRoll === 94) {
-      npc.birthplace = "in a sage's laboratory"
-    } else if (birthplaceRoll === 93) {
-      npc.birthplace = 'in the headquarters of a secret organisation'
-    } else if (birthplaceRoll === 92) {
-      npc.birthplace = 'in a prison'
-    } else if (birthplaceRoll === 91) {
-      npc.birthplace = 'on a ship'
-    } else if (birthplaceRoll >= 89) {
-      npc.birthplace = 'on a boat'
-    } else if (birthplaceRoll >= 86) {
-      npc.birthplace = 'among people of a different race'
-    } else if (birthplaceRoll === 85) {
-      npc.birthplace = 'in a rubbish heap'
-    } else if (birthplaceRoll === 84) {
-      npc.birthplace = 'in a castle'
-    } else if (birthplaceRoll === 83) {
-      npc.birthplace = 'in a tower'
-    } else if (birthplaceRoll === 82) {
-      npc.birthplace = 'in a brothel'
-    } else if (birthplaceRoll === 81) {
-      npc.birthplace = 'in a tavern'
-    } else if (birthplaceRoll === 80) {
-      npc.birthplace = 'in an alley'
-    } else if (birthplaceRoll === 79) {
-      npc.birthplace = 'in a street'
-    } else if (birthplaceRoll === 78) {
-      npc.birthplace = 'on a battlefield'
-    } else if (birthplaceRoll >= 75) {
-      npc.birthplace = 'in a temple'
-    } else if (birthplaceRoll >= 73) {
-      npc.birthplace = 'in a forest'
-    } else if (birthplaceRoll >= 71) {
-      npc.birthplace = 'in a field'
-    } else if (birthplaceRoll >= 69) {
-      npc.birthplace = 'in a cave'
-    } else if (birthplaceRoll === 68) {
-      npc.birthplace = 'in a barn'
-    } else if (birthplaceRoll === 67) {
-      npc.birthplace = 'in a shed'
-    } else if (birthplaceRoll === 66) {
-      npc.birthplace = 'in a cart'
-    } else if (birthplaceRoll === 65) {
-      npc.birthplace = 'on a wagon'
-    } else if (birthplaceRoll >= 56) {
-      npc.birthplace = 'in the home of a midwife'
-    } else if (birthplaceRoll >= 51) {
-      npc.birthplace = 'in the home of a friend'
-    } else {
-      npc.birthplace = 'at home'
-    }
-  }
-
-  const siblingRoll = random(1, 5)
-  switch (siblingRoll) {
-    case 1:
-      npc.siblingNumber = 0
-      break
-    case 2:
-      npc.siblingNumber = random(1, 3)
-      break
-    case 3:
-      npc.siblingNumber = random(2, 5)
-      break
-    case 4:
-      npc.siblingNumber = random(3, 8)
-      break
-    case 5:
-      npc.siblingNumber = random(4, 11)
-      break
-  }
-
-  // for (var i = npc.siblingNumber; i > 0; i--){
-  // var siblingPlaceRoll = random(1, 6) + random(1, 6);
-  //     if (siblingPlaceRoll == 2){
-  //       npc.siblingTwin += 1;
-  //     } else if (siblingPlaceRoll < 8){
-  //       npc.siblingOlder += 1;
-  //     } else if (siblingPlaceRoll >= 8){
-  //       npc.siblingYounger += 1;
-  //     }
-  // }
+  npc.knewParents = setup.knewParents(town, npc)
+  npc.siblingNumber = parentMarriage
+    ? parentMarriage.children.length - 1
+    : 0
 
   if (!npc.familyUnit) {
-    const parentRoll = random(1, 100)
+    if (parentMarriage && parentMarriage.familyUnit) {
+      npc.familyUnit = parentMarriage.familyUnit
+    } else {
+      const { father, mother } = setup.getFatherMother(town, npc)
+      const obj = { npc, father, mother }
+      npc.familyUnit = setup.weightedRandomFetcher(town, setup.familyUnits, obj, undefined, 'descriptor')
+      if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
+    }
+    /* const parentRoll = random(1, 100)
     if (parentRoll >= 76) {
       npc.familyUnit = 'my mother and father'
     } else if (parentRoll >= 70) {
@@ -237,58 +161,25 @@ setup.createHistory = function (town, npc) {
       npc.familyUnit = 'the institution'
     } else if (parentRoll < 2) {
       npc.familyUnit = 'the streets'
-    }
+    } */
   }
 
-  if (!npc.familyLifestyle) {
-    const familyLifestyleRoll = dice(3, 6)
-    if (familyLifestyleRoll === 18) {
-      npc.familyLifestyle = 'aristocratic'
-      wealthModifier = 40
-    } else if (familyLifestyleRoll >= 16) {
-      npc.familyLifestyle = 'wealthy'
-      wealthModifier = 20
-    } else if (familyLifestyleRoll >= 13) {
-      npc.familyLifestyle = 'comfortable'
-      wealthModifier = 10
-    } else if (familyLifestyleRoll >= 9) {
-      npc.familyLifestyle = 'modest'
-    } else if (familyLifestyleRoll >= 6) {
-      npc.familyLifestyle = 'poor'
-      wealthModifier = -10
-    } else if (familyLifestyleRoll >= 4) {
-      npc.familyLifestyle = 'squalid'
-      wealthModifier = -20
-    } else if (familyLifestyleRoll < 4) {
-      npc.familyLifestyle = 'wretched'
-      wealthModifier = -40
+  if (parentMarriage) {
+    if (!parentMarriage.lifestyle) {
+      setup.createFamilyLifestyle(parentMarriage)
     }
-  }
 
-  let familyHomeRoll = random(1, 100)
-  familyHomeRoll += wealthModifier
-  if (familyHomeRoll >= 111) {
-    npc.familyHome = 'a palace'
-  } else if (familyHomeRoll >= 91) {
-    npc.familyHome = 'a mansion'
-  } else if (familyHomeRoll >= 71) {
-    npc.familyHome = 'a large house'
-  } else if (familyHomeRoll >= 51) {
-    npc.familyHome = 'a small house'
-  } else if (familyHomeRoll >= 41) {
-    npc.familyHome = 'an apartment in a rundown neighborhood'
-  } else if (familyHomeRoll >= 36) {
-    npc.familyHome = 'an encampment'
-  } else if (familyHomeRoll >= 31) {
-    npc.familyHome = 'a village in the middle of the wilderness'
-  } else if (familyHomeRoll >= 21) {
-    npc.familyHome = 'no real permanent address'
-  } else if (familyHomeRoll >= 1) {
-    npc.familyHome = 'a rundown shack'
-  } else if (familyHomeRoll < 1) {
-    npc.familyHome = 'on the streets'
+    npc.familyLifestyle = parentMarriage.lifestyle
+    npc.familyHome = parentMarriage.home
   } else {
-    npc.familyHome = 'a small house'
+    // create a temporary marriage for this orphan
+    const marriage = {
+      socialClass: npc.socialClass || 'peasantry'
+    }
+
+    setup.createFamilyLifestyle(marriage)
+    npc.familyLifestyle = marriage.lifestyle
+    npc.familyHome = marriage.home
   }
 
   if (!npc.childhoodMemories) {

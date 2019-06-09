@@ -33,11 +33,10 @@ setup.createRelative = function (town, family, base, force = false) {
 setup.createParentage = function (town, family, npc, forceFather = false, forceMother = false) {
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {
-    if (random(1, 100) > 90 && (!forceFather) && (!forceMother)) {
-      npc.knewParents = false
+    if (random(1, 100) <= setup.familyData.orphanPercent &&
+      (!forceFather) && (!forceMother)) {
       node.parentMarriage = null
     } else {
-      npc.knewParents = true
       const marriage = {
         parents: [],
         children: [npc.key]
@@ -74,6 +73,7 @@ setup.createParentage = function (town, family, npc, forceFather = false, forceM
         family.members[mother.key].marriages = [marriage]
       }
 
+      marriage.socialClass = setup.familySocialClass(marriage)
       setup.createChildren(town, family, npc, marriage, motherRace, fatherRace, setup.familyData.siblingRoll())
 
       node.parentMarriage = marriage
@@ -87,7 +87,7 @@ setup.createChildren = function (town, family, npc, marriage, motherRace, father
   console.log(`Creating ${amount} siblings...`)
 
   const surname = setup.getChildSurname(marriage)
-  const siblingClass = setup.familySocialClass(marriage)
+  const siblingClass = marriage.socialClass
 
   const inserted = []
   for (let k = 0; k < amount; k++) {
@@ -137,6 +137,7 @@ setup.createMarriage = function (town, family, npc, force = false) {
     family.members[partner.key].marriages = [newMarriage]
   }
 
+  newMarriage.socialClass = setup.familySocialClass(newMarriage)
   setup.createChildren(town, family, npc, newMarriage, npc.race, partnerBase.race, setup.familyData.siblingRoll())
 
   return newMarriage

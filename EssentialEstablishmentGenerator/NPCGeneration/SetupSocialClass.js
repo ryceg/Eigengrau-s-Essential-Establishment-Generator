@@ -58,25 +58,17 @@ setup.createSocialClass = function (town, npc) {
 // Introduce modifiers for adult family members.
 setup.adultSocialMobilityTable = [
   [6, -2],
-  [24, -1],
-  [84, 0],
-  [98, 1],
-  [100, 2]
+  [18, -1],
+  [60, 0],
+  [14, 1],
+  [2, 2]
 ]
 
 setup.relativeSocialClass = function (npcClass) {
   let classIndex = setup.socialClassKeys[npcClass]
   if (classIndex < 0) classIndex = 3
 
-  const roll = random(1, 100)
-  let delta = 0
-  for (let i = 0; i < setup.adultSocialMobilityTable.length; i++) {
-    const [percentile, modifier] = setup.adultSocialMobilityTable[i]
-    if (roll <= percentile) {
-      delta = modifier
-      break
-    }
-  }
+  const delta = setup.rollFromTable(setup.adultSocialMobilityTable, 100)
 
   const newIndex = Math.clamp(classIndex + delta, 0, setup.socialClassArray.length - 1)
   return setup.socialClassArray[newIndex]

@@ -1,32 +1,24 @@
 setup.familyData = {
 
   // These numbers are all made up, feel free to change them
-  absencePercent: 72,
+  absencePercent: 74,
   oldAbsencePercent: 40,
   veryOldAbsencePercent: 70,
 
-  marriagePercent: 50,
-  remarriagePercent: 6,
+  orphanPercent: 10,
+  marriagePercent: 55,
+  remarriagePercent: 9,
 
-  childAgePercentiles: [
+  parentStageTable: [
     [55, 'young adult'],
-    [90, 'settled adult'],
-    [100, 'elderly']
+    [35, 'settled adult'],
+    [10, 'elderly']
   ],
-
-  parentStage: () => {
-    const roll = random(1, 100)
-    for (let i = 0; i < setup.familyData.childAgePercentiles.length; i++) {
-      const [percentile, stage] = setup.familyData.childAgePercentiles[i]
-      if (roll <= percentile) return stage
-    }
-
-    return 'young adult'
-  },
 
   parentAgeDelta: (npc) => {
     const race = npc.race || 'human'
-    const { baseAge, ageModifier } = setup.npcData.raceTraits[race].ageTraits[setup.familyData.parentStage()]
+    const parentStage = setup.rollFromTable(setup.familyData.parentStageTable, 100)
+    const { baseAge, ageModifier } = setup.npcData.raceTraits[race].ageTraits[parentStage]
     return baseAge + ageModifier()
   },
   childAgeDelta: (npc) => (-setup.familyData.parentAgeDelta(npc)),
