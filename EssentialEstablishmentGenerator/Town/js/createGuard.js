@@ -2,7 +2,7 @@
 setup.createGuard = function (town) {
   console.groupCollapsed('creating the guard...')
   // console.log(townName + ' is the townName passed to the guard.')
-  var guard = {
+  const guard = {
     associatedTown: town.name,
     captain: setup.createNPC(town, {
       dndClass: 'fighter',
@@ -13,7 +13,7 @@ setup.createGuard = function (town) {
     livery: setup.guardData.primaryColours.seededrandom() + ' and ' + setup.guardData.secondaryColours.seededrandom() + ' livery adorned with an image of ' + setup.guardData.insignia.seededrandom()
   }
 
-  var nameRoll = random(1, 8)
+  const nameRoll = random(1, 8)
   console.log('nameRoll is ' + nameRoll)
   if (nameRoll === 1) {
     guard.name = 'The ' + setup.guardData.name.group.seededrandom() + ' of ' + town.name

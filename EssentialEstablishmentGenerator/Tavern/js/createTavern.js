@@ -78,6 +78,8 @@ setup.createTavern = function (town, opts) {
   tavern.food = ''
   tavern.bedCleanliness = ''
 
+  const rollData = setup.tavern.rollData
+
   Object.defineProperty(tavern, 'lodging', {
     get () {
       console.log('Fetching ' + tavern.name + ' lodging.')
@@ -146,11 +148,11 @@ setup.createTavern = function (town, opts) {
       return this._sin
     }
   })
-  var rollData = setup.tavern.rollData
+
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
-  })
+  }
   // setup.tavernRender(tavern)
   // setup.townBinder(town, tavern, 'tavern')
 

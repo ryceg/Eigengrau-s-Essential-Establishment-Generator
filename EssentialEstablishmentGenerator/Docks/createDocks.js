@@ -24,9 +24,9 @@ setup.createDocks = function (town, opts) {
   docks.cleanliness = ''
 
   const rollDataVariables = ['size', 'cleanliness', 'activity']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(docks, setup.docks.rollData, propName)
-  })
+  }
 
   docks.sizeDescriptive = ''
   docks.cleanlinessDescriptive = ''

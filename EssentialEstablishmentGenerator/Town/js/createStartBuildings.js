@@ -1,18 +1,21 @@
 
 setup.createStartBuildings = function (town) {
-  const buildingType = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
+  const buildingType = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple']
 
+  if (town.location === 'seashore' || town.location === 'river coast') {
+    buildingType.push('docks')
+  }
   if (town.hasBrothel) {
     buildingType.push('brothel')
   }
 
-  buildingType.forEach(function (type) {
+  for (const type of buildingType) {
     if (!town.buildings[type]) {
       town.buildings[type] = {}
     }
     const building = setup['create' + type.toUpperFirst()](town)
     town.buildings[type][building.key] = building
-  })
+  }
 
   if (town.population > 100 || town.roll.wealth > 40) {
     const bakery = setup.goodsAndServices.default.create(town, 'bakery')

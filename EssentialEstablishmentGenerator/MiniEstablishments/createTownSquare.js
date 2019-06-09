@@ -17,9 +17,9 @@ setup.createTownSquare = function (town, opts) {
   townSquare.cleanliness = ''
 
   const rollDataVariables = ['size', 'cleanliness']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(townSquare, setup.townSquare.rollData, propName)
-  })
+  }
   townSquare.tippyDescription = 'The town square, which is ' + townSquare.size + ' and ' + townSquare.cleanliness
   console.groupEnd()
   return townSquare

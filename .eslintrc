@@ -10,7 +10,10 @@
     "dice": true,
     "State": true,
     "randomFloat": true,
-    "clone": true
+    "clone": true,
+    "settings": true,
+    "tippy": true,
+    "$": true
   },
   "rules": {
     "no-var": "warn",
