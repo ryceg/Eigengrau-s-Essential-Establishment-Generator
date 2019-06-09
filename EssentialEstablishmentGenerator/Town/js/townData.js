@@ -846,10 +846,10 @@ setup.townData = {
           }
         }
       },
-      start: ['seacoast', 'seacoast', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast'],
+      start: ['seashore', 'seashore', 'seashore', 'seashore', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'river coast'],
       location: {
         // town.Name is located in the _
-        'seacoast': {
+        'seashore': {
           precipitationIntensity: 3,
           // town.Name grew around _
           origin: [
