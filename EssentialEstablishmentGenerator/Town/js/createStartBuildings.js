@@ -1,7 +1,10 @@
 
 setup.createStartBuildings = function (town) {
-  const buildingType = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple', 'docks']
+  const buildingType = ['townSquare', 'tavern', 'alchemist', 'GeneralStore', 'smithy', 'market', 'temple']
 
+  if (town.location === 'seashore' || town.location === 'river coast') {
+    buildingType.push('docks')
+  }
   if (town.hasBrothel) {
     buildingType.push('brothel')
   }
