@@ -1,7 +1,7 @@
 
 setup.tavernBrawl = function (town, tavern) {
-  var guardRoll = random(1, 100)
-  var brawlRoll = random(1, 100)
+  const guardRoll = random(1, 100)
+  let brawlRoll = random(1, 100)
 
   if (guardRoll >= 50) {
     tavern.guardPresent = true
@@ -53,8 +53,8 @@ setup.tavernBrawl = function (town, tavern) {
 
   if (brawlRoll > 50) {
     tavern.hasBrawl = true
-    var brawlInstigator = setup.createNPC(town, { isShallow: true, gender: ['man', 'man', 'man', 'woman'].seededrandom() })
-    var brawlResponder = setup.createNPC(town, { isShallow: true, gender: ['man', 'man', 'man', 'woman'].seededrandom() })
+    const brawlInstigator = setup.createNPC(town, { isShallow: true, gender: ['man', 'man', 'man', 'woman'].seededrandom() })
+    const brawlResponder = setup.createNPC(town, { isShallow: true, gender: ['man', 'man', 'man', 'woman'].seededrandom() })
     tavern.brawl = {
       start: [
         'It seems that the ' + brawlInstigator.descriptor + ' that is currently wrestling with the ' + brawlResponder.descriptor + ' because of ',

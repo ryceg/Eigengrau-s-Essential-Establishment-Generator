@@ -1,5 +1,5 @@
 setup.createBartender = function (town, associatedBuilding) {
-  var bartender = setup.createNPC(town, {
+  const bartender = setup.createNPC(town, {
     // associatedBuilding: associatedBuilding,
     associatedTown: town.name,
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].seededrandom(),
