@@ -12,6 +12,14 @@ body {
   margin-top: 4px;
 }
 
+.npcReplace{
+font-family: MrJeeves;
+font-weight: 800;
+color: #58180D;
+font-size: 20px;
+text-decoration: underline;
+text-decoration-color: #c9ad6a;
+}
 .version{
  color: rgba(94, 72, 69, 0.651);
  font-size: 16px;

@@ -8,12 +8,15 @@ setup.createDocks = function (town, opts) {
     initPassage: 'DocksOutput',
     buildingType: 'docks',
     needsWordNoun: false,
-    wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina'].seededrandom(),
+    dockName: setup.createNPC(town, {
+      isShallow: true
+    }),
+    wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina', 'jetty', 'harbor', 'berth', 'port', 'seaport', 'dockyard'].seededrandom(),
     ships: {},
     typePool: setup.docks.ships.typePool
   })
 
-  docks.name = ['the' + [' Old ', ' New ', ' ', ' ', ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
+  docks.name = ['The' + [' Old ', ' New ', ' ', ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst(), [docks.dockName.lastName + ' ', docks.dockName.firstName + "'s ", [docks.dockName.firstName, docks.dockName.lastName].seededrandom() + ' Beach '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
 
   // docks.wealth = ''
   docks.activity = ''

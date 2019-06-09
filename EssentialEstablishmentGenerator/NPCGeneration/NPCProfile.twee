@@ -19,11 +19,9 @@ $currentNPC.firstName is a <b><<tooltip $currentNPC.dndClass setup.townData.prof
 
 $currentNPC.firstName currently earns <<money $currentNPC.finances.grossIncome>> per day.
 
-<<linkreplace "Early Life">><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
-
-<<linkreplace "Becoming a $currentNPC.dndClass">><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndClassOrigin $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>
-
-<<linkreplace "Life events">><div class='descriptive'>Well, I certainly have a tale or two...
+<<linkreplace "Early Life">><div class='npcReplace'>Early Life</div><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
+<<linkreplace "Becoming a $currentNPC.dndClass">><div class='npcReplace'>Becoming a $currentNPC.dndClass</div><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndClassOrigin $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>
+<<linkreplace "Life events">><div class='npcReplace'>Life Events</div><div class='descriptive'>Well, I certainly have a tale or two...
 \<<if $currentNPC.lifeEvents.length == 2>>
     When I was younger, <<print $currentNPC.lifeEvents[0]>> Later in my life, <<print $currentNPC.lifeEvents[1]>>
   \<<elseif $currentNPC.lifeEvents.length == 1>>
