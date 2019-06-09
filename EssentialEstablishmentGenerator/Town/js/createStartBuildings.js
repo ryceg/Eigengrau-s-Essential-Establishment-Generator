@@ -9,13 +9,13 @@ setup.createStartBuildings = function (town) {
     buildingType.push('brothel')
   }
 
-  buildingType.forEach(function (type) {
+  for (const type of buildingType) {
     if (!town.buildings[type]) {
       town.buildings[type] = {}
     }
     const building = setup['create' + type.toUpperFirst()](town)
     town.buildings[type][building.key] = building
-  })
+  }
 
   if (town.population > 100 || town.roll.wealth > 40) {
     const bakery = setup.goodsAndServices.default.create(town, 'bakery')

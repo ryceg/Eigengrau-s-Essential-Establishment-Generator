@@ -19,9 +19,9 @@ setup.renderWeather = function (town, biome, weather) {
   const intKeys = []
 
   // interpret the key for each tempVariation object as an integer
-  tempVariationKeys.forEach(function (key) {
+  for (const key of tempVariationKeys) {
     intKeys.push(parseInt(key))
-  })
+  }
 
   // find one that's equal or lesser than tempVariationRoll to use as the final key
   const finalKey = intKeys.find(function (key) {

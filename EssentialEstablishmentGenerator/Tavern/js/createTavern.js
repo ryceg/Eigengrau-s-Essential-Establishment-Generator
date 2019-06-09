@@ -150,9 +150,9 @@ setup.createTavern = function (town, opts) {
   })
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
-  })
+  }
   // setup.tavernRender(tavern)
   // setup.townBinder(town, tavern, 'tavern')
 

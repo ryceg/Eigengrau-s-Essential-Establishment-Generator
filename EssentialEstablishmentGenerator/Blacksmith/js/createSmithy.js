@@ -21,9 +21,9 @@ setup.createSmithy = function (town, opts) {
   smithy.activity = ''
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(smithy, setup.smithy.rollData, propName)
-  })
+  }
 
   smithy.notableFeature = 'its ' + smithy.expertise + ' weapons and armour'
   smithy.tippyDescription = 'A ' + (smithy.size || smithy._size) + ' ' + smithy.wordNoun + " that's " + (smithy.cleanliness || smithy._cleanliness) + ', and is known for ' + smithy.notableFeature + '.'

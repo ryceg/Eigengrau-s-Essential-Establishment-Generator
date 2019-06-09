@@ -27,9 +27,9 @@ setup.createGeneralStore = function (town, opts) {
   setup.GeneralStoreModifiers(town, GeneralStore)
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(GeneralStore, setup.GeneralStore.rollData, propName)
-  })
+  }
   // setup.GeneralStoreRenders(GeneralStore)
   console.log(GeneralStore)
   // setup.townBinder(town, GeneralStore, 'GeneralStore')
