@@ -68,15 +68,7 @@ setup.relativeSocialClass = function (npcClass) {
   let classIndex = setup.socialClassKeys[npcClass]
   if (classIndex < 0) classIndex = 3
 
-  const roll = random(1, 100)
-  let delta = 0
-  for (let i = 0; i < setup.adultSocialMobilityTable.length; i++) {
-    const [percentile, modifier] = setup.adultSocialMobilityTable[i]
-    if (roll <= percentile) {
-      delta = modifier
-      break
-    }
-  }
+  const delta = setup.rollFromTable(setup.adultSocialMobilityTable)
 
   const newIndex = Math.clamp(classIndex + delta, 0, setup.socialClassArray.length - 1)
   return setup.socialClassArray[newIndex]

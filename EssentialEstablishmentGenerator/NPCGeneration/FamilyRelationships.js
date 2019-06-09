@@ -66,3 +66,33 @@ setup.familyRelationships = {
     return inverse.split('').reverse().join('') + npc.gender[0]
   }
 }
+
+setup.knewParents = function (town, npc) {
+  if (!npc) return false
+  const family = town.families[npc.family]
+  const node = family.members[npc.key]
+  return !!node.parentMarriage
+}
+
+setup.getMarriages = function (town, npc) {
+  if (!npc) return []
+  const family = town.families[npc.family]
+  const node = family.members[npc.key]
+  return !!node.parentMarriage
+}
+
+setup.getFatherMother = function (town, npc) {
+  let father, mother
+
+  const family = town.families[npc.family]
+  const node = family.members[npc.key]
+
+  if (node.parentMarriage) {
+    father = node.parentMarriage.parents.find(key =>
+      State.variables.npcs[key].gender === 'man')
+    mother = node.parentMarriage.parents.find(key =>
+      State.variables.npcs[key].gender === 'woman')
+  }
+
+  return { father, mother }
+}

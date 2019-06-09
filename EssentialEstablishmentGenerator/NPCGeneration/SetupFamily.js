@@ -103,5 +103,6 @@ setup.fetchFamily = function (town, npc, depth = 2) {
 
   delete relatives[npc.key]
   if (relatives === null) return {}
+  console.log(relatives)
   return relatives
 }

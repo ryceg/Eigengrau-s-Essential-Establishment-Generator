@@ -4,7 +4,8 @@ setup.ExpandNPC = function (town, npc) {
 
   if (npc.family === undefined) setup.createFamily(town, npc)
 
-  setup.createHistory(town, npc)
+  // Creating life events first may be counterintuitive,
+  // but some life events force us to create new family members
   setup.createLifeEvents(town, npc)
 
   const relatives = setup.fetchFamily(town, npc)
@@ -16,4 +17,6 @@ setup.ExpandNPC = function (town, npc) {
       setup.familyRelationships.verbose(relationship),
       setup.familyRelationships.verbose(inverse))
   })
+
+  setup.createHistory(town, npc)
 }
