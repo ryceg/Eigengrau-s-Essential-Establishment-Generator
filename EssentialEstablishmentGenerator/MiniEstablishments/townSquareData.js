@@ -85,10 +85,10 @@ setup.townSquare = {
       'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue', 'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear',
       'periwinkle', 'salmon', 'taupe'].random() + 'colored flags hanging above the crowds.',
 
-    'small boxes of ' + setup.flora.flowers.stemP.random() + ' and ' + setup.flora.flowers.stemP.random() + ' lining the streets.',
+    'small boxes of ' + setup.flora.flower.stemP.random() + ' and ' + setup.flora.flower.stemP.random() + ' lining the streets.',
 
-    'large boxes of ' + setup.flora.flowers.stemP.random() + ', ' + setup.flora.flowers.stemP.random() + ', ' +
-    setup.flora.flowers.stemP.random() + ', and ' + setup.flora.flowers.stemP.random() + ' lining the streets.',
+    'large boxes of ' + setup.flora.flower.stemP.random() + ', ' + setup.flora.flower.stemP.random() + ', ' +
+    setup.flora.flower.stemP.random() + ', and ' + setup.flora.flower.stemP.random() + ' lining the streets.',
 
     'a large unlit stake surrounded by kindling.',
 
