@@ -85,6 +85,100 @@ setup.npcData = {
     [0, 'impossibly small']
   ],
   lifeEvents: {
+    performed: {
+      probability: 3,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'nobility' || random(100) > 90) {
+          return true
+        } else return false
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.performed function')
+        const character = setup.npcData.lifeEvents.performed.character.seededrandom()
+        const theatrePerformance = setup.npcData.lifeEvents.performed.theatrePerformance.seededrandom()
+        const bandInfo = setup.npcData.lifeEvents.performed.bandInfo.seededrandom()
+        const talent = setup.npcData.lifeEvents.performed.talent.seededrandom()
+        const talentShowInfo = setup.npcData.lifeEvents.performed.talentShowInfo.seededrandom()
+        return [
+          ['I played', 'I was'].seededrandom() + ' ' + character + ' in a ' + ['local', 'regional', 'travelling', 'well known', 'little known'].seededrandom() + ' ' + ['theatre show', 'musical', 'play', 'one man show'].seededrandom() + '. ' + theatrePerformance + '.',
+          ['I was part of a', 'I played in a', 'I was in a'] + ' ' + ['traveling band', 'local band', 'well known band', 'one man band', 'barely known band', 'pretty unpopular band'].seededrandom() + ' ' + ['for a while', 'for a little bit', 'for a pretty long stint', 'for a couple months', 'for over a year', 'for a short time'].seededrandom() + '. The band ' + bandInfo + '.',
+          ['I entered a', 'I took part in a', 'I competed in a'].seededrandom() + ' ' + ['local', 'regional', 'kingdom wide'].seededrandom() + ' talent show with my ' + talent + '. ' + talentShowInfo + '.'
+        ].seededrandom()
+      },
+      character: [
+        'a main character',
+        'the main character',
+        'a secondary character',
+        'a minor charcter',
+        'a minor part',
+        'a secondary part',
+        'the love interest',
+        'the comic relief',
+        'the main villain',
+        "the villain's sidekick",
+        'the detective',
+        'the hero',
+        'a chorus member'
+      ],
+      theatrePerformance: [
+        'I can still hear the roaring applause of the audience sometimes',
+        'Sometimes, I can still hear the crowd booing me off the stage',
+        'The audience never seemed all too impressed with my performance',
+        "Admittedly I wasn't the best performer, but I had fun",
+        'I was not a great actor, but I made a lot of friends',
+        'I played my part well if I do say so myself',
+        'I was masterful in the role and everyone told me so',
+        'The audience always gave me a standing ovation',
+        'Some of the audience members actually threw rotten fruit at me',
+        'The crowds would throw flowers and coins onto the stage after every show',
+        'I did pretty well and I made a lot of friends',
+        "I didn't really like any of the other actors",
+        'Admittedly all the other actors were a lot better than I was',
+        'I was a better performer than anyone else in the show'
+      ],
+      bandInfo: [
+        'only ever played at a few taverns',
+        'was pretty experimental and not a lot of people understood the music',
+        'was a lot of fun at the time',
+        'was something I would like to do again some day',
+        "wasn't very good at playing to be honest",
+        'had a lot of songs but not many good ones',
+        'only had a few songs but all of them were pretty good',
+        'made all the instrument noises with their voices',
+        'was pretty popular among the dwarves',
+        "managed to play for a local noble's feast",
+        'only ever played on the open streets'
+      ],
+      talent: [
+        'singing',
+        'juggling',
+        'lute playing',
+        'harp playing',
+        'dancing',
+        'acting',
+        'cooking',
+        'needlepoint skills',
+        'comedy routine',
+        'drum playing',
+        'painting',
+        'sword skills',
+        'archery'
+      ],
+      talentShowInfo: [
+        "I didn't win anything, but I had a good time",
+        'I may not have won anything, but I made some new friends',
+        'I messed up in the middle of my act and it cost me the prize',
+        'I won first place and got a ton of prizes',
+        'I got second place and got a pretty good prize',
+        'My act was sabatoged by someone and I lost',
+        'One of the judges had it out for me and cost me the grand prize',
+        'I lost out to someone far better at my own talent',
+        'I beat out several people with the same talent',
+        'A local noble even complimented my skills after the show was over',
+        'The audience actually booed me off the stage I was so bad',
+        'The judges were really amazed by my performance'
+      ]
+    },
     warMedal: {
       probability: 2,
       exclusions (town, npc) {
