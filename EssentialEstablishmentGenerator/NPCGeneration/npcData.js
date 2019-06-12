@@ -85,26 +85,197 @@ setup.npcData = {
     [0, 'impossibly small']
   ],
   lifeEvents: {
+    warMedal: {
+      probability: 2,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].sector === 'military' || random(100) > 70) {
+          if (npc.ageYears > 15) {
+            return true
+          }
+        } else return false
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.magicalCreature function')
+        const medal = setup.misc.medal.create()
+        const medalType = setup.npcData.lifeEvents.warMedal.medalType.seededrandom()
+        const medalStatus = setup.npcData.lifeEvents.warMedal.medalStatus.seededrandom()
+        if (setup.townData.professions[npc.profession].sector === 'military') {
+          return ['after a recent war', 'after a brutal battle', 'after taking command of a dangerous situation', 'I fought in a war and'].seededrandom() + ' I was awarded a ' + medal.tip + ' for ' + medalType + '.' + medalStatus + '.'
+        } else if (npc.ageYears > 60) {
+          return ['in my military youth', 'back when I was young enough for the army', 'in my army days', "after a forced recruitment into a noble's army", 'I was recruited into a war and afterwards '].seededrandom() + ' I was awarded a ' + medal.tip + ' for ' + medalType + '.' + medalStatus + '.'
+        } else return ['after being forced into an army for a recent war', 'after a forced recruitment into an army', 'after being dragged along on a military campaign', 'after joining in on a recent war', 'I was recruited into a war and afterwards'].seededrandom() + ' I was awarded a ' + medal.tip + ' for ' + medalType + '.' + medalStatus + '.'
+      },
+      medalType: [
+        'bravery',
+        'honor',
+        'valour',
+        'service',
+        'patriotism',
+        'marksmanship',
+        'brutality',
+        'support',
+        'my contributions',
+        'distinguished service',
+        'merit',
+        'heroism',
+        'acting in the face of danger',
+        'defensive actions',
+        'going above and beyond my duty as a soldier',
+        'excellent combat',
+        'good conduct',
+        'the long tour',
+        'saving a life'
+      ],
+      medalStatus: [
+        'I keep it on me at all times in my pocket for luck',
+        'I keep it pinned on my chest at all times',
+        'I keep it above my fireplace to show my guests',
+        "I keep it in a drawer somewhere, I don't like to think about what happened back then",
+        "I have no idea where it is these days and I don't really care",
+        'I lost it at some point and I wish I could find it again',
+        'I had to sell it when times were tough',
+        'The thing was stolen from me one night and I never saw it again'
+      ]
+    },
+    magicalCreatue: {
+      probability: 2,
+      exclusions (town, npc) {
+        if (setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90) {
+          return true
+        } else return false
+      },
+      function (town, npc) {
+        console.log('called lifeEvents.magicalCreature function')
+        const flower = setup.flora.flower.stemP.seededrandom()
+        const tree = setup.flora.tree.typeArticle.seededrandom()
+        const fruitTree = setup.flora.fruit.tree.seededrandom()
+        const goodPlace = setup.npcData.lifeEvents.magicalCreatue.goodPlaces.seededrandom()
+        const goodCreature = setup.npcData.lifeEvents.magicalCreatue.goodCreatures.seededrandom()
+        const goodAnimal = setup.npcData.lifeEvents.magicalCreatue.goodAnimals.seededrandom()
+        const badPlace = setup.npcData.lifeEvents.magicalCreatue.badPlaces.seededrandom()
+        const badCreature = setup.npcData.lifeEvents.magicalCreatue.badCreatures.seededrandom()
+        const badAnimal = setup.npcData.lifeEvents.magicalCreatue.badAnimals.seededrandom()
+        return [
+        // good/non-hostile creatures
+          ['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring'].seededrandom() + ' ' + [tree + ' forest', 'a field of ' + flower, 'an orchard of ' + fruitTree + ' trees', goodPlace].seededrandom() + ', ' + ['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].seededrandom() + ' ' + [goodCreature, goodCreature, 'a giant ' + goodAnimal].seededrandom() + '! ' + ['I got pretty close to it before it ran off', 'I got close enough to touch it', 'It ran off as soon as it saw me', 'It spent the day following me from a distance'].seededrandom() + '.',
+          // dangerous/evil creautres
+          ['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring', 'while trying to escape'].seededrandom() + ' ' + ['the heart of ' + tree + ' forest', badPlace, badPlace, badPlace].seededrandom() + ', ' + ['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].seededrandom() + ' ' + [badCreature, badCreature, 'a giant ' + badAnimal].seededrandom() + '! ' + ['It started chasing me as soon as it saw me, and I barely escaped', 'I ran as soon as I saw the thing', 'I snuck up close to get a better look, but ran away after that', 'The creature stalked me for the rest of the day', "It didn't see me, but after that I was on edge for the rest of my journey", 'I barely escaped from that thing with my life'].seededrandom() + '.'
+        ].seededrandom()
+      },
+      goodPlaces: [
+        'far away lands',
+        'a dense marsh',
+        'a red sand desert',
+        'a white sand desert',
+        'some truly mystical lands',
+        'a magical forest',
+        'a beautiful, sunlit valley',
+        'a deep, colorful canyon',
+        'a clearing near a bright blue creek',
+        'a clear skyed savannah',
+        'the ruins of an ancient temple'
+      ],
+      goodCreatures: [
+        'a unicorn',
+        'a gryphon',
+        'a fairy',
+        'an ent',
+        'a phoenix',
+        'a pegasus',
+        'a brownie',
+        'a pixie',
+        'a hippogrif'
+      ],
+      goodAnimals: [
+        'fox',
+        'owl',
+        'raven',
+        'turtle',
+        'frog',
+        'beaver',
+        'deer',
+        'elk',
+        'sparrow',
+        'cat',
+        'frog',
+        'chameleon',
+        'beetle',
+        'squirrel',
+        'rabbit'
+      ],
+      badPlaces: [
+        'the ruins of a castle',
+        'a murky swamp',
+        'a dark bog',
+        'a winding maze',
+        'a twisting system of caverns',
+        'an enormous cavern',
+        'a craggy mountain pass',
+        'the bottom of a canyon',
+        'a field in the dead of night',
+        'a forest under the full moon',
+        'a mountain pass',
+        'an abandoned city',
+        'the ruins of a forgotten temple',
+        'a far away land'
+      ],
+      badCreatures: [
+        'a dragon',
+        'a werewolf',
+        'a vampire',
+        'a sphinx',
+        'a banshee',
+        'a chimera',
+        'an imp',
+        'a golem',
+        'a hydra',
+        'a wyvern',
+        'an ogre',
+        'a zombie'
+      ],
+      badAnimals: [
+        'bat',
+        'bear',
+        'lion',
+        'tiger',
+        'vulture',
+        'wolf',
+        'crocodile',
+        'wasp',
+        'hornet',
+        'cobra',
+        'spider',
+        'scorpion',
+        'wolverine'
+      ]
+    },
     festival: {
-      probability: 6,
+      probability: 5,
       exclusions (town, npc) {
         return true
       },
       function (town, npc) {
+        console.log('called lifeEvents.festival function')
         const placement = setup.npcData.lifeEvents.festival.placement.seededrandom()
         const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.seededrandom()
         const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.seededrandom()
         const fruit = setup.flora.fruit.fruitP.seededrandom()
         const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
-        const flower = setup.flora.flowers.stemP.seededrandom()
+        const flower = setup.flora.flower.stemP.seededrandom()
         const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.seededrandom()
-        return [['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' for my ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '.',
-          ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower + '.',
-          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' where I saw some ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '. I think they won ' + placement + ' in the growers competition.',
-          ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' where I saw some ' + flowerTrait + ' ' + flower + '. I think they won ' + placement + ' in the growers competition.',
-          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.',
-          ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.'
-        ].seededrandom()
+        if (random(100) > 70) {
+          return [
+            ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' for my ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '.',
+            ['I won', 'I got'].seededrandom() + ' ' + placement + ' at ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' for my ' + flowerTrait + ' ' + flower + '.',
+            ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom() + ' where I saw some ' + foodTrait + ' ' + [fruit, vegetable].seededrandom() + '. ' + ['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].seededrandom() + ' ' + placement + ' in the growers competition.',
+            ['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom() + ' ' + ['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom() + ' where I saw some ' + flowerTrait + ' ' + flower + '. ' + ['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].seededrandom() + ' ' + placement + ' in the growers competition.'
+          ].seededrandom
+        } else {
+          return [
+            ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.',
+            ['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom() + ' ' + ['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom() + '. While I was there, I ' + festivalDid + '.'
+          ].seededrandom()
+        }
       },
       placement: [
         'first place',
@@ -159,6 +330,7 @@ setup.npcData = {
         } else { return true }
       },
       function (town, npc) {
+        console.log('called lifeEvents.apprentice function')
         const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.seededrandom()
         const reputation = setup.npcData.lifeEvents.apprentice.reputation.seededrandom()
         const learned = setup.npcData.lifeEvents.apprentice.learned.seededrandom()
@@ -843,25 +1015,29 @@ setup.npcData = {
         'but my friend did not believe them.'
       ],
       miracle: [
-        'The next day all of the water in our well had been turned to mead.',
-        'That year we had the most plentiful harvest we had ever seen!',
-        'The next week, everyone in town had sprouted long thick beards, even the women!',
-        'For the next year we had a huge economic boom in our town.',
-        'The next day all of the sick and cripple in our town were suddenly cured of all their ailments!',
-        'That night silver rained down from the sky!',
-        'All who believed woke up to find a gold piece under their pillow!',
-        'The next day our town leader recovered from an illness we thought for sure would take their life.',
-        'Not long after that a band of adventurers came to our town and saved us from a terrible monster!',
-        'A month later all the rats in town were gone.',
-        'Overnight a statue of an unknown god appeared in the center of town.'
+        'The next day all of the water in our well had been turned to mead',
+        'That year we had the most plentiful harvest we had ever seen',
+        'The next week, everyone in town had sprouted long thick beards, even the women',
+        'For the next year we had a huge economic boom in our town',
+        'The next day all of the sick and cripple in our town were suddenly cured of all their ailments',
+        'That night silver rained down from the sky',
+        'All who believed woke up to find a gold piece under their pillow',
+        'The next day our town leader recovered from an illness we thought for sure would take their life',
+        'Not long after that a band of adventurers came to our town and saved us from a terrible monster',
+        'A month later all the rats in town were gone',
+        'Overnight a statue of an unknown god appeared in the center of town'
       ],
       curse: [
-        'The next morning all the town water had been turned to mud.',
-        'The next month the town granary burned to the ground.',
-        'The next day all the non-believers found all their savings missing.',
-        'That year all the town crops rotted in the fields.',
-        'The next morning all the town livestock were found dead.',
-        'That night the lost souls of our town rose from the dead and ransacked us.'
+        'The next morning all the town water had been turned to mud',
+        'The next month the town granary burned to the ground',
+        'The next day all the non-believers found all their savings missing',
+        'That year all the town crops rotted in the fields',
+        'The next morning all the town livestock were found dead',
+        'That night the lost souls of our town rose from the dead and ransacked us',
+        'That night, monsters descended upon our town',
+        'The next month bandits came and looted the whole town',
+        'Within a few weeks, everyone in town had gotten terribly ill',
+        'The next morning all the children of the town had vanished'
       ]
     },
     war: {

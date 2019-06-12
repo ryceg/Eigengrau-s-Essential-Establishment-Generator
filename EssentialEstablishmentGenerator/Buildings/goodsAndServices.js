@@ -421,9 +421,9 @@ setup.goodsAndServices = {
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.flowers1 = setup.flora.flowers.stemP.seededrandom()
-      building.flowers2 = setup.flora.flowers.stemP.seededrandom()
-      building.flower = setup.flora.flowers.stemS.seededrandom()
+      building.flower1 = setup.flora.flower.stemP.seededrandom()
+      building.flower2 = setup.flora.flower.stemP.seededrandom()
+      building.flower = setup.flora.flower.stemS.seededrandom()
 
       building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
@@ -436,10 +436,10 @@ setup.goodsAndServices = {
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.flowers.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom(),
-          setup.flora.flowers.stemS.seededrandom().toUpperFirst() + ' Petals ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.flowers.bush.seededrandom().toUpperFirst() + ' Bush ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + setup.flora.flower.stemS.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.flower.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom(),
+          setup.flora.flower.stemS.seededrandom().toUpperFirst() + ' Petals ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + setup.flora.flower.bush.seededrandom().toUpperFirst() + ' Bush ' + name.wordNoun.seededrandom().toUpperFirst(),
           name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           unique
         ].seededrandom()
@@ -569,18 +569,18 @@ setup.goodsAndServices = {
         hasClass: false,
         idle: [
           // name is currently _______
-          'watering a large flower pot full of $building.flowers1',
+          'watering a large flower pot full of $building.flower1',
           'handling a strange and exotic looking plant',
-          'trimming the stems on a few cut $building.flowers1',
-          'carefully arranging a bouquet of $building.flowers1 and $building.flowers2',
+          'trimming the stems on a few cut $building.flower1',
+          'carefully arranging a bouquet of $building.flower1 and $building.flower2',
           'extracting the petals off of an alchemical plant',
           'planting some seeds in a pot',
           'examining the leaves of a slightly wilting $building.flower',
           'plucking seeds out of the center of a large plant',
           'mixing up some soil for planting',
           'wrapping some flowers',
-          'tying a cloth ribbon around a lovely bouquet of $building.flowers1 and $building.flowers2',
-          'trying to dye some $building.flowers1 a new color',
+          'tying a cloth ribbon around a lovely bouquet of $building.flower1 and $building.flower2',
+          'trying to dye some $building.flower1 a new color',
           'starting to doze off behind the counter',
           'showing a customer some of the different floral options',
           'reading a book on exotic seeds',
@@ -614,15 +614,15 @@ setup.goodsAndServices = {
       'the smell of fresh cut flowers hangs in the air.',
       'a stong $building.flower aroma wafting through the room.',
       'several planter pots dangling from ropes on the ceiling. Long fern leaves and vines hang down from the pots above.',
-      'a plethora of small pots brimming with $building.flowers1 dotted around the shop.',
+      'a plethora of small pots brimming with $building.flower1 dotted around the shop.',
       'a substantial number of patrons crowding the shop counter.',
       'there is hardly anyone in here.',
-      'a large hand painted sign in the window that reads "Finest $building.flowers1 in $town.name".',
+      'a large hand painted sign in the window that reads "Finest $building.flower1 in $town.name".',
       'there are several large flowering bushes and plants crammed inside the shop that seem far too big to be growing indoors.',
       'a large set of shelves filled with cut flowers organized by color.',
       'one of the shop walls is completely covered in ivy.',
       'several large sacks of fertilizer stacked up near the shop counter.',
-      'several of the shop windows are adorned with hand painted $building.flowers2',
+      'several of the shop windows are adorned with hand painted $building.flower2',
       'there are several strings of dried flowers strung from the shop ceiling.',
       'a collection of dried flowers framed above the counter.',
       'quite a few charcoal flower drawings are hanging on the shop walls.',
@@ -652,10 +652,10 @@ setup.goodsAndServices = {
     specialty: [
       // the florist is known for _______
       'often carrying strange and exotic plants.',
-      'always having very fragrant $building.flowers1.',
-      'having brilliantly colorful $building.flowers1.',
+      'always having very fragrant $building.flower1.',
+      'having brilliantly colorful $building.flower1.',
       'the large variety of seeds that they offer.',
-      'growing strangely large $building.flowers2.',
+      'growing strangely large $building.flower2.',
       'growing strangely large flowers of all varieties.',
       'offering classes throughout the year on proper flower gardening.',
       'their collection of unique herbs.',
@@ -669,7 +669,7 @@ setup.goodsAndServices = {
       'being the florist to provide all of the flowers for the most recent royal wedding.',
       'always seeming to know exactly the kind of flowers you need.',
       'making particularly bad floral arrangements.',
-      'their prize winning $building.flowers1.',
+      'their prize winning $building.flower1.',
       'the gaudy and eccentric floral arrangements the owner creates.',
       'the lavish floral arrangements they make for clientele.',
       'the high class clients they do floral arrangements for.',
