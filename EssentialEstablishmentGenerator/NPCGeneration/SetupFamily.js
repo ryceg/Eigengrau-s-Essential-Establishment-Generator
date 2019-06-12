@@ -81,7 +81,7 @@ setup.fetchFamily = function (town, npc, depth = 2) {
         }
 
         if (familyNode.marriages) {
-          familyNode.marriages.forEach(marriage => {
+          for (const marriage of familyNode.marriages) {
             const partners = marriage.parents
             relativeList.push(...partners.map(relativeKey => ({
               key: relativeKey,
@@ -94,7 +94,7 @@ setup.fetchFamily = function (town, npc, depth = 2) {
               depth: relativeList[ptr].depth + 1,
               relationship: `${relativeList[ptr].relationship}D`
             })))
-          })
+          }
         }
       }
     }
@@ -103,5 +103,6 @@ setup.fetchFamily = function (town, npc, depth = 2) {
 
   delete relatives[npc.key]
   if (relatives === null) return {}
+  console.log(relatives)
   return relatives
 }

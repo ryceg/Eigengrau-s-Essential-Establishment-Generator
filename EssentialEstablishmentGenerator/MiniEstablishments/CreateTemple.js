@@ -43,9 +43,9 @@ setup.createTemple = function (town, opts) {
   temple.cleanliness = ''
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(temple, data.rollData, propName)
-  })
+  }
 
   // These are the full sentence printouts referenced within TempleOutput.twee
   temple.guardReadout = 'This ' + temple.wordNoun + ' is protected by ' + temple.guardedBy + '.'

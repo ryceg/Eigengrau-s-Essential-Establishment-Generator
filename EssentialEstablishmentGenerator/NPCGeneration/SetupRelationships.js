@@ -26,10 +26,10 @@ setup.createRelationship = function (town, npc, targetNPC, type, targetType) {
     npcsToClean.push(npcs[targetNPC.relationships[npc.key]])
   }
   /* Remove "old" partners first */
-  npcsToClean.forEach(function (n) {
+  for (const n of npcsToClean) {
     n.relationships[npc.key] = ''
     n.relationships[targetNPC.key] = ''
-  })
+  }
   /* Link the two */
   npc.relationships[targetNPC.key] = type
   targetNPC.relationships[npc.key] = targetType

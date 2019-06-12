@@ -1,7 +1,7 @@
 if (!setup.misc) { setup.misc = {} }
 setup.misc.books = {
   create: town => {
-    let bookType = [
+    const bookType = [
       'detailedTitles',
       'titles',
       'titles',

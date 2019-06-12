@@ -27,9 +27,9 @@ setup.createBrothel = function (town, tavern) {
   brothel.cleanliness = ''
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
-  })
+  }
   // as title is already a value in npcData.js the title for the brothel owner appears as altTitle
   brothel.pimp = setup.createNPC(town, Object.assign(setup.brothel.pimp[brothel.owner]), {
     isShallow: true,

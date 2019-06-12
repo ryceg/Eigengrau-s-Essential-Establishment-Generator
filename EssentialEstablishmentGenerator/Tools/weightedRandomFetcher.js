@@ -36,16 +36,18 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   exclusionFunction = exclusionFunction || true
 
   for (const arg in args) {
+    let isValid
+    let fnValid
     // console.log(args[arg])
     if (args[arg].exclusions && typeof (args[arg].exclusions) === 'function') {
-      var isValid = args[arg].exclusions(town, obj)
+      isValid = args[arg].exclusions(town, obj)
     } else {
       isValid = true
     }
     // console.log('fnValid: ')
     // console.log(args[arg])
     if (typeof (exclusionFunction) === 'function') {
-      var fnValid = exclusionFunction(town, args[arg])
+      fnValid = exclusionFunction(town, args[arg])
     } else {
       fnValid = true
     }

@@ -663,7 +663,7 @@ setup.npcData = {
         let partnerKey, childKey
 
         // force creation of family members when applicable
-        if (node.marriages === undefined || node.marriages === []) {
+        if (node.marriages === undefined || node.marriages.length === 0) {
           console.log(npc.name + ' met somebody!')
 
           const newMarriage = setup.createMarriage(town, family, npc, undefined, true)
@@ -2459,9 +2459,9 @@ setup.npcData = {
         'I was a soldier in the army, with a lot of potential. But then, I made a tactical mistake, which led to my dismissal.',
         'I was found guilty of a crime that I did not commit, and was sentenced to serfdom.',
         'I grew up in a loving household, but all the love in the world could not pay the debts which we had.',
-        'I was one of seven children, and when I was old enough to work, my parents put me to it.',
-        'I was one of eight children, and had to work from a young age to support my family.',
-        'I was the eldest of four children, but when my father died, I had to leave school and work to support my family.'
+        'I was one of many children, and when I was old enough to work, my parents put me to it.',
+        'I was one of many children, and had to work from a young age to support my family.',
+        'I was the eldest child. When my father died, I had to leave school and work to support my family.'
       ],
       ideal: [
         'Everyone needs to pitch in for the greater good.',

@@ -929,9 +929,9 @@ setup.misc = {
       cabin.bedCleanliness = ''
 
       const rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
-      rollDataVariables.forEach((propName) => {
+      for (const propName of rollDataVariables) {
         setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
-      })
+      }
 
       cabin.readout = 'The ' + cabin.material + ' ' + cabin.wordNoun + ' is ' + cabin.size + '. ' + cabin.feature + ' Inside, it is ' + cabin.cleanliness + '. ' + cabin.insideFeature + ' There is a bed, which is ' + cabin.bedCleanliness + '.'
       cabin.tippy = '<span class=tip title=' + JSON.stringify(cabin.readout) + '><<run setup.tippy("span")>>'

@@ -1,11 +1,13 @@
 setup.createBuilding = function (town, type, base) {
-// Tables used later
+  let roadName
+  let roadType
+  // Tables used later
   if (random(100) < setup.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
     // roads are currently only supported with two words
     const randRoad = Object.keys(town.roads).seededrandom()
     const roads = town.roads[randRoad].split(' ')
-    var roadName = roads[0] || setup.townData.roads.name.seededrandom()
-    var roadType = roads[1] || setup.townData.roads.type.seededrandom()
+    roadName = roads[0] || setup.townData.roads.name.seededrandom()
+    roadType = roads[1] || setup.townData.roads.type.seededrandom()
   } else {
     roadName = setup.townData.roads.name.seededrandom()
     roadType = setup.townData.roads.type.seededrandom()

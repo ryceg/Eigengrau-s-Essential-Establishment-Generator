@@ -19,9 +19,9 @@ setup.createAlchemist = function (town, opts) {
   alchemist.wealth = ''
   alchemist.expertise = ''
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
-  rollDataVariables.forEach(function (propName) {
+  for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(alchemist, setup.alchemist.rollData, propName)
-  })
+  }
   setup.alchemistModifiers(alchemist)
 
   // setup.townBinder(town, alchemist, 'alchemist')

@@ -47,9 +47,8 @@ setup.leaderFaction = function (town, faction) {
 
   switch (faction.leadershipType) {
     case 'individual':
-      var leaderTraits = setup.factionData.type[faction.type].leaderTraits
-      var key
-      for (key in leaderTraits) {
+      const leaderTraits = setup.factionData.type[faction.type].leaderTraits
+      for (const key in leaderTraits) {
         if (Array.isArray(leaderTraits[key])) {
           leaderTraits[key] = leaderTraits[key].seededrandom()
         }

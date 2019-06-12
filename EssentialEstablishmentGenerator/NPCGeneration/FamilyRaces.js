@@ -71,7 +71,7 @@ setup.findParentRaces = function (npc) {
       }
       break
     default:
-      lineage = 'Not Applicable'
+      lineage = undefined
       motherRace = npc.race
       fatherRace = npc.race
   }

@@ -33,7 +33,7 @@ setup.createWeather = function (town, biome, weather, season, time) {
     weather = {
       temperature: setup.townData.terrain[biome].weather.season[season].baseTemp || setup.townData.terrain['temperate'].weather.season['summer'].baseTemp,
       tempVariation: dice(2, 50),
-      season: season,
+      season,
       timer: {
         precipitation: 0,
         cloud: 0,

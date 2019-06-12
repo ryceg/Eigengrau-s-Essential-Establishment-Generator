@@ -1,6 +1,6 @@
 setup.tavernSleep = function (tavern) {
-  var restfulness = random(1, 100)
-  var sleepEasy = 0
+  let restfulness = random(1, 100)
+  let sleepEasy = 0
 
   if (tavern.wealth === 'kingly') {
     restfulness += 30
@@ -88,7 +88,7 @@ setup.tavernSleep = function (tavern) {
   }
 
   setup.tavernWakeUp = function (tavern) {
-    var bartender = tavern.bartender
+    const bartender = tavern.bartender
     if (tavern.wealth === 'kingly') {
       tavern.sleepOutput += "In the morning, you're awakened to a knock on the door; apparently " + tavern.name + ' comes with a complimentary breakfast in bed. You get dressed and open the door, and one of the ' + setup.profile(tavern.barmaid, 'barmaids') + ' comes in wheeling a trolley, upon which is laden with toast, fruits, cured meats, porridge, and all kinds of cheeses with breads.'
     } else if (tavern.wealth === 'aristocratic') {
