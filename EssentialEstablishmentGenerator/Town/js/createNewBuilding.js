@@ -1,18 +1,18 @@
 setup.buildingTypes = {
-  'tavern': 'setup.createTavern',
-  'smithy': 'setup.createSmithy',
-  'docks': 'setup.createDocks',
-  'alchemist': 'setup.createAlchemist',
-  'general store': 'setup.createGeneralStore',
-  'brothel': 'setup.createBrothel',
-  'town square': 'setup.createTownSquare',
-  'temple': 'setup.createTemple',
-  'market': 'setup.createMarket',
-  'bakery': 'setup.goodsAndServices.bakery.create',
-  'florist': 'setup.goodsAndServices.florist.create',
-  'tailor': 'setup.goodsAndServices.tailor.create',
-  'butcher': 'setup.goodsAndServices.butcher.create',
-  'cobbler': 'setup.goodsAndServices.cobbler.create'
+  'Tavern': setup.createTavern,
+  'Tmithy': setup.createSmithy,
+  'Docks': setup.createDocks,
+  'Alchemist': setup.createAlchemist,
+  'General Store': setup.createGeneralStore,
+  'Brothel': setup.createBrothel,
+  'Town Square': setup.createTownSquare,
+  'Temple': setup.createTemple,
+  'Market': setup.createMarket,
+  'bakery': setup.goodsAndServices.bakery.create,
+  'florist': setup.goodsAndServices.florist.create,
+  'tailor': setup.goodsAndServices.tailor.create,
+  'butcher': setup.goodsAndServices.butcher.create,
+  'cobbler': setup.goodsAndServices.cobbler.create
 }
 setup.createNewBuilding = function (town, buildingType, opts) {
   // this is necessary to point the function towards where the building creation function is kept.
