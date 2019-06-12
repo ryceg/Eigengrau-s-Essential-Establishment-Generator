@@ -15,24 +15,39 @@ setup.familyData = {
     [10, 'elderly']
   ],
 
-  parentAgeDelta: (npc) => {
+  parentAge: (npc) => {
     const race = npc.race || 'human'
     const parentStage = setup.rollFromTable(setup.familyData.parentStageTable, 100)
     const { baseAge, ageModifier } = setup.npcData.raceTraits[race].ageTraits[parentStage]
-    return baseAge + ageModifier()
-  },
-  childAgeDelta: (npc) => (-setup.familyData.parentAgeDelta(npc)),
-
-  siblingAgeDelta: (npc) => {
-    const race = npc.race || 'human'
-    const { baseAge } = setup.npcData.raceTraits[race].ageTraits['young adult']
-    return random(-baseAge, baseAge)
+    return npc.ageYears + baseAge + ageModifier()
   },
 
-  partnerAgeDelta: (npc) => {
+  siblingAge: (npc) => {
     const race = npc.race || 'human'
     const { baseAge } = setup.npcData.raceTraits[race].ageTraits['young adult']
-    return random(-baseAge, baseAge)
+    return npc.ageYears + random(-baseAge, baseAge)
+  },
+
+  childAge: (marriage) => {
+    if (marriage.parents.length > 0) {
+      // find the youngest parent
+      const youngest = marriage.parents
+        .map(key => State.variables.npcs[key])
+        .reduce((npcA, npcB) =>
+          npcA.ageYears <= npcB.ageYears ? npcA : npcB)
+      return 2 * youngest.ageYears - setup.familyData.parentAge(youngest)
+    } else if (marriage.children.length > 0) {
+      const sibling = State.variables.npcs[marriage.children[0]]
+      return setup.familyData.siblingAge(sibling)
+    } else {
+      return 0
+    }
+  },
+
+  partnerAge: (npc) => {
+    const race = npc.race || 'human'
+    const { baseAge } = setup.npcData.raceTraits[race].ageTraits['young adult']
+    return npc.ageYears + random(-baseAge, baseAge)
   },
 
   siblingRoll: () => {
