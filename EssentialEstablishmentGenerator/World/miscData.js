@@ -18,6 +18,24 @@ setup.misc = {
     smell: ["pungent, as if it was the result of somebody's terrible diet decisions", 'somewhat sweet, with a heady aroma', 'like the ass of a cow in cheese form', "like the best parts of a farm's stable", 'like freshly baled hay', 'like freshly cut grass', 'like a lemon tree', 'like fresh cream', 'like a rotting corpse', 'like a roast duck filled with spices', 'like a delicious slice of bread toasted over a fire', 'like a slice of bread left in the fire far too long', 'smoky and savory', "like a halfling's sweaty foot", 'like an open sewer'],
     cost: [1, 2, 3, 4, 5, 6, 6, 6, 7, 7, 7, 8, 9, 10, 10, 10, 11, 11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
   },
+  medal: {
+    create: base => {
+      const medal = Object.assign({
+        metal: setup.misc.medal.metal.seededrandom(),
+        material: setup.misc.medal.material.seededrandom(),
+        emblem: setup.misc.medal.emblem.seededrandom(),
+        colour: setup.misc.medal.colour.seededrandom()
+      }, base)
+      medal.readout = "This medal's emblem is made of " + medal.metal + ' and has a ' + medal.material + ' ribbon. The emblem is ' + medal.emblem + ' and the ribbon is coloured ' + medal.colour + '.'
+      medal.tip = '<b><<tooltip "medal"' + JSON.stringify(medal.readout) + '>></b>'
+
+      return medal
+    },
+    metal: ['iron', 'steel', 'silver', 'bronze', 'gold', 'copper', 'aluminum', 'lead', 'tin', 'nickel', 'oak wood', 'pine wood', 'brass'],
+    material: ['cloth', 'wool', 'fleece', 'silk', 'cotton', 'leather', 'burlap', 'horse hair'],
+    emblem: ['a pair of wings', 'a downard facing sword', 'an upward facing sword', 'a skull', 'an eagle', 'an arrow', 'an embossed circle', 'an axe', 'a heart', 'a cross', 'a holy symbol', 'the symbol of a local noble', 'a lion'],
+    colour: ['red', 'crimson', 'maroon', 'gold', 'yellow', 'peridot', 'peach', 'purple', 'orange', 'green', 'white', 'black', 'brown', 'blue', 'indigo', 'azure', 'mauve', 'teal', 'emerald']
+  },
   treasureMap: {
     create: base => {
       const map = Object.assign({
