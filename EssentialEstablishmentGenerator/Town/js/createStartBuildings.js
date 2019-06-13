@@ -2,18 +2,16 @@ setup.createStartBuildings = function (town) {
   const buildingType = ['Town Square', 'Tavern', 'Alchemist', 'General Store', 'Smithy', 'Market', 'Temple']
 
   if (town.location === 'seashore' || town.location === 'river coast') {
-    buildingType.push('docks')
+    buildingType.push('Docks')
   }
   if (town.hasBrothel) {
-    buildingType.push('brothel')
+    buildingType.push('Brothel')
   }
 
   for (const type of buildingType) {
-    if (!town.buildings[type]) {
-      town.buildings[type] = {}
-    }
-    const building = setup.buildingTypes[type](town)
-    town.buildings[type][building.key] = building
+    console.log(`Creating a ${type}...`)
+    setup.buildingTypes[type](town)
+    // town.buildings[type][building.key] = building
   }
 
   if (town.population > 100 || town.roll.wealth > 40) {
