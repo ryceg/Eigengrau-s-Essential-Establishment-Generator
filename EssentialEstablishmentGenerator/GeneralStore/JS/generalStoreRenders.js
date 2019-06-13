@@ -1,4 +1,4 @@
-setup.GeneralStoreRenders = function (GeneralStore) {
+setup.generalStoreRenders = function (GeneralStore) {
   let warmthRoll = random(1, 100)
   // update warmth based on store size
   const size = GeneralStore.size

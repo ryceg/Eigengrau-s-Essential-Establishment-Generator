@@ -1,4 +1,4 @@
-setup.GeneralStore = {
+setup.generalStore = {
   crud: [
     'rusty knives',
     'dull knives',

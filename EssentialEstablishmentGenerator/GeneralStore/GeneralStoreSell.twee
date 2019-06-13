@@ -12,7 +12,7 @@
   $shopkeep.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $shopkeep.mundane.randomMany(4)>>, you name it!
   <<default>>
   $shopkeep.name says "Well, what is it you need? We can do just about anything for you.
-<</switch>><<print setup.closestMatch(setup.GeneralStore.get.priceTalk($GeneralStore), 'priceTalk', 'priceModifier', 'wealth', '$GeneralStore.priceModifier', '$GeneralStore.roll.wealth')>>"</div>
+<</switch>><<print setup.closestMatch(setup.generalStore.get.priceTalk($GeneralStore), 'priceTalk', 'priceModifier', 'wealth', '$GeneralStore.priceModifier', '$GeneralStore.roll.wealth')>>"</div>
 
 <<switch $town.type>>
   <<case "city">>
