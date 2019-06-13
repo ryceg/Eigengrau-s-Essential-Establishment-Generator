@@ -8,11 +8,11 @@ setup.buildingTypes = {
   'Town Square': setup.createTownSquare,
   'Temple': setup.createTemple,
   'Market': setup.createMarket,
-  'bakery': setup.goodsAndServices.default.create('bakery'),
-  'florist': setup.goodsAndServices.default.create('florist'),
-  'tailor': setup.goodsAndServices.default.create('tailor'),
-  'butcher': setup.goodsAndServices.default.create('butcher'),
-  'cobbler': setup.goodsAndServices.default.create('cobbler')
+  'Bakery': setup.goodsAndServices.default.create('bakery'),
+  'Florist': setup.goodsAndServices.default.create('florist'),
+  'Tailor': setup.goodsAndServices.default.create('tailor'),
+  'Butcher': setup.goodsAndServices.default.create('butcher'),
+  'Cobbler': setup.goodsAndServices.default.create('cobbler')
 }
 setup.createNewBuilding = function (town, buildingType, opts) {
   // this is necessary to point the function towards where the building creation function is kept.
