@@ -10,9 +10,9 @@ setup.createGeneralStore = function (town, opts) {
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'assistant manager', 'acting manager'].seededrandom()
   })
   Object.assign(GeneralStore, {
-    note: setup.GeneralStore.get.note(GeneralStore),
+    note: setup.generalStore.get.note(GeneralStore),
     wordNoun: ['general store', 'shop'].seededrandom(),
-    crud: setup.GeneralStore.crud,
+    crud: setup.generalStore.crud,
     notableFeature: 'wide range of goods on sale',
     passageName: 'GeneralStoreOutput',
     initPassage: 'InitGeneralStore',
@@ -24,13 +24,13 @@ setup.createGeneralStore = function (town, opts) {
   GeneralStore.size = ''
   GeneralStore.cleanliness = ''
   GeneralStore.expertise = ''
-  setup.GeneralStoreModifiers(town, GeneralStore)
+  setup.generalStoreModifiers(town, GeneralStore)
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   for (const propName of rollDataVariables) {
-    setup.defineRollDataGetter(GeneralStore, setup.GeneralStore.rollData, propName)
+    setup.defineRollDataGetter(GeneralStore, setup.generalStore.rollData, propName)
   }
-  // setup.GeneralStoreRenders(GeneralStore)
+  // setup.generalStoreRenders(GeneralStore)
   console.log(GeneralStore)
   // setup.townBinder(town, GeneralStore, 'GeneralStore')
   console.groupEnd()

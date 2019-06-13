@@ -26,5 +26,5 @@ test('Testing general store rendering...', () => {
     expertise: 'well-crafted',
     activity: 'not terribly busy'
   }
-  expect(setup.GeneralStoreRenders(store)).toEqual(expected) // use toEqual to test object value equality
+  expect(setup.generalStoreRenders(store)).toEqual(expected) // use toEqual to test object value equality
 })
