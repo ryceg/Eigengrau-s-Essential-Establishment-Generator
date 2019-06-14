@@ -5,5 +5,7 @@ Many thanks to /u/FamousHippopotamus and /u/OrkishBlade for their excellent tabl
 
 [[Sign up to the newsletter to be notified about updates|EmailSignUp]]
 
+<<link "Changelog">><<goto "ChangelogFull">><</link>>
+
 <<include "PatreonSupporters">>
 <<include "Contributors">>

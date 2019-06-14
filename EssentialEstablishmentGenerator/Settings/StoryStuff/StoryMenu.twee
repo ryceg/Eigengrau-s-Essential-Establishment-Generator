@@ -1,31 +1,8 @@
 
 :: StoryMenu
 
-/*<<nobr>><<if def $currentPassage>><<link "Sliders for $currentPassage.name">>
-    <<if $currentPassage is $tavern>>
-          <<goto "InitTavern">>
-      <<elseif $currentPassage is $smithy>>
-          <<goto "InitSmithy">>
-      <<elseif $currentPassage is $alchemist>>
-          <<goto "InitAlchemist">>
-      <<elseif $currentPassage is $GeneralStore>>
-          <<goto "InitGeneralStore">>
-    <</if>>
-<</link>><</if>><</nobr>>*/
-
 <<link "Toolbox">><<goto "Toolbox">><</link>>
 
+[[Submit a bug or suggestion|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose]]
 
 <<link "Credits">><<goto "Credits">><</link>>
-
-<<link "Changelog">><<goto "ChangelogFull">><</link>>
-
-[[Submit a bug|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new?template=bug_report.md]]
-
-[[Submit a suggestion|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new?template=feature_request.md]]
-
-
-/*<<link "Check Variables">><<checkvars>><</link>>
-
-<<link "Create Bug Report">><<bugreport "Bug Report Instructions">><</link>>*/
-
