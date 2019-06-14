@@ -1,7 +1,8 @@
 
 setup.goodsAndServices = {
   default: {
-    create (town, type, opts) {
+    // this function is curried to be compatible with the buildingTypes array
+    create: (type) => (town, opts) => {
       // this is the template for the creation of generic buildings; i.e. those that are present in this list.
       // It is *not* for taverns, town squares, castles, or anything large scale.
       // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
