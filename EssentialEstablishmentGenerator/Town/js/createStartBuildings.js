@@ -1,43 +1,24 @@
 setup.createStartBuildings = function (town) {
   const buildingType = ['Town Square', 'Tavern', 'Alchemist', 'General Store', 'Smithy', 'Market', 'Temple']
 
-  if (town.location === 'seashore' || town.location === 'river coast') {
-    buildingType.push('Docks')
-  }
-  if (town.hasBrothel) {
-    buildingType.push('Brothel')
-  }
+  if (town.location === 'seashore' || town.location === 'river coast') { buildingType.push('Docks') }
+
+  if (town.hasBrothel) { buildingType.push('Brothel') }
 
   for (const type of buildingType) {
     console.log(`Creating a ${type}...`)
-    setup.buildingTypes[type](town)
-    // town.buildings[type][building.key] = building
+    setup.createNewBuilding(town, type)
   }
 
-  if (town.population > 100 || town.roll.wealth > 40) {
-    const bakery = setup.goodsAndServices.default.create('bakery')(town)
-    town.buildings.bakery[bakery.key] = bakery
-  }
+  if (town.population > 100 || town.roll.wealth > 40) { setup.createNewBuilding(town, 'Bakery') }
 
-  if (town.population > 1000 || town.roll.wealth > 70) {
-    const florist = setup.goodsAndServices.default.create('florist')(town)
-    town.buildings.florist[florist.key] = florist
-  }
+  if (town.population > 1000 || town.roll.wealth > 70) { setup.createNewBuilding(town, 'Florist') }
 
-  if (town.population > 600 || town.roll.wealth > 60) {
-    const tailor = setup.goodsAndServices.default.create('tailor')(town)
-    town.buildings.tailor[tailor.key] = tailor
-  }
+  if (town.population > 600 || town.roll.wealth > 60) { setup.createNewBuilding(town, 'Tailor') }
 
-  if (town.population > 400 || town.roll.wealth > 40) {
-    const butcher = setup.goodsAndServices.default.create('butcher')(town)
-    town.buildings.butcher[butcher.key] = butcher
-  }
+  if (town.population > 400 || town.roll.wealth > 40) { setup.createNewBuilding(town, 'Butcher') }
 
-  if (town.population > 700 || town.roll.wealth > 60) {
-    const cobbler = setup.goodsAndServices.default.create('cobbler')(town)
-    town.buildings.cobbler[cobbler.key] = cobbler
-  }
+  if (town.population > 700 || town.roll.wealth > 60) { setup.createNewBuilding(town, 'Cobbler') }
 
   return town
 }
