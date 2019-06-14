@@ -8,7 +8,9 @@ setup.findInContainer = function (container, key, value) {
   })
 
   for (const object of Object.keys(container)) {
-    if (container[object][key].includes(value)) {
+    const values = container[object][key]
+
+    if (Array.isArray(values) && values.includes(value)) {
       console.log('Found ' + value + ' in ' + object)
       return container[object]
     }
