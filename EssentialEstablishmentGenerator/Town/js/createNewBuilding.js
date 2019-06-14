@@ -18,10 +18,6 @@ setup.createNewBuilding = function (town, buildingType, opts) {
   // this is necessary to point the function towards where the building creation function is kept.
   // unfortunately, it currently needs to be updated manually with each new building.
 
-  if (!town.buildings[buildingType]) {
-    town.buildings[buildingType] = {}
-  }
-  const building = setup.buildingTypes[buildingType](town, opts)
-  town.buildings[buildingType][building.key] = building
+  setup.buildingTypes[buildingType](town, opts)
   return town
 }
