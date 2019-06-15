@@ -34,6 +34,8 @@
 <span class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic ---- Regulated magic: <<numberslider "$town.roll.arcana" $town.roll.arcana 1 100 1>></span>
 
 <span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.roll.law" $town.roll.law 1 100 1>></span>
+
+<span class="tip" title="How religious are they here?">Atheistic ---- Extremely Religious: <<numberslider "$town.roll.religiosity" $town.roll.religiosity 1 100 1>></span>
 /* <<link "Add 1">><<set $town.baseDemographics['dwarf'] += 50>><<run console.log($town)>><<goto "TownEdit">><</link>>
 <<nobr>><table>
     <tr>
