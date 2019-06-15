@@ -91,6 +91,8 @@ setup.createNPC = function (town, base) {
             return setup.lifestyleStandards[i]
           }
         }
+        // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
+        // various bits use all three, so it was easier to specify which than create three virtually identical functions.
         return lifestyleStandard
       },
       lifestyleExpenses (town, npc) {
@@ -100,8 +102,6 @@ setup.createNPC = function (town, base) {
         const ratio = setup.lifestyleStandards.find(function (desc) {
           return desc[1] === living[1]
         })
-        console.log({ income, living, ratio })
-        console.log(Math.round(income * (ratio[2] / 100)))
         return Math.round(income * (ratio[2] / 100))
       },
       profit (town, npc) {
