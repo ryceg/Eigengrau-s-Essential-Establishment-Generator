@@ -160,6 +160,7 @@ setup.createTown = function (base) {
     roll: {
       wealth: random(1, 100),
       reputation: random(1, 100),
+      religiosity: random(1, 100),
       sin: random(1, 100),
       diversity: random(1, 100),
       magic: random(1, 100),
