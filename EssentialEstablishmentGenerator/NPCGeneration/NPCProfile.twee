@@ -1,10 +1,10 @@
 :: NPCProfile
 <h1><<if $npcs[$selected.key].isShallow === true || $npcs[$selected.key].hasHistory === false>><<run setup.ExpandNPC($town, $npcs[$selected.key])>><</if>><<set $currentNPC to $npcs[$selected.key]>><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name</h1><<if def $currentNPC.key>><<button "Edit $currentNPC.name">><<goto "NPCProfileEdit">><</button>><</if>> -- <<button "Markdown for $currentNPC.name">><<goto "NPCProfileMarkdown">><</button>><<if $currentNPC.isThrowaway === true>> -- <<button "Save to NPCs list">><<set $npcs[$selected.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>><</if>><<set _age = "tip-" + Math.floor(randomFloat(1.0) * 10**16)>><<set _weight = "tip-" + Math.floor(randomFloat(1.0) * 10**16)>><<set _height = "tip-" + Math.floor(randomFloat(1.0) * 10**16)>><<run setup.profileWeightTooltip(_weight, $currentNPC)>><<run setup.profileAgeTooltip(_age, $currentNPC)>><<run setup.profileHeightTooltip(_height, $currentNPC)>>
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name is a <b><span @id="_age" class="tip">$currentNPC.age</span></b> $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> is <b><span @id="_height" class="tip">$currentNPC.height</span></b> and <b><span @id="_weight" class="tip">$currentNPC.weight</span></b>, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>> and a $currentNPC.beard,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.
-
+<<run console.log($currentNPC)>>
 $currentNPC.firstName $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
 
-$currentNPC.firstName is a <b><<tooltip $currentNPC.dndClass setup.townData.professions[$currentNPC.dndClass].description.toUpperFirst()>></b>, with a background of being a $currentNPC.background. $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon. $currentNPC.firstName belongs to the $currentNPC.socialClass wealth class.
+$currentNPC.professionSuccess, with a background of being a $currentNPC.background. $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon. $currentNPC.firstName belongs to the $currentNPC.socialClass wealth class.
 \<<if def $currentNPC.doesnt>>$currentNPC.doesnt<</if>>
 
 \<<if $currentNPC.sexuality !== 'heterosexual'>>
@@ -15,9 +15,25 @@ $currentNPC.firstName is a <b><<tooltip $currentNPC.dndClass setup.townData.prof
   \<<elseif $currentNPC.partnerID>>$currentNPC.firstName has a <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
   \<</if>>
 
-<<if def $currentNPC.note >>$currentNPC.note<</if>>
+<<if def $currentNPC.note >>$currentNPC.note<</if>><<nobr>>
 
-$currentNPC.firstName currently earns <<money $currentNPC.finances.grossIncome>> per day.
+<<set _finances to {}>><<for _key, _value range $currentNPC.finances>><<set _finances[_key] to _value($town, $currentNPC)>>
+<</for>><<set _finances.tax to _finances.grossIncome - _finances.netIncome,
+_finances.totalLifestyleExpenses to _finances.lifestyleStandard[0] + _finances.lifestyleExpenses>>
+
+$currentNPC.firstName currently earns <<money _finances.netIncome>> per day.
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Amount</th>
+    </tr>
+    <tr><td>Gross Income</td><td><<money _finances.grossIncome>></td></tr>
+    <tr><td><i>Tax</i></td><td><i><<money _finances.tax>></i></td></tr>
+    <tr><td>Net Income</td><td><<money _finances.netIncome>></td></tr>
+    <tr><td>Total Lifestyle Expenses (_finances.lifestyleStandard[1])</td><td><<money _finances.totalLifestyleExpenses>></td></tr>
+    <tr><td>Profit</td><td><<money _finances.profit>></td></tr>
+</table><</nobr>>
 
 <<linkreplace "Early Life">><div class='npcReplace'>Early Life</div><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
 <<linkreplace "Becoming a $currentNPC.dndClass">><div class='npcReplace'>Becoming a $currentNPC.dndClass</div><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndClassOrigin $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>

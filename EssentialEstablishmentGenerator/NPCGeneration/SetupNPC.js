@@ -63,10 +63,51 @@ setup.createNPC = function (town, base) {
 
     },
     roll: {
-
+      _wageVariation: dice(5, 10) - 27,
+      wageVariation (town) {
+        // _wageVariation is static; it's the "luck" that the NPC has in their profession.
+        // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
+        // expected range should be between -25 and 25.
+        return setup.calcPercentage(npc.roll._wageVariation, ((town.roll.wealth - 50) / 5))
+      }
     },
     finances: {
-      dailyWage: ''
+      grossIncome (town, npc) {
+        // TODO add hobbies
+        console.log(`Returning ${npc.name}'s gross income...`)
+        const profession = setup.findProfession(town, npc)
+        return Math.round(setup.calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), ((town.roll.wealth - 50) / 3)]))
+      },
+      netIncome (town, npc) {
+        console.log(`Returning ${npc.name}'s net income...`)
+        return Math.round(setup.calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
+      },
+      lifestyleStandard (town, npc) {
+        console.log(`Returning ${npc.name}'s lifestyle standard...`)
+        const income = npc.finances.netIncome(town, npc)
+        let lifestyleStandard
+        for (let i = 0; i < setup.lifestyleStandards.length; i++) {
+          if (income >= setup.lifestyleStandards[i][0]) {
+            return setup.lifestyleStandards[i]
+          }
+        }
+        return lifestyleStandard
+      },
+      lifestyleExpenses (town, npc) {
+        console.log(`Returning ${npc.name}'s lifestyle expenses...`)
+        const income = npc.finances.grossIncome(town, npc)
+        const living = npc.finances.lifestyleStandard(town, npc)
+        const ratio = setup.lifestyleStandards.find(function (desc) {
+          return desc[1] === living[1]
+        })
+        console.log({ income, living, ratio })
+        console.log(Math.round(income * (ratio[2] / 100)))
+        return Math.round(income * (ratio[2] / 100))
+      },
+      profit (town, npc) {
+        console.log(`Returning ${npc.name}'s profit...`)
+        return Math.round(npc.finances.netIncome(town, npc) - npc.finances.lifestyleStandard(town, npc)[0] - npc.finances.lifestyleExpenses(town, npc))
+      }
     },
     // value: data.value.seededrandom(),
     // drive: data.drive.seededrandom(),
@@ -213,7 +254,7 @@ setup.createNPC = function (town, base) {
 
   setup.createSexuality(npc)
   setup.createSocialClass(town, npc)
-  setup.createLivingStandards(town, npc)
+  setup.createlifestyleStandards(town, npc)
 
   if (npc.hasHistory !== false) setup.ExpandNPC(town, npc)
 
