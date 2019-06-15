@@ -30,6 +30,7 @@ setup.townData.professions = {
   },
   'mountaineer': {
     sv: 1500,
+    isHobby: true,
     type: 'recreation',
     sector: 'adventuring',
     description: 'a person living in a mountainous area.',
@@ -147,6 +148,7 @@ setup.townData.professions = {
   },
   'actor': {
     sv: 2500,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'impersonates characters, typically on stage in a theatrical production.',
@@ -220,6 +222,7 @@ setup.townData.professions = {
   },
   'astrologer': {
     sv: 950,
+    isHobby: true,
     type: 'profession',
     sector: 'science',
     description: 'uses astrology to tell others about their character or to predict their future.',
@@ -304,6 +307,7 @@ setup.townData.professions = {
   },
   'brewer': {
     sv: 550,
+    isHobby: true,
     type: 'business',
     sector: 'craftsmanship',
     description: 'brews ale.',
@@ -413,6 +417,7 @@ setup.townData.professions = {
   },
   'clock maker': {
     sv: 4550,
+    isHobby: true,
     type: 'profession',
     sector: 'craftsmanship',
     description: 'makes and repairs clocks.',
@@ -675,6 +680,7 @@ setup.townData.professions = {
   },
   'hunter': {
     sv: 250,
+    isHobby: true,
     type: 'labourer',
     sector: 'self employed',
     description: 'hunts game or other wild animals.',
@@ -966,6 +972,7 @@ setup.townData.professions = {
   },
   'painter': {
     sv: 1500,
+    isHobby: true,
     type: 'business',
     sector: 'arts',
     description: 'paints pictures using a variety of different substances.',
@@ -1517,6 +1524,7 @@ setup.townData.professions = {
   },
   'wrestler': {
     sv: 6150,
+    isHobby: true,
     type: 'labourer',
     sector: 'arts',
     description: 'performs in matches involving grappling and grappling-type techniques.',
@@ -1598,6 +1606,7 @@ setup.townData.professions = {
   },
   'florist': {
     sv: 3500,
+    isHobby: true,
     type: 'business',
     sector: 'agriculture',
     description: 'grows and arranges plants and cut flowers.',
@@ -1853,6 +1862,7 @@ setup.townData.professions = {
   },
   'choirmaster': {
     sv: 1000,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'trains a choir and orchestrates their singing when they perform.',
@@ -1871,6 +1881,7 @@ setup.townData.professions = {
   },
   'comedian': {
     sv: 5000,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'entertainer whose act is designed to make an audience laugh.',
@@ -1880,6 +1891,7 @@ setup.townData.professions = {
   },
   'conductor': {
     sv: 8000,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'directs the performance of an orchestra.',
@@ -1898,6 +1910,7 @@ setup.townData.professions = {
   },
   'curator': {
     sv: 2500,
+    isHobby: true,
     type: 'business',
     sector: 'arts',
     description: 'keeper and custodian of a museum or other collections of precious items.',
@@ -1925,6 +1938,7 @@ setup.townData.professions = {
   },
   'fashion designer': {
     sv: 5000,
+    isHobby: true,
     type: 'business',
     sector: 'arts',
     description: 'applies design, aesthetics and natural beauty to garments and their accessories.',
@@ -1943,6 +1957,7 @@ setup.townData.professions = {
   },
   'juggler': {
     sv: 3000,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'keeps several objects in motion in the air at the same time by alternately tossing and catching them.',
@@ -1970,6 +1985,7 @@ setup.townData.professions = {
   },
   'artisan': {
     sv: 4500,
+    isHobby: true,
     synonyms: ['artist', 'art maker'],
     type: 'profession',
     sector: 'arts',
@@ -1989,6 +2005,7 @@ setup.townData.professions = {
   },
   'musician': {
     sv: 800,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'plays a musical instrument.',
@@ -1998,6 +2015,7 @@ setup.townData.professions = {
   },
   'playwright': {
     sv: 2500,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'writes plays or musicals.',
@@ -2007,6 +2025,7 @@ setup.townData.professions = {
   },
   'poet': {
     sv: 3500,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'writes ballads, epics, sonnets, or other forms of poetry.',
@@ -2107,6 +2126,7 @@ setup.townData.professions = {
   },
   'animal collector': {
     sv: 10000,
+    isHobby: true,
     type: 'business',
     sector: 'agriculture',
     description: 'collects and deals in rare and exotic animals and monsters.',
@@ -2179,6 +2199,7 @@ setup.townData.professions = {
   },
   'collector': {
     sv: 3000,
+    isHobby: true,
     type: 'business',
     sector: 'business',
     description: 'collects things of a specified type, professionally or as a hobby.',
@@ -2188,6 +2209,7 @@ setup.townData.professions = {
   },
   'entrepreneur': {
     sv: 500,
+    isHobby: true,
     type: 'business',
     sector: 'business',
     description: 'organizes and operates a business or businesses, taking on greater than normal financial risks in order to do so.',
@@ -2233,6 +2255,7 @@ setup.townData.professions = {
   },
   'speculator': {
     sv: 9000,
+    isHobby: true,
     type: 'profession',
     sector: 'business',
     description: 'invests in stocks, property, or other ventures in the hope of making a profit.',
@@ -2281,7 +2304,7 @@ setup.townData.professions = {
     synonyms: ['translator'],
     type: 'profession',
     sector: 'business',
-    description: ' interprets language and its meaning, especially within ancient manuscripts.',
+    description: 'interprets language and its meaning, especially within ancient manuscripts.',
     dailyWage: 190,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -2432,6 +2455,7 @@ setup.townData.professions = {
   },
   'instrument Maker': {
     sv: 7500,
+    isHobby: true,
     type: 'profession',
     sector: 'craftsmanship',
     description: 'makes and repairs musical instruments.',
@@ -2441,6 +2465,7 @@ setup.townData.professions = {
   },
   'lapidary': {
     sv: 5000,
+    isHobby: true,
     type: 'profession',
     sector: 'craftsmanship',
     description: 'turns stone, minerals, or gemstones into decorative items such as cabochons, engraved gems, and faceted designs.',
@@ -2450,6 +2475,7 @@ setup.townData.professions = {
   },
   'luthier': {
     sv: 8500,
+    isHobby: true,
     type: 'profession',
     sector: 'craftsmanship',
     description: 'makes and repairs stringed instruments.',
@@ -2486,6 +2512,7 @@ setup.townData.professions = {
   },
   'restorer': {
     sv: 10000,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'repairs or renovates a work of art so as to return it to its original condition.',
@@ -2810,6 +2837,7 @@ setup.townData.professions = {
   },
   'conservationist': {
     sv: 3000,
+    isHobby: true,
     type: 'profession',
     sector: 'government and law',
     description: 'advocates for the protection and preservation of the environment and wildlife.',
@@ -2891,6 +2919,7 @@ setup.townData.professions = {
   },
   'notary': {
     sv: 3000,
+    isHobby: true,
     type: 'profession',
     sector: 'government and law',
     description: 'performs certain legal formalities, especially to draw up or certify contracts, deeds, and other documents for use in other jurisdictions.',
@@ -3079,7 +3108,7 @@ setup.townData.professions = {
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
-  'food & drink Taster': {
+  'food and drink taster': {
     sv: 3500,
     type: 'profession',
     sector: 'hospitality',
@@ -3262,6 +3291,7 @@ setup.townData.professions = {
   },
   'trainer': {
     sv: 5000,
+    isHobby: true,
     type: 'profession',
     sector: 'adventuring',
     description: 'trains someone in a particular skill, usually physical, for money.',
@@ -3578,6 +3608,7 @@ setup.townData.professions = {
   },
   'duelist': {
     sv: 3000,
+    isHobby: true,
     type: 'profession',
     sector: 'adventuring',
     description: 'skilled in one-on-one combat.',
@@ -3848,6 +3879,7 @@ setup.townData.professions = {
   },
   'cantor': {
     sv: 2000,
+    isHobby: true,
     type: 'profession',
     sector: 'religion',
     description: 'sings liturgical music and leads prayer in a synagogue.',
@@ -3867,6 +3899,7 @@ setup.townData.professions = {
 
   'confessor': {
     sv: 4000,
+    isHobby: true,
     type: 'profession',
     sector: 'religion',
     description: 'hears confessions and gives absolution and spiritual counsel.',
@@ -3939,6 +3972,7 @@ setup.townData.professions = {
   },
   'missionary': {
     sv: 2000,
+    isHobby: true,
     type: 'profession',
     sector: 'religion',
     description: 'goes on a religious mission to promote their faith in a foreign place.',
@@ -4048,6 +4082,7 @@ setup.townData.professions = {
   },
   'botanist': {
     sv: 2000,
+    isHobby: true,
     type: 'profession',
     sector: 'science',
     description: 'an expert in or student of the scientific study of plants.',
@@ -4057,6 +4092,7 @@ setup.townData.professions = {
   },
   'chemist': {
     sv: 3500,
+    isHobby: true,
     type: 'profession',
     sector: 'science',
     description: 'engaged in chemical research or experiments.',
@@ -4111,6 +4147,7 @@ setup.townData.professions = {
   },
   'mathematician': {
     sv: 5000,
+    isHobby: true,
     type: 'profession',
     sector: 'science',
     description: 'a scholar of the abstract science of number, quantity, and space.',
@@ -4168,7 +4205,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'naval',
     description: 'mans a small seacraft.',
-    dailyWage: 200,
+    dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
@@ -4291,6 +4328,7 @@ setup.townData.professions = {
   },
   'monster hunter': {
     sv: 4500,
+    isHobby: true,
     type: 'profession',
     sector: 'adventuring',
     description: 'takes on jobs to hunt down and kill or capture dangerous creatures.',
@@ -4300,6 +4338,7 @@ setup.townData.professions = {
   },
   'bounty hunter': {
     sv: 3500,
+    isHobby: true,
     type: 'profession',
     sector: 'adventuring',
     description: 'pursues a criminal or fugitive for whom a reward is offered.',
@@ -4399,6 +4438,7 @@ setup.townData.professions = {
   },
   'gambler': {
     sv: 800,
+    isHobby: true,
     type: 'profession',
     sector: 'crime',
     description: 'bets money on sports, card games, or games of chance in the hope of a profit.',
