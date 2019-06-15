@@ -1,13 +1,3 @@
-setup.livingStandards = [
-  [1000, 'aristocratic'],
-  [400, 'wealthy'],
-  [200, 'comfortable'],
-  [100, 'modest'],
-  [20, 'poor'],
-  [10, 'squalid'],
-  [0, 'wretched']
-]
-
 setup.lifestyleTables = {
   'aristocracy': [
     [5, 'comfortable'],
@@ -67,51 +57,34 @@ setup.homeTable = [
   [40, 'a palace'] // unreachable without biases
 ]
 
-setup.createLivingStandards = function (town, npc) {
-  // eslint-disable-next-line no-unused-vars
-  const profession = setup.findProfession(town, npc)
+setup.createlifestyleStandards = function (town, npc) {
+  console.groupCollapsed(`Creating living standards for ${npc.name}`)
+  const isCurrently = [
+    'has been',
+    'has recently been',
+    'is',
+    'is currently'
+  ].seededrandom()
 
   const wageVarianceNotes = [
-    [-25, 'unbelievably unsuccessful as a ' + npc.profession],
-    [-12, 'unsuccessful as a ' + npc.profession],
-    [-5, 'somewhat unsuccessful as a ' + npc.profession],
-    [0, ''],
-    [5, 'mildly successful as a ' + npc.profession],
-    [12, 'successful as a ' + npc.profession],
-    [25, 'extremely successful as a ' + npc.profession]
+    [-25, isCurrently + ' impossibly unsuccessful as a ' + npc.dndClass],
+    [-18, isCurrently + ' incredibly unsuccessful as a ' + npc.dndClass],
+    [-12, isCurrently + ' unsuccessful as a ' + npc.dndClass],
+    [-8, isCurrently + ' somewhat unsuccessful as a ' + npc.dndClass],
+    [-5, isCurrently + ' slightly unsuccessful as a ' + npc.dndClass],
+    [0, 'is a ' + npc.dndClass],
+    [5, isCurrently + ' mildly successful as a ' + npc.dndClass],
+    [8, isCurrently + ' reasonably successful as a ' + npc.dndClass],
+    [8, isCurrently + ' modestly successful as a ' + npc.dndClass],
+    [12, isCurrently + ' successful as a ' + npc.dndClass],
+    [12, isCurrently + ' fabulously successful as a ' + npc.dndClass],
+    [25, isCurrently + ' extremely successful as a ' + npc.dndClass]
   ]
   const note = wageVarianceNotes.find(function (desc) {
-    return desc[0] <= npc.finances.wageVariation
+    return desc[0] >= npc.roll.wageVariation(town)
   })
-  console.log(note)
-  // if (note !== '') {
-  //   npc.note.push(npc.firstName + ' ' + [
-  //     'has been',
-  //     'has recently been',
-  //     'is',
-  //     'is currently'
-  //   ].seededrandom() +
-  //       note + '.')
-  // }
-
-  setup.addPercentage = function (target, integer) {
-    return target / 100 * integer
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  const townVariance = ((town.roll.wealth - 50) / 5)
-
-  /* Object.defineProperty(npc.finances.grossIncome, {
-    get: setup.addPercentage(
-      setup.addPercentage(profession.dailyWage, npc.finances.wageVariation),
-      townVariance)
-  })
-  Object.defineProperty(npc.finances.livingStandard, {
-    get: setup.livingStandards.find(function (desc) {
-      return desc[0] <= npc.finances.grossIncome
-    })
-  }) */
-
+  npc.note = (npc.firstName + ' ' + note[1] + '.' || wageVarianceNotes[5][1])
+  console.groupEnd()
   return npc
 }
 
