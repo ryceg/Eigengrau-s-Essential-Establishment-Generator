@@ -12,7 +12,7 @@ setup.createGeneralStore = function (town, opts) {
   Object.assign(GeneralStore, {
     note: setup.generalStore.get.note(GeneralStore),
     wordNoun: ['general store', 'shop'].seededrandom(),
-    crud: setup.generalStore.crud,
+    crud: setup.generalStore.crud.seededrandom(),
     idle: setup.generalStore.idle.seededrandom(),
     notableFeature: 'wide range of goods on sale',
     passageName: 'GeneralStoreOutput',
