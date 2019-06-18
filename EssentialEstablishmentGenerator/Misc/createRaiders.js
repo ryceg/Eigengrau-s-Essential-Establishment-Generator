@@ -4,7 +4,7 @@ setup.raiderTables = {
       base.raidedVillager = setup.createNPC(town, { hasClass: false })
       // raiderLeader isn't used yet
       base.raiderLeader = setup.createNPC(town, { dndClass: 'barbarian', gender: 'man' })
-      base.text = `${base.text}A ${setup.profile(base.raidedVillager, 'disheveled looking villager')} runs up to you, and asks for you to help ${base.raidedVillager.himher}; apparently raiders have been tormenting ${town.name}. ${base.raidedVillager.heshe.toUpperFirst()} continues, saying `
+      base.text = `${base.text}A ${setup.profile(base.raidedVillager, ['disheveled looking villager', 'beat up looking peasant', 'dirty looking commoner', 'startled looking person'].seededrandom())} runs up to you, and asks for you to help ${base.raidedVillager.himher}; apparently raiders have been tormenting ${town.name}. ${base.raidedVillager.heshe.toUpperFirst()} continues, saying `
 
       return setup.raiderTables.extort.create(town, base)
     }

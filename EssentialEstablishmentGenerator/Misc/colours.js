@@ -9,14 +9,27 @@ setup.colours = {
       'yellow',
       'beige',
       'peridot',
-      'citrine'
+      'citrine',
+      'dark yellow',
+      'light yellow',
+      'bright yellow',
+      'pastel yellow',
+      'gold',
+      'lemon yellow'
     ],
     coloured: [
       'daffodil',
       'lemon',
       'dandelion',
       'straw',
-      'brass'
+      'brass',
+      'banana',
+      'canary',
+      'corn',
+      'gold',
+      'cheese',
+      'butter',
+      'amber'
     ]
   },
   orange: {
@@ -30,7 +43,15 @@ setup.colours = {
       'burnt orange',
       'sherbert orange',
       'ginger',
-      'amber'
+      'amber',
+      'light orange',
+      'dark orange',
+      'bright orange',
+      'pastel orange',
+      'carrot orange',
+      'mahogany',
+      'sunglow orange',
+      'pumpkin orange'
     ],
     coloured: [
       'orangutan',
@@ -39,7 +60,11 @@ setup.colours = {
       'apricot',
       'sandstone',
       'honey',
-      'marmalade'
+      'marmalade',
+      'apricot',
+      'pumpkin',
+      'poppy',
+      'marigold'
     ]
   },
   red: {
@@ -55,7 +80,22 @@ setup.colours = {
       'oxblood red',
       'vermillion',
       'maroon',
-      'carmine'
+      'carmine',
+      'dark red',
+      'light red',
+      'pale red',
+      'pastel red',
+      'apricot',
+      'burgundy',
+      'blood red',
+      'cardinal',
+      'coral',
+      'pink',
+      'mystic red',
+      'rose red',
+      'scarlet',
+      'rust',
+      'salmon'
     ],
     coloured: [
       'rose',
@@ -63,7 +103,16 @@ setup.colours = {
       'blood',
       'fire',
       'rust',
-      'coral'
+      'coral',
+      'apple',
+      'chili',
+      'raspberry',
+      'watermelon',
+      'fig',
+      'cranberry',
+      'cherry',
+      'ruby',
+      'cardinal'
     ]
   },
   purple: {
@@ -75,12 +124,31 @@ setup.colours = {
       'royal purple',
       'electric purple',
       'purple',
-      'mauve'
+      'mauve',
+      'violet',
+      'pale purple',
+      'dark purple',
+      'light purple',
+      'bright purple',
+      'dull purple',
+      'bright violet',
+      'lavendar',
+      'lilac',
+      'pale plum',
+      'pastel purple',
+      'amethyst'
     ],
     coloured: [
       'thistle',
       'orchid',
-      'blackberry'
+      'blackberry',
+      'eggplant',
+      'lilac',
+      'plum',
+      'grape',
+      'iris',
+      'lavendar',
+      'amethyst'
     ]
   },
   blue: {
@@ -98,13 +166,20 @@ setup.colours = {
       'indigo',
       'turquoise',
       'periwinkle',
-      'teal'
+      'teal',
+      'capri',
+      'royal blue',
+      'sapphire',
+      'pastel blue'
     ],
     coloured: [
       'denim',
       'sapphire',
       'sea',
-      'storm'
+      'storm',
+      'sky',
+      'peacock',
+      'topaz'
     ]
   },
   green: {
@@ -117,14 +192,30 @@ setup.colours = {
       'sage',
       'emerald',
       'lime',
-      'chartreuse'
+      'chartreuse',
+      'mint',
+      'seafoam green',
+      'pear green',
+      'apple green',
+      'bright green',
+      'dark green',
+      'forest green',
+      'light green',
+      'celadon',
+      'pastel green'
+
     ],
     coloured: [
       'seafoam',
       'shamrock',
       'seaweed',
       'pear',
-      'pickle'
+      'pickle',
+      'leaf',
+      'grass',
+      'frog',
+      'turtle',
+      'moss'
     ]
   },
   brown: {
@@ -137,7 +228,15 @@ setup.colours = {
       'chocolate',
       'caramel',
       'burnt butter',
-      'mud brown'
+      'mud brown',
+      'tan',
+      'dark brown',
+      'rust brown',
+      'sandy brown',
+      'bronze',
+      'sepia',
+      'pastel brown'
+
     ],
     coloured: [
       'acorn',
@@ -148,7 +247,10 @@ setup.colours = {
       'coffee',
       'ale',
       'pecan',
-      'mocha'
+      'mocha',
+      'cork',
+      'wood',
+      'tea'
     ]
   },
   black: {
@@ -167,7 +269,13 @@ setup.colours = {
       'charcoal',
       'licorice',
       'iron',
-      'burnt bread'
+      'burnt bread',
+      'obsidian',
+      'crow',
+      'soot',
+      'ink',
+      'raven',
+      'storm cloud'
     ]
   },
   white: {
@@ -177,7 +285,13 @@ setup.colours = {
     colour: [
       'white',
       'ghost white',
-      'pure white'
+      'pure white',
+      'pearl white',
+      'floral white',
+      'vanilla',
+      'seashell',
+      'snow white',
+      'ivory'
     ],
     coloured: [
       'cloud',
@@ -185,7 +299,16 @@ setup.colours = {
       'champagne',
       'bone',
       'snow',
-      'tooth'
+      'tooth',
+      'ivory',
+      'cotton',
+      'dandelion',
+      'chalk',
+      'swan',
+      'milk',
+      'sheep',
+      'pearl',
+      'lotus'
     ]
   }
 }
