@@ -13,12 +13,14 @@ setup.createGeneralStore = function (town, opts) {
     note: setup.generalStore.get.note(GeneralStore),
     wordNoun: ['general store', 'shop'].seededrandom(),
     crud: setup.generalStore.crud,
+    idle: setup.generalStore.idle.seededrandom(),
     notableFeature: 'wide range of goods on sale',
     passageName: 'GeneralStoreOutput',
     initPassage: 'InitGeneralStore',
     buildingType: 'GeneralStore'
   })
-
+  setup.structure.create(town, GeneralStore)
+  GeneralStore.structure.generalStoreDescriptor = 'a ' + GeneralStore.structure.material.wealth + ' ' + GeneralStore.structure.material.noun + ' ' + GeneralStore.wordNoun + ' with a ' + GeneralStore.structure.roof.verb + ' roof'
   setup.createGeneralStoreName(town, GeneralStore)
   GeneralStore.wealth = ''
   GeneralStore.size = ''
