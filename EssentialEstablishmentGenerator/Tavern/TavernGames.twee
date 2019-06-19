@@ -6,7 +6,7 @@
 <h3>$tavern.game.name</h3>
 $tavern.game.description
 <<linkreplace "Ask to play">>
-	The $NPCgamer.raceNote that was playing says "$tavern.game.rules The current bet is <<money $tavern.game.bet>>."
+	<br>The $NPCgamer.raceNote that was playing says "$tavern.game.rules The current bet is <<money $tavern.game.bet>>."
 <</linkreplace>>
 </div>
 <</nobr>>
