@@ -19,6 +19,7 @@ setup.createTavern = function (town, opts) {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     buildingType: 'tavern',
+    stageDescriptor: setup.tavern.stageDescriptor.seededrandom(),
     wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].seededrandom(),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
     fun: setup.tavern.fun.seededrandom(),
@@ -75,10 +76,21 @@ setup.createTavern = function (town, opts) {
   tavern.lodging = ''
   tavern.sin = ''
   tavern.food = ''
+  // tavern.colour1 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
+  // tavern.colour2 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
   tavern.bedCleanliness = ''
+  // Define entertainment
   if (tavern.roll.size >= 30) {
-    tavern.entertainment = setup.tavern.entertainment.seededrandom()
+    tavern.entertainment = setup.tavern.get.entertainment(tavern)
   } else tavern.entertainment = ''
+  // Define tavern feature based on wealth
+  if (tavern.roll.wealth <= 35) {
+    tavern.feature = setup.tavern.get.cheapFeature(tavern)
+  } else if (tavern.roll.wealth <= 65) {
+    tavern.feature = setup.tavern.get.averageFeature(tavern)
+  } else if (tavern.roll.wealth > 65) {
+    tavern.feature = setup.tavern.get.wealthyFeature(tavern)
+  }
   setup.structure.create(town, tavern)
   tavern.structure.tavernDescriptor = tavern.structure.material.wealth + ' ' + tavern.structure.material.noun + ' ' + tavern.wordNoun + ' with a ' + tavern.structure.roof.verb + ' roof'
   const rollData = setup.tavern.rollData
