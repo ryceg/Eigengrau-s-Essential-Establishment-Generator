@@ -78,18 +78,18 @@ setup.createTown = function (base) {
     get demographic () {
       // console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
-      const races = Object.keys(this._baseDemographics)
+      const races = Object.keys(this.baseDemographics)
       // Calculate the sum of the raw demographic values.
       const sum = races
         .map(function (byRace) {
-          return this._baseDemographics[byRace]
+          return this.baseDemographics[byRace]
         }, this)
         .reduce(function (acc, cur) {
           return acc + cur
         }, 0)
       // Calculate the demographic percentages.
       races.forEach(function (byRace) {
-        this._demographic[byRace] = this._baseDemographics[byRace] / sum * 100
+        this._demographic[byRace] = this.baseDemographics[byRace] / sum * 100
       }, this)
       return this._demographic
     },
