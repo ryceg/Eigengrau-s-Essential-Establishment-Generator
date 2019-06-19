@@ -45,7 +45,6 @@ setup.createTavern = function (town, opts) {
       'brothel',
       'brothel'
     ].seededrandom(),
-    // entertainment: setup.tavern.entertainment.seededrandom(),
     // patrons: setup.tavern.patrons.seededrandom(),
     game: setup.tavern.games.seededrandom()
   })
@@ -77,7 +76,11 @@ setup.createTavern = function (town, opts) {
   tavern.sin = ''
   tavern.food = ''
   tavern.bedCleanliness = ''
-
+  if (tavern.roll.size >= 30) {
+    tavern.entertainment = setup.tavern.entertainment.seededrandom()
+  } else tavern.entertainment = ''
+  setup.structure.create(town, tavern)
+  tavern.structure.tavernDescriptor = tavern.structure.material.wealth + ' ' + tavern.structure.material.noun + ' ' + tavern.wordNoun + ' with a ' + tavern.structure.roof.verb + ' roof'
   const rollData = setup.tavern.rollData
 
   Object.defineProperty(tavern, 'lodging', {
@@ -155,7 +158,6 @@ setup.createTavern = function (town, opts) {
   }
   // setup.tavernRender(tavern)
   // setup.townBinder(town, tavern, 'tavern')
-
   tavern.tippyDescription = 'A ' + tavern.size + ' ' + tavern.wordNoun + " that's " + tavern.cleanliness + ', and is known for ' + tavern.notableFeature + '.'
   console.log(tavern)
   console.groupEnd()
