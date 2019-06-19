@@ -4,7 +4,7 @@ setup.raiderTables = {
       base.raidedVillager = setup.createNPC(town, { hasClass: false })
       // raiderLeader isn't used yet
       base.raiderLeader = setup.createNPC(town, { dndClass: 'barbarian', gender: 'man' })
-      base.text = `${base.text}A ${setup.profile(base.raidedVillager, 'disheveled looking villager')} runs up to you, and asks for you to help ${base.raidedVillager.himher}; apparently raiders have been tormenting ${town.name}. ${base.raidedVillager.heshe.toUpperFirst()} continues, saying `
+      base.text = `${base.text}A ${setup.profile(base.raidedVillager, ['disheveled looking villager', 'beat up looking peasant', 'dirty looking commoner', 'startled looking person'].seededrandom())} runs up to you, and asks for you to help ${base.raidedVillager.himher}; apparently raiders have been tormenting ${town.name}. ${base.raidedVillager.heshe.toUpperFirst()} continues, saying `
 
       return setup.raiderTables.extort.create(town, base)
     }
@@ -36,6 +36,7 @@ setup.raiderTables = {
       return setup.raiderTables.torment.create(town, base)
     },
     options: [
+      // they demand ___
       'that we give them half of all the food we grow',
       'that we provide free room and board whenever they travel through our territory',
       'that we give them the eldest son from each family to bolster their might',
@@ -45,7 +46,17 @@ setup.raiderTables = {
       'slave labor from the men in our village, who work all day building a new encampment',
       'a cut of all the goods that we produce here',
       'to be tipped off when merchants and travelers come through town',
-      'that we store dangerous substances in our homes for them'
+      'that we store dangerous substances in our homes for them',
+      'that we give them half of our livestock',
+      'they we supply them with construction materials for a fort they are building',
+      'the youngest child of each family as proof of loyalty',
+      'a family heirloom from each family in town',
+      'that we hand over any jewels our family may have',
+      'that we forfeit control of the village to them',
+      'that we help smuggle them into a nearby city via covered farmer wagons',
+      'that we worship their leader like a god',
+      'that we build a statue to their leader',
+      'that we produce weapons for their forces'
     ]
   },
 
