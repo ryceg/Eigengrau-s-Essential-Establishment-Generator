@@ -309,7 +309,7 @@ setup.tavern = {
         'There are several very finely painted posters of past performers nicely framed up along one of the tavern walls.',
         'The bar of the tavern has a fine laquer and only a few mug scratches.',
         'The bar of the tavern has been freshly painted a fine ' + tavern.colour1 + 'colour.',
-        'The bare of the tavern is embedded with gold coins from all over the place.',
+        'The bar of the tavern is embedded with gold coins from all over the place.',
         'The lanterns on the tavern walls are incredibly ornate and wrought iron.',
         'The tavern is lit by ' + tavern.colour1 + 'coloured paper lanterns hung from the ceiling',
         'The tables of the tavern have been freshly painted a ' + tavern.colour1 + ' colour and is free of any scratches.',
@@ -761,7 +761,7 @@ setup.tavern = {
           size: 50,
           wealth: 10,
           note: [
-            tavern.name + ' is a tall building, but not particularly spacious; the ' + tavern.cleanliness + ' bar occupies the ground floor which is ' + tavern.lighting + ', and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ' + tavern.material + ' building.',
+            tavern.name + ' is a tall building, but not particularly spacious; the ' + tavern.cleanliness + ' bar occupies the ground floor which is ' + tavern.lighting + ', and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ' + tavern.structure.material.noun + ' building.',
             tavern.name + ' is a reasonably spacious building that is ' + tavern.lighting + ", and very similar to the countless other taverns that you've come across in your times, right down to the specials board being somewhat battered with so many uses, and the dart board with many holes constantly seeing use.",
             tavern.name + ' is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is ' + tavern.cleanliness + ', and ' + tavern.lighting + '.'
           ].seededrandom()
@@ -769,7 +769,7 @@ setup.tavern = {
         {
           size: 40,
           wealth: 10,
-          note: [tavern.name + ' is slightly cramped, and ' + tavern.lighting + '. The ' + tavern.cleanliness + " tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The " + tavern.wealth + ' establishment is clearly in need of an extension to relieve the somewhat small ' + tavern.material + ' pub of its congestion issues.'
+          note: [tavern.name + ' is slightly cramped, and ' + tavern.lighting + '. The ' + tavern.cleanliness + " tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The " + tavern.wealth + ' establishment is clearly in need of an extension to relieve the somewhat small ' + tavern.structure.material.noun + ' pub of its congestion issues.'
           ].seededrandom()
         },
         {
@@ -781,7 +781,7 @@ setup.tavern = {
         {
           size: 20,
           wealth: 10,
-          note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordNoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.material + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
+          note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordNoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.structure.material.noun + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
           ].seededrandom()
         }
 
