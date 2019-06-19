@@ -36,7 +36,7 @@
 <span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.roll.law" $town.roll.law 1 100 1>></span>
 
 <span class="tip" title="How religious are they here?">Atheistic ---- Extremely Religious: <<numberslider "$town.roll.religiosity" $town.roll.religiosity 1 100 1>></span>
-/* <<link "Add 1">><<set $town.baseDemographics['dwarf'] += 50>><<run console.log($town)>><<goto "TownEdit">><</link>>
+<<link "Add 1">><<set $town.baseDemographics['dwarf'] += 50>><<run console.log($town)>><<goto "TownEdit">><</link>>
 <<nobr>><table>
     <tr>
         <th>Race</th>
@@ -49,9 +49,9 @@
         <td>_race</td>
         <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
-        <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider "$town.baseDemographics[_race]" $town.baseDemographics[_race] 0 100 1>></span></td>
+        <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town.baseDemographics['" + _race + "']"` $town.baseDemographics[_race] 0 100 1>></span></td>
     </tr>
 <</for>>
-</table><</nobr>> */
+</table><</nobr>>
 
-<<button "Save Changes">><<run setup.createSocioPolitics($town)>><<run setup.townRender($town)>><<goto "TownOutput">><</button>>
+<<button "Save Changes">><<run console.log($town)>><<run setup.createSocioPolitics($town)>><<run setup.townRender($town)>><<goto "TownOutput">><</button>>
