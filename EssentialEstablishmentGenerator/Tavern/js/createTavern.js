@@ -79,7 +79,7 @@ setup.createTavern = function (town, opts) {
   tavern.colour1 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
   tavern.colour2 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
   tavern.bedCleanliness = ''
-  // Define entertainment
+  // Define entertainment if large enough
   if (tavern.roll.size >= 30) {
     tavern.entertainment = setup.tavern.get.entertainment(tavern)
   } else tavern.entertainment = ''
@@ -91,6 +91,7 @@ setup.createTavern = function (town, opts) {
   } else if (tavern.roll.wealth > 65) {
     tavern.feature = setup.tavern.get.wealthyFeature(tavern)
   }
+  // Sets up building structure and creates building description
   setup.structure.create(town, tavern)
   tavern.structure.tavernDescriptor = tavern.structure.material.wealth + ' ' + tavern.structure.material.noun + ' ' + tavern.wordNoun + ' with a ' + tavern.structure.roof.verb + ' roof'
   const rollData = setup.tavern.rollData
