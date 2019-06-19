@@ -40,7 +40,7 @@ _listbox -- <<button "Create new faction">>
     <td><<link "_faction.name">><<set $selected to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
     <td>_faction.type _faction.wordNoun</td>
     <td>_faction.size</td>
-    <td><<link "x">><<set _deleted to $town.factions[_faction.key]>><<run delete $town.factions[_faction.key]>><<goto "TownOutput">><<notify 5000>>Deleted _deleted.name<</notify>><</link>></td>
+    <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
   </tr>
  /* - A _faction.size _faction.type _faction.wordNoun */
 <</capture>><</for>></table><</nobr>></div>
