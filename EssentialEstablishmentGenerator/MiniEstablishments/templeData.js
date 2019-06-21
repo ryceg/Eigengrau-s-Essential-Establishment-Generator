@@ -314,6 +314,14 @@ setup.temple = {
     'says you must leave soon as a ritual is beginning',
     'offers for you all to join in on a ritual that is happening in the temple soon',
     'requests that you change into sets of white robes if you are going to remain here for long',
-    'warns you that holy spirits reside in this temple, and if you do not respect them you will anger them'
+    'warns you that holy spirits reside in this temple, and if you do not respect them you will anger them',
+    'tells you there are beds in a room below the temple and you are welcome to them',
+    'offers you a cracker from a small wicker basker',
+    'asks if you are need of any excorcisms on this visit',
+    'claims $priest.heshe has minor relics that can be sold to you',
+    'offers you each a candle to light for your prayer to be heard',
+    'says your weapons must be left in a chest by the door',
+    'tells you not to touch any of the holy items in the temple',
+    'asks if you have come for a blessing of some kind'
   ]
 }
