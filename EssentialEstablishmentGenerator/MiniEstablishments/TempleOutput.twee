@@ -1,11 +1,11 @@
 :: TempleOutput
 <<unset $selectedBuilding>><<set $temple to ($town.buildings.temple[$selected.key] || $town.buildings.temple[$currentPassage.key])>><<set $priest to $npcs[$temple.priest.key]>>
 <h1>$temple.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou come across $temple.structure.templeDescriptor. <<print either($temple.guardReadout, "", "", "", "", "", "", "", "", "",)>>
+$temple.interiorReadout
+$temple.aboutReadout
 
-<br> $temple.aboutReadout
-<br> $temple.interiorReadout
-
-A priest greets you, and introduces $priest.himherself as <<profile $priest>>.
+<h3>Priest</h3>
+A priest greets you, and introduces $priest.himherself as <<profile $priest>>. $temple.priestChat.
 
 <<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
 
