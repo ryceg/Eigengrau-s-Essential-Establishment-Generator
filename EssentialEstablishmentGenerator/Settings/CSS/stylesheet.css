@@ -86,7 +86,8 @@ font-size:          .705cm;
 
 h3{
 font-size:          .529cm;
-border-bottom:      3px solid #c9ad6a
+margin-bottom: 0em;
+border-bottom:      3px solid #c9ad6a;
 }
 
 
@@ -97,7 +98,10 @@ margin-bottom:      0;
 font-size:          .458cm
 }
 
-
+span.macro-linkreplace-insert{
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 /* H5 */
 
 h5{
