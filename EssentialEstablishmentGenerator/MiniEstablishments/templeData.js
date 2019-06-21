@@ -289,5 +289,31 @@ setup.temple = {
     'large stone stairs leading down to a pool of clear water',
     'pillars carved with intricate images of the heavens',
     'floor tiles made of red sandstone'
+  ],
+  priestChat: [
+    // The priest ___
+    'says there are beds in a backroom that you all can use for a night if you need',
+    'tells you they are holding mass soon and you are welcome to join',
+    'says you can light a candle to honor a fallen soul for only 5 copper',
+    'softly says you are free to confess your sins here',
+    'informs you the temple has confessionals open if you wish to confess',
+    'tells you donations are always welcome if you feel generous',
+    'says you all can stay as long as you please in this holy house',
+    'says that the temple will bless you for a small price',
+    'says that $priest.heshe will bless your weapons for a small price, but you must not tell anyone',
+    'tells you the church must close at dark but you can stay until then',
+    'asks you if you have come to see the holy relic',
+    'asks what the church can do for you today',
+    'asks that you stay very quiet while visiting today',
+    'slyly brings a donation basket when $priest.heshe comes to chat',
+    'tells you the main priest is gone today, but that $priest.heshe can also give blessings',
+    'says that there is a free meal being offered to all who enter, and offers you some soup',
+    'asks you to remove your shoes and place them by the door',
+    'hands you hand-made pamphlets about the religion of the temple',
+    'says you can not stay long here today as mass is starting soon',
+    'says you must leave soon as a ritual is beginning',
+    'offers for you all to join in on a ritual that is happening in the temple soon',
+    'requests that you change into sets of white robes if you are going to remain here for long',
+    'warns you that holy spirits reside in this temple, and if you do not respect them you will anger them'
   ]
 }
