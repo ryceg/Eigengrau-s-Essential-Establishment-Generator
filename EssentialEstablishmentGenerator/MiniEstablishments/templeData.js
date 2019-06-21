@@ -362,6 +362,8 @@ setup.temple = {
   blessingGift: [
     'Afterwards, the priest tells you that you have been blessed with <<print ["["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart"].seededrandom() but does not explain what that means", "a healthy body", "an ever healing body for the next few hours", "a feeling of weightlessness"].seededrandom()>>',
     'The priest tells you that you were gifted <<print ["underwater breathing", "pure luck", "perfect aim", "silent steps", "strength above strength", "a link with the temple god", "an angelic glow"].seededrandom()>> for the next few hours',
-    'Afterwards, $priest.firstName apologizes and says the blessing failed'
+    'Afterwards, $priest.firstName apologizes and says the blessing failed',
+    'After all that the priest tells you that <<print ["your body has become heat resistant", "your body will feel no cold", "you can now sense evil", "you can now see in the dark", "your fighting skills will be better", "you will feel true empathy"].seededrandom()>> for the next day or so',
+    "You're told that the temple patron will now be watching over you, but it's unclear what that really means"
   ]
 }
