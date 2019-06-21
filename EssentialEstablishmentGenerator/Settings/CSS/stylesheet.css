@@ -57,7 +57,7 @@ img {
 }
 
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, h6{
 margin-top:         .2em;
 margin-bottom:      .2em;
 font-family:        MrJeeves;
@@ -111,7 +111,10 @@ font-weight:        900
 /* H6 */
 
 
-h6{}
+h6{
+  font-size:          .445cm;
+  border-bottom:      1.25px solid #c9ad6a
+}
 
 
 /* ### Paragraphs */
