@@ -323,5 +323,29 @@ setup.temple = {
     'says your weapons must be left in a chest by the door',
     'tells you not to touch any of the holy items in the temple',
     'asks if you have come for a blessing of some kind'
+  ],
+  priestLook: [
+    // A temple priest is ___
+    'currently placing some nice smelling incense in <<print ["an old looking", "an ornate", "a cheap looking", "an animal shaped", "a wooden", "a stone", "a golden", "a bronze", "a dirty looking", "a holy"].seededrandom()>> incense holder',
+    'kneeling in front of a <<print ["small wooden statue", "small stone statue", "small basin of water", "large basin of water", "large wooden statue", "large group of melting candles", "blazing fire", "picture of the temple god", "holy book of the temple", "row of pews"].seededrandom()>> and murmuring a prayer of some kind',
+    'dusting of one of the temple pews with a small fathered brush',
+    'blessing a small basin of water at the front of the temple',
+    'lighting a candle and placing it among a large row of candles',
+    'sitting in one of the pews whispering a prayer',
+    'wearing a large flowing cloak over $priest.hisher clothes',
+    'talking with one of the temple followers',
+    'running through $priest.hisher lines for an upcoming mass',
+    'coming out from a door at the back of the temple',
+    'ringing a small bell and humming quietly',
+    'pouring some sort of liquid into a large number of small cups on a table at the front of the temple',
+    'doing some kind of work on the temple organ',
+    'wearing a large and elaborate headpiece',
+    'standing on a plinth with $priest.hisher hands raised towards the sky',
+    'reading out of a musty looking tome',
+    'starting to doze off in one of the pews',
+    'placing hymnals on every pew of the temple',
+    'relighting the torches that are scattered around the temple',
+    'polishing the brass candlesticks at the front of the temple',
+    'seemingly talking to the open air as no one is around $priest.himher'
   ]
 }

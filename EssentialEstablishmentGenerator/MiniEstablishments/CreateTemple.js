@@ -25,7 +25,8 @@ setup.createTemple = function (town, opts) {
     rooms: data.rooms.seededrandom(),
     features: data.features.seededrandom(),
     architect: data.architect.seededrandom(),
-    priestChat: '<<print $priest.heshe.toUpperFirst()>> ' + data.priestChat.seededrandom()
+    priestChat: '<<print $priest.heshe.toUpperFirst()>> ' + data.priestChat.seededrandom(),
+    priestLook: 'A temple priest is ' + data.priestLook.seededrandom()
 
   })
   setup.structure.create(town, temple)
