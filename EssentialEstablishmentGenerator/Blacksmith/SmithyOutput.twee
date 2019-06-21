@@ -1,6 +1,6 @@
 
 :: SmithyOutput [smithy]
-<<unset $selectedBuilding>><<set $smithy to ($town.buildings.smithy[$selected.key] || $town.buildings.smithy[$currentPassage.key])>><<set $blacksmith to $npcs[$smithy.blacksmith.key]>><h1>$smithy.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.structure.smithyDescriptor is $smithy.size. <<print setup.closestMatch(setup.smithy.get.lookAround($smithy), 'note', 'cleanliness', 'wealth', $smithy.roll.cleanliness, $smithy.roll.wealth)>>There is a blacksmith currently <<print $blacksmith.idle.seededrandom()>>.
+<<unset $selectedBuilding>><<set $smithy to ($town.buildings.smithy[$selected.key] || $town.buildings.smithy[$currentPassage.key])>><<set $blacksmith to $npcs[$smithy.blacksmith.key]>><h1>$smithy.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.structure.smithyDescriptor is $smithy.size. <<print setup.closestMatch(setup.smithy.get.lookAround($smithy), 'note', 'cleanliness', 'wealth', $smithy.roll.cleanliness, $smithy.roll.wealth)>> There is a blacksmith currently <<print $blacksmith.idle.seededrandom()>>.
 <<print setup.closestMatch(setup.smithy.get.expertise($smithy), 'note', 'expertise', 'wealth', $smithy.roll.expertise, $smithy.roll.wealth)>>
 
 <h3>Blacksmith</h3>
