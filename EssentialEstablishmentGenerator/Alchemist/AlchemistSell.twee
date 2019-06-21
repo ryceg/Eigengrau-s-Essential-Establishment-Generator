@@ -1,5 +1,5 @@
 :: AlchemistSell
-<<linkreplace "<h4>Buy something</h4>">><h3>$alchemist.name's Potions and Wares</h3><<nobr>>
+<<linkreplace "<h4>Buy something</h4>">><h6>$alchemist.name's Potions and Wares</h6><<nobr>>
 <div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
@@ -28,7 +28,7 @@
     <th>Item</th>
     <th>Cost</th>
   </tr>
-<h3>Adventuring Gear</h3>
+<h6>Adventuring Gear</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "adventuring gear"
@@ -37,7 +37,7 @@
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Tools</h3>
+<h6>Tools</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "tools"
@@ -46,7 +46,7 @@
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Consumables</h3>
+<h6>Consumables</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "consumables"
