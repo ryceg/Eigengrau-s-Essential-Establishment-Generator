@@ -9,7 +9,7 @@ $temple.priestLook.
 The priest greets you, and introduces $priest.himherself as <<profile $priest>>. $temple.priestChat.
 <<linkreplace "<h4>Get Temple Blessing</h4>" t8n>>
 <h6>Blessing</h6>
-$temple.blessing<</linkreplace>>
+<div class="descriptive">$temple.blessing</div><</linkreplace>>
 <<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
 
 <<switch $town.type>>
