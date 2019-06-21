@@ -347,5 +347,21 @@ setup.temple = {
     'relighting the torches that are scattered around the temple',
     'polishing the brass candlesticks at the front of the temple',
     'seemingly talking to the open air as no one is around $priest.himher'
+  ],
+  blessingConvey: [
+    'The priest raises their hand above you and mumbles some words in a language you do not understand',
+    '$priest.firstName touches their finger to your head and whispers something quietly',
+    'The priest walks in circles around your holding an incense lamp and chanting something quietly',
+    '$priest.firstName pours water over your face from a small wooden basin while chanting a holy verse',
+    '$priest.firstName pours water over your body from a large stone goblet while whispering an ancient blessing',
+    'The priest takes a small cup of paint and draws lines across your face while whispering something in a holy language',
+    'The priest has you drink a liquid out of a wooden cup while murmuring some sort of prayer',
+    '$priest.firstName draws a holy symbol around you on the ground in chalk while chanting loudly',
+    'The priest paints holy symbols on your palms and then holds your hands while murmuring a prayer'
+  ],
+  blessingGift: [
+    'Afterwards, the priest tells you that you have been blessed with <<print ["["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart"].seededrandom() but does not explain what that means", "a healthy body", "an ever healing body for the next few hours", "a feeling of weightlessness"].seededrandom()>>',
+    'The priest tells you that you were gifted <<print ["underwater breathing", "pure luck", "perfect aim", "silent steps", "strength above strength", "a link with the temple god", "an angelic glow"].seededrandom()>> for the next few hours',
+    'Afterwards, $priest.firstName apologizes and says the blessing failed'
   ]
 }
