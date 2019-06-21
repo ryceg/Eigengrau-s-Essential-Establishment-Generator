@@ -5,7 +5,8 @@ $temple.interiorReadout
 $temple.aboutReadout
 
 <h3>Priest</h3>
-A priest greets you, and introduces $priest.himherself as <<profile $priest>>. $temple.priestChat.
+$temple.priestLook.
+The priest greets you, and introduces $priest.himherself as <<profile $priest>>. $temple.priestChat.
 
 <<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
 
@@ -26,7 +27,7 @@ A priest greets you, and introduces $priest.himherself as <<profile $priest>>. $
     <th>Item</th>
     <th>Cost</th>
   </tr>
-<h3>Adventuring Gear</h3>
+<h6>Adventuring Gear</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "adventuring gear"
@@ -35,7 +36,7 @@ A priest greets you, and introduces $priest.himherself as <<profile $priest>>. $
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Tools</h3>
+<h6>Tools</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "tools"
