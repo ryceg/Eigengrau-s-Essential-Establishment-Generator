@@ -1,12 +1,15 @@
 :: TempleOutput
 <<unset $selectedBuilding>><<set $temple to ($town.buildings.temple[$selected.key] || $town.buildings.temple[$currentPassage.key])>><<set $priest to $npcs[$temple.priest.key]>>
 <h1>$temple.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou come across $temple.structure.templeDescriptor. <<print either($temple.guardReadout, "", "", "", "", "", "", "", "", "",)>>
+$temple.interiorReadout
+<br>$temple.aboutReadout
 
-<br> $temple.aboutReadout
-<br> $temple.interiorReadout
-
-A priest greets you, and introduces $priest.himherself as <<profile $priest>>.
-
+<h3>Priest</h3>
+$temple.priestLook.
+The priest greets you, and introduces $priest.himherself as <<profile $priest>>. $temple.priestChat.
+<<linkreplace "<h4>Get Temple Blessing</h4>" t8n>>
+<h6>Blessing</h6>
+<div class="descriptive">$temple.blessing</div><</linkreplace>>
 <<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
 
 <<switch $town.type>>
@@ -26,7 +29,7 @@ A priest greets you, and introduces $priest.himherself as <<profile $priest>>.
     <th>Item</th>
     <th>Cost</th>
   </tr>
-<h3>Adventuring Gear</h3>
+<h6>Adventuring Gear</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "adventuring gear"
@@ -35,7 +38,7 @@ A priest greets you, and introduces $priest.himherself as <<profile $priest>>.
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Tools</h3>
+<h6>Tools</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "tools"

@@ -24,8 +24,11 @@ setup.createTemple = function (town, opts) {
     ceiling: data.ceiling.seededrandom(),
     rooms: data.rooms.seededrandom(),
     features: data.features.seededrandom(),
-    architect: data.architect.seededrandom()
-
+    architect: data.architect.seededrandom(),
+    priestChat: '<<print $priest.heshe.toUpperFirst()>> ' + data.priestChat.seededrandom(),
+    priestLook: 'A temple priest is ' + data.priestLook.seededrandom(),
+    blessingConvey: data.blessingConvey.seededrandom(),
+    blessingGift: data.blessingGift.seededrandom()
   })
   setup.structure.create(town, temple)
   temple.structure.templeDescriptor = 'a ' + temple.structure.material.wealth + ' ' + temple.structure.material.noun + ' ' + temple.wordNoun + ' with a ' + temple.structure.roof.verb + ' roof'
@@ -41,7 +44,7 @@ setup.createTemple = function (town, opts) {
   temple.wealth = ''
   temple.size = ''
   temple.cleanliness = ''
-
+  temple.blessing = temple.blessingConvey + '. ' + temple.blessingGift + '.'
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(temple, data.rollData, propName)
@@ -49,8 +52,8 @@ setup.createTemple = function (town, opts) {
 
   // These are the full sentence printouts referenced within TempleOutput.twee
   temple.guardReadout = 'This ' + temple.wordNoun + ' is protected by ' + temple.guardedBy + '.'
-  temple.aboutReadout = 'Within this holy place they pray to ' + temple.prayerSubject + '. The temple itself was originally dedicated to ' + temple.dedicated + ' and is known for ' + temple.knownFor + '. The ' + temple.wordNoun + ' was designed by ' + temple.architect + ' and it is ' + temple.complex + '.'
-  temple.interiorReadout = 'You enter the ' + temple.size + ', ' + temple.cleanliness + ' ' + temple.wordNoun + ' and notice ' + temple.features + '. The main room is ' + temple.floorPlan + ' in shape and is decorated with ' + temple.wealth + ' looking furniture. The interior walls of the ' + temple.wordNoun + ' are ' + temple.walls + ' and the the ceiling is ' + temple.ceiling + '.'
+  temple.aboutReadout = 'Within this holy place they pray to ' + temple.prayerSubject + '. The temple itself was originally dedicated to ' + temple.dedicated + ' and is known for ' + temple.knownFor + '.'
+  temple.interiorReadout = 'You enter the ' + temple.size + ', ' + temple.cleanliness + ' ' + temple.wordNoun + ' and notice ' + temple.features + '. The main room is ' + temple.floorPlan + ' in shape and is decorated with ' + temple.wealth + ' looking ' + ['furniture', 'pews', 'relics', 'holy statues', 'holy symbols', 'stained glass windows', 'holy art'].seededrandom() + '. The interior walls of the ' + temple.wordNoun + ' are ' + temple.walls + ' and the the ceiling is ' + temple.ceiling + '. The ' + temple.wordNoun + ' was designed by ' + temple.architect + ' and it is ' + temple.complex + '.'
   temple.tippyDescription = 'A ' + temple.size + ' and ' + temple.cleanliness + ' ' + temple.wordNoun + ' that is dedicated to ' + temple.dedicated
   return temple
 }
