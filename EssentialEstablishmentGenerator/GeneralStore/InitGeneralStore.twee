@@ -1,6 +1,6 @@
 
-:: InitGeneralStore [output]
-<<set $selectedBuilding to ($town.buildings.GeneralStore[$selected.key] || $town.buildings.GeneralStore[$currentPassage.key])>><<run setup.clampRolls($town.buildings.GeneralStore[$selected.key].roll)>>
+:: InitgeneralStore [output]
+<<set $selectedBuilding to ($town.buildings.generalStore[$selected.key] || $town.buildings.generalStore[$currentPassage.key])>><<run setup.clampRolls($town.buildings.generalStore[$selected.key].roll)>>
 <<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
 <span class="tip" title="How wealthy is the patronage?">General Store Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
@@ -18,4 +18,4 @@
 <span class="tip" title="How much cheaper or more expensive than average is it?">General Store Price Modifier: <<numberslider "$selectedBuilding.priceModifier" $selectedBuilding.priceModifier -10 10 1>></span>
 
 
-When you're ready, here's the [[general store|GeneralStoreOutput]]
+When you're ready, here's the [[general store|generalStoreOutput]]

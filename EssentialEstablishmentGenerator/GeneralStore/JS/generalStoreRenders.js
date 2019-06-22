@@ -1,32 +1,32 @@
-setup.generalStoreRenders = function (GeneralStore) {
+setup.generalStoreRenders = function (generalStore) {
   let warmthRoll = random(1, 100)
   // update warmth based on store size
-  const size = GeneralStore.size
+  const size = generalStore.size
   if (size > 80) {
-    GeneralStore.size = 'huge'
+    generalStore.size = 'huge'
     warmthRoll -= 20
   } else if (size > 70) {
-    GeneralStore.size = 'quite large'
+    generalStore.size = 'quite large'
     warmthRoll -= 15
   } else if (size > 60) {
-    GeneralStore.size = 'large'
+    generalStore.size = 'large'
     warmthRoll -= 10
   } else if (size > 50) {
-    GeneralStore.size = 'spacious'
+    generalStore.size = 'spacious'
     warmthRoll -= 5
   } else if (size > 40) {
-    GeneralStore.size = 'medium'
+    generalStore.size = 'medium'
   } else if (size > 30) {
-    GeneralStore.size = 'slightly cramped'
+    generalStore.size = 'slightly cramped'
     warmthRoll += 15
   } else if (size > 20) {
-    GeneralStore.size = 'small'
+    generalStore.size = 'small'
     warmthRoll += 15
   } else if (size <= 20) {
-    GeneralStore.size = 'tiny'
+    generalStore.size = 'tiny'
     warmthRoll += 30
   }
-  GeneralStore.roll.warmth = warmthRoll // set warmth roll
+  generalStore.roll.warmth = warmthRoll // set warmth roll
   // attributes for store
   const attributes = {
     warmth: [
@@ -76,13 +76,13 @@ setup.generalStoreRenders = function (GeneralStore) {
   // actually add attributes to store object
   for (const key of attributes) {
     const array = attributes[key]
-    GeneralStore[key] = array[0][1] // default value
+    generalStore[key] = array[0][1] // default value
     for (const [num, descript] of array) { // update value
-      if (GeneralStore.roll[key] > num) {
-        GeneralStore[key] = descript
+      if (generalStore.roll[key] > num) {
+        generalStore[key] = descript
       }
     }
   }
 
-  return GeneralStore
+  return generalStore
 }

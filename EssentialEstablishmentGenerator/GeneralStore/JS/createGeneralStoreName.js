@@ -1,4 +1,4 @@
-setup.createGeneralStoreName = function (town, GeneralStore) {
+setup.createGeneralStoreName = function (town, generalStore) {
   // var name
   const roll = dice(1, 7)
   const adjective = ['Dependable', 'Reliable', 'Expendable', 'Indispensible', 'Incomparable', 'Incredible', 'Excellent', 'Important', 'Cheap', 'Affordable', 'Affable', 'Discount', 'Low-Cost', 'Fancy'].seededrandom()
@@ -8,93 +8,93 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
   const fam = {
     son: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.parentNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.parentNoun
       },
       gender: 'man',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     daughter: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.parentNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.parentNoun
       },
       gender: 'woman',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     brother: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.siblingNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.siblingNoun
       },
       gender: 'man',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
-      ageStage: GeneralStore.shopkeep.ageStage,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
+      ageStage: generalStore.shopkeep.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     sister: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.siblingNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.siblingNoun
       },
       gender: 'woman',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
-      ageStage: GeneralStore.shopkeep.ageStage,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
+      ageStage: generalStore.shopkeep.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     uncle: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.niblingNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.niblingNoun
       },
       gender: 'man',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     aunt: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.niblingNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.niblingNoun
       },
       gender: 'woman',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     father: {
       relationships: {
-        [GeneralStore.shopkeep.key]: GeneralStore.shopkeep.childNoun
+        [generalStore.shopkeep.key]: generalStore.shopkeep.childNoun
       },
       gender: 'man',
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     friend: {
       relationships: {
-        [GeneralStore.shopkeep.key]: 'friend'
+        [generalStore.shopkeep.key]: 'friend'
       },
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     family: {
       relationships: {
-        [GeneralStore.shopkeep.key]: 'relative'
+        [generalStore.shopkeep.key]: 'relative'
       },
-      race: GeneralStore.shopkeep.race,
-      lastName: GeneralStore.shopkeep.lastName,
+      race: generalStore.shopkeep.race,
+      lastName: generalStore.shopkeep.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
     },
     employee: {
       relationships: {
-        [GeneralStore.shopkeep.key]: 'employer'
+        [generalStore.shopkeep.key]: 'employer'
       },
       gender: 'man',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].seededrandom()
@@ -103,33 +103,33 @@ setup.createGeneralStoreName = function (town, GeneralStore) {
 
   switch (roll) {
     case 1:
-      GeneralStore.name = 'The ' + adjective + ' ' + noun
+      generalStore.name = 'The ' + adjective + ' ' + noun
       break
     case 2:
-      GeneralStore.name = GeneralStore.shopkeep.firstName + ' and ' + family.toUpperFirst()
-      GeneralStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, GeneralStore.shopkeep, GeneralStore.assistant, family, GeneralStore.assistant.relationships[GeneralStore.shopkeep.key])
+      generalStore.name = generalStore.shopkeep.firstName + ' and ' + family.toUpperFirst()
+      generalStore.assistant = setup.createNPC(town, fam[family])
+      setup.createRelationship(town, generalStore.shopkeep, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.shopkeep.key])
       break
     case 3:
-      GeneralStore.name = 'The ' + noun + ' and ' + family.toUpperFirst()
-      GeneralStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, GeneralStore.shopkeep, GeneralStore.assistant, family, GeneralStore.assistant.relationships[GeneralStore.shopkeep.key])
+      generalStore.name = 'The ' + noun + ' and ' + family.toUpperFirst()
+      generalStore.assistant = setup.createNPC(town, fam[family])
+      setup.createRelationship(town, generalStore.shopkeep, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.shopkeep.key])
       break
     case 4:
-      GeneralStore.name = 'The ' + adjective + ' ' + rider
+      generalStore.name = 'The ' + adjective + ' ' + rider
       break
     case 5:
-      GeneralStore.name = 'The ' + adjective + ' ' + noun
+      generalStore.name = 'The ' + adjective + ' ' + noun
       break
     case 6:
-      GeneralStore.name = GeneralStore.shopkeep.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", "'s " + rider].seededrandom()
+      generalStore.name = generalStore.shopkeep.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", "'s " + rider].seededrandom()
       break
     case 7:
-      GeneralStore.name = GeneralStore.shopkeep.firstName + "'s " + adjective + ' ' + rider
+      generalStore.name = generalStore.shopkeep.firstName + "'s " + adjective + ' ' + rider
       break
     default:
-      GeneralStore.name = 'The ' + adjective + " Adventurer's Store"
+      generalStore.name = 'The ' + adjective + " Adventurer's Store"
       break
   }
-  return GeneralStore
+  return generalStore
 }

@@ -42,7 +42,7 @@
   type: "test type"
 }>>
 
-<<set $GeneralStore to {
+<<set $generalStore to {
   name: "Test Store",
   id: 345761,
   type: "test type"
@@ -72,7 +72,7 @@
 
 /* <<include "Smithy">> */
 
-/* <<include "GeneralStore">> */
+/* <<include "generalStore">> */
 
 /* <<include "Markets">> */
 

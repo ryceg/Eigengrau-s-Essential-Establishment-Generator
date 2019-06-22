@@ -185,8 +185,8 @@ setup.generalStore = {
     ]
   },
   get: {
-    note (GeneralStore) {
-      const shopkeep = GeneralStore.shopkeep
+    note (generalStore) {
+      const shopkeep = generalStore.shopkeep
       const colour1 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
       const colour2 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
       const note = [
@@ -261,7 +261,7 @@ setup.generalStore = {
       ]
       return note.seededrandom()
     },
-    priceTalk (GeneralStore) {
+    priceTalk (generalStore) {
       const priceTalk = [
         {
           priceModifier: 5,
@@ -321,7 +321,7 @@ setup.generalStore = {
         {
           priceModifier: -4,
           wealth: 20,
-          priceTalk: "Everything must go- can't afford to keep " + GeneralStore.name + " open much longer, so I'm getting rid of the final stock."
+          priceTalk: "Everything must go- can't afford to keep " + generalStore.name + " open much longer, so I'm getting rid of the final stock."
         }
       ]
       return priceTalk

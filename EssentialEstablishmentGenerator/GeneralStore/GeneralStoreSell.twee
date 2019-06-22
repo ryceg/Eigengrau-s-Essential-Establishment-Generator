@@ -1,9 +1,9 @@
-:: GeneralStoreSell
+:: generalStoreSell
 
 <<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
-  $shopkeep.name smiles, and says "You're looking to buy something? Name it, here at $GeneralStore.name, we stock everything the average man could possibly need!
+  $shopkeep.name smiles, and says "You're looking to buy something? Name it, here at $generalStore.name, we stock everything the average man could possibly need!
   <<case "town">>
   $shopkeep.name says "Well, what is it you need? We can do just about anything for you.
   <<case "village">>
@@ -12,7 +12,7 @@
   $shopkeep.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $shopkeep.mundane.randomMany(4)>>, you name it!
   <<default>>
   $shopkeep.name says "Well, what is it you need? We can do just about anything for you.
-<</switch>><<print setup.closestMatch(setup.generalStore.get.priceTalk($GeneralStore), 'priceTalk', 'priceModifier', 'wealth', '$GeneralStore.priceModifier', '$GeneralStore.roll.wealth')>>"</div>
+<</switch>><<print setup.closestMatch(setup.generalStore.get.priceTalk($generalStore), 'priceTalk', 'priceModifier', 'wealth', '$generalStore.priceModifier', '$generalStore.roll.wealth')>>"</div>
 
 <<switch $town.type>>
   <<case "city">>

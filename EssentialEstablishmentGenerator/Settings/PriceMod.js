@@ -4,7 +4,7 @@ setup.getPriceMod = function () {
     return 1
   }
 
-  const locations = ['blacksmith', 'tavern', 'alchemist', 'GeneralStore', 'docks', 'smithy']
+  const locations = ['blacksmith', 'tavern', 'alchemist', 'generalStore', 'docks', 'smithy']
   const loc = tags().find(function (tag) {
     return locations.includes(tag)
   })
