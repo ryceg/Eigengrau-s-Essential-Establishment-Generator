@@ -18,6 +18,8 @@ setup.createAlchemist = function (town, opts) {
   alchemist.cleanliness = ''
   alchemist.wealth = ''
   alchemist.expertise = ''
+  setup.structure.create(town, alchemist)
+  alchemist.structure.alchemistDescriptor = alchemist.structure.material.wealth + ' ' + alchemist.structure.material.noun + ' ' + alchemist.wordNoun + ' with a ' + alchemist.structure.roof.verb + ' roof'
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(alchemist, setup.alchemist.rollData, propName)
