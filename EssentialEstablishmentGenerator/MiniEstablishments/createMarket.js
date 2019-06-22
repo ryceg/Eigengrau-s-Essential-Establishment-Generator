@@ -18,6 +18,7 @@ setup.createMarket = function (town, opts) {
     organisation: setup.market.organisation.seededrandom()
   })
   market.notableFeature = market.draw
+  market.tippyDescription = 'A ' + (market.size || market._size) + ' ' + market.wordNoun + " that's " + (market.cleanliness || market._cleanliness) + ', and is known for ' + market.notableFeature + '.'
   // setup.townBinder(town, market, 'market')
   return market
 }
