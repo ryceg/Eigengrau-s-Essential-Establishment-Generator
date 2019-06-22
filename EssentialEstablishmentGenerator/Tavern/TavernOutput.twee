@@ -1,8 +1,8 @@
 :: TavernOutput [tavern]
 <<set $tavern to ($town.buildings.tavern[$selected.key] || $town.buildings.tavern[$currentPassage.key])>><<set $bartender to $npcs[$tavern.bartender.key]>><h1>$tavern.name</h1>
-<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.material tavern that the locals know best for its $tavern.draw.
+<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.structure.tavernDescriptor that the locals know best for its $tavern.draw.
 <h3>The Tavern</h3>
-<<print setup.closestMatch(setup.tavern.get.description($tavern), 'note', 'size', 'wealth', $tavern.roll.size, $tavern.roll.wealth)>>
+<<print setup.closestMatch(setup.tavern.get.description($tavern), 'note', 'size', 'wealth', $tavern.roll.size, $tavern.roll.wealth)>> $tavern.feature
 <<print setup.closestMatch(setup.tavern.get.lookAround($tavern), 'note', 'population', 'roughness', $tavern.roll.population, $tavern.roll.roughness)>>
 <div id="patron">
 <<if ndef $tavern.patron>><<set $tavern.patron to setup.tavern.get.patrons($town, $tavern)>><</if>>$tavern.patron
@@ -13,8 +13,9 @@
 <<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">>
+<h3>Tavern Entertainment</h3>
 <<include "TavernGames">>
-<<print either(setup.tavern.entertainment)>>
+$tavern.entertainment
 
 <<link "Go on a bender">>
 \<<set $tavern.carousing to setup.tavern.get.carousing($town, $tavern)>><<replace "#carousing">>$tavern.carousing<</replace>><</link>>

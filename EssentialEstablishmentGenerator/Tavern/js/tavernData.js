@@ -127,6 +127,7 @@ setup.tavern = {
       bet: random(4, 10)
     }
   ],
+  stageDescriptor: ['rickety looking', 'small', 'wide', 'nice looking', 'well-crafted', 'large', 'cramped', 'dingy looking', 'regal looking', 'cheap'],
   fun: [
     'A group of commoners is playing horse shoes out back.',
     'The party is surprised to find the country darts league in full swing as they enter. The waitresses are used to the chaos and dodge darts easily. The half ogre bouncer is using lawn darts.',
@@ -147,19 +148,6 @@ setup.tavern = {
     'The players have stumbled into a regional card championship being held that night. The buy in is huge but so is the pot.',
     'A shady looking gnomish inventor is proudly showing off his latest invention. He calls it a one armed bandit.',
     "A grey haired story teller is sitting near the fire holding a contest. He'll give a large purse for a story he hasn't heard yet, but so far no one has won."
-  ],
-  entertainment: [
-    'A bard is telling a story about the player’s latest act of daring do. He’s embellishing quite a bit. When he recognizes the party he makes a big spectacle.',
-    'A bard is telling the story of the player’s latest exploit. It’s an obvious character assassination.',
-    'A local bardic group, The Rolling Boulders, are performing, and a large crowd of drunken groupies will not stop screaming.',
-    "A beggar offers to sing for a few coppers. You heard him singing to the last table. He's awful.",
-    'A sassy fortune teller has set up shop in a corner booth. She informs you that she sees a hangover in your near future.',
-    "A stirring rendition of 'The Lady and the Faerie Dragon' has the crowd calling for an encore from the minstrels.",
-    'The lute-player catches some undergarments from the crowd and drapes them across the ridiculous horned helm he wears.',
-    'On stage tonight: The Deep Tones. A quartet of dwarves with long beards and deep voices singing a capella favorites from places without light (or proper music).',
-    'On stage tonight: Shaela Windspeaker. An elf-maid singer-songwriter with a bit of a whiny voice who is slowly making her way through her most recent song of protest against the previous and the present centuries of war.',
-    'A nervous show-wizard on the small stage is doing tricks with Prestidigitation for the un-amused patrons.',
-    'There is a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously.'
   ],
   get: {
     patrons (town, tavern) {
@@ -221,6 +209,132 @@ setup.tavern = {
       }
       const keys = Object.keys(carousing)
       return carousing[keys[random(0, keys.length)]](town, tavern)
+    },
+    entertainment (tavern) {
+      const entertainment = [
+        'A bard is telling a story about the player’s latest act of daring do. He’s embellishing quite a bit. When he recognizes the party he makes a big spectacle.',
+        'A bard is telling the story of the player’s latest exploit. It’s an obvious character assassination.',
+        'A bard is in the middle of a crowd telling the story of ' + ['some local heroes', 'a grand adventure', 'a far off hero', 'an epic journey', 'a great disaster', 'a terrible tragedy', 'a terrifying monster'].seededrandom() + '. The story is clearly exaggerated.',
+        'A local bardic group, The Rolling Boulders, are performing, and a large crowd of drunken groupies will not stop screaming.',
+        "A beggar offers to sing for a few coppers. You heard him singing to the last table. He's awful.",
+        'There is a juggler up on the ' + tavern.stageDescriptor + ' stage currently juggling ' + ['a few rubber balls', 'several pointy looking swords', 'eight flaming juggling pins', 'several live rats', 'three large rocks'].seededrandom() + '.',
+        'There are a pair of dancers on stage wearing skimpy outfits and holding feathered fans.',
+        'A snake charmer is set up in one corner of the tavern playing a flute with a wicker basket in front of ' + ['him', 'her'].seededrandom() + '. There is a ' + ['rattlesnake', 'cobra', 'python', 'black mamba', 'viper'].seededrandom() + " in the basket dancing to the snake charmer's tune.",
+        'A bard is up on a ' + tavern.stageDescriptor + ' stage doing a comedy bit, ' + ['he', 'she'].seededrandom() + ' is currently heckling a patron about their ' + ['name', 'hair', 'clothes', 'face', 'voice', 'body', 'race', 'drink choice', 'meal choice', 'job', 'scar'].seededrandom() + '.',
+        'A lone dancer is up on a ' + tavern.stageDescriptor + ' stage doing a very lively drunken dance.',
+        'A sassy fortune teller has set up shop in a corner booth. She informs you that she sees ' + ['a hangover in your near future', 'a serious trip in your future', 'nothing but darkness in your future', 'prosperity coming your way soon', 'a true love in your near future', 'fantastical journeys in your future', 'a large crowd cheering a name, but the vision is hazy', 'the eyes of a vicious creature in the night, but the vision is hazy', 'a long rest in your near future', 'a bright light in your future', 'nothing when she looks into your future'].seededrandom() + '. The fortune teller holds out her gnarled hand and says "That will be ' + random(1, 30) + ' silver, please.".',
+        "A stirring rendition of 'The Lady and the Faerie Dragon' has the crowd calling for an encore from the minstrels.",
+        'A mime is up on the ' + tavern.stageDescriptor + ' stage pretending to be trapped in a box. Nobody seems to be paying ' + ['him', 'her'].seededrandom() + ' any attention.',
+        'The lute-player catches some undergarments from the crowd and drapes them across the ridiculous horned helm he wears.',
+        'On stage tonight: The Deep Tones. A quartet of dwarves with long beards and deep voices singing a capella favorites from places without light (or proper music).',
+        'On stage tonight: Shaela Windspeaker. An elf-maid singer-songwriter with a bit of a whiny voice who is slowly making her way through her most recent song of protest against the previous and the present centuries of war.',
+        'A nervous show-wizard on the ' + tavern.stageDescriptor + ' stage is doing tricks with Prestidigitation for the un-amused patrons.',
+        'There is a bard up on a ' + tavern.stageDescriptor + ' stage  playing ' + ['a lute', 'a pair of drumes', 'a harp', 'a flute', 'a pan flute', 'a sitar', 'a fiddle', 'a citern', 'a vielle', 'a clavichord', 'a harpsichord'].seededrandom() + ' ' + ['rather well', 'rather poorly', 'very loudly', 'quite softly', 'and it sounds pretty good', 'and it sounds bad', 'and it sounds alright'].seededrandom() + '.',
+        'There are a pair of musicians warbling well known drinking songs. They have made an impromptu stage out of several tables. One of them seems to be tilting precariously.',
+        'A drunkard has climbed up onto a table and has begun crooning ' + ['a well known drinking song', 'a local working song', 'an old sailor tune', 'a popular raunchy limerick'].seededrandom() + ' to the applause of other patrons.',
+        'A show wizard is shooting off flashy fire magic from a ' + tavern.stageDescriptor + ' stage while shouting "magic words".',
+        'A palm reader has set up a booth in the corner of the tavern. He is currently reading the palm of ' + ['a grumpy looking dwarf', 'a frail old woman', 'an enormous man', 'a tough looking half-orc', 'a slender elf'].seededrandom() + '.',
+        ['An eldery dwarf', 'A snobby looking elf', 'A clever looking half-orc', 'An angular looking woman', 'A colorful gnome'].seededrandom() + ' is currently up on the ' + tavern.stageDescriptor + ' stage reading their poetry to a drunken crowd.',
+        'There is a ' + tavern.stageDescriptor + 'stage in this tavern, but it is currently empty.',
+        'There is ' + ['a large human', 'an elf', 'a half-orc', 'a gnome', 'a dwarf', 'a dragonborn'].seededrandom() + ' in a puffy white hat up on a ' + tavern.stageDescriptor + ' stage, giving some sort of cooking demonstration to the patrons.',
+        "There is a play happening on the tavern's " + tavern.stageDescriptor + ' stage with ' + ['a single actor', 'a few actors', 'a fair few actors', 'a great many actors', 'a couple actors'].seededrandom() + ' in it. The play seems to be about ' + ['star crossed lovers', 'a great battle', 'the history of the region', 'the history of an old noble', 'a local folk tale', "a local children's story", 'the tragedy of man', 'the folly of the gods'].seededrandom() + '.'
+      ]
+      return entertainment.seededrandom()
+    },
+    cheapFeature (tavern) {
+      const cheapDescriptors = [
+        'The walls of the tavern are a ' + tavern.colour1 + ' colour and the paint is peeling off of them.',
+        'The floor of the tavern is sticky from past spilled beers.',
+        'Several hand painted posters of past performers are haphazardly pinned to the walls.',
+        'The bar of the tavern looks old and beaten up by years of brawls and mug slamming.',
+        'The tables in this tavern have been painted a ' + tavern.colour1 + ' colour, which has been chipped away and dulled over time.',
+        'The floor of the tavern ' + ['is roughly packed dirt', 'is covered in a thick layer of straw', 'is made of cracked and warped wooden boards', 'is a thick layer of gravel', 'is missing several floorboards', 'is a mismatch of different floorboards'].seededrandom() + '.',
+        'The tavern tables look rickety, as if they might collapse at any moment.',
+        'A rusty looking ' + ['sword', 'axe', 'dagger', 'mace', 'flail', 'pike', 'arrow', 'crossbow'].seededrandom() + ' is crookedly hung on one wall.',
+        'A large notice for late taxes has been nailed to the front door of the tavern.',
+        'A small stacked stone chimney smolders in one corner of the tavern with a burnt black pot boiling over it.',
+        'One corner of the tavern is extremely dark but it looks like there is a table there.',
+        'The chairs and benches of the tavern are a total hodgepodge of different furniture.',
+        'A large crude painting of ' + ['a mountain range', 'a field of flowers', 'a dog', 'a cat', 'a rabbit', 'a cloudy sky', 'a stormy sea', 'an ocean faring ship', 'a large battle', 'a local hero', 'the barkeep', 'a forest', 'a dragon', 'a temple', 'a castle', 'an old king'].seededrandom() + ' is hung proudly near the bar.',
+        'A cheap ' + tavern.colour1 + ' and ' + tavern.colour2 + ' coloured vase is sat up on a pedestal near the front of the bar.',
+        'The flag of the town hangs above the bar.',
+        'A worn and beer stained tapestry hangs from one wall depicting ' + ['a group of mining dwarves', 'the history of the town', 'the history of the tavern', 'the fall of a tyrant', 'a local folk tale', 'the acts of an old hero', 'the drinking tales of a legendary barbarian', 'a great fishing trip', 'a journey of gnomes'].seededrandom() + '.',
+        'Instead of torches the tavern is lit by large glowing ' + tavern.colour1 + ' coloured mushrooms.',
+        'Several walls in the tavern have clearly been patched up.',
+        'One of the walls has ' + ['a lion', 'an owl', 'an eagle', 'a mountain range', 'a field of flowers', 'a dog', 'a cat', 'a rabbit', 'a cloudy sky', 'a stormy sea', 'an ocean faring ship', 'a large battle', 'a local hero', 'the barkeep', 'a forest', 'a dragon', 'a temple', 'a castle', 'an old king'].seededrandom() + ' crudely painted directly onto it.',
+        ['A rusty horse shoe', 'A rusted out lantern', 'A muddy pickaxe', 'A small, barnacle covered anchor', 'A collection of beads', 'An old chipped longbow', 'A cracked oaken buckler', 'The rusty remains of an iron shield', 'A ' + tavern.colour1 + ' coloured banner', 'An assortment of cheap knick knacks and utensils', 'A crude sign with the tavern name', 'A lucky rabbits foot', 'An assortment of pressed flowers', 'A cracked beer mug'].seededrandom() + ' hangs above the bar.',
+        'Names of past patrons have been carved into the walls of the tavern.',
+        'The seating in this tavern are benches that stretch across every table on each side.',
+        'The flag of a different town hangs on one wall of the tavern.',
+        "Behind the bar there's a shelf with an assortment of beer mugs of all shapes, sizes, and materials.",
+        'Barrels of booze are being used as makeshift tables in some parts of the tavern.'
+      ]
+      return cheapDescriptors.seededrandom()
+    },
+    averageFeature (tavern) {
+      const averageDescriptors = [
+        'The walls of the tavern are painted a nice ' + tavern.colour1 + ' colour.',
+        'There is a ' + tavern.colour1 + ' coloured trim running along the bottom of the tavern walls.',
+        'The are several finely painted posters of past performers pinned up along one of the tavern walls.',
+        'The bar of the tavern has a fine laquer and only a few mug scratches.',
+        'The tables of the tavern have been a painted a ' + tavern.colour1 + ' colour and only have a few knicks and scratches.',
+        'The floor of the tavern ' + ['is a fine bed of straw', 'is a nicely planked floor', 'is a roughly hewn stone floor', 'is made up of clay tiles painted a ' + tavern.colour1 + ' colour'].seededrandom() + '.',
+        'The legs of all the tables in tavern are shaped like ' + ['lions', 'bears', 'bulls', 'cows', 'trees', 'mountains', 'dwarves', 'elves', 'different fish', 'different weapons', 'dragons', 'beer mugs', 'human legs', 'ocean waves'].seededrandom(),
+        'A ' + ['stacked stone fireplace', 'stone fireplace', 'slate stone fireplace', 'clay fireplace'].seededrandom() + ' blazes in a corner of the tavern with a ' + ['large cauldron bubbling away above it', 'haunch of mutton cooking on a skewer in it', 'few people huddled around it for warmth', 'small group of pots being warmed in it', 'patron stoking the flames'].seededrandom() + '.',
+        'All of the tables in the tavern have ' + ['a single flickering candle', 'an assortment of sauces created by the tavern cook', "hand written menus for what's on tap", 'holes for holding mugs carved into them', 'nice looking iron utensils laid out for patrons'].seededrandom() + '.',
+        'A decent looking ' + ['sword', 'axe', 'dagger', 'mace', 'flail', 'pike', 'arrow', 'crossbow', 'lance', 'rapier', 'battleaxe', 'maul', 'whip', 'longsword', 'morning star', 'war hammer', 'glaive', 'scroll', 'tome', 'helmet', 'set of armor'].seededrandom() + ' is mounted to the wall next to the bar.',
+        'One corner of the tavern is extremely dark but it looks like there is a table there.',
+        'A large nicely crafted painting of ' + ['a mountain range', 'a field of flowers', 'a dog', 'a cat', 'a rabbit', 'a cloudy sky', 'a stormy sea', 'an ocean faring ship', 'a large battle', 'a local hero', 'the barkeep', 'a forest', 'a dragon', 'a temple', 'a castle', 'an old king', 'a wolf', 'a seamonster', 'the town'].seededrandom() + ' is hung proudly in a finely crafted frame near the bar.',
+        'A set of ' + tavern.colour1 + ' and ' + tavern.colour2 + ' coloured ' + ['vases', 'urns', 'bottles', 'baskets', 'pottery', 'pots'].seededrandom() + ' are sitting on a shelf against one of the tavern walls.',
+        'The flag of the town is hung prominently above the bar.',
+        'A nice looking tapestry is hung up on one of the walls depicting ' + ['a group of mining dwarves', 'the history of the town', 'the history of the tavern', 'the fall of a tyrant', 'a local folk tale', 'the acts of an old hero', 'the drinking tales of a legendary barbarian', 'a great fishing trip', 'a journey of gnomes', 'the crafting of a great weapon', 'the creation of an ancient relic', 'the construction of a great wonder', 'the journey of a famous ship', 'a great tragedy of old', 'the forming of the skies', 'the coronation of a king'].seededrandom() + '.',
+        'The tavern is lit by a collection of jars full of glowing bugs hanging from the ceiling.',
+        'The tavern walls are covered in paintings of ' + ['cats', 'dogs', 'birds', 'horses', 'cows', 'food', 'flowers', 'trees', 'rocks', 'owls', 'wolves', 'frogs', 'rabbits'].seededrandom() + ' in a variety of frames.',
+        'The flag of a different town hangs on one wall of the tavern, getting passing glares from patrons.',
+        'The head of ' + ['an elk', 'a deer', 'a bull', 'a wolf', 'an owl', 'an eagle', 'a hawk', 'a bison', 'a horse', 'a cow', 'a moose', 'a camel', 'a beaver', 'a badger', 'a wolverine', 'a bear', 'a lion', 'a tiger', 'a puma', 'an ostritch', 'a crocodile', 'an alligator', 'a buffalo', 'a cougar', 'a leapord', 'a swan', 'a hyena'].seededrandom() + ' is stuffed and mounted above the bar.',
+        ['A shiny horseshoe', 'An ornate lantern', 'A glass case with a jewel inside', 'A collection of cheap jewelry', 'A nicely carved longbow', 'A finely plumed cap', 'An iron kite shield', 'A pine wood buckler', 'A group of strang masks', 'Hides of various animals', "A sign with tavern's name", 'A lucky rabbit foot', "The tavern's first gold coin", 'A large fish', 'A large chest', 'A collection of vials and knick knacks'].seededrandom() + ' hangs above the bar.',
+        'A small cat is slowly weaving between the legs of patrons.',
+        'The lanterns in the tavern are made from animal skulls.',
+        'Small pennants in ' + tavern.colour1 + ' and ' + tavern.colour2 + ' colours are strung up across the tavern.',
+        'A large ' + ['wolf fur', 'zebra skin', 'bear skin', 'lion skin', 'cow fur'].seededrandom() + 'rug is laid out on the tavern floor.'
+      ]
+      return averageDescriptors.seededrandom()
+    },
+    wealthyFeature (tavern) {
+      const wealthyDescriptors = [
+        'The walls of the tavern have been freshly painted a nice ' + tavern.colour1 + ' colour.',
+        'The walls are freshly painted a ' + tavern.colour1 + ' and ' + tavern.colour2 + ' two-tone colour.',
+        'The walls of the tavern are striped ' + tavern.colour1 + ' and ' + tavern.colour2 + '.',
+        'There is a ' + tavern.colour1 + ' coloured trim running along the top and bottom of the tavern walls.',
+        'There are several very finely painted posters of past performers nicely framed up along one of the tavern walls.',
+        'The bar of the tavern has a fine laquer and only a few mug scratches.',
+        'The bar of the tavern has been freshly painted a fine ' + tavern.colour1 + 'colour.',
+        'The bar of the tavern is embedded with gold coins from all over the place.',
+        'The lanterns on the tavern walls are incredibly ornate and wrought iron.',
+        'The tavern is lit by ' + tavern.colour1 + 'coloured paper lanterns hung from the ceiling',
+        'The tables of the tavern have been freshly painted a ' + tavern.colour1 + ' colour and is free of any scratches.',
+        'The floor of the tavern ' + ['is a nicely planked floor', 'is a roughly hewn stone floor', 'is made up of clay tiles painted a ' + tavern.colour1 + ' colour', 'is a finely laquered floor', 'is covered in a thick ' + tavern.colour1 + 'coloured carpet', 'is finely carved stone', 'is artisinally engraved stone', 'is made of cobblestone'].seededrandom() + '.',
+        'The legs of all the tables in tavern are shaped like ' + ['lions', 'bears', 'bulls', 'cows', 'trees', 'mountains', 'dwarves', 'elves', 'different fish', 'different weapons', 'dragons', 'beer mugs', 'human legs', 'ocean waves', 'jewels', 'swords', 'axes', 'pickaxes', 'beer barrels', 'scepters', 'different animals', 'animal legs'].seededrandom(),
+        ['A decent looking', 'A fine looking', 'An ancient looking', 'Some kind of legendary'].seededrandom() + ' ' + ['sword', 'axe', 'dagger', 'mace', 'flail', 'pike', 'arrow', 'crossbow', 'lance', 'rapier', 'battleaxe', 'maul', 'whip', 'longsword', 'morning star', 'war hammer', 'glaive', 'scroll', 'tome', 'helmet', 'set of armor', 'crown', 'scepter', 'book', 'longbow', 'grappling hook', 'necklace'].seededrandom() + ' is mounted to the wall next to the bar.',
+        'One corner of the tavern is extremely dark but it looks like there is a table there.',
+        'A large ' + ['nicely crafted', 'well crafted', 'masterpiece', ', expensive looking'].seededrandom + ' painting of ' + ['a mountain range', 'a field of flowers', 'a dog', 'a cat', 'a rabbit', 'a cloudy sky', 'a stormy sea', 'an ocean faring ship', 'a large battle', 'a local hero', 'the barkeep', 'a forest', 'a dragon', 'a temple', 'a castle', 'an old king', 'a wolf', 'a seamonster', 'the town', 'an eagle', 'a unicorn', 'a lion', 'a fairy', 'a demon'].seededrandom() + ' is hung proudly in a finely crafted frame near the bar.',
+        'The flag of the town is hung prominently above the bar.',
+        ['A nice looking', 'A fine looking', 'An ancient', 'An expensive looking'].seededrandom + ' tapestry is hung up on one of the walls depicting ' + ['a group of mining dwarves', 'the history of the town', 'the history of the tavern', 'the fall of a tyrant', 'a local folk tale', 'the acts of an old hero', 'the drinking tales of a legendary barbarian', 'a great fishing trip', 'a journey of gnomes', 'the crafting of a great weapon', 'the creation of an ancient relic', 'the construction of a great wonder', 'the journey of a famous ship', 'a great tragedy of old', 'the forming of the skies', 'the coronation of a king', 'the slaying of a dragon'].seededrandom() + '.',
+        'A ' + ['stacked stone fireplace', 'stone fireplace', 'slate stone fireplace', 'clay fireplace', 'large granite fireplace', 'large cobblestone fireplace', 'brick fireplace', 'large brick fireplace'].seededrandom() + ' blazes in a corner of the tavern with a ' + ['large cauldron bubbling away above it', 'haunch of mutton cooking on a skewer in it', 'few people huddled around it for warmth', 'small group of pots being warmed in it', 'patron stoking the flames'].seededrandom() + '.',
+        'The tavern is lit by a collection of jars full of glowing bugs hanging from the ceiling.',
+        'The tavern walls are covered in paintings of ' + ['cats', 'dogs', 'birds', 'horses', 'cows', 'food', 'flowers', 'trees', 'rocks', 'owls', 'wolves', 'frogs', 'rabbits', 'nobles', 'famous heros', 'old battles', 'dragons', 'snakes'].seededrandom() + ' in a variety of fine looking frames.',
+        'The flag of a different town hangs on one wall of the tavern, getting passing glares from patrons.',
+        'The head of ' + ['an elk', 'a deer', 'a bull', 'a wolf', 'an owl', 'an eagle', 'a hawk', 'a bison', 'a horse', 'a cow', 'a moose', 'a camel', 'a beaver', 'a badger', 'a wolverine', 'a bear', 'a lion', 'a tiger', 'a puma', 'an ostritch', 'a crocodile', 'an alligator', 'a buffalo', 'a cougar', 'a leapord', 'a swan', 'a hyena', 'a drake', 'a unicorn', 'a boar', 'a jackal', 'an elephant', 'a rhino', 'a coyote', 'a peacock'].seededrandom() + ' is stuffed and mounted above the bar.',
+        ['A golden horseshoe', 'An ornate lantern', 'A glass case with a large jewel inside', 'A collection of fine jewelry', 'An ornately carved longbow', 'A finely plumed cap', 'An iron kite shield', 'A pine wood buckler', 'A group of strang masks', 'Hides of various animals', "A sign with tavern's name", 'A lucky rabbit foot', "The tavern's first gold coin", 'A large fish', 'A large chest', 'A collection of vials and knick knacks'].seededrandom() + ' hangs above the bar.',
+        'A small cat is slowly weaving between the legs of patrons.',
+        'The lanterns in the tavern are made from animal skulls.',
+        'Small pennants in ' + tavern.colour1 + ' and ' + tavern.colour2 + ' colours are strung up across the tavern.',
+        'A large ' + ['wolf fur', 'zebra skin', 'bear skin', 'lion skin', 'cow fur'].seededrandom() + 'rug is laid out on the tavern floor.',
+        'The tavern is lit by glowing ' + tavern.colour1 + ' coloured crystals mounted on the walls.',
+        'Several of the tables seem to be nicer than all the others, and have signs on them that say "Reserved".',
+        'A signed painting of a local noble hangs in a golden frame above the bar.'
+      ]
+      return wealthyDescriptors.seededrandom()
     },
     lookAround (tavern) {
       const bartender = tavern.bartender
@@ -647,7 +761,7 @@ setup.tavern = {
           size: 50,
           wealth: 10,
           note: [
-            tavern.name + ' is a tall building, but not particularly spacious; the ' + tavern.cleanliness + ' bar occupies the ground floor which is ' + tavern.lighting + ', and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ' + tavern.material + ' building.',
+            tavern.name + ' is a tall building, but not particularly spacious; the ' + tavern.cleanliness + ' bar occupies the ground floor which is ' + tavern.lighting + ', and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ' + tavern.structure.material.noun + ' building.',
             tavern.name + ' is a reasonably spacious building that is ' + tavern.lighting + ", and very similar to the countless other taverns that you've come across in your times, right down to the specials board being somewhat battered with so many uses, and the dart board with many holes constantly seeing use.",
             tavern.name + ' is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is ' + tavern.cleanliness + ', and ' + tavern.lighting + '.'
           ].seededrandom()
@@ -655,7 +769,7 @@ setup.tavern = {
         {
           size: 40,
           wealth: 10,
-          note: [tavern.name + ' is slightly cramped, and ' + tavern.lighting + '. The ' + tavern.cleanliness + " tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The " + tavern.wealth + ' establishment is clearly in need of an extension to relieve the somewhat small ' + tavern.material + ' pub of its congestion issues.'
+          note: [tavern.name + ' is slightly cramped, and ' + tavern.lighting + '. The ' + tavern.cleanliness + " tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The " + tavern.wealth + ' establishment is clearly in need of an extension to relieve the somewhat small ' + tavern.structure.material.noun + ' pub of its congestion issues.'
           ].seededrandom()
         },
         {
@@ -667,7 +781,7 @@ setup.tavern = {
         {
           size: 20,
           wealth: 10,
-          note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordNoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.material + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
+          note: [tavern.name + " is very obviously a house that's been converted into a " + tavern.wordNoun + ", probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny " + tavern.structure.material.noun + ' building. The tavern is ' + tavern.cleanliness + ', and is ' + tavern.lighting + '.'
           ].seededrandom()
         }
 
