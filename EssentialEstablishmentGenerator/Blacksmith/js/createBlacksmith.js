@@ -16,8 +16,8 @@ setup.createBlacksmith = function (town, smithy) {
       "a greataxe. Dunno why, just thought that it'd be fun to try and make one.",
       "a set of horseshoes for ol' Bessie. Nah, I'm just messin' with ya. I'm working on a <<print either($smithy.weapons)>>. Should be pretty fun once it's finished!",
       "a <<print either($smithy.weapons)>> for my son, he's growing up so fast- he'll be six next winter!",
-      'a <<print either($smithy.weapons)>> for the captain of the guard, town.guard.captain.name.',
-      'a <<print either($smithy.weapons)>> for the captain of the guard, $town.guard.captain.name.',
+      'a <<print either($smithy.weapons)>> for the captain of the guard, <<profile $town.guard.captain>>.',
+      'a <<print either($smithy.weapons)>> for the captain of the guard, <<profile $town.guard.captain>>.',
       "a commission by the town guard to make new <<print either($smithy.weapons)>>s for all the guardsmen. It'll probably take a damn long time.",
       'fleshing out the stock of the shop at the moment. Mostly general items like nails, horeshoes, and what not'
     ].seededrandom()
