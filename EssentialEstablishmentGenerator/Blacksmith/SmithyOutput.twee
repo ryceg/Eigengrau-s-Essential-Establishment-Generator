@@ -1,9 +1,10 @@
 
 :: SmithyOutput [smithy]
-<<unset $selectedBuilding>><<set $smithy to ($town.buildings.smithy[$selected.key] || $town.buildings.smithy[$currentPassage.key])>><<set $blacksmith to $npcs[$smithy.blacksmith.key]>><h1>$smithy.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $smithy.road, and enter $smithy.name and see that inside, the  $smithy.material building is $smithy.size. The blacksmith is <<print $blacksmith.idle.seededrandom()>>. The blacksmith <<print either($blacksmith.greeting)>> when you enter, and <<print either("saunters", "walks", "strolls", "walks", "slowly walks", "drags $blacksmith.hisher feet", "swaggers", "quickly walks", "stomps", "shuffles", "comes")>> over to you. <<print $blacksmith.heshe.toUpperFirst()>> introduces $blacksmith.himherself as <<profile $blacksmith>>, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
-
-<<print setup.closestMatch(setup.smithy.get.lookAround($smithy), 'note', 'cleanliness', 'wealth', $smithy.roll.cleanliness, $smithy.roll.wealth)>>
+<<unset $selectedBuilding>><<set $smithy to ($town.buildings.smithy[$selected.key] || $town.buildings.smithy[$currentPassage.key])>><<set $blacksmith to $npcs[$smithy.blacksmith.key]>><h1>$smithy.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $smithy.road, and enter $smithy.name and see that inside, the $smithy.structure.smithyDescriptor is $smithy.size. <<print setup.closestMatch(setup.smithy.get.lookAround($smithy), 'note', 'cleanliness', 'wealth', $smithy.roll.cleanliness, $smithy.roll.wealth)>> There is a blacksmith currently <<print $blacksmith.idle.seededrandom()>>.
 <<print setup.closestMatch(setup.smithy.get.expertise($smithy), 'note', 'expertise', 'wealth', $smithy.roll.expertise, $smithy.roll.wealth)>>
+
+<h3>Blacksmith</h3>
+The blacksmith <<print either($blacksmith.greeting)>> <<print either('when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around')>>. <<print $blacksmith.heshe.toUpperFirst()>> introduces $blacksmith.himherself as <<profile $blacksmith>>, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
 <<include "BlacksmithTalk">>
 <<include "SmithySell">>
 /* <<linkreplace "<h4>Talk with a customer</h4>" t8n>><<include "SmithyCustomers">><</linkreplace>> */

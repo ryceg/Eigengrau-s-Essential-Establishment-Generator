@@ -30,7 +30,7 @@
     <th>Cost</th>
   </tr>
 
-<h3>Weapons</h3>
+<h6>Weapons</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "weapon"
@@ -39,7 +39,7 @@
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Armour</h3>
+<h6>Armour</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "armour"
@@ -48,7 +48,7 @@
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Adventuring Gear</h3>
+<h6>Adventuring Gear</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "adventuring gear"
@@ -57,7 +57,7 @@
 <td><<money _item.cost>></td></tr>
 <</for>>
 
-<h3>Tools</h3>
+<h6>Tools</h6>
 <<for _i, _item range setup.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "tools"
