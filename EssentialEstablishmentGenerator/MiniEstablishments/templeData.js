@@ -345,7 +345,7 @@ setup.temple = {
     'starting to doze off in one of the pews',
     'placing hymnals on every pew of the temple',
     'relighting the torches that are scattered around the temple',
-    'polishing the brass candlesticks at the front of the temple',
+    'polishing a pair of tall brass candlestick holders at the front of the temple',
     'seemingly talking to the open air as no one is around $priest.himher'
   ],
   blessingConvey: [
@@ -361,10 +361,11 @@ setup.temple = {
     'The priest places you in front of a window that has light streaming through it and recites and ancient holy phrase'
   ],
   blessingGift: [
-    'Afterwards, the priest tells you that you have been blessed with <<print ["["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart"].seededrandom() but does not explain what that means", "a healthy body", "an ever healing body for the next few hours", "a feeling of weightlessness"].seededrandom()>>',
+    'Afterwards, the priest tells you that you have been blessed with <<print ["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart"].seededrandom()>> but does not explain what that means"',
     'The priest tells you that you were gifted <<print ["underwater breathing", "pure luck", "perfect aim", "silent steps", "strength above strength", "a link with the temple god", "an angelic glow"].seededrandom()>> for the next few hours',
     'Afterwards, $priest.firstName apologizes and says the blessing failed',
     'After all that the priest tells you that <<print ["your body has become heat resistant", "your body will feel no cold", "you can now sense evil", "you can now see in the dark", "your fighting skills will be better", "you will feel true empathy"].seededrandom()>> for the next day or so',
-    "You're told that the temple patron will now be watching over you, but it's unclear what that really means"
+    "You're told that the temple patron will now be watching over you, but it's unclear what that really means",
+    'You have now been blessed with <<print ["a healthy body", "an ever healing body for the next few hours", "a feeling of weightlessness", "a clear mind"].seededrandom()>> according to the temple priest'
   ]
 }
