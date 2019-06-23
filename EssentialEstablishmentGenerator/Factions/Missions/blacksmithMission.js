@@ -19,6 +19,10 @@ const missionsSmithy = {
   badWeapons (town) {
     const npc = setup.createNPC(town, { hasClass: false, profession: 'blacksmith' })
     return 'I received a shipment of <<print $smithy.weapons.seededrandom()>>s, but they were completely unusable- my friend <<profile `$npcs[' + JSON.stringify(npc.key) + ']`>> would never send me bad goods, so I suspect that something is amiss!'
+  },
+  deliverWeapons (town) {
+    const npc = setup.createNPC(town, { hasClass: false, profession: 'noble' })
+    return 'I recently forged a <<print $smithy.weapons.seededrandom()>> for a local ' + setup.profile(npc, 'noble') + ", but I don't have time to bring it to " + npc.himher + '. Would you be willing to take it to ' + npc.himher + ' for me? I would pay you for your troubles of course.'
   }
 }
 
