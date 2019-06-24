@@ -34,8 +34,27 @@ setup.ringData = {
     'moonlight': 'when worn under a ' + ['full moon', 'half-moon', 'waxing crescent moon', 'waning crescent moon', 'moon', 'moon', 'moon', 'moon', 'blood moon', 'blue moon', 'harvest moon', 'new moon'].random(),
     'underground': ['underground', 'beneath the earth', 'under the ground'].random(),
     'starlight': ['under starlight', 'under the starlight', 'while the stars shine above', 'beneath the stars'].random()
-  },
-  works: [
+  }
+}
+setup.createRing = function (base) {
+  const ring = Object.assign({
+    power: Object.keys(setup.ringData.power).seededrandom(),
+    cost: Object.keys(setup.ringData.cost).seededrandom(),
+    activation: Object.keys(setup.ringData.activation).seededrandom()
+  }, base)
+  if (setup.ringData.power[ring.power]) {
+  // expand the power description
+    ring.power = setup.ringData.power[ring.power]
+  }
+  if (setup.ringData.cost[ring.cost]) {
+  // expand the cost description
+    ring.cost = setup.ringData.cost[ring.cost]
+  }
+  if (setup.ringData.activation[ring.activation]) {
+  // expand the activation description
+    ring.activation = setup.ringData.activation[ring.activation]
+  }
+  ring.works = [
     'perfectly, every time',
     'pretty much every time',
     'every time its used',
@@ -53,8 +72,8 @@ setup.ringData = {
     'only the first time the wearer uses the power',
     'whenever the time is right',
     'well, but at a cost'
-  ],
-  materials: [
+  ].seededrandom()
+  ring.material = [
     'gold',
     'white gold',
     'rose gold',
@@ -71,10 +90,10 @@ setup.ringData = {
     'brass',
     'black steel',
     // animal bones
-    ['whale', 'rat', 'dog', 'wolf', 'bear', 'bird', 'cougar', 'gorilla', 'lion', 'fox', 'elephant', 'turtle', 'pig', 'tiger', 'horse', 'deer', 'bat', 'rabbit', 'rhino', 'sheep', 'otter', 'goat', 'hippo', 'coyote', 'giant panda', 'skunk', 'cattle', 'bison', 'emu', 'caragor', 'dire wolf', 'boar', 'elk', 'ram', 'mammoth', 'pegasus', 'unicorn'].random() + ' bone',
+    ['whale', 'rat', 'dog', 'wolf', 'bear', 'bird', 'cougar', 'gorilla', 'lion', 'fox', 'elephant', 'turtle', 'pig', 'tiger', 'horse', 'deer', 'bat', 'rabbit', 'rhino', 'sheep', 'otter', 'goat', 'hippo', 'coyote', 'giant panda', 'skunk', 'cattle', 'bison', 'emu', 'caragor', 'dire wolf', 'boar', 'elk', 'ram', 'mammoth', 'pegasus', 'unicorn'].seededrandom() + ' bone',
     // monster bones
-    ['kobold', 'goblin', 'ogre', 'giant', 'merfolk', 'bullywug', 'grimlock', 'lizardfolk', 'hobgoblin', 'orc', 'gnoll', 'cockatrice', 'dragon', 'bugbear', 'harpy', 'hippogriff', 'imp', 'satyr', 'centaur', 'ettercap', 'griffon', 'sea hag', 'wererat', 'werewolf', 'wereboar', 'basilisk', 'hell hound', 'manticore', 'minotaur', 'owlbear', 'ettin', 'lamia', 'barbed devil', 'bulette', 'troll', 'xorn', 'chimera', 'drider', 'medusa', 'wyvern', 'vrock', 'oni', 'chain devil', 'hezrou', 'hydra', 'glabrezu', 'behir', 'roc', 'horned devil', 'marilith', 'sphinx', 'balor', 'pit fiend', 'kraken'].random() + ' bone',
-    ['elephant', 'elephant', 'elephant', 'dire elephant', 'hippo', 'walrus', 'whale', 'hornbill', 'warthog', 'narwhal'].random() + ' ivory',
+    ['kobold', 'goblin', 'ogre', 'giant', 'merfolk', 'bullywug', 'grimlock', 'lizardfolk', 'hobgoblin', 'orc', 'gnoll', 'cockatrice', 'dragon', 'bugbear', 'harpy', 'hippogriff', 'imp', 'satyr', 'centaur', 'ettercap', 'griffon', 'sea hag', 'wererat', 'werewolf', 'wereboar', 'basilisk', 'hell hound', 'manticore', 'minotaur', 'owlbear', 'ettin', 'lamia', 'barbed devil', 'bulette', 'troll', 'xorn', 'chimera', 'drider', 'medusa', 'wyvern', 'vrock', 'oni', 'chain devil', 'hezrou', 'hydra', 'glabrezu', 'behir', 'roc', 'horned devil', 'marilith', 'sphinx', 'balor', 'pit fiend', 'kraken'].seededrandom() + ' bone',
+    ['elephant', 'elephant', 'elephant', 'dire elephant', 'hippo', 'walrus', 'whale', 'hornbill', 'warthog', 'narwhal'].seededrandom() + ' ivory',
     'ebony',
     'mahogany',
     'walnut',
@@ -96,25 +115,25 @@ setup.ringData = {
     'zirconium',
     'obsidian',
     'quartz'
-  ],
-  decorations: [
+  ].seededrandom()
+  ring.decoration = [
     'handful of small gemstones arrayed around the band',
     'two small gemstones with a large gemstone in the center',
-    ['trio of small ', 'trio of large ', 'group of one large and two small flanking ', 'cluster of small ', 'group of several large ', 'small set of ', 'row of ', 'circle of '].random() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].random() + ' cut gemstones',
-    ['single large ', 'huge ', 'single small ', 'tiny ', 'very large ', 'very small '].random() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].random() + ' cut gemstone',
-    'cluster of gemstones in the shape of a ' + ['star', 'sun', 'moon', 'heart'].random(),
-    ["snake's", "dragon's", "lion's", "tiger's", "demon's", "devil's", "wolf's", "bear's", "monkey's", "crow's", "eagle's", "hawk's", "vulture's", "fox's", "horse's", "bat's", "rabbit's", "boar's", "medusa's"].random() + ' head with gemstones set in its eyes',
+    ['trio of small ', 'trio of large ', 'group of one large and two small flanking ', 'cluster of small ', 'group of several large ', 'small set of ', 'row of ', 'circle of '].seededrandom() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].seededrandom() + ' cut gemstones',
+    ['single large ', 'huge ', 'single small ', 'tiny ', 'very large ', 'very small '].seededrandom() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].seededrandom() + ' cut gemstone',
+    'cluster of gemstones in the shape of a ' + ['star', 'sun', 'moon', 'heart'].seededrandom(),
+    ["snake's", "dragon's", "lion's", "tiger's", "demon's", "devil's", "wolf's", "bear's", "monkey's", "crow's", "eagle's", "hawk's", "vulture's", "fox's", "horse's", "bat's", "rabbit's", "boar's", "medusa's"].seededrandom() + ' head with gemstones set in its eyes',
     'skull with gemstones set in its eyes',
-    ['floral', 'leafy', 'thorny', 'hexagonal', 'wavy', 'spider-web', 'cross-hatching', 'vine', 'geometric', 'spiral', 'rune', 'starry', 'swirling'].random() + ' ' + ['pattern', 'motif', 'design', 'marking', 'ornamentation'].random(),
-    'band like ' + ['twisting vines', 'rough waves', 'stag horns', 'tree branches', 'rose thorns', 'a craggy mountainside', 'the body of a snake', 'a twisting rope'].random(),
-    'phrase written in ' + ['a Dwarvish script', 'an Elvish script', 'an Infernal script', 'a Draconic script', 'a Celestial script', 'a Common script'].random() + ' wrapping around the band',
+    ['floral', 'leafy', 'thorny', 'hexagonal', 'wavy', 'spider-web', 'cross-hatching', 'vine', 'geometric', 'spiral', 'rune', 'starry', 'swirling'].seededrandom() + ' ' + ['pattern', 'motif', 'design', 'marking', 'ornamentation'].seededrandom(),
+    'band like ' + ['twisting vines', 'rough waves', 'stag horns', 'tree branches', 'rose thorns', 'a craggy mountainside', 'the body of a snake', 'a twisting rope'].seededrandom(),
+    'phrase written in ' + ['a Dwarvish script', 'an Elvish script', 'an Infernal script', 'a Draconic script', 'a Celestial script', 'a Common script'].seededrandom() + ' wrapping around the band',
     'handful of arcane runes'
-  ],
-  gemstones: [
+  ].seededrandom()
+  ring.gemstone = [
     'diamond',
-    ['yellow', 'pink', 'champagne', 'green', 'blue', 'orange', 'red', 'chameleon', 'argyle', 'purple', 'violet', 'black', 'gray', 'white'].random() + ' diamond',
+    ['yellow', 'pink', 'champagne', 'green', 'blue', 'orange', 'red', 'chameleon', 'argyle', 'purple', 'violet', 'black', 'gray', 'white'].seededrandom() + ' diamond',
     'ruby',
-    ['fire', 'white', 'black', 'yellow', 'fairy', 'pink', 'crystal', 'honey'].random() + ' opal',
+    ['fire', 'white', 'black', 'yellow', 'fairy', 'pink', 'crystal', 'honey'].seededrandom() + ' opal',
     'emerald',
     'blue sapphire',
     'purple sapphire',
@@ -122,7 +141,7 @@ setup.ringData = {
     'green sapphire',
     'star sapphire',
     'garnet',
-    ['white', 'black', 'golden', 'pink', 'lavender', 'blue', 'chocolate'].random() + ' pearl',
+    ['white', 'black', 'golden', 'pink', 'lavender', 'blue', 'chocolate'].seededrandom() + ' pearl',
     'amethyst',
     'topaz',
     'polished amber',
@@ -137,15 +156,15 @@ setup.ringData = {
     'tanzanite',
     'turquoise',
     'zircon',
-    ['blue', 'red', 'green', 'yellow', 'pink', 'brown', 'black'].random() + ' tourmaline'
-  ],
-  intendedowner: [
+    ['blue', 'red', 'green', 'yellow', 'pink', 'brown', 'black'].seededrandom() + ' tourmaline'
+  ].seededrandom()
+  ring.intendedowner = [
     'no one in particular',
-    "the ringmaker's true love, but " + ['they perished long ago', 'they are no longer on this plane', 'it was never delivered', 'but the ringmaker perished before it was gifted away'].random(),
-    ['a Dwarvish', 'an Elvish', 'a Gnomish', 'a Human', 'a Dragonborn', 'a Half-Orc', 'a Drow', 'a Tiefling', 'a Halfling', 'a Half-Elf', 'a Goblin'].random() + ' ' + ['king', 'queen', 'princess', 'prince', 'prince', 'noble', 'duke', 'baron', 'lord', 'lady', 'merchant', 'witch of terrible power', 'gemcutter', 'hero from ancient times', 'knight'].random(),
-    ['a dark', 'a notorious', 'a legendary', 'a mysterious', 'an ancient', 'a sinister', 'a forgotten', 'a devious', 'an eccentric', 'a powerful', 'a wealthy', 'a conniving', 'an infamous', 'a renowned', 'a famous', 'a heralded', 'a strong-willed', 'a well known', 'a barely known', 'a weak-willed', 'an extremely wealthy'].random() + ' ' + ['sorceress', 'sorcerer', 'wizard', 'mage', 'witch', 'high priest', 'lich', 'rogue', 'fiend', 'warlord', 'explorer', 'bard', 'performer', 'druid', 'warlock', 'monk', 'warrior', 'knight', 'fighter', 'fortune teller', 'gladiator', 'king', 'queen', 'prince', 'princess', 'lord', 'lady', 'duke', 'monarch', 'prophet', 'spellcaster'].random()
-  ],
-  importance: [
+    "the ringmaker's " + ['true love', 'best friend', 'favorite patron', 'ruler who he cared deeply for', 'family member', 'wife', 'husband', 'good friend'].seededrandom() + ', but ' + ['they perished long ago', 'they are no longer on this plane', 'it was never delivered', 'the ringmaker perished before it was gifted away', 'they pawned it during times of trouble', "they pawned it after the ringmaker's death", 'it was stolen during the original delivery'].seededrandom(),
+    ['a Dwarvish', 'an Elvish', 'a Gnomish', 'a Human', 'a Dragonborn', 'a Half-Orc', 'a Drow', 'a Tiefling', 'a Halfling', 'a Half-Elf', 'a Goblin'].seededrandom() + ' ' + ['king', 'queen', 'princess', 'prince', 'prince', 'noble', 'duke', 'baron', 'lord', 'lady', 'merchant', 'witch of terrible power', 'gemcutter', 'hero from ancient times', 'knight'].seededrandom() + ' who ' + ['used it to gain power', 'used it to gain fame', 'used it to gain wealth', 'used it against their enemies', 'used it to better their town in their time', 'wore it until they died', 'wore it until it was lost during a long journey', 'wore it until it was stolen from them', 'never actually wore the ring', 'gifted it away after a few years'].seededrandom(),
+    ['a dark', 'a notorious', 'a legendary', 'a mysterious', 'an ancient', 'a sinister', 'a forgotten', 'a devious', 'an eccentric', 'a powerful', 'a wealthy', 'a conniving', 'an infamous', 'a renowned', 'a famous', 'a heralded', 'a strong-willed', 'a well known', 'a barely known', 'a weak-willed', 'an extremely wealthy'].seededrandom() + ' ' + ['sorceress', 'sorcerer', 'wizard', 'mage', 'witch', 'high priest', 'lich', 'rogue', 'fiend', 'warlord', 'explorer', 'bard', 'performer', 'druid', 'warlock', 'monk', 'warrior', 'knight', 'fighter', 'fortune teller', 'gladiator', 'king', 'queen', 'prince', 'princess', 'lord', 'lady', 'duke', 'monarch', 'prophet', 'spellcaster'].seededrandom() + ' who ' + ['used it to gain power', 'used it to gain fame', 'used it to gain wealth', 'used it against their enemies', 'used it to better their town in their time', 'wore it until they died', 'wore it until it was lost during a long journey', 'wore it until it was stolen from them', 'never actually wore the ring', 'gifted it away after a few years'].seededrandom()
+  ].seededrandom()
+  ring.importance = [
     'ancient king',
     'elder dragon',
     'powerful fiend',
@@ -159,20 +178,20 @@ setup.ringData = {
     'elemental lord',
     'forgotten god',
     'ancient evil being'
-  ],
-  setting: [
+  ].seededrandom()
+  ring.setting = [
     'in the centre is a ',
     'the gemstone in the middle is a ',
     'the focal point of the ring is a ',
     'the gems in this ring are mostly ',
-    'the ring is set with ',
-    'the ring has three gems, two cheap quartz gems flanking a',
-    'this ring is bejeweled with a ',
+    'it is set with ',
+    'it has three gems, two cheap quartz gems flanking a',
+    'it is bejeweled with a ',
     'the band of this ring is surrounded with ',
     'in the middle of the ring sits a huge ',
     'the middle of the ring has a large cluster of '
-  ],
-  cut: [
+  ].seededrandom()
+  ring.cut = [
     'rose',
     'princess',
     'emerald',
@@ -191,40 +210,12 @@ setup.ringData = {
     'old miners',
     'star',
     'step'
-  ]
-}
-
-setup.createRing = function (base) {
-  const ring = Object.assign({
-    power: Object.keys(setup.ringData.power).random(),
-    cost: Object.keys(setup.ringData.cost).random(),
-    activation: Object.keys(setup.ringData.activation).random(),
-    works: setup.ringData.works.random(),
-    material: setup.ringData.materials.random(),
-    decoration: setup.ringData.decorations.random(),
-    gemstone: setup.ringData.gemstones.random(),
-    intendedowner: setup.ringData.intendedowner.random(),
-    importance: setup.ringData.importance.random(),
-    setting: setup.ringData.setting.random(),
-    cut: setup.ringData.cut.random()
-  }, base)
-  if (setup.ringData.power[ring.power]) {
-  // expand the power description
-    ring.power = setup.ringData.power[ring.power]
-  }
-  if (setup.ringData.cost[ring.cost]) {
-  // expand the cost description
-    ring.cost = setup.ringData.cost[ring.cost]
-  }
-  if (setup.ringData.activation[ring.activation]) {
-  // expand the activation description
-    ring.activation = setup.ringData.activation[ring.activation]
-  }
-  ring.firstOutputs = ['This ring is a ' + ring.material + ' ring which is decorated with a ' + ring.decoration + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>>' + ring.cost + '.</blockquote>',
-    'This ring is a ' + ring.material + ' ring, and ' + ring.setting + ' ' + ring.cut + ' cut ' + ring.gemstone + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>>' + ring.cost + '.</blockquote>'
   ].seededrandom()
-  ring.secondOutputs = ["This one's a " + ring.material + ' ring which is decorated with a ' + ring.decoration + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>> ' + ring.cost + '.</blockquote>',
-    "This one's a " + ring.material + ' ring, and ' + ring.setting + ' ' + ring.cut + ' cut ' + ring.gemstone + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>>' + ring.cost + '.</blockquote>'
+  ring.firstOutputs = ['This ring is made of ' + ring.material + ' which is decorated with a ' + ring.decoration + '. It was intended for ' + ring.intendedowner + '. The ring grants the power to ' + ring.power + '.<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>>' + ring.cost + '.</blockquote>',
+    'This ring is made of ' + ring.material + ', and ' + ring.setting + ' ' + ring.cut + ' cut ' + ring.gemstone + '. It was intended for ' + ring.intendedowner + '. The ring grants the power to ' + ring.power + '.<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>>' + ring.cost + '.</blockquote>'
+  ].seededrandom()
+  ring.secondOutputs = ["This one's made of " + ring.material + ' which is decorated with a ' + ring.decoration + '. It was intended for ' + ring.intendedowner + '. The ring grants the power to ' + ring.power + '.<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>> ' + ring.cost + '.</blockquote>',
+    "This one's made of " + ring.material + ', and ' + ring.setting + ' ' + ring.cut + ' cut ' + ring.gemstone + '. It was intended for ' + ring.intendedowner + '. The ring grants the power to ' + ring.power + '.<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but ", "however "].seededrandom()>>' + ring.cost + '.</blockquote>'
   ].seededrandom()
   return ring
 }
