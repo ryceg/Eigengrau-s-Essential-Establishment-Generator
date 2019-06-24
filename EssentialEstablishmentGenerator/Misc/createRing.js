@@ -101,13 +101,13 @@ setup.ringData = {
     'handful of small gemstones arrayed around the band',
     'two small gemstones with a large gemstone in the center',
     ['trio of small ', 'trio of large ', 'group of one large and two small flanking ', 'cluster of small ', 'group of several large ', 'small set of ', 'row of ', 'circle of '].random() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].random() + ' cut gemstones',
-    ['single large ', 'huge ', 'single small ', 'tiny ', 'very large ', 'very small '].random() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners cut', 'star', 'step'].random() + ' cut gemstone',
+    ['single large ', 'huge ', 'single small ', 'tiny ', 'very large ', 'very small '].random() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].random() + ' cut gemstone',
     'cluster of gemstones in the shape of a ' + ['star', 'sun', 'moon', 'heart'].random(),
     ["snake's", "dragon's", "lion's", "tiger's", "demon's", "devil's", "wolf's", "bear's", "monkey's", "crow's", "eagle's", "hawk's", "vulture's", "fox's", "horse's", "bat's", "rabbit's", "boar's", "medusa's"].random() + ' head with gemstones set in its eyes',
     'skull with gemstones set in its eyes',
     ['floral', 'leafy', 'thorny', 'hexagonal', 'wavy', 'spider-web', 'cross-hatching', 'vine', 'geometric', 'spiral', 'rune', 'starry', 'swirling'].random() + ' ' + ['pattern', 'motif', 'design', 'marking', 'ornamentation'].random(),
     'band like ' + ['twisting vines', 'rough waves', 'stag horns', 'tree branches', 'rose thorns', 'a craggy mountainside', 'the body of a snake', 'a twisting rope'].random(),
-    'phrase written in ' + ['a Dwarvish script', 'an Elvish script', 'an Infernal script', 'a Draconic script', 'a Celestial script', 'a Common script'].random() + 'wrapping around the band',
+    'phrase written in ' + ['a Dwarvish script', 'an Elvish script', 'an Infernal script', 'a Draconic script', 'a Celestial script', 'a Common script'].random() + ' wrapping around the band',
     'handful of arcane runes'
   ],
   gemstones: [
@@ -159,6 +159,38 @@ setup.ringData = {
     'elemental lord',
     'forgotten god',
     'ancient evil being'
+  ],
+  setting: [
+    'in the centre is a ',
+    'the gemstone in the middle is a ',
+    'the focal point of the ring is a ',
+    'the gems in this ring are mostly ',
+    'the ring is set with ',
+    'the ring has three gems, two cheap quartz gems flanking a',
+    'this ring is bejeweled with a ',
+    'the band of this ring is surrounded with ',
+    'in the middle of the ring sits a huge ',
+    'the middle of the ring has a large cluster of '
+  ],
+  cut: [
+    'rose',
+    'princess',
+    'emerald',
+    'square',
+    'baguette',
+    'taper',
+    'fancy',
+    'heart',
+    'pear',
+    'marquise',
+    'oval',
+    'round',
+    'mixed',
+    'buff top',
+    'mogul',
+    'old miners',
+    'star',
+    'step'
   ]
 }
 
@@ -172,7 +204,9 @@ setup.createRing = function (base) {
     decoration: setup.ringData.decorations.random(),
     gemstone: setup.ringData.gemstones.random(),
     intendedowner: setup.ringData.intendedowner.random(),
-    importance: setup.ringData.importance.random()
+    importance: setup.ringData.importance.random(),
+    setting: setup.ringData.setting.random(),
+    cut: setup.ringData.cut.random()
   }, base)
   if (setup.ringData.power[ring.power]) {
   // expand the power description
@@ -186,7 +220,11 @@ setup.createRing = function (base) {
   // expand the activation description
     ring.activation = setup.ringData.activation[ring.activation]
   }
-  ring.firstOutputs = 'This ring is a ' + ring.material + ' ring which is decorated with a ' + ring.decoration + '. <<print ["In the centre is a ", "The gemstone in the middle is a ", "The focal point of the ring is a ", "All of the gems in this ring are mostly ", "The ring is set with ", "This ring is bejeweled with a "].seededrandom()>>' + ring.gemstone + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but", "however"].seededrandom()>>' + ring.cost + '.</blockquote>'
-  ring.secondOutputs = "This one's a " + ring.material + ' ring which is decorated with a ' + ring.decoration + '. <<print ["In the centre is a", "The gemstone in the middle is a ", "The focal point of the ring is a", "All of the gems in this ring are mostly ", "The ring is set with ", "This ring is bejeweled with a "].seededrandom()>>' + ring.gemstone + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but", "however"].seededrandom()>> ' + ring.cost + '.</blockquote>'
+  ring.firstOutputs = ['This ring is a ' + ring.material + ' ring which is decorated with a ' + ring.decoration + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but", "however"].seededrandom()>>' + ring.cost + '.</blockquote>',
+    'This ring is a ' + ring.material + ' ring, and ' + ring.setting + ' ' + ring.cut + ' cut ' + ring.gemstone + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but", "however"].seededrandom()>>' + ring.cost + '.</blockquote>'
+  ].seededrandom()
+  ring.secondOutputs = ["This one's a " + ring.material + ' ring which is decorated with a ' + ring.decoration + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but", "however"].seededrandom()>> ' + ring.cost + '.</blockquote>',
+    "This one's a " + ring.material + ' ring, and ' + ring.setting + ' ' + ring.cut + ' cut ' + ring.gemstone + '. It was intended for ' + ring.intendedowner + ', and it grants the power to ' + ring.power + '<blockquote>This ring works ' + ring.works + ', and works best ' + ring.activation + '. It grants the power to ' + ring.power + ', <<print ["but", "however"].seededrandom()>>' + ring.cost + '.</blockquote>'
+  ].seededrandom()
   return ring
 }
