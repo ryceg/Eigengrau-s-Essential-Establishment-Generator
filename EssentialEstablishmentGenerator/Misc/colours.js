@@ -1,8 +1,11 @@
 setup.colours = {
   yellow: {
-    isNatural: true,
-    isPlant: true,
-    isMineral: true,
+    properties: {
+      isNatural: true,
+      isPlant: true,
+      isMineral: true,
+      isPaint: true
+    },
     colour: [
       'ivory',
       'cream',
@@ -33,9 +36,12 @@ setup.colours = {
     ]
   },
   orange: {
-    isNatural: true,
-    isPlant: false,
-    isMineral: false,
+    properties: {
+      isNatural: true,
+      isPlant: false,
+      isMineral: false,
+      isPaint: true
+    },
     colour: [
       'vermillion',
       'ochre',
@@ -68,9 +74,12 @@ setup.colours = {
     ]
   },
   red: {
-    isNatural: true,
-    isPlant: false,
-    isMineral: true,
+    properties: {
+      isNatural: true,
+      isPlant: false,
+      isMineral: true,
+      isPaint: true
+    },
     colour: [
       'red',
       'bright red',
@@ -116,9 +125,12 @@ setup.colours = {
     ]
   },
   purple: {
-    isNatural: false,
-    isPlant: false,
-    isMineral: true,
+    properties: {
+      isNatural: false,
+      isPlant: false,
+      isMineral: true,
+      isPaint: false
+    },
     colour: [
       'tyrian purple',
       'royal purple',
@@ -152,9 +164,12 @@ setup.colours = {
     ]
   },
   blue: {
-    isNatural: false,
-    isPlant: false,
-    isMineral: true,
+    properties: {
+      isNatural: false,
+      isPlant: false,
+      isMineral: true,
+      isPaint: false
+    },
     colour: [
       'light blue',
       'blue',
@@ -183,9 +198,12 @@ setup.colours = {
     ]
   },
   green: {
-    isNatural: true,
-    isPlant: true,
-    isMineral: true,
+    properties: {
+      isNatural: true,
+      isPlant: true,
+      isMineral: true,
+      isPaint: true
+    },
     colour: [
       'green',
       'olive',
@@ -219,9 +237,12 @@ setup.colours = {
     ]
   },
   brown: {
-    isNatural: true,
-    isPlant: true,
-    isMineral: true,
+    properties: {
+      isNatural: true,
+      isPlant: true,
+      isMineral: true,
+      isPaint: true
+    },
     colour: [
       'brown',
       'umber',
@@ -254,9 +275,12 @@ setup.colours = {
     ]
   },
   black: {
-    isNatural: true,
-    isPlant: false,
-    isMineral: true,
+    properties: {
+      isNatural: false,
+      isPlant: false,
+      isMineral: true,
+      isPaint: false
+    },
     colour: [
       'onyx',
       'ebony',
@@ -279,9 +303,12 @@ setup.colours = {
     ]
   },
   white: {
-    isNatural: true,
-    isPlant: false,
-    isMineral: false,
+    properties: {
+      isNatural: false,
+      isPlant: false,
+      isMineral: false,
+      isPaint: true
+    },
     colour: [
       'white',
       'ghost white',
@@ -311,4 +338,35 @@ setup.colours = {
       'lotus'
     ]
   }
+}
+
+setup.createColour = function (filters) {
+  // FIXME this whole function is not working at the moment.
+  if (!filters) filters = {}
+  if (!filters.bannedColours) filters.bannedColours = []
+  const availableColours = Object.keys(setup.colours)
+  console.log(availableColours)
+  for (const colour in Object.keys(setup.colours)) {
+    if (filters.bannedColours.includes(colour)) {
+      continue
+    }
+    console.log(setup.colours[colour])
+    for (const filter in Object.keys(filters)) {
+      if (filters[filter] === filters.bannedColours) { continue }
+
+      if (filters[filter] !== setup.colours[colour].properties[filter]) {
+        filters.bannedColours.push(colour)
+      }
+    }
+  }
+  for (const bannedColour in filters.bannedColours) {
+    if (availableColours.includes(bannedColour)) {
+      delete availableColours[bannedColour]
+    }
+  }
+  const selectedColour = availableColours.seededrandom()
+  return [
+    setup.colours[selectedColour].colour.seededrandom(),
+    `${setup.colours[selectedColour].coloured.seededrandom()} coloured`
+  ].seededrandom()
 }
