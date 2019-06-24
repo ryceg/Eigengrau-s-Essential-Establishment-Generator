@@ -5,4 +5,5 @@
 
 <h3>Blacksmith</h3>The blacksmith <<print either($blacksmith.greeting)>> <<print either('when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around')>>. <<print $blacksmith.heshe.toUpperFirst()>> introduces $blacksmith.himherself as <<profile $blacksmith>>, the $blacksmith.owner of the smithy, and asks what $blacksmith.heshe can do for you.
 <<include "BlacksmithTalk">>
+<<link "<h4>Generate plothook</h4>">><<set $blacksmithPlot to setup.blacksmithMission($town)>><<replace "#blacksmithMission">><<print either("When you say that you're adventurers, $blacksmith.hisher $blacksmith.eyes eyes light up, and $blacksmith.heshe says", "You chat for a while, and then $blacksmith.firstName says ", "You discuss business, and when you talk about your adventures, $blacksmith.firstName asks ")>> "$blacksmithPlot"<</replace>><</link>><span id="blacksmithMission"></span>
 <<include "SmithySell">>
