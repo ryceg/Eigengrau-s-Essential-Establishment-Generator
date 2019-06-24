@@ -24,7 +24,7 @@
 setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, indexNumber, rollLocation) {
   keyName = keyName || propName
   indexNumber = indexNumber || 1
-  // rollLocation = rollLocation || baseObj.roll
+  rollLocation = rollLocation || baseObj.roll
   console.groupCollapsed('DefineRollDataGetters')
   console.log({
     baseObj,
@@ -50,7 +50,7 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
         }
       }, this)
       if (result === undefined) {
-        console.log('Failed to get a descriptor that matched the roll of ' + this.roll[propName] + ' for ' + propName + '.')
+        console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = rollArray[rollArray.length - 1]
       }
       if (Array.isArray(result[indexNumber])) {
@@ -70,7 +70,7 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
         }
       }, this)
       if (result === undefined) {
-        console.log('Failed to set a descriptor that matched the roll of ' + this.roll[propName] + ' for ' + propName + '.')
+        console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = rollArray[rollArray.length - 1]
       }
       this['_' + propName] = val || result[indexNumber]
