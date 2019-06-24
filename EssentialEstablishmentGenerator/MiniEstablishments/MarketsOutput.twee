@@ -23,12 +23,12 @@ A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets f
       <<replace "#magic">>The $magicSeller.manwoman beckons you over to $magicSeller.hisher stall, and introduces $magicSeller.himherself as <<profile $magicSeller>>, a purveyor of fine goods. The $magicSeller.raceNote asks you for your ring size, and then $magicSeller.heshe reaches below $magicSeller.hisher table, and procures a ring...
             <div class="descriptive">
               <h3>A $marketMagic.material ring</h3>
-              The $magicSeller.raceNote hands you a $marketMagic.material ring which is decorated with a $marketMagic.decoration. In the centre is a $marketMagic.gemstone. $magicSeller.firstName says that it was intended for $marketMagic.intendedowner, and it grants the power to $marketMagic.power</div><blockquote>This ring works $marketMagic.works, and works best $marketMagic.activation. It grants the power to $marketMagic.power, but $marketMagic.cost</blockquote>
+              $marketMagic.firstOutputs</div>
       <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketMagic to setup.createRing()>>
           <<replace "#magic">>
                 <div class="descriptive">
                   <h3>A $marketMagic.material ring</h3>
-                  <<print either("The $magicSeller.raceNote", "$magicSeller.firstName")>> <<print either("hands you", "passes you", "procures another ring, this one")>> a $marketMagic.material ring which is decorated with a $marketMagic.decoration. <<print either("In the centre is", "The gemstone in the middle is")>> a $marketMagic.gemstone. $magicSeller.firstName says that it was intended for $marketMagic.intendedowner, and it grants the power to $marketMagic.power</div><blockquote>This ring works $marketMagic.works, and works best $marketMagic.activation. It grants the power to $marketMagic.power, but $marketMagic.cost</blockquote><</replace>><</link>><<run console.log($marketMagic)>><</nobr>>
+                  $marketMagic.secondOutputs</div><</replace>><</link>><<run console.log($marketMagic)>><</nobr>>
     <<default>>
       <<set $marketMagic to setup.createMagic($marketMagicType)>><<run console.log($marketMagic)>>
       <<replace "#magic">><div class='descriptive'><h3>$marketMagic.name</h3>$marketMagic.description</div><</replace>>
