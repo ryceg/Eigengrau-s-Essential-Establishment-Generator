@@ -25,7 +25,8 @@ setup.createBrothel = function (town, tavern) {
   brothel.wealth = ''
   brothel.size = ''
   brothel.cleanliness = ''
-
+  setup.structure.create(town, brothel)
+  brothel.structure.brothelDescriptor = 'a ' + brothel.structure.material.wealth + ' ' + brothel.structure.material.noun + ' ' + brothel.wordNoun + ' with a ' + brothel.structure.roof.verb + ' roof'
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
@@ -35,7 +36,6 @@ setup.createBrothel = function (town, tavern) {
     isShallow: true,
     hasClass: false
   })
-
   brothel.pimp.greeting = [
     'nods at you', 'welcomes you warmly', 'smiles, greets you', 'raises a hand with a wave', 'sizes you up, before $pimp.heshe nods at you', 'checks you out for just a moment before smiling at you', 'waves slightly in your direction', 'gives you you a slight nod', 'turns your way', 'frowns, but greets you just the same'
   ]
