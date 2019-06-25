@@ -289,7 +289,7 @@ setup.market = {
     'a scattered number of tents set randomly throughout town',
     'an enormous rundown looking building',
     'a small, muddy plaza',
-    'a series of rooftops connect by large wooden planks',
+    'a series of rooftops connected by large wooden planks',
     'a series of small buildings connected by covered awnings',
     'the very center of town',
     'a large gated plaza',
