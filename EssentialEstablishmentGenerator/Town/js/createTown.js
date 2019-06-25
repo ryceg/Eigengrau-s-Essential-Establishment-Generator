@@ -63,7 +63,7 @@ setup.createTown = function (base) {
     population: setup.townData.type[type].population(),
     _demographic: {},
     // Clone the raw demographic data for the town type.
-    _baseDemographics: clone(setup.townData.type[type].demographic),
+    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.seededrandom().output),
     get baseDemographics () {
       console.log('Getting base demographics.')
       return this._baseDemographics
@@ -174,6 +174,7 @@ setup.createTown = function (base) {
     }
   }, base)
 
+  setup.townDemographics(town)
   town.professions = setup.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology

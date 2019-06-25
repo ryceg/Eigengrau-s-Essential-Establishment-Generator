@@ -56,18 +56,93 @@ setup.townData = {
   type: {
     // This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
     hamlet: {
-      demographic: {
-        // demographics must be in alphabetical order until I fix it to not be buggy
-        'dragonborn': randomFloat(1, 2),
-        'dwarf': randomFloat(1, 10),
-        'elf': randomFloat(1, 5),
-        'gnome': randomFloat(1, 5),
-        'half-elf': randomFloat(1, 5),
-        'half-orc': randomFloat(1, 3),
-        'halfling': randomFloat(5, 10),
-        'human': randomFloat(85, 95),
-        'tiefling': randomFloat(1, 2)
-      },
+      demographics: [
+        {
+          // demographics must be in alphabetical order until I fix it to not be buggy
+          probability: 50,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(1, 3),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(85, 95),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 5,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(85, 95),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 2,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 5),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(5, 10),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(3, 10)
+          }
+        },
+        {
+          probability: 7,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(1, 3),
+            'halfling': randomFloat(70, 90),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 10,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(70, 80),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(20, 40),
+            'half-orc': randomFloat(1, 2),
+            'halfling': randomFloat(5, 15),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 10,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(80, 90),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(25, 35),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(1, 3),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 2)
+          }
+        }
+      ],
       economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       politicalSource: ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(30, 300) },
@@ -82,18 +157,93 @@ setup.townData = {
       }
     },
     village: {
-      demographic: {
-        // demographics must be in alphabetical order until I fix it to not be buggy
-        'dragonborn': randomFloat(1, 2),
-        'dwarf': randomFloat(1, 10),
-        'elf': randomFloat(1, 10),
-        'gnome': randomFloat(1, 10),
-        'half-elf': randomFloat(1, 10),
-        'half-orc': randomFloat(1, 5),
-        'halfling': randomFloat(5, 10),
-        'human': randomFloat(85, 95),
-        'tiefling': randomFloat(1, 2)
-      },
+      demographics: [
+        {
+          // demographics must be in alphabetical order until I fix it to not be buggy
+          probability: 50,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 10),
+            'gnome': randomFloat(1, 10),
+            'half-elf': randomFloat(1, 10),
+            'half-orc': randomFloat(1, 5),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(85, 95),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 5,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 5),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 3),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 3),
+            'half-orc': randomFloat(85, 95),
+            'halfling': randomFloat(5, 7),
+            'human': randomFloat(8, 15),
+            'tiefling': randomFloat(1, 5)
+          }
+        },
+        {
+          probability: 2,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 5),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(5, 10),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(5, 20),
+            'tiefling': randomFloat(3, 10)
+          }
+        },
+        {
+          probability: 7,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(5, 10),
+            'half-elf': randomFloat(1, 10),
+            'half-orc': randomFloat(1, 4),
+            'halfling': randomFloat(70, 90),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 4)
+          }
+        },
+        {
+          probability: 10,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 4),
+            'dwarf': randomFloat(3, 10),
+            'elf': randomFloat(70, 80),
+            'gnome': randomFloat(2, 7),
+            'half-elf': randomFloat(20, 40),
+            'half-orc': randomFloat(1, 2),
+            'halfling': randomFloat(5, 15),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 3)
+          }
+        },
+        {
+          probability: 10,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(80, 90),
+            'elf': randomFloat(1, 7),
+            'gnome': randomFloat(25, 35),
+            'half-elf': randomFloat(1, 6),
+            'half-orc': randomFloat(1, 3),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(10, 15),
+            'tiefling': randomFloat(1, 3)
+          }
+        }
+      ],
       economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       politicalSource: ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(301, 1000) },
@@ -107,18 +257,93 @@ setup.townData = {
       }
     },
     town: {
-      demographic: {
-        // demographics must be in alphabetical order until I fix it to not be buggy
-        'dragonborn': randomFloat(1, 2),
-        'dwarf': randomFloat(1, 15),
-        'elf': randomFloat(1, 10),
-        'gnome': randomFloat(1, 10),
-        'half-elf': randomFloat(3, 15),
-        'half-orc': randomFloat(1, 5),
-        'halfling': randomFloat(5, 10),
-        'human': randomFloat(75, 95),
-        'tiefling': randomFloat(1, 2)
-      },
+      demographics: [
+        {
+          // demographics must be in alphabetical order until I fix it to not be buggy
+          probability: 50,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 15),
+            'elf': randomFloat(1, 10),
+            'gnome': randomFloat(1, 10),
+            'half-elf': randomFloat(3, 15),
+            'half-orc': randomFloat(1, 5),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(75, 95),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 3,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 7),
+            'dwarf': randomFloat(5, 15),
+            'elf': randomFloat(1, 3),
+            'gnome': randomFloat(1, 10),
+            'half-elf': randomFloat(1, 3),
+            'half-orc': randomFloat(85, 95),
+            'halfling': randomFloat(5, 7),
+            'human': randomFloat(8, 25),
+            'tiefling': randomFloat(4, 10)
+          }
+        },
+        {
+          probability: 2,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 5),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(5, 10),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(5, 20),
+            'tiefling': randomFloat(3, 10)
+          }
+        },
+        {
+          probability: 7,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(5, 20),
+            'gnome': randomFloat(5, 15),
+            'half-elf': randomFloat(1, 15),
+            'half-orc': randomFloat(1, 4),
+            'halfling': randomFloat(50, 80),
+            'human': randomFloat(25, 40),
+            'tiefling': randomFloat(1, 7)
+          }
+        },
+        {
+          probability: 10,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 4),
+            'dwarf': randomFloat(3, 10),
+            'elf': randomFloat(70, 80),
+            'gnome': randomFloat(2, 7),
+            'half-elf': randomFloat(10, 30),
+            'half-orc': randomFloat(1, 2),
+            'halfling': randomFloat(5, 20),
+            'human': randomFloat(5, 15),
+            'tiefling': randomFloat(1, 3)
+          }
+        },
+        {
+          probability: 10,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(80, 90),
+            'elf': randomFloat(1, 7),
+            'gnome': randomFloat(25, 35),
+            'half-elf': randomFloat(1, 6),
+            'half-orc': randomFloat(1, 3),
+            'halfling': randomFloat(3, 7),
+            'human': randomFloat(10, 20),
+            'tiefling': randomFloat(1, 3)
+          }
+        }
+      ],
       economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
       politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(1001, 3000) },
@@ -132,18 +357,93 @@ setup.townData = {
       }
     },
     city: {
-      demographic: {
-        // demographics must be in alphabetical order until I fix it to not be buggy
-        'dragonborn': randomFloat(1, 4),
-        'dwarf': randomFloat(1, 20),
-        'elf': randomFloat(1, 15),
-        'gnome': randomFloat(1, 15),
-        'half-elf': randomFloat(1, 20),
-        'half-orc': randomFloat(1, 10),
-        'halfling': randomFloat(5, 15),
-        'human': randomFloat(70, 95),
-        'tiefling': randomFloat(1, 2)
-      },
+      demographics: [
+        {
+          // demographics must be in alphabetical order until I fix it to not be buggy
+          probability: 50,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 4),
+            'dwarf': randomFloat(1, 20),
+            'elf': randomFloat(1, 15),
+            'gnome': randomFloat(1, 15),
+            'half-elf': randomFloat(1, 20),
+            'half-orc': randomFloat(1, 10),
+            'halfling': randomFloat(5, 15),
+            'human': randomFloat(70, 95),
+            'tiefling': randomFloat(1, 2)
+          }
+        },
+        {
+          probability: 1,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 7),
+            'dwarf': randomFloat(5, 15),
+            'elf': randomFloat(1, 3),
+            'gnome': randomFloat(1, 10),
+            'half-elf': randomFloat(1, 3),
+            'half-orc': randomFloat(85, 95),
+            'halfling': randomFloat(5, 7),
+            'human': randomFloat(8, 25),
+            'tiefling': randomFloat(4, 10)
+          }
+        },
+        {
+          probability: 2,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 5),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(1, 5),
+            'gnome': randomFloat(1, 5),
+            'half-elf': randomFloat(1, 5),
+            'half-orc': randomFloat(5, 10),
+            'halfling': randomFloat(5, 10),
+            'human': randomFloat(5, 20),
+            'tiefling': randomFloat(3, 10)
+          }
+        },
+        {
+          probability: 3,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 2),
+            'dwarf': randomFloat(1, 10),
+            'elf': randomFloat(5, 30),
+            'gnome': randomFloat(5, 15),
+            'half-elf': randomFloat(1, 25),
+            'half-orc': randomFloat(1, 4),
+            'halfling': randomFloat(50, 60),
+            'human': randomFloat(25, 40),
+            'tiefling': randomFloat(1, 10)
+          }
+        },
+        {
+          probability: 15,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 5),
+            'dwarf': randomFloat(3, 10),
+            'elf': randomFloat(70, 95),
+            'gnome': randomFloat(2, 7),
+            'half-elf': randomFloat(10, 25),
+            'half-orc': randomFloat(1, 2),
+            'halfling': randomFloat(5, 15),
+            'human': randomFloat(5, 25),
+            'tiefling': randomFloat(1, 5)
+          }
+        },
+        {
+          probability: 15,
+          popPercentages: {
+            'dragonborn': randomFloat(1, 3),
+            'dwarf': randomFloat(80, 95),
+            'elf': randomFloat(1, 4),
+            'gnome': randomFloat(25, 35),
+            'half-elf': randomFloat(1, 6),
+            'half-orc': randomFloat(1, 5),
+            'halfling': randomFloat(3, 7),
+            'human': randomFloat(10, 25),
+            'tiefling': randomFloat(1, 3)
+          }
+        }
+      ],
       economicIdeology: ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
       politicalSource: ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(3001, 6000) },
