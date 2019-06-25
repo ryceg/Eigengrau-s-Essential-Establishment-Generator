@@ -2,7 +2,7 @@
 <<unset $selectedBuilding>><<set $generalStore to ($town.buildings.generalStore[$selected.key] || $town.buildings.generalStore[$currentPassage.key])>><<set $shopkeep to $npcs[$generalStore.shopkeep.key]>><h1>$generalStore.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $generalStore.road, and enter $generalStore.structure.generalStoreDescriptor and see that inside, the $generalStore.size building is $generalStore.cleanliness. $generalStore.clutter You notice $generalStore.note. The store's shopkeep is currently $generalStore.idle.
 
 <h3>Shopkeeper</h3>
-The shopkeep <<print either($shopkeep.greeting)>> <<print either('when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around')>>. <<print $shopkeep.heshe.toUpperFirst()>> introduces $shopkeep.himherself as <<profile $shopkeep>>, the $shopkeep.owner of the General Store, and asks what $shopkeep.heshe can do for you.
+The shopkeep <<print either($shopkeep.greeting)>> <<print either('when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around')>>. <<print $shopkeep.heshe.toUpperFirst()>> introduces $shopkeep.himherself as <<profile $shopkeep>>, the $shopkeep.owner of the General Store, and $generalStore.say. $generalStore.shopkeepNote.
 
-
+<<link "<h4>Buy a magic trinket</h4>">><<set $testTrinket to setup.createMagicTrinket()>><<replace "#Trinket">>$shopkeep.firstName reaches under the shop counter and says "I think you might like this." before pulling out and placing the $testTrinket.name on the counter.<div class='descriptive'><h3>$testTrinket.name</h3>$testTrinket.description</div><</replace>><</link>><span id="Trinket"></span>
 <<include "generalStoreSell">>
