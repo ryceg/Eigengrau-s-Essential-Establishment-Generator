@@ -39,7 +39,7 @@ setup.structure = {
 
     let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.material, '', '', 'object')
     if (Object.keys(tempRoof).includes('variations')) {
-      console.log('Building roof has variations. ')
+      console.log('Building roof has variations.')
       tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
       // tempMaterial = temp2
       console.log(tempRoof.words)
@@ -47,7 +47,7 @@ setup.structure = {
     if (tempRoof.canBeColoured === true) {
       const colour = setup.structure.data.colour.seededrandom()
       Object.keys(tempRoof.words).forEach(function (roof) {
-        tempRoof.words[roof] = colour + ' ' + tempRoof.words[roof]
+        tempRoof.words[roof] = `${colour} ${tempRoof.words[roof]}`
       })
     }
     building.structure.roof = tempRoof.words
@@ -60,8 +60,8 @@ setup.structure = {
     setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
 
     building.structure.descriptors = [
-      building.structure.material.indefiniteArticle + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.wealth + ' ' + building.structure.roof.verb + ' roof',
-      'a ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + [building.wordNoun, 'building'].random() + ' with a ' + building.structure.roof.verb + ' roof'
+      `${building.structure.material.indefiniteArticle} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with a ${building.structure.roof.wealth} ${building.structure.roof.verb} roof'`,
+      `a ${building.structure.material.wealth} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with a ${building.structure.roof.verb} roof`
     ]
 
     if (building.size) {
