@@ -266,7 +266,12 @@ setup.market = {
       'group of flat stones with merchandise piled on them',
       'pile of dirty rags laid on the ground',
       'long foldout table',
-      'hammock the vendor has set up'
+      'hammock the vendor has set up',
+      'makeshift looking storeftont',
+      'makeshift looking booth',
+      'nice looking storefront',
+      'ramshackle storefront',
+      'very colorful caravan wagon'
     ]
   },
   location: [
@@ -284,7 +289,7 @@ setup.market = {
     'a scattered number of tents set randomly throughout town',
     'an enormous rundown looking building',
     'a small, muddy plaza',
-    'a series of rooftops connect by large wooden planks',
+    'a series of rooftops connected by large wooden planks',
     'a series of small buildings connected by covered awnings',
     'the very center of town',
     'a large gated plaza',
@@ -360,5 +365,16 @@ setup.market = {
     'order of arrival at the marketplace on any given day',
     'whoever got to what spot first',
     'who bribed the market runners the most for the month'
+  ],
+  crowd: [
+    // Today the market is
+    'basically empty, and no one is around to hear the cries of the merchants',
+    'mostly empty, and only a few people are wandering around looking at the goods laid out',
+    'decently busy, and several people are going between shops examining all the different merchandise',
+    'fairly packed, and people are bustling about and jostling each other to get to certain merchants',
+    'incredibly busy, and people are piled up at different stalls all trying to look at the goods on display',
+    'in absolute chaos, and absolutely swamped with people who are pushing and shoving to try to get to the different stalls',
+    'moderately crowded, with some merchants drawing large crowds and others left open for more customers',
+    'a little crowded, but the crowds have parted way for a noble who is passing through with an envoy looking for a specific item'
   ]
 }
