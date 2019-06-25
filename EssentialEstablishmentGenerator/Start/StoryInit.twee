@@ -3,7 +3,7 @@
 
 <<run State.initPRNG()>>
 <<set Config.history.maxStates to 15>>
-<<set $versionNumber to "2.2.1">>
+<<set $versionNumber to "2.3">>
 
 <<set $towns to []>>
 <<set $factions to []>>
