@@ -185,14 +185,58 @@ setup.generalStore = {
     ]
   },
   get: {
+    say (generalStore) {
+      const goods = [
+        'crowbar',
+        'grappling hook',
+        'hammer',
+        'lantern',
+        'pickaxe',
+        'cooking pot',
+        'backpack',
+        'redroll',
+        'book',
+        'glass bottle',
+        'bucket',
+        'candle',
+        'ink pen',
+        'fishing tackle',
+        'fishing bait',
+        'rope',
+        'sack',
+        'shovel',
+        'waterskin'
+      ].seededrandom()
+      const shopkeepSays = [
+        'asks what $shopkeep.heshe can do for you',
+        'tells you everything you see just came in on a fresh shipment',
+        'lets you know that all ' + goods + 's are 20% off',
+        'warns you that $shopkeep.heshe is down to $shopkeep.hisher last ' + goods,
+        'says the whole store is currently 10% off',
+        'tells you the store is closing soon because $shopkeep.heshe ' + ['wants to go home', 'has to start on a long journey', 'has to meet someone for a new shipment of goods', 'has to go to take care of $shopkeep.hisher family', 'is tired and bored for the day'].seededrandom(),
+        'asks what it is you need today',
+        'apologizes for being totally out of ' + goods + 's today',
+        'says a fresh shipment of ' + goods + 's are coming in tomorrow morning',
+        'warns you that you may want to buy a medical kit as there has been a recent outbreak of flu in town according to $shopkeep.himher',
+        "apologizes for currently being low on all of the shop's stock",
+        'lets you know that the store is currently having a ' + ['buy two get one free', 'buy one get one free', 'buy one get one 50% off', 'buy one get one 25% off', 'buy two pay for three', 'two for one', 'three for one'].seededrandom() + ' deal'
+      ]
+      return shopkeepSays.seededrandom()
+    },
+    shopkeepNote (generalStore) {
+      const shopkeep = generalStore.shopkeep
+      const shopkeepNote = [
+        shopkeep.firstName + ' does not seem to belong there, and looks very uncomfortable'
+      ]
+      return shopkeepNote.seededrandom()
+    },
     note (generalStore) {
       const shopkeep = generalStore.shopkeep
       const colour1 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
       const colour2 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
       const note = [
         // You notice __
-        'it looks like ' + shopkeep.firstName + ' lives in a room attached to the shop',
-        shopkeep.firstName + ' does not seem to belong there, and looks very uncomfortable',
+        'it looks like ' + shopkeep.firstName + ', the shopkeep, lives in a room attached to the shop',
         'a bell rings every time someone enters the shop',
         shopkeep.firstName + ' is unusually friendly, and never seems to stop smiling',
         shopkeep.firstName + ' does not seem to want any business',
