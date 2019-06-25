@@ -20,15 +20,18 @@ setup.docks = {
       [0, 'glorified jetty', 'tiny; barely more than a glorified jetty']
     ],
     activity: [
+      [100, 'packed to the gills; you have trouble moving through some parts of the harbor due to the throngs of seafairers crowding the place'],
       [90, [
         'absolutely packed; the din of everyone shouting to one another to fetch another barrel and other such things makes the place feel alive',
         'absolutely packed; the din of everyone shouting to one another to haul in the fish off the boat and other such things makes the place feel alive',
-        'absolutely packed; the din of everyone shouting to one another to get off their asses and shift this pile of rope and other such things makes the place feel alive',
-        'packed to the gills; you have trouble moving through some parts of the harbor due to the throngs of seafairers crowding the place'
+        'absolutely packed; the din of everyone shouting to one another to get off their asses and shift this pile of rope and other such things makes the place feel alive'
+
       ]],
-      [80, ['bustling. There are all manners of folk walking around, all of whom have places to be',
+      [80, [
+        'bustling. There are all manners of folk walking around, all of whom have places to be',
         'bustling. Several ships seem to be currently unloading and crowds are beginning to fill the street'
       ]],
+      [70, 'reasonably busy, with a couple folks milling about, waiting for a ship to dock'],
       [60, ['busy, with lots of deckhands running about, lugging things from point A to point B',
         'busy, with several large makeshift fish markets crowding the docks drawing in all kinds of crowds'
       ]],
@@ -36,6 +39,7 @@ setup.docks = {
       [40, 'relatively quiet, with some fishermen getting ready to head out on a trip'],
       [30, 'pretty quiet, save for the gulls which are swooping around, eager to steal any unattended bread'],
       [20, 'very quiet. There is next to nobody around'],
+      [10, 'rather peaceful, the silence only disturbed by the gentle lapping of water against rocks'],
       [0, ['deathly silent, save for the gentle sounds of the water lapping against the docks',
         'empty, save for a lone fisherman sitting and watching his lure bob up and down in the waves'
 
