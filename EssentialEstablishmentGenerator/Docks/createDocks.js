@@ -34,7 +34,7 @@ setup.createDocks = function (town, opts) {
 
   setup.defineRollDataGetter(docks, setup.docks.rollData, 'sizeDescriptive', 'size', 2)
   setup.defineRollDataGetter(docks, setup.docks.rollData, 'cleanlinessDescriptive', 'cleanliness', 2)
-  setup.defineRollDataGetter(docks, setup.docks.rollData, 'activityDescriptive', 'activity', 2)
+  setup.defineRollDataGetter(docks, setup.docks.rollData, 'activityDescriptive', 'activity')
 
   setup.docks.ships.create(town, docks)
 
