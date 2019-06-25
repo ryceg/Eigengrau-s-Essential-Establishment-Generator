@@ -238,7 +238,7 @@ setup.createNPC = function (town, base) {
     npc.physicalTrait = npc.physicalTrait || data.scar.seededrandom()
   } else if (physicalTraitRoll > 5) {
     npc.physicalTrait = npc.physicalTrait || npc.hair
-  } else if (physicalTraitRoll <= 2) {
+  } else if (physicalTraitRoll <= 5) {
     npc.physicalTrait = npc.physicalTrait || data.tattoo.seededrandom()
   }
 
