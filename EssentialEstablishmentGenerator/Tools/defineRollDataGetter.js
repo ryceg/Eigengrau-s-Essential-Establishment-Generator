@@ -54,9 +54,9 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
         result = rollArray[rollArray.length - 1]
       }
       if (Array.isArray(result[indexNumber])) {
-        result = result.seededrandom(0, result.length)
+        result[indexNumber] = result[indexNumber].seededrandom()
       }
-      this['_' + propName] = result[indexNumber]
+      this['_' + propName] = result[indexNumber] || result
       return this['_' + propName]
     },
     set (val) {
