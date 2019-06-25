@@ -236,7 +236,7 @@ setup.generalStore = {
         'can tell a story behind everything ' + shopkeep.heshe + ' sells',
         'seems a little bit shady',
         'is a rather forceful salesman',
-        'has a pungent and offensive smell',
+        'has a pungent and offensive smell about $shopkeep.himher',
         'insists ' + shopkeep.heshe + ' is from an ancient line of powerful merchants',
         'dresses ' + ['much better than expected', 'like a filthy beggar', 'like $shopkeep.heshe is true royalty', 'in rather colorfgul garb'].seededrandom(),
         'looks like a beggar, but speaks like a noble',
@@ -255,7 +255,8 @@ setup.generalStore = {
         "doesn't seem to be very capable in the sales department",
         'is very passive and does not come to check if you need help',
         'seems to follow you around the shop as you browse',
-        'eyes you warely as you move around the store'
+        'eyes you warely as you move around the store',
+        'is acting strangely cold, and never seems to blink'
       ]
       return shopkeep.firstName + ' ' + shopkeepNote.seededrandom()
     },
