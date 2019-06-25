@@ -4,7 +4,7 @@
 <<run console.log($currentNPC)>>
 $currentNPC.firstName $currentNPC.trait. <<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
 
-$currentNPC.professionSuccess, with a background of being a $currentNPC.background. $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon. $currentNPC.firstName belongs to the $currentNPC.socialClass wealth class.
+$currentNPC.professionSuccess, with a background of being a $currentNPC.background. $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. In combat, $currentNPC.heshe uses $currentNPC.weapon. $currentNPC.firstName belongs to the $currentNPC.socialClass social class.
 \<<if def $currentNPC.doesnt>>$currentNPC.doesnt<</if>>
 
 \<<if $currentNPC.sexuality !== 'heterosexual'>>
