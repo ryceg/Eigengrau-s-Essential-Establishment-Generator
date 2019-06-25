@@ -54,4 +54,4 @@
 <</for>>
 </table><</nobr>>
 
-<<button "Save Changes">><<run console.log($town)>><<run setup.createSocioPolitics($town)>><<run setup.townRender($town)>><<goto "TownOutput">><</button>>
+<<button "Save Changes">><<run console.log($town)>><<run setup.createSocioPolitics($town)>><<run setup.updateSocioPolitics($town)>><<run setup.townRender($town)>><<run setup.checkRaces($town, $npcs)>><<run console.log($town)>><<goto "TownOutput">><</button>>

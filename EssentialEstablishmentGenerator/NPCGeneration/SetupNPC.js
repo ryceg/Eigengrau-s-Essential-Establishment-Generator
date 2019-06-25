@@ -21,8 +21,10 @@ setup.createNPC = function (town, base) {
   if (base.canBeCustom === true && random(1, 100) > 99) {
     base = setup.objectArrayFetcher(setup.misc.patreonCharacters, town)
   }
+
+  // if (!base.roll) base.roll = {}
   const gender = base.gender || ['man', 'woman'].seededrandom()
-  const race = base.race || setup.fetchRace(town)
+  const race = base.race || setup.fetchRace(town, base)
   console.log('Loading profession:')
   const profession = base.profession || setup.fetchProfessionChance(town, base)
 
@@ -37,6 +39,7 @@ setup.createNPC = function (town, base) {
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = Object.assign({
+    key: base.key || Math.random(),
     passageName: 'NPCProfile',
     _gender: gender,
     _race: race,
@@ -178,7 +181,7 @@ setup.createNPC = function (town, base) {
 
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
-  npc.key = npc.firstName + ' ' + npc.lastName
+  // npc.key = Math.random()
   Object.assign(npc, data.gender[npc.gender])
   Object.assign(npc.pronouns, data.gender[npc.gender])
 
@@ -246,7 +249,8 @@ setup.createNPC = function (town, base) {
   setup.createDescriptors(npc)
   npc.formalName = npc.formalName || npc.title + ' ' + npc.lastName
   // npc.key = npc.name
-  State.variables.npcs[npc.key] = npc
+  if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
+
   npc.profile = function (npc, base) {
     base = npc.name || base
     return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'

@@ -1,7 +1,21 @@
 
-setup.fetchRace = function (town) {
+setup.fetchRace = function (town, saveLoc) {
   console.log('Fetching race...')
-  const args = town.baseDemographics
+  // FIXME upon migration to React, reimplement getters and setters.
+  const races = Object.keys(town.baseDemographics)
+  // Calculate the sum of the raw demographic values.
+  const sum = races
+    .map(function (byRace) {
+      return town.baseDemographics[byRace]
+    }, town)
+    .reduce(function (acc, cur) {
+      return acc + cur
+    }, 0)
+  // Calculate the demographic percentages.
+  races.forEach(function (byRace) {
+    town._demographic[byRace] = town.baseDemographics[byRace] / sum * 100
+  }, town)
+  const args = town._demographic
   console.log(args)
   const pool = []
   const namePool = Object.keys(args)
@@ -10,8 +24,8 @@ setup.fetchRace = function (town) {
     pool.push(args[arg])
     totalWeight += args[arg]
   }
-
-  let random = Math.floor(randomFloat(1) * totalWeight)
+  saveLoc.raceRoll = saveLoc.raceRoll || Math.floor(randomFloat(1) * totalWeight)
+  let random = saveLoc.raceRoll
   // console.log(random)
   for (let i = 0; i < pool.length; i++) {
     random -= pool[i]
