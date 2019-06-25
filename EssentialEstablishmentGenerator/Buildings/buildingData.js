@@ -98,7 +98,6 @@ setup.structure = {
   },
   material: {
     'rollData': {
-      exclusions () { return false },
       wealth: [
         [90, 'solid'],
         [80, 'finely crafted'],
