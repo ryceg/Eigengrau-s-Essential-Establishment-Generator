@@ -123,7 +123,7 @@ setup.createRing = function (base) {
     ['single large ', 'huge ', 'single small ', 'tiny ', 'very large ', 'very small '].seededrandom() + ['rose', 'princess', 'emerald', 'square', 'baguette', 'taper', 'fancy', 'heart', 'pear', 'marquise', 'oval', 'round', 'mixed', 'buff top', 'mogul', 'old miners', 'star', 'step'].seededrandom() + ' cut gemstone',
     'cluster of gemstones in the shape of a ' + ['star', 'sun', 'moon', 'heart'].seededrandom(),
     ["snake's", "dragon's", "lion's", "tiger's", "demon's", "devil's", "wolf's", "bear's", "monkey's", "crow's", "eagle's", "hawk's", "vulture's", "fox's", "horse's", "bat's", "rabbit's", "boar's", "medusa's"].seededrandom() + ' head with gemstones set in its eyes',
-    'skull with gemstones set in its eyes',
+    ['snake', 'dragon', 'lion', 'tiger', 'demon', 'devil', 'wolf', 'bear', 'monkey', 'crow', 'eagle', 'hawk', 'vulture', 'fox', 'horse', 'bat', 'rabbit', 'boar'].seededrandom() + ' skull with gemstones set in its eyes',
     ['floral', 'leafy', 'thorny', 'hexagonal', 'wavy', 'spider-web', 'cross-hatching', 'vine', 'geometric', 'spiral', 'rune', 'starry', 'swirling'].seededrandom() + ' ' + ['pattern', 'motif', 'design', 'marking', 'ornamentation'].seededrandom(),
     'band like ' + ['twisting vines', 'rough waves', 'stag horns', 'tree branches', 'rose thorns', 'a craggy mountainside', 'the body of a snake', 'a twisting rope'].seededrandom(),
     'phrase written in ' + ['a Dwarvish script', 'an Elvish script', 'an Infernal script', 'a Draconic script', 'a Celestial script', 'a Common script'].seededrandom() + ' wrapping around the band',
