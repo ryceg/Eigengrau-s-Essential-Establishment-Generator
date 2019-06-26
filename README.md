@@ -35,14 +35,14 @@ Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenera
 
 We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Contributing) 
 
-Once you've cloned the project, remember to `yarn` or `npm install` to install the required dependencies.
+Once you've cloned the project, remember to `yarn install` or `npm install` to install the required dependencies.
 
 You will also need to download Tweego from [here.](https://www.motoslave.net/tweego/) and place the contents inside /Eigengrau-s-Essential-Establishment-Generator/.twine if the .twine folder does not already exist just create one.
 
 Use `npm test` to run tests.
-Use `npm build` to build the output files.
+Use `npm build` to build the output files. The entire thing will output to the /gh-pages folder as the index.html file.
 Use `npm start` to automatically rebuild on file changes.
-The entire thing will output to the /gh-pages folder as the index.html file.
+
 
 If you don't want to code, that's okay! The Generator is built out of a novel's worth of words, and we're always in need of more descriptions. You can find writing tasks [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3AWriting)
 
