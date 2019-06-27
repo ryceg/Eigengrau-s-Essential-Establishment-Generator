@@ -37,7 +37,7 @@ setup.joinFaction = function (faction) {
   } else if (faction.joiningFeeRoll > 10) {
     faction.joiningFee = 'five hundred gold pieces, plus a tremendous task'
   } else if (faction.joiningFeeRoll <= 5) {
-    faction.joiningFee = 'absolutely anything; they could demand two thousand gold, or ' + ['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail'].seededrandom()
+    faction.joiningFee = 'absolutely anything; they could demand two thousand gold, or ' + ['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger'].seededrandom()
   } else {
     faction.joiningFee = 'about a hundred gold pieces'
   }

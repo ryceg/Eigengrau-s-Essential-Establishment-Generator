@@ -43,9 +43,9 @@ setup.createAllies = function (faction) {
     let tempGroupSize
     const groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
-      tempGroupSize = 'a guild of '
-    } else if (groupSizeRoll >= 80) {
       tempGroupSize = 'a veritable army of '
+    } else if (groupSizeRoll >= 80) {
+      tempGroupSize = 'a guild of '
     } else if (groupSizeRoll >= 70) {
       tempGroupSize = 'a large number of '
     } else if (groupSizeRoll >= 60) {
