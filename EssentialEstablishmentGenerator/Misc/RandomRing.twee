@@ -1,12 +1,12 @@
 :: RandomRing
-<<nobr>><<linkreplace "<h4>Look at the ring!</h4>">>
+<<nobr>><<linkreplace "<h6>Look at the ring!</h6>">>
 <<set $randomRing to setup.createRing()>>
     <<replace "#ring">>
-            <h3>A $randomRing.material ring</h3>
-            $randomRing.firstOutputs
-    <</replace>><<link "<h4>Look at another ring</h4>">><<set $randomRing to setup.createRing()>>
+           <div class='descriptive'><h3>A $randomRing.material ring</h3>
+            $randomRing.firstOutputs</div>
+    <</replace>><<link "<h6>Look at another ring</h6>">><<set $randomRing to setup.createRing()>>
         <<replace "#ring">>
-                <h3>A $randomRing.material ring</h3>
-                $randomRing.secondOutputs<</replace>><</link>>
+               <div class='descriptive'><h3>A $randomRing.material ring</h3>
+                $randomRing.secondOutputs</div><</replace>><</link>>
 <</linkreplace>>
 <span id="ring"></span><</nobr>>

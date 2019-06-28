@@ -1,11 +1,11 @@
 :: RandomPotion
-<<link "<h4>Generate a random potion!</h4>">>
+<<link "<h6>Generate a random potion!</h6>">>
 <<set $randomPotion to setup.createAlchemy({type: "potion"})>>
 <div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout</div>
 <blockquote>$randomPotion.effectReadout</blockquote>
     <<replace "#randpotion">>
-    \<div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout</div>
-    \<blockquote>$randomPotion.effectReadout</blockquote>
+    \<div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout
+    \<blockquote>$randomPotion.effectReadout</blockquote></div>
     \<</replace>>
 <</link>>\
 <span id="randpotion"></span>

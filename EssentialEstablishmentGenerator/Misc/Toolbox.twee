@@ -3,22 +3,22 @@
 <<include "RandomNPC">>
 /* <<include "RandomAdventure">> */
 <<include "CreateScenario">>
-<<link "<h4>Generate random Faction</h4>">><<set $testFaction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">><<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><</replace>><</link>><<if def $testFaction>><<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><<else>><span id="faction"></span><</if>>
-<<link "<h4>Generate some mercenaries</h4>">><<set $testMercenaries to setup.createMercenaries($town)>><<replace "#mercs">><div class='descriptive'><h3>$testMercenaries.name</h3><<print "A group of mercenaries sit in the corner of the room, armed to the teeth with $testMercenaries.weapon, wearing $testMercenaries.colours livery over their $testMercenaries.armour with an insignia of $testMercenaries.insignia. They are $testMercenaries.attitude towards their commander <<profile $testMercenaries.captain>>, who is $testMercenaries.commanderTrait. They specialise in $testMercenaries.specializes, and are notorious for $testMercenaries.notorious. They are famous for their $testMercenaries.tactics, and are currently $testMercenaries.currently.">></div><</replace>><</link>><span id="mercs"></span>
-[[One Shot - The Poisoned Potioner|AdventureOutput]]
+<<link "<h6>Generate random Faction</h6>">><<set $testFaction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">><div class='descriptive'><<link "$testFaction.name">></div><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><</replace>><</link>><<if def $testFaction>><<link "$testFaction.name">><<set $currentFaction to $testFaction>><<goto "FactionProfile">><</link>><<else>><span id="faction"></span><</if>>
+<<link "<h6>Generate some mercenaries</h6>">><<set $testMercenaries to setup.createMercenaries($town)>><<replace "#mercs">><div class='descriptive'><h6>$testMercenaries.name</h6><<print "A group of mercenaries sit in the corner of the room, armed to the teeth with $testMercenaries.weapon, wearing $testMercenaries.colours livery over their $testMercenaries.armour with an insignia of $testMercenaries.insignia. They are $testMercenaries.attitude towards their commander <<profile $testMercenaries.captain>>, who is $testMercenaries.commanderTrait. They specialise in $testMercenaries.specializes, and are notorious for $testMercenaries.notorious. They are famous for their $testMercenaries.tactics, and are currently $testMercenaries.currently.">></div><</replace>><</link>><span id="mercs"></span>
+<h4>[[One Shot - The Poisoned Potioner|AdventureOutput]]</h4>
 
 <<include "RandomPotion">>
 <<include "RandomRing">>
-<<link "<h4>Create a magic weapon</h4>">><<set $testWeapon to setup.createMagicWeapon()>><<replace "#Weapon">><div class='descriptive'><h3>$testWeapon.name</h3>$testWeapon.description</div><</replace>><</link>><span id="Weapon"></span>
-<<link "<h4>Create magic armour</h4>">><<set $testArmour to setup.createMagicArmour()>><<replace "#Armour">><div class='descriptive'><h3>$testArmour.name</h3>$testArmour.description</div><</replace>><</link>><span id="Armour"></span>
-<<link "<h4>Create a magic trinket</h4>">><<set $testTrinket to setup.createMagicTrinket()>><<replace "#Trinket">><div class='descriptive'><h3>$testTrinket.name</h3>$testTrinket.description</div><</replace>><</link>><span id="Trinket"></span>
-<<link "<h4>Create a trap</h4>">><<set $testTrap to setup.createTrap()>><<replace "#testTrap">><div class='descriptive'>$testTrap.description</div><</replace>><</link>><span id="testTrap"></span>
+<<link "<h6>Create a magic weapon</h6>">><<set $testWeapon to setup.createMagicWeapon()>><<replace "#Weapon">><div class='descriptive'><h6>$testWeapon.name</h6>$testWeapon.description</div><</replace>><</link>><span id="Weapon"></span>
+<<link "<h6>Create magic armour</h6>">><<set $testArmour to setup.createMagicArmour()>><<replace "#Armour">><div class='descriptive'><h6>$testArmour.name</h6>$testArmour.description</div><</replace>><</link>><span id="Armour"></span>
+<<link "<h6>Create a magic trinket</h6>">><<set $testTrinket to setup.createMagicTrinket()>><<replace "#Trinket">><div class='descriptive'><h6>$testTrinket.name</h6>$testTrinket.description</div><</replace>><</link>><span id="Trinket"></span>
+<<link "<h6>Create a trap</h6>">><<set $testTrap to setup.createTrap()>><<replace "#testTrap">><div class='descriptive'>$testTrap.description</div><</replace>><</link>><span id="testTrap"></span>
 
-<<link "<h4>Create a pub rumour</h4>">><<set $testPubRumour to setup.createPubRumour()>><<replace "#pub">>$testPubRumour<</replace>><</link>><span id="pub"></span>
-<<link "<h4>Create a rumour (WIP)</h4>">><<set $testRumour to setup.createRumour($town)>><<replace "#rumour">>$testRumour<</replace>><</link>><span id="rumour"></span>
-/* <<link "<h4>Create a mission</h4>">><<set $testmission to setup.createMission($town)>><<replace "#mission">>$testmission<</replace>><</link>><span id="mission"></span> */
-<<link "<h4>Generate a nightmare</h4>">><<set $testNightmare to setup.createNightmare()>><<replace "#nightmare">>$testNightmare<</replace>><</link>><span id="nightmare"></span>
-/* <<listbox "$town.currentSeason">><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><</listbox>><<listbox "$testWeatherType">><<option "Temperate" "temperate">><<option "Arid" "arid">><<option "Tropical" "tropical">><<option "Polar" "polar">><</listbox>><<link "<h4>Describe the weather</h4>">>
+<<link "<h6>Create a pub rumour</h6>">><<set $testPubRumour to setup.createPubRumour()>><<replace "#pub">><div class='descriptive'>$testPubRumour</div><</replace>><</link>><span id="pub"></span>
+<<link "<h6>Create a rumour (WIP)</h6>">><<set $testRumour to setup.createRumour($town)>><<replace "#rumour">><div class='descriptive'>$testRumour</div><</replace>><</link>><span id="rumour"></span>
+/* <<link "<h6>Create a mission</h6>">><<set $testmission to setup.createMission($town)>><<replace "#mission">>$testmission<</replace>><</link>><span id="mission"></span> */
+<<link "<h6>Generate a nightmare</h6>">><<set $testNightmare to setup.createNightmare()>><<replace "#nightmare">><div class='descriptive'>$testNightmare</div><</replace>><</link>><span id="nightmare"></span>
+/* <<listbox "$town.currentSeason">><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><</listbox>><<listbox "$testWeatherType">><<option "Temperate" "temperate">><<option "Arid" "arid">><<option "Tropical" "tropical">><<option "Polar" "polar">><</listbox>><<link "<h6>Describe the weather</h6>">>
 <<if def $testWeather >>
     <<set $testWeather.timer.temperature -= 4>>
     <<set $testWeather.timer.precipitation -= 4>>
@@ -28,8 +28,7 @@
   <<else>>
     <<set $testWeather to setup.createWeather($town, $testWeatherType)>>
 <</if>>
-<<replace "#weather">>$testWeather.readout.full<</replace>><</link>>
+<<replace "#weather">><div class='descriptive'>$testWeather.readout.full</div><</replace>><</link>>
 <div id="weather"><<if def $scenario>>$testWeather.readout.full<</if>></div> */
-<<link "<h4>Generate a road</h4>">><<set $testRoad to setup.createRoad()>><<replace "#road">>$testRoad<</replace>><</link>><span id="road"></span>
-/*<<link "<h4>Generate some raiders</h4>">><<nobr>><<include "Raiders">><</nobr>><<replace "#raiders">>A <<print setup.profile($raidedvillager, 'disheveled looking villager')>> runs up to you, and asks for you to help $raidedvillager.himher; apparently raiders have been tormenting $town.name. <<print $raidedvillager.heshe.toUpperFirst()>> continues, saying "they ask for $raiders.extort, and demand $raiders.demand. They torment us by $raiders.torment, and if we disobey or act out, they $raiders.disobey. $raiders.finally"<</replace>><</link>><span id="raiders"></span>*/
-<<link "<h4>Generate some raiders</h4>">><<set $testRaiders to setup.createRaiders($town)>><<replace "#raiders">>$testRaiders<</replace>><</link>><span id="raiders"></span>
+<<link "<h6>Generate a road</h6>">><<set $testRoad to setup.createRoad()>><<replace "#road">><div class='descriptive'>$testRoad</div><</replace>><</link>><span id="road"></span>
+<<link "<h6>Generate some raiders</h6>">><<set $testRaiders to setup.createRaiders($town)>><<replace "#raiders">><div class='descriptive'>$testRaiders</div><</replace>><</link>><span id="raiders"></span>
