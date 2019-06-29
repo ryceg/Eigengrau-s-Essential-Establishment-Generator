@@ -258,8 +258,150 @@ setup.createBuilding = function (town, type, base) {
     State.variables.buildings.push(building)
     // setup.townBinder(town, building, type)
   }
+  building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth, town.roll.wealth)
 
   // building.id = State.variables.buildings[State.variables.buildings.length - 1]
   // console.log(building)
   return building
+}
+
+function generateBuildingMaterial (town, mainMaterial, buildingWealth, townWealth) {
+  const highTier = 70
+  const midTier = 50
+  const lowTier = 49
+  // weighted average
+  const wealth = (buildingWealth * 1 + townWealth * 3) / 4
+  const highTierMaterial = {
+    gypsum: {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'gypsum'
+      }
+    },
+    plaster: {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'plaster'
+      }
+    },
+    bricks: {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'bricks'
+      }
+    },
+    limestone: {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'limestone'
+      }
+    }
+  }
+  const midTierMaterial = {
+    'hewn rock': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'hewn rock'
+      }
+    },
+    'stone': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'stone'
+      }
+    },
+    'cobblestone': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'cobblestone'
+      }
+    },
+    'wood': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'wood'
+      }
+    }
+  }
+  const lowTierMaterial = {
+    'daub': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'daub'
+      }
+    },
+    'cob': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'cob'
+      }
+    },
+    'cobblestone': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'cobblestone'
+      }
+    },
+    'wood': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'wood'
+      }
+    },
+    'straw': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'straw'
+      }
+    },
+    'rock': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'rock'
+      }
+    },
+    'terra cotta': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'rock'
+      }
+    },
+    'clay': {
+      probability: 10,
+      words: {
+        indefiniteArticle: 'a',
+        noun: 'rock'
+      }
+    }
+  }
+  if (townWealth >= highTier) {
+    highTierMaterial[mainMaterial].probability = 70
+  } else if (townWealth >= midTier && townWealth < highTier) {
+    midTierMaterial[mainMaterial].probability = 70
+  } else if (townWealth <= lowTier) {
+    lowTierMaterial[mainMaterial].probability = 70
+  }
+  console.log('materials', highTierMaterial, midTierMaterial, lowTierMaterial)
+  if (wealth >= highTier) {
+    return setup.weightedRandomFetcher(town, highTierMaterial, '', '', 'object')
+  } else if (wealth >= midTier && wealth < highTier) {
+    return setup.weightedRandomFetcher(town, midTierMaterial, '', '', 'object')
+  } else if (wealth <= lowTier) {
+    return setup.weightedRandomFetcher(town, lowTierMaterial, '', '', 'object')
+  }
 }

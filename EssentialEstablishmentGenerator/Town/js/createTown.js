@@ -10,6 +10,7 @@ setup.createTown = function (base) {
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    townMaterial: 'mainTownMaterial',
     taxes: {
       base: 7,
       welfare: 1,
@@ -216,7 +217,7 @@ setup.createTown = function (base) {
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
-
+  town.townMaterial = createTownMaterial(town.roll.wealth)
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
@@ -225,6 +226,20 @@ setup.createTown = function (base) {
   console.groupEnd()
   // setup.createWeather(town)
   console.log(town.name + ' has loaded.')
-
+  console.log('loaded', town.wealth)
+  confirm(town.townMaterial)
   return town
+}
+
+function createTownMaterial (wealth) {
+  const highTier = 70
+  const midTier = 50
+  const lowTier = 49
+  if (wealth >= highTier) {
+    return ['plaster', 'bricks', 'limestone', 'Gypsum'].seededrandom()
+  } else if (wealth >= midTier && wealth < highTier) {
+    return ['hewn rock', 'stone', 'cobblestone', 'wood'].seededrandom()
+  } else if (wealth <= lowTier) {
+    return ['wood', 'daub', 'cob', 'straw', 'rock', 'terra cotta', 'clay', 'cobblestone'].seededrandom()
+  }
 }
