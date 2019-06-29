@@ -27,6 +27,5 @@ const missionsSmithy = {
 }
 
 setup.blacksmithMission = function (town) {
-  const keys = Object.keys(missionsSmithy)
-  return missionsSmithy[keys[random(0, keys.length)]](town)
+  return missionsSmithy[Object.keys(missionsSmithy).seededrandom()](town)
 }

@@ -32,6 +32,5 @@ const missions = {
 }
 
 setup.alchemistMission = function (town) {
-  const keys = Object.keys(missions)
-  return missions[keys[random(0, keys.length)]](town)
+  return missions[Object.keys(missions).seededrandom()](town)
 }
