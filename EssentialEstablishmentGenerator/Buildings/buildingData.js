@@ -98,6 +98,8 @@ setup.structure = {
   },
   material: {
     'rollData': {
+      // exclusions is necessary to avoid rollData being included in the weightedRandomFetcher
+      exclusions () { return false },
       wealth: [
         [90, 'solid'],
         [80, 'finely crafted'],
