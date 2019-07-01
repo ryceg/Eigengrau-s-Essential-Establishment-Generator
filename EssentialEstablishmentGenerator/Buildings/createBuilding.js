@@ -265,143 +265,23 @@ setup.createBuilding = function (town, type, base) {
   return building
 }
 
-function generateBuildingMaterial (town, mainMaterial, buildingWealth, townWealth) {
-  const highTier = 70
-  const midTier = 50
-  const lowTier = 49
-  // weighted average
-  const wealth = (buildingWealth * 1 + townWealth * 3) / 4
-  const highTierMaterial = {
-    gypsum: {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'gypsum'
-      }
-    },
-    plaster: {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'plaster'
-      }
-    },
-    bricks: {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'bricks'
-      }
-    },
-    limestone: {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'limestone'
-      }
+function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
+  // Set probability for other buildings depending on the building 'tier'
+  let buildingTier = ''
+  const wealth = town.roll.wealth + (buildingWealth * 0.2)
+  if (wealth >= 70) {
+    buildingTier = 'high'
+  } else if (wealth >= 50 && wealth < 70) {
+    buildingTier = 'mid'
+  } else if (wealth < 50) {
+    buildingTier = 'low'
+  }
+  Object.keys(setup.structure.material).forEach((material) => {
+    const tier = setup.structure.material[material].tier
+    if (tier.find(buildingTier) !== undefined) {
+      setup.structure.material[material].probability = 5
     }
-  }
-  const midTierMaterial = {
-    'hewn rock': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'hewn rock'
-      }
-    },
-    'stone': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'stone'
-      }
-    },
-    'cobblestone': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'cobblestone'
-      }
-    },
-    'wood': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'wood'
-      }
-    }
-  }
-  const lowTierMaterial = {
-    'daub': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'daub'
-      }
-    },
-    'cob': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'cob'
-      }
-    },
-    'cobblestone': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'cobblestone'
-      }
-    },
-    'wood': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'wood'
-      }
-    },
-    'straw': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'straw'
-      }
-    },
-    'rock': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'rock'
-      }
-    },
-    'terra cotta': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'rock'
-      }
-    },
-    'clay': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'rock'
-      }
-    }
-  }
-  if (townWealth >= highTier) {
-    highTierMaterial[mainMaterial].probability = 70
-  } else if (townWealth >= midTier && townWealth < highTier) {
-    midTierMaterial[mainMaterial].probability = 70
-  } else if (townWealth <= lowTier) {
-    lowTierMaterial[mainMaterial].probability = 70
-  }
-  console.log('materials', highTierMaterial, midTierMaterial, lowTierMaterial)
-  if (wealth >= highTier) {
-    return setup.weightedRandomFetcher(town, highTierMaterial, '', '', 'object')
-  } else if (wealth >= midTier && wealth < highTier) {
-    return setup.weightedRandomFetcher(town, midTierMaterial, '', '', 'object')
-  } else if (wealth <= lowTier) {
-    return setup.weightedRandomFetcher(town, lowTierMaterial, '', '', 'object')
-  }
+  })
+  setup.structure.material[mainMaterial].probability = 80
+  return setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
 }

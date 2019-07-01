@@ -217,29 +217,42 @@ setup.createTown = function (base) {
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
-  town.townMaterial = createTownMaterial(town.roll.wealth)
+  town.townMaterial = createTownMaterial(setup.townData.terrain[town.terrain].possibleMaterial, town.roll.wealth)
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-
+  setMaterialProbability(setup.townData.terrain[town.terrain].possibleMaterial)
   console.log(town)
   console.groupEnd()
   // setup.createWeather(town)
   console.log(town.name + ' has loaded.')
-  console.log('loaded', town.wealth)
+  console.log('loaded', town.wealth, town.roll.size)
   confirm(town.townMaterial)
   return town
 }
 
-function createTownMaterial (wealth) {
-  const highTier = 70
-  const midTier = 50
-  const lowTier = 49
-  if (wealth >= highTier) {
-    return ['plaster', 'bricks', 'limestone', 'Gypsum'].seededrandom()
-  } else if (wealth >= midTier && wealth < highTier) {
-    return ['hewn rock', 'stone', 'cobblestone', 'wood'].seededrandom()
-  } else if (wealth <= lowTier) {
-    return ['wood', 'daub', 'cob', 'straw', 'rock', 'terra cotta', 'clay', 'cobblestone'].seededrandom()
+function createTownMaterial (startLocationMaterials, wealth, size) {
+  const highTierMaterials = ['plaster', 'bricks', 'limestone', 'gypsum'].map((material) => {
+    return startLocationMaterials[startLocationMaterials.indexOf(material)]
+  })
+  const midTierMaterials = ['hewn rock', 'stone', 'cobblestone', 'wood'].map((material) => { return startLocationMaterials[startLocationMaterials.indexOf(material)] })
+  const lowTierMaterials = ['wood', 'adobe', 'daub', 'cob', 'straw', 'rock', 'terra cotta', 'clay', 'cobblestone'].map((material) => { return startLocationMaterials[startLocationMaterials.indexOf(material)] })
+  const materialDecider = wealth + (size * 0.1)
+  if (materialDecider >= 70) {
+    return highTierMaterials.seededrandom()
+  } else if (materialDecider >= 50 && materialDecider < 70) {
+    return midTierMaterials.seededrandom()
+  } else if (materialDecider <= 49) {
+    return lowTierMaterials.seededrandom()
   }
+}
+
+function setMaterialProbability (startLocationMaterials) {
+  Object.keys(setup.structure.material).forEach((material) => {
+    this.startLocationMaterials.forEach(element => {
+      if (element !== material) {
+        setup.structure.material[material].probability = 0
+      }
+    })
+  })
 }
