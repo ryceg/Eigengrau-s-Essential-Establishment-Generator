@@ -276,12 +276,19 @@ function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
   } else if (wealth < 50) {
     buildingTier = 'low'
   }
-  Object.keys(setup.structure.material).forEach((material) => {
-    const tier = setup.structure.material[material].tier
-    if (tier.find(buildingTier) !== undefined) {
+  let objectKeys = Object.keys(setup.structure.material)
+  objectKeys = objectKeys.slice(1)
+  objectKeys.forEach((material) => {
+    const tier = [...setup.structure.material[material].tier]
+    if (tier.indexOf(buildingTier) !== -1) {
       setup.structure.material[material].probability = 5
     }
   })
   setup.structure.material[mainMaterial].probability = 80
-  return setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
+  let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
+  if (Object.keys(tempMaterial).includes('variations')) {
+    console.log('Building material has variations. ')
+    tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
+  }
+  return tempMaterial
 }

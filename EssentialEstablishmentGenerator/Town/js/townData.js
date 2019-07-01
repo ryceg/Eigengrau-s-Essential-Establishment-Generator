@@ -1727,19 +1727,5 @@ setup.townData = {
         }
       }
     }
-  },
-  townMaterial: {
-    plaster: {
-      probability: 10
-    },
-    bricks: {
-      probability: 10
-    },
-    limestone: {
-      probability: 10
-    },
-    gypsum: {
-      probability: 10
-    }
   }
 }
