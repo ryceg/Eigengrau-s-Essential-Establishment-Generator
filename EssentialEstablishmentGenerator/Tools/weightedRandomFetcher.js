@@ -44,6 +44,10 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     } else {
       isValid = true
     }
+    if (args[arg].probability <= 0) {
+      isValid = false
+    }
+
     // console.log('fnValid: ')
     // console.log(args[arg])
     if (typeof (exclusionFunction) === 'function') {
