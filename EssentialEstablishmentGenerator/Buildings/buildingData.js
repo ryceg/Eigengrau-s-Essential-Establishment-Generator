@@ -28,7 +28,7 @@ setup.structure = {
         roof: {}
       }
     }
-    let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
+    let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, '', '', 'object')
     if (Object.keys(tempMaterial).includes('variations')) {
       console.log('Building material has variations. ')
       tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
@@ -37,7 +37,7 @@ setup.structure = {
     console.log(tempMaterial)
     building.structure.material = tempMaterial.words
 
-    let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.material, '', '', 'object')
+    let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.types, '', '', 'object')
     if (Object.keys(tempRoof).includes('variations')) {
       console.log('Building roof has variations.')
       tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
@@ -97,9 +97,7 @@ setup.structure = {
     }
   },
   material: {
-    'rollData': {
-      // exclusions is necessary to avoid rollData being included in the weightedRandomFetcher
-      exclusions () { return false },
+    rollData: {
       wealth: [
         [90, 'solid'],
         [80, 'finely crafted'],
@@ -112,148 +110,176 @@ setup.structure = {
         [0, 'structurally unsound']
       ]
     },
-    'wood': {
-      probability: 40,
-      variations: {
-        'log': {
-          probability: 10,
-          words: {
-            // you come across _ log cabin
-            indefiniteArticle: 'a',
-            noun: 'log'
-          }
-        },
-        'split log': {
-          probability: 10,
-          words: {
-            indefiniteArticle: 'a',
-            noun: 'split log'
-          }
-        },
-        'wood': {
-          probability: 10,
-          words: {
-            indefiniteArticle: 'a',
-            noun: 'wood'
-          }
-        },
-        'timber': {
-          probability: 10,
-          words: {
-            indefiniteArticle: 'a',
-            noun: 'timber'
-          }
-        },
-        'plank': {
-          probability: 10,
-          words: {
-            indefiniteArticle: 'a',
-            noun: 'plank'
+    types: {
+      'wood': {
+        probability: 40,
+        tier: ['low', 'mid'],
+        variations: {
+          'log': {
+            probability: 10,
+            words: {
+              // you come across _ log cabin
+              indefiniteArticle: 'a',
+              noun: 'log'
+            }
+          },
+          'split log': {
+            probability: 10,
+            words: {
+              indefiniteArticle: 'a',
+              noun: 'split log'
+            }
+          },
+          'wood': {
+            probability: 10,
+            words: {
+              indefiniteArticle: 'a',
+              noun: 'wood'
+            }
+          },
+          'timber': {
+            probability: 10,
+            words: {
+              indefiniteArticle: 'a',
+              noun: 'timber'
+            }
+          },
+          'plank': {
+            probability: 10,
+            words: {
+              indefiniteArticle: 'a',
+              noun: 'plank'
+            }
           }
         }
-      }
-    },
-    'terra cotta': {
-      probability: 30,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'terra cotta'
-      }
-    },
-    'adobe': {
-      probability: 30,
-      words: {
-        indefiniteArticle: 'an',
-        noun: 'adobe'
-      }
-    },
-    'daub': {
-      probability: 30,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'daub'
-      }
-    },
-    'cob': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'cob'
-      }
-    },
-    'plaster': {
-      probability: 30,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'plaster'
-      }
-    },
-    'rock': {
-      probability: 10,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'rock'
-      }
-    },
-    'straw': {
-      probability: 15,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'straw'
-      }
-    },
-    'hewn rock': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'hewn rock'
-      }
-    },
-    'stone': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'stone'
-      }
-    },
-    'brick': {
-      probability: 1,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'brick'
-      }
-    },
-    'clay': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'clay'
-      }
-    },
-    'cobblestone': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'cobblestone'
-      }
-    },
-    'limestone': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'limestone'
-      }
-    },
-    'gypsum': {
-      probability: 5,
-      words: {
-        indefiniteArticle: 'a',
-        noun: 'gypsum'
+      },
+      'terra cotta': {
+        probability: 30,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'terra cotta'
+        }
+      },
+      'adobe': {
+        probability: 30,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'an',
+          noun: 'adobe'
+        }
+      },
+      'daub': {
+        probability: 30,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'daub'
+        }
+      },
+      'cob': {
+        probability: 5,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'cob'
+        }
+      },
+      'plaster': {
+        probability: 30,
+        tier: ['high'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'plaster'
+        }
+      },
+      'rock': {
+        probability: 10,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'rock'
+        }
+      },
+      'straw': {
+        probability: 15,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'straw'
+        }
+      },
+      'hewn rock': {
+        probability: 5,
+        tier: ['mid'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'hewn rock'
+        }
+      },
+      'stone': {
+        probability: 5,
+        tier: ['mid'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'stone'
+        }
+      },
+      'brick': {
+        probability: 1,
+        tier: ['high'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'brick'
+        }
+      },
+      'clay': {
+        probability: 5,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'clay'
+        }
+      },
+      'cobblestone': {
+        probability: 5,
+        tier: ['low'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'cobblestone'
+        }
+      },
+      'limestone': {
+        probability: 5,
+        tier: ['high'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'limestone'
+        }
+      },
+      'gypsum': {
+        probability: 5,
+        tier: ['high'],
+        words: {
+          indefiniteArticle: 'a',
+          noun: 'gypsum'
+        }
       }
     }
   },
   roof: {
-    material: {
+    rollData: {
+      wealth: [
+        [90, 'perfectly maintained'],
+        [80, 'well maintained'],
+        [60, 'weathered'],
+        [40, 'shabby'],
+        [30, 'moss covered'],
+        [20, 'patchy'],
+        [0, 'hole riddled']
+      ]
+    },
+    types: {
       thatch: {
         words: {
           noun: 'thatch',
@@ -286,17 +312,6 @@ setup.structure = {
           verb: 'shingled'
         }
       }
-    },
-    rollData: {
-      wealth: [
-        [90, 'perfectly maintained'],
-        [80, 'well maintained'],
-        [60, 'weathered'],
-        [40, 'shabby'],
-        [30, 'moss covered'],
-        [20, 'patchy'],
-        [0, 'hole riddled']
-      ]
     }
   }
 }
