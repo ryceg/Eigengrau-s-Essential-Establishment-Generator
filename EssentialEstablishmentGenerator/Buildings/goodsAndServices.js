@@ -58,6 +58,7 @@ setup.goodsAndServices = {
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + name.foodAdjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           'The ' + name.beast.seededrandom().toUpperFirst() + "'s " + name.noun.seededrandom().toUpperFirst(),
           name.adjective.seededrandom().toUpperFirst() + ' ' + [building.owner.firstName + "'s ", name.beast.seededrandom().toUpperFirst()].seededrandom() + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
@@ -443,6 +444,7 @@ setup.goodsAndServices = {
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + setup.flora.flower.stemS.seededrandom().toUpperFirst(),
           'The ' + setup.flora.flower.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom(),
@@ -722,6 +724,7 @@ setup.goodsAndServices = {
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           unique
@@ -935,6 +938,7 @@ setup.goodsAndServices = {
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           unique
@@ -1166,6 +1170,7 @@ setup.goodsAndServices = {
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
           'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
           building.owner.lastName + "'s Shoe Repair",
@@ -1391,6 +1396,212 @@ setup.goodsAndServices = {
       'giving excellent tips on keeping your shoes healthy',
       'the charity work they do around town giving shoes to the shoeless',
       'having once made a pair of shoes for a local ruler'
+    ]
+  },
+  barber: {
+    create (town, building, opts) {
+      opts = opts || {}
+      if (!building) {
+        console.error('A building was not passed!')
+        return
+      }
+
+      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
+      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
+      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+
+      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      return building
+    },
+    name: {
+      function (town, building) {
+        const name = setup.goodsAndServices[building.type].name
+        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        return [
+          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
+          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          building.owner.lastName + "'s " + name.noun.seededrandom().toUpperFirst(),
+          unique
+        ].seededrandom()
+      },
+      unique: [
+        'A Little Off The Top',
+        'Get Buzzed',
+        "The Men's Mane",
+        'Cut Above The Rest',
+        'Cutting Edge',
+        'Top Notch',
+        'Happy Hair',
+        'Cliptomania',
+        'Dye Hard',
+        'Hair To Stay',
+        'Hairitage',
+        'Shears To You',
+        'Well-Comb All'
+      ],
+      noun: [
+        'scissors',
+        'clippers',
+        'buzz',
+        'blade',
+        'knife',
+        'beard',
+        'hair',
+        'cut',
+        'shave',
+        'trim',
+        'makeover'
+      ],
+      adjective: [
+        'quick',
+        'careful',
+        'discount',
+        'cheap',
+        'fashionable',
+        'firey',
+        'cool'
+      ],
+      adjectivePerson: [
+        'cheery',
+        'happy',
+        'hopeful',
+        'morning',
+        'magical',
+        'sassy',
+        'friendly',
+        'sleepy',
+        'drowsy',
+        'peaceful',
+        'sad',
+        'loud',
+        'angry',
+        'dopey',
+        'fat',
+        'stoic',
+        'colorful',
+        'silly',
+        'big',
+        'slim',
+        'crafty'
+      ],
+      wordNoun: [
+        'barber',
+        'hairdresser',
+        'surgery',
+        'barber and surgery',
+        'coiffeur',
+        'salon',
+        'beauty parlour',
+        'barbershop'
+      ]
+    },
+    PassageFormat: [
+      // each array string will be a new line.
+      // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
+      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+        '$building.name, $building.structure.descriptor.',
+        '$building.structure.descriptor called $building.name.'
+      ].random() + ' You notice $building.notableFeature.',
+      '',
+      'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<goods $building setup.goodsAndServices[$building.type].goods>>'
+    ],
+    profession: {
+      name: 'barber',
+      opts: {
+        profession: ['barber', 'barber', 'surgeon'].random(),
+        hasClass: false,
+        idle: [
+          // There is a barber currently _______
+          'finishing up a trim of a customer',
+          'cleaning some knives',
+          'wiping a razor',
+          'checking some stock levels',
+          'practising a haircut on a dummy wearing a wig',
+          'playing cards',
+          'taking a swig from a flask'
+        ]
+      }
+    },
+    goods: {
+      'hair shave': {
+        cost: 5,
+        description: 'Using a razor, totally shaving the entire head. Super quick and easy.'
+      },
+      'trim': {
+        cost: 9,
+        description: 'A quick trim; expect a bowl-cut, or something similarly efficient, yet not entirely fashionable.'
+      },
+      'shave': {
+        cost: 8,
+        description: 'A beard shave, quick and effective for de-aging to a 14 year old.'
+      },
+      'beard trim': {
+        cost: 6,
+        description: 'A beard trim.'
+      },
+      'cut': {
+        cost: 12,
+        description: 'A better quality haircut, using new blades. Also safer.'
+      },
+      'style': {
+        cost: 16,
+        description: 'Restyling of hair. Includes the standard awkward small talk.'
+      },
+      'wig': {
+        cost: 22,
+        description: `A wig made out of real human hair! It won't last forever, and is pretty scratchy, but is better than nothing.`
+      },
+      'surgery': {
+        cost: 200,
+        exclusions (town, building) { if (building.roll.expertise > 20) return true },
+        description: `Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.`
+      },
+      'dangerous surgery': {
+        cost: 200,
+        exclusions (town, building) { if (building.roll.expertise < 20) return true },
+        description: `This barber isn't familiar with surgery, but has the sharp tools to do the job.`
+      }
+
+    },
+    type: 'barber',
+    notableFeature: [
+      // you notice _______
+      `there's quite a bit of hair on the floor`,
+      'there is a small music box playing a sweet melody in the corner of the room',
+      'there is a large bowl of water with a fish swimming about',
+      'the room has a lemony sort of scent in the air',
+      'a strong alcohol smell permeates the air',
+      'the wall is lined with all manners of blades',
+      'the wall has hundreds of pairs of scissors in various shapes and sizes',
+      'there is a wall with hundreds of notes attached; a loyalty board',
+      'that inside, it is much quieter than you expected, and is actually rather peaceful',
+      'the smell of alcohol as you walk in'
+    ],
+    specialty: [
+      // the barber is known for _______
+      'excellent and quick service',
+      'doing a quick and rushed job',
+      'hiring apprentices from customers',
+      'being the best place to get the local gossip',
+      'having the sharpest blades in the land',
+      'never gossiping, acting as a confidant',
+      'having taken an oath to never reveal anything that occurs inside the shop',
+      'never drawing blood during a shave',
+      'practising as a surgery first and foremost, taking on haircuts when business is slow',
+      'having been blessed by a priest several years ago. Nobody has died on the surgery table since',
+      'never having a fatality in surgery',
+      'pulling teeth for free',
+      'having once been the host to the only 300% mortality surgery (killing the patient, the surgeon, and the assistant)',
+      'quick amputations, and slow haircuts',
+      'quick haircuts, and slow amputations',
+      'being a much better surgery than barber shop',
+      'being a much better barber shop than surgery'
     ]
   }
 }
