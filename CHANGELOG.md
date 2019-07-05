@@ -51,6 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Share button in sidebar
 - Main Shops output rework
 - New entertainers in tavern
+- Blacksmith current projects now reflect the blacksmith's skills
 - Tons of bug squashing
 
 
