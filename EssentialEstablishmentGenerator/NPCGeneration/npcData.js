@@ -516,7 +516,7 @@ setup.npcData = {
     },
     nobleEvent: {
       probability: 5,
-      exclusion (town, npc) {
+      exclusions (town, npc) {
         if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
           return true
         }
