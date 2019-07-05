@@ -1562,6 +1562,16 @@ setup.goodsAndServices = {
         exclusions (town, building) { if (building.roll.expertise > 20) return true },
         description: `Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.`
       },
+      'tooth pull': {
+        cost: 100,
+        exclusions (town, building) { if (building.roll.expertise > 10) return true },
+        description: `Got a tooth that's giving you a bit of trouble? This barber can yank it right out.`
+      },
+      'leeching': {
+        cost: 60,
+        exclusions (town, building) { if (building.roll.expertise < 30) return true },
+        description: `If you're feeling a bit sick this barber will place leeches all over you to draw out the bad blood.`
+      },
       'dangerous surgery': {
         cost: 200,
         exclusions (town, building) { if (building.roll.expertise < 20) return true },
