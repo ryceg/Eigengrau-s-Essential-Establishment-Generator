@@ -1442,7 +1442,13 @@ setup.goodsAndServices = {
         'Hair To Stay',
         'Hairitage',
         'Shears To You',
-        'Well-Comb All'
+        'Well-Comb All',
+        'Family Hairloom',
+        'To Trim or Not to Trim',
+        'Off With Their Hair',
+        'Hair to Stay',
+        'His and Hairs',
+        'The Barber Chop'
       ],
       noun: [
         'scissors',
@@ -1455,7 +1461,8 @@ setup.goodsAndServices = {
         'cut',
         'shave',
         'trim',
-        'makeover'
+        'makeover',
+        'barber'
       ],
       adjective: [
         'quick',
@@ -1464,7 +1471,9 @@ setup.goodsAndServices = {
         'cheap',
         'fashionable',
         'firey',
-        'cool'
+        'cool',
+        'hairy',
+        'steady'
       ],
       adjectivePerson: [
         'cheery',
@@ -1487,7 +1496,7 @@ setup.goodsAndServices = {
         'silly',
         'big',
         'slim',
-        'crafty'
+        'steady'
       ],
       wordNoun: [
         'barber',
@@ -1524,7 +1533,18 @@ setup.goodsAndServices = {
           'checking some stock levels',
           'practising a haircut on a dummy wearing a wig',
           'playing cards',
-          'taking a swig from a flask'
+          'taking a swig from a flask',
+          'quietly whispering to a pair of silver razors',
+          'sharpening a straight razor with a thick strip of leather',
+          'arranging some bottles of shaving oils',
+          'washing their hands in a basin of water',
+          'starting to doze off in a corner of the shop',
+          'lathering up some shaving cream in a small wooden mortar',
+          'arranging some kinds of medicines on a shelf',
+          'examining a vial of dark red blood',
+          'standing over a pot of oil that is being heated up',
+          'brushing hair on the floor into a small pile',
+          'placing teeth into a large jar'
         ]
       }
     },
@@ -1562,6 +1582,16 @@ setup.goodsAndServices = {
         exclusions (town, building) { if (building.roll.expertise > 20) return true },
         description: `Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.`
       },
+      'tooth pull': {
+        cost: 100,
+        exclusions (town, building) { if (building.roll.expertise > 10) return true },
+        description: `Got a tooth that's giving you a bit of trouble? This barber can yank it right out.`
+      },
+      'leeching': {
+        cost: 60,
+        exclusions (town, building) { if (building.roll.expertise < 30) return true },
+        description: `If you're feeling a bit sick this barber will place leeches all over you to draw out the bad blood.`
+      },
       'dangerous surgery': {
         cost: 200,
         exclusions (town, building) { if (building.roll.expertise < 20) return true },
@@ -1581,12 +1611,23 @@ setup.goodsAndServices = {
       'the wall has hundreds of pairs of scissors in various shapes and sizes',
       'there is a wall with hundreds of notes attached; a loyalty board',
       'that inside, it is much quieter than you expected, and is actually rather peaceful',
-      'the smell of alcohol as you walk in'
+      'the smell of alcohol as you walk in',
+      'several small jars full of teeth sitting on a shelf',
+      'a variety of different glass vials and bottles full of shaving oils',
+      'a barrel that appears to be full of leeches',
+      'a beautiful red leather barber chair in the center of the room',
+      'a fine silver mirror hung up in front of the barber chair',
+      'a large shelf against one wall filled with authentic hair wigs',
+      'there are a lot of dark red stains on the floor around the barber chair',
+      'a large trunk in one corner of the room with a heavy lock on it',
+      'a sign in the window that reads "One free tooth pulling with every bloodletting!"',
+      'a large bowl of coagulated blood is sitting in the shop window'
     ],
     specialty: [
       // the barber is known for _______
       'excellent and quick service',
       'doing a quick and rushed job',
+      'excellent bloodletting skills',
       'hiring apprentices from customers',
       'being the best place to get the local gossip',
       'having the sharpest blades in the land',
