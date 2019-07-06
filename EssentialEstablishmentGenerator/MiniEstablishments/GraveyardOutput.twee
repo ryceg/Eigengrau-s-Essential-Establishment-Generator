@@ -1,0 +1,6 @@
+:: GraveyardOutput
+<<unset $selectedBuilding>><<set $graveyard to ($town.buildings.graveyard[$selected.key] || $town.buildings.graveyard[$currentPassage.key])>><h1>$graveyard.name</h1>
+You walk down $graveyard.road to the $graveyard.wordNoun. It is $graveyard.location, and is $graveyard.size. It's $graveyard.cleanliness.
+
+<<link "People buried here">><<set $deadNPC to setup.createDeadNPC($town)>><<replace "#deadNPC">>Here lies <<profile $deadNPC>>, a $deadNPC.dndClass of $deadNPC.ageYears years. <<print $deadNPC.death.cause.toUpperFirst()>>. <<print $deadNPC.death.burialConditions.toUpperFirst()>><</replace>><</link>>
+<div id="deadNPC"><<if def $deadNPC>>Here lies <<profile $deadNPC>>, a <<print $deadNPC.dndClass || $deadNPC.profession>> of $deadNPC.ageYears years. <<print $deadNPC.death.cause.toUpperFirst()>>. <<print $deadNPC.death.burialConditions.toUpperFirst()>><</if>></div>

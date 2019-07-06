@@ -8,6 +8,7 @@ setup.buildingTypes = {
   'Town Square': setup.createTownSquare,
   'Temple': setup.createTemple,
   'Market': setup.createMarket,
+  'Graveyard': setup.createGraveyard,
   'Bakery': setup.goodsAndServices.default.create('bakery'),
   'Florist': setup.goodsAndServices.default.create('florist'),
   'Tailor': setup.goodsAndServices.default.create('tailor'),

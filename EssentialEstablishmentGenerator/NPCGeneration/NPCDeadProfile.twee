@@ -1,0 +1,33 @@
+:: NPCDeadProfile
+<h1><<if $npcs[$selected.key].isShallow === true || $npcs[$selected.key].hasHistory === false>><<run setup.ExpandNPC($town, $npcs[$selected.key])>><</if>><<set $currentNPC to $npcs[$selected.key]>><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name</h1><<if def $currentNPC.key>><<button "Edit $currentNPC.name">><<goto "NPCProfileEdit">><</button>><</if>> -- <<button "Markdown for $currentNPC.name">><<goto "NPCProfileMarkdown">><</button>><<if $currentNPC.isThrowaway === true>> -- <<button "Save to NPCs list">><<set $npcs[$selected.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>><</if>><<set _age = "tip-" + Math.floor(randomFloat(1.0) * 10**16)>><<set _weight = "tip-" + Math.floor(randomFloat(1.0) * 10**16)>><<set _height = "tip-" + Math.floor(randomFloat(1.0) * 10**16)>><<run setup.profileWeightTooltip(_weight, $currentNPC)>><<run setup.profileAgeTooltip(_age, $currentNPC)>><<run setup.profileHeightTooltip(_height, $currentNPC)>>
+<<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name was a <b><span @id="_age" class="tip">$currentNPC.age</span></b> $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> was <b><span @id="_height" class="tip">$currentNPC.height</span></b> and <b><span @id="_weight" class="tip">$currentNPC.weight</span></b>, and had $currentNPC.eyes eyes<<if def $currentNPC.beard>> and a $currentNPC.beard,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName was that $currentNPC.heshe had $currentNPC.physicalTrait.
+
+$currentNPC.firstName $currentNPC.trait. When $currentNPC.heshe was relaxed, $currentNPC.heshe was $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe became $currentNPC.stressTrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knew $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
+
+$currentNPC.firstName was a $currentNPC.dndClass, with a background of being a $currentNPC.background. $currentNPC.firstName had $currentNPC.pockets in $currentNPC.hisher pockets at $currentNPC.hisher time of death, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
+\<<if $currentNPC.sexuality !== 'heterosexual'>>
+    \<<print $currentNPC.heshe.toUpperFirst()>> was $currentNPC.sexuality
+    \<<if $currentNPC.partnerID>>
+        \, and is survived by $currentNPC.pronouns.hisher <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
+    \<</if>>
+  \<<elseif $currentNPC.partnerID>>$currentNPC.firstName is survived by $currentNPC.pronouns.hisher <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
+  \<</if>>
+
+<<if def $currentNPC.note >>$currentNPC.note<</if>>
+<h6>Death</h6>
+$currentNPC.death.cause $currentNPC.death.burialConditions
+
+<<linkreplace "Early Life">><div class='npcReplace'>Early Life</div><div class='descriptive'>$currentNPC.firstName was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with $currentNPC.pronouns.hisher brother.<<else>>, along with $currentNPC.pronouns.hisher $currentNPC.siblingNumber siblings.<</if>> $currentNPC.pronouns.heshe.toUpperFirst() had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>$currentNPC.pronouns.heshe.toUpperFirst() didn't know $currentNPC.pronouns.hisher parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
+<<linkreplace "Becoming a $currentNPC.dndClass">><div class='npcReplace'>Becoming a $currentNPC.dndClass</div><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.dndClassOrigin $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>
+
+<<if Object.getOwnPropertyNames($currentNPC.relationships).length !== 0>><div class='classTable'><<nobr>><table>
+    <tr>
+        <th>Name</th>
+        <th>Relationship</th>
+    </tr>
+<<for _key, _relationship range $currentNPC.relationships>>
+<tr>
+  <td><<profile $npcs[_key]>></td><td><<print _relationship.toUpperFirst()>></td>
+</tr><</for>></table><</nobr>></div><</if>>
+
+[[Return|previous()]]
