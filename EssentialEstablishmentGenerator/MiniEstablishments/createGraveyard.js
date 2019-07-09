@@ -25,6 +25,13 @@ setup.createGraveyard = function (town, base) {
     `${graveyard.nameSuffix} ${graveyard.namePrefix} ${graveyard.wordNoun.toUpperFirst()}`,
     `St. ` + setup.createName({ race: graveyard.priest.race }) + `'s ${graveyard.wordNoun.toUpperFirst()}`
   ].seededrandom()
+  graveyard.feature = [
+    'a large ' + ['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].seededrandom() + ' memorial to St. ' + setup.createName({ race: graveyard.priest.race }),
+    ['off to one side', 'in the center', 'at the far end', 'right near the front'].seededrandom() + ` of the ${graveyard.wordNoun} is a ` + ['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].seededrandom() + ' shrine to a popular god',
+    setup.graveyard.feature.seededrandom(),
+    setup.graveyard.feature.seededrandom(),
+    setup.graveyard.feature.seededrandom()
+  ].seededrandom()
   graveyard.tippyDescription = `A ${graveyard.wordNoun} that is ${graveyard.size} and is ${graveyard.location}.`
   return graveyard
 }
