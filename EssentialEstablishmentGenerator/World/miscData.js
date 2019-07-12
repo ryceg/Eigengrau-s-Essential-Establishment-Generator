@@ -2,16 +2,13 @@
 setup.misc = {
   ...(setup.misc || {}), // keep any existing misc attributes, see "JS Spread Operator"
   cheese: {
-    create: () => {
-      const cheese = {
-        colour: setup.misc.cheese.colour.seededrandom(),
-        texture: setup.misc.cheese.texture.seededrandom(),
-        taste: setup.misc.cheese.taste.seededrandom(),
-        smell: setup.misc.cheese.smell.seededrandom(),
-        cost: setup.misc.cheese.cost.seededrandom()
-      }
-      return cheese
-    },
+    create: () => ({
+      colour: setup.misc.cheese.colour.seededrandom(),
+      texture: setup.misc.cheese.texture.seededrandom(),
+      taste: setup.misc.cheese.taste.seededrandom(),
+      smell: setup.misc.cheese.smell.seededrandom(),
+      cost: setup.misc.cheese.cost.seededrandom()
+    }),
     colour: ['pale grey, with dark flecks', 'bright yellow', 'warm yellow', 'spotty yellow', 'pale yellow', 'light green', 'light greenish-yellow', 'white, with blue spots', 'white, with a purple rind', 'yellow, with a black waxy rind', 'dark, almost brown'],
     texture: ['crumbly, with a texture similar to plaster', 'rubbery, and squeaks while you eat it', 'rubbery, and squeaks rather disconcertingly while you eat it', 'crumbly, with bits going everywhere', 'somewhat rubbery', 'somewhat stringy', 'slightly stringy', 'rubbery, like a piece of leather that has been soaking in some greasy sludge', 'soft and spongey, with the occassional... crunch', 'soft, springy, and moist', 'gooey', 'moist and delicious', 'almost liquid once you bite through the rind', 'rock hard', 'mildly grainy', 'slippery', 'melted and gooey'],
     taste: ['sharp', 'sharp and salty', 'somewhat bland', 'inoffensively mild', "salty, like a cow's salt-lick", 'rich and creamy', 'creamy, with hints of oak', 'strong, slightly salty, and extremely more-ish', 'smokey, with hints of rum', 'smokey, with hints of chili', 'salty, but immediately the spice from the peppers takes over', "bitter, with the rind tasting somewhere between a burnt log and dead bug, but the taste isn't entirely unpleasant", "a warm and smooth creaminess which envelopes your taste buds like a mother's embrace", 'entirely bland', 'incredibly and painfully sour', 'somehow meaty', 'earthy and buttery, like sautéed mushrooms', 'like it has bits of berries mixed in'],
