@@ -183,7 +183,8 @@ setup.createTown = function (base) {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.seededrandom()
   town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.seededrandom()
-
+  town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
+  town.materialProbability = setup.structure.material.types
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
@@ -217,11 +218,11 @@ setup.createTown = function (base) {
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
-  town.townMaterial = createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
+  town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-  setMaterialProbability(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials)
+  setup.setMaterialProbability(town)
   console.log(town)
   console.groupEnd()
   // setup.createWeather(town)
@@ -229,31 +230,4 @@ setup.createTown = function (base) {
   console.log('loaded', town.wealth, town.roll.size)
   confirm(town.townMaterial)
   return town
-}
-
-function createTownMaterial (startLocationMaterials, wealth, size) {
-  const filterArrayMaterial = (material) => {
-    return startLocationMaterials.includes(material)
-  }
-  const highTierMaterials = ['plaster', 'bricks', 'limestone', 'gypsum'].filter(filterArrayMaterial)
-  const midTierMaterials = ['hewn rock', 'stone', 'cobblestone', 'wood'].filter(filterArrayMaterial)
-  const lowTierMaterials = ['wood', 'adobe', 'daub', 'cob', 'straw', 'rock', 'terra cotta', 'clay', 'cobblestone'].filter(filterArrayMaterial)
-  const materialDecider = wealth + (size * 0.1)
-  if (materialDecider >= 70) {
-    return highTierMaterials.seededrandom()
-  } else if (materialDecider >= 50 && materialDecider < 70) {
-    return midTierMaterials.seededrandom()
-  } else if (materialDecider <= 49) {
-    return lowTierMaterials.seededrandom()
-  }
-}
-
-function setMaterialProbability (startLocationMaterials) {
-  Object.keys(setup.structure.material).forEach((material) => {
-    startLocationMaterials.forEach(element => {
-      if (element !== material) {
-        setup.structure.material[material].probability = 0
-      }
-    })
-  })
 }

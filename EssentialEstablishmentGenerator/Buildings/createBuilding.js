@@ -267,25 +267,24 @@ setup.createBuilding = function (town, type, base) {
 
 function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
   // Set probability for other buildings depending on the building 'tier'
-  let buildingTier = ''
+  let buildingTier = 0
   const wealth = town.roll.wealth + (buildingWealth * 0.2)
   if (wealth >= 70) {
-    buildingTier = 'high'
+    buildingTier = 3
   } else if (wealth >= 50 && wealth < 70) {
-    buildingTier = 'mid'
+    buildingTier = 2
   } else if (wealth < 50) {
-    buildingTier = 'low'
+    buildingTier = 1
   }
-  let objectKeys = Object.keys(setup.structure.material)
-  objectKeys = objectKeys.slice(1)
+  const objectKeys = Object.keys(town.materialProbability)
   objectKeys.forEach((material) => {
-    const tier = [...setup.structure.material[material].tier]
+    const tier = [...town.materialProbability[material].tier]
     if (tier.indexOf(buildingTier) !== -1) {
-      setup.structure.material[material].probability = 5
+      town.materialProbability[material].probability = 5
     }
   })
-  setup.structure.material[mainMaterial].probability = 80
-  let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material, '', '', 'object')
+  town.materialProbability[mainMaterial].probability = 80
+  let tempMaterial = setup.weightedRandomFetcher(town, town.materialProbability, '', '', 'object')
   if (Object.keys(tempMaterial).includes('variations')) {
     console.log('Building material has variations. ')
     tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
