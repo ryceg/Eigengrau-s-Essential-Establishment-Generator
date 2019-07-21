@@ -113,7 +113,7 @@ setup.structure = {
     types: {
       'wood': {
         probability: 40,
-        tier: ['low', 'mid'],
+        tier: [1, 2],
         variations: {
           'log': {
             probability: 10,
@@ -155,7 +155,7 @@ setup.structure = {
       },
       'terra cotta': {
         probability: 30,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'terra cotta'
@@ -163,7 +163,7 @@ setup.structure = {
       },
       'adobe': {
         probability: 30,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'an',
           noun: 'adobe'
@@ -171,7 +171,7 @@ setup.structure = {
       },
       'daub': {
         probability: 30,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'daub'
@@ -179,7 +179,7 @@ setup.structure = {
       },
       'cob': {
         probability: 5,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'cob'
@@ -187,7 +187,7 @@ setup.structure = {
       },
       'plaster': {
         probability: 30,
-        tier: ['high'],
+        tier: [3],
         words: {
           indefiniteArticle: 'a',
           noun: 'plaster'
@@ -195,7 +195,7 @@ setup.structure = {
       },
       'rock': {
         probability: 10,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'rock'
@@ -203,7 +203,7 @@ setup.structure = {
       },
       'straw': {
         probability: 15,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'straw'
@@ -211,7 +211,7 @@ setup.structure = {
       },
       'hewn rock': {
         probability: 5,
-        tier: ['mid'],
+        tier: [2],
         words: {
           indefiniteArticle: 'a',
           noun: 'hewn rock'
@@ -219,7 +219,7 @@ setup.structure = {
       },
       'stone': {
         probability: 5,
-        tier: ['mid'],
+        tier: [2],
         words: {
           indefiniteArticle: 'a',
           noun: 'stone'
@@ -227,7 +227,7 @@ setup.structure = {
       },
       'brick': {
         probability: 1,
-        tier: ['high'],
+        tier: [3],
         words: {
           indefiniteArticle: 'a',
           noun: 'brick'
@@ -235,7 +235,7 @@ setup.structure = {
       },
       'clay': {
         probability: 5,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'clay'
@@ -243,7 +243,7 @@ setup.structure = {
       },
       'cobblestone': {
         probability: 5,
-        tier: ['low'],
+        tier: [1],
         words: {
           indefiniteArticle: 'a',
           noun: 'cobblestone'
@@ -251,7 +251,7 @@ setup.structure = {
       },
       'limestone': {
         probability: 5,
-        tier: ['high'],
+        tier: [3],
         words: {
           indefiniteArticle: 'a',
           noun: 'limestone'
@@ -259,7 +259,7 @@ setup.structure = {
       },
       'gypsum': {
         probability: 5,
-        tier: ['high'],
+        tier: [3],
         words: {
           indefiniteArticle: 'a',
           noun: 'gypsum'

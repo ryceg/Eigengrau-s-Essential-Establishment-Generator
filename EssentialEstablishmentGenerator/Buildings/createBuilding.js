@@ -258,8 +258,36 @@ setup.createBuilding = function (town, type, base) {
     State.variables.buildings.push(building)
     // setup.townBinder(town, building, type)
   }
+  building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth, town.roll.wealth)
 
   // building.id = State.variables.buildings[State.variables.buildings.length - 1]
   // console.log(building)
   return building
+}
+
+function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
+  // Set probability for other buildings depending on the building 'tier'
+  let buildingTier = 0
+  const wealth = town.roll.wealth + (buildingWealth * 0.2)
+  if (wealth >= 70) {
+    buildingTier = 3
+  } else if (wealth >= 50 && wealth < 70) {
+    buildingTier = 2
+  } else if (wealth < 50) {
+    buildingTier = 1
+  }
+  const objectKeys = Object.keys(town.materialProbability)
+  objectKeys.forEach((material) => {
+    const tier = [...town.materialProbability[material].tier]
+    if (tier.indexOf(buildingTier) !== -1) {
+      town.materialProbability[material].probability = 5
+    }
+  })
+  town.materialProbability[mainMaterial].probability = 80
+  let tempMaterial = setup.weightedRandomFetcher(town, town.materialProbability, '', '', 'object')
+  if (Object.keys(tempMaterial).includes('variations')) {
+    console.log('Building material has variations. ')
+    tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
+  }
+  return tempMaterial
 }

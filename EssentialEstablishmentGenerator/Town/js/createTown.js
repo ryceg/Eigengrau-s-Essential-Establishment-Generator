@@ -10,6 +10,7 @@ setup.createTown = function (base) {
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    townMaterial: 'mainTownMaterial',
     taxes: {
       base: 7,
       welfare: 1,
@@ -182,7 +183,8 @@ setup.createTown = function (base) {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.seededrandom()
   town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.seededrandom()
-
+  town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
+  town.materialProbability = setup.structure.material.types
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
@@ -216,15 +218,16 @@ setup.createTown = function (base) {
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
-
+  town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-
+  setup.setMaterialProbability(town)
   console.log(town)
   console.groupEnd()
   // setup.createWeather(town)
   console.log(town.name + ' has loaded.')
-
+  console.log('loaded', town.wealth, town.roll.size)
+  confirm(town.townMaterial)
   return town
 }
