@@ -178,11 +178,13 @@ setup.createTown = function (base) {
   setup.townDemographics(town)
   town.professions = setup.fetchProfessions(town)
 
+  let vegetationType = setup.townData.terrain[town.terrain].location[town.location].vegetation.seededrandom();
+
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.seededrandom()
-  town.vegetation = setup.townData.terrain[town.terrain].location[town.location].vegetation.seededrandom()
+  town.vegetation = setup.townData.vegetation[vegetationType];
   town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structure.material.types
   Object.keys(town.roll).forEach(function (roll) {
