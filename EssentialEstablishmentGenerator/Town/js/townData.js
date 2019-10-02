@@ -9,8 +9,6 @@ setup.townData = {
     name: ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'],
     type: ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row', 'Avenue', 'Alley', 'Drive', 'Boulevard', 'Plaza']
   },
-  vegetations: ['desolate', 'sparse', 'lush', 'thick'],
-  plants: ['shrubs', 'bush', 'windswept trees', 'oak trees', 'pine trees', 'maple trees', 'birch trees', 'ash trees', 'elm trees', 'fir trees', 'spruce trees', 'sycamore trees', 'alder trees', 'cypress trees', 'yew trees'],
   lifestyleStandards: [
     [1000, 'aristocratic'],
     [400, 'wealthy'],
@@ -1167,8 +1165,16 @@ setup.townData = {
             'a water source and a well-traveled road'
           ],
           // where the vegetation is _
-          vegetation: [1, 2, 2, 2, 2, 3, 3, 3],
-          plants: [0, 1, 2, 2, 2],
+          vegetation: {
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
+          plants: {
+            'shrubs':1, 
+            'bush':1, 
+            'windswept trees':1
+          },
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
         'forest': {
@@ -1185,8 +1191,25 @@ setup.townData = {
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'
           ],
-          vegetation: [1, 2, 2, 2, 3, 3, 3, 3, 3, 3],
-          plants: [3, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          vegetation: {
+            'sparse': 1,
+            'lush': 3,
+            'thick': 6
+          },
+          plants: {
+            'oak trees': 3,
+            'pine trees': 1,
+            'maple trees': 1,
+            'birch trees': 1,
+            'ash trees': 1,
+            'elm trees': 1,
+            'fir trees': 1,
+            'spruce trees': 1,
+            'sycamore trees': 1,
+            'alder trees': 1,
+            'cypress trees': 1,
+            'yew trees': 1
+          },
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
         },
         'hills': {
@@ -1199,7 +1222,11 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [1, 2, 2, 2, 3, 3, 3, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 3,
+            'thick': 6
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
         },
@@ -1211,7 +1238,11 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'sparse':5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
         },
@@ -1225,7 +1256,11 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'sparse':5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
         },
@@ -1235,7 +1270,11 @@ setup.townData = {
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          vegetation: [1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
         }
@@ -1302,7 +1341,11 @@ setup.townData = {
             'a series of natural springs',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1318,7 +1361,11 @@ setup.townData = {
             'a well-traveled crossroads',
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'],
-          vegetation: [1, 2, 2, 2, 3, 3, 3, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 3,
+            'thick': 6
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1331,7 +1378,11 @@ setup.townData = {
             'a well maintained road',
             'a road that connects two other cities',
             'a well-traveled crossroads'],
-          vegetation: [1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1343,7 +1394,11 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'sparse':5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
 
@@ -1358,7 +1413,11 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'sparse':5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1368,7 +1427,11 @@ setup.townData = {
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          vegetation: [1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1380,7 +1443,11 @@ setup.townData = {
             'a road that leads through the jungle',
             'a trade route through the jungle',
             'a water source and a well-traveled road that leads through the jungle'],
-          vegetation: [1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 1,
+            'thick': 9
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1394,7 +1461,12 @@ setup.townData = {
             'a series of natural springs',
             'a series of natural springs',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2],
+          vegetation: ['desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'desolate', 'sparse', 'sparse', 'sparse', 'lush'],
+          vegetation: {
+            'desolate':7,
+            'sparse': 3,
+            'lush': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         }
@@ -1469,7 +1541,12 @@ setup.townData = {
             'a series of natural springs',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'desolate':3,
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw']
         },
@@ -1485,7 +1562,12 @@ setup.townData = {
             'a well-traveled crossroads',
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'],
-          vegetation: [0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3],
+          vegetation: {
+            'desolate':2,
+            'sparse': 1,
+            'lush': 3,
+            'thick': 6
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1499,7 +1581,12 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'desolate':5,
+            'sparse': 5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1511,7 +1598,12 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'desolate':5,
+            'sparse': 5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1525,7 +1617,12 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'desolate':5,
+            'sparse': 5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1535,7 +1632,12 @@ setup.townData = {
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          vegetation: [0, 0, 0, 1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'desolate':3,
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         },
@@ -1546,7 +1648,11 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2],
+          vegetation: {
+            'desolate':7,
+            'sparse': 3,
+            'lush': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
         },
@@ -1558,7 +1664,11 @@ setup.townData = {
             'a large oasis of water',
             'a large oasis of water',
             'a water source and a well-traveled road'],
-          vegetation: [1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
         }
@@ -1633,7 +1743,12 @@ setup.townData = {
             'a series of natural springs',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'desolate': 3,
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1649,7 +1764,12 @@ setup.townData = {
             'a well-traveled crossroads',
             'a road that passes through the forests',
             'a water source and a well-traveled road leading through the forest'],
-          vegetation: [0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3],
+          vegetation: {
+            'desolate': 2,
+            'sparse': 1,
+            'lush': 3,
+            'thick': 6
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1663,7 +1783,12 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'desolate': 4,
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1675,7 +1800,12 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'desolate': 5,
+            'sparse': 5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1689,7 +1819,12 @@ setup.townData = {
             'a trade route through the mountains',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 3],
+          vegetation: {
+            'desolate': 5,
+            'sparse': 5,
+            'lush': 1,
+            'thick': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1699,7 +1834,12 @@ setup.townData = {
             'a calm, coastal bay',
             'a wide, navigable river',
             'a river navigable by small craft'],
-          vegetation: [0, 0, 0, 1, 2, 2, 2, 2, 3, 3, 3],
+          vegetation: {
+            'desolate': 3,
+            'sparse': 1,
+            'lush': 4,
+            'thick': 3
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1711,7 +1851,11 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2],
+          vegetation: {
+            'desolate': 7,
+            'sparse': 3,
+            'lush': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         },
@@ -1723,7 +1867,11 @@ setup.townData = {
             'a road that connects two other cities',
             'a well-traveled crossroads',
             'a water source and a well-traveled road'],
-          vegetation: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2],
+          vegetation: {
+            'desolate': 7,
+            'sparse': 3,
+            'lush': 1
+          },
           plants: [],
           possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
         }
