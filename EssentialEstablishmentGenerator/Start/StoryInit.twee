@@ -1,7 +1,7 @@
 
 :: StoryInit
 
-<<run State.initPRNG()>>
+// <<run State.prng.init()>>
 <<set Config.history.maxStates to 15>>
 <<set $versionNumber to "2.3">>
 
