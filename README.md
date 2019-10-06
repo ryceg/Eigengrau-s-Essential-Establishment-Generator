@@ -40,7 +40,7 @@ Once you've cloned the project, remember to `yarn install` or `npm install` to i
 You will also need to download Tweego from [here.](https://www.motoslave.net/tweego/) and place the contents inside /Eigengrau-s-Essential-Establishment-Generator/.twine if the .twine folder does not already exist just create one.
 
 * Use `npm test` to run tests.
-* Use `npm build` to build the output files. The entire thing will output to the /gh-pages folder as the index.html file.
+* Use `npm run-script build` to build the output files. (Note that this will return a File Not Found error, but it is working) The entire thing will output to the /gh-pages folder as the index.html file.
 * Use `npm start` to automatically rebuild on file changes.
 
 
