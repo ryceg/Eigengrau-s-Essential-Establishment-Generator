@@ -15,21 +15,21 @@ module.exports = {
     tweego: {
       win32: {
         x86:
-          'https://www.motoslave.net/tweego/download.php/tweego-1.3.0-windows-x86.zip',
+          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-windows-x86.zip',
         x64:
-          'https://www.motoslave.net/tweego/download.php/tweego-1.3.0-windows-x64.zip'
+          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-windows-x64.zip'
       },
       darwin: {
         x86:
-          'https://www.motoslave.net/tweego/download.php/tweego-1.3.0-macos-x86.zip',
+          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-macos-x86.zip',
         x64:
-          'https://www.motoslave.net/tweego/download.php/tweego-1.3.0-macos-x64.zip'
+          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-macos-x64.zip'
       },
       linux: {
         x86:
-          'https://www.motoslave.net/tweego/download.php/tweego-1.3.0-linux-x86.zip',
+          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-linux-x86.zip',
         x64:
-          'https://www.motoslave.net/tweego/download.php/tweego-1.3.0-linux-x64.zip'
+          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-linux-x64.zip'
       }
     },
     storyFormats:
