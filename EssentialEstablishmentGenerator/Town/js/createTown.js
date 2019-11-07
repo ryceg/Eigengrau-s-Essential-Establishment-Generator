@@ -228,6 +228,6 @@ setup.createTown = function (base) {
   // setup.createWeather(town)
   console.log(town.name + ' has loaded.')
   console.log('loaded', town.wealth, town.roll.size)
-  confirm(town.townMaterial)
+  // confirm(town.townMaterial)
   return town
 }
