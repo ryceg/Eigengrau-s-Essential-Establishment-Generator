@@ -1,5 +1,8 @@
 # ![](https://i.imgur.com/Cid7OS1.png)
 
+### ATTENTION! The generator is being overhauled! 
+EEEG is transferings from a Twine program to a server based react app! If you'd like to help with the engine migration head over to [here!](https://github.com/Glinkis/rpg-story-engine) 
+
 ### A Tabletop Generator Unlike Any Other :game_die:
 
 [Eigengrau's Essential Establishment Generator](https://eigengrausgenerator.com/), or EEEG for short, is a tabletop procedural generation tool for towns, npcs, and more. It creates paragraphs of text suitable to be read directly to the players during a game. No longer do you have to simply describe a generic, unnamed tavern as "small"- this is the sort of stuff that you can read out instead:
