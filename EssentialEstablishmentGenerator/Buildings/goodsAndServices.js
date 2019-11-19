@@ -1431,7 +1431,7 @@ setup.goodsAndServices = {
       },
       unique: [
         "The Hunter's Mark",
-        'Straight Arrow Comany',
+        'Straight Arrow Company',
         'The Snapped String',
         'The Bound Accuracy',
         'True Strike Fletcher',
@@ -1553,11 +1553,7 @@ setup.goodsAndServices = {
         cost: 10050,
         description: 'Ten arrows plated with silver to bypass weapon immunities. Good for vampires and lycanthropes.',
         exclusions (town, building) {
-          if (town.population > 2000 && building.roll.wealth > 60) {
-            return true
-          } else {
-            return false
-          }
+          return town.population > 2000 && building.roll.wealth > 60
         }
       },
       '20 bolts': {
@@ -1568,11 +1564,7 @@ setup.goodsAndServices = {
         cost: 10050,
         description: 'Ten bolts plated with silver to bypass weapon immunities. Good for vampires and lycanthropes.',
         exclusions (town, building) {
-          if (town.population > 2000 && building.roll.wealth > 60) {
-            return true
-          } else {
-            return false
-          }
+          return town.population > 2000 && building.roll.wealth > 60
         }
       },
       '50 blowgun needles': {
@@ -1581,7 +1573,7 @@ setup.goodsAndServices = {
       },
       '20 sling bullets': {
         cost: 4,
-        description: 'Small lead ellets used with a sling to bludgeon enemies.'
+        description: 'Small lead bullets used with a sling to bludgeon enemies.'
       },
       'shortbow': {
         cost: 2500,
@@ -1601,7 +1593,7 @@ setup.goodsAndServices = {
       },
       'light crossbow': {
         cost: 2500,
-        description: 'A lightweight crossbow, comarable in range to a shortbow. Slow to reload, but packs a punch.'
+        description: 'A lightweight crossbow, comparable in range to a shortbow. Slow to reload, but packs a punch.'
       },
       'hand crossbow': {
         cost: 7500,
@@ -1636,22 +1628,22 @@ setup.goodsAndServices = {
       'the smell of fresh cut wood permeates the air.',
       'an arrow on display with an array of colorful feathers.',
       'a large bear pelt hung proudly on the wall behind the counter.',
-      'a collection of deer antlers mounter across the wall furthest from you.',
+      'a collection of deer antlers mounted across the wall furthest from you.',
       'the faint smell of beer filling the air.',
-      'the building is ket very warm by a crackling fireplace.',
+      'the building is kept very warm by a crackling fireplace.',
       'the room is quiet and peaceful.',
       'a diagram of different arrowheads and their uses.',
       'the wall is lined with intricately painted bows.',
       'a large variety of woods stacked behind the counter.',
       'a pretty oak and steel crossbow in a glass case marked "old reliable."',
-      'a frame on the wall that contains an arrow split into by another arrow.',
+      'a frame on the wall that contains an arrow split in two by another arrow.',
       'the muffled barks of a hunting dog in another room.',
       'a sack of feathers lying on the floor behind the counter.',
-      'a massive ballista bolt on dislay above the counter.',
+      'a massive ballista bolt on display above the counter.',
       'a wall covered in pelts from an array of animals, from a skunk to a bear.',
       'a target on the far wall with 5 arrows no more than an inch from the bullseye',
       'shavings of wood scattered on the floor near the counter.',
-      'a large selection of woods dislayed on the wall for customers to choose from.'
+      'a large selection of woods displayed on the wall for customers to choose from.'
     ],
     specialty: [
       // the fletcher is known for _______
@@ -1663,7 +1655,7 @@ setup.goodsAndServices = {
       'providing the most affordable products around.',
       'giving the fastest service in town.',
       'always serving with a smile.',
-      'having the sharest arrows in town.',
+      'having the sharpest arrows in town.',
       'crafting arrows that always hit their mark.',
       'their extremely strong and reliable arrows.',
       'creating an arrow that can pierce clean through a hog.',
@@ -1671,7 +1663,7 @@ setup.goodsAndServices = {
       'their bowstrings that never snap.',
       'crafting tough and reliable bows that rarely break.',
       'offering a free quiver of arrows with every bow purchase.',
-      'making the heaviest bow in the continent.',
+      'making the heaviest bows on the continent.',
       'inventing a bow with added sights.',
       'creating the fastest reloading crossbow.',
       'designing a custom bow for a local noble.',
