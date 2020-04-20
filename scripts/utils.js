@@ -15,25 +15,25 @@ module.exports = {
     tweego: {
       win32: {
         x86:
-          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-windows-x86.zip',
+          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x86.zip',
         x64:
-          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-windows-x64.zip'
+          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x64.zip'
       },
       darwin: {
         x86:
-          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-macos-x86.zip',
+          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x86.zip',
         x64:
-          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-macos-x64.zip'
+          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip'
       },
       linux: {
         x86:
-          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-linux-x86.zip',
+          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x86.zip',
         x64:
-          'https://www.motoslave.net/tweego/download.php/tweego-2.0.0-linux-x64.zip'
+          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip'
       }
     },
     storyFormats:
-      'https://www.motoslave.net/tweego/download.php/story-formats-20190129.zip'
+      'https://github.com/tmedwards/sugarcube-2/releases/download/v2.31.1/sugarcube-2.31.1-for-twine-2.1-local.zip'
   },
 
   // Logging
