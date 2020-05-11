@@ -1,6 +1,6 @@
 // Attaches itself to the *global* node object.
 global.setup = {}
-require('../EssentialEstablishmentGenerator/Tools/matchFirst')
+require('../src/Tools/matchFirst')
 
 const map = {
   2: 'A',

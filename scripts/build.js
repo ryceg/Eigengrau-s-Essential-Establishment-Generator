@@ -10,7 +10,7 @@ const tweegoProcess = spawn(
   tweego,
   [
     '--output=gh-pages/index.html',
-    './EssentialEstablishmentGenerator',
+    './src',
     '--head=./main.ejs',
     watch && '--watch'
   ]
