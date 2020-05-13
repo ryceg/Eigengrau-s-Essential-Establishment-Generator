@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "eigengraus-essential-establishment-generator",
-  "version": "2.2.1",
+  "version": "2.3.1",
   "description": "Eigengrau's Essential Establishment Generator",
   "main": "main.txt",
   "repository": {

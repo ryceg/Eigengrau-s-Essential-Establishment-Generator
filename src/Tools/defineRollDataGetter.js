@@ -40,7 +40,12 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
 
   Object.defineProperty(baseObj, propName, {
     get () {
-      console.log('Fetching ' + this.name + ' ' + propName + '.')
+      if (!this.name) {
+        console.log(`Fetching ${propName} for:`)
+        console.log(baseObj)
+      } else {
+        console.log('Fetching ' + this.name + ' ' + propName + '.')
+      }
       const rollArray = rollDataObj[keyName]
       let result = rollArray.find(function (desc) {
         if (rollLocation) {
