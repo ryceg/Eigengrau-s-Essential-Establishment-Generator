@@ -3,8 +3,8 @@
   "editor.formatOnSave": false,
   "highlight.maxMatches": 250,
   "highlight.regexes": {
-    // Match things like $object.value.
-    "(\\$(\\w|\\d|\\.)+)": {
+    // Match things like $object.deep.value.
+    "(\\$\\w+(\\.\\w+)*)": {
       "filterFileRegex": ".*\\.(js|json|twee)$",
       "decorations": [{ "color": "rgba(120, 180, 255)" }]
     },
