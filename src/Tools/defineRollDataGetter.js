@@ -44,15 +44,24 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
       const rollArray = rollDataObj[keyName]
       let result = rollArray.find(function (desc) {
         if (rollLocation) {
+          // console.log(`${desc[0]} <= ${rollLocation[keyName]}`)
           return desc[0] <= rollLocation[keyName]
         } else {
+          // console.log(`${desc[0]} <= ${this.roll[keyName]}`)
           return desc[0] <= this.roll[keyName]
         }
       }, this)
-      if (result === undefined) {
+      // console.log(`result: `)
+      // console.log(result)
+      if (typeof result === 'undefined') {
         console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = rollArray[rollArray.length - 1]
       }
+      if (result === undefined || !result) {
+        console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
+        result = rollArray[rollArray.length - 1]
+      }
+      // console.log(`results 2: `)
       if (Array.isArray(result[indexNumber])) {
         result[indexNumber] = result[indexNumber].seededrandom()
       }

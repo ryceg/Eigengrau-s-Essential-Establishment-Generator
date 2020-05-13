@@ -51,14 +51,14 @@ setup.structure = {
       })
     }
     building.structure.roof = tempRoof.words
-    console.log(`Got up to here`)
+    // console.log(`Got up to here`)
     console.log({ building })
 
-    console.log('Roof getter:')
+    // console.log('Roof getter:')
     setup.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', '', building.roll)
-    console.log('Material getter:')
+    // console.log('Material getter:')
     setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
-
+    // console.log(`Finished getters.`)
     building.structure.descriptors = [
       `${building.structure.material.indefiniteArticle} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with a ${building.structure.roof.wealth} ${building.structure.roof.verb} roof`,
       `a ${building.structure.material.wealth} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with a ${building.structure.roof.verb} roof`
@@ -107,7 +107,9 @@ setup.structure = {
         [30, 'poorly made'],
         [20, 'run down'],
         [10, 'crumbling'],
-        [0, 'structurally unsound']
+        [0, 'structurally unsound'],
+        [-100, 'death-trap tier']
+        // FIXME currently defineRollDataGetter.js is mishandling rolls that are lower than any of the items.
       ]
     },
     types: {
@@ -276,7 +278,8 @@ setup.structure = {
         [40, 'shabby'],
         [30, 'moss covered'],
         [20, 'patchy'],
-        [0, 'hole riddled']
+        [0, 'hole riddled'],
+        [-100, 'hole riddled']
       ]
     },
     types: {
