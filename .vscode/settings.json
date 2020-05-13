@@ -11,7 +11,7 @@
     // Match things like <<print $name>>.
     "(<<.+>>)": {
       "filterFileRegex": ".*\\.(js|json|twee)$",
-      "decorations": [{ "color": "rgb(255, 170, 90)" }]
+      "decorations": [{ "color": "rgb(255, 200, 100)" }]
     }
   }
 }
