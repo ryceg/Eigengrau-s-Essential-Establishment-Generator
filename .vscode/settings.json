@@ -9,7 +9,7 @@
       "decorations": [{ "color": "rgba(120, 180, 255)" }]
     },
     // Match things like <<print $name>>.
-    "(<<.+>>)": {
+    "(<<(.|\n|\r)*>>)": {
       "filterFileRegex": ".*\\.(js|json|twee)$",
       "decorations": [{ "color": "rgb(255, 200, 100)" }]
     }
