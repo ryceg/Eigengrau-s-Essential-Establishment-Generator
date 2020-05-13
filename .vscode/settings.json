@@ -1,4 +1,17 @@
 {
-    "deepscan.enable": true,
-    "editor.formatOnSave": false,
+  "deepscan.enable": true,
+  "editor.formatOnSave": false,
+  "highlight.maxMatches": 250,
+  "highlight.regexes": {
+    // Match things like $object.value.
+    "(\\$(\\w|\\d|\\.)+)": {
+      "filterFileRegex": ".*\\.(js|json|twee)$",
+      "decorations": [{ "color": "rgba(120, 180, 255)" }]
+    },
+    // Match things like <<print $name>>.
+    "(<<.+>>)": {
+      "filterFileRegex": ".*\\.(js|json|twee)$",
+      "decorations": [{ "color": "rgb(255, 170, 90)" }]
+    }
+  }
 }
