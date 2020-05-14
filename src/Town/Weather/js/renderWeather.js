@@ -90,7 +90,7 @@ setup.renderWeather = function (town, biome, weather) {
   for (const array of setup.weather.temperatureDescriptors) {
     // console.log(array)
     if (weather.temperature >= array[0]) {
-      weather.readout.temperature = '<span class=tip title=' + JSON.stringify(setup.toCelsius(weather.temperature) + ', to be precise.') + '><b>' + array[1] + '</b></span><<run setup.tippy("span")>>'
+      weather.readout.temperature = '<span class=tip title=' + JSON.stringify(setup.toCelsius(weather.temperature) + ', to be precise.') + '><span class="dotted">' + array[1] + '</span></span><<run setup.tippy("span")>>'
       break
     }
   }

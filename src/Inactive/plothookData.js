@@ -479,7 +479,7 @@ setup.plothook = {
     //   },
     //   function: function (town) {
     //     var goblins = setup.misc.goblins.create()
-    //     return 'Goblin encampment: A ' + goblins.tippy + '<b>goblin encampment</b></span> has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.'
+    //     return 'Goblin encampment: A ' + goblins.tippy + '<span class="dotted">goblin encampment</span></span> has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.'
     //   }
     // },
     // 'Wandering Skeleton': {

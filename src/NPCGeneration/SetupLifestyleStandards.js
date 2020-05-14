@@ -72,7 +72,7 @@ setup.createlifestyleStandards = function (town, npc) {
     'is currently having'
   ].seededrandom()
   const desc = setup.findProfession(town, npc)
-  const tippy = `<span id=` + JSON.stringify(npc.firstName) + ` class=tip title=` + JSON.stringify(desc.description.toUpperFirst()) + `><b>` + npc.dndClass + `</b></span>`
+  const tippy = `<span id=` + JSON.stringify(npc.firstName) + ` class=tip title=` + JSON.stringify(desc.description.toUpperFirst()) + `><span class="dotted">` + npc.dndClass + `</span></span>`
 
   const wageVarianceNotes = [
     [-25, isCurrently + ' impossibly unsuccessful as a ' + tippy],

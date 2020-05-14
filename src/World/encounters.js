@@ -8,15 +8,15 @@ setup.misc.encounters = {
   },
   'a band of robbers': town => {
     const bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-    return bandits.tippy + '<b>a band of robbers.</b></span>'
+    return bandits.tippy + '<span class="dotted">a band of robbers.</span></span>'
   },
   'some robbers': town => {
     const bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-    return bandits.tippy + '<b>some robbers.</b></span>'
+    return bandits.tippy + '<span class="dotted">some robbers.</span></span>'
   },
   'a party of raiders': town => {
     const bandits = setup.misc.bandits.create(town)
-    return bandits.tippy + '<b>a party of raiders.</b></span>'
+    return bandits.tippy + '<span class="dotted">a party of raiders.</span></span>'
   },
   'a pair of outlaws': town => {
     const npc = setup.createNPC(town, {
@@ -31,15 +31,15 @@ setup.misc.encounters = {
   },
   'a band of desperate outlaws': town => {
     const bandits = setup.misc.bandits.create(town)
-    return bandits.tippy + '<b>a band of desperate outlaws.</b></span>'
+    return bandits.tippy + '<span class="dotted">a band of desperate outlaws.</span></span>'
   },
   'some bandits': town => {
     const bandits = setup.misc.bandits.create(town, { business: 'attacking people using the trail' })
-    return bandits.tippy + '<b>some bandits.</b></span>'
+    return bandits.tippy + '<span class="dotted">some bandits.</span></span>'
   },
   'some outlaws’ hideout': town => {
     const bandits = setup.misc.bandits.create(town)
-    return bandits.tippy + 'a hideout belonging to <b>some outlaws</b></span>'
+    return bandits.tippy + 'a hideout belonging to <span class="dotted">some outlaws</span></span>'
   },
   'a disciplined military company': town => {
     const mercenaries = setup.createMercenaries(town)
@@ -109,11 +109,11 @@ setup.misc.encounters = {
   'a goblin patrol': () => 'a goblin patrol ' + ['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom(),
   'several giant spiders': () => {
     const spider = setup.misc.spider.create()
-    return 'several giant ' + spider.tippyWord + '<b>s</b>.'
+    return 'several giant ' + spider.tippyWord + '<span class="dotted">s</span>.'
   },
   'a pack of wolves': () => {
     const wolf = setup.misc.wolf.create()
-    const wolves = wolf.tippy + '<b>wolves</b></span>.'
+    const wolves = wolf.tippy + '<span class="dotted">wolves</span></span>.'
     return 'a pack of ' + wolves
   },
   'a lone wolf': () => {
@@ -542,7 +542,7 @@ setup.misc.encounters = {
   },
   'spiders and rats': () => {
     const spider = setup.misc.spider.create()
-    return spider.tippyWord + '<b>s</b>' + ' and rats'
+    return spider.tippyWord + '<span class="dotted">s</span>' + ' and rats'
   },
   'a treasure hunter': town => {
     const npc = setup.createNPC(town, {
@@ -750,7 +750,7 @@ setup.misc.encounters = {
   },
   'giant spiders': () => {
     const spider = setup.misc.spider.create()
-    return 'giant ' + spider.tippyWord + '<b>s</b><<run setup.tippy("span")>>'
+    return 'giant ' + spider.tippyWord + '<span class="dotted">s</span><<run setup.tippy("span")>>'
   },
   'hungry zombies': () => 'hungry zombies',
   'a lonely old woman': town => {

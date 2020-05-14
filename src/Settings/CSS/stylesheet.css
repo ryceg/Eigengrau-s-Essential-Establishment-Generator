@@ -12,6 +12,12 @@ body {
   margin-top: 4px;
 }
 
+.dotted {
+	border-bottom: 1px dotted #000;
+  text-decoration: none;
+  cursor: help;
+}
+
 .npcReplace{
 font-family: MrJeeves;
 font-weight: 800;

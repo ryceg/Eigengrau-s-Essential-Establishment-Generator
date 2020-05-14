@@ -111,7 +111,7 @@ setup.misc.locations = {
       material: 'stone',
       wordNoun: 'house'
     })
-    return 'an abandoned ' + cabin.tippy + '<b>stone house</b></span>. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
+    return 'an abandoned ' + cabin.tippy + '<span class="dotted">stone house</span></span>. <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
   },
   'a stone house': (town, biome) => {
     const lived = setup.misc[biome].houseLived.seededrandom()
@@ -120,7 +120,7 @@ setup.misc.locations = {
       material: 'stone',
       wordNoun: 'house'
     })
-    return 'a ' + cabin.tippy + '<b>stone house</b></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].seededrandom() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
+    return 'a ' + cabin.tippy + '<span class="dotted">stone house</span></span> sheltered by a ' + ['canyon', 'gorge', 'bluff'].seededrandom() + ' <blockquote>' + lived + ' once lived here. Now, ' + encounter + ' lives here.</blockquote>'
   },
   "a merchant caravan's camp": (town, biome) => {
     const caravan = setup.misc.caravan.create(town)
