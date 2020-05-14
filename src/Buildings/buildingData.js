@@ -1,7 +1,7 @@
 
 setup.structure = {
   create (town, building, opts) {
-    console.groupCollapsed('Creating the structure for a ' + (building.wordNoun || 'building'))
+    console.groupCollapsed('Creating the structure for ' + setup.articles.output(building.wordNoun || 'building'))
     if (!building) {
       building = {}
     }
@@ -65,7 +65,7 @@ setup.structure = {
     ]
 
     if (building.size) {
-      building.structure.descriptorsAdd('a ' + building.size + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with a ' + building.structure.roof.verb + ' roof')
+      building.structure.descriptorsAdd(setup.articles.output(building.size) + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with ' + setup.articles.output(building.structure.roof.verb) + ' roof')
     }
     console.log(building.structure)
     console.groupEnd()

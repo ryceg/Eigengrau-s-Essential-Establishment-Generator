@@ -22,7 +22,7 @@ const missions = {
   },
   bodyParts () {
     const missionBodyPart = setup.createAlchemy({ type: 'body part' })
-    return 'This may be somewhat unsavoury, but I need the ' + missionBodyPart.bodyPart + ' from a ' + missionBodyPart.bodyPartOrigin + '. Can you find me one?'
+    return 'This may be somewhat unsavoury, but I need the ' + missionBodyPart.bodyPart + ' from ' + setup.articles.output(missionBodyPart.bodyPartOrigin) + '. Can you find me one?'
   },
   badIngredients (town) {
     const missionIngredient = setup.createAlchemy({ type: 'preserved herb' })

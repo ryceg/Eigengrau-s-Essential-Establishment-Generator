@@ -24,7 +24,7 @@ setup.createMarket = function (town, opts) {
     'The ' + [town.name, market.road].seededrandom() + ' ' + market.wordNoun
   ].seededrandom()
   market.notableFeature = market.draw
-  market.tippyDescription = 'A ' + (market.size || market._size) + ' ' + market.wordNoun + " that's " + (market.cleanliness || market._cleanliness) + ', and is known for ' + market.notableFeature + '.'
+  market.tippyDescription = setup.articles.output(market.size || market._size).toUpperFirst() + ' ' + market.wordNoun + " that's " + (market.cleanliness || market._cleanliness) + ', and is known for ' + market.notableFeature + '.'
   // setup.townBinder(town, market, 'market')
   return market
 }

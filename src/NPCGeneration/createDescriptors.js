@@ -12,7 +12,7 @@ setup.createDescriptors = function (npc) {
   ]
 
   if (typeof beard !== 'undefined') {
-    npc.descriptorsAdd = npc.raceName + ' with a ' + npc.beard
+    npc.descriptorsAdd = npc.raceName + ' with ' + setup.articles.output(npc.beard)
   }
 
   if (npc.hasClass === true) {
