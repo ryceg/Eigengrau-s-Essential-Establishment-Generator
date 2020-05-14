@@ -32,6 +32,6 @@ setup.createGraveyard = function (town, base) {
     setup.graveyard.feature.seededrandom(),
     setup.graveyard.feature.seededrandom()
   ].seededrandom()
-  graveyard.tippyDescription = `A ${graveyard.wordNoun} that is ${graveyard.size} and is ${graveyard.location}.`
+  graveyard.tippyDescription = `${setup.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`
   return graveyard
 }

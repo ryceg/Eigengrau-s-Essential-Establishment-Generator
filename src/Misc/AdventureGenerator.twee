@@ -16,25 +16,25 @@
 <<switch $adventure.goal>>
     <<case "rescue a captive.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
-        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, <<print setup.articles.output(adventureGoalNPC.descriptor)>> who was captured and taken prisoner.">>
     <<case "discover the fate of a previous adventuring party.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "discover the fate of $adventureGoalNPC.profile and $adventureGoalNPC.hisher adventuring party, who disappeared in the area.">>
     <<case "find an npc who disappeared in the area.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "find $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who disappeared in the area.">>
+        <<set $adventure.goal to "find $adventureGoalNPC.profile, <<print setup.articles.output(adventureGoalNPC.descriptor)>> who disappeared in the area.">>
     <<case "escort an npc to a destination.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "escort $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who needs protection on the way to another place.">>
+        <<set $adventure.goal to "escort $adventureGoalNPC.profile, <<print setup.articles.output(adventureGoalNPC.descriptor)>> who needs protection on the way to another place.">>
     <<case "discover the fate of a missing group of explorers.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
         <<set $adventure.goal to "discover the fate of $adventureGoalNPC.profile and $adventureGoalNPC.hisher exploring party, who disappeared in the area.">>
     <<case "break a prisoner out of a jail or prison camp.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {background: either("urchin", "urchin", "urchin", "commoner", "commoner", "commoner", "commoner", "noble", "noble"), isThrowaway: true})>>
-        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who was captured and taken prisoner.">>
+        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, <<print setup.articles.output(adventureGoalNPC.descriptor)>> who was captured and taken prisoner.">>
     <<case "rescue a character, monster, or object from a natural or unnatural disaster.">>
         <<set $adventureGoalNPC to setup.createNPC($town, {isThrowaway: true})>>
-        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, a $adventureGoalNPC.raceNote who was caught in a natural disaster.">>
+        <<set $adventure.goal to "rescue $adventureGoalNPC.profile, <<print setup.articles.output(adventureGoalNPC.descriptor)>> who was caught in a natural disaster.">>
 <</switch>>
 
 <<set $adventure.villain to either(["beast or monstrosity with no particular agenda", "terrible aberration bent on corruption or domination", "fiend bent on corruption or destruction", "dragon bent on domination and plunder", "giant bent on plunder", "horrible undead with any agenda", "fey with a mysterious goal", "humanoid cultist", "humanoid conqueror", "humanoid seeking revenge", "humanoid schemer seeking to rule", "humanoid criminal mastermind", "humanoid raider or ravager", "humanoid under a curse", "misguided humanoid zealot"])>>

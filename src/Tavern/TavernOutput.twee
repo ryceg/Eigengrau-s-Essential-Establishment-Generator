@@ -1,6 +1,6 @@
 :: TavernOutput [tavern]
 <<set $tavern to ($town.buildings.tavern[$selected.key] || $town.buildings.tavern[$currentPassage.key])>><<set $bartender to $npcs[$tavern.bartender.key]>><h1>$tavern.name</h1>
-<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to a $tavern.wordNoun, which is called <strong>$tavern.name</strong>, a $tavern.size $tavern.structure.tavernDescriptor that the locals know best for its $tavern.draw.
+<span class="firstcharacter">Y</span>ou make your way through the $town.type of $town.name until you come to <<print setup.articles.output($tavern.wordNoun)>>, which is called <strong>$tavern.name</strong>, <<print setup.articles.output($tavern.size)>> $tavern.structure.tavernDescriptor that the locals know best for its $tavern.draw.
 <h3>The Tavern</h3>
 <<print setup.closestMatch(setup.tavern.get.description($tavern), 'note', 'size', 'wealth', $tavern.roll.size, $tavern.roll.wealth)>> $tavern.feature
 <<print setup.closestMatch(setup.tavern.get.lookAround($tavern), 'note', 'population', 'roughness', $tavern.roll.population, $tavern.roll.roughness)>>
@@ -9,7 +9,7 @@
 <<include "TavernPatrons">>
 </div>
 <<include "RandomNPC">>
-<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, a $bartender.descriptor who is currently <<print $bartender.idle.seededrandom()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<print setup.profile($bartender)>>, the $bartender.owner of $tavern.name.
+<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, <<print setup.articles.output($bartender.descriptor)>> who is currently <<print $bartender.idle.seededrandom()>>. You walk up to the bar, and strike up conversation with the $bartender.manwoman, who introduces $bartender.himherself as <<print setup.profile($bartender)>>, the $bartender.owner of $tavern.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">>

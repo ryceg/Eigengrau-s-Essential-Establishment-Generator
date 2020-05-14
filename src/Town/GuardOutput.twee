@@ -9,7 +9,7 @@
   <<elseif $town.guard.population <= 10>>
     <<set $town.guard.size to "militia">>
 <</if>><</nobr>>
-$town.guard.name is led by <<profile $npcs[$town.guard.captain.key]>>, a $town.guard.captain.descriptor. $town.guard.name is a $town.guard.size of $town.guard.population. One can recognise a member of $town.guard.name by the $town.guard.livery.
+$town.guard.name is led by <<profile $npcs[$town.guard.captain.key]>>, <<print setup.articles.output($town.guard.captain.descriptor)>>. $town.guard.name is <<print setup.articles.output($town.guard.size)>> of $town.guard.population. One can recognise a member of $town.guard.name by the $town.guard.livery.
 
 $town.guard.funding
 

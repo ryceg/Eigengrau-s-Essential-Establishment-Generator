@@ -6,7 +6,7 @@ setup.checkRaces = function (town, npcs) {
     const race = setup.fetchRace(town, npc)
     console.log(npc.race, race)
     if (npc.race !== race) {
-      console.log(`${npc.name}'s race now does not match! Changing ${npc.pronouns.himher} from a ${npc.race} to a ${race}...`)
+      console.log(`${npc.name}'s race now does not match! Changing ${npc.pronouns.himher} from ${setup.articles.output(npc.race)} to ${setup.articles.output(race)}...`)
       npcs[npcKey] = setup.createNPC(town, {
         race,
         keyIsAlreadyDefined: true,

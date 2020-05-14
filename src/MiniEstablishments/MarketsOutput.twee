@@ -9,10 +9,10 @@
 <</for>>
 <<link "<h4>Who else is there?</h4>">>
 <<set $market.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $market.moreSeller.merchant to {}>><<set $market.moreSeller.merchant.selling to setup.market.vendors.selling.seededrandom()>><<set $market.moreSeller.merchant.tent to setup.market.vendors.tent.seededrandom()>>
-<<replace "#moreSellers">>There's a <<profile $market.moreSeller $market.moreSeller.descriptor>> selling $market.moreSeller.merchant.selling from a $market.moreSeller.merchant.tent.<</replace>>
-<</link>><<if ndef $market.moreSeller>><span id="moreSellers"></span><<else>>There's a <<profile $market.moreSeller $market.moreSeller.descriptor>> selling $market.moreSeller.merchant.selling from a $market.moreSeller.merchant.tent.<</if>>
+<<replace "#moreSellers">>There's <<profile $market.moreSeller $market.moreSeller.descriptor true>> selling $market.moreSeller.merchant.selling from <<print setup.articles.output($market.moreSeller.merchant.tent)>>.<</replace>>
+<</link>><<if ndef $market.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $market.moreSeller $market.moreSeller.descriptor true>> selling $market.moreSeller.merchant.selling from <<print setup.articles.output($market.moreSeller.merchant.tent)>>.<</if>>
 
-A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets from a  <<print either(_marketData.vendors.tent)>>. Or, at least, they're supposedly magical items.
+A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets from a <<print either(_marketData.vendors.tent)>>. Or, at least, they're supposedly magical items.
 <<listbox "$marketMagicSelection">>
 <<option "Ring" "ring">><<option "Weapon" "weapon">><<option "Armour" "armour">><<option "Trinket" "trinket">>
 <</listbox>> -- <<button "Create a magic item!">>
@@ -22,12 +22,12 @@ A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets f
       <<set $marketMagic to setup.createRing()>>
       <<replace "#magic">>The $magicSeller.manwoman beckons you over to $magicSeller.hisher stall, and introduces $magicSeller.himherself as <<profile $magicSeller>>, a purveyor of fine goods. The $magicSeller.raceNote asks you for your ring size, and then $magicSeller.heshe reaches below $magicSeller.hisher table, and procures a ring...
             <div class="descriptive">
-              <h3>A $marketMagic.material ring</h3>
+              <h3><<print setup.articles.output($marketMagic.material).toUpperFirst()>> ring</h3>
               $marketMagic.firstOutputs</div>
       <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketMagic to setup.createRing()>>
           <<replace "#magic">>
                 <div class="descriptive">
-                  <h3>A $marketMagic.material ring</h3>
+                  <h3><<print setup.articles.output($marketMagic.material).toUpperFirst()>> ring</h3>
                   $marketMagic.secondOutputs</div><</replace>><</link>><<run console.log($marketMagic)>><</nobr>>
     <<default>>
       <<set $marketMagic to setup.createMagic($marketMagicType)>><<run console.log($marketMagic)>>

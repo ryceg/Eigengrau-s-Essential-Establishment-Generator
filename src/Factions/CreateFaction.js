@@ -47,7 +47,7 @@ setup.createFaction = function (town, opts) {
   console.log('other cool bits...')
   setup.createMisc(faction)
 
-  faction.tippyDescription = 'A ' + faction.size + ' ' + faction.type + ' ' + faction.wordNoun + ' called ' + faction.name
+  faction.tippyDescription = setup.articles.output(faction.size).toUpperFirst() + ' ' + faction.type + ' ' + faction.wordNoun + ' called ' + faction.name
 
   // if (faction.isThrowaway === undefined) {
   //   console.log('and finally assigning to the faction roster.')

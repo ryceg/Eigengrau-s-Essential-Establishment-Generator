@@ -804,6 +804,7 @@ setup.npcData = {
         'a distant shrine'
       ],
       journey: [
+        // TODO indefinite articles
         'The <<print either("journey", "pilgrimage", "travel", "trek", "trip")>> was <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>>',
         'It was a <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>> <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
         'I was not prepared enough for the <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',

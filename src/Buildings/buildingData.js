@@ -60,8 +60,8 @@ setup.structure = {
     setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
     // console.log(`Finished getters.`)
     building.structure.descriptors = [
-      `${building.structure.material.indefiniteArticle} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with a ${building.structure.roof.wealth} ${building.structure.roof.verb} roof`,
-      `a ${building.structure.material.wealth} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with a ${building.structure.roof.verb} roof`
+      `${building.structure.material.indefiniteArticle} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
+      `${setup.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
     ]
 
     if (building.size) {

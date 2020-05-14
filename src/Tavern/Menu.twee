@@ -9,10 +9,10 @@
 <<set $tavern.specialBrew to setup.tavern.specialBrew.seededrandom()>>
 	<div class='descriptive'>
 	<h3>$tavern.specialBrew.name</h3>
-	The special brew of the week is a $tavern.specialBrew.type called $tavern.specialBrew.name, selling for <<money $tavern.specialBrew.cost>>. $tavern.specialBrew.description
+	The special brew of the week is <<print setup.articles.output($tavern.specialBrew.type)>> called $tavern.specialBrew.name, selling for <<money $tavern.specialBrew.cost>>. $tavern.specialBrew.description
 	</div>
 <</if>>
 
-The <<set _cheese to setup.misc.cheese.create()>><<link "house cheese ">><<set _cheese to setup.misc.cheese.create()>><<replace #cheese>> is <<money _cheese.cost>>, and is a  _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.<</replace>><</link>><span id="cheese">is <<money _cheese.cost>> and is a _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.</span>
+The <<set _cheese to setup.misc.cheese.create()>><<link "house cheese ">><<set _cheese to setup.misc.cheese.create()>><<replace #cheese>> is <<money _cheese.cost>>, and is <<print setup.articles.output(_cheese.colour)>> cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.<</replace>><</link>><span id="cheese">is <<money _cheese.cost>> and is a _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.</span>
  <</linkreplace>>
 <</nobr>>

@@ -92,7 +92,7 @@
         _readout = $args[1] || _char.name,
         _id = "tip-" + Util.slugify((_char.name || "profile")) + "-" + Math.floor(randomFloat(1).toString(16))>>
     \<<capture _char, _readout, _id>>
-        \<span @id="_id" class="tip"><<link _readout>>
+        \<span @id="_id" class="tip"><<if $args[2] is true>><<print setup.articles.find(_readout)>><</if>> <<link _readout>>
 				<<set $selected to _char>>
 				/* <<set $currentNPCKey to _char.key>> */
 				<<goto _char.passageName>>

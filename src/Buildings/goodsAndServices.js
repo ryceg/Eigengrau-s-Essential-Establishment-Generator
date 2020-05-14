@@ -231,7 +231,7 @@ setup.goodsAndServices = {
           'measuring out flour',
           'buttering a pan',
           'slicing up a loaf of bread',
-          'slicing up a $building.fruit',
+          'slicing up <<print setup.articles.output($building.fruit)>>',
           'forming some dough into a loaf pan',
           'whisking together a bowl of batter',
           'blending together a bowl of ingredients',

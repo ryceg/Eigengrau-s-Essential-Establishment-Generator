@@ -13,7 +13,7 @@
 {{{>|}}}10 (+0)|10 (+0)|10 (+0)|10 (+0)|10 (+0)|10 (+0)|
 {{{>___}}}
 {{{> ### Description/Background}}}
-{{{> ***Appearance*** : }}}A $currentNPC.height $currentNPC.weight $currentNPC.race, with $currentNPC.eyes eyes, $currentNPC.skinColour skin, and $currentNPC.hair<<if $currentNPC.physicalTrait !== $currentNPC.hair>>. $currentNPC.firstName also has $currentNPC.physicalTrait<</if>><<if def $currentNPC.vocalPattern>>. <<print $currentNPC.hisher.toUpperFirst()>> speech is $currentNPC.vocalPattern<</if>>.
+{{{> ***Appearance*** : }}}<<print setup.articles.output($currentNPC.height).toUpperFirst()>> $currentNPC.weight $currentNPC.race, with $currentNPC.eyes eyes, $currentNPC.skinColour skin, and $currentNPC.hair<<if $currentNPC.physicalTrait !== $currentNPC.hair>>. $currentNPC.firstName also has $currentNPC.physicalTrait<</if>><<if def $currentNPC.vocalPattern>>. <<print $currentNPC.hisher.toUpperFirst()>> speech is $currentNPC.vocalPattern<</if>>.
 {{{>}}}
 {{{> ***Personality*** :}}} When $currentNPC.firstName is calm, $currentNPC.heshe is $currentNPC.calmTrait. When stressed, $currentNPC.firstName becomes $currentNPC.stressTrait.
 \/* {{{>}}} */
@@ -32,6 +32,6 @@
 {{{>}}}_count. _trinket<</for>><</if>>
 {{{>___}}}
 {{{> ### History}}}
-{{{> }}} {{{<div class='descriptive'>}}}I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had a $currentNPC.familyLifestyle upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories. $currentNPC.backgroundOrigin $currentNPC.dndClassOrigin That's how I became a $currentNPC.dndClass.{{{</div>}}}
+{{{> }}} {{{<div class='descriptive'>}}}I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had <<print setup.articles.output($currentNPC.familyLifestyle)>> upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories. $currentNPC.backgroundOrigin $currentNPC.dndClassOrigin That's how I became <<print setup.articles.output($currentNPC.dndClass)>>.{{{</div>}}}
 
 [[Return|previous()]]

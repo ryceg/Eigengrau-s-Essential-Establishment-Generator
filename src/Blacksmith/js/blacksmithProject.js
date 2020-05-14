@@ -15,17 +15,17 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     market: {
       function (town) {
         const market = setup.objectArrayFetcher(town.buildings.market)
-        return `a ${weapon.seededrandom()} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].seededrandom()}.`
+        return `${setup.articles.output(weapon.seededrandom())} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].seededrandom()}.`
       }
     },
     whyNot: {
       function (town) {
-        return `a ${weapon.seededrandom()}. Dunno why, just thought that it'd be fun to try and make one.`
+        return `${setup.articles.output(weapon.seededrandom())}. Dunno why, just thought that it'd be fun to try and make one.`
       }
     },
     replace: {
       function (town) {
-        return `a ${weapon.seededrandom()} to replace the one I sold the other day.`
+        return `${setup.articles.output(weapon.seededrandom())} to replace the one I sold the other day.`
       }
     },
     boring: {
@@ -35,12 +35,12 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     moreBoring: {
       function (town) {
-        return `a ${weapon.seededrandom()} for one of my drinking buddies.`
+        return `${setup.articles.output(weapon.seededrandom())} for one of my drinking buddies.`
       }
     },
     weddingGift: {
       function (town) {
-        return `a ${weapon.seededrandom()} for a wedding gift.`
+        return `${setup.articles.output(weapon.seededrandom())} for a wedding gift.`
       }
     },
     mundaneMarkets: {
@@ -60,7 +60,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           background: 'noble'
         })
         setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
-        return `a ${weapon.seededrandom()} for some big hobnob noble called ${setup.profile(npc)}.`
+        return `${setup.articles.output(weapon.seededrandom())} for some big hobnob noble called ${setup.profile(npc)}.`
       }
     },
     guard: {
@@ -76,7 +76,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           hasClass: false
         })
         setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
-        return `a ${weapon.seededrandom()} for one of the ${setup.profile(npc, 'guards')}.`
+        return `${setup.articles.output(weapon.seededrandom())} for one of the ${setup.profile(npc, 'guards')}.`
       }
     },
     guardCaptain: {
@@ -88,7 +88,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       function (town, smithy) {
         const npc = town.guard.captain
         setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
-        return `a ${weapon.seededrandom()} for the ${setup.profile(npc, 'captain of the guard')}.`
+        return `${setup.articles.output(weapon.seededrandom())} for the ${setup.profile(npc, 'captain of the guard')}.`
       }
     },
     guardRefresh: {
