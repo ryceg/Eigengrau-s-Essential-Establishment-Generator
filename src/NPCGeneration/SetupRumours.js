@@ -283,8 +283,8 @@ setup.createRumour = function (town) {
     return ['a powerful enemy is coming for you',
       'an enemy is plotting against you',
       'the government is investigating you',
-      'a ' + ['friend', 'lover', 'ally', 'friend'].seededrandom() + ' is lying to you',
-      'a ' + ['friend', 'co-worker', 'ally', 'friend'].seededrandom() + ' is stealing from you',
+      setup.articles.output(['friend', 'lover', 'ally', 'friend'].seededrandom()) + ' is lying to you',
+      setup.articles.output(['friend', 'co-worker', 'ally', 'friend'].seededrandom()) + ' is stealing from you',
       'a rival is spreading terrible lies and rumors',
       'an avatar is coming'].seededrandom()
   }

@@ -18,10 +18,10 @@ setup.thievesMission = function (town, mission) {
       "There's something I need you to do."
     ].seededrandom() + ' ' + mission.difficultyText + ' ' + ["This one's a ", "It's a ", 'This is a '].seededrandom() + mission.type + ' job.',
     [
-      "I've got a " + mission.type + ' job for you.',
-      'Got a ' + mission.type + ' job for you to do.',
-      "There's a " + mission.type + ' job I need you to do.',
-      "There's a " + mission.type + ' job I need you to do.'
+      "I've got " + setup.articles.output(mission.type) + ' job for you.',
+      'Got ' + setup.articles.output(mission.type) + ' job for you to do.',
+      "There's " + setup.articles.output(mission.type) + ' job I need you to do.',
+      "There's " + setup.articles.output(mission.type) + ' job I need you to do.'
     ].seededrandom() + ' ' + mission.difficultyText
   ].seededrandom()
 
