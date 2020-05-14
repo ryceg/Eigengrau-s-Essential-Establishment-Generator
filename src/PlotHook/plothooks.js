@@ -207,7 +207,7 @@ setup.plothooks = {
         background: 'noble',
         gender: 'man'
       })
-      return 'Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ' + setup.profile(npc, 'man') + ' and ' + setup.profile(secondNpc, 'man') + ' from the other coach.'
+      return 'Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ' + setup.profile(npc, 'man') + ' and ' + setup.profile(secondNpc, 'another man') + ' from the other coach.'
     }
   },
   'The One True God': {
@@ -403,7 +403,7 @@ setup.plothooks = {
         dndClass: 'sorcerer'
       })
       const cabin = setup.misc.cabin.create()
-      return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
+      return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in ' + setup.articles.output(cabin.tippyWord) + ' in old haunted forest; all the chickens have been enlarged.)'
     }
   },
   'Guard The Garlic': {

@@ -93,7 +93,7 @@ setup.createTavern = function (town, opts) {
   }
   // Sets up building structure and creates building description
   setup.structure.create(town, tavern)
-  tavern.structure.tavernDescriptor = tavern.structure.material.wealth + ' ' + tavern.structure.material.noun + ' ' + tavern.wordNoun + ' with a ' + tavern.structure.roof.verb + ' roof'
+  tavern.structure.tavernDescriptor = tavern.structure.material.wealth + ' ' + tavern.structure.material.noun + ' ' + tavern.wordNoun + ' with ' + setup.articles.output(tavern.structure.roof.verb) + ' roof'
   const rollData = setup.tavern.rollData
 
   Object.defineProperty(tavern, 'lodging', {

@@ -319,7 +319,7 @@ setup.generalStore = {
         'the shop counter is embedded with coins from all different regions',
         "there's a row of leatherbound books about " + ['monsters', 'beasts', 'jewels', 'gems', 'art', 'painting', 'hunting', 'tracking', 'dungeoneering', 'arcane arts', 'blacksmithing', 'poisons', 'plants', 'farming', 'martial arts', 'ancient swords', 'ancient relics', 'magical items', 'cartography', 'sailing', 'insects', 'birds', 'religions', 'regional history', 'poetry'].seededrandom() + 'filling a nearby shelf',
         'a taxidermied ' + ['lion', 'rhino', 'eagle', 'ostritch', 'gopher', 'boar', 'cougar', 'bear', 'vulture', 'python', 'beaver', 'moose', 'deer', 'swordfish', 'elk', 'owl', 'troll', 'goblin', 'wolf', 'coyote', 'camel', 'cat', 'dog', 'duck', 'pig'].seededrandom() + ' is standing in one corner of the shop',
-        'all of the walls are painted a ' + colour1 + ' colour' + ['', '', '', ' with ' + colour2 + ' coloured accents', ', and the ceiling is ' + colour2 + ' coloured', ', and the floors have been painted a ' + colour2 + ' color'].seededrandom(),
+        'all of the walls are painted ' + setup.articles.output(colour1) + ' colour' + ['', '', '', ' with ' + colour2 + ' coloured accents', ', and the ceiling is ' + colour2 + ' coloured', ', and the floors have been painted a ' + colour2 + ' color'].seededrandom(),
         'the shop counter is painted a nice ' + colour1 + ' colour',
         'a small silver bell sits on the shop counter in case the shop keeper is not around',
         'the shop is lit from above by a large glowing orb emitting a ' + ['dim', 'strong', 'low', 'pulsing', 'flickering'].seededrandom() + ' ' + colour1 + ' coloured light'

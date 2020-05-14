@@ -6,7 +6,7 @@ setup.goodsAndServices = {
       // this is the template for the creation of generic buildings; i.e. those that are present in this list.
       // It is *not* for taverns, town squares, castles, or anything large scale.
       // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
-      console.groupCollapsed('setup.goodsAndServices.default.create()ing a ' + type)
+      console.groupCollapsed('setup.goodsAndServices.default.create()ing ' + setup.articles.output(type))
       opts = opts || {}
       let building = {
         type,
@@ -47,7 +47,7 @@ setup.goodsAndServices = {
       building.fruit = setup.flora.fruit.fruitS.seededrandom()
       building.fruits = setup.flora.fruit.fruitP.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
@@ -434,7 +434,7 @@ setup.goodsAndServices = {
       building.flower2 = setup.flora.flower.stemP.seededrandom()
       building.flower = setup.flora.flower.stemS.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
@@ -714,7 +714,7 @@ setup.goodsAndServices = {
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
@@ -928,7 +928,7 @@ setup.goodsAndServices = {
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
@@ -1160,7 +1160,7 @@ setup.goodsAndServices = {
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
@@ -1412,7 +1412,7 @@ setup.goodsAndServices = {
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
       return building
     },
     name: {
