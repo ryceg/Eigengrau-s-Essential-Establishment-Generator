@@ -53,17 +53,17 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
-          'The ' + name.foodAdjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + name.beast.seededrandom().toUpperFirst() + "'s " + name.noun.seededrandom().toUpperFirst(),
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${[name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom()}`,
+          `The ${name.foodAdjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.beast.seededrandom().toUpperFirst()}'s ${name.noun.seededrandom().toUpperFirst()}`,
           name.adjective.seededrandom().toUpperFirst() + ' ' + [building.owner.firstName + "'s ", name.beast.seededrandom().toUpperFirst()].seededrandom() + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.fruit.fruitS.seededrandom().toUpperFirst() + ' ' + name.nounBakedGood.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.fruit.tree.seededrandom().toUpperFirst() + ' Tree ' + name.wordNoun.seededrandom().toUpperFirst(),
+          `The ${setup.flora.fruit.fruitS.seededrandom().toUpperFirst()} ${name.nounBakedGood.seededrandom().toUpperFirst()}`,
+          `The ${setup.flora.fruit.tree.seededrandom().toUpperFirst()} Tree ${name.wordNoun.seededrandom().toUpperFirst()}`,
           unique
         ].seededrandom()
       },
@@ -443,14 +443,14 @@ setup.goodsAndServices = {
         const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
         return [
           'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + setup.flora.flower.stemS.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.flower.stemS.seededrandom().toUpperFirst() + [' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom(),
-          setup.flora.flower.stemS.seededrandom().toUpperFirst() + ' Petals ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + setup.flora.flower.bush.seededrandom().toUpperFirst() + ' Bush ' + name.wordNoun.seededrandom().toUpperFirst(),
-          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${setup.flora.flower.stemS.seededrandom().toUpperFirst()}`,
+          `The ${setup.flora.flower.stemS.seededrandom().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom()}`,
+          `${setup.flora.flower.stemS.seededrandom().toUpperFirst()} Petals ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${setup.flora.flower.bush.seededrandom().toUpperFirst()} Bush ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
           unique
         ].seededrandom()
       },
@@ -720,13 +720,13 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${[name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom()}`,
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
           unique
         ].seededrandom()
       },
@@ -1168,12 +1168,12 @@ setup.goodsAndServices = {
         const name = setup.goodsAndServices[building.type].name
         const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.lastName + "'s Shoe Repair",
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.lastName}'s Shoe Repair`,
           unique
         ].seededrandom()
       },
@@ -1418,14 +1418,14 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.lastName + "'s " + name.noun.seededrandom().toUpperFirst(),
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.lastName}'s ${name.noun.seededrandom().toUpperFirst()}`,
           unique
         ].seededrandom()
       },

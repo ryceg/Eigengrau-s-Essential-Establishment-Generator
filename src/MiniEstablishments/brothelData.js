@@ -182,7 +182,7 @@ setup.brothel = {
     'the scent of lilac perfume in the air',
     'the scent of ginger and cinnamon hanging in the air',
     'the scent of roses in the air',
-    'scented candles burning cheerily on a counter. The smell of ' + '<<print setup.brothel.brothelScents.random()>>' + ' wafts from where the candles burn',
+    `scented candles burning cheerily on a counter. The smell of <<print setup.brothel.brothelScents.random()>> wafts from where the candles burn`,
 
     'the soft ' + ['red', 'orange', 'golden', 'dark blue', 'blue', 'indigo', 'violet', 'jade', 'green', 'purple', 'maroon', 'pink'].random() + ' glow from a shaded lamp in the room',
 

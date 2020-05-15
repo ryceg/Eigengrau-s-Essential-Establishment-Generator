@@ -67,7 +67,7 @@ setup.leaderFaction = function (town, faction) {
   } else if (faction.roll.stability >= 70 && faction.leadershipType === 'individual') {
     faction.stabilityCause = ['the lack of infighting for the leadership role'].seededrandom()
   } else if (faction.roll.stability >= 70 && faction.leadershipType === 'group') {
-    faction.stabilityCause = ['their much-loved ' + faction.leaderGroupTitle, 'the lack of infighting for the leadership roles'].seededrandom()
+    faction.stabilityCause = [`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'].seededrandom()
   }
 
   return faction

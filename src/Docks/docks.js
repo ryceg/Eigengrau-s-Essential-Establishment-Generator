@@ -135,7 +135,7 @@ setup.docks = {
         const crew = setup.createNPC(town, crewTraits)
         const heShe = crew.heshe
         const hisHer = crew.hisher
-        return 'Out of the crew steps ' + crewType + ' named ' + setup.profile(crew) + '. ' + heShe.toUpperFirst() + ' ' + readout.bodyFeature + ' and ' + readout.itemFeature + '. When asked about why ' + heShe + ' took to the sea, ' + hisHer + ' reason is "' + readout.sailReason + '".'
+        return `Out of the crew steps ${crewType} named ${setup.profile(crew)}. ${heShe.toUpperFirst()} ${readout.bodyFeature} and ${readout.itemFeature}. When asked about why ${heShe} took to the sea, ${hisHer} reason is "${readout.sailReason}".`
       },
       type: {
         'a veteran of the sea who may have been beautiful at one point': {

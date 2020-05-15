@@ -22,7 +22,7 @@ setup.createGeneralStore = function (town, opts) {
     buildingType: 'generalStore'
   })
   setup.structure.create(town, generalStore)
-  generalStore.structure.generalStoreDescriptor = 'a ' + generalStore.structure.material.wealth + ' ' + generalStore.structure.material.noun + ' ' + generalStore.wordNoun + ' with a ' + generalStore.structure.roof.verb + ' roof'
+  generalStore.structure.generalStoreDescriptor = `a ${generalStore.structure.material.wealth} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with a ${generalStore.structure.roof.verb} roof`
   setup.createGeneralStoreName(town, generalStore)
   generalStore.wealth = ''
   generalStore.size = ''
@@ -36,7 +36,11 @@ setup.createGeneralStore = function (town, opts) {
     setup.defineRollDataGetter(generalStore, setup.generalStore.rollData, propName)
   }
   if (generalStore.roll.cleanliness <= 40) {
-    generalStore.clutter = ['The store has a lot of ' + generalStore.crud + ' laying about.', 'The front counter is cluttered with ' + generalStore.crud + '.', 'In one corner of the store there is a large pile of ' + generalStore.crud + '.', 'Several bins seemed to be cluttered with ' + generalStore.crud + '.'].seededrandom()
+    generalStore.clutter = [
+      `The store has a lot of ${generalStore.crud} laying about.`,
+      `The front counter is cluttered with ${generalStore.crud}.`,
+      `In one corner of the store there is a large pile of ${generalStore.crud}.`,
+      `Several bins seemed to be cluttered with ${generalStore.crud}.`].seededrandom()
   }
   // setup.generalStoreRenders(generalStore)
   console.log(generalStore)

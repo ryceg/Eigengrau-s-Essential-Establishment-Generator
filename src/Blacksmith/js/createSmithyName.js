@@ -104,7 +104,7 @@ setup.createSmithyName = function (town, smithy) {
 
   switch (smithyNameRoll) {
     case 1:
-      smithy.name = 'The ' + adjective + ' ' + noun
+      smithy.name = `The ${adjective} ${noun}`
       break
     case 2:
       smithy.name = smithy.blacksmith.firstName + ' and ' + family.toUpperFirst()
@@ -112,18 +112,18 @@ setup.createSmithyName = function (town, smithy) {
       setup.createRelationship(town, smithy.blacksmith, smithy.assistant, family, smithy.assistant.relationships[smithy.blacksmith.key])
       break
     case 3:
-      smithy.name = 'The ' + noun + ' and ' + family.toUpperFirst()
+      smithy.name = `The ${noun} and ${family.toUpperFirst()}`
       smithy.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, smithy.blacksmith, smithy.assistant, family, smithy.assistant.relationships[smithy.blacksmith.key])
       break
     case 4:
-      smithy.name = 'The ' + adjective + ' ' + rider
+      smithy.name = `The ${adjective} ${rider}`
       break
     case 5:
       smithy.name = adjective + ' ' + noun
       break
     default:
-      smithy.name = 'The ' + adjective + ' Smithy'
+      smithy.name = `The ${adjective} Smithy`
   }
   return smithy
 }

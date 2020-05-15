@@ -7,23 +7,23 @@ setup.createAlchemistName = function (chemistFirstName) {
   const rider = ['Chemist', 'Alchemist', 'Potion Shop', 'Potionery', 'Ointmentary', 'Juice Bar', 'Lab', 'Laboratory', 'Secret Lair'].seededrandom()
   switch (alchemistNameRoll) {
     case 1:
-      name = 'The ' + adjective + ' ' + noun
+      name = `The ${adjective} ${noun}`
       break
     case 2:
-      name = chemistFirstName + ' and ' + adjective2
-      // name = 'The ' + adjective + ' ' + noun
+      name = `${chemistFirstName} and ${adjective2}`
+      // name = `The ${adjective} ${noun}`
       break
     case 3:
-      name = 'The ' + noun + ' and ' + adjective2
+      name = `The ${noun} and ${adjective2}`
       break
     case 4:
-      name = 'The ' + adjective + ' ' + rider
+      name = `The ${adjective} ${rider}`
       break
     case 5:
-      name = adjective + ' ' + noun
+      name = `${adjective} ${noun}`
       break
     default:
-      name = 'The ' + adjective + ' Alchemist'
+      name = `The ${adjective} Alchemist`
   }
   return name
 }

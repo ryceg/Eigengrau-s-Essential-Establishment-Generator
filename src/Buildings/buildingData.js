@@ -1,7 +1,7 @@
 
 setup.structure = {
   create (town, building, opts) {
-    console.groupCollapsed('Creating the structure for ' + setup.articles.output(building.wordNoun || 'building'))
+    console.groupCollapsed(`Creating the structure for ${setup.articles.output(building.wordNoun || 'building')}`)
     if (!building) {
       building = {}
     }
@@ -21,7 +21,7 @@ setup.structure = {
               this.descriptors.push(description)
             }
           } else {
-            console.log('Expected a string operand and received ' + description)
+            console.log(`Expected a string operand and received ${description}`)
           }
         },
         material: {},
@@ -65,7 +65,9 @@ setup.structure = {
     ]
 
     if (building.size) {
-      building.structure.descriptorsAdd(setup.articles.output(building.size) + ' and ' + building.structure.material.wealth + ' ' + building.structure.material.noun + ' ' + building.wordNoun + ' with ' + setup.articles.output(building.structure.roof.verb) + ' roof')
+      building.structure.descriptorsAdd(
+        `${setup.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${setup.articles.output(building.structure.roof.verb)} roof`
+      )
     }
     console.log(building.structure)
     console.groupEnd()

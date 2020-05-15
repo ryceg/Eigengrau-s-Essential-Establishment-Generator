@@ -211,19 +211,19 @@ setup.generalStore = {
         'oil bottle'
       ].seededrandom()
       const shopkeepSays = [
-        'asks what $shopkeep.heshe can do for you',
+        `asks what ${generalStore.shopkeep.heshe} can do for you`,
         'tells you everything you see just came in on a fresh shipment',
-        'lets you know that all ' + goods + 's are 20% off',
-        'warns you that $shopkeep.heshe is down to $shopkeep.hisher last ' + goods,
+        `lets you know that all ${goods}s are 20% off`,
+        `warns you that ${generalStore.shopkeep.heshe} is down to ${generalStore.shopkeep.hisher} last ${goods}`,
         'says the whole store is currently 10% off',
-        'tells you the store is closing soon because $shopkeep.heshe ' + ['wants to go home', 'has to start on a long journey', 'has to meet someone for a new shipment of goods', 'has to go to take care of $shopkeep.hisher family', 'is tired and bored for the day'].seededrandom(),
+        `tells you the store is closing soon because ${generalStore.shopkeep.heshe} ${['wants to go home', 'has to start on a long journey', 'has to meet someone for a new shipment of goods', `has to go to take care of ${generalStore.shopkeep.hisher} family`, 'is tired and bored for the day'].seededrandom()}`,
         'asks what it is you need today',
-        'apologizes for being totally out of ' + goods + 's today',
-        'says a fresh shipment of ' + goods + 's are coming in tomorrow morning',
-        'warns you that you may want to buy a medical kit as there has been a recent outbreak of flu in town according to $shopkeep.himher',
+        `apologizes for being totally out of ${goods}s today`,
+        `says a fresh shipment of ${goods}s are coming in tomorrow morning`,
+        `warns you that you may want to buy a medical kit as there has been a recent outbreak of flu in town according to ${generalStore.shopkeep.himher}`,
         "apologizes for currently being low on all of the shop's stock",
-        'says you look like you could really use a nice ' + goods,
-        'lets you know that the store is currently having a ' + ['buy two get one free', 'buy one get one free', 'buy one get one 50% off', 'buy one get one 25% off', 'buy two pay for three', 'two for one', 'three for one'].seededrandom() + ' deal'
+        `says you look like you could really use a nice ${goods}`,
+        `lets you know that the store is currently having a ${['buy two get one free', 'buy one get one free', 'buy one get one 50% off', 'buy one get one 25% off', 'buy two pay for three', 'two for one', 'three for one'].seededrandom()} deal`
       ]
       return shopkeepSays.seededrandom()
     },
@@ -234,11 +234,11 @@ setup.generalStore = {
         'is unusually friendly, and never seems to stop smiling',
         'does not seem to want any business',
         'can tell a story behind everything ' + shopkeep.heshe + ' sells',
-        'seems a little bit shady in $shopkeep.hisher dealings',
+        `seems a little bit shady in ${generalStore.shopkeep.hisher} dealings`,
         'is a rather forceful salesman',
-        'has a pungent and offensive smell about $shopkeep.himher',
-        'insists ' + shopkeep.heshe + ' is from an ancient line of powerful merchants',
-        'dresses ' + ['much better than expected', 'like a filthy beggar', 'like $shopkeep.heshe is true royalty', 'in rather colorfgul garb'].seededrandom(),
+        `has a pungent and offensive smell about ${generalStore.shopkeep.himher}`,
+        `insists ${shopkeep.heshe} is from an ancient line of powerful merchants`,
+        'dresses ' + ['much better than expected', 'like a filthy beggar', `like ${generalStore.shopkeep.heshe} is true royalty`, 'in rather colorfgul garb'].seededrandom(),
         'looks like a beggar, but speaks like a noble',
         'is a very smooth salesperson and tries to talk you into several items',
         'is a sly and quite shrewd merchant who seems to know just what you want',
