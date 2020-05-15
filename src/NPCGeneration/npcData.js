@@ -115,7 +115,7 @@ setup.npcData = {
         'the love interest',
         'the comic relief',
         'the main villain',
-        'the grand vizer',
+        'the grand vizier',
         "the villain's sidekick",
         'the detective',
         'the hero',
@@ -271,7 +271,7 @@ setup.npcData = {
         'a white sand desert',
         'some truly mystical lands',
         'a magical forest',
-        'an empty field
+        'an empty field',
         'a beautiful, sunlit valley',
         'a deep, colorful canyon',
         'a clearing near a bright blue creek',
@@ -354,7 +354,7 @@ setup.npcData = {
         'wolf',
         'crocodile',
         'lynx',
-        'giant rat'
+        'giant rat',
         'wasp',
         'hornet',
         'cobra',
@@ -623,8 +623,8 @@ setup.npcData = {
         'being pulled by a single elephant',
         'ornately decorated with gold trim',
         'painted with bright yet regal colors',
-        'coloured orange and green with large wheels'
-        'pulled by gigantic mice'
+        'coloured orange and green with large wheels',
+        'pulled by gigantic mice',
         'a true sight to behold',
         'a clear waste of taxpayer money',
         'pulled by several thickly muscled slaves',
@@ -647,8 +647,8 @@ setup.npcData = {
         'rather pathetic',
         'pretty weak',
         'strong and commanding',
-        'strangely hot'
-        'ice cold'
+        'strangely hot',
+        'ice cold',
         'stiff and firm'
       ]
     },
@@ -828,7 +828,7 @@ setup.npcData = {
         'a gentle barbarian',
         'a grinning warlock',
         'a sad cleric',
-        'a kind rouge'
+        'a kind rogue',
         'a traveling ranger',
         'a haggard monk',
         'a pack of wolves',
