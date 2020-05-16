@@ -1,14 +1,14 @@
 setup.findProfession = function (town, npc, profession) {
   profession = profession || npc.dndClass || npc.profession
   if (!profession && npc.socialClass) { profession = setup.fetchProfessionChance(town, npc) }
-  console.groupCollapsed('running setup.findProfession for ' + npc.name + '; looking for ' + setup.articles.output(profession))
+  console.groupCollapsed(`running setup.findProfession for ${npc.name}; looking for ${setup.articles.output(profession)}`)
   console.log({
     town,
     npc,
     profession
   })
   if (Object.keys(setup.townData.professions).includes(profession)) {
-    console.log(profession + ' is defined!')
+    console.log(`${profession} is defined!`)
     console.groupEnd()
     return setup.townData.professions[profession]
   } else {
@@ -20,7 +20,7 @@ setup.findProfession = function (town, npc, profession) {
       console.groupEnd()
       return find
     } else {
-      console.error(profession + ' not found!')
+      console.error(`${profession} not found!`)
       console.groupEnd()
       return setup.townData.professions['peasant']
     }
