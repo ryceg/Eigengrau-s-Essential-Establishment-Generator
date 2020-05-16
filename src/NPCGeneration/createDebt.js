@@ -26,14 +26,14 @@ setup.createDebt = function (town, npc) {
 
   if (profit < -40) {
     const debtor = setup.findExistingNpc(town, State.variables.npcs, npc, debtorParameters, { profession: 'moneylender', isShallow: true })
-    setup.createRelationship(town, npc, debtor, 'creditor', 'debtor')
+    setup.createRelationship(town, npc, debtor, 'debtor', 'creditor')
     npc.finances.creditors[debtor.key] = Math.round(cashLiquidity * grossIncome)
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
   if (profit < -300 || setup.socialClass[npc.socialClass].key <= 3) {
     const predatoryDebtor = setup.findExistingNpc(town, State.variables.npcs, npc, sharkParameters, { profession: 'loan shark', isShallow: true })
-    setup.createRelationship(town, npc, predatoryDebtor, 'creditor', 'predatory debtor')
+    setup.createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
   }
