@@ -16,8 +16,8 @@ $currentNPC.professionSuccess, with a background of being <<print setup.articles
   \<</if>>
 
 <<if def $currentNPC.note >>$currentNPC.note<</if>><<nobr>>
-
-<<set _finances to {}>><<for _key, _value range $currentNPC.finances>><<set _finances[_key] to _value($town, $currentNPC)>>
+/* TODO $currentNPC.finances is polluted with a non-function at the moment (creditors). Fix it */
+<<set _finances to {}>><<for _key, _value range $currentNPC.finances>><<if _key === "creditors">><<continue>><</if>><<set _finances[_key] to _value($town, $currentNPC)>>
 <</for>><<set _finances.tax to _finances.grossIncome - _finances.netIncome,
 _finances.totalLifestyleExpenses to _finances.lifestyleStandard[0] + _finances.lifestyleExpenses>>
 
@@ -33,6 +33,11 @@ $currentNPC.firstName currently earns <<money _finances.netIncome>> per day.
     <tr><td>Net Income</td><td><<money _finances.netIncome>></td></tr>
     <tr><td>Total Lifestyle Expenses (_finances.lifestyleStandard[1])</td><td><<money _finances.totalLifestyleExpenses>></td></tr>
     <tr><td>Profit</td><td><<money _finances.profit>></td></tr>
+    /*<<if Object.keys($currentNPC.finances.creditors).length !== 0>>*/
+    <<for _creditorKey, _debtOwed range $currentNPC.finances.creditors>>
+    <tr><td>Money owed to <<profile $npcs[_creditorKey]>></td><td><<money _debtOwed>></td></tr>
+    <</for>>
+    /*<</if>>*/
 </table><</nobr>>
 
 <<linkreplace "Early Life">><div class='npcReplace'>Early Life</div><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had <<print setup.articles.output($currentNPC.familyLifestyle)>> upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>

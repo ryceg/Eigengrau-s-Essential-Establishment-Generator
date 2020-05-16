@@ -79,6 +79,9 @@ setup.createNPC = function (town, base) {
       }
     },
     finances: {
+      creditors: {
+
+      },
       grossIncome (town, npc) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
@@ -274,6 +277,9 @@ setup.createNPC = function (town, base) {
   setup.createSocialClass(town, npc)
   setup.createLifestyleStandards(town, npc)
 
+  if (npc.finances.profit(town, npc) < 0 && npc.isShallow !== true) {
+    setup.createDebt(town, npc)
+  }
   if (npc.hasHistory !== false) setup.ExpandNPC(town, npc)
 
   /* if (npc.partnerID) {
