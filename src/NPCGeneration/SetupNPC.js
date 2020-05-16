@@ -34,7 +34,8 @@ setup.createNPC = function (town, base) {
   console.groupCollapsed(firstName + ' ' + lastName)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].seededrandom()
   // let dndClass
-  if (setup.townData.professions[profession].type === 'dndClass') {
+
+  if (setup.findProfession(town, base, profession).type === 'dndClass') {
     base.hasClass = true
     // eslint-disable-next-line no-unused-vars
     const dndClass = base.dndClass || profession
@@ -205,7 +206,7 @@ setup.createNPC = function (town, base) {
   //   npc.adventure = data.adventure.seededrandom() || 'looking for work'
   // }
   if (typeof npc.hasClass === 'undefined') {
-    if (setup.townData.professions[npc.profession].type !== 'dndClass') {
+    if (setup.findProfession(town, npc).type !== 'dndClass') {
       npc.hasClass = false
       // npc.dndClass = npc.profession
     } else {
