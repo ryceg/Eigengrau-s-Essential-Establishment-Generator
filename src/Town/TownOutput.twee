@@ -56,7 +56,7 @@ _listbox -- <<button "Create new faction">>
   <<for _i, _npc range $npcs>><<capture _i, _npc>><<if !_npc.isThrowaway>>
   <tr><td><<profile $npcs[_npc.key]>></td>
   <td>_npc.race</td>
-  <td><<tooltip _npc.dndClass setup.townData.professions[_npc.dndClass].description.toUpperFirst()>></td>
+  <td><<tooltip _npc.profession setup.townData.professions[_npc.profession].description.toUpperFirst()>></td>
   <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run delete $npcs[_npc.key]>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
   </tr>
   <</if>><</capture>><</for>>
@@ -87,7 +87,7 @@ _listbox -- <<button "Create new faction">>
     <<for _i, _npc range $npcs>><<capture _i, _npc>><<if _npc.isThrowaway>>
     <tr><td><<profile $npcs[_npc.key]>></td>
     <td>_npc.race</td>
-    <td>_npc.dndClass</td>
+    <td>_npc.profession</td>
     <td><<link "x">><<run delete $npcs[_npc.key]>><<goto "TownOutput">><</link>></td>
     </tr>
     <</if>>
