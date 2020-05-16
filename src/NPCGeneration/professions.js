@@ -20,7 +20,7 @@ setup.townData.professions = {
     socialClassRoll () { return 50 + dice(8, 6) }
   },
   'peasant': {
-    sv: 10000,
+    sv: 50,
     type: 'labourer',
     sector: 'agriculture',
     description: 'a peasant.',
