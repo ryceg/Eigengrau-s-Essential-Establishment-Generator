@@ -72,7 +72,13 @@ setup.createlifestyleStandards = function (town, npc) {
     'is currently having'
   ].seededrandom()
   const desc = setup.findProfession(town, npc)
-  const tippy = `<span id=` + JSON.stringify(npc.firstName) + ` class=tip title=` + JSON.stringify(desc.description.toUpperFirst()) + `><span class="dotted">` + npc.dndClass + `</span></span>`
+
+  // if (!desc.description) {
+  //   console.error(`Missing description for ${desc}`)
+  //   let tippy = npc.dndClass || npc.profession
+  // } else {
+  const tippy = `<span id=` + JSON.stringify(npc.firstName) + ` class=tip title=` + JSON.stringify(desc.description.toUpperFirst()) + `><span class="dotted">` + (npc.profession || npc.dndClass) + `</span></span>`
+  // }
 
   const wageVarianceNotes = [
     [-25, isCurrently + ' impossibly unsuccessful as'],
@@ -108,8 +114,8 @@ setup.createlifestyleStandards = function (town, npc) {
   ]
   const note = wageVarianceNotes.find(function (desc) {
     return desc[0] >= npc.roll.wageVariation(town)
-  }) + ' ' + setup.articles.output(tippy)
-  npc.professionSuccess = (npc.firstName + ' ' + note[1] + '' || wageVarianceNotes[5][1])
+  })
+  npc.professionSuccess = `${npc.firstName} ${note[1]} ${setup.articles.find(npc.profession)} ${tippy}` || wageVarianceNotes[5][1]
   console.groupEnd()
   return npc
 }
