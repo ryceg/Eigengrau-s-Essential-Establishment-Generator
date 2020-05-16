@@ -82,6 +82,9 @@ setup.createNPC = function (town, base) {
       creditors: {
 
       },
+      debtors: {
+
+      },
       grossIncome (town, npc) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
