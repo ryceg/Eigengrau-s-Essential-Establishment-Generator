@@ -20,6 +20,40 @@ setup.socialClassKeys = {
   'paupery': 1,
   'indentured servitude': 0
 }
+// TODO: concatenate these four arrays and objects into one object.
+// too lazy to do it right now. Sorry.
+setup.socialClass = {
+  'aristocracy': {
+    roll: 95,
+    key: 5,
+    landRate: 3 // landRate is a multiple
+  },
+  'nobility': {
+    roll: 80,
+    key: 4,
+    landRate: 2
+  },
+  'commoner': {
+    roll: 60,
+    key: 3,
+    landRate: 1
+  },
+  'peasantry': {
+    roll: 20,
+    key: 2,
+    landRate: 0.5
+  },
+  'paupery': {
+    roll: 10,
+    key: 1,
+    landRate: 0
+  },
+  'indentured servitude': {
+    roll: 0,
+    key: 0,
+    landRate: 0
+  }
+}
 
 setup.createSocialClass = function (town, npc) {
   console.log('Creating social class...')
