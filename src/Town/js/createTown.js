@@ -12,14 +12,24 @@ setup.createTown = function (base) {
     name: townName,
     townMaterial: 'mainTownMaterial',
     taxes: {
-      base: 7,
-      welfare: 1,
-      military: 1,
+      base: 2,
+      land: 5,
+      get welfare () {
+        return 1
+        // return (this.roll.welfare / 50)
+      },
+      get military () {
+        return 1
+        // return (this.roll.military / 50)
+      },
       tithe: 1
     },
-    taxRate (town) {
+    taxRate (town, npc) {
       let totalTax = 0
       Object.keys(town.taxes).forEach(function (tax) {
+        // if (tax === 'land') {
+        // totalTax += (town.taxes[tax] * (setup.socialClass[npc.socialClass].landRate || 1))
+        // } else if (typeof town.taxes[tax] === 'number') {
         if (typeof town.taxes[tax] === 'number') {
           totalTax += town.taxes[tax]
         } else if (typeof town.taxes[tax] === 'function') {
