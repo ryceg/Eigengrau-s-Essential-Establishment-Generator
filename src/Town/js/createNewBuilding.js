@@ -1,20 +1,24 @@
 setup.buildingTypes = {
-  'Tavern': setup.createTavern,
-  'Smithy': setup.createSmithy,
-  'Docks': setup.createDocks,
+  // please keep this in alphabetic order
+  // TODO automatically sort into alphabetic order
+  // TODO automatically find available buildings
   'Alchemist': setup.createAlchemist,
-  'General Store': setup.createGeneralStore,
-  'Brothel': setup.createBrothel,
-  'Town Square': setup.createTownSquare,
-  'Temple': setup.createTemple,
-  'Market': setup.createMarket,
-  'Graveyard': setup.createGraveyard,
   'Bakery': setup.goodsAndServices.default.create('bakery'),
-  'Florist': setup.goodsAndServices.default.create('florist'),
-  'Tailor': setup.goodsAndServices.default.create('tailor'),
+  'Barber': setup.goodsAndServices.default.create('barber'),
+  'Brothel': setup.createBrothel,
   'Butcher': setup.goodsAndServices.default.create('butcher'),
   'Cobbler': setup.goodsAndServices.default.create('cobbler'),
-  'Barber': setup.goodsAndServices.default.create('barber')
+  'Docks': setup.createDocks,
+  'Fletcher': setup.goodsAndServices.default.create('fletcher'),
+  'Florist': setup.goodsAndServices.default.create('florist'),
+  'General Store': setup.createGeneralStore,
+  'Graveyard': setup.createGraveyard,
+  'Market': setup.createMarket,
+  'Smithy': setup.createSmithy,
+  'Tailor': setup.goodsAndServices.default.create('tailor'),
+  'Tavern': setup.createTavern,
+  'Temple': setup.createTemple,
+  'Town Square': setup.createTownSquare
 }
 setup.createNewBuilding = function (town, buildingType, opts) {
   // this is necessary to point the function towards where the building creation function is kept.
