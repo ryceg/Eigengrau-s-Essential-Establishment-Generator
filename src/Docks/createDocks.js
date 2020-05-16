@@ -9,7 +9,8 @@ setup.createDocks = function (town, opts) {
     buildingType: 'docks',
     needsWordNoun: false,
     dockName: setup.createNPC(town, {
-      isShallow: true
+      isShallow: true,
+      profession: 'dock worker'
     }),
     wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina', 'jetty', 'harbor', 'berth', 'port', 'seaport', 'dockyard'].seededrandom(),
     ships: {},
