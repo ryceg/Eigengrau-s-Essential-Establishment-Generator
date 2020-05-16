@@ -9,6 +9,7 @@ setup.fetchProfessionChance = function (town, npc) {
     professions.filter(function (profession) {
       return town.professions[profession].socialClass === npc.socialClass
     })
+    console.log(professions)
   }
   const sum = professions
     .map(function (profession) {
@@ -28,8 +29,14 @@ setup.fetchProfessionChance = function (town, npc) {
     }
   }
   const resultantProfession = professions[index]
+  if (resultantProfession === undefined) {
+    console.error(`Failed to fetch a profession.`)
+    console.log({ npc })
+    // setup.fetchProfessionChance(town, npc)
+  }
   console.log(`Testing to see whether ${resultantProfession} is a dndClass.`)
   console.log(resultantProfession)
+
   if (setup.townData.professions[resultantProfession].type !== undefined) {
     if (setup.townData.professions[resultantProfession].type === 'dndClass') {
       console.log(`${npc.name} is a ${resultantProfession} and therefore has a dndClass.`)
@@ -38,6 +45,8 @@ setup.fetchProfessionChance = function (town, npc) {
       console.log(`${npc.name} is a ${resultantProfession} and therefore does not have a dndClass.`)
       npc.hasClass = false
     }
+  } else {
+    console.error(`${resultantProfession} is not a valid profession!`)
   }
 
   return resultantProfession
