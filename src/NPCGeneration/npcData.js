@@ -1065,7 +1065,7 @@ setup.npcData = {
           'because of a promise, I did some time as a ',
           'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
-          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.dndClass, npc.dndClass, npc.dndClass].seededrandom() + '.'
+          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].seededrandom() + '.'
       }
     },
     meetImportantNPC: {

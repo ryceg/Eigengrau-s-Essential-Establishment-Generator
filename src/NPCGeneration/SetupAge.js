@@ -12,7 +12,7 @@ setup.createAge = function (npc) {
   if (npc.ageStage === 'child') {
     npc.hasClass = false
     npc.profession = npc.age
-    npc.dndClass = npc.age
+    // npc.dndClass = npc.age
     npc.background = 'child'
   }
   return npc

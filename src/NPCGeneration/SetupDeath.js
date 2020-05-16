@@ -48,11 +48,11 @@ setup.death = {
       function (town, npc) {
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass,
-          dndClass: npc.dndClass,
+          // dndClass: npc.dndClass,
           profession: npc.profession,
           hasClass: npc.hasClass
         })
-        const text = `${npc.firstName} was murdered by ${setup.profile(murderer, 'another competing ' + murderer.dndClass)}.`
+        const text = `${npc.firstName} was murdered by ${setup.profile(murderer, 'another competing ' + murderer.profession)}.`
         return text
       }
     },

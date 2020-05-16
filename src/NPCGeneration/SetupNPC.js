@@ -25,15 +25,17 @@ setup.createNPC = function (town, base) {
   // if (!base.roll) base.roll = {}
   const gender = base.gender || ['man', 'woman'].seededrandom()
   const race = base.race || setup.fetchRace(town, base)
-  console.log('Loading profession:')
+
+  console.log(`Fetching profession.`)
   const profession = base.profession || setup.fetchProfessionChance(town, base)
 
   const firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.seededrandom().toUpperFirst()
   const lastName = base.lastName || data.raceTraits[race].lastName.seededrandom().toUpperFirst()
   console.groupCollapsed(firstName + ' ' + lastName)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].seededrandom()
-  const dndClass = base.dndClass || data.dndClass.seededrandom()
-  if (base.dndClass) {
+  const dndClass = base.dndClass
+
+  if (setup.townData.professions[profession].type === 'dndClass') {
     base.hasClass = true
   }
 
@@ -188,18 +190,27 @@ setup.createNPC = function (town, base) {
   Object.assign(npc, data.raceTraits[npc.race].raceWords)
   npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
-  if (npc.hasClass === undefined) {
-    if (random(100) > 70) {
+  // if (npc.hasClass === undefined) {
+  //   if (random(100) > 70) {
+  //     npc.hasClass = false
+  //     npc.dndClass = npc.profession
+  //   } else {
+  //     npc.adventure = data.adventure.seededrandom() || 'looking for work'
+  //     npc.hasClass = true
+  //   }
+  // } else if (!npc.hasClass) {
+  //   npc.dndClass = npc.profession
+  // } else if (npc.hasClass) {
+  //   npc.adventure = data.adventure.seededrandom() || 'looking for work'
+  // }
+  if (typeof npc.hasClass === 'undefined') {
+    if (setup.townData.professions[npc.profession].type !== 'dndClass') {
       npc.hasClass = false
-      npc.dndClass = npc.profession
+      // npc.dndClass = npc.profession
     } else {
-      npc.adventure = data.adventure.seededrandom() || 'looking for work'
       npc.hasClass = true
+      npc.adventure = data.adventure.seededrandom() || 'looking for work'
     }
-  } else if (!npc.hasClass) {
-    npc.dndClass = npc.profession
-  } else if (npc.hasClass) {
-    npc.adventure = data.adventure.seededrandom() || 'looking for work'
   }
 
   if (!npc.vocalPattern) {

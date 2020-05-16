@@ -1,9 +1,9 @@
 
 setup.createChemist = town => setup.createNPC(town, {
   associatedTown: town.name,
-  dndClass: ['wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].seededrandom(),
+  profession: ['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].seededrandom(),
   background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].seededrandom(),
-  profession: 'alchemist',
+  // profession: 'alchemist',
   idle: [
     'talking with a customer',
     'picking $chemist.hisher nose',
