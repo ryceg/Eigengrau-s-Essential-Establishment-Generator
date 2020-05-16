@@ -26,8 +26,7 @@ setup.factionData = {
       leaderTraits: {
         hasClass: true,
         title: 'High Assassin',
-        dndClass: 'rogue',
-        profession: 'thief',
+        profession: 'rogue',
         background: ['charlatan', 'soldier', 'criminal']
       },
       wordNoun: 'company',
@@ -48,8 +47,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Chief',
         hasClass: true,
-        dndClass: 'fighter',
-        profession: 'soldier',
+        profession: 'fighter',
         background: ['soldier', 'charlatan', 'criminal']
       },
       wordNoun: 'gang',
@@ -70,8 +68,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Maestro',
         hasClass: true,
-        dndClass: 'bard',
-        profession: 'musician',
+        profession: 'bard',
         background: 'entertainer'
       },
       wordNoun: 'college',
@@ -92,8 +89,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Clergyman',
         hasClass: true,
-        dndClass: 'cleric',
-        background: 'clergy'
+        profession: 'cleric'
       },
       wordNoun: 'church',
       leaderQualification: ['wearing flowing white robes', 'a holy symbol tattooed on their face'],
@@ -133,8 +129,7 @@ setup.factionData = {
     druids: {
       leaderTraits: {
         hasClass: true,
-        dndClass: 'druid',
-        profession: 'noble',
+        profession: 'druid',
         background: 'noble'
       },
       wordNoun: 'grove',
@@ -175,8 +170,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Commander',
         hasClass: true,
-        dndClass: 'fighter',
-        profession: 'soldier',
+        profession: 'fighter',
         background: 'soldier'
       },
       wordNoun: 'company',
@@ -218,8 +212,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Commander',
         hasClass: true,
-        dndClass: ['fighter', 'fighter', 'fighter', 'barbarian', 'paladin', 'rogue'],
-        profession: 'Commander',
+        dndClass: ['fighter', 'fighter', 'fighter', 'barbarian', 'profession', 'rogue'],
         background: ['soldier', 'soldier', 'noble']
       },
       wordNoun: 'army',
@@ -240,7 +233,6 @@ setup.factionData = {
       leaderTraits: {
         title: 'High Monk',
         hasClass: true,
-        dndClass: 'monk',
         profession: 'monk',
         background: ['acolyte', 'sage']
       },
@@ -283,8 +275,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'The Holy',
         hasClass: true,
-        dndClass: 'cleric',
-        profession: 'priest',
+        profession: 'cleric',
         background: ['acolyte', 'sage']
       },
       wordNoun: 'college',
@@ -305,8 +296,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Lord Ranger',
         hasClass: true,
-        dndClass: 'ranger',
-        profession: 'trapper',
+        profession: 'ranger',
         background: ['outlander', 'hermit']
       },
       wordNoun: 'guild',
@@ -369,8 +359,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'High Rogue',
         hasClass: true,
-        dndClass: 'rogue',
-        profession: 'thief',
+        profession: 'rogue',
         background: ['charlatan', 'criminal']
       },
       wordNoun: 'guild',
@@ -391,8 +380,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Archmage',
         hasClass: true,
-        dndClass: 'wizard',
-        profession: 'magic user',
+        profession: 'wizard',
         background: ['acolyte', 'sage']
       },
       wordNoun: 'college',
