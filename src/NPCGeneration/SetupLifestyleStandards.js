@@ -57,7 +57,7 @@ setup.homeTable = [
   [40, 'a palace'] // unreachable without biases
 ]
 
-setup.createlifestyleStandards = function (town, npc) {
+setup.createLifestyleStandards = function (town, npc) {
   console.groupCollapsed(`Creating living standards for ${npc.name}`)
   const isCurrently = [
     'has been',

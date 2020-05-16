@@ -272,7 +272,7 @@ setup.createNPC = function (town, base) {
 
   setup.createSexuality(npc)
   setup.createSocialClass(town, npc)
-  setup.createlifestyleStandards(town, npc)
+  setup.createLifestyleStandards(town, npc)
 
   if (npc.hasHistory !== false) setup.ExpandNPC(town, npc)
 
