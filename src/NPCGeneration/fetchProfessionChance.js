@@ -5,7 +5,7 @@ setup.fetchProfessionChance = function (town, npc) {
   const professions = Object.keys(town.professions)
 
   if (npc.socialClass) {
-    console.log('Social class was defined, so filtering to the available professions!')
+    console.log(`Social class was defined as ${npc.socialClass}, so filtering to the available professions!`)
     professions.filter(function (profession) {
       return town.professions[profession].socialClass === npc.socialClass
     })
@@ -27,5 +27,18 @@ setup.fetchProfessionChance = function (town, npc) {
       break
     }
   }
-  return professions[index]
+  const resultantProfession = professions[index]
+  console.log(`Testing to see whether ${resultantProfession} is a dndClass.`)
+  console.log(resultantProfession)
+  if (setup.townData.professions[resultantProfession].type !== undefined) {
+    if (setup.townData.professions[resultantProfession].type === 'dndClass') {
+      console.log(`${npc.name} is a ${resultantProfession} and therefore has a dndClass.`)
+      npc.hasClass = true
+    } else {
+      console.log(`${npc.name} is a ${resultantProfession} and therefore does not have a dndClass.`)
+      npc.hasClass = false
+    }
+  }
+
+  return resultantProfession
 }
