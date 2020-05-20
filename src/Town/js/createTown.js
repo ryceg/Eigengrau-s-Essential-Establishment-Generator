@@ -21,7 +21,7 @@ setup.createTown = function (base) {
       // },
       tithe: 1
     },
-    taxRate (town, npc) {
+    taxRate (town) {
       let totalTax = 0
       Object.keys(town.taxes).forEach(function (tax) {
         // if (tax === 'land') {

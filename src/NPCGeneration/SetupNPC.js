@@ -93,7 +93,7 @@ setup.createNPC = function (town, base) {
       },
       netIncome (town, npc) {
         console.log(`Returning ${npc.name}'s net income...`)
-        return Math.round(setup.calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
+        return Math.round(setup.calcPercentage(npc.finances.grossIncome(town, npc), -setup.npcTaxRate(town, npc)))
       },
       lifestyleStandard (town, npc) {
         console.log(`Returning ${npc.name}'s lifestyle standard...`)
