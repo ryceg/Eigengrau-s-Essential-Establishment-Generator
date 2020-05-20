@@ -115,7 +115,11 @@ const Setting: any
 
 const settings: any
 
-const setup: any
+interface Setup {
+  [key: string]: any
+}
+
+const setup: Setup
 
 const State: any
 
