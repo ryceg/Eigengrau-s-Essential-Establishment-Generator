@@ -35,6 +35,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jquery": "^3.3.38",
     "chalk": "^2.4.2",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",

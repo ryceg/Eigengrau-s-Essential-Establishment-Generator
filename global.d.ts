@@ -105,8 +105,6 @@ const Dialog: any
 
 const Engine: any
 
-const jQuery: any
-
 const Macro: any
 
 const Passage: any
@@ -120,6 +118,14 @@ const settings: any
 const setup: any
 
 const State: any
+
+/*
+ * SugarCube jQuery extensions.
+ * See https://github.com/tmedwards/sugarcube-2/blob/master/src/lib/jquery-plugins.js
+ */
+interface JQueryStatic {
+  wiki(...sources): JQueryStatic
+}
 
 /*
  * Other plugins & global functions
