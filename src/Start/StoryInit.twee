@@ -18,7 +18,7 @@
 <</if>>
 */
 <<set Config.history.maxStates to 15>>
-<<set $versionNumber to "2.3.1">>
+<<set $versionNumber to "2.4">>
 
 <<set $towns to []>>
 <<set $factions to []>>
