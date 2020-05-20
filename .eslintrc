@@ -4,19 +4,9 @@
     "browser": true,
     "jest": true
   },
-  "globals": {
-    "setup": true,
-    "random": true,
-    "dice": true,
-    "State": true,
-    "randomFloat": true,
-    "clone": true,
-    "settings": true,
-    "tippy": true,
-    "$": true
-  },
   "rules": {
     "no-var": "warn",
+    "no-undef": "off",
     "prefer-const": "warn",
     "object-shorthand": ["warn", "always"],
     "quote-props": ["warn", "consistent-as-needed"]
