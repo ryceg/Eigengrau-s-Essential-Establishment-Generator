@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "none",
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
+  },
+  "exclude": ["node_modules", "**/Settings/**/*"]
+}

@@ -1,4 +1,3 @@
-
 setup.structure = {
   create (town, building, opts) {
     console.groupCollapsed(`Creating the structure for ${setup.articles.output(building.wordNoun || 'building')}`)
