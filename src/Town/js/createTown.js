@@ -14,14 +14,11 @@ setup.createTown = function (base) {
     taxes: {
       base: 2,
       land: 5,
-      get welfare () {
-        return 1
-        // return (this.roll.welfare / 50)
-      },
-      get military () {
-        return 1
-        // return (this.roll.military / 50)
-      },
+
+      // get military () {
+      //   return 1
+      //   // return (this.roll.military / 50)
+      // },
       tithe: 1
     },
     taxRate (town, npc) {
@@ -197,6 +194,33 @@ setup.createTown = function (base) {
   town.materialProbability = setup.structure.material.types
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
+  })
+
+  console.log(`Defining taxes`)
+  Object.defineProperty(town.taxes, `welfare`, {
+    get () {
+      console.log(this)
+      // TODO fix the getter's workaround.
+      const tempWelfare = State.variables.town.roll.welfare
+      const welfarePercentile = tempWelfare
+      const nominalTarget = 2
+      const result = nominalTarget + (-1 / (welfarePercentile + 0.1)) + (1 / (10 - welfarePercentile))
+      return result
+      // return (this.roll.welfare / 50)
+    }
+  })
+
+  Object.defineProperty(town.taxes, `military`, {
+    get () {
+      console.log(this)
+      // TODO fix the getter's workaround.
+      const tempMilitary = State.variables.town.roll.military
+      const militaryPercentile = tempMilitary
+      const nominalTarget = 2
+      const result = nominalTarget + (-1 / (militaryPercentile + 0.1)) + (1 / (10 - militaryPercentile))
+      return result
+      // return (this.roll.military / 50)
+    }
   })
 
   console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
