@@ -131,6 +131,11 @@ interface JQueryStatic {
  * Other plugins & global functions
  */
 
+interface Math {
+  fm(a: number, b:number): number
+  fairmath(a: number, b:number): number
+}
+
 interface Array<T> {
   seededrandom(): T
 }
