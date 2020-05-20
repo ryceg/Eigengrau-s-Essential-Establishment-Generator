@@ -1,6 +1,5 @@
 
-setup.createSmithy = function (town, opts) {
-  opts = opts || {}
+setup.createSmithy = function (town, opts = {}) {
   const smithy = (opts['newBuilding'] || setup.createBuilding)(town, 'smithy')
   console.groupCollapsed('Smithy loading...')
   smithy.blacksmith = setup.createBlacksmith(town, smithy)

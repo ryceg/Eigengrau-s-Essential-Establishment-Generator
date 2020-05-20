@@ -1,5 +1,4 @@
-setup.createFaction = function (town, opts) {
-  opts = opts || {}
+setup.createFaction = function (town, opts = {}) {
   const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].seededrandom()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 

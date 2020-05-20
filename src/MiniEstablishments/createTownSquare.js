@@ -1,6 +1,5 @@
-setup.createTownSquare = function (town, opts) {
+setup.createTownSquare = function (town, opts = {}) {
   console.groupCollapsed('Creating townSquare function')
-  opts = opts || {}
   const townSquare = (opts['newBuilding'] || setup.createBuilding)(town, 'townSquare')
   Object.assign(townSquare, {
     associatedTown: town.name,

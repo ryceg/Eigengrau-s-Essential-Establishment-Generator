@@ -1,5 +1,4 @@
-setup.createDocks = function (town, opts) {
-  opts = opts || {}
+setup.createDocks = function (town, opts = {}) {
   const docks = (opts['newBuilding'] || setup.createBuilding)(town, 'docks')
   Object.assign(docks, {
     notableFeature: setup.docks.notableFeature.seededrandom(),
