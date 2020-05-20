@@ -99,6 +99,22 @@ interface Math {
   clamp(num: number, min: number, max: number): number
 }
 
+const Config: any
+
+const Dialog: any
+
+const Engine: any
+
+const jQuery: any
+
+const Macro: any
+
+const Passage: any
+
+const Save: any
+
+const Setting: any
+
 const settings: any
 
 const setup: any

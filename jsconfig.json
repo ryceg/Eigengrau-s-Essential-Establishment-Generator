@@ -5,5 +5,5 @@
     "target": "esnext",
     "lib": ["dom", "esnext"]
   },
-  "exclude": ["node_modules", "**/Settings/**/*"]
+  "exclude": ["node_modules"]
 }
