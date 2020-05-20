@@ -1,6 +1,5 @@
 
-setup.createGeneralStore = function (town, opts) {
-  opts = opts || {}
+setup.createGeneralStore = function (town, opts = {}) {
   const generalStore = (opts['newBuilding'] || setup.createBuilding)(town, 'generalStore')
   console.groupCollapsed('General Store loading...')
   generalStore.shopkeep = (opts['newShopkeep'] || setup.createNPC)(town, {

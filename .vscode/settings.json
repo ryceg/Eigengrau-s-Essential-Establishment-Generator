@@ -14,5 +14,8 @@
       "filterFileRegex": ".*\\.(js|json)$",
       "decorations": [{ "color": "rgb(255, 200, 100)" }]
     }
+  },
+  "files.associations": {
+    "*.twee": "sugarcube2"
   }
 }

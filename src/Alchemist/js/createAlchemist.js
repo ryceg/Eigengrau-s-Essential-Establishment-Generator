@@ -1,6 +1,5 @@
 
-setup.createAlchemist = function (town, opts) {
-  opts = opts || {}
+setup.createAlchemist = function (town, opts = {}) {
   const alchemist = (opts['newBuilding'] || setup.createBuilding)(town, 'alchemist')
   console.groupCollapsed('Alchemist loading...')
   Object.assign(alchemist, {

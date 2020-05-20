@@ -1,6 +1,5 @@
 
-setup.createMarket = function (town, opts) {
-  opts = opts || {}
+setup.createMarket = function (town, opts = {}) {
   const market = (opts['newBuilding'] || setup.createBuilding)(town, 'market')
 
   Object.assign(market, {

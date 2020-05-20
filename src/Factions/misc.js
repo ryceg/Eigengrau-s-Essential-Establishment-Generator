@@ -1,5 +1,5 @@
 setup.createMisc = function (faction) {
-  const miscList = [
+  faction.misc = [
     'currently recruiting',
     'adjusting to a change in leadership',
     'extremely secretive',
@@ -16,8 +16,7 @@ setup.createMisc = function (faction) {
     'rumoured to own a powerful artifact',
     'rumoured to employ dangerous criminals',
     'rumoured to help lucky commoners'
-  ]
-  // miscList.concat(setup.factionData.type[type].misc)
-  faction.misc = miscList.pluck()
+  ].random()
+
   return faction
 }

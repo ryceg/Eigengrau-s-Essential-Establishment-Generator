@@ -1,7 +1,6 @@
 
-setup.createTemple = function (town, opts) {
+setup.createTemple = function (town, opts = {}) {
   console.log('Creating a temple...')
-  opts = opts || {}
   const temple = (opts['newBuilding'] || setup.createBuilding)(town, 'temple')
   const data = setup.temple
   Object.assign(temple, {

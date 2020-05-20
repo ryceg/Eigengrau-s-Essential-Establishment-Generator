@@ -1,6 +1,5 @@
 
-setup.createTavern = function (town, opts) {
-  opts = opts || {}
+setup.createTavern = function (town, opts = {}) {
   const tavern = (opts['newBuilding'] || setup.createBuilding)(town, 'tavern')
 
   tavern.name = setup.createTavernName()

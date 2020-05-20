@@ -88,9 +88,8 @@ setup.npcData = {
     performed: {
       probability: 3,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'nobility' || random(100) > 90) {
-          return true
-        } else return false
+        const profession = setup.townData.professions[npc.profession]
+        return profession.socialClass === 'commoner' || profession.socialClass === 'nobility' || random(100) > 90
       },
       function (town, npc) {
         console.log('called lifeEvents.performed function')
@@ -187,11 +186,7 @@ setup.npcData = {
     warMedal: {
       probability: 2,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'military' || random(100) > 70) {
-          if (npc.ageYears > 15) {
-            return true
-          }
-        } else return false
+        return (setup.townData.professions[npc.profession].sector === 'military' || random(100) > 70) && npc.ageYears > 15
       },
       function (town, npc) {
         console.log('called lifeEvents.magicalCreature function')
@@ -242,9 +237,7 @@ setup.npcData = {
     magicalCreatue: {
       probability: 2,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90) {
-          return true
-        } else return false
+        return setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90
       },
       function (town, npc) {
         console.log('called lifeEvents.magicalCreature function')
@@ -450,9 +443,7 @@ setup.npcData = {
     apprentice: {
       probability: 6,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === 'nobility') {
-          return false
-        } else { return true }
+        return setup.townData.professions[npc.profession].socialClass !== 'nobility'
       },
       function (town, npc) {
         console.log('called lifeEvents.apprentice function')
@@ -562,9 +553,8 @@ setup.npcData = {
     nobleEvent: {
       probability: 5,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
-          return true
-        }
+        const profession = setup.townData.professions[npc.profession]
+        return profession.socialClass === 'commoner' || profession.socialClass === 'peasantry'
       },
       function (town, npc) {
         const noble = setup.createNPC(town, {
@@ -849,9 +839,7 @@ setup.npcData = {
     pilgrimage: {
       probability: 5,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75) {
-          return true
-        } else return false
+        return setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75
       },
       function (town, npc) {
         console.log('called lifeEvents.pilgrimage function')
@@ -959,9 +947,7 @@ setup.npcData = {
     meetEnemyNPC: {
       probability: 8,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.meetEnemyNPC function')
@@ -1003,9 +989,7 @@ setup.npcData = {
     meetPartnerNPC: {
       probability: 10,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.meetPartnerNPC function')
@@ -1050,9 +1034,7 @@ setup.npcData = {
     backgroundWork: {
       probability: 20,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.backgroundWork function')
@@ -1085,9 +1067,7 @@ setup.npcData = {
     adventure: {
       probability: 5,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.adventure function')
@@ -1222,9 +1202,7 @@ setup.npcData = {
     war: {
       probability: 5,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.war function')
@@ -1261,9 +1239,7 @@ setup.npcData = {
     crime: {
       probability: 10,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60) {
-          return true
-        }
+        return setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
@@ -1326,11 +1302,7 @@ setup.npcData = {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
       exclusions (town, npc) {
-        if (npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability)) {
-          return false
-        } else {
-          return true
-        }
+        return !(npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability))
       },
       function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' wants to grow a beard.'
@@ -1340,11 +1312,7 @@ setup.npcData = {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
       exclusions (town, npc) {
-        if (!npc.partnerID) {
-          return false
-        } else {
-          return true
-        }
+        return !!npc.partnerID
       },
       function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' no longer loves ' + npc.hisher + ' ' + npc.partnerID.marriageNoun + ', ' + '<<profile `$npcs[' + JSON.stringify(npc.partnerID) + ']`>>'
@@ -1365,9 +1333,7 @@ setup.npcData = {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
       exclusions (town, npc) {
-        if (npc.background !== 'hermit') {
-          return true
-        }
+        return npc.background !== 'hermit'
       },
       function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' wants to run away and live far away from society.'
@@ -2206,7 +2172,7 @@ setup.npcData = {
       ],
       background: ['charlatan', 'criminal', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'outlander', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
       weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'two handaxes', 'two warhammers'],
-      'wealth' () { return (dice('2d4') * 1000) }
+      'wealth' () { return dice('2d4') * 1000 }
     },
     bard: {
       professionOrigin: [
@@ -2219,7 +2185,7 @@ setup.npcData = {
       ],
       background: ['charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'noble', 'outlander', 'sailor', 'soldier', 'urchin'],
       weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers'],
-      'wealth' () { return (dice('5d4') * 1000) }
+      'wealth' () { return dice('5d4') * 1000 }
     },
     cleric: {
       professionOrigin: [
@@ -2231,7 +2197,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow'],
-      'wealth' () { return (dice('5d4') * 1000) }
+      'wealth' () { return dice('5d4') * 1000 }
     },
     druid: {
       professionOrigin: [
@@ -2243,7 +2209,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'charlatan', 'folk hero', 'folk hero', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow', 'a longbow', 'a longbow'],
-      'wealth' () { return (dice('2d4') * 1000) }
+      'wealth' () { return dice('2d4') * 1000 }
     },
     fighter: {
       professionOrigin: [
@@ -2256,7 +2222,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'charlatan', 'criminal', 'criminal', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'outlander', 'sage', 'sailor', 'sailor', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin'],
       weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a long sword', 'a long bow', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
-      'wealth' () { return (dice('5d4') * 1000) }
+      'wealth' () { return dice('5d4') * 1000 }
     },
     monk: {
       professionOrigin: [
@@ -2269,7 +2235,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'soldier', 'urchin'],
       weapon: ['fists', 'fists', 'fists', 'a quarterstaff', 'a quarterstaff'],
-      'wealth' () { return (dice('2d4') * 100) }
+      'wealth' () { return dice('2d4') * 100 }
     },
     paladin: {
       professionOrigin: [
@@ -2282,7 +2248,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin'],
       weapon: ['a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
-      'wealth' () { return (dice('5d4') * 1000) }
+      'wealth' () { return dice('5d4') * 1000 }
     },
     ranger: {
       professionOrigin: [
@@ -2294,7 +2260,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
       weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'a long bow', 'a long bow', 'two daggers'],
-      'wealth' () { return (dice('4d4') * 1000) }
+      'wealth' () { return dice('4d4') * 1000 }
     },
     rogue: {
       professionOrigin: [
@@ -2308,7 +2274,7 @@ setup.npcData = {
       ],
       background: ['charlatan', 'charlatan', 'charlatan', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'noble', 'noble', 'outlander', 'sailor', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin', 'urchin'],
       weapon: ['a long sword', 'a long sword', 'two daggers', 'two daggers', 'two daggers', 'two daggers', 'a crossbow', 'a crossbow', 'a crossbow'],
-      'wealth' () { return (dice('4d4') * 1000) }
+      'wealth' () { return dice('4d4') * 1000 }
     },
     sorcerer: {
       professionOrigin: [
@@ -2320,7 +2286,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'charlatan', 'charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers', 'a dagger', 'a dagger'],
-      'wealth' () { return (dice('3d4') * 1000) }
+      'wealth' () { return dice('3d4') * 1000 }
     },
     warlock: {
       professionOrigin: [
@@ -2333,7 +2299,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a dagger', 'a dagger', 'a dagger'],
-      'wealth' () { return (dice('4d4') * 1000) }
+      'wealth' () { return dice('4d4') * 1000 }
     },
     wizard: {
       professionOrigin: [
@@ -2346,7 +2312,7 @@ setup.npcData = {
       ],
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
       weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-      'wealth' () { return (dice('4d4') * 1000) }
+      'wealth' () { return dice('4d4') * 1000 }
     }
   },
   backgroundTraits: {
