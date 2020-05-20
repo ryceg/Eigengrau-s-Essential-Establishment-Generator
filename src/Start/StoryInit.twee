@@ -1,6 +1,7 @@
 
 :: StoryInit
 <<run console.log("Hello world!")>>
+<<set $isPatreon to either(true, false)>>
 <<run setup.urlSeed()>>
 /*<<if location.hash.length > 0>>
   <<set $hash to location.hash>>
