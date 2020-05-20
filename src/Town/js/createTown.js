@@ -12,7 +12,7 @@ setup.createTown = function (base) {
     name: townName,
     townMaterial: 'mainTownMaterial',
     taxes: {
-      base: 2,
+      base: 5,
       land: 5,
 
       // get military () {
