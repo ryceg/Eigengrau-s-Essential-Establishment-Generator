@@ -90,7 +90,7 @@
 <<widget "profile">>
     \<<set _char = $args[0],
         _readout = $args[1] || _char.name,
-        _id = "tip-" + Math.floor(randomFloat(1).toString(16))>>
+        _id = "tip-" + Util.slugify((_char.name) || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
     \<<capture _char, _readout, _id>>
         \<span @id="_id" class="tip"><<if $args[2] is true>><<print setup.articles.find(_readout)>><</if>> <<link _readout>>
 				<<set $selected to _char>>
