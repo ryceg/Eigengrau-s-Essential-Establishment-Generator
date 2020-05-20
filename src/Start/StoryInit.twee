@@ -1,7 +1,22 @@
 
 :: StoryInit
+<<run console.log("Hello world!")>>
+<<run setup.urlSeed()>>
+/*<<if location.hash.length > 0>>
+  <<set $hash to location.hash>>
+  <<else>>
+  <<run console.log("Creating a hash")>>
+  <<set $hash to setup.urlData.adjectives.random() + setup.urlData.adjectives.random() + setup.urlData.animals.random()>>
+<</if>>
+  <<run location.hash = $hash>>
 
-// <<run State.prng.init()>>
+<<if def $hash>>
+  <<run console.log("Hash defined as " + $hash)>>
+    <<run State.prng.init($hash)>>
+  <<else>>
+    <<run State.prng.init()>>
+<</if>>
+*/
 <<set Config.history.maxStates to 15>>
 <<set $versionNumber to "2.3.1">>
 
@@ -13,7 +28,7 @@
 
 <<include "Town">>
 <<set $weather to {
-	season: either(["winter", "spring", "summer", "autumn"]),
+	season: ["winter", "spring", "summer", "autumn"].random(),
 	seasonPool: ["winter", "spring", "summer", "autumn"]
 	}>>
 
