@@ -88,9 +88,8 @@ setup.npcData = {
     performed: {
       probability: 3,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'nobility' || random(100) > 90) {
-          return true
-        } else return false
+        const profession = setup.townData.professions[npc.profession]
+        return profession.socialClass === 'commoner' || profession.socialClass === 'nobility' || random(100) > 90
       },
       function (town, npc) {
         console.log('called lifeEvents.performed function')
@@ -187,11 +186,7 @@ setup.npcData = {
     warMedal: {
       probability: 2,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'military' || random(100) > 70) {
-          if (npc.ageYears > 15) {
-            return true
-          }
-        } else return false
+        return (setup.townData.professions[npc.profession].sector === 'military' || random(100) > 70) && npc.ageYears > 15
       },
       function (town, npc) {
         console.log('called lifeEvents.magicalCreature function')
@@ -242,9 +237,7 @@ setup.npcData = {
     magicalCreatue: {
       probability: 2,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90) {
-          return true
-        } else return false
+        return setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90
       },
       function (town, npc) {
         console.log('called lifeEvents.magicalCreature function')
@@ -450,9 +443,7 @@ setup.npcData = {
     apprentice: {
       probability: 6,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === 'nobility') {
-          return false
-        } else { return true }
+        return setup.townData.professions[npc.profession].socialClass !== 'nobility'
       },
       function (town, npc) {
         console.log('called lifeEvents.apprentice function')
@@ -562,9 +553,8 @@ setup.npcData = {
     nobleEvent: {
       probability: 5,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === 'commoner' || setup.townData.professions[npc.profession].socialClass === 'peasantry') {
-          return true
-        }
+        const profession = setup.townData.professions[npc.profession]
+        return profession.socialClass === 'commoner' || profession.socialClass === 'peasantry'
       },
       function (town, npc) {
         const noble = setup.createNPC(town, {
@@ -849,9 +839,7 @@ setup.npcData = {
     pilgrimage: {
       probability: 5,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75) {
-          return true
-        } else return false
+        return setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75
       },
       function (town, npc) {
         console.log('called lifeEvents.pilgrimage function')
@@ -959,9 +947,7 @@ setup.npcData = {
     meetEnemyNPC: {
       probability: 8,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.meetEnemyNPC function')
@@ -1003,9 +989,7 @@ setup.npcData = {
     meetPartnerNPC: {
       probability: 10,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.meetPartnerNPC function')
@@ -1050,9 +1034,7 @@ setup.npcData = {
     backgroundWork: {
       probability: 20,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.backgroundWork function')
@@ -1085,9 +1067,7 @@ setup.npcData = {
     adventure: {
       probability: 5,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.adventure function')
@@ -1222,9 +1202,7 @@ setup.npcData = {
     war: {
       probability: 5,
       exclusions (town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== 'child') {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== 'child'
       },
       function (town, npc) {
         console.log('called lifeEvents.war function')
@@ -1261,9 +1239,7 @@ setup.npcData = {
     crime: {
       probability: 10,
       exclusions (town, npc) {
-        if (setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60) {
-          return true
-        }
+        return setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
@@ -1326,11 +1302,7 @@ setup.npcData = {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
       exclusions (town, npc) {
-        if (npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability)) {
-          return false
-        } else {
-          return true
-        }
+        return !(npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability))
       },
       function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' wants to grow a beard.'
@@ -1340,11 +1312,7 @@ setup.npcData = {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
       exclusions (town, npc) {
-        if (!npc.partnerID) {
-          return false
-        } else {
-          return true
-        }
+        return !!npc.partnerID
       },
       function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' no longer loves ' + npc.hisher + ' ' + npc.partnerID.marriageNoun + ', ' + '<<profile `$npcs[' + JSON.stringify(npc.partnerID) + ']`>>'
@@ -1365,9 +1333,7 @@ setup.npcData = {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
       exclusions (town, npc) {
-        if (npc.background !== 'hermit') {
-          return true
-        }
+        return npc.background !== 'hermit'
       },
       function (town, npc) {
         return npc.name + " doesn't say " + npc.heshe + ' wants to run away and live far away from society.'
