@@ -262,11 +262,7 @@ setup.goodsAndServices = {
         description: 'A loaf of rye bread.',
         // exclusions for testing whether it is available. Can be ommitted if it is always available. Return truthiness.
         exclusions (town, building) {
-          if (building.roll.wealth > 40) {
-            return true
-          } else {
-            return false
-          }
+          return building.roll.wealth > 40
         }
       },
       'unleavened bread': {
@@ -278,33 +274,21 @@ setup.goodsAndServices = {
         cost: 18,
         description: 'A loaf of barley bread.',
         exclusions (town, building) {
-          if (building.roll.wealth > 40) {
-            return true
-          } else {
-            return false
-          }
+          return building.roll.wealth > 40
         }
       },
       'loaf of dwarven bread': {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
         exclusions (town, building) {
-          if (town.population > 1500 && building.roll.wealth > 25) {
-            return true
-          } else {
-            return false
-          }
+          return town.population > 1500 && building.roll.wealth > 25
         }
       },
       'elven biscuits': {
         cost: 15,
         description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
         exclusions (town, building) {
-          if (town.population > 2000 && building.roll.wealth > 50) {
-            return true
-          } else {
-            return false
-          }
+          return town.population > 2000 && building.roll.wealth > 50
         }
       },
       'stale bread': {
@@ -319,22 +303,14 @@ setup.goodsAndServices = {
         cost: random(10, 15),
         description: 'A tasty looking fruit tart.',
         exclusions (town, building) {
-          if (building.roll.wealth > 70) {
-            return true
-          } else {
-            return false
-          }
+          return building.roll.wealth > 70
         }
       },
       'gold loaf': {
         cost: 1300,
         description: 'A loaf with gold leaf on top. Debug.',
         exclusions (town, building) {
-          if (building.roll.wealth > 99) {
-            return true
-          } else {
-            return false
-          }
+          return building.roll.wealth > 99
         }
       }
     },
@@ -1854,22 +1830,30 @@ setup.goodsAndServices = {
       },
       'surgery': {
         cost: 200,
-        exclusions (town, building) { if (building.roll.expertise > 20) return true },
+        exclusions (town, building) {
+          return building.roll.expertise > 20
+        },
         description: `Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.`
       },
       'tooth pull': {
         cost: 100,
-        exclusions (town, building) { if (building.roll.expertise > 10) return true },
+        exclusions (town, building) {
+          return building.roll.expertise > 10
+        },
         description: `Got a tooth that's giving you a bit of trouble? This barber can yank it right out.`
       },
       'leeching': {
         cost: 60,
-        exclusions (town, building) { if (building.roll.expertise < 30) return true },
+        exclusions (town, building) {
+          return building.roll.expertise < 30
+        },
         description: `If you're feeling a bit sick this barber will place leeches all over you to draw out the bad blood.`
       },
       'dangerous surgery': {
         cost: 200,
-        exclusions (town, building) { if (building.roll.expertise < 20) return true },
+        exclusions (town, building) {
+          return building.roll.expertise < 20
+        },
         description: `This barber isn't familiar with surgery, but has the sharp tools to do the job.`
       }
 

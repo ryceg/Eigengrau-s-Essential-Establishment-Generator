@@ -51,9 +51,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     highValueBuyer: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 60) {
-          return true
-        }
+        return smithy.roll.expertise > 60
       },
       function (town, smithy) {
         const npc = setup.createNPC(town, {
@@ -65,9 +63,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     guard: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 40 && town.roll.guardFunding > 50) {
-          return true
-        }
+        return smithy.roll.expertise > 40 && town.roll.guardFunding > 50
       },
       function (town, smithy) {
         const npc = setup.createNPC(town, {
@@ -81,9 +77,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     guardCaptain: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 50 && town.roll.guardFunding > 60) {
-          return true
-        }
+        return smithy.roll.expertise > 50 && town.roll.guardFunding > 60
       },
       function (town, smithy) {
         const npc = town.guard.captain
@@ -93,9 +87,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     guardRefresh: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 60 && town.roll.guardFunding > 70) {
-          return true
-        }
+        return smithy.roll.expertise > 60 && town.roll.guardFunding > 70
       },
       function (town, smithy) {
         return `a whole new set of weapons for <<guard $town.guard>>. Should keep me busy for the next couple months!`
@@ -103,9 +95,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     badlyMadeGuard: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise < 40 && town.roll.guardFunding > 70) {
-          return true
-        }
+        return smithy.roll.expertise < 40 && town.roll.guardFunding > 70
       },
       function (town, smithy) {
         return `a whole load of ${weapon.seededrandom()}s for <<guard $town.guard>>. To be honest? I'm freaking the fuck out.`
@@ -113,9 +103,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     priest: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 40 || setup.objectArrayFetcher(town.buildings.temple).roll.wealth > 60) {
-          return true
-        }
+        return smithy.roll.expertise > 40 || setup.objectArrayFetcher(town.buildings.temple).roll.wealth > 60
       },
       function (town) {
         const building = setup.objectArrayFetcher(town.buildings.temple)
@@ -127,7 +115,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   const actions = {
     veryUnsure: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise < 20) return true
+        return smithy.roll.expertise < 20
       },
       function (town, smithy) {
         return [
@@ -139,7 +127,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     unsure: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise < 40) return true
+        return smithy.roll.expertise < 40
       },
       function (town, smithy) {
         return [
@@ -151,7 +139,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     okay: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise < 50) return true
+        return smithy.roll.expertise < 50
       },
       function (town, smithy) {
         return [
@@ -163,7 +151,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     decentlyPracticed: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 60) return true
+        return smithy.roll.expertise > 60
       },
       function (town, smithy) {
         return [
@@ -175,7 +163,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     wellPracticed: {
       exclusions (town, smithy) {
-        if (smithy.roll.expertise > 80) return true
+        return smithy.roll.expertise > 80
       },
       function (town, smithy) {
         return [

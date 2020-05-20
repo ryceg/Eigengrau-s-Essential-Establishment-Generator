@@ -232,9 +232,7 @@ setup.townSquare = {
     },
     guardBait: {
       exclusions (town) {
-        if (town.roll.guardFunding > 50 && town.roll.law > 50) {
-          return true
-        }
+        return town.roll.guardFunding > 50 && town.roll.law > 50
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -340,9 +338,7 @@ setup.townSquare = {
     'homeless': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 300 && town.roll.wealth < 90 && town.roll.welfare < 70) {
-          return true
-        }
+        return town.population > 300 && town.roll.wealth < 90 && town.roll.welfare < 70
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -356,9 +352,7 @@ setup.townSquare = {
     'child': {
       type: ['event'],
       exclusions (town) {
-        if (town.population < 3000 && town.roll.wealth < 90) {
-          return true
-        }
+        return town.population < 3000 && town.roll.wealth < 90
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -371,9 +365,7 @@ setup.townSquare = {
     'kite': {
       type: ['event'],
       exclusions (town) {
-        if (town.population < 3000 && town.roll.wealth < 90) {
-          return true
-        }
+        return town.population < 3000 && town.roll.wealth < 90
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -386,9 +378,7 @@ setup.townSquare = {
     'childScammer': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 300 && town.roll.wealth < 90 && town.roll.guardFunding < 60) {
-          return true
-        }
+        return town.population > 300 && town.roll.wealth < 90 && town.roll.guardFunding < 60
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -401,9 +391,7 @@ setup.townSquare = {
     'adultScammer': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 3000 && town.roll.wealth < 90 && town.roll.guardFunding < 60) {
-          return true
-        }
+        return town.population > 3000 && town.roll.wealth < 90 && town.roll.guardFunding < 60
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -429,9 +417,7 @@ setup.townSquare = {
     'parlourWizard': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 1000 && town.roll.arcana > 40) {
-          return true
-        }
+        return town.population > 1000 && town.roll.arcana > 40
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -444,9 +430,7 @@ setup.townSquare = {
     'bardImprov': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 1000 && town.roll.wealth > 40) {
-          return true
-        }
+        return town.population > 1000 && town.roll.wealth > 40
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -471,9 +455,7 @@ setup.townSquare = {
     'tourist': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 1000 && town.roll.wealth > 40) {
-          return true
-        }
+        return town.population > 1000 && town.roll.wealth > 40
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -510,9 +492,7 @@ setup.townSquare = {
     'mercs': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 2000) {
-          return true
-        }
+        return town.population > 2000
       },
       function (town) {
         const mercenaries = setup.createMercenaries(town)
@@ -533,9 +513,7 @@ setup.townSquare = {
     'politicalCandidate': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 300 && town.politicalSource === 'republic') {
-          return true
-        }
+        return town.population > 300 && town.politicalSource === 'republic'
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -549,9 +527,7 @@ setup.townSquare = {
     'politicalCandidateBullied': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 300 && town.politicalSource === 'republic' && town.roll.guardFunding > 50) {
-          return true
-        }
+        return town.population > 300 && town.politicalSource === 'republic' && town.roll.guardFunding > 50
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -565,9 +541,7 @@ setup.townSquare = {
     'bureaucrat': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 500) {
-          return true
-        }
+        return town.population > 500
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -587,9 +561,7 @@ setup.townSquare = {
     'carriage': {
       type: ['event'],
       exclusions (town) {
-        if (town.population > 500) {
-          return true
-        }
+        return town.population > 500
       },
       function (town) {
         return 'an expensive looking carriage with armed guards that are warning people to get out of the way as it rolls by.'
@@ -598,9 +570,7 @@ setup.townSquare = {
     'theatre': {
       type: ['event'],
       exclusions (town) {
-        if (town.roll.wealth > 20) {
-          return true
-        }
+        return town.roll.wealth > 20
       },
       function (town) {
         return 'a theatre troupe advertising their show tonight with an impromptu preview of their performance.'
@@ -609,9 +579,7 @@ setup.townSquare = {
     'doomsayer': {
       type: ['event'],
       exclusions (town) {
-        if (town.roll.wealth > 20) {
-          return true
-        }
+        return town.roll.wealth > 20
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -626,9 +594,7 @@ setup.townSquare = {
     'guardFriend': {
       type: ['event'],
       exclusions (town) {
-        if (town.roll.military < 50) {
-          return true
-        }
+        return town.roll.military < 50
       },
       function (town) {
         const npc = setup.createNPC(town, {

@@ -15,14 +15,18 @@ setup.death = {
   cause: [
     // ______
     {
-      exclusions (town, npc) { if (npc.profession === 'surgeon') return true },
+      exclusions (town, npc) {
+        return npc.profession === 'surgeon'
+      },
       function (town, npc) {
         const text = `${npc.firstName} died from a disease caught from a patient while performing a surgery on them.`
         return text
       }
     },
     {
-      exclusions (town, npc) { if (setup.findProfession(town, npc).sector === 'construction') return true },
+      exclusions (town, npc) {
+        return setup.findProfession(town, npc).sector === 'construction'
+      },
       function (town, npc) {
         const text = `${npc.firstName} died in a workplace accident.`
         return text
@@ -36,7 +40,9 @@ setup.death = {
     //   }
     // },
     {
-      exclusions (town, npc) { if (setup.findProfession(town, npc).sector === 'arts') return true },
+      exclusions (town, npc) {
+        return setup.findProfession(town, npc).sector === 'arts'
+      },
       function (town, npc) {
         const text = `${npc.firstName} was killed in a freak accident at an art show.`
         return text
@@ -44,7 +50,9 @@ setup.death = {
     },
     {
       probability: 1,
-      exclusions (town, npc) { if (setup.findProfession(town, npc).sector === 'arts') return true },
+      exclusions (town, npc) {
+        return setup.findProfession(town, npc).sector === 'arts'
+      },
       function (town, npc) {
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass,
@@ -58,7 +66,9 @@ setup.death = {
     },
     {
       probability: 2,
-      exclusions (town, npc) { if (setup.findProfession(town, npc).sector === 'government and law') return true },
+      exclusions (town, npc) {
+        return setup.findProfession(town, npc).sector === 'government and law'
+      },
       function (town, npc) {
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass
@@ -70,7 +80,9 @@ setup.death = {
     },
     {
       probability: 50,
-      exclusions (town, npc) { if (['settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)) return true },
+      exclusions (town, npc) {
+        return ['settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)
+      },
       function (town, npc) {
         const text = `${npc.firstName} died from ${['exposure', 'cancer', 'a plague', 'diptheria', 'cholera', 'dysentery', 'malaria', 'the flu', 'typhoid fever', 'smallpox', 'leprosy'].seededrandom()}.`
         return text
@@ -78,7 +90,9 @@ setup.death = {
     },
     {
       probability: 50,
-      exclusions (town, npc) { if (npc.hasClass === true) return true },
+      exclusions (town, npc) {
+        return npc.hasClass === true
+      },
       function (town, npc) {
         const text = `${npc.firstName} ${['died from', 'was killed by'].seededrandom()} ${['a monster', 'a trap in a dungeon', 'a rival adventuring party', 'some goblins', 'a kobold ambush', 'a powerful foe', 'a wild animal', 'a dragon', 'a particularly sneaky mimic'].seededrandom()}`
         setup.death.whileAdventuring(town, npc, text)
@@ -87,7 +101,9 @@ setup.death = {
     },
     {
       probability: 30,
-      exclusions (town, npc) { if (['settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)) return true },
+      exclusions (town, npc) {
+        return ['settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)
+      },
       function (town, npc) {
         const text = `${npc.firstName} died in ${['a riot', 'a war', 'a religious crusade', 'a raid', 'a mugging'].seededrandom()}.`
         return text
@@ -95,7 +111,9 @@ setup.death = {
     },
     {
       probability: 30,
-      exclusions (town, npc) { if (['young adult', 'settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)) return true },
+      exclusions (town, npc) {
+        return ['young adult', 'settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)
+      },
       function (town, npc) {
         const text = `${npc.firstName} died from an ${['infected arm', 'infected leg', 'infection', 'infection from a broken arm', 'infection from a broken leg'].seededrandom()}.`
         return text
@@ -103,7 +121,9 @@ setup.death = {
     },
     {
       probability: 50,
-      exclusions (town, npc) { if (npc.gender === 'woman') return true },
+      exclusions (town, npc) {
+        return npc.gender === 'woman'
+      },
       function (town, npc) {
         const text = `${npc.firstName} died during childbirth.`
         return text
@@ -111,7 +131,9 @@ setup.death = {
     },
     {
       probability: 90,
-      exclusions (town, npc) { if (['child'].includes(npc.ageStage)) return true },
+      exclusions (town, npc) {
+        return ['child'].includes(npc.ageStage)
+      },
       function (town, npc) {
         const text = `${npc.firstName} died from ${['falling from a tree', 'being trampled underfoot by a horse', 'the flu', 'cholera'].seededrandom()}.`
         return text

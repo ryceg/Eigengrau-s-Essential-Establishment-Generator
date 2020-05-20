@@ -107,9 +107,7 @@ setup.plothooks = {
   'The Zoo': {
     type: ['event'],
     exclusions (town) {
-      if (town.population > 4000 && town.wealth > 50) {
-        return true
-      }
+      return town.population > 4000 && town.wealth > 50
     },
     function (town) {
       return 'The city has a zoo filled with wondrous and dangerous creatures brought from far places. Just recently, some of the creatures escaped and now there is a royal reward for recovering the rare animals unharmed. How can this be done?'
@@ -171,9 +169,7 @@ setup.plothooks = {
       type: 'wizards'
     },
     exclusions (town) {
-      if (town.population > 3000 && town.roll.wealth < 90) {
-        return true
-      }
+      return town.population > 3000 && town.roll.wealth < 90
     },
     function (town) {
       const faction = setup.factionsForType(town, 'type', 'wizards')
@@ -328,9 +324,7 @@ setup.plothooks = {
   'The Umber Hulk': {
     type: ['event'],
     exclusions (town) {
-      if (town.population > 3500) {
-        return true
-      }
+      return town.population > 3500
     },
     function (town) {
       return 'As the PCs are travelling from one district to another they are confronted by a traffic jam. A building has fallen in and the umber hulk responsible is hiding, waiting for a snack to move near it.'
@@ -383,9 +377,7 @@ setup.plothooks = {
   'Hubert': {
     type: ['paper'],
     exclusions (town) {
-      if (town.population > 3000 || town.roll.magic > 70) {
-        return true
-      }
+      return town.population > 3000 || town.roll.magic > 70
     },
     function (town) {
       const faction = setup.factionsForType(town, 'type', 'wizards')
@@ -409,9 +401,7 @@ setup.plothooks = {
   'Guard The Garlic': {
     type: ['paper'],
     exclusions (town, npc) {
-      if (town.population > 500) {
-        return true
-      }
+      return town.population > 500
     },
     function (town) {
       const npc = setup.createNPC(town, {
@@ -670,9 +660,7 @@ setup.plothooks = {
   'Destroy The Bell': {
     type: ['paper'],
     exclusions (town, npc) {
-      if (town.population > 5000) {
-        return true
-      }
+      return town.population > 5000
     },
     function (town) {
       const npc = setup.createNPC(town, {
@@ -1392,9 +1380,7 @@ setup.plothooks = {
   'The Cock-Fight': {
     type: ['event'],
     exclusions (town) {
-      if (town.population < 500 && town.wealth < 10) {
-        return true
-      }
+      return town.population < 500 && town.wealth < 10
     },
     function (town) {
       const druid1 = setup.createNPC(town, {
