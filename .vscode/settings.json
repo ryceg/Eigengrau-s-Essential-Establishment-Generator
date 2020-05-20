@@ -4,15 +4,18 @@
   "highlight.maxMatches": 250,
   "highlight.regexes": {
     // Match things like $object.deep.value.
-    // "(\\$\\w+(\\.\\w+)*)": {
-    //   "filterFileRegex": ".*\\.(js|json|twee)$",
-    //   "decorations": [{ "color": "rgba(120, 180, 255)" }]
-    // },
-    // // Match things like <<print $name>>.
-    // // Respects line breaks.
-    // "(<<[\\s\\S]+?>>)": {
-    //   "filterFileRegex": ".*\\.(js|json|twee)$",
-    //   "decorations": [{ "color": "rgb(255, 200, 100)" }]
+    "(\\$\\w+(\\.\\w+)*)": {
+      "filterFileRegex": ".*\\.(js|json)$",
+      "decorations": [{ "color": "rgba(120, 180, 255)" }]
+    },
+    // Match things like <<print $name>>.
+    // Respects line breaks.
+    "(<<[\\s\\S]+?>>)": {
+      "filterFileRegex": ".*\\.(js|json)$",
+      "decorations": [{ "color": "rgb(255, 200, 100)" }]
     }
+  },
+  "files.associations": {
+    "*.twee": "sugarcube2"
   }
 }
