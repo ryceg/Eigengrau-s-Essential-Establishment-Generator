@@ -411,7 +411,7 @@ setup.misc = {
       physicalTrait: 'lashes on his back that have scarred over',
       trait: 'constantly forgets things, and has to write things down in his journal to be able to remember them properly.',
       greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave'],
-      dndClassOrigin: "I've been making a decent living hunting game, selling the pelts to the blacksmith for spare change. I'm searching for a cure to my memory decay- every day, I have to write more things down. I need to learn why these things are happening to me... To find out who or whatever the beast of shadows that stalks me is.",
+      professionOrigin: "I've been making a decent living hunting game, selling the pelts to the blacksmith for spare change. I'm searching for a cure to my memory decay- every day, I have to write more things down. I need to learn why these things are happening to me... To find out who or whatever the beast of shadows that stalks me is.",
       backgroundOrigin: "I was kidnapped by a cult at the age of 14. They used me in a ritual to summon an ancient being known as 'the beast of shadows'. Half-way through, guards rescued me. Things got better, and then got a lot worse- I woke speaking tongues, and found myself losing time. As my powers grew, so did my lost time, so I started to keep a journal. Nowadays I can barely remember more than a week into my past now.",
       owner: 'owner',
       calmTrait: 'unintentionally funny',
@@ -444,7 +444,7 @@ setup.misc = {
       idle: [],
       dndClass: 'wizard',
       background: 'sage',
-      dndClassOrigin: '',
+      professionOrigin: '',
       backgroundOrigin: '',
       note: "Galder Fendt is the wizard of /u/SomeHairyGuy, a Reddit user who suffered from advanced pelvic RMS. It's his wish that his character, Galder, be used in games around the world. #CreateAgainstCancer"
     },
@@ -478,7 +478,7 @@ setup.misc = {
       background: 'cultist',
       familyUnit: "Brugo's single father; Brugo has no clue who his mother was.",
       parentalLineage: "Brugo's father was an orc, and his mother a human. He doesn't know who she was, though.",
-      dndClassOrigin: 'Brugo has always liked fight. Brugo discover that being punched is most common pain among outsiders. So Brugo decide that is friendliest profession. Brugo tried other pains but outsiders were lot more scared of them. Brugo get respect for good punches for curious reason.',
+      professionOrigin: 'Brugo has always liked fight. Brugo discover that being punched is most common pain among outsiders. So Brugo decide that is friendliest profession. Brugo tried other pains but outsiders were lot more scared of them. Brugo get respect for good punches for curious reason.',
       backgroundOrigin: 'Brugo is Son of Gul, Leader of the Cult of Pain. Brugo is of age to be sent on the Pain Quest to discover new methods of pain. Brugo must etch a new scar in ritual mask for each new pain learned.',
       note: 'Brugo is the character of Patreon supporter NaviSaysListen.'
     }

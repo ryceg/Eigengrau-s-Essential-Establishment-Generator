@@ -1,15 +1,15 @@
 
 setup.createClass = function (npc) {
   console.log('assigning class traits to ' + npc.name + '...')
-  let dndClassOrigin
+  let professionOrigin
   let background
   let classWeapon
 
   if (npc.hasClass !== false && typeof setup.npcData.classTraits[npc.dndClass] !== 'undefined') {
-    dndClassOrigin = Array.isArray(setup.npcData.classTraits[npc.dndClass].dndClassOrigin)
-      ? setup.npcData.classTraits[npc.dndClass].dndClassOrigin.seededrandom()
-      : Array.isArray(setup.npcData.professionTraits[npc.profession].dndClassOrigin)
-        ? setup.npcData.professionTraits[npc.profession].dndClassOrigin.seededrandom()
+    professionOrigin = Array.isArray(setup.npcData.classTraits[npc.dndClass].professionOrigin)
+      ? setup.npcData.classTraits[npc.dndClass].professionOrigin.seededrandom()
+      : Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
+        ? setup.npcData.professionTraits[npc.profession].professionOrigin.seededrandom()
         : 'My circumstances kept me from doing more than being ' + setup.articles.output(npc.profession)
     background = Array.isArray(setup.npcData.classTraits[npc.dndClass].background)
       ? setup.npcData.classTraits[npc.dndClass].background.seededrandom()
@@ -22,8 +22,8 @@ setup.createClass = function (npc) {
         ? setup.npcData.professionTraits[npc.profession].weapon.seededrandom()
         : 'a dagger'
   } else if (npc.hasClass === false && typeof setup.npcData.professionTraits[npc.profession] !== 'undefined') {
-    dndClassOrigin = Array.isArray(setup.npcData.professionTraits[npc.profession].dndClassOrigin)
-      ? setup.npcData.professionTraits[npc.profession].dndClassOrigin.seededrandom()
+    professionOrigin = Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
+      ? setup.npcData.professionTraits[npc.profession].professionOrigin.seededrandom()
       : 'My circumstances kept me from doing more than being ' + setup.articles.output(npc.profession)
     background = Array.isArray(setup.npcData.professionTraits[npc.profession].background)
       ? setup.npcData.professionTraits[npc.profession].background.seededrandom()
@@ -33,7 +33,7 @@ setup.createClass = function (npc) {
       : 'a dagger'
   } else {
     console.log(npc.name + ' the ' + npc.dndClass + ' did not have a valid class.')
-    dndClassOrigin = 'My circumstances kept me from doing more than being ' + setup.articles.output(npc.profession)
+    professionOrigin = 'My circumstances kept me from doing more than being ' + setup.articles.output(npc.profession)
     background = 'commoner'
     classWeapon = 'a dagger'
   }
@@ -47,7 +47,7 @@ setup.createClass = function (npc) {
   //     return
   //   }
   // }
-  npc.dndClassOrigin = npc.dndClassOrigin || dndClassOrigin
+  npc.professionOrigin = npc.professionOrigin || professionOrigin
   npc.background = npc.background || background
   npc.weapon = npc.weapon || classWeapon
 

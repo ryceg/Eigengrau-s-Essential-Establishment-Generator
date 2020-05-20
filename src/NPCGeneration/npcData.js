@@ -2196,7 +2196,7 @@ setup.npcData = {
   },
   classTraits: {
     barbarian: {
-      dndClassOrigin: [
+      professionOrigin: [
         'My devotion to my people lifted me in battle, and I learned to control my bloodlust.',
         'The spirits of my ancestors called out to me to complete a task, so I took up the way of the barbarian.',
         'I lost control in battle one day, as if something else was guiding me as I slaughtered my enemies.',
@@ -2209,7 +2209,7 @@ setup.npcData = {
       'wealth' () { return (dice('2d4') * 1000) }
     },
     bard: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I awakened my latent bardic abilities through trial and error.',
         'I was a gifted performer, and eventually attracted the attention of a legendary bard, who decided to teach me to further my talents into the realm of magic.',
         'I joined a society of scholars and orators, who helped teach me how to harness my music and turn it into magic.',
@@ -2222,7 +2222,7 @@ setup.npcData = {
       'wealth' () { return (dice('5d4') * 1000) }
     },
     cleric: {
-      dndClassOrigin: [
+      professionOrigin: [
         'My god called on me to serve the faith as a cleric, so I abandoned my previous life, and set out for the nearest temple.',
         "I saw the injustice and horrors of the world, and felt that I couldn't live without trying to do something about it.",
         "My god gave me a sign that I was needed to do something important, some time in the future. I'm still waiting for my time to serve, but when it happens, I'll be ready.",
@@ -2234,7 +2234,7 @@ setup.npcData = {
       'wealth' () { return (dice('5d4') * 1000) }
     },
     druid: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I found a place among a group of druids after I fled a catastrophe.',
         'I saw too much devastation in the wilds where I used to play for days as a child, and decided to protect the wilderness.',
         'I have always had an affinity with animals, so I decided to explore it, and found that I had a gift to converse with them.',
@@ -2246,7 +2246,7 @@ setup.npcData = {
       'wealth' () { return (dice('2d4') * 1000) }
     },
     fighter: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I wanted to hone my combat skills, and so I joined a war college',
         'I  grew up fighting, and I refined my talents by defending myself against people who crossed me.',
         'I squired for a knight, who taught me how to fight, care for my steed, and conduct myself with honor. I decided to take up that path for myself.',
@@ -2259,7 +2259,7 @@ setup.npcData = {
       'wealth' () { return (dice('5d4') * 1000) }
     },
     monk: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I stumbled into a portal and took refuge in a strange monastery, where I learned how to defend mysel fagainst the forces of darkness.',
         'I was chosen to study at a secluded monastery, where I learnt the fundamental techniques to set me on the path to eventual mastery.',
         'I sought out the instruction of a monk to gain a greater understanding of my world, and my purpose in it.',
@@ -2272,7 +2272,7 @@ setup.npcData = {
       'wealth' () { return (dice('2d4') * 100) }
     },
     paladin: {
-      dndClassOrigin: [
+      professionOrigin: [
         'A magical being appeared before me, and called on me to undertake a holy quest.',
         'One of my ancestors left a holy quest unfulfilled, so I seek to rectify this.',
         'The world is a dark and terrible place. I seek to be a beacon of hope for those that may not have the courage to go on otherwise.',
@@ -2285,7 +2285,7 @@ setup.npcData = {
       'wealth' () { return (dice('5d4') * 1000) }
     },
     ranger: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I always had a way with animals, and was able to calm them with a gentle touch and soothing word.',
         'I found purpose while I was honing my hunting skills by bringing dangerous beasts down from the outskirts of civilisation.',
         'I suffer from wanderlust, so I found the life of the ranger to be freeing; to me, wandering without a fixed home is freeing.',
@@ -2297,7 +2297,7 @@ setup.npcData = {
       'wealth' () { return (dice('4d4') * 1000) }
     },
     rogue: {
-      dndClassOrigin: [
+      professionOrigin: [
         "I've always been nimble and quick of wit, so I decided to use those talents to help me make my way in the world.",
         'A thief wronged me, so I focused my training on mastering those skills to better combat foes of that sort.',
         "Know thy enemy. I aim to learn everything there is to know about the Thieves' guild, and then I'll bring it all tumbling down.",
@@ -2311,7 +2311,7 @@ setup.npcData = {
       'wealth' () { return (dice('4d4') * 1000) }
     },
     sorcerer: {
-      dndClassOrigin: [
+      professionOrigin: [
         'When I was born, all of the milk turned to cheese. My family is convinced that it was a harbinger for my powers.',
         'I suffered a terrible strain, which brought forth my dormant powers. I have fought to control it ever since.',
         "My immediate family never spoke of my ancestors, and when I asked, they would change the subject. It wasn't until I started displaying strange talents that the full truth of my heritage came out.",
@@ -2323,7 +2323,7 @@ setup.npcData = {
       'wealth' () { return (dice('3d4') * 1000) }
     },
     warlock: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I was examining a strange tome I found in an abandoned library when the entity that would become my patron suddenly appeared before me.',
         'While wandering through a forbidden place, I came across a magical entity, which offered to form a pact with me.',
         'I stumbled into the clutches of my patron after I accidentally stepped through a magical doorway.',
@@ -2336,7 +2336,7 @@ setup.npcData = {
       'wealth' () { return (dice('4d4') * 1000) }
     },
     wizard: {
-      dndClassOrigin: [
+      professionOrigin: [
         'An old wizard chose me from among several candidates to serve an apprenticeship.',
         'When I became lost in a magical forest, a hedge wizard took me in, and taught me the fundamentals of magic so that I could navigate my way out.',
         'I grew up listening to tales of great wizards that could change reality with a flick of their hand. I knew from a young age that I wanted to hold that sort of power.',
@@ -2870,7 +2870,7 @@ setup.npcData = {
   },
   professionTraits: {
     bartender: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I came across $tavern.name as a youngster, and spent many a night here drinking with my buddies. When the old owner died, it went to auction, and I tried to kep the dream alive by buying it. One by one all my friends grew out of it, or moved away.',
         "Before I ran $tavern.name, it was my dad's. I kept the family business going to support him in his old age.",
         "When I first got to $town.name, it was practically a ghost town. We built $tavern.name as a social hub for the folk, and it's now what it is today.",
@@ -2885,7 +2885,7 @@ setup.npcData = {
       wealth: 1400
     },
     blacksmith: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I was an apprentice in $smithy.name, and took up the title when my old master passed on.',
         'I was a tinkerer, and just drifted from town to town doing odd jobs for people until I came to $town.name. I fell in love with the place, and then settled here.',
         "I followed my love here, set up shop, and now we're happily married, with a steady job and a roof over our heads.",
@@ -2898,7 +2898,7 @@ setup.npcData = {
       wealth: 2400
     },
     merchant: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I grew up poor. I learnt to hock stuff off to feed myself.',
         'Some people just have the gift of the gab- I just have a talent for sales.',
         'I love gold. Unashamedly, I really do. So what? Selling is an honest living. Sue me.',
@@ -2909,7 +2909,7 @@ setup.npcData = {
       wealth: 2400
     },
     politician: {
-      dndClassOrigin: [
+      professionOrigin: [
         'I dared to dream that I could change the world, and rise above the others.',
         'I became furious with the corruption in politics, so I decided to enter the rat-race myself.',
         'I thought that I could do a better job than the last guy. I was right.'

@@ -36,12 +36,12 @@ setup.exportNPC = function (npc) {
         appearance: `${npc.name} is ${setup.articles.output(npc.age)} ${npc.malefemale} ${npc.race}. ${npc.heshe.toUpperFirst()} is ${npc.height} and ${npc.weight}, and has ${npc.eyes} eyes, with ${npc.skinColour} skin. The most notable physical trait of ${npc.firstName} is that ${npc.heshe} has ${npc.physicalTrait}.`
       },
       bio: `${npc.name} is ${setup.articles.output(npc.age)} ${npc.malefemale} ${npc.race}. ${npc.heshe.toUpperFirst()} is ${npc.height} and ${npc.weight}, and has ${npc.eyes} eyes, with ${npc.skinColour} skin. The most notable physical trait of ${npc.firstName} is that ${npc.heshe} has ${npc.physicalTrait}.
-    I was born ${npc.birthplace}, and was raised by ${npc.familyUnit}. I had ${setup.articles.output(npc.familyLifestyle)} upbringing in ${npc.familyHome}. ${npc.childhoodMemories}. ${npc.backgroundOrigin} ${npc.dndClassOrigin}.
+    I was born ${npc.birthplace}, and was raised by ${npc.familyUnit}. I had ${setup.articles.output(npc.familyLifestyle)} upbringing in ${npc.familyHome}. ${npc.childhoodMemories}. ${npc.backgroundOrigin} ${npc.professionOrigin}.
     `,
       gmnotes: `${npc.name} ${npc.trait}. ${npc.heshe.toUpperFirst()} is ${npc.calmTrait} when calm, and ${npc.stressTrait} when stressed. ${npc.personalityTrait}`,
       inplayerjournals: 'all',
       notes: {
-        backstory: `I was born ${npc.birthplace}, and was raised by ${npc.familyUnit}. I had ${setup.articles.output(npc.familyLifestyle)} upbringing in ${npc.familyHome}. ${npc.childhoodMemories}. ${npc.backgroundOrigin} ${npc.dndClassOrigin}.`
+        backstory: `I was born ${npc.birthplace}, and was raised by ${npc.familyUnit}. I had ${setup.articles.output(npc.familyLifestyle)} upbringing in ${npc.familyHome}. ${npc.childhoodMemories}. ${npc.backgroundOrigin} ${npc.professionOrigin}.`
       },
 
       cp: npc.wealth
