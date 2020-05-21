@@ -35,4 +35,4 @@ jobs:
       # Install and build:
       - run: yarn
       - run: yarn install-compiler
-      - run: yarn build
+      - run: sudo yarn build
