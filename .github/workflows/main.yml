@@ -47,7 +47,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      - uses: actions/upload-artifact@v2
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v2
         with:
           name: build-${{ github.sha }}
           path: ./gh-pages/**/*
