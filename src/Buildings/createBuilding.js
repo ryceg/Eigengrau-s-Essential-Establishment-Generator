@@ -31,7 +31,7 @@ setup.createBuilding = function (town, type, base) {
     roadName,
     roadType,
     get road () {
-      return this.roadName + ' ' + this.roadType
+      return `${this.roadName} ${this.roadType}`
     },
     set road (road) {
       const roads = road.toString().split(' ')
@@ -258,7 +258,7 @@ setup.createBuilding = function (town, type, base) {
     State.variables.buildings.push(building)
     // setup.townBinder(town, building, type)
   }
-  building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth, town.roll.wealth)
+  building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 
   // building.id = State.variables.buildings[State.variables.buildings.length - 1]
   // console.log(building)
