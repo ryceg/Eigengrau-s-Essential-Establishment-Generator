@@ -1,15 +1,8 @@
-const fs = require('fs')
 const path = require('path')
 const spawn = require('child_process').spawn
 const utils = require('./utils')
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
-
-if (!fs.existsSync(tweego)) {
-  utils.logError(`Missing file: ${tweego}`)
-  utils.logInfo("Please run 'yarn install-compiler' and try again.")
-  process.exit()
-}
 
 const args = [
   '--output=gh-pages/index.html',
