@@ -47,3 +47,7 @@ jobs:
   
       # Build:
       - run: yarn build
+
+      # Deploy to github pages.
+      - if: ${{ github.ref == 'master' && github.event_name == 'push' }}
+        run: yarn deploy
