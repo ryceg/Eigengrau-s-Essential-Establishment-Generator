@@ -29,10 +29,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.js": "eslint --fix"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.38",
