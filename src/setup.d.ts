@@ -20,7 +20,7 @@ interface Setup {
     }
   }
   alchemistModifiers(alchemist: any): any
-  createAlchemist(alchemist: any): boolean
+  createAlchemist(alchemist: any, opts:any): any
   createAlchemistName(alchemistFirstName: string): string
   createChemist(town: any): any
 }
