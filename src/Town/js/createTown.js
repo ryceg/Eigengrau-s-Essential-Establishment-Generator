@@ -105,7 +105,7 @@ setup.createTown = function (base) {
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
     get economicIdeology () {
-      console.log('Getting town economic ideology.')
+      console.log(`Getting town economic ideology - ${this._economicIdeology}`)
       return this._economicIdeology
     },
     set economicIdeology (value) {
@@ -114,7 +114,7 @@ setup.createTown = function (base) {
       Object.assign(this, setup.townData.economicIdeology[this._economicIdeology].descriptors)
     },
     get politicalSource () {
-      console.log('Getting town political source.')
+      console.log(`Getting town political source - ${this._politicalSource}`)
       return this._politicalSource
     },
     set politicalSource (value) {
@@ -122,7 +122,7 @@ setup.createTown = function (base) {
       this._politicalSource = value
     },
     get politicalIdeology () {
-      console.log('Getting town political ideology.')
+      console.log(`Getting town political ideology - ${this._politicalIdeology}`)
       return this._politicalIdeology
     },
     set politicalIdeology (value) {
