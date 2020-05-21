@@ -32,22 +32,22 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-yarn-
 
-      # Install dependencies:
-      - run: yarn
+      - name: Install dependencies
+        run: yarn
 
-      # Run tests:
-      - run: yarn test
+      - name: Run tests
+        run: yarn test
 
-      # Install twine compiler:
-      - run: yarn install-compiler
+      - name: Install the twine compiler
+        run: yarn install-compiler
       
-      # Fix permissions:
-      - name: Make tweego executable
+      - name: Fix permissions
         run: chmod +x ./.twine/tweego
   
-      # Build:
-      - run: yarn build
+      - name: Build
+        run: yarn build
 
       # Deploy to github pages.
-      - if: ${{ github.ref == 'master' && github.event_name == 'push' }}
+      - name: Deploy to GitHub pages
+        if: ${{ github.ref == 'master' && github.event_name == 'push' }}
         run: yarn deploy
