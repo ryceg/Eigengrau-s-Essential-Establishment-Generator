@@ -1,4 +1,36 @@
 if (!setup.townData) { setup.townData = {} }
+// object structure:
+// sv: num
+// synonyms: array, any words that should be filtered into it
+// type: string, one of the following values:
+//    family
+//    dndclass
+//    labourer
+//    recreation
+//    profession
+//    business
+// sector: string, one of the following values:
+//    family
+//    adventuring
+//    agriculture
+//    government and law
+//    science
+//    craftsmanship
+//    hospitality
+//    mining
+//    construction
+//    arts
+//    business
+//    communication
+//    religion
+//    magic
+//    military
+// description: string, something succinct.
+// dailyWage: num, expressed in copper
+// socialClass: string
+// socialClassRoll: function
+// professionOrigin: array
+
 setup.townData.professions = {
   'child': {
     sv: 10000,
@@ -265,7 +297,17 @@ setup.townData.professions = {
     description: 'pours drinks at taverns and other establishments.',
     dailyWage: 200,
     socialClass: 'peasantry',
-    socialClassRoll () { return 20 + dice(8, 6) }
+    socialClassRoll () { return 20 + dice(8, 6) },
+    professionOrigin: [
+      'I came across the tavern as a youngster, and spent many a night here drinking with my buddies. When the old owner died, it went to auction, and I tried to kep the dream alive by buying it. One by one all my friends grew out of it, or moved away.',
+      "Before I ran the tavern, it was my dad's. I kept the family business going to support him in his old age.",
+      "When I first got to $town.name, it was practically a ghost town. We built the tavern as a social hub for the folk, and it's now what it is today.",
+      'The old owner was a problem gambler, and when they auctioned off the tavern, I jumped at it.',
+      "The old owner thought that the tavern wasn't profitable. In the first six months of my stewardship, I turned it around, and have made it the best bloody pub in $town.name!",
+      "Running the tavern was the family business, and it was always going to be my lot in life. I'm not angry or disappointed or anything, but I would like to see the world one day, and it stops me from doing that.",
+      'I was just a kitchen hand when this place started. The owner and I worked through thick and thin, and when his daughter died, he had nobody to leave it to, except for me.',
+      "My parents bought this place as an investment. I don't know what they were thinking- when have you ever heard of a pub being profitable?"
+    ]
   },
   'barmaid': {
     sv: 450,
@@ -284,7 +326,15 @@ setup.townData.professions = {
     description: 'forges and repairs things in metal, including weapons, armor, utensils, etc.',
     dailyWage: 110,
     socialClass: 'commoner',
-    socialClassRoll () { return 50 + dice(8, 6) }
+    socialClassRoll () { return 50 + dice(8, 6) },
+    professionOrigin: [
+      'I was an apprentice in the smithy, and took up the title when my old master passed on.',
+      'I was a tinkerer, and just drifted from town to town doing odd jobs for people until I came to $town.name. I fell in love with the place, and then settled here.',
+      "I followed my love here, set up shop, and now we're happily married, with a steady job and a roof over our heads.",
+      "My father was a blacksmith before me, and then I took up the trade to make him proud. Or at least, I hope I've made him proud. He passed before I opened up shop.",
+      "I was an apprentice, and my old master bitterly despised me because my father married his love. I worked so hard to perfect my craft to impress him thinking that the issue was with me, and then the bastard had a heart attack. Left everything to her. What's my mum gonna do with a smithy?!",
+      'I spent a lot of time in the mountains with the Dwarves, and they taught me a thing or two while I was there.'
+    ]
   },
   "blacksmith's assistant": {
     sv: 800,
@@ -849,7 +899,13 @@ setup.townData.professions = {
     description: 'sells and trades goods.',
     dailyWage: 120,
     socialClass: 'commoner',
-    socialClassRoll () { return 50 + dice(8, 6) }
+    socialClassRoll () { return 50 + dice(8, 6) },
+    professionOrigin: [
+      'I grew up poor. I learnt to hock stuff off to feed myself.',
+      'Some people just have the gift of the gab- I just have a talent for sales.',
+      'I love gold. Unashamedly, I really do. So what? Selling is an honest living. Sue me.',
+      'I spent my youth selling whatever scraps I could find, never got tired of it.'
+    ]
   },
   'messenger': {
     sv: 1250,
@@ -1032,7 +1088,12 @@ setup.townData.professions = {
     description: 'holding or seeking office in government.',
     dailyWage: 800,
     socialClass: 'nobility',
-    socialClassRoll () { return 75 + dice(8, 6) }
+    socialClassRoll () { return 75 + dice(8, 6) },
+    professionOrigin: [
+      'I dared to dream that I could change the world, and rise above the others.',
+      'I became furious with the corruption in politics, so I decided to enter the rat-race myself.',
+      'I thought that I could do a better job than the last guy. I was right.'
+    ]
   },
   'prime minister': {
     sv: 4000,
@@ -1282,7 +1343,7 @@ setup.townData.professions = {
     sv: 550,
     synonyms: ['ship worker', 'dock worker'],
     type: 'labourer',
-    sector: 'labour',
+    sector: 'agriculture',
     description: 'loads and unloads cargo from ships.',
     dailyWage: 80,
     socialClass: 'peasantry',
@@ -1318,7 +1379,7 @@ setup.townData.professions = {
   'street sweeper': {
     sv: 450,
     type: 'labourer',
-    sector: 'labour',
+    sector: 'government and law',
     description: 'cleans streets of a town.',
     dailyWage: 60,
     socialClass: 'paupery',
@@ -1498,7 +1559,7 @@ setup.townData.professions = {
   'wetnurse': {
     sv: 350,
     type: 'labourer',
-    sector: 'labour',
+    sector: 'family',
     description: "a woman employed to suckle another woman's child.",
     dailyWage: 90,
     socialClass: 'peasantry',
@@ -1836,7 +1897,7 @@ setup.townData.professions = {
   'athlete': {
     sv: 500,
     type: 'profession',
-    sector: 'labourer',
+    sector: 'arts',
     description: 'proficient in sports and other forms of physical exercise.',
     dailyWage: 130,
     socialClass: 'commoner',
@@ -3237,7 +3298,7 @@ setup.townData.professions = {
   'porter': {
     sv: 3000,
     type: 'profession',
-    sector: 'labourer',
+    sector: 'agriculture',
     description: 'carries luggage and other loads.',
     dailyWage: 70,
     socialClass: 'peasantry',
