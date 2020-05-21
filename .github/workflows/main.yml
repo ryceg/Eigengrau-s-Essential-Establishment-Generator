@@ -32,8 +32,13 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-yarn-
 
-      # Install:
+      # Install dependencies:
       - run: yarn
+
+      # Run tests:
+      - run: yarn test
+
+      # Install twine compiler:
       - run: yarn install-compiler
       
       # Fix permissions:
