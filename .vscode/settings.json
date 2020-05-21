@@ -20,5 +20,6 @@
     "files.associations": {
       "*.twee": "sugarcube2"
     }
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
