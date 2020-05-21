@@ -23,18 +23,30 @@ downloadAndExtract(tweegoLink, utils.tweegoZip).then(() => {
 
 function downloadAndExtract (link, filePath) {
   return new Promise((resolve, reject) => {
-    http
-      .get(link, response => {
-        if (response.statusCode !== 200) {
-          return reject(new Error('Download error!'))
-        }
+    http.get(link, request).on('error', utils.logError)
 
+    function request (response) {
+      // Recursively follow potential redirects.
+      if (response.statusCode === 302) {
+        http.get(response.headers.location, request)
+        return
+      }
+
+      if (response.statusCode === 200) {
         const writeStream = fs.createWriteStream(filePath)
         response.pipe(writeStream)
-        writeStream.on('error', () => reject(new Error('Could not write file to disk.')))
-        writeStream.on('finish', () => writeStream.close(unzip))
-      })
-      .on('error', utils.logError)
+        writeStream.on('error', () => {
+          reject(new Error('Could not write file to disk.'))
+        })
+        writeStream.on('finish', () => {
+          writeStream.close()
+          unzip()
+        })
+        return
+      }
+
+      return reject(new Error(`Download error: ${response.statusCode}`))
+    }
 
     function unzip () {
       yauzl.open(filePath, { lazyEntries: true }, (error, zip) => {
@@ -66,7 +78,7 @@ function unzipEntry (zip, entry) {
 
 function getTweegoLink () {
   const platform = utils.links.tweego[process.platform]
-  const link = platform[process.arch] || platform['x86']
+  const link = platform[process.arch] || platform.x86
   return link
 }
 
