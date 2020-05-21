@@ -74,7 +74,7 @@ setup.generalStoreRenders = function (generalStore) {
     ].reverse()
   }
   // actually add attributes to store object
-  for (const key of attributes) {
+  for (const key in attributes) {
     const array = attributes[key]
     generalStore[key] = array[0][1] // default value
     for (const [num, descript] of array) { // update value
