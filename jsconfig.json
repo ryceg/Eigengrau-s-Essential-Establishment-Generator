@@ -4,7 +4,6 @@
     "module": "none",
     "target": "esnext",
     "lib": ["dom", "esnext"],
-    "strict": true
   },
   "exclude": ["node_modules"]
 }
