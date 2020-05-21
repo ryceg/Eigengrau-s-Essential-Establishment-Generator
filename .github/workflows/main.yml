@@ -52,8 +52,3 @@ jobs:
         with:
           name: build-${{ github.sha }}
           path: ./gh-pages/**/*
-
-      # Deploy to github pages.
-      - name: Deploy to GitHub pages
-        if: ${{ github.ref == 'master' && github.event_name == 'push' }}
-        run: yarn deploy
