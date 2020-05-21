@@ -1,5 +1,8 @@
 {
-  "deepscan.enable": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "editor.formatOnSave": false,
   "highlight.maxMatches": 250,
   "highlight.regexes": {
@@ -13,9 +16,9 @@
     "(<<[\\s\\S]+?>>)": {
       "filterFileRegex": ".*\\.(js|json)$",
       "decorations": [{ "color": "rgb(255, 200, 100)" }]
+    },
+    "files.associations": {
+      "*.twee": "sugarcube2"
     }
-  },
-  "files.associations": {
-    "*.twee": "sugarcube2"
   }
 }

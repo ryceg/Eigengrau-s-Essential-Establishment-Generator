@@ -8,6 +8,7 @@
     "no-var": "warn",
     "no-undef": "off",
     "prefer-const": "warn",
+    "prefer-template": "warn",
     "object-shorthand": ["warn", "always"],
     "quote-props": ["warn", "consistent-as-needed"]
   }
