@@ -1,25 +1,35 @@
+const fs = require('fs')
 const path = require('path')
 const spawn = require('child_process').spawn
 const utils = require('./utils')
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
-const watch = process.argv.includes('--watch')
+
+if (!fs.existsSync(tweego)) {
+  utils.logError(`Missing file: ${tweego}`)
+  utils.logInfo("Please run 'yarn install-compiler' and try again.")
+  process.exit()
+}
+
+const args = [
+  '--output=gh-pages/index.html',
+  './src',
+  '--head=./main.ejs'
+]
+
+if (process.argv.includes('--watch')) {
+  args.push('--watch')
+}
 
 // Run tweego with arguments.
-const tweegoProcess = spawn(
-  tweego,
-  [
-    '--output=gh-pages/index.html',
-    './src',
-    '--head=./main.ejs',
-    watch && '--watch'
-  ]
-)
+const tweegoProcess = spawn(tweego, args)
 
 // Log messages from the tweego process.
 utils.logClear()
 tweegoProcess.stderr.on('data', data => {
-  data.toString().split('\n').forEach(message => {
+  const messages = data.toString().split('\n')
+
+  for (const message of messages) {
     if (message.match(/^warning:\s+.*/)) {
       utils.logWarning(message)
       return
@@ -31,5 +41,5 @@ tweegoProcess.stderr.on('data', data => {
     }
 
     utils.logAction(message)
-  })
+  }
 })
