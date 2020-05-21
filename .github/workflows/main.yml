@@ -38,7 +38,7 @@ jobs:
       
       # Fix permissions:
       - name: Make tweego executable
-        run: chmod +x ./twine/tweego
+        run: chmod +x ${{ runner.temp }}/twine/tweego
   
       # Build:
       - run: yarn build
