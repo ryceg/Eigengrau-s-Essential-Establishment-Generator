@@ -1,6 +1,7 @@
 // Attaches itself to the *global* node object.
 global.setup = {}
 global.random = (min, max) => { return (min + max) / 2 } // mock random global func to be deterministic
+// @ts-ignore
 require('../src/GeneralStore/JS/generalStoreRenders')
 
 const store = {
