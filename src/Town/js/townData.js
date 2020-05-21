@@ -955,7 +955,7 @@ setup.townData = {
       "as the group is stopped, a particularly gaunt half-elf starts measuring one of the party's arms and legs with a marked string. If permitted, he takes measurements for the entire party. He is an undertaker.",
       'a group of teenage girls are performing a strenuous dance routine on the street corner while a scarred halfling limps around taking donations.',
       'you notice a WaNTED poster with your face on it. The name listed, however, is Vhargle the Black; and the crime is desecration of a holy site.',
-      'everyone in this town keeps trying to sell you everything imaginable, but they aLL make a point that they will not, under any circumstances, be selling you their hair. Not that you ever asked.',
+      'everyone in this town keeps trying to sell you everything imaginable, but they all make a point that they will not, under any circumstances, be selling you their hair. Not that you ever asked.',
       "an old man with piercing blue eyes stops you. He is clearly starving to death. He holds up a purse bulging with coins. 'Does this belong to you?'",
       "a small girl is crying in the road. She looks lost. If asked, her father told her to wait here for him while he went into the pub 'for a minute'. That was six hours ago.",
       'a couple are having sex in a pile of straw near the road. They are loud, and a crowd is starting to gather.',
