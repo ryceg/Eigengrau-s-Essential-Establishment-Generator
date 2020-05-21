@@ -1,9 +1,10 @@
 
 setup.createAlchemist = function (town, opts = {}) {
-  const alchemist = (opts['newBuilding'] || setup.createBuilding)(town, 'alchemist')
+  const createBuilding = opts.newBuilding || setup.createBuilding
+  const alchemist = createBuilding(town, 'alchemist')
   console.groupCollapsed('Alchemist loading...')
   Object.assign(alchemist, {
-    chemist: (opts['newChemist'] || setup.createChemist)(town),
+    chemist: (opts.newChemist || setup.createChemist)(town),
     wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].seededrandom(),
     associatedTown: town.name,
     passageName: 'AlchemistOutput',
@@ -18,7 +19,7 @@ setup.createAlchemist = function (town, opts = {}) {
   alchemist.wealth = ''
   alchemist.expertise = ''
   setup.structure.create(town, alchemist)
-  alchemist.structure.alchemistDescriptor = alchemist.structure.material.wealth + ' ' + alchemist.structure.material.noun + ' ' + alchemist.wordNoun + ' with ' + setup.articles.output(alchemist.structure.roof.verb) + ' roof'
+  alchemist.structure.alchemistDescriptor = `${alchemist.structure.material.wealth} ${alchemist.structure.material.noun} ${alchemist.wordNoun} with ${setup.articles.output(alchemist.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(alchemist, setup.alchemist.rollData, propName)
