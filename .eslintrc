@@ -8,7 +8,7 @@
     "no-var": "warn",
     "no-undef": "off",
     "prefer-template": "warn",
-    "no-extra-parens": ["warn", "all"],
+    "no-extra-parens": ["warn", "all", { "nestedBinaryExpressions": false }],
     "object-shorthand": ["warn", "always"],
     "quote-props": ["warn", "consistent-as-needed"]
   }
