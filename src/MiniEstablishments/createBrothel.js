@@ -20,13 +20,13 @@ setup.createBrothel = function (town, tavern) {
     idle: setup.brothel.idle.seededrandom(),
     owner: Object.keys(setup.brothel.pimp).seededrandom()
   })
-  brothel.notableFeature = brothel.specialty + ' and being owned by ' + brothel.owner
+  brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`
 
   brothel.wealth = ''
   brothel.size = ''
   brothel.cleanliness = ''
   setup.structure.create(town, brothel)
-  brothel.structure.brothelDescriptor = setup.articles.output(brothel.structure.material.wealth) + ' ' + brothel.structure.material.noun + ' ' + brothel.wordNoun + ' with ' + setup.articles.output(brothel.structure.roof.verb) + ' roof'
+  brothel.structure.brothelDescriptor = `${setup.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${setup.articles.output(brothel.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)

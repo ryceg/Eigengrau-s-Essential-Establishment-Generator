@@ -47,37 +47,37 @@ setup.smithy = {
       {
         cleanliness: 80,
         wealth: 10,
-        note: "The smithy is fastidious, with a swept floor and tools stored neatly on the walls. There's a desk in the corner with a piece of parchment showing the current project's measurements, and the materials are neatly stored in bins. Clearly, whatever apprentice has been charged with upkeep of the smithy has taken their job very seriously. You can see that activity in " + smithy.name + ' is ' + smithy.activity + '.'
+        note: `The smithy is fastidious, with a swept floor and tools stored neatly on the walls. There's a desk in the corner with a piece of parchment showing the current project's measurements, and the materials are neatly stored in bins. Clearly, whatever apprentice has been charged with upkeep of the smithy has taken their job very seriously. You can see that activity in ${smithy.name} is ${smithy.activity}.`
       },
       {
         cleanliness: 70,
         wealth: 10,
-        note: 'You can see that activity in ' + smithy.name + ' is ' + smithy.activity + "; the smithy is very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently swept, and there's a surprising lack of grime. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy."
+        note: `You can see that activity in ${smithy.name} is ${smithy.activity}; the smithy is very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently swept, and there's a surprising lack of grime. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy.`
       },
       {
         cleanliness: 60,
         wealth: 10,
-        note: 'You can see that activity in ' + smithy.name + ' is ' + smithy.activity + '; the smithy is tidy, with a swept floor and things in some semblance of order. There are sheafs of paper on the bench, with hunks of metal neatly holding each stack down; clearly, they are specifications for different projects, and the materials needed for each of them.'
+        note: `You can see that activity in ${smithy.name} is ${smithy.activity}; the smithy is tidy, with a swept floor and things in some semblance of order. There are sheafs of paper on the bench, with hunks of metal neatly holding each stack down; clearly, they are specifications for different projects, and the materials needed for each of them.`
       },
       {
         cleanliness: 50,
         wealth: 10,
-        note: 'The smithy is reasonably tidy, with the usual dirt from ' + smithy.blacksmith.firstName + "'s current project on the floor. You can see that activity in " + smithy.name + 'is ' + smithy.activity + ". There are sheafs of parchment on the bench with measurements and specifications for projects, and there's a bucket of water still sizzling from a recent dousing in the corner."
+        note: `The smithy is reasonably tidy, with the usual dirt from ${smithy.blacksmith.firstName}'s current project on the floor. You can see that activity in ${smithy.name}is ${smithy.activity}. There are sheafs of parchment on the bench with measurements and specifications for projects, and there's a bucket of water still sizzling from a recent dousing in the corner.`
       },
       {
         cleanliness: 40,
         wealth: 10,
-        note: 'The smithy is somewhat messy, with the usual dirt and debris from ' + smithy.blacksmith.firstName + "'s current project on the floor; a half-hearted sweeping has been recently made, although all that did was push the dirt around the smithy to dirty up different parts of the floor. You can see that business in " + smithy.name + ' is ' + smithy.activity + '.'
+        note: `The smithy is somewhat messy, with the usual dirt and debris from ${smithy.blacksmith.firstName}'s current project on the floor; a half-hearted sweeping has been recently made, although all that did was push the dirt around the smithy to dirty up different parts of the floor. You can see that business in ${smithy.name} is ${smithy.activity}.`
       },
       {
         cleanliness: 30,
         wealth: 10,
-        note: 'The smithy is rather messy, with tools strewn around, and spare hunks of metal littering the floor. You can see several projects lying either abandoned or at least temporarily forgotten, coated in a layer of dust. The bench top is cluttered with hammers, and the anvil itself has a layer of grime on it, in desperate need of a cleaning. You can see that business in ' + smithy.name + ' is ' + smithy.activity + '.'
+        note: `The smithy is rather messy, with tools strewn around, and spare hunks of metal littering the floor. You can see several projects lying either abandoned or at least temporarily forgotten, coated in a layer of dust. The bench top is cluttered with hammers, and the anvil itself has a layer of grime on it, in desperate need of a cleaning. You can see that business in ${smithy.name} is ${smithy.activity}.`
       },
       {
         cleanliness: 20,
         wealth: 10,
-        note: "The smithy is very messy, with tools and offcuts strewn around, and blackened cobwebs lining the ceiling. There's a layer of dust and grime on the bench top, and the floor has not been swept in quite a while. Business in " + smithy.name + ' is ' + smithy.activity + '.'
+        note: `The smithy is very messy, with tools and offcuts strewn around, and blackened cobwebs lining the ceiling. There's a layer of dust and grime on the bench top, and the floor has not been swept in quite a while. Business in ${smithy.name} is ${smithy.activity}.`
       },
       {
         cleanliness: 10,

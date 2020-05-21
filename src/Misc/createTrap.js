@@ -176,6 +176,6 @@ setup.createTrap = function (base) {
       })
   }
 
-  trap.description = ['This trap is activated by ', 'This trap is triggered by '].seededrandom() + trap.trigger + '. When activated, ' + trap.signal + '. ' + ['The trap then delivers its payload: ', 'Then, ', 'And then, '].seededrandom() + trap.payload + '.'
+  trap.description = `${['This trap is activated by ', 'This trap is triggered by '].seededrandom() + trap.trigger}. When activated, ${trap.signal}. ${['The trap then delivers its payload: ', 'Then, ', 'And then, '].seededrandom()}${trap.payload}.`
   return trap
 }

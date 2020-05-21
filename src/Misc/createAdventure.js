@@ -52,7 +52,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'rescue ' + adventureGoalNPC.name + ', ' + setup.articles.output(adventureGoalNPC.raceNote) + ' who was captured and taken prisoner.'
+        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
       })
       break
     case 'discover the fate of a previous adventuring party.':
@@ -60,7 +60,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'rescue ' + adventureGoalNPC.name + ', ' + setup.articles.output(adventureGoalNPC.raceNote) + ' who was captured and taken prisoner.'
+        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
       })
       break
     case 'find an npc who disappeared in the area.':
@@ -68,7 +68,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'find ' + adventureGoalNPC.name + ', ' + setup.articles.output(adventureGoalNPC.raceNote) + ' who disappeared in the area.'
+        goal: `find ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who disappeared in the area.`
       })
       break
     case 'escort an npc to a destination.':
@@ -76,7 +76,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'escort ' + adventureGoalNPC.name + ', ' + setup.articles.output(adventureGoalNPC.raceNote) + ' who needs protection on the way to another place.'
+        goal: `escort ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who needs protection on the way to another place.`
       })
       break
     case 'discover the fate of a missing group of explorers.':
@@ -84,7 +84,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'discover the fate of ' + adventureGoalNPC.name + ' and ' + adventureGoalNPC.hisher + ' exploring party, who disappeared in the area.'
+        goal: `discover the fate of ${adventureGoalNPC.name} and ${adventureGoalNPC.hisher} exploring party, who disappeared in the area.`
       })
       break
     case 'break a prisoner out of a jail or prison camp.':
@@ -92,7 +92,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'rescue ' + adventureGoalNPC.name + ', ' + setup.articles.output(adventureGoalNPC.raceNote) + ' who was captured and taken prisoner.'
+        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
       })
       break
     case 'rescue a character, monster, or object from a natural or unnatural disaster.':
@@ -100,7 +100,7 @@ setup.createAdventure = function (town, base) {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: 'rescue ' + adventureGoalNPC.name + ', ' + setup.articles.output(adventureGoalNPC.raceNote) + ' who was caught in a natural disaster.'
+        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was caught in a natural disaster.`
       })
 
       switch (adventure.villain) {
@@ -123,7 +123,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: 'cultist called ' + adventureVillain.name
+            villain: `cultist called ${adventureVillain.name}`
           })
           break
         case 'humanoid conqueror':
@@ -131,7 +131,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: 'fearsome conqueror called ' + adventureVillain.name
+            villain: `fearsome conqueror called ${adventureVillain.name}`
           })
           break
         case 'humanoid seeking revenge':
@@ -139,7 +139,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: adventureVillain.raceNote + ' called ' + adventureVillain.name + ' hellbent on revenge.'
+            villain: `${adventureVillain.raceNote} called ${adventureVillain.name} hellbent on revenge.`
           })
           break
         case 'humanoid schemer seeking to rule':
@@ -147,7 +147,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: 'conniving' + adventureVillain.raceNote + 'called ' + adventureVillain.name + ' who seeks power'
+            villain: `conniving${adventureVillain.raceNote}called ${adventureVillain.name} who seeks power`
           })
           break
         case 'humanoid criminal mastermind':
@@ -155,7 +155,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: 'conniving' + adventureVillain.raceNote + 'called ' + adventureVillain.name + ' who seeks to build a criminal empire'
+            villain: `conniving${adventureVillain.raceNote}called ${adventureVillain.name} who seeks to build a criminal empire`
           })
           break
         case 'humanoid raider or ravager':
@@ -163,7 +163,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: 'fearsome raider called ' + adventureVillain.name
+            villain: `fearsome raider called ${adventureVillain.name}`
           })
           break
         case 'humanoid under a curse':
@@ -171,7 +171,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: adventureVillain.raceNote + ' called ' + adventureVillain.name + ' who was placed under a curse'
+            villain: `${adventureVillain.raceNote} called ${adventureVillain.name} who was placed under a curse`
           })
           break
         case 'misguided humanoid zealot':
@@ -179,7 +179,7 @@ setup.createAdventure = function (town, base) {
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
-            villain: 'misguided' + adventureVillain.raceNote + 'zealot called ' + adventureVillain.name
+            villain: `misguided${adventureVillain.raceNote}zealot called ${adventureVillain.name}`
           })
           break
         default:

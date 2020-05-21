@@ -11,6 +11,6 @@ setup.nameFaction = function (town, type) {
     `The ${town} ${factionData.main.seededrandom()}`,
     factionData.unique.seededrandom()
   ].seededrandom()
-  console.log(name + ' loaded')
+  console.log(`${name} loaded`)
   return name
 }

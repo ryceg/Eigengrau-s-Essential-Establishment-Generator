@@ -56,9 +56,9 @@ setup.familyRelationships = {
     let inverse = ''
     for (let i = 0; i < key.length - 1; i++) {
       if (key[i] === 'E') {
-        inverse = inverse + 'D'
+        inverse = `${inverse}D`
       } else if (key[i] === 'D') {
-        inverse = inverse + 'E'
+        inverse = `${inverse}E`
       } else {
         inverse = inverse + key[i]
       }

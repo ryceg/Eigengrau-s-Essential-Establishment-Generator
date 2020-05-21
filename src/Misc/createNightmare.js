@@ -89,11 +89,11 @@ setup.createNightmare = function (base) {
 
   const descriptor = [
     "has it's eyes and mouth sewn shut",
-    'is decaying. ' + figure.gender.toUpperFirst() + ' flesh and hair are falling to the ground',
+    `is decaying. ${figure.gender.toUpperFirst()} flesh and hair are falling to the ground`,
     'is wheezing loudly. You can feel your throat drying and it gets harder to breath',
-    'has blood slowly trickling from the corners of ' + figure.gender + ' mouth, then eyes, and finally it appears to be sweating blood',
-    figure.gender + ' chest bursts open and maggots and worms tumble out, writhing on the floor',
-    'has ' + figure.gender + ' throat slit. You see the wound open and close slightly with ' + figure.gender + ' breathing',
+    `has blood slowly trickling from the corners of ${figure.gender} mouth, then eyes, and finally it appears to be sweating blood`,
+    `${figure.gender} chest bursts open and maggots and worms tumble out, writhing on the floor`,
+    `has ${figure.gender} throat slit. You see the wound open and close slightly with ${figure.gender} breathing`,
     'has mismatching limbs. It looks to be sewn together using mismatching pieces',
     'has the lower body of an arachnid',
     'has fingernails that continue to grow. They look sharp',
@@ -103,27 +103,27 @@ setup.createNightmare = function (base) {
   const action = [
     'sprints at you',
     'begins walking slowly toward you',
-    'throws ' + figure.gender + ' head back and starts cackling wildly',
-    'tries to speak, but spiders begin pouring out of ' + figure.gender + ' mouth',
-    'catches fire at ' + figure.gender + ' feet and it quickly spreads up ' + figure.gender + ' body',
+    `throws ${figure.gender} head back and starts cackling wildly`,
+    `tries to speak, but spiders begin pouring out of ${figure.gender} mouth`,
+    `catches fire at ${figure.gender} feet and it quickly spreads up ${figure.gender} body`,
     'vanishes and reappears inches from your face',
-    'grows double ' + figure.gender + ' size and begins chasing you',
+    `grows double ${figure.gender} size and begins chasing you`,
     'grows horrible, black, leathery wings and begins flying towards you',
-    'begins systematically breaking ' + figure.gender + ' fingers while staring you in the eye',
-    'starts ripping the flesh from ' + figure.gender + ' face'
+    `begins systematically breaking ${figure.gender} fingers while staring you in the eye`,
+    `starts ripping the flesh from ${figure.gender} face`
   ].seededrandom()
 
   const wake = [
-    'inches from your face is the ' + figure.type,
-    'in the darkness you can see the outline of the ' + figure.type,
-    'the ' + figure.type + ' is sprinting towards you, roll initiative. [Player wakes as soon as the figure reaches them. All spells fail and attacks miss against the monster.]',
-    'the door to the room opens slowly and the ' + figure.type + ' walks in',
-    'the party member closest to them is replaced with the ' + figure.type,
-    'standing over you is the ' + figure.type,
-    'as you are about to go to sleep you blink and the ' + figure.type + ' is in front of you',
-    'the ' + figure.type + ' is walking toward you slowly. You cannot move',
-    'the ' + figure.type + ' is dragging away a party member. It looks up and makes eye contact with you'
+    `inches from your face is the ${figure.type}`,
+    `in the darkness you can see the outline of the ${figure.type}`,
+    `the ${figure.type} is sprinting towards you, roll initiative. [Player wakes as soon as the figure reaches them. All spells fail and attacks miss against the monster.]`,
+    `the door to the room opens slowly and the ${figure.type} walks in`,
+    `the party member closest to them is replaced with the ${figure.type}`,
+    `standing over you is the ${figure.type}`,
+    `as you are about to go to sleep you blink and the ${figure.type} is in front of you`,
+    `the ${figure.type} is walking toward you slowly. You cannot move`,
+    `the ${figure.type} is dragging away a party member. It looks up and makes eye contact with you`
   ].seededrandom()
 
-  return 'You find yourself in ' + location + '. You see ' + figure.prefix + ' ' + figure.type + ' which ' + descriptor + '. The ' + figure.type + ' ' + action + '. You wake up in a cold sweat. ' + wake.toUpperFirst()
+  return `You find yourself in ${location}. You see ${figure.prefix} ${figure.type} which ${descriptor}. The ${figure.type} ${action}. You wake up in a cold sweat. ${wake.toUpperFirst()}`
 }
