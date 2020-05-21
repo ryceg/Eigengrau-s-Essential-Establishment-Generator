@@ -32,7 +32,13 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-yarn-
 
-      # Install and build:
+      # Install:
       - run: yarn
       - run: yarn install-compiler
-      - run: sudo yarn build
+      
+      # Fix permissions:
+      - name: Make tweego executable
+        run: chmod +x ./twine/tweego
+  
+      # Build:
+      - run: yarn build
