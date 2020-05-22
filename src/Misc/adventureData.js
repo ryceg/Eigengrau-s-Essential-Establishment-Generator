@@ -67,19 +67,19 @@ setup.adventure = {
           hasClass: false,
           isThrowaway: true
         })
-        return 'rescue ' + setup.profile(npc) + ', a ' + npc.descriptor + ' who was captured and taken prisoner.'
+        return `rescue ${setup.profile(npc)}, a ${npc.descriptor} who was captured and taken prisoner.`
       },
       'discover the fate of a previous adventuring party.' (town, adventure) {
         const npc = setup.createNPC(town, {
           hasClass: true
         })
-        return 'discover the fate of ' + setup.profile(npc) + ' and ' + npc.hisher + ' adventuring party.'
+        return `discover the fate of ${setup.profile(npc)} and ${npc.hisher} adventuring party.`
       },
       'find an npc who disappeared in the area.' (town, adventure) {
         const npc = setup.createNPC(town, {
           hasClass: true
         })
-        return 'find ' + setup.profile(npc) + ', who disappeared in the area.'
+        return `find ${setup.profile(npc)}, who disappeared in the area.`
       },
       'slay a dragon or some other challenging monster.' (town, adventure) {
         return 'slay a dragon or some other challenging monster.'
@@ -117,7 +117,7 @@ setup.adventure = {
         const npc = setup.createNPC(town, {
           hasClass: true
         })
-        return 'escort ' + setup.profile(npc) + ' to a destination.'
+        return `escort ${setup.profile(npc)} to a destination.`
       },
       "arrive at a destination without being seen by the villain's forces." (town, adventure) {
         return "arrive at a destination without being seen by the villain's forces."
@@ -127,12 +127,12 @@ setup.adventure = {
       },
       'establish trade with a distant town.' (town, adventure) {
         const otherTown = setup.createTownName()
-        return 'establish trade with the distant town ' + otherTown + '.'
+        return `establish trade with the distant town ${otherTown}.`
       },
       'protect a caravan traveling to a distant town.' (town, adventure) {
         const caravan = setup.misc.caravan.create(town)
         const otherTown = setup.createTownName()
-        return 'protect a ' + caravan.tippyWord + ' traveling to the distant town ' + otherTown
+        return `protect a ${caravan.tippyWord} traveling to the distant town ${otherTown}`
       },
       'map a new land.' (town, adventure) {
         return ''
@@ -156,7 +156,7 @@ setup.adventure = {
           profession: 'hermit',
           isThrowaway: true
         })
-        return 'obtain information from a ' + setup.profile(npc, 'reclusive hermit.')
+        return `obtain information from a ${setup.profile(npc, 'reclusive hermit.')}`
       },
       'find an object that was lost in the wilds.' (town, adventure) {
         return 'find an object that was lost in the wilds.'
@@ -168,7 +168,7 @@ setup.adventure = {
           profession: 'explorer',
           isThrowaway: true
         })
-        return 'discover the fate of ' + setup.profile(npc) + ' and ' + npc.hisher + ' missing group of explorers.'
+        return `discover the fate of ${setup.profile(npc)} and ${npc.hisher} missing group of explorers.`
       },
       'pursue fleeing foes.' (town, adventure) {
         return 'pursue fleeing foes.'
@@ -192,11 +192,11 @@ setup.adventure = {
       },
       'retrieve an object from inside a secure location in a settlement.' (town, adventure) {
         const otherTown = setup.createTownName()
-        return 'retrieve an object from inside a secure location in the settlement ' + otherTown + '.'
+        return `retrieve an object from inside a secure location in the settlement ${otherTown}.`
       },
       'retrieve an object from a caravan.' (town, adventure) {
         const caravan = setup.misc.caravan.create(town)
-        return 'retrieve an object from a ' + caravan.tippyWord + '. '
+        return `retrieve an object from a ${caravan.tippyWord}. `
       },
       'salvage an object or goods from a lost vessel or caravan.' (town, adventure) {
         return 'salvage an object or goods from a lost vessel or caravan.'
@@ -298,7 +298,7 @@ setup.adventure = {
     },
     "retrieve a stolen item in the villain's possession." (town, adventure) {
       if (adventure.villain.height) {
-        return 'retrieve a stolen item in ' + setup.profile(adventure.villain) + "'s possession."
+        return `retrieve a stolen item in ${setup.profile(adventure.villain)}'s possession.`
       } else {
         return "retrieve a stolen item in the villain's possession."
       }
@@ -307,19 +307,19 @@ setup.adventure = {
       const npc = setup.createNPC({
         isThrowaway: true
       })
-      return 'receive information from ' + setup.profile(npc) + ' who is in the area.'
+      return `receive information from ${setup.profile(npc)} who is in the area.`
     },
     'rescue a captive.' (town, adventure) {
       const npc = setup.createNPC({
         isThrowaway: true
       })
-      return 'rescue the captive ' + setup.profile(npc) + '.'
+      return `rescue the captive ${setup.profile(npc)}.`
     },
     'discover the fate of a missing npc.' (town, adventure) {
       const npc = setup.createNPC({
         isThrowaway: true
       })
-      return 'discover the fate of the missing ' + setup.profile(npc) + '.'
+      return `discover the fate of the missing ${setup.profile(npc)}.`
     },
     'slay a specific monster.' (town, adventure) {
       return 'slay a specific monster.'

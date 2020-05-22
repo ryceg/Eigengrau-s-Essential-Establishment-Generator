@@ -103,32 +103,32 @@ setup.createGeneralStoreName = function (town, generalStore) {
 
   switch (roll) {
     case 1:
-      generalStore.name = 'The ' + adjective + ' ' + noun
+      generalStore.name = `The ${adjective} ${noun}`
       break
     case 2:
-      generalStore.name = generalStore.shopkeep.firstName + ' and ' + family.toUpperFirst()
+      generalStore.name = `${generalStore.shopkeep.firstName} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, generalStore.shopkeep, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.shopkeep.key])
       break
     case 3:
-      generalStore.name = 'The ' + noun + ' and ' + family.toUpperFirst()
+      generalStore.name = `The ${noun} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, generalStore.shopkeep, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.shopkeep.key])
       break
     case 4:
-      generalStore.name = 'The ' + adjective + ' ' + rider
+      generalStore.name = `The ${adjective} ${rider}`
       break
     case 5:
-      generalStore.name = 'The ' + adjective + ' ' + noun
+      generalStore.name = `The ${adjective} ${noun}`
       break
     case 6:
-      generalStore.name = generalStore.shopkeep.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", "'s " + rider].seededrandom()
+      generalStore.name = generalStore.shopkeep.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].seededrandom()
       break
     case 7:
-      generalStore.name = generalStore.shopkeep.firstName + "'s " + adjective + ' ' + rider
+      generalStore.name = `${generalStore.shopkeep.firstName}'s ${adjective} ${rider}`
       break
     default:
-      generalStore.name = 'The ' + adjective + " Adventurer's Store"
+      generalStore.name = `The ${adjective} Adventurer's Store`
       break
   }
   return generalStore

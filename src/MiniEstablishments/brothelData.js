@@ -182,9 +182,9 @@ setup.brothel = {
     'the scent of lilac perfume in the air',
     'the scent of ginger and cinnamon hanging in the air',
     'the scent of roses in the air',
-    `scented candles burning cheerily on a counter. The smell of <<print setup.brothel.brothelScents.random()>> wafts from where the candles burn`,
+    'scented candles burning cheerily on a counter. The smell of <<print setup.brothel.brothelScents.random()>> wafts from where the candles burn',
 
-    'the soft ' + ['red', 'orange', 'golden', 'dark blue', 'blue', 'indigo', 'violet', 'jade', 'green', 'purple', 'maroon', 'pink'].random() + ' glow from a shaded lamp in the room',
+    `the soft ${['red', 'orange', 'golden', 'dark blue', 'blue', 'indigo', 'violet', 'jade', 'green', 'purple', 'maroon', 'pink'].random()} glow from a shaded lamp in the room`,
 
     'a lamp burning dimly in the corner of the room',
     'a statue of two figures kissing in the corner of the room',
@@ -207,7 +207,7 @@ setup.brothel = {
     'several deep shouts of pleasure from a distant room',
     'an eclectic collection of shoddy furniture strewn around the room',
     'an expensive looking collection of high class furniture laid about the room',
-    'a rather distasteful tapestry hanging on the wall depicting ' + ['a rather lewd act', 'a woman with both breasts hanging out', 'a man with his bits hanging out', 'some sort of sexual story', 'the greatest sexual deeds of the brothel owner'].random(),
+    `a rather distasteful tapestry hanging on the wall depicting ${['a rather lewd act', 'a woman with both breasts hanging out', 'a man with his bits hanging out', 'some sort of sexual story', 'the greatest sexual deeds of the brothel owner'].random()}`,
     'the smell of sex lingering in the air',
 
     'the whole place smells oddly of ' + '<<print setup.brothel.brothelScents.random()>>',
@@ -233,10 +233,10 @@ setup.brothel = {
     'a small group of women eyeing up some men in the corner',
     "a board covered in pictures and names. It's all the different prostitutes currently available",
     'a nude bard stands on a small stage in one corner singing quite the raunchy song for the people in the room',
-    'a bard clad in only his undergarments standing in one corner playing ' + [
+    `a bard clad in only his undergarments standing in one corner playing ${[
       'a sweet tune on a lute', 'a beat on a small wooden box', 'an off-key song on a lute', 'a bitter tune on a harp',
       'an interesting song on a sitar', 'a merry tune on a flute', 'a quick beat on a pair of drums', 'a fine song on a fiddle'
-    ].random() + ' for the brothel patrons',
+    ].random()} for the brothel patrons`,
     'several pieces of pottery with very vulgar acts painted on them',
     'a great many nude statues placed all around the room'
   ],
@@ -246,10 +246,10 @@ setup.brothel = {
     'sitting, with a piece of bread in hand',
     'sitting, mug in hand',
     'casually looking over a letter',
-    'pouring over a book titled ' + [
+    `pouring over a book titled ${[
       'The Lustful Practice', 'Helpful Harlot Hints', "From Rags to Wenches: A Pimp's Trip to the Top", 'Glory Holes', 'Venus and Adonis', 'The Seven Beauties',
       'Sappho and the Other Raunchy Poets', 'The Complete Works of Archilochus', 'Poetica Erotica', '50 Positions to Make Him Drop his Coin Sack', 'Sex and Sorcery', 'Toys for Boys'
-    ].random(),
+    ].random()}`,
     'applying a generous layer of powdered makeup',
     'spraying a copious amount of ' + '<<print setup.brothel.brothelScents.random()>>' + ' scented perfume',
     'laying in a particularly plush looking ' + '<<print setup.brothel.brothelColours.random()>>' + ' chaise lounge',
@@ -356,7 +356,7 @@ setup.brothel = {
       Object.assign(harlotTraits, setup.brothel.harlot.type[harlotType])
       const harlot = setup.createNPC(town, harlotTraits)
       setup.createRelationship(town, harlot, State.variables.npcs[brothel.pimp.key], 'employer', 'employee')
-      return 'This harlot is ' + harlotType + ' called ' + setup.profile(harlot) + '. She has ' + readout.feature + ' and is particularly good at ' + readout.skill + '. However, she has ' + harlot.physicalTrait + ', which is ' + readout.flawSeverity + '. She is looking to ' + readout.looks + '.'
+      return `This harlot is ${harlotType} called ${setup.profile(harlot)}. She has ${readout.feature} and is particularly good at ${readout.skill}. However, she has ${harlot.physicalTrait}, which is ${readout.flawSeverity}. She is looking to ${readout.looks}.`
     },
     type: {
       'a veteran who may have been beautiful': {

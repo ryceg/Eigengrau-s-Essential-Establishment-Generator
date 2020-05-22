@@ -50,42 +50,42 @@ setup.alchemist = {
       {
         cleanliness: 80,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + ' is an extremely clean shop. Sheafs of paper are stacked in piles neatly, with recipes being used currently carefully placed on stands. The typical chemical burns that stain most alchemist shops are nowhere to be found.'
+        note: `Looking around, ${alchemist.name} is an extremely clean shop. Sheafs of paper are stacked in piles neatly, with recipes being used currently carefully placed on stands. The typical chemical burns that stain most alchemist shops are nowhere to be found.`
       },
       {
         cleanliness: 70,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + ' is a very clean shop (as far as alchemist shops go). There are sheafs of paper, presumably recipes, neatly stacked on benches away from the ominous bubbling of pots that are brewing new concoctions.'
+        note: `Looking around, ${alchemist.name} is a very clean shop (as far as alchemist shops go). There are sheafs of paper, presumably recipes, neatly stacked on benches away from the ominous bubbling of pots that are brewing new concoctions.`
       },
       {
         cleanliness: 60,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + " is pretty clean, by alchemical standards. There's a decent sense of order, and sheafs of paper are for the most part kept away from the pots and jugs of strangely coloured brews that stand in a line on the desk."
+        note: `Looking around, ${alchemist.name} is pretty clean, by alchemical standards. There's a decent sense of order, and sheafs of paper are for the most part kept away from the pots and jugs of strangely coloured brews that stand in a line on the desk.`
       },
       {
         cleanliness: 50,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + " is as clean as you'd expect for a shop that deals with magical, often volatile chemicals. There's some sense of order, with papers (presumably recipes) kept in stacks, some of them concerningly close to the pots and jugs of strangely coloured brews that clutter the desk."
+        note: `Looking around, ${alchemist.name} is as clean as you'd expect for a shop that deals with magical, often volatile chemicals. There's some sense of order, with papers (presumably recipes) kept in stacks, some of them concerningly close to the pots and jugs of strangely coloured brews that clutter the desk.`
       },
       {
         cleanliness: 40,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + " is somewhat messy; a dangerous trait for a shop that deals with magical, often volatile chemicals. There's a vague sense of order, although the papers that are strewn around the room do little to help. There are pots and pans of mixtures yet to be decanted crowding the desk."
+        note: `Looking around, ${alchemist.name} is somewhat messy; a dangerous trait for a shop that deals with magical, often volatile chemicals. There's a vague sense of order, although the papers that are strewn around the room do little to help. There are pots and pans of mixtures yet to be decanted crowding the desk.`
       },
       {
         cleanliness: 30,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + " is rather messy; a dangerous trait for a shop that deals with magical, often volatile chemicals. There's little sense of order, and you accidentally step on a recipe as you make your way through the shop. There are pots and pans of mixtures yet to be decanted crowding the desk, leaving the currently brewing potions to take residence on the floor, where they could be easily knocked over."
+        note: `Looking around, ${alchemist.name} is rather messy; a dangerous trait for a shop that deals with magical, often volatile chemicals. There's little sense of order, and you accidentally step on a recipe as you make your way through the shop. There are pots and pans of mixtures yet to be decanted crowding the desk, leaving the currently brewing potions to take residence on the floor, where they could be easily knocked over.`
       },
       {
         cleanliness: 20,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + " is extremely messy; a very dangerous trait for a shop that deals with magical, often volatile chemicals. There's no sense of order, and you accidentally step in something that fizzled rather disconcertingly as you make your way through the shop. There are pots and pans of mixtures yet to be cleaned crowding the desk, leaving the currently brewing potions to take residence on the floor, where they could be easily knocked over."
+        note: `Looking around, ${alchemist.name} is extremely messy; a very dangerous trait for a shop that deals with magical, often volatile chemicals. There's no sense of order, and you accidentally step in something that fizzled rather disconcertingly as you make your way through the shop. There are pots and pans of mixtures yet to be cleaned crowding the desk, leaving the currently brewing potions to take residence on the floor, where they could be easily knocked over.`
       },
       {
         cleanliness: 10,
         wealth: 10,
-        note: 'Looking around, ' + alchemist.name + " must have had an explosion the day before; there is no other possible reason that a shop that deals with magical, often volatile chemicals would be so cluttered, crowded, and blatantly a danger to itself and the half-mile radius surrounding it. There are pots and pans of mixtures that have already spilt over crowding the desk, with potions that are currently brewing strewn around the floor. There's little hope to walk through the shop without putting your boot in something that you probably would prefer not to put it in. Just as you try and hesitate, you hear the distinct sound of 'no, please don't go!' come from the floorboards, which at first seemed to be sticky, but on closer inspection, was more... 'grabby'."
+        note: `Looking around, ${alchemist.name} must have had an explosion the day before; there is no other possible reason that a shop that deals with magical, often volatile chemicals would be so cluttered, crowded, and blatantly a danger to itself and the half-mile radius surrounding it. There are pots and pans of mixtures that have already spilt over crowding the desk, with potions that are currently brewing strewn around the floor. There's little hope to walk through the shop without putting your boot in something that you probably would prefer not to put it in. Just as you try and hesitate, you hear the distinct sound of 'no, please don't go!' come from the floorboards, which at first seemed to be sticky, but on closer inspection, was more... 'grabby'.`
       }
     ],
     priceTalk: alchemist => [
@@ -147,7 +147,7 @@ setup.alchemist = {
       {
         priceModifier: -4,
         wealth: 20,
-        priceTalk: "Everything must go- can't afford to keep " + alchemist.name + " open much longer, so I'm getting rid of the final stock."
+        priceTalk: `Everything must go- can't afford to keep ${alchemist.name} open much longer, so I'm getting rid of the final stock.`
       }
     ]
   }

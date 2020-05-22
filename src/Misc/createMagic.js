@@ -22,8 +22,8 @@ setup.createMagic = function (type) {
     prefixProperty: data.property[prefixRoll],
     suffixProperty: data.property[suffixRoll]
   }
-  magic.description = magic.prefixProperty + '. ' + magic.suffixProperty
-  magic.name = magic.prefix + ' ' + magic.type + ' ' + magic.suffix
+  magic.description = `${magic.prefixProperty}. ${magic.suffixProperty}`
+  magic.name = `${magic.prefix} ${magic.type} ${magic.suffix}`
   console.log(magic)
   return magic
 }

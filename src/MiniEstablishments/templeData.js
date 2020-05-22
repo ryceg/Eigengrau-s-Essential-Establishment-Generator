@@ -51,6 +51,7 @@ setup.temple = {
       [30, 'disgusting'],
       [20, 'teeming with rats'],
       [10, 'rather filthy'],
+      [5, 'incredibly dirty'],
       [0, 'festering with bugs']
     ]
   },
@@ -166,7 +167,10 @@ setup.temple = {
     'frightening statues of monstrous beings',
     'impressive, colossal statues of warriors',
     'statues of beautiful maidens, beckoning visitors into a trap',
-    'nothing; the temple welcomes all'
+    'nothing; the temple welcomes all',
+    'a small group of warrior monks',
+    'a small militia of untrained clergymen',
+    'rusted metal statues'
   ],
   // The main room is __ in shape
   floorPlan: [
@@ -175,7 +179,8 @@ setup.temple = {
     'triangular',
     'square',
     'rectangular',
-    'pentagonal'
+    'pentagonal',
+    'octagonal'
   ],
   // The temple was designed by __
   architect: [
@@ -186,10 +191,16 @@ setup.temple = {
     'a noble who wanted to show how holy he was',
     'a famed priest doing his duty for the gods',
     'a famous architect on a very generous commission',
+    'a lesser known, rather eccentric architect',
     'a nearby king for his priestly brother',
     'a local scholar who had read some books on churches',
+    'a renowned theologian of the clergy',
     'the local bricklayer',
-    'the son of the local priest'
+    'a mysterious architect whom no one got the name of',
+    'the son of the local priest',
+    'a very confused local who was grabbed of the street',
+    'the father of the local priest',
+    'the local priest`s wife'
   ],
   // and it is __.
   complex: [
@@ -220,22 +231,26 @@ setup.temple = {
     'made of poorly molded bricks',
     'made of rocks and mud',
     'made of sawn logs',
+    'made of crudely cut tree trunks',
     'actually the hollowed husk of an enormous tree',
     'beautifully painted wood',
     'made of smooth cut stone',
     'made of unfinished hardwood',
     'covered in intricate murals',
     'adorned with relief carvings',
-    'covered in sacred texts and runes'
+    'covered in sacred texts and runes',
+    'made up almost entirely of intricate stained glass windows'
   ],
   // the ceiling is __
   ceiling: [
     'uncomfortably close to your head',
     'connected to the floor by columns',
     'painted with mythological scenes',
+    'an enormous glass dome',
     'so high its difficult to make out details',
     'vaulted',
-    'domed'
+    'domed',
+    'beautifully vaulted'
   ],
   rooms: [
     'an armory', 'a barracks',
@@ -277,7 +292,7 @@ setup.temple = {
     'a kneeler beneath a small statue or icon',
     'an oil lamp with colored glass panels',
     'a mosaic set into the floor of the room',
-    'a wide fresco',
+    "a wide fresco depicting a scene from the temple's religious texts",
     'a mural depicting a mythological scene',
     'the pipes of an immense organ running along the walls',
     'robes and cassocks hanging on hooks',
@@ -288,7 +303,22 @@ setup.temple = {
     'a series of percussive thuds punctuated rhythmically by a groaning sound',
     'large stone stairs leading down to a pool of clear water',
     'pillars carved with intricate images of the heavens',
-    'floor tiles made of red sandstone'
+    'floor tiles made of red sandstone',
+    'an ornately carved wooden confessions booth with beautiful satin curtains',
+    'a crude wooden confession booth with ragged cloth dividers',
+    'small, crowded looking pews',
+    'long pews made of roughly carved logs',
+    'incredibly ornate pews running through the main hall in orderly columns',
+    'a gnarled and shriveled hand inside of a glass box on a pedestal',
+    'a large urn with mythological paintings going all around it',
+    'a small beat up organ pushed to one corner of the room',
+    'a large harp sitting near the front of the room',
+    'a deep earthy smell coming from some nearby incense',
+    'a lovely, flowery smell wafting over from a nearby incense burner',
+    'a long table near the entrance that is covered in burning candles and melted wax',
+    'a large and ornate chandelier hanging from the ceiling',
+    'a rather dingy chandelier just barely hanging from the ceiling',
+    "a large shield with temple's symbol emblazoned upon it hanging from one wall"
   ],
   priestChat: [
     // The priest ___
@@ -328,7 +358,7 @@ setup.temple = {
     // A temple priest is ___
     'currently placing some nice smelling incense in <<print ["an old looking", "an ornate", "a cheap looking", "an animal shaped", "a wooden", "a stone", "a golden", "a bronze", "a dirty looking", "a holy"].seededrandom()>> incense holder',
     'kneeling in front of a <<print ["small wooden statue", "small stone statue", "small basin of water", "large basin of water", "large wooden statue", "large group of melting candles", "blazing fire", "picture of the temple god", "holy book of the temple", "row of pews"].seededrandom()>> and murmuring a prayer of some kind',
-    'dusting of one of the temple pews with a small fathered brush',
+    'dusting off one of the temple pews with a small fathered brush',
     'blessing a small basin of water at the front of the temple',
     'lighting a candle and placing it among a large row of candles',
     'sitting in one of the pews whispering a prayer',
