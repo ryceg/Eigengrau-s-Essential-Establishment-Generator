@@ -2,7 +2,7 @@ setup.createFaction = function (town, opts = {}) {
   const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].seededrandom()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
-  const faction = (opts['newFaction'] || Object.assign({
+  const faction = opts.newFaction || Object.assign({
     id: [State.variables.factions.length - 1],
     key: randomFloat(1).toString(16),
     passageName: 'FactionProfile',
@@ -20,9 +20,9 @@ setup.createFaction = function (town, opts = {}) {
       stability: dice(2, 50),
       resources: dice(2, 50)
     }
-  }, opts))
+  }, opts)
   faction.name = setup.nameFaction(town.name, faction.type)
-  console.groupCollapsed(faction.name + ' the ' + faction.type + ' have loaded.')
+  console.groupCollapsed(`${faction.name} the ${faction.type} have loaded.`)
 
   setup.ageFaction(faction)
 

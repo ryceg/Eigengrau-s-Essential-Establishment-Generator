@@ -35,9 +35,20 @@ interface Setup {
     type: Record<string, FactionTypeData>
   }
   ageFaction(faction: any): string
+  createAllies(faction: any): any
+  createFaction(town: any, opts?: any): any
+  deleteFaction(faction: any): any
   influenceFaction(faction: any): any
   joinFaction(faction: any): any
-  
+  createLeaderGroup(faction: any): any
+  createMisc(faction: any): any
+  nameFaction(town: any, type: string): string
+  reputationFaction(faction: any): any
+  resourcesFaction(faction: any): any
+  createRivals(faction: any): any
+  sizeFaction(town: any, faction: any): any
+  stabilityFaction(faction: any): any
+
   flora: {
     flower: {
       stemP: string[]
