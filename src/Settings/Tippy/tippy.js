@@ -2,10 +2,11 @@ setup.tippy = function (selector) {
   addEventListener('load', function () {
     tippy(selector)
   })
+  setTimeout(() => tippy(selector), 10)
 }
 
 setup.createTippy = readout => {
-  return `<span class="tip" title=${JSON.stringify(readout)}><<run setup.tippy("span")>>`
+  return `<span class="tip" title=${JSON.stringify(readout)}><<run setup.tippy("span.tip")>>`
 }
 
 setup.createTippyWord = (tippy, word) => {
@@ -13,7 +14,7 @@ setup.createTippyWord = (tippy, word) => {
 }
 
 setup.createTippyFull = (readout, word) => {
-  return setup.createTippyWord(setup.createTippy(readout), word)
+  return `<span class="tip dotted" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
 }
 
 const tip = tippy('[title]')

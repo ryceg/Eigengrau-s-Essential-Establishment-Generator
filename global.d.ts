@@ -147,7 +147,7 @@ interface Array<T> {
 function dice(a: string): number
 function dice(a: number, b: number): number
 
-function tippy(selector: string): any
+function tippy(selector: string | NodeList, options?: any): any
 
 /*
  * NodeJS
