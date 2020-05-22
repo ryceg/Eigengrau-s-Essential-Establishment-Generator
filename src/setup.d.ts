@@ -50,6 +50,8 @@ interface Setup {
     }
   }
 
+  magicItems: Record<string, MagicItem>
+
   getMoralsData(npc: any): MoralsData[]
   npcTaxRate(town: any, npc: any): number
   profile(obj: any, base?: string, type?: string): string
@@ -66,6 +68,18 @@ interface Setup {
   createName(parameters: CreateNameParameters): string
   createNPC(town: any, base?: any): any
   createSocialClass(town: any, npc: any): any
+}
+
+interface MagicItem {
+  price: {
+    sane: string | number,
+    DMPG: string | number,
+    DMG: string
+  },
+  rarity: 'common' | 'uncommon' | 'rare' | 'very rare' | 'legendary',
+  source: string,
+  page: string | number,
+  type: string
 }
 
 interface CreateNameParameters {
