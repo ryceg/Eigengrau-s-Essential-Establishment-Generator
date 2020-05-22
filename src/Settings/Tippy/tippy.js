@@ -2,6 +2,7 @@ setup.tippy = function (selector) {
   addEventListener('load', function () {
     tippy(selector)
   })
+  // I'm really not sure why it doesn't work without the delay here.
   setTimeout(() => tippy(selector), 10)
 }
 
