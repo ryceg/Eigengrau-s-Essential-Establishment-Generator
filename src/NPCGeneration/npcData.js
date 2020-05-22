@@ -861,7 +861,7 @@ setup.npcData = {
         'a far away temple',
         'see the holiest relic of my people',
         'a holy landmark of my god',
-        'an isolated monastery in the <<print either("mountains", "desert", "forest", "depths of a cavern", "bottom of a canyon", "frozen tundra")>>',
+        `an isolated monastery in the ${['mountains', 'desert', 'forest', 'depths of a cavern', 'bottom of a canyon', 'frozen tundra'].random()}`,
         'the birthplace of my god',
         'the holy city of my god',
         'the birthplace of a saint',
@@ -874,11 +874,13 @@ setup.npcData = {
         'to pray at the feet of my deity',
         'a distant shrine'
       ],
+      journeySynonyms: ['journey', 'pilgrimage', 'travel', 'trek', 'trip'],
+      journeyDifficulty: ['simple', 'harsh', 'long', 'grueling', 'easy', 'difficult', 'peaceful', 'hard', 'fantastical', 'terrible', 'great', 'boring', 'rough'],
       journey: [
         // TODO indefinite articles
-        'The <<print either("journey", "pilgrimage", "travel", "trek", "trip")>> was <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>>',
-        'It was a <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>> <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
-        'I was not prepared enough for the <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        `The ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()} was ${setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random()},`,
+        `It was ${setup.articles.output(setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random())} ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()},`,
+        `I was not prepared enough for the ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()}.`,
         'I had waited my whole life for this'
       ],
       result: [
