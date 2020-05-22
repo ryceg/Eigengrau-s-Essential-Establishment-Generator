@@ -49,11 +49,11 @@ $npcs[$selected.key].firstName is <<print setup.articles.output(_class)>>, with 
 \<<if $npcs[$selected.key].lifeEvents.length == 2>>
     When I was about twenty, <<print $npcs[$selected.key].lifeEvents[0].toUpperFirst()>>. A couple years later, $npcs[$selected.key].lifeEvents[1]
   \<<elseif $npcs[$selected.key].lifeEvents.length == 1>>
-    $npcs[$selected.key].lifeEvents. <<print either("Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest.")>>
+    $npcs[$selected.key].lifeEvents. <<print ["Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest."].random()>>
   \<<else>>
     \<<print $npcs[$selected.key].lifeEvents[0].toUpperFirst()>>.
     \<<for _lifeEvents range $npcs[$selected.key].lifeEvents.slice(1, -1)>>
-        <<print either(
+        <<print [
           "_lifeEvents ",
           "And then, after a couple weeks, _lifeEvents ",
           "And then I spent a couple months at home. Then, when I next ventured out, _lifeEvents ",
@@ -61,7 +61,7 @@ $npcs[$selected.key].firstName is <<print setup.articles.output(_class)>>, with 
           "And then, maybe a week after that, _lifeEvents ",
           "I tried settling down for a bit. That didn't work so well, so _lifeEvents ",
           "I forget exactly when, but at one point, _lifeEvents "
-          )>>
+          ].random()>>
     \<</for>>
     Then last year, <<print $npcs[$selected.key].lifeEvents[$npcs[$selected.key].lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>

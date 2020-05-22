@@ -89,7 +89,7 @@ setup.docks = {
     // a(n) enormous/large/moderately sized/regular/small/tiny/single stall fish market selling a large variety of fish/an inconceivable number of fish, crabs, shrimp, and other sea creatures/a small selection of fish/a pitiful variety fish
     'a small group of men posing for a portrait with the carcass of an enormous sea monster strung up from a tall wooden pole',
     'a person in dirty rags attempting to sell a single fish to passersby',
-    'an incredibly large <<print either("schooner", "barque", "frigate", "galleon", "caravel", "galley")>> docked out in the water. It is ornately painted with the figurehead of a magical animal',
+    'an incredibly large <<print ["schooner", "barque", "frigate", "galleon", "caravel", "galley"].random()>> docked out in the water. It is ornately painted with the figurehead of a magical animal',
     'a large crowd gathered in front of an absolutely gargantuan severely damaged ship slowly drifting into port',
     'a lone fisherman sitting at the edge and waiting for his catch',
     'two men pulling up crab traps out of the water',
@@ -172,8 +172,8 @@ setup.docks = {
       },
       // He/She (bodyFeature) and (itemFeature) .
       bodyFeature: [
-        'has a bright pink scar running across the <<print either("right", "left")>> hand',
-        'is missing the <<print either("left", "right")>> eye and instead has a glass one',
+        'has a bright pink scar running across the <<print ["right", "left"].random()>> hand',
+        'is missing the <<print ["left", "right"].random()>> eye and instead has a glass one',
         'has long matted hair', 'has a thick layer of dirt covering the skin',
         'has a large number of sun spots',
         'is covered in freckles',
@@ -212,13 +212,13 @@ setup.docks = {
         'is wearing a cheap looking eyepatch',
         'has on clothes that are rugged and tattered from the storms',
         'is wearing clothes that are stiff from all the sea salt caked upon them',
-        'always carries a fancy looking compass that only points <<print either("south", "east", "west", "southeast", "southwest", "northeast", "northwest")>>',
+        'always carries a fancy looking compass that only points <<print ["south", "east", "west", "southeast", "southwest", "northeast", "northwest"].random()>>',
         'has a crudely carved peg leg',
         'has a large hook for a hand',
         'has a very well crafted mahogany peg leg',
         'uses a crude walking stick',
         'uses a finely carved oak walking stick',
-        'uses a walking cane with the head of a <<print either("lion", "tiger", "shark", "dolphin", "snake", "crow", "owl", "bear", "hawk", "rhino", "pufferfish", "whale")>> carved at the top',
+        'uses a walking cane with the head of a <<print ["lion", "tiger", "shark", "dolphin", "snake", "crow", "owl", "bear", "hawk", "rhino", "pufferfish", "whale"].random()>> carved at the top',
         'is always wearing a backpack',
         'wears a thick seal leather coat to keep dry',
         'has a collapsible spyglass tied to their belt',
@@ -275,17 +275,11 @@ setup.docks = {
       'Arrowhead', 'Frastain’s Bottle', 'The Saint Ive', 'Halygast', 'La Bon An', 'La Katerine', 'The Blythe', 'Rose', 'The Flying Squirrel', 'Golden Lion', 'Panther', 'Silent Night'],
     // The hull of the ship _
     hullDesc: [
-      'is built out of bare <<print either("oak planks", "larch planks", "fir wood planks", "mahogany planks", "teak wood planks", "reeds", "pine and pitch", "cypruss wood planks", "cedar planks")>> ',
-      'has <<print either("a single thin stripe", "a single thick stripe", "two thin stripes", "two stripes", "three thin stripes")>> of <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>> colored paint going across it',
       'is encrusted with several very large and oddly colored barnacles',
-      'is painted with small ornate <<print either("wave", "fish", "geometric", "organic", "animal", "island shaped")>> patterns at the edges',
-      'has "$currentShip.name" painted on it in bold <<print either("black", "white", "silver", "golden", "red", "blue", "green", "purple")>> letters',
       'is battered and old. The planks of the ship creak loudly in protest as it bobs through the water',
       'looks fresh and new as if it was built only yesterday',
       'looks to be damaged from a recent storm or perhaps a fight at sea',
       'has a great many number of nets hanging down it',
-      'has been painted to resemble <<print either("a shark", "a seagull", "a pelican", "a lion", "an eagle", "a sea monster", "a swordfish", "a blowfish", "a mackarel", "an arrow", "a tiger", "a cheetah", "an eel", "a whale", "a hawk", "a vulture")>>',
-      'has been painted so the top half is <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>> and the bottom half is <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>>',
       'has several small portholes',
       'is grungy and dirty looking',
       'has a long gangplank hanging from the top of it',
@@ -294,8 +288,15 @@ setup.docks = {
       'has a long nasty gouge across it',
       'has a great number of pulleys affixed to it',
       'is decorated with many ornate brass fixtures',
-      'has a few colorful banners hung across it, tattered by the sea',
-      'is painted pure <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>>'
+      'has a few colorful banners hung across it, tattered by the sea'
+      // TODO: refactor these to not use either, as either breaks the seed
+      // 'has been painted to resemble <<print either("a shark", "a seagull", "a pelican", "a lion", "an eagle", "a sea monster", "a swordfish", "a blowfish", "a mackarel", "an arrow", "a tiger", "a cheetah", "an eel", "a whale", "a hawk", "a vulture")>>',
+      // 'has been painted so the top half is <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>> and the bottom half is <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>>',
+      // 'is painted with small ornate <<print either("wave", "fish", "geometric", "organic", "animal", "island shaped")>> patterns at the edges',
+      // 'has "$currentShip.name" painted on it in bold <<print either("black", "white", "silver", "golden", "red", "blue", "green", "purple")>> letters',
+      // 'is built out of bare <<print either("oak planks", "larch planks", "fir wood planks", "mahogany planks", "teak wood planks", "reeds", "pine and pitch", "cypruss wood planks", "cedar planks")>> ',
+      // 'has <<print either("a single thin stripe", "a single thick stripe", "two thin stripes", "two stripes", "three thin stripes")>> of <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>> colored paint going across it',
+      // 'is painted pure <<print either("red", "blue", "gold", "white", "black", "purple", "yellow", "green", "brown", "orange", "indigo", "teal", "navy", "olive", "violet", "turquoise", "cyan", "maroon")>>'
     ],
     // On board you notice _
     shipDetail: [
@@ -324,9 +325,9 @@ setup.docks = {
       'a large harpoon gun mounted near the front of the deck',
       'a small harpoon gun mounted at the side of the deck',
       'a few crates that seem to shake every once and a while',
-      "a bright red painted door that leads to the captain's quarters",
-      'a <<print either("scruffy looking dog", "fluffy but mangy looking cat", "a small and rather underfed looking monkey", "a large and colorful parrot", "a dull looking seagull")>> the crew keeps as a pet',
-      'the wheel of the ship appears to be made from <<print either("the wheel off an old cart", "mahogany", "an oddly shaped rock", "oiled teak", "a crudely fashioned hunk of wood", "an old buckler shield", "several swords melted into a ring; it is uncertain how the captain keeps from cutting $currentShip.captain.himherself", "several thick branches tied together")>>'
+      "a bright red painted door that leads to the captain's quarters"
+      // 'a <<print either("scruffy looking dog", "fluffy but mangy looking cat", "a small and rather underfed looking monkey", "a large and colorful parrot", "a dull looking seagull")>> the crew keeps as a pet',
+      // 'the wheel of the ship appears to be made from <<print either("the wheel off an old cart", "mahogany", "an oddly shaped rock", "oiled teak", "a crudely fashioned hunk of wood", "an old buckler shield", "several swords melted into a ring; it is uncertain how the captain keeps from cutting $currentShip.captain.himherself", "several thick branches tied together")>>'
     ],
     // The crew are currently _
     eventDetail: [
@@ -354,8 +355,8 @@ setup.docks = {
       'trying to pry open an enormous clam they fished up on their last journey',
       'having a crew wide jig off by the stern',
       'planning a mutiny against the captain',
-      'trying to pull up the anchor which appears to be stuck',
-      'singing a jaunty sea shanty about <<print either("beautiful women", "rough storms", "rum and wine", "good fortunes", "sea monsters", "ancient treasures")>> at the tops of their lungs'
+      'trying to pull up the anchor which appears to be stuck'
+      // 'singing a jaunty sea shanty about <<print either("beautiful women", "rough storms", "rum and wine", "good fortunes", "sea monsters", "ancient treasures")>> at the tops of their lungs'
     ],
     type: {
       'caravel': {
@@ -489,10 +490,10 @@ setup.docks = {
       'barque': {
         masts: random(3, 5),
         rigging: 'square',
-        length: (3000, 5000),
+        length: random(3000, 5000),
         purpose: ['cargo', 'transport', "explorer's", 'pirate'],
         hasOars: true,
-        crewMen: (65, 120)
+        crewMen: random(65, 120)
       }
     },
     typePool: ['caravel', 'dory', 'drifter', 'herring buss', 'carrack', 'crayer', 'hoy', 'picard', 'galley', 'longship', 'balinger', 'frigate', 'galleon', 'galleass', 'galley', 'nef', 'barque'],

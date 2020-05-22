@@ -15,11 +15,11 @@ They have $currentFaction.resourcesDescription resources. <<if $currentFaction.r
     <<print $currentFaction.resources[0].toUpperFirst()>> are their only significant resources.
   <<else>>
     <<print $currentFaction.resources[0].toUpperFirst()>>
-    <<print either(
+    <<print [
         "are jealously guarded, as are ",
         "are part of those resources. Also at their disposal are ",
         "are in their warchest, as are "
-    )>>
+    ].random()>>
     <<for _resources range $currentFaction.resources.slice(1, -1)>>
         _resources,
     <</for>>
@@ -34,11 +34,11 @@ They have $currentFaction.resourcesDescription resources. <<if $currentFaction.r
     <<print $currentFaction.allies[0].toUpperFirst()>> are the only others they can rely on.
   <<else>>
     <<print $currentFaction.allies[0].toUpperFirst()>>
-    <<print either(
+    <<print [
         "will answer a call for aid, as will ",
         "regularly assist $currentFaction.name. At their disposal, they also have ",
         "will help if called upon, as will "
-    )>>
+    ].random()>>
     <<for _allies range $currentFaction.allies.slice(1, -1)>>
         _allies,
     <</for>>
@@ -51,11 +51,11 @@ $currentFaction.name have $currentFaction.rivalsDescription; <<nobr>><<if $curre
     <<print $currentFaction.rivals[0].toUpperFirst()>> are the enemies of $currentFaction.name.
   <<else>>
     <<print $currentFaction.rivals[0].toUpperFirst()>>
-    <<print either(
+    <<print [
         "are enemies of $currentFaction.name, as are ",
         "wish ill of $currentFaction.name. Their other enemies also include ",
         "are rivals. Other enemies include "
-    )>>
+    ].random()>>
     <<for _rivals range $currentFaction.rivals.slice(1, -1)>>
         _rivals,
     <</for>>

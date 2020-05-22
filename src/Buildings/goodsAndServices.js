@@ -6,16 +6,16 @@ setup.goodsAndServices = {
       // this is the template for the creation of generic buildings; i.e. those that are present in this list.
       // It is *not* for taverns, town squares, castles, or anything large scale.
       // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
-      console.groupCollapsed('setup.goodsAndServices.default.create()ing ' + setup.articles.output(type))
+      console.groupCollapsed(`setup.goodsAndServices.default.create()ing ${setup.articles.output(type)}`)
       let building = {
         type,
         buildingType: type,
         passageName: 'GenericPassage',
         initPassage: 'GenericPassage'
       }
-      Object.assign(building, (opts['newBuilding'] || setup.createBuilding)(town, building.type))
-      building.wordNoun = (building.wordNoun || opts['wordNoun'] || setup.goodsAndServices[building.type].name.wordNoun.seededrandom() || 'building')
-      building.PassageFormat = (building.PassageFormat || opts['PassageFormat'] || setup.goodsAndServices[building.type].PassageFormat)
+      Object.assign(building, (opts.newBuilding || setup.createBuilding)(town, building.type))
+      building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.seededrandom() || 'building'
+      building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat
       setup.goodsAndServices[type].create(town, building, opts)
       building = setup.structure.create(town, building)
 
@@ -37,15 +37,15 @@ setup.goodsAndServices = {
         console.error('A building was not passed!')
         return
       }
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
       building.fruit = setup.flora.fruit.fruitS.seededrandom()
       building.fruits = setup.flora.fruit.fruitP.seededrandom()
 
-      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
@@ -59,7 +59,7 @@ setup.goodsAndServices = {
           `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
           `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
           `The ${name.beast.seededrandom().toUpperFirst()}'s ${name.noun.seededrandom().toUpperFirst()}`,
-          name.adjective.seededrandom().toUpperFirst() + ' ' + [building.owner.firstName + "'s ", name.beast.seededrandom().toUpperFirst()].seededrandom() + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
+          `${name.adjective.seededrandom().toUpperFirst()} ${[`${building.owner.firstName}'s `, name.beast.seededrandom().toUpperFirst()].seededrandom()} ${name.wordNoun.seededrandom().toUpperFirst()}`,
           `The ${setup.flora.fruit.fruitS.seededrandom().toUpperFirst()} ${name.nounBakedGood.seededrandom().toUpperFirst()}`,
           `The ${setup.flora.fruit.tree.seededrandom().toUpperFirst()} Tree ${name.wordNoun.seededrandom().toUpperFirst()}`,
           unique
@@ -206,10 +206,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature',
+      ].random()} You notice $building.notableFeature`,
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -347,7 +347,7 @@ setup.goodsAndServices = {
       'several caged hens in the back of the shop that lay fresh eggs for the bakers.',
       'a large moose head hanging above the entryway.',
       'a small hearth with a roaring fire in one corner.',
-      'quite a few racks of decorative plates covered in different <<print either ("animals", "flowers", "fruits", "baked goods", "kinds of bread", "birds", "cats")>> hanging on the walls.',
+      'quite a few racks of decorative plates covered in different <<print ["animals", "flowers", "fruits", "baked goods", "kinds of bread", "birds", "cats"].random()>> hanging on the walls.',
       'a few barrels of $building.fruits sitting near the shop counter.',
       'a deer head mounted above the counter.',
       'a beaver head framed above a mantel.',
@@ -397,8 +397,8 @@ setup.goodsAndServices = {
         return
       }
 
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
@@ -407,15 +407,15 @@ setup.goodsAndServices = {
       building.flower2 = setup.flora.flower.stemP.seededrandom()
       building.flower = setup.flora.flower.stemS.seededrandom()
 
-      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + [name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom(),
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${[name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom()}`,
           `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
           `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
           `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
@@ -537,10 +537,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature',
+      ].random()} You notice $building.notableFeature`,
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -628,7 +628,7 @@ setup.goodsAndServices = {
       'a large amount of flower clippings have been piled up in one corner of the shop.',
       'several small copper birds are hanging from the ceiling by strings',
       'a flower mural is painted on the far wall',
-      'a framed collection of pinned <<print either("dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps")>> hung up on the wall next to the counter.',
+      'a framed collection of pinned <<print ["dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps"].random()>> hung up on the wall next to the counter.',
       'there is a small shelf of boxed chocolates near the front counter with a sign above that reads "For the truly scorned lover".'
 
     ],
@@ -680,13 +680,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
@@ -786,10 +786,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature',
+      ].random()} You notice $building.notableFeature`,
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -893,25 +893,25 @@ setup.goodsAndServices = {
         return
       }
 
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
           unique
         ].seededrandom()
       },
@@ -1006,10 +1006,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature.',
+      ].random()} You notice $building.notableFeature.`,
       '',
       'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -1124,19 +1124,19 @@ setup.goodsAndServices = {
         return
       }
 
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
           `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
           `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
@@ -1247,10 +1247,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature.',
+      ].random()} You notice $building.notableFeature.`,
       '',
       'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -1375,26 +1375,26 @@ setup.goodsAndServices = {
         return
       }
 
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = 'A ' + building.type + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `A ${building.type} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || 'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst()
+        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
         return [
-          'The ' + name.adjective.seededrandom().toUpperFirst() + ' ' + name.noun.seededrandom().toUpperFirst(),
-          'The ' + town.name + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          'The ' + building.road + ' ' + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          name.adjectivePerson.seededrandom().toUpperFirst() + ' ' + building.owner.firstName + "'s " + name.wordNoun.seededrandom().toUpperFirst(),
-          building.owner.lastName + "'s " + name.noun.seededrandom().toUpperFirst(),
+          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `${building.owner.lastName}'s ${name.noun.seededrandom().toUpperFirst()}`,
           unique
         ].seededrandom()
       },
@@ -1478,10 +1478,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature.',
+      ].random()} You notice $building.notableFeature.`,
       '',
       'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -1649,13 +1649,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.owner = setup.createNPC(town, (opts['professionOpts'] || setup.goodsAndServices[building.type].profession.opts))
-      building.name = (building.name || opts['name'] || setup.goodsAndServices[building.type].name.function(town, building))
+      building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
       building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
       building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
 
-      building.tippyDescription = setup.articles.output(building.type).toUpperFirst() + ' on ' + building.road + '. Their specialty is ' + building.specialty + '.'
+      building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
     },
     name: {
@@ -1755,10 +1755,10 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      'You ' + ['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random() + ' ' + [
+      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
-      ].random() + ' You notice $building.notableFeature.',
+      ].random()} You notice $building.notableFeature.`,
       '',
       'This $building.wordNoun is known for $building.specialty. There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
@@ -1818,42 +1818,42 @@ setup.goodsAndServices = {
       },
       'wig': {
         cost: 22,
-        description: `A wig made out of real human hair! It won't last forever, and is pretty scratchy, but is better than nothing.`
+        description: 'A wig made out of real human hair! It won\'t last forever, and is pretty scratchy, but is better than nothing.'
       },
       'surgery': {
         cost: 200,
         exclusions (town, building) {
           return building.roll.expertise > 20
         },
-        description: `Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.`
+        description: 'Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.'
       },
       'tooth pull': {
         cost: 100,
         exclusions (town, building) {
           return building.roll.expertise > 10
         },
-        description: `Got a tooth that's giving you a bit of trouble? This barber can yank it right out.`
+        description: 'Got a tooth that\'s giving you a bit of trouble? This barber can yank it right out.'
       },
       'leeching': {
         cost: 60,
         exclusions (town, building) {
           return building.roll.expertise < 30
         },
-        description: `If you're feeling a bit sick this barber will place leeches all over you to draw out the bad blood.`
+        description: 'If you\'re feeling a bit sick this barber will place leeches all over you to draw out the bad blood.'
       },
       'dangerous surgery': {
         cost: 200,
         exclusions (town, building) {
           return building.roll.expertise < 20
         },
-        description: `This barber isn't familiar with surgery, but has the sharp tools to do the job.`
+        description: 'This barber isn\'t familiar with surgery, but has the sharp tools to do the job.'
       }
 
     },
     type: 'barber',
     notableFeature: [
       // you notice _______
-      `there's quite a bit of hair on the floor`,
+      'there\'s quite a bit of hair on the floor',
       'there is a small music box playing a sweet melody in the corner of the room',
       'there is a large bowl of water with a fish swimming about',
       'the room has a lemony sort of scent in the air',

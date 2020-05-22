@@ -1933,6 +1933,7 @@ setup.townData.professions = {
   },
   'clown': {
     sv: 3000,
+    isHobby: true,
     type: 'profession',
     sector: 'arts',
     description: 'comic entertainer who wears a traditional costume and exaggerated makeup.',

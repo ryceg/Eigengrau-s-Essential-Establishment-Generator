@@ -877,10 +877,10 @@ setup.npcData = {
       journeySynonyms: ['journey', 'pilgrimage', 'travel', 'trek', 'trip'],
       journeyDifficulty: ['simple', 'harsh', 'long', 'grueling', 'easy', 'difficult', 'peaceful', 'hard', 'fantastical', 'terrible', 'great', 'boring', 'rough'],
       journey: [
-        // TODO indefinite articles
-        `The ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()} was ${setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random()},`,
-        `It was ${setup.articles.output(setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random())} ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()},`,
-        `I was not prepared enough for the ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()}.`,
+        // TODO ifix journeys
+        // `The ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()} was ${setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random()},`,
+        // `It was ${setup.articles.output(setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random())} ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()},`,
+        // `I was not prepared enough for the ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()}.`,
         'I had waited my whole life for this'
       ],
       result: [

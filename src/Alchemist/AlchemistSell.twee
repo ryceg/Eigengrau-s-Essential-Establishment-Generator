@@ -5,7 +5,7 @@
   <<case "city">>
   $chemist.name smiles, and says "You're looking to buy something? Name it, here at $alchemist.name, we stock everything the average adventurer could possibly need!
   <<case "town">>
-  $chemist.name says "Well, what is it you need? We specialise in <<print either("healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major")>> potions, but can do just about anything for you.
+  $chemist.name says "Well, what is it you need? We specialise in <<print ["healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major"].random()>> potions, but can do just about anything for you.
   <<case "village">>
   $chemist.name says "Sure, what are you after? <<print $chemist.ingredients.seededrandom().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>

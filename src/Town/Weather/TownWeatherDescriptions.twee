@@ -34,110 +34,110 @@
 
 <<switch $weather.precipitation>>
   <<case "none">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "It's a fine day",
         "It's a fair day",
-      )>>
+      ].random()>>
   <<case "light fog">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a light fog, although it doesn't obscure much",
         "There's a fresh fog which hazes the view slightly",
         "There's a light fog dusting the horizon",
-      )>>
+      ].random()>>
   <<case "medium fog">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a bit of fog that obscures the horizon a little",
         "There's some fog on the horizon",
-        )>>
+        ].random()>>
   <<case "heavy fog">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a heavy fog, which obscures everything further than some fifty feet ahead of you",
         "There's a thick fog looming in the air",
         "It's extremely foggy, and it's difficult to see things further than fifty feet ahead of you",
         "There's a thick blanket of fog which covers the area",
-        )>>
+        ].random()>>
   <<case "light rain">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a light rain falling from the few clouds that are in the sky",
         "There's a slight bit of rain falling from the sky",
-        )>>
+        ].random()>>
   <<case "drizzle">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a steady drizzle streaming down",
         "There's a bit of a drizzle of rain",
-        )>>
+        ].random()>>
   <<case "rain">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "It's currently raining",
         "There's some rain at the moment",
-        )>>
+        ].random()>>
   <<case "heavy rain">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a heavy rain going at the moment",
         "There's a steady and quite heavy drizzle of rain going on at the moment",
         "There's a heavy downpour, which seems to have no end in sight",
-        )>>
+        ].random()>>
   <<case "light snow">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "There's a light dusting of snow covering the ground, and you see some flakes falling down",
         "It's snowing- just a little bit, but enough to make a satisfying crunch underneath your feet",
         "It's currently snowing lightly, with a cool breeze carrying the snowflakes a fair distance",
-        )>>
+        ].random()>>
   <<case "medium snow">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "It's snowing, bringing the unique silence that comes with a dusting of snow on everything",
         "It's currently snowing",
         "You can see your breath, and the crunch of snow underfoot is satisfying",
-        )>>
+        ].random()>>
   <<case "heavy snow">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "It's snowing quite heavily at the moment, and trekking through the snow is a little difficult",
         "The heavy snowfall makes movement a little difficult. The wind which carries the snow is $weather.temperatureReadout, and stings your eyes",
-        )>>
+        ].random()>>
   <<case "thunderstorm">>
-      <<set $weather.precipitationReadout to either(
+      <<set $weather.precipitationReadout to [
         "The ominous booms of thunder go off in the distance",
         "There's a flash of bright, white light, and several seconds later, there's a low boom in the distance",
-        )>>
+        ].random()>>
 <</switch>>
 
 
 <<switch $weather.cloudIntensity>>
     <<case "extremely overcast">>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "above your heads, there is not a bit of sky not covered by the dark clouds",
         "you cannot see the sky for the thick blanket of cloudcover",
-        )>>
+        ].random()>>
     <<case "overcast">>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "stratus clouds hang overhead, resembling a thick fog clinging to the horizon, instead of the ground",
-        )>>
+        ].random()>>
     <<case "thick clouds">>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "a sheet of dark, threatening clouds are on the horizon",
         "a dark blanket of clouds cover the sky, blotting out the sun",
-        )>>
+        ].random()>>
     <<case "heavy clouds">>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "dark nimbostratus clouds cover the horizon, looming threateningly",
         "a dark blanket of clouds cover the sky, blotting out the sun",
-        )>>
+        ].random()>>
     <<case "medium clouds">>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "there are low, puffy, dark grey clumps of clouds in the sky",
         "there are some clouds similar to the wool of a sheep floating abovehead",
         "the clouds in the sky overhead have a similar resemblance to the scales of a mackerel fish",
-        )>>
+        ].random()>>
     <<case "light clouds">>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "there's a couple clouds in the sky",
         "there are a couple cumulonimbus clouds lazily drifting across the sky",
         "there are a couple clouds, but it's not quite overcast",
-        )>>
+        ].random()>>
     <<default>>
-      <<set $weather.cloudReadout to either(
+      <<set $weather.cloudReadout to [
         "there's not a cloud in sight",
         "there are no clouds on the horizon",
         "there are no clouds in the sky",
-        )>>
+        ].random()>>
 <</switch>>

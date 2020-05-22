@@ -16,8 +16,6 @@ $tavernNPC.heshe.toUpperFirst()
 <<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
     <<= _i + 1>>. _item.name - <<money _item.cost>>
 
-either($potion.smell)
-
 <div class='descriptive'>Test </div>
 
 <<nobr>><<linkreplace "<h4>Generate one</h4>">>
