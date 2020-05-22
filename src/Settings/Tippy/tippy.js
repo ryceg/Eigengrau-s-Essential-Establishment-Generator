@@ -4,6 +4,18 @@ setup.tippy = function (selector) {
   })
 }
 
+setup.createTippy = readout => {
+  return `<span class="tip" title=${JSON.stringify(readout)}><<run setup.tippy("span")>>`
+}
+
+setup.createTippyWord = (tippy, text) => {
+  return `${tippy}<span class="dotted">${text}</span></span>`
+}
+
+setup.createFullTippyFull = (readout, text) => {
+  return setup.createTippyWord(setup.createTippy(readout), text)
+}
+
 const tip = tippy('[title]')
 
 tippy.browser.onUserInputChange = type => {
