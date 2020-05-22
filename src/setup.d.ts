@@ -29,6 +29,8 @@ interface Setup {
   createAlchemistName(alchemistFirstName: string): string
   createChemist(town: any): any
 
+  createDocks(town: any, opts?: any)
+
   flora: {
     flower: {
       stemP: string[]

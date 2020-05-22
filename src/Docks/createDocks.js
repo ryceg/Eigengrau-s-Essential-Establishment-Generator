@@ -1,5 +1,7 @@
-setup.createDocks = function (town, opts = {}) {
-  const docks = (opts['newBuilding'] || setup.createBuilding)(town, 'docks')
+setup.createDocks = (town, opts = {}) => {
+  const createBuilding = opts.newBuilding || setup.createBuilding
+
+  const docks = createBuilding(town, 'docks')
   Object.assign(docks, {
     notableFeature: setup.docks.notableFeature.seededrandom(),
     notice: setup.docks.notice.seededrandom(),
@@ -16,7 +18,7 @@ setup.createDocks = function (town, opts = {}) {
     typePool: setup.docks.ships.typePool
   })
 
-  docks.name = ['The' + [' Old ', ' New ', ' ', ' '].seededrandom() + [town.name + ' ', town.name + ' ', ' ', ' ', ' '].seededrandom() + docks.wordNoun.toUpperFirst(), [docks.dockName.lastName + ' ', docks.dockName.firstName + "'s ", [docks.dockName.firstName, docks.dockName.lastName].seededrandom() + ' Beach '].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
+  docks.name = [`The ${['Old ', 'New ', '', ''].seededrandom()}${[`${town.name} `, `${town.name} `, ' ', ' ', ' '].seededrandom()}${docks.wordNoun.toUpperFirst()}`, [`${docks.dockName.lastName} `, `${docks.dockName.firstName}'s `, `${[docks.dockName.firstName, docks.dockName.lastName].seededrandom()} Beach `].seededrandom() + docks.wordNoun.toUpperFirst()].seededrandom()
 
   // docks.wealth = ''
   docks.activity = ''
