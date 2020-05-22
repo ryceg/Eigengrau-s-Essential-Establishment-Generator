@@ -16,10 +16,10 @@
     "(<<[\\s\\S]+?>>)": {
       "filterFileRegex": ".*\\.(js|json)$",
       "decorations": [{ "color": "rgb(255, 200, 100)" }]
-    },
-    "files.associations": {
-      "*.twee": "sugarcube2"
     }
+  },
+  "files.associations": {
+    "*.twee": "sugarcube2"
   },
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
