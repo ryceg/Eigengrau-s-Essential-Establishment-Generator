@@ -29,6 +29,27 @@ interface Setup {
   createAlchemistName(alchemistFirstName: string): string
   createChemist(town: any): any
 
+  flora: {
+    flower: {
+      stemP: string[]
+      stemS: string[]
+      bush: string[]
+    }
+    fruit: {
+      fruitP: string[]
+      fruitS: string[]
+      tree: string[]
+    }
+    vegetable: {
+      vegetableP: string[]
+      vegetableS: string[]
+    }
+    tree: {
+      typeS: string[]
+      typeArticle: string[]
+    }
+  }
+
   getMoralsData(npc: any): MoralsData[]
   npcTaxRate(town: any, npc: any): number
   profile(obj: any, base?: string, type?: string): string
