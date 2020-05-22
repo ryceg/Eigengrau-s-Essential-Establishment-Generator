@@ -8,12 +8,12 @@ setup.createTippy = readout => {
   return `<span class="tip" title=${JSON.stringify(readout)}><<run setup.tippy("span")>>`
 }
 
-setup.createTippyWord = (tippy, text) => {
-  return `${tippy}<span class="dotted">${text}</span></span>`
+setup.createTippyWord = (tippy, word) => {
+  return `${tippy}<span class="dotted">${word}</span></span>`
 }
 
-setup.createFullTippyFull = (readout, text) => {
-  return setup.createTippyWord(setup.createTippy(readout), text)
+setup.createFullTippyFull = (readout, word) => {
+  return setup.createTippyWord(setup.createTippy(readout), word)
 }
 
 const tip = tippy('[title]')
