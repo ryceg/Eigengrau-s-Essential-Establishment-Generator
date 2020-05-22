@@ -1,5 +1,6 @@
-setup.ageFaction = function (faction) {
+setup.ageFaction = faction => {
   console.log('ageing...')
+
   const ranks = [
     [95, 'ancient'],
     [90, 'extremely old'],
@@ -16,9 +17,15 @@ setup.ageFaction = function (faction) {
     [5, 'unknown'],
     [0, 'well established']
   ]
+
   faction.age = 'well established'
+
   for (const [num, description] of ranks) {
-    if (faction.roll.age > num) return (faction.age = description)
+    if (faction.roll.age > num) {
+      faction.age = description
+      break
+    }
   }
+
   return faction.age
 }

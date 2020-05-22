@@ -31,6 +31,8 @@ interface Setup {
 
   createDocks(town: any, opts?: any)
 
+  ageFaction(faction: any): string
+
   flora: {
     flower: {
       stemP: string[]
