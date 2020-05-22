@@ -32,8 +32,21 @@ interface Setup {
   isOfAge(ageStage, race, ageYears): boolean
   createBackground(npc: any): any
   createClass(town: any, npc: any): any
+  createFamily(town: any, npc: any): void
+  expandFamily(town: any, npc: any): void
+  fetchFamily(town: any, npc: any): Record<string, any>
+  createHistory(town: any, npc: any): any
+  createLifeEvents(town: any, npc: any): any
+  createName(parameters: CreateNameParameters): string
+  createNPC(town: any, base?: any): any
+  createSocialClass(town: any, npc: any): any
 }
 
+interface CreateNameParameters {
+  race?: string
+  gender?: string
+  firstOrLast?: string
+}
 
 interface MoralsData {
   name: string
