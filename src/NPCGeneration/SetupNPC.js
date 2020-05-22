@@ -26,12 +26,12 @@ setup.createNPC = function (town, base) {
   const gender = base.gender || ['man', 'woman'].seededrandom()
   const race = base.race || setup.fetchRace(town, base)
 
-  console.log(`Fetching profession.`)
+  console.log('Fetching profession.')
   const profession = base.profession || setup.fetchProfessionChance(town, base)
 
   const firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.seededrandom().toUpperFirst()
   const lastName = base.lastName || data.raceTraits[race].lastName.seededrandom().toUpperFirst()
-  console.groupCollapsed(firstName + ' ' + lastName)
+  console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].seededrandom()
   // let dndClass
 
@@ -43,14 +43,14 @@ setup.createNPC = function (town, base) {
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = Object.assign({
-    key: base.key || Math.random(),
+    key: base.key || randomFloat(0, 1),
     passageName: 'NPCProfile',
     _gender: gender,
     _race: race,
     firstName,
     lastName,
     get name () {
-      return this.firstName + ' ' + this.lastName
+      return `${this.firstName} ${this.lastName}`
     },
     set name (name) {
       const words = name.toString().split(' ')
@@ -75,7 +75,7 @@ setup.createNPC = function (town, base) {
         // _wageVariation is static; it's the "luck" that the NPC has in their profession.
         // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
         // expected range should be between -25 and 25.
-        return setup.calcPercentage(npc.roll._wageVariation, ((town.roll.wealth - 50) / 5))
+        return setup.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       }
     },
     finances: {
@@ -89,7 +89,7 @@ setup.createNPC = function (town, base) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
         const profession = setup.findProfession(town, npc)
-        return Math.round(setup.calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), ((town.roll.wealth - 50) / 3)]))
+        return Math.round(setup.calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3]))
       },
       netIncome (town, npc) {
         console.log(`Returning ${npc.name}'s net income...`)
@@ -128,7 +128,7 @@ setup.createNPC = function (town, base) {
     hairColour: data.hairColour.seededrandom(),
     hairType: data.hairType.seededrandom(),
     get hair () {
-      return this.hairType + ' ' + this.hairColour + ' hair'
+      return `${this.hairType} ${this.hairColour} hair`
     },
     set hair (hair) {
       const hairs = hair.toString().split(' ')
@@ -138,16 +138,20 @@ setup.createNPC = function (town, base) {
     get descriptor () {
       return this.descriptors.seededrandom()
     },
+    // eslint-disable-next-line accessor-pairs
     set descriptorsAdd (description) {
       if (typeof description === 'string') {
+        // @ts-ignore
         console.log(this.descriptors)
+        // @ts-ignore
         if (this.descriptors.includes(description)) {
           console.log('Throwing out duplicate description...')
         } else {
+        // @ts-ignore
           this.descriptors.push(description)
         }
       } else {
-        console.log('Expected a string operand and received ' + description)
+        console.log(`Expected a string operand and received ${description}`)
       }
     },
     eyes: data.raceTraits[race].eyes.seededrandom(),
@@ -177,7 +181,7 @@ setup.createNPC = function (town, base) {
     },
     get raceNote () {
       if (this._race === 'human') {
-        return this.height + ' ' + this.gender
+        return `${this.height} ${this.gender}`
       } else {
         return data.raceTraits[this._race].raceWords.raceName
       }
@@ -191,7 +195,7 @@ setup.createNPC = function (town, base) {
 
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
-  // npc.key = Math.random()
+  // npc.key = randomFloat(0, 1)
   Object.assign(npc, data.gender[npc.gender])
   Object.assign(npc.pronouns, data.gender[npc.gender])
 
@@ -267,13 +271,13 @@ setup.createNPC = function (town, base) {
   setup.createBackground(npc)
 
   setup.createDescriptors(npc)
-  npc.formalName = npc.formalName || npc.title + ' ' + npc.lastName
+  npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
   // npc.key = npc.name
   if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
 
   npc.profile = function (npc, base) {
     base = npc.name || base
-    return '<<profile `$npcs[' + JSON.stringify(npc.key) + '] `' + JSON.stringify(base) + '>>'
+    return `<<profile \`$npcs[${JSON.stringify(npc.key)}] \`${JSON.stringify(base)}>>`
   }
 
   setup.createSexuality(npc)

@@ -1908,7 +1908,7 @@
 //         b[f]++
 //       } else {
 //         for (f = 0; f < 12; f++) {
-//           b[f] = Math.floor(64 * Math.random())
+//           b[f] = Math.floor(64 * randomFloat(0, 1))
 //         }
 //       }
 //       for (f = 0; f < 12; f++) {
