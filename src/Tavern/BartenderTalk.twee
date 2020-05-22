@@ -21,29 +21,29 @@
 <</if>>
 
 <<if _shortage gt 7, $tavern.roll.population gt 70>>
-		<<set _talk to either("We're lucky that I bought that extra case of grog... I get the feeling that we're gonna need it.",
-		"I'm glad that Breiga kept an eye on the stock levels, otherwise we'd have sold out of <<print $tavern.shortages.pluck()>>.")>>
+		<<set _talk to ["We're lucky that I bought that extra case of grog... I get the feeling that we're gonna need it.",
+		"I'm glad that Breiga kept an eye on the stock levels, otherwise we'd have sold out of <<print $tavern.shortages.pluck()>>."].random()>>
 	<<elseif _shortage gt 7>>
-		<<set _talk to either("Business is alright, in honesty I think that I prefer running out of supplies than not... At the moment, it looks like I'll not be running out any time soon.", "I think that I may have oversupplied on <<print $tavern.shortages.pluck()>>...")>>
+		<<set _talk to ["Business is alright, in honesty I think that I prefer running out of supplies than not... At the moment, it looks like I'll not be running out any time soon.", "I think that I may have oversupplied on <<print $tavern.shortages.pluck()>>..."].random()>>
 	<<elseif _shortage gt 4>>
-		<<set _talk to either("We've currently got a bit of a shortage of <<print $tavern.shortages.pluck()>>, but hopefully we'll be getting a cartload overmorrow.",
+		<<set _talk to ["We've currently got a bit of a shortage of <<print $tavern.shortages.pluck()>>, but hopefully we'll be getting a cartload overmorrow.",
 "We're currently running out of <<print $tavern.shortages.pluck()>>, but with any luck, we'll be getting some more before the night is out.",
 "I don't know how it happened, but we're running out of <<print $tavern.shortages.pluck()>>... To be honest, I reckon the barmaid is to blame.",
 "I swear that I ordered a cartload last week, but I'll be damned if we're not running low on <<print $tavern.shortages.pluck()>> somehow.",
-"I told the barmaid to order some, but wouldn't you know, I find myself low on <<print $tavern.shortages.pluck()>>!")>>
+"I told the barmaid to order some, but wouldn't you know, I find myself low on <<print $tavern.shortages.pluck()>>!"].random()>>
 	<<elseif _shortage lte 4, $tavern.population gt 70>>
-		<<set _talk to either("Things are honestly in a mess at the moment around the $tavern.name, we've got a full house, and I'm low on <<print $tavern.shortages.pluck()>> AND <<print $tavern.shortages.pluck()>>! How does that even happen!?",
-		"You can tell that business is booming, but there's only one more case of <<print $tavern.shortages.pluck()>>, and we're completely out of <<print $tavern.shortages.pluck()>>!")>>
+		<<set _talk to ["Things are honestly in a mess at the moment around the $tavern.name, we've got a full house, and I'm low on <<print $tavern.shortages.pluck()>> AND <<print $tavern.shortages.pluck()>>! How does that even happen!?",
+		"You can tell that business is booming, but there's only one more case of <<print $tavern.shortages.pluck()>>, and we're completely out of <<print $tavern.shortages.pluck()>>!"].random()>>
 	<<elseif _shortage lte 4, $tavern.roll.population lt 40>>
-		<<set _talk to either("Well, you can probably guess that business isn't the best right at this moment. Maybe the lack of <<print $tavern.shortages.pluck()>> has something to do with it...",
-		"Business is slow, I'm not gonna lie. We've had no cartments of <<print $tavern.shortages.pluck()>> for almost a week, certainly isn't helping things.")>>
+		<<set _talk to ["Well, you can probably guess that business isn't the best right at this moment. Maybe the lack of <<print $tavern.shortages.pluck()>> has something to do with it...",
+		"Business is slow, I'm not gonna lie. We've had no cartments of <<print $tavern.shortages.pluck()>> for almost a week, certainly isn't helping things."].random()>>
 	<<elseif _shortage lte 4>>
 		<<set _talk to "Well, business could be better. We've got a bit of a shortage on <<print $tavern.shortages.pluck()>>, and that certainly can't be helping things, but I suppose there's always some bad days; they're just not spending the coin, is all.">>
 <</if>><</nobr>><h3>$bartender.name</h3>
 $bartender.name looks <<print $bartender.currentMood.seededrandom()>>, but seems pleased with the welcome distraction from the patrons, who $bartender.heshe tells you are for the most part <<print setup.articles.output($tavern.sin)>> lot. $bartender.firstName pours $bartender.himherself a drink while you talk with the $bartender.weight $bartender.manwoman about the regular goings on in $town.name, and $tavern.name, and $bartender.firstName says "_talk"
 
 <<linkreplace "Talk more with $bartender.name" t8n>>
-$bartender.firstName tells you that $bartender.heshe <<print either("loves working in $tavern.name", "hates working in $tavern.name", "finds working in the $tavern.wordNoun boring", "finds working in the $tavern.wordNoun fun")>>. $bartender.firstName says "Before I took over $tavern.name, I was <<print setup.articles.output($bartender.background)>>. $bartender.backgroundOrigin <<if $bartender.dndClass isnot "bartender">>Then, I took up adventuring as <<print setup.articles.output($bartender.dndClass)>>;<</if>> $bartender.professionOrigin
+$bartender.firstName tells you that $bartender.heshe <<print ["loves working in $tavern.name", "hates working in $tavern.name", "finds working in the $tavern.wordNoun boring", "finds working in the $tavern.wordNoun fun"].random()>>. $bartender.firstName says "Before I took over $tavern.name, I was <<print setup.articles.output($bartender.background)>>. $bartender.backgroundOrigin <<if $bartender.dndClass isnot "bartender">>Then, I took up adventuring as <<print setup.articles.output($bartender.dndClass)>>;<</if>> $bartender.professionOrigin
 <</linkreplace>>
 <<linkreplace "Anything interesting been happening lately?" t8n>>
 'Well...<<print $plothook.rumour.pluck()>>'
