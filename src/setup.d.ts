@@ -31,12 +31,13 @@ interface Setup {
 
   createDocks(town: any, opts?: any)
 
-  ageFaction(faction: any): string
-
   factionData: {
     type: Record<string, FactionTypeData>
   }
-
+  ageFaction(faction: any): string
+  influenceFaction(faction: any): any
+  joinFaction(faction: any): any
+  
   flora: {
     flower: {
       stemP: string[]

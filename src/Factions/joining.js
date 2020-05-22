@@ -1,16 +1,19 @@
 setup.joinFaction = function (faction) {
   console.log('determining joining...')
-  faction.joiningFeeRoll = dice(2, 50)
+
   const joiningRequirement = ['some social status', 'an excellent reputation', 'a favour to be done', 'to be called on for a favour', 'referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of loyalty', 'a display of skill', 'a display of bravery']
   const joiningInitiation = ['a secret task', 'a mission', 'a secret ritual', 'a simple form to be filled', 'nothing particularly interesting', 'an oath to be taken']
-  // still to do: creating tasks for each type of guild, plus requirement
-  joiningRequirement.push(setup.factionData.type[faction.type].joiningRequirement)
-  joiningInitiation.push(setup.factionData.type[faction.type].joiningInitiation)
+
+  // TODO: Create tasks for each type of guild, plus requirement
+  joiningRequirement.push(...setup.factionData.type[faction.type].joiningRequirement)
+  joiningInitiation.push(...setup.factionData.type[faction.type].joiningInitiation)
 
   Object.assign(faction, {
     joiningRequirement: joiningRequirement.seededrandom(),
     joiningInitiation: joiningInitiation.seededrandom()
   })
+
+  faction.joiningFeeRoll = dice(2, 50)
 
   if (faction.joiningFeeRoll > 95) {
     faction.joiningFee = 'a single copper, as a show of faith'
@@ -41,37 +44,6 @@ setup.joinFaction = function (faction) {
   } else {
     faction.joiningFee = 'about a hundred gold pieces'
   }
-
-  //
-  // if (faction.placeholderRoll > 95){
-  //   faction.placeholder = "excellent";
-  // } else if (faction.placeholderRoll > 90){
-  //   faction.placeholder = "very good";
-  // } else if (faction.placeholderRoll > 80){
-  //   faction.placeholder = "quite good";
-  // } else if (faction.placeholderRoll > 70){
-  //   faction.placeholder = "good";
-  // } else if (faction.placeholderRoll > 60){
-  //   faction.placeholder = "above average";
-  // } else if (faction.placeholderRoll > 55){
-  //   faction.placeholder = "slightly above average";
-  // } else if (faction.placeholderRoll > 50){
-  //   faction.placeholder = "average";
-  // } else if (faction.placeholderRoll > 45){
-  //   faction.placeholder = "slightly below average";
-  // } else if (faction.placeholderRoll > 40){
-  //   faction.placeholder = "poor";
-  // } else if (faction.placeholderRoll > 30){
-  //   faction.placeholder = "quite poor";
-  // } else if (faction.placeholderRoll > 20){
-  //   faction.placeholder = "very poor";
-  // } else if (faction.placeholderRoll > 10){
-  //   faction.placeholder = "extremely poor";
-  // } else if (faction.placeholderRoll <= 5){
-  //   faction.placeholder = "abysmal";
-  // } else {
-  //   faction.placeholder = "average";
-  // }
 
   return faction
 }
