@@ -33,6 +33,10 @@ interface Setup {
 
   ageFaction(faction: any): string
 
+  factionData: {
+    type: Record<string, FactionTypeData>
+  }
+
   flora: {
     flower: {
       stemP: string[]
@@ -74,6 +78,31 @@ interface Setup {
   createSocialClass(town: any, npc: any): any
 }
 
+interface FactionTypeData {
+  leaderTraits: LeaderTraits,
+  wordNoun: string,
+  leaderQualification: string[]
+  alliesList: string[]
+  rivalsList: string[]
+  joiningRequirement: string[]
+  joiningInitiation: string[]
+  membersTrait: string[]
+  main: string[]
+  adjective: string[]
+  group: string[]
+  unique: string[]
+  motivation: string[]
+  resources: string[]
+}
+
+interface LeaderTraits {
+  title?: string,
+  hasClass: boolean,
+  dndClass?: string[]
+  profession?: string,
+  background?: string | string[]
+}
+
 interface MagicItem {
   price: {
     sane: string | number,
@@ -96,3 +125,4 @@ interface MoralsData {
   name: string
   note: string
 }
+
