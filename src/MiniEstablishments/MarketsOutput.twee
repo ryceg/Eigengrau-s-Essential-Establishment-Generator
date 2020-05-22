@@ -2,7 +2,7 @@
 <<unset $selectedBuilding>><<set $market to ($town.buildings.market[$selected.key] || $town.buildings.market[$currentPassage.key])>><h1>$market.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness. Today the market is $market.crowd.
 
 <h3>Merchants</h3><<nobr>><<set _marketData to setup.market>><<if ndef $market.sellers>><<set $market.sellers to {}>><<run setup.createMarketSellers($town, $market.sellers, "", 4)>>
-<<set $magicSeller to setup.createNPC($town, {background: either("commoner", "commoner", "commoner", "noble"), profession: "merchant"})>><</if>><</nobr>>
+<<set $magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>><</nobr>>
 <<for _key, _seller range $market.sellers>>
 <<print ["A ", "Nearby, a ", "Off to the side, a "].seededrandom()>> <<profile $npcs[_key] $npcs[_key].descriptor>> is _seller.selling from a _seller.tent.
 
@@ -12,7 +12,7 @@
 <<replace "#moreSellers">>There's <<profile $market.moreSeller $market.moreSeller.descriptor true>> selling $market.moreSeller.merchant.selling from <<print setup.articles.output($market.moreSeller.merchant.tent)>>.<</replace>>
 <</link>><<if ndef $market.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $market.moreSeller $market.moreSeller.descriptor true>> selling $market.moreSeller.merchant.selling from <<print setup.articles.output($market.moreSeller.merchant.tent)>>.<</if>>
 
-A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets from a <<print either(_marketData.vendors.tent)>>. Or, at least, they're supposedly magical items.
+A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
 <<listbox "$marketMagicSelection">>
 <<option "Ring" "ring">><<option "Weapon" "weapon">><<option "Armour" "armour">><<option "Trinket" "trinket">>
 <</listbox>> -- <<button "Create a magic item!">>

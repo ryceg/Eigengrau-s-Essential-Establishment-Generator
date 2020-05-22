@@ -1,6 +1,6 @@
 :: Newspaper
 
-<<set $newspaperheadline to either(["NPC attempts to become player, ridiculed.",
+<<set $newspaperheadline to ["NPC attempts to become player, ridiculed.",
 "Underground homunculi fights discovered - homunculi sales increase.",
 "Wizard house vanishes in the night, locals suspect shenanigans.",
 "Doppelganger discovered in mayor's place. Townsfolk agree he's better than the old.",
@@ -99,4 +99,4 @@
 "Adventurer teaches blink dog Common. 'Wow. Very language.' comments dog.",
 "Unidentified kobold mage summons sarrukh. Apocalypse scheduled for 6 PM.",
 "Evil Lich Necromancer escaped prison. Wanted dead or alive.",
-"Impersonator discovers his house is a mimic"])>>
+"Impersonator discovers his house is a mimic"].random()>>
