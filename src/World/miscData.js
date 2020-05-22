@@ -1,6 +1,6 @@
 
 setup.misc = {
-  ...(setup.misc || {}), // keep any existing misc attributes, see "JS Spread Operator"
+  ...setup.misc || {}, // keep any existing misc attributes, see "JS Spread Operator"
   cheese: {
     create: () => ({
       colour: setup.misc.cheese.colour.seededrandom(),
@@ -23,8 +23,8 @@ setup.misc = {
         emblem: setup.misc.medal.emblem.seededrandom(),
         colour: setup.misc.medal.colour.seededrandom()
       }, base)
-      medal.readout = "This medal's emblem is made of " + medal.metal + ' and has a ' + medal.material + ' ribbon. The emblem is ' + medal.emblem + ' and the ribbon is coloured ' + medal.colour + '.'
-      medal.tip = '<span class="dotted"><<tooltip "medal"' + JSON.stringify(medal.readout) + '>></span>'
+      medal.readout = `This medal's emblem is made of ${medal.metal} and has a ${medal.material} ribbon. The emblem is ${medal.emblem} and the ribbon is coloured ${medal.colour}.`
+      medal.tip = `<span class="dotted"><<tooltip "medal"${JSON.stringify(medal.readout)}>></span>`
 
       return medal
     },
@@ -44,17 +44,17 @@ setup.misc = {
         six: setup.misc.treasureMap.six.seededrandom(),
         seven: setup.misc.treasureMap.seven.seededrandom()
       }, base)
-      map.readout = ['Find the ', 'Start at the '].seededrandom() + map.one + ' Then, ' + map.two + ' until you find the ' + map.three + ' Then, ' + map.four + ' until you reach ' + map.five + ' Then, ' + map.six + ' You will find the treasure ' + map.seven
-      map.tippy = '<span class=tip title=' + JSON.stringify(map.readout) + '><<run setup.tippy("span")>>'
-      map.tippyWord = map.tippy + '<span class="dotted">map</span></span>'
+      map.readout = `${['Find the ', 'Start at the '].seededrandom() + map.one} Then, ${map.two} until you find the ${map.three} Then, ${map.four} until you reach ${map.five} Then, ${map.six} You will find the treasure ${map.seven}`
+      map.tippy = `<span class=tip title=${JSON.stringify(map.readout)}><<run setup.tippy("span")>>`
+      map.tippyWord = `${map.tippy}<span class="dotted">map</span></span>`
       return map
     },
     one: ['big cracked boulder.', 'lightning-blasted oak tree.', 'rock shaped like a horse.', 'stone wall with a piece of volcanic glass .', 'exact center of the village/town/city.', 'statue of a famous person.', 'shipwreck of an infamous pirate ship.', 'bones of the black dragon.', 'cavern near the waterfall.', 'top of the volcano.', 'exact center of the lake.', 'abandoned temple.', 'old fort.', 'old standing circle.', 'road marker leading south.', 'exact center of the longest bridge.', "hangman's scaffold.", "king's/queens throne room.", 'crossroads.', 'largest tomb in the cemetery.', 'last waterfall on the great river', 'big well', 'yellow barn outside of town'],
-    two: ['go north for ' + random(1, 4) + ' miles', 'go south for ' + random(1, 4) + ' miles', 'go east for ' + random(1, 4) + ' miles', 'go west for ' + random(1, 4) + ' miles', 'go northeast for ' + random(1, 4) + ' miles', 'go northwest for ' + random(1, 4) + ' miles', 'go southeast for ' + random(1, 4) + ' miles', 'go southwest for ' + random(1, 4) + ' miles'],
+    two: [`go north for ${random(1, 4)} miles`, `go south for ${random(1, 4)} miles`, `go east for ${random(1, 4)} miles`, `go west for ${random(1, 4)} miles`, `go northeast for ${random(1, 4)} miles`, `go northwest for ${random(1, 4)} miles`, `go southeast for ${random(1, 4)} miles`, `go southwest for ${random(1, 4)} miles`],
     three: ['mountain shaped like a tooth.', 'hill shaped like a saddle.', 'cliffs of red stone.', 'tiny caves in a white hill.', 'old fortress ruins.', 'dried up creekbed.', 'swift-running river.', 'waterfall.', 'abandoned village.', 'tree with a large hole in it.', 'toppled statue of a deity.', 'landslide of shale and gravel.', 'steep-sided valley with blue flowers.', 'beach strewn with black seashells.', 'broken remains of a watchtower.', 'road marker pointing east.', "dilapidated hunter's shack.", 'crossroads.', 'hand-cut stairway into the hillside.', 'the canyon with natural stairs leading down.', 'white tree.', 'exposed dragon skull.', 'stone island in the center of a small lake.'],
-    four: ['go north for ' + random(1, 4) + ' miles', 'go south for ' + random(1, 4) + ' miles', 'go east for ' + random(1, 4) + ' miles', 'go west for ' + random(1, 4) + ' miles', 'go northeast for ' + random(1, 4) + ' miles', 'go northwest for ' + random(1, 4) + ' miles', 'go southeast for ' + random(1, 4) + ' miles', 'go southwest for ' + random(1, 4) + ' miles'],
+    four: [`go north for ${random(1, 4)} miles`, `go south for ${random(1, 4)} miles`, `go east for ${random(1, 4)} miles`, `go west for ${random(1, 4)} miles`, `go northeast for ${random(1, 4)} miles`, `go northwest for ${random(1, 4)} miles`, `go southeast for ${random(1, 4)} miles`, `go southwest for ${random(1, 4)} miles`],
     five: ['rock shaped like a heart.', "mountain shaped like a bird's head.", 'petrified forest.', 'salt lake.', 'dried up swampland.', 'broken bridge.', 'old abandoned mill.', 'the ruined tower of a famous mage.', 'the ancient cemetery.', 'the mossy limestone cliffs.', 'the old granite quarry.', 'the abandoned campgrounds.', 'the vandalized statue of a former ruler.', 'the crossroads.', 'the road marker pointing west.', 'shipwreck of a well-known war ship.', 'minaret.', 'quicksand.', 'hills honeycombed with caves.', "old king's forest.", 'edge of the great desert.', 'great pine tree.', 'boulder split in two.', 'enormous sacrificial altar.', 'unholy temple to a forgotten god.', 'eternally burning campfire.'],
-    six: ['go north for ' + random(1, 4) + ' miles.', 'go south for ' + random(1, 4) + ' miles.', 'go east for ' + random(1, 4) + ' miles.', 'go west for ' + random(1, 4) + ' miles.', 'go northeast for ' + random(1, 4) + ' miles.', 'go northwest for ' + random(1, 4) + ' miles.', 'go southeast for ' + random(1, 4) + ' miles.', 'go southwest for ' + random(1, 4) + ' miles.'],
+    six: [`go north for ${random(1, 4)} miles.`, `go south for ${random(1, 4)} miles.`, `go east for ${random(1, 4)} miles.`, `go west for ${random(1, 4)} miles.`, `go northeast for ${random(1, 4)} miles.`, `go northwest for ${random(1, 4)} miles.`, `go southeast for ${random(1, 4)} miles.`, `go southwest for ${random(1, 4)} miles.`],
     seven: ['buried at the foot of a cliff.', 'buried under a mighty oak tree.', 'buried under some tower ruins.', 'buried under a pile of skulls.', 'buried in the grave of a famous person.', 'hidden at the top of an old tower.', 'hidden behind an old painting.', "hidden at the bottom of an old rabbit's warren.", 'hidden in the bole of an ancient elm tree.', "hidden in a shipwreck's hold.", 'guarded by assassins.', 'guarded by monsters.', 'guarded by soldiers.', 'guarded by spirits.', 'guarded by a big monster.', 'protected by magical wards.', 'protected by astral locks.', 'protected by physical traps.', 'protected by necromantic curses.', 'protected by spiritual prayers.', 'protected by a terrible riddle.', 'locked behind a holy ward.', 'buried in an old latrine.', "mixed into a dragon's horde.", 'hidden at the bottom of the chasm.', 'locked behind arcane spells.', 'stuck at the top of a great elm tree.', 'buried in an iron chest.', 'in a wooden chest in the basement of the cabin.', 'stuffed in the crack between two boulders.', 'buried at the end of the black alleyway.']
   },
   caravan: {
@@ -71,9 +71,9 @@ setup.misc = {
         masterCarry: setup.misc.caravan.masterCarry.seededrandom()
       }, base)
       caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
-      caravan.readout = 'The caravan is ' + caravan.type + ', with ' + caravan.animals + ' as the pack animals. They are transporting ' + caravan.transporting + ', and the general mood seems to be ' + caravan.mood + ' The master is ' + setup.profile(caravan.master, JSON.stringify(caravan.masterType)) + ', who is looking for ' + caravan.masterLooking + '. ' + caravan.master.heshe.toUpperFirst() + ' is taking special care to avoid ' + caravan.masterAvoid + ' and is carrying ' + caravan.masterCarry + ' with ' + caravan.master.himher + '.'
-      caravan.tippy = '<span class=tip title=' + JSON.stringify(caravan.readout) + '><<run setup.tippy("span")>>'
-      caravan.tippyWord = caravan.tippy + '<span class="dotted">caravan</span></span>'
+      caravan.readout = `The caravan is ${caravan.type}, with ${caravan.animals} as the pack animals. They are transporting ${caravan.transporting}, and the general mood seems to be ${caravan.mood} The master is ${setup.profile(caravan.master, JSON.stringify(caravan.masterType))}, who is looking for ${caravan.masterLooking}. ${caravan.master.heshe.toUpperFirst()} is taking special care to avoid ${caravan.masterAvoid} and is carrying ${caravan.masterCarry} with ${caravan.master.himher}.`
+      caravan.tippy = `<span class=tip title=${JSON.stringify(caravan.readout)}><<run setup.tippy("span")>>`
+      caravan.tippyWord = `${caravan.tippy}<span class="dotted">caravan</span></span>`
       return caravan
     },
     caravanType: ['a wagon train', 'a long wagon train', 'a small train of pack animals', 'a long train of pack animals', 'a train of pack animals with livestock', 'a line of people on foot with a few animals'],
@@ -152,9 +152,9 @@ setup.misc = {
         release: setup.misc.ghost.release.seededrandom(),
         reaction: setup.misc.ghost.reaction.seededrandom()
       }, base)
-      ghost.readout = 'This ghost was once ' + ghost.profession + '. They died from ' + ghost.cause + ', and linger on in this life ' + ghost.reason + '. They can move on if ' + ghost.release + '. It is ' + ghost.reaction + ' towards the living.'
-      ghost.tippy = '<span class=tip title=' + JSON.stringify(ghost.readout) + '><<run setup.tippy("span")>>'
-      ghost.tippyWord = ghost.tippy + '<span class="dotted">ghost</span></span>'
+      ghost.readout = `This ghost was once ${ghost.profession}. They died from ${ghost.cause}, and linger on in this life ${ghost.reason}. They can move on if ${ghost.release}. It is ${ghost.reaction} towards the living.`
+      ghost.tippy = `<span class=tip title=${JSON.stringify(ghost.readout)}><<run setup.tippy("span")>>`
+      ghost.tippyWord = `${ghost.tippy}<span class="dotted">ghost</span></span>`
       return ghost
     },
     profession: ['a farmer', 'a herder', 'a miner', 'a fisher', 'a slave', 'a servant', 'a laborer', 'an unskilled worker', 'a beggar', 'an urchin', 'a noble', 'a knight', 'an artist', 'a craftsman', 'a merchant', 'a shopkeeper', 'a barkeep', 'a barmaid', 'a barbarian', 'a gladiator', 'a minstrel', 'a singer', 'a priest', 'a monk', 'an herbalist', 'a healer', 'a soldier', 'a sellsword', 'a cultist', 'a preacher', 'a hunter', 'an assassin', 'a thief', 'a bandit', 'a smuggler', 'a con artist', 'a sailor', 'pirate', 'an alchemist', 'a seer'],
@@ -195,7 +195,7 @@ setup.misc = {
         slaves: setup.misc.orcs.slaves.seededrandom(),
         weapons: setup.misc.orcs.weapons.seededrandom()
       }
-      orcs.readout = '<blockquote>These orcs are ' + orcs.type + ', known for ' + orcs.knownFor + '. Their symbol is ' + orcs.symbol + ', and they value ' + orcs.value + '. Their favourite food is is ' + orcs.meat + ', and they fear ' + orcs.fear + '. Their leader is ' + orcs.leader + ', who wants ' + orcs.goals + '. They are ' + orcs.attitude + ', and are notorious for ' + orcs.notorious + '. They fight with ' + orcs.weapons + ', with ' + orcs.tactics + '. They have pet ' + orcs.pets + ', and keep some ' + orcs.slaves + ' as slaves.</blockquote'
+      orcs.readout = `<blockquote>These orcs are ${orcs.type}, known for ${orcs.knownFor}. Their symbol is ${orcs.symbol}, and they value ${orcs.value}. Their favourite food is is ${orcs.meat}, and they fear ${orcs.fear}. Their leader is ${orcs.leader}, who wants ${orcs.goals}. They are ${orcs.attitude}, and are notorious for ${orcs.notorious}. They fight with ${orcs.weapons}, with ${orcs.tactics}. They have pet ${orcs.pets}, and keep some ${orcs.slaves} as slaves.</blockquote`
       return orcs
     }
   },
@@ -215,9 +215,9 @@ setup.misc = {
         accompaniedBy: setup.misc.goblins.accompaniedBy.seededrandom(),
         pets: setup.misc.goblins.pets.seededrandom()
       }, base)
-      goblins.readout = 'These goblins primarily deal with ' + goblins.business + '. Their symbol is ' + goblins.symbol + ', and their colours are primarily ' + goblins.colours + '. Their lair is ' + goblins.lairType + ', located ' + goblins.lairLocation + '. Their leader is ' + goblins.leaderType + ', who wants ' + goblins.goals + '. They like to target ' + goblins.target + ', and are currently planning a raid on ' + goblins.currentTarget + '. They fight with ' + goblins.tactics + ', and occasionally enlist help from ' + goblins.accompaniedBy + '. They have some ' + goblins.pets + ' as pets.'
-      goblins.tippy = '<span class=tip title=' + JSON.stringify(goblins.readout) + '><<run setup.tippy("span")>>'
-      goblins.tippyWord = goblins.tippy + '<span class="dotted">goblins</span></span>'
+      goblins.readout = `These goblins primarily deal with ${goblins.business}. Their symbol is ${goblins.symbol}, and their colours are primarily ${goblins.colours}. Their lair is ${goblins.lairType}, located ${goblins.lairLocation}. Their leader is ${goblins.leaderType}, who wants ${goblins.goals}. They like to target ${goblins.target}, and are currently planning a raid on ${goblins.currentTarget}. They fight with ${goblins.tactics}, and occasionally enlist help from ${goblins.accompaniedBy}. They have some ${goblins.pets} as pets.`
+      goblins.tippy = `<span class=tip title=${JSON.stringify(goblins.readout)}><<run setup.tippy("span")>>`
+      goblins.tippyWord = `${goblins.tippy}<span class="dotted">goblins</span></span>`
       return goblins
     },
     business: ['raiding villages and farms', 'burglarizing storehouses and shops', 'harassing anyone who passes through their territory', 'robbing caravans carrying gems, precious metals, and exotic goods', 'holding up traders’ ships or wagons', 'smuggling smokeleaf; a hallucinogenic mushroom', 'smuggling sleepysalt (a downer)', 'smuggling sharpsugar (an upper)', 'smuggling exotic beasts', 'smuggling foreign harlots', 'smuggling fugitives', 'smuggling slaves', 'serving as muscle for evildoers', 'mining and crafting', 'pranks and hijinks'],
@@ -244,9 +244,9 @@ setup.misc = {
         looks: setup.misc.goblin.looks.seededrandom(),
         talent: setup.misc.goblin.talent.seededrandom()
       }, base)
-      goblin.readout = 'This goblin is ' + goblin.type + ', and has a ' + goblin.faceFeature + '. It wields ' + goblin.carry + ' and wears ' + goblin.wears + '. This goblin is particularly good at ' + goblin.talent + ', and has ' + goblin.feature + '. Currently, it is looking to ' + goblin.looks
-      goblin.tippy = '<span class=tip title=' + JSON.stringify(goblin.readout) + '><<run setup.tippy("span")>>'
-      goblin.tippyWord = goblin.tippy + '<span class="dotted">goblin</span></span>'
+      goblin.readout = `This goblin is ${goblin.type}, and has a ${goblin.faceFeature}. It wields ${goblin.carry} and wears ${goblin.wears}. This goblin is particularly good at ${goblin.talent}, and has ${goblin.feature}. Currently, it is looking to ${goblin.looks}`
+      goblin.tippy = `<span class=tip title=${JSON.stringify(goblin.readout)}><<run setup.tippy("span")>>`
+      goblin.tippyWord = `${goblin.tippy}<span class="dotted">goblin</span></span>`
       return goblin
     },
     type: ['a miner', 'a forager', 'a warrior', 'a scout', 'a trapmaker', 'an archer', 'an assassin', 'a hexer', 'a wolf-rider', 'a sneak', 'an armorer', 'a cook', 'a builder', 'a beastshifter', 'a skullcrusher', 'a thug', 'a warpriest', 'a prankster', 'a blackblade', 'a worthless nobody'],
@@ -279,9 +279,9 @@ setup.misc = {
         lair: setup.misc.bandits.lair.seededrandom(),
         fearedBy: setup.misc.bandits.fearedBy.seededrandom()
       }
-      bandits.readout = 'These bandits are ' + bandits.type + ' whose primary business is ' + bandits.business + '. Their leader is ' + bandits.leader + ', who wants ' + bandits.goals + '. Their symbol is ' + bandits.symbol + ' on a ' + bandits.colours + ' background. They are feared by ' + bandits.fearedBy + ', and they use ' + bandits.weapons + '. Their base of operations is ' + bandits.lair
-      bandits.tippy = '<span class=tip title=' + JSON.stringify(bandits.readout) + '><<run setup.tippy("span")>>'
-      bandits.tippyWord = bandits.tippy + '<span class="dotted">bandits</span></span>'
+      bandits.readout = `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
+      bandits.tippy = `<span class=tip title=${JSON.stringify(bandits.readout)}><<run setup.tippy("span")>>`
+      bandits.tippyWord = `${bandits.tippy}<span class="dotted">bandits</span></span>`
       return bandits
     }
   },
@@ -549,9 +549,9 @@ setup.misc = {
           material: setup.misc.religion.shrine.material.seededrandom(),
           senses: setup.misc.religion.shrine.senses[sensesArray](town)
         }, base)
-        shrine.readout = 'You come across a shrine dedicated to ' + shrine.god + '. The shrine is ' + shrine.material + ' ' + shrine.senses
-        shrine.tippy = '<span class=tip title=' + JSON.stringify(shrine.readout) + '><<run setup.tippy("span")>>'
-        shrine.tippyWord = shrine.tippy + '<span class="dotted">shrine</span></span>'
+        shrine.readout = `You come across a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
+        shrine.tippy = `<span class=tip title=${JSON.stringify(shrine.readout)}><<run setup.tippy("span")>>`
+        shrine.tippyWord = `${shrine.tippy}<span class="dotted">shrine</span></span>`
         return shrine
       },
       // the shrine is _______.
@@ -584,16 +584,16 @@ setup.misc = {
         'deadBird': town => 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.',
         'cat': town => {
           const cat = setup.misc.cat.create()
-          return "You hear a soft meow, and see that there's a " + cat.tippyWord + ' sitting near the shrine, watching you.'
+          return `You hear a soft meow, and see that there's a ${cat.tippyWord} sitting near the shrine, watching you.`
         },
         'hissingCat': town => {
           const cat = setup.misc.cat.create()
-          return "You hear a hissing sound, and see that there's a " + cat.tippyWord + ' sitting near the shrine, almost guarding it.'
+          return `You hear a hissing sound, and see that there's a ${cat.tippyWord} sitting near the shrine, almost guarding it.`
         },
         'bedding': town => { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
         'beddingWithNPC': town => {
           const npc = setup.createNPC(town)
-          return 'You can see some bedding on the ground near the shrine. The ' + setup.profile(npc, 'owner') + ' is out hunting.'
+          return `You can see some bedding on the ground near the shrine. The ${setup.profile(npc, 'owner')} is out hunting.`
         }
       }
     },
@@ -606,7 +606,7 @@ setup.misc = {
       // let saint = setup.misc.religion.saint.seededrandom()
       const god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
       const noun = setup.misc.religion.noun.seededrandom()
-      return 'The ' + adjective + ' ' + noun + ' of ' + god
+      return `The ${adjective} ${noun} of ${god}`
     },
     holy: [
       'Airborn', 'Almighty', 'Ancient', 'Ascendant', 'Blessed', 'Blue', 'Bronze', 'Burning', 'Ceaseless', 'Celestial', 'Charming', 'Colossal', 'Consecarted', 'Crystal', 'Curing', 'Diamond', 'Emerald', 'Eminent', 'Eternal', 'Ethereal', 'Everlasting', 'Fabled', 'Famous', 'Feathered', 'Flaming', 'Floating', 'Flying', 'Forceful', 'Gentle', 'Ghostly', 'Glass', 'Glorious', 'Glowing', 'Golden', 'Granite', 'Green', 'Grey', 'Healing', 'Heavenly', 'Holiest', 'Holy', 'Illuminated', 'Inexorable', 'Invincible', 'Just', 'Learned', 'Legendary', 'Life', 'Lighted', 'Lightning', 'Lofty', 'Long Lost', 'Lost', 'Lucky', 'Medicinal', 'Mighty', 'Moonstone', 'Oaken', 'Peaceful', 'Pious', 'Platinum', 'Praising', 'Pristine', 'Radiant', 'Red', 'Reflecting', 'Regenerating', 'Restoring', 'Righteous', 'Sacred', 'Sanctified', 'Sapphire', 'Secret', 'Shielding', 'Shining', 'Silk', 'Silver', 'Singing', 'Skyborn', 'Soaring', 'Steel', 'Stone', 'Storied', 'Sunstone', 'Thundering', 'Titanic', 'Unstoppable', 'Untouchable', 'Unyielding', 'Virtuous', 'Vorpal', 'Warding', 'Watchful', 'Whistling', 'White', 'Wind', 'Winged', 'Wise', 'Wooden', 'Yellow'
@@ -635,8 +635,8 @@ setup.misc = {
         favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
         markings: setup.misc.bunny.markings.seededrandom()
       }
-      bunny.readout = 'This bunny is ' + bunny.size + ', and has a ' + bunny.coat + ' coat, with ' + bunny.markings + '. It loves ' + bunny.favouriteFood + '.'
-      bunny.tippyWord = '<span class=tip title=' + JSON.stringify(bunny.readout) + '> <span class="dotted">bunny</span></span><<run setup.tippy("span")>>'
+      bunny.readout = `This bunny is ${bunny.size}, and has a ${bunny.coat} coat, with ${bunny.markings}. It loves ${bunny.favouriteFood}.`
+      bunny.tippyWord = `<span class=tip title=${JSON.stringify(bunny.readout)}> <span class="dotted">bunny</span></span><<run setup.tippy("span")>>`
       return bunny
     },
     size: ['all skin and bones', 'a little scrawny', 'pretty average in size', 'a little long and lanky', 'fat', 'extremely fat', 'teacup size', 'twice the normal size', 'absolutely massive'],
@@ -656,8 +656,8 @@ setup.misc = {
         habit: setup.misc.cat.habit.seededrandom(),
         talent: setup.misc.cat.talent.seededrandom()
       }
-      cat.readout = 'This cat is ' + cat.size + ', and has a ' + cat.coat + ' coat, with ' + cat.eyes + ' and ' + cat.markings + '. This breed was bred ' + cat.breedSkill + ', and this cat has ' + cat.habit + '. It loves ' + cat.favouriteFood + ', and it is particularly good at ' + cat.talent
-      cat.tippyWord = '<span class=tip title=' + JSON.stringify(cat.readout) + '> <span class="dotted">cat</span></span><<run setup.tippy("span")>>'
+      cat.readout = `This cat is ${cat.size}, and has a ${cat.coat} coat, with ${cat.eyes} and ${cat.markings}. This breed was bred ${cat.breedSkill}, and this cat has ${cat.habit}. It loves ${cat.favouriteFood}, and it is particularly good at ${cat.talent}`
+      cat.tippyWord = `<span class=tip title=${JSON.stringify(cat.readout)}> <span class="dotted">cat</span></span><<run setup.tippy("span")>>`
       return cat
     },
     size: ['all skin and bones', 'a little scrawny', 'pretty average in size', 'a little long and lanky', 'fat', 'extremely fat'],
@@ -683,8 +683,8 @@ setup.misc = {
         personality: setup.misc.horse.personality.seededrandom(),
         behaviour: setup.misc.horse.behaviour.seededrandom()
       }
-      horse.readout = 'This horse is ' + horse.gender + +' ' + horse.type + ', and is ' + horse.quality + '. It has a ' + horse.colour + ' coat, with ' + horse.feature + ' and ' + horse.eyes + '. It is ' + horse.flaw + ', which is ' + horse.flawSeverity + '. It is ' + horse.personality + ', and ' + horse.behaviour + '.'
-      horse.tippyWord = '<span class=tip title=' + JSON.stringify(horse.readout) + '> <span class="dotted">horse</span></span><<run setup.tippy("span")>>'
+      horse.readout = `This horse is ${horse.gender}${+' '}${horse.type}, and is ${horse.quality}. It has a ${horse.colour} coat, with ${horse.feature} and ${horse.eyes}. It is ${horse.flaw}, which is ${horse.flawSeverity}. It is ${horse.personality}, and ${horse.behaviour}.`
+      horse.tippyWord = `<span class=tip title=${JSON.stringify(horse.readout)}> <span class="dotted">horse</span></span><<run setup.tippy("span")>>`
       return horse
     },
     type: ['pony; stout and suitable for small riders and narrow trails', 'dray; reliable and suitable for pulling plows and wagons', 'garron; hardy and well-suited for harsh weather and terrain', 'palfrey; tireless and well-suited for long journeys', 'rounsey; medium-sized and suitable for riding or for battle', 'courser; swift and well-suited for hunting or for battle', 'a charger; solid and suitable for jousting or for battle', 'destrier; huge and well-suited for jousting or for battle'],
@@ -710,13 +710,13 @@ setup.misc = {
         packStatus: setup.misc.wolf.packStatus.seededrandom(),
         habitat: setup.misc.wolf.habitat.seededrandom()
       }
-      wolf.readout = 'This wolf is ' + wolf.colour + ', and has ' + wolf.markings + ' coat, with ' + wolf.eyes + '. It is ' + wolf.manner + ', and is ' + wolf.packStatus + '. This breed thrives in ' + wolf.habitat + '. It prefers to ' + wolf.tactics + ', and if given the choice, it prefers ' + wolf.prey
-      wolf.tippy = '<span class=tip title=' + JSON.stringify(wolf.readout) + '><<run setup.tippy("span")>>'
-      wolf.tippyWord = wolf.tippy + '<span class="dotted">wolf</span></span>'
+      wolf.readout = `This wolf is ${wolf.colour}, and has ${wolf.markings} coat, with ${wolf.eyes}. It is ${wolf.manner}, and is ${wolf.packStatus}. This breed thrives in ${wolf.habitat}. It prefers to ${wolf.tactics}, and if given the choice, it prefers ${wolf.prey}`
+      wolf.tippy = `<span class=tip title=${JSON.stringify(wolf.readout)}><<run setup.tippy("span")>>`
+      wolf.tippyWord = `${wolf.tippy}<span class="dotted">wolf</span></span>`
       return wolf
     },
     colour: ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown', 'sandy brown', 'white'],
-    markings: ['white or pale fur on each paw', 'white or pale fur on one paw', 'white or pale fur around the face and muzzle', 'black or dark fur around the face and muzzle', 'a banded pattern on its back' + ['dark grey', 'pale grey', 'reddish brown', 'sandy brown'].seededrandom(), 'lighter fur on its belly', 'darker fur on its belly', 'a distinct, ' + ['white', 'pale grey'].seededrandom() + ' ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom() + ' on its chest', 'a scar from a past injury on its ' + ['flank', 'foreleg', 'hindleg', 'snout', 'eye', 'ear'].seededrandom(), 'no obvious markings'],
+    markings: ['white or pale fur on each paw', 'white or pale fur on one paw', 'white or pale fur around the face and muzzle', 'black or dark fur around the face and muzzle', `a banded pattern on its back${['dark grey', 'pale grey', 'reddish brown', 'sandy brown'].seededrandom()}`, 'lighter fur on its belly', 'darker fur on its belly', `a distinct, ${['white', 'pale grey'].seededrandom()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom()} on its chest`, `a scar from a past injury on its ${['flank', 'foreleg', 'hindleg', 'snout', 'eye', 'ear'].seededrandom()}`, 'no obvious markings'],
     eyes: ['reflective and black', 'pale grey', 'brownish grey', 'dark grey', 'dark brown', 'golden brown', 'light brown', 'red', 'yellow', 'green', 'pale blue', 'dark blue'],
     manner: ['panting lightly', 'panting heavily, its tongue lolling out of its mouth', 'salivating', 'hungrily licking its chops', 'yawning', 'watching curiously', 'watching warily', 'pacing nervously', 'whining softly', 'watching with ears perked and hackles raised', 'growling low, giving warning', 'standing perfectly still, ready to lunge'],
     tactics: ['pick off weak, easy prey', 'stalk its prey until the opportune time to strike', 'harrying its prey over long distances until the prey is exhausted', 'chase its prey to a place where its packmates are waiting in ambush', 'wait in ambush while one or more of its packmates chases the prey to it', 'choose its prey and to run it down'],
@@ -736,9 +736,9 @@ setup.misc = {
         look: setup.misc.ogre.look.seededrandom(),
         misfortune: setup.misc.ogre.misfortune.seededrandom()
       }
-      ogre.readout = 'This ogre is a ' + ogre.type + ', and carries ' + ogre.carry + ". It's hair is " + ogre.hair + ', and its eyes are ' + ogre.eyes + ', with ' + ogre.eyes + '. It is particularly good at ' + ogre.skill + ', and frequently ' + ogre.quirk + '. A long time ago, it was ' + ogre.misfortune + '. Currently, it is looking for a ' + ogre.look
-      ogre.tippy = '<span class=tip title=' + JSON.stringify(ogre.readout) + '><<run setup.tippy("span")>>'
-      ogre.tippyWord = ogre.tippy + '<span class="dotted">ogre</span></span>'
+      ogre.readout = `This ogre is a ${ogre.type}, and carries ${ogre.carry}. It's hair is ${ogre.hair}, and its eyes are ${ogre.eyes}, with ${ogre.eyes}. It is particularly good at ${ogre.skill}, and frequently ${ogre.quirk}. A long time ago, it was ${ogre.misfortune}. Currently, it is looking for a ${ogre.look}`
+      ogre.tippy = `<span class=tip title=${JSON.stringify(ogre.readout)}><<run setup.tippy("span")>>`
+      ogre.tippyWord = `${ogre.tippy}<span class="dotted">ogre</span></span>`
       return ogre
     },
     hair: ['long and stringy', 'wispy and thin', 'dark and matted', 'a tangled mess', 'cut unevenly', 'gone; the ogre is bald'],
@@ -762,13 +762,13 @@ setup.misc = {
         webs: setup.misc.spider.webs.seededrandom(),
         habitat: setup.misc.spider.habitat.seededrandom()
       }
-      spider.readout = 'This spider is ' + spider.colour + ', and has ' + spider.markings + ', with ' + spider.eyes + ' and a mouth ' + spider.mouth + '. This breed thrives in ' + spider.habitat + ', and their poison causes ' + spider.poison + '.Their webs are ' + spider.webs + '. It prefers to ' + spider.tactics
-      spider.tippy = '<span class=tip title=' + JSON.stringify(spider.readout) + '><<run setup.tippy("span")>>'
-      spider.tippyWord = spider.tippy + '<span class="dotted">spider</span></span>'
+      spider.readout = `This spider is ${spider.colour}, and has ${spider.markings}, with ${spider.eyes} and a mouth ${spider.mouth}. This breed thrives in ${spider.habitat}, and their poison causes ${spider.poison}.Their webs are ${spider.webs}. It prefers to ${spider.tactics}`
+      spider.tippy = `<span class=tip title=${JSON.stringify(spider.readout)}><<run setup.tippy("span")>>`
+      spider.tippyWord = `${spider.tippy}<span class="dotted">spider</span></span>`
       return spider
     },
     colour: ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown'],
-    markings: ['pale banding on its legs', 'dark banding on its legs', 'bright ' + ['orange', 'red', 'white', 'yellow'].seededrandom() + ' banding on its legs', 'pale stripes down its abdomen', 'dark stripes down its abdomen', 'a distinct, crimson ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom() + ' on its abdomen', 'a distinct, ' + ['black', 'dark grey'].seededrandom() + ' ' + ['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom() + ' on its abdomen', 'no obvious markings'],
+    markings: ['pale banding on its legs', 'dark banding on its legs', `bright ${['orange', 'red', 'white', 'yellow'].seededrandom()} banding on its legs`, 'pale stripes down its abdomen', 'dark stripes down its abdomen', `a distinct, crimson ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom()} on its abdomen`, `a distinct, ${['black', 'dark grey'].seededrandom()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom()} on its abdomen`, 'no obvious markings'],
     eyes: ['dull and black', 'reflective and black', 'dark grey, almost black', 'dark red', 'bright red', 'pearly white'],
     mouth: ['flanked by fangs, dripping venom', 'flanked by hooked fangs', 'flanked by hairy chelicerae, each ending in a sharp fang', 'flanked by chelicerae, covered in hair that hides any fangs', 'hungrily opening and closing', 'yawning open'],
     poison: ['paralysis', 'loss of consciousness', 'nausea', 'headache', 'loss of coordination', 'blindness', 'dizziness', 'shortness of breath'],
@@ -793,7 +793,7 @@ setup.misc = {
         ceiling: setup.misc.cavern.ceiling.seededrandom(),
         hazards: setup.misc.cavern.hazards.seededrandom()
       }, base)
-      cavern.readout = 'The ' + cavern.noun + ' entrance is ' + cavern.entrance + '. As you enter, you see ' + cavern.landmark + ', and ' + cavern.feature + '. The walls are ' + cavern.walls + ', and the ceiling above is ' + cavern.ceiling + '.'
+      cavern.readout = `The ${cavern.noun} entrance is ${cavern.entrance}. As you enter, you see ${cavern.landmark}, and ${cavern.feature}. The walls are ${cavern.walls}, and the ceiling above is ${cavern.ceiling}.`
       return cavern
     }
   },
@@ -805,9 +805,9 @@ setup.misc = {
         size: setup.misc.tree.biome[biome].size.seededrandom(),
         feature: setup.misc.tree.biome[biome].feature.seededrandom()
       }, base)
-      tree.readout = 'The ' + tree.species + ' tree is ' + tree.size + ' ' + tree.feature
-      tree.tippy = '<span class=tip title=' + JSON.stringify(tree.readout) + '><<run setup.tippy("span")>>'
-      tree.tippyWord = tree.tippy + '<span class="dotted">tree</span></span>'
+      tree.readout = `The ${tree.species} tree is ${tree.size} ${tree.feature}`
+      tree.tippy = `<span class=tip title=${JSON.stringify(tree.readout)}><<run setup.tippy("span")>>`
+      tree.tippyWord = `${tree.tippy}<span class="dotted">tree</span></span>`
       return tree
     },
     biome: {
@@ -948,9 +948,9 @@ setup.misc = {
         setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
       }
 
-      cabin.readout = 'The ' + cabin.material + ' ' + cabin.wordNoun + ' is ' + cabin.size + '. ' + cabin.feature + ' Inside, it is ' + cabin.cleanliness + '. ' + cabin.insideFeature + ' There is a bed, which is ' + cabin.bedCleanliness + '.'
-      cabin.tippy = '<span class=tip title=' + JSON.stringify(cabin.readout) + '><<run setup.tippy("span")>>'
-      cabin.tippyWord = cabin.tippy + '<span class="dotted">' + cabin.wordNoun + '</span></span>'
+      cabin.readout = `The ${cabin.material} ${cabin.wordNoun} is ${cabin.size}. ${cabin.feature} Inside, it is ${cabin.cleanliness}. ${cabin.insideFeature} There is a bed, which is ${cabin.bedCleanliness}.`
+      cabin.tippy = `<span class=tip title=${JSON.stringify(cabin.readout)}><<run setup.tippy("span")>>`
+      cabin.tippyWord = `${cabin.tippy}<span class="dotted">${cabin.wordNoun}</span></span>`
       return cabin
     },
     feature: [
@@ -1039,7 +1039,7 @@ setup.misc = {
         traffic: setup.misc.road[type].traffic.seededrandom(),
         encounter: setup.misc.encounters[encounterKey](town)
       }, base)
-      return ['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].seededrandom() + road.type + ', ' + road.traffic + [[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].seededrandom(), '. ' + ['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].seededrandom()].seededrandom() + road.encounter
+      return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].seededrandom() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].seededrandom(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].seededrandom()}`].seededrandom()}${road.encounter}`
     },
     trail: {
       type: ["hunter's trail", 'animal trail', 'dirt trail'],
@@ -1109,7 +1109,7 @@ setup.misc = {
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return ['While', 'As', 'After a while, as'].seededrandom() + ' you ' + ['traverse', 'trudge along', 'travel across', 'walk across'].seededrandom() + ' the desert, you see ' + setup.misc.desert.landmark.seededrandom() + '. You notice ' + setup.misc.desert.feature.seededrandom() + '. Up ahead, you see ' + encounter
+      return `${['While', 'As', 'After a while, as'].seededrandom()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].seededrandom()} the desert, you see ${setup.misc.desert.landmark.seededrandom()}. You notice ${setup.misc.desert.feature.seededrandom()}. Up ahead, you see ${encounter}`
     },
     location: [
       'a cavern in a canyon wall',
@@ -1183,7 +1183,7 @@ setup.misc = {
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return ['While', 'As', 'After a while, as'].seededrandom() + ' you ' + ['traverse', 'trudge along', 'travel across', 'walk on'].seededrandom() + ' the mountain, you see ' + setup.misc.mountain.landmark.seededrandom() + '. You notice ' + setup.misc.mountain.feature.seededrandom() + '. Up ahead, you see ' + encounter
+      return `${['While', 'As', 'After a while, as'].seededrandom()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].seededrandom()} the mountain, you see ${setup.misc.mountain.landmark.seededrandom()}. You notice ${setup.misc.mountain.feature.seededrandom()}. Up ahead, you see ${encounter}`
     },
     landmark: [
       'a trickle of water flowing down a rock wall',
@@ -1284,7 +1284,7 @@ setup.misc = {
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return ['While', 'As', 'After a while, as'].seededrandom() + ' you ' + ['traverse', 'trudge along in', 'travel through', 'walk through'].seededrandom() + ' the forest, you see ' + setup.misc.forest.landmark.seededrandom() + '. You notice ' + setup.misc.forest.feature.seededrandom() + '. Up ahead, you see ' + encounter
+      return `${['While', 'As', 'After a while, as'].seededrandom()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].seededrandom()} the forest, you see ${setup.misc.forest.landmark.seededrandom()}. You notice ${setup.misc.forest.feature.seededrandom()}. Up ahead, you see ${encounter}`
     },
     location: [
       'a cavern behind a waterfall',
