@@ -1,8 +1,11 @@
 
 setup.createGeneralStore = function (town, opts = {}) {
-  const generalStore = (opts['newBuilding'] || setup.createBuilding)(town, 'generalStore')
+  const createBuilding = opts.newBuilding || setup.createBuilding
+  const createShopkeep = opts.newShopkeep || setup.createNPC
+
+  const generalStore = createBuilding(town, 'generalStore')
   console.groupCollapsed('General Store loading...')
-  generalStore.shopkeep = (opts['newShopkeep'] || setup.createNPC)(town, {
+  generalStore.shopkeep = createShopkeep(town, {
     profession: 'merchant',
     mundane: ['pliers', 'tins', 'twine', 'cups', 'spoons', 'pans', 'chairs', 'cushions'],
     greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'checks you out for just a moment before smiling at you'],
