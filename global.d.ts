@@ -148,3 +148,9 @@ function dice(a: string): number
 function dice(a: number, b: number): number
 
 function tippy(selector: string): any
+
+/*
+ * NodeJS
+ */
+
+declare const global: NodeJS.Global & Record<string, any>
