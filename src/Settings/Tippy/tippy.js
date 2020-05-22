@@ -2,6 +2,20 @@ setup.tippy = function (selector) {
   addEventListener('load', function () {
     tippy(selector)
   })
+  // I'm really not sure why it doesn't work without the delay here.
+  setTimeout(() => tippy(selector), 10)
+}
+
+setup.createTippy = readout => {
+  return `<span class="tip" title=${JSON.stringify(readout)}><<run setup.tippy("span.tip")>>`
+}
+
+setup.createTippyWord = (tippy, word) => {
+  return `${tippy}<span class="dotted">${word}</span></span>`
+}
+
+setup.createTippyFull = (readout, word) => {
+  return `<span class="tip dotted" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
 }
 
 const tip = tippy('[title]')
