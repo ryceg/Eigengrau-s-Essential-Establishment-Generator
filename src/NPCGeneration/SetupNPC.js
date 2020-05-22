@@ -262,7 +262,7 @@ setup.createNPC = function (town, base) {
     npc.physicalTrait = npc.physicalTrait || data.tattoo.seededrandom()
   }
 
-  setup.createClass(npc)
+  setup.createClass(town, npc)
 
   setup.createBackground(npc)
 
