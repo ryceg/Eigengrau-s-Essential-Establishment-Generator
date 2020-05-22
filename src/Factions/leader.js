@@ -1,5 +1,6 @@
 setup.leaderFaction = function (town, faction) {
   console.log('determining leaders...')
+
   faction.roll.leaderBribes = dice(2, 50)
   faction.roll.leaderCompetence = dice(2, 50)
 
@@ -46,7 +47,7 @@ setup.leaderFaction = function (town, faction) {
   }, 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel')
 
   switch (faction.leadershipType) {
-    case 'individual':
+    case 'individual': {
       const leaderTraits = setup.factionData.type[faction.type].leaderTraits
       for (const key in leaderTraits) {
         if (Array.isArray(leaderTraits[key])) {
@@ -58,8 +59,10 @@ setup.leaderFaction = function (town, faction) {
         town.leader = faction.leader
       }
       break
-    case 'group':
+    }
+    case 'group': {
       setup.createLeaderGroup(faction)
+    }
   }
 
   if (faction.roll.stability <= 30) {
