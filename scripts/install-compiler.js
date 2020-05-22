@@ -80,8 +80,7 @@ function unzipEntry (zip, entry) {
 
 function getTweegoLink () {
   const platform = utils.links.tweego[process.platform]
-  const link = platform[process.arch] || platform.x86
-  return link
+  return platform[process.arch] || platform.x86
 }
 
 function isFolder (entry) {
