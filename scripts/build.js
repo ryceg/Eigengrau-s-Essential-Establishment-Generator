@@ -5,7 +5,7 @@ const utils = require('./utils')
 const tweego = path.resolve(utils.twineFolder, 'tweego')
 
 const args = [
-  '--output=gh-pages/index.html',
+  '--output=./gh-pages/index.html',
   './src',
   '--head=./main.ejs'
 ]

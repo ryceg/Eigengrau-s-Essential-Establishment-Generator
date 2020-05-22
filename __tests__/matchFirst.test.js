@@ -1,5 +1,6 @@
 // Attaches itself to the *global* node object.
 global.setup = {}
+// @ts-ignore
 require('../src/Tools/matchFirst')
 
 const map = {

@@ -1,0 +1,54 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      # Caching:
+      # see https://github.com/actions/cache/blob/master/examples.md#node---yarn for details.
+
+      - name: Set path to yarn cache
+        id: yarn-cache-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Install the twine compiler
+        run: yarn install-compiler
+      
+      - name: Fix permissions
+        run: chmod +x ./.twine/tweego
+  
+      - name: Build
+        run: yarn build
+
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-${{ github.sha }}
+          path: ./gh-pages/**/*
