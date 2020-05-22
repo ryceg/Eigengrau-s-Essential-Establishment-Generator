@@ -14,7 +14,7 @@ setup.createFamily = function (town, npc) {
   npc.family = key
 }
 
-setup.ExpandFamily = function (town, npc) {
+setup.expandFamily = function (town, npc) {
   const family = town.families[npc.family]
   const node = family.members[npc.key]
 
@@ -60,7 +60,7 @@ setup.fetchFamily = function (town, npc, depth = 2) {
 
       if (relativeList[ptr].depth < depth) {
         // Expand node first before fetching
-        setup.ExpandFamily(town, State.variables.npcs[relativeList[ptr].key])
+        setup.expandFamily(town, State.variables.npcs[relativeList[ptr].key])
 
         const familyNode = family.members[relativeList[ptr].key]
         if (familyNode.parentMarriage) {
