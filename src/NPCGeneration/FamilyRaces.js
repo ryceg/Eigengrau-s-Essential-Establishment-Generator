@@ -99,8 +99,8 @@ setup.findChildRace = function (town, motherRace, fatherRace) {
       return 'half-orc'
     }
     const halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
-    if (races.find(race => (halfbreeds.includes(race)))) {
-      const otherRace = races.find(race => (race !== 'human'))
+    if (races.find(race => halfbreeds.includes(race))) {
+      const otherRace = races.find(race => race !== 'human')
       console.log(races, otherRace)
       if (random(100) > 70) {
         return otherRace
@@ -119,9 +119,9 @@ setup.findPartnerRace = function (town, npc) {
   const pool = setup.marriagePools[npc.race]
     .filter((race) => typeof town.baseDemographics[race] === 'number')
   const poolSum = pool.map((race) => town.baseDemographics[race])
-    .reduce((a, b) => (a + b), 0)
+    .reduce((a, b) => a + b, 0)
 
-  let roll = Math.random() * poolSum
+  let roll = randomFloat(0, 1) * poolSum
   for (let i = 0; i < pool.length; i++) {
     roll -= town.baseDemographics[pool[i]]
     if (roll <= 0) return pool[i]
