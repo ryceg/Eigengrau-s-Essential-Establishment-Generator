@@ -4,10 +4,10 @@ setup.createAlchemist = (town, opts = {}) => {
 
   console.groupCollapsed('Alchemist loading...')
 
+  const alchemist = createBuilding(town, 'alchemist')
   const chemist = createChemist(town)
 
-  const alchemist = {
-    ...createBuilding(town, 'alchemist'),
+  Object.assign(alchemist, {
     chemist,
     wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].seededrandom(),
     associatedTown: town.name,
@@ -20,7 +20,7 @@ setup.createAlchemist = (town, opts = {}) => {
     cleanliness: '',
     wealth: '',
     expertise: ''
-  }
+  })
 
   setup.structure.create(town, alchemist)
   alchemist.structure.alchemistDescriptor = `${alchemist.structure.material.wealth} ${alchemist.structure.material.noun} ${alchemist.wordNoun} with ${setup.articles.output(alchemist.structure.roof.verb)} roof`
