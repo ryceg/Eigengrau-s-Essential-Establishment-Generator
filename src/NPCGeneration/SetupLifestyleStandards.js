@@ -115,7 +115,8 @@ setup.createLifestyleStandards = function (town, npc) {
   const note = wageVarianceNotes.find(function (desc) {
     return desc[0] >= npc.roll.wageVariation(town)
   })
-  npc.professionSuccess = `${npc.firstName} ${note[1]} ${setup.articles.find(npc.profession)} ${tippy}` || wageVarianceNotes[5][1]
+  // TODO: line 119 sometimes returns undefined
+  npc.professionSuccess = `${npc.firstName} ${(note[1] || wageVarianceNotes[5][1])} ${setup.articles.find(npc.profession)} ${tippy}`
   console.groupEnd()
   return npc
 }
