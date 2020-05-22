@@ -18,6 +18,11 @@ interface Setup {
         priceTalk: string
       }[]
     }
+    name: {
+      noun: string[]
+      adjective: string[]
+      rider: string[]
+    }
   }
   alchemistModifiers(alchemist: any): any
   createAlchemist(alchemist: any, opts:any): any
