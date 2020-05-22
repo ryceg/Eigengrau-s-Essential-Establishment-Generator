@@ -30,7 +30,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     boring: {
       function (town) {
-        return `a couple commissions that I need to fill; nothing too special, just some blades and such.`
+        return 'a couple commissions that I need to fill; nothing too special, just some blades and such.'
       }
     },
     moreBoring: {
@@ -90,7 +90,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return smithy.roll.expertise > 60 && town.roll.guardFunding > 70
       },
       function (town, smithy) {
-        return `a whole new set of weapons for <<guard $town.guard>>. Should keep me busy for the next couple months!`
+        return 'a whole new set of weapons for <<guard $town.guard>>. Should keep me busy for the next couple months!'
       }
     },
     badlyMadeGuard: {
@@ -189,12 +189,12 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   const project = setup.weightedRandomFetcher(town, potentialProjects, smithy)
 
   const working = [
-    `I'm working on`,
-    `Currently? I'm working on`,
-    `Currently I'm just working on`,
-    `At the moment, I'm working on`,
-    `Right now, I'm making`,
-    `Right now, I'm doing`
+    'I\'m working on',
+    'Currently? I\'m working on',
+    'Currently I\'m just working on',
+    'At the moment, I\'m working on',
+    'Right now, I\'m making',
+    'Right now, I\'m doing'
   ]
 
   return `${action} ${binder(town, blacksmith)} "${working.seededrandom()} ${project}"`
