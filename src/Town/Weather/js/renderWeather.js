@@ -44,11 +44,11 @@ setup.renderWeather = function (town, biome, weather) {
     // })
   }
   console.log('3')
-  const tempVariation = (setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain['temperate'].weather.tempVariation[finalKey].temperature)
-  console.log('tempVariation: ' + tempVariation)
+  const tempVariation = setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain.temperate.weather.tempVariation[finalKey].temperature
+  console.log(`tempVariation: ${tempVariation}`)
 
-  weather.temperature = (setup.townData.terrain[biome].weather.season[weather.season].baseTemp || setup.townData.terrain['temperate'].weather['spring'].baseTemp) + tempVariation - random(-2, 2)
-  console.log('weather temp: ' + weather.temperature)
+  weather.temperature = (setup.townData.terrain[biome].weather.season[weather.season].baseTemp || setup.townData.terrain.temperate.weather.spring.baseTemp) + tempVariation - random(-2, 2)
+  console.log(`weather temp: ${weather.temperature}`)
 
   if (weather.timer.precipitation < 1) {
     console.log('Resetting precipitation timer...')
@@ -87,13 +87,13 @@ setup.renderWeather = function (town, biome, weather) {
   weather.readout.cloud = setup.weather.cloudIntensityDescriptors[weather.cloudIntensity].seededrandom()
 
   console.log('Rendering temperature...')
-  for (const array of setup.weather.temperatureDescriptors) {
-    // console.log(array)
-    if (weather.temperature >= array[0]) {
-      weather.readout.temperature = '<span class=tip title=' + JSON.stringify(setup.toCelsius(weather.temperature) + ', to be precise.') + '><span class="dotted">' + array[1] + '</span></span><<run setup.tippy("span")>>'
+  for (const [threshold, description] of setup.weather.temperatureDescriptors) {
+    if (weather.temperature >= threshold) {
+      const readout = `${setup.toCelsius(weather.temperature)}, to be precise.`
+      weather.readout.temperature = setup.createTippyFull(readout, description)
       break
     }
   }
-  weather.readout.full = "It's " + weather.readout.temperature + '. ' + weather.readout.cloud.toUpperFirst() + ', and ' + weather.readout.precipitation + '. '
+  weather.readout.full = `It's ${weather.readout.temperature}. ${weather.readout.cloud.toUpperFirst()}, and ${weather.readout.precipitation}. `
   console.log(weather)
 }
