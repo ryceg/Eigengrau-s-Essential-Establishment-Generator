@@ -45,6 +45,4 @@ $bartender.name looks <<print $bartender.currentMood.seededrandom()>>, but seems
 <<linkreplace "Talk more with $bartender.name" t8n>>
 $bartender.firstName tells you that $bartender.heshe <<print ["loves working in $tavern.name", "hates working in $tavern.name", "finds working in the $tavern.wordNoun boring", "finds working in the $tavern.wordNoun fun"].random()>>. $bartender.firstName says "Before I took over $tavern.name, I was <<print setup.articles.output($bartender.background)>>. $bartender.backgroundOrigin <<if $bartender.dndClass isnot "bartender">>Then, I took up adventuring as <<print setup.articles.output($bartender.dndClass)>>;<</if>> $bartender.professionOrigin
 <</linkreplace>>
-<<linkreplace "Anything interesting been happening lately?" t8n>>
-'Well...<<print $plothook.rumour.pluck()>>'
-<</linkreplace>><</linkreplace>>
+<</linkreplace>>
