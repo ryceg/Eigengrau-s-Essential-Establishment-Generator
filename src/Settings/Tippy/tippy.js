@@ -12,7 +12,7 @@ setup.createTippyWord = (tippy, word) => {
   return `${tippy}<span class="dotted">${word}</span></span>`
 }
 
-setup.createFullTippyFull = (readout, word) => {
+setup.createTippyFull = (readout, word) => {
   return setup.createTippyWord(setup.createTippy(readout), word)
 }
 
