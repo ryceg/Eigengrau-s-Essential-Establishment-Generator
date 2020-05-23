@@ -140,10 +140,6 @@ interface Math {
   fairmath(a: number, b:number): number
 }
 
-interface Array<T> {
-  seededrandom(): T
-}
-
 function dice(a: string): number
 function dice(a: number, b: number): number
 
