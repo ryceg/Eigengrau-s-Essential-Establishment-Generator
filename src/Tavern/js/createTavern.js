@@ -1,10 +1,10 @@
 
 setup.createTavern = function (town, opts = {}) {
-  const tavern = (opts['newBuilding'] || setup.createBuilding)(town, 'tavern')
+  const tavern = (opts.newBuilding || setup.createBuilding)(town, 'tavern')
 
   tavern.name = setup.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.bartender = (opts['newBartender'] || setup.createBartender)(town, tavern.name)
+  tavern.bartender = (opts.newBartender || setup.createBartender)(town, tavern.name)
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
     gender: 'woman',
@@ -18,10 +18,10 @@ setup.createTavern = function (town, opts = {}) {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     buildingType: 'tavern',
-    stageDescriptor: setup.tavern.stageDescriptor.seededrandom(),
-    wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].seededrandom(),
+    stageDescriptor: setup.tavern.stageDescriptor.random(),
+    wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
-    fun: setup.tavern.fun.seededrandom(),
+    fun: setup.tavern.fun.random(),
     type: [
       'quiet and low-key bar',
       'regular',
@@ -38,15 +38,15 @@ setup.createTavern = function (town, opts = {}) {
       'high-end dining club',
       'gambling den',
       'gambling den',
-      tavern.bartender.race + ' only club',
+      `${tavern.bartender.race} only club`,
       "guild-member's only club",
       "guild-member's only club",
       'members-only club',
       'brothel',
       'brothel'
-    ].seededrandom(),
-    // patrons: setup.tavern.patrons.seededrandom(),
-    game: setup.tavern.games.seededrandom()
+    ].random(),
+    // patrons: setup.tavern.patrons.random(),
+    game: setup.tavern.games.random()
   })
   tavern.roll.bedCleanliness = random(1, 100)
 
@@ -62,10 +62,10 @@ setup.createTavern = function (town, opts = {}) {
   }
   switch (tavern.draw) {
     case "tavern.reputation + ' atmosphere'":
-      tavern.notableFeature = 'its ' + tavern.reputation + ' atmosphere'
+      tavern.notableFeature = `its ${tavern.reputation} atmosphere`
       break
     default:
-      tavern.notableFeature = 'its ' + tavern.draw
+      tavern.notableFeature = `its ${tavern.draw}`
   }
   setup.tavernModifiers(town, tavern)
   tavern.wealth = ''
@@ -75,8 +75,8 @@ setup.createTavern = function (town, opts = {}) {
   tavern.lodging = ''
   tavern.sin = ''
   tavern.food = ''
-  tavern.colour1 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
-  tavern.colour2 = [setup.colours.yellow.colour.seededrandom(), setup.colours.orange.colour.seededrandom(), setup.colours.red.colour.seededrandom(), setup.colours.purple.colour.seededrandom(), setup.colours.blue.colour.seededrandom(), setup.colours.green.colour.seededrandom(), setup.colours.brown.colour.seededrandom(), setup.colours.black.colour.seededrandom(), setup.colours.white.colour.seededrandom()].seededrandom()
+  tavern.colour1 = [setup.colours.yellow.colour.random(), setup.colours.orange.colour.random(), setup.colours.red.colour.random(), setup.colours.purple.colour.random(), setup.colours.blue.colour.random(), setup.colours.green.colour.random(), setup.colours.brown.colour.random(), setup.colours.black.colour.random(), setup.colours.white.colour.random()].random()
+  tavern.colour2 = [setup.colours.yellow.colour.random(), setup.colours.orange.colour.random(), setup.colours.red.colour.random(), setup.colours.purple.colour.random(), setup.colours.blue.colour.random(), setup.colours.green.colour.random(), setup.colours.brown.colour.random(), setup.colours.black.colour.random(), setup.colours.white.colour.random()].random()
   tavern.bedCleanliness = ''
   // Define entertainment if large enough
   if (tavern.roll.size >= 30) {
@@ -92,12 +92,12 @@ setup.createTavern = function (town, opts = {}) {
   }
   // Sets up building structure and creates building description
   setup.structure.create(town, tavern)
-  tavern.structure.tavernDescriptor = tavern.structure.material.wealth + ' ' + tavern.structure.material.noun + ' ' + tavern.wordNoun + ' with ' + setup.articles.output(tavern.structure.roof.verb) + ' roof'
+  tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${setup.articles.output(tavern.structure.roof.verb)} roof`
   const rollData = setup.tavern.rollData
 
   Object.defineProperty(tavern, 'lodging', {
     get () {
-      console.log('Fetching ' + tavern.name + ' lodging.')
+      console.log(`Fetching ${tavern.name} lodging.`)
       let lodging = rollData.wealth.find(function (descriptor) {
         return descriptor[0] <= this.roll.wealth
       }, this)
@@ -110,7 +110,7 @@ setup.createTavern = function (town, opts = {}) {
   })
   Object.defineProperty(tavern, 'food', {
     get () {
-      console.log('Fetching ' + tavern.name + ' food.')
+      console.log(`Fetching ${tavern.name} food.`)
       let food = rollData.wealth.find(function (descriptor) {
         return descriptor[0] <= this.roll.wealth
       }, this)
@@ -123,7 +123,7 @@ setup.createTavern = function (town, opts = {}) {
   })
   Object.defineProperty(tavern, 'bedCleanliness', {
     get () {
-      console.log('Fetching ' + tavern.name + ' bed cleanliness.')
+      console.log(`Fetching ${tavern.name} bed cleanliness.`)
       let bedCleanliness = rollData.cleanliness.find(function (descriptor) {
         return descriptor[0] <= this.roll.bedCleanliness
       }, this)
@@ -136,7 +136,7 @@ setup.createTavern = function (town, opts = {}) {
   })
   Object.defineProperty(tavern, 'sin', {
     get () {
-      console.log('Fetching ' + tavern.name + ' sin.')
+      console.log(`Fetching ${tavern.name} sin.`)
       if (this.roll.sin > 80) {
         this._sin = 'corrupt'
       } else if (this.roll.sin > 70) {
@@ -170,7 +170,7 @@ setup.createTavern = function (town, opts = {}) {
   }
   // setup.tavernRender(tavern)
   // setup.townBinder(town, tavern, 'tavern')
-  tavern.tippyDescription = setup.articles.output(tavern.size).toUpperFirst() + ' ' + tavern.wordNoun + " that's " + tavern.cleanliness + ', and is known for ' + tavern.notableFeature + '.'
+  tavern.tippyDescription = `${setup.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
   console.log(tavern)
   console.groupEnd()
   return tavern

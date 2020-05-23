@@ -3,7 +3,7 @@ setup.exportNPC = function (npc) {
     character: {
     // firstName: npc.firstName,
     // lastName: npc.lastName,
-      name: npc.firstName + ' ' + npc.lastName,
+      name: `${npc.firstName} ${npc.lastName}`,
       age: npc.age,
       class: npc.dndClass,
       classes: [{
@@ -46,12 +46,13 @@ setup.exportNPC = function (npc) {
 
       cp: npc.wealth
 
-    } }
+    }
+  }
 
   return JSON.stringify(npcExport)
   // muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
-  // calmTrait: data.calmTrait.seededrandom(),
-  // stressTrait: data.stressTrait.seededrandom(),
+  // calmTrait: data.calmTrait.random(),
+  // stressTrait: data.stressTrait.random(),
   // pronouns: {
 
   // },
@@ -105,11 +106,11 @@ setup.exportNPC = function (npc) {
   //     return Math.round(npc.finances.netIncome(town, npc) - npc.finances.lifestyleStandard(town, npc)[0] - npc.finances.lifestyleExpenses(town, npc))
   //   }
   // },
-  // // value: data.value.seededrandom(),
-  // // drive: data.drive.seededrandom(),
-  // // belief: data.belief.seededrandom(),
-  // hairColour: data.hairColour.seededrandom(),
-  // hairType: data.hairType.seededrandom(),
+  // // value: data.value.random(),
+  // // drive: data.drive.random(),
+  // // belief: data.belief.random(),
+  // hairColour: data.hairColour.random(),
+  // hairType: data.hairType.random(),
   // get hair () {
   //   return this.hairType + ' ' + this.hairColour + ' hair'
   // },
@@ -119,7 +120,7 @@ setup.exportNPC = function (npc) {
   //   this.hairColour = hairs[1] || ''
   // },
   // get descriptor () {
-  //   return this.descriptors.seededrandom()
+  //   return this.descriptors.random()
   // },
   // set descriptorsAdd (description) {
   //   if (typeof description === 'string') {
@@ -133,13 +134,13 @@ setup.exportNPC = function (npc) {
   //     console.log('Expected a string operand and received ' + description)
   //   }
   // },
-  // eyes: data.raceTraits[race].eyes.seededrandom(),
-  // skinColour: data.skinColour.seededrandom(),
+  // eyes: data.raceTraits[race].eyes.random(),
+  // skinColour: data.skinColour.random(),
   // dndClass,
   // profession,
-  // pockets: data.pockets.seededrandom(),
+  // pockets: data.pockets.random(),
   // wealth: dice(2, 50),
-  // trait: data.trait.seededrandom(),
+  // trait: data.trait.random(),
   // currentMood: data.currentMood,
   // hasHistory: base.hasHistory || false,
   // // id: Math.floor(randomFloat(1) * 0x10000),

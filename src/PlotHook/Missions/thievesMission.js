@@ -1,33 +1,33 @@
 
 setup.thievesMission = function (town, mission) {
-  mission.type = ['alchemy', 'assassination', 'blackmail', 'burglary', 'swindle', 'fence', 'fraud', 'gambling', 'kidnapping', 'narcotics', 'prostitution', 'protection', 'slavery', 'smuggling', 'street'].seededrandom()
+  mission.type = ['alchemy', 'assassination', 'blackmail', 'burglary', 'swindle', 'fence', 'fraud', 'gambling', 'kidnapping', 'narcotics', 'prostitution', 'protection', 'slavery', 'smuggling', 'street'].random()
 
   const details = missionDetails(mission)
 
   if (details) {
-    mission.details = details.seededrandom()
+    mission.details = details.random()
   }
 
   mission.difficultyText = missionDifficulty(mission)
 
   const openingLine = [
-    [
+    `${[
       "I've got a job for you.",
       'Got a job for you to do.',
       "There's a job I need you to do.",
       "There's something I need you to do."
-    ].seededrandom() + ' ' + mission.difficultyText + ' ' + ["This one's a ", "It's a ", 'This is a '].seededrandom() + mission.type + ' job.',
-    [
-      "I've got " + setup.articles.output(mission.type) + ' job for you.',
-      'Got ' + setup.articles.output(mission.type) + ' job for you to do.',
-      "There's " + setup.articles.output(mission.type) + ' job I need you to do.',
-      "There's " + setup.articles.output(mission.type) + ' job I need you to do.'
-    ].seededrandom() + ' ' + mission.difficultyText
-  ].seededrandom()
+    ].random()} ${mission.difficultyText} ${["This one's a ", "It's a ", 'This is a '].random()}${mission.type} job.`,
+    `${[
+      `I've got ${setup.articles.output(mission.type)} job for you.`,
+      `Got ${setup.articles.output(mission.type)} job for you to do.`,
+      `There's ${setup.articles.output(mission.type)} job I need you to do.`,
+      `There's ${setup.articles.output(mission.type)} job I need you to do.`
+    ].random()} ${mission.difficultyText}`
+  ].random()
 
-  const closingLine = ['fuck it up.', 'let me down.', 'disappoint me.'].seededrandom()
+  const closingLine = ['fuck it up.', 'let me down.', 'disappoint me.'].random()
 
-  mission.readout = openingLine + ' I need you to ' + mission.details + " Don't " + closingLine
+  mission.readout = `${openingLine} I need you to ${mission.details} Don't ${closingLine}`
 
   return mission
 }
@@ -41,14 +41,14 @@ function missionDifficulty (mission) {
         "Shouldn't be any trouble for you.",
         'Should be no trouble for you.',
         'Should be easy enough.'
-      ].seededrandom()
+      ].random()
     case 'hard':
       return [
         "It'll be a bit of a challenge.",
         'Should be reasonably difficult.',
         'It should be entertaining enough for you.',
         'It might be a tad tricky.'
-      ].seededrandom()
+      ].random()
   }
   return ''
 }
@@ -128,7 +128,7 @@ function assassinationMissionDetails (mission) {
         'kill a group of targets spread across several locations on the same day. Claim credit for it.',
         'kill a group of targets with ingested poison only, at a specific time and date.',
         'kill a group of targets with no visible means of assassination on the corpse.'
-      ].seededrandom()
+      ].random()
   }
 }
 

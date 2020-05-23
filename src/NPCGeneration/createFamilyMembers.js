@@ -34,7 +34,7 @@ setup.createParentage = function (town, family, npc, forceFather = false, forceM
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {
     if (random(1, 100) <= setup.familyData.orphanPercent &&
-      (!forceFather) && (!forceMother)) {
+      !forceFather && !forceMother) {
       node.parentMarriage = null
     } else {
       const marriage = {
@@ -96,7 +96,7 @@ setup.createChildren = function (town, family, marriage, amount,
   for (let k = 0; k < amount; k++) {
     const siblingBase = {
       race: setup.findChildRace(town, motherRace, fatherRace),
-      gender: ['man', 'woman'].seededrandom(),
+      gender: ['man', 'woman'].random(),
       ageYears: setup.familyData.childAge(marriage),
       lastName: surname,
       socialClass: siblingClass,

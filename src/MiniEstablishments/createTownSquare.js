@@ -1,6 +1,6 @@
 setup.createTownSquare = function (town, opts = {}) {
   console.groupCollapsed('Creating townSquare function')
-  const townSquare = (opts['newBuilding'] || setup.createBuilding)(town, 'townSquare')
+  const townSquare = (opts.newBuilding || setup.createBuilding)(town, 'townSquare')
   Object.assign(townSquare, {
     associatedTown: town.name,
     initPassage: 'TownSquareOutput',
@@ -9,7 +9,7 @@ setup.createTownSquare = function (town, opts = {}) {
     buildingType: 'townSquare',
     wordNoun: 'town square',
     needsWordNoun: false,
-    feature: setup.townSquare.feature.seededrandom()
+    feature: setup.townSquare.feature.random()
   })
 
   townSquare.size = ''
@@ -19,7 +19,7 @@ setup.createTownSquare = function (town, opts = {}) {
   for (const propName of rollDataVariables) {
     setup.defineRollDataGetter(townSquare, setup.townSquare.rollData, propName)
   }
-  townSquare.tippyDescription = 'The town square, which is ' + townSquare.size + ' and ' + townSquare.cleanliness
+  townSquare.tippyDescription = `The town square, which is ${townSquare.size} and ${townSquare.cleanliness}`
   console.groupEnd()
   return townSquare
 }

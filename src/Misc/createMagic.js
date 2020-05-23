@@ -16,7 +16,7 @@ setup.createMagic = function (type) {
   const prefixRoll = random(1, length)
   const suffixRoll = random(1, length)
   const magic = {
-    type: data.type.seededrandom(),
+    type: data.type.random(),
     prefix: data.prefix[prefixRoll],
     suffix: data.suffix[suffixRoll],
     prefixProperty: data.property[prefixRoll],

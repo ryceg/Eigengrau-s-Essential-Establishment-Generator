@@ -1,5 +1,5 @@
 setup.townData = {
-  ...(setup.townData || {}),
+  ...setup.townData || {},
   name: {
     prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
     suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
@@ -146,7 +146,7 @@ setup.townData = {
       economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       politicalSource: ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(30, 300) },
-      'startFactionsNumber' () { return [1, 1, 1, 1, 1, 2].seededrandom() },
+      'startFactionsNumber' () { return [1, 1, 1, 1, 1, 2].random() },
       // roadDuplication: d100 of whether to create a new road (new one if under).
       roadDuplication: 40,
       modifiers: {
@@ -247,7 +247,7 @@ setup.townData = {
       economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
       politicalSource: ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(301, 1000) },
-      'startFactionsNumber' () { return [1, 1, 1, 2, 2, 2].seededrandom() },
+      'startFactionsNumber' () { return [1, 1, 1, 2, 2, 2].random() },
       roadDuplication: 50,
       modifiers: {
         wealth: -10,
@@ -347,7 +347,7 @@ setup.townData = {
       economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
       politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(1001, 3000) },
-      'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3].seededrandom() },
+      'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3].random() },
       roadDuplication: 70,
       modifiers: {
         wealth: 15,
@@ -447,7 +447,7 @@ setup.townData = {
       economicIdeology: ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
       politicalSource: ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
       'population' () { return random(3001, 6000) },
-      'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].seededrandom() },
+      'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].random() },
       roadDuplication: 90,
       modifiers: {
         wealth: 5,

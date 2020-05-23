@@ -356,8 +356,8 @@ setup.temple = {
   ],
   priestLook: [
     // A temple priest is ___
-    'currently placing some nice smelling incense in <<print ["an old looking", "an ornate", "a cheap looking", "an animal shaped", "a wooden", "a stone", "a golden", "a bronze", "a dirty looking", "a holy"].seededrandom()>> incense holder',
-    'kneeling in front of a <<print ["small wooden statue", "small stone statue", "small basin of water", "large basin of water", "large wooden statue", "large group of melting candles", "blazing fire", "picture of the temple god", "holy book of the temple", "row of pews"].seededrandom()>> and murmuring a prayer of some kind',
+    'currently placing some nice smelling incense in <<print ["an old looking", "an ornate", "a cheap looking", "an animal shaped", "a wooden", "a stone", "a golden", "a bronze", "a dirty looking", "a holy"].random()>> incense holder',
+    'kneeling in front of a <<print ["small wooden statue", "small stone statue", "small basin of water", "large basin of water", "large wooden statue", "large group of melting candles", "blazing fire", "picture of the temple god", "holy book of the temple", "row of pews"].random()>> and murmuring a prayer of some kind',
     'dusting off one of the temple pews with a small fathered brush',
     'blessing a small basin of water at the front of the temple',
     'lighting a candle and placing it among a large row of candles',
@@ -396,14 +396,14 @@ setup.temple = {
     'The priest has you hold a small holy statue while $priest.heShe mumbles a holy blessing'
   ],
   blessingGift: [
-    'Afterwards, the priest tells you that you have been blessed with <<print ["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart", "holy luck", "a new outlook", "wisdom beyond yourself", "a holy enlightenment"].seededrandom()>>, but does not explain what that means',
-    'The priest tells you that you were gifted <<print ["underwater breathing", "pure luck", "perfect aim", "silent steps", "strength above strength", "a link with the temple god", "an angelic glow"].seededrandom()>> for the next few hours',
+    'Afterwards, the priest tells you that you have been blessed with <<print ["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart", "holy luck", "a new outlook", "wisdom beyond yourself", "a holy enlightenment"].random()>>, but does not explain what that means',
+    'The priest tells you that you were gifted <<print ["underwater breathing", "pure luck", "perfect aim", "silent steps", "strength above strength", "a link with the temple god", "an angelic glow"].random()>> for the next few hours',
     'Afterwards, $priest.firstName apologizes and says the blessing failed',
     'As the priest chants you can feel something change within you, but neither the priest nor you know what the blessing you recieved was',
     'After the ritual the $priest.firstName tells you that the blessing succeeded, but they do not know what the blessing is',
-    'After all that the priest tells you that <<print ["your body has become heat resistant", "your body will feel no cold", "you can now sense evil", "you can now see in the dark", "your fighting skills will be better", "you will feel true empathy"].seededrandom()>> for the next day or so',
+    'After all that the priest tells you that <<print ["your body has become heat resistant", "your body will feel no cold", "you can now sense evil", "you can now see in the dark", "your fighting skills will be better", "you will feel true empathy"].random()>> for the next day or so',
     "You're told that the temple patron will now be watching over you, but it's unclear what that really means",
-    'You are told by the priest that you are now blessed <<print ["with a better future than the one you were headed towards before", "with a depth of feeling that was locked deep within you", "with an appreciation for the colors of the world you had never known", "with a powerful love for all the animals of the earth, and in return their love towards you", "with a new sense of longing", "with a feeling of inner peace"].seededrandom()>>',
-    'You have now been blessed with <<print ["a healthy body", "an ever healing body for the next few hours", "a feeling of weightlessness", "a clear mind", "a protective aura", "a hardy body", "a new perspective", "swift fingers", "a new knowledge", "a secret of the gods"].seededrandom()>> according to the temple priest'
+    'You are told by the priest that you are now blessed <<print ["with a better future than the one you were headed towards before", "with a depth of feeling that was locked deep within you", "with an appreciation for the colors of the world you had never known", "with a powerful love for all the animals of the earth, and in return their love towards you", "with a new sense of longing", "with a feeling of inner peace"].random()>>',
+    'You have now been blessed with <<print ["a healthy body", "an ever healing body for the next few hours", "a feeling of weightlessness", "a clear mind", "a protective aura", "a hardy body", "a new perspective", "swift fingers", "a new knowledge", "a secret of the gods"].random()>> according to the temple priest'
   ]
 }

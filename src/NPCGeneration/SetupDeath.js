@@ -9,7 +9,7 @@ setup.death = {
       'getting black-out drunk',
       'having a protracted argument'
     ]
-    text = text + ' while ' + whilst.seededrandom()
+    text = `${text} while ${whilst.random()}`
     return text
   },
   cause: [
@@ -60,7 +60,7 @@ setup.death = {
           profession: npc.profession,
           hasClass: npc.hasClass
         })
-        const text = `${npc.firstName} was murdered by ${setup.profile(murderer, 'another competing ' + murderer.profession)}.`
+        const text = `${npc.firstName} was murdered by ${setup.profile(murderer, `another competing ${murderer.profession}`)}.`
         return text
       }
     },
@@ -84,7 +84,7 @@ setup.death = {
         return ['settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)
       },
       function (town, npc) {
-        const text = `${npc.firstName} died from ${['exposure', 'cancer', 'a plague', 'diptheria', 'cholera', 'dysentery', 'malaria', 'the flu', 'typhoid fever', 'smallpox', 'leprosy'].seededrandom()}.`
+        const text = `${npc.firstName} died from ${['exposure', 'cancer', 'a plague', 'diptheria', 'cholera', 'dysentery', 'malaria', 'the flu', 'typhoid fever', 'smallpox', 'leprosy'].random()}.`
         return text
       }
     },
@@ -94,7 +94,7 @@ setup.death = {
         return npc.hasClass === true
       },
       function (town, npc) {
-        const text = `${npc.firstName} ${['died from', 'was killed by'].seededrandom()} ${['a monster', 'a trap in a dungeon', 'a rival adventuring party', 'some goblins', 'a kobold ambush', 'a powerful foe', 'a wild animal', 'a dragon', 'a particularly sneaky mimic'].seededrandom()}`
+        const text = `${npc.firstName} ${['died from', 'was killed by'].random()} ${['a monster', 'a trap in a dungeon', 'a rival adventuring party', 'some goblins', 'a kobold ambush', 'a powerful foe', 'a wild animal', 'a dragon', 'a particularly sneaky mimic'].random()}`
         setup.death.whileAdventuring(town, npc, text)
         return text
       }
@@ -105,7 +105,7 @@ setup.death = {
         return ['settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)
       },
       function (town, npc) {
-        const text = `${npc.firstName} died in ${['a riot', 'a war', 'a religious crusade', 'a raid', 'a mugging'].seededrandom()}.`
+        const text = `${npc.firstName} died in ${['a riot', 'a war', 'a religious crusade', 'a raid', 'a mugging'].random()}.`
         return text
       }
     },
@@ -115,7 +115,7 @@ setup.death = {
         return ['young adult', 'settled adult', 'elderly', 'vulnerably elderly'].includes(npc.ageStage)
       },
       function (town, npc) {
-        const text = `${npc.firstName} died from an ${['infected arm', 'infected leg', 'infection', 'infection from a broken arm', 'infection from a broken leg'].seededrandom()}.`
+        const text = `${npc.firstName} died from an ${['infected arm', 'infected leg', 'infection', 'infection from a broken arm', 'infection from a broken leg'].random()}.`
         return text
       }
     },
@@ -135,7 +135,7 @@ setup.death = {
         return ['child'].includes(npc.ageStage)
       },
       function (town, npc) {
-        const text = `${npc.firstName} died from ${['falling from a tree', 'being trampled underfoot by a horse', 'the flu', 'cholera'].seededrandom()}.`
+        const text = `${npc.firstName} died from ${['falling from a tree', 'being trampled underfoot by a horse', 'the flu', 'cholera'].random()}.`
         return text
       }
     }
@@ -151,7 +151,7 @@ setup.death = {
       [-15, 'squalid', 10, 'a mass grave'],
       [-25, 'wretched', 0, 'a mass grave as an afterthought']
     ]
-    npc.roll.deathConditions = Math.fm(random(1, 100), ((town.roll.welfare - 50) / 2))
+    npc.roll.deathConditions = Math.fm(random(1, 100), (town.roll.welfare - 50) / 2)
     console.log('deathConditions roll:')
     console.log(npc.roll.deathConditions)
     const lifestyle = npc.finances.lifestyleStandard(town, npc)[1]

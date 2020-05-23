@@ -1,11 +1,11 @@
 
 setup.createSmithy = function (town, opts = {}) {
-  const smithy = (opts['newBuilding'] || setup.createBuilding)(town, 'smithy')
+  const smithy = (opts.newBuilding || setup.createBuilding)(town, 'smithy')
   console.groupCollapsed('Smithy loading...')
   smithy.blacksmith = setup.createBlacksmith(town, smithy)
   setup.createSmithyName(town, smithy)
   Object.assign(smithy, {
-    wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].seededrandom(),
+    wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].random(),
     passageName: 'SmithyOutput',
     initPassage: 'InitSmithy',
     buildingType: 'smithy',
@@ -27,7 +27,7 @@ setup.createSmithy = function (town, opts = {}) {
   }
 
   smithy.notableFeature = `its ${smithy.expertise} weapons and armour`
-  smithy.tippyDescription = `${setup.articles.output(smithy.size || smithy._size).toUpperFirst()} ${smithy.wordNoun} that's ${(smithy.cleanliness || smithy._cleanliness)}, and is known for ${smithy.notableFeature}.`
+  smithy.tippyDescription = `${setup.articles.output(smithy.size || smithy._size).toUpperFirst()} ${smithy.wordNoun} that's ${smithy.cleanliness || smithy._cleanliness}, and is known for ${smithy.notableFeature}.`
   console.log(smithy)
   console.groupEnd()
 

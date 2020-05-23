@@ -64,59 +64,59 @@ setup.createLifestyleStandards = function (town, npc) {
     'has recently been',
     'is',
     'is currently'
-  ].seededrandom()
+  ].random()
   const isHaving = [
     'has been having',
     'has recently had',
     'is having',
     'is currently having'
-  ].seededrandom()
+  ].random()
   const desc = setup.findProfession(town, npc)
 
   // if (!desc.description) {
   //   console.error(`Missing description for ${desc}`)
   //   let tippy = npc.dndClass || npc.profession
   // } else {
-  const tippy = `<span id=` + JSON.stringify(npc.firstName) + ` class=tip title=` + JSON.stringify(desc.description.toUpperFirst()) + `><span class="dotted">` + (npc.profession || npc.dndClass) + `</span></span>`
+  const tippy = `<span id=${JSON.stringify(npc.firstName)} class=tip title=${JSON.stringify(desc.description.toUpperFirst())}><span class="dotted">${npc.profession || npc.dndClass}</span></span>`
   // }
 
   const wageVarianceNotes = [
-    [-25, isCurrently + ' impossibly unsuccessful as'],
-    [-18, isCurrently + ' incredibly unsuccessful as'],
-    [-12, isCurrently + ' unsuccessful as'],
-    [-8, isCurrently + ' somewhat unsuccessful as'],
-    [-5, isCurrently + ' slightly unsuccessful as'],
+    [-25, `${isCurrently} impossibly unsuccessful as`],
+    [-18, `${isCurrently} incredibly unsuccessful as`],
+    [-12, `${isCurrently} unsuccessful as`],
+    [-8, `${isCurrently} somewhat unsuccessful as`],
+    [-5, `${isCurrently} slightly unsuccessful as`],
     [0, 'is'],
     [5, [
-      isCurrently + ' mildly successful as',
-      isHaving + ' mild success as'
-    ].seededrandom()],
+      `${isCurrently} mildly successful as`,
+      `${isHaving} mild success as`
+    ].random()],
     [8, [
-      isCurrently + ' reasonably successful as',
-      isHaving + ' reasonable success as'
-    ].seededrandom()],
+      `${isCurrently} reasonably successful as`,
+      `${isHaving} reasonable success as`
+    ].random()],
     [8, [
-      isCurrently + ' modestly successful as',
-      isHaving + ' modest success as'
-    ].seededrandom()],
+      `${isCurrently} modestly successful as`,
+      `${isHaving} modest success as`
+    ].random()],
     [12, [
-      isCurrently + ' successful as',
-      isHaving + ' success as'
-    ].seededrandom()],
+      `${isCurrently} successful as`,
+      `${isHaving} success as`
+    ].random()],
     [12, [
-      isCurrently + ' fabulously successful as',
-      isHaving + ' fabulous success as'
-    ].seededrandom()],
+      `${isCurrently} fabulously successful as`,
+      `${isHaving} fabulous success as`
+    ].random()],
     [25, [
-      isCurrently + ' extremely successful as',
-      isHaving + ' extreme success as'
-    ].seededrandom()]
+      `${isCurrently} extremely successful as`,
+      `${isHaving} extreme success as`
+    ].random()]
   ]
   const note = wageVarianceNotes.find(function (desc) {
     return desc[0] >= npc.roll.wageVariation(town)
   })
   // TODO: line 119 sometimes returns undefined
-  npc.professionSuccess = `${npc.firstName} ${(note[1] || wageVarianceNotes[5][1])} ${setup.articles.find(npc.profession)} ${tippy}`
+  npc.professionSuccess = `${npc.firstName} ${note[1] || wageVarianceNotes[5][1]} ${setup.articles.find(npc.profession)} ${tippy}`
   console.groupEnd()
   return npc
 }

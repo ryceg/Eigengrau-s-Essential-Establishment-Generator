@@ -85,7 +85,7 @@ setup.createNightmare = function (base) {
     'a prison cell. The walls are scratched and your fingernails are bloodied',
     "a long hallway with a door at the end. The door doesn't get closer as you approach",
     'knee deep swamp water. You can feel something touching your leg under the surface'
-  ].seededrandom()
+  ].random()
 
   const descriptor = [
     "has it's eyes and mouth sewn shut",
@@ -98,7 +98,7 @@ setup.createNightmare = function (base) {
     'has the lower body of an arachnid',
     'has fingernails that continue to grow. They look sharp',
     'is starting to crumble away as if made of ash'
-  ].seededrandom()
+  ].random()
 
   const action = [
     'sprints at you',
@@ -111,7 +111,7 @@ setup.createNightmare = function (base) {
     'grows horrible, black, leathery wings and begins flying towards you',
     `begins systematically breaking ${figure.gender} fingers while staring you in the eye`,
     `starts ripping the flesh from ${figure.gender} face`
-  ].seededrandom()
+  ].random()
 
   const wake = [
     `inches from your face is the ${figure.type}`,
@@ -123,7 +123,7 @@ setup.createNightmare = function (base) {
     `as you are about to go to sleep you blink and the ${figure.type} is in front of you`,
     `the ${figure.type} is walking toward you slowly. You cannot move`,
     `the ${figure.type} is dragging away a party member. It looks up and makes eye contact with you`
-  ].seededrandom()
+  ].random()
 
   return `You find yourself in ${location}. You see ${figure.prefix} ${figure.type} which ${descriptor}. The ${figure.type} ${action}. You wake up in a cold sweat. ${wake.toUpperFirst()}`
 }

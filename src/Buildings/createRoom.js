@@ -39,34 +39,34 @@
 //         'This is a large and open bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is quite large, and is extremely well cleaned.',
 //         'The room has a bed on the floor, and a fireplace nearby.'
-//       ].seededrandom())
+//       ].random())
 //       bedroom.atmosphere.push([
 //         "There's the scent of lemon in the air.",
 //         "The smell of a recently extinguished scented candle permeates the air."
-//       ].seededrandom())
+//       ].random())
 //     } else if (roomCleanlinessRoll > 70 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a rather large and open bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is quite large, and is well cleaned.',
 //         'This large room has a bed on the floor, and a fireplace nearby. Despite the valiant cleaning attempts, there is still a bit of ash on the floor.'
-//       ].seededrandom())
+//       ].random())
 //     } else if (roomCleanlinessRoll > 60 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a large bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is quite large, and is reasonably well cleaned.',
 //         'This large room has a bed on the floor, and a fireplace nearby. Despite the valiant cleaning attempts, there is still a fair bit of ash on the floor.'
-//       ].seededrandom())
+//       ].random())
 //     } else if (roomCleanlinessRoll > 50 && building.roll.wealth > 70) {
 //       bedroom.environment.push([
 //         'This is a spacious bedroom, with a nice ornamental vase sitting on a table in the corner.',
 //         'The bedroom is relatively spacious, and some attempts at sweeping the floor have been made.',
 //         'The room has a bed on the floor, and a fireplace nearby. Despite the cleaning attempts, there is still ash on the floor.'
-//       ].seededrandom())
+//       ].random())
 //     }
 //     bedroom.senses.push([
 //       "There's the slight smell of urine which clings to your nostrils.",
 //       'A light breeze wafts through the building.'
-//     ].seededrandom())
+//     ].random())
 //
 //     return bedroom
 //   }

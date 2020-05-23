@@ -364,9 +364,9 @@ setup.createColour = function (filters) {
       delete availableColours[bannedColour]
     }
   }
-  const selectedColour = availableColours.seededrandom()
+  const selectedColour = availableColours.random()
   return [
-    setup.colours[selectedColour].colour.seededrandom(),
-    `${setup.colours[selectedColour].coloured.seededrandom()} coloured`
-  ].seededrandom()
+    setup.colours[selectedColour].colour.random(),
+    `${setup.colours[selectedColour].coloured.random()} coloured`
+  ].random()
 }

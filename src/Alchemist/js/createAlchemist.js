@@ -9,12 +9,12 @@ setup.createAlchemist = (town, opts = {}) => {
 
   Object.assign(alchemist, {
     chemist,
-    wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].seededrandom(),
+    wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random(),
     associatedTown: town.name,
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',
     buildingType: 'alchemist',
-    notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].seededrandom(),
+    notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].random(),
     name: setup.createAlchemistName(chemist.firstName),
     size: '',
     cleanliness: '',

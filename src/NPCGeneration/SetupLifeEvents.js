@@ -1,6 +1,6 @@
 
 setup.createLifeEvents = function (town, npc) {
-  console.groupCollapsed('creating life events for ' + npc.name + '...')
+  console.groupCollapsed(`creating life events for ${npc.name}...`)
   let lifeEventsNumber
 
   npc.lifeEvents = []
@@ -24,7 +24,7 @@ setup.createLifeEvents = function (town, npc) {
       'I found a cool stick that looks exactly like a sword',
       "I made a new friend who is teaching me how to read using daddy's important papers",
       'I made a kite!'
-    ].seededrandom()]
+    ].random()]
   }
 
   let i

@@ -8,17 +8,17 @@ setup.createBrothel = function (town, tavern) {
   //   brothel = setup.createBuilding(town, 'brothel')
   // }
   Object.assign(brothel, {
-    name: setup.brothel.name.seededrandom(),
+    name: setup.brothel.name.random(),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
     buildingType: 'brothel',
-    wordNoun: ['brothel', 'whorehouse', "gentleman's club", 'bordello', 'cathouse', 'house of ill-repute', 'massage parlor', 'den of vice'].seededrandom(),
-    specialty: setup.brothel.specialty.seededrandom(),
-    talk: setup.brothel.talk.seededrandom(),
-    rumour: setup.brothel.rumour.seededrandom(),
-    notice: setup.brothel.notice.seededrandom(),
-    idle: setup.brothel.idle.seededrandom(),
-    owner: Object.keys(setup.brothel.pimp).seededrandom()
+    wordNoun: ['brothel', 'whorehouse', "gentleman's club", 'bordello', 'cathouse', 'house of ill-repute', 'massage parlor', 'den of vice'].random(),
+    specialty: setup.brothel.specialty.random(),
+    talk: setup.brothel.talk.random(),
+    rumour: setup.brothel.rumour.random(),
+    notice: setup.brothel.notice.random(),
+    idle: setup.brothel.idle.random(),
+    owner: Object.keys(setup.brothel.pimp).random()
   })
   brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`
 

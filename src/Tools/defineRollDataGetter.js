@@ -44,7 +44,7 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
         console.log(`Fetching ${propName} for:`)
         console.log(baseObj)
       } else {
-        console.log('Fetching ' + this.name + ' ' + propName + '.')
+        console.log(`Fetching ${this.name} ${propName}.`)
       }
       const rollArray = rollDataObj[keyName]
       let result = rollArray.find(function (desc) {
@@ -68,13 +68,13 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
       }
       // console.log(`results 2: `)
       if (Array.isArray(result[indexNumber])) {
-        result[indexNumber] = result[indexNumber].seededrandom()
+        result[indexNumber] = result[indexNumber].random()
       }
-      this['_' + propName] = result[indexNumber] || result
-      return this['_' + propName]
+      this[`_${propName}`] = result[indexNumber] || result
+      return this[`_${propName}`]
     },
     set (val) {
-      console.log('Setting ' + this.name + ' ' + propName + '.')
+      console.log(`Setting ${this.name} ${propName}.`)
       const rollArray = rollDataObj[keyName]
       let result = rollArray.find(function (desc) {
         if (rollLocation) {
@@ -87,8 +87,8 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
         console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = rollArray[rollArray.length - 1]
       }
-      this['_' + propName] = val || result[indexNumber]
-      return this['_' + propName]
+      this[`_${propName}`] = val || result[indexNumber]
+      return this[`_${propName}`]
     }
   })
   console.groupEnd()
