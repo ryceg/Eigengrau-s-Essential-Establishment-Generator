@@ -1,7 +1,7 @@
 setup.resourcesFaction = function (faction) {
   console.log('assigning resources...')
   const resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']
-  const groupSizeModifier = ((faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2)
+  const groupSizeModifier = (faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2
   const resources = []
   let i
   // this is where weighting different groups happens. Needs updating with each new faction.
@@ -119,7 +119,7 @@ setup.resourcesFaction = function (faction) {
 
   function getResources (bonus) {
     let tempGroupSize
-    const groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
+    const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
       tempGroupSize = 'an enormous amount of '
     } else if (groupSizeRoll >= 80) {
@@ -142,7 +142,8 @@ setup.resourcesFaction = function (faction) {
       tempGroupSize = 'some '
     }
 
-    const tempGroup = resourcesList.pluck()
+    const tempGroup = resourcesList.random()
+    resourcesList.delete(tempGroup)
     // console.log('resources tempGroup - ' + tempGroup)
     resourcesList.delete(tempGroup)
 

@@ -4,7 +4,7 @@ setup.createAllies = function (faction) {
   const _sizeRoll = dice(2, 50)
   let group
   const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
-  const groupSizeModifier = ((_sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)))
+  const groupSizeModifier = (_sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50))
   const allies = []
   let i
 
@@ -41,7 +41,7 @@ setup.createAllies = function (faction) {
   function getAllyGroup (bonus) {
     let tempGroup
     let tempGroupSize
-    const groupSizeRoll = (dice(2, 50)) + (groupSizeModifier + bonus)
+    const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
       tempGroupSize = 'a veritable army of '
     } else if (groupSizeRoll >= 80) {
@@ -64,11 +64,12 @@ setup.createAllies = function (faction) {
       tempGroupSize = 'three or four '
     }
 
-    tempGroup = groupList.pluck()
+    tempGroup = groupList.random()
+    groupList.delete(tempGroup)
     // console.log('tempGroup - ' + tempGroup)
     groupList.delete(tempGroup)
     if (tempGroup === faction.type) {
-      tempGroup = 'fellow ' + tempGroup
+      tempGroup = `fellow ${tempGroup}`
     }
     // while (alliedGroups.indexOf(tempGroup) !== -1) {
     //   tempGroup = groupList.pluck()

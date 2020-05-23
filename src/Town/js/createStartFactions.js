@@ -11,7 +11,8 @@ setup.createStartFactions = function (town) {
   }
 
   for (let i = 0; i <= factionsNumber; i++) {
-    const tempFactionType = factions.pluck()
+    const tempFactionType = factions.random()
+    factions.delete(tempFactionType)
     const tempFaction = setup.createFaction(town, {
       type: tempFactionType
     })
