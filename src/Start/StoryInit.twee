@@ -17,7 +17,7 @@
 <<set $weather to {
 	season: ["winter", "spring", "summer", "autumn"].random(),
 	seasonPool: ["winter", "spring", "summer", "autumn"]
-	}>>
+}>>
 
 <<include "TownWeather">>
 
