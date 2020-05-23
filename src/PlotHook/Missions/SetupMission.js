@@ -7,8 +7,8 @@ setup.createMission = function (town, base) {
   let targetNPC
   let targetLocation
   const mission = Object.assign({
-    category: ['thieves', 'alchemist'].seededrandom(),
-    difficulty: difficulty.seededrandom(),
+    category: ['thieves', 'alchemist'].random(),
+    difficulty: difficulty.random(),
     readout,
     details,
     targetNPC,

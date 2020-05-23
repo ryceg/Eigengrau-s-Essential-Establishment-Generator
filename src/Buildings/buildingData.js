@@ -9,7 +9,7 @@ setup.structure = {
     if (!building.structure) {
       building.structure = {
         get descriptor () {
-          return this.descriptors.seededrandom()
+          return this.descriptors.random()
         },
         set descriptorsAdd (description) {
           if (typeof description === 'string') {
@@ -44,7 +44,7 @@ setup.structure = {
       console.log(tempRoof.words)
     }
     if (tempRoof.canBeColoured === true) {
-      const colour = setup.structure.data.colour.seededrandom()
+      const colour = setup.structure.data.colour.random()
       Object.keys(tempRoof.words).forEach(function (roof) {
         tempRoof.words[roof] = `${colour} ${tempRoof.words[roof]}`
       })

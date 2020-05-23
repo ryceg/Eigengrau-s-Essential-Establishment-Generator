@@ -4,7 +4,7 @@ setup.raiderTables = {
       base.raidedVillager = setup.createNPC(town, { hasClass: false })
       // raiderLeader isn't used yet
       base.raiderLeader = setup.createNPC(town, { dndClass: 'barbarian', gender: 'man' })
-      base.text = `${base.text} ${setup.articles.output(setup.profile(base.raidedVillager, ['disheveled looking villager', 'beat up looking peasant', 'dirty looking commoner', 'startled looking person'].seededrandom()))} runs up to you, and asks for you to help ${base.raidedVillager.himher}; apparently raiders have been tormenting ${town.name}. ${base.raidedVillager.heshe.toUpperFirst()} continues, saying `
+      base.text = `${base.text} ${setup.articles.output(setup.profile(base.raidedVillager, ['disheveled looking villager', 'beat up looking peasant', 'dirty looking commoner', 'startled looking person'].random()))} runs up to you, and asks for you to help ${base.raidedVillager.himher}; apparently raiders have been tormenting ${town.name}. ${base.raidedVillager.heshe.toUpperFirst()} continues, saying `
 
       return setup.raiderTables.extort.create(town, base)
     }
@@ -12,7 +12,7 @@ setup.raiderTables = {
 
   extort: {
     create (town, base) {
-      const amount = setup.raiderTables.extort.options.seededrandom()
+      const amount = setup.raiderTables.extort.options.random()
       base.extortAmount = random(amount.min, amount.max)
       base.extortCurrency = amount.currency
 
@@ -30,7 +30,7 @@ setup.raiderTables = {
 
   demand: {
     create (town, base) {
-      base.demand = setup.raiderTables.demand.options.seededrandom()
+      base.demand = setup.raiderTables.demand.options.random()
       base.text = `${base.text}, and demand ${base.demand}. `
 
       return setup.raiderTables.torment.create(town, base)
@@ -62,7 +62,7 @@ setup.raiderTables = {
 
   torment: {
     create (town, base) {
-      base.torment = setup.raiderTables.torment.options.seededrandom()
+      base.torment = setup.raiderTables.torment.options.random()
       base.text = `${base.text}They torment us by ${base.torment}`
 
       return setup.raiderTables.punish.create(town, base)
@@ -93,7 +93,7 @@ setup.raiderTables = {
 
   punish: {
     create (town, base) {
-      base.punishment = setup.raiderTables.punish.options.seededrandom()
+      base.punishment = setup.raiderTables.punish.options.random()
       base.text = `${base.text}, and if we disobey or act out, they ${base.punishment}. `
 
       return setup.raiderTables.finally.create(town, base)
@@ -124,7 +124,7 @@ setup.raiderTables = {
 
   finally: {
     create (town, base) {
-      base.finally = setup.raiderTables.finally.options.seededrandom()
+      base.finally = setup.raiderTables.finally.options.random()
       base.text = `${base.text}${base.finally}`
 
       // this is the last clause

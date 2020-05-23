@@ -3,7 +3,7 @@ setup.adventure = {
   'create' (town) {
     const adventure = {
       // villain: setup.adventure.villain[villainType],
-      villainType: Object.keys(setup.adventure.villain).seededrandom(),
+      villainType: Object.keys(setup.adventure.villain).random(),
       villain: {
         name: 'Test',
         firstName: 'Test',
@@ -11,9 +11,9 @@ setup.adventure = {
         gender: 'it',
         hisher: 'it'
       },
-      allyType: Object.keys(setup.adventure.ally).seededrandom(),
-      patronType: Object.keys(setup.adventure.patron).seededrandom(),
-      sidequestType: Object.keys(setup.adventure.sidequest).seededrandom()
+      allyType: Object.keys(setup.adventure.ally).random(),
+      patronType: Object.keys(setup.adventure.patron).random(),
+      sidequestType: Object.keys(setup.adventure.sidequest).random()
     }
 
     adventure.ally = setup.createNPC(town, setup.adventure.ally[adventure.allyType])
@@ -21,18 +21,18 @@ setup.adventure = {
     // setup.adventure.villain[adventure.villainType](town, adventure)
     // console.log(adventure.villain)
     Object.assign(adventure, {
-      climax: setup.adventure.climax.seededrandom(),
-      introduction: setup.adventure.introduction.seededrandom(),
-      otherGoal: setup.adventure.otherGoal.seededrandom(),
-      backdrop: setup.adventure.backdrop.seededrandom(),
-      quandary: setup.adventure.quandary.seededrandom(),
-      twist: setup.adventure.twist.seededrandom(),
+      climax: setup.adventure.climax.random(),
+      introduction: setup.adventure.introduction.random(),
+      otherGoal: setup.adventure.otherGoal.random(),
+      backdrop: setup.adventure.backdrop.random(),
+      quandary: setup.adventure.quandary.random(),
+      twist: setup.adventure.twist.random(),
       sidequest: setup.adventure.sidequest[adventure.sidequestType](town, adventure),
-      villainActions: setup.adventure.villainActions.seededrandom()
+      villainActions: setup.adventure.villainActions.random()
     })
 
-    adventure.location = Object.keys(setup.adventure.location).seededrandom()
-    const goal = Object.keys(setup.adventure.location[adventure.location]).seededrandom()
+    adventure.location = Object.keys(setup.adventure.location).random()
+    const goal = Object.keys(setup.adventure.location[adventure.location]).random()
     adventure.goal = setup.adventure.location[adventure.location][goal](town, adventure)
     console.log(adventure)
     return adventure
@@ -62,7 +62,7 @@ setup.adventure = {
       },
       'rescue a captive.' (town, adventure) {
         const npc = setup.createNPC(town, {
-          background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble'].seededrandom(),
+          background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble'].random(),
           profession: 'slave',
           hasClass: false,
           isThrowaway: true
@@ -615,7 +615,7 @@ setup.adventure = {
     },
     '<<print setup.profile(adventure.villain, "cultist")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['cleric', 'sorcerer', 'wizard'].seededrandom(),
+        dndClass: ['cleric', 'sorcerer', 'wizard'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -623,7 +623,7 @@ setup.adventure = {
     },
     '<<print setup.profile(adventure.villain, "conqueror")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['barbarian', 'fighter', 'fighter'].seededrandom(),
+        dndClass: ['barbarian', 'fighter', 'fighter'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -645,7 +645,7 @@ setup.adventure = {
     },
     '<<print "a " + setup.profile(adventure.villain, "criminal mastermind")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['rogue', 'rogue', 'fighter'].seededrandom(),
+        dndClass: ['rogue', 'rogue', 'fighter'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -653,8 +653,8 @@ setup.adventure = {
     },
     '<<print "a " + setup.profile(adventure.villain, "raider")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['fighter', 'rogue'].seededrandom(),
-        race: ['half-orc', 'human', 'human'].seededrandom(),
+        dndClass: ['fighter', 'rogue'].random(),
+        race: ['half-orc', 'human', 'human'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -670,7 +670,7 @@ setup.adventure = {
     },
     '<<print "a " + setup.profile(adventure.villain, "misguided zealot")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['cleric', 'cleric', 'druid'].seededrandom(),
+        dndClass: ['cleric', 'cleric', 'druid'].random(),
         isThrowaway: true
       })
       return adventure.villain

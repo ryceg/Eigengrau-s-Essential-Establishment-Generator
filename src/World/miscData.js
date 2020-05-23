@@ -3,11 +3,11 @@ setup.misc = {
   ...setup.misc || {}, // keep any existing misc attributes, see "JS Spread Operator"
   cheese: {
     create: () => ({
-      colour: setup.misc.cheese.colour.seededrandom(),
-      texture: setup.misc.cheese.texture.seededrandom(),
-      taste: setup.misc.cheese.taste.seededrandom(),
-      smell: setup.misc.cheese.smell.seededrandom(),
-      cost: setup.misc.cheese.cost.seededrandom()
+      colour: setup.misc.cheese.colour.random(),
+      texture: setup.misc.cheese.texture.random(),
+      taste: setup.misc.cheese.taste.random(),
+      smell: setup.misc.cheese.smell.random(),
+      cost: setup.misc.cheese.cost.random()
     }),
     colour: ['pale grey, with dark flecks', 'bright yellow', 'warm yellow', 'spotty yellow', 'pale yellow', 'light green', 'light greenish-yellow', 'white, with blue spots', 'white, with a purple rind', 'yellow, with a black waxy rind', 'dark, almost brown'],
     texture: ['crumbly, with a texture similar to plaster', 'rubbery, and squeaks while you eat it', 'rubbery, and squeaks rather disconcertingly while you eat it', 'crumbly, with bits going everywhere', 'somewhat rubbery', 'somewhat stringy', 'slightly stringy', 'rubbery, like a piece of leather that has been soaking in some greasy sludge', 'soft and spongey, with the occassional... crunch', 'soft, springy, and moist', 'gooey', 'moist and delicious', 'almost liquid once you bite through the rind', 'rock hard', 'mildly grainy', 'slippery', 'melted and gooey'],
@@ -18,10 +18,10 @@ setup.misc = {
   medal: {
     create: base => {
       const medal = Object.assign({
-        metal: setup.misc.medal.metal.seededrandom(),
-        material: setup.misc.medal.material.seededrandom(),
-        emblem: setup.misc.medal.emblem.seededrandom(),
-        colour: setup.misc.medal.colour.seededrandom()
+        metal: setup.misc.medal.metal.random(),
+        material: setup.misc.medal.material.random(),
+        emblem: setup.misc.medal.emblem.random(),
+        colour: setup.misc.medal.colour.random()
       }, base)
       medal.readout = `This medal's emblem is made of ${medal.metal} and has a ${medal.material} ribbon. The emblem is ${medal.emblem} and the ribbon is coloured ${medal.colour}.`
       medal.tip = `<span class="dotted"><<tooltip "medal"${JSON.stringify(medal.readout)}>></span>`
@@ -36,15 +36,15 @@ setup.misc = {
   treasureMap: {
     create: base => {
       const map = Object.assign({
-        one: setup.misc.treasureMap.one.seededrandom(),
-        two: setup.misc.treasureMap.two.seededrandom(),
-        three: setup.misc.treasureMap.three.seededrandom(),
-        four: setup.misc.treasureMap.four.seededrandom(),
-        five: setup.misc.treasureMap.five.seededrandom(),
-        six: setup.misc.treasureMap.six.seededrandom(),
-        seven: setup.misc.treasureMap.seven.seededrandom()
+        one: setup.misc.treasureMap.one.random(),
+        two: setup.misc.treasureMap.two.random(),
+        three: setup.misc.treasureMap.three.random(),
+        four: setup.misc.treasureMap.four.random(),
+        five: setup.misc.treasureMap.five.random(),
+        six: setup.misc.treasureMap.six.random(),
+        seven: setup.misc.treasureMap.seven.random()
       }, base)
-      map.readout = `${['Find the ', 'Start at the '].seededrandom() + map.one} Then, ${map.two} until you find the ${map.three} Then, ${map.four} until you reach ${map.five} Then, ${map.six} You will find the treasure ${map.seven}`
+      map.readout = `${['Find the ', 'Start at the '].random() + map.one} Then, ${map.two} until you find the ${map.three} Then, ${map.four} until you reach ${map.five} Then, ${map.six} You will find the treasure ${map.seven}`
       map.tippy = setup.createTippy(map.readout)
       map.tippyWord = setup.createTippyWord(map.tippy, 'map')
       return map
@@ -59,16 +59,16 @@ setup.misc = {
   },
   caravan: {
     create: (town, base) => {
-      const masterType = Object.keys(setup.misc.caravan.masterType).seededrandom()
+      const masterType = Object.keys(setup.misc.caravan.masterType).random()
       const caravan = Object.assign({
-        type: setup.misc.caravan.caravanType.seededrandom(),
-        animals: setup.misc.caravan.animals.seededrandom(),
-        transporting: setup.misc.caravan.transporting.seededrandom(),
-        mood: setup.misc.caravan.mood.seededrandom(),
+        type: setup.misc.caravan.caravanType.random(),
+        animals: setup.misc.caravan.animals.random(),
+        transporting: setup.misc.caravan.transporting.random(),
+        mood: setup.misc.caravan.mood.random(),
         masterType,
-        masterLooking: setup.misc.caravan.masterLooking.seededrandom(),
-        masterAvoid: setup.misc.caravan.masterAvoid.seededrandom(),
-        masterCarry: setup.misc.caravan.masterCarry.seededrandom()
+        masterLooking: setup.misc.caravan.masterLooking.random(),
+        masterAvoid: setup.misc.caravan.masterAvoid.random(),
+        masterCarry: setup.misc.caravan.masterCarry.random()
       }, base)
       caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
       caravan.readout = `The caravan is ${caravan.type}, with ${caravan.animals} as the pack animals. They are transporting ${caravan.transporting}, and the general mood seems to be ${caravan.mood} The master is ${setup.profile(caravan.master, JSON.stringify(caravan.masterType))}, who is looking for ${caravan.masterLooking}. ${caravan.master.heshe.toUpperFirst()} is taking special care to avoid ${caravan.masterAvoid} and is carrying ${caravan.masterCarry} with ${caravan.master.himher}.`
@@ -77,8 +77,8 @@ setup.misc = {
       return caravan
     },
     caravanType: ['a wagon train', 'a long wagon train', 'a small train of pack animals', 'a long train of pack animals', 'a train of pack animals with livestock', 'a line of people on foot with a few animals'],
-    animals: ['one-humped camels', 'two-humped camels', 'large draft horses', 'reliable garrons', 'sure-footed ponies', 'mules', 'oxen', ['bison', 'drakes', 'elephants', 'elk', 'giant lizards', 'zebras'].seededrandom()],
-    transporting: [['cotton', 'linen', 'silk', 'wool'].seededrandom(), 'drugs or contraband.', ['diamonds', 'emeralds', 'jade', 'obsidian', 'opals', 'pearls', 'rubies', 'sapphires', 'topaz', 'turquoise'].seededrandom(), ['arsenic', 'copper', 'gold', 'lead', 'silver', 'tin'].seededrandom(), 'spices and teas.', 'wine and spirits.'],
+    animals: ['one-humped camels', 'two-humped camels', 'large draft horses', 'reliable garrons', 'sure-footed ponies', 'mules', 'oxen', ['bison', 'drakes', 'elephants', 'elk', 'giant lizards', 'zebras'].random()],
+    transporting: [['cotton', 'linen', 'silk', 'wool'].random(), 'drugs or contraband.', ['diamonds', 'emeralds', 'jade', 'obsidian', 'opals', 'pearls', 'rubies', 'sapphires', 'topaz', 'turquoise'].random(), ['arsenic', 'copper', 'gold', 'lead', 'silver', 'tin'].random(), 'spices and teas.', 'wine and spirits.'],
     mood: ['desperate; a calamity has befallen them.', 'foul; morale is bad, and provisions are low.', 'tired; the journey is long and longer yet.', 'eager; great riches await at journey’s end.'],
     masterType: {
       'a mysterious foreigner': {
@@ -95,7 +95,7 @@ setup.misc = {
         note: 'Outcast from their family.'
       },
       'a celebrated explorer': {
-        background: ['outlander', 'sailor'].seededrandom(),
+        background: ['outlander', 'sailor'].random(),
         hasClass: false,
         profession: 'explorer'
       },
@@ -105,7 +105,7 @@ setup.misc = {
         gender: 'woman'
       },
       'a charming rogue': {
-        background: ['criminal', 'charlatan'].seededrandom(),
+        background: ['criminal', 'charlatan'].random(),
         dndClass: 'rogue',
         calmTrait: 'charming'
       },
@@ -146,11 +146,11 @@ setup.misc = {
   ghost: {
     create: base => {
       const ghost = Object.assign({
-        profession: setup.misc.ghost.profession.seededrandom(),
-        cause: setup.misc.ghost.cause.seededrandom(),
-        reason: setup.misc.ghost.reason.seededrandom(),
-        release: setup.misc.ghost.release.seededrandom(),
-        reaction: setup.misc.ghost.reaction.seededrandom()
+        profession: setup.misc.ghost.profession.random(),
+        cause: setup.misc.ghost.cause.random(),
+        reason: setup.misc.ghost.reason.random(),
+        release: setup.misc.ghost.release.random(),
+        reaction: setup.misc.ghost.reaction.random()
       }, base)
       ghost.readout = `This ghost was once ${ghost.profession}. They died from ${ghost.cause}, and linger on in this life ${ghost.reason}. They can move on if ${ghost.release}. It is ${ghost.reaction} towards the living.`
       ghost.tippy = setup.createTippy(ghost.readout)
@@ -180,20 +180,20 @@ setup.misc = {
     weapons: ['spears and large hunting knives', 'spears and javelins', 'exotic, curved blades and several bolas', 'huge, curved blades', 'exotic, curved blades and blowguns', 'pikes and shortswords', 'pikes and short bows', 'battleaxes and throwing axes', 'battleaxes and longbows', 'longswords and longbows', 'jagged greatswords and shortbows', 'greataxes and javelins'],
     create: () => {
       const orcs = {
-        type: setup.misc.orcs.type.seededrandom(),
-        symbol: setup.misc.orcs.symbol.seededrandom(),
-        value: setup.misc.orcs.value.seededrandom(),
-        meat: setup.misc.orcs.meat.seededrandom(),
-        fear: setup.misc.orcs.fear.seededrandom(),
-        notorious: setup.misc.orcs.notorious.seededrandom(),
-        knownFor: setup.misc.orcs.knownFor.seededrandom(),
-        attitude: setup.misc.orcs.attitude.seededrandom(),
-        leader: setup.misc.orcs.leader.seededrandom(),
-        goals: setup.misc.orcs.goals.seededrandom(),
-        tactics: setup.misc.orcs.tactics.seededrandom(),
-        pets: setup.misc.orcs.pets.seededrandom(),
-        slaves: setup.misc.orcs.slaves.seededrandom(),
-        weapons: setup.misc.orcs.weapons.seededrandom()
+        type: setup.misc.orcs.type.random(),
+        symbol: setup.misc.orcs.symbol.random(),
+        value: setup.misc.orcs.value.random(),
+        meat: setup.misc.orcs.meat.random(),
+        fear: setup.misc.orcs.fear.random(),
+        notorious: setup.misc.orcs.notorious.random(),
+        knownFor: setup.misc.orcs.knownFor.random(),
+        attitude: setup.misc.orcs.attitude.random(),
+        leader: setup.misc.orcs.leader.random(),
+        goals: setup.misc.orcs.goals.random(),
+        tactics: setup.misc.orcs.tactics.random(),
+        pets: setup.misc.orcs.pets.random(),
+        slaves: setup.misc.orcs.slaves.random(),
+        weapons: setup.misc.orcs.weapons.random()
       }
       orcs.readout = `<blockquote>These orcs are ${orcs.type}, known for ${orcs.knownFor}. Their symbol is ${orcs.symbol}, and they value ${orcs.value}. Their favourite food is is ${orcs.meat}, and they fear ${orcs.fear}. Their leader is ${orcs.leader}, who wants ${orcs.goals}. They are ${orcs.attitude}, and are notorious for ${orcs.notorious}. They fight with ${orcs.weapons}, with ${orcs.tactics}. They have pet ${orcs.pets}, and keep some ${orcs.slaves} as slaves.</blockquote`
       return orcs
@@ -202,18 +202,18 @@ setup.misc = {
   goblins: {
     create: base => {
       const goblins = Object.assign({
-        business: setup.misc.goblins.business.seededrandom(),
-        symbol: setup.misc.goblins.symbol.seededrandom(),
-        colour: setup.misc.goblins.colour.seededrandom(),
-        lairLocation: setup.misc.goblins.lairLocation.seededrandom(),
-        lairType: setup.misc.goblins.lairType.seededrandom(),
-        target: setup.misc.goblins.target.seededrandom(),
-        currentTarget: setup.misc.goblins.currentTarget.seededrandom(),
-        leaderType: setup.misc.goblins.leader.seededrandom(),
-        goals: setup.misc.goblins.goals.seededrandom(),
-        tactics: setup.misc.goblins.tactics.seededrandom(),
-        accompaniedBy: setup.misc.goblins.accompaniedBy.seededrandom(),
-        pets: setup.misc.goblins.pets.seededrandom()
+        business: setup.misc.goblins.business.random(),
+        symbol: setup.misc.goblins.symbol.random(),
+        colour: setup.misc.goblins.colour.random(),
+        lairLocation: setup.misc.goblins.lairLocation.random(),
+        lairType: setup.misc.goblins.lairType.random(),
+        target: setup.misc.goblins.target.random(),
+        currentTarget: setup.misc.goblins.currentTarget.random(),
+        leaderType: setup.misc.goblins.leader.random(),
+        goals: setup.misc.goblins.goals.random(),
+        tactics: setup.misc.goblins.tactics.random(),
+        accompaniedBy: setup.misc.goblins.accompaniedBy.random(),
+        pets: setup.misc.goblins.pets.random()
       }, base)
       goblins.readout = `These goblins primarily deal with ${goblins.business}. Their symbol is ${goblins.symbol}, and their colours are primarily ${goblins.colours}. Their lair is ${goblins.lairType}, located ${goblins.lairLocation}. Their leader is ${goblins.leaderType}, who wants ${goblins.goals}. They like to target ${goblins.target}, and are currently planning a raid on ${goblins.currentTarget}. They fight with ${goblins.tactics}, and occasionally enlist help from ${goblins.accompaniedBy}. They have some ${goblins.pets} as pets.`
       goblins.tippy = setup.createTippy(goblins.readout)
@@ -236,13 +236,13 @@ setup.misc = {
   goblin: {
     create: base => {
       const goblin = Object.assign({
-        type: setup.misc.goblin.type.seededrandom(),
-        carry: setup.misc.goblin.carry.seededrandom(),
-        wears: setup.misc.goblin.wears.seededrandom(),
-        faceFeature: setup.misc.goblin.faceFeature.seededrandom(),
-        feature: setup.misc.goblin.feature.seededrandom(),
-        looks: setup.misc.goblin.looks.seededrandom(),
-        talent: setup.misc.goblin.talent.seededrandom()
+        type: setup.misc.goblin.type.random(),
+        carry: setup.misc.goblin.carry.random(),
+        wears: setup.misc.goblin.wears.random(),
+        faceFeature: setup.misc.goblin.faceFeature.random(),
+        feature: setup.misc.goblin.feature.random(),
+        looks: setup.misc.goblin.looks.random(),
+        talent: setup.misc.goblin.talent.random()
       }, base)
       goblin.readout = `This goblin is ${goblin.type}, and has a ${goblin.faceFeature}. It wields ${goblin.carry} and wears ${goblin.wears}. This goblin is particularly good at ${goblin.talent}, and has ${goblin.feature}. Currently, it is looking to ${goblin.looks}`
       goblin.tippy = setup.createTippy(goblin.readout)
@@ -269,15 +269,15 @@ setup.misc = {
     fearedBy: ['ambassadors and tax collectors', 'merchants and peddlers', 'politicians and magistrates', 'guards and sheriffs', 'soldiers and warriors', 'nobles and wealthy travelers', 'knights and loyalists', 'peasants and farmers', 'priests and sages', 'women and children'],
     create: (town, base) => {
       const bandits = {
-        business: setup.misc.bandits.business.seededrandom(),
-        colours: setup.misc.bandits.colours.seededrandom(),
-        symbol: setup.misc.bandits.symbol.seededrandom(),
-        leader: setup.misc.bandits.leader.seededrandom(),
-        type: setup.misc.bandits.type.seededrandom(),
-        goals: setup.misc.bandits.goals.seededrandom(),
-        weapons: setup.misc.bandits.weapons.seededrandom(),
-        lair: setup.misc.bandits.lair.seededrandom(),
-        fearedBy: setup.misc.bandits.fearedBy.seededrandom()
+        business: setup.misc.bandits.business.random(),
+        colours: setup.misc.bandits.colours.random(),
+        symbol: setup.misc.bandits.symbol.random(),
+        leader: setup.misc.bandits.leader.random(),
+        type: setup.misc.bandits.type.random(),
+        goals: setup.misc.bandits.goals.random(),
+        weapons: setup.misc.bandits.weapons.random(),
+        lair: setup.misc.bandits.lair.random(),
+        fearedBy: setup.misc.bandits.fearedBy.random()
       }
       bandits.readout = `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
       bandits.tippy = setup.createTippy(bandits.readout)
@@ -485,7 +485,7 @@ setup.misc = {
   },
   roleplayQuestions: {
     create: () => {
-      return setup.misc.roleplayQuestions.array.seededrandom()
+      return setup.misc.roleplayQuestions.array.random()
     },
     array: [
       'what was a bad memory of your family?',
@@ -543,10 +543,10 @@ setup.misc = {
   religion: {
     shrine: {
       create: (town, base) => {
-        const sensesArray = Object.keys(setup.misc.religion.shrine.senses).seededrandom()
+        const sensesArray = Object.keys(setup.misc.religion.shrine.senses).random()
         const shrine = Object.assign({
-          god: [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom(),
-          material: setup.misc.religion.shrine.material.seededrandom(),
+          god: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random(),
+          material: setup.misc.religion.shrine.material.random(),
           senses: setup.misc.religion.shrine.senses[sensesArray](town)
         }, base)
         shrine.readout = `You come across a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
@@ -598,14 +598,14 @@ setup.misc = {
       }
     },
     createRelic: () => {
-      // let holy = setup.misc.religion.holy.seededrandom()
-      // let unholy = setup.misc.religion.unholy.seededrandom()
-      const adjective = [setup.misc.religion.holy.seededrandom(), setup.misc.religion.unholy.seededrandom()].seededrandom()
-      // let namedGod = setup.misc.religion.namedGod.seededrandom()
-      // let abstractGod = setup.misc.religion.abstractGod.seededrandom()
-      // let saint = setup.misc.religion.saint.seededrandom()
-      const god = [setup.misc.religion.namedGod.seededrandom(), setup.misc.religion.abstractGod.seededrandom(), setup.misc.religion.saint.seededrandom()].seededrandom()
-      const noun = setup.misc.religion.noun.seededrandom()
+      // let holy = setup.misc.religion.holy.random()
+      // let unholy = setup.misc.religion.unholy.random()
+      const adjective = [setup.misc.religion.holy.random(), setup.misc.religion.unholy.random()].random()
+      // let namedGod = setup.misc.religion.namedGod.random()
+      // let abstractGod = setup.misc.religion.abstractGod.random()
+      // let saint = setup.misc.religion.saint.random()
+      const god = [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random()
+      const noun = setup.misc.religion.noun.random()
       return `The ${adjective} ${noun} of ${god}`
     },
     holy: [
@@ -630,10 +630,10 @@ setup.misc = {
   bunny: {
     create: () => {
       const bunny = {
-        size: setup.misc.bunny.size.seededrandom(),
-        coat: setup.misc.bunny.coat.seededrandom(),
-        favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
-        markings: setup.misc.bunny.markings.seededrandom()
+        size: setup.misc.bunny.size.random(),
+        coat: setup.misc.bunny.coat.random(),
+        favouriteFood: setup.misc.bunny.favouriteFood.random(),
+        markings: setup.misc.bunny.markings.random()
       }
       bunny.readout = `This bunny is ${bunny.size}, and has a ${bunny.coat} coat, with ${bunny.markings}. It loves ${bunny.favouriteFood}.`
       bunny.tippyWord = setup.createTippyFull(bunny.readout, 'bunny')
@@ -647,14 +647,14 @@ setup.misc = {
   cat: {
     create: () => {
       const cat = {
-        size: setup.misc.cat.size.seededrandom(),
-        coat: setup.misc.cat.coat.seededrandom(),
-        eyes: setup.misc.cat.eyes.seededrandom(),
-        breedSkill: setup.misc.cat.breedSkill.seededrandom(),
-        favouriteFood: setup.misc.cat.favouriteFood.seededrandom(),
-        markings: setup.misc.cat.markings.seededrandom(),
-        habit: setup.misc.cat.habit.seededrandom(),
-        talent: setup.misc.cat.talent.seededrandom()
+        size: setup.misc.cat.size.random(),
+        coat: setup.misc.cat.coat.random(),
+        eyes: setup.misc.cat.eyes.random(),
+        breedSkill: setup.misc.cat.breedSkill.random(),
+        favouriteFood: setup.misc.cat.favouriteFood.random(),
+        markings: setup.misc.cat.markings.random(),
+        habit: setup.misc.cat.habit.random(),
+        talent: setup.misc.cat.talent.random()
       }
       cat.readout = `This cat is ${cat.size}, and has a ${cat.coat} coat, with ${cat.eyes} and ${cat.markings}. This breed was bred ${cat.breedSkill}, and this cat has ${cat.habit}. It loves ${cat.favouriteFood}, and it is particularly good at ${cat.talent}`
       cat.tippyWord = setup.createTippyFull(cat.readout, 'cat')
@@ -672,16 +672,16 @@ setup.misc = {
   horse: {
     create: () => {
       const horse = {
-        gender: setup.misc.horse.gender.seededrandom(),
-        coat: setup.misc.horse.coat.seededrandom(),
-        eyes: setup.misc.horse.eyes.seededrandom(),
-        type: setup.misc.horse.type.seededrandom(),
-        quality: setup.misc.horse.quality.seededrandom(),
-        flaw: setup.misc.horse.flaw.seededrandom(),
-        flawSeverity: setup.misc.horse.flawSeverity.seededrandom(),
-        feature: setup.misc.horse.feature.seededrandom(),
-        personality: setup.misc.horse.personality.seededrandom(),
-        behaviour: setup.misc.horse.behaviour.seededrandom()
+        gender: setup.misc.horse.gender.random(),
+        coat: setup.misc.horse.coat.random(),
+        eyes: setup.misc.horse.eyes.random(),
+        type: setup.misc.horse.type.random(),
+        quality: setup.misc.horse.quality.random(),
+        flaw: setup.misc.horse.flaw.random(),
+        flawSeverity: setup.misc.horse.flawSeverity.random(),
+        feature: setup.misc.horse.feature.random(),
+        personality: setup.misc.horse.personality.random(),
+        behaviour: setup.misc.horse.behaviour.random()
       }
       horse.readout = `This horse is ${horse.gender}${+' '}${horse.type}, and is ${horse.quality}. It has a ${horse.colour} coat, with ${horse.feature} and ${horse.eyes}. It is ${horse.flaw}, which is ${horse.flawSeverity}. It is ${horse.personality}, and ${horse.behaviour}.`
       horse.tippyWord = setup.createTippyFull(horse.readout, 'horse')
@@ -701,14 +701,14 @@ setup.misc = {
   wolf: {
     create: () => {
       const wolf = {
-        colour: setup.misc.wolf.colour.seededrandom(),
-        markings: setup.misc.wolf.markings.seededrandom(),
-        eyes: setup.misc.wolf.eyes.seededrandom(),
-        manner: setup.misc.wolf.manner.seededrandom(),
-        prey: setup.misc.wolf.prey.seededrandom(),
-        tactics: setup.misc.wolf.tactics.seededrandom(),
-        packStatus: setup.misc.wolf.packStatus.seededrandom(),
-        habitat: setup.misc.wolf.habitat.seededrandom()
+        colour: setup.misc.wolf.colour.random(),
+        markings: setup.misc.wolf.markings.random(),
+        eyes: setup.misc.wolf.eyes.random(),
+        manner: setup.misc.wolf.manner.random(),
+        prey: setup.misc.wolf.prey.random(),
+        tactics: setup.misc.wolf.tactics.random(),
+        packStatus: setup.misc.wolf.packStatus.random(),
+        habitat: setup.misc.wolf.habitat.random()
       }
       wolf.readout = `This wolf is ${wolf.colour}, and has ${wolf.markings} coat, with ${wolf.eyes}. It is ${wolf.manner}, and is ${wolf.packStatus}. This breed thrives in ${wolf.habitat}. It prefers to ${wolf.tactics}, and if given the choice, it prefers ${wolf.prey}`
       wolf.tippy = setup.createTippy(wolf.readout)
@@ -716,7 +716,7 @@ setup.misc = {
       return wolf
     },
     colour: ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown', 'sandy brown', 'white'],
-    markings: ['white or pale fur on each paw', 'white or pale fur on one paw', 'white or pale fur around the face and muzzle', 'black or dark fur around the face and muzzle', `a banded pattern on its back${['dark grey', 'pale grey', 'reddish brown', 'sandy brown'].seededrandom()}`, 'lighter fur on its belly', 'darker fur on its belly', `a distinct, ${['white', 'pale grey'].seededrandom()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom()} on its chest`, `a scar from a past injury on its ${['flank', 'foreleg', 'hindleg', 'snout', 'eye', 'ear'].seededrandom()}`, 'no obvious markings'],
+    markings: ['white or pale fur on each paw', 'white or pale fur on one paw', 'white or pale fur around the face and muzzle', 'black or dark fur around the face and muzzle', `a banded pattern on its back${['dark grey', 'pale grey', 'reddish brown', 'sandy brown'].random()}`, 'lighter fur on its belly', 'darker fur on its belly', `a distinct, ${['white', 'pale grey'].random()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its chest`, `a scar from a past injury on its ${['flank', 'foreleg', 'hindleg', 'snout', 'eye', 'ear'].random()}`, 'no obvious markings'],
     eyes: ['reflective and black', 'pale grey', 'brownish grey', 'dark grey', 'dark brown', 'golden brown', 'light brown', 'red', 'yellow', 'green', 'pale blue', 'dark blue'],
     manner: ['panting lightly', 'panting heavily, its tongue lolling out of its mouth', 'salivating', 'hungrily licking its chops', 'yawning', 'watching curiously', 'watching warily', 'pacing nervously', 'whining softly', 'watching with ears perked and hackles raised', 'growling low, giving warning', 'standing perfectly still, ready to lunge'],
     tactics: ['pick off weak, easy prey', 'stalk its prey until the opportune time to strike', 'harrying its prey over long distances until the prey is exhausted', 'chase its prey to a place where its packmates are waiting in ambush', 'wait in ambush while one or more of its packmates chases the prey to it', 'choose its prey and to run it down'],
@@ -727,14 +727,14 @@ setup.misc = {
   ogre: {
     create: () => {
       const ogre = {
-        hair: setup.misc.ogre.hair.seededrandom(),
-        type: setup.misc.ogre.type.seededrandom(),
-        eyes: setup.misc.ogre.eyes.seededrandom(),
-        skill: setup.misc.ogre.skill.seededrandom(),
-        quirk: setup.misc.ogre.quirk.seededrandom(),
-        carry: setup.misc.ogre.carry.seededrandom(),
-        look: setup.misc.ogre.look.seededrandom(),
-        misfortune: setup.misc.ogre.misfortune.seededrandom()
+        hair: setup.misc.ogre.hair.random(),
+        type: setup.misc.ogre.type.random(),
+        eyes: setup.misc.ogre.eyes.random(),
+        skill: setup.misc.ogre.skill.random(),
+        quirk: setup.misc.ogre.quirk.random(),
+        carry: setup.misc.ogre.carry.random(),
+        look: setup.misc.ogre.look.random(),
+        misfortune: setup.misc.ogre.misfortune.random()
       }
       ogre.readout = `This ogre is a ${ogre.type}, and carries ${ogre.carry}. It's hair is ${ogre.hair}, and its eyes are ${ogre.eyes}, with ${ogre.eyes}. It is particularly good at ${ogre.skill}, and frequently ${ogre.quirk}. A long time ago, it was ${ogre.misfortune}. Currently, it is looking for a ${ogre.look}`
       ogre.tippy = setup.createTippy(ogre.readout)
@@ -753,14 +753,14 @@ setup.misc = {
   spider: {
     create: () => {
       const spider = {
-        colour: setup.misc.spider.colour.seededrandom(),
-        markings: setup.misc.spider.markings.seededrandom(),
-        eyes: setup.misc.spider.eyes.seededrandom(),
-        mouth: setup.misc.spider.mouth.seededrandom(),
-        poison: setup.misc.spider.poison.seededrandom(),
-        tactics: setup.misc.spider.tactics.seededrandom(),
-        webs: setup.misc.spider.webs.seededrandom(),
-        habitat: setup.misc.spider.habitat.seededrandom()
+        colour: setup.misc.spider.colour.random(),
+        markings: setup.misc.spider.markings.random(),
+        eyes: setup.misc.spider.eyes.random(),
+        mouth: setup.misc.spider.mouth.random(),
+        poison: setup.misc.spider.poison.random(),
+        tactics: setup.misc.spider.tactics.random(),
+        webs: setup.misc.spider.webs.random(),
+        habitat: setup.misc.spider.habitat.random()
       }
       spider.readout = `This spider is ${spider.colour}, and has ${spider.markings}, with ${spider.eyes} and a mouth ${spider.mouth}. This breed thrives in ${spider.habitat}, and their poison causes ${spider.poison}.Their webs are ${spider.webs}. It prefers to ${spider.tactics}`
       spider.tippy = setup.createTippy(spider.readout)
@@ -768,7 +768,7 @@ setup.misc = {
       return spider
     },
     colour: ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown'],
-    markings: ['pale banding on its legs', 'dark banding on its legs', `bright ${['orange', 'red', 'white', 'yellow'].seededrandom()} banding on its legs`, 'pale stripes down its abdomen', 'dark stripes down its abdomen', `a distinct, crimson ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom()} on its abdomen`, `a distinct, ${['black', 'dark grey'].seededrandom()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].seededrandom()} on its abdomen`, 'no obvious markings'],
+    markings: ['pale banding on its legs', 'dark banding on its legs', `bright ${['orange', 'red', 'white', 'yellow'].random()} banding on its legs`, 'pale stripes down its abdomen', 'dark stripes down its abdomen', `a distinct, crimson ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, `a distinct, ${['black', 'dark grey'].random()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, 'no obvious markings'],
     eyes: ['dull and black', 'reflective and black', 'dark grey, almost black', 'dark red', 'bright red', 'pearly white'],
     mouth: ['flanked by fangs, dripping venom', 'flanked by hooked fangs', 'flanked by hairy chelicerae, each ending in a sharp fang', 'flanked by chelicerae, covered in hair that hides any fangs', 'hungrily opening and closing', 'yawning open'],
     poison: ['paralysis', 'loss of consciousness', 'nausea', 'headache', 'loss of coordination', 'blindness', 'dizziness', 'shortness of breath'],
@@ -786,12 +786,12 @@ setup.misc = {
     create: base => {
       const cavern = Object.assign({
         noun: 'cavern',
-        entrance: setup.misc.cavern.entrance.seededrandom(),
-        landmark: setup.misc.cavern.landmark.seededrandom(),
-        feature: setup.misc.cavern.feature.seededrandom(),
-        walls: setup.misc.cavern.walls.seededrandom(),
-        ceiling: setup.misc.cavern.ceiling.seededrandom(),
-        hazards: setup.misc.cavern.hazards.seededrandom()
+        entrance: setup.misc.cavern.entrance.random(),
+        landmark: setup.misc.cavern.landmark.random(),
+        feature: setup.misc.cavern.feature.random(),
+        walls: setup.misc.cavern.walls.random(),
+        ceiling: setup.misc.cavern.ceiling.random(),
+        hazards: setup.misc.cavern.hazards.random()
       }, base)
       cavern.readout = `The ${cavern.noun} entrance is ${cavern.entrance}. As you enter, you see ${cavern.landmark}, and ${cavern.feature}. The walls are ${cavern.walls}, and the ceiling above is ${cavern.ceiling}.`
       return cavern
@@ -799,11 +799,11 @@ setup.misc = {
   },
   tree: {
     create: (town, biome, base) => {
-      biome = biome || ['forest', 'desert', 'mountain', 'plains'].seededrandom()
+      biome = biome || ['forest', 'desert', 'mountain', 'plains'].random()
       const tree = Object.assign({
-        species: setup.misc.tree.biome[biome].species.seededrandom(),
-        size: setup.misc.tree.biome[biome].size.seededrandom(),
-        feature: setup.misc.tree.biome[biome].feature.seededrandom()
+        species: setup.misc.tree.biome[biome].species.random(),
+        size: setup.misc.tree.biome[biome].size.random(),
+        feature: setup.misc.tree.biome[biome].feature.random()
       }, base)
       tree.readout = `The ${tree.species} tree is ${tree.size} ${tree.feature}`
       tree.tippy = setup.createTippy(tree.readout)
@@ -926,10 +926,10 @@ setup.misc = {
   cabin: {
     create: (town, base, biome) => {
       const cabin = Object.assign({
-        material: ['wooden', 'wooden', 'wooden', 'stone'].seededrandom(),
+        material: ['wooden', 'wooden', 'wooden', 'stone'].random(),
         wordNoun: 'cabin',
-        feature: setup.misc.cabin.feature.seededrandom(),
-        insideFeature: setup.misc.cabin.insideFeature.seededrandom(),
+        feature: setup.misc.cabin.feature.random(),
+        insideFeature: setup.misc.cabin.insideFeature.random(),
         size: '',
         cleanliness: '',
         bedCleanliness: '',
@@ -1031,15 +1031,15 @@ setup.misc = {
   },
   road: {
     create: (town, base) => {
-      const type = ['trail', 'path', 'path', 'road', 'road', 'road'].seededrandom()
-      const encounterKey = setup.misc.road[type].encounters.seededrandom()
+      const type = ['trail', 'path', 'path', 'road', 'road', 'road'].random()
+      const encounterKey = setup.misc.road[type].encounters.random()
       console.log(encounterKey)
       const road = Object.assign({
-        type: setup.misc.road[type].type.seededrandom(),
-        traffic: setup.misc.road[type].traffic.seededrandom(),
+        type: setup.misc.road[type].type.random(),
+        traffic: setup.misc.road[type].traffic.random(),
         encounter: setup.misc.encounters[encounterKey](town)
       }, base)
-      return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].seededrandom() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].seededrandom(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].seededrandom()}`].seededrandom()}${road.encounter}`
+      return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()}`].random()}${road.encounter}`
     },
     trail: {
       type: ["hunter's trail", 'animal trail', 'dirt trail'],
@@ -1102,14 +1102,14 @@ setup.misc = {
       let encounter
       let encounterKey
       if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.desert.location.seededrandom()
+        encounterKey = setup.misc.desert.location.random()
         encounter = setup.misc.locations[encounterKey](town, biome)
       } else {
-        encounterKey = setup.misc.desert.encounters.seededrandom()
+        encounterKey = setup.misc.desert.encounters.random()
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return `${['While', 'As', 'After a while, as'].seededrandom()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].seededrandom()} the desert, you see ${setup.misc.desert.landmark.seededrandom()}. You notice ${setup.misc.desert.feature.seededrandom()}. Up ahead, you see ${encounter}`
+      return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${encounter}`
     },
     location: [
       'a cavern in a canyon wall',
@@ -1174,16 +1174,16 @@ setup.misc = {
       let encounter
       let encounterKey
       if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.mountain.location.seededrandom()
+        encounterKey = setup.misc.mountain.location.random()
         console.log(encounterKey)
         encounter = setup.misc.locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
-        encounterKey = setup.misc.mountain.encounters.seededrandom()
+        encounterKey = setup.misc.mountain.encounters.random()
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return `${['While', 'As', 'After a while, as'].seededrandom()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].seededrandom()} the mountain, you see ${setup.misc.mountain.landmark.seededrandom()}. You notice ${setup.misc.mountain.feature.seededrandom()}. Up ahead, you see ${encounter}`
+      return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${encounter}`
     },
     landmark: [
       'a trickle of water flowing down a rock wall',
@@ -1259,7 +1259,7 @@ setup.misc = {
     cabinLived: ['a fugitive from justice', 'a stubborn miner', 'a dwarvish prospector', 'a dwarvish war veteran', 'a gnomish wizard', 'a mystic sage'],
     camped: ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'a pair of wandering elves', 'some refugees or fugitives', 'someone whose purposes are unclear'],
     miners: ['greedy dwarves', 'ambitious humans', 'tricky goblins', 'industrious kobolds'],
-    minersGoal: ['copper', 'gems', 'gold', 'iron', 'silver', ['adamantine', 'electrum', 'mithral', 'platinum'].seededrandom()],
+    minersGoal: ['copper', 'gems', 'gold', 'iron', 'silver', ['adamantine', 'electrum', 'mithral', 'platinum'].random()],
     mineLives: ['carrion crawler', 'cloaker', 'darkmantle', 'dwarves', 'fungi', 'kobolds', 'ghosts', 'mimics', 'myconids', 'ogres', 'ooze', 'orcs', 'otyugh', 'piercer', 'roper', 'rust monster', 'stirges', 'trolls', 'umber hulk', 'wraiths'],
     monasteryBuilt: ['an order of elementalist monks', 'an order of mystics', 'an extremely secretive order of monks', 'an order of shadow monks', 'an order of warrior monks', 'an unknown order of monks'],
     monasteryHonour: ['the sun god', 'the god of the heavens', 'the moon goddess', 'the storm god', 'the earth mother goddess', 'a long-forgotten god'],
@@ -1274,17 +1274,17 @@ setup.misc = {
       let encounter
       let encounterKey
       if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.forest.location.seededrandom()
+        encounterKey = setup.misc.forest.location.random()
         console.log(encounterKey)
         encounter = setup.misc.locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
-        encounterKey = setup.misc.forest.encounters.seededrandom()
+        encounterKey = setup.misc.forest.encounters.random()
         console.log(encounterKey)
         encounter = setup.misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return `${['While', 'As', 'After a while, as'].seededrandom()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].seededrandom()} the forest, you see ${setup.misc.forest.landmark.seededrandom()}. You notice ${setup.misc.forest.feature.seededrandom()}. Up ahead, you see ${encounter}`
+      return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${encounter}`
     },
     location: [
       'a cavern behind a waterfall',

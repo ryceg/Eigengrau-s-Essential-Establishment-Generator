@@ -26,5 +26,5 @@ setup.factionsForType = function (town, variable, value) {
     found.push(tempFaction)
   }
   console.log(found)
-  return found.seededrandom()
+  return found.random()
 }

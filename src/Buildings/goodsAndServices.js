@@ -14,7 +14,7 @@ setup.goodsAndServices = {
         initPassage: 'GenericPassage'
       }
       Object.assign(building, (opts.newBuilding || setup.createBuilding)(town, building.type))
-      building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.seededrandom() || 'building'
+      building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.random() || 'building'
       building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat
       setup.goodsAndServices[type].create(town, building, opts)
       building = setup.structure.create(town, building)
@@ -39,11 +39,11 @@ setup.goodsAndServices = {
       }
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
-      building.fruit = setup.flora.fruit.fruitS.seededrandom()
-      building.fruits = setup.flora.fruit.fruitP.seededrandom()
+      building.fruit = setup.flora.fruit.fruitS.random()
+      building.fruits = setup.flora.fruit.fruitP.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -51,19 +51,19 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${[name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom()}`,
-          `The ${name.foodAdjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${name.beast.seededrandom().toUpperFirst()}'s ${name.noun.seededrandom().toUpperFirst()}`,
-          `${name.adjective.seededrandom().toUpperFirst()} ${[`${building.owner.firstName}'s `, name.beast.seededrandom().toUpperFirst()].seededrandom()} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${setup.flora.fruit.fruitS.seededrandom().toUpperFirst()} ${name.nounBakedGood.seededrandom().toUpperFirst()}`,
-          `The ${setup.flora.fruit.tree.seededrandom().toUpperFirst()} Tree ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
+          `The ${name.foodAdjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${name.beast.random().toUpperFirst()}'s ${name.noun.random().toUpperFirst()}`,
+          `${name.adjective.random().toUpperFirst()} ${[`${building.owner.firstName}'s `, name.beast.random().toUpperFirst()].random()} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${setup.flora.fruit.fruitS.random().toUpperFirst()} ${name.nounBakedGood.random().toUpperFirst()}`,
+          `The ${setup.flora.fruit.tree.random().toUpperFirst()} Tree ${name.wordNoun.random().toUpperFirst()}`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         'The Really Good Bakery',
@@ -400,12 +400,12 @@ setup.goodsAndServices = {
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
-      building.flower1 = setup.flora.flower.stemP.seededrandom()
-      building.flower2 = setup.flora.flower.stemP.seededrandom()
-      building.flower = setup.flora.flower.stemS.seededrandom()
+      building.flower1 = setup.flora.flower.stemP.random()
+      building.flower2 = setup.flora.flower.stemP.random()
+      building.flower = setup.flora.flower.stemS.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -413,19 +413,19 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${[name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${setup.flora.flower.stemS.seededrandom().toUpperFirst()}`,
-          `The ${setup.flora.flower.stemS.seededrandom().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].seededrandom()}`,
-          `${setup.flora.flower.stemS.seededrandom().toUpperFirst()} Petals ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${setup.flora.flower.bush.seededrandom().toUpperFirst()} Bush ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${setup.flora.flower.stemS.random().toUpperFirst()}`,
+          `The ${setup.flora.flower.stemS.random().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].random()}`,
+          `${setup.flora.flower.stemS.random().toUpperFirst()} Petals ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${setup.flora.flower.bush.random().toUpperFirst()} Bush ${name.wordNoun.random().toUpperFirst()}`,
+          `${name.adjectivePerson.random().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         'The Daisy Chain',
@@ -683,8 +683,8 @@ setup.goodsAndServices = {
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -692,15 +692,15 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${[name.noun.seededrandom().toUpperFirst(), name.wordNoun.seededrandom().toUpperFirst()].seededrandom()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${name.adjectivePerson.random().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         'Golden Stitching',
@@ -896,8 +896,8 @@ setup.goodsAndServices = {
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -905,15 +905,15 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${name.adjectivePerson.random().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         'A Cut Above',
@@ -1127,8 +1127,8 @@ setup.goodsAndServices = {
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -1136,16 +1136,16 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${name.adjectivePerson.random().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
           `${building.owner.lastName}'s Shoe Repair`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         'Shoes and More',
@@ -1378,8 +1378,8 @@ setup.goodsAndServices = {
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
       building.tippyDescription = `A ${building.type} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -1387,16 +1387,16 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.lastName}'s ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${name.adjectivePerson.random().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.lastName}'s ${name.noun.random().toUpperFirst()}`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         "The Hunter's Mark",
@@ -1652,8 +1652,8 @@ setup.goodsAndServices = {
       building.owner = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
       building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.seededrandom()
-      building.specialty = setup.goodsAndServices[building.type].specialty.seededrandom()
+      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
+      building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -1661,16 +1661,16 @@ setup.goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.seededrandom() || `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`
+        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
         return [
-          `The ${name.adjective.seededrandom().toUpperFirst()} ${name.noun.seededrandom().toUpperFirst()}`,
-          `The ${town.name} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `The ${building.road} ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${name.adjectivePerson.seededrandom().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.seededrandom().toUpperFirst()}`,
-          `${building.owner.lastName}'s ${name.noun.seededrandom().toUpperFirst()}`,
+          `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
+          `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
+          `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${name.adjectivePerson.random().toUpperFirst()} ${building.owner.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+          `${building.owner.lastName}'s ${name.noun.random().toUpperFirst()}`,
           unique
-        ].seededrandom()
+        ].random()
       },
       unique: [
         'A Little Off The Top',

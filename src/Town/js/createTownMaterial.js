@@ -1,7 +1,7 @@
 setup.createTownMaterial = function (startLocationMaterials, wealth, size) {
   if (!startLocationMaterials) {
-    console.error(`Main town building material has not initialised!`)
-    startLocationMaterials = setup.townData.terrain['temperate'].location['plains'].possibleMaterials
+    console.error('Main town building material has not initialised!')
+    startLocationMaterials = setup.townData.terrain.temperate.location.plains.possibleMaterials
   }
   const filterArrayMaterial = (material) => {
     return startLocationMaterials.includes(material)
@@ -11,11 +11,11 @@ setup.createTownMaterial = function (startLocationMaterials, wealth, size) {
   const lowTierMaterials = ['wood', 'adobe', 'daub', 'cob', 'straw', 'rock', 'terra cotta', 'clay', 'cobblestone'].filter(filterArrayMaterial)
   const materialDecider = wealth + (size * 0.1)
   if (materialDecider > 70) {
-    return highTierMaterials.seededrandom()
+    return highTierMaterials.random()
   } else if (materialDecider > 50) {
-    return midTierMaterials.seededrandom()
+    return midTierMaterials.random()
   } else {
-    return lowTierMaterials.seededrandom()
+    return lowTierMaterials.random()
   }
 }
 

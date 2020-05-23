@@ -9,8 +9,8 @@ setup.joinFaction = function (faction) {
   joiningInitiation.push(...setup.factionData.type[faction.type].joiningInitiation)
 
   Object.assign(faction, {
-    joiningRequirement: joiningRequirement.seededrandom(),
-    joiningInitiation: joiningInitiation.seededrandom()
+    joiningRequirement: joiningRequirement.random(),
+    joiningInitiation: joiningInitiation.random()
   })
 
   faction.joiningFeeRoll = dice(2, 50)
@@ -40,7 +40,7 @@ setup.joinFaction = function (faction) {
   } else if (faction.joiningFeeRoll > 10) {
     faction.joiningFee = 'five hundred gold pieces, plus a tremendous task'
   } else if (faction.joiningFeeRoll <= 5) {
-    faction.joiningFee = `absolutely anything; they could demand two thousand gold, or ${['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger'].seededrandom()}`
+    faction.joiningFee = `absolutely anything; they could demand two thousand gold, or ${['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger'].random()}`
   } else {
     faction.joiningFee = 'about a hundred gold pieces'
   }

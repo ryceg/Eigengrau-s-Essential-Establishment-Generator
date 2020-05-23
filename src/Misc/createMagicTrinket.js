@@ -134,13 +134,13 @@ setup.createMagicTrinket = function () {
   const prefixTrinketRoll = random(1, propertyTrinket.length)
   const suffixTrinketRoll = random(1, propertyTrinket.length)
   Object.assign(trinket, {
-    type: trinket.seededrandom(),
+    type: trinket.random(),
     prefixTrinket: prefixTrinket[prefixTrinketRoll],
     suffixTrinket: suffixTrinket[suffixTrinketRoll],
     prefixProperty: propertyTrinket[prefixTrinketRoll],
     suffixProperty: propertyTrinket[suffixTrinketRoll]
   })
-  trinket.description = trinket.prefixProperty + ' ' + trinket.suffixProperty
-  trinket.name = trinket.prefixTrinket + ' ' + trinket.type + ' ' + trinket.suffixTrinket
+  trinket.description = `${trinket.prefixProperty} ${trinket.suffixProperty}`
+  trinket.name = `${trinket.prefixTrinket} ${trinket.type} ${trinket.suffixTrinket}`
   return trinket
 }

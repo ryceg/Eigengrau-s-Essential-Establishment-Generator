@@ -19,12 +19,12 @@ setup.createTownName = function (town) {
     if (town) {
       const npc = setup.createNPC(town)
       town.founder = npc.key
-      name = town.founder.lastName + suffix.seededrandom()
+      name = town.founder.lastName + suffix.random()
     } else {
-      name = setup.npcData.raceTraits['human'].lastName.seededrandom() + suffix.seededrandom()
+      name = setup.npcData.raceTraits.human.lastName.random() + suffix.random()
     }
   } else {
-    name = prefix.seededrandom() + suffix.seededrandom()
+    name = prefix.random() + suffix.random()
   }
 
   // linguisticDrift runs some RegEx on the names.

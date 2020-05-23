@@ -17,7 +17,7 @@ setup.createMercenaries = function (town) {
       'light blue',
       'magenta',
       'dark green',
-      'olive green'].seededrandom(),
+      'olive green'].random(),
     insignia: [
       'a skull',
       'a ghost',
@@ -61,7 +61,7 @@ setup.createMercenaries = function (town) {
       'a gold bar',
       'an axe',
       'a potion bottle'
-    ].seededrandom(),
+    ].random(),
     commanderTrait: [
       'a brazen outlaw',
       'a charismatic demagogue',
@@ -75,21 +75,21 @@ setup.createMercenaries = function (town) {
       'a former arena champion',
       'an ex-gladiator',
       'an escaped slave'
-    ].seededrandom(),
+    ].random(),
     attitude: [
       'friendly and loyal',
       'respectful and business-like',
       'cautious and uncertain',
       'terrified and tight-lipped',
       'disappointed and rude',
-      'angry and rebellious'].seededrandom(),
+      'angry and rebellious'].random(),
     currently: [
       'gainfully employed as guards',
       'gainfully employed in war',
       'under contract with some criminals',
       'under contract with some merchants',
       'under contract with some nobles',
-      'looking for work'].seededrandom(),
+      'looking for work'].random(),
     specializes: [
       'siege-breaking',
       'holding a redoubt or fort',
@@ -100,7 +100,7 @@ setup.createMercenaries = function (town) {
       'patrolling',
       'flanking maneuvers',
       'guerilla tactics',
-      'raiding and pillaging'].seededrandom(),
+      'raiding and pillaging'].random(),
     notorious: [
       'taking no prisoners',
       'leaving the dead to be eaten by beasts',
@@ -109,7 +109,7 @@ setup.createMercenaries = function (town) {
       'burning villages and fields',
       'betraying their employers',
       'singing bawdy songs',
-      'drinking too much ale and wine'].seededrandom(),
+      'drinking too much ale and wine'].random(),
     tactics: [
       'hit-and-run tactics',
       'direct assaults on the enemy',
@@ -118,7 +118,7 @@ setup.createMercenaries = function (town) {
       'masterful combat maneuvers',
       'complete lack of mercy',
       'taunting and jeering the enemy',
-      'dirty tactics'].seededrandom(),
+      'dirty tactics'].random(),
     armour: [
       'exotic robes',
       'leather armor',
@@ -127,7 +127,7 @@ setup.createMercenaries = function (town) {
       'ringmail',
       'chainmail',
       'scale armor',
-      'plate armor'].seededrandom(),
+      'plate armor'].random(),
     weapon: [
       'longswords',
       'longswords and shields',
@@ -140,7 +140,7 @@ setup.createMercenaries = function (town) {
       'battleaxes and shields',
       'warhammers',
       'scimitars',
-      'scimitars and a shields'].seededrandom()
+      'scimitars and a shields'].random()
   }
 
   switch (mercenaries.commanderTrait) {
@@ -221,13 +221,13 @@ setup.createMercenaries = function (town) {
 
   const mercenariesCaptain = mercenaries.captain
   mercenaries.name = [
-    `The ${setup.factionData.type.mercenaries.group.seededrandom()} of ${setup.factionData.type.mercenaries.adjective.seededrandom()} ${setup.factionData.type.mercenaries.main.seededrandom()}`,
-    `The ${setup.factionData.type.mercenaries.group.seededrandom()} of ${setup.factionData.type.mercenaries.main.seededrandom()}`,
-    `The ${setup.factionData.type.mercenaries.adjective.seededrandom()} ${setup.factionData.type.mercenaries.group.seededrandom()}`,
-    `The ${setup.factionData.type.mercenaries.main.seededrandom()} of ${State.variables.town.name}`,
-    `The ${State.variables.town.name} ${setup.factionData.type.mercenaries.main.seededrandom()}`,
-    setup.factionData.type.mercenaries.unique.seededrandom()
-  ].seededrandom()
+    `The ${setup.factionData.type.mercenaries.group.random()} of ${setup.factionData.type.mercenaries.adjective.random()} ${setup.factionData.type.mercenaries.main.random()}`,
+    `The ${setup.factionData.type.mercenaries.group.random()} of ${setup.factionData.type.mercenaries.main.random()}`,
+    `The ${setup.factionData.type.mercenaries.adjective.random()} ${setup.factionData.type.mercenaries.group.random()}`,
+    `The ${setup.factionData.type.mercenaries.main.random()} of ${State.variables.town.name}`,
+    `The ${State.variables.town.name} ${setup.factionData.type.mercenaries.main.random()}`,
+    setup.factionData.type.mercenaries.unique.random()
+  ].random()
 
   mercenaries.readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${mercenariesCaptain.name}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   mercenaries.tippyWord = setup.createFullTippyFull(mercenaries.readout, 'mercenaries')

@@ -7,7 +7,7 @@
   <<case "town">>
   $shopkeep.name says "Well, what is it you need? We can do just about anything for you.
   <<case "village">>
-  $shopkeep.name says "Sure, what are you after? <<print $shopkeep.mundane.seededrandom().toUpperFirst()>>?
+  $shopkeep.name says "Sure, what are you after? <<print $shopkeep.mundane.random().toUpperFirst()>>?
   <<case "hamlet">>
   $shopkeep.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $shopkeep.mundane.randomMany(4)>>, you name it!
   <<default>>

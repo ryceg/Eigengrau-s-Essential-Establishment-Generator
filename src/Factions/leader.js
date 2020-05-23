@@ -6,12 +6,12 @@ setup.leaderFaction = function (town, faction) {
 
   if (faction.age === 'brand new' || faction.age === 'very new') {
     if (faction.leadershipType === 'group') {
-      faction.leaderQualification = ['the original founders', 'the original founders', 'the first appointed leaders'].seededrandom()
+      faction.leaderQualification = ['the original founders', 'the original founders', 'the first appointed leaders'].random()
     } else {
-      faction.leaderQualification = ['the original founder', 'the original founder', 'the first appointed leader'].seededrandom()
+      faction.leaderQualification = ['the original founder', 'the original founder', 'the first appointed leader'].random()
     }
   } else {
-    faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.seededrandom()
+    faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.random()
   }
 
   faction.leaderBribes = setup.matchFirst.largerThan(faction.roll.leaderBribes, {
@@ -51,7 +51,7 @@ setup.leaderFaction = function (town, faction) {
       const leaderTraits = setup.factionData.type[faction.type].leaderTraits
       for (const key in leaderTraits) {
         if (Array.isArray(leaderTraits[key])) {
-          leaderTraits[key] = leaderTraits[key].seededrandom()
+          leaderTraits[key] = leaderTraits[key].random()
         }
       }
       faction.leader = setup.createNPC(town, leaderTraits)
@@ -66,11 +66,11 @@ setup.leaderFaction = function (town, faction) {
   }
 
   if (faction.roll.stability <= 30) {
-    faction.stabilityCause = ['internal power struggles', 'conflicts with rivaling factions'].seededrandom()
+    faction.stabilityCause = ['internal power struggles', 'conflicts with rivaling factions'].random()
   } else if (faction.roll.stability >= 70 && faction.leadershipType === 'individual') {
-    faction.stabilityCause = ['the lack of infighting for the leadership role'].seededrandom()
+    faction.stabilityCause = ['the lack of infighting for the leadership role'].random()
   } else if (faction.roll.stability >= 70 && faction.leadershipType === 'group') {
-    faction.stabilityCause = [`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'].seededrandom()
+    faction.stabilityCause = [`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'].random()
   }
 
   return faction

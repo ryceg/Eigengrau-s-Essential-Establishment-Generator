@@ -6,7 +6,7 @@
   <<case "town">>
   $blacksmith.name says "Well, what is it you need? We specialise in <<print $smithy.weapons.random()>>s, but can do just about anything for you."
   <<case "village">>
-  $blacksmith.name says "Sure, what are you after? <<print $smithy.mundane.seededrandom().toUpperFirst()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
+  $blacksmith.name says "Sure, what are you after? <<print $smithy.mundane.random().toUpperFirst()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
   <<case "hamlet">>
   $blacksmith.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $smithy.mundane.randomMany(4)>>, you name it!"
 <</switch>></div>

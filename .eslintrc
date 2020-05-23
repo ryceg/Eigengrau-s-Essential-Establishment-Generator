@@ -10,6 +10,7 @@
     "prefer-template": "warn",
     "no-extra-parens": ["warn", "all", { "nestedBinaryExpressions": false }],
     "object-shorthand": ["warn", "always"],
-    "quote-props": ["warn", "consistent-as-needed"]
+    "quote-props": ["warn", "consistent-as-needed"],
+    "accessor-pairs": "off"
   }
 }

@@ -4,16 +4,16 @@ setup.createBuilding = function (town, type, base) {
   // Tables used later
   if (random(100) < setup.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
     // roads are currently only supported with two words
-    const randRoad = Object.keys(town.roads).seededrandom()
+    const randRoad = Object.keys(town.roads).random()
     const roads = town.roads[randRoad].split(' ')
-    roadName = roads[0] || setup.townData.roads.name.seededrandom()
-    roadType = roads[1] || setup.townData.roads.type.seededrandom()
+    roadName = roads[0] || setup.townData.roads.name.random()
+    roadType = roads[1] || setup.townData.roads.type.random()
   } else {
-    roadName = setup.townData.roads.name.seededrandom()
-    roadType = setup.townData.roads.type.seededrandom()
+    roadName = setup.townData.roads.name.random()
+    roadType = setup.townData.roads.type.random()
   }
 
-  const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].seededrandom()
+  const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
   const outside = [
     'a horse grazing on the bushes nearby',
     'a rusted shovel near a somewhat overgrown flowerbed',
@@ -22,8 +22,8 @@ setup.createBuilding = function (town, type, base) {
     'a cat lazily lounging in the shade',
     'a muddy pair of boots by the door',
     "a sign from the local paper which reads '$newspaperheadline'"
-  ].seededrandom()
-  const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].seededrandom()
+  ].random()
+  const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   const building = Object.assign({
     // index: State.variables.buildings.length - 1,
     // index: Math.floor(randomFloat(1) * 0x10000),
@@ -39,7 +39,7 @@ setup.createBuilding = function (town, type, base) {
       this.roadType = roads[1] || ''
     },
     // get descriptor () {
-    //   return this.descriptors.seededrandom()
+    //   return this.descriptors.random()
     // },
     // set descriptorsAdd (description) {
     //   if (typeof description === 'string') {
@@ -59,9 +59,9 @@ setup.createBuilding = function (town, type, base) {
     outside,
     material,
     roll: {
-      magic: (Math.floor(randomFloat(1) * 80) + 20),
-      size: (Math.floor(randomFloat(1) * 80) + 20),
-      diversity: (Math.floor(randomFloat(1) * 80) + 20),
+      magic: Math.floor(randomFloat(1) * 80) + 20,
+      size: Math.floor(randomFloat(1) * 80) + 20,
+      diversity: Math.floor(randomFloat(1) * 80) + 20,
       wealth: random(1, 100),
       population: random(1, 100),
       reputation: random(1, 100),
@@ -72,7 +72,7 @@ setup.createBuilding = function (town, type, base) {
       activity: random(1, 100)
     },
     // magicRoll: (Math.floor(randomFloat(1) * 80) + 20),
-    priceModifier: (Math.floor(randomFloat(1) * 10) - [0, 10].seededrandom())
+    priceModifier: Math.floor(randomFloat(1) * 10) - [0, 10].random()
     // sizeRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // diversityRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // wealthRoll: random(1, 100),

@@ -1,12 +1,12 @@
 setup.createTown = function (base) {
-  const type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].seededrandom()
-  const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].seededrandom()
+  const type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
+  const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
   const season = ['summer', 'autumn', 'winter', 'spring']
   const townName = setup.createTownName()
-  console.groupCollapsed(townName + ' is loading...')
-  const economicIdeology = setup.townData.type[type].economicIdeology.seededrandom()
-  const politicalSource = setup.townData.type[type].politicalSource.seededrandom()
-  const politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.seededrandom()
+  console.groupCollapsed(`${townName} is loading...`)
+  const economicIdeology = setup.townData.type[type].economicIdeology.random()
+  const politicalSource = setup.townData.type[type].politicalSource.random()
+  const politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
@@ -33,7 +33,7 @@ setup.createTown = function (base) {
           const temp = town.taxes[tax](this)
           totalTax += temp
         } else {
-          console.log('non-integer tax! ' + town.taxes[tax])
+          console.log(`non-integer tax! ${town.taxes[tax]}`)
         }
       })
       return Math.round(totalTax * 100) / 100
@@ -60,7 +60,7 @@ setup.createTown = function (base) {
     },
     // type: type,
     terrain,
-    currentSeason: season.seededrandom(),
+    currentSeason: season.random(),
     season,
     factions: {
     },
@@ -71,7 +71,7 @@ setup.createTown = function (base) {
     population: setup.townData.type[type].population(),
     _demographic: {},
     // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.seededrandom().output),
+    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
       console.log('Getting base demographics.')
       return this._baseDemographics
@@ -148,7 +148,7 @@ setup.createTown = function (base) {
         return descriptor[0] <= this.roll.wealth
       }, this)
       if (wealth === undefined) {
-        console.log('Could not find a wealthRoll descriptor that was appropriate for a roll of ' + this.roll.wealth + ' for ' + this.name)
+        console.log(`Could not find a wealthRoll descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
         wealth = setup.townData.rollData.wealth[setup.townData.rollData.wealth.length - 1]
       }
       this._wealth = wealth[1]
@@ -159,11 +159,11 @@ setup.createTown = function (base) {
       this._wealth = value
     },
     roads: {},
-    location: setup.townData.terrain[terrain].start.seededrandom(),
-    primaryCrop: setup.townData.misc.primaryCrop.seededrandom(),
-    primaryExport: setup.townData.misc.primaryExport.seededrandom(),
-    landmark: setup.townData.misc.landmark.seededrandom(),
-    currentEvent: setup.townData.misc.currentEvent.seededrandom(),
+    location: setup.townData.terrain[terrain].start.random(),
+    primaryCrop: setup.townData.misc.primaryCrop.random(),
+    primaryExport: setup.townData.misc.primaryExport.random(),
+    landmark: setup.townData.misc.landmark.random(),
+    currentEvent: setup.townData.misc.currentEvent.random(),
     microEvent: setup.townData.misc.microEvent,
     roll: {
       wealth: random(1, 100),
@@ -188,7 +188,7 @@ setup.createTown = function (base) {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.seededrandom()
+  town.origin = setup.townData.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = setup.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structure.material.types
@@ -196,8 +196,8 @@ setup.createTown = function (base) {
     town.roll[roll].clamp(1, 100)
   })
 
-  console.log(`Defining taxes`)
-  Object.defineProperty(town.taxes, `welfare`, {
+  console.log('Defining taxes')
+  Object.defineProperty(town.taxes, 'welfare', {
     get () {
       console.log(this)
       // TODO fix the getter's workaround.
@@ -210,7 +210,7 @@ setup.createTown = function (base) {
     }
   })
 
-  Object.defineProperty(town.taxes, `military`, {
+  Object.defineProperty(town.taxes, 'military', {
     get () {
       console.log(this)
       // TODO fix the getter's workaround.
@@ -223,14 +223,14 @@ setup.createTown = function (base) {
     }
   })
 
-  console.log('Assigning town size modifiers (btw ' + town.name + ' is a ' + town.type + ')')
+  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   Object.keys(setup.townData.type[town.type].modifiers).forEach(function (modifier) {
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
   })
 
   town.guard = setup.createGuard(town)
 
-  console.log('Assigning economic modifiers (btw ' + town.name + ' is a ' + town.economicIdeology + ')')
+  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   // economic ideology attribute modifiers
 
   Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(function (modifier) {
@@ -238,7 +238,7 @@ setup.createTown = function (base) {
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
   })
   // political ideology modifiers
-  console.log('Assigning political ideology modifiers (btw ' + town.name + ' is a ' + town.politicalIdeology + ')')
+  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
 
   Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(function (modifier) {
     console.log(modifier)
@@ -260,7 +260,7 @@ setup.createTown = function (base) {
   console.log(town)
   console.groupEnd()
   // setup.createWeather(town)
-  console.log(town.name + ' has loaded.')
+  console.log(`${town.name} has loaded.`)
   // console.log('loaded', town.wealth, town.roll.size)
   // confirm(town.townMaterial)
   return town

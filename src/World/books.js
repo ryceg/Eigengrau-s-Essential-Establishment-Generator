@@ -5,25 +5,25 @@ setup.misc.books = {
       'detailedTitles',
       'titles',
       'titles',
-      'puns'].seededrandom()
+      'puns'].random()
 
     const book = bookType === 'detailedTitles'
-      ? setup.misc.book.detailedTitles.seededrandom()
-      : setup.misc.book[bookType].seededrandom()
+      ? setup.misc.book.detailedTitles.random()
+      : setup.misc.book[bookType].random()
 
     Object.assign(book, {
-      condition: setup.misc.book.condition.seededrandom(),
-      cover: setup.misc.book.cover.seededrandom()
+      condition: setup.misc.book.condition.random(),
+      cover: setup.misc.book.cover.random()
     })
 
     if (bookType === 'detailedTitles') {
-      book.readout = "'" + book.title + "'" + ' is ' + book.condition + ' The cover is ' + book.cover + book.contents
+      book.readout = `'${book.title}'` + ` is ${book.condition} The cover is ${book.cover}${book.contents}`
     } else {
-      book.readout = "'" + book.title + "'" + ' is ' + book.condition + ' The cover is ' + book.cover
+      book.readout = `'${book.title}'` + ` is ${book.condition} The cover is ${book.cover}`
     }
-    book.tippy = '<span class=tip title=' + JSON.stringify(book.readout) + '><<run setup.tippy("span")>>'
-    book.tippyWord = '"' + book.tippy + book.title + '"</span>'
-    return 'a book titled "' + book.tippy + book.title + '"</span>'
+    book.tippy = `<span class=tip title=${JSON.stringify(book.readout)}><<run setup.tippy("span")>>`
+    book.tippyWord = `"${book.tippy}${book.title}"</span>`
+    return `a book titled "${book.tippy}${book.title}"</span>`
   },
   condition: [
     // the book is...
@@ -31,7 +31,7 @@ setup.misc.books = {
     'in poor condition. An ink stain obscures a fair amount of the pages.',
     'accidentally damaged. Various water damage around the edges but readable.',
     'vandalized. It appears that a good dozen pages have been ripped out.',
-    'deliberately damaged. Towards the middle there is a section hollowed out. In this hiding place, you find a ' + ['locket', 'knife', 'small hammer', 'small scroll', 'vial of mysterious liquid', 'ring'].seededrandom(),
+    `deliberately damaged. Towards the middle there is a section hollowed out. In this hiding place, you find a ${['locket', 'knife', 'small hammer', 'small scroll', 'vial of mysterious liquid', 'ring'].random()}`,
     'badly damaged. A lot of the ink has run through water damage and it is nearly illegible.',
     'ancient. The pages crumble as they turn.',
     'strange. Some of the pages are blank?',

@@ -100,13 +100,13 @@ setup.misc.encounters = {
   'a pair of goblin scouts': () => 'a pair of goblin scouts',
   'a lone goblin': () => {
     const goblin = setup.misc.goblin.create()
-    return `a lone ${goblin.tippyWord} ${['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].seededrandom()}`
+    return `a lone ${goblin.tippyWord} ${['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].random()}`
   },
   'a goblin war party': town => {
     const goblins = setup.misc.goblins.create()
     return `a goblin war party. ${goblins.readout}`
   },
-  'a goblin patrol': () => `a goblin patrol ${['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].seededrandom()}`,
+  'a goblin patrol': () => `a goblin patrol ${['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].random()}`,
   'several giant spiders': () => {
     const spider = setup.misc.spider.create()
     return `several giant ${spider.tippyWord}<span class="dotted">s</span>.`
@@ -160,8 +160,8 @@ setup.misc.encounters = {
   },
   'an injured knight': town => {
     const npc = setup.createNPC(town, {
-      dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
-      background: ['noble', 'soldier', 'soldier'].seededrandom(),
+      dndClass: ['fighter', 'fighter', 'paladin'].random(),
+      background: ['noble', 'soldier', 'soldier'].random(),
       isThrowaway: true
     })
     return `an injured ${setup.profile(npc, 'knight')}`
@@ -209,8 +209,8 @@ setup.misc.encounters = {
   'an adventurer on a horse': town => {
     const horse = setup.misc.horse.create()
     const npc = setup.createNPC(town, {
-      dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
-      background: ['noble', 'soldier', 'soldier'].seededrandom(),
+      dndClass: ['fighter', 'fighter', 'paladin'].random(),
+      background: ['noble', 'soldier', 'soldier'].random(),
       isThrowaway: true
     })
     return `an ${setup.profile(npc, 'adventurer')} on a ${horse.tippyWord}`
@@ -238,15 +238,15 @@ setup.misc.encounters = {
   'a knight errant': town => {
     const npc = setup.createNPC(town, {
       dndClass: 'paladin',
-      background: ['noble', 'soldier', 'soldier'].seededrandom(),
+      background: ['noble', 'soldier', 'soldier'].random(),
       isThrowaway: true
     })
     return `a ${setup.profile(npc, 'knight errant')}`
   },
   'a wounded knight': town => {
     const npc = setup.createNPC(town, {
-      dndClass: ['fighter', 'fighter', 'paladin'].seededrandom(),
-      background: ['noble', 'soldier', 'soldier'].seededrandom(),
+      dndClass: ['fighter', 'fighter', 'paladin'].random(),
+      background: ['noble', 'soldier', 'soldier'].random(),
       isThrowaway: true
     })
     return `an injured ${setup.profile(npc, 'knight')}`
@@ -685,7 +685,7 @@ setup.misc.encounters = {
   'a beggarly bandit': town => {
     const npc = setup.createNPC(town, {
       background: 'criminal',
-      dndClass: ['fighter', 'rogue', 'rogue'].seededrandom(),
+      dndClass: ['fighter', 'rogue', 'rogue'].random(),
       isThrowaway: true
     })
     return `a beggarly ${setup.profile(npc, 'bandit')}`

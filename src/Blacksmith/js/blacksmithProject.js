@@ -15,17 +15,17 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     market: {
       function (town) {
         const market = setup.objectArrayFetcher(town.buildings.market)
-        return `${setup.articles.output(weapon.seededrandom())} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].seededrandom()}.`
+        return `${setup.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     whyNot: {
       function (town) {
-        return `${setup.articles.output(weapon.seededrandom())}. Dunno why, just thought that it'd be fun to try and make one.`
+        return `${setup.articles.output(weapon.random())}. Dunno why, just thought that it'd be fun to try and make one.`
       }
     },
     replace: {
       function (town) {
-        return `${setup.articles.output(weapon.seededrandom())} to replace the one I sold the other day.`
+        return `${setup.articles.output(weapon.random())} to replace the one I sold the other day.`
       }
     },
     boring: {
@@ -35,18 +35,18 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     moreBoring: {
       function (town) {
-        return `${setup.articles.output(weapon.seededrandom())} for one of my drinking buddies.`
+        return `${setup.articles.output(weapon.random())} for one of my drinking buddies.`
       }
     },
     weddingGift: {
       function (town) {
-        return `${setup.articles.output(weapon.seededrandom())} for a wedding gift.`
+        return `${setup.articles.output(weapon.random())} for a wedding gift.`
       }
     },
     mundaneMarkets: {
       function (town) {
         const market = setup.objectArrayFetcher(town.buildings.market)
-        return `some ${mundane.seededrandom()} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].seededrandom()}.`
+        return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     highValueBuyer: {
@@ -58,7 +58,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           background: 'noble'
         })
         setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
-        return `${setup.articles.output(weapon.seededrandom())} for some big hobnob noble called ${setup.profile(npc)}.`
+        return `${setup.articles.output(weapon.random())} for some big hobnob noble called ${setup.profile(npc)}.`
       }
     },
     guard: {
@@ -72,7 +72,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           hasClass: false
         })
         setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
-        return `${setup.articles.output(weapon.seededrandom())} for one of the ${setup.profile(npc, 'guards')}.`
+        return `${setup.articles.output(weapon.random())} for one of the ${setup.profile(npc, 'guards')}.`
       }
     },
     guardCaptain: {
@@ -82,7 +82,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       function (town, smithy) {
         const npc = town.guard.captain
         setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
-        return `${setup.articles.output(weapon.seededrandom())} for the ${setup.profile(npc, 'captain of the guard')}.`
+        return `${setup.articles.output(weapon.random())} for the ${setup.profile(npc, 'captain of the guard')}.`
       }
     },
     guardRefresh: {
@@ -98,7 +98,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return smithy.roll.expertise < 40 && town.roll.guardFunding > 70
       },
       function (town, smithy) {
-        return `a whole load of ${weapon.seededrandom()}s for <<guard $town.guard>>. To be honest? I'm freaking the fuck out.`
+        return `a whole load of ${weapon.random()}s for <<guard $town.guard>>. To be honest? I'm freaking the fuck out.`
       }
     },
     priest: {
@@ -107,7 +107,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town) {
         const building = setup.objectArrayFetcher(town.buildings.temple)
-        return `an ornamental ${weapon.seededrandom()} for ${setup.profile(building.priest, 'the priest')} of ${setup.profile(building, '', 'town.buildings.temple')}.`
+        return `an ornamental ${weapon.random()} for ${setup.profile(building.priest, 'the priest')} of ${setup.profile(building, '', 'town.buildings.temple')}.`
       }
     }
   }
@@ -122,7 +122,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           `${smithy.blacksmith.firstName} pulls a red piece of iron out of the forge, but seems unsure what to do with it. ${blacksmith.smithy.pronouns.heshe.toUpperFirst()} puts it back in, ${blacksmith.smithy.pronouns.hisher} furtive glances betraying a lack of experience.`,
           `${smithy.blacksmith.firstName} tries to shape a bit of metal, but it's not even red with heat, and ${smithy.blacksmith.pronouns.heshe} unsurprisingly has little success.`,
           `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and manages to get a black soot all over ${smithy.blacksmith.pronouns.hisher} face.`
-        ].seededrandom()
+        ].random()
       }
     },
     unsure: {
@@ -134,7 +134,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           `${smithy.blacksmith.firstName} quenches a glowing hot piece of iron, wincing at the sudden sound of the metal cooling.`,
           `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill most of it onto the floor.`,
           `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, smudging ${smithy.blacksmith.pronouns.hisher} face slightly with a black soot.`
-        ].seededrandom()
+        ].random()
       }
     },
     okay: {
@@ -146,7 +146,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           `${smithy.blacksmith.firstName} quenches a glowing hot piece of iron, wincing slightly at the sudden sound of the metal cooling.`,
           `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill some.`,
           `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and removes the glove.`
-        ].seededrandom()
+        ].random()
       }
     },
     decentlyPracticed: {
@@ -158,7 +158,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           `${smithy.blacksmith.firstName} pulls a hot piece of metal out of the forge, but sees that it's not quite done, so ${smithy.blacksmith.pronouns.heshe} puts it back in.`,
           `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
           `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and removes the glove.`
-        ].seededrandom()
+        ].random()
       }
     },
     wellPracticed: {
@@ -170,7 +170,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           `${smithy.blacksmith.firstName} pulls a glowing hot piece of iron out of the forge with a familiarity only earnt by thousands of repetitions.`,
           `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
           `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and removes the glove.`
-        ].seededrandom()
+        ].random()
       }
     }
 
@@ -182,7 +182,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       `${blacksmith.firstName} takes off ${blacksmith.pronouns.hisher} heavy apron, and says`,
       `${blacksmith.firstName} says`,
       `${blacksmith.firstName} gives a couple half-hearted attempts at sweeping the floor with a broom, and says`
-    ].seededrandom()
+    ].random()
   }
   const action = setup.weightedRandomFetcher(town, actions, smithy)
 
@@ -197,5 +197,5 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     'Right now, I\'m doing'
   ]
 
-  return `${action} ${binder(town, blacksmith)} "${working.seededrandom()} ${project}"`
+  return `${action} ${binder(town, blacksmith)} "${working.random()} ${project}"`
 }

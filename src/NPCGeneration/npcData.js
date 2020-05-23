@@ -93,16 +93,16 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.performed function')
-        const character = setup.npcData.lifeEvents.performed.character.seededrandom()
-        const theatrePerformance = setup.npcData.lifeEvents.performed.theatrePerformance.seededrandom()
-        const bandInfo = setup.npcData.lifeEvents.performed.bandInfo.seededrandom()
-        const talent = setup.npcData.lifeEvents.performed.talent.seededrandom()
-        const talentShowInfo = setup.npcData.lifeEvents.performed.talentShowInfo.seededrandom()
+        const character = setup.npcData.lifeEvents.performed.character.random()
+        const theatrePerformance = setup.npcData.lifeEvents.performed.theatrePerformance.random()
+        const bandInfo = setup.npcData.lifeEvents.performed.bandInfo.random()
+        const talent = setup.npcData.lifeEvents.performed.talent.random()
+        const talentShowInfo = setup.npcData.lifeEvents.performed.talentShowInfo.random()
         return [
-          `${['I played', 'I was'].seededrandom()} ${character} in a ${['local', 'regional', 'travelling', 'well known', 'little known'].seededrandom()} ${['theatre show', 'musical', 'play', 'one man show'].seededrandom()}. ${theatrePerformance}.`,
-          `${['I was part of a', 'I played in a', 'I was in a']} ${['traveling band', 'local band', 'well known band', 'one man band', 'barely known band', 'pretty unpopular band'].seededrandom()} ${['for a while', 'for a little bit', 'for a pretty long stint', 'for a couple months', 'for over a year', 'for a short time'].seededrandom()}. The band ${bandInfo}.`,
-          `${['I entered a', 'I took part in a', 'I competed in a'].seededrandom()} ${['local', 'regional', 'kingdom wide'].seededrandom()} talent show with my ${talent}. ${talentShowInfo}.`
-        ].seededrandom()
+          `${['I played', 'I was'].random()} ${character} in a ${['local', 'regional', 'travelling', 'well known', 'little known'].random()} ${['theatre show', 'musical', 'play', 'one man show'].random()}. ${theatrePerformance}.`,
+          `${['I was part of a', 'I played in a', 'I was in a']} ${['traveling band', 'local band', 'well known band', 'one man band', 'barely known band', 'pretty unpopular band'].random()} ${['for a while', 'for a little bit', 'for a pretty long stint', 'for a couple months', 'for over a year', 'for a short time'].random()}. The band ${bandInfo}.`,
+          `${['I entered a', 'I took part in a', 'I competed in a'].random()} ${['local', 'regional', 'kingdom wide'].random()} talent show with my ${talent}. ${talentShowInfo}.`
+        ].random()
       },
       character: [
         'a main character',
@@ -191,13 +191,13 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.magicalCreature function')
         const medal = setup.misc.medal.create()
-        const medalType = setup.npcData.lifeEvents.warMedal.medalType.seededrandom()
-        const medalStatus = setup.npcData.lifeEvents.warMedal.medalStatus.seededrandom()
+        const medalType = setup.npcData.lifeEvents.warMedal.medalType.random()
+        const medalStatus = setup.npcData.lifeEvents.warMedal.medalStatus.random()
         if (setup.townData.professions[npc.profession].sector === 'military') {
-          return `${['after a recent war', 'after a brutal battle', 'after taking command of a dangerous situation', 'I fought in a war and'].seededrandom()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
+          return `${['after a recent war', 'after a brutal battle', 'after taking command of a dangerous situation', 'I fought in a war and'].random()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
         } else if (npc.ageYears > 60) {
-          return `${['in my military youth', 'back when I was young enough for the army', 'in my army days', "after a forced recruitment into a noble's army", 'I was recruited into a war and afterwards '].seededrandom()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
-        } else return `${['after being forced into an army for a recent war', 'after a forced recruitment into an army', 'after being dragged along on a military campaign', 'after joining in on a recent war', 'I was recruited into a war and afterwards'].seededrandom()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
+          return `${['in my military youth', 'back when I was young enough for the army', 'in my army days', "after a forced recruitment into a noble's army", 'I was recruited into a war and afterwards '].random()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
+        } else return `${['after being forced into an army for a recent war', 'after a forced recruitment into an army', 'after being dragged along on a military campaign', 'after joining in on a recent war', 'I was recruited into a war and afterwards'].random()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
       },
       medalType: [
         'bravery',
@@ -241,21 +241,21 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.magicalCreature function')
-        const flower = setup.flora.flower.stemP.seededrandom()
-        const tree = setup.flora.tree.typeArticle.seededrandom()
-        const fruitTree = setup.flora.fruit.tree.seededrandom()
-        const goodPlace = setup.npcData.lifeEvents.magicalCreatue.goodPlaces.seededrandom()
-        const goodCreature = setup.npcData.lifeEvents.magicalCreatue.goodCreatures.seededrandom()
-        const goodAnimal = setup.npcData.lifeEvents.magicalCreatue.goodAnimals.seededrandom()
-        const badPlace = setup.npcData.lifeEvents.magicalCreatue.badPlaces.seededrandom()
-        const badCreature = setup.npcData.lifeEvents.magicalCreatue.badCreatures.seededrandom()
-        const badAnimal = setup.npcData.lifeEvents.magicalCreatue.badAnimals.seededrandom()
+        const flower = setup.flora.flower.stemP.random()
+        const tree = setup.flora.tree.typeArticle.random()
+        const fruitTree = setup.flora.fruit.tree.random()
+        const goodPlace = setup.npcData.lifeEvents.magicalCreatue.goodPlaces.random()
+        const goodCreature = setup.npcData.lifeEvents.magicalCreatue.goodCreatures.random()
+        const goodAnimal = setup.npcData.lifeEvents.magicalCreatue.goodAnimals.random()
+        const badPlace = setup.npcData.lifeEvents.magicalCreatue.badPlaces.random()
+        const badCreature = setup.npcData.lifeEvents.magicalCreatue.badCreatures.random()
+        const badAnimal = setup.npcData.lifeEvents.magicalCreatue.badAnimals.random()
         return [
         // good/non-hostile creatures
-          `${['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring'].seededrandom()} ${[`${tree} forest`, `a field of ${flower}`, `an orchard of ${fruitTree} trees`, goodPlace].seededrandom()}, ${['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].seededrandom()} ${[goodCreature, goodCreature, `a giant ${goodAnimal}`].seededrandom()}! ${['I got pretty close to it before it ran off', 'I got close enough to touch it', 'It ran off as soon as it saw me', 'It spent the day following me from a distance'].seededrandom()}.`,
+          `${['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring'].random()} ${[`${tree} forest`, `a field of ${flower}`, `an orchard of ${fruitTree} trees`, goodPlace].random()}, ${['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].random()} ${[goodCreature, goodCreature, `a giant ${goodAnimal}`].random()}! ${['I got pretty close to it before it ran off', 'I got close enough to touch it', 'It ran off as soon as it saw me', 'It spent the day following me from a distance'].random()}.`,
           // dangerous/evil creautres
-          `${['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring', 'while trying to escape'].seededrandom()} ${[`the heart of ${tree} forest`, badPlace, badPlace, badPlace].seededrandom()}, ${['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].seededrandom()} ${[badCreature, badCreature, `a giant ${badAnimal}`].seededrandom()}! ${['It started chasing me as soon as it saw me, and I barely escaped', 'I ran as soon as I saw the thing', 'I snuck up close to get a better look, but ran away after that', 'The creature stalked me for the rest of the day', "It didn't see me, but after that I was on edge for the rest of my journey", 'I barely escaped from that thing with my life'].seededrandom()}.`
-        ].seededrandom()
+          `${['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring', 'while trying to escape'].random()} ${[`the heart of ${tree} forest`, badPlace, badPlace, badPlace].random()}, ${['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].random()} ${[badCreature, badCreature, `a giant ${badAnimal}`].random()}! ${['It started chasing me as soon as it saw me, and I barely escaped', 'I ran as soon as I saw the thing', 'I snuck up close to get a better look, but ran away after that', 'The creature stalked me for the rest of the day', "It didn't see me, but after that I was on edge for the rest of my journey", 'I barely escaped from that thing with my life'].random()}.`
+        ].random()
       },
       goodPlaces: [
         'far away lands',
@@ -363,25 +363,25 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.festival function')
-        const placement = setup.npcData.lifeEvents.festival.placement.seededrandom()
-        const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.seededrandom()
-        const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.seededrandom()
-        const fruit = setup.flora.fruit.fruitP.seededrandom()
-        const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
-        const flower = setup.flora.flower.stemP.seededrandom()
-        const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.seededrandom()
+        const placement = setup.npcData.lifeEvents.festival.placement.random()
+        const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.random()
+        const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.random()
+        const fruit = setup.flora.fruit.fruitP.random()
+        const vegetable = setup.flora.vegetable.vegetableP.random()
+        const flower = setup.flora.flower.stemP.random()
+        const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.random()
         if (random(100) > 70) {
           return [
-            `${['I won', 'I got'].seededrandom()} ${placement} at ${['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom()} for my ${foodTrait} ${[fruit, vegetable].seededrandom()}.`,
-            `${['I won', 'I got'].seededrandom()} ${placement} at ${['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom()} for my ${flowerTrait} ${flower}.`,
-            `${['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom()} ${['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].seededrandom()} where I saw some ${foodTrait} ${[fruit, vegetable].seededrandom()}. ${['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].seededrandom()} ${placement} in the growers competition.`,
-            `${['some friends and I went to', 'I went to', 'I spent a day at'].seededrandom()} ${['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].seededrandom()} where I saw some ${flowerTrait} ${flower}. ${['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].seededrandom()} ${placement} in the growers competition.`
+            `${['I won', 'I got'].random()} ${placement} at ${['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].random()} for my ${foodTrait} ${[fruit, vegetable].random()}.`,
+            `${['I won', 'I got'].random()} ${placement} at ${['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].random()} for my ${flowerTrait} ${flower}.`,
+            `${['some friends and I went to', 'I went to', 'I spent a day at'].random()} ${['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].random()} where I saw some ${foodTrait} ${[fruit, vegetable].random()}. ${['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].random()} ${placement} in the growers competition.`,
+            `${['some friends and I went to', 'I went to', 'I spent a day at'].random()} ${['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].random()} where I saw some ${flowerTrait} ${flower}. ${['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].random()} ${placement} in the growers competition.`
           ].seededrandom
         } else {
           return [
-            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom()}. While I was there, I ${festivalDid}.`,
-            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].seededrandom()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].seededrandom()}. While I was there, I ${festivalDid}.`
-          ].seededrandom()
+            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].random()}. While I was there, I ${festivalDid}.`,
+            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].random()}. While I was there, I ${festivalDid}.`
+          ].random()
         }
       },
       placement: [
@@ -447,14 +447,14 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.apprentice function')
-        const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.seededrandom()
-        const reputation = setup.npcData.lifeEvents.apprentice.reputation.seededrandom()
-        const learned = setup.npcData.lifeEvents.apprentice.learned.seededrandom()
+        const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.random()
+        const reputation = setup.npcData.lifeEvents.apprentice.reputation.random()
+        const learned = setup.npcData.lifeEvents.apprentice.learned.random()
         const teacher = setup.createNPC(town, {
           profession: apprenticeProfession,
           isShallow: true
         })
-        return `${['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].seededrandom()} ${setup.profile(teacher, teacher.name)} ${reputation} ${apprenticeProfession}. During that time ${learned}.`
+        return `${['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].random()} ${setup.profile(teacher, teacher.name)} ${reputation} ${apprenticeProfession}. During that time ${learned}.`
       },
       profession: [
         'actor',
@@ -547,7 +547,7 @@ setup.npcData = {
           'I met up with an adventurer who generously gave me a ',
           "I came across a trinket in a field- It's a ",
           'I was on a long journey when I found a '
-        ].seededrandom() + trinket.name}.` + '<blockquote>' + `<h4>${trinket.name}</h4>${trinket.description}</blockquote>`
+        ].random() + trinket.name}.` + '<blockquote>' + `<h4>${trinket.name}</h4>${trinket.description}</blockquote>`
       }
     },
     nobleEvent: {
@@ -561,16 +561,16 @@ setup.npcData = {
           background: 'noble',
           isShallow: true
         })
-        const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.seededrandom()
-        const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.seededrandom()
-        const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
-        const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
-        const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
+        const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.random()
+        const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.random()
+        const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.random()
+        const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.random()
+        const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.random()
         return [`${prefix} the royal wedding of a local ${setup.profile(noble, 'noble')}.`,
-          `${prefix} the royal ${['banquet', 'feast', 'gathering'].seededrandom()} of a local ${setup.profile(noble, 'noble')} in celebration of ${banquetCelebrate}.`,
-          `${prefix} the royal ${['ball', 'dance', 'gala', 'masquerade ball'].seededrandom()} hosted by a local ${setup.profile(noble, 'noble')} in honor of ${ballCelebrate}.`,
-          `I saw the carriage of a ${setup.profile(noble, 'noble')} ${['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].seededrandom()}, and it was ${carriage}.`,
-          `I shook the hand of a passing ${setup.profile(noble, 'noble')}. If I recall their handshake was ${handshake}.`].seededrandom()
+          `${prefix} the royal ${['banquet', 'feast', 'gathering'].random()} of a local ${setup.profile(noble, 'noble')} in celebration of ${banquetCelebrate}.`,
+          `${prefix} the royal ${['ball', 'dance', 'gala', 'masquerade ball'].random()} hosted by a local ${setup.profile(noble, 'noble')} in honor of ${ballCelebrate}.`,
+          `I saw the carriage of a ${setup.profile(noble, 'noble')} ${['passing by my house', 'while traveling', 'going down a city street', 'passing through my town'].random()}, and it was ${carriage}.`,
+          `I shook the hand of a passing ${setup.profile(noble, 'noble')}. If I recall their handshake was ${handshake}.`].random()
       },
       prefix: [
         'I was invited to',
@@ -649,13 +649,13 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.journey function')
-        const prefix = setup.npcData.lifeEvents.journey.prefix.seededrandom()
-        const location = setup.npcData.lifeEvents.journey.location.seededrandom()
-        const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.seededrandom()
-        const found = setup.npcData.lifeEvents.journey.found.seededrandom()
-        const notFound = setup.npcData.lifeEvents.journey.notFound.seededrandom()
-        return `${[`${prefix} ${location} ${locationLocation}. ${['I really did make it there, ', 'I got to see that place, ', 'My journey was succesful, '].seededrandom()}${found}`,
-          `${prefix} ${location} ${locationLocation}. ${['I never found it, ', 'I never got to see that place, ', 'My journey was a failure, ', 'I got lost along the way and never made it there, '].seededrandom()}${notFound}`].seededrandom()}.`
+        const prefix = setup.npcData.lifeEvents.journey.prefix.random()
+        const location = setup.npcData.lifeEvents.journey.location.random()
+        const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.random()
+        const found = setup.npcData.lifeEvents.journey.found.random()
+        const notFound = setup.npcData.lifeEvents.journey.notFound.random()
+        return `${[`${prefix} ${location} ${locationLocation}. ${['I really did make it there, ', 'I got to see that place, ', 'My journey was succesful, '].random()}${found}`,
+          `${prefix} ${location} ${locationLocation}. ${['I never found it, ', 'I never got to see that place, ', 'My journey was a failure, ', 'I got lost along the way and never made it there, '].random()}${notFound}`].random()}.`
       },
       prefix: [
         'I ventured out to see',
@@ -764,12 +764,12 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.lostChild function')
-        const treeType = setup.flora.tree.typeArticle.seededrandom()
-        const location = setup.npcData.lifeEvents.lostChild.location.seededrandom()
-        const time = setup.npcData.lifeEvents.lostChild.time.seededrandom()
-        const finder = setup.npcData.lifeEvents.lostChild.finder.seededrandom()
-        const ending = setup.npcData.lifeEvents.lostChild.ending.seededrandom()
-        return `${['when I was young', 'as a young child', 'while I was still a kid'].seededrandom()} I got lost in ${[location, `${treeType} tree forest`].seededrandom()} ${time}. ${[`I was found by ${finder}`, `I was found by ${finder}`, `I was found by ${finder}`, `I was found by ${finder}`, `I was found by ${finder}`, 'I found my own way back', `I eventually found ${finder}`].seededrandom()} ${ending}.`
+        const treeType = setup.flora.tree.typeArticle.random()
+        const location = setup.npcData.lifeEvents.lostChild.location.random()
+        const time = setup.npcData.lifeEvents.lostChild.time.random()
+        const finder = setup.npcData.lifeEvents.lostChild.finder.random()
+        const ending = setup.npcData.lifeEvents.lostChild.ending.random()
+        return `${['when I was young', 'as a young child', 'while I was still a kid'].random()} I got lost in ${[location, `${treeType} tree forest`].random()} ${time}. ${[`I was found by ${finder}`, `I was found by ${finder}`, `I was found by ${finder}`, `I was found by ${finder}`, `I was found by ${finder}`, 'I found my own way back', `I eventually found ${finder}`].random()} ${ending}.`
       },
       location: [
         'a strange desert',
@@ -843,10 +843,10 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.pilgrimage function')
-        const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.seededrandom()
-        const location = setup.npcData.lifeEvents.pilgrimage.location.seededrandom()
-        const journey = setup.npcData.lifeEvents.pilgrimage.journey.seededrandom()
-        const result = setup.npcData.lifeEvents.pilgrimage.result.seededrandom()
+        const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.random()
+        const location = setup.npcData.lifeEvents.pilgrimage.location.random()
+        const journey = setup.npcData.lifeEvents.pilgrimage.journey.random()
+        const result = setup.npcData.lifeEvents.pilgrimage.result.random()
         return `${prefix} ${location}. ${journey}, ${result}.`
       },
       prefix: [
@@ -934,14 +934,14 @@ setup.npcData = {
             `I lost contact with an ${setup.profile(friend, 'old friend')}, and reconnected with ${setup.profile(friend, friend.himher)} on a pilgrimage.`,
             `I made a ${setup.profile(friend, 'good friend')} during a drinking contest.`,
             `we were attacked by raiders, and I was saved by a ${setup.profile(friend, 'traveler')} passing through. We are best of friends to this day.`
-          ].seededrandom()
+          ].random()
         } else {
           return [
             `I made a ${setup.profile(friend, 'friend')} for life in my travels.`,
             `I was poor as a churchmouse, but then ${setup.profile(friend, 'a total stranger')} helped me get a job. I owe everything I am today to his compassion.`,
             'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.',
             `I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my ${setup.profile(friend, 'best friend')}.`
-          ].seededrandom()
+          ].random()
         }
       }
     },
@@ -964,7 +964,7 @@ setup.npcData = {
           `I met a ${setup.profile(enemy, 'man')}, and we played cards. He decided that I was cheating- `,
           `I was a guest in the court of a ${setup.profile(enemy, 'lord')}, and made an embarassment of him- `,
           `I used to play cards in a pub, and one time supposedly cheated a ${setup.profile(enemy, 'man')} out of his winnings; `
-        ].seededrandom() + [
+        ].random() + [
           'it was a misunderstanding, but I cannot convince him otherwise. ',
           'I admit that I am at least partially at fault. ',
           "I suppose that I'm at least partially to blame. ",
@@ -973,7 +973,7 @@ setup.npcData = {
           "I'm not quite sure what happened. ",
           'it was all a setup, but a very good one. ',
           "I'll never say what really happened. "
-        ].seededrandom() + [
+        ].random() + [
           'He hunts me to this day.',
           'I hope to apologise to him if I ever encounter him again.',
           "I don't exactly care to run into him again.",
@@ -984,7 +984,7 @@ setup.npcData = {
           "I doubt I'll ever meet him again.",
           "That's all behind me now and I hope it stays that way.",
           "I'm still on the lookout for him to this very day."
-        ].seededrandom()
+        ].random()
       }
     },
     meetPartnerNPC: {
@@ -1048,7 +1048,7 @@ setup.npcData = {
           'because of a promise, I did some time as a ',
           'there was no other work so for a while I was a ',
           'to pay off a debt, I spent some time as a ',
-          'to pay off a debt, I had to work as a '].seededrandom() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].seededrandom()}.`
+          'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()}.`
       }
     },
     meetImportantNPC: {
@@ -1059,10 +1059,10 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.meetImportantNPC function')
         return [
-          `${['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous ', 'I got an autograph from a famous '].seededrandom() +
-          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse', 'adventurer', 'hero', 'blacksmith', 'armorer', 'alchemist', 'stage actor', 'playwright', 'artist', 'sculptor', 'painter', 'poet', 'knight', 'historian', 'gladiator', 'architect', 'crime boss', 'rogue', 'smuggler'].seededrandom() +
-          [' in my travels', ' on the road', ' while I was traveling', ` when I was spending some time as a ${npc.background}`, ' while on a long journey', ' during one of my youthful adventures'].seededrandom()}.`
-        ].seededrandom()
+          `${['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous ', 'I got an autograph from a famous '].random() +
+          ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse', 'adventurer', 'hero', 'blacksmith', 'armorer', 'alchemist', 'stage actor', 'playwright', 'artist', 'sculptor', 'painter', 'poet', 'knight', 'historian', 'gladiator', 'architect', 'crime boss', 'rogue', 'smuggler'].random() +
+          [' in my travels', ' on the road', ' while I was traveling', ` when I was spending some time as a ${npc.background}`, ' while on a long journey', ' during one of my youthful adventures'].random()}.`
+        ].random()
       }
     },
     adventure: {
@@ -1084,7 +1084,7 @@ setup.npcData = {
             'I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ',
             'I had a spur of the moment whim to go on an adventure, and on my journeys, I ',
             'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
-            'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].seededrandom()
+            'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
           if (adventureRoll === 100) {
             const weapon = setup.createMagicWeapon()
             console.log('Called weapon function.')
@@ -1102,17 +1102,17 @@ setup.npcData = {
           } else if (adventureRoll >= 51) {
             adventureResults = 'lost something of sentimental value to me.'
           } else if (adventureRoll >= 41) {
-            adventureResults = `was poisoned by a ${['monster', 'trap', 'monster'].seededrandom()}, but recovered in due time.`
+            adventureResults = `was poisoned by a ${['monster', 'trap', 'monster'].random()}, but recovered in due time.`
           } else if (adventureRoll >= 31) {
             adventureResults = "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right."
-            npc.physicalTrait = ['pockmarked face', 'grey hair'].seededrandom()
+            npc.physicalTrait = ['pockmarked face', 'grey hair'].random()
           } else if (adventureRoll >= 21) {
             adventureResults = 'was wounded, but recovered in time.'
           } else if (adventureRoll >= 11) {
             adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time.'
           } else if (adventureRoll < 11) {
             adventureResults = "nearly died- that's how I got the scars."
-            npc.physicalTrait = ['a missing ear', 'a missing finger', 'two missing fingers'].seededrandom()
+            npc.physicalTrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
           }
         }
         return adventurePrefix + adventureResults
@@ -1132,7 +1132,7 @@ setup.npcData = {
           'I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls.',
           'I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later.',
           'I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, the boy vanished.'
-        ].seededrandom()
+        ].random()
       }
     },
     miracle: {
@@ -1142,14 +1142,14 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.miracle function')
-        const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.seededrandom()
-        const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.seededrandom()
-        const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.seededrandom()
-        const miracle = setup.npcData.lifeEvents.miracle.miracle.seededrandom()
-        const curse = setup.npcData.lifeEvents.miracle.curse.seededrandom()
-        return [`${['I witnessed a miracle once- Honest to god. ', 'I once saw a true miracle. ', 'one time, I was part of a real miracle. '].seededrandom() + miracleGiver}, ${[trueBelief, falseBelief].seededrandom()} ${miracle}.`,
-          `${['I witnessed a terrible curse once- Honest to god. ', 'I once saw a true curse. ', 'one time, I was part of a real curse. '].seededrandom() + miracleGiver}, ${[falseBelief].seededrandom()} ${curse}.`
-        ].seededrandom()
+        const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.random()
+        const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.random()
+        const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.random()
+        const miracle = setup.npcData.lifeEvents.miracle.miracle.random()
+        const curse = setup.npcData.lifeEvents.miracle.curse.random()
+        return [`${['I witnessed a miracle once- Honest to god. ', 'I once saw a true miracle. ', 'one time, I was part of a real miracle. '].random() + miracleGiver}, ${[trueBelief, falseBelief].random()} ${miracle}.`,
+          `${['I witnessed a terrible curse once- Honest to god. ', 'I once saw a true curse. ', 'one time, I was part of a real curse. '].random() + miracleGiver}, ${[falseBelief].random()} ${curse}.`
+        ].random()
       },
       miracleGiver: [
         'This old man had told us that he was the physical aspect of a deity and that he could prove it',
@@ -1215,7 +1215,7 @@ setup.npcData = {
           'there were some goblin raids which I had to defend my town from.',
           'there was a pretty nasty zombie outbreak which I had to defend my town against.',
           'there was a civil war within the town that I fought in.'
-        ].seededrandom()
+        ].random()
         let warResults
         let warDescription
         if (warRoll === 12) {
@@ -1228,7 +1228,7 @@ setup.npcData = {
           warResults = 'I suffered only minor injuries, and the wounds all healed without leaving any scars.'
         } else if (warRoll >= 2) {
           warResults = 'I suffered some serious injuries, and had to be carried off the field.'
-          npc.physicalTrait = ['a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'].seededrandom()
+          npc.physicalTrait = ['a long, thin scar running up the arm', 'a scar on the eye', 'a scar around the neck', 'a scar on the throat', 'a fiery red scar', 'a finger missing', 'two fingers missing', 'a chunk of left ear missing', 'a chunk of right ear missing', 'a scar through the eyebrow', 'a scar across the cheek', 'a scar on the nose', 'a scar down the forehead', 'a scar in the middle of the hand', 'a crooked scar along the jaw'].random()
         } else if (warRoll === 1) {
           warResults = 'I was knocked out, and left for dead. I woke up hours later, after the battle was over, and had to walk injured for days to find aid.'
         }
@@ -1244,15 +1244,15 @@ setup.npcData = {
       },
       function (town, npc) {
         console.log('called lifeEvents.crime function')
-        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband '].seededrandom()
+        const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband '].random()
         const crimeRoll = random(1, 12)
         let crimeReadout
         if (crimeRoll >= 9) {
-          crimeReadout = `I was caught and convicted of ${crime}, and spent ${random(1, 4)} years ${['in jail', 'chained to an oar', 'doing hard labour'].seededrandom()} before ${['being released.', 'managing to escape.'].seededrandom()}`
+          crimeReadout = `I was caught and convicted of ${crime}, and spent ${random(1, 4)} years ${['in jail', 'chained to an oar', 'doing hard labour'].random()} before ${['being released.', 'managing to escape.'].random()}`
         } else if (crimeRoll >= 7) {
           crimeReadout = `I was nearly caught and convicted in the middle of ${crime}, but managed to escape. They are still after me, though.`
         } else if (crimeRoll >= 4) {
-          crimeReadout = `I was caught aiding and abetting the crime of ${crime}, but due to ${['being forced to do it against my will', 'my amazing lawyer', 'being under a spell'].seededrandom()}, I was found not guilty.`
+          crimeReadout = `I was caught aiding and abetting the crime of ${crime}, but due to ${['being forced to do it against my will', 'my amazing lawyer', 'being under a spell'].random()}, I was found not guilty.`
         } else {
           crimeReadout = `I was falsely accused of ${crime}, but eventually was acquitted. It took up years of my life, though, and I still get antsy around guards that I don't know.`
         }
@@ -1267,15 +1267,15 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.arcaneMatters function')
         return [
-          `I saw a demon I swear on my life! ${['', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].seededrandom()}`,
-          `I once saw a powerful wizard ${[`${['enchanting', 'disenchanting', 'cursing'].seededrandom()} a ${['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].seededrandom()}.`,
-            `casting a ${['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].seededrandom()} ${['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].seededrandom()} spell.`,
-            `riding on the back of a ${['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].seededrandom()}`].seededrandom()}`,
-          `I once ${['got caught in the cross-fires between two dueling', 'witnessed a battle between two', 'fought in a battle against', 'had my home destroyed by', 'settled down near a temple of'].seededrandom()} ${['wizards', 'dragons', 'demons', 'witches', 'warlocks', 'necromancers', 'minor gods', 'magical beings'].seededrandom()}.`,
-          `I had a mishap with ${['a charm', 'an illusion', 'a mind control'].seededrandom()} spell- ${['an old friend', 'an enemy', 'a dear friend', 'a family member', 'someone I thought of as family', 'an old rival', 'a rival of mine'].seededrandom()} ${['tried to force me to hand over all my money', 'tried to take my family heirloom', 'tried to steal my fortune', 'tried to force me to give up my ancient relic', 'tried to fool me into giving up my title'].seededrandom()}, ${['but I luckily managed to resist the spell.', 'but their spell failed', 'and sadly it worked', 'and I failed to resist the spell', 'but they were eventually caught by some brave adventurers', 'and I have been searching for them ever since'].seededrandom()}.`,
-          `I once drank a ${['really strong', 'crazy strong', 'strong', 'pretty weak', 'kind of weak', 'fairly average', 'powerful', 'rather diluted'].seededrandom()} potion- ${['I swear to god, I could taste colours!', 'my hair was standing on end!', `my skin turned bright ${['red', 'purple', 'white', 'yellow', 'green', 'orange', 'pink', 'blue', 'violet'].seededrandom()} for several days.`, 'I grew a thick bushy beard in a few hours!', 'it sent me into a comma for weeks.', 'everyone thought I was attractive for the rest of the day.', 'it made my nose glow in the dark for a week!'].seededrandom()}`,
-          `I once found a cursed book. The book ${['kills all who who read it', 'turned the reader blind', "retold the reader's life but with a horrible twist ending", 'sucked the reader in to a nightmarish world', 'was alive and had gnarled teeth to bite anyone who dared to open it', 'forced you to see the dead'].seededrandom()}.`
-        ].seededrandom()
+          `I saw a demon I swear on my life! ${['', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].random()}`,
+          `I once saw a powerful wizard ${[`${['enchanting', 'disenchanting', 'cursing'].random()} a ${['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].random()}.`,
+            `casting a ${['very powerful', 'strong', 'rather weak', 'fairly strong', 'very weak', 'average looking'].random()} ${['healing', 'lightning', 'fireball', 'fire', 'water', 'poison', 'light', 'wind', 'destruction', 'enchanting', 'illusion', 'magic'].random()} spell.`,
+            `riding on the back of a ${['gryphon', 'unicorn', 'lion', 'tiger', 'bear', 'elk', 'magnificent white steed', 'flying whale', 'giant eagle', 'dragon', 'strange demon'].random()}`].random()}`,
+          `I once ${['got caught in the cross-fires between two dueling', 'witnessed a battle between two', 'fought in a battle against', 'had my home destroyed by', 'settled down near a temple of'].random()} ${['wizards', 'dragons', 'demons', 'witches', 'warlocks', 'necromancers', 'minor gods', 'magical beings'].random()}.`,
+          `I had a mishap with ${['a charm', 'an illusion', 'a mind control'].random()} spell- ${['an old friend', 'an enemy', 'a dear friend', 'a family member', 'someone I thought of as family', 'an old rival', 'a rival of mine'].random()} ${['tried to force me to hand over all my money', 'tried to take my family heirloom', 'tried to steal my fortune', 'tried to force me to give up my ancient relic', 'tried to fool me into giving up my title'].random()}, ${['but I luckily managed to resist the spell.', 'but their spell failed', 'and sadly it worked', 'and I failed to resist the spell', 'but they were eventually caught by some brave adventurers', 'and I have been searching for them ever since'].random()}.`,
+          `I once drank a ${['really strong', 'crazy strong', 'strong', 'pretty weak', 'kind of weak', 'fairly average', 'powerful', 'rather diluted'].random()} potion- ${['I swear to god, I could taste colours!', 'my hair was standing on end!', `my skin turned bright ${['red', 'purple', 'white', 'yellow', 'green', 'orange', 'pink', 'blue', 'violet'].random()} for several days.`, 'I grew a thick bushy beard in a few hours!', 'it sent me into a comma for weeks.', 'everyone thought I was attractive for the rest of the day.', 'it made my nose glow in the dark for a week!'].random()}`,
+          `I once found a cursed book. The book ${['kills all who who read it', 'turned the reader blind', "retold the reader's life but with a horrible twist ending", 'sucked the reader in to a nightmarish world', 'was alive and had gnarled teeth to bite anyone who dared to open it', 'forced you to see the dead'].random()}.`
+        ].random()
       }
     },
     weirdStuff: {
@@ -1286,15 +1286,15 @@ setup.npcData = {
       function (town, npc) {
         console.log('called lifeEvents.weirdStuff function')
         return [
-          `I came across a genie, ${['but squandered the wish on an ex lover', 'but wasted the wish on the perfect sandwich', 'and used my wish to set him free', 'and used my wish to bring prosperity to my town', 'and used my wish to curse a rival', 'but never used my wishes'].seededrandom()}.`,
+          `I came across a genie, ${['but squandered the wish on an ex lover', 'but wasted the wish on the perfect sandwich', 'and used my wish to set him free', 'and used my wish to bring prosperity to my town', 'and used my wish to curse a rival', 'but never used my wishes'].random()}.`,
           'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.',
-          `I met a ${['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].seededrandom()} and lived to tell the tale.`,
+          `I met a ${['demigod', 'arch-fey', 'lich', 'demon lord', 'titan'].random()} and lived to tell the tale.`,
           'I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.',
           'I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold!',
           "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest!",
           'some bloody dragon held me as prisoner for a couple months. I was forced to polish all its gold! Luckily, I managed to escape when it tried to torch the nearby village.',
           'believe it or not, I was a stone statue for quite a while; I only recently was released. I still feel pretty stiff, to be honest.'
-        ].seededrandom()
+        ].random()
       }
     }
   },
@@ -2389,11 +2389,11 @@ setup.npcData = {
         'I pocket anything I see that might have some value.'
       ],
       bond: [
-        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].firstName.seededrandom()>>, and must work to ensure that he never crosses paths with me or those I care about.',
-        "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>--a horrible person who's probably rotting in jail somewhere.",
-        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>, who doesn't know me. I'm going to try and make the world better for him.",
+        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].firstName.random()>>, and must work to ensure that he never crosses paths with me or those I care about.',
+        "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>--a horrible person who's probably rotting in jail somewhere.",
+        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>, who doesn't know me. I'm going to try and make the world better for him.",
         "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
-        "A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>, killed someone I love. Some day soon, I'll have my revenge.",
+        "A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.random()>>, killed someone I love. Some day soon, I'll have my revenge.",
         "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself."
       ],
       wealth: 1500

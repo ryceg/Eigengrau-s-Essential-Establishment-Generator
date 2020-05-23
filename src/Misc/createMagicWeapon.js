@@ -239,13 +239,13 @@ setup.createMagicWeapon = function () {
   const prefixWeaponRoll = random(1, propertyWeapon.length)
   const suffixWeaponRoll = random(1, propertyWeapon.length)
   Object.assign(weapon, {
-    type: weapon.seededrandom(),
+    type: weapon.random(),
     prefixWeapon: prefixWeapon[prefixWeaponRoll],
     suffixWeapon: suffixWeapon[suffixWeaponRoll],
     prefixProperty: propertyWeapon[prefixWeaponRoll],
     suffixProperty: propertyWeapon[suffixWeaponRoll]
   })
-  weapon.description = weapon.prefixProperty + ' ' + weapon.suffixProperty
-  weapon.name = weapon.prefixWeapon + ' ' + weapon.type + ' ' + weapon.suffixWeapon
+  weapon.description = `${weapon.prefixProperty} ${weapon.suffixProperty}`
+  weapon.name = `${weapon.prefixWeapon} ${weapon.type} ${weapon.suffixWeapon}`
   return weapon
 }

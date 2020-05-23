@@ -98,12 +98,12 @@ setup.docks = {
   ships: {
     create (town, docks, opts) {
       const ship = {
-        name: setup.docks.ships.name.seededrandom(),
-        type: docks.typePool.seededrandom(),
-        captainType: Object.keys(setup.docks.ships.captain).seededrandom(),
-        hull: setup.docks.ships.hullDesc.seededrandom(),
-        detail: setup.docks.ships.shipDetail.seededrandom(),
-        event: setup.docks.ships.eventDetail.seededrandom()
+        name: setup.docks.ships.name.random(),
+        type: docks.typePool.random(),
+        captainType: Object.keys(setup.docks.ships.captain).random(),
+        hull: setup.docks.ships.hullDesc.random(),
+        detail: setup.docks.ships.shipDetail.random(),
+        event: setup.docks.ships.eventDetail.random()
       }
       Object.assign(ship, setup.docks.ships.type[ship.type])
       ship.captain = setup.createNPC(town, setup.docks.ships.captain[ship.captainType])
@@ -119,12 +119,12 @@ setup.docks = {
     },
     crew: {
       create (town) {
-        const crewType = Object.keys(setup.docks.ships.crew.type).seededrandom()
+        const crewType = Object.keys(setup.docks.ships.crew.type).random()
 
         const readout = {
-          bodyFeature: setup.docks.ships.crew.bodyFeature.seededrandom(),
-          itemFeature: setup.docks.ships.crew.itemFeature.seededrandom(),
-          sailReason: setup.docks.ships.crew.sailing.seededrandom()
+          bodyFeature: setup.docks.ships.crew.bodyFeature.random(),
+          itemFeature: setup.docks.ships.crew.itemFeature.random(),
+          sailReason: setup.docks.ships.crew.sailing.random()
         }
         const crewTraits = Object.assign({
           isShallow: true,
