@@ -19,3 +19,7 @@ Object.defineProperty(Array.prototype, 'seededrandom', {
     return this[index]
   }
 })
+
+// FIXME: This is a pretty bad bandaid fix.
+// eslint-disable-next-line no-extend-native
+Array.prototype.random = Array.prototype.seededrandom
