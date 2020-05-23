@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-extend-native
-Object.defineProperty(Array.prototype, 'seededrandom', {
+Object.defineProperty(Array.prototype, 'random', {
   configurable: true,
   writable: true,
 
   value () {
     if (this == null) { // lazy equality for null
-      throw new TypeError('Array.prototype.seededrandom called on null or undefined')
+      throw new TypeError('Array.prototype.random called on null or undefined')
     }
 
     const length = this.length >>> 0
@@ -19,7 +19,3 @@ Object.defineProperty(Array.prototype, 'seededrandom', {
     return this[index]
   }
 })
-
-// FIXME: This is a pretty bad bandaid fix.
-// eslint-disable-next-line no-extend-native
-Array.prototype.random = Array.prototype.seededrandom
