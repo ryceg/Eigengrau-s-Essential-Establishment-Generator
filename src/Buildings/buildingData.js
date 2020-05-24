@@ -27,31 +27,30 @@ setup.structure = {
         roof: {}
       }
     }
-    let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, '', '', 'object')
-    if (Object.keys(tempMaterial).includes('variations')) {
-      console.log('Building material has variations. ')
-      tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
+    if (!building.material) {
+      let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, '', '', 'object')
+      if (Object.keys(tempMaterial).includes('variations')) {
+        console.log('Building material has variations. ')
+        tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
+      }
+      console.log('tempMaterial')
+      console.log(tempMaterial)
+      building.structure.material = tempMaterial
+    } else {
+      building.structure.material = building.material
     }
-    console.log('tempMaterial')
-    console.log(tempMaterial)
-    building.structure.material = tempMaterial.words
 
     building.structure.roof = setup.weightedRandomFetcher(town, setup.structure.roof.types, '', '', 'object')
 
     if (building.structure.roof.canBeColoured === true) {
       building.structure.roof.colour = setup.structure.data.colour.random()
-      building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.words.verb}`
-      building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.words.noun}`
+      building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.verb}`
+      building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
     }
 
-    console.log('Got up to here')
-    console.log({ building })
-
-    // console.log('Roof getter:')
     setup.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', '', building.roll)
-    // console.log('Material getter:')
     setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
-    // console.log(`Finished getters.`)
+
     building.structure.descriptors = [
       `${setup.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
       `${setup.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
@@ -114,153 +113,95 @@ setup.structure = {
         variations: {
           'log': {
             probability: 10,
-            words: {
-              // you come across _ log cabin
-              indefiniteArticle: 'a',
-              noun: 'log'
-            }
+            noun: 'log'
           },
           'split log': {
             probability: 10,
-            words: {
-              indefiniteArticle: 'a',
-              noun: 'split log'
-            }
+            noun: 'split log'
           },
           'wood': {
             probability: 10,
-            words: {
-              indefiniteArticle: 'a',
-              noun: 'wood'
-            }
+            noun: 'wood'
           },
           'timber': {
             probability: 10,
-            words: {
-              indefiniteArticle: 'a',
-              noun: 'timber'
-            }
+            noun: 'timber'
           },
           'plank': {
             probability: 10,
-            words: {
-              indefiniteArticle: 'a',
-              noun: 'plank'
-            }
+            noun: 'plank'
           }
         }
       },
       'terra cotta': {
         probability: 30,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'terra cotta'
-        }
+        noun: 'terra cotta'
       },
       'adobe': {
         probability: 30,
         tier: [1],
-        words: {
-          indefiniteArticle: 'an',
-          noun: 'adobe'
-        }
+        noun: 'adobe'
       },
       'daub': {
         probability: 30,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'daub'
-        }
+        noun: 'daub'
       },
       'cob': {
         probability: 5,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'cob'
-        }
+        noun: 'cob'
       },
       'plaster': {
         probability: 30,
         tier: [3],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'plaster'
-        }
+        noun: 'plaster'
       },
       'rock': {
         probability: 10,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'rock'
-        }
+        noun: 'rock'
       },
       'straw': {
         probability: 15,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'straw'
-        }
+        noun: 'straw'
       },
       'hewn rock': {
         probability: 5,
         tier: [2],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'hewn rock'
-        }
+        noun: 'hewn rock'
       },
       'stone': {
         probability: 5,
         tier: [2],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'stone'
-        }
+        noun: 'stone'
       },
       'brick': {
         probability: 1,
         tier: [3],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'brick'
-        }
+        noun: 'brick'
       },
       'clay': {
         probability: 5,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'clay'
-        }
+        noun: 'clay'
       },
       'cobblestone': {
         probability: 5,
         tier: [1],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'cobblestone'
-        }
+        noun: 'cobblestone'
       },
       'limestone': {
         probability: 5,
         tier: [3],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'limestone'
-        }
+        noun: 'limestone'
       },
       'gypsum': {
         probability: 5,
         tier: [3],
-        words: {
-          indefiniteArticle: 'a',
-          noun: 'gypsum'
-        }
+        noun: 'gypsum'
       }
     }
   },
@@ -280,40 +221,30 @@ setup.structure = {
     types: {
       thatch: {
         probability: 40,
-        words: {
-          noun: 'thatch',
-          verb: 'thatched'
-        }
+        noun: 'thatch',
+        verb: 'thatched'
       },
       straw: {
         probability: 30,
-        words: {
-          noun: 'straw',
-          verb: 'straw'
-        }
+        noun: 'straw',
+        verb: 'straw'
       },
       plank: {
         probability: 20,
-        words: {
-          noun: 'plank',
-          verb: 'planked'
-        }
+        noun: 'plank',
+        verb: 'planked'
       },
       tile: {
         probability: 25,
         canBeColoured: true,
-        words: {
-          noun: 'tile',
-          verb: 'tiled'
-        }
+        noun: 'tile',
+        verb: 'tiled'
       },
       shingle: {
         probability: 10,
         canBeColoured: true,
-        words: {
-          noun: 'shingle',
-          verb: 'shingled'
-        }
+        noun: 'shingle',
+        verb: 'shingled'
       }
     }
   }
