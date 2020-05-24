@@ -17,7 +17,12 @@ setup.createGraveyard = function (town, base = {}) {
       dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
       profession: 'priest'
-    })
+    }),
+    gravedigger: setup.createNPC(town, {
+      profession: 'gravedigger'
+    }),
+    gravediggerLook: `A gravedigger is ${setup.graveyard.gravediggerLook.random()}`,
+    gravediggerChat: setup.graveyard.gravediggerChat.random()
   })
   graveyard.name = [
     `${town.name} ${graveyard.wordNoun.toUpperFirst()}`,
@@ -27,6 +32,26 @@ setup.createGraveyard = function (town, base = {}) {
   graveyard.feature = [
     `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.priest.race })}`,
     `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is ${setup.articles.output(['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random())} shrine to a popular god`,
+    setup.graveyard.feature.random(),
+    setup.graveyard.feature.random(),
+    setup.graveyard.feature.random()
+  ].random()
+  // You enter the graveyard ___
+  graveyard.entrance = [
+    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescript.random())}, ${setup.graveyard.secondaryDescriptMetal.random()}, ${setup.graveyard.metalType.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
+    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescript.random())}, ${setup.graveyard.secondaryDescriptWood.random()}, ${setup.graveyard.woodStoneType.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
+    `under a small arch made up of the curved branches of several ${setup.flora.tree.typeS.random()} trees`,
+    `through a large archway carved out of an enormous ${setup.flora.tree.typeS.random()} tree`,
+    `by passing between a pair of ${setup.graveyard.qualityDescript.random()}, ${setup.graveyard.secondaryDescriptMetal.random()}, ${setup.graveyard.metalType.random()} ${setup.graveyard.figureType.random()} statues`,
+    `by passing between a pair of ${setup.graveyard.qualityDescript.random()}, ${setup.graveyard.secondaryDescriptMetal.random()}, ${setup.graveyard.metalType.random()} ${['obelisks', 'pillars', 'plinths', 'columns', 'monoliths', 'memorials'].random()}`,
+    `by passing between a pair of ${setup.graveyard.qualityDescript.random()}, ${setup.graveyard.secondaryDescriptWood.random()}, ${setup.graveyard.woodStoneType.random()} ${setup.graveyard.figureType.random()} statues`,
+    `by passing between a pair of ${setup.graveyard.qualityDescript.random()}, ${setup.graveyard.secondaryDescriptWood.random()}, ${setup.graveyard.woodStoneType.random()} ${['obelisks', 'pillars', 'plinths', 'columns', 'monoliths', 'memorials'].random()}`,
+    `past a group of ${['overgrown', 'nicely trimmed', 'well planted planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${setup.flora.flower.bush.random()} bushes`,
+    `by passing by several patches of ${['overgrown', 'well planted planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${setup.flora.flower.stemP.random()}`
+  ].random()
+  graveyard.feature = [
+    `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.priest.race })}`,
+    `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is a ${['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random()} shrine to a popular god`,
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random()
