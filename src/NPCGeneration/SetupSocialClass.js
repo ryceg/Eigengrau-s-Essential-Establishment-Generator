@@ -26,32 +26,38 @@ setup.socialClass = {
   'aristocracy': {
     roll: 95,
     key: 5,
-    landRate: 3 // landRate is a multiple
+    landRate: 3, // landRate is a multiple
+    lifestyle: ['aristocratic']
   },
   'nobility': {
     roll: 80,
     key: 4,
-    landRate: 2
+    landRate: 2,
+    lifestyle: ['aristocratic', 'wealthy', 'comfortable']
   },
   'commoner': {
     roll: 60,
     key: 3,
-    landRate: 1
+    landRate: 1,
+    lifestyle: ['comfortable', 'modest', 'poor']
   },
   'peasantry': {
     roll: 20,
     key: 2,
-    landRate: 0.5
+    landRate: 0.5,
+    lifestyle: ['modest', 'poor', 'squalid']
   },
   'paupery': {
     roll: 10,
     key: 1,
-    landRate: 0
+    landRate: 0,
+    lifestyle: ['poor', 'squalid', 'wretched']
   },
   'indentured servitude': {
     roll: 0,
     key: 0,
-    landRate: 0
+    landRate: 0,
+    lifestyle: ['squalid', 'wretched']
   }
 }
 
@@ -67,23 +73,23 @@ setup.createSocialClass = function (town, npc) {
 
   console.log({ npc })
   if (!npc.socialClass) {
-    console.log('Social class not predefined. Searching for the social class of a ' + npc.profession + '...')
+    console.log(`Social class not predefined. Searching for the social class of a ${npc.profession}...`)
     // if .socialClass is defined in the professions.js, then that's all dandy.
     if (profession.socialClass) {
       npc.socialClass = profession.socialClass
       return npc
     // otherwise, just roll some dice.
     } else {
-      console.log('No synonyms found for ' + npc.dndClass)
+      console.log(`No synonyms found for ${npc.dndClass}`)
       const array = setup.socialClasses.find(function (desc) {
         return desc[0] <= npc.roll.socialClass
       })
       npc.socialClass = array[1]
-      console.log('Unidentified profession- ' + npc.profession + ' does not exist in townData.professions!')
+      console.log(`Unidentified profession- ${npc.profession} does not exist in townData.professions!`)
     }
   }
   if (npc.socialClass === undefined) {
-    console.log('Failed to set a social class that matched the roll of ' + npc.roll.socialClass + ' for ' + npc.name + '.')
+    console.log(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
     npc.socialClass = setup.socialClasses[random(0, setup.socialClasses.length - 1)]
   }
   return npc
@@ -119,7 +125,7 @@ setup.familySocialClass = function (marriage) {
     const classArray = marriage.parents.map(key =>
       setup.socialClassKeys[State.variables.npcs[key].socialClass])
 
-    const mean = Math.round(classArray.reduce((a, b) => (a + b)) / classArray.length)
+    const mean = Math.round(classArray.reduce((a, b) => a + b) / classArray.length)
     return setup.socialClassArray[mean]
   }
 }
