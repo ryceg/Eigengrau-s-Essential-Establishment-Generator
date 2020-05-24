@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Debt- creditors, debtors, and curtailed hoarding of wealth.
 - PRNG by default, taken from the URL's location hash (everything after the #, incl. the hash)
 - URL seeds following the gfycat naming convention of adjective+adjective+animal
+- Highlighting of newest building
 
 ### Changed
 - Updated dependencies
