@@ -69,6 +69,9 @@ setup.createNPC = function (town, base) {
     relationships: {
 
     },
+    religion: {
+
+    },
     roll: {
       _wageVariation: dice(5, 10) - 27,
       wageVariation (town) {
@@ -280,6 +283,7 @@ setup.createNPC = function (town, base) {
   setup.createSexuality(npc)
   setup.createSocialClass(town, npc)
   setup.createLifestyleStandards(town, npc)
+  setup.createReligiosity(town, npc)
 
   if (npc.finances.profit(town, npc) < 0 && npc.isShallow !== true) {
     setup.createDebt(town, npc)

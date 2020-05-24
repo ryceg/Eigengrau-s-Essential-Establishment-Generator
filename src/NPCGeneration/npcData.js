@@ -376,7 +376,7 @@ setup.npcData = {
             `${['I won', 'I got'].random()} ${placement} at ${['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].random()} for my ${flowerTrait} ${flower}.`,
             `${['some friends and I went to', 'I went to', 'I spent a day at'].random()} ${['a garden festival', "a farmer's market", 'an agriculture festival', 'a garden tournament'].random()} where I saw some ${foodTrait} ${[fruit, vegetable].random()}. ${['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].random()} ${placement} in the growers competition.`,
             `${['some friends and I went to', 'I went to', 'I spent a day at'].random()} ${['a garden festival', 'a flower festival', "a farmer's market", 'a garden tournament'].random()} where I saw some ${flowerTrait} ${flower}. ${['I think they won', 'If I recall correctly, they got', 'At the end of the festival they won '].random()} ${placement} in the growers competition.`
-          ].seededrandom
+          ].random()
         } else {
           return [
             `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].random()}. While I was there, I ${festivalDid}.`,
@@ -1366,6 +1366,22 @@ setup.npcData = {
   race: ['human', 'half-elf', 'elf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling'],
   standardLanguages: ['Common', 'Dwarvish', 'Elvish', 'Gnomish', 'Giant', 'Goblin', 'Halfling', 'Orc'],
   exoticLanguages: ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon'],
+  religion: {
+    religiosity: [
+      // npc.name is a _______
+      [100, 'fanatical true believer'],
+      [90, 'unshakingly devoted'],
+      [80, 'conspicuously faithful'],
+      [70, 'outspoken believer'],
+      [60, 'quiet true believer'],
+      [50, 'casual observer'],
+      [40, 'open-minded seeker'],
+      [30, 'cautious listener'],
+      [20, 'critical student'],
+      [10, 'outspoken cynic'],
+      [0, 'broken heretic']
+    ]
+  },
   raceTraits: {
     'dragonborn': {
       probability: 1,
