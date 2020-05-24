@@ -52,12 +52,12 @@ setup.smithy = {
       {
         cleanliness: 70,
         wealth: 10,
-        note: `You can see that activity in ${smithy.name} is ${smithy.activity}; the smithy is very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently swept, and there's a surprising lack of grime. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy.`
+        note: `You can see that activity in ${smithy.name} is ${smithy.activity}. The ${smithy.wordNoun} is very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently swept, and there's a surprising lack of grime. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy.`
       },
       {
         cleanliness: 60,
         wealth: 10,
-        note: `You can see that activity in ${smithy.name} is ${smithy.activity}; the smithy is tidy, with a swept floor and things in some semblance of order. There are sheafs of paper on the bench, with hunks of metal neatly holding each stack down; clearly, they are specifications for different projects, and the materials needed for each of them.`
+        note: `You can see that activity in ${smithy.name} is ${smithy.activity}. The ${smithy.wordNoun} is tidy, with a swept floor and things in some semblance of order. There are sheafs of paper on the bench, with hunks of metal neatly holding each stack down; clearly, they are specifications for different projects, and the materials needed for each of them.`
       },
       {
         cleanliness: 50,
