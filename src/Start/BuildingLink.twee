@@ -3,6 +3,7 @@
 \<<link "_building.name">>
   \<<set $selected to {buildingType: _buildingType, key: _key, building: _building}>>
   \<<set $currentPassage to _building>>
+  \<<run console.log(_building)>>
   \<<if settings.showSliders>>
       \<<goto _building.initPassage>>
     \<<else>>
