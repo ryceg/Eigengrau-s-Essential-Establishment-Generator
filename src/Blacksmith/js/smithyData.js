@@ -52,7 +52,7 @@ setup.smithy = {
       {
         cleanliness: 70,
         wealth: 10,
-        note: `You can see that activity in ${smithy.name} is ${smithy.activity}. The ${smithy.wordNoun} is very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently swept, and there's a surprising lack of grime. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy.`
+        note: `You can see that activity in ${smithy.name} is ${smithy.activity}. The ${smithy.wordNoun} is very tidy, with a swept floor and tools stored neatly on the bench in a row. The forge has been recently cleaned, and there's a surprising lack of grime in the furnace. On the wall are several project specifications nailed, with bins of their respective required materials underneath; it's clearly a well kempt smithy.`
       },
       {
         cleanliness: 60,
