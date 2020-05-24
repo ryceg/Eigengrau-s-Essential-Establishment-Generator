@@ -1,0 +1,13 @@
+:: BuildingLink
+\<span @id="_building.tooltip" class="tip">
+\<<link "_building.name">>
+  \<<set $selected to {buildingType: _buildingType, key: _key, building: _building}>>
+  \<<set $currentPassage to _building>>
+  \<<if settings.showSliders>>
+      \<<goto _building.initPassage>>
+    \<<else>>
+      \<<goto _building.passageName>>
+  \<</if>>
+\<</link>>
+\</span>
+\<<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
