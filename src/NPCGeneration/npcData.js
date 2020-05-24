@@ -1371,7 +1371,7 @@ setup.npcData = {
       // npc.name is a _______
       [100, 'fanatical true believer'],
       [90, 'unshakingly devoted'],
-      [80, 'conspicuously faithful'],
+      [80, 'conspicuously faithful believer'],
       [70, 'outspoken believer'],
       [60, 'quiet true believer'],
       [50, 'casual observer'],
