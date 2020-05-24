@@ -76,7 +76,8 @@ setup.createNPC = function (town, base) {
         // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
         // expected range should be between -25 and 25.
         return setup.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
-      }
+      },
+      physicalTrait: random(1, 100)
     },
     finances: {
       creditors: {
@@ -237,35 +238,31 @@ setup.createNPC = function (town, base) {
   setup.createAge(npc)
 
   setup.createRace(npc)
-  // This sets up the physical traits of NPCs
-  const hair = setup.npcData.bodyParts.head.hair.random()
-  const eyes = setup.npcData.bodyParts.head.eyes.random()
-  const nose = setup.npcData.bodyParts.head.nose.random()
-  const mouth = setup.npcData.bodyParts.head.mouth.random()
-  const chin = setup.npcData.bodyParts.head.chin.random()
-  const ears = setup.npcData.bodyParts.head.ears.random()
-  const headMisc = setup.npcData.bodyParts.head.misc.random()
-  const torso = setup.npcData.bodyParts.torso.descriptions.random()
-  const arms = setup.npcData.bodyParts.arms.descriptions.random()
-  const legs = setup.npcData.bodyParts.legs.descriptions.random()
 
-  const physicalTraitRoll = random(1, 100)
-  if (physicalTraitRoll > 40) {
-    npc.physicalTrait = npc.physicalTrait || [hair, eyes, nose, mouth, chin, ears, headMisc].random()
-  } else if (physicalTraitRoll > 30) {
-    npc.physicalTrait = npc.physicalTrait || torso
-  } else if (physicalTraitRoll > 20) {
-    npc.physicalTrait = npc.physicalTrait || arms
-  } else if (physicalTraitRoll > 13) {
-    npc.physicalTrait = npc.physicalTrait || legs
-  } else if (physicalTraitRoll > 8) {
-    npc.physicalTrait = npc.physicalTrait || data.scar.random()
-  } else if (physicalTraitRoll > 5) {
-    npc.physicalTrait = npc.physicalTrait || npc.hair
-  } else if (physicalTraitRoll <= 5) {
-    npc.physicalTrait = npc.physicalTrait || data.tattoo.random()
+  if (!npc.physicalTrait) {
+    if (npc.roll.physicalTrait > 40) {
+      const hair = setup.npcData.bodyParts.head.hair.random()
+      const eyes = setup.npcData.bodyParts.head.eyes.random()
+      const nose = setup.npcData.bodyParts.head.nose.random()
+      const mouth = setup.npcData.bodyParts.head.mouth.random()
+      const chin = setup.npcData.bodyParts.head.chin.random()
+      const ears = setup.npcData.bodyParts.head.ears.random()
+      const headMisc = setup.npcData.bodyParts.head.misc.random()
+      npc.physicalTrait = [hair, eyes, nose, mouth, chin, ears, headMisc].random()
+    } else if (npc.roll.physicalTrait > 30) {
+      npc.physicalTrait = setup.npcData.bodyParts.torso.descriptions.random()
+    } else if (npc.roll.physicalTrait > 20) {
+      npc.physicalTrait = setup.npcData.bodyParts.arms.descriptions.random()
+    } else if (npc.roll.physicalTrait > 13) {
+      npc.physicalTrait = setup.npcData.bodyParts.legs.descriptions.random()
+    } else if (npc.roll.physicalTrait > 8) {
+      npc.physicalTrait = data.scar.random()
+    } else if (npc.roll.physicalTrait > 5) {
+      npc.physicalTrait = npc.hair
+    } else if (npc.roll.physicalTrait <= 5) {
+      npc.physicalTrait = data.tattoo.random()
+    }
   }
-
   setup.createClass(town, npc)
 
   setup.createBackground(npc)
