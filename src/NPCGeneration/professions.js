@@ -4540,9 +4540,9 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'crime',
     description: 'held in confinement as a punishment for crimes they have been convicted of.',
-    dailyWage: 10,
+    dailyWage: 2,
     socialClass: 'paupery',
-    socialClassRoll () { return 5 + dice(8, 6) }
+    socialClassRoll () { return 5 + dice(2, 6) }
   },
   'rag-and-Bone Man': {
     sv: 750,
