@@ -36,21 +36,15 @@ setup.structure = {
     console.log(tempMaterial)
     building.structure.material = tempMaterial.words
 
-    let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.types, '', '', 'object')
-    if (Object.keys(tempRoof).includes('variations')) {
-      console.log('Building roof has variations.')
-      tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
-      // tempMaterial = temp2
-      console.log(tempRoof.words)
+    building.structure.roof = setup.weightedRandomFetcher(town, setup.structure.roof.types, '', '', 'object')
+
+    if (building.structure.roof.canBeColoured === true) {
+      building.structure.roof.colour = setup.structure.data.colour.random()
+      building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.words.verb}`
+      building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.words.noun}`
     }
-    if (tempRoof.canBeColoured === true) {
-      const colour = setup.structure.data.colour.random()
-      Object.keys(tempRoof.words).forEach(function (roof) {
-        tempRoof.words[roof] = `${colour} ${tempRoof.words[roof]}`
-      })
-    }
-    building.structure.roof = tempRoof.words
-    // console.log(`Got up to here`)
+
+    console.log('Got up to here')
     console.log({ building })
 
     // console.log('Roof getter:')
@@ -285,24 +279,28 @@ setup.structure = {
     },
     types: {
       thatch: {
+        probability: 40,
         words: {
           noun: 'thatch',
           verb: 'thatched'
         }
       },
       straw: {
+        probability: 30,
         words: {
           noun: 'straw',
           verb: 'straw'
         }
       },
       plank: {
+        probability: 20,
         words: {
           noun: 'plank',
           verb: 'planked'
         }
       },
       tile: {
+        probability: 25,
         canBeColoured: true,
         words: {
           noun: 'tile',
@@ -310,6 +308,7 @@ setup.structure = {
         }
       },
       shingle: {
+        probability: 10,
         canBeColoured: true,
         words: {
           noun: 'shingle',
