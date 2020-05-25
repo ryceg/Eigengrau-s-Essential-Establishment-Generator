@@ -11,7 +11,7 @@ setup.createDocks = (town, opts = {}) => {
     needsWordNoun: false,
     dockName: setup.createNPC(town, {
       isShallow: true,
-      profession: 'dock worker'
+      profession: 'stevedore'
     }),
     wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina', 'jetty', 'harbor', 'berth', 'port', 'seaport', 'dockyard'].random(),
     ships: {},
