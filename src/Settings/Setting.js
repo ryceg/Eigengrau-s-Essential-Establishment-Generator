@@ -48,6 +48,11 @@ Setting.addToggle('hideAds', {
   onChange: settingHideAds
 })
 
+Setting.addToggle('ignoreGender', {
+  label: 'Ignore gender inequality?',
+  onInit: false
+})
+
 // var settingPatreonContentHandler = function () {
 //   if (Setting.patreonContent) {
 //     State.variables.bartender = State.variables.Birchbottom

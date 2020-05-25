@@ -30,16 +30,18 @@ setup.townData = {
       [0, 'destitute']
     ],
     equality: [
-      [95, 'It is overwhelmingly patriarchal.'],
-      [80, 'It is a patriarchal society.'],
-      [70, 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
-      [60, 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
-      [50, "Gender is irrelevant to one's place in society here."],
-      [40, 'Femininity is celebrated, and women enjoy equal opportunities here.'],
-      [30, 'Women have cooler heads than men, and are therefore the heads of households here.'],
-      [20, 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
-      [10, 'This is a matriarchal society.'],
-      [0, 'It is overwhelmingly matriarchal.']
+      // TODO: Set equality as a toggleable option. The world is terrible enough without having your fantasy ALSO be patriarchal, and that should be respected.
+      [95, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.'],
+      [90, 'matriarchal', 'It is a matriarchal society.'],
+      [85, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
+      [80, 'matriarchal', 'Women have cooler heads than men, and are therefore the heads of households here.'],
+      [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
+      [50, 'egalitarian', "Gender is irrelevant to one's place in society here."],
+      [40, 'egalitarian', 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
+      [30, 'egalitarian-ish', 'It is supposedly egalitarian society, though women face barriers socially and economically if they do not conform.'],
+      [20, 'patriarchal', 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
+      [10, 'patriarchal', 'It is a patriarchal society.'],
+      [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
     ]
     // 'economics': [
     //   [90, 'Trade in ' + this.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + this.name + ' are high.'],
@@ -491,7 +493,8 @@ setup.townData = {
         economics: 35,
         welfare: 25,
         law: -15,
-        military: -15
+        military: -15,
+        equality: 25
       },
       descriptors: {
         economicIdeologyIC: 'syndicalistic',

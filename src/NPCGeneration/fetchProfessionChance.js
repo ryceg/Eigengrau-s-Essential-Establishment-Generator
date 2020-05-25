@@ -1,5 +1,5 @@
 setup.fetchProfessionChance = function (town, npc) {
-  // This gets the starting profession.
+  // This gets the starting profession when a profession has not been defined.
   console.log('Fetching profession...')
   town = town || State.variables.town
   const professions = Object.keys(town.professions)
@@ -10,6 +10,14 @@ setup.fetchProfessionChance = function (town, npc) {
       return town.professions[profession].socialClass === npc.socialClass
     })
     console.log(professions)
+  }
+
+  if (setup.breakGenderNorms(town, npc) === false) {
+    if (setup.isDominantGender(town, npc) === false) {
+      professions.filter(function (profession) {
+        return town.professions[profession].domSub === 'sub'
+      })
+    }
   }
   const sum = professions
     .map(function (profession) {
@@ -28,14 +36,25 @@ setup.fetchProfessionChance = function (town, npc) {
       break
     }
   }
-  const resultantProfession = professions[index]
+  let resultantProfession = professions[index]
   if (resultantProfession === undefined) {
-    console.error(`Failed to fetch a profession.`)
+    console.error('Failed to fetch a profession.')
     console.log({ npc })
-    // setup.fetchProfessionChance(town, npc)
+    resultantProfession = 'noble'
   }
+  console.log(`Profession is: ${resultantProfession}`)
+  // the on-load function is handled in setup.createClass because it should apply to *every* NPC with the profession, not just those that are rolled with it
+  if (setup.townData.professions[resultantProfession].exclusions) {
+    if (typeof setup.townData.professions[resultantProfession].exclusions === 'function') {
+      console.log('There is an exclusion function. Testing...')
+      if (setup.townData.professions[resultantProfession].exclusions(town, npc) === false) {
+        console.error(`${npc.name} is unable to be a ${resultantProfession}. Rerolling...`)
+        resultantProfession = setup.fetchProfessionChance(town, npc)
+      }
+    }
+  }
+
   console.log(`Testing to see whether ${resultantProfession} is a dndClass.`)
-  console.log(resultantProfession)
 
   if (setup.townData.professions[resultantProfession].type !== undefined) {
     if (setup.townData.professions[resultantProfession].type === 'dndClass') {
