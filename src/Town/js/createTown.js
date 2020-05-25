@@ -223,6 +223,17 @@ setup.createTown = function (base) {
     }
   })
 
+  Object.defineProperty(town.taxes, 'economics', {
+    get () {
+      console.log(this)
+      // TODO fix the getter's workaround.
+      const economics = State.variables.town.roll.economics
+      const nominalTarget = 3
+      const result = nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
+      return result
+    }
+  })
+
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   Object.keys(setup.townData.type[town.type].modifiers).forEach(function (modifier) {
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
