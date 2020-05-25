@@ -1,130 +1,34 @@
 interface Setup {
-  alchemist: {
-    rollData: {
-      wealth: [number, string][]
-      size: [number, string][]
-      cleanliness: [number, string][]
-      expertise: [number, string][]
-    }
-    get: {
-      lookAround(alchemist: any): {
-        cleanliness: number
-        wealth: number
-        note: string
-      }[]
-      priceTalk(alchemist: any): {
-        priceModifier: number
-        wealth: number
-        priceTalk: string
-      }[]
-    }
-    name: {
-      noun: string[]
-      adjective: string[]
-      rider: string[]
-    }
-  }
-  alchemistModifiers(alchemist: any): any
-  createAlchemist(alchemist: any, opts:any): any
-  createAlchemistName(alchemistFirstName: string): string
-  createChemist(town: any): any
-
-  createDocks(town: any, opts?: any)
-
-  factionData: {
-    type: Record<string, FactionTypeData>
-  }
-  ageFaction(faction: any): string
-  createAllies(faction: any): any
-  createFaction(town: any, opts?: any): any
-  deleteFaction(faction: any): any
-  influenceFaction(faction: any): any
-  joinFaction(faction: any): any
-  createLeaderGroup(faction: any): any
-  createMisc(faction: any): any
-  nameFaction(town: any, type: string): string
-  reputationFaction(faction: any): any
-  resourcesFaction(faction: any): any
-  createRivals(faction: any): any
-  sizeFaction(town: any, faction: any): any
-  stabilityFaction(faction: any): any
-
-  flora: {
-    flower: {
-      stemP: string[]
-      stemS: string[]
-      bush: string[]
-    }
-    fruit: {
-      fruitP: string[]
-      fruitS: string[]
-      tree: string[]
-    }
-    vegetable: {
-      vegetableP: string[]
-      vegetableS: string[]
-    }
-    tree: {
-      typeS: string[]
-      typeArticle: string[]
-    }
-  }
-
-  magicItems: Record<string, MagicItem>
-
-  getMoralsData(npc: any): MoralsData[]
-  npcTaxRate(town: any, npc: any): number
+  getMoralsData(npc: NPC): MoralsData[]
+  npcTaxRate(town: Town, npc: NPC): number
   profile(obj: any, base?: string, type?: string): string
-  setAsPartners(npc1: any, npc2: any): void
-  createAge(npc: any): any
+  setAsPartners(npc1: NPC, npc2: NPC): void
+  createAge(npc: NPC): any
   isOfAge(ageStage, race, ageYears): boolean
-  createBackground(npc: any): any
-  createClass(town: any, npc: any): any
-  createFamily(town: any, npc: any): void
-  expandFamily(town: any, npc: any): void
-  fetchFamily(town: any, npc: any): Record<string, any>
-  createHistory(town: any, npc: any): any
-  createLifeEvents(town: any, npc: any): any
+  createBackground(npc: NPC): any
+  createClass(town: Town, npc: NPC): any
+  createFamily(town: Town, npc: NPC): void
+  expandFamily(town: Town, npc: NPC): void
+  fetchFamily(town: Town, npc: NPC): Record<string, any>
+  createHistory(town: Town, npc: NPC): any
+  createLifeEvents(town: Town, npc: NPC): any
   createName(parameters: CreateNameParameters): string
-  createNPC(town: any, base?: any): any
-  createSocialClass(town: any, npc: any): any
+  createNPC(town: Town, base?: Partial<NPC>): NPC
+  createSocialClass(town: Town, npc: NPC): any
+
+  guardData: any
+  createGuard(town: Town): any
+
+  townData: any
+  updateSocioPolitics(town: Town): Town
 }
 
-interface FactionTypeData {
-  leaderTraits: LeaderTraits,
-  wordNoun: string,
-  leaderQualification: string[]
-  alliesList: string[]
-  rivalsList: string[]
-  joiningRequirement: string[]
-  joiningInitiation: string[]
-  membersTrait: string[]
-  main: string[]
-  adjective: string[]
-  group: string[]
-  unique: string[]
-  motivation: string[]
-  resources: string[]
+interface Town {
+  [key: string]: any
 }
 
-interface LeaderTraits {
-  title?: string,
-  hasClass: boolean,
-  dndClass?: string[]
-  profession?: string,
-  background?: string | string[]
-}
-
-interface MagicItem {
-  price: {
-    sane: string | number,
-    DMPG: string | number,
-    DMG: string
-  },
-  rarity: 'common' | 'uncommon' | 'rare' | 'very rare' | 'legendary',
-  source: string,
-  page: string | number,
-  type: string
+interface NPC {
+  [key: string]: any
 }
 
 interface CreateNameParameters {
