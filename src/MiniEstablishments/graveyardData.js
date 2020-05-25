@@ -26,13 +26,13 @@ setup.graveyard = {
     'in need of some maintenance, with moss and vines creeping onto several gravestones',
     'nearly forgotten, with many headstones having fallen over or crumbled away'
   ],
-  qualityDescript: [
+  qualityDescriptors: [
     'simple', 'intricate', 'well made', 'poorly made', 'detailed', 'poorly kept', 'well kept', 'small', 'large'
   ],
-  secondaryDescriptMetal: [
+  secondaryDescriptorsMetal: [
     'rusty looking', 'gleaming', 'overgrown', 'corroded', 'old looking', 'new looking', 'shiny', 'dull looking'
   ],
-  secondaryDescriptWood: [
+  secondaryDescriptorsWood: [
     'dirty looking', 'overgrown', 'old looking', 'new looking', 'chipped up', 'crumbling', 'battered', 'fine looking', 'cracked'
   ],
   metalType: [
