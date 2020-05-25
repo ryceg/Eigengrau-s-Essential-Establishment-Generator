@@ -13,6 +13,7 @@ setup.createGraveyard = function (town, base = {}) {
     cleanliness: setup.graveyard.cleanliness.random(),
     namePrefix: setup.graveyard.namePrefix.random(),
     nameSuffix: setup.graveyard.nameSuffix.random(),
+    graveyardTree: setup.flora.tree.typeS.random(),
     priest: setup.createNPC(town, {
       dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),

@@ -49,8 +49,8 @@ setup.graveyard = {
   ],
   feature: [
     // As you enter you notice ____
-    'an enormous <<print ["oak", "maple", "birch", "pine", "willow", "sycamore", "cherry", "magnolia"].seededrandom()>> tree standing among the graves, colorful ribbons are tied to its many branches',
-    'a large clump of <<print ["oak", "maple", "birch", "pine", "willow", "sycamore", "cherry", "magnolia"].seededrandom()>> trees that create that create an area of shade, graves have been dug all around them',
+    'an enormous $graveyardTree tree standing among the graves, colorful ribbons are tied to its many branches',
+    'a large clump of $graveyardTree trees that create that create an area of shade, graves have been dug all around them',
     'a freshly dug grave awaiting its occupant',
     'several spades stuck into the ground next to an open grave',
     'a large grave surrounded by a wrought iron fence with a single gate. The grass inside the fence has been neatly tended to',
@@ -104,7 +104,7 @@ setup.graveyard = {
     'that you would not believe some of the stuff they\'ve seen on the job',
     'graverobbers have been trying to sneak in here during the night recently',
     'that someone recenlty vandalized the grave of a long dead local hero',
-    'to avoid the back of the graveyard, but doesn\t say why'
+    'to avoid the back of the graveyard, but doesn\'t say why'
   ],
   nameSuffix: [
     'Spring', 'Gentle', 'Crescent', 'Burning', 'Autumn', 'Winter', 'Crystal', 'Rotten', 'Devils', 'Summer', 'Eternal', 'Guilty', 'Crown', 'Black', 'Glory', 'Hollow', 'Shadow',
