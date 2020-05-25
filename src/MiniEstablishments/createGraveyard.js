@@ -14,9 +14,8 @@ setup.createGraveyard = function (town, base = {}) {
     namePrefix: setup.graveyard.namePrefix.random(),
     nameSuffix: setup.graveyard.nameSuffix.random(),
     priest: setup.createNPC(town, {
-      dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
-      profession: 'priest'
+      profession: ['cleric', 'cleric', 'cleric', 'priest', 'priest', 'priest', 'priest', 'druid'].random()
     }),
     gravedigger: setup.createNPC(town, {
       profession: 'gravedigger'
@@ -36,29 +35,22 @@ setup.createGraveyard = function (town, base = {}) {
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random()
   ].random()
+  const pairOfType = Object.keys(setup.graveyard.material).random()
   graveyard.pairOf = [
-    `${setup.graveyard.qualityDescriptors.random()}, ${setup.graveyard.secondaryDescriptorsMetal.random()}, ${setup.graveyard.metalType.random()} ${setup.graveyard.figureType.random()} statues`,
-    `${setup.graveyard.qualityDescriptors.random()}, ${setup.graveyard.secondaryDescriptorsMetal.random()}, ${setup.graveyard.metalType.random()} ${['obelisks', 'pillars', 'plinths', 'columns', 'monoliths', 'memorials'].random()}`,
-    `${setup.graveyard.qualityDescriptors.random()}, ${setup.graveyard.secondaryDescriptorsWood.random()}, ${setup.graveyard.woodStoneType.random()} ${setup.graveyard.figureType.random()} statues`,
-    `${setup.graveyard.qualityDescriptors.random()}, ${setup.graveyard.secondaryDescriptorsWood.random()}, ${setup.graveyard.woodStoneType.random()} ${['obelisks', 'pillars', 'plinths', 'columns', 'monoliths', 'memorials'].random()}`
+    `${setup.graveyard.qualityDescriptors.random()}, ${setup.graveyard.material[pairOfType].secondaryDescriptors.random()}, ${setup.graveyard.material[pairOfType].type.random()} ${setup.graveyard.figureType.random()} statues`,
+    `${setup.graveyard.qualityDescriptors.random()}, ${setup.graveyard.material[pairOfType].secondaryDescriptors.random()}, ${setup.graveyard.material[pairOfType].type.random()} ${['obelisks', 'pillars', 'plinths', 'columns', 'monoliths', 'memorials'].random()}`
   ].random()
   // You enter the graveyard ___
   graveyard.entrance = [
-    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.secondaryDescriptorsMetal.random()}, ${setup.graveyard.metalType.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
-    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.secondaryDescriptorsWood.random()}, ${setup.graveyard.woodStoneType.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
+    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.metal.secondaryDescriptors.random()}, ${setup.graveyard.material.metal.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
+    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.wood.secondaryDescriptors.random()}, ${setup.graveyard.material.wood.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
     `under a small arch made up of the curved branches of several ${setup.flora.tree.typeS.random()} trees`,
     `through a large archway carved out of an enormous ${setup.flora.tree.typeS.random()} tree`,
     `by passing between a pair of ${graveyard.pairOf}`,
     `past a group of ${['overgrown', 'nicely trimmed', 'well planted planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${setup.flora.flower.bush.random()} bushes`,
     `by passing by several patches of ${['overgrown', 'well planted planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${setup.flora.flower.stemP.random()}`
   ].random()
-  graveyard.feature = [
-    `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.priest.race })}`,
-    `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is a ${['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random()} shrine to a popular god`,
-    setup.graveyard.feature.random(),
-    setup.graveyard.feature.random(),
-    setup.graveyard.feature.random()
-  ].random()
+
   graveyard.tippyDescription = `${setup.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`
   return graveyard
 }

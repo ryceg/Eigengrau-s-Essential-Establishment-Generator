@@ -29,18 +29,20 @@ setup.graveyard = {
   qualityDescriptors: [
     'simple', 'intricate', 'well made', 'poorly made', 'detailed', 'poorly kept', 'well kept', 'small', 'large'
   ],
-  secondaryDescriptorsMetal: [
-    'rusty looking', 'gleaming', 'overgrown', 'corroded', 'old looking', 'new looking', 'shiny', 'dull looking'
-  ],
-  secondaryDescriptorsWood: [
-    'dirty looking', 'overgrown', 'old looking', 'new looking', 'chipped up', 'crumbling', 'battered', 'fine looking', 'cracked'
-  ],
-  metalType: [
-    'metal', 'iron', 'wrought iron', 'copper', 'bronze', 'steel', 'gold', 'silver', 'brass'
-  ],
-  woodStoneType: [
-    'wooden', 'stone', 'marble', 'oak', 'pine', 'birchwood', 'maple wood', 'cherry wood', 'granite', 'obsidian', 'onyx', 'sandstone', 'slate', 'basalt', 'alabaster', 'limestone', 'quartz', 'ivory', 'bone'
-  ],
+  material: {
+    metal: {
+      type: ['metal', 'iron', 'wrought iron', 'copper', 'bronze', 'steel', 'gold', 'silver', 'brass'],
+      secondaryDescriptors: ['rusty looking', 'gleaming', 'rusted', 'dulled', 'corroded', 'old looking', 'new looking', 'shiny', 'dull looking']
+    },
+    wood: {
+      type: ['wooden', 'oak', 'pine', 'birchwood', 'maple wood', 'cherry wood'],
+      secondaryDescriptors: ['dirty looking', 'overgrown', 'old looking', 'new looking', 'battered', 'fine looking', 'splintered', 'mossy', 'weathered', 'waterlogged']
+    },
+    stone: {
+      type: ['granite', 'stone', 'marble', 'obsidian', 'onyx', 'sandstone', 'slate', 'basalt', 'alabaster', 'limestone', 'quartz', 'ivory', 'bone'],
+      secondaryDescriptors: ['moss covered', 'chipped up', 'crumbling', 'cracked', 'weathered', 'brittle', 'rough', 'overgrown']
+    }
+  },
   additionalDetail: [
     '', ' with the graveyards name across the front', ' with the symbol of a local diety forged into the front', ' with runic symbols running across it', ' with the crest of the town exmblazoned on the top arch', ' with a memorial plaque attatched to one side'
   ],
