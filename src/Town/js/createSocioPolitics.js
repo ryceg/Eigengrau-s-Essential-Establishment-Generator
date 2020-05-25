@@ -18,19 +18,6 @@ setup.createSocioPolitics = function (town) {
   //   delete town.ruler
   // }
 
-  setup.createTownLeader = function (town) {
-    town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].data.leaderType || 'commoners'
-    if (typeof setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits !== 'undefined') {
-      town.leader = setup.createNPC(town, setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
-    } else {
-      console.log('Invalid political ideology of ' + town.politicalIdeology + '. Leader defaulting to random NPC...')
-      town.leader = setup.createNPC(town, {
-        profession: 'politician'
-      })
-    }
-    return town
-  }
-
   switch (town.politicalSource) {
     case 'absolute monarchy':
       switch (town.politicalIdeology) {
@@ -48,7 +35,7 @@ setup.createSocioPolitics = function (town) {
           // }
           break
         default:
-          console.log('Loaded ' + setup.articles.output(town.politicalIdeologyIC) + ' absolute monarchy')
+          console.log(`Loaded ${setup.articles.output(town.politicalIdeologyIC)} absolute monarchy`)
           setup.createTownLeader(town)
           town.dualLeaders = true
           town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
@@ -71,13 +58,13 @@ setup.createSocioPolitics = function (town) {
           // }
           break
         default:
-          console.log('Loaded ' + setup.articles.output(town.politicalIdeologyIC) + ' constitutional monarchy')
+          console.log(`Loaded ${setup.articles.output(town.politicalIdeologyIC)} constitutional monarchy`)
           town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
           setup.createTownLeader(town)
       }
       break
     default:
-      console.log('Loaded ' + setup.articles.output(town.politicalIdeologyIC) + ' ' + town.politicalSource)
+      console.log(`Loaded ${setup.articles.output(town.politicalIdeologyIC)} ${town.politicalSource}`)
       setup.createTownLeader(town)
       town.dualLeaders = false
   }
@@ -138,14 +125,14 @@ setup.createSocioPolitics = function (town) {
     delete town.leader
     const type = setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType
     if (setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType !== setup.factionData.type[type]) {
-      console.log('No faction that matches ' + setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType + '. Creating random faction instead...')
-      town.factions['leader'] = setup.createFaction(town, {
+      console.log(`No faction that matches ${setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType}. Creating random faction instead...`)
+      town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
         key: 'leader'
       })
     } else {
-      town.factions['leader'] = setup.createFaction(town, {
+      town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
         type: setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType,
@@ -154,17 +141,34 @@ setup.createSocioPolitics = function (town) {
     }
     console.log('Town factions:')
     console.log(town.factions)
-    town.leader = town.factions['leader'].leader
+    town.leader = town.factions.leader.leader
     town.leaderType = '<<profile $town.factions["leader"]>>'
     // town.leaderType = '<<link ' + JSON.stringify(town.factions['leader'].name) + '>><<set $selected to {key: ' + JSON.stringify(town.factions['leader'].key) + '}>><<goto "FactionProfile">><</link>>'
     console.log('Town factions:')
     console.log(town.factions)
-  } else if (setup.townData.politicalIdeology[town.politicalIdeology].data.isFaction === false && town.factions['leader']) {
+  } else if (setup.townData.politicalIdeology[town.politicalIdeology].data.isFaction === false && town.factions.leader) {
     delete State.variables.npcs[town.leader.key]
     delete town.leader
-    delete town.factions['leader']
+    delete town.factions.leader
   }
 
   console.groupEnd()
+  return town
+}
+
+setup.createTownLeader = function (town) {
+  console.log('Creating town leader')
+  town.leaderType = setup.townData.politicalIdeology[town.politicalIdeology].data.leaderType || 'commoners'
+  console.log(setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
+  if (typeof setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits !== 'undefined') {
+    town.leader = setup.createNPC(town, setup.townData.politicalIdeology[town.politicalIdeology].leaderTraits)
+  } else {
+    console.log(`Invalid political ideology of ${town.politicalIdeology}. Leader defaulting to random NPC...`)
+    town.leader = setup.createNPC(town, {
+      profession: 'politician'
+    })
+  }
+  console.log('Town leader:')
+  console.log(town.leader)
   return town
 }
