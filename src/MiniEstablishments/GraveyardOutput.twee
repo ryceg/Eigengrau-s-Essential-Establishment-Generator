@@ -1,5 +1,5 @@
 :: GraveyardOutput
-<<unset $selectedBuilding>><<set $graveyard to ($town.buildings.graveyard[$selected.key] || $town.buildings.graveyard[$currentPassage.key])>><<set $gravedigger to $npcs[$graveyard.gravedigger.key]>><h1>$graveyard.name</h1>
+<<unset $selectedBuilding>><<set $graveyard to ($town.buildings.graveyard[$selected.key] || $town.buildings.graveyard[$currentPassage.key])>><<set $gravedigger to $npcs[$graveyard.gravedigger.key]>><<set $graveyardTree to $graveyard.graveyardTree>><h1>$graveyard.name</h1>
 You walk down $graveyard.road to the $graveyard.wordNoun. It is $graveyard.location, and is $graveyard.size. You enter the $graveyard.wordNoun $graveyard.entrance. It's mostly $graveyard.cleanliness. As you enter you notice $graveyard.feature.
 
 <h3> Gravedigger </h3>
