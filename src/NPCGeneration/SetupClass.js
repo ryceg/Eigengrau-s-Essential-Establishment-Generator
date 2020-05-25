@@ -39,13 +39,14 @@ setup.createClass = function (town, npc) {
   }
 
   const profession = setup.findProfession(town, npc)
+
   const originWage = [
     [-25, `I've tried to do a good job as ${setup.articles.output(npc.profession)} but am just rubbish at it. I don't think I'm good at anything, really.`],
     [-20, `I've been trying to make it as ${setup.articles.output(npc.profession)} but suck at it. I'm beginning to think I was never meant to be ${setup.articles.output(npc.profession)}.`],
     [-15, `I've been trying to make it as ${setup.articles.output(npc.profession)} but just can't seem to hack it. I think I'll quit.`],
     [-10, `I've had trouble as ${setup.articles.output(npc.profession)}. I guess some people are born with it- I'm sure as hell not.`],
     [-5, `I've had a bit of a downturn as ${setup.articles.output(npc.profession)}. If it keeps up for much longer, I'm going to begin losing hope.`],
-    [0, `I'm ${setup.articles.output(npc.profession)}. The work is alright, ${['and I enjoy it', 'though it can be a bit tedious', 'I\'ve certainly had worse jobs', 'if a little dull', 'if a little dull at times'].random()}`],
+    [0, `I'm working as ${setup.articles.output(npc.profession)}. The work is alright, ${['and I enjoy it', 'though it can be a bit tedious', 'I\'ve certainly had worse jobs', 'if a little dull', 'if a little dull at times'].random()}`],
     [5, `I'm on the upswing as ${setup.articles.output(npc.profession)}. Things are looking better.`],
     [10, `I'm doing really well as ${setup.articles.output(npc.profession)}! Maybe it's luck, maybe a natural talent, I don't know.`],
     [15, `It turns out that I'm pretty good at being ${setup.articles.output(npc.profession)}! I enjoy the work.`],
