@@ -72,7 +72,7 @@ setup.createBuilding = function (town, type, base) {
       activity: random(1, 100)
     },
     // magicRoll: (Math.floor(randomFloat(1) * 80) + 20),
-    priceModifier: Math.floor(randomFloat(1) * 10) - [0, 10].random()
+    priceModifier: Math.floor(randomFloat(1) * 8) - [0, 10].random()
     // sizeRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // diversityRoll: (Math.floor(randomFloat(1) * 80) + 20),
     // wealthRoll: random(1, 100),
@@ -87,6 +87,7 @@ setup.createBuilding = function (town, type, base) {
 
   town.roads[building.key] = building.road
 
+  // building.priceModifier += town.taxes.economics
   building.roll.wealth = Math.clamp(building.roll.wealth, 1, 100)
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
   building.roll.reputation = Math.clamp(building.roll.reputation, 1, 100)
