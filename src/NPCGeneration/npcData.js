@@ -1367,7 +1367,7 @@ setup.npcData = {
   standardLanguages: ['Common', 'Dwarvish', 'Elvish', 'Gnomish', 'Giant', 'Goblin', 'Halfling', 'Orc'],
   exoticLanguages: ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon'],
   religion: {
-    religiosity: [
+    strength: [
       // npc.name is a _______
       [100, 'fanatical true believer'],
       [90, 'unshakingly devoted'],

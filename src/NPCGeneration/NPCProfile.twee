@@ -14,7 +14,7 @@ $currentNPC.professionSuccess, with a background of being <<print setup.articles
 \<<else>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but _lifestyleStandard[3]
 \<</if>>. 
-\Religion-wise, $currentNPC.firstName is <<print setup.articles.output($currentNPC.religiosity)>>. 
+\Religion-wise, $currentNPC.firstName is <<print setup.articles.output($currentNPC.religion.strength)>>. 
 \In combat, $currentNPC.heshe uses $currentNPC.weapon. 
 \<<if def $currentNPC.doesnt>>$currentNPC.doesnt<</if>>
 \<<if $currentNPC.sexuality !== 'heterosexual'>>
@@ -31,9 +31,9 @@ $currentNPC.professionSuccess, with a background of being <<print setup.articles
 <</for>><<set _finances.tax to _finances.grossIncome - _finances.netIncome,
 _finances.totalLifestyleExpenses to _finances.lifestyleStandard[0] + _finances.lifestyleExpenses>>
 
-$currentNPC.firstName currently earns <<money _finances.netIncome>> per day.
+$currentNPC.firstName currently earns <<money _finances.netIncome>> <<linkreplace "per day." t8n>>per day.
 
-<table>
+<table><h3>Finances</h3>
     <tr>
         <th>Type</th>
         <th>Amount</th>
@@ -51,11 +51,11 @@ $currentNPC.firstName currently earns <<money _finances.netIncome>> per day.
     <tr><td>Money owed by <<profile $npcs[_debtorKey]>></td><td><<money _debtOwed>></td></tr>
     <</for>>
     /*<</if>>*/
-</table><</nobr>>
+</table><</linkreplace>><</nobr>>
 
-<<linkreplace "Early Life">><div class='npcReplace'>Early Life</div><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had <<print setup.articles.output($currentNPC.familyLifestyle)>> upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
+<<linkreplace "Early Life" t8n>><div class='npcReplace'>Early Life</div><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had <<print setup.articles.output($currentNPC.familyLifestyle)>> upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
 <<set _becomingProfession = "Becoming " + setup.articles.output($currentNPC.profession)>><<linkreplace "_becomingProfession">><div class='npcReplace'>Becoming <<print setup.articles.output($currentNPC.profession)>></div><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.professionOrigin $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>
-<<linkreplace "Life events">><div class='npcReplace'>Life Events</div><div class='descriptive'>Well, I certainly have a tale or two...
+<<linkreplace "Life events" t8n>><div class='npcReplace'>Life Events</div><div class='descriptive'>Well, I certainly have a tale or two...
 \<<if $currentNPC.lifeEvents.length == 2>>
     When I was younger, <<print $currentNPC.lifeEvents[0]>> Later in my life, <<print $currentNPC.lifeEvents[1]>>
   \<<elseif $currentNPC.lifeEvents.length == 1>>
@@ -81,7 +81,7 @@ $currentNPC.firstName currently earns <<money _finances.netIncome>> per day.
     \<</for>>
     At one point, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
-<<if Object.getOwnPropertyNames($currentNPC.relationships).length !== 0>><div class='classTable'><<nobr>><table>
+<<if Object.getOwnPropertyNames($currentNPC.relationships).length !== 0>><div class='classTable'><h3>Relationships</h3><<nobr>><table>
     <tr>
         <th>Name</th>
         <th>Relationship</th>
