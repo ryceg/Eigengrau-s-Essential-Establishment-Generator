@@ -20,7 +20,6 @@ setup.createDocks = (town, opts = {}) => {
 
   docks.name = [`The ${['Old ', 'New ', '', ''].random()}${[`${town.name} `, `${town.name} `, ' ', ' ', ' '].random()}${docks.wordNoun.toUpperFirst()}`, [`${docks.dockName.lastName} `, `${docks.dockName.firstName}'s `, `${[docks.dockName.firstName, docks.dockName.lastName].random()} Beach `].random() + docks.wordNoun.toUpperFirst()].random()
 
-  // docks.wealth = ''
   docks.activity = ''
   docks.size = ''
   docks.cleanliness = ''

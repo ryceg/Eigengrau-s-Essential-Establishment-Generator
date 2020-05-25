@@ -10,7 +10,6 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   if (!blacksmith) { blacksmith = smithy.blacksmith || setup.createNPC(town, { profession: 'blacksmith' }) }
   const weapon = ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick']
   const mundane = ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
-  //   blacksmith.roll._wageVariation
   const potentialProjects = {
     market: {
       function (town) {
