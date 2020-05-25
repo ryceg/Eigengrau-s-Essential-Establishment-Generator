@@ -43,12 +43,13 @@ setup.townData.professions = {
     socialClassRoll () { return 50 + dice(8, 6) }
   },
   'domestic partner': {
-    sv: 10000,
+    sv: 50,
     type: 'family',
     sector: 'family',
     description: 'a spouse that stays at home, cooking, cleaning, and caring for the family.',
+    domSub: 'sub',
     dailyWage: 4,
-    socialClass: 'commoner',
+    socialClass: 'peasantry',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
   'peasant': {
@@ -93,6 +94,7 @@ setup.townData.professions = {
     type: 'dndClass',
     sector: 'adventuring',
     description: 'has devoted their entire being to the will of their god, thus gaining magical powers.',
+    domSub: 'sub',
     dailyWage: 180,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -102,6 +104,7 @@ setup.townData.professions = {
     type: 'dndClass',
     sector: 'adventuring',
     description: 'a mage attuned to the magical forces of nature, able to shapeshift, call on the elements, communicate with flora and fauna, etc.',
+    domSub: 'sub',
     dailyWage: 140,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -120,6 +123,7 @@ setup.townData.professions = {
     type: 'dndClass',
     sector: 'adventuring',
     description: 'a warrior of a holy order.',
+    domSub: 'sub',
     dailyWage: 20,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -184,6 +188,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'impersonates characters, typically on stage in a theatrical production.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -212,6 +217,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'agriculture',
     description: 'works with different animals for a variety of tasks, typically livestock.',
+    domSub: 'sub',
     dailyWage: 70,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -221,6 +227,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'science',
     description: 'prepares and sells medicines, drugs, and potions.',
+    domSub: 'sub',
     dailyWage: 160,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -267,6 +274,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'hospitality',
     description: 'makes all sorts of baked goods.',
+    domSub: 'sub',
     dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -315,6 +323,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'hospitality',
     description: 'serves drinks and food in a bar as well as engaging with customers.',
+    domSub: 'sub',
     dailyWage: 60,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -351,6 +360,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'business',
     description: 'sells books from a shop or cart.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -462,6 +472,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a member of the clergy attached to a private chapel, institution, ship, branch of the armed forces, etc.',
     dailyWage: 190,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
   },
@@ -498,6 +511,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'hospitality',
     description: 'prepares food for eating.',
+    domSub: 'sub',
     dailyWage: 90,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -516,6 +530,7 @@ setup.townData.professions = {
     type: '',
     sector: 'hospitality',
     description: 'a prostitute with wealthy and noble clients.',
+    domSub: 'sub',
     dailyWage: 220,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -525,8 +540,9 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'government and law',
     description: 'attends court as a companion or adviser to the king or queen.',
+    domSub: 'sub',
     dailyWage: 320,
-    socialClass: 'commoner',
+    socialClass: 'nobility',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
   'cowherd': {
@@ -543,6 +559,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'moves their body rhythmically with or without musical accompaniment.',
+    domSub: 'sub',
     dailyWage: 150,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -588,6 +605,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'business',
     description: 'sells fish.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -606,6 +624,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'agriculture',
     description: 'tends and cultivates a garden.',
+    domSub: 'sub',
     dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -696,7 +715,7 @@ setup.townData.professions = {
     sv: 550,
     type: 'labourer',
     sector: 'communications',
-    description: 'a messenger who carries important news..',
+    description: 'a messenger who carries important news.',
     dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -706,6 +725,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'science',
     description: 'practices healing by the use of herbs.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -716,6 +736,9 @@ setup.townData.professions = {
     sector: 'outcast',
     description: 'lives in solitude, typically as a religious or spiritual discipline.',
     dailyWage: 40,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -816,6 +839,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'government and law',
     description: 'some sort of noble.',
+    domSub: 'sub',
     dailyWage: 350,
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
@@ -834,6 +858,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'administers or assists in a library.',
+    domSub: 'sub',
     dailyWage: 160,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -879,6 +904,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'craftsmanship',
     description: 'a domestic servant of a household.',
+    domSub: 'sub',
     dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -888,6 +914,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'business',
     description: 'performs massages.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -921,6 +948,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'science',
     description: 'assists in childbirth and the care of women giving birth.',
+    domSub: 'sub',
     dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -967,6 +995,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a member of a religious community of men, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.',
     dailyWage: 30,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -1014,6 +1045,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a member of a religious community of women, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.',
     dailyWage: 50,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -1022,6 +1056,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'cares for the sick or infirm, especially in a hospital.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1032,6 +1067,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'arts',
     description: 'paints pictures using a variety of different substances.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1041,6 +1077,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'hospitality',
     description: 'maker or seller of pastries and cakes.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1078,6 +1115,9 @@ setup.townData.professions = {
     sector: 'outcast',
     description: 'journeys to some sacred place as an act of religious devotion, occasionally to settle there.',
     dailyWage: 50,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -1120,6 +1160,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'has the authority to perform certain rites and administer certain sacraments.',
     dailyWage: 190,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
   },
@@ -1200,6 +1243,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'unemployed',
     description: 'searches for and collects discarded items.',
+    domSub: 'sub',
     dailyWage: 30,
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
@@ -1218,6 +1262,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'craftsmanship',
     description: 'makes, alters, repairs, as well as occasionally designing garments.',
+    domSub: 'sub',
     dailyWage: 190,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1236,6 +1281,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'hospitality',
     description: 'performs duties for others, especially a person employed in a house or as a personal attendant.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
@@ -1363,6 +1409,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'government and law',
     description: 'supervises both the estate and household of his lord or lady while they are away.',
+    domSub: 'sub',
     dailyWage: 250,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1372,6 +1419,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'business',
     description: 'hocks goods on the street.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1381,6 +1429,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'government and law',
     description: 'cleans streets of a town.',
+    domSub: 'sub',
     dailyWage: 60,
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
@@ -1390,6 +1439,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'attends school or learns under other to enter and pursue a particular subject.',
+    domSub: 'sub',
     dailyWage: 140,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1453,6 +1503,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'business',
     description: 'runs or assists in running a shop.',
+    domSub: 'sub',
     dailyWage: 25,
     socialClass: 'peasantry',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1471,6 +1522,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'instructs on a particular skill or subject.',
+    domSub: 'sub',
     dailyWage: 140,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1525,6 +1577,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'business',
     description: 'deals items in the street.',
+    domSub: 'sub',
     dailyWage: 70,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1552,6 +1605,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'craftsmanship',
     description: 'makes fabric by weaving fiber together.',
+    domSub: 'sub',
     dailyWage: 90,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1561,6 +1615,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'family',
     description: "a woman employed to suckle another woman's child.",
+    domSub: 'sub',
     dailyWage: 90,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1634,6 +1689,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'agriculture',
     description: 'owns and breeds bees, especially for their honey.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1652,6 +1708,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'agriculture',
     description: 'milks cows and makes cheese and butter.',
+    domSub: 'sub',
     dailyWage: 60,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1671,6 +1728,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'agriculture',
     description: 'grows and arranges plants and cut flowers.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1872,6 +1930,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'performs spectacular gymnastic feats.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1881,6 +1940,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'performs acrobatics high above the ground on a tightrope or trapeze.',
+    domSub: 'sub',
     dailyWage: 140,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1890,6 +1950,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'adapts a musical composition for performance.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -1927,6 +1988,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'trains a choir and orchestrates their singing when they perform.',
+    domSub: 'sub',
     dailyWage: 140,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1966,6 +2028,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'twists and bends their body into strange and unnatural positions.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1985,6 +2048,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'makes theatrical costumes.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -1994,6 +2058,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'performs balancing feats.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -2004,6 +2069,7 @@ setup.townData.professions = {
     type: 'business',
     sector: 'arts',
     description: 'applies design, aesthetics and natural beauty to garments and their accessories.',
+    domSub: 'sub',
     dailyWage: 200,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -2041,6 +2107,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'applies cosmetics to models, actors, nobles, etc.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -2052,6 +2119,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'creates some form of art.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'commoner',
     socialClassRoll () { return 40 + dice(8, 6) }
@@ -2061,6 +2129,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'poses as a subject for an artist, fashion designer, or sculptor.',
+    domSub: 'sub',
     dailyWage: 180,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -2071,6 +2140,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'plays a musical instrument.',
+    domSub: 'sub',
     dailyWage: 100,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -2081,6 +2151,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'writes plays or musicals.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -2091,6 +2162,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'writes ballads, epics, sonnets, or other forms of poetry.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -2119,6 +2191,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'sings with or without instrumental accompaniment.',
+    domSub: 'sub',
     dailyWage: 130,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -2128,6 +2201,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'composes and recites poems honoring heroes and their deeds.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -2550,6 +2624,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'craftsmanship',
     description: 'weaves textile fabrics, especially silks, velvets, and other fine materials.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3003,6 +3078,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'government and law',
     description: 'a young attendant to a person of noble rank.',
+    domSub: 'sub',
     dailyWage: 80,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3139,6 +3215,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'business',
     description: 'undertakes routine administrative duties in a business or bank.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3148,6 +3225,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'communication',
     description: 'makes copies of handwritten documents or music.',
+    domSub: 'sub',
     dailyWage: 110,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3194,6 +3272,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'digs graves for the purposes of a funeral ceremony.',
     dailyWage: 40,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
@@ -3265,6 +3346,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'caregiver',
     description: 'a servant employed to look after a young child or children.',
+    domSub: 'sub',
     dailyWage: 60,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3311,6 +3393,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'business',
     description: 'engages in sexual activity for payment.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3338,6 +3421,7 @@ setup.townData.professions = {
     type: 'labourer',
     sector: 'construction',
     description: 'cleans streets and alleyways after dark.',
+    domSub: 'sub',
     dailyWage: 50,
     socialClass: 'paupery',
     socialClassRoll () { return 20 + dice(8, 6) }
@@ -3347,8 +3431,9 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'arts',
     description: 'searches for talented individuals who can be employed or promoted.',
+    domSub: 'sub',
     dailyWage: 110,
-    socialClass: 'peasantry',
+    socialClass: 'nobility',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
   'trainer': {
@@ -3358,7 +3443,7 @@ setup.townData.professions = {
     sector: 'adventuring',
     description: 'trains someone in a particular skill, usually physical, for money.',
     dailyWage: 120,
-    socialClass: 'peasantry',
+    socialClass: 'commoner',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
   'water bearer': {
@@ -3900,6 +3985,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'the head of an abbey of monks.',
     dailyWage: 700,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(85, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -3909,6 +3997,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'assists the celebrant in a religious service or procession.',
     dailyWage: 200,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -3918,6 +4009,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'distributes money and food to poor people.',
     dailyWage: 70,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
@@ -3927,6 +4021,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'responsible for an archdiocese, their surrounding district.',
     dailyWage: 900,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(80, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -3936,6 +4033,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a senior member of the clergy, usually in charge of a diocese and empowered to confer holy orders.',
     dailyWage: 600,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(80, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -3945,7 +4045,11 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'religion',
     description: 'sings liturgical music and leads prayer in a synagogue.',
+    domSub: 'sub',
     dailyWage: 150,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -3955,6 +4059,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a leading dignitary of a church, nominated by the highest official.',
     dailyWage: 600,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'nobility',
     socialClassRoll () { return 75 + dice(8, 6) }
   },
@@ -3966,6 +4073,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'hears confessions and gives absolution and spiritual counsel.',
     dailyWage: 120,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -3975,6 +4085,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'a member of a cult who generally lives outside of conventional society and worships an unorthodox patron.',
     dailyWage: 100,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
+    },
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
@@ -3984,6 +4097,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'the organizational leader of a cult who is occasionally also the founder.',
     dailyWage: 400,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(95, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -3993,6 +4109,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'an ordained minister of an order ranking below that of priest.',
     dailyWage: 200,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4002,6 +4121,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'seeks ultimate divination in order to further understand or meet godly substance.',
     dailyWage: 300,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4011,6 +4133,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'expels or attempts to expel evil spirits from a person or place.',
     dailyWage: 300,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4020,6 +4145,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'the chief priest of a religion.',
     dailyWage: 500,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4029,6 +4157,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'seeks to eliminate heresy and other things contrary to the doctrine or teachings of their faith.',
     dailyWage: 400,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4038,7 +4169,11 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'religion',
     description: 'goes on a religious mission to promote their faith in a foreign place.',
+    domSub: 'sub',
     dailyWage: 50,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(80, 100)
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -4048,6 +4183,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'raises money for religious works by soliciting offerings and granting indulgences.',
     dailyWage: 120,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4057,6 +4195,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'regarded as an inspired teacher or proclaimer of the will of God.',
     dailyWage: 10000,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = 100
+    },
     socialClass: 'paupery',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
@@ -4066,6 +4207,9 @@ setup.townData.professions = {
     sector: 'religion',
     description: 'looks after a church and churchyard, sometimes acting as bell-ringer and formerly as a gravedigger.',
     dailyWage: 80,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
@@ -4075,11 +4219,15 @@ setup.townData.professions = {
     sector: 'military',
     description: 'fights in a religious military order.',
     dailyWage: 200,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
+    },
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
   },
   'abecedarian': {
     sv: 1500,
+    isHobby: true,
     type: 'profession',
     sector: 'science',
     description: 'teaches the illiterate.',
@@ -4241,7 +4389,7 @@ setup.townData.professions = {
     sector: 'science',
     description: 'engages in the study of the nature of God and religious belief.',
     dailyWage: 130,
-    socialClass: 'paupery',
+    socialClass: 'commoner',
     socialClassRoll () { return 5 + dice(8, 6) }
   },
   'tutor': {
@@ -4249,6 +4397,7 @@ setup.townData.professions = {
     type: 'profession',
     sector: 'science',
     description: 'charged with the instruction and guidance of another.',
+    domSub: 'sub',
     dailyWage: 120,
     socialClass: 'commoner',
     socialClassRoll () { return 50 + dice(8, 6) }
@@ -4274,7 +4423,7 @@ setup.townData.professions = {
   'bosun': {
     sv: 1000,
     type: 'profession',
-    sector: 'transportation',
+    sector: 'naval',
     description: 'in charge of organizing the equipment and crew of a ship.',
     dailyWage: 180,
     socialClass: 'peasantry',
@@ -4523,6 +4672,9 @@ setup.townData.professions = {
     sector: 'outcast',
     description: 'differs in opinion from established religious dogma.',
     dailyWage: 80,
+    function (town, npc) {
+      if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(0, 5)
+    },
     socialClass: 'peasantry',
     socialClassRoll () { return 20 + dice(8, 6) }
   },
