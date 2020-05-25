@@ -8,13 +8,13 @@ $currentNPC.firstName $currentNPC.trait.
 \<<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and <<print $currentNPC.knownLanguages[1]>>.<</if>>
 
 $currentNPC.professionSuccess, with a background of being <<print setup.articles.output($currentNPC.background)>>. 
-\$currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
 \<<if setup.socialClass[$currentNPC.socialClass].lifestyle.includes(_lifestyleStandard[1])>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print setup.createTippyFull($currentNPC.firstName + " " + _lifestyleStandard[3], $currentNPC.socialClass)>> social class
 \<<else>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but _lifestyleStandard[3]
 \<</if>>. 
 \Religion-wise, $currentNPC.firstName is <<print setup.articles.output($currentNPC.religion.strength)>>. 
+\$currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
 \In combat, $currentNPC.heshe uses $currentNPC.weapon. 
 \<<if def $currentNPC.doesnt>>$currentNPC.doesnt<</if>>
 \<<if $currentNPC.sexuality !== 'heterosexual'>>
