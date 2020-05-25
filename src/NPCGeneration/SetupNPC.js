@@ -300,6 +300,14 @@ setup.createNPC = function (town, base) {
     npc.callbackFunction(town, npc, base)
   }
 
+  if (setup.townData.professions[profession].function) {
+    if (typeof setup.townData.professions[profession].function === 'function') {
+      console.log('There is an on-load function for the profession.')
+      console.log({ profession })
+      console.log({ npc })
+      setup.townData.professions[profession].function(town, npc)
+    }
+  }
   // npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
 
   console.log(npc)
