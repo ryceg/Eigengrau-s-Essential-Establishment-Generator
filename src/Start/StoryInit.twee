@@ -19,44 +19,6 @@
 	seasonPool: ["winter", "spring", "summer", "autumn"]
 }>>
 
-<<include "TownWeather">>
-
-/* <<set $town to {
-  name: "Test Town",
-  type: "city"
-}>>
-
-<<set $tavern to {
-  name: "Test Tavern",
-  draw: "resident bard",
-  id: 1123,
-  type: "test type"
-}>>
-
-<<set $smithy to {
-  name: "Test Smithy",
-  id: 1125,
-  type: "test type"
-}>>
-<<set $alchemist to {
-  name: "Test Alchemist",
-  id: 112356,
-  type: "test type"
-}>>
-
-<<set $generalStore to {
-  name: "Test Store",
-  id: 345761,
-  type: "test type"
-}>>
-<<set $markets to {
-  name: "Test Markets",
-  id: 145634,
-  size: "large",
-  draw: "fun",
-  type: "test type"
-}>> */
-
 <<include "Books">>
 
 <<include "PatreonCharacters">>
@@ -67,21 +29,10 @@
 
 <<include "Newspaper">>
 
-
-/* <<include "Tavern">> */
-
-/* <<include "Alchemist">> */
-
-/* <<include "Smithy">> */
-
-/* <<include "generalStore">> */
-
-/* <<include "Markets">> */
-
 <<if settings.showTutorial is false>>
-	<<set Config.passages.start = 'Start'>>
+	<<set Config.passages.start = "Start">>
 <<else>>
-	<<set Config.passages.start = 'Welcome'>>
+	<<set Config.passages.start = "Welcome">>
 <</if>>
 
 <<if ndef $hideAds>>
