@@ -51,8 +51,8 @@ setup.graveyard = {
   ],
   feature: [
     // As you enter you notice ____
-    'an enormous $graveyardTree tree standing among the graves, colorful ribbons are tied to its many branches',
-    'a large clump of $graveyardTree trees that create that create an area of shade, graves have been dug all around them',
+    'a $graveyard.tree.tippyWord standing among the graves, colorful ribbons are tied to its many branches',
+    'a large clump of $graveyard.tree.species trees that create that create an area of shade, graves have been dug all around them',
     'a freshly dug grave awaiting its occupant',
     'several spades stuck into the ground next to an open grave',
     'a large grave surrounded by a wrought iron fence with a single gate. The grass inside the fence has been neatly tended to',
