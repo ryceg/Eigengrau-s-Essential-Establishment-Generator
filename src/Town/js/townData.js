@@ -508,7 +508,8 @@ setup.townData = {
         economics: 40,
         welfare: 30,
         law: -15,
-        military: -30
+        military: -30,
+        equality: 25
       },
       descriptors: {
         economicIdeologyIC: 'communistic',
@@ -522,7 +523,8 @@ setup.townData = {
         economics: 40,
         welfare: -25,
         law: -30,
-        military: -30
+        military: -30,
+        equality: -25
       },
       descriptors: {
         economicIdeologyIC: 'primitivistic',
@@ -602,7 +604,8 @@ setup.townData = {
         welfare: 5,
         law: -5,
         military: -5,
-        arcana: 15
+        arcana: 15,
+        equality: 25
       },
       data: {
         isFaction: false,
@@ -625,7 +628,8 @@ setup.townData = {
         welfare: 25,
         law: 15,
         military: -5,
-        arcana: 15
+        arcana: 15,
+        equality: 25
       },
       data: {
         isFaction: false,
@@ -694,7 +698,8 @@ setup.townData = {
         welfare: -5,
         law: 30,
         military: 50,
-        arcana: -15
+        arcana: -15,
+        equality: -25
       },
       data: {
         isFaction: true,
@@ -740,7 +745,8 @@ setup.townData = {
         welfare: 50,
         law: -5,
         military: -5,
-        arcana: 15
+        arcana: 15,
+        equality: 25
       },
       data: {
         isFaction: true,

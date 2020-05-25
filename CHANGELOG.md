@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - PRNG by default, taken from the URL's location hash (everything after the #, incl. the hash)
 - URL seeds following the gfycat naming convention of adjective+adjective+animal
 - Highlighting of newest building
+- Gender equality description, minor mechanical effects
+- NPC religion
 
 
 ### Changed
