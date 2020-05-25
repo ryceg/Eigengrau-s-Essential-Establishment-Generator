@@ -39,7 +39,7 @@ setup.createTown = function (base) {
       return Math.round(totalTax * 100) / 100
     },
     get type () {
-      console.log('Getting town type.')
+      // console.log('Getting town type.')
       if (this.population > 3000) {
         return 'city'
       } else if (this.population > 1000) {
@@ -73,11 +73,11 @@ setup.createTown = function (base) {
     // Clone the raw demographic data for the town type.
     // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
-      console.log('Getting base demographics.')
+      // console.log('Getting base demographics.')
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
-      console.log('Setting base demographics.')
+      // console.log('Setting base demographics.')
       Object.keys(newDemographics).forEach(function (byRace) {
         this._baseDemographics[byRace] = newDemographics[byRace]
       }, this)
@@ -105,33 +105,33 @@ setup.createTown = function (base) {
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
     get economicIdeology () {
-      console.log(`Getting town economic ideology - ${this._economicIdeology}`)
+      // console.log(`Getting town economic ideology - ${this._economicIdeology}`)
       return this._economicIdeology
     },
     set economicIdeology (value) {
-      console.log('Setting town economic ideology.')
+      // console.log('Setting town economic ideology.')
       this._economicIdeology = value
       Object.assign(this, setup.townData.economicIdeology[this._economicIdeology].descriptors)
     },
     get politicalSource () {
-      console.log(`Getting town political source - ${this._politicalSource}`)
+      // console.log(`Getting town political source - ${this._politicalSource}`)
       return this._politicalSource
     },
     set politicalSource (value) {
-      console.log('Setting town political source.')
+      // console.log('Setting town political source.')
       this._politicalSource = value
     },
     get politicalIdeology () {
-      console.log(`Getting town political ideology - ${this._politicalIdeology}`)
+      // console.log(`Getting town political ideology - ${this._politicalIdeology}`)
       return this._politicalIdeology
     },
     set politicalIdeology (value) {
-      console.log('Setting town political ideology.')
+      // console.log('Setting town political ideology.')
       this._politicalIdeology = value
       Object.assign(this, setup.townData.politicalIdeology[this._politicalIdeology].data)
     },
     get politicalSourceDescription () {
-      console.log('Getting town political source description.')
+      // console.log('Getting town political source description.')
       if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
         if (this.politicalIdeology === 'autocracy') {
           return setup.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
@@ -143,7 +143,7 @@ setup.createTown = function (base) {
       }
     },
     get wealth () {
-      console.log('Getting town wealth.')
+      // console.log('Getting town wealth.')
       let wealth = setup.townData.rollData.wealth.find(function (descriptor) {
         return descriptor[0] <= this.roll.wealth
       }, this)
@@ -155,7 +155,7 @@ setup.createTown = function (base) {
       return this._wealth
     },
     set wealth (value) {
-      console.log('Setting town wealth.')
+      // console.log('Setting town wealth.')
       this._wealth = value
     },
     roads: {},
@@ -178,7 +178,7 @@ setup.createTown = function (base) {
       military: dice(2, 50),
       law: dice(2, 50),
       arcana: dice(2, 50),
-      equality: Math.clamp(dice(2, 50) + 20, 1, 100)
+      equality: dice(2, 50) - 20
     }
   }, base)
 
@@ -252,15 +252,21 @@ setup.createTown = function (base) {
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
+
+  town.equality = ''
+  town.equalityDescription = ''
+  setup.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
+  setup.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
   town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
   setup.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
   setup.setMaterialProbability(town)
-  console.log(town)
+
   console.groupEnd()
   // setup.createWeather(town)
   console.log(`${town.name} has loaded.`)
+  console.log(town)
   // console.log('loaded', town.wealth, town.roll.size)
   // confirm(town.townMaterial)
   return town
