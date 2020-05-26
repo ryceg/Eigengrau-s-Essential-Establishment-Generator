@@ -1,6 +1,5 @@
-if (!setup.misc) {
-  setup.misc = {}
-}
+setup.misc = setup.misc || {}
+
 setup.misc.locations = {
   'a cavern behind a waterfall': (town, biome) => {
     const cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
