@@ -1,4 +1,5 @@
-if (!setup.misc) { setup.misc = {} }
+setup.misc = setup.misc || {}
+
 setup.misc.riddles = [
   {
     answer: 'an anvil',
