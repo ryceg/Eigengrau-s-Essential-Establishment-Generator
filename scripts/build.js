@@ -10,9 +10,8 @@ const args = [
   '--head=./main.ejs'
 ]
 
-if (process.argv.includes('--watch')) {
-  args.push('--watch')
-}
+// Pass along additional arguments.
+args.push(...process.argv)
 
 // Run tweego with arguments.
 const tweegoProcess = spawn(tweego, args)
