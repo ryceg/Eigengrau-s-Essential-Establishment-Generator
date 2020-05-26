@@ -1,5 +1,5 @@
 
-setup.alchemistModifiers = function (alchemist) {
+setup.alchemistModifiers = alchemist => {
   if (alchemist.roll.size > 80) {
     alchemist.roll.activity -= 4
   } else if (alchemist.roll.size > 70) {
@@ -115,6 +115,4 @@ setup.alchemistModifiers = function (alchemist) {
     alchemist.roll.reputation -= 5
     alchemist.roll.cleanliness += 5
   }
-
-  return alchemist
 }
