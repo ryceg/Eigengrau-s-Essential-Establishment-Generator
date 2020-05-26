@@ -93,17 +93,17 @@ setup.factionData = {
       },
       wordNoun: 'church',
       leaderQualification: ['wearing flowing white robes', 'a holy symbol tattooed on their face'],
-      alliesList: ['mercenaries'],
-      rivalsList: ['assassins'],
-      joiningRequirement: ['holy deeds'],
-      joiningInitiation: ['sacraments and rituals'],
-      membersTrait: ['amulets with a holy sigil'],
+      alliesList: ['mercenaries', 'commoners', 'nobles', 'artisans', 'seers'],
+      rivalsList: ['assassins', 'bards', 'thieves', 'commoners'],
+      joiningRequirement: ['holy deeds', 'a show of faith', 'a good deed', 'a generous tithe'],
+      joiningInitiation: ['sacraments and rituals', 'a blessing from the head priest'],
+      membersTrait: ['amulets with a holy sigil', 'the ring that members are given'],
       main: ['Mother', 'Father', 'Lord'],
-      adjective: ['Heavenly', 'Merciful', 'Holy'],
-      group: ['Church', 'Convent', 'Congregation'],
-      unique: ["The Lord's Chosen"],
-      motivation: ['devotion'],
-      resources: ['money', 'connections']
+      adjective: ['Heavenly', 'Merciful', 'Holy', 'Righteous', 'Saintly'],
+      group: ['Church', 'Convent', 'Congregation', 'Clergy'],
+      unique: ["The Lord's Chosen", 'The Greater Good', 'The Greatest Good', 'The Convent', 'The Clergy'],
+      motivation: ['devotion', 'devotion', 'devotion', 'power', 'politics'],
+      resources: ['money', 'contacts', 'connections']
     },
     craftsmen: {
       leaderTraits: {
@@ -396,26 +396,6 @@ setup.factionData = {
       unique: ['We Make Magic!', 'The Academy', 'The Arcane Order', 'Adepts Anonymous', 'The Callers Club', 'The Union of Universal Magic', 'The University of the Unusual and Unexplained', 'The College of Conjurers', "Necromancers' Network", "The Evokers' League", 'The Nation of Abjuration', "Seers' and Company", 'The Illusory Faction', 'Spellcasters Anonymous'],
       motivation: ['money', 'money', 'fame', 'fame', 'fame', 'knowledge', 'knowledge', 'knowledge', 'knowledge', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'politics', 'politics'],
       resources: ['magic scrolls', 'magic scrolls', 'magic scrolls', 'magic scrolls', 'magic trinkets', 'magic trinkets', 'magic trinkets', 'magic trinkets']
-    },
-    backup: {
-      leaderTraits: {
-        hasClass: false,
-        profession: 'merchant',
-        background: 'merchant'
-      },
-      wordNoun: 'guild',
-      leaderQualification: ['the wealthiest of the group', 'the wealthiest of the group', 'the wealthiest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group'],
-      alliesList: ['priests', 'priests', 'hitmen', 'hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'artisans', 'artisans', 'artisans', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'craftsmen', 'craftsmen', 'craftsmen', 'craftsmen', 'commoners', 'commoners'],
-      rivalsList: ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
-      joiningRequirement: ['some social status', 'an excellent reputation', 'some social status', 'an excellent reputation'],
-      joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken'],
-      membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their purple robes', 'their gaudy jewelry', 'the fact that a member is always closely followed by a boy carrying a chest'],
-      main: ['People', 'Votaries', 'Herders', 'Men', 'Citizens'],
-      adjective: ['Watchful', 'Careful', 'Concerned'],
-      group: ['Society', 'Group', 'League', 'Association', 'Fraternity', 'Collective', 'Brothers', 'Brotherhood', 'Order'],
-      unique: ['Not Just Commoners', 'The Disillusioned Squires'],
-      motivation: ['money', 'money', 'money', 'money', 'money', 'fame', 'power', 'power', 'power', 'glory', 'vengeance', 'vengeance', 'vengeance', 'politics'],
-      resources: ['chests of gold', 'chests of gold', 'chests of gold', 'contacts', 'contacts', 'contacts', 'contacts', 'contacts', 'old favours', 'old favours', 'old favours', 'old favours', 'important manuscripts', 'important manuscripts', 'important manuscripts', 'important manuscripts']
     }
   }
 }
