@@ -17,7 +17,7 @@
   "scripts": {
     "install-compiler": "node scripts/install-compiler",
     "build": "node scripts/build",
-    "start": "node scripts/build --watch",
+    "start": "node scripts/build --test --watch",
     "test": "jest",
     "lint": "eslint **/*.js",
     "lint-fix": "eslint **/*.js --fix",
