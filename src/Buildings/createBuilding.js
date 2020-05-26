@@ -243,7 +243,6 @@ setup.createBuilding = (town, type, base = {}) => {
   }
   if (!building.isThrowaway) {
     State.variables.buildings.push(building)
-    // setup.townBinder(town, building, type)
   }
   building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 

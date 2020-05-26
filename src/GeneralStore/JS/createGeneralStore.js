@@ -46,7 +46,6 @@ setup.createGeneralStore = function (town, opts = {}) {
   }
   // setup.generalStoreRenders(generalStore)
   console.log(generalStore)
-  // setup.townBinder(town, generalStore, 'generalStore')
   console.groupEnd()
   return generalStore
 }

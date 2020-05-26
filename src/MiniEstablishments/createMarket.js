@@ -24,6 +24,5 @@ setup.createMarket = function (town, opts = {}) {
   ].random()
   market.notableFeature = market.draw
   market.tippyDescription = `${setup.articles.output(market.size || market._size).toUpperFirst()} ${market.wordNoun} that's ${market.cleanliness || market._cleanliness}, and is known for ${market.notableFeature}.`
-  // setup.townBinder(town, market, 'market')
   return market
 }

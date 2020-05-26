@@ -169,7 +169,6 @@ setup.createTavern = function (town, opts = {}) {
     setup.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
   }
   // setup.tavernRender(tavern)
-  // setup.townBinder(town, tavern, 'tavern')
   tavern.tippyDescription = `${setup.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
   console.log(tavern)
   console.groupEnd()
