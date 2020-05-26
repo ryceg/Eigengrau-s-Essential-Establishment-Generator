@@ -1,3 +1,3 @@
 interface Setup {
-  nameFaction(town: Town, type: string): string
+  nameFaction(town: Town, faction: Faction): Faction
 }

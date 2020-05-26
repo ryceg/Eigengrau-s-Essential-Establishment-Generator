@@ -1,9 +1,9 @@
 setup.createFaction = function (town, opts = {}) {
-  const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
+  // const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
+  const type = opts.type || Object.keys(setup.factionData.type).random()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
   const faction = opts.newFaction || Object.assign({
-    id: [State.variables.factions.length - 1],
     key: randomFloat(1).toString(16),
     passageName: 'FactionProfile',
     associatedTown: town.name,
@@ -21,11 +21,14 @@ setup.createFaction = function (town, opts = {}) {
       resources: dice(2, 50)
     }
   }, opts)
-  faction.name = setup.nameFaction(town.name, faction.type)
-  console.groupCollapsed(`${faction.name} the ${faction.type} have loaded.`)
-
+  if (typeof faction.type === 'undefined') {
+    console.error(`faction type was not defined! Defaulting to merchants.`)
+    console.log(faction)
+    faction.type = 'merchants'
+  }
   setup.ageFaction(faction)
-
+  faction.name = setup.nameFaction(town, faction)
+  console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
   setup.reputationFaction(faction)
 
   setup.sizeFaction(town, faction)
@@ -54,6 +57,10 @@ setup.createFaction = function (town, opts = {}) {
   // } else {
   //   console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
   // }
+  
+
   console.groupEnd()
+  console.log(`${faction.name} have loaded.`)
+  console.log(faction)
   return faction
 }
