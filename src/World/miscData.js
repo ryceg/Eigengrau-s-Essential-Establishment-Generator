@@ -1,6 +1,6 @@
+setup.misc = setup.misc || {}
 
 setup.misc = {
-  ...setup.misc || {}, // keep any existing misc attributes, see "JS Spread Operator"
   cheese: {
     create: () => ({
       colour: setup.misc.cheese.colour.random(),
