@@ -1,9 +1,10 @@
-setup.createBuilding = function (town, type, base) {
+setup.createBuilding = (town, type, base = {}) => {
   let roadName
   let roadType
+
   // Tables used later
   if (random(100) < setup.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
-    // roads are currently only supported with two words
+    // Roads are currently only supported with two words
     const randRoad = Object.keys(town.roads).random()
     const roads = town.roads[randRoad].split(' ')
     roadName = roads[0] || setup.townData.roads.name.random()
@@ -38,21 +39,6 @@ setup.createBuilding = function (town, type, base) {
       this.roadName = roads[0] || ''
       this.roadType = roads[1] || ''
     },
-    // get descriptor () {
-    //   return this.descriptors.random()
-    // },
-    // set descriptorsAdd (description) {
-    //   if (typeof description === 'string') {
-    //     console.log(this.descriptors)
-    //     if (this.descriptors.includes(description)) {
-    //       console.log('Throwing out duplicate description...')
-    //     } else {
-    //       this.descriptors.push(description)
-    //     }
-    //   } else {
-    //     console.log('Expected a string operand and received ' + description)
-    //   }
-    // },
     associatedTown: town.name,
     type,
     lighting,
