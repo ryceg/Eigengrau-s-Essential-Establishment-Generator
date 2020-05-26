@@ -1,4 +1,5 @@
-if (!setup.misc) { setup.misc = {} }
+setup.misc = setup.misc || {}
+
 setup.misc.books = {
   create: town => {
     const bookType = [
@@ -8,12 +9,12 @@ setup.misc.books = {
       'puns'].random()
 
     const book = bookType === 'detailedTitles'
-      ? setup.misc.book.detailedTitles.random()
-      : setup.misc.book[bookType].random()
+      ? setup.misc.books.detailedTitles.random()
+      : setup.misc.books[bookType].random()
 
     Object.assign(book, {
-      condition: setup.misc.book.condition.random(),
-      cover: setup.misc.book.cover.random()
+      condition: setup.misc.books.condition.random(),
+      cover: setup.misc.books.cover.random()
     })
 
     if (bookType === 'detailedTitles') {
@@ -96,9 +97,8 @@ setup.misc.books = {
       title: "A Herbalist's Guide to Surviving",
       category: 'non-fiction',
       contents: 'This diary details the accounts a famous halfling smuggler, who was best known for smuggling his home made rum into kingdoms throughout the world during the great alcohol depression. With proper study the reader can reproduce the famous Sweetfoot Rum recipe from the different mentions, hints and references scattered across the pages of this book.'
-      // HISTORY
-
     },
+    // HISTORY
     {
       title: 'For the good of the nation',
       category: 'history',
@@ -138,9 +138,8 @@ setup.misc.books = {
       title: 'Gold in Ashes',
       category: 'history',
       contents: "A historical analysis of the last attacks on the primaterial plane by both the gith and the modrons. The focus of it is a comparison of their vastly different tactics and what little the defenders learned of their invader's cultures."
-      // ARCANE STUDIES
-
     },
+    // ARCANE STUDIES
     {
       title: 'The Forgotten Art',
       category: 'arcane studies',
@@ -200,9 +199,8 @@ setup.misc.books = {
       title: 'From Ghouls to Ghosts',
       category: 'arcane studies',
       contents: 'The book is chaotic and hard to understand, written in an unkown dialect which makes it very slow to read. Contained within are the studies of a powerful necromancer on how interplanar travel might be used to achieve functional immortality.'
-      // ANATOMY
-
     },
+    // ANATOMY
     {
       title: 'Cultures Unknown',
       category: 'anatomy',
@@ -222,9 +220,8 @@ setup.misc.books = {
       title: 'Codex Draconis',
       category: 'anatomy',
       contents: 'A detailed biological survey of aquatic species in a lake near the authors residence.'
-      // BOTANY
-
     },
+    // BOTANY
     {
       title: 'Our Friend the Cactus',
       category: 'botany',
@@ -234,9 +231,8 @@ setup.misc.books = {
       title: 'The Inner Workings of a Gulthias Tree',
       category: 'botany',
       contents: 'A dense academic treaty on the biology of cacti. If one has the patience it is very interesting in its own way. The book also details a large number of edible cacti, as well as those that can be used as water sources in the harsh deserts.'
-      // COLLECTED TALES
-
     },
+    // COLLECTED TALES
     {
       title: "The Night's Embrace",
       category: 'botany',
@@ -266,9 +262,8 @@ setup.misc.books = {
       title: "Children's Tales of Death and Hugs",
       category: 'botany',
       contents: "A series of romantic novels featuring romance between vampires and humans which tries to cast vampires as villified people who just want to live in peace, while simultaneously overlooking their intense thirst for blood and blithe disregard for the lives of others. Parts of the books have been described as downright obvious attempts at convincing the reader that formally inviting strangers into ones' home is common courtes and that sunlight is highly overrated. It conveniently fails to mention the vampiric weakness to running water, while simultaniously trying to spread awareness about potamophobia (the fear of rivers or running water)."
-      // TALES AND LEGENDS
-
     },
+    // TALES AND LEGENDS
     {
       title: "A Sheep's Tail",
       category: 'tales and legends',
