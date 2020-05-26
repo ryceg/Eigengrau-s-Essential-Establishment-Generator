@@ -201,7 +201,8 @@ setup.goodsAndServices = {
         'biscuit factory',
         'boulangerie',
         'bakehouse'
-      ]
+      ],
+
     },
     PassageFormat: [
       // each array string will be a new line.
@@ -212,6 +213,8 @@ setup.goodsAndServices = {
       ].random()} You notice $building.notableFeature`,
       '',
       'This $building.wordNoun is known for $building.specialty There is a <<profile $owner $owner.descriptor>> currently <<print $building.owner.idle.random()>>. <<print $building.owner.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+      '<<button "Generate a pastry">><<set _pastry to setup.goodsAndServices.bakery.bakedGoods.function()>><<replace "#pastry">>_pastry.readout<</replace>><</button>>',
+      '<div id="pastry"></div>',
       '<<goods $building setup.goodsAndServices[$building.type].goods>>'
     ],
     profession: {
@@ -252,6 +255,105 @@ setup.goodsAndServices = {
         ]
       }
     },
+    bakedGoods: {
+      function () {
+        // TODO: a little bit of defensive coding so people can add different arrays as they like.
+        const loc = setup.goodsAndServices.bakery.bakedGoods 
+        const type = Object.keys(loc.type).random()
+        const typeData = loc.type[type]
+        const bakedGood = {
+          type,
+          precedingWord: typeData.precedingWord.random(),
+          cooking: typeData.cooking.random(),
+          quality1: typeData.qualities.random(),
+          quality2: typeData.qualities.random()
+        }
+        if (bakedGood.quality1 === bakedGood.quality2) {
+          bakedGood.quality2 = typeData.qualities.find(function (quality) {
+            return quality !== bakedGood.quality1
+          })
+        }
+        bakedGood.cookingDescriptor = loc.cookingDescriptors[bakedGood.cooking].random()
+        bakedGood.aroma = loc.aroma[bakedGood.quality1].random()
+        if (typeData.qualities.includesAll('sweet', 'savoury')) {
+          bakedGood.accoutrement = loc.accoutrements[['sweet', 'savoury'].random()].random()
+        } else if (typeData.qualities.includes('sweet')) {
+          bakedGood.accoutrement = loc.accoutrements['sweet'].random()
+        } else if (typeData.qualities.includes('savoury')) {
+          bakedGood.accoutrement = loc.accoutrements['savoury'].random()
+        }
+        if (typeData.synonyms) {
+          bakedGood.synonym = typeData.synonyms.random()
+        }
+        bakedGood.readout = `This ${bakedGood.precedingWord} ${(bakedGood.synonym || bakedGood.type)} is ${loc.qualityDescriptors[bakedGood.quality1].random()} and ${loc.qualityDescriptors[bakedGood.quality2].random()}. ${bakedGood.cookingDescriptor} and ${bakedGood.aroma}. ${['', '', `It is served with ` + setup.articles.output((bakedGood.accoutrement || 'jam.'))].random()}`
+        bakedGood.tippyWord = setup.createTippyFull(bakedGood.readout, bakedGood.precedingWord + (bakedGood.synonym || bakedGood.type))
+        return bakedGood
+      },
+      type: {
+        // this [type] is [qualityDescriptor] and [qualityDescriptor]. [cookingDescriptor] and [aroma]. It costs [cost]( and is served with an [accoutrement])
+        'bread': {
+          qualities: ['nourishing', 'savoury'],
+          precedingWord: ['nut', 'unleavened', 'sourdough', 'date', 'walnut', 'pecan', 'oat'],
+          cooking: ['baked', 'crust'],
+        },
+        'cake': {
+          qualities: ['sweet', 'airy'],
+          cooking: ['icing'],
+          precedingWord: ['chocolate', 'vanilla', 'yellow', 'sponge', 'bundt', 'carrot', '']
+        },
+        'fruitcake': {
+          synonyms: ['cake'],
+          qualities: ['sour', 'airy'],
+          cooking: ['icing'],
+          precedingWord: ['lemon', 'vanilla', 'fruit', 'raisin']
+        },
+        'cookie': {
+          qualities: ['savoury', 'sweet', 'nourishing'],
+          precedingWord: ['chocolate', 'lemon', 'oat', 'cocoa', 'oatmeal', 'peanut butter', 'vanilla', 'biscotti', 'tea', 'shortbread', 'snickerdoodle'],
+          cooking: ['baked', 'icing']
+        },
+        'tart': {
+          qualities: ['sweet', 'sour'],
+          precedingWord: ['lemon', 'raspberry', 'blackberry', 'orange', 'treacle', 'citrus', 'apple', 'berry', 'cherry', 'egg'],
+          cooking: ['sticky', 'baked', 'crust']
+        },
+        'pie': {
+          qualities: ['sweet', 'sour'],
+          precedingWord: ['lemon', 'blackberry', 'apple and blackberry', 'apple and raspberry', 'raspberry', 'rhubarb', 'strawberry', 'sugar', 'walnut', 'pumpkin', 'citrus', 'apple', 'berry', 'cherry', 'pecan'],
+          cooking: ['sticky', 'baked', 'crust']
+        },
+      },
+      qualityDescriptors: {
+        // this [type] is ______ and _____
+        'sweet': ['cloyingly sweet', 'sweet', 'tastefully sweet', 'deliciously sweet', 'honeyed', 'honey and toffee flavoured', 'decadent', 'treacly'],
+        'airy': ['pillowy', 'airy', 'light', 'melt-in-your-mouth', 'delicate', 'tasteful'],
+        'savoury': ['aromatic', 'salted', 'lightly salted', 'infused with olive oil', 'made with a browned butter', 'cooked with brown butter'],
+        'nourishing': ['hearty', 'apparently very tasty', 'substantial', 'filling', 'nourishing', 'healthy', 'nutritious', 'solid', 'generously portioned'],
+        'sour': ['tart', 'sour', 'lemony', 'sharp', 'acetic', 'flavoured with lemons', 'citrus flavoured']
+      },
+      cookingDescriptors: {
+        // [cookingDescriptor] and [aroma]
+        'sticky': ['The glaze on top has an appetising sheen', 'It glistens in the sun', 'It sparkles with sticky sugary goodness'],
+        'icing': ['The icing has been generously applied on the top', 'There is a healthy layer of icing on the top', 'The icing has hardened slightly and has formed a sugary shell', 'The icing is rich and smooth', 'The icing is decorated in a nice pattern', 'The icing looks a little gritty'],
+        'baked': ["It's a pleasant brown colour", 'It looks perfectly cooked', "It's a pale blonde colour", 'It has a poofy-ness to it that is quite appetizing'],
+        'crust': ["There's a gorgeous brown crust on the bottom", 'Looking at the crust, it appears to be slightly underdone', 'The crust looks to be thin and delicate,']
+      },
+      aroma: {
+        // [cookingDescriptor] and [aroma]
+        'sweet': ['smells faintly of brown butter', 'smells of brown sugar', 'smells faintly of molasses', 'smells of some spice', 'the scent of honey fills your nose as you smell it', 'smells like honey', 'smells like caramel', 'smells sugary'],
+        'airy': ['smells of vanilla', 'smells like a summer breeze', 'smells of wild flowers', 'smells of delicious fruit'],
+        'savoury': ['smells nutty', 'smells like home', 'smells like a nice warm fire'],
+        'nourishing': ['smells of deeply complex spices', 'the scent of vanilla fills your nose', 'smells like olives and herbs', 'has a pleasant aroma to it', "has a 'freshly baked' scent", 'the scent of it fills your nose, since it has been baked fresh'],
+        'sour': ['you can smell lemons in the air', 'the scent of citrus fills your nostrils', 'smells sweeter the closer you get', 'has a floral scent to it', 'has a lovely fresh scent', 'has a delightfully lemony smell']
+      },
+
+      accoutrements: {
+        // it is served with ____
+        sweet: ['dollop of whipped cream', 'tiny little marshmallow on the side', 'tiny chocolate mint', 'spoonful of honey'],
+        savoury: ['cup of tea', 'biscuit', 'edible flower', 'bread'],
+
+      }
+    },
     goods: {
       'loaf of rye bread': {
         // cost: in copper pieces. The <<money>> macro handles currency conversion.
@@ -279,7 +381,7 @@ setup.goodsAndServices = {
         cost: 15,
         description: "A loaf of dwarven bread. It's hard as rock.",
         exclusions (town, building) {
-          return town.population > 1500 && building.roll.wealth > 25
+          return town.population < 1500 && building.roll.wealth > 25
         }
       },
       'elven biscuits': {
