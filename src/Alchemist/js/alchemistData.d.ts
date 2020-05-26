@@ -7,16 +7,8 @@ interface Setup {
       expertise: [number, string][]
     }
     get: {
-      lookAround(alchemist: any): {
-        cleanliness: number
-        wealth: number
-        note: string
-      }[]
-      priceTalk(alchemist: any): {
-        priceModifier: number
-        wealth: number
-        priceTalk: string
-      }[]
+      lookAround(alchemist: Alchemist): LookAround[]
+      priceTalk(alchemist: Alchemist): PriceTalk[]
     }
     name: {
       noun: string[]
@@ -24,4 +16,16 @@ interface Setup {
       rider: string[]
     }
   }
+}
+
+interface LookAround {
+  cleanliness: number
+  wealth: number
+  note: string
+}
+
+interface PriceTalk {
+  priceModifier: number
+  wealth: number
+  priceTalk: string
 }

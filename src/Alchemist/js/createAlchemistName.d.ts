@@ -1,3 +1,3 @@
 interface Setup {
-  createAlchemistName(alchemistFirstName: string): string
+  createAlchemistName(chemistFirstName: string): string
 }

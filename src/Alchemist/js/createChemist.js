@@ -23,7 +23,8 @@ setup.createChemist = town => setup.createNPC(town, {
     'pouring a bright green sludge into a glass bottle',
     'sprinkling what looks like gold shavings into a large copper pot',
     'rearranging a shelf full of alchemical tomes',
-    'restocking shelves with new potions'],
+    'restocking shelves with new potions'
+  ],
   owner: [
     'owner',
     'caretaker',
@@ -35,7 +36,8 @@ setup.createChemist = town => setup.createNPC(town, {
     'chief researcher',
     'head alchemist',
     'sole owner',
-    'new owner'].random(),
+    'new owner'
+  ].random(),
   ingredients: ['bloodgrass', 'chromus slime', 'ephedra', 'emetic wax', 'fennel silk', 'gengko bush', 'hyacinth nectar', 'lavender sprigs', 'mandrake root', 'wild sageroot', 'arctic creeper', 'amanita cap', 'basilisk breath', 'cactus juice', 'drakus flower', 'harrada leaf', 'quicksilver lichen', 'radiant synthseed', 'spineflower berries', 'wyrmtongue petals', 'arrow root', 'blue toadshade', 'cosmos glond', "Devil's bloodleaf", "fiend's ivy", 'hydrathistle', 'ironwood heart', 'luminous cap dust', 'mortflesh powder', 'nightshade berries', 'primordial balm', 'rock vine', 'scilia beans', 'silver hibiscus', 'tail leaf', 'verdant nettle', 'voidroot', 'wispstalks', 'wrackwort bulbs'],
   greeting: [
     'nods at you',
@@ -47,7 +49,8 @@ setup.createChemist = town => setup.createNPC(town, {
     'sizes you up, before $chemist.heshe nods at you',
     'checks you out for just a moment before smiling at you',
     'glances up from what $chemist.heshe is doing and smiles your way',
-    'eyes you somewhat suspiciously'],
+    'eyes you somewhat suspiciously'
+  ],
   chitchat: [
     'talks about a new potion that $chemist.heshe is brewing up',
     'whines about a late shipment of glassware, which is overdue',
@@ -56,5 +59,6 @@ setup.createChemist = town => setup.createNPC(town, {
     'talks about how $chemist.hisher latest batch of potions are disappearing mysteriously',
     'chats with you all about $chemist.hisher newest stock, none of which is particularly out of the ordinary',
     'talks about the many uses for <<print $chemist.ingredients.random()>>, which $chemist.heshe seems somewhat obsessed with',
-    'tries to push various products on you all as you look about the shop']
+    'tries to push various products on you all as you look about the shop'
+  ]
 })

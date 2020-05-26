@@ -1,3 +1,7 @@
 interface Setup {
-  createAlchemist(alchemist: any, opts: any): any
+  createAlchemist(town: Town, opts?: any): Alchemist
+}
+
+interface Alchemist {
+  [key: string]: any
 }

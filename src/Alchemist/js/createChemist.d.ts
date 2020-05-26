@@ -1,3 +1,5 @@
 interface Setup {
-  createChemist(town: any): any
+  createChemist(town: Town): Chemist
 }
+
+interface Chemist extends NPC {}

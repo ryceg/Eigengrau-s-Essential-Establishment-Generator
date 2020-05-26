@@ -1,3 +1,3 @@
 interface Setup {
-  alchemistModifiers(alchemist: any): any
+  alchemistModifiers(alchemist: Alchemist): Alchemist
 }
