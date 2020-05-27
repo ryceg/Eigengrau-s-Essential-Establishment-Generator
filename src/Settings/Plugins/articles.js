@@ -30,10 +30,7 @@
    * @param {string} article
    */
   function _switch (article) {
-    if (article === 'a') {
-      return 'an'
-    }
-    return 'a'
+    return article === 'a' ? 'an' : 'a'
   }
 
   /**
@@ -64,42 +61,34 @@
    * @param {boolean} [caseSensitive]
    */
   function addOverride (article, word, caseSensitive) {
-    let msg
     if (State.length > 0) {
       // must be called in story JS or StoryInit, as the override map isn't stateful
-      msg = 'cannot add article override -> needs to be run in StoryInit special passage or earlier'
-      console.error(msg)
-      return msg
+      const message = 'cannot add article override -> needs to be run in StoryInit special passage or earlier'
+      console.error(message)
+      return message
     }
     // check args
     if (!word || typeof word !== 'string') {
-      msg = 'cannot add article override -> invalid word'
-      console.error(msg)
-      return msg
+      const message = 'cannot add article override -> invalid word'
+      console.error(message)
+      return message
     }
     if (article && typeof article === 'string') {
       // clean up article
       article = article.toLowerCase().trim()
     }
     if (!_validArticles.includes(article)) {
-      msg = 'cannot add article override -> invalid article, must be "a" or "an"'
-      console.error(msg)
-      return msg
+      const message = 'cannot add article override -> invalid article, must be "a" or "an"'
+      console.error(message)
+      return message
     }
     // clean up phrase
     word = word.trim()
 
-    if (caseSensitive) {
-      _overrides.set(word, {
-        article,
-        caseSensitive: !!caseSensitive
-      })
-    } else {
-      _overrides.set(word.toLowerCase(), {
-        article,
-        caseSensitive: !!caseSensitive
-      })
-    }
+    _overrides.set(caseSensitive ? word : word.toLowerCase(), {
+      article,
+      caseSensitive: !!caseSensitive
+    })
   }
 
   /**
@@ -126,13 +115,9 @@
    * @param {string} word
    */
   function _checkVowels (word) {
-    let article
     // select the article based on vowels
-    if (_vowels.test(word.first())) {
-      article = 'an'
-    } else {
-      article = 'a'
-    }
+    const article = _vowels.test(word.first()) ? 'an' : 'a'
+
     // check for irregular words, then acronyms
     return _isDefaultIrregular(word, article) || _isAcronym(word, article) || article
   }
