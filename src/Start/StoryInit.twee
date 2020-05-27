@@ -19,8 +19,6 @@
 	seasonPool: ["winter", "spring", "summer", "autumn"]
 }>>
 
-<<include "Books">>
-
 <<include "PatreonCharacters">>
 
 <<include "PlotHook">>
