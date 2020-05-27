@@ -1,5 +1,8 @@
-setup.genderEqualityLikelihood = [
-  // town.roll.equality, change of breaking gender norm
+/**
+ * town.roll.equality, change of breaking gender norm
+ * @type {[number, number, string][]}
+ */
+const genderEqualityLikelihood = [
   [139, 10, 'woman'],
   [99, 10, 'woman'],
   [90, 15, 'woman'],
@@ -17,32 +20,25 @@ setup.genderEqualityLikelihood = [
   [-101, 10, 'man']
 ]
 
-setup.breakGenderNorms = function (town, npc) {
+setup.breakGenderNorms = (town, npc) => {
   Math.clamp(town.roll.equality, 0, 100)
-  if (settings.ignoreGender) { return true }
 
-  const temp = setup.genderEqualityLikelihood.find(function (desc) {
-    return desc[0] <= town.roll.equality
+  if (settings.ignoreGender) {
+    return true
+  }
+
+  const temp = genderEqualityLikelihood.find(([threshold]) => {
+    return threshold <= town.roll.equality
   })
 
-  let percentage = temp[1]
-  if (typeof percentage === 'undefined') {
-    percentage = 50
-  }
-  if (random(1, 100) < percentage) {
-    return true
-  } else {
-    return false
-  }
+  const percentage = temp ? temp[1] : 50
+
+  return random(1, 100) < percentage
 }
 
-setup.isDominantGender = function (town, npc) {
-  const temp = setup.genderEqualityLikelihood.find(function (desc) {
-    return desc[0] <= town.roll.equality
+setup.isDominantGender = (town, npc) => {
+  const temp = genderEqualityLikelihood.find(([threshold]) => {
+    return threshold <= town.roll.equality
   })
-  if (npc.gender === temp[2]) {
-    return true
-  } else {
-    return false
-  }
+  return npc.gender === temp[2]
 }
