@@ -84,6 +84,4 @@ setup.sizeFaction = (town, faction) => {
   } else {
     faction.size = 'miniscule'
   }
-
-  return faction
 }

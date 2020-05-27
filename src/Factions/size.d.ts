@@ -1,3 +1,3 @@
 interface Setup {
-  sizeFaction(town: Town, faction: Faction): Faction
+  sizeFaction(town: Town, faction: Faction): void
 }
