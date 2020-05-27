@@ -4,7 +4,7 @@ setup.createDescriptors = npc => {
   // remember adjectival precedence!
   // opinion  size    age   shape       colour  origin  material  purpose     noun
   // lovely   little  old   rectangular green   French  silver    whittling   knife
-  npc.descriptors = [
+  const descriptors = [
     `${npc.age || npc.ageStage} ${npc.raceName}`,
     `${npc.height || `${npc.skinColour} skinned`} ${npc.raceName}`,
     `${npc.weight || npc.height} ${npc.raceName}`,
@@ -12,12 +12,12 @@ setup.createDescriptors = npc => {
   ]
 
   if (npc.beard) {
-    npc.descriptorsAdd = `${npc.raceName} with ${setup.articles.output(npc.beard)}`
+    descriptors.push(`${npc.raceName} with ${setup.articles.output(npc.beard)}`)
   }
 
   if (npc.hasClass) {
-    npc.descriptorsAdd = npc.dndClass
+    descriptors.push(npc.dndClass)
   }
 
-  return npc
+  npc.descriptors = descriptors
 }

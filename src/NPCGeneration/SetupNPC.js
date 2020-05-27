@@ -142,22 +142,6 @@ setup.createNPC = function (town, base) {
     get descriptor () {
       return this.descriptors.random()
     },
-    // eslint-disable-next-line accessor-pairs
-    set descriptorsAdd (description) {
-      if (typeof description === 'string') {
-        // @ts-ignore
-        console.log(this.descriptors)
-        // @ts-ignore
-        if (this.descriptors.includes(description)) {
-          console.log('Throwing out duplicate description...')
-        } else {
-        // @ts-ignore
-          this.descriptors.push(description)
-        }
-      } else {
-        console.log(`Expected a string operand and received ${description}`)
-      }
-    },
     eyes: data.raceTraits[race].eyes.random(),
     skinColour: data.skinColour.random(),
     // dndClass,
