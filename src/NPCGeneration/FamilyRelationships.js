@@ -88,10 +88,12 @@ setup.getFatherMother = function (town, npc) {
   const node = family.members[npc.key]
 
   if (node.parentMarriage) {
-    father = node.parentMarriage.parents.find(key =>
-      State.variables.npcs[key].gender === 'man')
-    mother = node.parentMarriage.parents.find(key =>
-      State.variables.npcs[key].gender === 'woman')
+    father = node.parentMarriage.parents.find(key => {
+      return State.variables.npcs[key].gender === 'man'
+    })
+    mother = node.parentMarriage.parents.find(key => {
+      return State.variables.npcs[key].gender === 'woman'
+    })
   }
 
   return { father, mother }
