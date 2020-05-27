@@ -4,14 +4,15 @@ const utils = require('./utils')
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
 
+// Extract extra arguments.
+const [, , ...flags] = process.argv
+
 const args = [
   '--output=./gh-pages/index.html',
   './src',
-  '--head=./main.ejs'
+  '--head=./main.ejs',
+  ...flags
 ]
-
-// Pass along additional arguments.
-args.push(...process.argv)
 
 // Run tweego with arguments.
 const tweegoProcess = spawn(tweego, args)
