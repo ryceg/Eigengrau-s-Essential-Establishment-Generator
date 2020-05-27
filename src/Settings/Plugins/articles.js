@@ -1,11 +1,14 @@
 /* eslint-disable no-useless-escape */
-/* eslint-disable no-undef */
-(function () {
+(() => {
   'use strict'
 
+  /**
+   * @type {Map<string, { article: string, caseSensitive: boolean }>}
+   */
   const _overrides = new Map()
 
-  const _defaultIrregulars = [ // lifted from: https://github.com/tandrewnichols/indefinite/blob/master/lib/irregular-words.js
+  // lifted from: https://github.com/tandrewnichols/indefinite/blob/master/lib/irregular-words.js
+  const _defaultIrregulars = [
     // e
     'eunuch', 'eucalyptus', 'eugenics', 'eulogy', 'euphemism', 'euphony', 'euphoria', 'eureka', 'european', 'euphemistic', 'euphonic', 'euphoric', 'euphemistically', 'euphonically', 'euphorically',
     // h
@@ -23,6 +26,9 @@
   const _irregularAcronyms = /[UFHLMNRSX]/
   const _punctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g
 
+  /**
+   * @param {string} article
+   */
   function _switch (article) {
     if (article === 'a') {
       return 'an'
@@ -30,6 +36,10 @@
     return 'a'
   }
 
+  /**
+   * @param {string} word
+   * @param {string} article
+   */
   function _isAcronym (word, article) {
     if (_acronyms.test(word) && _irregularAcronyms.test(word.first())) {
       return _switch(article)
@@ -37,6 +47,10 @@
     return false
   }
 
+  /**
+   * @param {string} word
+   * @param {string} article
+   */
   function _isDefaultIrregular (word, article) {
     if (_defaultIrregulars.includes(word.toLowerCase())) {
       return _switch(article)
@@ -44,6 +58,11 @@
     return false
   }
 
+  /**
+   * @param {string} article
+   * @param {string} word
+   * @param {boolean} [caseSensitive]
+   */
   function addOverride (article, word, caseSensitive) {
     let msg
     if (State.length > 0) {
@@ -83,6 +102,9 @@
     }
   }
 
+  /**
+   * @param {string} word
+   */
   function _checkOverrides (word) {
     word = word.trim()
     // check user-defined overrides
@@ -100,6 +122,9 @@
     return null
   }
 
+  /**
+   * @param {string} word
+   */
   function _checkVowels (word) {
     let article
     // select the article based on vowels
@@ -112,6 +137,9 @@
     return _isDefaultIrregular(word, article) || _isAcronym(word, article) || article
   }
 
+  /**
+   * @param {string} word
+   */
   function find (word) {
     if (!word || typeof word !== 'string') {
       return
@@ -121,13 +149,17 @@
     return _checkOverrides(cleanedWord) || _checkVowels(cleanedWord)
   }
 
+  /**
+   * @param {string} word
+   * @param {boolean} [upper]
+   */
   function article (word, upper) {
     if (!word || typeof word !== 'string') {
       return word // ? just throw back whatever we got
     }
     const article = find(word)
     // return article, capitalized if requested, appended to the original phrase
-    return (upper ? article.toUpperFirst() : article) + ' ' + word
+    return `${upper ? article.toUpperFirst() : article} ${word}`
   }
 
   setup.articles = {
@@ -151,4 +183,4 @@
       this.output.append(article(String(this.args[0]), isUpper))
     }
   })
-}())
+})()
