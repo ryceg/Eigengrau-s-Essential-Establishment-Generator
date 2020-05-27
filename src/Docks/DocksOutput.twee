@@ -1,5 +1,5 @@
 :: DocksOutput
-<<set $docks to ($town.buildings.docks[$selected.key] || $town.buildings.docks[$currentPassage.key])>><h1><<print $docks.name.toUpperFirst()>></h1>You walk down to the docks, which are known best for $docks.notableFeature. You notice $docks.notice. The docks are $docks.sizeDescriptive, and is $docks.cleanlinessDescriptive. It's currently $docks.activity.
+<<set $docks to ($town.buildings.docks[$selected.key] || $town.buildings.docks[$currentPassage.key])>><h1><<print $docks.name.toUpperFirst()>></h1><<print setup.firstCharacter("You")>> walk down to the docks, which are known best for $docks.notableFeature. You notice $docks.notice. The docks are $docks.sizeDescriptive, and is $docks.cleanlinessDescriptive. It's currently $docks.activity.
 
 <<button "Create a ship">>
 <<run setup.docks.ships.create($town, $docks)>><<replace "#ships">><<include "ShipList">><</replace>><</button>><div id="ships"><<include "ShipList">></div>

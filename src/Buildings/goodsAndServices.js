@@ -207,7 +207,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature`,
@@ -639,7 +639,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature`,
@@ -888,7 +888,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature`,
@@ -1108,7 +1108,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature.`,
@@ -1349,7 +1349,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature.`,
@@ -1580,7 +1580,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature.`,
@@ -1857,7 +1857,7 @@ setup.goodsAndServices = {
     PassageFormat: [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
-      `You ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
+      `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
         '$building.name, $building.structure.descriptor.',
         '$building.structure.descriptor called $building.name.'
       ].random()} You notice $building.notableFeature.`,

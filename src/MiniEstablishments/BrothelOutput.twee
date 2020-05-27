@@ -1,6 +1,6 @@
 :: BrothelOutput [brothel]
 <<unset $selectedBuilding>><<set $brothel to ($town.buildings.brothel[$selected.key] || $town.buildings.brothel[$currentPassage.key])>><<set $pimp to $npcs[$brothel.pimp.key]>>
-<h1>$brothel.name</h1><<include "TownMicroEventsOutput">><span class="firstcharacter">Y</span>ou make your way down $brothel.road, and enter $brothel.name $brothel.structure.brothelDescriptor. Inside, the $brothel.size $brothel.structure.material.noun building is $brothel.cleanliness. You notice $brothel.notice.
+<h1>$brothel.name</h1><<include "TownMicroEventsOutput">><<print setup.firstCharacter("You")>> make your way down $brothel.road, and enter $brothel.name $brothel.structure.brothelDescriptor. Inside, the $brothel.size $brothel.structure.material.noun building is $brothel.cleanliness. You notice $brothel.notice.
 When people talk about $brothel.name, they say $brothel.talk. Apparently, it specialises in $brothel.specialty.
 Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour.
 
