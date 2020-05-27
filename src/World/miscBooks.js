@@ -2,29 +2,29 @@ setup.misc = setup.misc || {}
 
 setup.misc.books = {
   create: town => {
-    const bookType = [
-      'detailedTitles',
-      'titles',
-      'titles',
-      'puns'].random()
+    const { books } = setup.misc
 
-    const book = bookType === 'detailedTitles'
-      ? setup.misc.books.detailedTitles.random()
-      : setup.misc.books[bookType].random()
+    const book = [
+      books.detailedTitles,
+      books.titles,
+      books.titles,
+      books.puns
+    ].random().random()
 
-    Object.assign(book, {
-      condition: setup.misc.books.condition.random(),
-      cover: setup.misc.books.cover.random()
-    })
+    const condition = books.condition.random()
+    const cover = books.cover.random()
 
-    if (bookType === 'detailedTitles') {
-      book.readout = `'${book.title}'` + ` is ${book.condition} The cover is ${book.cover}${book.contents}`
-    } else {
-      book.readout = `'${book.title}'` + ` is ${book.condition} The cover is ${book.cover}`
+    const createContent = () => {
+      if (typeof book === 'string') {
+        const readout = `'${book}' is ${condition} The cover is ${cover}`
+        return setup.createTippyFull(book, readout)
+      }
+
+      const readout = `'${book.title}' is ${condition} The cover is ${cover}${book.contents}`
+      return setup.createTippyFull(book.title, readout)
     }
-    book.tippy = `<span class=tip title=${JSON.stringify(book.readout)}><<run setup.tippy("span")>>`
-    book.tippyWord = `"${book.tippy}${book.title}"</span>`
-    return `a book titled "${book.tippy}${book.title}"</span>`
+
+    return `a book titled "${createContent()}"`
   },
   condition: [
     // the book is...
