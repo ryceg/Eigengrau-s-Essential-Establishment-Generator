@@ -15,7 +15,7 @@ interface Setup {
   createName(parameters: CreateNameParameters): string
   createNPC(town: Town, base?: Partial<NPC>): NPC
   createSocialClass(town: Town, npc: NPC): any
-  firstCharacter(word: Word): string
+  firstCharacter(word: string): string
 
   guardData: any
   createGuard(town: Town): any
