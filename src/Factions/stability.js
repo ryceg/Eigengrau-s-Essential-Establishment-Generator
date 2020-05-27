@@ -25,10 +25,8 @@ setup.stabilityFaction = faction => {
     faction.stability = 'very unstable'
   } else if (faction.roll.stability > 10) {
     faction.stability = 'rapidly disintegrating'
-  } else if (faction.roll.stability <= 5) {
-    faction.stability = 'falling to pieces'
   } else {
-    faction.stability = 'stable'
+    faction.stability = 'falling to pieces'
   }
 
   return faction
