@@ -25,10 +25,8 @@ setup.sizeFaction = (town, faction) => {
     faction.roll.size += -15
   } else if (faction.roll.age > 10) {
     faction.roll.size += -20
-  } else if (faction.roll.age <= 5) {
-    faction.roll.size += -25
   } else {
-    faction.roll.size += 2
+    faction.roll.size += -25
   }
 
   if (town.population > 6000) {
@@ -55,10 +53,8 @@ setup.sizeFaction = (town, faction) => {
     faction.roll.size += -15
   } else if (town.population > 1000) {
     faction.roll.size += -25
-  } else if (town.population <= 1000) {
-    faction.roll.size += -30
   } else {
-    faction.roll.size += -10
+    faction.roll.size += -30
   }
 
   if (faction.roll.size > 95) {
@@ -85,10 +81,8 @@ setup.sizeFaction = (town, faction) => {
     faction.size = 'very small'
   } else if (faction.roll.size > 10) {
     faction.size = 'tiny'
-  } else if (faction.roll.size <= 5) {
-    faction.size = 'miniscule'
   } else {
-    faction.size = 'average'
+    faction.size = 'miniscule'
   }
 
   return faction
