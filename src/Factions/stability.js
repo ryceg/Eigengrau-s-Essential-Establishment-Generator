@@ -28,6 +28,4 @@ setup.stabilityFaction = faction => {
   } else {
     faction.stability = 'falling to pieces'
   }
-
-  return faction
 }

@@ -1,3 +1,3 @@
 interface Setup {
-  stabilityFaction(faction: Faction): Faction
+  stabilityFaction(faction: Faction): void
 }
