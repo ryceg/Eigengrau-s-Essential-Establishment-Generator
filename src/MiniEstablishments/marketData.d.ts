@@ -1,0 +1,3 @@
+interface Setup {
+  market: any
+}

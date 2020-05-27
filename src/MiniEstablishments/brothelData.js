@@ -1,6 +1,5 @@
 
 setup.brothel = {
-
   rollData: {
     wealth: [
       [95, 'kingly'],

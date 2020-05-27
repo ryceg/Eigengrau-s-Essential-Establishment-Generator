@@ -1,0 +1,3 @@
+interface Setup {
+  temple: any
+}
