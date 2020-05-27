@@ -4,7 +4,7 @@ interface Setup {
 
 interface SetupMisc {
   books: {
-    create(town: Town)
+    create(town: Town): string
     condition: string[]
     cover: string[]
     detailedTitles: DetailedBookTitle[]
