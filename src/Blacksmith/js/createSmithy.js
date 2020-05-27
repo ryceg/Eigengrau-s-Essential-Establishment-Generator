@@ -31,6 +31,5 @@ setup.createSmithy = function (town, opts = {}) {
   console.log(smithy)
   console.groupEnd()
 
-  // setup.townBinder(town, smithy, 'smithy')
   return smithy
 }

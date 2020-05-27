@@ -40,6 +40,5 @@ setup.createBrothel = function (town, tavern) {
     'nods at you', 'welcomes you warmly', 'smiles, greets you', 'raises a hand with a wave', 'sizes you up, before $pimp.heshe nods at you', 'checks you out for just a moment before smiling at you', 'waves slightly in your direction', 'gives you you a slight nod', 'turns your way', 'frowns, but greets you just the same'
   ]
   console.log(brothel)
-  // setup.townBinder(town, brothel, 'brothel')
   return brothel
 }
