@@ -13,9 +13,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Debt- creditors, debtors, and curtailed hoarding of wealth.
 - PRNG by default, taken from the URL's location hash (everything after the #, incl. the hash)
 - URL seeds following the gfycat naming convention of adjective+adjective+animal
-- Highlighting of newest building
+- Temporary highlighting of newly created building
 - Gender equality description, minor mechanical effects
+- Option to disable 'realistic' gendered occupations
 - NPC religion
+- Baked good generator
 
 
 ### Changed
@@ -24,6 +26,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed Sugarcube & TweeGo install links
 - Building list is now alphabetically ordered
 - Fixed some bugs with roofs
+- Minor bug with factions fixed
+- New background
+- Reduced file size slightly
 
 ## v2.3
 
