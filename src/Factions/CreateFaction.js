@@ -22,7 +22,7 @@ setup.createFaction = function (town, opts = {}) {
     }
   }, opts)
   if (typeof faction.type === 'undefined') {
-    console.error(`faction type was not defined! Defaulting to merchants.`)
+    console.error('faction type was not defined! Defaulting to merchants.')
     console.log(faction)
     faction.type = 'merchants'
   }
@@ -50,14 +50,6 @@ setup.createFaction = function (town, opts = {}) {
   setup.createMisc(faction)
 
   faction.tippyDescription = `${setup.articles.output(faction.size).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
-
-  // if (faction.isThrowaway === undefined) {
-  //   console.log('and finally assigning to the faction roster.')
-  //   State.variables.factions.push(faction.id)
-  // } else {
-  //   console.log('and assigning as disposable. Bye bye, ' + faction.name + '!')
-  // }
-  
 
   console.groupEnd()
   console.log(`${faction.name} have loaded.`)

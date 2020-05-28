@@ -8,10 +8,7 @@
 <<set $versionNumber to "2.4">>
 
 <<set $towns to []>>
-<<set $factions to []>>
-<<set $buildings to []>>
 <<set $npcs to {}>>
-<<set $throwawayNpcs to {}>>
 
 <<include "Town">>
 <<set $weather to {
@@ -20,8 +17,6 @@
 }>>
 
 <<include "PatreonCharacters">>
-
-<<include "PlotHook">>
 
 <<include "ShitPlotHooks">>
 

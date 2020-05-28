@@ -26,8 +26,6 @@ setup.createBuilding = (town, type, base = {}) => {
   ].random()
   const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   const building = Object.assign({
-    // index: State.variables.buildings.length - 1,
-    // index: Math.floor(randomFloat(1) * 0x10000),
     key: randomFloat(1).toString(16),
     roadName,
     roadType,
@@ -241,13 +239,9 @@ setup.createBuilding = (town, type, base = {}) => {
     }
     town.buildings[type][building.key] = building
   }
-  if (!building.isThrowaway) {
-    State.variables.buildings.push(building)
-  }
+
   building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 
-  // building.id = State.variables.buildings[State.variables.buildings.length - 1]
-  // console.log(building)
   return building
 }
 

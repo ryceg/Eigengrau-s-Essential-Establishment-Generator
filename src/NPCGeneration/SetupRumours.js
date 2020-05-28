@@ -293,10 +293,10 @@ setup.createRumour = function (town) {
   function SocialEvents () {
     return [`an invitation to an upcoming ${['party', 'play', 'banquet', 'festival', 'party', 'dinner'].random()} given by a mysterious stranger.`,
       'a local revival of religious followers is nearby, and drawing crowds',
-      `a challenge has been issued by ${State.variables.townLeader}, calling for feats of ${['strength', 'wit', 'creativity', 'genius', 'dexterity', 'constitution'].random()}`,
+      `a challenge has been issued by ${State.variables.town.leader.profile}, calling for feats of ${['strength', 'wit', 'creativity', 'genius', 'dexterity', 'constitution'].random()}`,
       'the (guild-house) is permitting new members to join, decided by a contest',
       'a circus has come to town. Rumors are they are taking on workers and performers',
-      `a fancy dress party for ${State.variables.townLeader}has drawn all the wealthy in the area`,
+      `a fancy dress party for ${State.variables.town.leader.profile} has drawn all the wealthy in the area`,
       "the marriage/birth/death/divorce/something else of (local ruler) or (ruler's family/spouse)"].random()
   }
 

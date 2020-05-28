@@ -53,18 +53,4 @@ Setting.addToggle('ignoreGender', {
   onInit: false
 })
 
-// var settingPatreonContentHandler = function () {
-//   if (Setting.patreonContent) {
-//     State.variables.bartender = State.variables.Birchbottom
-//   } else {
-//     State.variables.bartender = State.variables.backupBartender
-//   }
-// }
-
-// Setting.addToggle('patreonContent', {
-//   label: 'Show Patreon content?',
-//   onInit: settingPatreonContentHandler,
-//   onChange: settingPatreonContentHandler
-// })
-
 Setting.save()
