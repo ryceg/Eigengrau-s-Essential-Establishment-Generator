@@ -319,7 +319,7 @@ setup.weather = {
     ],
     'heavy snow': [
       "it's snowing quite heavily at the moment, and trekking through the snow is a little difficult",
-      'the heavy snowfall makes movement a little difficult. The wind which carries the snow is $weather.temperatureReadout, and stings your eyes'
+      'the heavy snowfall makes movement a little difficult. The wind which carries the snow is freezing cold, and stings your eyes'
     ],
     'thunderstorm': [
       'the ominous booms of thunder go off in the distance',
