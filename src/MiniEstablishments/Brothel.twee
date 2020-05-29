@@ -1,4 +1,0 @@
-:: Brothel
-<<if $tavern.hasBrothel is true>>
-  <<set $brothel to setup.createBrothel($town, $tavern)>>
-<</if>>

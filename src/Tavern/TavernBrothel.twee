@@ -1,4 +1,4 @@
 :: TavernBrothel
-<<nobr>><<if $tavern.hasBrothel is true>>
-<<linkreplace "Go upstairs to the brothel">><h3>The Brothel</h3>When people talk about $brothel.name, they say that $brothel.talk. Apparently, it specialises in $brothel.speciality. You go up the $tavern.material staircase to the brothel section, and up there, you notice $brothel.notice. Rumours abound in whorehouses, and $brothel.name is no different; apparently, $brothel.rumour
+<<nobr>><<if $building.hasBrothel is true>>
+<<linkreplace "Go upstairs to the brothel">><h3>The Brothel</h3>When people talk about $building.name, they say that $building.talk. Apparently, it specialises in $building.speciality. You go up the $building.material staircase to the brothel section, and up there, you notice $building.notice. Rumours abound in whorehouses, and $building.name is no different; apparently, $building.rumour
 <</linkreplace>><</if>><</nobr>>

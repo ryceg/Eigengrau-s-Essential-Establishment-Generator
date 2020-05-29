@@ -16,7 +16,7 @@ setup.createBartender = function (town, associatedBuilding) {
       'checks you out for just a moment before smiling at you'],
     idle: [
       `polishing a glass with ${bartender.hisher} hands`,
-      'reading a newspaper which says <<print $newspaperheadline>>',
+      'reading a newspaper which says <<print setup.misc.newspaper.random()>>',
       'pouring a drink for a customer',
       'taking an order from a customer',
       'taking an order from a customer',

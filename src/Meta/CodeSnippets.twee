@@ -13,7 +13,7 @@ $tavernNPC.heshe.toUpperFirst()
 <<set $npctest to setup.createNPC($town)>>
 
 
-<<for _i, _item range $alchemistinventory.filter(function (item) { return item.availability <= 2; })>>
+<<for _i, _item range $buildinginventory.filter(function (item) { return item.availability <= 2; })>>
     <<= _i + 1>>. _item.name - <<money _item.cost>>
 
 <div class='descriptive'>Test </div>

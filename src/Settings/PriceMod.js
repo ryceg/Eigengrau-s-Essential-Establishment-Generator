@@ -1,19 +1,14 @@
 /* eslint-disable no-undef */
-setup.getPriceMod = function () {
-  if (tags().length === 0) {
+setup.getPriceMod = function (priceModSource) {
+  /** @param {number} priceModSource */
+  console.log(priceModSource)
+  if (typeof priceModSource === 'object') {
+    if (typeof priceModSource.priceModifier === 'number') {
+      return Number(priceModSource.priceModifier)
+    }
+  } else if (typeof priceModSource === 'number') {
+    return Number(priceModSource)
+  } else {
     return 1
   }
-
-  const locations = ['blacksmith', 'tavern', 'alchemist', 'generalStore', 'docks', 'smithy']
-  const loc = tags().find(function (tag) {
-    return locations.includes(tag)
-  })
-
-  if (!loc) {
-    return 1
-  }
-
-  const V = State.variables
-
-  return Number(V[loc].priceModifier + 'e-2') || 1
 }

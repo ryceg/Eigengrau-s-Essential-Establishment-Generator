@@ -2,13 +2,13 @@
 <<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
-  $blacksmith.name smiles, and says "You're looking to buy something? Name it, here at $smithy.name, we stock everything the average man could possibly need!"
+  $associatedNPC.name smiles, and says "You're looking to buy something? Name it, here at $building.name, we stock everything the average man could possibly need!"
   <<case "town">>
-  $blacksmith.name says "Well, what is it you need? We specialise in <<print $smithy.weapons.random()>>s, but can do just about anything for you."
+  $associatedNPC.name says "Well, what is it you need? We specialise in <<print $building.weapons.random()>>s, but can do just about anything for you."
   <<case "village">>
-  $blacksmith.name says "Sure, what are you after? <<print $smithy.mundane.random().toUpperFirst()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
+  $associatedNPC.name says "Sure, what are you after? <<print $building.mundane.random().toUpperFirst()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
   <<case "hamlet">>
-  $blacksmith.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $smithy.mundane.random>>, <<print $smithy.mundane.random>>, you name it!"
+  $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $building.mundane.random>>, <<print $building.mundane.random>>, you name it!"
 <</switch>></div>
 
 <<switch $town.type>>
@@ -36,7 +36,7 @@
   && item.type === "weapon"
   && item.availabilityLocation.includes("smithy");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Armour</h6>
@@ -45,7 +45,7 @@
   && item.type === "armour"
   && item.availabilityLocation.includes("smithy");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Adventuring Gear</h6>
@@ -54,7 +54,7 @@
   && item.type === "adventuring gear"
   && item.availabilityLocation.includes("smithy");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Tools</h6>
@@ -63,7 +63,7 @@
   && item.type === "tools"
   && item.availabilityLocation.includes("smithy");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 </table>
 <</nobr>><</linkappend>>

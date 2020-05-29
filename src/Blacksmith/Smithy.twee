@@ -1,4 +1,0 @@
-
-:: Smithy
-
-<<set $smithy to setup.createSmithy($town)>>

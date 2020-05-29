@@ -5,42 +5,42 @@ setup.smithy = {
       {
         expertise: 80,
         wealth: 10,
-        note: 'On the bench lies a <<print $smithy.weapons.random()>>, and just by looking at it, you can tell that the blacksmith is extremely talented at $blacksmith.hisher craft; this is a weapon clearly fit for a king.'
+        note: 'On the bench lies a <<print $building.weapons.random()>>, and just by looking at it, you can tell that the blacksmith is extremely talented at $associatedNPC.hisher craft; this is a weapon clearly fit for a king.'
       },
       {
         expertise: 70,
         wealth: 10,
-        note: 'On the bench lies a <<print $smithy.weapons.random()>>, and looking at it, you can tell that the blacksmith is talented at $blacksmith.hisher craft; this is a well made weapon.'
+        note: 'On the bench lies a <<print $building.weapons.random()>>, and looking at it, you can tell that the blacksmith is talented at $associatedNPC.hisher craft; this is a well made weapon.'
       },
       {
         expertise: 60,
         wealth: 10,
-        note: 'On the bench is a <<print $smithy.weapons.random()>>, and you can tell that $blacksmith.name is well trained; the weapon is more than servicable, and carries a nice heft to it.'
+        note: 'On the bench is a <<print $building.weapons.random()>>, and you can tell that $associatedNPC.name is well trained; the weapon is more than servicable, and carries a nice heft to it.'
       },
       {
         expertise: 50,
         wealth: 10,
-        note: "On the bench lies a <<print $smithy.weapons.random()>>. Inspecting it, it's of slightly above average quality, and is made well."
+        note: "On the bench lies a <<print $building.weapons.random()>>. Inspecting it, it's of slightly above average quality, and is made well."
       },
       {
         expertise: 40,
         wealth: 10,
-        note: "On the bench is a <<print $smithy.weapons.random()>>. Inspecting it, it's of slightly below average quality, and has an odd weight to it."
+        note: "On the bench is a <<print $building.weapons.random()>>. Inspecting it, it's of slightly below average quality, and has an odd weight to it."
       },
       {
         expertise: 30,
         wealth: 10,
-        note: "On the bench lies a <<print $smithy.weapons.random()>>. Looking at it, you can see that it's not very well made."
+        note: "On the bench lies a <<print $building.weapons.random()>>. Looking at it, you can see that it's not very well made."
       },
       {
         expertise: 20,
         wealth: 10,
-        note: "On the bench lies a <<print $smithy.weapons.random()>>. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality."
+        note: "On the bench lies a <<print $building.weapons.random()>>. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality."
       },
       {
         expertise: 10,
         wealth: 10,
-        note: "On the bench lies a <<print $smithy.weapons.random()>>. It's obviously amateurish. $blacksmith.firstName moves around the shop, unsure of $blacksmith.himherself, betraying $blacksmith.hisher lack of skills."
+        note: "On the bench lies a <<print $building.weapons.random()>>. It's obviously amateurish. $associatedNPC.firstName moves around the shop, unsure of $associatedNPC.himherself, betraying $associatedNPC.hisher lack of skills."
       }
     ],
     lookAround: smithy => [

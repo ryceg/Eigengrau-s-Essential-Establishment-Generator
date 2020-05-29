@@ -1,3 +1,0 @@
-:: Markets
-
-<<set $market to setup.createMarket($town)>>

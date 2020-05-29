@@ -2,9 +2,9 @@
 <<nobr>>
 <<linkreplace "<h4>Show me the menu!</h4>">><table>
 
-	<<if $tavern.roll.wealth > 60 && $tavern.roll.roughness < 30 or $tavern.roll.wealth > 60 && $bartender.race === "elf">>
+	<<if $building.roll.wealth > 60 && $building.roll.roughness < 30 or $building.roll.wealth > 60 && $associatedNPC.race === "elf">>
 			<<set _dietary to ["veg"]>>
-		<<elseif $tavern.roll.wealth > 60 && $tavern.roll.roughness > 80 or $tavern.roll.wealth > 60 && $bartender.race === "half-orc">>
+		<<elseif $building.roll.wealth > 60 && $building.roll.roughness > 80 or $building.roll.wealth > 60 && $associatedNPC.race === "half-orc">>
 			<<set _dietary to ["carni"]>>
 		<<else>>
 			<<set _dietary to ["omni", "veg", "carni"]>>
@@ -26,7 +26,7 @@
 		<th>Cost</th>
 	</tr>
 	<<for _i, _item range setup.inventory.filter(function (item) { return item.availability <= _availability && item.availabilityLocation.includes("tavern") && _dietary.includes(item.dietary); })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 	<</for>>
 </table>
 <</linkreplace>>

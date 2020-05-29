@@ -1,16 +1,16 @@
 
 :: Rooms
-<<nobr>><<set $tavern.freeRooms to setup.tavernRooms($tavern)>>
-<<if $tavern.freeRooms lte 0>>
-		<span id="room-cost"><<print "You talk with the " + setup.profile($tavern.barmaid, "barmaid") + " about lodgings, and she says that there are no free rooms in $tavern.name at the moment...">></span>
-	<<elseif $tavern.freeRooms == 1>>
+<<nobr>><<set $building.freeRooms to setup.tavernRooms($building)>>
+<<if $building.freeRooms lte 0>>
+		<span id="room-cost"><<print "You talk with the " + setup.profile($building.barmaid, "barmaid") + " about lodgings, and she says that there are no free rooms in $building.name at the moment...">></span>
+	<<elseif $building.freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
-		<<replace "#room-cost">><<print setup.tavernSleep($tavern)>><</replace>>
+		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has just one available room, which is $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordNoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
-	<<elseif $tavern.freeRooms gt 1>>
+		<span id="room-cost"><<print "$building.name has just one available room, which is $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money $building.lodging>> to stay here for the night.">></span>
+	<<elseif $building.freeRooms gt 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
-		<<replace "#room-cost">><<print setup.tavernSleep($tavern)>><</replace>>
+		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$tavern.name has $tavern.freeRooms available rooms, which are $tavern.size and $tavern.bedCleanliness. Because this $tavern.wordNoun is priced for $tavern.wealth patrons, it will cost <<money $tavern.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$building.name has $building.freeRooms available rooms, which are $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money $building.lodging>> to stay here for the night.">></span>
 <</if>><</nobr>>

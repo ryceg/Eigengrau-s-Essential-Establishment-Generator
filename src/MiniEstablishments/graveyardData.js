@@ -51,8 +51,8 @@ setup.graveyard = {
   ],
   feature: [
     // As you enter you notice ____
-    'a $graveyard.tree.tippyWord standing among the graves, colorful ribbons are tied to its many branches',
-    'a large clump of $graveyard.tree.species trees that create that create an area of shade, graves have been dug all around them',
+    'a $building.tree.tippyWord standing among the graves, colorful ribbons are tied to its many branches',
+    'a large clump of $building.tree.species trees that create that create an area of shade, graves have been dug all around them',
     'a freshly dug grave awaiting its occupant',
     'several spades stuck into the ground next to an open grave',
     'a large grave surrounded by a wrought iron fence with a single gate. The grass inside the fence has been neatly tended to',
@@ -80,13 +80,13 @@ setup.graveyard = {
     'currently hard at work digging a new grave',
     'cleaning off one of the nearby gravestones',
     'slowly and meticulously placing flowers in front of each grave',
-    'leaning against $gravedigger.hisher shovel off in a corner',
+    'leaning against $building.associatedNPC.hisher shovel off in a corner',
     'sitting atop a nearby grave eating a pre-made meal',
     'filling in a nearby grave',
     'lighting a candle that is sitting atop one of the nearby graves',
-    'dusting off $gravedigger.hisher clothes after recently digging a fresh grave',
+    'dusting off $building.associatedNPC.hisher clothes after recently digging a fresh grave',
     'leaning against a nearby tree while smoking a pipe',
-    'in the distance polishing $gravedigger.hisher shovel with a dirty looking rag',
+    'in the distance polishing $building.associatedNPC.hisher shovel with a dirty looking rag',
     'taking down a memorial from a recent funeral'
   ],
   // He/She says
@@ -102,7 +102,7 @@ setup.graveyard = {
     'to speak softly while visiting this place',
     'that the party made it just before peak visiting hours',
     'that at night the dead here walk among the living',
-    'not to bother $gravedigger.himher too much right now',
+    'not to bother $building.associatedNPC.himher too much right now',
     'that you would not believe some of the stuff they\'ve seen on the job',
     'graverobbers have been trying to sneak in here during the night recently',
     'that someone recenlty vandalized the grave of a long dead local hero',

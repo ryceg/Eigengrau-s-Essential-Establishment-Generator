@@ -5,8 +5,8 @@ setup.createChemist = town => setup.createNPC(town, {
   background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].random(),
   idle: [
     'talking with a customer',
-    'picking $chemist.hisher nose',
-    'playing a card game by $chemist.himherself',
+    'picking $associatedNPC.hisher nose',
+    'playing a card game by $associatedNPC.himherself',
     'looking over a recipe book',
     'carefully putting ingredients into a vial',
     'pouring ingredients into a tube',
@@ -46,19 +46,19 @@ setup.createChemist = town => setup.createNPC(town, {
     'welcomes you warmly',
     'smiles and greets you',
     'raises a gloved hand with a wave',
-    'sizes you up, before $chemist.heshe nods at you',
+    'sizes you up, before $associatedNPC.heshe nods at you',
     'checks you out for just a moment before smiling at you',
-    'glances up from what $chemist.heshe is doing and smiles your way',
+    'glances up from what $associatedNPC.heshe is doing and smiles your way',
     'eyes you somewhat suspiciously'
   ],
   chitchat: [
-    'talks about a new potion that $chemist.heshe is brewing up',
+    'talks about a new potion that $associatedNPC.heshe is brewing up',
     'whines about a late shipment of glassware, which is overdue',
-    'talks about the weather as $chemist.heshe carefully measures out ingredients for a new potion',
+    'talks about the weather as $associatedNPC.heshe carefully measures out ingredients for a new potion',
     'discusses the latest developments in alchemy, almost all of which are either over your head, or totally boring',
-    'talks about how $chemist.hisher latest batch of potions are disappearing mysteriously',
-    'chats with you all about $chemist.hisher newest stock, none of which is particularly out of the ordinary',
-    'talks about the many uses for <<print $chemist.ingredients.random()>>, which $chemist.heshe seems somewhat obsessed with',
+    'talks about how $associatedNPC.hisher latest batch of potions are disappearing mysteriously',
+    'chats with you all about $associatedNPC.hisher newest stock, none of which is particularly out of the ordinary',
+    'talks about the many uses for <<print $associatedNPC.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
     'tries to push various products on you all as you look about the shop'
   ]
 })

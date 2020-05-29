@@ -87,7 +87,7 @@ setup.inventory = [
   { name: 'Bedroll', cost: 100, availabilityLocation: ['generalStore'], availability: 1, type: 'adventuring gear' },
   { name: 'Blanket', cost: 50, availabilityLocation: ['generalStore'], availability: 1, type: 'adventuring gear' },
   { name: 'Block and Tackle', cost: 100, availabilityLocation: ['generalStore', 'smithy'], availability: 1, type: 'adventuring gear' },
-  { name: 'Book', cost: 2500, availabilityLocation: ['generalStore', 'temple'], availability: 2, type: 'adventuring gear' },
+  { name: 'Book', cost: 250, availabilityLocation: ['generalStore', 'temple'], availability: 2, type: 'adventuring gear' },
   { name: 'Bottle, Glass', cost: 200, availabilityLocation: ['generalStore', 'alchemist'], availability: 1, type: 'adventuring gear' },
   { name: 'Bucket', cost: 5, availabilityLocation: ['generalStore'], availability: 1, type: 'adventuring gear' },
   { name: 'Candle', cost: 1, availabilityLocation: ['generalStore', 'temple'], availability: 2, type: 'adventuring gear' },
@@ -200,7 +200,6 @@ setup.inventory = [
   { name: 'Holy symbol', cost: 500, availabilityLocation: ['temple'], availability: 1, type: 'adventuring gear' },
   { name: 'Flask of Holy Water', cost: 2500, availabilityLocation: ['temple'], availability: 1, type: 'adventuring gear' },
   { name: 'Incense (1 block)', cost: 1, availabilityLocation: ['temple'], availability: 1, type: 'adventuring gear' },
-  { name: 'Scripture Book', cost: 2500, availabilityLocation: ['temple'], availability: 1, type: 'adventuring gear' },
   { name: 'Rations (1 day)', cost: 50, availabilityLocation: ['temple'], availability: 1, type: 'adventuring gear' },
 
   { name: 'Crisped Worm and Potatoes', cost: 3, availabilityLocation: ['tavern'], availability: 1, dietary: 'omni' },

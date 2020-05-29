@@ -1165,7 +1165,7 @@ setup.plothooks = {
         background: 'commoner'
       })
       // #
-      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $tavern to ' + tavern + '>><<goto "TavernOutput">><</link>>
+      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $building to ' + tavern + '>><<goto "TavernOutput">><</link>>
       return `Fence need painted. Good pay. Contact ${setup.profile(npc)} at ${setup.profile(building, '', 'town.buildings.tavern')}. Twist is, the fence is 10 feet tall and almost a mile long.`
     }
   },

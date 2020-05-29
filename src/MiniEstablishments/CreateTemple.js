@@ -24,7 +24,7 @@ setup.createTemple = function (town, opts = {}) {
     rooms: data.rooms.random(),
     features: data.features.random(),
     architect: data.architect.random(),
-    priestChat: `<<print $priest.heshe.toUpperFirst()>> ${data.priestChat.random()}`,
+    priestChat: `<<print $associatedNPC.heshe.toUpperFirst()>> ${data.priestChat.random()}`,
     priestLook: `A temple priest is ${data.priestLook.random()}`,
     blessingConvey: data.blessingConvey.random(),
     blessingGift: data.blessingGift.random()

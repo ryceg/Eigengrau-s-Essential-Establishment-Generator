@@ -1,8 +1,0 @@
-
-:: Tavern
-
-<<set $tavern to setup.createTavern($town)>>
-
-<<if $tavern.draw is "proximity to the brothel" && ndef $brothel>>
-		<<include "Brothel">>
-<</if>>

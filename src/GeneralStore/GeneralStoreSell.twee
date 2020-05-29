@@ -38,7 +38,7 @@
   && item.type === "weapon"
   && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Armour</h6>
@@ -47,7 +47,7 @@
   && item.type === "armour"
   && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Adventuring Gear</h6>
@@ -56,7 +56,7 @@
   && item.type === "adventuring gear"
   && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Tools</h6>
@@ -65,7 +65,7 @@
   && item.type === "tools"
   && item.availabilityLocation.includes("generalStore");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 </table>

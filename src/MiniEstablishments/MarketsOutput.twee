@@ -1,39 +1,38 @@
 :: MarketOutput [market]
-<<unset $selectedBuilding>><<set $market to ($town.buildings.market[$selected.key] || $town.buildings.market[$currentPassage.key])>><h1>$market.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $market.location. It seems that the vendors are organised by $market.organisation. The market is known for $market.draw, and is $market.cleanliness. Today the market is $market.crowd.
+<<unset $selectedBuilding>><<set $building to ($town.buildings.market[$selected.key] || $town.buildings.market[$currentPassage.key])>><h1>$building.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $building.location. It seems that the vendors are organised by $building.organisation. The market is known for $building.draw, and is $building.cleanliness. Today the market is $building.crowd.
 
-<h3>Merchants</h3><<nobr>><<set _marketData to setup.market>><<if ndef $market.sellers>><<set $market.sellers to {}>><<run setup.createMarketSellers($town, $market.sellers, "", 4)>>
-<<set $magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>><</nobr>>
-<<for _key, _seller range $market.sellers>>
+<h3>Merchants</h3><<nobr>><<set _marketData to setup.market>><<if ndef $building.sellers>><<set $building.sellers to {}>><<run setup.createMarketSellers($town, $building.sellers, "", 4)>>
+<<set $building.magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>><</nobr>>
+<<for _key, _seller range $building.sellers>>
 <<print ["A ", "Nearby, a ", "Off to the side, a "].random()>> <<profile $npcs[_key] $npcs[_key].descriptor>> is _seller.selling from a _seller.tent.
 
 <</for>>
 <<link "<h4>Who else is there?</h4>">>
-<<set $market.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $market.moreSeller.merchant to {}>><<set $market.moreSeller.merchant.selling to setup.market.vendors.selling.random()>><<set $market.moreSeller.merchant.tent to setup.market.vendors.tent.random()>>
-<<replace "#moreSellers">>There's <<profile $market.moreSeller $market.moreSeller.descriptor true>> selling $market.moreSeller.merchant.selling from <<print setup.articles.output($market.moreSeller.merchant.tent)>>.<</replace>>
-<</link>><<if ndef $market.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $market.moreSeller $market.moreSeller.descriptor true>> selling $market.moreSeller.merchant.selling from <<print setup.articles.output($market.moreSeller.merchant.tent)>>.<</if>>
+<<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to setup.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to setup.market.vendors.tent.random()>>
+<<replace "#moreSellers">>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print setup.articles.output($building.moreSeller.merchant.tent)>>.<</replace>>
+<</link>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print setup.articles.output($building.moreSeller.merchant.tent)>>.<</if>>
 
-A <<profile $magicSeller $magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
-<<listbox "$marketMagicSelection">>
+A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
+<<listbox "$building.magicSelection">>
 <<option "Ring" "ring">><<option "Weapon" "weapon">><<option "Armour" "armour">><<option "Trinket" "trinket">>
 <</listbox>> -- <<button "Create a magic item!">>
-  <<set $marketMagicType to $marketMagicSelection>>
-  <<switch $marketMagicType>>
+  <<set $building.magicType to $building.magicSelection>>
+  <<switch $building.magicType>>
     <<case "ring">><<nobr>>
-      <<set $marketMagic to setup.createRing()>>
-      <<replace "#magic">>The $magicSeller.manwoman beckons you over to $magicSeller.hisher stall, and introduces $magicSeller.himherself as <<profile $magicSeller>>, a purveyor of fine goods. The $magicSeller.raceNote asks you for your ring size, and then $magicSeller.heshe reaches below $magicSeller.hisher table, and procures a ring...
+      <<set $building.magic to setup.createRing()>>
+      <<replace "#magic">>The $building.magicSeller.manwoman beckons you over to $building.magicSeller.hisher stall, and introduces $building.magicSeller.himherself as <<profile $building.magicSeller>>, a purveyor of fine goods. The $building.magicSeller.raceNote asks you for your ring size, and then $building.magicSeller.heshe reaches below $building.magicSeller.hisher table, and procures a ring...
             <div class="descriptive">
-              <h3><<print setup.articles.output($marketMagic.material).toUpperFirst()>> ring</h3>
-              $marketMagic.firstOutputs</div>
-      <</replace>><<link "<h4>Look at another ring</h4>">><<set $marketMagic to setup.createRing()>>
+              <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
+              $building.magic.firstOutputs</div>
+      <</replace>><<link "<h4>Look at another ring</h4>">><<set $building.magic to setup.createRing()>>
           <<replace "#magic">>
                 <div class="descriptive">
-                  <h3><<print setup.articles.output($marketMagic.material).toUpperFirst()>> ring</h3>
-                  $marketMagic.secondOutputs</div><</replace>><</link>><<run console.log($marketMagic)>><</nobr>>
+                  <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
+                  $building.magic.secondOutputs</div><</replace>><</link>><<run console.log($building.magic)>><</nobr>>
     <<default>>
-      <<set $marketMagic to setup.createMagic($marketMagicType)>><<run console.log($marketMagic)>>
-      <<replace "#magic">><div class='descriptive'><h3>$marketMagic.name</h3>$marketMagic.description</div><</replace>>
+      <<set $building.magic to setup.createMagic($building.magicType)>><<run console.log($building.magic)>>
+      <<replace "#magic">><div class='descriptive'><h3>$building.magic.name</h3>$building.magic.description</div><</replace>>
   <</switch>>
-<<unset $marketMagic>>
 <</button>>
 
 <span id="magic"></span>

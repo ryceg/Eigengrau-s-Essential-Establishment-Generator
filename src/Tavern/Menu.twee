@@ -3,13 +3,13 @@
 <<nobr>>
 <<linkreplace "<h4>What's good?</h4>" t8n>>
 	<h3>On offer today...</h3>
-	<<print setup.closestMatch(setup.tavern.get.menu($tavern), 'note', 'wealthRoll', 'roughnessRoll', $tavern.roll.wealth, $tavern.roll.roughness)>>
+	<<print setup.closestMatch(setup.tavern.get.menu($building), 'note', 'wealthRoll', 'roughnessRoll', $building.roll.wealth, $building.roll.roughness)>>
 
-<<if $tavern.roll.wealth gte 50 && ndef $tavern.specialBrew>>
-<<set $tavern.specialBrew to setup.tavern.specialBrew.random()>>
+<<if $building.roll.wealth gte 50 && ndef $building.specialBrew>>
+<<set $building.specialBrew to setup.tavern.specialBrew.random()>>
 	<div class='descriptive'>
-	<h3>$tavern.specialBrew.name</h3>
-	The special brew of the week is <<print setup.articles.output($tavern.specialBrew.type)>> called $tavern.specialBrew.name, selling for <<money $tavern.specialBrew.cost>>. $tavern.specialBrew.description
+	<h3>$building.specialBrew.name</h3>
+	The special brew of the week is <<print setup.articles.output($building.specialBrew.type)>> called $building.specialBrew.name, selling for <<money $building.specialBrew.cost>>. $building.specialBrew.description
 	</div>
 <</if>>
 

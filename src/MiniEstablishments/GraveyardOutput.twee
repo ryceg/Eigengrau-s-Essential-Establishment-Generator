@@ -1,11 +1,11 @@
 :: GraveyardOutput
-<<unset $selectedBuilding>><<set $graveyard to ($town.buildings.graveyard[$selected.key] || $town.buildings.graveyard[$currentPassage.key])>><<set $gravedigger to $npcs[$graveyard.gravedigger.key]>><<set $graveyardTree to $graveyard.graveyardTree>><h1>$graveyard.name</h1>
-You walk down $graveyard.road to the $graveyard.wordNoun. It is $graveyard.location, and is $graveyard.size. You enter the $graveyard.wordNoun $graveyard.entrance. It's mostly $graveyard.cleanliness. As you enter you notice $graveyard.feature.
+<<unset $selectedBuilding>><<set $building to ($town.buildings.graveyard[$selected.key] || $town.buildings.graveyard[$currentPassage.key])>><<set $building.associatedNPC to $npcs[$building.gravedigger.key]>><<set $buildingTree to $building.graveyardTree>><h1>$building.name</h1>
+You walk down $building.road to the $building.wordNoun. It is $building.location, and is $building.size. You enter the $building.wordNoun $building.entrance. It's mostly $building.cleanliness. As you enter you notice $building.feature.
 
 <h3> Gravedigger </h3>
-$graveyard.gravediggerLook.
-The gravedigger greets you as you come near, and introduces $gravedigger.himherself as <<profile $gravedigger>>. <<print $gravedigger.heshe.toUpperFirst()>> says $graveyard.gravediggerChat.
+$building.gravediggerLook.
+The gravedigger greets you as you come near, and introduces $building.associatedNPC.himherself as <<profile $building.associatedNPC>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
 
 
-<<link "Visit a grave">><<set $deadNPC to setup.createDeadNPC($town)>><<replace "#deadNPC">>Here lies <<profile $deadNPC>>, <<print setup.articles.output($deadNPC.dndClass)>> of $deadNPC.ageYears years. <<print $deadNPC.death.cause.toUpperFirst()>>. <<print $deadNPC.death.burialConditions.toUpperFirst()>><</replace>><</link>>
-<div id="deadNPC"><<if def $deadNPC>>Here lies <<profile $deadNPC>>, a <<print $deadNPC.dndClass || $deadNPC.profession>> of $deadNPC.ageYears years. <<print $deadNPC.death.cause.toUpperFirst()>>. <<print $deadNPC.death.burialConditions.toUpperFirst()>><</if>></div>
+<<link "Visit a grave">><<set $building.deadNPC to setup.createDeadNPC($town)>><<replace "#deadNPC">>Here lies <<profile $building.deadNPC>>, <<print setup.articles.output($building.deadNPC.dndClass)>> of $building.deadNPC.ageYears years. <<print $building.deadNPC.death.cause.toUpperFirst()>>. <<print $building.deadNPC.death.burialConditions.toUpperFirst()>><</replace>><</link>>
+<div id="deadNPC"><<if def $building.deadNPC>>Here lies <<profile $building.deadNPC>>, a <<print $building.deadNPC.dndClass || $building.deadNPC.profession>> of $building.deadNPC.ageYears years. <<print $building.deadNPC.death.cause.toUpperFirst()>>. <<print $building.deadNPC.death.burialConditions.toUpperFirst()>><</if>></div>

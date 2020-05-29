@@ -1,2 +1,0 @@
-:: Alchemist
-<<set $alchemist to setup.createAlchemist($town)>>

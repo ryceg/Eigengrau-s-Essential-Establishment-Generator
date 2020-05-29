@@ -1,3 +1,0 @@
-:: Town
-
-<<set $town to setup.createTown()>>

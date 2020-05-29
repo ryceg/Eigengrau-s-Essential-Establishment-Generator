@@ -1,2 +1,0 @@
-:: generalStore
-<<set $generalStore to setup.createGeneralStore($town)>>

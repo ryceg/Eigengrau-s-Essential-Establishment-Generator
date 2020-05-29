@@ -80,49 +80,49 @@ setup.tavern = {
     {
       name: 'Passe-dix',
       type: 'chance game',
-      description: "You see <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor true>> take three six-sided dice, and then roll them. <<print $NPCgamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $NPCgamer.hisher winnings from <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor true>> who is holding a carrot. The dice moves to the next player, and the $NPCgamebanker.weight <<print $NPCgamebanker.raceSingular>> with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print ['boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing'].random()>>.",
+      description: "You see <<profile $npcs[$building.gamer.key] $building.gamer.descriptor true>> take three six-sided dice, and then roll them. <<print $building.gamer.heshe.toUpperFirst()>> roars with pleasure as the dice come to a total of <<print random(11, 18)>>, and grabs $building.gamer.hisher winnings from <<profile $npcs[$building.gameBanker.key] $building.gameBanker.descriptor true>> who is holding a carrot. The dice moves to the next player, and the $building.gameBanker.weight <<print $building.gameBanker.raceSingular>> with the carrot (which clearly signifies who is acting as the banker) hands it to the next person in the circle, and everyone that's playing hands the new banker some coins. The player then rolls the dice, but only rolls a total of <<print random(5, 9)>>, which is met with <<print ['boos and jeering', 'disappointed sighs', 'extreme disappointment', 'good-natured teasing'].random()>>.",
       rules: 'Passe-dix is played with three dice. There’s always a banker, and the number of players is unlimited. The first gamer rolls: every time he throws UNDER ten he (and all the other players in the game) lose the specified stake, which goes to the banker. Every time he rolls ABOVE ten (or PASSES TEN–whence the name of the game), the banker must return double the stake to all the players in the game. After three losses of the roller (no matter how many wins), the roller position is passed to another gamer in the circle. The banker changes after each roll.',
       bet: random(15, 25)
     },
     {
       name: 'Highest Points',
       type: 'chance game',
-      description: '<<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor true>>, and <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor true>> are sitting in the middle of the room with two whittled dice each. They chuck <<money $taverngames.bet>> on the table, then roll, and the one that rolled higher grins as they grab the copper.',
+      description: '<<profile $npcs[$building.gameBanker.key] $building.gameBanker.descriptor true>>, and <<profile $npcs[$building.gamer.key] $building.gamer.descriptor true>> are sitting in the middle of the room with two whittled dice each. They chuck <<money $buildinggames.bet>> on the table, then roll, and the one that rolled higher grins as they grab the copper.',
       rules: '2 six-sided dice, 2 players: each roll both dice and the highest sum wins.',
       bet: random(2, 5)
     },
     {
       name: 'Cross and Pile',
       type: 'chance game',
-      description: '<<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor true>> and <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor true>> sit around a large table, and take turns flipping a coin. As the coin flies mid-air, the $NPCgamer.weight $NPCgamer.race calls out the result, and guesses correctly, grabbing $NPCgamer.hisher meager winnings.',
+      description: '<<profile $npcs[$building.gamer.key] $building.gamer.descriptor true>> and <<profile $npcs[$building.gameBanker.key] $building.gameBanker.descriptor true>> sit around a large table, and take turns flipping a coin. As the coin flies mid-air, the $building.gamer.weight $building.gamer.race calls out the result, and guesses correctly, grabbing $building.gamer.hisher meager winnings.',
       rules: 'Two players choose each side of a coin, and then the coin is flipped. The top side after flipping the coin is the one that wins.',
       bet: random(7, 14)
     },
     {
       name: 'Thimble Rig',
       type: 'guessing game',
-      description: "<<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor true>>'s quick hands, a pair of eyes belonging to a <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $NPCgamer.raceNote who is playing to bet that it was there, and then winning $NPCgamer.hisher money by showing that it is not.",
+      description: "<<profile $npcs[$building.gameBanker.key] $building.gameBanker.descriptor true>>'s quick hands, a pair of eyes belonging to a <<profile $npcs[$building.gamer.key] $building.gamer.descriptor>> watching carefully, a deal board, three thimbles, and a pepper-corn sit in the corner, along with a crowd of people watching the two. The game they play around the table with these curious articles is a sort of Lilliputian game at cups and balls; and the beauty of it lies in seeming to place the pepper-corn under one particular thimble, getting the $building.gamer.raceNote who is playing to bet that it was there, and then winning $building.gamer.hisher money by showing that it is not.",
       rules: 'The object of the game is to guess which thimble the peppercorn is under; sort of like a miniature cup and balls.',
       bet: random(4, 9)
     },
     {
       name: 'Arm Wrestling',
       type: 'strength game',
-      description: "A <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> and <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor true>> sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
+      description: "A <<profile $npcs[$building.gamer.key] $building.gamer.descriptor>> and <<profile $npcs[$building.gameBanker.key] $building.gameBanker.descriptor true>> sit across from each other, their right arms' elbow on the table, holding each others hand in their palm. A referee counts down from three, and as soon as he shouts 'go'!, the two start straining against each other, fighting to push the other's hand down through sheer force of will.",
       rules: '<blockquote> <<print random(12, 25)>> DC Athletics Check</blockquote>',
       bet: random(6, 12)
     },
     {
       name: 'Two-Up',
       type: 'gambling game',
-      description: 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> groaning whenever they both turned heads, and another <<profile $npcs[$NPCgamebanker.key] $NPCgamebanker.descriptor>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
+      description: 'A small crowd of people are gathered around a table, where two people flip two coins in the air, with one <<profile $npcs[$building.gamer.key] $building.gamer.descriptor>> groaning whenever they both turned heads, and another <<profile $npcs[$building.gameBanker.key] $building.gameBanker.descriptor>> greedily grabbing the coins from the man in charge of overseeing the bets whenever they both turn tails, flicking the overseer a copper for his troubles.',
       rules: "Two coins are flipped by the 'spinner', who bets against another. Both heads wins, both tails loses, and one of each calls for another cointoss, with the 'spinner' losing out on five consecutive re-tosses.",
       bet: random(4, 10)
     },
     {
       name: 'Morra',
       type: 'guessing game',
-      description: 'A drunk looking <<profile $npcs[$NPCgamer.key] $NPCgamer.descriptor>> pulls his hand out from behind his back and shouts <<print random(0, 15)>>. Two other people do the same thing and after a moment the $NPCgamer.raceNote <<print ["cries out in joy", "cheers loudly", "hangs his head in defeat", "lets out a quiet sob, and hands another person a small coin purse"].random()>>.',
+      description: 'A drunk looking <<profile $npcs[$building.gamer.key] $building.gamer.descriptor>> pulls his hand out from behind his back and shouts <<print random(0, 15)>>. Two other people do the same thing and after a moment the $building.gamer.raceNote <<print ["cries out in joy", "cheers loudly", "hangs his head in defeat", "lets out a quiet sob, and hands another person a small coin purse"].random()>>.',
       rules: 'Between two and four people throw out a single hand with any number of fingers held up. Right before the hands are shown, each player will call out how many fingers they think will be held up in total between each player. If a player guesses the correct number of fingers they get a point, and it takes three points to win.',
       bet: random(4, 10)
     }
@@ -648,7 +648,7 @@ setup.tavern = {
           //     tavern
           //   }
           // },
-          drawFeature: `You see the bartender is talking to a <<profile $tavern.patron $tavern.patron.descriptor>>. ${bartender.heshe.toUpperFirst()} smiles, and then says something, making the $tavern.patron.descriptor go white as a sheet, and immediately leave the establishment, with ${bartender.firstName} laughing, calling $tavern.patron.himher 'too goody-two-shoes to be able to handle ${tavern.name}.`
+          drawFeature: `You see the bartender is talking to a <<profile $building.patron $building.patron.descriptor>>. ${bartender.heshe.toUpperFirst()} smiles, and then says something, making the $building.patron.descriptor go white as a sheet, and immediately leave the establishment, with ${bartender.firstName} laughing, calling $building.patron.himher 'too goody-two-shoes to be able to handle ${tavern.name}.`
         },
         {
           draw: "proximity to the thieves' guild headquarters",
@@ -670,7 +670,7 @@ setup.tavern = {
         },
         {
           draw: 'proximity to the brothel',
-          drawFeature: `You saw a sign outside which read 'No Soliciting', but inside, you see a much larger, more insistent sign which read 'NO SOLICITING. OF EITHER SORT'. Clearly, ${tavern.name} has an issue with the nearby whorehouse, [[$brothel.name|BrothelOutput]].`
+          drawFeature: `You saw a sign outside which read 'No Soliciting', but inside, you see a much larger, more insistent sign which read 'NO SOLICITING. OF EITHER SORT'. Clearly, ${tavern.name} has an issue with the nearby whorehouse, [[$building.name|BrothelOutput]].`
         },
         {
           draw: 'proximity to the church',

@@ -1,12 +1,12 @@
 :: TavernGames
 <<nobr>>
-<<set $NPCgamer to setup.createNPC($town, { isShallow: true })>>
-<<set $NPCgamebanker to setup.createNPC($town, { isShallow: true })>>
+<<set $building.gamer to setup.createNPC($town, { isShallow: true })>>
+<<set $building.gameBanker to setup.createNPC($town, { isShallow: true })>>
 <div class="descriptive">
-<h3>$tavern.game.name</h3>
-$tavern.game.description
+<h3>$building.game.name</h3>
+$building.game.description
 <<linkreplace "Ask to play">>
-	<br>The $NPCgamer.raceNote that was playing says "$tavern.game.rules The current bet is <<money $tavern.game.bet>>."
+	<br>The <<profile $building.gamer $building.gamer.descriptor>> that was playing says "$building.game.rules The current bet is <<money $building.game.bet>>."
 <</linkreplace>>
 </div>
 <</nobr>>

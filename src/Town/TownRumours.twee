@@ -3,7 +3,7 @@
 <<set $town.rumours to [
     {
       title: "bodies being dug up",
-      rumour: "I heard that there were bodies being dug up out in the cemetary near $alchemist.road.",
+      rumour: "I heard that there were bodies being dug up out in the cemetary near $building.road.",
       dm: "Gravediggers have been hired by a cult to bring fresh corpses for rituals.",
     },
 

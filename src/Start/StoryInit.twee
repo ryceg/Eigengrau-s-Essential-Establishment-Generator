@@ -6,21 +6,10 @@
 
 <<set Config.history.maxStates to 15>>
 <<set $versionNumber to "2.4">>
-
-<<set $towns to []>>
 <<set $npcs to {}>>
-
-<<include "Town">>
-<<set $weather to {
-	season: ["winter", "spring", "summer", "autumn"].random(),
-	seasonPool: ["winter", "spring", "summer", "autumn"]
-}>>
+<<set $town to setup.createTown()>>
 
 <<include "PatreonCharacters">>
-
-<<include "ShitPlotHooks">>
-
-<<include "Newspaper">>
 
 <<if settings.showTutorial is false>>
 	<<set Config.passages.start = "Start">>

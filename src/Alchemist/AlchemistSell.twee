@@ -1,16 +1,16 @@
 :: AlchemistSell
-<<linkreplace "<h4>Buy something</h4>">><h6>$alchemist.name's Potions and Wares</h6><<nobr>>
+<<linkreplace "<h4>Buy something</h4>">><h6>$building.name's Potions and Wares</h6><<nobr>>
 <div class="descriptive">
 <<switch $town.type>>
   <<case "city">>
-  $chemist.name smiles, and says "You're looking to buy something? Name it, here at $alchemist.name, we stock everything the average adventurer could possibly need!
+  $associatedNPC.name smiles, and says "You're looking to buy something? Name it, here at $building.name, we stock everything the average adventurer could possibly need!
   <<case "town">>
-  $chemist.name says "Well, what is it you need? We specialise in <<print ["healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major"].random()>> potions, but can do just about anything for you.
+  $associatedNPC.name says "Well, what is it you need? We specialise in <<print ["healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major"].random()>> potions, but can do just about anything for you.
   <<case "village">>
-  $chemist.name says "Sure, what are you after? <<print $chemist.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
+  $associatedNPC.name says "Sure, what are you after? <<print $associatedNPC.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>
-  $chemist.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $chemist.ingredients.random>>, <<print $chemist.ingredients.random>>, <<print $chemist.ingredients.random>>, you name it!
-<</switch>><<print setup.closestMatch(setup.alchemist.get.priceTalk($alchemist), 'priceTalk', 'priceModifier', 'wealth', '$alchemist.priceModifier', '$alchemist.roll.wealth')>>"</div>
+  $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $associatedNPC.ingredients.random>>, <<print $associatedNPC.ingredients.random>>, <<print $associatedNPC.ingredients.random>>, you name it!
+<</switch>><<print setup.closestMatch(setup.alchemist.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
 <<switch $town.type>>
   <<case "city">>
     <<set _availability to 4>>
@@ -34,7 +34,7 @@
   && item.type === "adventuring gear"
   && item.availabilityLocation.includes("alchemist");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Tools</h6>
@@ -43,7 +43,7 @@
   && item.type === "tools"
   && item.availabilityLocation.includes("alchemist");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
 <h6>Consumables</h6>
@@ -52,7 +52,7 @@
   && item.type === "consumables"
   && item.availabilityLocation.includes("alchemist");
   })>><tr><td>_item.name</td>
-<td><<money _item.cost>></td></tr>
+<td><<money _item.cost $building>></td></tr>
 <</for>>
 
   </table><</nobr>><</linkreplace>>
