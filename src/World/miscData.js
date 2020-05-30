@@ -17,12 +17,13 @@ setup.misc = {
   },
   medal: {
     create: base => {
-      const medal = Object.assign({
+      const medal = {
         metal: setup.misc.medal.metal.random(),
         material: setup.misc.medal.material.random(),
         emblem: setup.misc.medal.emblem.random(),
-        colour: setup.misc.medal.colour.random()
-      }, base)
+        colour: setup.misc.medal.colour.random(),
+        ...base
+      }
       medal.readout = `This medal's emblem is made of ${medal.metal} and has a ${medal.material} ribbon. The emblem is ${medal.emblem} and the ribbon is coloured ${medal.colour}.`
       medal.tip = `<span class="dotted"><<tooltip "medal"${JSON.stringify(medal.readout)}>></span>`
 
@@ -35,15 +36,16 @@ setup.misc = {
   },
   treasureMap: {
     create: base => {
-      const map = Object.assign({
+      const map = {
         one: setup.misc.treasureMap.one.random(),
         two: setup.misc.treasureMap.two.random(),
         three: setup.misc.treasureMap.three.random(),
         four: setup.misc.treasureMap.four.random(),
         five: setup.misc.treasureMap.five.random(),
         six: setup.misc.treasureMap.six.random(),
-        seven: setup.misc.treasureMap.seven.random()
-      }, base)
+        seven: setup.misc.treasureMap.seven.random(),
+        ...base
+      }
       map.readout = `${['Find the ', 'Start at the '].random() + map.one} Then, ${map.two} until you find the ${map.three} Then, ${map.four} until you reach ${map.five} Then, ${map.six} You will find the treasure ${map.seven}`
       map.tippy = setup.createTippy(map.readout)
       map.tippyWord = setup.createTippyWord(map.tippy, 'map')
@@ -60,7 +62,7 @@ setup.misc = {
   caravan: {
     create: (town, base) => {
       const masterType = Object.keys(setup.misc.caravan.masterType).random()
-      const caravan = Object.assign({
+      const caravan = {
         type: setup.misc.caravan.caravanType.random(),
         animals: setup.misc.caravan.animals.random(),
         transporting: setup.misc.caravan.transporting.random(),
@@ -68,8 +70,9 @@ setup.misc = {
         masterType,
         masterLooking: setup.misc.caravan.masterLooking.random(),
         masterAvoid: setup.misc.caravan.masterAvoid.random(),
-        masterCarry: setup.misc.caravan.masterCarry.random()
-      }, base)
+        masterCarry: setup.misc.caravan.masterCarry.random(),
+        ...base
+      }
       caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
       caravan.readout = `The caravan is ${caravan.type}, with ${caravan.animals} as the pack animals. They are transporting ${caravan.transporting}, and the general mood seems to be ${caravan.mood} The master is ${setup.profile(caravan.master, JSON.stringify(caravan.masterType))}, who is looking for ${caravan.masterLooking}. ${caravan.master.heshe.toUpperFirst()} is taking special care to avoid ${caravan.masterAvoid} and is carrying ${caravan.masterCarry} with ${caravan.master.himher}.`
       caravan.tippy = setup.createTippy(caravan.readout)
@@ -145,13 +148,14 @@ setup.misc = {
   },
   ghost: {
     create: base => {
-      const ghost = Object.assign({
+      const ghost = {
         profession: setup.misc.ghost.profession.random(),
         cause: setup.misc.ghost.cause.random(),
         reason: setup.misc.ghost.reason.random(),
         release: setup.misc.ghost.release.random(),
-        reaction: setup.misc.ghost.reaction.random()
-      }, base)
+        reaction: setup.misc.ghost.reaction.random(),
+        ...base
+      }
       ghost.readout = `This ghost was once ${ghost.profession}. They died from ${ghost.cause}, and linger on in this life ${ghost.reason}. They can move on if ${ghost.release}. It is ${ghost.reaction} towards the living.`
       ghost.tippy = setup.createTippy(ghost.readout)
       ghost.tippyWord = setup.createTippyWord(ghost.tippy, 'ghost')
@@ -201,7 +205,7 @@ setup.misc = {
   },
   goblins: {
     create: base => {
-      const goblins = Object.assign({
+      const goblins = {
         business: setup.misc.goblins.business.random(),
         symbol: setup.misc.goblins.symbol.random(),
         colour: setup.misc.goblins.colour.random(),
@@ -213,8 +217,9 @@ setup.misc = {
         goals: setup.misc.goblins.goals.random(),
         tactics: setup.misc.goblins.tactics.random(),
         accompaniedBy: setup.misc.goblins.accompaniedBy.random(),
-        pets: setup.misc.goblins.pets.random()
-      }, base)
+        pets: setup.misc.goblins.pets.random(),
+        ...base
+      }
       goblins.readout = `These goblins primarily deal with ${goblins.business}. Their symbol is ${goblins.symbol}, and their colours are primarily ${goblins.colours}. Their lair is ${goblins.lairType}, located ${goblins.lairLocation}. Their leader is ${goblins.leaderType}, who wants ${goblins.goals}. They like to target ${goblins.target}, and are currently planning a raid on ${goblins.currentTarget}. They fight with ${goblins.tactics}, and occasionally enlist help from ${goblins.accompaniedBy}. They have some ${goblins.pets} as pets.`
       goblins.tippy = setup.createTippy(goblins.readout)
       goblins.tippyWord = setup.createTippyWord(goblins.tippy, 'goblins')
@@ -235,15 +240,16 @@ setup.misc = {
   },
   goblin: {
     create: base => {
-      const goblin = Object.assign({
+      const goblin = {
         type: setup.misc.goblin.type.random(),
         carry: setup.misc.goblin.carry.random(),
         wears: setup.misc.goblin.wears.random(),
         faceFeature: setup.misc.goblin.faceFeature.random(),
         feature: setup.misc.goblin.feature.random(),
         looks: setup.misc.goblin.looks.random(),
-        talent: setup.misc.goblin.talent.random()
-      }, base)
+        talent: setup.misc.goblin.talent.random(),
+        ...base
+      }
       goblin.readout = `This goblin is ${goblin.type}, and has a ${goblin.faceFeature}. It wields ${goblin.carry} and wears ${goblin.wears}. This goblin is particularly good at ${goblin.talent}, and has ${goblin.feature}. Currently, it is looking to ${goblin.looks}`
       goblin.tippy = setup.createTippy(goblin.readout)
       goblin.tippyWord = setup.createTippyWord(goblin.tippy, 'goblin')
@@ -277,7 +283,8 @@ setup.misc = {
         goals: setup.misc.bandits.goals.random(),
         weapons: setup.misc.bandits.weapons.random(),
         lair: setup.misc.bandits.lair.random(),
-        fearedBy: setup.misc.bandits.fearedBy.random()
+        fearedBy: setup.misc.bandits.fearedBy.random(),
+        ...base
       }
       bandits.readout = `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
       bandits.tippy = setup.createTippy(bandits.readout)
@@ -544,11 +551,12 @@ setup.misc = {
     shrine: {
       create: (town, base) => {
         const sensesArray = Object.keys(setup.misc.religion.shrine.senses).random()
-        const shrine = Object.assign({
+        const shrine = {
           god: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random()].random(),
           material: setup.misc.religion.shrine.material.random(),
-          senses: setup.misc.religion.shrine.senses[sensesArray](town)
-        }, base)
+          senses: setup.misc.religion.shrine.senses[sensesArray](town),
+          ...base
+        }
         shrine.readout = `You come across a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
         shrine.tippy = setup.createTippy(shrine.readout)
         shrine.tippyWord = setup.createTippyWord(shrine.tippy, 'shrine')
@@ -784,15 +792,16 @@ setup.misc = {
     ceiling: ['uncomfortably close to your head', 'covered in stalactites (watch your head!)', 'smooth as glass', 'rough and jagged', 'connected to the floor by natural columns', 'so high it’s difficult to see'],
     hazards: ['a colony of poisonous mushrooms', 'a patch of toxic mold', 'the ceiling caves in', 'several rocks tumble down a sloped wall', 'the floor is very slippery', 'your foot misses the floor as you step into a pit or chasm'],
     create: base => {
-      const cavern = Object.assign({
+      const cavern = {
         noun: 'cavern',
         entrance: setup.misc.cavern.entrance.random(),
         landmark: setup.misc.cavern.landmark.random(),
         feature: setup.misc.cavern.feature.random(),
         walls: setup.misc.cavern.walls.random(),
         ceiling: setup.misc.cavern.ceiling.random(),
-        hazards: setup.misc.cavern.hazards.random()
-      }, base)
+        hazards: setup.misc.cavern.hazards.random(),
+        ...base
+      }
       cavern.readout = `The ${cavern.noun} entrance is ${cavern.entrance}. As you enter, you see ${cavern.landmark}, and ${cavern.feature}. The walls are ${cavern.walls}, and the ceiling above is ${cavern.ceiling}.`
       return cavern
     }
@@ -800,11 +809,12 @@ setup.misc = {
   tree: {
     create: (town, biome, base) => {
       biome = biome || ['forest', 'desert', 'mountain', 'plains'].random()
-      const tree = Object.assign({
+      const tree = {
         species: setup.misc.tree.biome[biome].species.random(),
         size: setup.misc.tree.biome[biome].size.random(),
-        feature: setup.misc.tree.biome[biome].feature.random()
-      }, base)
+        feature: setup.misc.tree.biome[biome].feature.random(),
+        ...base
+      }
       tree.readout = `The ${tree.species} tree is ${tree.size} ${tree.feature}`
       tree.tippy = setup.createTippy(tree.readout)
       tree.tippyWord = setup.createTippyWord(tree.tippy, 'tree')
@@ -925,7 +935,7 @@ setup.misc = {
   },
   cabin: {
     create: (town, base, biome) => {
-      const cabin = Object.assign({
+      const cabin = {
         material: ['wooden', 'wooden', 'wooden', 'stone'].random(),
         wordNoun: 'cabin',
         feature: setup.misc.cabin.feature.random(),
@@ -937,8 +947,9 @@ setup.misc = {
           size: random(1, 100),
           cleanliness: random(1, 100),
           bedCleanliness: random(1, 100)
-        }
-      }, base)
+        },
+        ...base
+      }
       cabin.size = ''
       cabin.cleanliness = ''
       cabin.bedCleanliness = ''
@@ -1034,11 +1045,12 @@ setup.misc = {
       const type = ['trail', 'path', 'path', 'road', 'road', 'road'].random()
       const encounterKey = setup.misc.road[type].encounters.random()
       console.log(encounterKey)
-      const road = Object.assign({
+      const road = {
         type: setup.misc.road[type].type.random(),
         traffic: setup.misc.road[type].traffic.random(),
-        encounter: setup.misc.encounters[encounterKey](town)
-      }, base)
+        encounter: setup.misc.encounters[encounterKey](town),
+        ...base
+      }
       return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()}`].random()}${road.encounter}`
     },
     trail: {
