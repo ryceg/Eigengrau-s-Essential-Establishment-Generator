@@ -234,7 +234,7 @@ setup.npcData = {
         'The thing was stolen from me one night and I never saw it again'
       ]
     },
-    magicalCreatue: {
+    magicalCreature: {
       probability: 2,
       exclusions (town, npc) {
         return setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90
@@ -244,12 +244,12 @@ setup.npcData = {
         const flower = setup.flora.flower.stemP.random()
         const tree = setup.flora.tree.typeArticle.random()
         const fruitTree = setup.flora.fruit.tree.random()
-        const goodPlace = setup.npcData.lifeEvents.magicalCreatue.goodPlaces.random()
-        const goodCreature = setup.npcData.lifeEvents.magicalCreatue.goodCreatures.random()
-        const goodAnimal = setup.npcData.lifeEvents.magicalCreatue.goodAnimals.random()
-        const badPlace = setup.npcData.lifeEvents.magicalCreatue.badPlaces.random()
-        const badCreature = setup.npcData.lifeEvents.magicalCreatue.badCreatures.random()
-        const badAnimal = setup.npcData.lifeEvents.magicalCreatue.badAnimals.random()
+        const goodPlace = setup.npcData.lifeEvents.magicalCreature.goodPlaces.random()
+        const goodCreature = setup.npcData.lifeEvents.magicalCreature.goodCreatures.random()
+        const goodAnimal = setup.npcData.lifeEvents.magicalCreature.goodAnimals.random()
+        const badPlace = setup.npcData.lifeEvents.magicalCreature.badPlaces.random()
+        const badCreature = setup.npcData.lifeEvents.magicalCreature.badCreatures.random()
+        const badAnimal = setup.npcData.lifeEvents.magicalCreature.badAnimals.random()
         return [
         // good/non-hostile creatures
           `${['while I was travelling through', 'while I was journeying through', 'while passing through', 'while exploring'].random()} ${[`${tree} forest`, `a field of ${flower}`, `an orchard of ${fruitTree} trees`, goodPlace].random()}, ${['I saw', 'I spotted', 'I came across', 'I stumbled upon', 'I ran into', 'I caught sight of'].random()} ${[goodCreature, goodCreature, `a giant ${goodAnimal}`].random()}! ${['I got pretty close to it before it ran off', 'I got close enough to touch it', 'It ran off as soon as it saw me', 'It spent the day following me from a distance'].random()}.`,
@@ -379,8 +379,7 @@ setup.npcData = {
           ].random()
         } else {
           return [
-            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].random()}. While I was there, I ${festivalDid}.`,
-            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a heroe's festival"].random()}. While I was there, I ${festivalDid}.`
+            `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a hero's festival"].random()}. While I was there, I ${festivalDid}.`
           ].random()
         }
       },
@@ -600,7 +599,7 @@ setup.npcData = {
         'the adoption of a child',
         'the birth of a child',
         'the end of a skirmish',
-        'the aquisition of a title',
+        'the acquisition of a title',
         'the passing of a noble',
         'the execution of a traitor',
         'the presentation of the debutantes',
@@ -654,7 +653,7 @@ setup.npcData = {
         const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.random()
         const found = setup.npcData.lifeEvents.journey.found.random()
         const notFound = setup.npcData.lifeEvents.journey.notFound.random()
-        return `${[`${prefix} ${location} ${locationLocation}. ${['I really did make it there, ', 'I got to see that place, ', 'My journey was succesful, '].random()}${found}`,
+        return `${[`${prefix} ${location} ${locationLocation}. ${['I really did make it there, ', 'I got to see that place, ', 'My journey was successful, '].random()}${found}`,
           `${prefix} ${location} ${locationLocation}. ${['I never found it, ', 'I never got to see that place, ', 'My journey was a failure, ', 'I got lost along the way and never made it there, '].random()}${notFound}`].random()}.`
       },
       prefix: [
@@ -683,13 +682,13 @@ setup.npcData = {
         'the battlegrounds of a long over war',
         'the still-burning carcass of an ancient behemoth',
         'a secluded civilization, nearly forgotten by outsiders',
-        'an everburning flame',
+        'an ever-burning flame',
         'a mountain made of crystals',
         'an ever-raging storm',
         'a field of floating stones',
-        'an upsidedown castle',
+        'an upside-down castle',
         'a tree that touched the sky',
-        'a field of etherial flowers'
+        'a field of ethereal flowers'
       ],
       locationLocation: [
         'in an ever shifting desert',
@@ -898,7 +897,7 @@ setup.npcData = {
         'and I have found my place in my faith',
         'and I was gifted holy sight for my troubles',
         'but I do not feel any more enlightened from the experience',
-        'but I sacraficed much to finish the trip'
+        'but I sacrificed much to finish the trip'
       ]
     },
     meetFriendNPC: {
@@ -962,7 +961,7 @@ setup.npcData = {
           `I made an ${setup.profile(enemy, 'enemy')} for life in my travels- `,
           `I was framed by a ${setup.profile(enemy, 'scoundrel')} for a crime I didn't commit- `,
           `I met a ${setup.profile(enemy, 'man')}, and we played cards. He decided that I was cheating- `,
-          `I was a guest in the court of a ${setup.profile(enemy, 'lord')}, and made an embarassment of him- `,
+          `I was a guest in the court of a ${setup.profile(enemy, 'lord')}, and made an embarrassment of him- `,
           `I used to play cards in a pub, and one time supposedly cheated a ${setup.profile(enemy, 'man')} out of his winnings; `
         ].random() + [
           'it was a misunderstanding, but I cannot convince him otherwise. ',
@@ -1109,7 +1108,7 @@ setup.npcData = {
           } else if (adventureRoll >= 21) {
             adventureResults = 'was wounded, but recovered in time.'
           } else if (adventureRoll >= 11) {
-            adventureResults = 'was greivously wounded, but recovered in time. It still hurts, from time to time.'
+            adventureResults = 'was grievously wounded, but recovered in time. It still hurts, from time to time.'
           } else if (adventureRoll < 11) {
             adventureResults = "nearly died- that's how I got the scars."
             npc.physicalTrait = ['a missing ear', 'a missing finger', 'two missing fingers'].random()
@@ -1352,14 +1351,14 @@ setup.npcData = {
   tattoo: ['a dagger tattoo', 'an arrow tattoo', 'an anchor tattoo', 'a skull tattoo', 'a pair of crossed bones tattoo', 'a snake tattoo', 'a scorpion tattoo', 'a spider web tattoo', 'a heart tattoo', 'a ring of thorns tattoo', 'a mermaid tattoo', 'a dragon tattoo'],
   demeanour: ['calm', 'moody', 'kind', 'conceited', 'cruel', 'mean', 'careful', 'polite', 'happy'],
   vocalPattern: ['is incoherent except for a few key words', 'stutters', 'says ‘um’ a lot', 'says ‘like’ a lot', 'swears', "uses thee's and thou's", 'never stops to breathe', 'uses short, clipped sentences', 'talks in third person', "doesn't conjugate well (‘me make good soup’)", 'rolls R’s', 'never uses contractions', 'is whiny', 'obviously has a stuffy nose', 'tongue stuck to back of teeth', 'does so through clenched teeth', 'speaks in a sing-song voice', 'likes to rhyme', "spits on every 's' sound", 'makes all Th-sounds become Z-sounds', 'repeats the last few words of a sentence/thought (‘nice to meet you, meet you’)', 'uses full titles or descriptions of how he knows you (‘ellen-farmers-daughter is pretty’)', 'strings together adjectives/adverbs for more impact (‘wow, your dress is pretty-pretty!’ ‘I am short-short-short.’)', 'appends all non-proper nouns end with ‘en’/’sen’ (‘may I have some applesen?’ ‘I saw a big moosen!’)', 'speaks in such a way that all L-sounds become w-sounds', 'repeats the last word you say before responding', 'sings everything', 'does the wrong emphasis on the wrong syllables', 'pauses often', 'has a clipped pattern of speech', 'is rather monotonous', 'whistles on S-sounds', 'spits on Th-sounds and S-sounds (think Sylvester the cat from Looney toons)', 'has a light lisp', 'makes all r-sounds become w-sounds', 'has a severe underbite', 'has a severe overbite', 'speaks out of the corner of his mouth', 'is always pouting', 'makes ‘ar/er’ sounds become ‘aye’ sounds (fart will sound like fight, water will sound like watay)', 'makes soft letters elongated (‘ssssso, hhhhhhow are you?’)', 'slurs words', 'always has a full mouth while talking', 'sighs after each sentence', 'never uses am/is/are/was/were (‘I big.’ ‘She pretty.’)}', 'responds in the form of questions', 'mutters'],
-  calmTrait: ['compassionate', 'cheerful', 'reserved', 'outspoken', 'uninterested', 'gruff', 'eager', 'deceitful', 'foolish', 'strict', 'agreeable', 'mischeivious', 'angry', 'fearful', 'manipulative', 'devout', 'greedy', 'funny', 'dour', 'fun-loving', 'lazy', 'driven', 'boastful', 'artistic', 'assertive', 'carefree', 'cautious', 'confident', 'thoughtful', 'loyal', 'sophisticated', 'weak-willed'],
+  calmTrait: ['compassionate', 'cheerful', 'reserved', 'outspoken', 'uninterested', 'gruff', 'eager', 'deceitful', 'foolish', 'strict', 'agreeable', 'mischeivous', 'angry', 'fearful', 'manipulative', 'devout', 'greedy', 'funny', 'dour', 'fun-loving', 'lazy', 'driven', 'boastful', 'artistic', 'assertive', 'carefree', 'cautious', 'confident', 'thoughtful', 'loyal', 'sophisticated', 'weak-willed'],
   stressTrait: ['withdrawn', 'murderous', 'obsessive', 'authoritarian', 'determined', 'brave', 'spiteful', 'belligerent', 'caustic', 'reckless', 'argumentative', 'gluttonous', 'overly protective', 'angry', 'cowardly', 'meticulous', 'sarcastic', 'stubborn', 'destructive', 'practical', 'pushy', 'fanatical', 'secretive', 'scornful', 'courageous', 'impractical', 'calculating', 'industrious', 'manipulative', 'destructive', 'compulsive', 'intolerant'],
   adventure: ['retired from adventuring', 'currently looking for an adventure', 'looking for assistance', 'recuperating from an adventure', 'on a holiday from adventuring', 'taking a short break from adventuring'],
   hairColour: ['brunette', 'brunette', 'brown', 'brownish', 'auburn', 'amber', 'hazel', 'red', 'dark red', 'blonde', 'dark blonde', 'white', 'platinum', 'black', 'black'],
   hairType: ['thick', 'wispy', 'straight', 'straight', 'wavy', 'wavy', 'curly', 'wiry', 'oily', 'lush', 'poofy', 'long', 'braided', 'very long', 'greasy', 'unruly', 'unusually styled', 'short cropped'],
   dndClass: ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'],
   background: ['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'],
-  pockets: ['5 cp', '6 cp', '15 cp', '22 cp', '27 cp', '5 sp', '5 sp', '6 sp', '7 sp', '2 gp', '34 cp and 4 sp', '12 sp and 7 gp', 'a clove of garlic', 'a vial of ink worth 8sp', 'hardtack', 'an explosive rune, dealing 2d4 fire damage', 'a palm-sized glass sphere', 'a wooden comb', 'fragments of a shattered sword', 'a deck of tarot cards', 'map of a nearby castle', 'map of the local area', 'a tin spoon', 'a mess kit', 'lacy undergarments', 'spectacles worth 5gp', 'a spool of thread', 'a piece of chalk', 'a necklace of animal teeth', "a headhunter's contract", 'a list of people in a nearby city', 'a worn leather strap', 'a ring of iron keys', 'a flask full of salt water', 'a box of candles', 'a vial of quicksilver', "a traveller's journal", 'a lead amulet', 'a signet ring for a noble house', 'a list of local taverns', 'a golden yellow topaz gem worth 50gp', 'a page torn from a spellbook', 'scraps of bad poetry', 'a pair of bloodstained gloves', 'thirteen mouse teeth', 'a pouch full of dried berries', 'an invitation to a wedding that happened a few weeks ago', 'a brass ring', 'a shopping list', 'the cork from a wine bottle', 'a scrap of paper with uninteligible writing on it', 'a smoking pipe', 'a pouch of ruby powder', 'a deed to a ruined tower', 'a bottle of honey', 'a sling with 10 bullets', 'a broken buckle', 'a knot of silk ribbons', 'a silver pearl worth 10gp', 'a potion of Polymorph Self worth 350gp', '1pp wrapped in a crude map', 'pocket sand', 'a wedge of cheese', 'a string of wooden prayer beads', 'a lock of hair', 'a dead mouse', 'a compass', 'an empty flask', '85gp', 'three diamonds worth 30gp each', 'a black pearl worth 50gp', 'a black opal worth 100gp'],
+  pockets: ['5 cp', '6 cp', '15 cp', '22 cp', '27 cp', '5 sp', '5 sp', '6 sp', '7 sp', '2 gp', '34 cp and 4 sp', '12 sp and 7 gp', 'a clove of garlic', 'a vial of ink worth 8sp', 'hardtack', 'an explosive rune, dealing 2d4 fire damage', 'a palm-sized glass sphere', 'a wooden comb', 'fragments of a shattered sword', 'a deck of tarot cards', 'map of a nearby castle', 'map of the local area', 'a tin spoon', 'a mess kit', 'lacy undergarments', 'spectacles worth 5gp', 'a spool of thread', 'a piece of chalk', 'a necklace of animal teeth', "a headhunter's contract", 'a list of people in a nearby city', 'a worn leather strap', 'a ring of iron keys', 'a flask full of salt water', 'a box of candles', 'a vial of quicksilver', "a traveller's journal", 'a lead amulet', 'a signet ring for a noble house', 'a list of local taverns', 'a golden yellow topaz gem worth 50gp', 'a page torn from a spellbook', 'scraps of bad poetry', 'a pair of bloodstained gloves', 'thirteen mouse teeth', 'a pouch full of dried berries', 'an invitation to a wedding that happened a few weeks ago', 'a brass ring', 'a shopping list', 'the cork from a wine bottle', 'a scrap of paper with unintelligible writing on it', 'a smoking pipe', 'a pouch of ruby powder', 'a deed to a ruined tower', 'a bottle of honey', 'a sling with 10 bullets', 'a broken buckle', 'a knot of silk ribbons', 'a silver pearl worth 10gp', 'a potion of Polymorph Self worth 350gp', '1pp wrapped in a crude map', 'pocket sand', 'a wedge of cheese', 'a string of wooden prayer beads', 'a lock of hair', 'a dead mouse', 'a compass', 'an empty flask', '85gp', 'three diamonds worth 30gp each', 'a black pearl worth 50gp', 'a black opal worth 100gp'],
   value: ['experience', 'family', 'progeny', 'learning', 'wealth', 'masterwork', 'revenge', 'intelligence', 'discovery', 'pilgrimage', 'invention', 'miracle', 'secret', 'martyrdom', 'collection', 'patronage', 'fame'],
   drive: ['health', 'beauty', 'thrills', 'knowledge', 'power', 'partnership', 'networking', 'glory', 'entertainment', 'helpfulness', 'bravery', 'compassion', 'piety', 'solitude', 'relationships', 'hedonism', 'privacy'],
   belief: ['piety', 'pragmatism', 'cleverness', 'stoicism', 'reason', 'self-deserving', 'dogma', 'forgiveness', 'learning', 'tough love', 'honor', 'loyalty', 'optimism', 'respect', 'self-discipline', 'integrity'],
