@@ -2,11 +2,7 @@
 setup.createBrothel = function (town, tavern) {
   console.log('Creating a brothel...')
   const brothel = setup.createBuilding(town, 'brothel')
-  // if (tavern.hasBrothel) {
-  //   brothel = tavern
-  // } else {
-  //   brothel = setup.createBuilding(town, 'brothel')
-  // }
+
   Object.assign(brothel, {
     name: setup.brothel.name.random(),
     passageName: 'BrothelOutput',
