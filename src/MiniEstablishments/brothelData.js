@@ -257,7 +257,7 @@ setup.brothel = {
     'giving tips to some of the workers on how to better please the patrons',
     'shouting at several patrons who were causing trouble',
     'gruffly shoving an unruly patron out of the brothel',
-    'discplining some of the harlots with a riding crop',
+    'disciplining some of the harlots with a riding crop',
     'flirting with a wealthy looking patron',
     'engaging in some fun with one of the other whores',
     'currently up on a small stage putting on a show',
@@ -337,7 +337,7 @@ setup.brothel = {
   },
   // this creates a new NPC with specific traits for readout in the BrothelOutput
   harlot: {
-    'create' (town, brothel, base) {
+    create (town, brothel, base = {}) {
       const harlotType = Object.keys(setup.brothel.harlot.type).random()
       const readout = {
         feature: setup.brothel.harlot.feature.random(),
@@ -426,7 +426,18 @@ setup.brothel = {
     flawSeverity: ['barely noticeable', 'well-concealed by make-up or practice', 'something you can look past', 'intimidating', 'not easily ignored', 'very prominent', 'incredibly distracting'],
     // She is looking to __
     looks: [
-      'earn enough coin to get out of this place', 'bring to light a scandal involving a rival', 'secure a marriage to get out of this place', 'hear word of a child given away', 'hatch a plan for revenge against the man who ruined her life', 'drink some wine and have a laugh', 'seduce a noble and live a life of luxury', 'learn more about the whorehouse practice for her erotic fiction', 'leave this place with her bastard children', 'learn a trade and get out of this dreadful line of work', 'simply have all the sex her heart desires, and the gold is a nice bonus', 'make connections with powerful people'
+      'earn enough coin to get out of this place',
+      'bring to light a scandal involving a rival',
+      'secure a marriage to get out of this place',
+      'hear word of a child given away',
+      'hatch a plan for revenge against the man who ruined her life',
+      'drink some wine and have a laugh',
+      'seduce a noble and live a life of luxury',
+      'learn more about the whorehouse practice for her erotic fiction',
+      'leave this place with her bastard children',
+      'learn a trade and get out of this dreadful line of work',
+      'simply have all the sex her heart desires, and the gold is a nice bonus',
+      'make connections with powerful people'
     ]
   }
 }
