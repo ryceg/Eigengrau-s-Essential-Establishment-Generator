@@ -19,7 +19,6 @@ setup.townSquare = {
       [10, 'little more than an empty lot']
     ]
   },
-
   feature: [
     // the town square features _______
     `${['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random()} statue of ${['an old ruler',
@@ -604,27 +603,6 @@ setup.townSquare = {
         })
         return `a ${setup.profile(npc, 'guard')} that's wrestling with one of the villagers. It looks like a friendly bout.`
       }
-    } /* ,
-    'guardThieves': {
-      probability: 10,
-      type: ['event'],
-      exclusions (town) {
-        if (town.politicalIdeology === 'kleptocracy') {
-          return true
-        }
-      },
-      function (town) {
-        const npc = setup.createNPC(town, {
-          hasClass: false,
-          background: 'commoner',
-          profession: 'guard'
-        })
-        if (town.roll.law > 50) {
-          return 'a ' + setup.profile(npc, 'guard') + " that is talking to a man, who seems to be in some sort of trouble. It becomes clear that the man hasn't paid his dues to the Thieve's Guild that controls " + town.name + ', and is summarily taken away by two hooded figures.'
-        } else {
-          return 'a ' + setup.profile(npc, 'guard') + ' who watches as a man gets mugged. The man takes a hit to the groin, and the guard chuckles to ' + npc.himherself + '.'
-        }
-      }
-    } */
+    }
   }
 }
