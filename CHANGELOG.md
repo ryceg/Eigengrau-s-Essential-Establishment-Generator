@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Minor bug with factions fixed
 - New background
 - Reduced file size slightly
+- Communism, syndicalism, and alternate economic and political ideologies have been rebalanced to be much rarer.
 
 ## v2.3
 
