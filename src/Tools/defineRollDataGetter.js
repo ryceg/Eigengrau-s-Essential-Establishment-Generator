@@ -41,8 +41,8 @@ setup.defineRollDataGetter = function (baseObj, rollDataObj, propName, keyName, 
   Object.defineProperty(baseObj, propName, {
     get () {
       if (!this.name) {
-        console.log(`Fetching ${propName} for:`)
-        console.log(baseObj)
+        // console.log(`Fetching ${propName} for:`)
+        // console.log(baseObj)
       } else {
         console.log(`Fetching ${this.name} ${propName}.`)
       }
