@@ -39,7 +39,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     let isValid
     let fnValid
     // console.log(args[arg])
-    if (args[arg].exclusions && typeof (args[arg].exclusions) === 'function') {
+    if (args[arg].exclusions && typeof args[arg].exclusions === 'function') {
       isValid = args[arg].exclusions(town, obj)
     } else {
       isValid = true
@@ -50,7 +50,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
 
     // console.log('fnValid: ')
     // console.log(args[arg])
-    if (typeof (exclusionFunction) === 'function') {
+    if (typeof exclusionFunction === 'function') {
       fnValid = exclusionFunction(town, args[arg])
     } else {
       fnValid = true
@@ -77,7 +77,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
 
   console.log(selected)
   if (!selected[output] && output !== 'object') {
-    console.error('The randomly fetched object does not have the attribute ' + output + '.')
+    console.error(`The randomly fetched object does not have the attribute ${output}.`)
     console.log({ selected })
   }
   console.groupEnd()
@@ -85,7 +85,7 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     // if the string 'object' is passed, then it returns the object itself.
     console.log(selected)
     return selected
-  } else if (typeof (selected[output]) === 'function') {
+  } else if (typeof selected[output] === 'function') {
     console.log(selected[output](town, obj))
     return selected[output](town, obj)
   } else {
