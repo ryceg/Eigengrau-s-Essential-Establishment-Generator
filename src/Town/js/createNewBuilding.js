@@ -25,5 +25,9 @@ setup.createNewBuilding = function (town, buildingType, opts) {
   // unfortunately, it currently needs to be updated manually with each new building.
 
   const newBuilding = setup.buildingTypes[buildingType](town, { isHighlighted: true })
+  if (!town.buildings[buildingType]) {
+    town.buildings[buildingType] = {}
+  }
+  town.buildings[buildingType][newBuilding.key] = newBuilding
   return newBuilding
 }

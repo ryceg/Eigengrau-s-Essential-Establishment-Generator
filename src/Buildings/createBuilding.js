@@ -233,12 +233,6 @@ setup.createBuilding = (town, type, base = {}) => {
   //   building.activity = 'very quiet'
   // }
   // console.log(building)
-  if (type) {
-    if (!town.buildings[type]) {
-      town.buildings[type] = {}
-    }
-    town.buildings[type][building.key] = building
-  }
 
   building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 
