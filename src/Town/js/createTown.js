@@ -4,8 +4,30 @@ setup.createTown = function (base) {
   const season = ['summer', 'autumn', 'winter', 'spring']
   const townName = setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
-  const economicIdeology = setup.townData.type[type].economicIdeology.random()
-  const politicalSource = setup.townData.type[type].politicalSource.random()
+
+  const politicsWeightedRoll = function (size, type) {
+    let totalWeight = 0
+    const loc = setup.townData.type[size].ideologies[type]
+    const pool = Object.keys(loc)
+    pool.forEach(function (key) {
+      totalWeight += setup.townData.type[size].ideologies[type][key]
+    })
+    let random = Math.floor(randomFloat(1) * totalWeight)
+    let selected
+    for (let i = 0; i < pool.length; i++) {
+      random -= loc[pool[i]]
+      if (random < 0) {
+        // console.log('Less than zero! Found one.')
+        // console.log(pool[i])
+        selected = pool[i]
+        break
+      }
+    }
+    return selected
+  }
+
+  const economicIdeology = politicsWeightedRoll(type, 'economicIdeology')
+  const politicalSource = politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     passageName: 'TownOutput',

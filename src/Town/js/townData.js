@@ -208,8 +208,21 @@ setup.townData = {
           }
         }
       ],
-      economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
-      politicalSource: ['absolute monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      ideologies: {
+        economicIdeology: {
+          feudalism: 30,
+          capitalism: 10,
+          syndicalism: 3,
+          communism: 2,
+          primitivism: 10
+        },
+        politicalSource: {
+          'absolute monarchy': 2,
+          'republic': 50,
+          'anarchy': 10,
+          'constitutional monarchy': 1
+        }
+      },
       'population' () { return random(30, 300) },
       'startFactionsNumber' () { return [1, 1, 1, 1, 1, 2].random() },
       // roadDuplication: d100 of whether to create a new road (new one if under).
@@ -309,8 +322,21 @@ setup.townData = {
           }
         }
       ],
-      economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism', 'primitivism'],
-      politicalSource: ['constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      ideologies: {
+        economicIdeology: {
+          feudalism: 20,
+          capitalism: 10,
+          syndicalism: 3,
+          communism: 2,
+          primitivism: 5
+        },
+        politicalSource: {
+          'absolute monarchy': 2,
+          'republic': 50,
+          'anarchy': 10,
+          'constitutional monarchy': 1
+        }
+      },
       'population' () { return random(301, 1000) },
       'startFactionsNumber' () { return [1, 1, 1, 2, 2, 2].random() },
       roadDuplication: 50,
@@ -409,8 +435,21 @@ setup.townData = {
           }
         }
       ],
-      economicIdeology: ['feudalism', 'feudalism', 'feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism', 'primitivism'],
-      politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      ideologies: {
+        economicIdeology: {
+          feudalism: 20,
+          capitalism: 20,
+          syndicalism: 5,
+          communism: 3,
+          primitivism: 2
+        },
+        politicalSource: {
+          'absolute monarchy': 2,
+          'republic': 50,
+          'anarchy': 10,
+          'constitutional monarchy': 1
+        }
+      },
       'population' () { return random(1001, 3000) },
       'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3].random() },
       roadDuplication: 70,
@@ -509,8 +548,21 @@ setup.townData = {
           }
         }
       ],
-      economicIdeology: ['feudalism', 'feudalism', 'capitalism', 'capitalism', 'capitalism', 'capitalism', 'syndicalism', 'communism'],
-      politicalSource: ['absolute monarchy', 'absolute monarchy', 'absolute monarchy', 'constitutional monarchy', 'constitutional monarchy', 'republic', 'republic', 'republic', 'anarchy'],
+      ideologies: {
+        economicIdeology: {
+          feudalism: 20,
+          capitalism: 25,
+          syndicalism: 3,
+          communism: 1,
+          primitivism: 1
+        },
+        politicalSource: {
+          'absolute monarchy': 70,
+          'republic': 50,
+          'anarchy': 1,
+          'constitutional monarchy': 50
+        }
+      },
       'population' () { return random(3001, 6000) },
       'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].random() },
       roadDuplication: 90,
