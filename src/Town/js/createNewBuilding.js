@@ -20,14 +20,14 @@ setup.buildingTypes = {
   'Temple': setup.createTemple,
   'Town Square': setup.createTownSquare
 }
-setup.createNewBuilding = function (town, buildingType, opts) {
+setup.createNewBuilding = function (town, buildingTypes, opts) {
   // this is necessary to point the function towards where the building creation function is kept.
   // unfortunately, it currently needs to be updated manually with each new building.
 
-  const newBuilding = setup.buildingTypes[buildingType](town, { isHighlighted: true })
-  if (!town.buildings[buildingType]) {
-    town.buildings[buildingType] = {}
+  const newBuilding = setup.buildingTypes[buildingTypes](town, { isHighlighted: true })
+  if (!town.buildings[newBuilding.buildingType]) {
+    town.buildings[newBuilding.buildingType] = {}
   }
-  town.buildings[buildingType][newBuilding.key] = newBuilding
+  town.buildings[newBuilding.buildingType][newBuilding.key] = newBuilding
   return newBuilding
 }
