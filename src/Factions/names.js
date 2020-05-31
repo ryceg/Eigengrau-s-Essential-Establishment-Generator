@@ -7,7 +7,7 @@ setup.nameFaction = function (town, faction) {
     `The ${factionData.group.random()} of ${factionData.adjective.random()} ${factionData.main.random()}`,
     `The ${factionData.group.random()} of ${factionData.main.random()}`,
     `The ${factionData.adjective.random()} ${factionData.group.random()}`,
-    `The ${factionData.main.random()} of ${town}`,
+    `The ${factionData.main.random()} of ${town.name}`,
     `The ${town.name} ${factionData.main.random()}`,
     factionData.unique.random()
   ].random()
