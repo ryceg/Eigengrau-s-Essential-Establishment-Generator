@@ -11,8 +11,8 @@
 		\<th>Cost</th>
 	\</tr>
 	\<<for _key, _item range _target>>
-		\<<if ndef _item.exclusions>><<set _isValid to true>><</if>>
-		\<<if (typeof _item.exclusions === "function")>>
+		\<<if ndef _item.exclusions>><<set _isValid to true>>
+		\<<elseif (typeof _item.exclusions === "function")>>
 			\<<run console.log("Is a function!")>>
 			\<<set _isValid to _item.exclusions($town, _obj)>>
 		\<</if>>
@@ -25,7 +25,7 @@
 			\<<else>>
 				\<<print _item.name || _key>>
 			\<</if>>
-			\</td><td><<money _item.cost>></td></tr>
+			\</td><td><<money _item.cost _obj>></td></tr>
 	\<</if>><<unset _isValid>><</for>>
 	\</table>
 	\<</capture>>
