@@ -19,13 +19,6 @@ setup.goodsAndServices = {
       setup.goodsAndServices[type].create(town, building, opts)
       building = setup.structure.create(town, building)
 
-      if (type) {
-        if (!town.buildings[type]) {
-          town.buildings[type] = {}
-        }
-        town.buildings[type][building.key] = building
-      }
-
       console.groupEnd()
       return building
     }
