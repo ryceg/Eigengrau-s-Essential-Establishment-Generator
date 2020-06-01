@@ -2,9 +2,9 @@ interface Setup {
   adventure: {
     create(town: Town): any
     location: {
-      dungeon: Record<string, (town: Town, adventure: Adventure) => string>
-      wilderness: Record<string, (town: Town, adventure: Adventure) => string>
-      other: Record<string, (town: Town, adventure: Adventure) => string>
+      dungeon: AdventureLocation
+      wilderness: AdventureLocation
+      other: AdventureLocation
     }
     introduction: string[]
     climax: string[]
@@ -22,4 +22,8 @@ interface Setup {
 
 interface Adventure {
   [key: string]: any
+}
+
+interface AdventureLocation {
+  [key: string]: (town: Town, adventure: Adventure) => string
 }

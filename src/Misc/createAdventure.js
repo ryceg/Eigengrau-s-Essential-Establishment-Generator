@@ -2,18 +2,18 @@ setup.createAdventure = (town, base) => {
   // Tables used later
 
   const adventure = {
-    location: setup.adventureData.location.random(),
-    introduction: setup.adventureData.introduction.random(),
-    climax: setup.adventureData.climax.random(),
-    otherGoal: setup.adventureData.otherGoal.random(),
-    backdrop: setup.adventureData.backdrop.random(),
-    quandary: setup.adventureData.quandary.random(),
-    twist: setup.adventureData.twist.random(),
-    sidequest: setup.adventureData.sidequest.random(),
-    patron: setup.adventureData.patron.random(),
-    villain: setup.adventureData.villain.random(),
-    villainActions: setup.adventureData.villainActions.random(),
-    allyDescription: setup.adventureData.allyDescription.random(),
+    location: setup.adventure.location.random(),
+    introduction: setup.adventure.introduction.random(),
+    climax: setup.adventure.climax.random(),
+    otherGoal: setup.adventure.otherGoal.random(),
+    backdrop: setup.adventure.backdrop.random(),
+    quandary: setup.adventure.quandary.random(),
+    twist: setup.adventure.twist.random(),
+    sidequest: setup.adventure.sidequest.random(),
+    patron: setup.adventure.patron.random(),
+    villain: setup.adventure.villain.random(),
+    villainActions: setup.adventure.villainActions.random(),
+    allyDescription: setup.adventure.allyDescription.random(),
     ...base
   }
 
