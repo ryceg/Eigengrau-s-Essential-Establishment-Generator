@@ -1,4 +1,4 @@
-,m:: RandomAdventure
+:: RandomAdventure
 <<nobr>><<linkreplace "<h4>Generate an adventure!</h4>">>
 <<set $adventure to setup.adventure.create($town)>>
 /* <<include "AdventureGenerator">> */
