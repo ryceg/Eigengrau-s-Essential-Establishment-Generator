@@ -33,7 +33,6 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
 
   const pool = []
   let totalWeight = 0
-  exclusionFunction = exclusionFunction || true
 
   for (const arg in args) {
     let isValid
