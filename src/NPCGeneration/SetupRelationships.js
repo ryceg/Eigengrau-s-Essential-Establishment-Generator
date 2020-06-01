@@ -33,6 +33,6 @@ setup.createRelationship = function (town, npc, targetNPC, type, targetType) {
   /* Link the two */
   npc.relationships[targetNPC.key] = type
   targetNPC.relationships[npc.key] = targetType
-  console.log(npc.name + ' is ' + setup.articles.output(type) + ' to ' + targetNPC.name)
-  console.log(targetNPC.name + ' is ' + setup.articles.output(targetType) + ' to ' + npc.name)
+  console.log(`${npc.name} is ${setup.articles.output(type)} to ${targetNPC.name}`)
+  console.log(`${targetNPC.name} is ${setup.articles.output(targetType)} to ${npc.name}`)
 }
