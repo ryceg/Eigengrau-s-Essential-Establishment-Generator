@@ -1,15 +1,17 @@
-// General function for inserting individual relatives.
-// Returns the corresponding relative, or undefined
-setup.createRelative = function (town, family, base, force = false) {
+/**
+ * General function for inserting individual relatives.
+ * Returns the corresponding relative, or undefined
+ */
+setup.createRelative = (town, family, base = {}, force = false) => {
   // sanity-check
-  if (base.ageYears <= 0) return undefined
-  if (base.race === 'devil') return undefined
+  if (base.ageYears <= 0) return
+  if (base.race === 'devil') return
   if (!base.lastName) delete base.lastName
 
   // Avoid secondary NPC spam
   if (!force) {
     if (random(1, 100) <= setup.familyData.absencePercent) {
-      return undefined
+      return
     }
     if (setup.isOfAge('elderly', base.race, base.ageYears)) {
       if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
@@ -30,7 +32,7 @@ setup.createRelative = function (town, family, base, force = false) {
   return relative
 }
 
-setup.createParentage = function (town, family, npc, forceFather = false, forceMother = false) {
+setup.createParentage = (town, family, npc, forceFather = false, forceMother = false) => {
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {
     if (random(1, 100) <= setup.familyData.orphanPercent &&
@@ -82,8 +84,8 @@ setup.createParentage = function (town, family, npc, forceFather = false, forceM
   }
 }
 
-setup.createChildren = function (town, family, marriage, amount,
-  motherRace = 'human', fatherRace = 'human', force = false) {
+setup.createChildren = (town, family, marriage, amount,
+  motherRace = 'human', fatherRace = 'human', force = false) => {
   if (!force) amount -= marriage.children.length
 
   console.log(`Creating ${amount} siblings...`)
@@ -120,7 +122,7 @@ setup.createChildren = function (town, family, marriage, amount,
   return inserted
 }
 
-setup.createMarriage = function (town, family, npc, force = false) {
+setup.createMarriage = (town, family, npc, force = false) => {
   const marriageMin = setup.npcData.raceTraits[npc.race].ageTraits['young adult'].baseAge
   const newMarriage = {
     parents: [npc.key],
