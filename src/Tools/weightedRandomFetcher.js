@@ -7,7 +7,7 @@
  *
  * @param exclusionFunction The optional global exclusion testing function;
  * this is for things like pulling just the paper type objects from plothooks.
- * Saves on LoC. Leave exclusionFunction blank if everyting in your object is
+ * Saves on LoC. Leave exclusionFunction blank if everything in your object is
  * always going to be allowed.
  *
  * @param output What should be outputted at the end. Set to 'object' to return the whole object.
