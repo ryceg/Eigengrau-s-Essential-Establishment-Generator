@@ -13,7 +13,7 @@
  * @param output What should be outputted at the end. Set to 'object' to return the whole object.
  * defaultProbability is the optional default unit. You won't usually need to supply this.
  */
-setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, output, defaultProbability) {
+setup.weightedRandomFetcher = (town, args, obj, exclusionFunction, output, defaultProbability) => {
   // console.log(args)
   console.groupCollapsed('Running a weighted random search...')
   console.log({
