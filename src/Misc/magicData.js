@@ -577,7 +577,6 @@ setup.magicData = {
       'When in the Plane of Air, the bearer can navigate the Labyrinth Wind intuitively, and knows the path to the nearest Earth Mote within 60 miles.',
       'The bearer gains a +1 to Intelligence (Arcana) checks.',
       'When on the plane of Ysgard, the bearer is unaffected by Immortal Wrath. (DMG p. 61)'
-
     ]
   }
 }
