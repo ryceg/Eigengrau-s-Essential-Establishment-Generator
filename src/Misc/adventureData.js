@@ -1,6 +1,6 @@
 
 setup.adventure = {
-  'create' (town) {
+  create (town) {
     const adventure = {
       // villain: setup.adventure.villain[villainType],
       villainType: Object.keys(setup.adventure.villain).random(),
