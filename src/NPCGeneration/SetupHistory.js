@@ -47,7 +47,7 @@ setup.familyUnits = {
   },
   singleMother: {
     probability: 14,
-    exclusions: (town, obj) => obj.npc.knewParents && (!obj.father),
+    exclusions: (town, obj) => obj.npc.knewParents && !obj.father,
     descriptor: 'my single mother'
   },
   singleStepfather: {
@@ -58,7 +58,7 @@ setup.familyUnits = {
   },
   singleFather: {
     probability: 14,
-    exclusions: (town, obj) => obj.npc.knewParents && (!obj.mother),
+    exclusions: (town, obj) => obj.npc.knewParents && !obj.mother,
     descriptor: 'my single father'
   },
   adoptiveFamily: {
@@ -104,13 +104,13 @@ setup.familyUnits = {
   streets: {
     probability: 1,
     exclusions: (town, obj) => !obj.npc.knewParents &&
-      !(['aristocracy', 'nobility'].includes(obj.npc.socialClass)),
+      !['aristocracy', 'nobility'].includes(obj.npc.socialClass),
     descriptor: 'the streets'
   }
 }
 
 setup.createHistory = function (town, npc) {
-  console.log('creating history for ' + npc.name + '...')
+  console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
   if (!npc.birthplace) npc.birthplace = setup.rollFromTable(setup.birthplaceTable, 100)
@@ -129,7 +129,7 @@ setup.createHistory = function (town, npc) {
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
       const obj = { npc, father, mother }
-      npc.familyUnit = setup.weightedRandomFetcher(town, setup.familyUnits, obj, undefined, 'descriptor')
+      npc.familyUnit = setup.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
       if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
     }
     /* const parentRoll = random(1, 100)
@@ -222,7 +222,7 @@ setup.createHistory = function (town, npc) {
       friend = setup.createNPC(town, {
         isShallow: true,
         ageYears: npc.ageYears += random(1, 3),
-        childhoodMemories: 'I remember that we used to beat the shit out of that annoying ' + npc.boygirl + ', ' + setup.profile(npc, npc.firstName)
+        childhoodMemories: `I remember that we used to beat the shit out of that annoying ${npc.boygirl}, ${setup.profile(npc, npc.firstName)}`
       })
       setup.createRelationship(town, npc, friend, 'bully', 'victim of bullying')
     }

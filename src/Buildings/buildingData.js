@@ -28,10 +28,10 @@ setup.structure = {
       }
     }
     if (!building.material) {
-      let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, '', '', 'object')
+      let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, null, null, 'object')
       if (Object.keys(tempMaterial).includes('variations')) {
         console.log('Building material has variations. ')
-        tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, '', '', 'object')
+        tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
       }
       console.log('tempMaterial')
       console.log(tempMaterial)
@@ -40,7 +40,7 @@ setup.structure = {
       building.structure.material = building.material
     }
 
-    building.structure.roof = setup.weightedRandomFetcher(town, setup.structure.roof.types, '', '', 'object')
+    building.structure.roof = setup.weightedRandomFetcher(town, setup.structure.roof.types, null, null, 'object')
 
     if (building.structure.roof.canBeColoured === true) {
       building.structure.roof.colour = setup.structure.data.colour.random()
