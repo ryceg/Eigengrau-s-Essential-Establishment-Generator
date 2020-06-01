@@ -65,12 +65,12 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   // console.log('Starting the search.')
   let random = Math.floor(randomFloat(1) * totalWeight)
   let selected
-  for (let i = 0; i < pool.length; i++) {
-    random -= pool[i].probability || defaultProbability
+  for (const item of pool) {
+    random -= item.probability || defaultProbability
     if (random < 0) {
       // console.log('Less than zero! Found one.')
       // console.log(pool[i])
-      selected = pool[i]
+      selected = item
       break
     }
   }
