@@ -17,12 +17,11 @@
 setup.rollFromTable = function (table, maxRoll = undefined, bias = 0) {
   if (!maxRoll) {
     // set it to be the sum of probabilities
-    maxRoll = table.map(([prob, _]) => prob).reduce((a, b) => (a + b), 0)
+    maxRoll = table.map(([prob, _]) => prob).reduce((a, b) => a + b, 0)
   }
   let roll = random(1, maxRoll) + bias
 
-  for (let i = 0; i < table.length; i++) {
-    const [prob, result] = table[i]
+  for (const [prob, result] of table) {
     roll -= prob
     if (roll <= 0) return result
   }
