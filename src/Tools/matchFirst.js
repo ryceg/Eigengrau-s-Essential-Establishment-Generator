@@ -1,11 +1,32 @@
-setup.createMatchFirst = function (callback) {
+setup.matchFirst = {
+  equalTo: createMatchFirst((value, key) => {
+    return value === key
+  }),
+  notEqualTo: createMatchFirst((value, key) => {
+    return value !== key
+  }),
+  largerThan: createMatchFirst((value, key) => {
+    return value > key
+  }),
+  largerThanOrEqualTo: createMatchFirst((value, key) => {
+    return value >= key
+  }),
+  smallerThan: createMatchFirst((value, key) => {
+    return value < key
+  }),
+  smallerThanOrEqualTo: createMatchFirst((value, key) => {
+    return value <= key
+  })
+}
+
+/**
+ * @param {MatchCallback} callback
+ */
+function createMatchFirst (callback) {
   /**
-   * @template T
-   * @param {T} value
-   * @param {{}} map
-   * @param {T} [defaultValue]
+   * @type {MatchModifier}
    */
-  function modifier (value, map, defaultValue) {
+  const modifier = (value, map, defaultValue) => {
     for (const key of Object.keys(map).reverse()) {
       if (callback(value, Number(key))) return map[key]
     }
@@ -13,25 +34,4 @@ setup.createMatchFirst = function (callback) {
   }
 
   return modifier
-}
-
-setup.matchFirst = {
-  equalTo: setup.createMatchFirst(function (value, key) {
-    return value === key
-  }),
-  notEqualTo: setup.createMatchFirst(function (value, key) {
-    return value !== key
-  }),
-  largerThan: setup.createMatchFirst(function (value, key) {
-    return value > key
-  }),
-  largerThanOrEqualTo: setup.createMatchFirst(function (value, key) {
-    return value >= key
-  }),
-  smallerThan: setup.createMatchFirst(function (value, key) {
-    return value < key
-  }),
-  smallerThanOrEqualTo: setup.createMatchFirst(function (value, key) {
-    return value <= key
-  })
 }
