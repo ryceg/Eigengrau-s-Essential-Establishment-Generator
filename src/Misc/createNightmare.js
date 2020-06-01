@@ -1,5 +1,5 @@
-setup.createNightmare = function (base) {
-  const figures = [
+setup.createNightmare = base => {
+  const figure = base.figure || [
     {
       type: 'boy',
       prefix: 'a',
@@ -70,9 +70,7 @@ setup.createNightmare = function (base) {
       prefix: 'a',
       gender: 'its'
     }
-  ]
-
-  const figure = base.figure || figures[random(0, figures.length)]
+  ].random()
 
   const location = base.location || [
     'a graveyard. A blood-red moon hangs above',
