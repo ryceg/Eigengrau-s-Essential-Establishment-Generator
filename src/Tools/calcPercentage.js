@@ -1,9 +1,14 @@
-setup.calcPercentage = function (target, integer) {
+setup.calcPercentage = (target, integer) => {
   if (Array.isArray(integer)) {
-    for (let i = 0; i < integer.length; i++) {
-      target = ((target / 100) * (100 + integer[i]))
-    }
-    return target
+    return integer.reduce(calc, target)
   }
+  return calc(target, integer)
+}
+
+/**
+ * @param {number} target
+ * @param {number} integer
+ */
+function calc (target, integer) {
   return (target / 100) * (100 + integer)
 }
