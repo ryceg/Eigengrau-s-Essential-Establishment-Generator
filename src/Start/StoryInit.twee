@@ -2,22 +2,17 @@
 :: StoryInit
 <<run console.log("Hello world!")>>
 <<run setup.urlSeed()>>
-<<set $isPatreon to [true, false].random()>>
+<<set $data to {
+	isPatreon: [true, false].random(),
+	versionNumber: 2.4
+}>>
 
 <<set Config.history.maxStates to 15>>
-<<set $versionNumber to "2.4">>
 <<set $npcs to {}>>
 <<set $town to setup.createTown()>>
 
-<<include "PatreonCharacters">>
-
-<<if settings.showTutorial is false>>
-	<<set Config.passages.start = "Start">>
-<<else>>
+<<if State.metadata.get("showTutorial") is true>>
 	<<set Config.passages.start = "Welcome">>
-<</if>>
-
-<<if ndef $hideAds>>
-	<<set $hideAds to true>>
-	<<set settings.hideAds to true>>
+<<else>>
+	<<set Config.passages.start = "Start">>
 <</if>>

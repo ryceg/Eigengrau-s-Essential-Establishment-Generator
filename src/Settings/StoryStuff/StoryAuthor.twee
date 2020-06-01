@@ -2,10 +2,10 @@
 :: StoryAuthor
 
 [img[sidebarbanner]]
-<span class="version">v$versionNumber</span>
+<span class="version">v$data.versionNumber</span>
 Created by /u/rcgy
 
-<<nobr>><<if settings.hideAds !== true or $hideAds !== true>>
+<<nobr>><<if settings.hideAds !== true>>
 <<if $isPatreon is true>><span class="tip" title="Thank you for your continued support!">
     <div id="patreon">[img[patreon][https://www.patreon.com/bePatron?u=399997]]</div>
 </span>

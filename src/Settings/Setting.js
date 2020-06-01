@@ -1,4 +1,4 @@
-/* global Setting State Config */
+/* global Setting State */
 Setting.addHeader('Content Settings')
 
 Setting.addToggle('showSliders', {
@@ -7,27 +7,25 @@ Setting.addToggle('showSliders', {
 })
 
 const settingShowTutorial = function () {
-  if (settings.showTutorial) {
-    Config.passages.start = 'Start'
-  } else {
-    Config.passages.start = 'Welcome'
+  const showTutorial = State.metadata.get('showTutorial')
+  if (settings.showTutorial !== showTutorial) {
+    State.metadata.set('showTutorial', settings.showTutorial)
   }
 }
 
 const settingHideAds = function () {
   if (!settings.hideAds) {
-    State.variables.ads = false
-    $.wiki('<<remember $hideAds = false>>')
+    State.variables.data.hideAds = false
+    $.wiki('<<remember $data.hideAds = false>>')
   } else {
-    State.variables.ads = true
-    $.wiki('<<remember $hideAds = true>>')
+    State.variables.data.hideAds = true
+    $.wiki('<<remember $data.hideAds = true>>')
   }
 }
 
 Setting.addToggle('showTutorial', {
   label: 'Show tutorial?',
-  onChange: settingShowTutorial,
-  onInit: settingShowTutorial
+  onChange: settingShowTutorial
 })
 
 Setting.addToggle('showCelsius', {
@@ -44,7 +42,7 @@ Setting.addToggle('silverStandard', {
 
 Setting.addToggle('hideAds', {
   label: 'Hide ads?',
-  onInit: settingHideAds,
+  onInit: false,
   onChange: settingHideAds
 })
 
