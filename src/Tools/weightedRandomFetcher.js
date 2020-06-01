@@ -11,7 +11,8 @@
  * always going to be allowed.
  *
  * @param output What should be outputted at the end. Set to 'object' to return the whole object.
- * defaultProbability is the optional default unit. You won't usually need to supply this.
+ *
+ * @param defaultProbability The optional default unit. You won't usually need to supply this.
  */
 setup.weightedRandomFetcher = (town, args, obj, exclusionFunction, output, defaultProbability) => {
   // console.log(args)
@@ -25,6 +26,7 @@ setup.weightedRandomFetcher = (town, args, obj, exclusionFunction, output, defau
   })
 
   if (!output) {
+    // @ts-ignore
     output = 'function'
   }
   if (!defaultProbability) {
@@ -75,21 +77,24 @@ setup.weightedRandomFetcher = (town, args, obj, exclusionFunction, output, defau
   }
 
   console.log(selected)
-  if (!selected[output] && output !== 'object') {
-    console.error(`The randomly fetched object does not have the attribute ${output}.`)
-    console.log({ selected })
-  }
   console.groupEnd()
+
   if (output === 'object') {
     // if the string 'object' is passed, then it returns the object itself.
-    console.log(selected)
     return selected
   }
-  if (typeof selected[output] === 'function') {
-    const value = selected[output](town, obj)
+
+  const property = selected[output]
+  if (!property) {
+    throw new Error(`The randomly fetched object does not have the attribute ${output}.`)
+  }
+
+  if (typeof property === 'function') {
+    const value = property(town, obj)
     console.log(value)
     return value
   }
-  console.log(selected[output])
-  return selected[output]
+
+  console.log(property)
+  return property
 }
