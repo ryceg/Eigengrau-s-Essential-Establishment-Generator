@@ -34,31 +34,31 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
   const pool = []
   let totalWeight = 0
 
-  for (const arg in args) {
+  for (const arg of Object.values(args)) {
     let isValid
     let fnValid
-    // console.log(args[arg])
-    if (args[arg].exclusions && typeof args[arg].exclusions === 'function') {
-      isValid = args[arg].exclusions(town, obj)
+    // console.log(arg)
+    if (arg.exclusions && typeof arg.exclusions === 'function') {
+      isValid = arg.exclusions(town, obj)
     } else {
       isValid = true
     }
-    if (args[arg].probability <= 0) {
+    if (arg.probability <= 0) {
       isValid = false
     }
 
     // console.log('fnValid: ')
-    // console.log(args[arg])
+    // console.log(arg)
     if (typeof exclusionFunction === 'function') {
-      fnValid = exclusionFunction(town, args[arg])
+      fnValid = exclusionFunction(town, arg)
     } else {
       fnValid = true
     }
 
     // console.log(fnValid)
     if (isValid === true && fnValid === true) {
-      pool.push(args[arg])
-      totalWeight += args[arg].probability || defaultProbability
+      pool.push(arg)
+      totalWeight += arg.probability || defaultProbability
     }
   }
   // console.log('Starting the search.')
