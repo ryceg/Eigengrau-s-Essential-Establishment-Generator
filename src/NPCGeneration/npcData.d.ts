@@ -145,7 +145,15 @@ interface GenderTraits {
 
 interface AgeTraits {
   ageDescriptors: [number, string][]
-  [key: string]: any
+  elderly: AgeTrait
+  "settled adult": AgeTrait
+  "young adult": AgeTrait
+  child: AgeTrait
+}
+
+interface AgeTrait {
+  baseAge: number
+  ageModifier(): number
 }
 
 interface Doesnt {
