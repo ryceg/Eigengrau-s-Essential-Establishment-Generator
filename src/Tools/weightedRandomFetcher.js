@@ -85,7 +85,8 @@ setup.weightedRandomFetcher = function (town, args, obj, exclusionFunction, outp
     console.log(selected)
     return selected
   } else if (typeof selected[output] === 'function') {
-    console.log(selected[output](town, obj))
+    const value = selected[output](town, obj)
+    console.log(value)
     return selected[output](town, obj)
   } else {
     console.log(selected[output])
