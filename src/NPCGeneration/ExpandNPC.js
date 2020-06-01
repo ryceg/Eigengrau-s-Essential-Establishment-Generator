@@ -1,4 +1,4 @@
-setup.ExpandNPC = function (town, npc) {
+setup.expandNPC = function (town, npc) {
   npc.hasHistory = true
   npc.isShallow = false
 

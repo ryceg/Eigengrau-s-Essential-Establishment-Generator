@@ -272,7 +272,7 @@ setup.createNPC = function (town, base) {
   if (npc.finances.profit(town, npc) < 0 && npc.isShallow !== true) {
     setup.createDebt(town, npc)
   }
-  if (npc.hasHistory !== false) setup.ExpandNPC(town, npc)
+  if (npc.hasHistory !== false) setup.expandNPC(town, npc)
 
   /* if (npc.partnerID) {
     console.log('assigning ' + npc.name + ' ' + State.variables.npcs[npc.partnerID].name + ' as a partner...')
