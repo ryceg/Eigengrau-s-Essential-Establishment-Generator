@@ -1,5 +1,5 @@
 /**
- * Returns a random of factions for a leadership type.
+ * Returns a random faction that has a certain attribute.
  *
  * @param town The town object. Like most times it's passed as an argument, it's mandatory here.
  *
@@ -10,9 +10,9 @@
  * if it doesn't find any, it creates a matching faction.
  * This is for plot hooks that require a wizard's college, etc.
  */
-setup.factionsForType = function (town, variable, value) {
+setup.factionsForType = (town, variable, value) => {
   const found = []
-  for (const faction in town.factions) {
+  for (const faction of Object.values(town.factions)) {
     if (faction[variable] === value) {
       found.push(clone(faction))
     }
