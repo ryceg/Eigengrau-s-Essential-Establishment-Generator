@@ -4,15 +4,17 @@
  *
  * @param {Record<number, number>} rolls
  */
-setup.clampRolls = function (rolls) {
-  Object.keys(rolls).forEach(function (roll) {
+setup.clampRolls = rolls => {
+  for (const roll of Object.keys(rolls)) {
     if (rolls[roll] > 100) {
-      console.log(rolls[roll] + ' was over 100.')
+      console.log(`${rolls[roll]} was over 100.`)
       rolls[roll] = 100
-    } else if (rolls[roll] < 1) {
-      console.log(rolls[roll] + ' was under 1.')
+      continue
+    }
+    if (rolls[roll] < 1) {
+      console.log(`${rolls[roll]} was under 1.`)
       rolls[roll] = 1
     }
-  })
+  }
   return rolls
 }
