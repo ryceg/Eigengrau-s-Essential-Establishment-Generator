@@ -40,7 +40,7 @@ setup.weightedRandomFetcher = (town, args, obj, exclusionFunction, output, defau
     let isValid
     let fnValid
     // console.log(arg)
-    if (arg.exclusions && typeof arg.exclusions === 'function') {
+    if (typeof arg.exclusions === 'function') {
       isValid = arg.exclusions(town, obj)
     } else {
       isValid = true
