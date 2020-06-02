@@ -64,8 +64,8 @@ setup.misc = {
       const masterType = Object.keys(setup.misc.caravan.masterType).random()
       const caravan = {
         type: setup.misc.caravan.caravanType.random(),
-        animals: setup.misc.caravan.animals.random(),
-        transporting: setup.misc.caravan.transporting.random(),
+        animals: setup.misc.caravan.animals().random(),
+        transporting: setup.misc.caravan.transporting().random(),
         mood: setup.misc.caravan.mood.random(),
         masterType,
         masterLooking: setup.misc.caravan.masterLooking.random(),
@@ -80,8 +80,8 @@ setup.misc = {
       return caravan
     },
     caravanType: ['a wagon train', 'a long wagon train', 'a small train of pack animals', 'a long train of pack animals', 'a train of pack animals with livestock', 'a line of people on foot with a few animals'],
-    animals: ['one-humped camels', 'two-humped camels', 'large draft horses', 'reliable garrons', 'sure-footed ponies', 'mules', 'oxen', ['bison', 'drakes', 'elephants', 'elk', 'giant lizards', 'zebras'].random()],
-    transporting: [['cotton', 'linen', 'silk', 'wool'].random(), 'drugs or contraband.', ['diamonds', 'emeralds', 'jade', 'obsidian', 'opals', 'pearls', 'rubies', 'sapphires', 'topaz', 'turquoise'].random(), ['arsenic', 'copper', 'gold', 'lead', 'silver', 'tin'].random(), 'spices and teas.', 'wine and spirits.'],
+    animals: () => ['one-humped camels', 'two-humped camels', 'large draft horses', 'reliable garrons', 'sure-footed ponies', 'mules', 'oxen', ['bison', 'drakes', 'elephants', 'elk', 'giant lizards', 'zebras'].random()],
+    transporting: () => [['cotton', 'linen', 'silk', 'wool'].random(), 'drugs or contraband.', ['diamonds', 'emeralds', 'jade', 'obsidian', 'opals', 'pearls', 'rubies', 'sapphires', 'topaz', 'turquoise'].random(), ['arsenic', 'copper', 'gold', 'lead', 'silver', 'tin'].random(), 'spices and teas.', 'wine and spirits.'],
     mood: ['desperate; a calamity has befallen them.', 'foul; morale is bad, and provisions are low.', 'tired; the journey is long and longer yet.', 'eager; great riches await at journey’s end.'],
     masterType: {
       'a mysterious foreigner': {
@@ -762,7 +762,7 @@ setup.misc = {
     create: () => {
       const spider = {
         colour: setup.misc.spider.colour.random(),
-        markings: setup.misc.spider.markings.random(),
+        markings: setup.misc.spider.markings().random(),
         eyes: setup.misc.spider.eyes.random(),
         mouth: setup.misc.spider.mouth.random(),
         poison: setup.misc.spider.poison.random(),
@@ -776,7 +776,7 @@ setup.misc = {
       return spider
     },
     colour: ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown'],
-    markings: ['pale banding on its legs', 'dark banding on its legs', `bright ${['orange', 'red', 'white', 'yellow'].random()} banding on its legs`, 'pale stripes down its abdomen', 'dark stripes down its abdomen', `a distinct, crimson ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, `a distinct, ${['black', 'dark grey'].random()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, 'no obvious markings'],
+    markings: () => ['pale banding on its legs', 'dark banding on its legs', `bright ${['orange', 'red', 'white', 'yellow'].random()} banding on its legs`, 'pale stripes down its abdomen', 'dark stripes down its abdomen', `a distinct, crimson ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, `a distinct, ${['black', 'dark grey'].random()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, 'no obvious markings'],
     eyes: ['dull and black', 'reflective and black', 'dark grey, almost black', 'dark red', 'bright red', 'pearly white'],
     mouth: ['flanked by fangs, dripping venom', 'flanked by hooked fangs', 'flanked by hairy chelicerae, each ending in a sharp fang', 'flanked by chelicerae, covered in hair that hides any fangs', 'hungrily opening and closing', 'yawning open'],
     poison: ['paralysis', 'loss of consciousness', 'nausea', 'headache', 'loss of coordination', 'blindness', 'dizziness', 'shortness of breath'],
@@ -1271,7 +1271,7 @@ setup.misc = {
     cabinLived: ['a fugitive from justice', 'a stubborn miner', 'a dwarvish prospector', 'a dwarvish war veteran', 'a gnomish wizard', 'a mystic sage'],
     camped: ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'a pair of wandering elves', 'some refugees or fugitives', 'someone whose purposes are unclear'],
     miners: ['greedy dwarves', 'ambitious humans', 'tricky goblins', 'industrious kobolds'],
-    minersGoal: ['copper', 'gems', 'gold', 'iron', 'silver', ['adamantine', 'electrum', 'mithral', 'platinum'].random()],
+    minersGoal: () => ['copper', 'gems', 'gold', 'iron', 'silver', ['adamantine', 'electrum', 'mithral', 'platinum'].random()],
     mineLives: ['carrion crawler', 'cloaker', 'darkmantle', 'dwarves', 'fungi', 'kobolds', 'ghosts', 'mimics', 'myconids', 'ogres', 'ooze', 'orcs', 'otyugh', 'piercer', 'roper', 'rust monster', 'stirges', 'trolls', 'umber hulk', 'wraiths'],
     monasteryBuilt: ['an order of elementalist monks', 'an order of mystics', 'an extremely secretive order of monks', 'an order of shadow monks', 'an order of warrior monks', 'an unknown order of monks'],
     monasteryHonour: ['the sun god', 'the god of the heavens', 'the moon goddess', 'the storm god', 'the earth mother goddess', 'a long-forgotten god'],

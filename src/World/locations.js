@@ -100,8 +100,8 @@ setup.misc.locations = {
     return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   // mining is intentionally using the mountain biome
-  'an old mine in a canyon': (town, biome) => `an old mine in a canyon <blockquote>The mine was built by by ${setup.misc.mountain.miners.random()}, looking for ${setup.misc.mountain.minersGoal.random()}.</blockquote>`,
-  'an active mining camp': (town, biome) => `an active mining camp, manned by ${setup.misc.mountain.miners.random()}, looking for ${setup.misc.mountain.minersGoal.random()}`,
+  'an old mine in a canyon': (town, biome) => `an old mine in a canyon <blockquote>The mine was built by by ${setup.misc.mountain.miners.random()}, looking for ${setup.misc.mountain.minersGoal().random()}.</blockquote>`,
+  'an active mining camp': (town, biome) => `an active mining camp, manned by ${setup.misc.mountain.miners.random()}, looking for ${setup.misc.mountain.minersGoal().random()}`,
   'a hole under a large boulder': (town, biome) => `a hole under a large boulder <blockquote> Inside is ${setup.misc.desert.hole.random()}</blockquote>`,
   'an abandoned stone house': (town, biome) => {
     const lived = setup.misc[biome].houseLived.random()
