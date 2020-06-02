@@ -19,7 +19,7 @@ setup.townSquare = {
       [10, 'little more than an empty lot']
     ]
   },
-  feature: [
+  feature: () => [
     // the town square features _______
     `${['a stone', 'a wooden', 'an ivory', 'a jewel encrusted', 'an obsidian', 'a gold', 'a bronze', 'a copper', 'an iron', 'a glass', 'a ruby', 'an emerald', 'a marble'].random()} statue of ${['an old ruler',
       'an ancient hero', 'the current ruler', 'the town founder', 'an ancient wizard', 'a fearsome dragon', 'a noble ship', 'the ruler of all the lands', 'a revered bard', 'a group of citizens', "the town's patron family"].random()} in the centre.`,

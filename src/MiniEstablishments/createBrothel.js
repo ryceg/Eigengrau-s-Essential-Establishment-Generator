@@ -12,8 +12,8 @@ setup.createBrothel = function (town, tavern) {
     specialty: setup.brothel.specialty.random(),
     talk: setup.brothel.talk().random(),
     rumour: setup.brothel.rumour.random(),
-    notice: setup.brothel.notice.random(),
-    idle: setup.brothel.idle.random(),
+    notice: setup.brothel.notice().random(),
+    idle: setup.brothel.idle().random(),
     owner: Object.keys(setup.brothel.pimp).random()
   })
   brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`

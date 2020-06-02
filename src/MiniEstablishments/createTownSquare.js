@@ -9,7 +9,7 @@ setup.createTownSquare = function (town, opts = {}) {
     buildingType: 'townSquare',
     wordNoun: 'town square',
     needsWordNoun: false,
-    feature: setup.townSquare.feature.random()
+    feature: setup.townSquare.feature().random()
   })
 
   townSquare.size = ''

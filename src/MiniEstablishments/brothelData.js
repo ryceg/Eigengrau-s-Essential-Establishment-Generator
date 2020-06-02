@@ -176,7 +176,7 @@ setup.brothel = {
   ],
   // these are the lines used to select the notice action in BrothelOutput
   // You notice_
-  notice: [
+  notice: () => [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
     'the scent of ginger and cinnamon hanging in the air',
@@ -241,7 +241,7 @@ setup.brothel = {
   ],
   // these are the lines used to pick the pimp's idle action in brothelOutput
   // The master/mistress is _
-  idle: [
+  idle: () => [
     'sitting, with a piece of bread in hand',
     'sitting, mug in hand',
     'casually looking over a letter',

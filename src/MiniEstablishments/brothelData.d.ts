@@ -12,8 +12,8 @@ interface Setup {
     rumour: string[]
     brothelColours: string[]
     brothelScents: string[]
-    notice: string[]
-    idle: string[]
+    notice(): string[]
+    idle(): string[]
     pimp: Record<string, Partial<NPC>>
     harlot: {
       create(town: Town, brothel: Building, base: Partial<NPC>): string

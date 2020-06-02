@@ -4,7 +4,7 @@ interface Setup {
       cleanliness: [number, string][]
       size: [number, string][]
     }
-    feature: string[]
+    feature(): string[]
     crowd: Record<string, Crowd>
     vignettes: Record<string, Vignette>
   }
