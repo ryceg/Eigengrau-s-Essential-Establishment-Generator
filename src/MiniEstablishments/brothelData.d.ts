@@ -8,7 +8,7 @@ interface Setup {
     }
     name: string[]
     specialty: string[]
-    talk: string[]
+    talk(): string[]
     rumour: string[]
     brothelColours: string[]
     brothelScents: string[]

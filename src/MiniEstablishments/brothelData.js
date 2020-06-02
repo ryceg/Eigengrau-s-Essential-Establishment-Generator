@@ -95,7 +95,7 @@ setup.brothel = {
     'incredibly dominant women'
   ],
   // When people talk about the brothel, they say __
-  talk: [
+  talk: () => [
     [
       'you can pay for services with things other than coin',
       'you can pay for the services by doing contract work',

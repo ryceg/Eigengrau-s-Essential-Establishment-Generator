@@ -10,7 +10,7 @@ setup.createBrothel = function (town, tavern) {
     buildingType: 'brothel',
     wordNoun: ['brothel', 'whorehouse', "gentleman's club", 'bordello', 'cathouse', 'house of ill-repute', 'massage parlor', 'den of vice'].random(),
     specialty: setup.brothel.specialty.random(),
-    talk: setup.brothel.talk.random(),
+    talk: setup.brothel.talk().random(),
     rumour: setup.brothel.rumour.random(),
     notice: setup.brothel.notice.random(),
     idle: setup.brothel.idle.random(),
