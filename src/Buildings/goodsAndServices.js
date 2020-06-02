@@ -15,7 +15,7 @@ setup.goodsAndServices = {
       }
       Object.assign(building, (opts.newBuilding || setup.createBuilding)(town, building.type))
       building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.random() || 'building'
-      building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat
+      building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat()
       setup.goodsAndServices[type].create(town, building, opts)
       building = setup.structure.create(town, building)
 
@@ -197,7 +197,7 @@ setup.goodsAndServices = {
       ]
 
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
@@ -629,7 +629,7 @@ setup.goodsAndServices = {
         'greenhouse'
       ]
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
@@ -878,7 +878,7 @@ setup.goodsAndServices = {
         'clothier shop'
       ]
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
@@ -1098,7 +1098,7 @@ setup.goodsAndServices = {
         'meat market'
       ]
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
@@ -1339,7 +1339,7 @@ setup.goodsAndServices = {
         'boot shop'
       ]
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
@@ -1570,7 +1570,7 @@ setup.goodsAndServices = {
         'arrow shop'
       ]
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
@@ -1847,7 +1847,7 @@ setup.goodsAndServices = {
         'barbershop'
       ]
     },
-    PassageFormat: [
+    PassageFormat: () => [
       // each array string will be a new line.
       // this will be evaluated by SugarCube; use *SugarCube syntax* for functions.
       `<<print setup.firstCharacter("You")>> ${['enter', 'walk into', 'open the door to', 'come inside', 'step through the door of', 'come off the street into'].random()} ${[
