@@ -22,7 +22,7 @@ setup.findProfession = function (town, npc, profession) {
     } else {
       console.error(`${profession} not found!`)
       console.groupEnd()
-      return setup.townData.professions['peasant']
+      return setup.townData.professions.peasant
     }
   }
 }
