@@ -1,4 +1,4 @@
-setup.buildingTypes = {
+const buildingTypes = {
   // please keep this in alphabetic order
   // TODO automatically sort into alphabetic order
   // TODO automatically find available buildings
@@ -20,11 +20,12 @@ setup.buildingTypes = {
   'Temple': setup.createTemple,
   'Town Square': setup.createTownSquare
 }
-setup.createNewBuilding = function (town, buildingTypes, opts) {
+setup.createNewBuilding = (town, type) => {
   // this is necessary to point the function towards where the building creation function is kept.
   // unfortunately, it currently needs to be updated manually with each new building.
 
-  const newBuilding = setup.buildingTypes[buildingTypes](town, { isHighlighted: true })
+  const newBuilding = buildingTypes[type](town, { isHighlighted: true })
+
   if (!town.buildings[newBuilding.buildingType]) {
     town.buildings[newBuilding.buildingType] = {}
   }
