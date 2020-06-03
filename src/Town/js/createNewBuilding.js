@@ -25,7 +25,6 @@ setup.createNewBuilding = (town, type) => {
   // unfortunately, it currently needs to be updated manually with each new building.
 
   const newBuilding = setup.buildingTypes[type](town, { isHighlighted: true })
-  // document.write(`${State.prng.pull} :\n ${State.random()}`)
 
   if (!town.buildings[newBuilding.buildingType]) {
     town.buildings[newBuilding.buildingType] = {}
