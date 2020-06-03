@@ -1,5 +1,5 @@
 {
-  "extends": ["standard"],
+  "extends": ["standard", "function-call-context"],
   "env": {
     "browser": true,
     "jest": true
@@ -11,6 +11,13 @@
     "no-extra-parens": ["warn", "all", { "nestedBinaryExpressions": false }],
     "object-shorthand": ["warn", "always"],
     "quote-props": ["warn", "consistent-as-needed"],
-    "accessor-pairs": "off"
+    "accessor-pairs": "off",
+    "function-call-context/call-in-function": [
+      "error",
+      {
+        "functions": ["random", "randomFloat"],
+        "methods": ["random", "randomMany", "fm"]
+      }
+    ]
   }
 }
