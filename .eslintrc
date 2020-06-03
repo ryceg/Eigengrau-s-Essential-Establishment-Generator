@@ -14,7 +14,7 @@
     "quote-props": ["warn", "consistent-as-needed"],
     "accessor-pairs": "off",
     "function-call-context/call-in-function": [
-      "error",
+      "warn",
       {
         "functions": ["random", "randomFloat"],
         "methods": ["random", "randomMany", "fm"]
