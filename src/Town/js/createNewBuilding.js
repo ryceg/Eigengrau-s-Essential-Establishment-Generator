@@ -1,4 +1,4 @@
-const buildingTypes = {
+setup.buildingTypes = {
   // please keep this in alphabetic order
   // TODO automatically sort into alphabetic order
   // TODO automatically find available buildings
@@ -24,7 +24,8 @@ setup.createNewBuilding = (town, type) => {
   // this is necessary to point the function towards where the building creation function is kept.
   // unfortunately, it currently needs to be updated manually with each new building.
 
-  const newBuilding = buildingTypes[type](town, { isHighlighted: true })
+  const newBuilding = setup.buildingTypes[type](town, { isHighlighted: true })
+  // document.write(`${State.prng.pull} :\n ${State.random()}`)
 
   if (!town.buildings[newBuilding.buildingType]) {
     town.buildings[newBuilding.buildingType] = {}
