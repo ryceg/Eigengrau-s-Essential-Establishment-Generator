@@ -1,1 +1,1 @@
-export const test = 3
+export { setRandom } from "./random"
