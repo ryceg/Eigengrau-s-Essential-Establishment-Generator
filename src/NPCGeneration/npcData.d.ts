@@ -1,4 +1,5 @@
 interface Setup {
+  initNpcData(): void
   npcData: {
     gender: {
       man: GenderGrammar

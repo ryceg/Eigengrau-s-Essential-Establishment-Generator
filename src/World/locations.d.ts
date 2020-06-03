@@ -1,4 +1,5 @@
 interface Setup {
+  initMiscLocations(): void
   misc: SetupMisc
 }
 

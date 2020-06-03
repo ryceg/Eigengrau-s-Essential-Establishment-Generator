@@ -1,4 +1,4 @@
-setup.lifestyleTables = {
+const lifestyleTables = {
   'aristocracy': [
     [5, 'comfortable'],
     [15, 'wealthy'],
@@ -34,7 +34,7 @@ setup.lifestyleTables = {
   ]
 }
 
-setup.homeBiases = {
+const homeBiases = {
   aristocratic: 40,
   wealthy: 20,
   comfortable: 10,
@@ -44,7 +44,7 @@ setup.homeBiases = {
   wretched: -40
 }
 
-setup.homeTable = [
+const homeTable = [
   [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
   [10, 'no real permanent address'],
@@ -122,11 +122,9 @@ setup.createLifestyleStandards = function (town, npc) {
 }
 
 setup.createFamilyLifestyle = function (marriage) {
-  const lifestyle = setup.rollFromTable(
-    setup.lifestyleTables[marriage.socialClass], 100)
+  const lifestyle = setup.rollFromTable(lifestyleTables[marriage.socialClass], 100)
 
-  const home = setup.rollFromTable(
-    setup.homeTable, 100, setup.homeBiases[marriage.lifestyle])
+  const home = setup.rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
 
   return Object.assign(marriage, { lifestyle, home })
 }

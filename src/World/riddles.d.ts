@@ -1,4 +1,5 @@
 interface Setup {
+  initMiscRiddles(): void
   misc: SetupMisc
 }
 

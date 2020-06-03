@@ -1,4 +1,5 @@
 interface Setup {
+  initMiscBooks(): void
   misc: SetupMisc
 }
 

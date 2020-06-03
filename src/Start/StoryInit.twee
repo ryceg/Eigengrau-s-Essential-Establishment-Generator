@@ -2,6 +2,7 @@
 :: StoryInit
 <<run console.log("Hello world!")>>
 <<run setup.urlSeed()>>
+<<run setup.init()>>
 <<set $data to {
 	isPatreon: [true, false].random(),
 	versionNumber: 2.4
