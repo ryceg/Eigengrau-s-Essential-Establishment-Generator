@@ -1517,10 +1517,10 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
-eslint-plugin-function-call-context@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-function-call-context/-/eslint-plugin-function-call-context-1.0.1.tgz#a5269dcde5ff398a26ad86e187b70fe33d1edb26"
-  integrity sha512-DIiuW7YrarW7ma1bWYwbSsqmuwlrax82XS8CobfQJ4/taBk1VpRO53/2dFHJwwsc6pzUZ+E3Dm4zPu0pfpt4IQ==
+eslint-plugin-function-call-context@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-function-call-context/-/eslint-plugin-function-call-context-1.0.2.tgz#2aa1eb8b7b51f3157cbd9956d48bd1e7ff47bbfd"
+  integrity sha512-z1iF+pqOHqVD4TKZVW3kZwHCcXURFG7agD5C1pItend1/Bhdibs4jKjfdZTidpQAQMuEzHpwPz3cXbRo/UAF5g==
 
 eslint-plugin-import@^2.18.2:
   version "2.20.2"
