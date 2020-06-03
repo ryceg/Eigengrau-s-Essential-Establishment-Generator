@@ -43,7 +43,14 @@ tweegoProcess.stderr.on('data', data => {
 const config = require('./webpack.config')
 
 const watch = args.includes('--watch')
-config.mode = watch ? 'development' : 'production'
+
+if (watch) {
+  config.mode = 'development'
+  config.devtool = 'inline-source-map'
+} else {
+  config.mode = 'production'
+  config.devtool = 'source-map'
+}
 
 const compiler = webpack(config)
 
