@@ -16,8 +16,8 @@
     "function-call-context/call-in-function": [
       "warn",
       {
-        "functions": ["random", "randomFloat"],
-        "methods": ["random", "randomMany", "fm"]
+        "functions": ["random", "randomFloat", "dice"],
+        "methods": ["random", "randomMany", "fm", "pluck", "pluckMany", "shuffle"]
       }
     ]
   }
