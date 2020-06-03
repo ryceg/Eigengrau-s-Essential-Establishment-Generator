@@ -1,9 +1,10 @@
 {
-  "extends": ["standard", "function-call-context"],
+  "extends": ["standard"],
   "env": {
     "browser": true,
     "jest": true
   },
+  "plugins": ["function-call-context"],
   "rules": {
     "no-var": "warn",
     "no-undef": "off",
