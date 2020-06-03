@@ -492,11 +492,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
-      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
+      const typeData = setup.goodsAndServices[building.type]
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
-      building.specialty = setup.goodsAndServices[building.type].specialty.random()
+      building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+      building.name = building.name || opts.name || typeData.name.function(town, building)
+
+      building.notableFeature = typeData.notableFeature.random()
+      building.specialty = typeData.specialty.random()
 
       building.flower1 = setup.flora.flower.stemP.random()
       building.flower2 = setup.flora.flower.stemP.random()
@@ -552,7 +554,6 @@ setup.goodsAndServices = {
         'Flores',
         'By Any Other Name',
         'Little Shop of Flowers'
-
       ],
       noun: [
         'bouquet',
@@ -725,7 +726,6 @@ setup.goodsAndServices = {
       'a flower mural is painted on the far wall',
       'a framed collection of pinned <<print ["dragonflies", "butterflies", "beetles", "grasshoppers", "worms", "bees", "crickets", "bugs", "flies", "moths", "mantids and roaches", "wasps"].random()>> hung up on the wall next to the counter.',
       'there is a small shelf of boxed chocolates near the front counter with a sign above that reads "For the truly scorned lover".'
-
     ],
     specialty: [
       // the florist is known for _______
@@ -775,11 +775,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
-      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
+      const typeData = setup.goodsAndServices[building.type]
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
-      building.specialty = setup.goodsAndServices[building.type].specialty.random()
+      building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+      building.name = building.name || opts.name || typeData.name.function(town, building)
+
+      building.notableFeature = typeData.notableFeature.random()
+      building.specialty = typeData.specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -988,11 +990,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
-      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
+      const typeData = setup.goodsAndServices[building.type]
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
-      building.specialty = setup.goodsAndServices[building.type].specialty.random()
+      building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+      building.name = building.name || opts.name || typeData.name.function(town, building)
+
+      building.notableFeature = typeData.notableFeature.random()
+      building.specialty = typeData.specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -1031,7 +1035,6 @@ setup.goodsAndServices = {
         'Fantastic Flesh',
         'The Strip Club',
         'No Misteak'
-
       ],
       noun: [
         'strip',
@@ -1067,7 +1070,6 @@ setup.goodsAndServices = {
         'prime',
         'marbled',
         'raw'
-
       ],
       adjectivePerson: [
         'cheery',
@@ -1219,11 +1221,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
-      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
+      const typeData = setup.goodsAndServices[building.type]
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
-      building.specialty = setup.goodsAndServices[building.type].specialty.random()
+      building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+      building.name = building.name || opts.name || typeData.name.function(town, building)
+
+      building.notableFeature = typeData.notableFeature.random()
+      building.specialty = typeData.specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -1470,11 +1474,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
-      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
+      const typeData = setup.goodsAndServices[building.type]
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
-      building.specialty = setup.goodsAndServices[building.type].specialty.random()
+      building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+      building.name = building.name || opts.name || typeData.name.function(town, building)
+
+      building.notableFeature = typeData.notableFeature.random()
+      building.specialty = typeData.specialty.random()
 
       building.tippyDescription = `A ${building.type} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
@@ -1744,11 +1750,13 @@ setup.goodsAndServices = {
         return
       }
 
-      building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
-      building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
+      const typeData = setup.goodsAndServices[building.type]
 
-      building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
-      building.specialty = setup.goodsAndServices[building.type].specialty.random()
+      building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+      building.name = building.name || opts.name || typeData.name.function(town, building)
+
+      building.notableFeature = typeData.notableFeature.random()
+      building.specialty = typeData.specialty.random()
 
       building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
       return building
