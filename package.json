@@ -18,6 +18,7 @@
     "install-compiler": "node scripts/install-compiler",
     "build": "node scripts/build",
     "start": "node scripts/build --test --watch",
+    "watch": "webpack --watch --mode development",
     "test": "jest",
     "lint": "eslint **/*.js",
     "deploy": "gh-pages -d dist"
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/jquery": "^3.3.38",
+    "@types/webpack": "^4.41.17",
     "chalk": "^4.0.0",
     "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
@@ -49,5 +51,10 @@
     "shelljs": "^0.8.3",
     "typescript": "^3.9.3",
     "yauzl": "^2.10.0"
+  },
+  "dependencies": {
+    "ts-loader": "^7.0.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
