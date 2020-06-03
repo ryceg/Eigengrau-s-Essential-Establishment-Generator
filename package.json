@@ -18,7 +18,6 @@
     "install-compiler": "node scripts/install-compiler",
     "build": "node scripts/build",
     "start": "node scripts/build --test --watch",
-    "watch": "webpack --watch --mode development",
     "test": "jest",
     "lint": "eslint **/*.js",
     "deploy": "gh-pages -d dist"

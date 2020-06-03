@@ -8,7 +8,7 @@ module.exports = {
   output: {
     library: 'lib',
     libraryTarget: 'var',
-    path: path.resolve(__dirname, 'gh-pages')
+    path: path.resolve(__dirname, '../gh-pages')
   },
   module: {
     rules: [
@@ -16,7 +16,6 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/
-
       }
     ]
   },
