@@ -81,14 +81,25 @@ $currentNPC.firstName currently earns <<money _finances.netIncome>> <<linkreplac
     \<</for>>
     At one point, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
-<<if Object.getOwnPropertyNames($currentNPC.relationships).length !== 0>><div class='classTable'><h3>Relationships</h3><<nobr>><table>
+
+<<nobr>>
+<<if Object.keys($currentNPC.relationships).length>>
+<div class='classTable'>
+  <h3>Relationships</h3>
+  <table>
     <tr>
-        <th>Name</th>
-        <th>Relationship</th>
+      <th>Name</th>
+      <th>Relationship</th>
     </tr>
-<<for _key, _relationship range $currentNPC.relationships>>
-<tr>
-  <td><<profile $npcs[_key]>></td><td><<print _relationship.toUpperFirst()>></td>
-</tr><</for>></table><</nobr>></div><</if>>
+    <<for _key, _relationship range $currentNPC.relationships>>
+    <tr>
+      <td><<profile $npcs[_key]>></td>
+      <td><<print _relationship.toUpperFirst()>></td>
+    </tr>
+    <</for>>
+  </table>
+</div>
+<</if>>
+<</nobr>>
 
 [[Return|previous()]]
