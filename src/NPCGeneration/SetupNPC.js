@@ -83,11 +83,11 @@ setup.createNPC = function (town, base) {
       physicalTrait: random(1, 100)
     },
     finances: {
-      creditors: {
-
+      creditors (town, npc) {
+        return {}
       },
-      debtors: {
-
+      debtors (town, npc) {
+        return {}
       },
       grossIncome (town, npc) {
         // TODO add hobbies
