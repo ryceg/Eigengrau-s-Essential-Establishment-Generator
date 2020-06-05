@@ -2,7 +2,6 @@ setup.createStartBuildings = function (town) {
   const buildingType = [
     'Town Square',
     'Tavern',
-    // 'Alchemist',
     'General Store',
     'Smithy',
     'Market',
@@ -12,6 +11,8 @@ setup.createStartBuildings = function (town) {
   if (town.location === 'seashore' || town.location === 'river coast') { buildingType.push('Docks') }
 
   if (town.hasBrothel) { buildingType.push('Brothel') }
+
+  if (town.population > 100 || town.roll.wealth > 40) { buildingType.push('Alchemist') }
 
   if (town.population > 100 || town.roll.wealth > 40) { buildingType.push('Bakery') }
 
