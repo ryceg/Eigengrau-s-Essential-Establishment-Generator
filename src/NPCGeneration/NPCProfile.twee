@@ -90,12 +90,12 @@ $currentNPC.firstName currently earns <<money _finances.netIncome>> <<linkreplac
       <th>Occupation</th>
       <th>Relationship</th>
     </tr>
-    <<for _key, _relationship range $currentNPC.relationships>><<set _profession to setup.findProfession($town, $npcs[_key])>>
+    <<for _key, _relationship range $currentNPC.relationships>><<set _profession to setup.findProfession($town, $npcs[_key])>><<set _reciprocal to $currentNPC.firstName + " is " + setup.articles.output($npcs[_key].relationships[$currentNPC.key]) + " to " + $npcs[_key].firstName>>
     <tr>
       <td><<profile $npcs[_key]>></td>
       <td><<print $npcs[_key].race.toUpperFirst()>></td>
       <td><span id=${JSON.stringify($npcs[_key].firstName)} class=tip @title=_profession.description.toUpperFirst()><span class="dotted"><<print $npcs[_key].profession.toUpperFirst()>></span></span></td>
-      <td><<print _relationship.toUpperFirst()>></td>
+      <td><span id=${JSON.stringify($npcs[_key].firstName)} class=tip @title=_reciprocal><span class="dotted"><<print _relationship.toUpperFirst()>></span></span></td>
     </tr>
     <</for>>
   </table>
