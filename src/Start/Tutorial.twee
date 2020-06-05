@@ -24,7 +24,7 @@ Eigengrau's Generator is open source, and totally free to use. If you enjoy usin
 <</fadein>>
 
 <<fadein 500ms 24s>>\
-Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|www.reddit.com/r/EigengrausGenerator]]! I don't bite.\
+Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://www.reddit.com/r/EigengrausGenerator]]! I don't bite.\
 <</fadein>>
 
  <<button "Start">><<goto "Start">><</button>>           <<button "Ok, never show me this again">><<run State.metadata.set("showTutorial", false)>><<goto "Start">><</button>>
