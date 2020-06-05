@@ -183,41 +183,40 @@ setup.createHistory = function (town, npc) {
   }
 
   if (!npc.childhoodMemories) {
-    const childhoodMemoriesRoll = dice(3, 6)
-    if (childhoodMemoriesRoll >= 18) {
+    if (npc.roll.gregariousness >= 18) {
       npc.childhoodMemories = 'Everyone knew who I was, and I had friends everywhere I went'
       // eslint-disable-next-line no-var
       var friend = setup.createNPC(town, {
         isShallow: true,
         ageYears: npc.ageYears += random(-3, 3)
       })
-      setup.createRelationship(town, npc, friend, 'friend', 'friend')
+      setup.createRelationship(town, npc, friend, 'best friend', 'best friend')
       const anotherFriend = setup.createNPC(town, {
         isShallow: true,
         ageYears: npc.ageYears += random(-3, 3)
       })
-      setup.createRelationship(town, npc, anotherFriend, 'friend', 'friend')
-    } else if (childhoodMemoriesRoll >= 16) {
+      setup.createRelationship(town, npc, anotherFriend, 'childhood friend', 'childhood friend')
+    } else if (npc.roll.gregariousness >= 16) {
       npc.childhoodMemories = 'I always found it easy to make friends, and I loved being around people'
       friend = setup.createNPC(town, {
         isShallow: true,
         ageYears: npc.ageYears += random(-3, 3)
       })
-      setup.createRelationship(town, npc, friend, 'friend', 'friend')
-    } else if (childhoodMemoriesRoll >= 13) {
+      setup.createRelationship(town, npc, friend, 'childhood friend', 'childhood friend')
+    } else if (npc.roll.gregariousness >= 13) {
       npc.childhoodMemories = 'I had several friends, and my childhood was generally a happy one'
       friend = setup.createNPC(town, {
         isShallow: true,
         ageYears: npc.ageYears += random(-3, 3)
       })
-      setup.createRelationship(town, npc, friend, 'friend', 'friend')
-    } else if (childhoodMemoriesRoll >= 9) {
+      setup.createRelationship(town, npc, friend, 'childhood friend', 'childhood friend')
+    } else if (npc.roll.gregariousness >= 9) {
       npc.childhoodMemories = 'I had a few close friends, and my childhood was a relatively normal one'
-    } else if (childhoodMemoriesRoll >= 6) {
+    } else if (npc.roll.gregariousness >= 6) {
       npc.childhoodMemories = 'Others saw me as different, or strange, and so I had few companions'
-    } else if (childhoodMemoriesRoll >= 4) {
+    } else if (npc.roll.gregariousness >= 4) {
       npc.childhoodMemories = 'I spent most of my childhood alone, and had no close friends'
-    } else if (childhoodMemoriesRoll < 4) {
+    } else if (npc.roll.gregariousness < 4) {
       npc.childhoodMemories = 'I am still haunted by my childhood, where I was treated badly by my peers'
       friend = setup.createNPC(town, {
         isShallow: true,

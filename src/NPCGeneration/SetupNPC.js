@@ -86,7 +86,8 @@ setup.createNPC = function (town, base) {
         // expected range should be between -25 and 25.
         return setup.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
-      physicalTrait: random(1, 100)
+      physicalTrait: random(1, 100),
+      gregariousness: dice(3, 6)
 
     },
     finances: {
