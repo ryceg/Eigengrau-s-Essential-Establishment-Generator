@@ -65,8 +65,8 @@ setup.initMiscLocations = () => {
       return `an abandoned ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
     },
     'an abandoned campsite': (town, biome) => {
-      const contents = setup.contentsFetcher(town, biome, setup.misc[biome].camped, setup.misc.encounters)
-      return `an abandoned campsite, which looks to have been occupied previously by ${contents}`
+      const contents = ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'some elves', 'some refugees or fugitives', 'someone whose purposes are unclear', 'someone who left in an awful hurry']
+      return `an abandoned campsite, which looks to have been occupied previously by ${contents.random()}`
     },
     'a sacred grove': () => 'a sacred grove.',
     'a shrine': (town, biome) => {
@@ -125,23 +125,23 @@ setup.initMiscLocations = () => {
       return `a merchant caravan's camp. ${caravan.readout}`
     },
     'a peculiar tent': (town, biome) => {
-      const lived = setup.misc[biome].camped.random()
-      return `an peculiar tent, which looks to have been occupied previously by ${lived}`
+      const lived = ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'some elves', 'some refugees or fugitives', 'someone whose purposes are unclear', 'someone who left in an awful hurry']
+      return `a peculiar tent, which looks to have been occupied previously by ${lived.random()}`
     },
     'an old watchtower': (town, biome) => {
       // intentionally uses the mountain biome
       const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
-      return `an old, weathered watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter} .</blockquote>`
+      return `an old, weathered watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
     },
     'an abandoned watchtower': (town, biome) => {
       // intentionally uses the mountain biome
       const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
-      return `a run down, abandoned watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is inhabited by ${encounter} .</blockquote>`
+      return `a run down, abandoned watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is inhabited by ${encounter}.</blockquote>`
     },
     'a strategically located watchtower': (town, biome) => {
       // intentionally uses the mountain biome
       const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
-      return `a strategically located watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter} .</blockquote>`
+      return `a strategically located watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
     },
     'ruins of an ancient city': (town, biome) => {
       const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)

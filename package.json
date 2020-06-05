@@ -17,7 +17,7 @@
   "scripts": {
     "install-compiler": "node scripts/install-compiler",
     "build": "node scripts/build",
-    "start": "node scripts/build --test --watch",
+    "start": "node scripts/build --watch",
     "test": "jest",
     "lint": "eslint **/*.js",
     "deploy": "gh-pages -d dist"

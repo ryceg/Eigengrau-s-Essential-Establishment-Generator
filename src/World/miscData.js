@@ -198,7 +198,7 @@ setup.initMisc = () => {
           slaves: setup.misc.orcs.slaves.random(),
           weapons: setup.misc.orcs.weapons.random()
         }
-        orcs.readout = `<blockquote>These orcs are ${orcs.type}, known for ${orcs.knownFor}. Their symbol is ${orcs.symbol}, and they value ${orcs.value}. Their favourite food is is ${orcs.meat}, and they fear ${orcs.fear}. Their leader is ${orcs.leader}, who wants ${orcs.goals}. They are ${orcs.attitude}, and are notorious for ${orcs.notorious}. They fight with ${orcs.weapons}, with ${orcs.tactics}. They have pet ${orcs.pets}, and keep some ${orcs.slaves} as slaves.</blockquote`
+        orcs.readout = `<blockquote>These orcs are ${orcs.type}, known for ${orcs.knownFor}. Their symbol is ${orcs.symbol}, and they value ${orcs.value}. Their favourite food is is ${orcs.meat}, and they fear ${orcs.fear}. Their leader is ${orcs.leader}, who wants ${orcs.goals}. They are ${orcs.attitude}, and are notorious for ${orcs.notorious}. They fight with ${orcs.weapons}, with ${orcs.tactics}. They have pet ${orcs.pets}, and keep some ${orcs.slaves} as slaves.</blockquote>`
         return orcs
       }
     },
@@ -405,7 +405,7 @@ setup.initMisc = () => {
         isThrowaway: false,
         race: 'halfling',
         dndClass: 'warlock',
-        height: 'rather diminuitive',
+        height: 'rather diminutive',
         heightRoll: 34,
         // weightRoll:
         weight: 'small and light',

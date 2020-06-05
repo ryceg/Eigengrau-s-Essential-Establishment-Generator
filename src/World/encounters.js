@@ -81,11 +81,11 @@ setup.initMiscEncounters = () => {
     },
     'a handful of ogres': () => {
       const ogre = setup.misc.ogre.create()
-      return `a handful of ${ogre.tippyWord}s.`
+      return `a handful of ${ogre.tippyWord}s`
     },
     'an ogre': () => {
       const ogre = setup.misc.ogre.create()
-      return `a lone ${ogre.tippyWord}.`
+      return `a lone ${ogre.tippyWord}`
     },
     "an ogre's lair": () => {
       const ogre = setup.misc.ogre.create()
@@ -288,7 +288,7 @@ setup.initMiscEncounters = () => {
     'a lost traveler': town => {
       const npc = setup.createNPC(town, {
         background: 'outlander',
-        profession: 'traveler',
+        profession: 'pilgrim',
         note: 'This person is very lost.',
         isThrowaway: true,
         canBeCustom: true
@@ -372,7 +372,7 @@ setup.initMiscEncounters = () => {
     },
     'a reclusive sorcerer': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
+        profession: 'sorcerer',
         background: 'acolyte',
         calmTrait: 'withdrawn',
         isThrowaway: true
@@ -626,7 +626,7 @@ setup.initMiscEncounters = () => {
       const npc = setup.createNPC(town, {
         background: 'soldier',
         hasClass: true,
-        dndClass: 'fighter',
+        profession: 'fighter',
         calmTrait: 'solemn',
         stressTrait: 'determined',
         isThrowaway: true

@@ -40,7 +40,7 @@ setup.initNpcData = () => {
         parentNoun: 'mother',
         childNoun: 'daughter',
         siblingNoun: 'sister',
-        niblingNoun: 'neice',
+        niblingNoun: 'niece',
         oppositeGender: 'man'
       }
     },
@@ -78,8 +78,8 @@ setup.initNpcData = () => {
       [44, 'rather tall (compared to a halfling)'],
       [42, 'tall (for a halfling)'],
       [40, 'barely a metre'],
-      [38, 'diminuitive'],
-      [36, 'quite diminuitive'],
+      [38, 'diminutive'],
+      [36, 'quite diminutive'],
       [34, 'adorably short'],
       [32, 'tiny'],
       [30, 'so so tiny'],
