@@ -1,4 +1,5 @@
 setup.expandNPC = function (town, npc) {
+  console.groupCollapsed(`Expanding ${npc.name}...`)
   npc.hasHistory = true
   npc.isShallow = false
 
@@ -20,4 +21,5 @@ setup.expandNPC = function (town, npc) {
 
   setup.createHistory(town, npc)
   setup.createFriends(town, npc)
+  console.groupEnd()
 }

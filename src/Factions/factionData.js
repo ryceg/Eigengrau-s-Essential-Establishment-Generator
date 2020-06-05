@@ -254,7 +254,6 @@ setup.factionData = {
       leaderTraits: {
         title: 'Lord',
         hasClass: false,
-        profession: 'nobleman',
         background: 'noble'
       },
       wordNoun: 'society',

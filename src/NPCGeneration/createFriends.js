@@ -1,6 +1,7 @@
 setup.createFriends = (town, npc) => {
-  console.log(`${npc.name} is making some friends...`)
-  const friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
+  console.groupCollapsed(`${npc.name} is making some friends...`)
+  let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
+  if (setup.townData.professions[npc.profession].type === 'business') friendsNumber += 2
   const friendsTypes = {
     'drinking buddy': {
       relationship: 'drinking buddy',
@@ -71,27 +72,50 @@ setup.createFriends = (town, npc) => {
         socialClass: npc.socialClass,
         profession: 'pastor'
       }
+    },
+    'customer': {
+      relationship: 'customer',
+      reciprocal: npc.profession,
+      probability: 20,
+      exclusions (town, npc) { if (setup.townData.professions[npc.profession].type !== 'business') return false },
+      base: {
+        canBeCustom: true,
+        isShallow: true
+      }
     }
+  }
 
+  if (setup.townData.professions[npc.profession].relationships) {
+    console.log('Merging relationship sources! Before:')
+    console.log(friendsTypes)
+    const moreRelationships = setup.townData.professions[npc.profession].relationships(town, npc)
+    Object.assign(friendsTypes, moreRelationships)
+    console.log('After:')
+    console.log(friendsTypes)
+  }
+
+  const createNewFriend = (town, npc) => {
+    console.log('Creating a new friend!')
+    const friendObj = setup.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
+    const friend = setup.createNPC(town, friendObj.base)
+    setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocal || friendObj.relationship)
   }
 
   for (let step = 0; step < friendsNumber; step++) {
     let friend
-    if (random(100) < 75) {
+    if (random(100) < 50) {
       console.log('Finding an already existing NPC for a friend!')
       friend = Object.values(State.variables.npcs).find(({ socialClass, relationships }) => {
         return socialClass === npc.socialClass && !relationships[npc.key]
       })
+      setup.createRelationship(town, npc, friend, 'friend', 'friend')
       if (friend === undefined) {
         console.log(`Nobody was in the same caste as ${npc.name}`)
-        const friendObj = setup.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
-        friend = setup.createNPC(town, friendObj.base)
-        setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocal || friendObj.relationship)
+        createNewFriend(town, npc)
       }
     } else {
-      const friendObj = setup.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
-      friend = setup.createNPC(town, friendObj.base)
-      setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocal || friendObj.relationship)
+      createNewFriend(town, npc)
     }
   }
+  console.groupEnd()
 }

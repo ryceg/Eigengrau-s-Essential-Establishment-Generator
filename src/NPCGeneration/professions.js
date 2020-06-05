@@ -191,7 +191,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          patron: {
+            relationship: 'patron',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              socialClass: 'nobility',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'advocate': {
       sv: 3250,
@@ -201,7 +215,20 @@ setup.initTownDataProfessions = () => {
       description: 'practices or studies law, typically an attorney or a counselor.',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'client',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'advisor': {
       sv: 780,
@@ -241,7 +268,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 600,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'client',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              isShallow: true,
+              socialClass: 'nobility'
+            }
+          }
+        }
+      }
     },
     'archivist': {
       sv: 2450,
@@ -271,7 +312,20 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 450,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'client',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'baker': {
       sv: 800,
@@ -312,6 +366,19 @@ setup.initTownDataProfessions = () => {
       dailyWage: 200,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'drunkard',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              isShallow: true
+            }
+          }
+        }
+      },
       professionOrigin: [
         'I came across the tavern as a youngster, and spent many a night here drinking with my buddies. When the old owner died, it went to auction, and I tried to kep the dream alive by buying it. One by one all my friends grew out of it, or moved away.',
         "Before I ran the tavern, it was my dad's. I kept the family business going to support him in his old age.",
@@ -402,7 +469,30 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'client',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              isShallow: true
+            }
+          },
+          prostitute: {
+            relationship: 'prostitute',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              profession: 'prostitute',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'buccaneer': {
       sv: 1350,
@@ -421,7 +511,30 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'client',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              isShallow: true
+            }
+          },
+          supplier: {
+            relationship: 'supplier',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              profession: 'cowherd',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'captain': {
       sv: 550,
@@ -1761,7 +1874,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          coworker: {
+            relationship: 'co-worker',
+            reciprocal: 'co-worker',
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              profession: 'cowherd',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'falconer': {
       sv: 4000,
@@ -1809,7 +1936,20 @@ setup.initTownDataProfessions = () => {
       description: 'catches or ensnares birds.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          supplier: {
+            relationship: 'client',
+            reciprocal: 'supplier',
+            probability: 20,
+            base: {
+              profession: 'plumer',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'gamekeeper': {
       sv: 4500,
@@ -1838,7 +1978,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          coworker: {
+            relationship: 'co-worker',
+            reciprocal: 'co-worker',
+            probability: 20,
+            base: {
+              canBeCustom: true,
+              profession: 'cowherd',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'horse trainer': {
       sv: 1000,
@@ -2367,7 +2521,20 @@ setup.initTownDataProfessions = () => {
       description: 'an alcohol merchant.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          supplier: {
+            relationship: 'client',
+            reciprocal: 'supplier',
+            probability: 20,
+            base: {
+              profession: 'bartender',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'appraiser': {
       sv: 5000,
@@ -2460,7 +2627,20 @@ setup.initTownDataProfessions = () => {
       description: 'an owner of an estate on which crops are cultivated by resident labor, typically slave labor.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          slave: {
+            relationship: 'slave',
+            reciprocal: 'owner',
+            probability: 20,
+            base: {
+              profession: 'slave',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'speculator': {
       sv: 9000,
@@ -2799,7 +2979,20 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          coworker: {
+            relationship: 'fellow bandit',
+            reciprocal: 'fellow bandit',
+            probability: 20,
+            base: {
+              profession: npc.profession,
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'burglar': {
       sv: 500,
@@ -2868,7 +3061,20 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          coworker: {
+            relationship: 'buyer',
+            reciprocal: 'drug supplier',
+            probability: 20,
+            base: {
+              profession: 'drug dealer',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'extortioner': {
       sv: 2000,
@@ -3028,7 +3234,19 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          client: {
+            relationship: 'client',
+            reciprocal: npc.profession,
+            probability: 20,
+            base: {
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'assay master': {
       sv: 10000,
@@ -3186,7 +3404,20 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'page',
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'prince': {
       sv: 6000,
@@ -3282,7 +3513,20 @@ setup.initTownDataProfessions = () => {
       description: 'the chief servant of a household.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'butler',
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'caregiver': {
       sv: 1000,
@@ -3292,7 +3536,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'client',
+            reciprocal: 'carer',
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              ageStage: 'elderly',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'charcoal Maker': {
       sv: 2500,
@@ -3310,7 +3568,21 @@ setup.initTownDataProfessions = () => {
       description: 'a person in charge of a large household.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'employee',
+            exclusions (town, npc) { if (Object.values(npc.relationships).includes('employer')) return false },
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'chimney sweeper': {
       sv: 2500,
@@ -3367,7 +3639,21 @@ setup.initTownDataProfessions = () => {
       description: 'ingests food that was prepared for someone else to confirm it is safe to eat.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'food taster',
+            exclusions (town, npc) { if (Object.values(npc.relationships).includes('employer')) return false },
+            probability: 20,
+            base: {
+              socialClass: 'aristocracy',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'gongfarmer': {
       sv: 800,
@@ -3445,7 +3731,21 @@ setup.initTownDataProfessions = () => {
       description: 'reads to others while they work for entertainment.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'employee',
+            exclusions (town, npc) { if (Object.values(npc.relationships).includes('employer')) return false },
+            probability: 20,
+            base: {
+              socialClass: 'commoner',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'longshoreman': {
       sv: 1000,
@@ -3802,7 +4102,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'employee',
+            exclusions (town, npc) { if (Object.values(npc.relationships).includes('employer')) return false },
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'bouncer': {
       sv: 2500,
@@ -4246,7 +4560,22 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
       },
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'cult leader',
+            reciprocal: 'cult follower',
+            exclusions (town, npc) { if (Object.values(npc.relationships).includes('cult leader')) return false },
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              profession: 'cult leader',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'cult leader': {
       sv: 6000,
@@ -4259,7 +4588,20 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(95, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          cult: {
+            relationship: 'follower',
+            reciprocal: 'cult leader',
+            probability: 20,
+            base: {
+              profession: 'cultist',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'deacon': {
       sv: 800,
@@ -4571,7 +4913,21 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      relationships (town, npc) {
+        return {
+          noble: {
+            relationship: 'employer',
+            reciprocal: 'tutor',
+            exclusions (town, npc) { if (Object.values(npc.relationships).includes('employer')) return false },
+            probability: 20,
+            base: {
+              socialClass: 'nobility',
+              isShallow: true
+            }
+          }
+        }
+      }
     },
     'zoologist': {
       sv: 3500,
@@ -4866,7 +5222,7 @@ setup.initTownDataProfessions = () => {
       description: 'cares for his or her family by managing household affairs and completing housework.',
       domSub: 'sub',
       dailyWage: 40,
-      socialClass: 'commoner',
+      socialClass: 'peasantry',
       socialClassRoll () { return 50 + dice(8, 6) }
     },
     'prisoner': {
