@@ -85,6 +85,20 @@ setup.createFriends = (town, npc) => {
     }
   }
 
+  if (setup.townData.professions[npc.profession].type === 'profession' && setup.townData.professions[npc.profession].sector === 'arts') {
+    const patron = {
+      relationship: 'patron',
+      reciprocal: npc.profession,
+      probability: 20,
+      base: {
+        canBeCustom: true,
+        socialClass: 'nobility',
+        isShallow: true
+      }
+    }
+    Object.assign(friendsTypes, patron)
+  }
+
   if (setup.townData.professions[npc.profession].relationships) {
     console.log('Merging relationship sources! Before:')
     console.log(friendsTypes)
