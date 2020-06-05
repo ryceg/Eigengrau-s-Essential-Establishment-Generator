@@ -19,4 +19,5 @@ setup.expandNPC = function (town, npc) {
   })
 
   setup.createHistory(town, npc)
+  setup.createFriends(town, npc)
 }
