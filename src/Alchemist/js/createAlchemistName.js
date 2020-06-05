@@ -1,29 +1,25 @@
 setup.createAlchemistName = chemistFirstName => {
   const alchemistNameRoll = dice(1, 5)
   let name
-  const adjective = ['Bubbling', 'Spicy', 'Soggy', 'Fizzy', 'Liquid', 'Fluorescent', 'Clear', 'Alcoholic', 'Abyssal', 'Angelic', 'Elven', 'Measured', 'Marked', 'Glass', 'Glass', 'Copper', 'Corked', 'Burning', 'Red', 'Blue', 'Green', 'Gold', 'Yellow', 'Vile', 'Genuine', 'Original'].random()
-  const noun = ['Potion', 'Liquid', 'Fumes', 'Bottle', 'Vial', 'Firewater', 'Mortar and Pestle', 'Lab', 'Laboratory', 'Chemist', 'Alchemist', 'Brewer', 'Lotion', 'Wishes'].random()
-  const adjective2 = ['Bubbling', 'Spicy', 'Soggy', 'Fizzy', 'Liquid', 'Fluorescent', 'Clear', 'Alcoholic', 'Abyssal', 'Angelic', 'Elven', 'Measured', 'Marked', 'Glass', 'Glass', 'Copper', 'Corked', 'Burning', 'Red', 'Blue', 'Green', 'Gold', 'Yellow', 'Vile', 'Genuine', 'Original'].random()
-  const rider = ['Chemist', 'Alchemist', 'Potion Shop', 'Potionery', 'Ointmentary', 'Juice Bar', 'Lab', 'Laboratory', 'Secret Lair'].random()
   switch (alchemistNameRoll) {
     case 1:
-      name = `The ${adjective} ${noun}`
+      name = `The ${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.noun.random()}`
       break
     case 2:
-      name = `${chemistFirstName} and ${adjective2}`
-      // name = `The ${adjective} ${noun}`
+      name = `${chemistFirstName} and ${setup.alchemist.name.adjective.random()}`
+      // name = `The ${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.noun.random()}`
       break
     case 3:
-      name = `The ${noun} and ${adjective2}`
+      name = `The ${setup.alchemist.name.noun.random()} and ${setup.alchemist.name.adjective.random()}`
       break
     case 4:
-      name = `The ${adjective} ${rider}`
+      name = `The ${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.rider.random()}`
       break
     case 5:
-      name = `${adjective} ${noun}`
+      name = `${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.noun.random()}`
       break
     default:
-      name = `The ${adjective} Alchemist`
+      name = `The ${setup.alchemist.name.adjective.random()} Alchemist`
   }
   return name
 }
