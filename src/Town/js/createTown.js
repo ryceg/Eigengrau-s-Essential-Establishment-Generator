@@ -285,7 +285,9 @@ setup.createTown = function (base) {
   Object.keys(town.roll).forEach(function (roll) {
     town.roll[roll].clamp(1, 100)
   })
-
+  if (settings.ignoreGender === true) {
+    town.roll.equality = 50
+  }
   town.equality = ''
   town.equalityDescription = ''
   setup.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)

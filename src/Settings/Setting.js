@@ -1,10 +1,25 @@
 /* global Setting State */
 Setting.addHeader('Content Settings')
 
+if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
+  settings.ignoreGender = State.metadata.get('ignoreGender')
+}
+
+if (State.metadata.get('showTutorial') !== settings.showTutorial) {
+  settings.showTutorial = State.metadata.get('showTutorial')
+}
+
 const settingShowTutorial = function () {
   const showTutorial = State.metadata.get('showTutorial')
   if (settings.showTutorial !== showTutorial) {
     State.metadata.set('showTutorial', settings.showTutorial)
+  }
+}
+
+const settingIgnoreGender = function () {
+  const ignoreGender = State.metadata.get('ignoreGender')
+  if (settings.ignoreGender !== ignoreGender) {
+    State.metadata.set('ignoreGender', settings.ignoreGender)
   }
 }
 
@@ -40,7 +55,7 @@ Setting.addToggle('silverStandard', {
 
 Setting.addToggle('ignoreGender', {
   label: '<span id="gender" class="tip dotted" title="If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.">Ignore gender inequality?</span>',
-  onInit: false
+  onChange: settingIgnoreGender
 })
 
 Setting.addToggle('hideAds', {
