@@ -15,7 +15,11 @@ setup.fetchProfessionChance = function (town, npc) {
   if (setup.breakGenderNorms(town, npc) === false) {
     if (setup.isDominantGender(town, npc) === false) {
       professions.filter(function (profession) {
-        return town.professions[profession].domSub === 'sub'
+        return town.professions[profession].domSub !== 'dom'
+      })
+    } else {
+      professions.filter(function (profession) {
+        return town.professions[profession].domSub !== 'sub'
       })
     }
   }

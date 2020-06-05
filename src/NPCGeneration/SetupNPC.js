@@ -22,7 +22,13 @@ setup.createNPC = function (town, base) {
     base = setup.objectArrayFetcher(setup.misc.patreonCharacters, town)
   }
 
-  // if (!base.roll) base.roll = {}
+  // if (!base.roll) {
+  //   base.roll = {
+  //     breakGenderNorms: random(1, 100)
+  //   }
+  // }
+  setup.initSexistProfession(town, base)
+
   const gender = base.gender || ['man', 'woman'].random()
   const race = base.race || setup.fetchRace(town, base)
 
@@ -81,6 +87,7 @@ setup.createNPC = function (town, base) {
         return setup.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
       physicalTrait: random(1, 100)
+
     },
     finances: {
       creditors (town, npc) {
