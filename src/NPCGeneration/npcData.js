@@ -2780,7 +2780,7 @@ setup.initNpcData = () => {
 
         ],
         bond: [
-          "My town or city is my home, and I'll fight to defend it.",
+          "My town is my home, and I'll fight to defend it.",
           'I sponsor an orphanage to keep others from enduring what I was forced to endure.',
           'I owe my survival to another urchin who taught me to live on the streets.',
           'I owe a debt I can never repay to the person who took pity on me.',
