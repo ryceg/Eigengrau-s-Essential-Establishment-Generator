@@ -1,7 +1,8 @@
 setup.createPubRumour = function () {
   let pubRumour
-  const tempRumour = Object.assign({
-    origin: ['a child',
+  const tempRumour = {
+    origin: [
+      'a child',
       'a fat merchant',
       'a priest',
       'a sailor',
@@ -12,8 +13,9 @@ setup.createPubRumour = function () {
       'a crazy monk',
       'a drunken farmer',
       'the butcher',
-      'the tailor'].random()
-  })
+      'the tailor'
+    ].random()
+  }
 
   switch (tempRumour.origin) {
     case 'a child':
