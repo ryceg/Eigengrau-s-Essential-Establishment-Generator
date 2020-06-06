@@ -1,7 +1,9 @@
 setup.createFriends = (town, npc) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
-  if (setup.townData.professions[npc.profession].type === 'business') friendsNumber += 2
+  const professionData = setup.townData.professions[npc.profession]
+
+  if (professionData.type === 'business') friendsNumber += 2
   const friendsTypes = {
     'drinking buddy': {
       relationship: 'drinking buddy',
@@ -77,7 +79,7 @@ setup.createFriends = (town, npc) => {
       relationship: 'customer',
       reciprocal: npc.profession,
       probability: 20,
-      exclusions (town, npc) { if (setup.townData.professions[npc.profession].type !== 'business') return false },
+      exclusions (town, npc) { if (professionData.type !== 'business') return false },
       base: {
         canBeCustom: true,
         isShallow: true
@@ -85,7 +87,7 @@ setup.createFriends = (town, npc) => {
     }
   }
 
-  if (setup.townData.professions[npc.profession].type === 'profession' && setup.townData.professions[npc.profession].sector === 'arts') {
+  if (professionData.type === 'profession' && professionData.sector === 'arts') {
     const patron = {
       relationship: 'patron',
       reciprocal: npc.profession,
@@ -99,10 +101,10 @@ setup.createFriends = (town, npc) => {
     Object.assign(friendsTypes, patron)
   }
 
-  if (setup.townData.professions[npc.profession].relationships) {
+  if (professionData.relationships) {
     console.log('Merging relationship sources! Before:')
     console.log(friendsTypes)
-    const moreRelationships = setup.townData.professions[npc.profession].relationships(town, npc)
+    const moreRelationships = professionData.relationships(town, npc)
     Object.assign(friendsTypes, moreRelationships)
     console.log('After:')
     console.log(friendsTypes)
