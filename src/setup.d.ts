@@ -20,7 +20,6 @@ interface Setup {
   guardData: any
   createGuard(town: Town): any
 
-  townData: any
   updateSocioPolitics(town: Town): Town
 }
 
