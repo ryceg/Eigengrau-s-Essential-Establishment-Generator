@@ -51,26 +51,18 @@ setup.familyData = {
   },
 
   siblingRoll: () => {
-    const roll = random(1, 5)
-    let siblingNumber
-    switch (roll) {
+    switch (random(1, 5)) {
       case 1:
-        siblingNumber = 0
-        break
+        return 0
       case 2:
-        siblingNumber = random(1, 3)
-        break
+        return random(1, 3)
       case 3:
-        siblingNumber = random(2, 5)
-        break
+        return random(2, 5)
       case 4:
-        siblingNumber = random(3, 8)
-        break
+        return random(3, 8)
       case 5:
-        siblingNumber = random(4, 11)
-        break
+        return random(4, 11)
     }
-    return siblingNumber
   },
 
   relativeBase: (npc) => ({
