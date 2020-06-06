@@ -1157,6 +1157,94 @@ setup.initGoodsAndServices = () => {
         'sliced ham': {
           cost: 30,
           description: 'Thin cut slices of ham perfect for a meal.'
+        },
+        'smoked bacon': {
+          cost: 20,
+          description: 'Bacon that has been smoked, which lasts longer.'
+        },
+        'bacon': {
+          cost: 14,
+          description: 'A pound of bacon.'
+        },
+        'beef': {
+          cost: 5,
+          description: 'A pound of uncured, raw beef.'
+        },
+        'beef, corned': {
+          cost: 12,
+          description: 'Salt-cured brisket of beef.'
+        },
+        'beef, sausage': {
+          cost: 5,
+          description: 'Offal that has been put in entrail casings.'
+        },
+        'beef, sausage, dried': {
+          cost: 13,
+          description: 'Offal that has been put in entrail casings, dried to last longer.'
+        },
+        'beef, smoked': {
+          cost: 22,
+          description: 'A pound of cured beef that has been smoked to last longer.'
+        },
+        'fish': {
+          cost: 2,
+          description: 'A pound of uncured, raw fish.'
+        },
+        'fish, salted': {
+          cost: 8,
+          description: 'A pound of fish that has been salted to last longer.'
+        },
+        'ham, sugar cured, 12 pounds': {
+          cost: 125,
+          description: 'A sugar-cured haunch of ham. Only available in bulk due to the expense of sugar.'
+        },
+        'lamb': {
+          cost: 4,
+          description: 'A pound of uncured, raw lamb.'
+        },
+        'pork': {
+          cost: 2,
+          description: 'A pound of uncured, raw pork.'
+        },
+        'pork, sausage': {
+          cost: 2,
+          description: 'Offal that has been put in entrail casings.'
+        },
+        'pork, sausage, dried': {
+          cost: 5,
+          description: 'Offal that has been put in entrail casings, dried to last longer.'
+        },
+        'pork, smoked': {
+          cost: 17,
+          description: 'A pound of cured pork that has been smoked to last longer.'
+        },
+        'pork, chops': {
+          cost: 4,
+          description: 'A pound of pork chops.'
+        },
+        'pork, salted': {
+          cost: 12,
+          description: 'A pound of cured pork that has been salted heavily to last longer.'
+        },
+        'salt, pound': {
+          cost: 5,
+          description: 'A pound of salt.'
+        },
+        'venison': {
+          cost: 3,
+          description: 'A pound of uncured, raw venison.'
+        },
+        'venison, sausage': {
+          cost: 3,
+          description: 'Offal that has been put in entrail casings.'
+        },
+        'venison, sausage, dried': {
+          cost: 5,
+          description: 'Offal that has been put in entrail casings, dried to last longer.'
+        },
+        'venison, smoked': {
+          cost: 6,
+          description: 'A pound of cured venison that has been smoked to last longer.'
         }
       },
       type: 'butchers',
@@ -1408,7 +1496,7 @@ setup.initGoodsAndServices = () => {
           description: 'A fancy looking pair of shoes made to wear to formal events'
         },
         'shoe repair': {
-          cost: random(10, 30),
+          cost: random(1, 10),
           description: 'Repair services for shoes or boots of any kind within reason'
         }
       },
