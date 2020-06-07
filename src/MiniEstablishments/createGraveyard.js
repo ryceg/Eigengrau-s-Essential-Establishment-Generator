@@ -1,4 +1,4 @@
-setup.createGraveyard = function (town, base = {}) {
+setup.createGraveyard = (town, base = {}) => {
   const graveyard = (base.newBuilding || setup.createBuilding)(town, 'graveyard')
 
   Object.assign(graveyard, {

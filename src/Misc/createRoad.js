@@ -1,5 +1,5 @@
 
-setup.createRoad = function (base) {
+setup.createRoad = base => {
   const type = ['trail', 'path', 'path', 'road', 'road', 'road']
   const noEncounter = [true, true, true, false, false].random()
   const road = Object.assign({

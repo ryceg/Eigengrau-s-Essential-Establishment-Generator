@@ -1,5 +1,4 @@
-
-setup.createBrothel = function (town, tavern) {
+setup.createBrothel = (town, tavern) => {
   console.log('Creating a brothel...')
   const brothel = setup.createBuilding(town, 'brothel')
 

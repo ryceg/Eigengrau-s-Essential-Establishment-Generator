@@ -1,5 +1,4 @@
-
-setup.createGeneralStore = function (town, opts = {}) {
+setup.createGeneralStore = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || setup.createBuilding
   const createShopkeep = opts.newShopkeep || setup.createNPC
 

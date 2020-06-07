@@ -1,5 +1,4 @@
-
-setup.createMagic = function (type) {
+setup.createMagic = type => {
   console.log(`Type: ${type}`)
 
   if (type === 'ring') {
