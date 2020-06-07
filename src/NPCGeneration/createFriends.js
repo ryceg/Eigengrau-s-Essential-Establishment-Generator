@@ -84,6 +84,14 @@ setup.createFriends = (town, npc) => {
         canBeCustom: true,
         isShallow: true
       }
+    },
+    'servant': {
+      relationship: 'employee',
+      reciprocal: 'employer',
+      exclusions (town, npc) { if (!['wealthy', 'aristocratic'].includes(npc.finances.lifestyleStandard(town, npc)[1]) && !(npc.finances.profit(town, npc) > -5 || npc.finances.profit(town, npc) < -100)) { return false } },
+      base: {
+        profession: 'servant'
+      }
     }
   }
 
