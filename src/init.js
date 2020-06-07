@@ -16,6 +16,5 @@ setup.init = (setup => () => {
   setup.initTownDataProfessions()
   setup.initGoodsAndServices()
   setup.initDocks()
-  setup.initRingData()
   setup.initBuildingTypes()
 })(setup)
