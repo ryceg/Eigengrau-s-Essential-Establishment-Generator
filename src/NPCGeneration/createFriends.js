@@ -121,8 +121,8 @@ setup.createFriends = (town, npc) => {
     let friend
     if (random(100) < 50) {
       console.log('Finding an already existing NPC for a friend!')
-      friend = Object.values(State.variables.npcs).find(({ socialClass, relationships }) => {
-        return socialClass === npc.socialClass && !relationships[npc.key]
+      friend = Object.values(State.variables.npcs).find(({ socialClass, relationships, key }) => {
+        return socialClass === npc.socialClass && !relationships[npc.key] && key !== npc.key
       })
       setup.createRelationship(town, npc, friend, 'friend', 'friend')
       if (friend === undefined) {
