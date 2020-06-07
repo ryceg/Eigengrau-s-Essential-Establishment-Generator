@@ -171,7 +171,6 @@ setup.initGoodsAndServices = () => {
           'dwarven',
           'fat',
           'stoic'
-
         ],
         foodAdjective: [
           'delicious',
@@ -184,7 +183,6 @@ setup.initGoodsAndServices = () => {
           'sweet',
           'sour',
           'doughy'
-
         ],
         wordNoun: [
           'bakery',
@@ -195,7 +193,6 @@ setup.initGoodsAndServices = () => {
           'boulangerie',
           'bakehouse'
         ]
-
       },
       PassageFormat: () => [
         // each array string will be a new line.
@@ -339,12 +336,10 @@ setup.initGoodsAndServices = () => {
           nourishing: ['smells of deeply complex spices', 'the scent of vanilla fills your nose', 'smells like olives and herbs', 'has a pleasant aroma to it', "has a 'freshly baked' scent", 'the scent of it fills your nose, since it has been baked fresh'],
           sour: ['you can smell lemons in the air', 'the scent of citrus fills your nostrils', 'smells sweeter the closer you get', 'has a floral scent to it', 'has a lovely fresh scent', 'has a delightfully lemony smell']
         },
-
         accoutrements: {
           // it is served with ____
           sweet: ['dollop of whipped cream', 'tiny little marshmallow on the side', 'tiny chocolate mint', 'spoonful of honey'],
           savoury: ['cup of tea', 'biscuit', 'edible flower', 'bread']
-
         }
       },
       goods: {
@@ -362,7 +357,6 @@ setup.initGoodsAndServices = () => {
           cost: 4,
           description: 'A dense and difficult to digest loaf. Typically used as a plate for meats, with the juices soaking into the bread to make it more palatable.'
         },
-
         'loaf of barley bread': {
           cost: 18,
           description: 'A loaf of barley bread.',
