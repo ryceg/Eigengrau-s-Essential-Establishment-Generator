@@ -101,7 +101,7 @@ setup.createNPC = function (town, base) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
         const profession = setup.findProfession(town, npc)
-        return Math.round(setup.calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3]))
+        return Math.round(setup.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3)))
       },
       netIncome (town, npc) {
         console.log(`Returning ${npc.name}'s net income...`)
