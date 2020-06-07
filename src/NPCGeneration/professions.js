@@ -50,6 +50,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 4,
       socialClass: 'peasantry',
+      exclusions (npc) { if (!npc.partnerID) return false },
       socialClassRoll () { return 50 + dice(8, 6) }
     },
     'peasant': {
@@ -5813,7 +5814,8 @@ setup.initTownDataProfessions = () => {
       sv: 150,
       type: 'profession',
       sector: 'hospitality',
-      description: 'cares for his or her family by managing household affairs and completing housework.',
+      description: 'cares for her family by managing household affairs and completing housework.',
+      exclusions (npc) { if (npc.gender !== 'woman' || !npc.partnerID) return false },
       domSub: 'sub',
       dailyWage: 40,
       socialClass: 'peasantry',
