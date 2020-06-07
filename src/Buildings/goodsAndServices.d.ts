@@ -5,53 +5,70 @@ interface Setup {
 
 interface GoodsAndServices {
   default: {
-    create(type: string): (town: Town, opts?: unknown) => unknown
+    create(
+      type: keyof GoodsAndServices
+    ): (town: Town, opts?: unknown) => unknown
   }
-  bakery: {
-    create(town: Town, building: Building, opts?: unknown): Building
+  bakery: GoodsAndService & {
     name: {
-      function(town: Town, building: Building): string
-      unique: string[]
-      noun: string[]
       nounBakedGood: string[]
       beast: string[]
-      adjective: string[]
       foodAdjective: string[]
-      wordNoun: string[]
-    }
-    PassageFormat(): string[]
-    profession: {
-      name: string
-      opts: {
-        profession: string
-        hasClass: boolean
-        idle: string[]
-      }
     }
     bakedGoods: {
       function(): unknown
-      type: Record<string, BakedGoodType>
+      type: Record<string, BakeryGoodType>
       qualityDescriptors: Record<string, string[]>
       cookingDescriptors: Record<string, string[]>
       aroma: Record<string, string[]>
       accoutrements: Record<string, string[]>
     }
-    goods: Record<string, BakedGood>
-    type: string
-    notableFeature: string[]
-    specialty: string[]
+  }
+  florist: GoodsAndService
+  tailor: GoodsAndService
+  butcher: GoodsAndService
+  cobbler: GoodsAndService
+  fletcher: GoodsAndService
+  barber: GoodsAndService
+}
+
+interface GoodsAndService {
+  create(town: Town, building: Building, opts?: unknown): Building
+  name: {
+    function(town: Building): string
+    unique: string[]
+    noun: string[]
+    adjective: string[]
+    wordNoun: string[]
+    adjectivePerson?: string[]
+  }
+  PassageFormat(): string[]
+  profession: GoodsAndServicesProfession
+  goods: Record<string, GeneralGood>
+  type: string
+  notableFeature: string[]
+  specialty: string[]
+}
+
+interface GoodsAndServicesProfession {
+  name: string
+  opts: {
+    profession: string
+    hasClass: boolean
+    idle: string[]
   }
 }
 
-interface BakedGoodType {
+interface BakeryGoodType {
   synonyms?: string[]
   qualities: string[]
   precedingWord: string[]
   cooking: string[]
 }
 
-interface BakedGood {
+interface GeneralGood {
   cost: number
+  type?: string
   description: string
   exclusions?(town: Town, building: Building): boolean
 }

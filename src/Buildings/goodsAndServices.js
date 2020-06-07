@@ -119,7 +119,6 @@ setup.initGoodsAndServices = () => {
           'wafer',
           'snack',
           'flour'
-
         ],
         nounBakedGood: [
           'pie',
@@ -442,7 +441,6 @@ setup.initGoodsAndServices = () => {
         'a beaver head framed above a mantel.',
         'a large millstone behind the shop counter.',
         'a medium sized brown dog comes to greet you as you enter.'
-
       ],
       specialty: [
         // the bakery is known for _______
@@ -586,7 +584,6 @@ setup.initGoodsAndServices = () => {
           'lofty',
           'tilted',
           'beautiful'
-
         ],
         adjectivePerson: [
           'cheery',
@@ -685,7 +682,7 @@ setup.initGoodsAndServices = () => {
       notableFeature: [
         // you notice _______
         'the smell of fresh cut flowers hangs in the air.',
-        'a stong $building.flower aroma wafting through the room.',
+        'a strong $building.flower aroma wafting through the room.',
         'several planter pots dangling from ropes on the ceiling. Long fern leaves and vines hang down from the pots above.',
         'a plethora of small pots brimming with $building.flower1 dotted around the shop.',
         'a substantial number of patrons crowding the shop counter.',
@@ -807,7 +804,6 @@ setup.initGoodsAndServices = () => {
           'Sew New',
           'First Cut',
           'Dream Dresser'
-
         ],
         noun: [
           'stitches',
@@ -840,7 +836,6 @@ setup.initGoodsAndServices = () => {
           'plush',
           'prized',
           'noble'
-
         ],
         adjectivePerson: [
           'cheery',
