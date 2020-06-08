@@ -1,27 +1,27 @@
-setup.tavernRooms = function (tavern) {
-  if (tavern.roll.size > 80) {
-    tavern.freeRooms = random(6, 10)
-  } else if (tavern.roll.size > 60) {
-    tavern.freeRooms = random(5, 9)
-  } else if (tavern.roll.size > 40) {
-    tavern.freeRooms = random(4, 8)
-  } else if (tavern.roll.size > 20) {
-    tavern.freeRooms = random(3, 6)
-  } else if (tavern.roll.size <= 20) {
-    tavern.freeRooms = random(2, 4)
-  }
+setup.tavernRooms = tavern => {
+  return getBySize(tavern.roll.size) + populationModifier(tavern.roll.population)
+}
 
-  if (tavern.roll.population > 80) {
-    tavern.freeRooms -= 3
-  } else if (tavern.roll.population > 60) {
-    tavern.freeRooms -= 2
-  } else if (tavern.roll.population > 40) {
-    tavern.freeRooms -= 1
-  } else if (tavern.roll.population > 20) {
-    tavern.freeRooms += 2
-  } else if (tavern.roll.population <= 20) {
-    tavern.freeRooms += 3
-  }
+/**
+ * @param {number} sizeRoll
+ * @returns {number}
+ */
+function getBySize (sizeRoll) {
+  if (sizeRoll > 80) return random(6, 10)
+  if (sizeRoll > 60) return random(5, 9)
+  if (sizeRoll > 40) return random(4, 8)
+  if (sizeRoll > 20) return random(3, 6)
+  return random(2, 4)
+}
 
-  return tavern.freeRooms
+/**
+ * @param {number} populationRoll
+ * @returns {number}
+ */
+function populationModifier (populationRoll) {
+  if (populationRoll > 80) return -3
+  if (populationRoll > 60) return -2
+  if (populationRoll > 40) return -1
+  if (populationRoll > 20) return 2
+  return 3
 }
