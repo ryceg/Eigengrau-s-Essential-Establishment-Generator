@@ -907,36 +907,413 @@ setup.initGoodsAndServices = () => {
         }
       },
       goods: {
-        'fine shirt': {
-          cost: 10,
-          description: 'A fine shirt made out of cotton.'
-        },
-        'cheap shirt': {
-          cost: 5,
-          description: 'A poorly made and scratchy feeling shirt.'
-        },
-        'hose': {
-          cost: 7,
-          description: 'Leggings.'
-        },
-
-        'undergarments': {
-          cost: 6,
-          description: 'Undergarments.'
-        },
         'tailoring': {
           cost: 7,
           type: 'service',
           description: 'A service offered to fit clothing, take up shirts, and generally tailor clothing to fit better.'
         },
         'hole repair': {
-          cost: 30,
+          cost: 3,
           type: 'service',
           description: 'A service offered to patch up holey or tattered clothing people may have.'
         },
-        'belt': {
-          cost: 12,
-          description: 'A leather belt.'
+        'Boots, forest caiman skin': {
+          description: 'Boots, forest caiman skin',
+          cost: 410
+        },
+        'Boots, indigo caiman skin': {
+          description: 'Boots, indigo caiman skin',
+          cost: 380
+        },
+        'Boots, leather, ankle-high, brown': {
+          description: 'Boots, leather, ankle-high, brown',
+          cost: 100
+        },
+        'Boots, leather, thigh-high, brown': {
+          description: 'Boots, leather, thigh-high, brown',
+          cost: 120
+        },
+        'Boots, river caiman skin': {
+          description: 'Boots, river caiman skin',
+          cost: 215
+        },
+        'Breeches, good linen, fine': {
+          description: 'Breeches, good linen, fine',
+          cost: 150
+        },
+        'Breeches, good linen, fine, dyed blue (indigo)': {
+          description: 'Breeches, good linen, fine, dyed blue (indigo)',
+          cost: 163
+        },
+        'Breeches, good linen, fine, dyed red (madder)': {
+          description: 'Breeches, good linen, fine, dyed red (madder)',
+          cost: 159
+        },
+        'Breeches, good linen, light, fine': {
+          description: 'Breeches, good linen, light, fine',
+          cost: 120
+        },
+        'Breeches, good linen, light, fine, dyed blue (indigo)': {
+          description: 'Breeches, good linen, light, fine, dyed blue (indigo)',
+          cost: 131
+        },
+        'Breeches, good linen, light, fine, dyed red (madder)': {
+          description: 'Breeches, good linen, light, fine, dyed red (madder)',
+          cost: 129
+        },
+        'Breeches, silk, fine': {
+          description: 'Breeches, silk, fine',
+          cost: 900
+        },
+        'Breeches, thick cotton, fine': {
+          description: 'Breeches, thick cotton, fine',
+          cost: 175
+        },
+        'Breeches, thin cotton, fine': {
+          description: 'Breeches, thin cotton, fine',
+          cost: 150
+        },
+        'Breeches, wool, fine': {
+          description: 'Breeches, wool, fine',
+          cost: 130
+        },
+        'Breeches, wool, fine, dyed blue (indigo)': {
+          description: 'Breeches, wool, fine, dyed blue (indigo)',
+          cost: 135
+        },
+        'Breeches, wool, fine, dyed red (madder)': {
+          description: 'Breeches, wool, fine, dyed red (madder)',
+          cost: 133
+        },
+        'Button, ivory': {
+          description: 'Button, ivory',
+          cost: 60
+        },
+        'Button, wood': {
+          description: 'Button, wood',
+          cost: 4
+        },
+
+        'Coat (great), good linen, fine': {
+          description: 'Coat (great), good linen, fine',
+          cost: 380
+        },
+        'Coat (great), good linen, light, fine': {
+          description: 'Coat (great), good linen, light, fine',
+          cost: 300
+        },
+        'Coat (great), heavy wool, fine': {
+          description: 'Coat (great), heavy wool, fine',
+          cost: 400
+        },
+        'Coat (great), thick cotton, fine': {
+          description: 'Coat (great), thick cotton, fine',
+          cost: 450
+        },
+        'Coat (great), thin cotton, fine': {
+          description: 'Coat (great), thin cotton, fine',
+          cost: 380
+        },
+        'Coat (great), wool, fine': {
+          description: 'Coat (great), wool, fine',
+          cost: 320
+        },
+        'Coat, beaver fur': {
+          description: 'Coat, beaver fur',
+          cost: 900
+        },
+        'Coat, buckskin': {
+          description: 'Coat, buckskin',
+          cost: 500
+        },
+        'Coat, fox fur': {
+          description: 'Coat, fox fur',
+          cost: 1500
+        },
+        'Coat, leather (steer), black': {
+          description: 'Coat, leather (steer), black',
+          cost: 500
+        },
+        'Coat, leather (steer), natural color': {
+          description: 'Coat, leather (steer), natural color',
+          cost: 450
+        },
+        'Coat, lynx fur': {
+          description: 'Coat, lynx fur',
+          cost: 1800
+        },
+        'Coat, rabbit fur': {
+          description: 'Coat, rabbit fur',
+          cost: 580
+        },
+        'Coat, skunk fur': {
+          description: 'Coat, skunk fur',
+          cost: 1100
+        },
+        'Collar, dog, with iron buckle': {
+          description: 'Collar, dog, with iron buckle',
+          cost: 8
+        },
+        'Dress, simple, good linen, fine': {
+          description: 'Dress, simple, good linen, fine',
+          cost: 220
+        },
+        'Dress, simple, good linen, light, fine': {
+          description: 'Dress, simple, good linen, light, fine',
+          cost: 180
+        },
+        'Dress, simple, silk, fine': {
+          description: 'Dress, simple, silk, fine',
+          cost: 1500
+        },
+        'Dress, simple, thick cotton, fine': {
+          description: 'Dress, simple, thick cotton, fine',
+          cost: 270
+        },
+        'Dress, simple, thin cotton, fine': {
+          description: 'Dress, simple, thin cotton, fine',
+          cost: 220
+        },
+        'Dress, simple, wool, fine': {
+          description: 'Dress, simple, wool, fine',
+          cost: 200
+        },
+        "Gloves, horse hide, workman's": {
+          description: "Gloves, horse hide, workman's",
+          cost: 50
+        },
+        "Gloves, leather, workman's": {
+          description: "Gloves, leather, workman's",
+          cost: 46
+        },
+        'Gloves, wool, knit': {
+          description: 'Gloves, wool, knit',
+          cost: 50
+        },
+        "Handkerchief, good linen, 1'sq.": {
+          description: "Handkerchief, good linen, 1'sq.",
+          cost: 7
+        },
+        "Handkerchief, soft light canvas, 1'sq.": {
+          description: "Handkerchief, soft light canvas, 1'sq.",
+          cost: 5
+        },
+        'Hat, beaver fur': {
+          description: 'Hat, beaver fur',
+          cost: 90
+        },
+        'Hat, rabbit fur': {
+          description: 'Hat, rabbit fur',
+          cost: 60
+        },
+        'Hat, very large, beaver fur': {
+          description: 'Hat, very large, beaver fur',
+          cost: 150
+        },
+        'Hat, very large, rabbit fur': {
+          description: 'Hat, very large, rabbit fur',
+          cost: 140
+        },
+        'Hat, very large, skunk fur': {
+          description: 'Hat, very large, skunk fur',
+          cost: 200
+        },
+        'Hat, wool, knit, simple, 3 color': {
+          description: 'Hat, wool, knit, simple, 3 color',
+          cost: 40
+        },
+        'Jacket, beaver fur': {
+          description: 'Jacket, beaver fur',
+          cost: 600
+        },
+        'Jacket, buckskin': {
+          description: 'Jacket, buckskin',
+          cost: 320
+        },
+        'Jacket, fox fur, silver': {
+          description: 'Jacket, fox fur, silver',
+          cost: 1000
+        },
+        'Jacket, leather (steer), black': {
+          description: 'Jacket, leather (steer), black',
+          cost: 370
+        },
+        'Jacket, leather (steer), natural color': {
+          description: 'Jacket, leather (steer), natural color',
+          cost: 330
+        },
+        'Jacket, lynx fur': {
+          description: 'Jacket, lynx fur',
+          cost: 1200
+        },
+        'Jacket, rabbit fur': {
+          description: 'Jacket, rabbit fur',
+          cost: 380
+        },
+        'Jacket, skunk fur': {
+          description: 'Jacket, skunk fur',
+          cost: 700
+        },
+        'Jacket, wolf fur': {
+          description: 'Jacket, wolf fur',
+          cost: 750
+        },
+        'Kilt, wool': {
+          description: 'Kilt, wool',
+          cost: 180
+        },
+        'Mittens, wool, knit': {
+          description: 'Mittens, wool, knit',
+          cost: 20
+        },
+        "Napkin, good linen, 1'sq.": {
+          description: "Napkin, good linen, 1'sq.",
+          cost: 7
+        },
+
+        'Sandals, leather, natural color': {
+          description: 'Sandals, leather, natural color',
+          cost: 40
+        },
+        "Scarf, gauze silk, 4'": {
+          description: "Scarf, gauze silk, 4'",
+          cost: 135
+        },
+        "Scarf, silk, 4'": {
+          description: "Scarf, silk, 4'",
+          cost: 175
+        },
+        'Scarf, wool, knit': {
+          description: 'Scarf, wool, knit',
+          cost: 55
+        },
+        'Shirt, good linen, fine': {
+          description: 'Shirt, good linen, fine',
+          cost: 150
+        },
+        'Shirt, good linen, fine, dyed orange (saffron)': {
+          description: 'Shirt, good linen, fine, dyed orange (saffron)',
+          cost: 205
+        },
+        'Shirt, good linen, fine, dyed purple (true)': {
+          description: 'Shirt, good linen, fine, dyed purple (true)',
+          cost: 275
+        },
+        'Shirt, good linen, fine, dyed red (carmine)': {
+          description: 'Shirt, good linen, fine, dyed red (carmine)',
+          cost: 195
+        },
+        'Shirt, good linen, light, fine': {
+          description: 'Shirt, good linen, light, fine',
+          cost: 125
+        },
+        'Shirt, good linen, light, fine, dyed lt. blue (indigo)': {
+          description: 'Shirt, good linen, light, fine, dyed lt. blue (indigo)',
+          cost: 133
+        },
+        'Shirt, good linen, light, fine, dyed red (madder)': {
+          description: 'Shirt, good linen, light, fine, dyed red (madder)',
+          cost: 135
+        },
+        'Shirt, good linen, light, fine, dyed yellow (weld)': {
+          description: 'Shirt, good linen, light, fine, dyed yellow (weld)',
+          cost: 130
+        },
+        'Shirt, silk, fine': {
+          description: 'Shirt, silk, fine',
+          cost: 1000
+        },
+        'Shirt, thick cotton, fine': {
+          description: 'Shirt, thick cotton, fine',
+          cost: 180
+        },
+        'Shirt, thin cotton, fine': {
+          description: 'Shirt, thin cotton, fine',
+          cost: 150
+        },
+        'Shirt, thin cotton, fine, dyed lt. blue (indigo)': {
+          description: 'Shirt, thin cotton, fine, dyed lt. blue (indigo)',
+          cost: 164
+        },
+        'Shirt, thin cotton, fine, dyed red (madder)': {
+          description: 'Shirt, thin cotton, fine, dyed red (madder)',
+          cost: 165
+        },
+        'Shirt, thin cotton, fine, dyed yellow (weld)': {
+          description: 'Shirt, thin cotton, fine, dyed yellow (weld)',
+          cost: 162
+        },
+        'Shirt, wool, fine': {
+          description: 'Shirt, wool, fine',
+          cost: 130
+        },
+        'Shirt, wool, fine, dyed lt. blue (indigo)': {
+          description: 'Shirt, wool, fine, dyed lt. blue (indigo)',
+          cost: 138
+        },
+        'Shirt, wool, fine, dyed orange (saffron)': {
+          description: 'Shirt, wool, fine, dyed orange (saffron)',
+          cost: 160
+        },
+        'Shirt, wool, fine, dyed purple (true)': {
+          description: 'Shirt, wool, fine, dyed purple (true)',
+          cost: 200
+        },
+        'Shirt, wool, fine, dyed red (carmine)': {
+          description: 'Shirt, wool, fine, dyed red (carmine)',
+          cost: 153
+        },
+        'Shirt, wool, fine, dyed red (madder)': {
+          description: 'Shirt, wool, fine, dyed red (madder)',
+          cost: 140
+        },
+        'Shirt, wool, fine, dyed yellow (weld)': {
+          description: 'Shirt, wool, fine, dyed yellow (weld)',
+          cost: 135
+        },
+        'Shoes, leather, black': {
+          description: 'Shoes, leather, black',
+          cost: 70
+        },
+        'Socks, wool, knit, thick': {
+          description: 'Socks, wool, knit, thick',
+          cost: 25
+        },
+        'Socks, wool, knit, thin': {
+          description: 'Socks, wool, knit, thin',
+          cost: 12
+        },
+        'Staff, walking, plain': {
+          description: 'Staff, walking, plain',
+          cost: 20
+        },
+        'Sweater, heavy wool': {
+          description: 'Sweater, heavy wool',
+          cost: 160
+        },
+        'Sweater, winter wool': {
+          description: 'Sweater, winter wool',
+          cost: 240
+        },
+        'Sweater, wool': {
+          description: 'Sweater, wool',
+          cost: 120
+        },
+        'Vest, good linen, fine': {
+          description: 'Vest, good linen, fine',
+          cost: 100
+        },
+        'Vest, silk, fine': {
+          description: 'Vest, silk, fine',
+          cost: 700
+        },
+        'Vest, thick cotton, fine': {
+          description: 'Vest, thick cotton, fine',
+          cost: 120
+        },
+        'Vest, wool, fine': {
+          description: 'Vest, wool, fine',
+          cost: 90
         }
       },
       type: 'tailors',
