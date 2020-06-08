@@ -3,7 +3,6 @@ interface Setup {
   getMoralsData(npc: NPC): MoralsData[]
   npcTaxRate(town: Town, npc: NPC): number
   profile(obj: any, base?: string, type?: string): string
-  setAsPartners(npc1: NPC, npc2: NPC): void
   createAge(npc: NPC): any
   isOfAge(ageStage, race, ageYears): boolean
   createBackground(npc: NPC): any
@@ -21,7 +20,6 @@ interface Setup {
   guardData: any
   createGuard(town: Town): any
 
-  townData: any
   updateSocioPolitics(town: Town): Town
 }
 

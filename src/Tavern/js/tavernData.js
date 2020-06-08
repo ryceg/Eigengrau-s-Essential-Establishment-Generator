@@ -805,6 +805,42 @@ setup.initTavernData = () => {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'farmer', gender: 'man' })
         return `A poor ${setup.profile(npc, 'farmer')} is trying to pay his bar tab with a sack of potatoes and a barrel of pickles.`
       },
+      work (town) {
+        const npc = setup.createNPC(town, { profession: 'peasant' })
+        return `There's a ${setup.profile(npc, 'peasant')} that seems to be trying to drink away what little coin ${npc.heshe} has left.`
+      },
+      artist (town) {
+        const npc = setup.createNPC(town, { profession: 'artist' })
+        return `There's an ${setup.profile(npc, 'artist')} that is sketching ${npc.hisher} surroundings on a pad of paper.`
+      },
+      bard (town) {
+        const npc = setup.createNPC(town, { profession: 'musician' })
+        return `There's a ${setup.profile(npc, 'musician')} that is having a drink, clearly in between sets.`
+      },
+      preacher (town) {
+        const npc = setup.createNPC(town, { roll: { religiosity: 99 } })
+        return `There's a ${setup.profile(npc, npc.descriptor)} that is supposedly "spreading the good word" about ${npc.hisher} deity. In reality, all ${npc.heshe} is doing is just annoying the other patrons.`
+      },
+      amateurMusician (town) {
+        const npc = setup.createNPC(town, { profession: 'peasant' })
+        return `There's a ${setup.profile(npc, 'peasant')} that is playing ${['a recorder', 'the lute', 'a lap harp', 'a flute'].random()} rather badly; ${npc.heshe} is clearly in need of more practice.`
+      },
+      food (town) {
+        const npc = setup.createNPC(town)
+        return `There's a ${setup.profile(npc, npc.descriptor)} that is grumbling about the food.`
+      },
+      karen (town) {
+        const npc = setup.createNPC(town, { profession: 'peasant', firstName: 'Karen' })
+        return `There's a ${setup.profile(npc, npc.descriptor)} that seems to be trying to grab the bartender's attention.`
+      },
+      passedOut (town) {
+        const npc = setup.createNPC(town)
+        return `There's a ${setup.profile(npc, npc.descriptor)} that seems to be testing gravity out, making sure that it still works by repeatedly falling over. ${npc.heshe.toUpperFirst()} is as drunk as a skunk.`
+      },
+      deathsticks (town) {
+        const npc = setup.createNPC(town, { profession: 'drug dealer' })
+        return `There's a ${setup.profile(npc, npc.descriptor)} that is selling something that ${npc.heshe} calls 'death sticks'. It's not clear what they do, or how legal they are.`
+      },
       seacaptain (town) {
         const npc = setup.createNPC(town, { background: 'sailor', profession: "ship's captain", gender: 'man' })
         return `A ${setup.profile(npc, 'sea-captain')} has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.`
@@ -813,9 +849,9 @@ setup.initTavernData = () => {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man' })
         return `A ${setup.profile(npc, 'ranger')} sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.`
       },
-      troll (town) {
+      drunkard (town) {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'drunkard', gender: 'man' })
-        return `A lone ${setup.profile(npc, 'troll')} is drinking at the end of the bar and softly crying and singing one country ballad after another.`
+        return `A lone ${setup.profile(npc, 'drunkard')} is drinking at the end of the bar and softly crying and singing one country ballad after another.`
       },
       wizard (town) {
         const npc = setup.createNPC(town, { background: 'sage', profession: 'wizard', dndClass: 'wizard', gender: 'man' })
@@ -862,14 +898,14 @@ setup.initTavernData = () => {
       },
       mophand (town) {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'maid-servant', hasClass: false })
-        return `The ${setup.profile(npc, 'toothless mop-hand')} reminisces with a hobgoblin military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.`
+        return `The ${setup.profile(npc, 'toothless mop-hand')} reminisces with a military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.`
       },
       doppelganger (town) {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
         return `The ${setup.profile(npc, 'barmaid')} is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.`
       },
       priest (town) {
-        const npc = setup.createNPC(town, { background: 'sage', profession: 'priest', dndClass: 'cleric', weight: 'fat', weightRoll: 200 })
+        const npc = setup.createNPC(town, { profession: 'priest', weight: 'fat', weightRoll: 200 })
         return `A ${setup.profile(npc, 'fat priest')} is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?`
       }
     },

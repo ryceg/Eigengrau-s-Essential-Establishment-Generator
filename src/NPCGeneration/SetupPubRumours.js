@@ -1,7 +1,7 @@
-setup.createPubRumour = function () {
-  let pubRumour
-  const tempRumour = Object.assign({
-    origin: ['a child',
+setup.createPubRumour = () => {
+  const tempRumour = {
+    origin: [
+      'a child',
       'a fat merchant',
       'a priest',
       'a sailor',
@@ -12,8 +12,9 @@ setup.createPubRumour = function () {
       'a crazy monk',
       'a drunken farmer',
       'the butcher',
-      'the tailor'].random()
-  })
+      'the tailor'
+    ].random()
+  }
 
   switch (tempRumour.origin) {
     case 'a child':
@@ -704,8 +705,7 @@ setup.createPubRumour = function () {
       break
   }
 
-  // eslint-disable-next-line prefer-const
-  pubRumour = `${['Did you hear?', 'Did you hear the news?', 'Did you hear about the news?', 'Did you hear?'].random()} ${tempRumour.origin.toUpperFirst()} ${tempRumour.complication} and discovered ${tempRumour.discovery}, and now ${tempRumour.result}`
+  const opening = ['Did you hear?', 'Did you hear the news?', 'Did you hear about the news?', 'Did you hear?'].random()
 
-  return pubRumour
+  return `${opening} ${tempRumour.origin.toUpperFirst()} ${tempRumour.complication} and discovered ${tempRumour.discovery}, and now ${tempRumour.result}`
 }

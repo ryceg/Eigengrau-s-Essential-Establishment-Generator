@@ -1,5 +1,5 @@
 setup.checkRaces = function (town, npcs) {
-  console.groupCollapsed(`Checking the races...`)
+  console.groupCollapsed('Checking the races...')
   console.log({ npcs })
   for (const npcKey in npcs) {
     const npc = npcs[npcKey]
@@ -24,7 +24,7 @@ setup.checkRaces = function (town, npcs) {
       })
     }
   }
-  console.log(`npcs:`)
+  console.log('npcs:')
   console.log(npcs)
   console.groupEnd()
   return npcs

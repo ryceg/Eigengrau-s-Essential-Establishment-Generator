@@ -1,5 +1,4 @@
-
-setup.createTemple = function (town, opts = {}) {
+setup.createTemple = (town, opts = {}) => {
   console.log('Creating a temple...')
   const temple = (opts.newBuilding || setup.createBuilding)(town, 'temple')
   const data = setup.temple

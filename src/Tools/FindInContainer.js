@@ -11,7 +11,7 @@ setup.findInContainer = function (container, key, value) {
     const values = container[object][key]
 
     if (Array.isArray(values) && values.includes(value)) {
-      console.log('Found ' + value + ' in ' + object)
+      console.log(`Found ${value} in ${object}`)
       return container[object]
     }
   }

@@ -1,13 +1,14 @@
-
-setup.createRoad = function (base) {
-  const type = ['trail', 'path', 'path', 'road', 'road', 'road']
+setup.createRoad = base => {
+  const type = ['trail', 'path', 'path', 'road', 'road', 'road'].random()
   const noEncounter = [true, true, true, false, false].random()
-  const road = Object.assign({
-    type: type.random(),
-    noEncounter
-  }, base)
 
-  switch (road.type) {
+  const road = {
+    type,
+    noEncounter,
+    ...base
+  }
+
+  switch (type) {
     case 'trail':
       Object.assign(road, {
         descriptiveType: ["hunter's trail", 'animal trail', 'dirt trail'].random(),
@@ -30,7 +31,7 @@ setup.createRoad = function (base) {
       })
   }
 
-  if (noEncounter === true) {
+  if (noEncounter) {
     road.output = `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.descriptiveType}, ${road.traffic}.`
   } else {
     road.output = `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.descriptiveType}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()}`].random()}${road.encounter}.`

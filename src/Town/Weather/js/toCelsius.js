@@ -1,12 +1,10 @@
-setup.toCelsius = function (temp) {
+setup.toCelsius = temp => {
   if (settings.showCelsius) {
     console.log(`${temp} in Fahrenheit`)
-    temp -= 32
-    temp = `${Math.trunc(temp *= 0.5556)} degrees Celsius`
+    temp = Math.trunc((temp - 32) * 0.5556)
     console.log(`${temp} in Celsius`)
-  } else {
-    temp += ' degrees Fahrenheit'
+    return `${temp} degrees Celsius`
   }
 
-  return temp
+  return `${temp} degrees Fahrenheit`
 }

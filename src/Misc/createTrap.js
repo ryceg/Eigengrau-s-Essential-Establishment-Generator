@@ -1,5 +1,5 @@
 
-setup.createTrap = function (base) {
+setup.createTrap = base => {
   const type = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
   // var twist = ['trap was never reset. Nothing dangerous happens',
   //   'the trap does multiple things, roll twice on the effect table',

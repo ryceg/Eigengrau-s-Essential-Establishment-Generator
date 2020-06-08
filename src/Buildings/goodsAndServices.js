@@ -119,7 +119,6 @@ setup.initGoodsAndServices = () => {
           'wafer',
           'snack',
           'flour'
-
         ],
         nounBakedGood: [
           'pie',
@@ -171,7 +170,6 @@ setup.initGoodsAndServices = () => {
           'dwarven',
           'fat',
           'stoic'
-
         ],
         foodAdjective: [
           'delicious',
@@ -184,7 +182,6 @@ setup.initGoodsAndServices = () => {
           'sweet',
           'sour',
           'doughy'
-
         ],
         wordNoun: [
           'bakery',
@@ -195,7 +192,6 @@ setup.initGoodsAndServices = () => {
           'boulangerie',
           'bakehouse'
         ]
-
       },
       PassageFormat: () => [
         // each array string will be a new line.
@@ -339,12 +335,10 @@ setup.initGoodsAndServices = () => {
           nourishing: ['smells of deeply complex spices', 'the scent of vanilla fills your nose', 'smells like olives and herbs', 'has a pleasant aroma to it', "has a 'freshly baked' scent", 'the scent of it fills your nose, since it has been baked fresh'],
           sour: ['you can smell lemons in the air', 'the scent of citrus fills your nostrils', 'smells sweeter the closer you get', 'has a floral scent to it', 'has a lovely fresh scent', 'has a delightfully lemony smell']
         },
-
         accoutrements: {
           // it is served with ____
           sweet: ['dollop of whipped cream', 'tiny little marshmallow on the side', 'tiny chocolate mint', 'spoonful of honey'],
           savoury: ['cup of tea', 'biscuit', 'edible flower', 'bread']
-
         }
       },
       goods: {
@@ -362,7 +356,6 @@ setup.initGoodsAndServices = () => {
           cost: 4,
           description: 'A dense and difficult to digest loaf. Typically used as a plate for meats, with the juices soaking into the bread to make it more palatable.'
         },
-
         'loaf of barley bread': {
           cost: 18,
           description: 'A loaf of barley bread.',
@@ -448,7 +441,6 @@ setup.initGoodsAndServices = () => {
         'a beaver head framed above a mantel.',
         'a large millstone behind the shop counter.',
         'a medium sized brown dog comes to greet you as you enter.'
-
       ],
       specialty: [
         // the bakery is known for _______
@@ -592,7 +584,6 @@ setup.initGoodsAndServices = () => {
           'lofty',
           'tilted',
           'beautiful'
-
         ],
         adjectivePerson: [
           'cheery',
@@ -691,7 +682,7 @@ setup.initGoodsAndServices = () => {
       notableFeature: [
         // you notice _______
         'the smell of fresh cut flowers hangs in the air.',
-        'a stong $building.flower aroma wafting through the room.',
+        'a strong $building.flower aroma wafting through the room.',
         'several planter pots dangling from ropes on the ceiling. Long fern leaves and vines hang down from the pots above.',
         'a plethora of small pots brimming with $building.flower1 dotted around the shop.',
         'a substantial number of patrons crowding the shop counter.',
@@ -813,7 +804,6 @@ setup.initGoodsAndServices = () => {
           'Sew New',
           'First Cut',
           'Dream Dresser'
-
         ],
         noun: [
           'stitches',
@@ -846,7 +836,6 @@ setup.initGoodsAndServices = () => {
           'plush',
           'prized',
           'noble'
-
         ],
         adjectivePerson: [
           'cheery',
