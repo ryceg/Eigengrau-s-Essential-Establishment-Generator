@@ -1,0 +1,1 @@
+export { setRandom } from "./random"

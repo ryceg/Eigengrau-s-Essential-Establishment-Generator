@@ -5,6 +5,7 @@
  * the order is very important.
  */
 setup.init = (setup => () => {
+  lib.setRandom(State.random)
   setup.initMisc()
   setup.initMiscBooks()
   setup.initMiscRiddles()
