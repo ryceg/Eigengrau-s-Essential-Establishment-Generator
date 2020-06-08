@@ -8,7 +8,7 @@ setup.findProfession = function (town, npc, profession) {
     profession
   })
 
-  if (Object.keys(setup.townData.professions).includes(profession)) {
+  if (setup.townData.professions[profession]) {
     console.log(`${profession} is defined!`)
     console.groupEnd()
     return setup.townData.professions[profession]
