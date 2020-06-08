@@ -676,7 +676,7 @@ setup.initTownData = () => {
       'republic': {
         politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
         politicalSourceDescription: 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
-        description: 'The crown holds both supreme executive and judicial powers.'
+        description: 'An elected body of representatives wield the powers of government.'
       },
       'anarchy': {
         politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
