@@ -615,7 +615,6 @@ setup.initMiscEncounters = () => {
     'a lost prospector': town => {
       const npc = setup.createNPC(town, {
         background: 'outlander',
-        hasClass: false,
         profession: 'prospector',
         note: 'This person is very lost.',
         isThrowaway: true
@@ -624,8 +623,6 @@ setup.initMiscEncounters = () => {
     },
     'a solemn warrior': town => {
       const npc = setup.createNPC(town, {
-        background: 'soldier',
-        hasClass: true,
         profession: 'fighter',
         calmTrait: 'solemn',
         stressTrait: 'determined',
