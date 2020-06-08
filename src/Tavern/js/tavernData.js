@@ -151,20 +151,20 @@ setup.initTavernData = () => {
     ],
     get: {
       patrons (town, tavern) {
-        const key = Object.keys(setup.tavern.patrons)
-        return setup.tavern.patrons[key[random(0, key.length)]](town, tavern)
+        const patron = Object.values(setup.tavern.patrons).random()
+        return patron(town, tavern)
       },
       carousing (town, tavern) {
         const carousing = {
           pickpocket () { return `A pickpocket lifts ${dice(5, 10)} gold from you.` },
           brawl () { return 'A bar brawl leaves you with a scar.' },
           memories () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
-          banned (tavern) { return `You are banned from ${tavern.name} after some very obnoxious behaviour.` },
+          banned (_, tavern) { return `You are banned from ${tavern.name} after some very obnoxious behaviour.` },
           quest (town) { return `After a few drinks, you swore in the ${town.type} square to undergo a dangerous quest.` },
           married () { return 'Surprise! You got engaged.' },
-          streaking (tavern) { return `Streaking naked down ${tavern.road} seemed like a good idea.` },
+          streaking (_, tavern) { return `Streaking naked down ${tavern.road} seemed like a good idea.` },
           nickname () { return `Everyone is calling you "${['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random()}", but nobody will tell you why.` },
-          insult (town, tavern) {
+          insult (town) {
             const faction = setup.factionsForType(town, 'leadershipType', 'individual')
             console.log(faction)
             return `You accidentally insulted the <<profile \`$npcs[${JSON.stringify(faction.leader.key)}]\` leader>> of the ${faction.type} ${faction.wordNoun}, ${setup.profile(faction, '', 'town.factions')}, and only a public apology will let you do business with them again.`
@@ -207,8 +207,8 @@ setup.initTavernData = () => {
             return `A  boring noble called ${setup.profile(npc)} insists you visit each day and listen to long, tedious theories of magic.`
           }
         }
-        const keys = Object.keys(carousing)
-        return carousing[keys[random(0, keys.length)]](town, tavern)
+        const fn = Object.values(carousing).random()
+        return fn(town, tavern)
       },
       entertainment (tavern) {
         const entertainment = [
@@ -317,9 +317,9 @@ setup.initTavernData = () => {
           `The legs of all the tables in tavern are shaped like ${['lions', 'bears', 'bulls', 'cows', 'trees', 'mountains', 'dwarves', 'elves', 'different fish', 'different weapons', 'dragons', 'beer mugs', 'human legs', 'ocean waves', 'jewels', 'swords', 'axes', 'pickaxes', 'beer barrels', 'scepters', 'different animals', 'animal legs'].random()}`,
           `${['A decent looking', 'A fine looking', 'An ancient looking', 'Some kind of legendary'].random()} ${['sword', 'axe', 'dagger', 'mace', 'flail', 'pike', 'arrow', 'crossbow', 'lance', 'rapier', 'battleaxe', 'maul', 'whip', 'longsword', 'morning star', 'war hammer', 'glaive', 'scroll', 'tome', 'helmet', 'set of armor', 'crown', 'scepter', 'book', 'longbow', 'grappling hook', 'necklace'].random()} is mounted to the wall next to the bar.`,
           'One corner of the tavern is extremely dark but it looks like there is a table there.',
-          `A large ${['nicely crafted', 'well crafted', 'masterpiece', ', expensive looking'].seededrandom} painting of ${['a mountain range', 'a field of flowers', 'a dog', 'a cat', 'a rabbit', 'a cloudy sky', 'a stormy sea', 'an ocean faring ship', 'a large battle', 'a local hero', 'the barkeep', 'a forest', 'a dragon', 'a temple', 'a castle', 'an old king', 'a wolf', 'a seamonster', 'the town', 'an eagle', 'a unicorn', 'a lion', 'a fairy', 'a demon'].random()} is hung proudly in a finely crafted frame near the bar.`,
+          `A large ${['nicely crafted', 'well crafted', 'masterpiece', ', expensive looking'].random()} painting of ${['a mountain range', 'a field of flowers', 'a dog', 'a cat', 'a rabbit', 'a cloudy sky', 'a stormy sea', 'an ocean faring ship', 'a large battle', 'a local hero', 'the barkeep', 'a forest', 'a dragon', 'a temple', 'a castle', 'an old king', 'a wolf', 'a seamonster', 'the town', 'an eagle', 'a unicorn', 'a lion', 'a fairy', 'a demon'].random()} is hung proudly in a finely crafted frame near the bar.`,
           'The flag of the town is hung prominently above the bar.',
-          `${['A nice looking', 'A fine looking', 'An ancient', 'An expensive looking'].seededrandom} tapestry is hung up on one of the walls depicting ${['a group of mining dwarves', 'the history of the town', 'the history of the tavern', 'the fall of a tyrant', 'a local folk tale', 'the acts of an old hero', 'the drinking tales of a legendary barbarian', 'a great fishing trip', 'a journey of gnomes', 'the crafting of a great weapon', 'the creation of an ancient relic', 'the construction of a great wonder', 'the journey of a famous ship', 'a great tragedy of old', 'the forming of the skies', 'the coronation of a king', 'the slaying of a dragon'].random()}.`,
+          `${['A nice looking', 'A fine looking', 'An ancient', 'An expensive looking'].random()} tapestry is hung up on one of the walls depicting ${['a group of mining dwarves', 'the history of the town', 'the history of the tavern', 'the fall of a tyrant', 'a local folk tale', 'the acts of an old hero', 'the drinking tales of a legendary barbarian', 'a great fishing trip', 'a journey of gnomes', 'the crafting of a great weapon', 'the creation of an ancient relic', 'the construction of a great wonder', 'the journey of a famous ship', 'a great tragedy of old', 'the forming of the skies', 'the coronation of a king', 'the slaying of a dragon'].random()}.`,
           `A ${['stacked stone fireplace', 'stone fireplace', 'slate stone fireplace', 'clay fireplace', 'large granite fireplace', 'large cobblestone fireplace', 'brick fireplace', 'large brick fireplace'].random()} blazes in a corner of the tavern with a ${['large cauldron bubbling away above it', 'haunch of mutton cooking on a skewer in it', 'few people huddled around it for warmth', 'small group of pots being warmed in it', 'patron stoking the flames'].random()}.`,
           'The tavern is lit by a collection of jars full of glowing bugs hanging from the ceiling.',
           `The tavern walls are covered in paintings of ${['cats', 'dogs', 'birds', 'horses', 'cows', 'food', 'flowers', 'trees', 'rocks', 'owls', 'wolves', 'frogs', 'rabbits', 'nobles', 'famous heros', 'old battles', 'dragons', 'snakes'].random()} in a variety of fine looking frames.`,
@@ -352,8 +352,7 @@ setup.initTavernData = () => {
           {
             population: 80,
             roughness: 50,
-            note:
-              `It must be peak hour for the ${tavern.wordNoun}. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.`
+            note: `It must be peak hour for the ${tavern.wordNoun}. The barmaid is running back and forth between customers and the kitchen, trying desperately to keep ontop of the ever growing requests for more ale.`
           },
           {
             population: 80,
@@ -373,8 +372,7 @@ setup.initTavernData = () => {
           {
             population: 70,
             roughness: 60,
-            note:
-              `It's peak hour for ${tavern.name} and you can tell that the bartender is concerned about a fight breaking out.`
+            note: `It's peak hour for ${tavern.name} and you can tell that the bartender is concerned about a fight breaking out.`
           },
           {
             population: 70,
@@ -384,20 +382,17 @@ setup.initTavernData = () => {
           {
             population: 60,
             roughness: 20,
-            note:
-              `The ${tavern.wordNoun} is quite full, and the owner is clearly enjoying the amount of business ${bartender.hisher}${tavern.wordNoun} is receiving.`
+            note: `The ${tavern.wordNoun} is quite full, and the owner is clearly enjoying the amount of business ${bartender.hisher}${tavern.wordNoun} is receiving.`
           },
           {
             population: 50,
             roughness: 60,
-            note:
-              `There's a fair number of people in the ${tavern.wordNoun} with quite a few swords on display.`
+            note: `There's a fair number of people in the ${tavern.wordNoun} with quite a few swords on display.`
           },
           {
             population: 50,
             roughness: 20,
-            note:
-              `There's a decent number of people in ${tavern.name}, and you manage to find a seat without too much trouble.`
+            note: `There's a decent number of people in ${tavern.name}, and you manage to find a seat without too much trouble.`
           },
           {
             population: 40,
@@ -417,8 +412,7 @@ setup.initTavernData = () => {
           {
             population: 30,
             roughness: 60,
-            note:
-              'There are basically no people in the tavern, save for a few battle-hardened men talking in the corner.'
+            note: 'There are basically no people in the tavern, save for a few battle-hardened men talking in the corner.'
           },
           {
             population: 30,
@@ -428,8 +422,7 @@ setup.initTavernData = () => {
           {
             population: 20,
             roughness: 60,
-            note:
-              `There's not very many customers in ${tavern.name} at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele.`
+            note: `There's not very many customers in ${tavern.name} at the moment. You see a couple of adventurers hunked over in the corner, quietly discussing battle plans, but nothing of particular interest in the clientele.`
           },
           {
             population: 20,
@@ -445,66 +438,73 @@ setup.initTavernData = () => {
           {
             wealth: 80,
             roughness: 80,
-            note:
-              [`There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. ${bartender.name} proudly tells you that there are no stinkin' vegetables, and that ${tavern.name} stocks only the finest meats.`,
-              `The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's available to drink, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The server then tells you that while ${tavern.name} is proud of its menu, it caters to an exclusively carnivorous diet.`].random()
+            note: [
+              `There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu. ${bartender.name} proudly tells you that there are no stinkin' vegetables, and that ${tavern.name} stocks only the finest meats.`,
+              `The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's available to drink, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The server then tells you that while ${tavern.name} is proud of its menu, it caters to an exclusively carnivorous diet.`
+            ].random()
           },
           {
             wealth: 80,
             roughness: 30,
-            note:
-              [`There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that ${tavern.name} is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ${tavern.wordNoun}.`,
-              `The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that ${tavern.name} is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ${tavern.wordNoun}.`].random()
+            note: [
+              `There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the food that's on menu. The waitstaff tell you that ${tavern.name} is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ${tavern.wordNoun}.`,
+              `The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. The waitstaff tell you that ${tavern.name} is proud to be 100% violence free; upon further clarification, this is revealed to mean that there is not a single bone of meat in the entire ${tavern.wordNoun}.`
+            ].random()
           },
           {
             wealth: 80,
             roughness: 50,
-            note:
-              ["There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu.",
-                "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. It goes without saying that the kitchen is able to accomodate even the pickiest of royalty."].random()
+            note: [
+              "There's ales and boutique spirits available. Delicious smells are wafting from the kitchen, and your mouth salivates at the thought of the game that's on menu.",
+              "The smells emanating from the kitchen tantalise your nostrils, and when you ask the waiting staff what's on menu, they begin to take a deep breath, before listing out a huge array of wines, ales, lagers, and spirits. It goes without saying that the kitchen is able to accomodate even the pickiest of royalty."
+            ].random()
           },
           {
             wealth: 60,
             roughness: 80,
-            note:
-              [`There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food, but curiously no vegetables. ${bartender.name} spits when you mention this, and says 'no stinkin' veggies around here. We eat meat and we like it, so if you don't like it, yer not eatin'.`,
-              `There's your standard beers, with the ${tavern.wordNoun} specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in ${tavern.name}.`].random()
+            note: [
+              `There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food, but curiously no vegetables. ${bartender.name} spits when you mention this, and says 'no stinkin' veggies around here. We eat meat and we like it, so if you don't like it, yer not eatin'.`,
+              `There's your standard beers, with the ${tavern.wordNoun} specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, and mutton, but strangely, no breads, cheeses, or potatoes of any description; you hear another patron loudly state that he loves not having to put up with those 'pointy ears complaining about the lack of green stuff' in ${tavern.name}.`
+            ].random()
           },
           {
             wealth: 60,
             roughness: 30,
-            note:
-              [`There's ales available. The food is a peculiarly limited menu; roast vegetables, breads, cheeses, but no meats, despite ${tavern.name} clearly being able to afford it.`,
+            note: [
+              `There's ales available. The food is a peculiarly limited menu; roast vegetables, breads, cheeses, but no meats, despite ${tavern.name} clearly being able to afford it.`,
               `There's your standard beers, with the ${tavern.wordNoun} specialising in ales, which are allegedly quite good. As far as food is concerned, there's breads, cheeses, and all the vegetables you could ever ask for, but not a single bone of meat is available.`,
-              `Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask ${bartender.name} about it, ${bartender.heshe} smiles, and says that ${bartender.heshe} is an animal lover, and wouldn't be able to forgive ${bartender.himherself} if an animal came to harm due to ${bartender.hisher} business.`].random()
+              `Drinks are pretty standard, with a house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask ${bartender.name} about it, ${bartender.heshe} smiles, and says that ${bartender.heshe} is an animal lover, and wouldn't be able to forgive ${bartender.himherself} if an animal came to harm due to ${bartender.hisher} business.`
+            ].random()
           },
           {
             wealth: 60,
             roughness: 20,
-            // bartender.race === "elf",
             note: `Drinks are pretty standard, with the house lager being twenty percent off tonight. The menu is sadly lacking any meats, and when you ask ${bartender.name} about it, ${bartender.heshe} smiles, and says that ${bartender.heshe} is an animal lover, and wouldn't be able to forgive ${bartender.himherself} if an animal came to harm due to ${bartender.hisher} business.`
           },
           {
             wealth: 60,
             roughness: 30,
-            note:
-              ["There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food.",
-                `There's your standard beers, with the ${tavern.wordNoun} specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton.`].random()
+            note: [
+              "There's ales available. The food is standard fare, with roast beef, pork, and mutton on the menu for food.",
+              `There's your standard beers, with the ${tavern.wordNoun} specialising in ales, which are allegedly quite good. As far as food is concerned, there's regular fare of beef, pork, breads and cheeses, and mutton.`
+            ].random()
           },
           {
             wealth: 40,
             roughness: 60,
-            note:
-              [`There's the usual house-brewed ale on tap, but it is warm and undercarbonated. You suspect that ${bartender.firstName} has watered it down. As far as food is concerned, there is the usual mutton and breads available.`,
-              `${bartender.firstName} says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated.`].random()
+            note: [
+              `There's the usual house-brewed ale on tap, but it is warm and undercarbonated. You suspect that ${bartender.firstName} has watered it down. As far as food is concerned, there is the usual mutton and breads available.`,
+              `${bartender.firstName} says that they have some freshly brewed ale, although you soon discover that to be a lie; it's lukewarm, and barely carbonated.`
+            ].random()
           },
           {
             wealth: 40,
             roughness: 30,
-            note:
-              ["There's the usual house-brewed ale on tap, but it is warm and undercarbonated. As far as food is concerned, there is the usual mutton and breads available.",
-                "There's a limited range of beers, some of which have very clearly soured.",
-                'The food on offer is rather plain, with nothing terribly interesting or appetizing. The beer is unfortunately not much better.'].random()
+            note: [
+              "There's the usual house-brewed ale on tap, but it is warm and undercarbonated. As far as food is concerned, there is the usual mutton and breads available.",
+              "There's a limited range of beers, some of which have very clearly soured.",
+              'The food on offer is rather plain, with nothing terribly interesting or appetizing. The beer is unfortunately not much better.'
+            ].random()
           },
           {
             wealth: 20,
@@ -623,17 +623,7 @@ setup.initTavernData = () => {
           },
           {
             draw: 'resident bard',
-            // drawFunction: function createBard (tavern) {
-            //   console.log('Created a bard as part of the tavernDraw function.')
-            //   tavern.bard = setup.createNPC(town, { dndClass: 'bard', gender: 'man' })
-            //   return {
-            //     tavern
-            //   }
-            // },
             drawFeature: "You see a bard singing a love song in the corner of the room, and are drawn to his pure, melifluous voice. He's quite a good singer, and the patrons are nodding along to the song appreciatively."
-
-            // drawFeature: 'You see a bard singing a love song in the corner of the room, and are drawn to ' + tavern.bard.hisher + ' pure, melifluous voice. ' + tavern.bard.heshe.toUpperFirst() + "'s quite a good singer, and the patrons are nodding along to the song appreciatively."
-
           },
           {
             draw: 'witty banter with the waitstaff',
@@ -641,18 +631,10 @@ setup.initTavernData = () => {
           },
           {
             draw: 'crude jokes the bartender makes',
-            // drawFunction: function createPatron (tavern) {
-            //   console.log('Created a tavern patron as part of the tavernDraw function.')
-            //   tavern.patron = setup.createNPC(town, { hasClass: false, gender: 'man' })
-            //   return {
-            //     tavern
-            //   }
-            // },
             drawFeature: `You see the bartender is talking to a <<profile $building.patron $building.patron.descriptor>>. ${bartender.heshe.toUpperFirst()} smiles, and then says something, making the $building.patron.descriptor go white as a sheet, and immediately leave the establishment, with ${bartender.firstName} laughing, calling $building.patron.himher 'too goody-two-shoes to be able to handle ${tavern.name}.`
           },
           {
             draw: "proximity to the thieves' guild headquarters",
-            // drawFunction: setup.createFaction({'type': "thieves"}),
             drawFeature: `You can see a sign by the door stating 'REPEATED PICKPOCKETING WILL RESULT IN THE THIEVES' GUILD BEING BANNED FROM THESE PREMISES'. Clearly, ${tavern.name} has an issue with the thieves guild.`
           },
           {
@@ -710,18 +692,6 @@ setup.initTavernData = () => {
               return tavern
             }
           },
-          // {
-          //   draw: 'drunk wizard',
-          //   drawFunction: function (tavern) {
-          //     tavern.roll.magic += 10
-          //     var drunkWizard = setup.createNPC(town, {dndClass: 'wizard' })
-          //     return {
-          //       drunkWizard: drunkWizard,
-          //       tavern: tavern
-          //     }
-          //   },
-          //   drawFeature: "There's a " + drunkWizard.descriptor + ' thaumaturgist in the corner, who is practising cantrips as ' + drunkWizard.heshe + ' downs another pint. ' + drunkWizard.heshe.toUpperFirst() + " looks over at you, smiles, and says 'You can't cast drunk if you don't practice drunk!'"
-          // },
           {
             draw: 'huge fireplace',
             drawFeature: `You see a huge fireplace in the centre of the ${tavern.wordNoun}, which fills the surrounding air with a wonderful warmth and aroma due to the pot which hangs above it, contentedly bubbling over the embers.`
@@ -743,29 +713,30 @@ setup.initTavernData = () => {
           {
             size: 90,
             wealth: 10,
-            note: [`${tavern.name} is just one huge, ${tavern.lighting} ${tavern.cleanliness} room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`,
-            `${tavern.name} is huge, ${tavern.lighting}, and ${tavern.cleanliness}. There are several large ${tavern.material} tables.`
+            note: [
+              `${tavern.name} is just one huge, ${tavern.lighting} ${tavern.cleanliness} room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`,
+              `${tavern.name} is huge, ${tavern.lighting}, and ${tavern.cleanliness}. There are several large ${tavern.material} tables.`
             ].random()
           },
           {
             size: 80,
             wealth: 10,
-            note: [`${tavern.name} is quite large, ${tavern.lighting}, and ${tavern.cleanliness}. The ceiling is unusually high, and the amount of wood that ${bartender.firstName} must go through would be immense. The dining hall has several large ${tavern.material} tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`
-
+            note: [
+              `${tavern.name} is quite large, ${tavern.lighting}, and ${tavern.cleanliness}. The ceiling is unusually high, and the amount of wood that ${bartender.firstName} must go through would be immense. The dining hall has several large ${tavern.material} tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`
             ].random()
           },
           {
             size: 70,
             wealth: 10,
-            note: [`${tavern.name} is a large building, with the ${tavern.cleanliness} bar occupying the ground floor, and the beds for patrons are on the floor directly above you. It's ${tavern.lighting}.`
-
+            note: [
+              `${tavern.name} is a large building, with the ${tavern.cleanliness} bar occupying the ground floor, and the beds for patrons are on the floor directly above you. It's ${tavern.lighting}.`
             ].random()
           },
           {
             size: 60,
             wealth: 10,
-            note: [`${tavern.name} is nice and spacious. The bar is roomy and ${tavern.lighting}, with several stools in front of it for patrons that wish to while away the evening talking to ${bartender.firstName}. There's a couple large ${tavern.material} tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.`
-
+            note: [
+              `${tavern.name} is nice and spacious. The bar is roomy and ${tavern.lighting}, with several stools in front of it for patrons that wish to while away the evening talking to ${bartender.firstName}. There's a couple large ${tavern.material} tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.`
             ].random()
           },
           {
@@ -780,19 +751,22 @@ setup.initTavernData = () => {
           {
             size: 40,
             wealth: 10,
-            note: [`${tavern.name} is slightly cramped, and ${tavern.lighting}. The ${tavern.cleanliness} tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The ${tavern.wealth} establishment is clearly in need of an extension to relieve the somewhat small ${tavern.structure.material.noun} pub of its congestion issues.`
+            note: [
+              `${tavern.name} is slightly cramped, and ${tavern.lighting}. The ${tavern.cleanliness} tables are a touch too close to the wall, and the bar area is the front of the kitchen, which doesn't seem to be a very efficient set up. The ${tavern.wealth} establishment is clearly in need of an extension to relieve the somewhat small ${tavern.structure.material.noun} pub of its congestion issues.`
             ].random()
           },
           {
             size: 30,
             wealth: 10,
-            note: [`${tavern.name} is barely more than a large, ${tavern.cleanliness} house; the ${tavern.lighting} bar area is permanently crowded due to a bottleneck preventing barmaids from passing through without having to negotiate through thirsty patrons looking for refills.`
+            note: [
+              `${tavern.name} is barely more than a large, ${tavern.cleanliness} house; the ${tavern.lighting} bar area is permanently crowded due to a bottleneck preventing barmaids from passing through without having to negotiate through thirsty patrons looking for refills.`
             ].random()
           },
           {
             size: 20,
             wealth: 10,
-            note: [`${tavern.name} is very obviously a house that's been converted into a ${tavern.wordNoun}, probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny ${tavern.structure.material.noun} building. The tavern is ${tavern.cleanliness}, and is ${tavern.lighting}.`
+            note: [
+              `${tavern.name} is very obviously a house that's been converted into a ${tavern.wordNoun}, probably as a hobby for the owner. It's unfortunately rather cramped inside, and taller patrons would be at risk of hitting their heads if they were careless inside the tiny ${tavern.structure.material.noun} building. The tavern is ${tavern.cleanliness}, and is ${tavern.lighting}.`
             ].random()
           }
 
@@ -893,7 +867,7 @@ setup.initTavernData = () => {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
         return `The ${setup.profile(npc, 'barmaid')} is a succubus, she seems to be making great tips.`
       },
-      attendant (town) {
+      attendant () {
         return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
       },
       mophand (town) {
@@ -917,7 +891,6 @@ setup.initTavernData = () => {
         description: "While the inventor of this recipe is said to have been human, anyone is welcome to make it- if they can survive the trial of getting the ingredients. True to its name, after the mead is sweetened with honey and boiled with a blend of spices, the maker stirs in just enough gnoll's blood to give the brew a salty, rusty undertone. This conveys no magical benefit, but it's still quite popular among the wealthy citizens of the local cities. Brewers within the city limits will pay handsomely for fresh gnoll carcasses to keep their blood supply in check.",
         author: 'Jasperine'
       },
-
       {
         name: 'Bragget',
         type: "goblin 'wine'",
@@ -925,7 +898,6 @@ setup.initTavernData = () => {
         description: "Made from fermented, often rotting cave mushrooms, bragget is the favored drink of any goblin who wants to quickly lose their inhibition. There's no real recipe to follow- simply throw a handful of fresh mushrooms into a vat of water, forget it for several months, rediscover the vat after a crew of adventurers break into your cave system, and drink it. Effects range from a gleeful, giddy state of inebriation to death from dysentery. Or both.",
         author: 'Jasperine'
       },
-
       {
         name: "Cobbler's cream",
         type: 'rotgut',
@@ -933,7 +905,6 @@ setup.initTavernData = () => {
         description: "Gnomes who dwell along the forest's edge often send their young to forage for meals in dense, semi-cultivated plots filled with berries, brambles, succulent flowers and herbs of all varieties. Having not yet developed a callous thick enough to endure the thorns, prickles and stings, many young Gnomes often wear carved wooden shoes and heavy leather gaiters to protect themselves. When a young Gnome reaches maturity, however, they are expected to retire their shoes back to the cobbler, where the toes are stuffed full of harvested berries, leaves, mushrooms and whatever else comes to hand. The shoes are then hung from the rafters over a large vat, where steam, time, and the natural yeasts in the porous wood allow droplets of alcoholic liquid to seep through the shoe, and fall into the roiling mixture below. Mixed with rainwater, and served in usually cleaned wooden shoes, the resulting beverage is incredibly potent, with a flavor profile that ranges from incredibly profane to lavender, with notes of sweet sap. Gnomes who consume it often do so in celebratory contexts, and in small quantities. Most others experience temporary blindness and an intense hatred for Gnomes.",
         author: 'MrKHackworth'
       },
-
       {
         name: 'Blood clot',
         type: 'Dwarven sludge',
@@ -941,7 +912,6 @@ setup.initTavernData = () => {
         description: 'This bizarre concoction is a favorite among Dwarves looking to make a dare. Thick and red, it contains a congealed glob of fermented goat milk about the size of a golf ball. An acquired taste, it is reminiscent of fortified wine with a strong hint of copper.',
         author: 'Melance'
       },
-
       {
         name: 'Axegrinder Ale',
         type: 'Dwarvish ale',
@@ -949,7 +919,6 @@ setup.initTavernData = () => {
         description: 'In the right light, this ale takes on a blood red hue. It gives off a strong scent like a floral meadow covered in dew and tastes slightly sour on the way down with a sweaty finish. Dwarves who consume it often become mildly belligerent and take offense the smallest slights. Most others who consume it experience a noticeable uptick in their spirits. Except trolls, who just get angry.',
         author: 'OrkishBlade'
       },
-
       {
         name: 'Bitterbeard Ale',
         type: 'Dwarvish ale',
@@ -957,7 +926,6 @@ setup.initTavernData = () => {
         description: "This translucent gold ale is topped with a clean white foam and tastes a little pungent and bitter with hints of citrus. Dwarves who consume it tend to brood over hated foes, especially 'the one that got away.' Non-dwarves who consume it typically experience a pleasant evening followed by a poor night's sleep.",
         author: 'OrkishBlade'
       },
-
       {
         name: 'Meadowlark',
         type: 'Human wheat beer',
@@ -965,7 +933,6 @@ setup.initTavernData = () => {
         description: "In a world full of 750,000-proof Elven cordials and Dwarven stouts so thick you'd think they were bottled mud, sometimes you just need a good beer. Mild, refreshing, and flavorful, Meadowlark is a beer by humans, for humans, which means that just about every halfling from here to the Drypeak Mountains is drinking it. The noble think it crude, the elves think it unimaginative, the dwarves find it cowardly, but the farmers who drop themselves down at a tavern table at the end of the day wouldn't have anything else.",
         author: 'Val_Ritz'
       },
-
       {
         name: 'Frostbomb',
         type: 'Pale ale',
@@ -973,7 +940,6 @@ setup.initTavernData = () => {
         description: "The life's work of a dragonborn brewmaster. Frostbomb is somewhat disconcerting, for a couple of reasons. One, it's blue. For those who prefer not to consume things that are the color of their cousin Clyde that one time he tried to swallow a carrot whole, that might be a bit of a turn-off. Two, it is absolutely frigid. The steel bottles that it's shipped in are often coated in a thick rime of frost that must be hacked off before serving, and the cold magic in the brew must be allowed to sit for at least four minutes before it's warm enough to not be painful going down. All that being said, there isn't a traveler alive who doesn't hope to stumble upon a bottle under the counter in a desert bar.",
         author: 'Val_Ritz'
       },
-
       {
         name: "Steve's Mead",
         type: 'Mead',
@@ -981,7 +947,6 @@ setup.initTavernData = () => {
         description: "This bottle of mead might have had a label, once, but it appears to have been torn off. In its place, painted directly on the bottle, are the words 'STEVE'S MEAD' in blocky, crude letters. Clearly, Steve is not around to claim his mead, but in his absence the cork appears to be permanently and irrevocably stuck in the mouth of the bottle.",
         author: 'Val_Ritz'
       },
-
       {
         name: 'Self-important Prick',
         type: 'Brown ale',
@@ -989,7 +954,6 @@ setup.initTavernData = () => {
         description: "The ale inside this bottle isn't terribly unusual, aside from being harsh and bitter. The true draw is the printing on the bottle, which reads 'Self-Important Prick' in white letters. Under the lettering is a rendition of a face--a rendition that changes to reflect whoever the drinker dislikes the most at that particular time. There are allegations that drinking the ale results in heightened animosity toward the depicted person, but it might just be a result of reminding them that that person exists in the first place.",
         author: 'Val_Ritz'
       },
-
       {
         name: 'Deep Grog',
         type: 'Blackest Tot',
@@ -997,7 +961,6 @@ setup.initTavernData = () => {
         description: "The darkest of naval rum taken from sunken sips mixed with saltwater taken from the pelagic depths of the Elemental Plane of Water. Black and cold, with a syrupy mouth feel. Tastes of brine and molasses with a distinct bitterness. Reserved for first time travelers to The City of Glass, and served as a shot with a still beating fish heart. Also disparagingly known as Aboleth's Piss.",
         author: 'twocalf'
       },
-
       {
         name: 'Old Polder Genever Gin',
         type: "Spirit's Spirits",
@@ -1005,7 +968,6 @@ setup.initTavernData = () => {
         description: "The recipe for this liquor was pulled from the ruins of the necropolis of Polder. Clear or just faintly brown, sweet with juniper and malt. More like a whiskey than a gin. Purportedly aged in oak barrels with a single golden coin taken from the dead city, luck be damned. Said to be able to distract hungry dead by offering shots. Popular gift on Spirt's Eve.",
         author: 'twocalf'
       },
-
       {
         name: 'Hyperborean Cider',
         type: 'Bottled Sunshine',
@@ -1013,7 +975,6 @@ setup.initTavernData = () => {
         description: 'Fermented with juice made from apples collected from the Celestial Plane. Gloriously, radiantly golden, no head, ever, and never sours. Sweet and warm, with hints of clove, cinnamon, and sunrises. You can still get a hangover, don’t believe that myth, and there are few things in the multiverse worse than being hungover on the Celestial Plane. Everyone is singing and everything IS SO VERY BRIGHT.',
         author: 'twocalf'
       },
-
       {
         name: 'Airak',
         type: 'Djinn and Juice',
