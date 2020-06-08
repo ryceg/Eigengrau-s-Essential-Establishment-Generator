@@ -907,23 +907,6 @@ setup.initGoodsAndServices = () => {
         }
       },
       goods: {
-        'fine shirt': {
-          cost: 10,
-          description: 'A fine shirt made out of cotton.'
-        },
-        'cheap shirt': {
-          cost: 5,
-          description: 'A poorly made and scratchy feeling shirt.'
-        },
-        'hose': {
-          cost: 7,
-          description: 'Leggings.'
-        },
-
-        'undergarments': {
-          cost: 6,
-          description: 'Undergarments.'
-        },
         'tailoring': {
           cost: 7,
           type: 'service',
@@ -934,11 +917,6 @@ setup.initGoodsAndServices = () => {
           type: 'service',
           description: 'A service offered to patch up holey or tattered clothing people may have.'
         },
-        'belt': {
-          cost: 12,
-          description: 'A leather belt.'
-        },
-
         'Boots, forest caiman skin': {
           description: 'Boots, forest caiman skin',
           cost: 410
