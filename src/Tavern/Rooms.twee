@@ -1,16 +1,18 @@
 
 :: Rooms
-<<nobr>><<set $building.freeRooms to setup.tavernRooms($building)>>
-<<if $building.freeRooms lte 0>>
-		<span id="room-cost"><<print "You talk with the " + setup.profile($building.barmaid, "barmaid") + " about lodgings, and she says that there are no free rooms in $building.name at the moment...">></span>
-	<<elseif $building.freeRooms == 1>>
+<<nobr>>
+<<set _freeRooms to setup.tavernRooms($building)>>
+<<if _freeRooms lte 0>>
+	<span id="room-cost"><<print "You talk with the " + setup.profile($building.barmaid, "barmaid") + " about lodgings, and she says that there are no free rooms in $building.name at the moment...">></span>
+	<<elseif _freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
 		<span id="room-cost"><<print "$building.name has just one available room, which is $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money $building.lodging>> to stay here for the night.">></span>
-	<<elseif $building.freeRooms gt 1>>
+	<<elseif _freeRooms gt 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
 		<span id="room-cost"><<print "$building.name has $building.freeRooms available rooms, which are $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money $building.lodging>> to stay here for the night.">></span>
-<</if>><</nobr>>
+<</if>>
+<</nobr>>
