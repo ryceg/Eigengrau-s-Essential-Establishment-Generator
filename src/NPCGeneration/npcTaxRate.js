@@ -2,7 +2,7 @@ setup.npcTaxRate = function (town, npc) {
   let totalTax = 0
   Object.keys(town.taxes).forEach(function (tax) {
     if (tax === 'land') {
-      totalTax += (town.taxes[tax] * (setup.socialClass[npc.socialClass].landRate || 1))
+      totalTax += town.taxes[tax] * (setup.socialClass[npc.socialClass].landRate || 1)
     } else if (typeof town.taxes[tax] === 'number') {
       totalTax += town.taxes[tax]
     } else if (typeof town.taxes[tax] === 'function') {

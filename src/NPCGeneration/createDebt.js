@@ -13,7 +13,7 @@ setup.createDebt = function (town, npc) {
   // TODO a lot of the maths in here is really fucky. Someone with an economics degree please save me.
   if (npc.wealth > (cashLiquidity * grossIncome)) {
     console.log(`${npc.name} has too much cash (${npc.wealth}), and is losing some of that to pay debts.`)
-    npc.wealth *= (1 - debtRate)
+    npc.wealth *= 1 - debtRate
   }
 
   const debtorParameters = function (town, npc, obj) {
