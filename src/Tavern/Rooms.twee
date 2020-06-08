@@ -13,6 +13,6 @@
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$building.name has $building.freeRooms available rooms, which are $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money $building.lodging>> to stay here for the night.">></span>
+		<span id="room-cost"><<print "$building.name has _freeRooms available rooms, which are $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money $building.lodging>> to stay here for the night.">></span>
 <</if>>
 <</nobr>>
