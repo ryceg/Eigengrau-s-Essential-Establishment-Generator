@@ -1,4 +1,4 @@
-setup.generalStoreModifiers = function (town, generalStore) {
+setup.generalStoreModifiers = (town, generalStore) => {
   if (town.roll.wealth > 95) {
     generalStore.roll.wealth += 5
   } else if (town.roll.wealth > 80) {

@@ -1,5 +1,4 @@
-
-setup.createAllies = function (faction) {
+setup.createAllies = faction => {
   console.log('finding allies...')
   const _sizeRoll = dice(2, 50)
   let group

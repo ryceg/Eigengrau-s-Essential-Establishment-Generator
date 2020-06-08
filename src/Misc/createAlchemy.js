@@ -1,4 +1,4 @@
-setup.createAlchemy = function (base) {
+setup.createAlchemy = base => {
   const type = ['alchemical ingredient', 'body part', 'substance', 'preserved herb', 'brewing potion', 'potion']
   let inInventory
   const smallThing = ['bats', 'bees', 'beetles', 'blossoms', 'flowers', 'brains', 'cats', 'centipedes', 'crabs', 'dragonflies', 'earwigs', 'eels', 'eels', 'feathers', 'frogs', 'gallstones', 'geckos', 'hornets', 'imps', 'jellyfish', 'lamprey', 'leeches', 'locusts', 'mice', 'mold', 'lichen', 'moths', 'mushrooms', 'truffles', 'newts', 'octopus-creatures', 'ooze-globules', 'piranha', 'praying mantises', 'rats', 'roaches', 'scarab beetles', 'shrews', 'slugs', 'snails', 'snakes', 'songbirds', 'spiders', 'stinkbugs', 'tapeworms', 'tentacles', 'ticks', 'toads', 'turtles', 'vines', 'wasps', 'worms']
