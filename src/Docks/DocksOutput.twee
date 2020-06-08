@@ -2,4 +2,4 @@
 <<set $building to ($town.buildings.docks[$selected.key] || $town.buildings.docks[$currentPassage.key])>><h1><<print $building.name.toUpperFirst()>></h1><<print setup.firstCharacter("You")>> walk down to the docks, which are known best for $building.notableFeature. You notice $building.notice. The docks are $building.sizeDescriptive, and is $building.cleanlinessDescriptive. It's currently $building.activity.
 
 <<button "Create a ship">>
-<<run setup.docks.ships.create($town, $building)>><<replace "#ships">><<include "ShipList">><</replace>><</button>><div id="ships"><<include "ShipList">></div>
+<<run setup.docks.ships.create($town, $building)>><<replace "#ships">><<include "ShipList">><</replace>><</button>><<include "ShipList">>
