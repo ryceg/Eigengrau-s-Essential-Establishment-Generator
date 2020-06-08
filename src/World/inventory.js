@@ -240,3 +240,60 @@ setup.inventory = [
   { name: 'Rack of Lamb Platter', cost: 95, availabilityLocation: ['tavern'], availability: 3, dietary: 'carni' },
   { name: 'Barbecued Tiger Fish and Papaya', cost: 200, availabilityLocation: ['tavern'], availability: 4, dietary: 'omni' }
 ]
+
+// 'Horse shoe, lesser, trade in': {
+//   Description: 'Horse shoe, lesser, trade in',
+//   cost: 8
+// },
+// 'Horse shoe, riding horse, trade in': {
+//   Description: 'Horse shoe, riding horse, trade in',
+//   cost: 10
+// },
+// 'Horse shoe, war horse, trade in': {
+//   Description: 'Horse shoe, war horse, trade in',
+//   cost: 13
+// },
+// 'Horse shoe, lesser steel': {
+//   Description: 'Horse shoe, lesser steel',
+//   cost: 30
+// },
+// 'Horse shoe, riding horse': {
+//   Description: 'Horse shoe, riding horse',
+//   cost: 40
+// },
+// 'Horse shoe, steel': {
+//   Description: 'Horse shoe, steel',
+//   cost: 50
+// },
+// 'Horse shoe, war horse': {
+//   Description: 'Horse shoe, war horse',
+//   cost: 50
+// },
+// 'Plate mail, full suit': {
+//   Description: 'Plate mail, full suit',
+//   cost: 8500
+// },
+// 'Saddle': {
+//   Description: 'Saddle',
+//   cost: 750
+// },
+// 'Saddle, fancy': {
+//   Description: 'Saddle, fancy',
+//   cost: 1500
+// },
+// 'Shield, medium, steel': {
+//   Description: 'Shield, medium, steel',
+//   cost: 600
+// },
+// 'Shield, small, steel': {
+//   Description: 'Shield, small, steel',
+//   cost: 300
+// },
+// 'Shield, small, wooden with iron rim': {
+//   Description: 'Shield, small, wooden with iron rim',
+//   cost: 250
+// },
+// 'Chain mail, full suit': {
+//   Description: 'Chain mail, full suit',
+//   cost: 2750
+// },
