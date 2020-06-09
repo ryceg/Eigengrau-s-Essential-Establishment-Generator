@@ -4,8 +4,6 @@ let seeded = (): number => {
 
 export function setRandom(callback: () => number) {
   seeded = callback
-
-  console.log(random(1000))
 }
 
 export function random<T>(array: T[]): T
