@@ -1307,7 +1307,7 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'acolyte',
-        profession: 'priest (and also mobster)'
+        profession: 'priest'
       })
       return `Victimless Instigators of Loot Extraction is seeking henchmen for transportation of merchandise. Some risk is involved. Must be capable of intercepting and stopping pursuers. If interested, head to Church of St. Deegho and ask for ${setup.profile(npc)}.`
     }
