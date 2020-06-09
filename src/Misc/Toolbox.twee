@@ -1,9 +1,9 @@
 :: Toolbox
 <<if ndef $toolbox>><<set $toolbox to {}>><</if>>
-<<include "RandomNPC">>
+<<include "CreateRandomNPC">>
 /* <<include "RandomAdventure">> */
 <<include "CreateScenario">>
-<<link "<h6>Generate random Faction</h6>">><<set $toolbox.faction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">><div class='descriptive'><<link "$toolbox.faction.name">></div><<set $currentFaction to $toolbox.faction>><<goto "FactionProfile">><</link>><</replace>><</link>><<if def $toolbox.faction>><<link "$toolbox.faction.name">><<set $currentFaction to $toolbox.faction>><<goto "FactionProfile">><</link>><<else>><span id="faction"></span><</if>>
+<<link "<h6>Generate random faction</h6>">><<set $toolbox.faction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">><div class='descriptive'><<link "$toolbox.faction.name">></div><<set $currentFaction to $toolbox.faction>><<goto "FactionProfile">><</link>><</replace>><</link>><<if def $toolbox.faction>><<link "$toolbox.faction.name">><<set $currentFaction to $toolbox.faction>><<goto "FactionProfile">><</link>><<else>><span id="faction"></span><</if>>
 <<link "<h6>Generate some mercenaries</h6>">><<set $toolbox.mercenaries to setup.createMercenaries($town)>><<replace "#mercs">><div class='descriptive'><h6>$toolbox.mercenaries.name</h6>$toolbox.mercenaries.readout</div><</replace>><</link>><span id="mercs"></span>
 <<link "<h6>Generate some raiders</h6>">><<set $toolbox.raiders to setup.createRaiders($town)>><<replace "#raiders">><div class='descriptive'>$toolbox.raiders</div><</replace>><</link>><span id="raiders"></span>
 <h4>[[One Shot - The Poisoned Potioner|AdventureOutput]]</h4>
