@@ -76,8 +76,8 @@ setup.createTavern = function (town, opts = {}) {
   tavern.lodging = ''
   tavern.sin = ''
   tavern.food = ''
-  tavern.colour1 = [setup.colours.yellow.colour.random(), setup.colours.orange.colour.random(), setup.colours.red.colour.random(), setup.colours.purple.colour.random(), setup.colours.blue.colour.random(), setup.colours.green.colour.random(), setup.colours.brown.colour.random(), setup.colours.black.colour.random(), setup.colours.white.colour.random()].random()
-  tavern.colour2 = [setup.colours.yellow.colour.random(), setup.colours.orange.colour.random(), setup.colours.red.colour.random(), setup.colours.purple.colour.random(), setup.colours.blue.colour.random(), setup.colours.green.colour.random(), setup.colours.brown.colour.random(), setup.colours.black.colour.random(), setup.colours.white.colour.random()].random()
+  tavern.colour1 = [lib.colours.yellow.colour.random(), lib.colours.orange.colour.random(), lib.colours.red.colour.random(), lib.colours.purple.colour.random(), lib.colours.blue.colour.random(), lib.colours.green.colour.random(), lib.colours.brown.colour.random(), lib.colours.black.colour.random(), lib.colours.white.colour.random()].random()
+  tavern.colour2 = [lib.colours.yellow.colour.random(), lib.colours.orange.colour.random(), lib.colours.red.colour.random(), lib.colours.purple.colour.random(), lib.colours.blue.colour.random(), lib.colours.green.colour.random(), lib.colours.brown.colour.random(), lib.colours.black.colour.random(), lib.colours.white.colour.random()].random()
   tavern.bedCleanliness = ''
   // Define entertainment if large enough
   if (tavern.roll.size >= 30) {

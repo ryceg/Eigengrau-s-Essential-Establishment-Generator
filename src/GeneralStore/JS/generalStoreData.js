@@ -262,8 +262,8 @@ setup.generalStore = {
     },
     note (generalStore) {
       const shopkeep = generalStore.associatedNPC
-      const colour1 = [setup.colours.yellow, setup.colours.orange, setup.colours.red, setup.colours.purple, setup.colours.blue, setup.colours.green, setup.colours.brown, setup.colours.black, setup.colours.white].random().colour.random()
-      const colour2 = [setup.colours.yellow, setup.colours.orange, setup.colours.red, setup.colours.purple, setup.colours.blue, setup.colours.green, setup.colours.brown, setup.colours.black, setup.colours.white].random().colour.random()
+      const colour1 = [lib.colours.yellow, lib.colours.orange, lib.colours.red, lib.colours.purple, lib.colours.blue, lib.colours.green, lib.colours.brown, lib.colours.black, lib.colours.white].random().colour.random()
+      const colour2 = [lib.colours.yellow, lib.colours.orange, lib.colours.red, lib.colours.purple, lib.colours.blue, lib.colours.green, lib.colours.brown, lib.colours.black, lib.colours.white].random().colour.random()
       const note = [
         // You notice __
         `it looks like ${shopkeep.firstName}, the shopkeep, lives in a room attached to the shop`,

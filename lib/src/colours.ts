@@ -1,4 +1,20 @@
-setup.colours = {
+import { random } from './random'
+import { keys } from './utils'
+
+interface ColourData {
+  colour: string[]
+  coloured: string[]
+  properties: ColourProperties
+}
+
+interface ColourProperties {
+  isNatural: boolean
+  isPlant: boolean
+  isMineral: boolean
+  isPaint: boolean
+}
+
+export const colours: Record<string, ColourData> = {
   yellow: {
     properties: {
       isNatural: true,
@@ -83,7 +99,7 @@ setup.colours = {
     colour: [
       'red',
       'bright red',
-      'firey red',
+      'fiery red',
       'auburn',
       'crimson',
       'oxblood red',
@@ -187,15 +203,7 @@ setup.colours = {
       'sapphire',
       'pastel blue'
     ],
-    coloured: [
-      'denim',
-      'sapphire',
-      'sea',
-      'storm',
-      'sky',
-      'peacock',
-      'topaz'
-    ]
+    coloured: ['denim', 'sapphire', 'sea', 'storm', 'sky', 'peacock', 'topaz']
   },
   green: {
     properties: {
@@ -221,7 +229,6 @@ setup.colours = {
       'light green',
       'celadon',
       'pastel green'
-
     ],
     coloured: [
       'seafoam',
@@ -257,7 +264,6 @@ setup.colours = {
       'bronze',
       'sepia',
       'pastel brown'
-
     ],
     coloured: [
       'acorn',
@@ -281,14 +287,7 @@ setup.colours = {
       isMineral: true,
       isPaint: false
     },
-    colour: [
-      'onyx',
-      'ebony',
-      'charcoal',
-      'licorice',
-      'black',
-      'slate'
-    ],
+    colour: ['onyx', 'ebony', 'charcoal', 'licorice', 'black', 'slate'],
     coloured: [
       'charcoal',
       'licorice',
@@ -340,33 +339,35 @@ setup.colours = {
   }
 }
 
-setup.createColour = function (filters) {
-  // FIXME this whole function is not working at the moment.
-  if (!filters) filters = {}
-  if (!filters.bannedColours) filters.bannedColours = []
-  const availableColours = Object.keys(setup.colours)
-  console.log(availableColours)
-  for (const colour in Object.keys(setup.colours)) {
-    if (filters.bannedColours.includes(colour)) {
-      continue
-    }
-    console.log(setup.colours[colour])
-    for (const filter in Object.keys(filters)) {
-      if (filters[filter] === filters.bannedColours) { continue }
+interface Filters extends Partial<ColourProperties> {
+  banned?: string[]
+}
 
-      if (filters[filter] !== setup.colours[colour].properties[filter]) {
-        filters.bannedColours.push(colour)
-      }
+export const createColour = (filters: Filters = {}) => {
+  const { banned = [], ...properties } = filters
+
+  const available = keys(colours).filter(colour => {
+    if (banned.includes(colour)) {
+      return false
     }
-  }
-  for (const bannedColour in filters.bannedColours) {
-    if (availableColours.includes(bannedColour)) {
-      delete availableColours[bannedColour]
-    }
-  }
-  const selectedColour = availableColours.random()
-  return [
-    setup.colours[selectedColour].colour.random(),
-    `${setup.colours[selectedColour].coloured.random()} coloured`
-  ].random()
+
+    return keys(properties).every(property => {
+      return colours[colour].properties[property] === properties[property]
+    })
+  })
+
+  const selected = colours[random(available)]
+  const randomColour = random(selected.colour)
+  const randomColoured = random(selected.coloured)
+
+  return random([randomColour, `${randomColoured} coloured`])
+}
+
+/**
+ * Returns all available colours and variants.
+ */
+export const getAllColours = () => {
+  return Object.values(colours).reduce((all, colourData) => {
+    return all.concat(colourData.colour)
+  }, [] as string[])
 }
