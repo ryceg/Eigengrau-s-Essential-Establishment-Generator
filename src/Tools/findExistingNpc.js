@@ -1,7 +1,8 @@
 setup.findExistingNpc = function (town, npcs, npc, param, createNew) {
   console.log('Searching for an existing NPC')
   console.log({ param })
-  for (const obj in npcs) {
+  const npcArray = Object.keys(npcs)
+  for (const obj of Object.keys(npcArray)) {
     if (param(town, npc, obj) === true) {
       console.log(obj)
       return npcs[obj]
@@ -12,9 +13,10 @@ setup.findExistingNpc = function (town, npcs, npc, param, createNew) {
   }
 }
 
-setup.findNpcByProfession = function (npcs, profession) {
+setup.filterNpcByProfession = function (npcs, profession) {
   const array = []
-  for (const obj in npcs) {
+  const npcArray = Object.keys(npcs)
+  for (const obj of npcArray) {
     if (npcs[obj].profession === profession) {
       array.push(npcs[obj])
     }
