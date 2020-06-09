@@ -1,6 +1,9 @@
 const path = require('path')
 const spawn = require('child_process').spawn
 const utils = require('./utils')
+const webpack = require('webpack')
+
+utils.logClear()
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
 
@@ -15,10 +18,10 @@ const args = [
 ]
 
 // Run tweego with arguments.
+utils.logAction('Running tweego!')
 const tweegoProcess = spawn(tweego, args)
 
 // Log messages from the tweego process.
-utils.logClear()
 tweegoProcess.stderr.on('data', data => {
   const messages = data.toString().split('\n')
 
@@ -36,3 +39,34 @@ tweegoProcess.stderr.on('data', data => {
     utils.logAction(message)
   }
 })
+
+const config = require('./webpack.config')
+
+const watch = args.includes('--watch')
+
+if (watch) {
+  config.mode = 'development'
+  config.devtool = 'inline-source-map'
+} else {
+  config.mode = 'production'
+  config.devtool = 'source-map'
+}
+
+const compiler = webpack(config)
+
+utils.logAction('Running webpack!')
+if (watch) {
+  compiler.watch({}, (error, stats) => {
+    if (error) {
+      utils.logError(error)
+      return
+    }
+    utils.logAction(`Built in ${stats.endTime - stats.startTime}ms.`)
+  })
+} else {
+  compiler.run((error) => {
+    if (error) {
+      utils.logError(error)
+    }
+  })
+}

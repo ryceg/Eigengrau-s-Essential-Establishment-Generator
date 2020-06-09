@@ -262,8 +262,8 @@ setup.generalStore = {
     },
     note (generalStore) {
       const shopkeep = generalStore.shopkeep
-      const colour1 = [setup.colours.yellow.colour.random(), setup.colours.orange.colour.random(), setup.colours.red.colour.random(), setup.colours.purple.colour.random(), setup.colours.blue.colour.random(), setup.colours.green.colour.random(), setup.colours.brown.colour.random(), setup.colours.black.colour.random(), setup.colours.white.colour.random()].random()
-      const colour2 = [setup.colours.yellow.colour.random(), setup.colours.orange.colour.random(), setup.colours.red.colour.random(), setup.colours.purple.colour.random(), setup.colours.blue.colour.random(), setup.colours.green.colour.random(), setup.colours.brown.colour.random(), setup.colours.black.colour.random(), setup.colours.white.colour.random()].random()
+      const colour1 = [setup.colours.yellow, setup.colours.orange, setup.colours.red, setup.colours.purple, setup.colours.blue, setup.colours.green, setup.colours.brown, setup.colours.black, setup.colours.white].random().colour.random()
+      const colour2 = [setup.colours.yellow, setup.colours.orange, setup.colours.red, setup.colours.purple, setup.colours.blue, setup.colours.green, setup.colours.brown, setup.colours.black, setup.colours.white].random().colour.random()
       const note = [
         // You notice __
         `it looks like ${shopkeep.firstName}, the shopkeep, lives in a room attached to the shop`,

@@ -7,22 +7,24 @@ setup.findProfession = function (town, npc, profession) {
     npc,
     profession
   })
-  if (Object.keys(setup.townData.professions).includes(profession)) {
+
+  if (setup.townData.professions[profession]) {
     console.log(`${profession} is defined!`)
     console.groupEnd()
     return setup.townData.professions[profession]
-  } else {
-    console.log('could not find it. Looking for synonyms...')
-    const find = setup.findInContainer(setup.townData.professions, 'synonyms', profession)
-    if (typeof find !== 'undefined') {
-      console.log('Found a synonym!')
-      console.log({ find })
-      console.groupEnd()
-      return find
-    } else {
-      console.error(`${profession} not found!`)
-      console.groupEnd()
-      return setup.townData.professions.peasant
-    }
   }
+
+  console.log('could not find it. Looking for synonyms...')
+  const found = setup.findInContainer(setup.townData.professions, 'synonyms', profession)
+
+  if (typeof found === 'undefined') {
+    console.error(`${profession} not found!`)
+    console.groupEnd()
+    return setup.townData.professions.peasant
+  }
+
+  console.log('Found a synonym!')
+  console.log({ find: found })
+  console.groupEnd()
+  return found
 }

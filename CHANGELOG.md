@@ -4,19 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.4
 
 ### Added 
+- Tutorial
 - Fletchers
+- More meat in the butcher
 - Additional text
 - Indefinite article support
-- Debt- creditors, debtors, and curtailed hoarding of wealth.
+- NPC debt- creditors, debtors, and curtailed hoarding of wealth.
 - PRNG by default, taken from the URL's location hash (everything after the #, incl. the hash)
 - URL seeds following the gfycat naming convention of adjective+adjective+animal
 - Temporary highlighting of newly created building
 - Gender equality description, minor mechanical effects
 - Option to disable 'realistic' gendered occupations
 - NPC religion
+- NPC relationships generator (previous was primitive, based off the Life Events function)
+- - Includes friends, drinking buddies, exes, old flames, neighbors, acquaintances, and secret crushes
+- NPC professions will generate relevant associations i.e. butlers will usually have an associated employer.
+- - This is an ongoing project, which will help make towns feel like living, breathing entities.
 - Baked good generator
 
 
@@ -29,9 +35,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Minor bug with factions fixed
 - New background
 - Reduced file size slightly
+- Relationships chart on NPC page now includes race, occupation, and the reciprocal relationship
 - Communism, syndicalism, and alternate economic and political ideologies have been rebalanced to be much rarer.
 
-## v2.3
+### Known issues
+- toUpperFirst() is sometimes not defined on the NPC profile page
+- NPC partner's finances are totally separate, leading to amusing issues with spy masters living in abject poverty
+
+## v2.3 (which was never released, so count this as v2.4, too)
 
 ### Added
 
@@ -48,8 +59,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Taxation
 - Living standards
 - Daily wage
-- Profession descriptions
 - Over 300 new professions
+- Profession descriptions
 - Generate a crewmember function for ships
 - Riddles
 - Druid and Clergy factions

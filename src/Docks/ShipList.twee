@@ -1,17 +1,36 @@
 :: ShipList
-<div id="ships"><div class='classTable'><<nobr>><table>
-    <tr>
+<<nobr>>
+<div id="ships">
+  <div class='classTable'>
+    <table>
+      <tr>
         <th>Name</th>
         <th>Type</th>
         <th>Delete</th>
-    </tr>
-<<for _key, _ship range $building.ships>><<capture _key, _ship>>
-  <tr>
-    <td><<link "_ship.name">><<set $selected to {shipKey: _key}>><<goto "ShipProfile">><</link>></td>
-    <td><<print _ship.type.toUpperFirst()>></td>
-    <td><<link "x">>
-    <<set _deleted to $building.ships[_ship.key]>><<run delete $town.buildings.docks[$selected.index].ships[_ship.key]>><<notify 5000>>Deleted _deleted.name<</notify>>
-    <</link>></td></tr>
-    <</capture>>
-    <</for>>
-    </table><</nobr>></div>
+      </tr>
+      <<for _key, _ship range $building.ships>>
+        <<capture _key, _ship>>
+          <tr>
+            <td>
+            <<link "_ship.name">>
+              <<set $selected to {shipKey: _key}>>
+              <<goto "ShipProfile">>
+            <</link>>
+            </td>
+            <td>
+              <<print _ship.type.toUpperFirst()>>
+            </td>
+            <td>
+            <<link "x">>
+              <<set _deleted to $building.ships[_ship.key]>>
+              <<run delete $town.buildings.docks[$selected.index].ships[_ship.key]>>
+              <<notify 5000>>Deleted _deleted.name<</notify>>
+            <</link>>
+            </td>
+          </tr>
+        <</capture>>
+      <</for>>
+    </table>
+  </div>
+</div>
+<</nobr>>

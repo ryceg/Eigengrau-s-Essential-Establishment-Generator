@@ -223,7 +223,6 @@ setup.plothooks = {
     }
   },
   'The Werewolf Maiden': {
-
     type: ['event'],
     exclusions (town) {
       return true
@@ -1217,11 +1216,6 @@ setup.plothooks = {
   'Thieves Cant Thieve Here': {
     type: ['paper'],
     function (town) {
-      // var npc = setup.createNPC(town, {
-      //   hasClass: false,
-      //   background: 'commoner'
-      // })
-      // #
       return 'A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.'
     }
   },
@@ -1291,11 +1285,6 @@ setup.plothooks = {
   'Riddle Maker Needed': {
     type: ['paper'],
     function (town) {
-      // var npc = setup.createNPC(town, {
-      //   hasClass: false,
-      //   background: 'commoner'
-      // })
-      // #
       return 'Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.'
     }
   },
