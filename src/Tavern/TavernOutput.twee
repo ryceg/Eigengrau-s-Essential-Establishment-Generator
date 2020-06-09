@@ -8,7 +8,7 @@
 <<if ndef $building.patron>><<set $building.patron to setup.tavern.get.patrons($town, $building)>><</if>>$building.patron
 <<include "TavernPatrons">>
 </div>
-<<include "RandomNPC">>
+<<include "TavernDrinker">>
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, <<print setup.articles.output($associatedNPC.descriptor)>> who is currently <<print $associatedNPC.idle.random()>>. You walk up to the bar, and strike up conversation with the $associatedNPC.manwoman, who introduces $associatedNPC.himherself as <<print setup.profile($associatedNPC)>>, the $associatedNPC.owner of $building.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
