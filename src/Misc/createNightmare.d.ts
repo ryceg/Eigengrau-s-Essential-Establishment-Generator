@@ -5,8 +5,12 @@ interface Setup {
 interface NightMareBase {
   figure?: {
     type: string
-    prefix: string
+    prefix?: string
     gender: string
+    whoWhich?: string
   }
   location?: string
+  wake?: string
+  action?: string
+  descriptor?: string
 }
