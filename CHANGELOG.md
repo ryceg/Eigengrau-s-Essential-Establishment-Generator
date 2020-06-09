@@ -8,8 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added 
 - Option to change biome before town creation
+- Create NPC function
+- Added functionality to delete NPCs
+- Added functionality to delete buildings
 
 ### Changed
+- Minor fixes to NPC edit page, still thoroughly beta
+- List of professions in town now shows associated NPCs, and gives option to create new NPC
 
 ### Removed
 
