@@ -885,9 +885,9 @@ setup.initTavernData = () => {
         const npc = setup.createNPC(town, { background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman' })
         return `A surly old ${setup.profile(npc, 'witch')} is drinking sherry while stroking the fat grey cat sitting on her lap.`
       },
-      marilith (town) {
+      overworked (town) {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
-        return `The ${setup.profile(npc, 'barmaid')} is a marilith, mixing up four drinks at a time.`
+        return `The ${setup.profile(npc, 'barmaid')} is mixing up a complicated looking drink.`
       },
       succubus (town) {
         const npc = setup.createNPC(town, { background: 'commoner', profession: 'barmaid', gender: 'woman' })
