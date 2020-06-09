@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
+
 /***********************************************************************************************************************
 
-	sugarcube.d.ts — SugarCube v2 Ambient Module (last updated: 2020-03-29)
+  sugarcube.d.ts — SugarCube v2 Ambient Module (last updated: 2020-03-29)
 
-	Copyright © 2020 Thomas Michael Edwards <thomasmedwards@gmail.com>. All rights reserved.
-	Use of this source code is governed by a BSD 2-clause "Simplified" License.
+  Copyright © 2020 Thomas Michael Edwards <thomasmedwards@gmail.com>. All rights reserved.
+  Use of this source code is governed by a BSD 2-clause "Simplified" License.
 
 ***********************************************************************************************************************/
 
@@ -52,7 +54,6 @@ interface String {
   toUpperFirst(): string;
 }
 
-
 /*******************************************************************************
   jQuery Extensions.
 *******************************************************************************/
@@ -68,7 +69,6 @@ interface JQueryStatic {
   wiki(...sources: string[]): void;
 }
 
-
 /*******************************************************************************
   SugarCube Helper Functions.
 *******************************************************************************/
@@ -80,7 +80,6 @@ declare function safeActiveElement(): HTMLElement | null;
 declare function setPageElement(idOrElement: string | HTMLElement, titles: string | string[], defaultText?: string): void;
 declare function throwError(place: HTMLElement | DocumentFragment, message: string, source: string): false;
 declare function toStringOrDefault(value: any, defaultValue: any): string;
-
 
 /*******************************************************************************
   SugarCube User Functions.
@@ -110,7 +109,6 @@ declare function visited(): number;
 declare function visited(...passageNames: (string | string[])[]): number;
 declare function visitedTags(tagsNames: string | string[]): number;
 
-
 /*******************************************************************************
   SugarCube Modules.
 *******************************************************************************/
@@ -119,24 +117,23 @@ declare function visitedTags(tagsNames: string | string[]): number;
 // but I've put too much effort into this already and this will appease
 // TypeScript.
 
-declare const Browser: any;
-declare const Config: any;
-declare const Dialog: any;
-declare const Engine: any;
-declare const Fullscreen: any;
-declare const Has: any;
-declare const LoadScreen: any;
-declare const Macro: any;
-declare const Passage: any;
-declare const Save: any;
-declare const Setting: any;
-declare const SimpleAudio: any;
-declare const State: any;
-declare const Story: any;
-declare const Template: any;
-declare const UI: any;
-declare const UIBar: any;
-
+declare const Browser: any
+declare const Config: any
+declare const Dialog: any
+declare const Engine: any
+declare const Fullscreen: any
+declare const Has: any
+declare const LoadScreen: any
+declare const Macro: any
+declare const Passage: any
+declare const Save: any
+declare const Setting: any
+declare const SimpleAudio: any
+declare const State: any
+declare const Story: any
+declare const Template: any
+declare const UI: any
+declare const UIBar: any
 
 /*******************************************************************************
   SugarCube Variables.
@@ -147,8 +144,8 @@ declare const UIBar: any;
 // Deprecated: declare const predisplay: any;
 // Deprecated: declare const prehistory: any;
 // Deprecated: declare const prerender: any;
-declare const session: any;
-declare const settings: any;
-declare const setup: Setup;
-declare const storage: any;
-declare const version: any;
+declare const session: any
+declare const settings: any
+declare const setup: Setup
+declare const storage: any
+declare const version: any
