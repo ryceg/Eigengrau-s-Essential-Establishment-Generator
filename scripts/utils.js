@@ -10,6 +10,7 @@ module.exports = {
   twineFolder,
   tweegoZip: path.resolve(twineFolder, 'tweego.zip'),
   formatsZip: path.resolve(twineFolder, 'formats.zip'),
+  formatsFolder: path.resolve(twineFolder, 'storyformats'),
 
   // Various download links.
   links: {

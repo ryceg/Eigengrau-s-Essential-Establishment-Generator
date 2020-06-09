@@ -17,12 +17,12 @@ utils.logInfo('Copyright(c) 2014 - 2018 Thomas Michael Edwards <thomasmedwards@g
 downloadAndExtract(tweegoLink, utils.tweegoZip).then(() => {
   utils.logAction('Downloading the story formats from', utils.links.storyFormats)
 
-  downloadAndExtract(utils.links.storyFormats, utils.formatsZip).then(() => {
+  downloadAndExtract(utils.links.storyFormats, utils.formatsZip, utils.formatsFolder).then(() => {
     utils.logSuccess('All done!')
   })
 })
 
-function downloadAndExtract (link, filePath) {
+function downloadAndExtract (link, filePath, outFolder) {
   return new Promise((resolve, reject) => {
     http.get(link, request).on('error', utils.logError)
 
@@ -63,20 +63,22 @@ function downloadAndExtract (link, filePath) {
       })
     }
   })
-}
 
-function unzipEntry (zip, entry) {
-  zip.openReadStream(entry, (error, stream) => {
-    if (error) throw error
+  function unzipEntry (zip, entry) {
+    zip.openReadStream(entry, (error, stream) => {
+      if (error) throw error
 
-    const fileFolder = path.resolve(utils.twineFolder, getFileDirectory(entry.fileName))
-    shell.mkdir('-p', fileFolder)
-    const filePath = path.resolve(utils.twineFolder, entry.fileName)
-    const writeStream = fs.createWriteStream(filePath)
+      const folder = outFolder || utils.twineFolder
 
-    stream.on('end', () => zip.readEntry())
-    stream.pipe(writeStream)
-  })
+      const fileFolder = path.resolve(folder, getFileDirectory(entry.fileName))
+      shell.mkdir('-p', fileFolder)
+      const filePath = path.resolve(folder, entry.fileName)
+      const writeStream = fs.createWriteStream(filePath)
+
+      stream.on('end', () => zip.readEntry())
+      stream.pipe(writeStream)
+    })
+  }
 }
 
 function getTweegoLink () {
