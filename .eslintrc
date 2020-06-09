@@ -1,5 +1,6 @@
 {
   "extends": ["standard"],
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "jest": true

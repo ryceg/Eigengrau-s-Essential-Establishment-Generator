@@ -4,9 +4,6 @@
     "source.fixAll.eslint": true
   },
   "editor.formatOnSave": false,
-  "[typescript]": {
-    "editor.formatOnSave": true
-  },
   "prettier.semi": false,
   "highlight.maxMatches": 250,
   "highlight.regexes": {

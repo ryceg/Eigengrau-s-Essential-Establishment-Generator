@@ -28,12 +28,13 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --fix"
+    "*.{js,ts}": "eslint --fix"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/jquery": "^3.3.38",
     "@types/webpack": "^4.41.17",
+    "@typescript-eslint/parser": "^3.2.0",
     "chalk": "^4.0.0",
     "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
