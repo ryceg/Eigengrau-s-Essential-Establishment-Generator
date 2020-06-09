@@ -10,10 +10,16 @@
 
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
-<<set $town to setup.createTown()>>
+
 
 <<if State.metadata.get("showTutorial") is true>>
+	<<set $town to setup.createTown()>>
 	<<set Config.passages.start = "Welcome">>
 <<else>>
-	<<set Config.passages.start = "Start">>
+	<<if State.metadata.get("showBiomeGenerationSettings") is true>>
+			<<set Config.passages.start = "BiomeGeneration">>
+		<<else>>
+			<<set Config.passages.start = "Start">>
+			<<set $town to setup.createTown()>>
+	<</if>>
 <</if>>

@@ -1,0 +1,7 @@
+:: BiomeGenerationRefresh
+\<<print setup.firstCharacter($tempTown.name)>> is located in the <<listbox "$tempTown.terrain" autoselect>><<optionsfrom Object.keys(setup.townData.terrain)>><</listbox>> 
+\<<listbox "$tempTown.location" autoselect>><<optionsfrom Object.keys(setup.townData.terrain[$tempTown.terrain].location)>><</listbox>>
+\, where the vegetation is <<listbox "$tempTown.vegetation" autoselect>><<optionsfrom ["thick", "lush", "sparse", "desolate"]>><</listbox>>. 
+\$tempTown.name grew around <<listbox "$tempTown.origin" autoselect>><<optionsfrom setup.townData.terrain[$tempTown.terrain].location[$tempTown.location].origin>><</listbox>>. 
+\They harvest <<listbox "$tempTown.primaryCrop" autoselect>><<optionsfrom setup.townData.misc.primaryCrop>><</listbox>>
+\, and nearby is a region rich with <<listbox "$tempTown.primaryExport" autoselect>><<optionsfrom setup.townData.misc.primaryExport>><</listbox>>. It is currently <<listbox "$tempTown.currentSeason" autoselect>><<optionsfrom Object.keys(setup.townData.terrain.temperate.weather.season)>><</listbox>>

@@ -9,6 +9,10 @@ if (State.metadata.get('showTutorial') !== settings.showTutorial) {
   settings.showTutorial = State.metadata.get('showTutorial')
 }
 
+if (State.metadata.get('showBiomeGenerationSettings') !== settings.showBiomeGenerationSettings) {
+  settings.showBiomeGenerationSettings = State.metadata.get('showBiomeGenerationSettings')
+}
+
 const settingShowTutorial = function () {
   const showTutorial = State.metadata.get('showTutorial')
   if (settings.showTutorial !== showTutorial) {
@@ -20,6 +24,13 @@ const settingIgnoreGender = function () {
   const ignoreGender = State.metadata.get('ignoreGender')
   if (settings.ignoreGender !== ignoreGender) {
     State.metadata.set('ignoreGender', settings.ignoreGender)
+  }
+}
+
+const settingshowBiomeGenerationSettings = function () {
+  const showBiomeGenerationSettings = State.metadata.get('showBiomeGenerationSettings')
+  if (settings.showBiomeGenerationSettings !== showBiomeGenerationSettings) {
+    State.metadata.set('showBiomeGenerationSettings', settings.showBiomeGenerationSettings)
   }
 }
 
@@ -42,6 +53,11 @@ Setting.addToggle('showCelsius', {
 
 Setting.addToggle('showMetric', {
   label: 'Show metric?'
+})
+
+Setting.addToggle('showBiomeGenerationSettings', {
+  label: '<span id="sliders" class="tip dotted" title="If you want to specify the biome and demographics before town creation, enable this.">Show town biome prompt upon restart?</span>',
+  onChange: settingshowBiomeGenerationSettings
 })
 
 Setting.addToggle('showSliders', {
