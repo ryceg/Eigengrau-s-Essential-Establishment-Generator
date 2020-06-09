@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const spawn = require('child_process').spawn
 const utils = require('./utils')

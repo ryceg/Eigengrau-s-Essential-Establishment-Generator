@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const chalk = require('chalk')
 
@@ -14,26 +15,19 @@ module.exports = {
   links: {
     tweego: {
       win32: {
-        x86:
-          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x86.zip',
-        x64:
-          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x64.zip'
+        x86: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x86.zip',
+        x64: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x64.zip'
       },
       darwin: {
-        x86:
-          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x86.zip',
-        x64:
-          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip'
+        x86: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x86.zip',
+        x64: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip'
       },
       linux: {
-        x86:
-          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x86.zip',
-        x64:
-          'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip'
+        x86: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x86.zip',
+        x64: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip'
       }
     },
-    storyFormats:
-      'https://github.com/tmedwards/sugarcube-2/releases/download/v2.31.1/sugarcube-2.31.1-for-twine-2.1-local.zip'
+    storyFormats: 'https://github.com/tmedwards/sugarcube-2/releases/download/v2.31.1/sugarcube-2.31.1-for-twine-2.1-local.zip'
   },
 
   // Logging
