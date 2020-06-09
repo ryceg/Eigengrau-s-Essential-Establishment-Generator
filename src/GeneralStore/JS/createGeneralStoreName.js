@@ -7,93 +7,93 @@ setup.createGeneralStoreName = (town, generalStore) => {
   const fam = {
     son: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.parentNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.parentNoun
       },
       gender: 'man',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     daughter: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.parentNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.parentNoun
       },
       gender: 'woman',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
       ageStage: 'young adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     brother: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.siblingNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.siblingNoun
       },
       gender: 'man',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
-      ageStage: generalStore.shopkeep.ageStage,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
+      ageStage: generalStore.associatedNPC.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     sister: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.siblingNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.siblingNoun
       },
       gender: 'woman',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
-      ageStage: generalStore.shopkeep.ageStage,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
+      ageStage: generalStore.associatedNPC.ageStage,
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     uncle: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.niblingNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.niblingNoun
       },
       gender: 'man',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     aunt: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.niblingNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.niblingNoun
       },
       gender: 'woman',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     father: {
       relationships: {
-        [generalStore.shopkeep.key]: generalStore.shopkeep.childNoun
+        [generalStore.associatedNPC.key]: generalStore.associatedNPC.childNoun
       },
       gender: 'man',
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     friend: {
       relationships: {
-        [generalStore.shopkeep.key]: 'friend'
+        [generalStore.associatedNPC.key]: 'friend'
       },
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     family: {
       relationships: {
-        [generalStore.shopkeep.key]: 'relative'
+        [generalStore.associatedNPC.key]: 'relative'
       },
-      race: generalStore.shopkeep.race,
-      lastName: generalStore.shopkeep.lastName,
+      race: generalStore.associatedNPC.race,
+      lastName: generalStore.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
     },
     employee: {
       relationships: {
-        [generalStore.shopkeep.key]: 'employer'
+        [generalStore.associatedNPC.key]: 'employer'
       },
       gender: 'man',
       profession: ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"].random()
@@ -105,14 +105,14 @@ setup.createGeneralStoreName = (town, generalStore) => {
       generalStore.name = `The ${adjective} ${noun}`
       break
     case 2:
-      generalStore.name = `${generalStore.shopkeep.firstName} and ${family.toUpperFirst()}`
+      generalStore.name = `${generalStore.associatedNPC.firstName} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, generalStore.shopkeep, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.shopkeep.key])
+      setup.createRelationship(town, generalStore.associatedNPC, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.associatedNPC.key])
       break
     case 3:
       generalStore.name = `The ${noun} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, generalStore.shopkeep, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.shopkeep.key])
+      setup.createRelationship(town, generalStore.associatedNPC, generalStore.assistant, family, generalStore.assistant.relationships[generalStore.associatedNPC.key])
       break
     case 4:
       generalStore.name = `The ${adjective} ${rider}`
@@ -121,10 +121,10 @@ setup.createGeneralStoreName = (town, generalStore) => {
       generalStore.name = `The ${adjective} ${noun}`
       break
     case 6:
-      generalStore.name = generalStore.shopkeep.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
+      generalStore.name = generalStore.associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
       break
     case 7:
-      generalStore.name = `${generalStore.shopkeep.firstName}'s ${adjective} ${rider}`
+      generalStore.name = `${generalStore.associatedNPC.firstName}'s ${adjective} ${rider}`
       break
     default:
       generalStore.name = `The ${adjective} Adventurer's Store`

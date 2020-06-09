@@ -3,6 +3,8 @@
 <<set $selectedBuilding to ($town.buildings.smithy[$selected.key] || $town.buildings.smithy[$currentPassage.key])>><<run setup.clampRolls($town.buildings.smithy[$selected.key].roll)>>
 <<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
+<<button "Delete $selectedBuilding.name">><<run setup.deleteBuilding($town, $selectedBuilding)>><<goto "Start">><</button>>
+
 <span class="tip" title="How wealthy is the patronage?">Smithy Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
 
 <span class="tip" title="How large is the smithy?">Smithy Size: <<numberslider "$selectedBuilding.roll.size" $selectedBuilding.roll.size 1 100 1>></span>

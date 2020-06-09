@@ -62,12 +62,12 @@ setup.smithy = {
       {
         cleanliness: 50,
         wealth: 10,
-        note: `The smithy is reasonably tidy, with the usual dirt from ${smithy.blacksmith.firstName}'s current project on the floor. You can see that activity in ${smithy.name}is ${smithy.activity}. There are sheafs of parchment on the bench with measurements and specifications for projects, and there's a bucket of water still sizzling from a recent dousing in the corner.`
+        note: `The smithy is reasonably tidy, with the usual dirt from ${smithy.associatedNPC.firstName}'s current project on the floor. You can see that activity in ${smithy.name}is ${smithy.activity}. There are sheafs of parchment on the bench with measurements and specifications for projects, and there's a bucket of water still sizzling from a recent dousing in the corner.`
       },
       {
         cleanliness: 40,
         wealth: 10,
-        note: `The smithy is somewhat messy, with the usual dirt and debris from ${smithy.blacksmith.firstName}'s current project on the floor; a half-hearted sweeping has been recently made, although all that did was push the dirt around the smithy to dirty up different parts of the floor. You can see that business in ${smithy.name} is ${smithy.activity}.`
+        note: `The smithy is somewhat messy, with the usual dirt and debris from ${smithy.associatedNPC.firstName}'s current project on the floor; a half-hearted sweeping has been recently made, although all that did was push the dirt around the smithy to dirty up different parts of the floor. You can see that business in ${smithy.name} is ${smithy.activity}.`
       },
       {
         cleanliness: 30,

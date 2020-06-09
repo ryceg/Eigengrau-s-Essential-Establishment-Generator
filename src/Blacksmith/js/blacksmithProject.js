@@ -7,7 +7,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       }
     }
   }
-  if (!blacksmith) { blacksmith = smithy.blacksmith || setup.createNPC(town, { profession: 'blacksmith' }) }
+  if (!blacksmith) { blacksmith = smithy.associatedNPC || setup.createNPC(town, { profession: 'blacksmith' }) }
   const weapon = ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick']
   const mundane = ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
   const potentialProjects = {
@@ -56,7 +56,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         const npc = setup.createNPC(town, {
           background: 'noble'
         })
-        setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
+        setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
         return `${setup.articles.output(weapon.random())} for some big hobnob noble called ${setup.profile(npc)}.`
       }
     },
@@ -70,7 +70,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           profession: 'guard',
           hasClass: false
         })
-        setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
+        setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
         return `${setup.articles.output(weapon.random())} for one of the ${setup.profile(npc, 'guards')}.`
       }
     },
@@ -80,7 +80,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town, smithy) {
         const npc = town.guard.captain
-        setup.createRelationship(town, npc, smithy.blacksmith, 'patron', 'customer')
+        setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
         return `${setup.articles.output(weapon.random())} for the ${setup.profile(npc, 'captain of the guard')}.`
       }
     },
@@ -118,9 +118,9 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town, smithy) {
         return [
-          `${smithy.blacksmith.firstName} pulls a red piece of iron out of the forge, but seems unsure what to do with it. ${blacksmith.smithy.pronouns.heshe.toUpperFirst()} puts it back in, ${blacksmith.smithy.pronouns.hisher} furtive glances betraying a lack of experience.`,
-          `${smithy.blacksmith.firstName} tries to shape a bit of metal, but it's not even red with heat, and ${smithy.blacksmith.pronouns.heshe} unsurprisingly has little success.`,
-          `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and manages to get a black soot all over ${smithy.blacksmith.pronouns.hisher} face.`
+          `${smithy.associatedNPC.firstName} pulls a red piece of iron out of the forge, but seems unsure what to do with it. ${blacksmith.smithy.pronouns.heshe.toUpperFirst()} puts it back in, ${blacksmith.smithy.pronouns.hisher} furtive glances betraying a lack of experience.`,
+          `${smithy.associatedNPC.firstName} tries to shape a bit of metal, but it's not even red with heat, and ${smithy.associatedNPC.pronouns.heshe} unsurprisingly has little success.`,
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and manages to get a black soot all over ${smithy.associatedNPC.pronouns.hisher} face.`
         ].random()
       }
     },
@@ -130,9 +130,9 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town, smithy) {
         return [
-          `${smithy.blacksmith.firstName} quenches a glowing hot piece of iron, wincing at the sudden sound of the metal cooling.`,
-          `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill most of it onto the floor.`,
-          `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, smudging ${smithy.blacksmith.pronouns.hisher} face slightly with a black soot.`
+          `${smithy.associatedNPC.firstName} quenches a glowing hot piece of iron, wincing at the sudden sound of the metal cooling.`,
+          `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill most of it onto the floor.`,
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, smudging ${smithy.associatedNPC.pronouns.hisher} face slightly with a black soot.`
         ].random()
       }
     },
@@ -142,9 +142,9 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town, smithy) {
         return [
-          `${smithy.blacksmith.firstName} quenches a glowing hot piece of iron, wincing slightly at the sudden sound of the metal cooling.`,
-          `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill some.`,
-          `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and removes the glove.`
+          `${smithy.associatedNPC.firstName} quenches a glowing hot piece of iron, wincing slightly at the sudden sound of the metal cooling.`,
+          `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill some.`,
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and removes the glove.`
         ].random()
       }
     },
@@ -154,9 +154,9 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town, smithy) {
         return [
-          `${smithy.blacksmith.firstName} pulls a hot piece of metal out of the forge, but sees that it's not quite done, so ${smithy.blacksmith.pronouns.heshe} puts it back in.`,
-          `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
-          `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and removes the glove.`
+          `${smithy.associatedNPC.firstName} pulls a hot piece of metal out of the forge, but sees that it's not quite done, so ${smithy.associatedNPC.pronouns.heshe} puts it back in.`,
+          `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and removes the glove.`
         ].random()
       }
     },
@@ -166,9 +166,9 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       },
       function (town, smithy) {
         return [
-          `${smithy.blacksmith.firstName} pulls a glowing hot piece of iron out of the forge with a familiarity only earnt by thousands of repetitions.`,
-          `${smithy.blacksmith.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
-          `${smithy.blacksmith.firstName} wipes ${smithy.blacksmith.pronouns.hisher} face with a gloved hand, and removes the glove.`
+          `${smithy.associatedNPC.firstName} pulls a glowing hot piece of iron out of the forge with a familiarity only earnt by thousands of repetitions.`,
+          `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and removes the glove.`
         ].random()
       }
     }

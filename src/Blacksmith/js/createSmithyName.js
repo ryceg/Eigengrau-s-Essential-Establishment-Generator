@@ -9,93 +9,93 @@ setup.createSmithyName = function (town, smithy) {
   const fam = {
     son: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.parentNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.parentNoun
       },
       gender: 'man',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
       ageStage: 'young adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     daughter: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.parentNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.parentNoun
       },
       gender: 'woman',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
       ageStage: 'young adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     brother: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.siblingNoun
       },
       gender: 'man',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
-      ageStage: smithy.blacksmith.ageStage,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
+      ageStage: smithy.associatedNPC.ageStage,
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     sister: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.siblingNoun
       },
       gender: 'woman',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
-      ageStage: smithy.blacksmith.ageStage,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
+      ageStage: smithy.associatedNPC.ageStage,
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     uncle: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.niblingNoun
       },
       gender: 'man',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     aunt: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.niblingNoun
       },
       gender: 'woman',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     father: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.childNoun
+        [smithy.associatedNPC.key]: smithy.associatedNPC.childNoun
       },
       gender: 'man',
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: smithy.associatedNPC.race,
+      lastName: smithy.associatedNPC.lastName,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     friend: {
       relationships: {
-        [smithy.blacksmith.key]: 'friend'
+        [smithy.associatedNPC.key]: 'friend'
       },
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     family: {
       relationships: {
-        [smithy.blacksmith.key]: 'relative'
+        [smithy.associatedNPC.key]: 'relative'
       },
-      lastName: smithy.blacksmith.lastName,
-      race: smithy.blacksmith.race,
+      lastName: smithy.associatedNPC.lastName,
+      race: smithy.associatedNPC.race,
       ageStage: 'settled adult',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
     },
     employee: {
       relationships: {
-        [smithy.blacksmith.key]: 'employer'
+        [smithy.associatedNPC.key]: 'employer'
       },
       gender: 'man',
       profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
@@ -107,14 +107,14 @@ setup.createSmithyName = function (town, smithy) {
       smithy.name = `The ${adjective} ${noun}`
       break
     case 2:
-      smithy.name = `${smithy.blacksmith.firstName} and ${family.toUpperFirst()}`
+      smithy.name = `${smithy.associatedNPC.firstName} and ${family.toUpperFirst()}`
       smithy.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, smithy.blacksmith, smithy.assistant, family, smithy.assistant.relationships[smithy.blacksmith.key])
+      setup.createRelationship(town, smithy.associatedNPC, smithy.assistant, family, smithy.assistant.relationships[smithy.associatedNPC.key])
       break
     case 3:
       smithy.name = `The ${noun} and ${family.toUpperFirst()}`
       smithy.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, smithy.blacksmith, smithy.assistant, family, smithy.assistant.relationships[smithy.blacksmith.key])
+      setup.createRelationship(town, smithy.associatedNPC, smithy.assistant, family, smithy.assistant.relationships[smithy.associatedNPC.key])
       break
     case 4:
       smithy.name = `The ${adjective} ${rider}`

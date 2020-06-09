@@ -1,7 +1,7 @@
 :: Posters
 <<button "Generate a poster">>
 \<<if def _newNPC>>
-\  <<run delete $npcs[_newNPC.key]>>
+\    <<run setup.deleteNPC($npcs[_newNPC])>>
 \<</if>>
 \<<set $poster to setup.weightedRandomFetcher($town, setup.plothooks, null, setup.misc.town.type.paper)>>
 \<<replace "#poster">><descriptive>$poster</descriptive><</replace>><</button>>

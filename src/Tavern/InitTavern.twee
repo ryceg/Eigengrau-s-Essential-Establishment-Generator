@@ -7,6 +7,8 @@
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$selectedBuilding.name" $selectedBuilding.name>></span><</nobr>>
 
+<<button "Delete $selectedBuilding.name">><<run setup.deleteBuilding($town, $selectedBuilding)>><<goto "Start">><</button>>
+
 <span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
 
 <span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$selectedBuilding.roll.population" $selectedBuilding.roll.population 1 100 1>></span>

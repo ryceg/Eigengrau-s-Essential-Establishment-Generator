@@ -5,7 +5,7 @@ There's <<print setup.weightedRandomFetcher($town, setup.townSquare.vignettes)>>
 
 <<button "Who else is there?">>
 <<if def $building.stranger>>
-  <<run delete $npcs[$building.stranger.key]>>
+  <<run setup.deleteNPC($npcs[$building.stranger])>>
 <</if>>
 <<set $building.stranger to setup.weightedRandomFetcher($town, setup.townSquare.crowd)>>
 <<replace "#newNpc">><<print ["You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $building.stranger<</replace>><</button>>

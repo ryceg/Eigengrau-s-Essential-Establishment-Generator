@@ -5,17 +5,17 @@ setup.createAlchemist = (town, opts = {}) => {
   console.groupCollapsed('Alchemist loading...')
 
   const alchemist = createBuilding(town, 'alchemist')
-  const chemist = createChemist(town)
+  const associatedNPC = createChemist(town)
 
   Object.assign(alchemist, {
-    chemist,
+    associatedNPC,
     wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random(),
     associatedTown: town.name,
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',
     buildingType: 'alchemist',
     notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].random(),
-    name: setup.createAlchemistName(chemist.firstName),
+    name: setup.createAlchemistName(associatedNPC.firstName),
     size: '',
     cleanliness: '',
     wealth: '',

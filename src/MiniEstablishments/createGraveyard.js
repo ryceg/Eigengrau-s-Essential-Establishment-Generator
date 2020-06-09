@@ -14,11 +14,7 @@ setup.createGraveyard = (town, base = {}) => {
     namePrefix: setup.graveyard.namePrefix.random(),
     nameSuffix: setup.graveyard.nameSuffix.random(),
     tree: setup.misc.tree.create(town, 'plains'),
-    priest: setup.createNPC(town, {
-      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
-      profession: ['cleric', 'cleric', 'cleric', 'priest', 'priest', 'priest', 'priest', 'druid'].random()
-    }),
-    gravedigger: setup.createNPC(town, {
+    associatedNPC: setup.createNPC(town, {
       profession: 'gravedigger'
     }),
     gravediggerLook: `A gravedigger is ${setup.graveyard.gravediggerLook.random()}`,
@@ -27,10 +23,10 @@ setup.createGraveyard = (town, base = {}) => {
   graveyard.name = [
     `${town.name} ${graveyard.wordNoun.toUpperFirst()}`,
     `${graveyard.nameSuffix} ${graveyard.namePrefix} ${graveyard.wordNoun.toUpperFirst()}`,
-    `St. ${setup.createName({ race: graveyard.priest.race })}'s ${graveyard.wordNoun.toUpperFirst()}`
+    `St. ${setup.createName({ race: graveyard.associatedNPC.race })}'s ${graveyard.wordNoun.toUpperFirst()}`
   ].random()
   graveyard.feature = [
-    `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.priest.race })}`,
+    `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.associatedNPC.race })}`,
     `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is ${setup.articles.output(['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random())} shrine to a popular god`,
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random(),

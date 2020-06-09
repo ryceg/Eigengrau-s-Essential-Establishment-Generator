@@ -7,10 +7,9 @@ setup.createTemple = (town, opts = {}) => {
     initPassage: 'TempleOutput',
     buildingType: 'temple',
     wordNoun: data.name.wordNoun.random(),
-    priest: setup.createNPC(town, {
-      dndClass: ['cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
-      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
-      profession: 'priest'
+    associatedNPC: setup.createNPC(town, {
+      profession: ['priest', 'priest', 'priest', 'priest', 'priest', 'cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
+      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random()
     }),
     prayerSubject: data.prayerSubject.random(),
     dedicated: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random(), data.dedicated.random()].random(),
@@ -35,8 +34,8 @@ setup.createTemple = (town, opts = {}) => {
     `The ${temple.wordNoun.toUpperFirst()} of ${data.name.soleNoun.random().toUpperFirst()}`,
     `The ${temple.wordNoun.toUpperFirst()} of ${data.name.adjective.random().toUpperFirst()} ${data.name.plural.random().toUpperFirst()}`,
     `The ${data.name.colour.random().toUpperFirst()} ${temple.wordNoun.toUpperFirst()}${['', ` of ${data.name.plural.random().toUpperFirst()}`, ` of ${data.name.soleNoun.random().toUpperFirst()}`].random()}`,
-    `${['', 'St. '].random() + setup.createName({ race: temple.priest.race })}'s ${temple.wordNoun.toUpperFirst()}`,
-    `${['', 'St. '].random() + setup.createName({ race: temple.priest.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
+    `${['', 'St. '].random() + setup.createName({ race: temple.associatedNPC.race })}'s ${temple.wordNoun.toUpperFirst()}`,
+    `${['', 'St. '].random() + setup.createName({ race: temple.associatedNPC.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
   ].random()
 
   temple.wealth = ''

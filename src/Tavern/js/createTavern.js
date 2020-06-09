@@ -5,6 +5,7 @@ setup.createTavern = function (town, opts = {}) {
   tavern.name = setup.createTavernName()
   console.groupCollapsed(tavern.name)
   tavern.bartender = (opts.newBartender || setup.createBartender)(town, tavern.name)
+  tavern.associatedNPC = tavern.bartender
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
     gender: 'woman',

@@ -4,7 +4,7 @@ setup.createGeneralStore = (town, opts = {}) => {
 
   const generalStore = createBuilding(town, 'generalStore')
   console.groupCollapsed('General Store loading...')
-  generalStore.shopkeep = createShopkeep(town, {
+  generalStore.associatedNPC = createShopkeep(town, {
     profession: 'merchant',
     mundane: ['pliers', 'tins', 'twine', 'cups', 'spoons', 'pans', 'chairs', 'cushions'],
     greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'checks you out for just a moment before smiling at you'],

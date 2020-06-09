@@ -9,7 +9,7 @@ setup.createDocks = (town, opts = {}) => {
     initPassage: 'DocksOutput',
     buildingType: 'docks',
     needsWordNoun: false,
-    dockName: setup.createNPC(town, {
+    associatedNPC: setup.createNPC(town, {
       isShallow: true,
       profession: 'stevedore'
     }),
@@ -18,7 +18,17 @@ setup.createDocks = (town, opts = {}) => {
     typePool: setup.docks.ships.typePool
   })
 
-  docks.name = [`The ${['Old ', 'New ', '', ''].random()}${[`${town.name} `, `${town.name} `, ' ', ' ', ' '].random()}${docks.wordNoun.toUpperFirst()}`, [`${docks.dockName.lastName} `, `${docks.dockName.firstName}'s `, `${[docks.dockName.firstName, docks.dockName.lastName].random()} Beach `].random() + docks.wordNoun.toUpperFirst()].random()
+  docks.name = [
+    `The ${['Old', 'New', '', ''].random()} ${[`${town.name}`, `${town.name}`, '', '', ''].random()} ${docks.wordNoun.toUpperFirst()}`,
+    `${[
+      docks.associatedNPC.lastName,
+      `${docks.associatedNPC.firstName}'s`,
+      `${[
+        docks.associatedNPC.firstName,
+        docks.associatedNPC.lastName
+      ].random()} Beach`
+    ].random()} ${docks.wordNoun.toUpperFirst()}`
+  ].random()
 
   docks.activity = ''
   docks.size = ''

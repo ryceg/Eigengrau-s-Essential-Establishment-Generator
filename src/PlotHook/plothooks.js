@@ -153,13 +153,13 @@ setup.plothooks = {
       const blacksmithPool = town.buildings.smithy
       const smithy = setup.objectArrayFetcher(blacksmithPool)
       console.log(smithy)
-      // var blacksmith = smithy.blacksmith
+      // var blacksmith = smithy.associatedNPC
       const npc = setup.createNPC(town, {
         gender: 'man',
         profession: 'blacksmith',
         background: 'blacksmith'
       })
-      return `Two blacksmiths, ${setup.profile(smithy.blacksmith)} of ${setup.profile(smithy, '', 'town.buildings.smithy')} and ${setup.profile(npc)} are in competition to create better melee weapons for the King's army and only one can win the contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
+      return `Two blacksmiths, ${setup.profile(smithy.associatedNPC)} of ${setup.profile(smithy, '', 'town.buildings.smithy')} and ${setup.profile(npc)} are in competition to create better melee weapons for the King's army and only one can win the contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
     }
   },
   'Kindergarten Magic': {
@@ -572,7 +572,7 @@ setup.plothooks = {
     function (town) {
       const blacksmithPool = town.buildings.smithy
       const smithy = setup.objectArrayFetcher(blacksmithPool)
-      return `Koboliam Ore Needed: A local ${setup.profile(smithy.blacksmith, 'blacksmith')} needs Koboliam Ore, which is only found in the Myriad caves to the North. Once a Kobold stronghold, this abandoned cave is full of traps and possibly other dangers — will pay top gold for each block of Ore.`
+      return `Koboliam Ore Needed: A local ${setup.profile(smithy.associatedNPC, 'blacksmith')} needs Koboliam Ore, which is only found in the Myriad caves to the North. Once a Kobold stronghold, this abandoned cave is full of traps and possibly other dangers — will pay top gold for each block of Ore.`
     }
   },
   'Burial Escort Needed': {

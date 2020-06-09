@@ -1,6 +1,6 @@
 :: RandomNPC
 <<link "<h4>Meet one of the patrons!</h4>">><<if def _newNPC>>
-  <<run delete $npcs[_newNPC.key]>>
+  <<run setup.deleteNPC($npcs[_newNPC])>>
 <</if>>
 <<set $toolbox.drinker to setup.createNPC($town, {
   isThrowaway: true

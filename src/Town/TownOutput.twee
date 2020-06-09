@@ -57,7 +57,7 @@ _listbox -- <<button "Create new faction">>
   <tr><td><<profile $npcs[_npc.key]>></td>
   <td>_npc.race</td>
   <td><<tooltip _npc.profession setup.townData.professions[_npc.profession].description.toUpperFirst()>></td>
-  <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run delete $npcs[_npc.key]>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
+  <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
   </tr>
   <</if>><</capture>><</for>>
   </table><</nobr>>
@@ -69,10 +69,10 @@ _listbox -- <<button "Create new faction">>
     }
     }>><<if _throwaway !== true>><span class="tip" title="There are no more throwaway NPCs!"><h3>Throwaway NPCs</h3></span><<else>> */
     <<linkappend "<h3>Throwaway NPCs</h3>">><<button "Wipe all throwaway NPCs">>
-  <<run for (var key in $npcs) {
+  <<run for (let key in $npcs) {
      if ($npcs.hasOwnProperty(key)) {
        if ($npcs[key].isThrowaway === true) {
-         delete $npcs[key]
+         setup.deleteNPC($npcs[key])
        }
      }
   }>>
@@ -88,7 +88,7 @@ _listbox -- <<button "Create new faction">>
     <tr><td><<profile $npcs[_npc.key]>></td>
     <td>_npc.race</td>
     <td>_npc.profession</td>
-    <td><<link "x">><<run delete $npcs[_npc.key]>><<goto "TownOutput">><</link>></td>
+    <td><<link "x">><<run setup.deleteNPC($npcs[_npc.key])>><<goto "TownOutput">><</link>></td>
     </tr>
     <</if>>
     <</capture>><</for>>
@@ -110,6 +110,28 @@ _listbox -- <<button "Create new faction">>
     </tr>
 <</for>>
 </table><</nobr>></div><</linkappend>>
+
+<h3>List of Buildings</h3><<nobr>>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Associated NPC</th>
+    <th>Delete</th>
+  </tr>
+<<for _buildingType, _townBuildings range $town.buildings>>
+  <<for _key, _building range _townBuildings>><<capture _buildingType, _key, _building>>
+    \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
+    <tr><td><span @id="_building.name"><<include "BuildingLink">></span></td>
+      <td><<print (_building.wordNoun || _building.type).toUpperFirst()>></td>
+      <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
+      <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<goto "TownOutput">><</link>></td>
+    </tr>
+  \<</capture>><<set _previousBuilding to _building>>
+  \<</for>>
+<</for>>
+
+  </table><</nobr>>
 
 <<linkappend "<h3>Businesses in $town.name</h3>">>
 <<nobr>>

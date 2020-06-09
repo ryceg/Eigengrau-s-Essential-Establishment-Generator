@@ -4,7 +4,8 @@
 /* <<include "RandomAdventure">> */
 <<include "CreateScenario">>
 <<link "<h6>Generate random Faction</h6>">><<set $toolbox.faction to setup.createFaction($town, {isThrowaway: true})>><<replace "#faction">><div class='descriptive'><<link "$toolbox.faction.name">></div><<set $currentFaction to $toolbox.faction>><<goto "FactionProfile">><</link>><</replace>><</link>><<if def $toolbox.faction>><<link "$toolbox.faction.name">><<set $currentFaction to $toolbox.faction>><<goto "FactionProfile">><</link>><<else>><span id="faction"></span><</if>>
-<<link "<h6>Generate some mercenaries</h6>">><<set $toolbox.mercenaries to setup.createMercenaries($town)>><<replace "#mercs">><div class='descriptive'><h6>$toolbox.mercenaries.name</h6><<print "A group of mercenaries sit in the corner of the room, armed to the teeth with $toolbox.mercenaries.weapon, wearing $toolbox.mercenaries.colours livery over their $toolbox.mercenaries.armour with an insignia of $toolbox.mercenaries.insignia. They are $toolbox.mercenaries.attitude towards their commander <<profile $toolbox.mercenaries.captain>>, who is $toolbox.mercenaries.commanderTrait. They specialise in $toolbox.mercenaries.specializes, and are notorious for $toolbox.mercenaries.notorious. They are famous for their $toolbox.mercenaries.tactics, and are currently $toolbox.mercenaries.currently.">></div><</replace>><</link>><span id="mercs"></span>
+<<link "<h6>Generate some mercenaries</h6>">><<set $toolbox.mercenaries to setup.createMercenaries($town)>><<replace "#mercs">><div class='descriptive'><h6>$toolbox.mercenaries.name</h6>$toolbox.mercenaries.readout</div><</replace>><</link>><span id="mercs"></span>
+<<link "<h6>Generate some raiders</h6>">><<set $toolbox.raiders to setup.createRaiders($town)>><<replace "#raiders">><div class='descriptive'>$toolbox.raiders</div><</replace>><</link>><span id="raiders"></span>
 <h4>[[One Shot - The Poisoned Potioner|AdventureOutput]]</h4>
 
 <<include "RandomPotion">>
@@ -13,22 +14,7 @@
 <<link "<h6>Create magic armour</h6>">><<set $toolbox.armour to setup.createMagicArmour()>><<replace "#Armour">><div class='descriptive'><h6>$toolbox.armour.name</h6>$toolbox.armour.description</div><</replace>><</link>><span id="Armour"></span>
 <<link "<h6>Create a magic trinket</h6>">><<set $toolbox.trinket to setup.createMagicTrinket()>><<replace "#Trinket">><div class='descriptive'><h6>$toolbox.trinket.name</h6>$toolbox.trinket.description</div><</replace>><</link>><span id="Trinket"></span>
 <<link "<h6>Create a trap</h6>">><<set $toolbox.trap to setup.createTrap()>><<replace "#testTrap">><div class='descriptive'>$toolbox.trap.description</div><</replace>><</link>><span id="testTrap"></span>
-
 <<link "<h6>Create a pub rumour</h6>">><<set $toolbox.pubRumour to setup.createPubRumour()>><<replace "#pub">><div class='descriptive'>$toolbox.pubRumour</div><</replace>><</link>><span id="pub"></span>
 <<link "<h6>Create a rumour (WIP)</h6>">><<set $toolbox.rumour to setup.createRumour($town)>><<replace "#rumour">><div class='descriptive'>$toolbox.rumour</div><</replace>><</link>><span id="rumour"></span>
-/* <<link "<h6>Create a mission</h6>">><<set $toolbox.mission to setup.createMission($town)>><<replace "#mission">>$toolbox.mission<</replace>><</link>><span id="mission"></span> */
 <<link "<h6>Generate a nightmare</h6>">><<set $toolbox.nightmare to setup.createNightmare()>><<replace "#nightmare">><div class='descriptive'>$toolbox.nightmare</div><</replace>><</link>><span id="nightmare"></span>
-/* <<listbox "$town.currentSeason">><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><</listbox>><<listbox "$toolbox.weatherType">><<option "Temperate" "temperate">><<option "Arid" "arid">><<option "Tropical" "tropical">><<option "Polar" "polar">><</listbox>><<link "<h6>Describe the weather</h6>">>
-<<if def $toolbox.weather >>
-    <<set $toolbox.weather.timer.temperature -= 4>>
-    <<set $toolbox.weather.timer.precipitation -= 4>>
-    <<set $toolbox.weather.timer.cloud -= 4>>
-    <<set _testWeather to setup.createWeather($town, $toolbox.weatherType, $toolbox.weather)>>
-    <<set $toolbox.weather to _testWeather>>
-  <<else>>
-    <<set $toolbox.weather to setup.createWeather($town, $toolbox.weatherType)>>
-<</if>>
-<<replace "#weather">><div class='descriptive'>$toolbox.weather.readout.full</div><</replace>><</link>>
-<div id="weather"><<if def $scenario>>$toolbox.weather.readout.full<</if>></div> */
 <<link "<h6>Generate a road</h6>">><<set $toolbox.road to setup.createRoad()>><<replace "#road">><div class='descriptive'>$toolbox.road</div><</replace>><</link>><span id="road"></span>
-<<link "<h6>Generate some raiders</h6>">><<set $toolbox.raiders to setup.createRaiders($town)>><<replace "#raiders">><div class='descriptive'>$toolbox.raiders</div><</replace>><</link>><span id="raiders"></span>
