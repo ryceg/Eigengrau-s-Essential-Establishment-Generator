@@ -1,10 +1,10 @@
 /*
- * Pluins & global functions.
+ * Plugins & global functions.
  */
 
 interface Math {
-  fm(a: number, b:number): number
-  fairmath(a: number, b:number): number
+  fm(a: number, b: number): number
+  fairmath(a: number, b: number): number
 }
 
 function dice(a: string): number
