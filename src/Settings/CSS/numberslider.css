@@ -14,7 +14,6 @@ text-align: center;
    font-color: black;	
 }	
 div[id|="numberbox-body"] button {	
-font-family: "tme-fa-icons";	
 font-style: normal;	
 font-weight: normal;	
 font-variant: normal;	
@@ -46,7 +45,7 @@ div[id|="numberslider-body"] input {
 -webkit-appearance: none;	
 cursor: pointer;	
 height: 1.25em;	
-min-width: 60vw;	
+min-width: 20vw;	
 width: auto;	
 vertical-align: middle;	
 }	
@@ -84,7 +83,7 @@ border: 1px solid #444;
 border-radius: 0;	
 cursor: pointer;	
 height: 0.556em;	
-width: 100%;	
+width: 80%;	
 }	
 div[id|="numberslider-body"] input::-moz-range-thumb {	
 background: #35a;	
@@ -100,8 +99,8 @@ border-color: transparent;
 color: transparent;	
 cursor: pointer;	
 height: 0.556em;	
-width: 99%; /* fallback for MS browsers without support for calc() */	
-width: calc(100% - 1px);	
+width: 80%; /* fallback for MS browsers without support for calc() */	
+width: calc(80% - 1px);	
 }	
 div[id|="numberslider-body"] input::-ms-fill-lower {	
 background: #222;	
