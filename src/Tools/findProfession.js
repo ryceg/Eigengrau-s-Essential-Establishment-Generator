@@ -15,7 +15,7 @@ setup.findProfession = function (town, npc, profession) {
   }
 
   console.log('could not find it. Looking for synonyms...')
-  const found = setup.findInContainer(setup.townData.professions, 'synonyms', profession)
+  const found = lib.findInContainer(setup.townData.professions, 'synonyms', profession)
 
   if (typeof found === 'undefined') {
     console.error(`${profession} not found!`)
