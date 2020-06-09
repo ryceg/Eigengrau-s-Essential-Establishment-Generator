@@ -1,7 +1,11 @@
 :: BiomeGenerationRefresh
 \<<print setup.firstCharacter($tempTown.name)>> is located in the <<listbox "$tempTown.terrain" autoselect>><<optionsfrom Object.keys(setup.townData.terrain)>><</listbox>> 
-\<<listbox "$tempTown.location" autoselect>><<optionsfrom Object.keys(setup.townData.terrain[$tempTown.terrain].location)>><</listbox>>
+\<span class="tip" title="This changes based on the terrain- refresh to update"><<listbox "$tempTown.location" autoselect>><<optionsfrom Object.keys(setup.townData.terrain[$tempTown.terrain].location)>><</listbox>></span>
 \, where the vegetation is <<listbox "$tempTown.vegetation" autoselect>><<optionsfrom ["thick", "lush", "sparse", "desolate"]>><</listbox>>. 
-\$tempTown.name grew around <<listbox "$tempTown.origin" autoselect>><<optionsfrom setup.townData.terrain[$tempTown.terrain].location[$tempTown.location].origin>><</listbox>>. 
+\$tempTown.name grew around <span class="tip" title="This changes based on the terrain and location- refresh to update"><<listbox "$tempTown.origin" autoselect>><<optionsfrom setup.townData.terrain[$tempTown.terrain].location[$tempTown.location].origin>><</listbox>></span>. 
 \They harvest <<listbox "$tempTown.primaryCrop" autoselect>><<optionsfrom setup.townData.misc.primaryCrop>><</listbox>>
-\, and nearby is a region rich with <<listbox "$tempTown.primaryExport" autoselect>><<optionsfrom setup.townData.misc.primaryExport>><</listbox>>. It is currently <<listbox "$tempTown.currentSeason" autoselect>><<optionsfrom Object.keys(setup.townData.terrain.temperate.weather.season)>><</listbox>>
+\, and nearby is a region rich with <<listbox "$tempTown.primaryExport" autoselect>><<optionsfrom setup.townData.misc.primaryExport>><</listbox>>. It is currently <<listbox "$tempTown.currentSeason" autoselect>><<optionsfrom Object.keys(setup.townData.terrain.temperate.weather.season)>><</listbox>>.
+
+Politically, they are a <span class="tip" title="How does the economy work?"><<listbox "$tempTown.economicIdeology" autoselect>><<optionsfrom $economicIdeologyTypes>><</listbox>></span>\
+<span class="tip" title="Who leads the people?"><<listbox "$tempTown.politicalIdeology" autoselect>><<optionsfrom $politicalIdeologyTypes>><</listbox>></span>\
+<span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$tempTown.politicalSource" autoselect>><<optionsfrom ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>><</listbox>></span>\
