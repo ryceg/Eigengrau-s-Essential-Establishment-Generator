@@ -3,10 +3,10 @@
  * Basically, temperature, precipitation,
  * and precipitation intensity are each independently tracked.
  */
-setup.createWeather = (town, biome, weather, season, time) => {
+setup.createWeather = (town, biome, weather) => {
   console.groupCollapsed('Creating weather...')
 
-  console.log({ biome, weather, season, time })
+  console.log({ biome, weather })
   if (biome) {
     switch (biome) {
       case 'desert':
@@ -16,12 +16,11 @@ setup.createWeather = (town, biome, weather, season, time) => {
         biome = town.terrain || 'temperate'
         break
       default:
-        biome = 'temperate'
+        biome = town.terrain
     }
   }
-  biome = biome || town.terrain
-  time = time || 8
-  season = season || weather.season || 'spring'
+  const time = 8
+  const season = town.currentSeason
   console.log(`biome: ${biome}`)
   if (weather) {
     // if it's passed the weather object (i.e. if it isn't the first time the user has clicked on the button, it doesn't need to set up everything.)
@@ -64,6 +63,7 @@ setup.createWeather = (town, biome, weather, season, time) => {
   weather.precipitationIntensity.clamp(1, 4)
 
   setup.renderWeather(town, biome, weather)
+  town.weather = weather
   // console.log('weather after render:')
   // console.log(weather)
   console.groupEnd()
