@@ -10,7 +10,7 @@
 
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
-
+<<set $toolbox to {}>>
 
 <<if State.metadata.get("showTutorial") is true>>
 	<<set $town to setup.createTown()>>
