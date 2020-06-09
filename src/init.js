@@ -8,7 +8,6 @@ setup.init = (setup => () => {
   lib.setRandom(State.random)
   setup.initMisc()
   setup.initMiscBooks()
-  setup.initMiscRiddles()
   setup.initMiscEncounters()
   setup.initMiscLocations()
   setup.initNpcData()
