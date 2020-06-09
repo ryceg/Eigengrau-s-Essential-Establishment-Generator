@@ -13,9 +13,9 @@ setup.fetchRace = function (town, saveLoc) {
     }, 0)
   // Calculate the demographic percentages.
   races.forEach(function (byRace) {
-    town._demographic[byRace] = town.baseDemographics[byRace] / sum * 100
+    town._demographicPercentile[byRace] = town.baseDemographics[byRace] / sum * 100
   }, town)
-  const args = town._demographic
+  const args = town._demographicPercentile
   console.log(args)
   const pool = []
   const namePool = Object.keys(args)

@@ -44,7 +44,7 @@
         <th>Percentage</th>
         <th><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
     </tr>
-<<for _race, _percentage range $town.demographic>>
+<<for _race, _percentage range $town.demographicPercentile>>
     <tr>
         <td>_race</td>
         <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
