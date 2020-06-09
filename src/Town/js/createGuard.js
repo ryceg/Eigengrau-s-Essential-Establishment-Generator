@@ -5,7 +5,6 @@ setup.createGuard = function (town) {
   const guard = {
     associatedTown: town.name,
     captain: setup.createNPC(town, {
-      dndClass: 'fighter',
       profession: 'guard',
       background: 'soldier'
     }),
@@ -13,25 +12,18 @@ setup.createGuard = function (town) {
     livery: `${setup.guardData.primaryColours.random()} and ${setup.guardData.secondaryColours.random()} livery adorned with an image of ${setup.guardData.insignia.random()}`
   }
 
-  const nameRoll = random(1, 8)
-  console.log(`nameRoll is ${nameRoll}`)
-  if (nameRoll === 1) {
-    guard.name = `The ${setup.guardData.name.group.random()} of ${town.name}`
-  } else if (nameRoll === 2) {
-    guard.name = `The ${town.name} ${setup.guardData.name.group.random()}`
-  } else if (nameRoll === 3) {
-    guard.name = `The ${setup.guardData.name.group.random()} of ${setup.guardData.name.alternateAdjective.random()}`
-  } else if (nameRoll === 4) {
-    guard.name = `The ${setup.guardData.name.adjective.random()} ${setup.guardData.name.group.random()}`
-  } else if (nameRoll === 5) {
-    guard.name = `The ${setup.guardData.name.adjective.random()} ${setup.guardData.name.noun.random()}`
-  } else if (nameRoll === 6) {
-    guard.name = `The ${setup.guardData.name.adjective.random()} ${setup.guardData.name.noun.random()} of ${setup.guardData.name.alternateAdjective.random()}`
-  } else if (nameRoll === 7) {
-    guard.name = `The ${setup.guardData.name.adjective.random()} ${setup.guardData.name.noun.random()} of ${town.name}`
-  } else if (nameRoll === 8) {
-    guard.name = `The ${setup.guardData.name.group.random()} ${setup.guardData.name.noun.random()} of ${town.name}`
-  }
+  const guardData = setup.guardData.name
+  guard.name = [
+    `The ${guardData.group.random()} of ${town.name}`,
+    `The ${town.name} ${guardData.group.random()}`,
+    `The ${guardData.group.random()} of ${guardData.alternateAdjective.random()}`,
+    `The ${guardData.adjective.random()} ${guardData.group.random()}`,
+    `The ${guardData.adjective.random()} ${guardData.noun.random()}`,
+    `The ${guardData.adjective.random()} ${guardData.noun.random()} of ${guardData.alternateAdjective.random()}`,
+    `The ${guardData.adjective.random()} ${guardData.noun.random()} of ${town.name}`,
+    `The ${guardData.group.random()} ${guardData.noun.random()} of ${town.name}`
+  ].random()
+
   console.log(`${guard.name} is the name of the guard.`)
   console.groupEnd()
   return guard
