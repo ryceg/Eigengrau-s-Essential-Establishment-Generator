@@ -22,7 +22,7 @@
 <<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>\
 <span class="tip" title="How does the economy work?"><<listbox "$town.economicIdeology" autoselect>><<optionsfrom $economicIdeologyTypes>><</listbox>></span>\
 <span class="tip" title="Who leads the people?"><<listbox "$town.politicalIdeology" autoselect>><<optionsfrom $politicalIdeologyTypes>><</listbox>></span>\
-<span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$town.politicalSource">><<optionsfrom $politicalSourceTypes>><</listbox>></span>\
+<span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$town.politicalSource" autoselect>><<optionsfrom $politicalSourceTypes>><</listbox>></span>\
 
 
 <span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.roll.economics" $town.roll.economics 1 100 1>></span>
