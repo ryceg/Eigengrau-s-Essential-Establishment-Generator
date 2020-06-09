@@ -31,7 +31,7 @@
     "*.{js,ts}": "eslint --fix"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^26.0.0",
     "@types/jquery": "^3.3.38",
     "@types/webpack": "^4.41.17",
     "@typescript-eslint/eslint-plugin": "^3.2.0",
