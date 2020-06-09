@@ -13,9 +13,11 @@ setup.findExistingNpc = function (town, npcs, npc, param, createNew) {
 }
 
 setup.findNpcByProfession = function (npcs, profession) {
+  const array = []
   for (const obj in npcs) {
     if (npcs[obj].profession === profession) {
-      return npcs[obj]
+      array.push(npcs[obj])
     }
   }
+  return array
 }
