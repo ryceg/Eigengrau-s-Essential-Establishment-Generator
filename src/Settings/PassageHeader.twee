@@ -1,6 +1,6 @@
 :: PassageHeader
 <h5><<nobr>>
-<<link "The $town.type of $town.name">>
+<<if def $town>><<link "The $town.type of $town.name">>
     <<unset $currentPassage>>
     <<unset $currentNPC>>
     <<unset $currentNPCKey>>
@@ -35,5 +35,5 @@
 <<if def $currentNPC && passage() is "NPCProfile">>
   > $currentNPC.name
 <</if>>
-
+<</if>>
 <</nobr>></h5>
