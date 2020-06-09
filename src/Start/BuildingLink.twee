@@ -1,6 +1,6 @@
 :: BuildingLink
-\<span @id="_building.tooltip" class="tip">
-\<<link "_building.name">>
+\<span @id="_building.tooltip" class="tip"><<set _buildingTitle to toTitleCase(_building.name)>>
+\<<link "_buildingTitle">>
   \<<set $selected to {buildingType: _buildingType, key: _key, building: _building}>>
   \<<set $currentPassage to _building>>
   \<<run console.log(_building)>>

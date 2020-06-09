@@ -2,11 +2,11 @@
 <<nobr>><<linkreplace "<h6>Look at the ring!</h6>">>
 <<set $randomRing to setup.createRing()>>
     <<replace "#ring">>
-           <div class='descriptive'><h3><<print setup.articles.output($randomRing.material).toUpperFirst()>> ring</h3>
+           <div class='descriptive'><h3><<print setup.articles.output(toTitleCase($randomRing.material))>> ring</h3>
             $randomRing.firstOutputs</div>
     <</replace>><<link "<h6>Look at another ring</h6>">><<set $randomRing to setup.createRing()>>
         <<replace "#ring">>
-               <div class='descriptive'><h3><<print setup.articles.output($randomRing.material).toUpperFirst()>> ring</h3>
+               <div class='descriptive'><h3><<print (setup.articles.output(toTitleCase($randomRing.material))>> ring</h3>
                 $randomRing.secondOutputs</div><</replace>><</link>>
 <</linkreplace>>
 <span id="ring"></span><</nobr>>
