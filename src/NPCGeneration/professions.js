@@ -32,27 +32,7 @@
 
 setup.initTownDataProfessions = () => {
   setup.townData.professions = {
-    'child': {
-      sv: 10000,
-      type: 'family',
-      sector: 'family',
-      synonyms: ['prepubescent', 'kid', 'baby'],
-      description: 'a child, specifically one that is not working.',
-      dailyWage: 4,
-      socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
-    },
-    'domestic partner': {
-      sv: 50,
-      type: 'family',
-      sector: 'family',
-      description: 'a spouse that stays at home, cooking, cleaning, and caring for the family.',
-      domSub: 'sub',
-      dailyWage: 4,
-      socialClass: 'peasantry',
-      exclusions (npc) { if (!npc.partnerID) return false },
-      socialClassRoll () { return 50 + dice(8, 6) }
-    },
+
     'peasant': {
       sv: 20,
       type: 'labourer',
@@ -601,6 +581,16 @@ setup.initTownDataProfessions = () => {
       socialClass: 'commoner',
       socialClassRoll () { return 50 + dice(8, 6) }
     },
+    'child': {
+      sv: 10000,
+      type: 'family',
+      sector: 'family',
+      synonyms: ['prepubescent', 'kid', 'baby'],
+      description: 'a child, specifically one that is not working.',
+      dailyWage: 4,
+      socialClass: 'commoner',
+      socialClassRoll () { return 50 + dice(8, 6) }
+    },
     'clergyman': {
       sv: 40,
       type: 'profession',
@@ -767,6 +757,17 @@ setup.initTownDataProfessions = () => {
       dailyWage: 110,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) }
+    },
+    'domestic partner': {
+      sv: 50,
+      type: 'family',
+      sector: 'family',
+      description: 'a spouse that stays at home, cooking, cleaning, and caring for the family.',
+      domSub: 'sub',
+      dailyWage: 4,
+      socialClass: 'peasantry',
+      exclusions (npc) { if (!npc.partnerID) return false },
+      socialClassRoll () { return 50 + dice(8, 6) }
     },
     'farmer': {
       sv: 150,
