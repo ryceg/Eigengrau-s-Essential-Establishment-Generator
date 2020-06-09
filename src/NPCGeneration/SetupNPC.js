@@ -84,7 +84,7 @@ setup.createNPC = function (town, base) {
         // _wageVariation is static; it's the "luck" that the NPC has in their profession.
         // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
         // expected range should be between -25 and 25.
-        return setup.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
+        return lib.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
       physicalTrait: random(1, 100),
       gregariousness: dice(3, 6)
@@ -101,11 +101,11 @@ setup.createNPC = function (town, base) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
         const profession = setup.findProfession(town, npc)
-        return Math.round(setup.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3)))
+        return Math.round(lib.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3)))
       },
       netIncome (town, npc) {
         console.log(`Returning ${npc.name}'s net income...`)
-        return Math.round(setup.calcPercentage(npc.finances.grossIncome(town, npc), -setup.npcTaxRate(town, npc)))
+        return Math.round(lib.calcPercentage(npc.finances.grossIncome(town, npc), -setup.npcTaxRate(town, npc)))
       },
       lifestyleStandard (town, npc) {
         console.log(`Returning ${npc.name}'s lifestyle standard...`)
