@@ -1,7 +1,7 @@
 :: GuardOutput
 <h1>$town.guard.name</h1><<nobr>><<set _townPop to $town.population>>
 
-<<set $town.guard.population to Math.trunc(_townPop /= 150)>>
+<<set $town.guard.population to Math.trunc(_townPop /= 150) + 1>>
 <<if $town.guard.population > 20>>
     <<set $town.guard.size to "batallion">>
   <<elseif $town.guard.population > 10>>
