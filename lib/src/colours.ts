@@ -343,7 +343,7 @@ interface Filters extends Partial<ColourProperties> {
   banned?: string[]
 }
 
-export const createColour = (filters: Filters = {}) => {
+export function createColour (filters: Filters = {}) {
   const { banned = [], ...properties } = filters
 
   const available = keys(colours).filter(colour => {
@@ -366,7 +366,7 @@ export const createColour = (filters: Filters = {}) => {
 /**
  * Returns all available colours and variants.
  */
-export const getAllColours = () => {
+export function getAllColours () {
   return Object.values(colours).reduce((all, colourData) => {
     return all.concat(colourData.colour)
   }, [] as string[])

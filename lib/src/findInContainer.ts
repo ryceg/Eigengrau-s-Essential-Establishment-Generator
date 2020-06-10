@@ -3,7 +3,7 @@ import { keys } from './utils'
 /**
  * Searches with a depth of one.
  */
-export const findInContainer = <T, K extends keyof T[keyof T]> (container: T, key: K, value: T[keyof T][K]) => {
+export function findInContainer <T, K extends keyof T[keyof T]> (container: T, key: K, value: T[keyof T][K]) {
   console.log('running findInContainer...')
   console.log({ container, key, value })
 
