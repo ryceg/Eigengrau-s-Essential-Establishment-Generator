@@ -10,5 +10,8 @@ export function setRandomFloat (fn: typeof randomFloatFn) {
 export function randomFloat (max: number): number
 export function randomFloat (min: number, max: number): number
 export function randomFloat (min: unknown, max?: unknown): unknown {
+  if (typeof max === 'undefined') {
+    return randomFloatFn(min)
+  }
   return randomFloatFn(min, max)
 }

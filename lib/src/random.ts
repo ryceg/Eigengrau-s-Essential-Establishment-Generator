@@ -14,5 +14,8 @@ export function random (min: unknown, max?: unknown): unknown {
   if (Array.isArray(min)) {
     return min[randomFn(min.length - 1)]
   }
+  if (typeof max === 'undefined') {
+    randomFn(min)
+  }
   randomFn(min, max)
 }
