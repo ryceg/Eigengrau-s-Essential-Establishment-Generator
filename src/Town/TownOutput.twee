@@ -53,7 +53,7 @@ _listbox -- <<button "Create new faction">>
     <th>Profession</th>
     <th>Delete</th>
   </tr>
-  <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to toTitleCase(_npc.profession)>><<if !_npc.isThrowaway>>
+  <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if !_npc.isThrowaway>>
   <tr><td><<profile $npcs[_npc.key]>></td>
   <td>_npc.race</td>
   <td><<tooltip _profession setup.townData.professions[_npc.profession].description.toUpperFirst()>></td>
@@ -84,7 +84,7 @@ _listbox -- <<button "Create new faction">>
       <th>Profession</th>
       <th>Delete</th>
     </tr>
-    <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to toTitleCase(_npc.profession)>><<if _npc.isThrowaway>>
+    <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if _npc.isThrowaway>>
     <tr><td><<profile $npcs[_npc.key]>></td>
     <td>_npc.race</td>
     <td>_profession</td>
@@ -123,7 +123,7 @@ _listbox -- <<button "Create new faction">>
   <<for _key, _building range _townBuildings>><<capture _buildingType, _key, _building>>
     \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
     <tr><td><span @id="_building.name"><<include "BuildingLink">></span></td>
-      <td><<print toTitleCase(_building.wordNoun || _building.type)>></td>
+      <td><<print lib.toTitleCase(_building.wordNoun || _building.type)>></td>
       <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
       <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<goto "TownOutput">><</link>></td>
     </tr>
@@ -142,7 +142,7 @@ _listbox -- <<button "Create new faction">>
     <th>NPC</th>
   </tr>
   <<set $town.professions to setup.fetchProfessions($town)>>
-  <<for _name, _profession range $town.professions>><<nobr>><<capture _name, _profession>><<set _count += ((_profession.population / $town.population) * 100)>><<set _article to setup.articles.output(_name)>><<set _npcs to setup.filterNpcByProfession($npcs, _name)>><<set _nameTitle to toTitleCase(_name)>>
+  <<for _name, _profession range $town.professions>><<nobr>><<capture _name, _profession>><<set _count += ((_profession.population / $town.population) * 100)>><<set _article to setup.articles.output(_name)>><<set _npcs to setup.filterNpcByProfession($npcs, _name)>><<set _nameTitle to lib.toTitleCase(_name)>>
   <tr><td><<tooltip _nameTitle setup.townData.professions[_name].description.toUpperFirst()>></td>
 <td>_profession.population</td>
 <td><<print ((_profession.population / $town.population) * 100).toFixed(2)>></td>
