@@ -67,9 +67,13 @@ if (watch) {
 } else {
   compiler.run((error, misc) => {
     if (error) {
-      utils.logError(error)
+      throw error
     }
-    if (misc.hasWarnings() || misc.hasErrors()) {
+    if (misc.hasErrors()) {
+      console.log(misc.toString())
+      throw new Error('Build failed!')
+    }
+    if (misc.hasWarnings()) {
       console.log(misc.toString())
     }
   })
