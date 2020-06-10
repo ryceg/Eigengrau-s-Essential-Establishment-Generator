@@ -98,10 +98,10 @@ function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
     }
   })
   town.materialProbability[mainMaterial].probability = 80
-  let tempMaterial = setup.weightedRandomFetcher(town, town.materialProbability, null, null, 'object')
+  let tempMaterial = lib.weightedRandomFetcher(town, town.materialProbability, null, null, 'object')
   if (Object.keys(tempMaterial).includes('variations')) {
     console.log('Building material has variations. ')
-    tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
+    tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
   }
   return tempMaterial
 }

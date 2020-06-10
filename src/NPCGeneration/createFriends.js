@@ -120,7 +120,7 @@ setup.createFriends = (town, npc) => {
 
   const createNewFriend = (town, npc) => {
     console.log('Creating a new friend!')
-    const friendObj = setup.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
+    const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
     const friend = setup.createNPC(town, friendObj.base)
     setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocal || friendObj.relationship)
   }

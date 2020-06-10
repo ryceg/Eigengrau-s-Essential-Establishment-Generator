@@ -183,9 +183,9 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       `${blacksmith.firstName} gives a couple half-hearted attempts at sweeping the floor with a broom, and says`
     ].random()
   }
-  const action = setup.weightedRandomFetcher(town, actions, smithy)
+  const action = lib.weightedRandomFetcher(town, actions, smithy)
 
-  const project = setup.weightedRandomFetcher(town, potentialProjects, smithy)
+  const project = lib.weightedRandomFetcher(town, potentialProjects, smithy)
 
   const working = [
     'I\'m working on',

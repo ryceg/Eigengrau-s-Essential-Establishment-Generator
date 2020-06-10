@@ -129,7 +129,7 @@ setup.createHistory = function (town, npc) {
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
       const obj = { npc, father, mother }
-      npc.familyUnit = setup.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
+      npc.familyUnit = lib.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
       if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
     }
     /* const parentRoll = random(1, 100)

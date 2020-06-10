@@ -301,7 +301,7 @@ setup.createNPC = function (town, base) {
   //     setup.townData.professions[tempProfession].function(town, npc)
   //   }
   // }
-  // npc.doesnt = setup.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
+  // npc.doesnt = lib.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
 
   console.log(npc)
   console.groupEnd()

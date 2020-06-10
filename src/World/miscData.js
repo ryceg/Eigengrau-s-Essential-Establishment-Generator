@@ -1066,7 +1066,7 @@ setup.initMisc = () => {
     },
     town: {
       create: town => {
-        return setup.weightedRandomFetcher(town, setup.plothooks, null, setup.misc.town.type.event)
+        return lib.weightedRandomFetcher(town, setup.plothooks, null, setup.misc.town.type.event)
       },
       type: {
         event: (town, arg) => {
