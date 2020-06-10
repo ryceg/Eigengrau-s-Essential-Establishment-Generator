@@ -7,5 +7,6 @@ $building.gravediggerLook.
 The gravedigger greets you as you come near, and introduces $building.associatedNPC.himherself as <<profile $building.associatedNPC>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
 
 
-<<link "Visit a grave">><<set $building.deadNPC to setup.createDeadNPC($town)>><<replace "#deadNPC">>Here lies <<profile $building.deadNPC>>, <<print setup.articles.output($building.deadNPC.dndClass)>> of $building.deadNPC.ageYears years. <<print $building.deadNPC.death.cause.toUpperFirst()>>. <<print $building.deadNPC.death.burialConditions.toUpperFirst()>><</replace>><</link>>
-<div id="deadNPC"><<if def $building.deadNPC>>Here lies <<profile $building.deadNPC>>, a <<print $building.deadNPC.dndClass || $building.deadNPC.profession>> of $building.deadNPC.ageYears years. <<print $building.deadNPC.death.cause.toUpperFirst()>>. <<print $building.deadNPC.death.burialConditions.toUpperFirst()>><</if>></div>
+
+<<link "Visit a grave">><<set $grave to setup.misc.graveStone.create($town)>><<replace "#grave">><<print $grave.readout>><</replace>><</link>>
+<div id="grave"></div>
