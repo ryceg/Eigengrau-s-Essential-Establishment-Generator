@@ -43,7 +43,7 @@
     "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-function-call-context": "^1.0.2",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jest": "^23.13.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
