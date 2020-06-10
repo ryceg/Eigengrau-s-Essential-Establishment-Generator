@@ -218,7 +218,7 @@ setup.createTown = function (base) {
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = town.origin || setup.townData.terrain[town.terrain].location[town.location].origin.random()
-  town.vegetation = town.vegetation || setup.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
+  town.vegetation = town.vegetation || lib.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structure.material.types
 
