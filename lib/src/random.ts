@@ -1,9 +1,9 @@
-let seeded = (): number => {
+let randomFn = (): number => {
   throw new Error('Function has not been set!')
 }
 
-export function setRandom (callback: () => number) {
-  seeded = callback
+export function setRandom (fn: (...args: unknown[]) => number) {
+  randomFn = fn
 }
 
 export function random <T>(array: T[]): T
@@ -16,7 +16,7 @@ export function random (min: unknown, max?: unknown): unknown {
 
   if (typeof min === 'number') {
     if (typeof max === 'number') {
-      return Math.floor(seeded() * max) + min
+      return Math.floor(randomFn() * max) + min
     }
     if (typeof max === 'undefined') {
       return random(0, min)
