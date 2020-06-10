@@ -21,3 +21,24 @@ export function keys <T> (object: T) {
 export function assign <T, S> (target: T, source: S): asserts target is T & S {
   Object.assign(target, source)
 }
+
+/**
+ * Error class for assertion errors.
+ */
+export class AssertionError extends Error {}
+
+/**
+ * Asserts that a condition is true.
+ * Any code after this assertion will consider the condition to be true.
+ * See https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions
+ *
+ * @example
+ * // Before, 'value' is of an unknown type.
+ * assert(typeof value === 'string')
+ * // After, 'value' is known to be a string.
+ */
+export function assert (condition: boolean, message?: string): asserts condition {
+  if (!condition) {
+    throw new AssertionError(message)
+  }
+}
