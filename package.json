@@ -30,6 +30,9 @@
   "lint-staged": {
     "*.{js,ts}": "eslint --fix"
   },
+  "jest": {
+    "preset": "ts-jest"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "@types/jquery": "^3.3.38",
@@ -50,6 +53,7 @@
     "jest": "^26.0.1",
     "lint-staged": "^10.2.7",
     "shelljs": "^0.8.3",
+    "ts-jest": "^26.1.0",
     "typescript": "^3.9.3",
     "yauzl": "^2.10.0"
   },
