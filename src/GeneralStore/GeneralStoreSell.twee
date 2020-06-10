@@ -12,7 +12,7 @@
   $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $associatedNPC.mundane.random>>, <<print $associatedNPC.mundane.random>>, <<print $associatedNPC.mundane.random>>, you name it!
   <<default>>
   $associatedNPC.name says "Well, what is it you need? We can do just about anything for you.
-<</switch>><<print setup.closestMatch(setup.generalStore.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
+<</switch>><<print lib.closestMatch(setup.generalStore.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
 
 <<switch $town.type>>
   <<case "city">>

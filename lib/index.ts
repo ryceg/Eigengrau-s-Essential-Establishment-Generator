@@ -1,5 +1,6 @@
 export { calcPercentage } from './src/calcPercentage'
 export { clampRolls } from './src/clampRolls'
+export { closestMatch } from './src/closestMatch'
 export { colours } from './src/colours'
 export { matchFirst } from './src/matchFirst'
 export { findInContainer } from './src/findInContainer'

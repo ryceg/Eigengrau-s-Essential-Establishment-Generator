@@ -10,7 +10,7 @@
   $associatedNPC.name says "Sure, what are you after? <<print $associatedNPC.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>
   $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print $associatedNPC.ingredients.random>>, <<print $associatedNPC.ingredients.random>>, <<print $associatedNPC.ingredients.random>>, you name it!
-<</switch>><<print setup.closestMatch(setup.alchemist.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
+<</switch>><<print lib.closestMatch(setup.alchemist.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
 <<switch $town.type>>
   <<case "city">>
     <<set _availability to 4>>
