@@ -135,14 +135,13 @@ setup.initMiscEncounters = () => {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
-        profession: 'hermit',
         isThrowaway: true
       })
       return `a ${setup.profile(npc, 'hermit')}`
     },
     'a solitary hunter': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'ranger',
+        profession: 'hunter',
         background: 'outlander',
         isThrowaway: true
       })
@@ -150,7 +149,7 @@ setup.initMiscEncounters = () => {
     },
     'a solitary bandit': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'rogue',
+        profession: 'bandit',
         background: 'criminal',
         isThrowaway: true
       })
@@ -158,7 +157,7 @@ setup.initMiscEncounters = () => {
     },
     'an injured knight': town => {
       const npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].random(),
+        profession: ['fighter', 'knight', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
@@ -166,7 +165,7 @@ setup.initMiscEncounters = () => {
     },
     'a ranger': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'ranger',
+        profession: 'ranger',
         background: 'outlander',
         isThrowaway: true
       })
@@ -195,11 +194,11 @@ setup.initMiscEncounters = () => {
       })
       return `a traveling ${setup.profile(npc, 'peddler')}`
     },
-    'a solitary troubador': town => {
+    'a solitary minstrel': town => {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
-        profession: 'troubador',
+        profession: 'minstrel',
         isThrowaway: true
       })
       return `a solitary ${setup.profile(npc, 'troubador')}`
@@ -235,7 +234,7 @@ setup.initMiscEncounters = () => {
     'a caravan of gypsies': () => 'a caravan of gypsies',
     'a knight errant': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'paladin',
+        profession: 'knight',
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
@@ -243,7 +242,7 @@ setup.initMiscEncounters = () => {
     },
     'a wounded knight': town => {
       const npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].random(),
+        profession: ['fighter', 'fighter', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
@@ -253,7 +252,8 @@ setup.initMiscEncounters = () => {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
-        isThrowaway: true
+        isThrowaway: true,
+        gender: 'woman'
       })
       return `a traveling ${setup.profile(npc, 'lady')}`
     },
@@ -295,11 +295,11 @@ setup.initMiscEncounters = () => {
       })
       return `a lost ${setup.profile(npc, 'traveler')}`
     },
-    'a poor nomad': town => {
+    'a poor refugee': town => {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
-        profession: 'nomad',
+        profession: 'refugee',
         isThrowaway: true
       })
       return `a poor ${setup.profile(npc, 'nomad')}`
@@ -316,9 +316,8 @@ setup.initMiscEncounters = () => {
     },
     'a barbarian hunter': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'barbarian',
         background: 'outlander',
-        profession: 'hunter',
+        profession: 'barbarian',
         isThrowaway: true
       })
       return `a barbarian ${setup.profile(npc, 'hunter')}`
@@ -382,7 +381,7 @@ setup.initMiscEncounters = () => {
     'a merchant of exotic goods': town => {
       const npc = setup.createNPC(town, {
         background: 'noble',
-        profession: 'merchant',
+        profession: 'spice merchant',
         hasClass: false,
         isThrowaway: true
       })
@@ -391,7 +390,7 @@ setup.initMiscEncounters = () => {
     'a misanthropic shapeshifter': town => {
       const npc = setup.createNPC(town, {
         background: 'hermit',
-        profession: 'hermit',
+        profession: 'fugitive',
         calmTrait: 'misanthropic',
         stressTrait: 'murderous',
         note: 'Hates everyone. Is a shapeshifter.',
@@ -403,10 +402,9 @@ setup.initMiscEncounters = () => {
     'an eccentric monk': town => {
       const npc = setup.createNPC(town, {
         background: 'hermit',
-        profession: 'hermit',
         calmTrait: 'kinda weird',
         hasClass: true,
-        dndClass: 'monk',
+        profession: 'monk',
         isThrowaway: true
       })
       return `an eccentric ${setup.profile(npc, 'monk')}`
@@ -423,7 +421,6 @@ setup.initMiscEncounters = () => {
     'a nomadic warrior': town => {
       const npc = setup.createNPC(town, {
         background: 'outlander',
-        profession: 'warrior',
         dndClass: 'fighter',
         isThrowaway: true
       })
@@ -452,22 +449,22 @@ setup.initMiscEncounters = () => {
     },
     'an eccentric healer': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'cleric',
+        profession: 'cleric',
         background: 'acolyte',
         note: 'This healer is rather odd.',
         isThrowaway: true
       })
       return `an eccentric ${setup.profile(npc, 'healer')}`
     },
-    'a poor goatherder': town => {
+    'a poor cowherd': town => {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
-        profession: 'goatherder',
-        note: 'This goatherder is very poor, but knows the area well.',
+        profession: 'cowherd',
+        note: 'This cowherd is very poor, but knows the area well.',
         isThrowaway: true
       })
-      return `a poor ${setup.profile(npc, 'goatherder')}`
+      return `a poor ${setup.profile(npc, 'cowherd')}`
     },
     'a mining prospector': town => {
       const npc = setup.createNPC(town, {
@@ -481,7 +478,7 @@ setup.initMiscEncounters = () => {
     'a religious fanatic with his many wives': town => {
       const npc = setup.createNPC(town, {
         background: 'outlander',
-        profession: 'religious fanatic',
+        profession: 'heretic',
         note: 'Has multiple wives.',
         isThrowaway: true
       })
@@ -492,7 +489,7 @@ setup.initMiscEncounters = () => {
     'a mad sorcerer': town => {
       const npc = setup.createNPC(town, {
         background: 'hermit',
-        dndClass: 'sorcerer',
+        profession: 'sorcerer',
         calmTrait: 'paranoid',
         stressTrait: 'murderous',
         note: 'This person is totally mad.',
@@ -514,7 +511,6 @@ setup.initMiscEncounters = () => {
     },
     'a reclusive shapeshifter': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
         background: 'hermit',
         profession: 'shapeshifter',
         note: 'This person is a shapeshifter.',
@@ -528,9 +524,7 @@ setup.initMiscEncounters = () => {
     },
     'a dangerous fugitive': town => {
       const npc = setup.createNPC(town, {
-        background: 'criminal',
-        profession: 'criminal',
-        dndClass: 'rogue',
+        profession: 'fugitive',
         calmTrait: 'paranoid',
         stressTrait: 'murderous',
         note: 'This person is a wanted criminal for high treason against the crown.',
@@ -545,8 +539,7 @@ setup.initMiscEncounters = () => {
     'a treasure hunter': town => {
       const npc = setup.createNPC(town, {
         background: 'criminal',
-        profession: 'treasure hunter',
-        dndClass: 'rogue',
+        profession: 'adventurer',
         calmTrait: 'adventurous',
         stressTrait: 'excited',
         note: 'This person loves the thrill of a treasure hunt, and is about to go on a quest.',
@@ -560,7 +553,6 @@ setup.initMiscEncounters = () => {
       const npc = setup.createNPC(town, {
         background: 'acolyte',
         profession: 'druid',
-        dndClass: 'druid',
         calmTrait: 'understanding',
         isThrowaway: true
       })
@@ -586,7 +578,6 @@ setup.initMiscEncounters = () => {
     'a mad witch': town => {
       const npc = setup.createNPC(town, {
         gender: 'woman',
-        dndClass: 'sorcerer',
         background: 'hermit',
         profession: 'witch',
         note: 'This witch is as mad as a cut snake.',
@@ -602,7 +593,7 @@ setup.initMiscEncounters = () => {
       const npc = setup.createNPC(town, {
         race: 'half-orc',
         background: 'hermit',
-        note: 'This person is either an orc that was outcast, or a half orc.',
+        note: 'This person is either an orc that was outcast, or a half orc. Hard to tell.',
         isThrowaway: true
       })
       return `a reclusive ${setup.profile(npc, 'shapeshifter')}`
@@ -633,7 +624,6 @@ setup.initMiscEncounters = () => {
     'a seasoned mountaineer': town => {
       const npc = setup.createNPC(town, {
         background: 'outlander',
-        hasClass: false,
         profession: 'mountaineer',
         note: 'Never gets lost.',
         isThrowaway: true
@@ -644,7 +634,6 @@ setup.initMiscEncounters = () => {
     'an eccentric witch': town => {
       const npc = setup.createNPC(town, {
         gender: 'woman',
-        dndClass: 'sorcerer',
         background: 'hermit',
         profession: 'witch',
         note: 'This witch is as crazy as a cut snake.',
@@ -654,7 +643,6 @@ setup.initMiscEncounters = () => {
     },
     'a contemplative monk': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'monk',
         background: 'acolyte',
         profession: 'monk',
         calmTrait: 'contemplative',
@@ -718,7 +706,7 @@ setup.initMiscEncounters = () => {
         profession: 'woodcutter',
         isThrowaway: true
       })
-      return `a <<profile \`$npcs[${JSON.stringify(npc.key)}]\` woodcutter>>, busy with the day's work`
+      return `a ${setup.profile(npc, 'woodcutter')}, busy with the day's work`
     },
     'an intrepid hunter': town => {
       const npc = setup.createNPC(town, {

@@ -1112,11 +1112,20 @@ setup.initMisc = () => {
         const biome = 'desert'
         let encounter
         let encounterKey
+        const encounterArray = []
         if (random(1, 100) >= 50) {
-          encounterKey = setup.misc.desert.location.random()
-          encounter = setup.misc.locations[encounterKey](town, biome)
+          const potentialKeys = Object.keys(setup.misc.locations)
+          potentialKeys.forEach(function (location) {
+            if (setup.misc.locations[location].available.includes(biome)) {
+              encounterArray.push(location)
+            }
+          })
+          encounterKey = encounterArray.random()
+          console.log('Location: ', encounterKey)
+          encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
-          encounterKey = setup.misc.desert.encounters.random()
+          encounterKey = setup.misc.forest.encounters.random()
+          console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
         }
         console.log(encounterKey)
@@ -1174,7 +1183,7 @@ setup.initMisc = () => {
       camped: ['a merchant of exotic goods', 'a misanthropic shapeshifter', 'an eccentric monk', 'a nomadic herder', 'a nomadic warrior', 'an outcast elf'],
       houseLived: ['a strange hermit', 'a reclusive scholar', 'an eccentric healer', 'a poor goatherder', 'a mining prospector', 'a religious fanatic with his many wives'],
       houseLives: ['poisonous snakes', 'an ogre', 'a pair of orcs', 'a mad sorcerer', 'a paranoid shapeshifter', 'restless ghosts'],
-      ruinsLives: ['a treasure hunter', 'a wasteland druid', 'poisonous snakes', 'cursed mummies', 'restless ghosts', 'a hobgoblin warlord', 'an orkish war chief', 'a tribe of kobolds', 'a territorial griffon', 'a pair of manticores', 'slavering gnolls', 'a dragon'],
+      ruinsLives: ['a treasure hunter', 'a wasteland druid', 'poisonous snakes', 'cursed mummies', 'restless ghosts', 'a hobgoblin warlord', 'a tribe of kobolds', 'a territorial griffon', 'a pair of manticores', 'slavering gnolls', 'a dragon'],
       hazards: ['a rockslide coming down a canyon wall', 'a boulder rolling down a canyon wall', 'a collapsing sand dune', 'quicksand', 'persistent, strong winds kicking up dust', 'a sudden, swirling sandstorm', 'a mirage of a city', 'a mirage of an oasis'],
       climate: ['once a year for a few days straight', 'on a few days scattered through the year', 'during the winter months', 'never; but snow melting in the mountains waters the land briefly every spring', 'never; the land floods briefly once a year', 'never; this place hasn’t had water in years'],
       hole: ['a snake', 'a spider', 'beetles', 'scorpions', 'centipedes', 'a toad', 'a lizard', 'a fox']
@@ -1184,13 +1193,20 @@ setup.initMisc = () => {
         const biome = 'mountain'
         let encounter
         let encounterKey
+        const encounterArray = []
         if (random(1, 100) >= 50) {
-          encounterKey = setup.misc.mountain.location.random()
-          console.log(encounterKey)
-          encounter = setup.misc.locations[encounterKey](town, biome)
-          console.log(encounter)
+          const potentialKeys = Object.keys(setup.misc.locations)
+          potentialKeys.forEach(function (location) {
+            if (setup.misc.locations[location].available.includes(biome)) {
+              encounterArray.push(location)
+            }
+          })
+          encounterKey = encounterArray.random()
+          console.log('Location: ', encounterKey)
+          encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
-          encounterKey = setup.misc.mountain.encounters.random()
+          encounterKey = setup.misc.forest.encounters.random()
+          console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
         }
         console.log(encounterKey)
@@ -1261,7 +1277,6 @@ setup.initMisc = () => {
         'an ancient temple',
         'a ruined monastery',
         'a small cave in the crook of a rock wall'
-
       ],
       cave: ['a mountain lion’s den', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", "some goblins' hideout", 'some abandoned mining equipment', 'bare rock', 'a potable spring', 'unidentifiable remains', 'some outlaws’ hideout', 'an orc war band', 'a hungry ettin', 'a band of dwarvish refugees', 'a griffon’s nest', 'a manticore’s den', 'a basilisk’s lair', 'a wyvern’s nest', 'a clan of stone giants', 'a sleeping dragon'],
       cabinLives: ['an owlbear', 'an ogre', 'a troll', 'a mad witch', 'a reclusive shapeshifter', 'restless ghosts', 'an outcast orc', 'a strange hermit'],
@@ -1277,18 +1292,25 @@ setup.initMisc = () => {
       nestBuilt: ['a giant eagle', 'a giant owl', 'a clan of harpies', 'a griffon', 'a roc', 'a wyvern'],
       watchtowerBuilt: ['an expansive empire', 'a nearby kingdom', 'an occupying army', 'elvish warriors from a past age', 'a clan of orcs', 'a goblin kingdom'],
       hazards: ['a perilous rockslide', 'an icy rime across the path or road', 'a tumbling boulder', 'loose rocks that make for poor footing', 'a large boulder blocking the way', 'a place where the path has fallen away leaving a narrow ledge on which to walk', 'a place where the path or road slopes steeply down toward a cliff edge', 'a sudden storm bringing heavy snow'],
-      religionLives: ['a congregation of monks', 'a group of nuns', 'an ancient religious order', 'the last of a holy order', 'a squad of exiled templars', 'a holy congregation', 'a rugged looking bunch of refugees', 'a single wise guru', 'the spirit of a vengeful god', 'the spirits of a religion long forgotten']
+      religionLives: ['a congregation of monks', 'a group of nuns', 'an ancient religious order', 'the last of a holy order', 'a squad of exiled templars', 'a holy congregation', 'a rugged looking bunch of refugees', 'a single wise guru', 'the spirit of a vengeful god', 'the spirits of a religion long forgotten'],
+      hole: ['a snake', 'a spider', 'a badger', 'earthworms', 'a centipede', 'unusual fungus']
     },
     forest: {
       create: town => {
         const biome = 'forest'
         let encounter
         let encounterKey
+        const encounterArray = []
         if (random(1, 100) >= 50) {
-          encounterKey = setup.misc.forest.location.random()
-          console.log(encounterKey)
-          encounter = setup.misc.locations[encounterKey](town, biome)
-          console.log(encounter)
+          const potentialKeys = Object.keys(setup.misc.locations)
+          potentialKeys.forEach(function (location) {
+            if (setup.misc.locations[location].available.includes(biome)) {
+              encounterArray.push(location)
+            }
+          })
+          encounterKey = encounterArray.random()
+          console.log('Location: ', encounterKey)
+          encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
           encounterKey = setup.misc.forest.encounters.random()
           console.log(encounterKey)
