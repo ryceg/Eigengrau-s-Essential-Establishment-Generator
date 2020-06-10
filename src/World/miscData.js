@@ -58,6 +58,48 @@ setup.initMisc = () => {
       six: () => [`go north for ${random(1, 4)} miles.`, `go south for ${random(1, 4)} miles.`, `go east for ${random(1, 4)} miles.`, `go west for ${random(1, 4)} miles.`, `go northeast for ${random(1, 4)} miles.`, `go northwest for ${random(1, 4)} miles.`, `go southeast for ${random(1, 4)} miles.`, `go southwest for ${random(1, 4)} miles.`],
       seven: () => ['buried at the foot of a cliff.', 'buried under a mighty oak tree.', 'buried under some tower ruins.', 'buried under a pile of skulls.', 'buried in the grave of a famous person.', 'hidden at the top of an old tower.', 'hidden behind an old painting.', "hidden at the bottom of an old rabbit's warren.", 'hidden in the bole of an ancient elm tree.', "hidden in a shipwreck's hold.", 'guarded by assassins.', 'guarded by monsters.', 'guarded by soldiers.', 'guarded by spirits.', 'guarded by a big monster.', 'protected by magical wards.', 'protected by astral locks.', 'protected by physical traps.', 'protected by necromantic curses.', 'protected by spiritual prayers.', 'protected by a terrible riddle.', 'locked behind a holy ward.', 'buried in an old latrine.', "mixed into a dragon's horde.", 'hidden at the bottom of the chasm.', 'locked behind arcane spells.', 'stuck at the top of a great elm tree.', 'buried in an iron chest.', 'in a wooden chest in the basement of the cabin.', 'stuffed in the crack between two boulders.', 'buried at the end of the black alleyway.']
     },
+    graveStone: {
+      create: (town, base) => {
+        const grave = Object.assign({
+          shapeSmall: setup.misc.graveStone.shapeSmall.random(),
+          shapeMedium: setup.misc.graveStone.shapeMedium.random(),
+          weaponType: setup.misc.graveStone.weaponType.random(),
+          gravePhrases: setup.misc.graveStone.gravePhrases.random(),
+          graveImages: setup.misc.graveStone.graveImages.random()
+        }, base)
+        const owner = setup.createDeadNPC(town)
+        const graveMaterial = Object.keys(setup.misc.graveStone.material).random()
+        grave.sentenceStrings = [
+            `a very small, ${setup.misc.graveStone.material.wood.secondaryDescriptors.random()}, ${setup.misc.graveStone.material.wood.type.random()} grave in the shape of ${setup.articles.output(grave.shapeSmall)}. ${['There are no distinguishing marks on this grave', 'The owner of this grave has been lost to time', 'No name has been left to remember the owner of this grave', 'This appears to be an unmarked grave', `The name ${setup.profile(owner)} has been crudely scrawled across the grave`].random()}.`,
+           `a small pile of earth with ${setup.articles.output(setup.misc.graveStone.material.metal.secondaryDescriptors.random())} ${setup.misc.graveStone.material.metal.type.random()} ${grave.weaponType} stuck into it. ${['A long forgotten solider likely lays here', 'A mighty fallen warrior was likely laid to rest here', 'Surely a strong fighter was laid to rest here', 'Here lays a hero who fell in battle, their name is now forgotten'].random()}.`,
+           `${['a small', 'an average sized', 'a modestly sized'].random()}, ${setup.misc.graveStone.material[graveMaterial].secondaryDescriptors.random()}, ${setup.misc.graveStone.material[graveMaterial].type.random()} grave in the shape of ${setup.articles.output(grave.shapeMedium)}. ${[`The grave has the name "${setup.profile(owner)}" ${setup.misc.graveStone.material[graveMaterial].iconPlacement.random()} onto it and nothing else.`, `${['Near the top', 'Near the bottom', 'In the middle'].random()} of the grave, ${setup.misc.graveStone.material[graveMaterial].iconPlacement.random()} onto it are the words "${['Here lies', 'R.I.P.', 'Here is burried'].random()} ${setup.profile(owner)}. ${grave.gravePhrases}."`].random()}${['', '', `${['  Just above the writing', '  Just below the writing', ' On the other side'].random()}, ${setup.misc.graveStone.material[graveMaterial].iconPlacement.random()} onto the grave is an image of ${setup.articles.output([grave.graveImages, grave.weaponType].random())}.`].random()}`
+        ].random()
+        grave.readout = `You come upon ${grave.sentenceStrings}`
+        return grave
+      },
+      material: {
+        metal: {
+          type: ['metal', 'iron', 'wrought iron', 'copper', 'bronze', 'steel', 'gold', 'silver', 'brass'],
+          secondaryDescriptors: ['rusty looking', 'gleaming', 'rusted', 'dulled', 'corroded', 'old looking', 'new looking', 'shiny', 'dull looking'],
+          iconPlacement: ['sculpted', 'engraved', 'carved', 'crudely engraved']
+        },
+        wood: {
+          type: ['wooden', 'oak', 'pine', 'birchwood', 'maple wood', 'cherry wood'],
+          secondaryDescriptors: ['dirty looking', 'overgrown', 'old looking', 'new looking', 'battered', 'fine looking', 'splintered', 'mossy', 'weathered', 'waterlogged'],
+          iconPlacement: ['cut', 'carved', 'scrawled', 'hacked', 'carefully sculpted', 'crudely branded']
+        },
+        stone: {
+          type: ['granite', 'stone', 'marble', 'obsidian', 'onyx', 'sandstone', 'slate', 'basalt', 'alabaster', 'limestone', 'quartz', 'ivory', 'bone'],
+          secondaryDescriptors: ['moss covered', 'chipped up', 'crumbling', 'cracked', 'weathered', 'brittle', 'rough', 'overgrown'],
+          iconPlacement: ['chiseled', 'carved', 'crudely chipped', 'sculpted', 'hastily carved']
+        }
+      },
+      shapeSmall: ['cross', 'holy symbol', 'slab', 'plaque', 'monolith', 'obelisk'],
+      shapeMedium: ['holy symbol', 'slab', 'common rounded gravestone', 'ornate gothic headstone', 'obelisk', 'monolith', 'ornate rounded gravestone', 'common gothic headstone'],
+      weaponType: ['arrow', 'dagger', 'battle hammer', 'battleaxe', 'rapier', 'greatsword', 'sword', 'pike', 'spear', 'halberd', 'mace', 'axe', 'scimitar'],
+      gravePhrases: ['May the Gods whatch over them', 'Good riddance', 'Gone but not forgotten', 'Gone and hopefully forgotten', 'A good friend indeed', 'A loyal friend in life and death', 'May they rot forever', 'Their generosity was boundless', 'They made scrooge look kind', 'Never forget', 'Coward', 'Hero', 'We miss you', 'You won\'t be missed'],
+      graveImages: ['large sturdy looking tree', 'hooded figure', 'setting sun', 'pair of mountains', 'pair of praying hands', 'merchant scale', 'storm cloud', 'rose', 'flower wreath', 'torch', 'holy symbol', 'skull', 'crescent moon', 'full moon', 'large sailing ship', 'field of flowers', 'ocean wave']
+    },
     caravan: {
       create: (town, base) => {
         const masterType = Object.keys(setup.misc.caravan.masterType).random()
