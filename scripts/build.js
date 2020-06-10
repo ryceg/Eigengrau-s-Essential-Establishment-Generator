@@ -65,9 +65,12 @@ if (watch) {
     utils.logAction(`Built in ${stats.endTime - stats.startTime}ms.`)
   })
 } else {
-  compiler.run((error) => {
+  compiler.run((error, misc) => {
     if (error) {
       utils.logError(error)
+    }
+    if (misc.hasWarnings || misc.hasErrors) {
+      console.log(misc.toString())
     }
   })
 }
