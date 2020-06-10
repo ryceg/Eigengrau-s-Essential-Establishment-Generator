@@ -13,7 +13,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   const potentialProjects = {
     market: {
       function (town) {
-        const market = setup.objectArrayFetcher(town.buildings.market)
+        const market = lib.objectArrayFetcher(town.buildings.market)
         return `${setup.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
@@ -44,7 +44,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     mundaneMarkets: {
       function (town) {
-        const market = setup.objectArrayFetcher(town.buildings.market)
+        const market = lib.objectArrayFetcher(town.buildings.market)
         return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
@@ -102,10 +102,10 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     priest: {
       exclusions (town, smithy) {
-        return smithy.roll.expertise > 40 || setup.objectArrayFetcher(town.buildings.temple).roll.wealth > 60
+        return smithy.roll.expertise > 40 || lib.objectArrayFetcher(town.buildings.temple).roll.wealth > 60
       },
       function (town) {
-        const building = setup.objectArrayFetcher(town.buildings.temple)
+        const building = lib.objectArrayFetcher(town.buildings.temple)
         return `an ornamental ${weapon.random()} for ${setup.profile(building.priest, 'the priest')} of ${setup.profile(building, '', 'town.buildings.temple')}.`
       }
     }
