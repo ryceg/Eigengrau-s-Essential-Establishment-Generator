@@ -20,7 +20,7 @@ $building.entertainment
 <<link "Go on a bender">>
 \<<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<replace "#carousing">>$building.carousing<</replace>><</link>>
 \<p><<if def $building.carousing>><span id="carousing">$building.carousing</span><<else>><span id="carousing"></span><</if>></p>
-<<include "Intrigue">>
+<<include "Noticeboard">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
 <<run setup.tippy(".btn")>>

@@ -1,2 +1,0 @@
-:: Intrigue
-<<linkreplace "<h4>Anything interesting in $building.name?</h4>" t8n>><h4>Interesting things in $building.name...</h4><<include "PlotHookPaper">><</linkreplace>>
