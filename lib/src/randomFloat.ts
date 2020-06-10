@@ -3,7 +3,7 @@ let randomFloatFn = (...args: unknown[]): number => {
   throw new Error('Function has not been set!')
 }
 
-export function setRandomFloat (fn: (...args: unknown[]) => number) {
+export function setRandomFloat (fn: typeof randomFloatFn) {
   randomFloatFn = fn
 }
 
