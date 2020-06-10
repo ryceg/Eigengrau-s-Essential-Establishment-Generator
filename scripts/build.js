@@ -69,7 +69,7 @@ if (watch) {
     if (error) {
       utils.logError(error)
     }
-    if (misc.hasWarnings || misc.hasErrors) {
+    if (misc.hasWarnings() || misc.hasErrors()) {
       console.log(misc.toString())
     }
   })
