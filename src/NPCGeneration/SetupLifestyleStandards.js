@@ -122,9 +122,9 @@ setup.createLifestyleStandards = function (town, npc) {
 }
 
 setup.createFamilyLifestyle = function (marriage) {
-  const lifestyle = setup.rollFromTable(lifestyleTables[marriage.socialClass], 100)
+  const lifestyle = lib.rollFromTable(lifestyleTables[marriage.socialClass], 100)
 
-  const home = setup.rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
+  const home = lib.rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
 
   return Object.assign(marriage, { lifestyle, home })
 }

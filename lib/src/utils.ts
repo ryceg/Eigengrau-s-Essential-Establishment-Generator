@@ -42,3 +42,10 @@ export function assert (condition: boolean, message?: string): asserts condition
     throw new AssertionError(message)
   }
 }
+
+/**
+ * Returns the last element of an array.
+ */
+export function last<T> (array: T[]) {
+  return array[array.length - 1]
+}

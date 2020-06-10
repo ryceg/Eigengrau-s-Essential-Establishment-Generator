@@ -108,7 +108,7 @@ setup.relativeSocialClass = function (npcClass) {
   let classIndex = setup.socialClassKeys[npcClass]
   if (classIndex < 0) classIndex = 3
 
-  const delta = setup.rollFromTable(setup.adultSocialMobilityTable, 100)
+  const delta = lib.rollFromTable(setup.adultSocialMobilityTable, 100)
 
   const newIndex = Math.clamp(classIndex + delta, 0, setup.socialClassArray.length - 1)
   return setup.socialClassArray[newIndex]

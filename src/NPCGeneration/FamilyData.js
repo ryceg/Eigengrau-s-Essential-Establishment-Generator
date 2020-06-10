@@ -17,7 +17,7 @@ setup.familyData = {
 
   parentAge: (npc) => {
     const race = npc.race || 'human'
-    const parentStage = setup.rollFromTable(setup.familyData.parentStageTable, 100)
+    const parentStage = lib.rollFromTable(setup.familyData.parentStageTable, 100)
     const { baseAge, ageModifier } = setup.npcData.raceTraits[race].ageTraits[parentStage]
     return npc.ageYears + baseAge + ageModifier()
   },
