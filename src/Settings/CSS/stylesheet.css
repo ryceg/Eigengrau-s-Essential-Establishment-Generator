@@ -66,7 +66,7 @@ img {
   width: 95%;
 }
 
-.firstcharacter {
+.first-character {
   float: left;
   font-family: Solbera Imitation;
   font-size: 75px;
@@ -196,13 +196,6 @@ h1+p::first-letter {
     line-height:    .8em
 }
 
-firstcharacter {
-    float:          left;
-    font-family:    Solbera Imitation;
-    font-size:      10em;
-    color:          #222;
-    line-height:    .8em
-}
 blockquote {
     font-family: Scaly Sans;
     box-sizing: border-box;
