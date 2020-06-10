@@ -5,3 +5,4 @@ gh-pages/**/*.html
 gh-pages/**/*.map
 gh-pages/**/*.js
 .twine
+*.log
