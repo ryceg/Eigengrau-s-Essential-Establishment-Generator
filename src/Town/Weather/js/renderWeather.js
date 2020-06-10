@@ -47,7 +47,7 @@ setup.renderWeather = function (town, biome, weather) {
   const tempVariation = setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain.temperate.weather.tempVariation[finalKey].temperature
   console.log(`tempVariation: ${tempVariation}`)
 
-  weather.temperature = (setup.townData.terrain[biome].weather.season[weather.season].baseTemp || setup.townData.terrain.temperate.weather.spring.baseTemp) + tempVariation - random(-2, 2)
+  weather.temperature = (setup.townData.terrain[biome].weather.season[weather.currentSeason].baseTemp || setup.townData.terrain.temperate.weather.spring.baseTemp) + tempVariation - random(-2, 2)
   console.log(`weather temp: ${weather.temperature}`)
 
   if (weather.timer.precipitation < 1) {

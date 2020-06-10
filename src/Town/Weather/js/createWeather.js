@@ -6,7 +6,7 @@
 setup.createWeather = (town, biome, weather) => {
   console.groupCollapsed('Creating weather...')
 
-  console.log({ biome, weather })
+  console.log({ town, biome, weather })
   if (biome) {
     switch (biome) {
       case 'desert':
@@ -20,7 +20,18 @@ setup.createWeather = (town, biome, weather) => {
     }
   }
   const time = 8
-  const season = town.currentSeason
+  if (weather) {
+    if (weather.currentSeason !== town.currentSeason) {
+      console.log('Changed season!')
+      weather.currentSeason = town.currentSeason
+      weather.timer = {
+        precipitation: 0,
+        cloud: 0,
+        temperature: 0
+      }
+    }
+  }
+  const currentSeason = town.currentSeason
   console.log(`biome: ${biome}`)
   if (weather) {
     // if it's passed the weather object (i.e. if it isn't the first time the user has clicked on the button, it doesn't need to set up everything.)
@@ -32,12 +43,12 @@ setup.createWeather = (town, biome, weather) => {
       weather.timer.cloud -= time
     }
   } else {
-    const seasonData = setup.townData.terrain[biome].weather.season[season]
+    const seasonData = setup.townData.terrain[biome].weather.season[currentSeason]
 
     weather = {
       temperature: seasonData.baseTemp || setup.townData.terrain.temperate.weather.season.summer.baseTemp,
       tempVariation: dice(2, 50),
-      season,
+      currentSeason,
       timer: {
         precipitation: 0,
         cloud: 0,
