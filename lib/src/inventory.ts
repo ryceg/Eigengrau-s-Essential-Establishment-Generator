@@ -3,8 +3,8 @@ type Location = 'smithy' | 'alchemist' | 'temple' | 'generalStore' | 'tavern'
 interface Item {
   name: string
   cost: number
-  availabilityLocation: Location[]
   availability: number
+  availabilityLocation: Location[]
 }
 
 interface FoodItem extends Item {
