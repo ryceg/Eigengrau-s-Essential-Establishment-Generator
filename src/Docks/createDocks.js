@@ -36,16 +36,16 @@ setup.createDocks = (town, opts = {}) => {
 
   const rollDataVariables = ['size', 'cleanliness', 'activity']
   for (const propName of rollDataVariables) {
-    setup.defineRollDataGetter(docks, setup.docks.rollData, propName)
+    lib.defineRollDataGetter(docks, setup.docks.rollData, propName)
   }
 
   docks.sizeDescriptive = ''
   docks.cleanlinessDescriptive = ''
   docks.activityDescriptive = ''
 
-  setup.defineRollDataGetter(docks, setup.docks.rollData, 'sizeDescriptive', 'size', 2)
-  setup.defineRollDataGetter(docks, setup.docks.rollData, 'cleanlinessDescriptive', 'cleanliness', 2)
-  setup.defineRollDataGetter(docks, setup.docks.rollData, 'activityDescriptive', 'activity')
+  lib.defineRollDataGetter(docks, setup.docks.rollData, 'sizeDescriptive', 'size', 2)
+  lib.defineRollDataGetter(docks, setup.docks.rollData, 'cleanlinessDescriptive', 'cleanliness', 2)
+  lib.defineRollDataGetter(docks, setup.docks.rollData, 'activityDescriptive', 'activity')
 
   setup.docks.ships.create(town, docks)
 

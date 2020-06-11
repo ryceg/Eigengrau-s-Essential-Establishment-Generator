@@ -48,8 +48,8 @@ setup.structure = {
       building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
     }
 
-    setup.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', '', building.roll)
-    setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
+    lib.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', undefined, building.roll)
+    lib.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', undefined, building.roll)
 
     building.structure.descriptors = [
       `${setup.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,

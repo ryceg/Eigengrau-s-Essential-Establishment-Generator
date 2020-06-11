@@ -296,8 +296,8 @@ setup.createTown = function (base) {
   }
   town.equality = ''
   town.equalityDescription = ''
-  setup.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
-  setup.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
+  lib.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
+  lib.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
   town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
   setup.townRender(town)
   setup.createStartBuildings(town)
