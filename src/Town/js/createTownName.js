@@ -28,6 +28,5 @@ setup.createTownName = function (town) {
   }
 
   // linguisticDrift runs some RegEx on the names.
-  setup.linguisticDrift(name)
-  return name
+  return lib.linguisticDrift(name)
 }
