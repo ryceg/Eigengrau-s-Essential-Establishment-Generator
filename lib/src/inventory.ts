@@ -1,17 +1,17 @@
 type Location = 'smithy' | 'alchemist' | 'temple' | 'generalStore' | 'tavern'
 
-interface InventoryItem {
+interface Item {
   name: string
   cost: number
   availabilityLocation: Location[]
   availability: number
 }
 
-interface FoodItem extends InventoryItem {
+interface FoodItem extends Item {
   dietary: 'omni' | 'carni' | 'veg'
 }
 
-interface MiscItem extends InventoryItem {
+interface MiscItem extends Item {
   type: 'tools' | 'weapon' | 'armour' | 'adventuring gear' | 'consumable'
 }
 
