@@ -16,7 +16,6 @@ interface MiscItem extends Item {
 }
 
 export const inventory: (FoodItem|MiscItem)[] = [
-
   { name: 'Dagger', cost: 200, availabilityLocation: ['smithy', 'generalStore'], availability: 1, type: 'weapon' },
   { name: 'Handaxe', cost: 500, availabilityLocation: ['smithy', 'generalStore'], availability: 1, type: 'weapon' },
   { name: 'Javelin', cost: 50, availabilityLocation: ['smithy'], availability: 2, type: 'weapon' },
