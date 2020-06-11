@@ -90,7 +90,7 @@ setup.renderWeather = function (town, biome, weather) {
   for (const [threshold, description] of setup.weather.temperatureDescriptors) {
     if (weather.temperature >= threshold) {
       const readout = `${setup.toCelsius(weather.temperature)}, to be precise.`
-      weather.readout.temperature = setup.createTippyFull(readout, description)
+      weather.readout.temperature = lib.createTippyFull(readout, description)
       break
     }
   }

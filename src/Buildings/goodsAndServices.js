@@ -275,7 +275,7 @@ setup.initGoodsAndServices = () => {
             bakedGood.synonym = typeData.synonyms.random()
           }
           bakedGood.readout = `This ${bakedGood.precedingWord} ${bakedGood.synonym || bakedGood.type} is ${loc.qualityDescriptors[bakedGood.quality1].random()} and ${loc.qualityDescriptors[bakedGood.quality2].random()}. ${bakedGood.cookingDescriptor} and ${bakedGood.aroma}. ${['', '', `It is served with ${setup.articles.output(bakedGood.accoutrement || 'jam.')}`].random()}`
-          bakedGood.tippyWord = setup.createTippyFull(bakedGood.readout, bakedGood.precedingWord + (bakedGood.synonym || bakedGood.type))
+          bakedGood.tippyWord = lib.createTippyFull(bakedGood.readout, bakedGood.precedingWord + (bakedGood.synonym || bakedGood.type))
           return bakedGood
         },
         type: {
