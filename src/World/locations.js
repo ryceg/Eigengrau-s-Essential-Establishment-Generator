@@ -118,7 +118,10 @@ setup.initMiscLocations = () => {
     },
     'a grave with an illegible headstone': {
       available: ['forest', 'mountain', 'road', 'desert'],
-      function: () => 'a grave with an illegible headstone.'
+      function: (town) => {
+        const grave = setup.misc.graveStone.create(town)
+        return grave.sentenceStrings
+      }
     },
     'ancient ruins': {
       available: ['forest'],
@@ -308,7 +311,10 @@ setup.initMiscLocations = () => {
     },
     'a poorly marked grave or tomb': {
       available: ['mountain', 'forest', 'desert', 'road'],
-      function: (town, biome) => { return 'a crudely marked grave of someone long gone' }
+      function: (town) => {
+        const grave = setup.misc.graveStone.create(town)
+        return grave.sentenceStrings
+      }
     }
   }
 }
