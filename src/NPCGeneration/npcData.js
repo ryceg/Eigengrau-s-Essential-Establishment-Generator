@@ -532,7 +532,7 @@ setup.initNpcData = () => {
           return true
         },
         function () {
-          const trinket = setup.createMagicTrinket()
+          const trinket = lib.createMagicTrinket()
           console.log('called lifeEvents.trinket function')
           return `${[
             "I was given a magical trinket- it's a ",
