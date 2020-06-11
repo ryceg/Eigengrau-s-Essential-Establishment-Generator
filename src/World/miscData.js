@@ -28,9 +28,9 @@ setup.initMisc = () => {
 
         return medal
       },
-      metal: ['iron', 'steel', 'silver', 'bronze', 'gold', 'copper', 'aluminum', 'lead', 'tin', 'nickel', 'oak wood', 'pine wood', 'brass'],
-      material: ['cloth', 'wool', 'fleece', 'silk', 'cotton', 'leather', 'burlap', 'horse hair'],
-      emblem: ['a pair of wings', 'a downard facing sword', 'an upward facing sword', 'a skull', 'an eagle', 'an arrow', 'an embossed circle', 'an axe', 'a heart', 'a cross', 'a holy symbol', 'the symbol of a local noble', 'a lion'],
+      metal: ['iron', 'steel', 'silver', 'bronze', 'gold', 'copper', 'aluminum', 'lead', 'tin', 'nickel', 'oak wood', 'pine wood', 'brass', 'marble', 'onyx', 'tempered glass'],
+      material: ['cloth', 'wool', 'fleece', 'silk', 'cotton', 'leather', 'burlap', 'horse hair', 'lion mane hair', 'dragon scales', 'braided hemp', 'snake skin'],
+      emblem: ['a pair of wings', 'a downard facing sword', 'an upward facing sword', 'a skull', 'an eagle', 'an arrow', 'an embossed circle', 'an axe', 'a heart', 'a cross', 'a holy symbol', 'the symbol of a local noble', 'a lion', 'a pair of clasped hands', 'an eye', 'a pyramid', 'a key', 'a raven', 'a feather', 'a wreath', 'a sturdy tree'],
       colour: ['red', 'crimson', 'maroon', 'gold', 'yellow', 'peridot', 'peach', 'purple', 'orange', 'green', 'white', 'black', 'brown', 'blue', 'indigo', 'azure', 'mauve', 'teal', 'emerald']
     },
     treasureMap: {
@@ -97,7 +97,7 @@ setup.initMisc = () => {
       shapeSmall: ['cross', 'holy symbol', 'slab', 'plaque', 'monolith', 'obelisk'],
       shapeMedium: ['holy symbol', 'slab', 'common rounded gravestone', 'ornate gothic headstone', 'obelisk', 'monolith', 'ornate rounded gravestone', 'common gothic headstone'],
       weaponType: ['arrow', 'dagger', 'battle hammer', 'battleaxe', 'rapier', 'greatsword', 'sword', 'pike', 'spear', 'halberd', 'mace', 'axe', 'scimitar'],
-      gravePhrases: ['May the Gods whatch over them', 'Good riddance', 'Gone but not forgotten', 'Gone and hopefully forgotten', 'A good friend indeed', 'A loyal friend in life and death', 'May they rot forever', 'Their generosity was boundless', 'They made scrooge look kind', 'Never forget', 'Coward', 'Hero', 'We miss you', 'You won\'t be missed'],
+      gravePhrases: ['May the Gods watch over them', 'Good riddance', 'Gone but not forgotten', 'Gone and hopefully forgotten', 'A good friend indeed', 'A loyal friend in life and death', 'May they rot forever', 'Their generosity was boundless', 'They made scrooge look kind', 'Never forget', 'Coward', 'Hero', 'We miss you', 'You won\'t be missed'],
       graveImages: ['large sturdy looking tree', 'hooded figure', 'setting sun', 'pair of mountains', 'pair of praying hands', 'merchant scale', 'storm cloud', 'rose', 'flower wreath', 'torch', 'holy symbol', 'skull', 'crescent moon', 'full moon', 'large sailing ship', 'field of flowers', 'ocean wave']
     },
     caravan: {
