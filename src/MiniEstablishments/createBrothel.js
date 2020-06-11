@@ -24,7 +24,7 @@ setup.createBrothel = (town, tavern) => {
   brothel.structure.brothelDescriptor = `${setup.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${setup.articles.output(brothel.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
-    setup.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
+    lib.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   }
   // as title is already a value in npcData.js the title for the brothel owner appears as altTitle
   brothel.pimp = setup.createNPC(town, {

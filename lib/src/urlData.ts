@@ -1,4 +1,4 @@
-setup.urlData = {
+export const urlData = {
   adjectives: [
     'able',
     'absolute',

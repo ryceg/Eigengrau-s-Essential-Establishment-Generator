@@ -113,7 +113,7 @@ setup.initDocks = () => {
 
         // var rollDataVariables = ['size', 'cleanliness']
         // rollDataVariables.forEach(function (propName) {
-        //   setup.defineRollDataGetter(ship, setup.docks.ships.rollData, propName)
+        //   lib.defineRollDataGetter(ship, setup.docks.ships.rollData, propName)
         // })
         return ship
       },

@@ -23,7 +23,7 @@ setup.createSmithy = function (town, opts = {}) {
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']
   for (const propName of rollDataVariables) {
-    setup.defineRollDataGetter(smithy, setup.smithy.rollData, propName)
+    lib.defineRollDataGetter(smithy, setup.smithy.rollData, propName)
   }
 
   smithy.notableFeature = `its ${smithy.expertise} weapons and armour`

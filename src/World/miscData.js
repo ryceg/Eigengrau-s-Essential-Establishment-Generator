@@ -997,7 +997,7 @@ setup.initMisc = () => {
 
         const rollDataVariables = ['size', 'cleanliness', 'bedCleanliness']
         for (const propName of rollDataVariables) {
-          setup.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
+          lib.defineRollDataGetter(cabin, setup.misc.cabin.rollData, propName)
         }
 
         cabin.readout = `The ${cabin.material} ${cabin.wordNoun} is ${cabin.size}. ${cabin.feature} Inside, it is ${cabin.cleanliness}. ${cabin.insideFeature} There is a bed, which is ${cabin.bedCleanliness}.`

@@ -40,6 +40,6 @@ function getValidSeed (seed) {
  * @returns {string}
  */
 function createSeed () {
-  const { adjectives, animals } = setup.urlData
+  const { adjectives, animals } = lib.urlData
   return adjectives.random() + adjectives.random() + animals.random()
 }
