@@ -111,9 +111,9 @@ setup.createNPC = function (town, base) {
         console.log(`Returning ${npc.name}'s lifestyle standard...`)
         const income = npc.finances.netIncome(town, npc)
         let lifestyleStandard
-        for (let i = 0; i < setup.lifestyleStandards.length; i++) {
-          if (income >= setup.lifestyleStandards[i][0]) {
-            return setup.lifestyleStandards[i]
+        for (lifestyleStandard of lib.lifestyleStandards) {
+          if (income >= lifestyleStandard[0]) {
+            return lifestyleStandard
           }
         }
         // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
@@ -124,7 +124,7 @@ setup.createNPC = function (town, base) {
         console.log(`Returning ${npc.name}'s lifestyle expenses...`)
         const income = npc.finances.grossIncome(town, npc)
         const living = npc.finances.lifestyleStandard(town, npc)
-        const ratio = setup.lifestyleStandards.find(function (desc) {
+        const ratio = lib.lifestyleStandards.find(desc => {
           return desc[1] === living[1]
         })
         return Math.round(income * (ratio[2] / 100))
