@@ -1,4 +1,4 @@
-setup.books = {
+export const books = {
   normal: [
     'A Study of Elementals: Volume 3: Pain and Tolerance of the Elements',
     'Typhory’s Guide To Abjurations: Rapid Adaptions To Opposing Forces',

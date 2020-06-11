@@ -1,3 +1,4 @@
+export * from './src/books'
 export * from './src/calcPercentage'
 export * from './src/clampRolls'
 export * from './src/closestMatch'
