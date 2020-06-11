@@ -25,7 +25,7 @@
 		<th>Dish</th>
 		<th>Cost</th>
 	</tr>
-	<<for _i, _item range setup.inventory.filter(function (item) { return item.availability <= _availability && item.availabilityLocation.includes("tavern") && _dietary.includes(item.dietary); })>><tr><td>_item.name</td>
+	<<for _i, _item range lib.inventory.filter(function (item) { return item.availability <= _availability && item.availabilityLocation.includes("tavern") && _dietary.includes(item.dietary); })>><tr><td>_item.name</td>
 <td><<money _item.cost $building>></td></tr>
 	<</for>>
 </table>

@@ -29,7 +29,7 @@
     <th>Cost</th>
   </tr>
 <h6>Adventuring Gear</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "adventuring gear"
   && item.availabilityLocation.includes("alchemist");
@@ -38,7 +38,7 @@
 <</for>>
 
 <h6>Tools</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "tools"
   && item.availabilityLocation.includes("alchemist");
@@ -47,7 +47,7 @@
 <</for>>
 
 <h6>Consumables</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "consumables"
   && item.availabilityLocation.includes("alchemist");
