@@ -4,5 +4,5 @@ interface Setup {
 }
 
 interface SetupMisc {
-  encounters: Record<string, (town: Town) => string>
+  encounters: Record<string, (town: Town, biome: unknown) => string>
 }
