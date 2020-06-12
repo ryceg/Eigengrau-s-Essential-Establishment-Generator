@@ -8,7 +8,7 @@ setup.createMagic = type => {
     return magic
   }
 
-  const data = setup.magicData[type]
+  const data = lib.magicData[type]
 
   const length = data.property.length
   console.log(`Length: ${length}`)
