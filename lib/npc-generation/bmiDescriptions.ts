@@ -1,4 +1,10 @@
-setup.bmiDescriptions = [
+interface BMIDescription {
+  bmi: number
+  muscleMass: number
+  weight: string
+}
+
+export const bmiDescriptions: BMIDescription[] = [
   {
     bmi: 40,
     muscleMass: 6,

@@ -12,7 +12,7 @@ setup.createRace = npc => {
   npc.heightRoll = genderTraits.baseHeight + genderTraits.heightModifier()
   npc.weightRoll = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
   npc.bmi = Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * raceTraits.bmiModifier)
-  npc.weight = npc.weight || lib.closestMatch(setup.bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
+  npc.weight = npc.weight || lib.closestMatch(lib.bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
   npc.height = setup.npcData.heightChart.find(descriptor => {
     return descriptor[0] <= npc.heightRoll
