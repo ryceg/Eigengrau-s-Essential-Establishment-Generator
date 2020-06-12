@@ -1,8 +1,21 @@
-setup.createMagicArmour = () => {
-  const armours = ['Padded Armour', 'Leather Armour', 'Studded leather Armour', 'Hide Armour', 'Chain shirt', 'Scale mail', 'Breastplate', 'Half plate', 'Ring mail', 'Chain mail', 'Splint Armour', 'Plate Armour', 'Shield']
-  const prefixArmours = ["Acolyte's", 'Amethyst', 'Arboreal', 'Arid', 'Astute', 'Arctic', "Artisan's", "Barbarian's", "Bard's", 'Blessed', 'Bloodthirsty', "Burglar's", 'Cavernous', 'Cardinal', 'Cerulean', 'Channelling', 'Charitable', 'Civilized', "Climber's", 'Concealing', 'Consecrated', 'Crystalline', "Dancer's", 'Dazzling', "Debtor's", 'Defensive', 'Deflecting', "Delver's", 'Diplomatic', "Druid's", 'Ephemeral', 'Evasive', 'Fair-weather', 'Lying', 'Favored', 'Feinting', 'Fen', 'Flanked', 'First', 'Fresh', 'Forgotten', 'Furious', 'Garnet', 'Glass', 'Granite', 'Grim', 'Harmonious', 'Heroic', 'Histrionic', 'Holy', "Inquisitor's", 'Inspired', 'Invisible', 'Lightweight', 'Loquacious', "Mage Killer's", 'Malachite', 'Masquarading', "Medic's", 'Moonlit', "Mortals'", 'Mournful', 'Obsidian', 'Opal', 'Pious', 'Prairie', "Preacher's", 'Precipice', 'Primeval', 'Reflexive', 'Renaissance', 'Resonant', 'Righteous', 'Regal', 'Runic', 'Sacred', 'Sagacious', "Sage's", "Sailor's", "Scribe's", 'Shading', 'Shadow', "Shepherd's", 'Shifting', 'Silent', 'Solar', 'Spiked', 'Spiritual', 'Subtle', "Surgeon's", 'Tenacious', "Tracker's", 'Trusty', 'Turquoise', 'Twilight', "Undertaker's", 'Unyielding', 'Vanguard', 'Veiled', 'Victorious', 'Vigilant', 'Vile', 'Violent', "War Leader's", 'Warded', "Watcher's", 'Waterborne', 'Winged', "Wizard's", 'Zen', 'Zircon', 'Abyssal', 'Alarming', 'Arborean', 'Arcadian', 'Astral', 'Beastial', "Beastspeaker's", 'Benedictine', 'Blasted', 'Bold', 'Bountiful', 'Bytopian', 'Carcerian', 'Cartographic', 'Chill', 'Clockwork', 'Cloy', 'Compassionate', 'Concordant', "Conjurer's", 'Corrosive', 'Crawling', "Drunkard's", 'Elysian', 'Etherbound', 'Exalting', 'Expeditious', 'Fathoming', 'Feathered', 'Feybound', 'Forgiven', "Fortune Teller's", 'Friendly', 'Gehennan', 'Gracious', 'Hadean', 'Healing', 'Hellish', 'Desperate', 'Leaping', "Liar's", 'Limbo', 'Locating', 'Malediction', 'Manipulating', "Master's", 'Maverick', 'Messenger', 'Meteoric', 'Miraculous', 'Mocking', 'Natural', 'Neutralizing', 'Nourishing', 'Pandemonium', 'Projecting', 'Protective', 'Revealing', 'Riutal', "Sailor's", 'Secret', 'Shadowbound', 'Shielding', "Smith's", 'Sparkling', 'Striding', 'Translucent', "Trickster's", 'Accurate', 'Verdant', 'Windborne', 'Wrathful', 'Thunderous', 'Chained', "Spider's", 'Heliacal', 'Crippling', 'Lunar', "Fatespinner's", 'Rooting', 'Mirrored', 'Vulpine', 'Submerged', 'Comforting', "Brawler's", 'Eagle-eye', 'Lupine', 'Chiropteran', 'Black']
-  const suffixArmours = ['of the Acolyte', 'of Amethyst', 'of the Woodlands', 'of the Wastelands', 'of the Astute', 'of the North', 'of the Artisan', 'of the Barbarian', 'of the Bard', 'of Blessings', 'of Bloodthirst', 'of the Burglar', 'of the Underdark', 'of the Lodestone', 'of Storms', 'of Channelling', 'of Charity', 'of the Hearth', 'of the Climber', 'of Concealment', 'of Consecration', 'of Crystal', 'of the Dancer', 'of Dazzling', 'of Debts', 'of Defence', 'of Deflection', 'of the Delver', 'of Diplomacy', 'of the Druid', 'of Transience', 'of Evasion', 'of Fair-weather', 'of Falsehoods', 'of the Favored', 'of Feinting', 'of the Glade', 'of the Flanked', 'of Reflexes', 'of Cleansing', 'of the Forgotten', 'of Fury', 'of Garnet', 'of Glass', 'of the Mountain', 'of Coercion', 'of Harmony', 'of Heroes', 'of Histrionics', 'of Faith', 'of the Inquisitor', 'of Inspiration', 'of Invisibility', 'of Mobility', 'of the Silver Tongue', 'of the Mage Killer', 'of Malachite', 'of the Masquarade', 'of the Caduceus', 'of the Moon', 'of Mortals', 'of Sorrow', 'of Obsidian', 'of Opal', 'of the Pious', 'of the Plains', 'of the Preacher', 'of the Crags', 'of the Jungle', 'of Reflexes', 'of the Renaissance', 'of Resonance', 'of Righteousness', 'of Royalty', 'of Runes', 'of the Sacred', 'of Acumen', 'of the Sage', 'of the Sea', 'of the Scribe', 'of Shade', 'of Shadows', 'of the Shepherd', 'of Shifting', 'of the Night', 'of the Sun', 'of Teeth', 'of the Divine', 'of Subtleties', 'of the Surgeon', 'of the Tenacious', 'of the Tracker', 'of Resurgence', 'of Turquoise', 'of Twilight', 'of the Undertaker', 'of the Unyielding', 'of the Vanguard', 'of the Veil', 'of Victory', 'of Vigilance', 'of Villains', 'of Violence', 'of the War Leader', 'of Wards', 'of the Watcher', 'of the Sea', 'of Wings', 'of the Wizard', 'of Zen', 'of Zircon', 'of the Abyss', 'of Alarms', 'of Arborea', 'of Arcadia', 'of the Astral Sea', 'of the Beastlands', 'of Beastspeakers', 'of Benediction', 'of Blasting', 'of Boldness', 'of Bounty', 'of Bytopia', 'of Carceri', 'of Cartography', 'of Chills', 'of Gears', 'of Cloying', 'of Compassion', 'of Concordance', 'of the Conjurer', 'of Dissolving', 'of Vermin', 'of Taverns', 'of Elysium', 'of Ethereal Shores', 'of Exaltation', 'of Expedience', 'of Tongues', 'of Feathers', 'of the Fey', 'of Forgiveness', 'of the Fortune Teller', 'of Friendship', 'of Gehenna', 'of Grace', 'of Hades', 'of Healing', 'of the Nine Hells', 'of Last Chances', 'of Leaping', 'of Lies', 'of Limbo', 'of Locating', 'of Malediction', 'of Manipulation', 'of Servants', 'of the Maverick', 'of Messages', 'of Falling Stars', 'of Miracles', 'of Mockery', 'of Nature', 'of Neutrality', 'of Nourishment', 'of Pandemonium', 'of Projection', 'of Protection', 'of Revelation', 'of Rituals', 'of the Sea', 'of Secrets', 'of the Shadowfell', 'of Shielding', 'of Reparations', 'of Lights', 'of Strides', 'of Translucence', 'of Trickery', 'of Truth', 'of Druidcraft', 'of the Labyrinth Wind', 'of Ysgard', 'of the Rolling Thunder', 'of Chains', 'of the Spider', 'of the Sun', 'of Crippling', 'of the Moon', 'of the Fates', 'of Roots', 'of Mirrors', 'of the Fox', 'of the Depths', 'of Comfort', 'of Brawling', 'of the Eagle', 'of the Wolf', 'of the Bat', 'of Darkness']
-  const propertyArmours = [
+import { random } from './random'
+import { assign } from './utils'
+
+interface MagicArmour {
+  type: string
+  name: string
+  prefixArmour: string
+  suffixArmour: string
+  prefixProperty: string
+  suffixProperty: string
+  description: string
+}
+
+export function createMagicArmour (): MagicArmour {
+  const types = ['Padded Armour', 'Leather Armour', 'Studded leather Armour', 'Hide Armour', 'Chain shirt', 'Scale mail', 'Breastplate', 'Half plate', 'Ring mail', 'Chain mail', 'Splint Armour', 'Plate Armour', 'Shield']
+  const prefixes = ["Acolyte's", 'Amethyst', 'Arboreal', 'Arid', 'Astute', 'Arctic', "Artisan's", "Barbarian's", "Bard's", 'Blessed', 'Bloodthirsty', "Burglar's", 'Cavernous', 'Cardinal', 'Cerulean', 'Channelling', 'Charitable', 'Civilized', "Climber's", 'Concealing', 'Consecrated', 'Crystalline', "Dancer's", 'Dazzling', "Debtor's", 'Defensive', 'Deflecting', "Delver's", 'Diplomatic', "Druid's", 'Ephemeral', 'Evasive', 'Fair-weather', 'Lying', 'Favored', 'Feinting', 'Fen', 'Flanked', 'First', 'Fresh', 'Forgotten', 'Furious', 'Garnet', 'Glass', 'Granite', 'Grim', 'Harmonious', 'Heroic', 'Histrionic', 'Holy', "Inquisitor's", 'Inspired', 'Invisible', 'Lightweight', 'Loquacious', "Mage Killer's", 'Malachite', 'Masquarading', "Medic's", 'Moonlit', "Mortals'", 'Mournful', 'Obsidian', 'Opal', 'Pious', 'Prairie', "Preacher's", 'Precipice', 'Primeval', 'Reflexive', 'Renaissance', 'Resonant', 'Righteous', 'Regal', 'Runic', 'Sacred', 'Sagacious', "Sage's", "Sailor's", "Scribe's", 'Shading', 'Shadow', "Shepherd's", 'Shifting', 'Silent', 'Solar', 'Spiked', 'Spiritual', 'Subtle', "Surgeon's", 'Tenacious', "Tracker's", 'Trusty', 'Turquoise', 'Twilight', "Undertaker's", 'Unyielding', 'Vanguard', 'Veiled', 'Victorious', 'Vigilant', 'Vile', 'Violent', "War Leader's", 'Warded', "Watcher's", 'Waterborne', 'Winged', "Wizard's", 'Zen', 'Zircon', 'Abyssal', 'Alarming', 'Arborean', 'Arcadian', 'Astral', 'Beastial', "Beastspeaker's", 'Benedictine', 'Blasted', 'Bold', 'Bountiful', 'Bytopian', 'Carcerian', 'Cartographic', 'Chill', 'Clockwork', 'Cloy', 'Compassionate', 'Concordant', "Conjurer's", 'Corrosive', 'Crawling', "Drunkard's", 'Elysian', 'Etherbound', 'Exalting', 'Expeditious', 'Fathoming', 'Feathered', 'Feybound', 'Forgiven', "Fortune Teller's", 'Friendly', 'Gehennan', 'Gracious', 'Hadean', 'Healing', 'Hellish', 'Desperate', 'Leaping', "Liar's", 'Limbo', 'Locating', 'Malediction', 'Manipulating', "Master's", 'Maverick', 'Messenger', 'Meteoric', 'Miraculous', 'Mocking', 'Natural', 'Neutralizing', 'Nourishing', 'Pandemonium', 'Projecting', 'Protective', 'Revealing', 'Riutal', "Sailor's", 'Secret', 'Shadowbound', 'Shielding', "Smith's", 'Sparkling', 'Striding', 'Translucent', "Trickster's", 'Accurate', 'Verdant', 'Windborne', 'Wrathful', 'Thunderous', 'Chained', "Spider's", 'Heliacal', 'Crippling', 'Lunar', "Fatespinner's", 'Rooting', 'Mirrored', 'Vulpine', 'Submerged', 'Comforting', "Brawler's", 'Eagle-eye', 'Lupine', 'Chiropteran', 'Black']
+  const suffixes = ['of the Acolyte', 'of Amethyst', 'of the Woodlands', 'of the Wastelands', 'of the Astute', 'of the North', 'of the Artisan', 'of the Barbarian', 'of the Bard', 'of Blessings', 'of Bloodthirst', 'of the Burglar', 'of the Underdark', 'of the Lodestone', 'of Storms', 'of Channelling', 'of Charity', 'of the Hearth', 'of the Climber', 'of Concealment', 'of Consecration', 'of Crystal', 'of the Dancer', 'of Dazzling', 'of Debts', 'of Defence', 'of Deflection', 'of the Delver', 'of Diplomacy', 'of the Druid', 'of Transience', 'of Evasion', 'of Fair-weather', 'of Falsehoods', 'of the Favored', 'of Feinting', 'of the Glade', 'of the Flanked', 'of Reflexes', 'of Cleansing', 'of the Forgotten', 'of Fury', 'of Garnet', 'of Glass', 'of the Mountain', 'of Coercion', 'of Harmony', 'of Heroes', 'of Histrionics', 'of Faith', 'of the Inquisitor', 'of Inspiration', 'of Invisibility', 'of Mobility', 'of the Silver Tongue', 'of the Mage Killer', 'of Malachite', 'of the Masquarade', 'of the Caduceus', 'of the Moon', 'of Mortals', 'of Sorrow', 'of Obsidian', 'of Opal', 'of the Pious', 'of the Plains', 'of the Preacher', 'of the Crags', 'of the Jungle', 'of Reflexes', 'of the Renaissance', 'of Resonance', 'of Righteousness', 'of Royalty', 'of Runes', 'of the Sacred', 'of Acumen', 'of the Sage', 'of the Sea', 'of the Scribe', 'of Shade', 'of Shadows', 'of the Shepherd', 'of Shifting', 'of the Night', 'of the Sun', 'of Teeth', 'of the Divine', 'of Subtleties', 'of the Surgeon', 'of the Tenacious', 'of the Tracker', 'of Resurgence', 'of Turquoise', 'of Twilight', 'of the Undertaker', 'of the Unyielding', 'of the Vanguard', 'of the Veil', 'of Victory', 'of Vigilance', 'of Villains', 'of Violence', 'of the War Leader', 'of Wards', 'of the Watcher', 'of the Sea', 'of Wings', 'of the Wizard', 'of Zen', 'of Zircon', 'of the Abyss', 'of Alarms', 'of Arborea', 'of Arcadia', 'of the Astral Sea', 'of the Beastlands', 'of Beastspeakers', 'of Benediction', 'of Blasting', 'of Boldness', 'of Bounty', 'of Bytopia', 'of Carceri', 'of Cartography', 'of Chills', 'of Gears', 'of Cloying', 'of Compassion', 'of Concordance', 'of the Conjurer', 'of Dissolving', 'of Vermin', 'of Taverns', 'of Elysium', 'of Ethereal Shores', 'of Exaltation', 'of Expedience', 'of Tongues', 'of Feathers', 'of the Fey', 'of Forgiveness', 'of the Fortune Teller', 'of Friendship', 'of Gehenna', 'of Grace', 'of Hades', 'of Healing', 'of the Nine Hells', 'of Last Chances', 'of Leaping', 'of Lies', 'of Limbo', 'of Locating', 'of Malediction', 'of Manipulation', 'of Servants', 'of the Maverick', 'of Messages', 'of Falling Stars', 'of Miracles', 'of Mockery', 'of Nature', 'of Neutrality', 'of Nourishment', 'of Pandemonium', 'of Projection', 'of Protection', 'of Revelation', 'of Rituals', 'of the Sea', 'of Secrets', 'of the Shadowfell', 'of Shielding', 'of Reparations', 'of Lights', 'of Strides', 'of Translucence', 'of Trickery', 'of Truth', 'of Druidcraft', 'of the Labyrinth Wind', 'of Ysgard', 'of the Rolling Thunder', 'of Chains', 'of the Spider', 'of the Sun', 'of Crippling', 'of the Moon', 'of the Fates', 'of Roots', 'of Mirrors', 'of the Fox', 'of the Depths', 'of Comfort', 'of Brawling', 'of the Eagle', 'of the Wolf', 'of the Bat', 'of Darkness']
+  const properties = [
     'The bearer gains a +1 bonus to Wisdom (Religion) checks',
     'Reduces psychic damage to the bearer by 2',
     'Treat as a +1 armor after the bearer has taken a long rest in a forest. If the bearer leaves the forest, this property becomes temporarily inert',
@@ -205,28 +218,21 @@ setup.createMagicArmour = () => {
     'Contains 1 unreplenishable charge of Darkness cast at 2nd level.'
   ]
 
-  const type = armours.random()
+  const prefixArmourRoll = random(properties.length - 1)
+  const suffixArmourRoll = random(properties.length - 1)
 
-  const prefixArmourRoll = random(1, propertyArmours.length)
-  const suffixArmourRoll = random(1, propertyArmours.length)
-
-  const prefixProperty = propertyArmours[prefixArmourRoll]
-  const suffixProperty = propertyArmours[suffixArmourRoll]
-
-  const description = `${prefixProperty}. ${suffixProperty}`
-
-  const prefixArmour = prefixArmours[prefixArmourRoll]
-  const suffixArmour = suffixArmours[suffixArmourRoll]
-
-  const name = `${prefixArmour} ${type} ${suffixArmour}`
-
-  return {
-    type,
-    name,
-    prefixArmour,
-    suffixArmour,
-    prefixProperty,
-    suffixProperty,
-    description
+  const armour = {
+    type: random(types),
+    prefixArmour: prefixes[prefixArmourRoll],
+    suffixArmour: suffixes[suffixArmourRoll],
+    prefixProperty: properties[prefixArmourRoll],
+    suffixProperty: properties[suffixArmourRoll]
   }
+
+  assign(armour, {
+    description: `${armour.prefixProperty}. ${armour.suffixProperty}`,
+    name: `${armour.prefixArmour} ${armour.type} ${armour.suffixArmour}`
+  })
+
+  return armour
 }
