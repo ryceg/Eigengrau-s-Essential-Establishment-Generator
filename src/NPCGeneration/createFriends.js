@@ -132,10 +132,13 @@ setup.createFriends = (town, npc) => {
       friend = Object.values(State.variables.npcs).find(({ socialClass, relationships, key }) => {
         return socialClass === npc.socialClass && !relationships[npc.key] && key !== npc.key
       })
-      setup.createRelationship(town, npc, friend, 'friend', 'friend')
       if (friend === undefined) {
         console.log(`Nobody was in the same caste as ${npc.name}`)
         createNewFriend(town, npc)
+      } else {
+        console.log('Found this person as a friend:')
+        console.log(friend)
+        setup.createRelationship(town, npc, friend, 'friend', 'friend')
       }
     } else {
       createNewFriend(town, npc)
