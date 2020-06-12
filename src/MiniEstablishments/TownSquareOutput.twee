@@ -1,13 +1,13 @@
 :: TownSquareOutput
-<<unset $selectedBuilding>><<set $building to ($town.buildings.townSquare[$selected.key] || $town.buildings.townSquare[$currentPassage.key])>><h1>The Town Square</h1><<set _npc to setup.weightedRandomFetcher($town, setup.townSquare.crowd)>>
+<<unset $selectedBuilding>><<set $building to ($town.buildings.townSquare[$selected.key] || $town.buildings.townSquare[$currentPassage.key])>><h1>The Town Square</h1><<set _npc to lib.weightedRandomFetcher($town, setup.townSquare.crowd)>>
 You're in the town square. It's $building.size, and $building.cleanliness. It features $building.feature As you <<print ["walk through the square", "walk along", "stroll along", "pass through", "enter the town square"].random()>>, you see _npc
-There's <<print setup.weightedRandomFetcher($town, setup.townSquare.vignettes)>> There's also a noticeboard, which has various posters, requests, and announcements tacked to it.
+There's <<print lib.weightedRandomFetcher($town, setup.townSquare.vignettes)>> There's also a noticeboard, which has various posters, requests, and announcements tacked to it.
 
 <<button "Who else is there?">>
 <<if def $building.stranger>>
   <<run setup.deleteNPC($npcs[$building.stranger])>>
 <</if>>
-<<set $building.stranger to setup.weightedRandomFetcher($town, setup.townSquare.crowd)>>
+<<set $building.stranger to lib.weightedRandomFetcher($town, setup.townSquare.crowd)>>
 <<replace "#newNpc">><<print ["You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $building.stranger<</replace>><</button>>
 <div id="newNpc"><<if def $building.stranger>><<print ["You can see", "You see", "In the corner, you see", "Nearby, you can see", "You can see there is", "Over the other side of the square, you see", "You can see"].random()>> $building.stranger<</if>></div>
 

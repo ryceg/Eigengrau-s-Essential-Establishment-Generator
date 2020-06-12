@@ -1,4 +1,6 @@
-setup.matchFirst = {
+import { keys } from './utils'
+
+export const matchFirst = {
   equalTo: createMatchFirst((value, key) => {
     return value === key
   }),
@@ -19,17 +21,14 @@ setup.matchFirst = {
   })
 }
 
-/**
- * @param {MatchCallback} callback
- */
-function createMatchFirst (callback) {
-  /**
-   * @type {MatchModifier}
-   */
-  const modifier = (value, map, defaultValue) => {
-    for (const key of Object.keys(map).reverse()) {
-      if (callback(value, Number(key))) return map[key]
+function createMatchFirst (callback: (value: number, key: number) => boolean) {
+  const modifier = <T>(value: number, map: Record<number, T>, defaultValue?: T) => {
+    for (const key of keys(map).reverse()) {
+      if (callback(value, Number(key))) {
+        return map[key]
+      }
     }
+
     return defaultValue
   }
 

@@ -28,10 +28,10 @@ setup.structure = {
       }
     }
     if (!building.material) {
-      let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, null, null, 'object')
+      let tempMaterial = lib.weightedRandomFetcher(town, setup.structure.material.types, null, null, 'object')
       if (Object.keys(tempMaterial).includes('variations')) {
         console.log('Building material has variations. ')
-        tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
+        tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
       }
       console.log('tempMaterial')
       console.log(tempMaterial)
@@ -40,7 +40,7 @@ setup.structure = {
       building.structure.material = building.material
     }
 
-    building.structure.roof = setup.weightedRandomFetcher(town, setup.structure.roof.types, null, null, 'object')
+    building.structure.roof = lib.weightedRandomFetcher(town, setup.structure.roof.types, null, null, 'object')
 
     if (building.structure.roof.canBeColoured === true) {
       building.structure.roof.colour = setup.structure.data.colour.random()
@@ -48,8 +48,8 @@ setup.structure = {
       building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
     }
 
-    setup.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', '', building.roll)
-    setup.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', '', building.roll)
+    lib.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', undefined, building.roll)
+    lib.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', undefined, building.roll)
 
     building.structure.descriptors = [
       `${setup.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,

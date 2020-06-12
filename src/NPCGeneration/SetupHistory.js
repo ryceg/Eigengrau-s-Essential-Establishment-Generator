@@ -113,7 +113,7 @@ setup.createHistory = function (town, npc) {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
-  if (!npc.birthplace) npc.birthplace = setup.rollFromTable(setup.birthplaceTable, 100)
+  if (!npc.birthplace) npc.birthplace = lib.rollFromTable(setup.birthplaceTable, 100)
 
   let parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
@@ -129,7 +129,7 @@ setup.createHistory = function (town, npc) {
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
       const obj = { npc, father, mother }
-      npc.familyUnit = setup.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
+      npc.familyUnit = lib.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
       if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
     }
     /* const parentRoll = random(1, 100)

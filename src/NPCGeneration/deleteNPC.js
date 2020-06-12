@@ -1,6 +1,8 @@
 setup.deleteNPC = function (npc) {
+  if (!npc) return
   console.log('Deleting NPC!')
   console.log(npc)
+
   if (typeof npc === 'number') {
     npc = State.variables.npcs[npc]
   }

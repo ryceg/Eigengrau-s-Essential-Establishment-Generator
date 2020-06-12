@@ -1,5 +1,5 @@
 :: BiomeGenerationRefresh
-\<<print setup.firstCharacter($tempTown.name)>> is located in the <<listbox "$tempTown.terrain" autoselect>><<optionsfrom Object.keys(setup.townData.terrain)>><</listbox>> 
+\<<print lib.firstCharacter($tempTown.name)>> is located in the <<listbox "$tempTown.terrain" autoselect>><<optionsfrom Object.keys(setup.townData.terrain)>><</listbox>> 
 \<span class="tip" title="This changes based on the terrain- refresh to update"><<listbox "$tempTown.location" autoselect>><<optionsfrom Object.keys(setup.townData.terrain[$tempTown.terrain].location)>><</listbox>></span>
 \, where the vegetation is <<listbox "$tempTown.vegetation" autoselect>><<optionsfrom ["thick", "lush", "sparse", "desolate"]>><</listbox>>. 
 \$tempTown.name grew around <span class="tip" title="This changes based on the terrain and location- refresh to update"><<listbox "$tempTown.origin" autoselect>><<optionsfrom setup.townData.terrain[$tempTown.terrain].location[$tempTown.location].origin>><</listbox>></span>. 

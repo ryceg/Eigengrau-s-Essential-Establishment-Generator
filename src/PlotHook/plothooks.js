@@ -151,7 +151,7 @@ setup.plothooks = {
     },
     function (town) {
       const blacksmithPool = town.buildings.smithy
-      const smithy = setup.objectArrayFetcher(blacksmithPool)
+      const smithy = lib.objectArrayFetcher(blacksmithPool)
       console.log(smithy)
       // var blacksmith = smithy.associatedNPC
       const npc = setup.createNPC(town, {
@@ -510,7 +510,7 @@ setup.plothooks = {
   'Bard Wanted': {
     type: ['paper'],
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       console.log('Taverns:')
       console.log(building)
       return `${setup.profile(building, '', 'town.buildings.tavern')} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
@@ -571,7 +571,7 @@ setup.plothooks = {
     type: ['paper'],
     function (town) {
       const blacksmithPool = town.buildings.smithy
-      const smithy = setup.objectArrayFetcher(blacksmithPool)
+      const smithy = lib.objectArrayFetcher(blacksmithPool)
       return `Koboliam Ore Needed: A local ${setup.profile(smithy.associatedNPC, 'blacksmith')} needs Koboliam Ore, which is only found in the Myriad caves to the North. Once a Kobold stronghold, this abandoned cave is full of traps and possibly other dangers — will pay top gold for each block of Ore.`
     }
   },
@@ -678,7 +678,7 @@ setup.plothooks = {
   'Need Bartender': {
     type: ['paper'],
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       return `Needed bartender. Looking to employ a bartender for my inn, ${setup.profile(building, '', 'town.buildings.tavern')}. Must be able to listen to political rants on the slower days. NO GOBLINS`
     }
   },
@@ -820,7 +820,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
@@ -861,7 +861,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
@@ -876,7 +876,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       // #
       return `${setup.profile(building, '', 'town.buildings.tavern')} needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!`
     }
@@ -1120,7 +1120,7 @@ setup.plothooks = {
   'Berate Me': {
     type: ['paper'],
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -1158,7 +1158,7 @@ setup.plothooks = {
   'Huckleberry': {
     type: ['paper'],
     function (town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.objectArrayFetcher(town.buildings.tavern)
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'

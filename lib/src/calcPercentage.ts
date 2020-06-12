@@ -1,10 +1,10 @@
-export const calcPercentage = (target: number, integer: number | number[]) => {
+export function calcPercentage (target: number, integer: number | number[]) {
   if (Array.isArray(integer)) {
     return integer.reduce(calc, target)
   }
   return calc(target, integer)
 }
 
-const calc = (target: number, integer: number) => {
+function calc (target: number, integer: number) {
   return (target / 100) * (100 + integer)
 }

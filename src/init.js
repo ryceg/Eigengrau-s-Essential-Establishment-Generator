@@ -5,7 +5,9 @@
  * the order is very important.
  */
 setup.init = (setup => () => {
-  lib.setRandom(State.random)
+  lib.setRandom(random)
+  lib.setRandomFloat(randomFloat)
+
   setup.initMisc()
   setup.initMiscBooks()
   setup.initMiscEncounters()

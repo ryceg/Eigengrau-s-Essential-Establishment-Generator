@@ -12,7 +12,7 @@
   $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $associatedNPC.mundane.random()>>, <<print $associatedNPC.mundane.random()>>, <<print $associatedNPC.mundane.random()>>, you name it!
   <<default>>
   $associatedNPC.name says "Well, what is it you need? We can do just about anything for you.
-<</switch>><<print setup.closestMatch(setup.generalStore.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
+<</switch>><<print lib.closestMatch(setup.generalStore.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
 
 <<switch $town.type>>
   <<case "city">>
@@ -33,7 +33,7 @@
     <th>Cost</th>
   </tr>
 <h6>Weapons</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "weapon"
   && item.availabilityLocation.includes("generalStore");
@@ -42,7 +42,7 @@
 <</for>>
 
 <h6>Armour</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "armour"
   && item.availabilityLocation.includes("generalStore");
@@ -51,7 +51,7 @@
 <</for>>
 
 <h6>Adventuring Gear</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "adventuring gear"
   && item.availabilityLocation.includes("generalStore");
@@ -60,7 +60,7 @@
 <</for>>
 
 <h6>Tools</h6>
-<<for _i, _item range setup.inventory.filter(function (item) {
+<<for _i, _item range lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === "tools"
   && item.availabilityLocation.includes("generalStore");

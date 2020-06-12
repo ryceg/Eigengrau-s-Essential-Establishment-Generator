@@ -6,7 +6,7 @@ setup.createReligiosity = function (town, npc) {
   console.log(`Creating religion strength for ${npc.name}`)
   console.log(npc)
   // TODO: transfer religiosity to the religion object; for some reason the defineRollDataGetter isn't playing nicely with it.
-  // setup.defineRollDataGetter(npc, setup.npcData.religion, 'religiosity', 'religiosity')
+  // lib.defineRollDataGetter(npc, setup.npcData.religion, 'religiosity', 'religiosity')
   if (!npc.religion.strength) {
     const temp = setup.npcData.religion.strength.find(function (desc) {
       return desc[0] <= npc.roll.religiosity

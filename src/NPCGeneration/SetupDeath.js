@@ -194,7 +194,7 @@ setup.npcDeath = function (town, npc, base) {
   if (!base) base = {}
   npc.passageName = 'NPCDeadProfile'
   npc.death = {
-    cause: base.cause || setup.weightedRandomFetcher(town, setup.death.cause, npc),
+    cause: base.cause || lib.weightedRandomFetcher(town, setup.death.cause, npc),
     // murderer: base.murderer || npc.death.murderer || false,
     timeSinceDeath: base.timeSinceDeath || dice(2, 60)
   }

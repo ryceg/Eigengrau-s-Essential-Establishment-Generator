@@ -3,10 +3,10 @@
 
 <h3>Quick Scenario Generator</h3><<include "CreateScenario">>
 <h3>The <<print $town.type.toUpperFirst()>> of $town.name</h3>
-<<print setup.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin.
+<<print lib.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin.
 \<<set _politicalIdeology to "tip">><<run setup.politicsTooltip(_politicalIdeology, "politicalIdeology", $town)>>
 \<<set _economicIdeology to "tip2">><<run setup.politicsTooltip(_economicIdeology, "economicIdeology", $town)>>
-\<<set _politicalSource to "tip3">><<run setup.politicsTooltip(_politicalSource, "politicalSource", $town)>> They are <<print setup.articles.find($town.equality)>> <<print setup.createTippyFull($town.equalityDescription, $town.equality)>> <span @id="_economicIdeology" class="tip dotted">$town.economicIdeologyIST</span> <span @id="_politicalIdeology" class="tip dotted">$town.politicalIdeologyIC</span> <span @id="_politicalSource" class="tip dotted">$town.politicalSource</span>.
+\<<set _politicalSource to "tip3">><<run setup.politicsTooltip(_politicalSource, "politicalSource", $town)>> They are <<print setup.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> <span @id="_economicIdeology" class="tip dotted">$town.economicIdeologyIST</span> <span @id="_politicalIdeology" class="tip dotted">$town.politicalIdeologyIC</span> <span @id="_politicalSource" class="tip dotted">$town.politicalSource</span>.
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<goto "TownOutput">><</link>></span>
 <<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
 <</listbox>> -- <<button "Create New Building">>

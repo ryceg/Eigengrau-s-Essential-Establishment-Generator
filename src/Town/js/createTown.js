@@ -218,7 +218,7 @@ setup.createTown = function (base) {
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = town.origin || setup.townData.terrain[town.terrain].location[town.location].origin.random()
-  town.vegetation = town.vegetation || setup.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
+  town.vegetation = town.vegetation || lib.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structure.material.types
 
@@ -296,8 +296,8 @@ setup.createTown = function (base) {
   }
   town.equality = ''
   town.equalityDescription = ''
-  setup.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
-  setup.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
+  lib.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
+  lib.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
   town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
   setup.townRender(town)
   setup.createStartBuildings(town)

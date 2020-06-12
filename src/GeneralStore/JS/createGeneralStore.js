@@ -34,7 +34,7 @@ setup.createGeneralStore = (town, opts = {}) => {
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   for (const propName of rollDataVariables) {
-    setup.defineRollDataGetter(generalStore, setup.generalStore.rollData, propName)
+    lib.defineRollDataGetter(generalStore, setup.generalStore.rollData, propName)
   }
   if (generalStore.roll.cleanliness <= 40) {
     generalStore.clutter = [

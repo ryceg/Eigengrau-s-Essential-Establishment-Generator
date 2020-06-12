@@ -1,7 +1,5 @@
-// Attaches itself to the *global* node object.
-global.setup = {}
-// @ts-ignore
-require('../src/Tools/matchFirst')
+
+import { matchFirst } from '../lib/src/matchFirst'
 
 const map = {
   2: 'A',
@@ -11,7 +9,7 @@ const map = {
 
 describe('matchFirst', () => {
   it('equalTo', () => {
-    const { equalTo } = setup.matchFirst
+    const { equalTo } = matchFirst
     expect(equalTo(3, map)).toEqual(undefined)
     expect(equalTo(2, map)).toEqual('A')
     expect(equalTo(1, map)).toEqual('B')
@@ -19,7 +17,7 @@ describe('matchFirst', () => {
   })
 
   it('notEqualTo', () => {
-    const { notEqualTo } = setup.matchFirst
+    const { notEqualTo } = matchFirst
     expect(notEqualTo(3, map)).toEqual('A')
     expect(notEqualTo(2, map)).toEqual('B')
     expect(notEqualTo(1, map)).toEqual('A')
@@ -27,7 +25,7 @@ describe('matchFirst', () => {
   })
 
   it('largerThan', () => {
-    const { largerThan } = setup.matchFirst
+    const { largerThan } = matchFirst
     expect(largerThan(3, map)).toEqual('A')
     expect(largerThan(2, map)).toEqual('B')
     expect(largerThan(1, map)).toEqual('C')
@@ -35,7 +33,7 @@ describe('matchFirst', () => {
   })
 
   it('largerThanOrEqualTo', () => {
-    const { largerThanOrEqualTo } = setup.matchFirst
+    const { largerThanOrEqualTo } = matchFirst
     expect(largerThanOrEqualTo(3, map)).toEqual('A')
     expect(largerThanOrEqualTo(2, map)).toEqual('A')
     expect(largerThanOrEqualTo(1, map)).toEqual('B')
@@ -43,7 +41,7 @@ describe('matchFirst', () => {
   })
 
   it('smallerThan', () => {
-    const { smallerThan } = setup.matchFirst
+    const { smallerThan } = matchFirst
     expect(smallerThan(3, map)).toEqual(undefined)
     expect(smallerThan(2, map)).toEqual(undefined)
     expect(smallerThan(1, map)).toEqual('A')
@@ -51,7 +49,7 @@ describe('matchFirst', () => {
   })
 
   it('smallerThanOrEqualTo', () => {
-    const { smallerThanOrEqualTo } = setup.matchFirst
+    const { smallerThanOrEqualTo } = matchFirst
     expect(smallerThanOrEqualTo(3, map)).toEqual(undefined)
     expect(smallerThanOrEqualTo(2, map)).toEqual('A')
     expect(smallerThanOrEqualTo(1, map)).toEqual('A')

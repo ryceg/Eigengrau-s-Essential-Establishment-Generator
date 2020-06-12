@@ -186,6 +186,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 100,
       socialClass: 'commoner',
       socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'I always loved playing make-believe; this is just the natural result of that.'
+      ],
       relationships (town, npc) {
         return {
           patron: {
@@ -208,6 +211,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 700,
       socialClass: 'nobility',
       socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I have always had a strong moral compass, and wanted to defend those that I thought needed defending.'
+      ],
       relationships (town, npc) {
         return {
           client: {
@@ -228,7 +234,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 230,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'Becoming an advisor was simply a matter of being in the right place at the right time.'
+      ]
     },
     'animal handler': {
       sv: 250,
@@ -238,7 +247,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'I have always had a knack for animal handling.'
+      ]
     },
     'apothecarist': {
       sv: 450,
@@ -248,7 +260,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 160,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'I was taught apothecary at a young age.'
+      ]
     },
     'architect': {
       sv: 550,
@@ -259,6 +274,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 600,
       socialClass: 'nobility',
       socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        "I had an apprenticeship, drafting up plans for houses. I made improvements to my master's plans. Now, I do it for a living."
+      ],
       relationships (town, npc) {
         return {
           client: {
@@ -279,7 +297,10 @@ setup.initTownDataProfessions = () => {
       description: 'maintains and is in charge of some sort archives.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I love ordering things, and archiving suits me perfectly.'
+      ]
     },
     'armorer': {
       sv: 750,
@@ -289,7 +310,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'I did an apprenticeship and fell into armoring as a result of that.'
+      ]
     },
     'astrologer': {
       sv: 950,
@@ -301,6 +325,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 450,
       socialClass: 'nobility',
       socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I loved the stars as a kid, and made a career out of it.'
+      ],
       relationships (town, npc) {
         return {
           client: {
@@ -321,7 +348,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'Early risers like me are well suited to the life of a baker.'
+      ]
     },
     'banker': {
       sv: 2250,
@@ -331,7 +361,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 800,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I love money, so wanted to work as somebody that would be in charge of money.'
+      ]
     },
     'barber': {
       sv: 350,
@@ -340,7 +373,10 @@ setup.initTownDataProfessions = () => {
       description: 'cuts hair and shaves or trims beards.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'I have a steady hand, and like to think that I am a good conversationalist- barbering was a natural fit.'
+      ]
     },
     'bartender': {
       sv: 450,
@@ -383,7 +419,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 60,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'Bar work has been all that I have been able to find.'
+      ]
     },
     'blacksmith': {
       sv: 750,
@@ -412,7 +451,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 50,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        "I'm doing an apprenticeship, I hope to be a full blacksmith one day."
+      ]
     },
     'bookseller': {
       sv: 6300,
@@ -432,7 +474,10 @@ setup.initTownDataProfessions = () => {
       description: 'brews ale.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'I started out as a hobbyist, but then went fulltime.'
+      ]
     },
     'brickmason': {
       sv: 650,
@@ -454,6 +499,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 100,
       socialClass: 'commoner',
       socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        "Being a pimp is all about connections- it's all about who you know. With good clients comes good money."
+      ],
       relationships (town, npc) {
         return {
           client: {
@@ -492,6 +540,10 @@ setup.initTownDataProfessions = () => {
       dailyWage: 90,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'I had an apprenticeship, and have been butchering ever since.',
+        "There's nothing quite like a nice sausage, right? Well, I'm picky, and like sausages my way."
+      ],
       relationships (town, npc) {
         return {
           client: {
@@ -520,7 +572,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 160,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I rose through the ranks, receiving awards for my bravery during battle, eventually landing at the position of captain.'
+      ]
     },
     'caravanner': {
       sv: 1450,
@@ -560,7 +615,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 240,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I love maps, and have a good hand for drawing. Cartography is the natural intersection of the two.'
+      ]
     },
     'chandler': {
       sv: 700,
@@ -589,7 +647,10 @@ setup.initTownDataProfessions = () => {
       description: 'a child, specifically one that is not working.',
       dailyWage: 4,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'I want to be somebody important when I grow up!'
+      ]
     },
     'clergyman': {
       sv: 40,
@@ -890,7 +951,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        'Keeping the peace is easy enough. Might as well get paid for it.'
+      ]
     },
     'guildmaster': {
       sv: 4150,
@@ -1000,6 +1064,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 110,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'I know that jailing is not a pretty profession, but somebody has to do it- might as well be me, right?'
+      ],
       relationships (town, npc) {
         return {
           prisoner: {
@@ -1200,7 +1267,7 @@ setup.initTownDataProfessions = () => {
       socialClassRoll () { return 50 + dice(8, 6) },
       professionOrigin: [
         'I grew up poor. I learnt to hock stuff off to feed myself.',
-        'Some people just have the gift of the gab- I just have a talent for sales.',
+        'Some people just have the gift of the gab- I have a talent for sales.',
         'I love gold. Unashamedly, I really do. So what? Selling is an honest living. Sue me.',
         'I spent my youth selling whatever scraps I could find, never got tired of it.'
       ]
@@ -1212,7 +1279,10 @@ setup.initTownDataProfessions = () => {
       description: 'carries messages between recipients.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'I was always good at running- being a messenger was a natural extension of that.'
+      ]
     },
     'midwife': {
       sv: 650,
@@ -1222,7 +1292,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        "I have always loved children, and can't bear the thought of a woman being alone during childbirth."
+      ]
     },
     'miller': {
       sv: 650,
@@ -1329,7 +1402,13 @@ setup.initTownDataProfessions = () => {
       description: 'a person belonging to a class with high social or political status.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'My family has owned lands for centuries.',
+        'I was bestowed an estate for my service.',
+        'I earnt my place as a noble, working tirelessly day in, day out.',
+        "Nepotism may have had a small part to play for my current position, I'll admit."
+      ]
     },
     'nun': {
       sv: 2150,
@@ -1451,7 +1530,12 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 800,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        "I was elected as the prime minister. It's both an honour and a true burden to serve.",
+        "I got elected, and now I'm the top brass. Everyone else will realise soon enough that things run differently when the adults are in charge!",
+        'I think that the election was rigged against me, but I managed to beat those crooks anyways!'
+      ]
     },
     'potter': {
       sv: 1150,
@@ -1473,7 +1557,11 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        'I heard the calling of priesthood from a very young age- my path was never in question.',
+        "I was initially going to be a chef- but then, one day, I felt the urge to go to church. I've never looked back."
+      ]
     },
     'privateer': {
       sv: 1150,
@@ -1542,6 +1630,11 @@ setup.initTownDataProfessions = () => {
       dailyWage: 140,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'I can handle the rough seas, and the pay is alright, so here I am, a sailor.',
+        "I don't like the sea all that much, but the pay is okay.",
+        'I love the sea, and would feel homesick on land. The sea is where I belong.'
+      ],
       relationships (town, npc) {
         return {
           coworker: {
@@ -1555,7 +1648,7 @@ setup.initTownDataProfessions = () => {
       }
     },
     'sculptor': {
-      sv: 250,
+      sv: 2500,
       type: 'business',
       sector: 'arts',
       description: 'crafts art by carving or casting blocks of marble, stones, or other hardened minerals.',
@@ -1594,7 +1687,7 @@ setup.initTownDataProfessions = () => {
       socialClassRoll () { return 20 + dice(8, 6) }
     },
     'seer': {
-      sv: 350,
+      sv: 3500,
       type: 'profession',
       sector: 'magic',
       description: 'able to see what the future holds through supernatural insight.',
@@ -1612,6 +1705,10 @@ setup.initTownDataProfessions = () => {
       dailyWage: 100,
       socialClass: 'paupery',
       socialClassRoll () { return 5 + dice(8, 6) },
+      professionOrigin: [
+        "Believe it or not, I didn't exactly hope to be a servant- terrible hours, awful pay, and having to work for some stuck up noble? Ugh.",
+        'Being a servant was all the work that I could find.'
+      ],
       relationships (town, npc) {
         return {
           coworker: {
@@ -1642,7 +1739,10 @@ setup.initTownDataProfessions = () => {
       description: 'herds, tends, and guards sheep.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'Being a shepherd is easy enough- sheep are good company, if you take the time to get to know them.'
+      ]
     },
     "ship's captain": {
       sv: 950,
@@ -1681,6 +1781,11 @@ setup.initTownDataProfessions = () => {
       dailyWage: 0,
       socialClass: 'indentured servitude',
       socialClassRoll () { return 5 },
+      professionOrigin: [
+        'I was born into slavery; this is the only life that I have ever known.',
+        'I was forced into slavery.',
+        'I was sold into slavery after being captured.'
+      ],
       relationships (town, npc) {
         return {
           liege: {
@@ -1920,7 +2025,10 @@ setup.initTownDataProfessions = () => {
       description: 'owns or runs a shop.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + dice(8, 6) },
+      professionOrigin: [
+        "Selling goods is easy enough. Selling for a profit? That's harder."
+      ]
     },
     "shopkeep's assistant": {
       sv: 200,
@@ -1991,6 +2099,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 70,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        "I don't expect you to understand why I'm a torturer. It's a job, alright?"
+      ],
       relationships (town, npc) {
         return {
           liege: {
@@ -2071,6 +2182,10 @@ setup.initTownDataProfessions = () => {
       dailyWage: 90,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      exclusions (npc) { return Boolean(npc.gender === 'woman') },
+      professionOrigin: [
+        "I sell my body for what it is worth. It is what it is- at least it's just an innocent baby."
+      ],
       relationships (town, npc) {
         return {
           liege: {
@@ -2320,6 +2435,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 90,
       socialClass: 'peasantry',
       socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        "Livestock are simple. Feed 'em, keep 'em warm, then come slaughter time, you slaughter them. It's people that are hard."
+      ],
       relationships (town, npc) {
         return {
           coworker: {
@@ -2412,7 +2530,10 @@ setup.initTownDataProfessions = () => {
       description: 'converts waste animal tissue into usable materials.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        'Apologies for the smell. Rendering is not a pleasant profession, believe me, I know.'
+      ]
     },
     'thresher': {
       sv: 300,
@@ -2422,6 +2543,9 @@ setup.initTownDataProfessions = () => {
       dailyWage: 50,
       socialClass: 'paupery',
       socialClassRoll () { return 20 + dice(8, 6) },
+      professionOrigin: [
+        "Believe it or not, I don't do this backbreaking work for fun- it's all I could find."
+      ],
       relationships (town, npc) {
         return {
           coworker: {
@@ -2560,7 +2684,10 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 1000,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + dice(8, 6) },
+      professionOrigin: [
+        "I became famous after I received a lot of attention. Now, I live off that. It's a sweet gig, you should try it!"
+      ]
     },
     'choirmaster': {
       sv: 1000,
@@ -2994,14 +3121,14 @@ setup.initTownDataProfessions = () => {
       socialClassRoll () { return 50 + dice(8, 6) }
     },
     'entrepreneur': {
-      sv: 500,
+      sv: 5000,
       isHobby: true,
       type: 'business',
       sector: 'business',
       description: 'organizes and operates a business or businesses, taking on greater than normal financial risks in order to do so.',
       domSub: 'dom',
       dailyWage: 300,
-      socialClass: 'commoner',
+      socialClass: 'nobility',
       socialClassRoll () { return 50 + dice(8, 6) }
     },
     'moneychanger': {

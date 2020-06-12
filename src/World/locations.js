@@ -4,7 +4,7 @@ setup.initMiscLocations = () => {
       available: ['mountain', 'forest'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
         return `a cavern. ${cavern.readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
       }
     },
@@ -12,7 +12,7 @@ setup.initMiscLocations = () => {
       available: ['mountain', 'forest'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
         return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
       }
     },
@@ -20,7 +20,7 @@ setup.initMiscLocations = () => {
       available: ['mountain', 'forest'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create()
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
         return `a rocky cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
       }
     },
@@ -34,7 +34,6 @@ setup.initMiscLocations = () => {
           contents = `a ${spider.tippyWord}.`
         }
         const tree = setup.misc.tree.create(town, biome)
-        // let contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
         return `a hole under a large ${tree.tippyWord}. <blockquote>Inside is ${contents}.</blockquote>`
       }
     },
@@ -56,14 +55,13 @@ setup.initMiscLocations = () => {
       available: ['desert', 'forest'],
       function: (town, biome) => {
         const contents = setup.misc[biome].hole.random()
-        // let contents = setup.contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
         return `a large burrow <blockquote>Inside is ${contents}.</blockquote>`
       }
     },
     'a peculiar cottage': {
       available: ['forest'],
       function: (town, biome) => {
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cottageLives, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cottageLives, setup.misc.encounters)(town, biome)
         const cabin = setup.misc.cabin.create(town, biome, {
           wordNoun: 'cottage'
         })
@@ -74,7 +72,7 @@ setup.initMiscLocations = () => {
     "a woodsman's cabin": {
       available: ['forest'],
       function: (town, biome) => {
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
         const cabin = setup.misc.cabin.create(town, biome)
         return `a woodsman's ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
       }
@@ -82,7 +80,7 @@ setup.initMiscLocations = () => {
     'a cozy little cabin': {
       available: ['forest'],
       function: (town, biome) => {
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
         const cabin = setup.misc.cabin.create(town, biome, {
           wordNoun: 'cabin',
           size: 'little'
@@ -93,7 +91,7 @@ setup.initMiscLocations = () => {
     'an abandoned cabin': {
       available: ['forest', 'mountain'],
       function: (town, biome) => {
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cabinLives, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
         const cabin = setup.misc.cabin.create(town, biome)
         return `an abandoned ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
       }
@@ -118,12 +116,15 @@ setup.initMiscLocations = () => {
     },
     'a grave with an illegible headstone': {
       available: ['forest', 'mountain', 'road', 'desert'],
-      function: () => 'a grave with an illegible headstone.'
+      function: (town) => {
+        const grave = setup.misc.graveStone.create(town)
+        return grave.sentenceStrings
+      }
     },
     'ancient ruins': {
       available: ['forest'],
       function: (town, biome) => {
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
         return `ancient ruins. <blockquote>The ruins were built by ${setup.misc[biome].ruinsLived.random()}. Now, ${contents} lives here.</blockquote>`
       }
     },
@@ -131,7 +132,7 @@ setup.initMiscLocations = () => {
       available: ['desert'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounters, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
         return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -139,7 +140,7 @@ setup.initMiscLocations = () => {
       available: ['desert'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounters, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
         return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -147,7 +148,7 @@ setup.initMiscLocations = () => {
       available: ['mountain'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create({ entrance: 'in the crook of a rock wall' })
-        const contents = setup.contentsFetcher(town, biome, setup.misc[biome].cave, setup.misc.encounters)
+        const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
         return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
       }
     },
@@ -155,7 +156,7 @@ setup.initMiscLocations = () => {
       available: ['desert'],
       function: (town, biome) => {
         const cavern = setup.misc.cavern.create()
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].encounters, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
         return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -176,7 +177,7 @@ setup.initMiscLocations = () => {
       available: ['desert'],
       function: (town, biome) => {
         const lived = setup.misc[biome].houseLived.random()
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, setup.misc.encounters)(town, biome)
         const cabin = setup.misc.cabin.create(town, biome, {
           material: 'stone',
           wordNoun: 'house'
@@ -188,7 +189,7 @@ setup.initMiscLocations = () => {
       available: ['desert'],
       function: (town, biome) => {
         const lived = setup.misc[biome].houseLived.random()
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].houseLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, setup.misc.encounters)(town, biome)
         const cabin = setup.misc.cabin.create(town, biome, {
           material: 'stone',
           wordNoun: 'house'
@@ -214,7 +215,7 @@ setup.initMiscLocations = () => {
       available: ['mountain', 'desert', 'road', 'forest'],
       function: (town, biome) => {
       // intentionally uses the mountain biome
-        const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
         return `an old, weathered watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
       }
     },
@@ -222,7 +223,7 @@ setup.initMiscLocations = () => {
       available: ['mountain', 'desert', 'road', 'forest'],
       function: (town, biome) => {
       // intentionally uses the mountain biome
-        const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
         return `a run down, abandoned watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is inhabited by ${encounter}.</blockquote>`
       }
     },
@@ -230,14 +231,14 @@ setup.initMiscLocations = () => {
       available: ['mountain', 'desert', 'road', 'forest'],
       function: (town, biome) => {
       // intentionally uses the mountain biome
-        const encounter = setup.contentsFetcher(town, biome, setup.misc.mountain.watchtowerLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
         return `a strategically located watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
       }
     },
     'ruins of an ancient city': {
       available: ['desert'],
       function: (town, biome) => {
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
         // intentionally uses forest
         return `ruins of an ancient city. <blockquote>The city was built by ${setup.misc.forest.ruinsLived.random()} Now, ${encounter} lives here.</blockquote>`
       }
@@ -245,7 +246,7 @@ setup.initMiscLocations = () => {
     'a temple ruin': {
       available: ['desert'],
       function: (town, biome) => {
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
         // intentionally uses forest
         return `a temple ruin. <blockquote>The city was built by ${setup.misc.forest.ruinsLived.random()} Now, ${encounter} lives here.</blockquote>`
       }
@@ -274,7 +275,7 @@ setup.initMiscLocations = () => {
     'a ruined monastery': {
       available: ['forest'],
       function: (town, biome) => {
-        const encounter = setup.contentsFetcher(town, biome, setup.misc[biome].ruinsLives, setup.misc.encounters)
+        const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
         return `a ruined monastery. <blockquote>These ruins are currently occupied by ${encounter}.</blockquote>`
       }
     },
@@ -308,7 +309,10 @@ setup.initMiscLocations = () => {
     },
     'a poorly marked grave or tomb': {
       available: ['mountain', 'forest', 'desert', 'road'],
-      function: (town, biome) => { return 'a crudely marked grave of someone long gone' }
+      function: (town) => {
+        const grave = setup.misc.graveStone.create(town)
+        return grave.sentenceStrings
+      }
     }
   }
 }
