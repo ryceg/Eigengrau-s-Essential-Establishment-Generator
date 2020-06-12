@@ -15,7 +15,7 @@
     <<replace "#ring">>
       <div class='descriptive'>
         <h3>
-          <<print (setup.articles.output(lib.toTitleCase($randomRing.material))>> ring
+          <<print setup.articles.output(lib.toTitleCase($randomRing.material))>> ring
         </h3>
         $randomRing.secondOutputs
       </div>
