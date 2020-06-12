@@ -242,9 +242,9 @@ setup.initNpcData = () => {
         },
         function (town, npc) {
           console.log('called lifeEvents.magicalCreature function')
-          const flower = setup.flora.flower.stemP.random()
-          const tree = setup.flora.tree.typeArticle.random()
-          const fruitTree = setup.flora.fruit.tree.random()
+          const flower = lib.flora.flower.stemP.random()
+          const tree = lib.flora.tree.typeArticle.random()
+          const fruitTree = lib.flora.fruit.tree.random()
           const goodPlace = setup.npcData.lifeEvents.magicalCreature.goodPlaces.random()
           const goodCreature = setup.npcData.lifeEvents.magicalCreature.goodCreatures.random()
           const goodAnimal = setup.npcData.lifeEvents.magicalCreature.goodAnimals.random()
@@ -367,9 +367,9 @@ setup.initNpcData = () => {
           const placement = setup.npcData.lifeEvents.festival.placement.random()
           const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.random()
           const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.random()
-          const fruit = setup.flora.fruit.fruitP.random()
-          const vegetable = setup.flora.vegetable.vegetableP.random()
-          const flower = setup.flora.flower.stemP.random()
+          const fruit = lib.flora.fruit.fruitP.random()
+          const vegetable = lib.flora.vegetable.vegetableP.random()
+          const flower = lib.flora.flower.stemP.random()
           const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.random()
           if (random(100) > 70) {
             return [
@@ -764,7 +764,7 @@ setup.initNpcData = () => {
         },
         function (town, npc) {
           console.log('called lifeEvents.lostChild function')
-          const treeType = setup.flora.tree.typeArticle.random()
+          const treeType = lib.flora.tree.typeArticle.random()
           const location = setup.npcData.lifeEvents.lostChild.location.random()
           const time = setup.npcData.lifeEvents.lostChild.time.random()
           const finder = setup.npcData.lifeEvents.lostChild.finder.random()

@@ -41,11 +41,11 @@ setup.createGraveyard = (town, base = {}) => {
   graveyard.entrance = [
     `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.metal.secondaryDescriptors.random()}, ${setup.graveyard.material.metal.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
     `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.wood.secondaryDescriptors.random()}, ${setup.graveyard.material.wood.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
-    `under a small arch made up of the curved branches of several ${setup.flora.tree.typeS.random()} trees`,
-    `through a large archway carved out of an enormous ${setup.flora.tree.typeS.random()} tree`,
+    `under a small arch made up of the curved branches of several ${lib.flora.tree.typeS.random()} trees`,
+    `through a large archway carved out of an enormous ${lib.flora.tree.typeS.random()} tree`,
     `by passing between a pair of ${graveyard.pairOf}`,
-    `past a group of ${['overgrown', 'nicely trimmed', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${setup.flora.flower.bush.random()} bushes`,
-    `by passing by several patches of ${['overgrown', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${setup.flora.flower.stemP.random()}`
+    `past a group of ${['overgrown', 'nicely trimmed', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${lib.flora.flower.bush.random()} bushes`,
+    `by passing by several patches of ${['overgrown', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${lib.flora.flower.stemP.random()}`
   ].random()
 
   graveyard.tippyDescription = `${setup.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`

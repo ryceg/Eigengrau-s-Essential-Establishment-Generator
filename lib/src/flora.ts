@@ -1,4 +1,4 @@
-setup.flora = {
+export const flora = {
   flower: {
     // Stemmed, non-shrub flowers plural
     stemP: [

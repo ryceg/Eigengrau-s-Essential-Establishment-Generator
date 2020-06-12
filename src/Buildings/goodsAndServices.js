@@ -35,8 +35,8 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
         building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
-        building.fruit = setup.flora.fruit.fruitS.random()
-        building.fruits = setup.flora.fruit.fruitP.random()
+        building.fruit = lib.flora.fruit.fruitS.random()
+        building.fruits = lib.flora.fruit.fruitP.random()
 
         building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
@@ -53,8 +53,8 @@ setup.initGoodsAndServices = () => {
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `The ${name.beast.random().toUpperFirst()}'s ${name.noun.random().toUpperFirst()}`,
             `${name.adjective.random().toUpperFirst()} ${[`${building.associatedNPC.firstName}'s `, name.beast.random().toUpperFirst()].random()} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${setup.flora.fruit.fruitS.random().toUpperFirst()} ${name.nounBakedGood.random().toUpperFirst()}`,
-            `The ${setup.flora.fruit.tree.random().toUpperFirst()} Tree ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${lib.flora.fruit.fruitS.random().toUpperFirst()} ${name.nounBakedGood.random().toUpperFirst()}`,
+            `The ${lib.flora.fruit.tree.random().toUpperFirst()} Tree ${name.wordNoun.random().toUpperFirst()}`,
             unique
           ].random()
         },
@@ -492,9 +492,9 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.flower1 = setup.flora.flower.stemP.random()
-        building.flower2 = setup.flora.flower.stemP.random()
-        building.flower = setup.flora.flower.stemS.random()
+        building.flower1 = lib.flora.flower.stemP.random()
+        building.flower2 = lib.flora.flower.stemP.random()
+        building.flower = lib.flora.flower.stemS.random()
 
         building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
@@ -508,10 +508,10 @@ setup.initGoodsAndServices = () => {
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
             `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${name.adjective.random().toUpperFirst()} ${setup.flora.flower.stemS.random().toUpperFirst()}`,
-            `The ${setup.flora.flower.stemS.random().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].random()}`,
-            `${setup.flora.flower.stemS.random().toUpperFirst()} Petals ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${setup.flora.flower.bush.random().toUpperFirst()} Bush ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${name.adjective.random().toUpperFirst()} ${lib.flora.flower.stemS.random().toUpperFirst()}`,
+            `The ${lib.flora.flower.stemS.random().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].random()}`,
+            `${lib.flora.flower.stemS.random().toUpperFirst()} Petals ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${lib.flora.flower.bush.random().toUpperFirst()} Bush ${name.wordNoun.random().toUpperFirst()}`,
             `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             unique
           ].random()

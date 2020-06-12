@@ -313,7 +313,7 @@ setup.generalStore = {
         'all of the windows in the shop are covered by thick furs making the room rather dark',
         'the windows are all blacked out and the room is lit by glowing mushrooms',
         `a large group of ${['owls', 'hawks', 'vultures', 'parakeets', 'crows', 'ravens', 'canaries', 'finches', 'parrots', 'bluejays', 'kingfishers', 'kookaburras', 'pigeons', 'doves', 'swallows', 'sparrows'].random()} are roosting in the rafters of the shop`,
-        `several large pots full of ${setup.flora.flower.stemP.random()} are placed around the shop`,
+        `several large pots full of ${lib.flora.flower.stemP.random()} are placed around the shop`,
         'the shelves of this shop are looking a little bare',
         'a large glass orb sitting on a plush pillow is on a wide table in the middle of the shop',
         'the shop counter is embedded with coins from all different regions',
