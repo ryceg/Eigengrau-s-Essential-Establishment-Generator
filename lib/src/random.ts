@@ -12,10 +12,10 @@ export function random (max: number): number
 export function random (min: number, max: number): number
 export function random (min: unknown, max?: unknown): unknown {
   if (Array.isArray(min)) {
-    return min[randomFn(min.length - 1)]
+    return min[randomFn(0, min.length - 1)]
   }
   if (typeof max === 'undefined') {
-    randomFn(min)
+    return randomFn(0, min)
   }
-  randomFn(min, max)
+  return randomFn(min, max)
 }
