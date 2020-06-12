@@ -5,8 +5,7 @@
  * For buildings, point towards town.buildings.tavern
  * For factions, point towards `town.factions`
  */
-setup.profile = (obj, base, type) => {
-  type = type || 'npcs'
+setup.profile = (obj, base, type = 'npcs') => {
   if (typeof obj === 'string') {
     console.error(`Profile function for ${obj} called with a string.`)
     obj = State.variables[type][obj]
