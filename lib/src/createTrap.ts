@@ -1,25 +1,24 @@
+import { random } from './random'
+import { assign } from './utils'
 
-setup.createTrap = base => {
-  const type = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
-  // var twist = ['trap was never reset. Nothing dangerous happens',
-  //   'the trap does multiple things, roll twice on the effect table',
-  //   'enemies in the room knowingly trigger the trap and then run from it',
-  //   'enemies can be overheard talking about how useless the trap is',
-  //   'an enemy has a list of traps and how to avoid them',
-  //   'there is a dummy trigger, drawing attention away from the real trigger',
-  //   'illusion magic is used to disguise all of the triggers',
-  //   'enemies are foolish enough to be lured into their own traps',
-  //   'the trap fails, but not before scaring the pants off the party',
-  //   'delay of ten seconds. Count out loud' ].random()
+interface Trap {
+  type: string
+  trigger: string
+  signal: string
+  payload: string
+}
 
-  const trap = Object.assign({
-    type: type.random()
-  }, base)
+export function createTrap (): Trap {
+  const types = ['mechanical', 'arcane', 'mechanical', 'arcane', 'indirect']
+
+  const trap = {
+    type: random(types)
+  }
 
   switch (trap.type) {
     case 'mechanical':
-      Object.assign(trap, {
-        trigger: [
+      assign(trap, {
+        trigger: random([
           'trip wire',
           'pressure plate',
           'opening a door',
@@ -30,8 +29,8 @@ setup.createTrap = base => {
           'breaking the beam of a light source',
           'disturbing a source of water in the room',
           'pulling on a suspicious looking rope hanging from the ceiling'
-        ].random(),
-        signal: [
+        ]),
+        signal: random([
           'gears can be heard grinding from inside the walls',
           'a low boom is heard that echoes out through the dungeon',
           'a high pitched whirring can be heard',
@@ -42,8 +41,8 @@ setup.createTrap = base => {
           'the sound of chains sliding across stone',
           'a thumping sound that starts slow and begins picking up speed',
           'nothing. There’s just silence'
-        ].random(),
-        payload: [
+        ]),
+        payload: random([
           'the floor opens downward into a 40 foot pit',
           'from unseen slits in the wall, poisoned needles fly out',
           'a wall opens revealing a golem to ambush the party',
@@ -54,12 +53,12 @@ setup.createTrap = base => {
           'the room begins filling with water after the doors slam shut',
           'the walls slowly begin closing inwards',
           'a large rolling boulder drops from the ceiling towards the party'
-        ].random()
+        ])
       })
       break
     case 'arcane':
-      Object.assign(trap, {
-        trigger: [
+      assign(trap, {
+        trigger: random([
           'an arcane rune on the floor',
           'arcane markings around a door frame',
           'a pillar that has a low hum to it',
@@ -70,8 +69,8 @@ setup.createTrap = base => {
           'a phrase scrawled on the wall that activates when said out loud',
           'failing to cast any spell on a dull crystal floating in the center of the room',
           'lighting a rather inviting looking torch in the center of the room'
-        ].random(),
-        signal: [
+        ]),
+        signal: random([
           'a low hum is heard',
           'a very unnatural light begins glowing brightly from an unknown source',
           'any runes in the room begin glowing a bright red',
@@ -82,8 +81,8 @@ setup.createTrap = base => {
           'a high pitched hum rings out',
           'a crackling of energy is heard through the room',
           'one can hear a deathly silence'
-        ].random(),
-        payload: [
+        ]),
+        payload: random([
           'sleep is cast on the room',
           'victim must resist being petrified',
           'a fireball explodes throughout the room',
@@ -94,12 +93,12 @@ setup.createTrap = base => {
           'the victim is sent to the astral plane for one minute',
           'everything in the room begins to levitate, no save',
           'the spell confusion is cast on everyone'
-        ].random()
+        ])
       })
       break
     case 'indirect':
-      Object.assign(trap, {
-        trigger: [
+      assign(trap, {
+        trigger: random([
           'trip wire',
           'pressure plate',
           'opening a door',
@@ -110,8 +109,8 @@ setup.createTrap = base => {
           'breaking the beam of a light source',
           'disturbing a source of water in the room',
           'pulling on a suspicious looking rope hanging from the ceiling'
-        ].random(),
-        signal: [
+        ]),
+        signal: random([
           'gears can be heard grinding from inside the walls',
           'a low boom is heard that echoes out through the dungeon',
           'a high pitched whirring can be heard',
@@ -121,8 +120,9 @@ setup.createTrap = base => {
           'a single click emanates from the trap',
           'the sound of chains sliding across stone',
           'a thumping sound that starts slow and begins picking up speed',
-          'nothing. There’s just silence'].random(),
-        payload: [
+          'nothing. There’s just silence'
+        ]),
+        payload: random([
           'a torch is lit in another room, alerting enemies',
           'a door in another room closes, hiding a secret passage',
           'chests in the dungeon lock up',
@@ -133,13 +133,12 @@ setup.createTrap = base => {
           'all doors in the dungeon lock themselves',
           'an alarm bell begins ringing alerting all enemies of the party',
           'another more sinister trap is set in another room'
-        ].random()
-
+        ])
       })
       break
     default:
-      Object.assign(trap, {
-        trigger: [
+      assign(trap, {
+        trigger: random([
           'trip wire',
           'pressure plate',
           'opening a door',
@@ -150,8 +149,8 @@ setup.createTrap = base => {
           'breaking the beam of a light source',
           'disturbing a source of water in the room',
           'pulling on a suspicious looking rope hanging from the ceiling'
-        ].random(),
-        signal: [
+        ]),
+        signal: random([
           'gears can be heard grinding from inside the walls',
           'a low boom is heard that echoes out through the dungeon',
           'a high pitched whirring can be heard',
@@ -161,8 +160,9 @@ setup.createTrap = base => {
           'a single click emanates from the trap',
           'the sound of chains sliding across stone',
           'a thumping sound that starts slow and begins picking up speed',
-          'nothing. There’s just silence'].random(),
-        payload: [
+          'nothing. There’s just silence'
+        ]),
+        payload: random([
           'the floor opens downward into a 40 foot pit',
           'from unseen slits in the wall, poisoned needles fly out',
           'a wall opens revealing a golem to ambush the party',
@@ -172,10 +172,14 @@ setup.createTrap = base => {
           'a large blade swings horizontally across the room attempting to decapitate',
           'the room begins filling with water after the doors slam shut',
           'the walls slowly begin closing inwards',
-          'a large rolling boulder drops from the ceiling towards the party'].random()
+          'a large rolling boulder drops from the ceiling towards the party'
+        ])
       })
   }
 
-  trap.description = `${['This trap is activated by ', 'This trap is triggered by '].random() + trap.trigger}. When activated, ${trap.signal}. ${['The trap then delivers its payload: ', 'Then, ', 'And then, '].random()}${trap.payload}.`
+  assign(trap, {
+    description: `${random(['This trap is activated by', 'This trap is triggered by'])} ${trap.trigger}. When activated, ${trap.signal}. ${random(['The trap then delivers its payload:', 'Then,', 'And then,'])} ${trap.payload}.`
+  })
+
   return trap
 }
