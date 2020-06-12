@@ -6,8 +6,9 @@ setup.createDescriptors = npc => {
   // lovely   little  old   rectangular green   French  silver    whittling   knife
   const descriptors = [
     `${npc.age || npc.ageStage} ${npc.raceName}`,
-    `${npc.height || `${npc.skinColour} skinned`} ${npc.raceName}`,
+    `${npc.skinColour} skinned ${npc.height} ${npc.raceName}`,
     `${npc.weight || npc.height} ${npc.raceName}`,
+    `${npc.weight || npc.height} ${npc.malefemale} ${npc.raceName}`,
     `${npc.height || npc.age} ${npc.gender} with ${npc.physicalTrait}`
   ]
 
