@@ -1,5 +1,4 @@
-
-setup.plothook = {
+export const plothook = {
   joke: [
     "A bard. Not a magic one. Just a bard. Like y'know. A minstrel or some shit he's ok I guess.",
     'Man chasing after a woman through a corn field. Distant saxophone is heard before both get eaten by a troll which chokes to death on them.',
