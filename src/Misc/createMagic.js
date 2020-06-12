@@ -2,7 +2,7 @@ setup.createMagic = type => {
   console.log(`Type: ${type}`)
 
   if (type === 'ring') {
-    const magic = setup.createRing()
+    const magic = lib.createRing()
     console.log('Ring!')
     console.log(magic)
     return magic

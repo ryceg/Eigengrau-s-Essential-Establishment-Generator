@@ -21,7 +21,7 @@ $tavernNPC.heshe.toUpperFirst()
 <<nobr>><<linkreplace "<h4>Generate one</h4>">>
     <<replace "#random">>
 
-    <</replace>><<link "<h4>Generate another</h4>">><<set $randomRing to setup.createRing()>>
+    <</replace>><<link "<h4>Generate another</h4>">><<set $randomRing to lib.createRing()>>
         <<replace "#ring">>
             <</replace>><</link>>
 <</linkreplace>>

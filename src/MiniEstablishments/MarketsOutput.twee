@@ -19,12 +19,12 @@ A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling 
   <<set $building.magicType to $building.magicSelection>>
   <<switch $building.magicType>>
     <<case "ring">><<nobr>>
-      <<set $building.magic to setup.createRing()>>
+      <<set $building.magic to lib.createRing()>>
       <<replace "#magic">>The $building.magicSeller.manwoman beckons you over to $building.magicSeller.hisher stall, and introduces $building.magicSeller.himherself as <<profile $building.magicSeller>>, a purveyor of fine goods. The $building.magicSeller.raceNote asks you for your ring size, and then $building.magicSeller.heshe reaches below $building.magicSeller.hisher table, and procures a ring...
             <div class="descriptive">
               <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
               $building.magic.firstOutputs</div>
-      <</replace>><<link "<h4>Look at another ring</h4>">><<set $building.magic to setup.createRing()>>
+      <</replace>><<link "<h4>Look at another ring</h4>">><<set $building.magic to lib.createRing()>>
           <<replace "#magic">>
                 <div class="descriptive">
                   <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
