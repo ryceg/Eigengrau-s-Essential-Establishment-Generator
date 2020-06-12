@@ -1,4 +1,16 @@
-setup.magicItems = {
+interface MagicItem {
+  price: {
+    sane: string | number,
+    DMPG: string | number,
+    DMG: string
+  },
+  rarity: 'common' | 'uncommon' | 'rare' | 'very rare' | 'legendary',
+  source: string,
+  page: string | number,
+  type: string
+}
+
+export const magicItems: Record<string, MagicItem> = {
   'Spell Scroll Level 0': {
     price: {
       sane: 10,
