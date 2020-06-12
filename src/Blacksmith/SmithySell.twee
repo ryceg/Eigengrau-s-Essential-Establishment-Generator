@@ -8,7 +8,7 @@
   <<case "village">>
   $associatedNPC.name says "Sure, what are you after? <<print $building.mundane.random().toUpperFirst()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
   <<case "hamlet">>
-  $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $building.mundane.random>>, <<print $building.mundane.random>>, you name it!"
+  $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $building.mundane.random()>>, <<print $building.mundane.random()>>, you name it!"
 <</switch>></div>
 
 <<switch $town.type>>

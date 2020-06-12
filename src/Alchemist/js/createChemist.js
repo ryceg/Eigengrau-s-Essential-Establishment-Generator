@@ -38,7 +38,6 @@ setup.createChemist = town => setup.createNPC(town, {
     'sole owner',
     'new owner'
   ].random(),
-  ingredients: ['bloodgrass', 'chromus slime', 'ephedra', 'emetic wax', 'fennel silk', 'gengko bush', 'hyacinth nectar', 'lavender sprigs', 'mandrake root', 'wild sageroot', 'arctic creeper', 'amanita cap', 'basilisk breath', 'cactus juice', 'drakus flower', 'harrada leaf', 'quicksilver lichen', 'radiant synthseed', 'spineflower berries', 'wyrmtongue petals', 'arrow root', 'blue toadshade', 'cosmos glond', "Devil's bloodleaf", "fiend's ivy", 'hydrathistle', 'ironwood heart', 'luminous cap dust', 'mortflesh powder', 'nightshade berries', 'primordial balm', 'rock vine', 'scilia beans', 'silver hibiscus', 'tail leaf', 'verdant nettle', 'voidroot', 'wispstalks', 'wrackwort bulbs'],
   greeting: [
     'nods at you',
     'looks suspiciously at your hair, and then smiles, and welcomes you warmly',
@@ -58,7 +57,7 @@ setup.createChemist = town => setup.createNPC(town, {
     'discusses the latest developments in alchemy, almost all of which are either over your head, or totally boring',
     'talks about how $associatedNPC.hisher latest batch of potions are disappearing mysteriously',
     'chats with you all about $associatedNPC.hisher newest stock, none of which is particularly out of the ordinary',
-    'talks about the many uses for <<print $associatedNPC.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
+    'talks about the many uses for <<print setup.alchemist.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
     'tries to push various products on you all as you look about the shop'
   ]
 })
