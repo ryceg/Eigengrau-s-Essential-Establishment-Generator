@@ -1,7 +1,7 @@
 
 :: Rooms
 <<nobr>>
-<<set _freeRooms to setup.tavernRooms($building)>>
+<<set _freeRooms to lib.tavernRooms($building)>>
 <<if _freeRooms <= 0>>
 	<span id="room-cost"><<print "You talk with the " + setup.profile($building.barmaid, "barmaid") + " about lodgings, and she says that there are no free rooms in $building.name at the moment...">></span>
 	<<elseif _freeRooms == 1>>

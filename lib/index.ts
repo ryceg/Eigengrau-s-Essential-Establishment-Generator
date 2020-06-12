@@ -29,3 +29,5 @@ export * from './src/toTitleCase'
 export * from './src/urlData'
 export * from './src/weightedRandomFetcher'
 export * from './src/weightRandom'
+
+export * from './tavern/tavernRooms'
