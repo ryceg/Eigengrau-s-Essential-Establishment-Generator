@@ -3,7 +3,11 @@ setup.profileTooltip = function (id, char) {
   jQuery(function () {
     const span = document.getElementById(id)
     if (span) {
-      span.title = char.tippyDescription || `${setup.articles.output(char.weight).toUpperFirst()} ${char.malefemale} ${char.raceAdjective} ${char.profession} with ${char.physicalTrait} called ${char.name}`
+      if (char.objectType !== 'npc') {
+        span.title = char.tippyDescription || char.wordNoun
+      } else {
+        span.title = char.tippyDescription || `${setup.articles.output(char.descriptor).toUpperFirst()} ${char.profession} with ${char.physicalTrait} called ${char.name}`
+      }
       tippy(`#${span.id}`)
     }
   })

@@ -50,6 +50,7 @@ setup.createNPC = function (town, base) {
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = Object.assign({
     key: base.key || randomFloat(0, 1),
+    objectType: 'npc',
     passageName: 'NPCProfile',
     _gender: gender,
     _race: race,
