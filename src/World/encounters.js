@@ -546,7 +546,7 @@ setup.initMiscEncounters = () => {
         isThrowaway: true,
         canBeCustom: true
       })
-      const map = setup.misc.treasureMap.create()
+      const map = lib.treasureMap.create()
       return `a ${setup.profile(npc, 'treasure-hunter')} with a ${map.tippyWord}`
     },
     'a wasteland druid': town => {

@@ -294,7 +294,7 @@ setup.townSquare = {
     },
     map: {
       function (town) {
-        const map = setup.misc.treasureMap.create()
+        const map = lib.treasureMap.create()
         const npc = setup.createNPC(town, {
           note: `Has a ${map.tippyWord}`
         })

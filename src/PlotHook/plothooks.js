@@ -791,7 +791,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const map = setup.misc.treasureMap.create()
+      const map = lib.treasureMap.create()
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
