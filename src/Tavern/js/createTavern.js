@@ -68,7 +68,7 @@ setup.createTavern = function (town, opts = {}) {
     default:
       tavern.notableFeature = `its ${tavern.draw}`
   }
-  setup.tavernModifiers(town, tavern)
+  lib.tavernModifiers(town, tavern)
   tavern.wealth = ''
   tavern.size = ''
   tavern.cleanliness = ''

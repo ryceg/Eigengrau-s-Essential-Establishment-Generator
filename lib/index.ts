@@ -30,4 +30,5 @@ export * from './src/urlData'
 export * from './src/weightedRandomFetcher'
 export * from './src/weightRandom'
 
+export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
