@@ -2,7 +2,7 @@
 setup.createTavern = function (town, opts = {}) {
   const tavern = (opts.newBuilding || setup.createBuilding)(town, 'tavern')
 
-  tavern.name = setup.createTavernName()
+  tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
   tavern.bartender = (opts.newBartender || setup.createBartender)(town, tavern.name)
   tavern.associatedNPC = tavern.bartender
