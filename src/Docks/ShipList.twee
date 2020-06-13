@@ -24,7 +24,7 @@
             <<link "x">>
               <<set _deleted to $building.ships[_ship.key]>>
               <<run setup.deleteNPC(_deleted.captain)>><<if def $building.ships[_ship.key].crew>><<run setup.deleteNPC($building.ships[_ship.key].crew)>><</if>>
-              <<run delete $town.buildings.docks[$selected.index].ships[_ship.key]>>
+              <<run delete $town.buildings[$selected.index].ships[_ship.key]>>
               <<notify 5000>>Deleted _deleted.name<</notify>>
             <</link>>
             </td>

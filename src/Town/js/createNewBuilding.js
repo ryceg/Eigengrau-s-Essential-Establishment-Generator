@@ -29,9 +29,6 @@ setup.createNewBuilding = (town, type) => {
 
   const newBuilding = setup.buildingTypes[type](town, { isHighlighted: true })
 
-  if (!town.buildings[newBuilding.buildingType]) {
-    town.buildings[newBuilding.buildingType] = {}
-  }
-  town.buildings[newBuilding.buildingType][newBuilding.key] = newBuilding
+  town.buildings.push(newBuilding)
   return newBuilding
 }

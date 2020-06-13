@@ -2,6 +2,7 @@
 \<span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_building.name)>>
 \<<link "_buildingTitle">>
   \<<set $selected to {buildingType: _buildingType, key: _key, building: _building}>>
+  <<run setup.createHistory(_building, null, _buildingTitle)>>
   \<<set $currentPassage to _building>>
   \<<run console.log(_building)>>
   \<<if settings.showSliders>>

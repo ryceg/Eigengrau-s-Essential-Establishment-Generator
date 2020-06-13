@@ -1,6 +1,5 @@
 :: BuildingsList
-<<for _buildingType, _townBuildings range $town.buildings>>
-  <<for _key, _building range _townBuildings>><<capture _buildingType, _key, _building>>
+<<for _key, _building range $town.buildings>><<capture _key, _building>>
     \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
     \<span @id="_building.name">
     \<<if def _previousBuilding && _previousBuilding.road === _building.road>>
@@ -14,6 +13,5 @@
     \<</if>>
     \<<include "BuildingLink">></span>
   \<</capture>><<set _previousBuilding to _building>>
-  \<</for>>
 <</for>>
 

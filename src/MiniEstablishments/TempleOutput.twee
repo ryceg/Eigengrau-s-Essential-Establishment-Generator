@@ -1,5 +1,5 @@
 :: TempleOutput
-<<unset $selectedBuilding>><<set $building to ($town.buildings.temple[$selected.key] || $town.buildings.temple[$currentPassage.key])>><<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
+<<unset $selectedBuilding>><<set $building to ($town.buildings[$selected.key] || $town.buildings[$currentPassage.key])>><<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <h1>$building.name</h1><<include "TownMicroEventsOutput">><<print lib.firstCharacter("You")>> come across $building.structure.templeDescriptor. $building.guardReadout
 $building.interiorReadout
 <br>$building.aboutReadout

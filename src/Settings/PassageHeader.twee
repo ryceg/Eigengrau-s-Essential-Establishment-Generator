@@ -6,34 +6,12 @@
     <<unset $currentNPCKey>>
     <<goto "Start">>
 <</link>>
-
-<<if def $currentPassage && passage() is $currentPassage.passageName>>
-  > $currentPassage.name
-  <<elseif def $currentPassage && passage() isnot $currentPassage.passageName>>
-  > <<profile $currentPassage>>
-  /* <<elseif def $currentPassage && passage() isnot $currentPassage.passageName>> */
-  /* > <<link $currentPassage.name>> */
-  /* <<unset $currentNPC>> */
-  /* <<unset $currentNPCKey>> */
-  /* <<goto $currentPassage.passageName>> */
-  <</link>>
 <</if>>
-
-/* <<if def $currentFaction && passage() is "FactionProfile">>
-  > $currentFaction.name
-<</if>> */
-
-<<if $currentPassage is $town.guard && passage() is "GuardOutput">>
-  > $town.guard.name
-  <<elseif $currentPassage is $town.guard && passage() isnot "GuardOutput">>
-  > <<link $currentPassage.name>>
-  /* <<unset $currentNPC>> */
-  /* <<unset $currentNPCKey>> */
-  <<goto $currentPassage.passageName>><</link>>
-<</if>>
-
-<<if def $currentNPC && passage() is "NPCProfile">>
-  > $currentNPC.name
-<</if>>
-<</if>>
+<<for _i, _passage range $history>><<capture _i, _passage>>
+<<link _passage.linkDescription>>
+  <<set $selected to _passage.data>>
+  <<goto _passage.passageName>>
+  <<run setup.history(_passage)>>
+<</link>><</capture>>
+<</for>>
 <</nobr>></h5>

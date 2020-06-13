@@ -1,6 +1,6 @@
 
 :: InitgeneralStore [output]
-<<set $selectedBuilding to ($town.buildings.generalStore[$selected.key] || $town.buildings.generalStore[$currentPassage.key])>><<run lib.clampRolls($town.buildings.generalStore[$selected.key].roll)>>
+<<set $selectedBuilding to ($town.buildings[$selected.key] || $town.buildings[$currentPassage.key])>><<run lib.clampRolls($town.buildings[$selected.key].roll)>>
 <<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
 
 <<button "Delete $selectedBuilding.name">><<run setup.deleteBuilding($town, $selectedBuilding)>><<goto "Start">><</button>>

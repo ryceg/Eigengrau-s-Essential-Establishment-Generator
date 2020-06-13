@@ -2,5 +2,6 @@ setup.deleteBuilding = (town, building) => {
   if (building.associatedNPC) {
     setup.deleteNPC(building.associatedNPC)
   }
-  delete town.buildings[building.type][building.key]
+  const index = town.buildings.indexOf(building)
+  town.buildings.splice(index, 1)
 }

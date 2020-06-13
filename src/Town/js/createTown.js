@@ -91,8 +91,7 @@ setup.createTown = function (base) {
     season,
     factions: {
     },
-    buildings: {
-    },
+    buildings: [],
     families: {
     },
     population: setup.townData.type[type].population(),

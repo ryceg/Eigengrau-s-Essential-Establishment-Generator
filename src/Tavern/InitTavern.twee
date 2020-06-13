@@ -1,6 +1,6 @@
 
 :: InitTavern [output]
-<<set $selectedBuilding to ($town.buildings.tavern[$selected.key] || $town.buildings.tavern[$currentPassage.key])>><<run lib.clampRolls($town.buildings.tavern[$selected.key].roll)>>
+<<set $selectedBuilding to ($town.buildings[$selected.key] || $town.buildings[$currentPassage.key])>><<run lib.clampRolls($town.buildings[$selected.key].roll)>>
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
             \<<set $selectedBuilding.name to setup.createTavernName()>>>><<textbox "$selectedBuilding.name" $selectedBuilding.name>>

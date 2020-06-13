@@ -1,5 +1,5 @@
 :: BrothelOutput [brothel]
-<<unset $selectedBuilding>><<set $building to ($town.buildings.brothel[$selected.key] || $town.buildings.brothel[$currentPassage.key])>><<set $associatedNPC to $npcs[$building.pimp.key]>>
+<<unset $selectedBuilding>><<set $building to ($town.buildings[$selected.key] || $town.buildings[$currentPassage.key])>><<set $associatedNPC to $npcs[$building.pimp.key]>>
 <h1>$building.name</h1><<include "TownMicroEventsOutput">><<print lib.firstCharacter("You")>> make your way down $building.road, and enter $building.name $building.structure.brothelDescriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
 When people talk about $building.name, they say $building.talk. Apparently, it specialises in $building.specialty.
 Rumours abound in whorehouses, and $building.name is no different; apparently, $building.rumour.
