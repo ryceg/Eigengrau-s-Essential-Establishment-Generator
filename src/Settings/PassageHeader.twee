@@ -1,6 +1,6 @@
 :: PassageHeader
 <h5><<nobr>>
-<<if $history.length > 4>>
+<<if $history.length > 2>>
     <div class="scrollmenu"><<include "Breadcrumb">></div>
   <<else>>
     <<include "Breadcrumb">>
