@@ -13,8 +13,8 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   const potentialProjects = {
     market: {
       function (town) {
-        const market = lib.objectArrayFetcher(town.buildings.market)
-        return `${setup.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
+        const market = setup.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
+        return `${setup.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     whyNot: {
@@ -44,8 +44,8 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     mundaneMarkets: {
       function (town) {
-        const market = lib.objectArrayFetcher(town.buildings.market)
-        return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets', 'town.buildings.market')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
+        const market = setup.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
+        return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     highValueBuyer: {
@@ -105,8 +105,8 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return smithy.roll.expertise > 40 || lib.objectArrayFetcher(town.buildings.temple).roll.wealth > 60
       },
       function (town) {
-        const building = lib.objectArrayFetcher(town.buildings.temple)
-        return `an ornamental ${weapon.random()} for ${setup.profile(building.priest, 'the priest')} of ${setup.profile(building, '', 'town.buildings.temple')}.`
+        const building = setup.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
+        return `an ornamental ${weapon.random()} for ${setup.profile(building.priest, 'the priest')} of ${setup.profile(building, null, 'town.buildings')}.`
       }
     }
   }
