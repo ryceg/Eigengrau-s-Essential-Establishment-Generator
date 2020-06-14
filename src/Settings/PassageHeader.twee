@@ -1,19 +1,8 @@
 :: PassageHeader
 <h5><<nobr>>
-<<if def $town>><<link "The $town.type of $town.name">>
-    <<unset $currentPassage>>
-    <<unset $currentNPC>>
-    <<set $history to []>>
-    <<goto "Start">>
-<</link>>
+<<if $history.length > 4>>
+    <div class="scrollmenu"><<include "Breadcrumb">></div>
+  <<else>>
+    <<include "Breadcrumb">>
 <</if>>
-<<for _i = 0; _i < $history.length - 1; _i++>><<capture _i>>
-> <<link $history[_i].linkDescription>>
-    <<set $currentPassage to $history[_i].data>>
-    <<goto $history[_i].passageName>>
-    <<run setup.history($history[_i].data, $history[_i].passageName, $history[_i].linkDescription)>>
-    <<run $history.splice[_i]>>
-<</link>>
-<</capture>><</for>>
-/* > <b><<print $history[$history.length].linkDescription>></b> */> <<print $history.length>>
 <</nobr>></h5>
