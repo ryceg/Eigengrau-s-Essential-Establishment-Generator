@@ -380,7 +380,7 @@ setup.plothooks = {
     },
     function (town) {
       const faction = setup.factionsForType(town, 'type', 'wizards')
-      return `${'‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "'}${JSON.stringify(faction.name)}">><<set $selected to {faction: ${JSON.stringify(faction)}}>><<goto "FactionProfile">><</link>> . Please return if found!’`
+      return `${'‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "'}${JSON.stringify(faction.name)}">><<set $currentPassage to {faction: ${JSON.stringify(faction)}}>><<goto "FactionProfile">><</link>> . Please return if found!’`
     }
   },
   'Big Chickens': {
@@ -1164,7 +1164,7 @@ setup.plothooks = {
         background: 'commoner'
       })
       // #
-      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $building to ' + tavern + '>><<goto "TavernOutput">><</link>>
+      // <<link ' + JSON.stringify(tavern.name) + '>><<set $currentPassage to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $currentPassage.")>><<set $building to ' + tavern + '>><<goto "TavernOutput">><</link>>
       return `Fence need painted. Good pay. Contact ${setup.profile(npc)} at ${setup.profile(building, '', 'town.buildings.tavern')}. Twist is, the fence is 10 feet tall and almost a mile long.`
     }
   },

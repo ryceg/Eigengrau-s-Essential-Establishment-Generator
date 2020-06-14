@@ -37,8 +37,7 @@ setup.createTownBiome = function (base) {
     pregen: true,
     factions: {
     },
-    buildings: {
-    },
+    buildings: [],
     families: {
     },
     population: setup.townData.type[type].population(),

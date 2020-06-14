@@ -1,22 +1,22 @@
 
 :: InitAlchemist [output]
-<<set $selectedBuilding to ($town.buildings[$selected.key] || $town.buildings[$currentPassage.key])>><<run lib.clampRolls($town.buildings[$selected.key].roll)>>
-<<linkreplace "Rename <strong>$selectedBuilding.name</strong>">><h3><<textbox "$selectedBuilding.name" $selectedBuilding.name>></h3><</linkreplace>>
+<<set $currentPassageBuilding to ($town.buildings[$currentPassage.key] || $town.buildings[$currentPassage.key])>><<run lib.clampRolls($town.buildings[$currentPassage.key].roll)>>
+<<linkreplace "Rename <strong>$currentPassageBuilding.name</strong>">><h3><<textbox "$currentPassageBuilding.name" $currentPassageBuilding.name>></h3><</linkreplace>>
 
-<<button "Delete $selectedBuilding.name">><<run setup.deleteBuilding($town, $selectedBuilding)>><<goto "Start">><</button>>
+<<button "Delete $currentPassageBuilding.name">><<run setup.deleteBuilding($town, $currentPassageBuilding)>><<goto "Start">><</button>>
 
-<span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">Alchemist Wealth: <<numberslider "$currentPassageBuilding.roll.wealth" $currentPassageBuilding.roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How large is the shop?">Alchemist Size: <<numberslider "$selectedBuilding.roll.size" $selectedBuilding.roll.size 1 100 1>></span>
+<span class="tip" title="How large is the shop?">Alchemist Size: <<numberslider "$currentPassageBuilding.roll.size" $currentPassageBuilding.roll.size 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or is it a hobby shop?">Alchemist Reputation: <<numberslider "$selectedBuilding.roll.reputation" $selectedBuilding.roll.reputation 1 100 1>></span>
+<span class="tip" title="Is it well known, or is it a hobby shop?">Alchemist Reputation: <<numberslider "$currentPassageBuilding.roll.reputation" $currentPassageBuilding.roll.reputation 1 100 1>></span>
 
-<span class="tip" title="How clean is the alchemist?">Alchemist Cleanliness: <<numberslider "$selectedBuilding.roll.cleanliness" $selectedBuilding.roll.cleanliness 1 100 1>></span>
+<span class="tip" title="How clean is the alchemist?">Alchemist Cleanliness: <<numberslider "$currentPassageBuilding.roll.cleanliness" $currentPassageBuilding.roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?">Alchemist Expertise: <<numberslider "$selectedBuilding.roll.expertise" $selectedBuilding.roll.expertise 1 100 1>></span>
+<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?">Alchemist Expertise: <<numberslider "$currentPassageBuilding.roll.expertise" $currentPassageBuilding.roll.expertise 1 100 1>></span>
 
-<span class="tip" title="How busy is the alchemist?">Alchemist Activity: <<numberslider "$selectedBuilding.roll.activity" $selectedBuilding.roll.activity 1 100 1>></span>
+<span class="tip" title="How busy is the alchemist?">Alchemist Activity: <<numberslider "$currentPassageBuilding.roll.activity" $currentPassageBuilding.roll.activity 1 100 1>></span>
 
-<span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist Price Modifier: <<numberslider "$selectedBuilding.priceModifier" $selectedBuilding.priceModifier -10 10 1>></span>
+<span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist Price Modifier: <<numberslider "$currentPassageBuilding.priceModifier" $currentPassageBuilding.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]

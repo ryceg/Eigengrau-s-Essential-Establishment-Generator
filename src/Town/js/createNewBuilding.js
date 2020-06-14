@@ -28,7 +28,7 @@ setup.createNewBuilding = (town, type) => {
   // unfortunately, it currently needs to be updated manually with each new building.
 
   const newBuilding = setup.buildingTypes[type](town, { isHighlighted: true })
-
-  town.buildings.push(newBuilding)
+  console.log(town)
+  if (Array.isArray(town.buildings)) town.buildings.push(newBuilding)
   return newBuilding
 }

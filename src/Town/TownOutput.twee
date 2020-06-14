@@ -25,7 +25,7 @@ _listbox -- <<button "Create new faction">>
   <<run console.log($town)>>
   <<goto "TownOutput">>
 <</button>>
-<<unset $selected>>
+<<unset $currentPassage>>
 
 <div class='classTable'><<nobr>><table>
     <tr>
@@ -37,7 +37,7 @@ _listbox -- <<button "Create new faction">>
     </tr>
 <<for _key, _faction range $town.factions>><<capture _key, _faction>>
   <tr>
-    <td><<link "_faction.name">><<set $selected to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
+    <td><<link "_faction.name">><<set $currentPassage to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
     <td>_faction.type _faction.wordNoun</td>
     <td>_faction.size</td>
     <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
@@ -149,7 +149,7 @@ _listbox -- <<button "Create new faction">>
       \<<elseif _npcs.length > 1>>
         \<<for _i, _npc range _npcs>>
           \<<profile _npc>><</for>>
-      \<<else>><<link "Create _article">><<set $selected to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $selected.passageName>><</link>>
+      \<<else>><<link "Create _article">><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $currentPassage.passageName>><</link>>
     \<</if>></td></tr><</capture>><</nobr>><</for>>
 </table>Total: <<print _count.toFixed(2)>>% of the total population.
 <</linkappend>>

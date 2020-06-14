@@ -1,60 +1,60 @@
 :: NPCProfileEdit
-<h1><<if def $npcs[$selected.key].title>><<print $npcs[$selected.key].title>> <</if>><<textbox "$npcs[$selected.key].name" $npcs[$selected.key].name>></h1>
-\<<set _age = Math.floor(randomFloat(1).toString(16))>><<run setup.profileAgeTooltip(_age, $npcs[$selected.key])>>
-\<<set _weight = Math.floor(randomFloat(1).toString(16))>><<run setup.profileWeightTooltip(_weight, $npcs[$selected.key])>>
-\<<set _height = Math.floor(randomFloat(1).toString(16))>><<run setup.profileHeightTooltip(_height, $npcs[$selected.key])>>
+<h1><<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>></h1>
+\<<set _age = Math.floor(randomFloat(1).toString(16))>><<run setup.profileAgeTooltip(_age, $npcs[$currentPassage.key])>>
+\<<set _weight = Math.floor(randomFloat(1).toString(16))>><<run setup.profileWeightTooltip(_weight, $npcs[$currentPassage.key])>>
+\<<set _height = Math.floor(randomFloat(1).toString(16))>><<run setup.profileHeightTooltip(_height, $npcs[$currentPassage.key])>>
 <<silently>>
-    <<set _class to '<<listbox "$npcs[$selected.key].dndClass" autoselect>>'>>
+    <<set _class to '<<listbox "$npcs[$currentPassage.key].dndClass" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.classTraits)>>
         <<set _class += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _class += '<</listbox>>'>>
 
-    <<set _background to '<<listbox "$npcs[$selected.key].background" autoselect>>'>>
+    <<set _background to '<<listbox "$npcs[$currentPassage.key].background" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.backgroundTraits)>>
         <<set _background += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _background += '<</listbox>>'>>
 
-    <<set _race to '<<listbox "$npcs[$selected.key].race" autoselect>>'>>
+    <<set _race to '<<listbox "$npcs[$currentPassage.key].race" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.raceTraits)>>
         <<set _race += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _race += '<</listbox>>'>>
 
-    <<set _gender to '<<listbox "$npcs[$selected.key].gender" autoselect>>'>>
+    <<set _gender to '<<listbox "$npcs[$currentPassage.key].gender" autoselect>>'>>
     <<for _key range Object.keys(setup.npcData.gender)>>
         <<set _gender += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _gender += '<</listbox>>'>>
 
     /* <<run Object.assign(_npcOptions, setup.misc.patreonCharacters)>> */
-    <<set _replaceNpc to $npcs[$selected.key]>>
+    <<set _replaceNpc to $npcs[$currentPassage.key]>>
 <</silently>>\
 
-<<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom setup.misc.patreonCharacters>><</listbox>> -- <<button "Replace NPC">><<set $npcs[$selected.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC">><<run setup.deleteNPC($npcs[$selected.key])>><<goto "Start">><</button>>
+<<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom setup.misc.patreonCharacters>><</listbox>> -- <<button "Replace NPC">><<set $npcs[$currentPassage.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC">><<run setup.deleteNPC($npcs[$currentPassage.key])>><<goto "Start">><</button>>
 
-<<if def $npcs[$selected.key].title>><<print $npcs[$selected.key].title>> <</if>><<print $npcs[$selected.key].name>> is a <span @id="_age" class="tip"><<textbox "$npcs[$selected.key].age" $npcs[$selected.key].age>></span> <span class="tip" title="Non binary options coming soon!">_gender</span> _race. <<print $npcs[$selected.key].heshe.toUpperFirst()>> is <span @id="_height" class="tip"><<textbox "$npcs[$selected.key].height" $npcs[$selected.key].height>></span> and <span @id="_weight" class="tip"><<textbox "$npcs[$selected.key].weight" $npcs[$selected.key].weight>></span>, and has <<textbox "$npcs[$selected.key].eyes" $npcs[$selected.key].eyes>> eyes<<if def $npcs[$selected.key].beard>> and a <<textbox "$npcs[$selected.key].beard" $npcs[$selected.key].beard>>,<</if>> with <<textbox "$npcs[$selected.key].skinColour" $npcs[$selected.key].skinColour>> skin. 
-\The most notable physical trait of <<print $npcs[$selected.key].firstName>> is that <<print $npcs[$selected.key].heshe>> has <<textbox "$npcs[$selected.key].physicalTrait" $npcs[$selected.key].physicalTrait>>.
+<<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><<print $npcs[$currentPassage.key].name>> is a <span @id="_age" class="tip"><<textbox "$npcs[$currentPassage.key].age" $npcs[$currentPassage.key].age>></span> <span class="tip" title="Non binary options coming soon!">_gender</span> _race. <<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> is <span @id="_height" class="tip"><<textbox "$npcs[$currentPassage.key].height" $npcs[$currentPassage.key].height>></span> and <span @id="_weight" class="tip"><<textbox "$npcs[$currentPassage.key].weight" $npcs[$currentPassage.key].weight>></span>, and has <<textbox "$npcs[$currentPassage.key].eyes" $npcs[$currentPassage.key].eyes>> eyes<<if def $npcs[$currentPassage.key].beard>> and a <<textbox "$npcs[$currentPassage.key].beard" $npcs[$currentPassage.key].beard>>,<</if>> with <<textbox "$npcs[$currentPassage.key].skinColour" $npcs[$currentPassage.key].skinColour>> skin. 
+\The most notable physical trait of <<print $npcs[$currentPassage.key].firstName>> is that <<print $npcs[$currentPassage.key].heshe>> has <<textbox "$npcs[$currentPassage.key].physicalTrait" $npcs[$currentPassage.key].physicalTrait>>.
 
-<<print $npcs[$selected.key].firstName>> <<textbox "$npcs[$selected.key].trait" $npcs[$selected.key].trait>>. <<if def $npcs[$selected.key].vocalPattern>><<print $npcs[$selected.key].heshe.toUpperFirst()>> <<textbox "$npcs[$selected.key].vocalPattern" $npcs[$selected.key].vocalPattern>>. 
-\<</if>>When <<print $npcs[$selected.key].heshe>> is relaxed, <<print $npcs[$selected.key].heshe>> is <<textbox "$npcs[$selected.key].calmTrait" $npcs[$selected.key].calmTrait>>. In moments of stress, <<print $npcs[$selected.key].heshe>> becomes <<textbox "$npcs[$selected.key].stressTrait" $npcs[$selected.key].stressTrait>>. <<if $npcs[$selected.key].knownLanguages.length == 2>><<print $npcs[$selected.key].firstName>> knows <<print $npcs[$selected.key].knownLanguages[0]>> and <<print $npcs[$selected.key].knownLanguages[1]>>.<</if>>
+<<print $npcs[$currentPassage.key].firstName>> <<textbox "$npcs[$currentPassage.key].trait" $npcs[$currentPassage.key].trait>>. <<if def $npcs[$currentPassage.key].vocalPattern>><<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> <<textbox "$npcs[$currentPassage.key].vocalPattern" $npcs[$currentPassage.key].vocalPattern>>. 
+\<</if>>When <<print $npcs[$currentPassage.key].heshe>> is relaxed, <<print $npcs[$currentPassage.key].heshe>> is <<textbox "$npcs[$currentPassage.key].calmTrait" $npcs[$currentPassage.key].calmTrait>>. In moments of stress, <<print $npcs[$currentPassage.key].heshe>> becomes <<textbox "$npcs[$currentPassage.key].stressTrait" $npcs[$currentPassage.key].stressTrait>>. <<if $npcs[$currentPassage.key].knownLanguages.length == 2>><<print $npcs[$currentPassage.key].firstName>> knows <<print $npcs[$currentPassage.key].knownLanguages[0]>> and <<print $npcs[$currentPassage.key].knownLanguages[1]>>.<</if>>
 
-<<print $npcs[$selected.key].firstName>> is <<print setup.articles.output(_class)>>, with a background of being <<print setup.articles.output(_background)>>. <<print $npcs[$selected.key].firstName>> currently has <<textbox "$npcs[$selected.key].pockets" $npcs[$selected.key].pockets>> in <<print $npcs[$selected.key].hisher>> pockets, and <<money $npcs[$selected.key].wealth>> to <<print $npcs[$selected.key].hisher>> name. In combat, <<print $npcs[$selected.key].heshe>> uses <<textbox "$npcs[$selected.key].weapon" $npcs[$selected.key].weapon>>.
+<<print $npcs[$currentPassage.key].firstName>> is <<print setup.articles.output(_class)>>, with a background of being <<print setup.articles.output(_background)>>. <<print $npcs[$currentPassage.key].firstName>> currently has <<textbox "$npcs[$currentPassage.key].pockets" $npcs[$currentPassage.key].pockets>> in <<print $npcs[$currentPassage.key].hisher>> pockets, and <<money $npcs[$currentPassage.key].wealth>> to <<print $npcs[$currentPassage.key].hisher>> name. In combat, <<print $npcs[$currentPassage.key].heshe>> uses <<textbox "$npcs[$currentPassage.key].weapon" $npcs[$currentPassage.key].weapon>>.
 
-<span class="tip" title="Add notes here"><<textarea "$npcs[$selected.key].note" "">></span>
-<<linkreplace "Early Life">><div class='descriptive'>I was born <<textbox "$npcs[$selected.key].birthplace" $npcs[$selected.key].birthplace>>, and was raised by <<textbox "$npcs[$selected.key].familyUnit" $npcs[$selected.key].familyUnit>><<if $npcs[$selected.key].siblingNumber == 0>> as an only child.<<elseif $npcs[$selected.key].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$selected.key].siblingNumber siblings.<</if>> I had a <<textbox "$npcs[$selected.key].familyLifestyle" $npcs[$selected.key].familyLifestyle>> upbringing in <<textbox "$npcs[$selected.key].familyHome" $npcs[$selected.key].familyHome>>. <<if !$npcs[$selected.key].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$selected.key].parentalLineage>>$npcs[$selected.key].parentalLineage.<</if>> <<textbox "$npcs[$selected.key].childhoodMemories" $npcs[$selected.key].childhoodMemories>>.</div><</linkreplace>>
-<<set _profession to $npcs[$selected.key].profession>>
-<<linkreplace "Becoming a _profession">><div class='descriptive'>"<<textarea "$npcs[$selected.key].backgroundOrigin" $npcs[$selected.key].backgroundOrigin>> <<textarea "$npcs[$selected.key].professionOrigin" $npcs[$selected.key].professionOrigin>> That's how I became <<print setup.articles.output($npcs[$selected.key].profession)>>. <<textarea "$npcs[$selected.key].bond" $npcs[$selected.key].bond>> <<textarea "$npcs[$selected.key].ideal" $npcs[$selected.key].ideal>>"</div><</linkreplace>>
+<span class="tip" title="Add notes here"><<textarea "$npcs[$currentPassage.key].note" "">></span>
+<<linkreplace "Early Life">><div class='descriptive'>I was born <<textbox "$npcs[$currentPassage.key].birthplace" $npcs[$currentPassage.key].birthplace>>, and was raised by <<textbox "$npcs[$currentPassage.key].familyUnit" $npcs[$currentPassage.key].familyUnit>><<if $npcs[$currentPassage.key].siblingNumber == 0>> as an only child.<<elseif $npcs[$currentPassage.key].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$currentPassage.key].siblingNumber siblings.<</if>> I had a <<textbox "$npcs[$currentPassage.key].familyLifestyle" $npcs[$currentPassage.key].familyLifestyle>> upbringing in <<textbox "$npcs[$currentPassage.key].familyHome" $npcs[$currentPassage.key].familyHome>>. <<if !$npcs[$currentPassage.key].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$currentPassage.key].parentalLineage>>$npcs[$currentPassage.key].parentalLineage.<</if>> <<textbox "$npcs[$currentPassage.key].childhoodMemories" $npcs[$currentPassage.key].childhoodMemories>>.</div><</linkreplace>>
+<<set _profession to $npcs[$currentPassage.key].profession>>
+<<linkreplace "Becoming a _profession">><div class='descriptive'>"<<textarea "$npcs[$currentPassage.key].backgroundOrigin" $npcs[$currentPassage.key].backgroundOrigin>> <<textarea "$npcs[$currentPassage.key].professionOrigin" $npcs[$currentPassage.key].professionOrigin>> That's how I became <<print setup.articles.output($npcs[$currentPassage.key].profession)>>. <<textarea "$npcs[$currentPassage.key].bond" $npcs[$currentPassage.key].bond>> <<textarea "$npcs[$currentPassage.key].ideal" $npcs[$currentPassage.key].ideal>>"</div><</linkreplace>>
 
 <<linkreplace "Life events">><div class='descriptive'>Well, I certainly have a tale or two...
-\<<if $npcs[$selected.key].lifeEvents.length == 2>>
-    When I was about twenty, <<print $npcs[$selected.key].lifeEvents[0].toUpperFirst()>>. A couple years later, $npcs[$selected.key].lifeEvents[1]
-  \<<elseif $npcs[$selected.key].lifeEvents.length == 1>>
-    $npcs[$selected.key].lifeEvents. <<print ["Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest."].random()>>
+\<<if $npcs[$currentPassage.key].lifeEvents.length == 2>>
+    When I was about twenty, <<print $npcs[$currentPassage.key].lifeEvents[0].toUpperFirst()>>. A couple years later, $npcs[$currentPassage.key].lifeEvents[1]
+  \<<elseif $npcs[$currentPassage.key].lifeEvents.length == 1>>
+    $npcs[$currentPassage.key].lifeEvents. <<print ["Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest."].random()>>
   \<<else>>
-    \<<print $npcs[$selected.key].lifeEvents[0].toUpperFirst()>>.
-    \<<for _lifeEvents range $npcs[$selected.key].lifeEvents.slice(1, -1)>>
+    \<<print $npcs[$currentPassage.key].lifeEvents[0].toUpperFirst()>>.
+    \<<for _lifeEvents range $npcs[$currentPassage.key].lifeEvents.slice(1, -1)>>
         <<print [
           "_lifeEvents ",
           "And then, after a couple weeks, _lifeEvents ",
@@ -65,13 +65,13 @@
           "I forget exactly when, but at one point, _lifeEvents "
           ].random()>>
     \<</for>>
-    Then last year, <<print $npcs[$selected.key].lifeEvents[$npcs[$selected.key].lifeEvents.length - 1]>>
+    Then last year, <<print $npcs[$currentPassage.key].lifeEvents[$npcs[$currentPassage.key].lifeEvents.length - 1]>>
 <</if>></div><</linkreplace>>
 
-<<if def $npcs[$selected.key].partnerID>><<print $npcs[$selected.key].firstName>> has a partner, <<profile $npcs[$selected.key].partnerID>><</if>>
+<<if def $npcs[$currentPassage.key].partnerID>><<print $npcs[$currentPassage.key].firstName>> has a partner, <<profile $npcs[$currentPassage.key].partnerID>><</if>>
 
 <<button "Save changes">>
-  <<run console.log('Saving changes to ' + $npcs[$selected.key].name + '...')>>
+  <<run console.log('Saving changes to ' + $npcs[$currentPassage.key].name + '...')>>
   <<goto "NPCProfileEdit">>
 <</button>>
 [[Return|previous()]]

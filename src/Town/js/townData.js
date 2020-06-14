@@ -1030,7 +1030,7 @@ setup.initTownData = () => {
         'a young woman approaches you and offers you a good time. But only to you, not the rest of your party.',
         'a woman empties a chamber pot from a second storey window. Some of it splashes on you.',
         'a group of children suddenly run across the road, chasing each other. Your horse is startled, and rears suddenly. (Maybe ask for a ride check to remain mounted)',
-        'a cart blocks the road forward. an elderly man stares at the broken axle and scratches his head.',
+        'a cart blocks the road forward. An elderly man stares at the broken axle and scratches his head.',
         'a cat runs out of nowhere, bats at your foot frantically, then runs back into its hiding place.',
         'a scrawny dog has started following you around. When you stop, it sits next to you and whines gently.',
         'a man lays on the side of the road, unconscious. You can smell alcohol and urine as you pass him.',
