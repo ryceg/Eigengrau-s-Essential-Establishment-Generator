@@ -37,7 +37,7 @@ _listbox -- <<button "Create new faction">>
     </tr>
 <<for _key, _faction range $town.factions>><<capture _key, _faction>>
   <tr>
-    <td><<link "_faction.name">><<set $currentPassage to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
+    <td><<profile _faction>></td>
     <td><<print _faction.type.toUpperFirst()>> <<print _faction.wordNoun.toUpperFirst()>></td>
     <td><<print lib.toTitleCase(_faction.size)>></td>
     <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>

@@ -82,16 +82,20 @@
 
 
 <<widget "profile">>
-    \<<set _char = $args[0],
-        _readout = $args[1] || _char.name,
-        _id = "tip-" + Util.slugify((_char.name) || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
-    \<<capture _char, _readout, _id>>
+    \<<set _object = $args[0],
+        _readout = $args[1] || _object.name,
+        _id = "tip-" + Util.slugify((_object.name) || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
+    \<<capture _object, _readout, _id>>
         \<span @id="_id" class="tip"><<if $args[2] is true>><<print setup.articles.find(_readout)>><</if>> <<link _readout>>
-				<<run setup.history(_char, null, _readout)>>
-				<<set $currentPassage to _char>>
-				<<goto _char.passageName>>
+				<<run setup.history(_object, null, _readout)>>
+				<<set $currentPassage to _object>>	
+				\<<if settings.showSliders && _object.initPassage>>
+						\<<goto _object.initPassage>>
+					\<<else>>
+						\<<goto _object.passageName>>
+						<</if>>
 				<</link>></span>
-        \<<run setup.profileTooltip(_id, _char)>>
+        \<<run setup.profileTooltip(_id, _object)>>
 				\<<run setup.tippy(".btn")>>
     \<</capture>>
 \<</widget>>

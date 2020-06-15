@@ -37,6 +37,7 @@ setup.createTown = function (base) {
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    objectType: 'town',
     townMaterial: 'mainTownMaterial',
     taxes: {
       base: 5,

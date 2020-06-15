@@ -1,12 +1,25 @@
 /* global setup tippy jQuery settings */
-setup.profileTooltip = function (id, char) {
+setup.profileTooltip = function (id, obj) {
   jQuery(function () {
     const span = document.getElementById(id)
     if (span) {
-      if (char.objectType !== 'npc') {
-        span.title = char.tippyDescription || char.wordNoun
+      if (obj.objectType) {
+        switch (obj.objectType) {
+          case 'npc':
+            span.title = `${setup.articles.output(obj.descriptor).toUpperFirst()} ${obj.profession} with ${obj.physicalTrait} called ${obj.name}`
+            break
+          case 'building':
+            span.title = obj.tippyDescription || `${setup.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            break
+          case 'faction':
+            span.title = obj.tippyDescription || `${setup.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
+            break
+          case 'guard':
+            span.title = obj.tippyDescription || `${obj.name}, the guards.`
+            break
+        }
       } else {
-        span.title = char.tippyDescription || `${setup.articles.output(char.descriptor).toUpperFirst()} ${char.profession} with ${char.physicalTrait} called ${char.name}`
+        span.title = obj.tippyDescription || obj.name
       }
       tippy(`#${span.id}`)
     }
