@@ -38,8 +38,8 @@ _listbox -- <<button "Create new faction">>
 <<for _key, _faction range $town.factions>><<capture _key, _faction>>
   <tr>
     <td><<link "_faction.name">><<set $currentPassage to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
-    <td>_faction.type _faction.wordNoun</td>
-    <td>_faction.size</td>
+    <td><<print _faction.type.toUpperFirst()>> <<print _faction.wordNoun.toUpperFirst()>></td>
+    <td><<print lib.toTitleCase(_faction.size)>></td>
     <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
   </tr>
  /* - A _faction.size _faction.type _faction.wordNoun */
@@ -55,7 +55,7 @@ _listbox -- <<button "Create new faction">>
   </tr>
   <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if !_npc.isThrowaway>>
   <tr><td><<profile $npcs[_npc.key]>></td>
-  <td>_npc.race</td>
+  <td><<print _npc.race.toUpperFirst()>></td>
   <td><<tooltip _profession setup.townData.professions[_npc.profession].description.toUpperFirst()>></td>
   <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
   </tr>
@@ -86,7 +86,7 @@ _listbox -- <<button "Create new faction">>
     </tr>
     <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if _npc.isThrowaway>>
     <tr><td><<profile $npcs[_npc.key]>></td>
-    <td>_npc.race</td>
+    <td><<print _npc.race.toUpperFirst()>></td>
     <td>_profession</td>
     <td><<link "x">><<run setup.deleteNPC($npcs[_npc.key])>><<goto "TownOutput">><</link>></td>
     </tr>
