@@ -150,7 +150,7 @@ setup.plothooks = {
       type: 'smithy'
     },
     function (town) {
-      const smithy = setup.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Smithy')
+      const smithy = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Smithy')
       console.log(smithy)
       // var blacksmith = smithy.associatedNPC
       const npc = setup.createNPC(town, {
@@ -510,7 +510,7 @@ setup.plothooks = {
   'Bard Wanted': {
     type: ['paper'],
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       console.log('Taverns:')
       console.log(building)
       return `${setup.profile(building, null, 'town.buildings')} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
@@ -678,7 +678,7 @@ setup.plothooks = {
   'Need Bartender': {
     type: ['paper'],
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       return `Needed bartender. Looking to employ a bartender for my inn, ${setup.profile(building, null, 'town.buildings')}. Must be able to listen to political rants on the slower days. NO GOBLINS`
     }
   },
@@ -820,7 +820,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
@@ -861,7 +861,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
@@ -876,7 +876,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // #
       return `${setup.profile(building, null, 'town.buildings')} needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!`
     }
@@ -1120,7 +1120,7 @@ setup.plothooks = {
   'Berate Me': {
     type: ['paper'],
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -1158,7 +1158,7 @@ setup.plothooks = {
   'Huckleberry': {
     type: ['paper'],
     function (town) {
-      const building = setup.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'

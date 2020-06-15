@@ -3,7 +3,7 @@
 * i.e. town.buildings keys
 */
 
-setup.findInArray = (array, key, value) => {
+export function findInArray<T, K extends keyof T> (array: T[], key: K, value: T[K]) {
   return array.find(element => {
     if (element[key] === value) {
       console.log(`Found matching key value of ${key}: ${value}!`)

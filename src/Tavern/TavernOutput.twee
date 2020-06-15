@@ -1,5 +1,5 @@
 :: TavernOutput [tavern]
-<<set $building to setup.findInArray($town.buildings, "key", $currentPassage.key)>><<set $associatedNPC to $npcs[$building.bartender.key]>><h1>$building.name</h1>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<set $associatedNPC to $npcs[$building.bartender.key]>><h1>$building.name</h1>
 <<print lib.firstCharacter("You")>> make your way through the $town.type of $town.name until you come to <<print setup.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print setup.articles.output($building.size)>> $building.structure.tavernDescriptor that the locals know best for its $building.draw.
 <h3>The Tavern</h3>
 <<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
