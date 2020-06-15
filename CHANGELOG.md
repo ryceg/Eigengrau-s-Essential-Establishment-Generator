@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.4.1
 
 ### Added 
 - Option to change biome before town creation
@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added functionality to delete buildings
 - More sophisticated breadcrumb system allowing for infinite links
 - List of professions in town now shows associated NPCs, and gives option to create new NPC
+- Hyperlink on version number to latest changelog
 
 ### Changed
 - Minor fixes to NPC edit page, still thoroughly beta
