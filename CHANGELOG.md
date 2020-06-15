@@ -4,25 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.4.1
 
 ### Added 
 - Option to change biome before town creation
 - Create NPC function in toolbox
 - Added functionality to delete NPCs
 - Added functionality to delete buildings
+- More sophisticated breadcrumb system allowing for infinite links
+- List of professions in town now shows associated NPCs, and gives option to create new NPC
+- Hyperlink on version number to latest changelog
 
 ### Changed
 - Minor fixes to NPC edit page, still thoroughly beta
-- List of professions in town now shows associated NPCs, and gives option to create new NPC
+- Genericized profile tool, increasing stability
 - Fix encounter instability
-- Fix weather instability
+- Fix (most) weather instability
 - Fix nightmare function
 
 ### Removed
 - Primitive plothook function from tavern patron
 
 ### Known Issues  
+- Changing town name still does not update buildings that reference the town
+- Weather still occasionally bugs out
 
 ## 2.4
 

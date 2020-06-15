@@ -1,28 +1,28 @@
 
 :: InitTavern [output]
-<<set $selectedBuilding to ($town.buildings.tavern[$selected.key] || $town.buildings.tavern[$currentPassage.key])>><<run lib.clampRolls($town.buildings.tavern[$selected.key].roll)>>
+<<set $currentPassageBuilding to ($town.buildings[$currentPassage.key] || $town.buildings[$currentPassage.key])>><<run lib.clampRolls($town.buildings[$currentPassage.key].roll)>>
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
             \<<set $selectedBuilding.name to lib.createTavernName()>>>><<textbox "$selectedBuilding.name" $selectedBuilding.name>>
     <</replace>><</link>>
-<span id="tavernname"><<textbox "$selectedBuilding.name" $selectedBuilding.name>></span><</nobr>>
+<span id="tavernname"><<textbox "$currentPassageBuilding.name" $currentPassageBuilding.name>></span><</nobr>>
 
-<<button "Delete $selectedBuilding.name">><<run setup.deleteBuilding($town, $selectedBuilding)>><<goto "Start">><</button>>
+<<button "Delete $currentPassageBuilding.name">><<run setup.deleteBuilding($town, $currentPassageBuilding)>><<goto "Start">><</button>>
 
-<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$selectedBuilding.roll.wealth" $selectedBuilding.roll.wealth 1 100 1>></span>
+<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$currentPassageBuilding.roll.wealth" $currentPassageBuilding.roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$selectedBuilding.roll.population" $selectedBuilding.roll.population 1 100 1>></span>
+<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$currentPassageBuilding.roll.population" $currentPassageBuilding.roll.population 1 100 1>></span>
 
-<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$selectedBuilding.roll.size" $selectedBuilding.roll.size 1 100 1>></span>
+<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$currentPassageBuilding.roll.size" $currentPassageBuilding.roll.size 1 100 1>></span>
 
-<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$selectedBuilding.roll.reputation" $selectedBuilding.roll.reputation 1 100 1>></span>
+<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$currentPassageBuilding.roll.reputation" $currentPassageBuilding.roll.reputation 1 100 1>></span>
 
-<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$selectedBuilding.roll.roughness" $selectedBuilding.roll.roughness 1 100 1>></span>
+<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$currentPassageBuilding.roll.roughness" $currentPassageBuilding.roll.roughness 1 100 1>></span>
 
-<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$selectedBuilding.roll.sin" $selectedBuilding.roll.sin 1 100 1>></span>
+<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$currentPassageBuilding.roll.sin" $currentPassageBuilding.roll.sin 1 100 1>></span>
 
-<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$selectedBuilding.roll.cleanliness" $selectedBuilding.roll.cleanliness 1 100 1>></span>
+<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$currentPassageBuilding.roll.cleanliness" $currentPassageBuilding.roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$selectedBuilding.priceModifier" $selectedBuilding.priceModifier -10 10 1>></span>
+<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$currentPassageBuilding.priceModifier" $currentPassageBuilding.priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[output|TavernOutput]]

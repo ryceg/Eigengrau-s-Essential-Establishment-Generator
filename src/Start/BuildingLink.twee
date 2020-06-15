@@ -1,8 +1,8 @@
 :: BuildingLink
 \<span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_building.name)>>
 \<<link "_buildingTitle">>
-  \<<set $selected to {buildingType: _buildingType, key: _key, building: _building}>>
   \<<set $currentPassage to _building>>
+  \<<run setup.history($currentPassage)>>
   \<<run console.log(_building)>>
   \<<if settings.showSliders>>
       \<<goto _building.initPassage>>

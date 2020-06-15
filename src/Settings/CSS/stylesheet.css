@@ -32,6 +32,13 @@ body {
   to {background-color: rgba(255, 255, 255, 0);}
 }
 
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+
+
 .npcReplace{
 font-family: MrJeeves;
 font-weight: 800;

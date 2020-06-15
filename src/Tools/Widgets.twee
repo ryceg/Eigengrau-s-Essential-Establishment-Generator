@@ -73,31 +73,22 @@
 		<<if _silver>><<= _silver>> Silver<</if>>\
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 
-<<widget "guard">><<nobr>>
-<<link $args[0].name>>
-	<<if _town>>
-		<<set $currentPassage to _town.guard>>
-		<<set $currentGuard to $args>>
-	<<elseif ndef _town>>
-		<<run console.log("town not defined for guard widget. Please report this bug!")>>
-		<<set $currentPassage to $town.guard>>
-		<<set $currentGuard to $args[0]>>
-	<</if>>
-		<<goto 'GuardOutput'>><</link>>
-<</nobr>><</widget>>
-
 
 <<widget "profile">>
-    \<<set _char = $args[0],
-        _readout = $args[1] || _char.name,
-        _id = "tip-" + Util.slugify((_char.name) || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
-    \<<capture _char, _readout, _id>>
+    \<<set _object = $args[0],
+        _readout = $args[1] || _object.name,
+        _id = "tip-" + Util.slugify((_object.name) || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
+    \<<capture _object, _readout, _id>>
         \<span @id="_id" class="tip"><<if $args[2] is true>><<print setup.articles.find(_readout)>><</if>> <<link _readout>>
-				<<set $selected to _char>>
-				/* <<set $currentNPCKey to _char.key>> */
-				<<goto _char.passageName>>
+				<<run setup.history(_object, null, _readout)>>
+				<<set $currentPassage to _object>>	
+				\<<if settings.showSliders && _object.initPassage>>
+						\<<goto _object.initPassage>>
+					\<<else>>
+						\<<goto _object.passageName>>
+						<</if>>
 				<</link>></span>
-        \<<run setup.profileTooltip(_id, _char)>>
+        \<<run setup.profileTooltip(_id, _object)>>
 				\<<run setup.tippy(".btn")>>
     \<</capture>>
 \<</widget>>

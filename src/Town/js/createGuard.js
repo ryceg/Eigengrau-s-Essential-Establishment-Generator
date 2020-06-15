@@ -4,6 +4,7 @@ setup.createGuard = function (town) {
   // console.log(townName + ' is the townName passed to the guard.')
   const guard = {
     associatedTown: town.name,
+    objectType: 'guard',
     captain: setup.createNPC(town, {
       profession: 'guard',
       background: 'soldier'

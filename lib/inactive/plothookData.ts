@@ -346,7 +346,7 @@ export const plothook = {
     //   },
     //   function: function (town) {
     //     var faction = setup.factionsForType(town, 'type', 'wizards')
-    //     return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $selected to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
+    //     return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $currentPassage to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
     //   }
     // },
     // 'Big Chickens': {
@@ -511,7 +511,7 @@ export const plothook = {
     //   function: function (town) {
     //     var tavernIndex = town.buildings.tavern.length.random()
     //     var tavern = town.buildings.tavern[tavernIndex]
-    //     return '<<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $selected.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).'
+    //     return '<<link ' + JSON.stringify(tavern.name) + '>><<set $currentPassage to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + '}>><<run console.log("Set $currentPassage.")>><<set $currentPassage to ' + tavern + '>><</link>>' + ' is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).'
     //   }
     // },
     // 'Armed Escort Needed': {

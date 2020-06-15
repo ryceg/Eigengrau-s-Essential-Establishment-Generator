@@ -5,12 +5,13 @@
 <<run setup.init()>>
 <<set $data to {
 	isPatreon: [true, false].random(),
-	versionNumber: 2.4
+	versionNumber: "2.4.1"
 }>>
 
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
+<<set $history to []>>
 
 <<if State.metadata.get("showTutorial") is true>>
 	<<set $town to setup.createTown()>>

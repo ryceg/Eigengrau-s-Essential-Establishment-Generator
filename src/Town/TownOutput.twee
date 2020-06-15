@@ -1,6 +1,6 @@
 :: TownOutput
 <<set _town to $town>>
-<<button "Edit $town.name">><<goto "TownEdit">><</button>>
+<<button "Edit $town.name">><<run setup.history($town, null, "Editing town")>><<goto "TownEdit">><</button>>
 
 <<print lib.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
 \<<set _politicalIdeologyDescription to "tip">><<run setup.politicsTooltip(_politicalIdeologyDescription, "politicalIdeology", $town)>>
@@ -25,7 +25,7 @@ _listbox -- <<button "Create new faction">>
   <<run console.log($town)>>
   <<goto "TownOutput">>
 <</button>>
-<<unset $selected>>
+<<unset $currentPassage>>
 
 <div class='classTable'><<nobr>><table>
     <tr>
@@ -37,9 +37,9 @@ _listbox -- <<button "Create new faction">>
     </tr>
 <<for _key, _faction range $town.factions>><<capture _key, _faction>>
   <tr>
-    <td><<link "_faction.name">><<set $selected to {key: _key, faction: _faction}>><<goto "FactionProfile">><</link>></td>
-    <td>_faction.type _faction.wordNoun</td>
-    <td>_faction.size</td>
+    <td><<profile _faction>></td>
+    <td><<print _faction.type.toUpperFirst()>> <<print _faction.wordNoun.toUpperFirst()>></td>
+    <td><<print lib.toTitleCase(_faction.size)>></td>
     <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
   </tr>
  /* - A _faction.size _faction.type _faction.wordNoun */
@@ -55,7 +55,7 @@ _listbox -- <<button "Create new faction">>
   </tr>
   <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if !_npc.isThrowaway>>
   <tr><td><<profile $npcs[_npc.key]>></td>
-  <td>_npc.race</td>
+  <td><<print _npc.race.toUpperFirst()>></td>
   <td><<tooltip _profession setup.townData.professions[_npc.profession].description.toUpperFirst()>></td>
   <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
   </tr>
@@ -86,7 +86,7 @@ _listbox -- <<button "Create new faction">>
     </tr>
     <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if _npc.isThrowaway>>
     <tr><td><<profile $npcs[_npc.key]>></td>
-    <td>_npc.race</td>
+    <td><<print _npc.race.toUpperFirst()>></td>
     <td>_profession</td>
     <td><<link "x">><<run setup.deleteNPC($npcs[_npc.key])>><<goto "TownOutput">><</link>></td>
     </tr>
@@ -119,8 +119,7 @@ _listbox -- <<button "Create new faction">>
     <th>Associated NPC</th>
     <th>Delete</th>
   </tr>
-<<for _buildingType, _townBuildings range $town.buildings>>
-  <<for _key, _building range _townBuildings>><<capture _buildingType, _key, _building>>
+<<for _key, _building range $town.buildings>><<capture _key, _building>>
     \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
     <tr><td><span @id="_building.name"><<include "BuildingLink">></span></td>
       <td><<print lib.toTitleCase(_building.wordNoun || _building.type)>></td>
@@ -128,7 +127,6 @@ _listbox -- <<button "Create new faction">>
       <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<goto "TownOutput">><</link>></td>
     </tr>
   \<</capture>><<set _previousBuilding to _building>>
-  \<</for>>
 <</for>>
 
   </table><</nobr>>
@@ -151,7 +149,7 @@ _listbox -- <<button "Create new faction">>
       \<<elseif _npcs.length > 1>>
         \<<for _i, _npc range _npcs>>
           \<<profile _npc>><</for>>
-      \<<else>><<link "Create _article">><<set $selected to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $selected.passageName>><</link>>
+      \<<else>><<link "Create _article">><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $currentPassage.passageName>><</link>>
     \<</if>></td></tr><</capture>><</nobr>><</for>>
 </table>Total: <<print _count.toFixed(2)>>% of the total population.
 <</linkappend>>

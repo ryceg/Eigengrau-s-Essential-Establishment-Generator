@@ -1,5 +1,5 @@
 :: FactionProfile
-<<set $currentFaction to $town.factions[$selected.key]>><h1>$currentFaction.name</h1><<print lib.firstCharacter($currentFaction.name)>> is <<print setup.articles.output($currentFaction.type)>> $currentFaction.wordNoun. It's $currentFaction.age, and the $currentFaction.size faction has <<print setup.articles.output($currentFaction.reputation)>> reputation, and is motivated by $currentFaction.motivation. They are $currentFaction.misc.
+<<set $currentFaction to $town.factions[$currentPassage.key]>><h1>$currentFaction.name</h1><<print lib.firstCharacter($currentFaction.name)>> is <<print setup.articles.output($currentFaction.type)>> $currentFaction.wordNoun. It's $currentFaction.age, and the $currentFaction.size faction has <<print setup.articles.output($currentFaction.reputation)>> reputation, and is motivated by $currentFaction.motivation. They are $currentFaction.misc.
 <<set _leader to $currentFaction.leader>>
 <h3>Governance</h3>It's ruled by <<nobr>>
 <<switch $currentFaction.leadershipType>>

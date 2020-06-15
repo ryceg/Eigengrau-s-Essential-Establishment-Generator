@@ -1,7 +1,7 @@
 :: OutputEverything
 <<for _buildingType, _townBuildings range $town.buildings>>
   <<for _key, _building range _townBuildings>><<capture _buildingType, _key, _building>>
-    \<<set $selected to {buildingType: _buildingType, key: _key, building: _building}>>
+    \<<set $currentPassage to {buildingType: _buildingType, key: _key, building: _building}>>
   \<<set $currentPassage to _building>>
     \<<include _building.passageName>>
   \<</capture>><<set _previousBuilding to _building>>

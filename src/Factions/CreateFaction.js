@@ -8,6 +8,7 @@ setup.createFaction = function (town, opts = {}) {
     passageName: 'FactionProfile',
     associatedTown: town.name,
     type,
+    objectType: 'faction',
     wordNoun: setup.factionData.type[type].wordNoun,
     motivation: setup.factionData.type[type].motivation.random(),
     membersTrait: setup.factionData.type[type].membersTrait.random(),

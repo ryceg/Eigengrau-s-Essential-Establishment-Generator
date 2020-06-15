@@ -29,7 +29,7 @@ setup.plothooks = {
         dndClass: ['sorcerer', 'wizard', 'warlock'].random(),
         gender: 'man'
       })
-      return `<<guard $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${setup.profile(npc, 'real culprit')} before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
+      return `<<profile $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${setup.profile(npc, 'real culprit')} before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
     }
   },
   'The Falling Woman': {
@@ -150,8 +150,7 @@ setup.plothooks = {
       type: 'smithy'
     },
     function (town) {
-      const blacksmithPool = town.buildings.smithy
-      const smithy = lib.objectArrayFetcher(blacksmithPool)
+      const smithy = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Smithy')
       console.log(smithy)
       // var blacksmith = smithy.associatedNPC
       const npc = setup.createNPC(town, {
@@ -159,7 +158,8 @@ setup.plothooks = {
         profession: 'blacksmith',
         background: 'blacksmith'
       })
-      return `Two blacksmiths, ${setup.profile(smithy.associatedNPC)} of ${setup.profile(smithy, '', 'town.buildings.smithy')} and ${setup.profile(npc)} are in competition to create better melee weapons for the King's army and only one can win the contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
+      // TODO: fix this
+      return `Two blacksmiths, ${setup.profile(smithy.associatedNPC)} of ${setup.profile(smithy, null, 'town.buildings')} and ${setup.profile(npc)} are in competition to create better melee weapons for the King's army and only one can win the contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
     }
   },
   'Kindergarten Magic': {
@@ -203,7 +203,7 @@ setup.plothooks = {
         background: 'noble',
         gender: 'man'
       })
-      return `Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ${setup.profile(npc, 'man')} and ${setup.profile(secondNpc, 'another man')} from the other coach.`
+      return `Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<profile $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ${setup.profile(npc, 'man')} and ${setup.profile(secondNpc, 'another man')} from the other coach.`
     }
   },
   'The One True God': {
@@ -273,7 +273,8 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man',
-        ageStage: 'child'
+        ageStage: 'child',
+        race: 'human'
       })
       return `The ${setup.profile(npc, 'spoiled child')} of a noble finds a PC has something he just *has to have*. The noble's staff does what it can to acquire it, by nearly any means necessary.`
     }
@@ -380,7 +381,7 @@ setup.plothooks = {
     },
     function (town) {
       const faction = setup.factionsForType(town, 'type', 'wizards')
-      return `${'‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "'}${JSON.stringify(faction.name)}">><<set $selected to {faction: ${JSON.stringify(faction)}}>><<goto "FactionProfile">><</link>> . Please return if found!’`
+      return `${'‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "'}${JSON.stringify(faction.name)}">><<set $currentPassage to {faction: ${JSON.stringify(faction)}}>><<goto "FactionProfile">><</link>> . Please return if found!’`
     }
   },
   'Big Chickens': {
@@ -510,10 +511,10 @@ setup.plothooks = {
   'Bard Wanted': {
     type: ['paper'],
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       console.log('Taverns:')
       console.log(building)
-      return `${setup.profile(building, '', 'town.buildings.tavern')} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
+      return `${setup.profile(building, null, 'town.buildings')} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
     }
   },
   'Armed Escort Needed': {
@@ -678,8 +679,8 @@ setup.plothooks = {
   'Need Bartender': {
     type: ['paper'],
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
-      return `Needed bartender. Looking to employ a bartender for my inn, ${setup.profile(building, '', 'town.buildings.tavern')}. Must be able to listen to political rants on the slower days. NO GOBLINS`
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
+      return `Needed bartender. Looking to employ a bartender for my inn, ${setup.profile(building, null, 'town.buildings')}. Must be able to listen to political rants on the slower days. NO GOBLINS`
     }
   },
   'Weird Well Water': {
@@ -820,13 +821,13 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
         profession: 'entertainer'
       })
-      return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${setup.profile(building, '', 'town.buildings.tavern')} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${setup.profile(npc)}`
+      return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${setup.profile(building, null, 'town.buildings')} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${setup.profile(npc)}`
     }
   },
   'Strange Doll': {
@@ -861,13 +862,13 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble'
       })
       // #
-      return `WHO AM I?: ${setup.profile(npc, 'I')} woke up in a gutter this morning outside of ${setup.profile(building, '', 'town.buildings.tavern')}. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.`
+      return `WHO AM I?: ${setup.profile(npc, 'I')} woke up in a gutter this morning outside of ${setup.profile(building, null, 'town.buildings')}. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.`
     }
   },
   'Bouncers Needed': {
@@ -876,9 +877,9 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // #
-      return `${setup.profile(building, '', 'town.buildings.tavern')} needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!`
+      return `${setup.profile(building, null, 'town.buildings')} needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!`
     }
   },
   'Bard for Hire': {
@@ -1120,14 +1121,14 @@ setup.plothooks = {
   'Berate Me': {
     type: ['paper'],
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
         note: 'For whatever reason, loves being abused.'
       })
       // #
-      return `NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ${setup.profile(npc, 'me')}. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ${setup.profile(building, '', 'town.buildings.tavern')} in order to discuss terms.`
+      return `NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ${setup.profile(npc, 'me')}. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ${setup.profile(building, null, 'town.buildings')} in order to discuss terms.`
     }
   },
   'Pirates Lost Stuff': {
@@ -1158,14 +1159,14 @@ setup.plothooks = {
   'Huckleberry': {
     type: ['paper'],
     function (town) {
-      const building = lib.objectArrayFetcher(town.buildings.tavern)
+      const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
       // #
-      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $building to ' + tavern + '>><<goto "TavernOutput">><</link>>
-      return `Fence need painted. Good pay. Contact ${setup.profile(npc)} at ${setup.profile(building, '', 'town.buildings.tavern')}. Twist is, the fence is 10 feet tall and almost a mile long.`
+      // <<link ' + JSON.stringify(tavern.name) + '>><<set $currentPassage to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $currentPassage.")>><<set $building to ' + tavern + '>><<goto "TavernOutput">><</link>>
+      return `Fence need painted. Good pay. Contact ${setup.profile(npc)} at ${setup.profile(building, null, 'town.buildings')}. Twist is, the fence is 10 feet tall and almost a mile long.`
     }
   },
   'Teddy Wanted': {
@@ -1390,7 +1391,6 @@ setup.plothooks = {
     type: ['event'],
     function (town) {
       const npc = setup.createNPC(town, {
-        hasClass: 'false',
         background: 'noble',
         race: 'elf'
       })

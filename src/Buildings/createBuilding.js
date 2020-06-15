@@ -27,6 +27,7 @@ setup.createBuilding = (town, type, base = {}) => {
   const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   const building = Object.assign({
     key: randomFloat(1).toString(16),
+    objectType: 'building',
     roadName,
     roadType,
     get road () {

@@ -174,37 +174,37 @@ setup.createMercenaries = function (town) {
     case 'a dashing swashbuckler':
       mercenaries.captain = setup.createNPC(town, {
         background: 'sailor',
-        dndClass: 'fighter'
+        profession: 'fighter'
       })
       break
     case 'a brutish thug':
       mercenaries.captain = setup.createNPC(town, {
         background: 'criminal',
-        dndClass: 'fighter'
+        profession: 'fighter'
       })
       break
     case 'a celebrated war hero':
       mercenaries.captain = setup.createNPC(town, {
         background: 'soldier',
-        dndClass: 'fighter'
+        profession: 'fighter'
       })
       break
     case 'a disgraced knight':
       mercenaries.captain = setup.createNPC(town, {
         background: 'criminal',
-        dndClass: 'paladin'
+        profession: 'paladin'
       })
       break
     case 'a former arena champion':
       mercenaries.captain = setup.createNPC(town, {
         background: 'gladiator',
-        dndClass: 'fighter'
+        profession: 'fighter'
       })
       break
     case 'an ex-gladiator':
       mercenaries.captain = setup.createNPC(town, {
         background: 'gladiator',
-        dndClass: 'fighter'
+        profession: 'fighter'
       })
       break
     case 'an escaped slave':
@@ -215,7 +215,7 @@ setup.createMercenaries = function (town) {
     default:
       mercenaries.captain = setup.createNPC(town, {
         background: 'soldier',
-        dndClass: 'fighter'
+        profession: 'fighter'
       })
   }
 

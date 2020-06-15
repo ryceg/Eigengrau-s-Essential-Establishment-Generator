@@ -1,0 +1,17 @@
+:: Breadcrumb
+<<nobr>><<if def $town>><<link "The $town.type of $town.name">>
+    <<unset $currentPassage>>
+    <<unset $currentNPC>>
+    <<set $history to []>>
+    <<goto "Start">>
+<</link>>
+<</if>>
+<<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>><<capture _i, _passage, _link>>
+<<if _i < $history.length - 1>>> <<link _link>>
+    <<set $currentPassage to _passage.data>>
+    <<goto _passage.passageName>>
+    <<run $history.length = _i>>
+    <<run setup.history(_passage.data, _passage.passageName, _passage.linkDescription)>>
+<</link>><</if>>
+<</capture>><</for>>
+<<if def $history.last()>><b> > <<print lib.toTitleCase($history.last().linkDescription)>></b><</if>><</nobr>>
