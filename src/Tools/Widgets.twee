@@ -77,6 +77,7 @@
 <<link $args[0].name>>
 	<<if _town>>
 		<<set $currentPassage to _town.guard>>
+		<<run setup.history({passageName: "GuardOutput", linkDescription: $guard.name, name: $guard.name})>>
 		<<set $currentGuard to $args>>
 	<<elseif ndef _town>>
 		<<run console.log("town not defined for guard widget. Please report this bug!")>>

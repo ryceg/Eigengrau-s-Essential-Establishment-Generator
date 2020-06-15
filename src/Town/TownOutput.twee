@@ -1,6 +1,6 @@
 :: TownOutput
 <<set _town to $town>>
-<<button "Edit $town.name">><<goto "TownEdit">><</button>>
+<<button "Edit $town.name">><<run setup.history({passageName: "TownEdit", linkDescription: "Editing $town.name"})>><<goto "TownEdit">><</button>>
 
 <<print lib.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
 \<<set _politicalIdeologyDescription to "tip">><<run setup.politicsTooltip(_politicalIdeologyDescription, "politicalIdeology", $town)>>
