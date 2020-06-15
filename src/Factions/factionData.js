@@ -212,7 +212,7 @@ setup.factionData = {
       leaderTraits: {
         title: 'Commander',
         hasClass: true,
-        dndClass: ['fighter', 'fighter', 'fighter', 'barbarian', 'profession', 'rogue'],
+        profession: 'fighter',
         background: ['soldier', 'soldier', 'noble']
       },
       wordNoun: 'army',
