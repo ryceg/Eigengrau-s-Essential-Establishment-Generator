@@ -29,7 +29,7 @@ setup.plothooks = {
         dndClass: ['sorcerer', 'wizard', 'warlock'].random(),
         gender: 'man'
       })
-      return `<<guard $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${setup.profile(npc, 'real culprit')} before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
+      return `<<profile $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${setup.profile(npc, 'real culprit')} before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
     }
   },
   'The Falling Woman': {
@@ -203,7 +203,7 @@ setup.plothooks = {
         background: 'noble',
         gender: 'man'
       })
-      return `Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ${setup.profile(npc, 'man')} and ${setup.profile(secondNpc, 'another man')} from the other coach.`
+      return `Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<profile $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ${setup.profile(npc, 'man')} and ${setup.profile(secondNpc, 'another man')} from the other coach.`
     }
   },
   'The One True God': {

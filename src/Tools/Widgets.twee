@@ -73,13 +73,6 @@
 		<<if _silver>><<= _silver>> Silver<</if>>\
 		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
 
-<<widget "guard">><<nobr>>
-<<link $args[0].name>>
-		<<set $currentPassage to $town.guard>>
-		<<run setup.history({passageName: "GuardOutput", linkDescription: $guard.name, name: $guard.name})>>
-		<<goto 'GuardOutput'>><</link>>
-<</nobr>><</widget>>
-
 
 <<widget "profile">>
     \<<set _object = $args[0],

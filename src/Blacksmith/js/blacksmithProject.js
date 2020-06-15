@@ -89,7 +89,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return smithy.roll.expertise > 60 && town.roll.guardFunding > 70
       },
       function (town, smithy) {
-        return 'a whole new set of weapons for <<guard $town.guard>>. Should keep me busy for the next couple months!'
+        return 'a whole new set of weapons for <<profile $town.guard>>. Should keep me busy for the next couple months!'
       }
     },
     badlyMadeGuard: {
@@ -97,7 +97,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return smithy.roll.expertise < 40 && town.roll.guardFunding > 70
       },
       function (town, smithy) {
-        return `a whole load of ${weapon.random()}s for <<guard $town.guard>>. To be honest? I'm freaking the fuck out.`
+        return `a whole load of ${weapon.random()}s for <<profile $town.guard>>. To be honest? I'm freaking the fuck out.`
       }
     },
     priest: {

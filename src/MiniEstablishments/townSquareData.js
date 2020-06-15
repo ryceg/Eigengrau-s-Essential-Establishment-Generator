@@ -534,7 +534,7 @@ setup.townSquare = {
           background: 'commoner',
           profession: 'politician'
         })
-        return `a ${setup.profile(npc, 'political candidate')} that's being shouted at by a member of <<guard $town.guard>>.`
+        return `a ${setup.profile(npc, 'political candidate')} that's being shouted at by a member of <<profile $town.guard>>.`
       }
     },
     'bureaucrat': {
