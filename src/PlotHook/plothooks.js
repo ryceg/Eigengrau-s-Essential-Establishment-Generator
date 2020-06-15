@@ -273,7 +273,8 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man',
-        ageStage: 'child'
+        ageStage: 'child',
+        race: 'human'
       })
       return `The ${setup.profile(npc, 'spoiled child')} of a noble finds a PC has something he just *has to have*. The noble's staff does what it can to acquire it, by nearly any means necessary.`
     }
