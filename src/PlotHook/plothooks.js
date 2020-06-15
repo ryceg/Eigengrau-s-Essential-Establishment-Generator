@@ -1390,7 +1390,6 @@ setup.plothooks = {
     type: ['event'],
     function (town) {
       const npc = setup.createNPC(town, {
-        hasClass: 'false',
         background: 'noble',
         race: 'elf'
       })
