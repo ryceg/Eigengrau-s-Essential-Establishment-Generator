@@ -191,7 +191,7 @@ setup.initNpcData = () => {
         },
         function (town, npc) {
           console.log('called lifeEvents.magicalCreature function')
-          const medal = setup.misc.medal.create()
+          const medal = lib.medal.create()
           const medalType = setup.npcData.lifeEvents.warMedal.medalType.random()
           const medalStatus = setup.npcData.lifeEvents.warMedal.medalStatus.random()
           if (setup.townData.professions[npc.profession].sector === 'military') {

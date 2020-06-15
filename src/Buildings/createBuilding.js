@@ -22,7 +22,7 @@ setup.createBuilding = (town, type, base = {}) => {
     'a dog panting by the door',
     'a cat lazily lounging in the shade',
     'a muddy pair of boots by the door',
-    "a sign from the local paper which reads '<<print setup.misc.newspaper.random()>>'"
+    "a sign from the local paper which reads '<<print lib.newspaper.random()>>'"
   ].random()
   const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   const building = Object.assign({

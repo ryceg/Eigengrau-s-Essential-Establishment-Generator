@@ -1,4 +1,26 @@
-setup.tavernModifiers = function (town, tavern) {
+interface Town {
+  roll: {
+    wealth: number
+  }
+}
+
+interface Tavern {
+  type: string
+  draw: string
+  material: string
+  roll: {
+    wealth: number
+    population: number
+    sin: number
+    roughness: number
+    cleanliness: number
+    size: number
+    reputation: number
+  }
+  priceModifier: number
+}
+
+export function tavernModifiers (town: Town, tavern: Tavern) {
   if (town.roll.wealth > 95) {
     tavern.roll.wealth += 10
   } else if (town.roll.wealth > 80) {

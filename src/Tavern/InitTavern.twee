@@ -3,7 +3,7 @@
 <<set $currentPassageBuilding to ($town.buildings[$currentPassage.key] || $town.buildings[$currentPassage.key])>><<run lib.clampRolls($town.buildings[$currentPassage.key].roll)>>
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<set $currentPassageBuilding.name to setup.createTavernName()>>>><<textbox "$currentPassageBuilding.name" $currentPassageBuilding.name>>
+            \<<set $selectedBuilding.name to lib.createTavernName()>>>><<textbox "$selectedBuilding.name" $selectedBuilding.name>>
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$currentPassageBuilding.name" $currentPassageBuilding.name>></span><</nobr>>
 

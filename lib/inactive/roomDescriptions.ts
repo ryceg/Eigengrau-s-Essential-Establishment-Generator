@@ -1,4 +1,10 @@
-setup.roomDescriptions = [
+interface RoomDescription {
+  wealth: number
+  cleanliness: number
+  note: string
+}
+
+export const roomDescriptions: RoomDescription[] = [
   { wealth: 20, cleanliness: 20, note: 'This is a disgusting, poverty stricken den of filth.' },
   { wealth: 20, cleanliness: 40, note: 'This is a dirty room with no personal possessions.' },
   { wealth: 20, cleanliness: 60, note: 'This is a reasonably clean room, all things considered, but it is still extremely bare of any possessions.' },
