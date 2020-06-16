@@ -9,12 +9,13 @@ interface Cheese {
 }
 
 export const cheese = {
-  create: (): Cheese => ({
+  create: (base?: Partial<Cheese>): Cheese => ({
     colour: random(data.colours),
     texture: random(data.textures),
     taste: random(data.tastes),
     smell: random(data.smells),
-    cost: random(data.costs)
+    cost: random(data.costs),
+    ...base
   })
 }
 
