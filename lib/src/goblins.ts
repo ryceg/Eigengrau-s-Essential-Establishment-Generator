@@ -13,7 +13,6 @@ interface Goblins {
   tactics: string;
   accompaniedBy: string;
   pets: string;
-
 }
 
 export const goblins = {
