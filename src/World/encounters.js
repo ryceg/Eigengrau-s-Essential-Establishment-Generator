@@ -2,19 +2,23 @@ setup.initMiscEncounters = () => {
   setup.misc.encounters = {
     'a group of bandits operating a toll road': town => {
       const bandits = lib.bandits.create(town, { business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)' })
-      return `a group of ${bandits.tippyWord} operating a toll road. `
+      const readout = lib.bandits.readout(bandits)
+      return `a group of ${lib.createTippyFull(readout, 'bandits')} operating a toll road. `
     },
     'a band of robbers': town => {
       const bandits = lib.bandits.create(town, { business: 'attacking people using the trail' })
-      return `${bandits.tippy}<span class="dotted">a band of robbers.</span></span>`
+      const readout = lib.bandits.readout(bandits)
+      return `${lib.createTippyFull(readout, 'a band of robbers')}.`
     },
     'some robbers': town => {
       const bandits = lib.bandits.create(town, { business: 'attacking people using the trail' })
-      return `${bandits.tippy}<span class="dotted">some robbers.</span></span>`
+      const readout = lib.bandits.readout(bandits)
+      return `${lib.createTippyFull(readout, 'some robbers')}.`
     },
     'a party of raiders': town => {
       const bandits = lib.bandits.create(town)
-      return `${bandits.tippy}<span class="dotted">a party of raiders.</span></span>`
+      const readout = lib.bandits.readout(bandits)
+      return `${lib.createTippyFull(readout, 'a party of raiders')}.`
     },
     'a pair of outlaws': town => {
       const npc = setup.createNPC(town, {
@@ -29,15 +33,18 @@ setup.initMiscEncounters = () => {
     },
     'a band of desperate outlaws': town => {
       const bandits = lib.bandits.create(town)
-      return `${bandits.tippy}<span class="dotted">a band of desperate outlaws.</span></span>`
+      const readout = lib.bandits.readout(bandits)
+      return `${lib.createTippyFull(readout, 'a band of desperate outlaws')}.`
     },
     'some bandits': town => {
       const bandits = lib.bandits.create(town, { business: 'attacking people using the trail' })
-      return `${bandits.tippy}<span class="dotted">some bandits.</span></span>`
+      const readout = lib.bandits.readout(bandits)
+      return `${lib.createTippyFull(readout, 'some bandits')}.`
     },
     'some outlaws’ hideout': town => {
       const bandits = lib.bandits.create(town)
-      return `${bandits.tippy}a hideout belonging to <span class="dotted">some outlaws</span></span>`
+      const readout = lib.bandits.readout(bandits)
+      return `a hideout belonging to ${lib.createTippyFull(readout, 'some outlaws')}.`
     },
     'a disciplined military company': town => {
       const mercenaries = setup.createMercenaries(town)

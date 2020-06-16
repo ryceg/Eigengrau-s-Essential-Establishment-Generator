@@ -1,6 +1,4 @@
 import { random } from './random'
-import { createTippy, createTippyWord } from './tippy'
-import { assign } from './utils'
 
 interface Bandits {
   business: string
@@ -15,33 +13,20 @@ interface Bandits {
 }
 
 export const bandits = {
-  create: (town: unknown, base?: Partial<Bandits>): Bandits => {
-    const bandits = {
-      business: random(data.business),
-      colours: random(data.colours),
-      symbol: random(data.symbol),
-      leader: random(data.leader),
-      type: random(data.type),
-      goals: random(data.goals),
-      weapons: random(data.weapons),
-      lair: random(data.lair),
-      fearedBy: random(data.fearedBy),
-      ...base
-    }
-
-    assign(bandits, {
-      readout: `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
-    })
-
-    assign(bandits, {
-      tippy: createTippy(bandits.readout)
-    })
-
-    assign(bandits, {
-      tippyWord: createTippyWord(bandits.tippy, 'bandits')
-    })
-
-    return bandits
+  create: (town: unknown, base?: Partial<Bandits>): Bandits => ({
+    business: random(data.business),
+    colours: random(data.colours),
+    symbol: random(data.symbol),
+    leader: random(data.leader),
+    type: random(data.type),
+    goals: random(data.goals),
+    weapons: random(data.weapons),
+    lair: random(data.lair),
+    fearedBy: random(data.fearedBy),
+    ...base
+  }),
+  readout: (bandits: Bandits) => {
+    return `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
   }
 }
 
