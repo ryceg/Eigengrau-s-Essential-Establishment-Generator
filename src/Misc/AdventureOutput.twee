@@ -27,18 +27,18 @@
 <h4>Clue #1 - Purses</h4> There are numerous purses for sale, though some are rather expensive. Looks like they use the same gold-leaf embroidery technique as the dead woman's purse.
 
 <h4>Clue #2 - Tonics and medicine</h4>There is a variety of tonics for sale, including healing potions for just 25gp!
-<blockquote>The healing potions here have a base price of 25 gp and heals 1d8-1. Each time the characters drinks this potion the modifier decreases by 1. If the modifier is greater than the number rolled on the dice, the character loses health proportinal to the result.
+<blockquote>The healing potions here have a base price of 25 gp and heals 1d8-1. Each time the characters drinks this potion the modifier decreases by 1. If the modifier is greater than the number rolled on the dice, the character loses health proportional to the result.
 Example: If a character drinks this potion 4 times, he's gonna "heal" 1d8-4 if he rolls 2 on the dice, he's gonna lose 2 HP instead of healing.</blockquote>
 
 <h4>Clue #3 - Tonic bottle</h4>An exact match to the bottle that you've found at the crime scene except it's sealed. You can't tell the color of the contents inside.
 
-<h4>Clue #4 - Merchant's statment*</h4>
+<h4>Clue #4 - Merchant's statement*</h4>
 <<linkreplace "About the purse:">>Inspecting the purse, <<print $adventure.merchant.name>> says "This purse belonged to my boss, <<profile $adventure.madame>>."<</linkreplace>>
 <<linkreplace "About his boss:">>"She hasn't come into work yet."<</linkreplace>>
 <<linkreplace "About a possible enemy of Madame Beaudry:">>"Her and <<profile $adventure.murderer>>, the apothecarist had a bitter rivalry... I'd say hateful would be a mild way to sum up their relationship."<</linkreplace>>
 <<linkreplace "About the bottle:">>"We sell plenty of potions, but without the label I can't tell you if this one is ours."<</linkreplace>>
 <<linkreplace "About someone who could know more about the bottle:">>Our alchemist <<profile $adventure.alchemist>> would know if it's ours- he's at the workshop preparing this week's potions. Or you could talk to <<profile $adventure.murderer>>, the apothecarist. He sells the same potion.<</linkreplace>>
-<blockquote>After the merchant's statment (Clue #4) the characters have two possible locations to visit. The Apothecary (Place #3) and Madame Beaudry's Workshop (Place #4).
+<blockquote>After the merchant's statement (Clue #4) the characters have two possible locations to visit. The Apothecary (Place #3) and Madame Beaudry's Workshop (Place #4).
 The critical clue that the characters need to solve the whole mystery is at the Workshop.</blockquote>
 
 <h3>Place #3 - $adventure.murderer.firstName's Apothecary Stand</h3>This stand is relatively bigger than the first one but the items on display here are more focused on potions and concoctions.
@@ -55,7 +55,7 @@ The critical clue that the characters need to solve the whole mystery is at the 
 
 <h4>Clue #4 - Alchemist books and journals</h4>A variety of alchemist and medical journals. Provides for extensive reading.
 
-<h4>Clue #5 - $adventure.murderer.name's statment</h4><<linkreplace "About the bottle:">>"That's not my tonic. You see the cork there? I always mark mine when counting stock. No mark means it's Madame Beaudry's."<</linkreplace>>
+<h4>Clue #5 - $adventure.murderer.name's statement</h4><<linkreplace "About the bottle:">>"That's not my tonic. You see the cork there? I always mark mine when counting stock. No mark means it's Madame Beaudry's."<</linkreplace>>
 <<linkreplace "If the players don't give a hint that they know that Mme. Beaudry is dead and if $adventure.murderer.firstName thinks that the players are trustworthy, or if they convince him that they are only asking this because they had a problem with one of the Mme. Beaudry's products. $adventure.murderer.firstName confesses this to them:">>"That wretched merchant dilutes her potions with all sorts of ingredients to keep her prices down. It's putting me out of business! You take too much of that poison and you'll be a dead man."<</linkreplace>>
 
 <h3>Place #4 - Madame Beaudry's Workshop</h3>This workshop is only a block away from the crime scene. <<profile $adventure.alchemist>> is stacking some boxes when you arrive, and welcomes you.
@@ -74,6 +74,6 @@ I realize our last few conversations have been quite unpleasant for the both of 
 Best, $adventure.murderer.name
 <</linkappend>>
 
-<h4>Clue #5 - $adventure.alchemist.firstName's statment</h4><<linkreplace "About the bottle:">>"Yeah that bottle is from Madame Beaudry's shop, I'd recognize it anywhere."<</linkreplace>>
+<h4>Clue #5 - $adventure.alchemist.firstName's statement</h4><<linkreplace "About the bottle:">>"Yeah that bottle is from Madame Beaudry's shop, I'd recognize it anywhere."<</linkreplace>>
 <<linkreplace "If the players don't tell him that Mme. Beaudry is dead, he confesses to them this:">>"Thank the gods that awful wretch isn't here today. She pays me nothing and I've had enough!"<</linkreplace>>
 <<linkreplace "If the players ask where he is going after quitting the job at Beaudry's shop, he says this:">>"$adventure.murderer.firstName's given me a better offer. I just need to procure myself a little potion first."<</linkreplace>>

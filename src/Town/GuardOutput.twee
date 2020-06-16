@@ -3,7 +3,7 @@
 
 <<set $town.guard.population to Math.trunc(_townPop /= 150) + 1>>
 <<if $town.guard.population > 20>>
-    <<set $town.guard.size to "batallion">>
+    <<set $town.guard.size to "battalion">>
   <<elseif $town.guard.population > 10>>
     <<set $town.guard.size to "squad">>
   <<elseif $town.guard.population <= 10>>
