@@ -71,10 +71,7 @@ if (watch) {
     }
     if (misc.hasErrors()) {
       console.log(misc.toString())
-      throw new Error('Build failed!')
-    }
-    if (misc.hasWarnings()) {
-      console.log(misc.toString())
+      process.exit(1)
     }
   })
 }
