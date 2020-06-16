@@ -487,8 +487,8 @@ setup.plothooks = {
   },
   'Goblin Encampment': {
     type: ['paper'],
-    function (town) {
-      const goblins = lib.goblins.create(town)
+    function () {
+      const goblins = lib.goblins.create()
       const readout = lib.goblins.readout(goblins)
       return `Goblin encampment: A ${lib.createTippyFull(readout, 'goblin encampment')} has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.`
     }
