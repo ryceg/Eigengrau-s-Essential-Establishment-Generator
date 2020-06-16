@@ -92,8 +92,9 @@ setup.initMiscEncounters = () => {
       return `a lair belonging to an ${ogre.tippyWord}`
     },
     "some goblins' hideout": town => {
-      const goblins = setup.misc.goblins.create(town)
-      return `a goblin hideout. ${goblins.readout}`
+      const goblins = lib.goblins.create(town)
+      const readout = lib.goblins.readout(goblins)
+      return `a goblin hideout. ${readout}`
     },
     'a pair of goblin scouts': () => 'a pair of goblin scouts',
     'a lone goblin': () => {
@@ -101,8 +102,9 @@ setup.initMiscEncounters = () => {
       return `a lone ${goblin.tippyWord} ${['trying to hide from you.', 'lying in wait for you.', 'lying down, asleep.', 'crawling away from you, clearly bleeding.'].random()}`
     },
     'a goblin war party': town => {
-      const goblins = setup.misc.goblins.create()
-      return `a goblin war party. ${goblins.readout}`
+      const goblins = lib.goblins.create()
+      const readout = lib.goblins.readout(goblins)
+      return `a goblin war party. ${readout}`
     },
     'a goblin patrol': () => `a goblin patrol ${['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].random()}`,
     'several giant spiders': () => {
