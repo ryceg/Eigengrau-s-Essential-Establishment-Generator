@@ -218,13 +218,13 @@ setup.initMiscEncounters = () => {
       return `a solitary ${setup.profile(npc, 'troubador')}`
     },
     'an adventurer on a horse': town => {
-      const horse = setup.misc.horse.create()
+      const horse = lib.createAutoTippy(lib.horse)('horse')
       const npc = setup.createNPC(town, {
         dndClass: ['fighter', 'fighter', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
-      return `an ${setup.profile(npc, 'adventurer')} on a ${horse.tippyWord}`
+      return `an ${setup.profile(npc, 'adventurer')} on a ${horse}`
     },
     'a mounted messenger': town => {
       const npc = setup.createNPC(town, {
@@ -284,8 +284,8 @@ setup.initMiscEncounters = () => {
     'a funeral procession': () => 'a funeral procession',
     'a plague cart': () => 'a plague cart',
     'a lone horse, trotting the other way': () => {
-      const horse = setup.misc.horse.create()
-      return `a lone ${horse.tippyWord}, trotting the other way`
+      const horse = lib.createAutoTippy(lib.horse)('horse')
+      return `a lone ${horse}, trotting the other way`
     },
     'a traveling theatre troupe': () => 'a traveling theatre troupe',
     'some beggars': () => 'some beggars',
