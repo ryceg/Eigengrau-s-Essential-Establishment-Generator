@@ -342,8 +342,9 @@ setup.initMiscEncounters = () => {
       return `a mounted barbarian ${setup.profile(npc, 'scout')}`
     },
     'the ghost of a traveler': () => {
-      const ghost = setup.misc.ghost.create()
-      return `the ${ghost.tippyWord} of a traveler. `
+      const ghost = lib.ghost.create()
+      const readout = lib.ghost.readout(ghost)
+      return `the ${lib.createTippyFull(readout, 'ghost')} of a traveler. `
     },
     'a poisonous snake': () => 'a poisonous snake',
     'a giant spider': () => {
@@ -529,8 +530,9 @@ setup.initMiscEncounters = () => {
       return `a reclusive ${setup.profile(npc, 'shapeshifter')}`
     },
     'a restless ghost': () => {
-      const ghost = setup.misc.ghost.create()
-      return `a restless ${ghost.tippyWord}`
+      const ghost = lib.ghost.create()
+      const readout = lib.ghost.readout(ghost)
+      return `a restless ${lib.createTippyFull(readout, 'ghost')}`
     },
     'a dangerous fugitive': town => {
       const npc = setup.createNPC(town, {
@@ -596,8 +598,9 @@ setup.initMiscEncounters = () => {
       return `a mad ${setup.profile(npc, 'witch')}`
     },
     'restless ghosts': () => {
-      const ghost = setup.misc.ghost.create()
-      return `a restless ${ghost.tippyWord}`
+      const ghost = lib.ghost.create()
+      const readout = lib.ghost.readout(ghost)
+      return `a restless ${lib.createTippyFull(readout, 'ghost')}`
     },
     'an outcast orc': town => {
       const npc = setup.createNPC(town, {
@@ -668,8 +671,9 @@ setup.initMiscEncounters = () => {
     'several homeless dwarves': town => 'several homeless dwarves',
     'an angry wraith': town => 'an angry wraith',
     'a malevolent ghost': () => {
-      const ghost = setup.misc.ghost.create({ reaction: 'murderous and cruel' })
-      return `a malevolent ${ghost.tippyWord}`
+      const ghost = lib.ghost.create({ reaction: 'murderous and cruel' })
+      const readout = lib.ghost.readout(ghost)
+      return `a malevolent ${lib.createTippyFull(readout, 'ghost')}`
     },
     'a mated pair of manticores': town => 'a mated pair of manticores',
     'a trio of monstrous trolls': town => 'a trio of monstrous trolls',
@@ -738,8 +742,9 @@ setup.initMiscEncounters = () => {
     'a large bear': () => 'a large bear',
     'a bear cub': () => 'a bear cub',
     'a wailing ghost': () => {
-      const ghost = setup.misc.ghost.create()
-      return `a wailing ${ghost.tippyWord}`
+      const ghost = lib.ghost.create()
+      const readout = lib.ghost.readout(ghost)
+      return `a wailing ${lib.createTippyFull(readout, 'ghost')}`
     },
     'giant spiders': () => {
       const spider = setup.misc.spider.create()
