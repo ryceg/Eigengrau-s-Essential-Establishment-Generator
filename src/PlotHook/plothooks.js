@@ -1265,12 +1265,12 @@ setup.plothooks = {
   'Lost Cat': {
     type: ['paper'],
     function (town) {
-      const cat = setup.misc.cat.create()
+      const cat = lib.createAutoTippy(lib.cat)('cat')
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
-      return `Help find my lost pet ${cat.tippyWord}! Reward of <<money 3000>> to anyone who finds him. Contact ${setup.profile(npc)} for details on him.`
+      return `Help find my lost pet ${cat}! Reward of <<money 3000>> to anyone who finds him. Contact ${setup.profile(npc)} for details on him.`
     }
   },
   'Bakery Delivery': {

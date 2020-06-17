@@ -133,8 +133,8 @@ setup.initMiscEncounters = () => {
       return `a lone ${wolf.tippyWord}.`
     },
     'a hunting cat': () => {
-      const cat = setup.misc.cat.create()
-      return `a hunting ${cat.tippyWord}.`
+      const cat = lib.createAutoTippy(lib.cat)('cat')
+      return `a hunting ${cat}.`
     },
     'an itinerant priest': town => {
       const npc = setup.createNPC(town, {

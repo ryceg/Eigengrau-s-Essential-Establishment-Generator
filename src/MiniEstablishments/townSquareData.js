@@ -330,8 +330,8 @@ setup.townSquare = {
     'stray cat': {
       type: ['event'],
       function () {
-        const cat = setup.misc.cat.create()
-        return `a stray ${cat.tippyWord} that wanders around.`
+        const cat = lib.createAutoTippy(lib.cat)('cat')
+        return `a stray ${cat} that wanders around.`
       }
     },
     'homeless': {

@@ -325,13 +325,13 @@ setup.initMisc = () => {
           'pen': town => 'An ink pen has been left on top of the shrine, and there are some ink stains splashed on the ground.',
           'bread': town => 'A slice of bread is on the ground, slightly trodden on and thoroughly stale.',
           'deadBird': town => 'You can smell something rotten. Peering around the shrine, you see the corpse of a bird decomposing. Nearby, there is another, with flies buzzing around it.',
-          'cat': town => {
-            const cat = setup.misc.cat.create()
-            return `You hear a soft meow, and see that there's a ${cat.tippyWord} sitting near the shrine, watching you.`
+          'cat': () => {
+            const cat = lib.createAutoTippy(lib.cat)('cat')
+            return `You hear a soft meow, and see that there's a ${cat} sitting near the shrine, watching you.`
           },
-          'hissingCat': town => {
-            const cat = setup.misc.cat.create()
-            return `You hear a hissing sound, and see that there's a ${cat.tippyWord} sitting near the shrine, almost guarding it.`
+          'hissingCat': () => {
+            const cat = lib.createAutoTippy(lib.cat)('cat')
+            return `You hear a hissing sound, and see that there's a ${cat} sitting near the shrine, almost guarding it.`
           },
           'bedding': town => { return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry." },
           'beddingWithNPC': town => {
@@ -369,31 +369,6 @@ setup.initMisc = () => {
       saint: [
         'Almar the Holy', 'Amaya the Seeress', 'Bahak the Preacher', 'Bahruz the Prophet', 'Lira the Flamekeeper', 'Mozar the Conqueror', 'Prince Tarunal', 'Queen Kalissa', 'Rahal the Sunsoul', 'Raham the Lightbringer', 'St. Aemilia', 'St. Albus', 'St. Anglos', 'St. Antonia', 'St. Antonus', 'St. Austyn', 'St. Bardo', 'St. Beatrix', 'St. Berta', 'St. Bettius', 'St. Bryenn', 'St. Buttercup', 'St. Carolo', 'St. Cedrick', 'St. Cordelia', 'St. Cowhan', 'St. Cumberbund', 'St. Dorys', 'St. Dreddos', 'St. Dwayn', 'St. Edwynna', 'St. Elayne', 'St. Falstyus', 'St. Farcas', 'St. Florenzo', 'St. Gabrella', 'St. Gaiorgus', 'St. Goodkynd', 'St. Hal', 'St. Halcincas', 'St. Haroldus', 'St. Hemingwar', 'St. Heraclora', 'St. Hermioninny', 'St. Hieronymus', 'St. Inigo', 'St. Jordyn', 'St. Katrynn', 'St. Lannus', 'St. Leo', 'St. Leryo', 'St. Londyn', 'St. Magio', 'St. Marius', 'St. Markuz', 'St. Martyn', 'St. Matromus', 'St. Morrsona', 'St. Morwayne', 'St. Murkel', 'St. Mychel', 'St. Nyneva', 'St. Paolo', 'St. Parrinus', 'St. Perseon', 'St. Petyr', 'St. Podryck', 'St. Polly', 'St. Pratchytt', 'St. Rawynn', 'St. Regus', 'St. Ricarddos', 'St. Roberts', 'St. Robinus', 'St. Rowhan', 'St. Rowlynna', 'St. Sansima', 'St. Sessimus', 'St. Severus', 'St. Stynebick', 'St. Symeon', 'St. Theseon', 'St. Thoryn', 'St. Tolkkyn', 'St. Twayn', 'St. Xavos', 'the Deliverer', 'the Doomcaller', 'the Doomsayer', 'the Lawgiver', 'the Oracle', 'the Prophet', 'the Savior', 'the Seeker', 'the Shadowseer', 'the Soothsayer', 'the Starwatcher', 'the Truthsayer', 'the Voice', 'Zefar the Sorcer'
       ]
-    },
-    cat: {
-      create: () => {
-        const cat = {
-          size: setup.misc.cat.size.random(),
-          coat: setup.misc.cat.coat.random(),
-          eyes: setup.misc.cat.eyes.random(),
-          breedSkill: setup.misc.cat.breedSkill.random(),
-          favouriteFood: setup.misc.cat.favouriteFood.random(),
-          markings: setup.misc.cat.markings.random(),
-          habit: setup.misc.cat.habit.random(),
-          talent: setup.misc.cat.talent.random()
-        }
-        cat.readout = `This cat is ${cat.size}, and has a ${cat.coat} coat, with ${cat.eyes} and ${cat.markings}. This breed was bred ${cat.breedSkill}, and this cat has ${cat.habit}. It loves ${cat.favouriteFood}, and it is particularly good at ${cat.talent}`
-        cat.tippyWord = lib.createTippyFull(cat.readout, 'cat')
-        return cat
-      },
-      size: ['all skin and bones', 'a little scrawny', 'pretty average in size', 'a little long and lanky', 'fat', 'extremely fat'],
-      coat: ['solid white', 'solid black', 'solid grey', 'grey and black spotted tabby', 'orange and black spotted tabby', 'grey and black striped tabby', 'orange and white striped tabby', 'orange and white striped tabby', 'grey and black blotched tabby', 'black and white bicolor', 'white and orange bicolor', 'calico'],
-      eyes: ['yellow eyes', 'golden brown eyes', 'copper brown eyes', 'dull green eyes', 'bright green eyes', 'brilliant gold eyes', 'copper eyes', 'bright blue eyes', 'pale blue eyes', 'bluish grey eyes', 'one blue eye and one golden brown eye', 'one blue eye and one copper brown eye'],
-      breedSkill: ['to hunt mice in granaries', 'to hunt mice in urban dwellings', 'to hunt rats aboard ships', 'to hunt rats and mice in barns', 'to hunt birds on rooftops', 'to hunt snakes and lizards', 'to sit on laps', "for no particular reason; it's ancestors were semi-feral village cats.", "for no particular reason; it's ancestors were semi-feral city cats.", "for no reason at all; it's ancestors were wild animals."],
-      favouriteFood: ['warm milk', 'mice', 'baby mice', 'songbirds', 'pigeon', 'chicken', 'sardines', 'tuna', 'salmon', 'bacon'],
-      markings: ['white or black toes on one foot', 'extremely long whiskers', 'a white or black tipped tail', 'no tail', 'a broken tail', 'a scarred ear', 'a patch of missing fur', 'a pink nose', 'a black nose', 'a pink and black nose'],
-      habit: ['a habit of hiding whenever it first meets someone', 'a habit of begging for food', 'a mistrustful demeanor, even toward people it knows well', 'a playful demeanor, always chasing its tail', 'a curious demeanor, always sneaking up and pouncing on things', 'a noisy yowl when it is sad', 'a cute little meow when it is content', 'a habit of purring and rubbing against your leg', 'a habit of hissing at any who approach it', 'a friendly demeanor, provided you have food'],
-      talent: ['scratching', 'hissing', 'purring', 'climbing trees', 'climbing walls', 'catching mice', 'catching fish', 'catching birds', 'avoiding you', 'ignoring you']
     },
     horse: {
       create: () => {
