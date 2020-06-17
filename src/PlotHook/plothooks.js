@@ -1429,12 +1429,13 @@ setup.plothooks = {
   'A Lost Bunny': {
     type: ['paper'],
     function (town) {
-      const bunny = setup.misc.bunny.create()
+      const bunny = lib.bunny.create()
+      const readout = lib.bunny.readout(bunny)
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner'
       })
-      return `Help find my lost rabbit ${bunny.tippyWord}! Reward of <<money 2>> to anyone who finds him. Contact ${setup.profile(npc)} for details on him.`
+      return `Help find my lost rabbit ${lib.createTippyFull(readout, 'bunny')}! Reward of <<money 2>> to anyone who finds him. Contact ${setup.profile(npc)} for details on him.`
     }
   },
   'Dead or Alive': {

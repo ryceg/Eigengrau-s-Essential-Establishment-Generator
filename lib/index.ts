@@ -2,6 +2,7 @@ export * from './npc-generation/bmiDescriptions'
 
 export * from './src/bandits'
 export * from './src/books'
+export * from './src/bunny'
 export * from './src/calcPercentage'
 export * from './src/cheese'
 export * from './src/clampRolls'
