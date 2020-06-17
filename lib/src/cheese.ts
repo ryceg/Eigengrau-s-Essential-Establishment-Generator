@@ -16,7 +16,10 @@ export const cheese = {
     smell: random(data.smells),
     cost: random(data.costs),
     ...base
-  })
+  }),
+  readout: (cheese: Cheese) => {
+    return `This cheese is ${cheese.colour}. It smells ${cheese.smell}. The taste is ${cheese.taste}, with a texture that is ${cheese.texture}.`
+  }
 }
 
 const data = {
