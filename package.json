@@ -20,7 +20,7 @@
     "start": "node scripts/build --watch",
     "test": "jest",
     "lint": "eslint **/*.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d gh-pages"
   },
   "husky": {
     "hooks": {
