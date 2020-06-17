@@ -1,22 +1,22 @@
 setup.initMiscEncounters = () => {
   setup.misc.encounters = {
-    'a group of bandits operating a toll road': town => {
-      const bandits = lib.bandits.create(town, { business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)' })
+    'a group of bandits operating a toll road': () => {
+      const bandits = lib.bandits.create({ business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)' })
       const readout = lib.bandits.readout(bandits)
       return `a group of ${lib.createTippyFull(readout, 'bandits')} operating a toll road. `
     },
-    'a band of robbers': town => {
-      const bandits = lib.bandits.create(town, { business: 'attacking people using the trail' })
+    'a band of robbers': () => {
+      const bandits = lib.bandits.create({ business: 'attacking people using the trail' })
       const readout = lib.bandits.readout(bandits)
       return `${lib.createTippyFull(readout, 'a band of robbers')}.`
     },
-    'some robbers': town => {
-      const bandits = lib.bandits.create(town, { business: 'attacking people using the trail' })
+    'some robbers': () => {
+      const bandits = lib.bandits.create({ business: 'attacking people using the trail' })
       const readout = lib.bandits.readout(bandits)
       return `${lib.createTippyFull(readout, 'some robbers')}.`
     },
-    'a party of raiders': town => {
-      const bandits = lib.bandits.create(town)
+    'a party of raiders': () => {
+      const bandits = lib.bandits.create()
       const readout = lib.bandits.readout(bandits)
       return `${lib.createTippyFull(readout, 'a party of raiders')}.`
     },
@@ -31,18 +31,18 @@ setup.initMiscEncounters = () => {
       })
       return `a pair of two outlaws; one ${setup.profile(npc, npc.descriptor)} and a ${setup.profile(secondNpc, secondNpc.descriptor)}`
     },
-    'a band of desperate outlaws': town => {
-      const bandits = lib.bandits.create(town)
+    'a band of desperate outlaws': () => {
+      const bandits = lib.bandits.create()
       const readout = lib.bandits.readout(bandits)
       return `${lib.createTippyFull(readout, 'a band of desperate outlaws')}.`
     },
-    'some bandits': town => {
-      const bandits = lib.bandits.create(town, { business: 'attacking people using the trail' })
+    'some bandits': () => {
+      const bandits = lib.bandits.create({ business: 'attacking people using the trail' })
       const readout = lib.bandits.readout(bandits)
       return `${lib.createTippyFull(readout, 'some bandits')}.`
     },
-    'some outlaws’ hideout': town => {
-      const bandits = lib.bandits.create(town)
+    'some outlaws’ hideout': () => {
+      const bandits = lib.bandits.create()
       const readout = lib.bandits.readout(bandits)
       return `a hideout belonging to ${lib.createTippyFull(readout, 'some outlaws')}.`
     },

@@ -622,9 +622,9 @@ setup.plothooks = {
   },
   'Magnificent Seven': {
     type: ['paper'],
-    function (town) {
-      const bandits = lib.bandits.create(town)
-      return `Magnificent Seven: Our villagers overheard ${bandits.tippyWord} who plan on raiding our town in one week’s town. We seek seven or more strong warriors who will help defend us.`
+    function () {
+      const bandits = lib.createAutoTippy(lib.bandits)('bandits')
+      return `Magnificent Seven: Our villagers overheard ${bandits} who plan on raiding our town in one week’s town. We seek seven or more strong warriors who will help defend us.`
     }
   },
   'Traveling Bards': {

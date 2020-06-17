@@ -13,7 +13,7 @@ interface Bandits {
 }
 
 export const bandits = {
-  create: (town: unknown, base?: Partial<Bandits>): Bandits => ({
+  create: (base?: Partial<Bandits>): Bandits => ({
     business: random(data.business),
     colours: random(data.colours),
     symbol: random(data.symbol),
