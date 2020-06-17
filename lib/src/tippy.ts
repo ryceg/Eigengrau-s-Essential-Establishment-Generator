@@ -24,3 +24,16 @@ export const createTippyWord = (tippy: string, word: string) => {
 export const createTippyFull = (readout: string, word: string) => {
   return `<span class="tip dotted" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
 }
+
+interface Construct<T = unknown> {
+  create: (...args: unknown[]) => T
+  readout: (object: T) => string
+}
+
+export function createAutoTippy<C extends Construct> (construct: C, ...args: Parameters<C['create']>) {
+  const readout = construct.readout(construct.create(...args))
+
+  return function autoTippy (word: string) {
+    return createTippyFull(readout, word)
+  }
+}
