@@ -124,13 +124,12 @@ setup.initMiscEncounters = () => {
       return `several giant ${spider.tippyWord}<span class="dotted">s</span>.`
     },
     'a pack of wolves': () => {
-      const wolf = setup.misc.wolf.create()
-      const wolves = `${wolf.tippy}<span class="dotted">wolves</span></span>.`
+      const wolves = lib.createAutoTippy(lib.wolf)('wolves')
       return `a pack of ${wolves}`
     },
     'a lone wolf': () => {
-      const wolf = setup.misc.wolf.create()
-      return `a lone ${wolf.tippyWord}.`
+      const wolf = lib.createAutoTippy(lib.wolf)('wolf')
+      return `a lone ${wolf}.`
     },
     'a hunting cat': () => {
       const cat = lib.createAutoTippy(lib.cat)('cat')
