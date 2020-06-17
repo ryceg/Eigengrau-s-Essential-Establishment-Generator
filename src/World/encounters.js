@@ -71,20 +71,24 @@ setup.initMiscEncounters = () => {
       return `a merchant caravan. ${caravan.readout}`
     },
     'a clan of orcs': town => {
-      const orcs = setup.misc.orcs.create()
-      return `a clan of orcs. ${orcs.readout}`
+      const orcs = lib.orcs.create()
+      const readout = lib.orcs.readout(orcs)
+      return `a clan of orcs. ${readout}`
     },
     'several orc raiders': town => {
-      const orcs = setup.misc.orcs.create()
-      return `several orc raiders. ${orcs.readout}`
+      const orcs = lib.orcs.create()
+      const readout = lib.orcs.readout(orcs)
+      return `several orc raiders. ${readout}`
     },
     'an orkish war band': () => {
-      const orcs = setup.misc.orcs.create()
-      return `an orc war band. ${orcs.readout}`
+      const orcs = lib.orcs.create()
+      const readout = lib.orcs.readout(orcs)
+      return `an orkish war band. ${readout}`
     },
     'an orc war band': town => {
-      const orcs = setup.misc.orcs.create(town)
-      return `an orc war band. ${orcs.readout}`
+      const orcs = lib.orcs.create()
+      const readout = lib.orcs.readout(orcs)
+      return `an orc war band. ${readout}`
     },
     'a handful of ogres': () => {
       const ogre = setup.misc.ogre.create()
