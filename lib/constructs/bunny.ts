@@ -1,4 +1,4 @@
-import { random } from './random'
+import { random } from '../src/random'
 
 interface Bunny {
   size: string
