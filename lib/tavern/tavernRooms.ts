@@ -8,10 +8,10 @@ interface Tavern {
 }
 
 export function tavernRooms (tavern: Tavern) {
-  return getBySize(tavern.roll.size) + populationModifier(tavern.roll.population)
+  return getRoomsBySize(tavern.roll.size) + getPopulationModifier(tavern.roll.population)
 }
 
-function getBySize (roll: number) {
+function getRoomsBySize (roll: number) {
   if (roll > 80) return random(6, 10)
   if (roll > 60) return random(5, 9)
   if (roll > 40) return random(4, 8)
@@ -19,7 +19,7 @@ function getBySize (roll: number) {
   return random(2, 4)
 }
 
-function populationModifier (roll: number) {
+function getPopulationModifier (roll: number) {
   if (roll > 80) return -3
   if (roll > 60) return -2
   if (roll > 40) return -1
