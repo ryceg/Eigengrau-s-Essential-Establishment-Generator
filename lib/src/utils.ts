@@ -1,3 +1,5 @@
+import { randomFloat } from './randomFloat'
+
 /**
  * An alternative, stricter typed version of `Object.keys`.
  *
@@ -48,4 +50,16 @@ export function assert (condition: boolean, message?: string): asserts condition
  */
 export function last<T> (array: T[]) {
   return array[array.length - 1]
+}
+
+/**
+ * Somewhat low quality UUID generation,
+ * based on the seeded randomness.
+ */
+export function getUUID () {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, char => {
+    const randomValue = randomFloat(16) | 0
+    const value = char === 'x' ? randomValue : randomValue & 0x3 | 0x8
+    return value.toString(16)
+  })
 }
