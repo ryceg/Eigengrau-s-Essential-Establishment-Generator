@@ -46,9 +46,20 @@ export function assert (condition: boolean, message?: string): asserts condition
 }
 
 /**
+ * Returns the first element of an array or string.
+ */
+export function first (array: string): string
+export function first<T> (array: T[]): T
+export function first<T> (array: T[] | string) {
+  return array[0]
+}
+
+/**
  * Returns the last element of an array.
  */
-export function last<T> (array: T[]) {
+export function last (array: string): string
+export function last<T> (array: T[]): T
+export function last<T> (array: T[] | string) {
   return array[array.length - 1]
 }
 
