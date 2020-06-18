@@ -152,20 +152,4 @@
     output: article,
     override: addOverride
   }
-
-  Macro.add('setarticle', {
-    handler () {
-      const check = addOverride(this.args[0], this.args[1], this.args[2])
-      if (check && typeof check === 'string') {
-        this.error(check)
-      }
-    }
-  })
-
-  Macro.add(['a', 'an', 'A', 'An'], {
-    handler () {
-      const isUpper = this.name.first() === this.name.first().toUpperCase()
-      this.output.append(article(String(this.args[0]), isUpper))
-    }
-  })
 })()
