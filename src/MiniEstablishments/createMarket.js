@@ -8,12 +8,12 @@ setup.createMarket = (town, opts = {}) => {
     buildingType: 'market',
     wordNoun: ['market', 'bazaar', 'agora', 'emporium', 'plaza', 'piazza'].random(),
     needsWordNoun: false,
-    location: setup.market.location.random(),
-    size: setup.market.size.random(),
-    cleanliness: setup.market.cleanliness.random(),
-    draw: setup.market.draw.random(),
-    organisation: setup.market.organisation.random(),
-    crowd: setup.market.crowd.random()
+    location: lib.market.location.random(),
+    size: lib.market.size.random(),
+    cleanliness: lib.market.cleanliness.random(),
+    draw: lib.market.draw.random(),
+    organisation: lib.market.organisation.random(),
+    crowd: lib.market.crowd.random()
   })
 
   market.name = [

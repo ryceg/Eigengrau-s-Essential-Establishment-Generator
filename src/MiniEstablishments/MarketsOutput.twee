@@ -1,14 +1,14 @@
 :: MarketOutput [market]
 <<unset $currentPassageBuilding>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><h1>$building.name</h1>You wander through the streets of $town.name, and come across the market, which is located in $building.location. It seems that the vendors are organised by $building.organisation. The market is known for $building.draw, and is $building.cleanliness. Today the market is $building.crowd.
 
-<h3>Merchants</h3><<nobr>><<set _marketData to setup.market>><<if ndef $building.sellers>><<set $building.sellers to {}>><<run setup.createMarketSellers($town, $building.sellers, "", 4)>>
+<h3>Merchants</h3><<nobr>><<set _marketData to lib.market>><<if ndef $building.sellers>><<set $building.sellers to {}>><<run setup.createMarketSellers($town, $building.sellers, "", 4)>>
 <<set $building.magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>><</nobr>>
 <<for _key, _seller range $building.sellers>>
 <<print ["A ", "Nearby, a ", "Off to the side, a "].random()>> <<profile $npcs[_key] $npcs[_key].descriptor>> is _seller.selling from a _seller.tent.
 
 <</for>>
 <<link "<h4>Who else is there?</h4>">>
-<<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to setup.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to setup.market.vendors.tent.random()>>
+<<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to lib.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to lib.market.vendors.tent.random()>>
 <<replace "#moreSellers">>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print setup.articles.output($building.moreSeller.merchant.tent)>>.<</replace>>
 <</link>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print setup.articles.output($building.moreSeller.merchant.tent)>>.<</if>>
 

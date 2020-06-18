@@ -14,10 +14,10 @@ setup.createMarketSellers = (town, obj, opts = {}, number) => {
       profession: 'merchant',
       merchant: {
         selling: [
-          `selling ${setup.market.vendors.selling.random()}`,
-          `${shout.random()}"${setup.market.vendors.shouts.random()} ${setup.market.vendors.suffix.random()}"`
+          `selling ${lib.market.vendors.selling.random()}`,
+          `${shout.random()}"${lib.market.vendors.shouts.random()} ${lib.market.vendors.suffix.random()}"`
         ].random(),
-        tent: setup.market.vendors.tent.random()
+        tent: lib.market.vendors.tent.random()
       },
       hasClass: false,
       isThrowaway: true,

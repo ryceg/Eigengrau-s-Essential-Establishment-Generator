@@ -1,4 +1,4 @@
-setup.market = {
+export const market = {
   vendors: {
     selling: [
       'ale by the pint',
