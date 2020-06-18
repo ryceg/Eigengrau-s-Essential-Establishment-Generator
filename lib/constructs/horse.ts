@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Horse {
+interface Horse extends Construct<'horse'> {
   gender: string
   eyes: string
   type: string
@@ -13,8 +15,10 @@ interface Horse {
   behaviour: string
 }
 
-export const horse = {
-  create: (base?: Partial<Horse>): Horse => ({
+export const horse: ConstructUtils<Horse> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'horse',
     gender: random(data.gender),
     eyes: random(data.eyes),
     type: random(data.type),
@@ -27,8 +31,8 @@ export const horse = {
     behaviour: random(data.behaviour),
     ...base
   }),
-  readout: (horse: Horse) => {
-    return `This horse is ${horse.gender}${+' '}${horse.type}, and is ${horse.quality}. It has a ${horse.colour} coat, with ${horse.feature} and ${horse.eyes}. It is ${horse.flaw}, which is ${horse.flawSeverity}. It is ${horse.personality}, and ${horse.behaviour}.`
+  readout: horse => {
+    return `This horse is ${horse.gender} ${horse.type}, and is ${horse.quality}. It has a ${horse.colour} coat, with ${horse.feature} and ${horse.eyes}. It is ${horse.flaw}, which is ${horse.flawSeverity}. It is ${horse.personality}, and ${horse.behaviour}.`
   }
 }
 

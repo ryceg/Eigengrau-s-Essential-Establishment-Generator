@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Cheese {
+interface Cheese extends Construct<'cheese'> {
   colour: string
   texture: string
   taste: string
@@ -8,8 +10,10 @@ interface Cheese {
   cost: number
 }
 
-export const cheese = {
-  create: (base?: Partial<Cheese>): Cheese => ({
+export const cheese: ConstructUtils<Cheese> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'cheese',
     colour: random(data.colours),
     texture: random(data.textures),
     taste: random(data.tastes),
@@ -17,7 +21,7 @@ export const cheese = {
     cost: random(data.costs),
     ...base
   }),
-  readout: (cheese: Cheese) => {
+  readout: cheese => {
     return `This cheese is ${cheese.colour}. It smells ${cheese.smell}. The taste is ${cheese.taste}, with a texture that is ${cheese.texture}.`
   }
 }

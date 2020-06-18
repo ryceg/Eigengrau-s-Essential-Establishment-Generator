@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Goblins {
+interface Goblins extends Construct<'goblins'> {
   business: string;
   symbol: string;
   colour: string;
@@ -15,8 +17,10 @@ interface Goblins {
   pets: string;
 }
 
-export const goblins = {
-  create: (base?: Partial<Goblins>): Goblins => ({
+export const goblins: ConstructUtils<Goblins> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'goblins',
     business: random(data.business),
     symbol: random(data.symbol),
     colour: random(data.colour),
@@ -31,7 +35,7 @@ export const goblins = {
     pets: random(data.pets),
     ...base
   }),
-  readout: (goblins: Goblins) => {
+  readout: goblins => {
     return `These goblins primarily deal with ${goblins.business}. Their symbol is ${goblins.symbol}, and their colours are primarily ${goblins.colour}. Their lair is ${goblins.lairType}, located ${goblins.lairLocation}. Their leader is ${goblins.leaderType}, who wants ${goblins.goals}. They like to target ${goblins.target}, and are currently planning a raid on ${goblins.currentTarget}. They fight with ${goblins.tactics}, and occasionally enlist help from ${goblins.accompaniedBy}. They have some ${goblins.pets} as pets.`
   }
 }

@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Bandits {
+interface Bandits extends Construct<'bandits'> {
   business: string
   colours: string
   symbol: string
@@ -12,8 +14,10 @@ interface Bandits {
   fearedBy: string
 }
 
-export const bandits = {
-  create: (base?: Partial<Bandits>): Bandits => ({
+export const bandits: ConstructUtils<Bandits> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'bandits',
     business: random(data.business),
     colours: random(data.colours),
     symbol: random(data.symbol),
@@ -25,7 +29,7 @@ export const bandits = {
     fearedBy: random(data.fearedBy),
     ...base
   }),
-  readout: (bandits: Bandits) => {
+  readout: bandits => {
     return `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
   }
 }

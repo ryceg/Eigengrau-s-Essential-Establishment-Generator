@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Orcs {
+interface Orcs extends Construct<'orcs'> {
   type: string;
   symbol: string;
   value: string;
@@ -17,8 +19,10 @@ interface Orcs {
   weapons: string;
 }
 
-export const orcs = {
-  create: (base?: Partial<Orcs>): Orcs => ({
+export const orcs: ConstructUtils<Orcs> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'orcs',
     type: random(data.type),
     symbol: random(data.symbol),
     value: random(data.value),
@@ -35,7 +39,7 @@ export const orcs = {
     weapons: random(data.weapons),
     ...base
   }),
-  readout: (orcs: Orcs) => {
+  readout: orcs => {
     return `These orcs are ${orcs.type}, known for ${orcs.knownFor}. Their symbol is ${orcs.symbol}, and they value ${orcs.value}. Their favourite food is is ${orcs.meat}, and they fear ${orcs.fear}. Their leader is ${orcs.leader}, who wants ${orcs.goals}. They are ${orcs.attitude}, and are notorious for ${orcs.notorious}. They fight with ${orcs.weapons}, with ${orcs.tactics}. They have pet ${orcs.pets}, and keep some ${orcs.slaves} as slaves.`
   }
 }

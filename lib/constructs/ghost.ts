@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Ghost {
+interface Ghost extends Construct<'ghost'> {
   profession: string
   cause: string
   reason: string
@@ -8,8 +10,10 @@ interface Ghost {
   reaction: string
 }
 
-export const ghost = {
-  create: (base?: Partial<Ghost>): Ghost => ({
+export const ghost: ConstructUtils<Ghost> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'ghost',
     profession: random(data.profession),
     cause: random(data.cause),
     reason: random(data.reason),
@@ -17,7 +21,7 @@ export const ghost = {
     reaction: random(data.reaction),
     ...base
   }),
-  readout: (ghost: Ghost) => {
+  readout: ghost => {
     return `This ghost was once ${ghost.profession}. They died from ${ghost.cause}, and linger on in this life ${ghost.reason}. They can move on if ${ghost.release}. It is ${ghost.reaction} towards the living.`
   }
 }

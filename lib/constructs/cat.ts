@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Cat {
+interface Cat extends Construct<'cat'> {
   size: string
   coat: string
   eyes: string
@@ -11,8 +13,10 @@ interface Cat {
   talent: string
 }
 
-export const cat = {
-  create: (base?: Partial<Cat>): Cat => ({
+export const cat: ConstructUtils<Cat> = {
+  create: base => ({
+    $type: 'cat',
+    $uuid: getUUID(),
     size: random(data.size),
     coat: random(data.coat),
     eyes: random(data.eyes),
@@ -23,7 +27,7 @@ export const cat = {
     talent: random(data.talent),
     ...base
   }),
-  readout: (cat: Cat) => {
+  readout: cat => {
     return `This cat is ${cat.size}, and has a ${cat.coat} coat, with ${cat.eyes} and ${cat.markings}. This breed was bred ${cat.breedSkill}, and this cat has ${cat.habit}. It loves ${cat.favouriteFood}, and it is particularly good at ${cat.talent}`
   }
 }

@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Wolf {
+interface Wolf extends Construct<'wolf'> {
   colour: string
   markings: string
   eyes: string
@@ -11,8 +13,10 @@ interface Wolf {
   habitat: string
 }
 
-export const wolf = {
-  create: (base?: Partial<Wolf>): Wolf => ({
+export const wolf: ConstructUtils<Wolf> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'wolf',
     colour: random(data.colour),
     markings: random(data.markings()),
     eyes: random(data.eyes),
@@ -23,7 +27,7 @@ export const wolf = {
     habitat: random(data.habitat),
     ...base
   }),
-  readout: (wolf: Wolf) => {
+  readout: wolf => {
     return `This wolf is ${wolf.colour}, and has ${wolf.markings} coat, with ${wolf.eyes}. It is ${wolf.manner}, and is ${wolf.packStatus}. This breed thrives in ${wolf.habitat}. It prefers to ${wolf.tactics}, and if given the choice, it prefers ${wolf.prey}`
   }
 }

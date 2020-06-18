@@ -1,12 +1,9 @@
-/**
- * A common interface for simple objects.
- */
-export interface ConstructUtils<T = unknown> {
-  create: (base?: Partial<T>) => T
-  readout: (object: T) => string
+export interface Construct<T extends string = string> {
+  $type: T
+  $uuid: string
 }
 
-export interface Construct {
-  _uuid: string
-  _type: string
+export interface ConstructUtils<C extends Construct = Construct> {
+  create: (base?: Partial<C>) => C
+  readout: (object: C) => string
 }

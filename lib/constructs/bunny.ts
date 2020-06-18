@@ -1,21 +1,25 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Bunny {
+interface Bunny extends Construct<'bunny'> {
   size: string
   coat: string
   favouriteFood: string
   markings: string
 }
 
-export const bunny = {
-  create: (base?: Partial<Bunny>): Bunny => ({
+export const bunny: ConstructUtils<Bunny> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'bunny',
     size: random(data.size),
     coat: random(data.coat),
     favouriteFood: random(data.favouriteFood),
     markings: random(data.markings),
     ...base
   }),
-  readout: (bunny: Bunny) => {
+  readout: bunny => {
     return `This bunny is ${bunny.size}, and has a ${bunny.coat} coat, with ${bunny.markings}. It loves ${bunny.favouriteFood}.`
   }
 }

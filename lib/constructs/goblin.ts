@@ -1,6 +1,8 @@
 import { random } from '../src/random'
+import { getUUID } from '../src/utils'
+import { Construct, ConstructUtils } from './_common'
 
-interface Goblin {
+interface Goblin extends Construct<'goblin'> {
   type: string;
   carry: string;
   wears: string;
@@ -10,8 +12,10 @@ interface Goblin {
   talent: string;
 }
 
-export const goblin = {
-  create: (base?: Partial<Goblin>): Goblin => ({
+export const goblin: ConstructUtils<Goblin> = {
+  create: base => ({
+    $uuid: getUUID(),
+    $type: 'goblin',
     type: random(data.type),
     carry: random(data.carry),
     wears: random(data.wears),
@@ -21,7 +25,7 @@ export const goblin = {
     talent: random(data.talent),
     ...base
   }),
-  readout: (goblin: Goblin) => {
+  readout: goblin => {
     return `This goblin is ${goblin.type}, and has a ${goblin.faceFeature}. It wields ${goblin.carry} and wears ${goblin.wears}. This goblin is particularly good at ${goblin.talent}, and has ${goblin.feature}. Currently, it is looking to ${goblin.looks}`
   }
 }
