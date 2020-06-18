@@ -1,6 +1,5 @@
 interface Setup {
   init(): void
-  getMoralsData(npc: NPC): MoralsData[]
   npcTaxRate(town: Town, npc: NPC): number
   profile(obj: any, base?: string, type?: string): string
   createAge(npc: NPC): any
@@ -35,9 +34,4 @@ interface CreateNameParameters {
   race?: string
   gender?: string
   firstOrLast?: string
-}
-
-interface MoralsData {
-  name: string
-  note: string
 }
