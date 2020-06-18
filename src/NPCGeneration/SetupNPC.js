@@ -22,11 +22,6 @@ setup.createNPC = function (town, base) {
     base = lib.objectArrayFetcher(setup.misc.patreonCharacters, town)
   }
 
-  // if (!base.roll) {
-  //   base.roll = {
-  //     breakGenderNorms: random(1, 100)
-  //   }
-  // }
   setup.initSexistProfession(town, base)
 
   const gender = base.gender || ['man', 'woman'].random()
@@ -199,19 +194,6 @@ setup.createNPC = function (town, base) {
   Object.assign(npc, data.raceTraits[npc.race].raceWords)
   npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
-  // if (npc.hasClass === undefined) {
-  //   if (random(100) > 70) {
-  //     npc.hasClass = false
-  //     npc.dndClass = npc.profession
-  //   } else {
-  //     npc.adventure = data.adventure.random() || 'looking for work'
-  //     npc.hasClass = true
-  //   }
-  // } else if (!npc.hasClass) {
-  //   npc.dndClass = npc.profession
-  // } else if (npc.hasClass) {
-  //   npc.adventure = data.adventure.random() || 'looking for work'
-  // }
   if (typeof npc.hasClass === 'undefined') {
     if (setup.findProfession(town, npc).type !== 'dndClass') {
       npc.hasClass = false
@@ -230,7 +212,6 @@ setup.createNPC = function (town, base) {
   }
   // setup.createName(npc)
 
-  // console.log(npc)
   setup.createAge(npc)
 
   setup.createRace(npc)
@@ -283,26 +264,11 @@ setup.createNPC = function (town, base) {
   }
   if (npc.hasHistory !== false) setup.expandNPC(town, npc)
 
-  /* if (npc.partnerID) {
-    console.log('assigning ' + npc.name + ' ' + State.variables.npcs[npc.partnerID].name + ' as a partner...')
-    setup.setAsPartners(npc, State.variables.npcs[npc.partnerID])
-  } */
   State.temporary.newNPC = npc
 
   if (npc.callbackFunction) {
     npc.callbackFunction(town, npc, base)
   }
-
-  // let tempProfession = setup.findProfession(town, npc, profession)
-  // if (setup.townData.professions[tempProfession].function) {
-  //   if (typeof setup.townData.professions[tempProfession].function === 'function') {
-  //     console.log('There is an on-load function for the profession.')
-  //     console.log({ tempProfession })
-  //     console.log({ npc })
-  //     setup.townData.professions[tempProfession].function(town, npc)
-  //   }
-  // }
-  // npc.doesnt = lib.weightedRandomFetcher(town, setup.npcData.doesnt, npc)
 
   console.log(npc)
   console.groupEnd()
