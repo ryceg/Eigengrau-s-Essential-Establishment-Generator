@@ -21,134 +21,137 @@ interface Tavern {
 }
 
 export function tavernModifiers (town: Town, tavern: Tavern) {
-  if (town.roll.wealth > 95) {
-    tavern.roll.wealth += 10
-  } else if (town.roll.wealth > 80) {
-    tavern.roll.wealth += 7
-  } else if (town.roll.wealth > 70) {
-    tavern.roll.wealth += 5
-  } else if (town.roll.wealth > 60) {
-    tavern.roll.wealth += 3
-    tavern.roll.population += 1
-  } else if (town.roll.wealth > 50) {
-    tavern.roll.wealth += 1
-    tavern.roll.population += 3
-  } else if (town.roll.wealth > 40) {
-    tavern.roll.wealth -= 1
-    tavern.roll.population += 2
-  } else if (town.roll.wealth > 30) {
-    tavern.roll.wealth -= 2
-  } else if (town.roll.wealth > 20) {
-    tavern.roll.wealth -= 10
-    tavern.roll.sin += 1
-  } else if (town.roll.wealth <= 20) {
-    tavern.roll.wealth -= 15
-    tavern.roll.sin += 5
-    tavern.roll.population -= 3
+  const townRoll = town.roll
+  const tavernRoll = tavern.roll
+
+  if (townRoll.wealth > 95) {
+    tavernRoll.wealth += 10
+  } else if (townRoll.wealth > 80) {
+    tavernRoll.wealth += 7
+  } else if (townRoll.wealth > 70) {
+    tavernRoll.wealth += 5
+  } else if (townRoll.wealth > 60) {
+    tavernRoll.wealth += 3
+    tavernRoll.population += 1
+  } else if (townRoll.wealth > 50) {
+    tavernRoll.wealth += 1
+    tavernRoll.population += 3
+  } else if (townRoll.wealth > 40) {
+    tavernRoll.wealth -= 1
+    tavernRoll.population += 2
+  } else if (townRoll.wealth > 30) {
+    tavernRoll.wealth -= 2
+  } else if (townRoll.wealth > 20) {
+    tavernRoll.wealth -= 10
+    tavernRoll.sin += 1
+  } else if (townRoll.wealth <= 20) {
+    tavernRoll.wealth -= 15
+    tavernRoll.sin += 5
+    tavernRoll.population -= 3
   }
 
   switch (tavern.type) {
     case 'brothel':
-      tavern.roll.sin += 20
-      tavern.roll.roughness += 4
-      tavern.roll.cleanliness -= 5
+      tavernRoll.sin += 20
+      tavernRoll.roughness += 4
+      tavernRoll.cleanliness -= 5
       break
     case 'gambling den':
-      tavern.roll.sin += 20
-      tavern.roll.roughness += 4
-      tavern.roll.cleanliness -= 5
+      tavernRoll.sin += 20
+      tavernRoll.roughness += 4
+      tavernRoll.cleanliness -= 5
       break
     case 'quiet and low-key bar':
-      tavern.roll.sin -= 15
-      tavern.roll.population -= 5
-      tavern.roll.roughness -= 10
-      tavern.roll.cleanliness += 3
+      tavernRoll.sin -= 15
+      tavernRoll.population -= 5
+      tavernRoll.roughness -= 10
+      tavernRoll.cleanliness += 3
       break
     case 'raucous dive':
-      tavern.roll.sin += 5
-      tavern.roll.population += 15
-      tavern.roll.roughness += 5
-      tavern.roll.cleanliness -= 5
+      tavernRoll.sin += 5
+      tavernRoll.population += 15
+      tavernRoll.roughness += 5
+      tavernRoll.cleanliness -= 5
       break
     case "thieves' guild hangout":
-      tavern.roll.sin += 15
-      tavern.roll.roughness += 5
+      tavernRoll.sin += 15
+      tavernRoll.roughness += 5
       break
     case 'high-end dining club':
-      tavern.roll.sin -= 10
-      tavern.roll.wealth += 5
-      tavern.roll.roughness -= 10
-      tavern.roll.cleanliness += 10
+      tavernRoll.sin -= 10
+      tavernRoll.wealth += 5
+      tavernRoll.roughness -= 10
+      tavernRoll.cleanliness += 10
       break
     case 'members-only club':
-      tavern.roll.sin -= 10
-      tavern.roll.wealth += 5
-      tavern.roll.roughness -= 10
-      tavern.roll.cleanliness += 10
+      tavernRoll.sin -= 10
+      tavernRoll.wealth += 5
+      tavernRoll.roughness -= 10
+      tavernRoll.cleanliness += 10
       break
 
     case 'gathering place for a secret society':
-      tavern.roll.sin += 5
-      tavern.roll.population -= 5
+      tavernRoll.sin += 5
+      tavernRoll.population -= 5
       break
   }
   /* ------------------------- DRAW -------------------------- */
   switch (tavern.draw) {
     case 'attractive waitstaff':
-      tavern.roll.roughness += 3
-      tavern.roll.sin += 1
+      tavernRoll.roughness += 3
+      tavernRoll.sin += 1
       break
     case 'crude jokes the bartender makes':
-      tavern.roll.roughness += 3
-      tavern.roll.sin += 1
+      tavernRoll.roughness += 3
+      tavernRoll.sin += 1
       break
     case "proximity to the thieves' guild headquarters":
-      tavern.roll.roughness += 1
-      tavern.roll.sin += 3
+      tavernRoll.roughness += 1
+      tavernRoll.sin += 3
       break
     case 'proximity to the brothel':
-      tavern.roll.roughness += 1
-      tavern.roll.sin += 3
+      tavernRoll.roughness += 1
+      tavernRoll.sin += 3
       break
     case 'witty banter with the waitstaff':
-      tavern.roll.roughness -= 1
-      tavern.roll.sin -= 3
-      tavern.roll.cleanliness += 1
+      tavernRoll.roughness -= 1
+      tavernRoll.sin -= 3
+      tavernRoll.cleanliness += 1
       break
     case 'incredible view':
-      tavern.roll.roughness -= 1
-      tavern.roll.sin -= 3
-      tavern.roll.cleanliness += 1
+      tavernRoll.roughness -= 1
+      tavernRoll.sin -= 3
+      tavernRoll.cleanliness += 1
       break
     case 'nice view':
-      tavern.roll.roughness -= 1
-      tavern.roll.sin -= 3
-      tavern.roll.cleanliness += 1
+      tavernRoll.roughness -= 1
+      tavernRoll.sin -= 3
+      tavernRoll.cleanliness += 1
       break
     case 'proximity to the church':
-      tavern.roll.roughness -= 1
-      tavern.roll.sin -= 3
-      tavern.roll.cleanliness += 1
+      tavernRoll.roughness -= 1
+      tavernRoll.sin -= 3
+      tavernRoll.cleanliness += 1
       break
     case 'warmth inside':
-      tavern.roll.roughness -= 2
-      tavern.roll.sin -= 1
-      tavern.roll.cleanliness += 1
+      tavernRoll.roughness -= 2
+      tavernRoll.sin -= 1
+      tavernRoll.cleanliness += 1
       break
     case 'huge fireplace':
-      tavern.roll.roughness -= 2
-      tavern.roll.sin -= 1
-      tavern.roll.cleanliness += 1
+      tavernRoll.roughness -= 2
+      tavernRoll.sin -= 1
+      tavernRoll.cleanliness += 1
       break
     case 'lack of bedbugs':
-      tavern.roll.roughness -= 4
-      tavern.roll.sin -= 1
-      tavern.roll.cleanliness += 15
+      tavernRoll.roughness -= 4
+      tavernRoll.sin -= 1
+      tavernRoll.cleanliness += 15
       break
     case 'clean beds':
-      tavern.roll.roughness -= 4
-      tavern.roll.sin -= 1
-      tavern.roll.cleanliness += 15
+      tavernRoll.roughness -= 4
+      tavernRoll.sin -= 1
+      tavernRoll.cleanliness += 15
       break
   }
 
@@ -156,124 +159,124 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
 
   switch (tavern.material) {
     case 'hewn rock':
-      tavern.roll.roughness += 3
+      tavernRoll.roughness += 3
       break
     case 'chiseled stone':
-      tavern.roll.roughness -= 1
+      tavernRoll.roughness -= 1
       break
     case 'marble':
-      tavern.roll.cleanliness += 5
-      tavern.roll.wealth += 6
+      tavernRoll.cleanliness += 5
+      tavernRoll.wealth += 6
       break
   }
 
   /* ======================= RENDERS ======================= */
   /* ------------------------- WEALTH -------------------------- */
 
-  if (tavern.roll.wealth > 95) {
+  if (tavernRoll.wealth > 95) {
     tavern.priceModifier += 4
-    tavern.roll.size += 3
-    tavern.roll.cleanliness += 15
-    tavern.roll.roughness -= 10
-  } else if (tavern.roll.wealth > 80) {
+    tavernRoll.size += 3
+    tavernRoll.cleanliness += 15
+    tavernRoll.roughness -= 10
+  } else if (tavernRoll.wealth > 80) {
     tavern.priceModifier += 3
-    tavern.roll.cleanliness += 10
-  } else if (tavern.roll.wealth > 70) {
+    tavernRoll.cleanliness += 10
+  } else if (tavernRoll.wealth > 70) {
     tavern.priceModifier += 2
-    tavern.roll.cleanliness += 6
-  } else if (tavern.roll.wealth > 60) {
+    tavernRoll.cleanliness += 6
+  } else if (tavernRoll.wealth > 60) {
     tavern.priceModifier += 1
-    tavern.roll.population += 5
-    tavern.roll.cleanliness += 4
-  } else if (tavern.roll.wealth > 50) {
-    tavern.roll.population += 5
-    tavern.roll.reputation -= 5
-    tavern.roll.cleanliness += 2
-  } else if (tavern.roll.wealth > 30) {
+    tavernRoll.population += 5
+    tavernRoll.cleanliness += 4
+  } else if (tavernRoll.wealth > 50) {
+    tavernRoll.population += 5
+    tavernRoll.reputation -= 5
+    tavernRoll.cleanliness += 2
+  } else if (tavernRoll.wealth > 30) {
     tavern.priceModifier -= 1
-    tavern.roll.reputation -= 7
-    tavern.roll.cleanliness -= 15
-  } else if (tavern.roll.wealth <= 30) {
+    tavernRoll.reputation -= 7
+    tavernRoll.cleanliness -= 15
+  } else if (tavernRoll.wealth <= 30) {
     tavern.priceModifier -= 2
-    tavern.roll.reputation -= 10
-    tavern.roll.cleanliness -= 25
+    tavernRoll.reputation -= 10
+    tavernRoll.cleanliness -= 25
   }
 
   /* ------------------------- SIZE -------------------------- */
 
-  if (tavern.roll.size > 80) {
-    tavern.roll.population += 5
-    tavern.roll.roughness += 3
-    tavern.roll.cleanliness -= 2
-  } else if (tavern.roll.size > 60) {
-    tavern.roll.population += 4
-    tavern.roll.roughness += 1
-  } else if (tavern.roll.size > 40) {
-    tavern.roll.population += 3
-  } else if (tavern.roll.size > 20) {
-    tavern.roll.population -= 2
-    tavern.roll.sin -= 5
-  } else if (tavern.roll.size <= 20) {
-    tavern.roll.sin -= 5
-    tavern.roll.population -= 5
-    tavern.roll.roughness -= 3
+  if (tavernRoll.size > 80) {
+    tavernRoll.population += 5
+    tavernRoll.roughness += 3
+    tavernRoll.cleanliness -= 2
+  } else if (tavernRoll.size > 60) {
+    tavernRoll.population += 4
+    tavernRoll.roughness += 1
+  } else if (tavernRoll.size > 40) {
+    tavernRoll.population += 3
+  } else if (tavernRoll.size > 20) {
+    tavernRoll.population -= 2
+    tavernRoll.sin -= 5
+  } else if (tavernRoll.size <= 20) {
+    tavernRoll.sin -= 5
+    tavernRoll.population -= 5
+    tavernRoll.roughness -= 3
   }
 
   /* ------------------------- ROUGHNESS -------------------------- */
 
-  if (tavern.roll.roughness > 80) {
-    tavern.roll.population += 3
-    tavern.roll.sin += 5
-    tavern.roll.cleanliness -= 4
-  } else if (tavern.roll.roughness > 60) {
-    tavern.roll.population += 1
-    tavern.roll.sin += 3
-    tavern.roll.cleanliness -= 2
-  } else if (tavern.roll.roughness > 50) {
-    tavern.roll.population += 1
-    tavern.roll.sin -= 1
-  } else if (tavern.roll.roughness > 40) {
-    tavern.roll.population += 2
-    tavern.roll.sin -= 3
-  } else if (tavern.roll.roughness > 30) {
-    tavern.roll.population -= 5
-    tavern.roll.sin -= 1
-    tavern.roll.wealth += 1
-  } else if (tavern.roll.roughness > 20) {
-    tavern.roll.population -= 10
-    tavern.roll.sin -= 3
-    tavern.roll.wealth -= 1
-  } else if (tavern.roll.roughness <= 20) {
-    tavern.roll.population -= 15
-    tavern.roll.sin -= 5
-    tavern.roll.wealth -= 3
+  if (tavernRoll.roughness > 80) {
+    tavernRoll.population += 3
+    tavernRoll.sin += 5
+    tavernRoll.cleanliness -= 4
+  } else if (tavernRoll.roughness > 60) {
+    tavernRoll.population += 1
+    tavernRoll.sin += 3
+    tavernRoll.cleanliness -= 2
+  } else if (tavernRoll.roughness > 50) {
+    tavernRoll.population += 1
+    tavernRoll.sin -= 1
+  } else if (tavernRoll.roughness > 40) {
+    tavernRoll.population += 2
+    tavernRoll.sin -= 3
+  } else if (tavernRoll.roughness > 30) {
+    tavernRoll.population -= 5
+    tavernRoll.sin -= 1
+    tavernRoll.wealth += 1
+  } else if (tavernRoll.roughness > 20) {
+    tavernRoll.population -= 10
+    tavernRoll.sin -= 3
+    tavernRoll.wealth -= 1
+  } else if (tavernRoll.roughness <= 20) {
+    tavernRoll.population -= 15
+    tavernRoll.sin -= 5
+    tavernRoll.wealth -= 3
   }
 
-  if (tavern.roll.cleanliness > 80) {
-    tavern.roll.wealth += 3
-    tavern.roll.roughness -= 3
-  } else if (tavern.roll.cleanliness > 70) {
-    tavern.roll.wealth += 2
-    tavern.roll.roughness -= 3
-  } else if (tavern.roll.cleanliness > 60) {
-    tavern.roll.wealth += 1
-    tavern.roll.roughness -= 2
-  } else if (tavern.roll.cleanliness > 50) {
-    tavern.roll.roughness -= 2
-  } else if (tavern.roll.cleanliness > 40) {
-    tavern.roll.roughness -= 1
-  } else if (tavern.roll.cleanliness > 30) {
-    tavern.roll.population -= 1
-    tavern.roll.sin += 1
-    tavern.roll.wealth -= 2
-  } else if (tavern.roll.cleanliness > 20) {
-    tavern.roll.population -= 2
-    tavern.roll.sin += 3
-    tavern.roll.wealth -= 4
-  } else if (tavern.roll.cleanliness <= 20) {
-    tavern.roll.population -= 3
-    tavern.roll.sin += 5
-    tavern.roll.wealth -= 8
+  if (tavernRoll.cleanliness > 80) {
+    tavernRoll.wealth += 3
+    tavernRoll.roughness -= 3
+  } else if (tavernRoll.cleanliness > 70) {
+    tavernRoll.wealth += 2
+    tavernRoll.roughness -= 3
+  } else if (tavernRoll.cleanliness > 60) {
+    tavernRoll.wealth += 1
+    tavernRoll.roughness -= 2
+  } else if (tavernRoll.cleanliness > 50) {
+    tavernRoll.roughness -= 2
+  } else if (tavernRoll.cleanliness > 40) {
+    tavernRoll.roughness -= 1
+  } else if (tavernRoll.cleanliness > 30) {
+    tavernRoll.population -= 1
+    tavernRoll.sin += 1
+    tavernRoll.wealth -= 2
+  } else if (tavernRoll.cleanliness > 20) {
+    tavernRoll.population -= 2
+    tavernRoll.sin += 3
+    tavernRoll.wealth -= 4
+  } else if (tavernRoll.cleanliness <= 20) {
+    tavernRoll.population -= 3
+    tavernRoll.sin += 5
+    tavernRoll.wealth -= 8
   }
 
   return tavern
