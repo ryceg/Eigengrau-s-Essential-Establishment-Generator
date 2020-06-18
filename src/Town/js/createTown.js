@@ -177,7 +177,7 @@ setup.createTown = function (base) {
         return descriptor[0] <= this.roll.wealth
       }, this)
       if (wealth === undefined) {
-        console.log(`Could not find a wealthRoll descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
+        console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
         wealth = setup.townData.rollData.wealth[setup.townData.rollData.wealth.length - 1]
       }
       this._wealth = wealth[1]
