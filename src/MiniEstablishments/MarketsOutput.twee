@@ -30,7 +30,7 @@ A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling 
                   <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
                   $building.magic.secondOutputs</div><</replace>><</link>><<run console.log($building.magic)>><</nobr>>
     <<default>>
-      <<set $building.magic to setup.createMagic($building.magicType)>><<run console.log($building.magic)>>
+      <<set $building.magic to lib.createMagic($building.magicType)>><<run console.log($building.magic)>>
       <<replace "#magic">><div class='descriptive'><h3>$building.magic.name</h3>$building.magic.description</div><</replace>>
   <</switch>>
 <</button>>
