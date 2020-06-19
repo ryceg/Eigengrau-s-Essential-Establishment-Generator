@@ -1,6 +1,7 @@
 export * from './constructs/bandits'
 export * from './constructs/bunny'
 export * from './constructs/cat'
+export * from './constructs/cavern'
 export * from './constructs/cheese'
 export * from './constructs/ghost'
 export * from './constructs/goblin'

@@ -3,25 +3,28 @@ setup.initMiscLocations = () => {
     'a cavern behind a waterfall': {
       available: ['mountain', 'forest'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
+        const cavern = lib.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
+        const readout = lib.cavern.readout(cavern)
         const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
-        return `a cavern. ${cavern.readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
+        return `a cavern. ${readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
       }
     },
     'a small cave in the bank of a creek': {
       available: ['mountain', 'forest'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create({ entrance: 'in the bank of a creek' })
+        const cavern = lib.cavern.create({ entrance: 'in the bank of a creek' })
+        const readout = lib.cavern.readout(cavern)
         const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
-        return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
+        return `a small cave. ${readout} <blockquote>The cave is home to ${contents}.</blockquote>`
       }
     },
     'an entrance to a rocky cave': {
       available: ['mountain', 'forest'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create()
+        const cavern = lib.cavern.create()
+        const readout = lib.cavern.readout(cavern)
         const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
-        return `a rocky cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
+        return `a rocky cave. ${readout} <blockquote>The cave is home to ${contents}.</blockquote>`
       }
     },
     'a hole under a large tree': {
@@ -131,33 +134,37 @@ setup.initMiscLocations = () => {
     'a cavern in a canyon wall': {
       available: ['desert'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create({ entrance: 'in a canyon wall' })
+        const cavern = lib.cavern.create({ entrance: 'in a canyon wall' })
+        const readout = lib.cavern.readout(cavern)
         const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
-        return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
+        return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
     'a cave entrance, hidden by a boulder': {
       available: ['desert'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create({ entrance: 'hidden by a boulder' })
+        const cavern = lib.cavern.create({ entrance: 'hidden by a boulder' })
+        const readout = lib.cavern.readout(cavern)
         const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
-        return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
+        return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
     'a small cave in the crook of a rock wall': {
       available: ['mountain'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create({ entrance: 'in the crook of a rock wall' })
+        const cavern = lib.cavern.create({ entrance: 'in the crook of a rock wall' })
+        const readout = lib.cavern.readout(cavern)
         const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
-        return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
+        return `a small cave. ${readout} <blockquote>The cave is home to ${contents}.</blockquote>`
       }
     },
     'a small cave next to a dry river bed': {
       available: ['desert'],
       function: (town, biome) => {
-        const cavern = setup.misc.cavern.create()
+        const cavern = lib.cavern.create()
+        const readout = lib.cavern.readout(cavern)
         const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
-        return `a cavern. ${cavern.readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
+        return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
     // mining is intentionally using the mountain biome
