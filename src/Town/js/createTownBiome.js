@@ -9,7 +9,7 @@ setup.createTownBiome = function (base) {
     let totalWeight = 0
     const loc = setup.townData.type[size].ideologies[type]
     const pool = Object.keys(loc)
-    pool.forEach(function (key) {
+    pool.forEach(key => {
       totalWeight += setup.townData.type[size].ideologies[type][key]
     })
     let random = Math.floor(randomFloat(1) * totalWeight)
@@ -55,27 +55,26 @@ setup.createTownBiome = function (base) {
     },
     set baseDemographics (newDemographics) {
       console.log('Setting base demographics.')
-      Object.keys(newDemographics).forEach(function (byRace) {
+      Object.keys(newDemographics).forEach(byRace => {
         this._baseDemographics[byRace] = newDemographics[byRace]
-      }, this)
+      })
       console.log(this.demographicPercentile)
     },
     get demographicPercentile () {
       console.log('Getting demographic percent.')
+
       // Get an array of the demographic keys (race names).
       const races = Object.keys(this.baseDemographics)
+
       // Calculate the sum of the raw demographic values.
       const sum = races
-        .map(function (byRace) {
-          return this.baseDemographics[byRace]
-        }, this)
-        .reduce(function (acc, cur) {
-          return acc + cur
-        }, 0)
+        .map(byRace => this.baseDemographics[byRace])
+        .reduce((acc, cur) => acc + cur, 0)
+
       // Calculate the demographic percentages.
-      races.forEach(function (byRace) {
+      races.forEach(byRace => {
         this._demographicPercentile[byRace] = this.baseDemographics[byRace] / sum * 100
-      }, this)
+      })
       return this._demographicPercentile
     },
     location: setup.townData.terrain[terrain].start.random(),
@@ -115,26 +114,26 @@ setup.createTownBiome = function (base) {
   town.materialProbability = setup.structure.material.types
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-  Object.keys(setup.townData.type[town.type].modifiers).forEach(function (modifier) {
+  Object.keys(setup.townData.type[town.type].modifiers).forEach(modifier => {
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
   })
 
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   // economic ideology attribute modifiers
-  Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(function (modifier) {
+  Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
     console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
   })
 
   // political ideology modifiers
   console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
-  Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(function (modifier) {
+  Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
     console.log(modifier)
     console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
     town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
   })
 
-  Object.keys(town.roll).forEach(function (roll) {
+  Object.keys(town.roll).forEach(roll => {
     town.roll[roll].clamp(1, 100)
   })
 

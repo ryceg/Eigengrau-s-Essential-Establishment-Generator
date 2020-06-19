@@ -61,7 +61,7 @@ setup.createClass = function (town, npc) {
       npc.professionOrigin = setup.npcData.professionTraits[npc.profession].professionOrigin.random()
     } else {
       const wageVariation = npc.roll.wageVariation(town)
-      const wageArray = originWage.find(function (desc) {
+      const wageArray = originWage.find(desc => {
         return desc[0] >= wageVariation
       })
       npc.professionOrigin = wageArray[1]

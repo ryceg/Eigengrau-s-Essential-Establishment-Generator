@@ -258,7 +258,7 @@ setup.initGoodsAndServices = () => {
             quality2: typeData.qualities.random()
           }
           if (bakedGood.quality1 === bakedGood.quality2) {
-            bakedGood.quality2 = typeData.qualities.find(function (quality) {
+            bakedGood.quality2 = typeData.qualities.find(quality => {
               return quality !== bakedGood.quality1
             })
           }

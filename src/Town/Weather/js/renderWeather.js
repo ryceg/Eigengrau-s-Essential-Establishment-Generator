@@ -24,7 +24,7 @@ setup.renderWeather = function (town, biome, weather) {
   }
 
   // find one that's equal or lesser than tempVariationRoll to use as the final key
-  const finalKey = intKeys.find(function (key) {
+  const finalKey = intKeys.find(key => {
     if (tempVariationRoll >= key) {
       console.log({ key })
       return key
@@ -36,12 +36,6 @@ setup.renderWeather = function (town, biome, weather) {
     console.log({ weather, finalKey })
     weather.timer.temperature = Math.trunc((setup.townData.terrain[biome].weather.tempVariation[finalKey].temperatureTimer || random(24, 48)) / 8)
     console.log({ weather })
-    // finalKey = intKeys.find(function (key) {
-    //   if (tempVariationRoll >= key) {
-    //     console.log('key is: ' + key)
-    //     return key
-    //   }
-    // })
   }
   console.log('3')
   const tempVariation = setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain.temperate.weather.tempVariation[finalKey].temperature

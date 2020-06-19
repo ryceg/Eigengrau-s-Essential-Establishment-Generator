@@ -81,7 +81,7 @@ setup.createSocialClass = function (town, npc) {
     // otherwise, just roll some dice.
     } else {
       console.log(`No synonyms found for ${npc.dndClass}`)
-      const array = setup.socialClasses.find(function (desc) {
+      const array = setup.socialClasses.find(desc => {
         return desc[0] <= npc.roll.socialClass
       })
       npc.socialClass = array[1]

@@ -1,20 +1,19 @@
 
 setup.fetchRace = function (town, saveLoc) {
   console.log('Fetching race...')
+
   // FIXME upon migration to React, reimplement getters and setters.
   const races = Object.keys(town.baseDemographics)
+
   // Calculate the sum of the raw demographic values.
   const sum = races
-    .map(function (byRace) {
-      return town.baseDemographics[byRace]
-    }, town)
-    .reduce(function (acc, cur) {
-      return acc + cur
-    }, 0)
+    .map(byRace => town.baseDemographics[byRace])
+    .reduce((acc, cur) => acc + cur, 0)
+
   // Calculate the demographic percentages.
-  races.forEach(function (byRace) {
+  races.forEach(byRace => {
     town._demographicPercentile[byRace] = town.baseDemographics[byRace] / sum * 100
-  }, town)
+  })
   const args = town._demographicPercentile
   console.log(args)
   const pool = []

@@ -112,7 +112,7 @@ setup.createLifestyleStandards = function (town, npc) {
       `${isHaving} extreme success as`
     ].random()]
   ]
-  const note = wageVarianceNotes.find(function (desc) {
+  const note = wageVarianceNotes.find(desc => {
     return desc[0] >= npc.roll.wageVariation(town)
   })
   // TODO: line 119 sometimes returns undefined

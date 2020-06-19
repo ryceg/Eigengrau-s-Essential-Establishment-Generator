@@ -10,11 +10,11 @@ setup.createTown = function (base) {
   const townName = base.name || setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
-  const politicsWeightedRoll = function (size, type) {
+  const politicsWeightedRoll = (size, type) => {
     let totalWeight = 0
     const loc = setup.townData.type[size].ideologies[type]
     const pool = Object.keys(loc)
-    pool.forEach(function (key) {
+    pool.forEach(key => {
       totalWeight += setup.townData.type[size].ideologies[type][key]
     })
     let random = Math.floor(randomFloat(1) * totalWeight)
@@ -51,7 +51,7 @@ setup.createTown = function (base) {
     },
     taxRate (town) {
       let totalTax = 0
-      Object.keys(town.taxes).forEach(function (tax) {
+      Object.keys(town.taxes).forEach(tax => {
         // if (tax === 'land') {
         // totalTax += (town.taxes[tax] * (setup.socialClass[npc.socialClass].landRate || 1))
         // } else if (typeof town.taxes[tax] === 'number') {
@@ -106,27 +106,26 @@ setup.createTown = function (base) {
     set baseDemographics (newDemographics) {
       console.log('Setting base demographics.')
       if (!this._baseDemographics) this._baseDemographics = {}
-      Object.keys(newDemographics).forEach(function (byRace) {
+      Object.keys(newDemographics).forEach(byRace => {
         this._baseDemographics[byRace] = newDemographics[byRace]
-      }, this)
+      })
       console.log(this.demographicPercentile)
     },
     get demographicPercentile () {
       console.log('Getting demographic percent.')
+
       // Get an array of the demographic keys (race names).
       const races = Object.keys(this.baseDemographics)
+
       // Calculate the sum of the raw demographic values.
       const sum = races
-        .map(function (byRace) {
-          return this.baseDemographics[byRace]
-        }, this)
-        .reduce(function (acc, cur) {
-          return acc + cur
-        }, 0)
+        .map(byRace => this.baseDemographics[byRace])
+        .reduce((acc, cur) => acc + cur, 0)
+
       // Calculate the demographic percentages.
-      races.forEach(function (byRace) {
+      races.forEach(byRace => {
         this._demographicPercentile[byRace] = this.baseDemographics[byRace] / sum * 100
-      }, this)
+      })
       return this._demographicPercentile
     },
     set demographicPercentile (data) { console.log('Setter for demographicPercentile is not a thing. Chucking out the following data:', data) },
@@ -173,9 +172,9 @@ setup.createTown = function (base) {
     },
     get wealth () {
       // console.log('Getting town wealth.')
-      let wealth = setup.townData.rollData.wealth.find(function (descriptor) {
+      let wealth = setup.townData.rollData.wealth.find(descriptor => {
         return descriptor[0] <= this.roll.wealth
-      }, this)
+      })
       if (wealth === undefined) {
         console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
         wealth = setup.townData.rollData.wealth[setup.townData.rollData.wealth.length - 1]
@@ -264,21 +263,21 @@ setup.createTown = function (base) {
 
   if (!town.pregen) {
     console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-    Object.keys(setup.townData.type[town.type].modifiers).forEach(function (modifier) {
+    Object.keys(setup.townData.type[town.type].modifiers).forEach(modifier => {
       town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
     })
 
     console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
     // economic ideology attribute modifiers
 
-    Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(function (modifier) {
+    Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
       console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
       town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
     })
     // political ideology modifiers
     console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
 
-    Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(function (modifier) {
+    Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
       console.log(modifier)
       console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
       town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
@@ -288,7 +287,7 @@ setup.createTown = function (base) {
 
   setup.createSocioPolitics(town)
 
-  Object.keys(town.roll).forEach(function (roll) {
+  Object.keys(town.roll).forEach(roll => {
     town.roll[roll].clamp(1, 100)
   })
   if (settings.ignoreGender === true) {

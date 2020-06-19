@@ -1,6 +1,7 @@
-setup.npcTaxRate = function (town, npc) {
+setup.npcTaxRate = (town, npc) => {
   let totalTax = 0
-  Object.keys(town.taxes).forEach(function (tax) {
+
+  for (const tax of Object.keys(town.taxes)) {
     if (tax === 'land') {
       totalTax += town.taxes[tax] * (setup.socialClass[npc.socialClass].landRate || 1)
     } else if (typeof town.taxes[tax] === 'number') {
@@ -11,6 +12,7 @@ setup.npcTaxRate = function (town, npc) {
     } else {
       console.log(`non-integer tax! ${town.taxes[tax]}`)
     }
-  })
+  }
+
   return Math.round(totalTax * 100) / 100
 }

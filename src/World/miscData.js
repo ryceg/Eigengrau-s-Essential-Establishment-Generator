@@ -680,7 +680,7 @@ setup.initMisc = () => {
         const encounterArray = []
         if (random(1, 100) >= 50) {
           const potentialKeys = Object.keys(setup.misc.locations)
-          potentialKeys.forEach(function (location) {
+          potentialKeys.forEach(location => {
             if (setup.misc.locations[location].available.includes(biome)) {
               encounterArray.push(location)
             }
@@ -761,7 +761,7 @@ setup.initMisc = () => {
         const encounterArray = []
         if (random(1, 100) >= 50) {
           const potentialKeys = Object.keys(setup.misc.locations)
-          potentialKeys.forEach(function (location) {
+          potentialKeys.forEach(location => {
             if (setup.misc.locations[location].available.includes(biome)) {
               encounterArray.push(location)
             }
@@ -868,7 +868,7 @@ setup.initMisc = () => {
         const encounterArray = []
         if (random(1, 100) >= 50) {
           const potentialKeys = Object.keys(setup.misc.locations)
-          potentialKeys.forEach(function (location) {
+          potentialKeys.forEach(location => {
             if (setup.misc.locations[location].available.includes(biome)) {
               encounterArray.push(location)
             }

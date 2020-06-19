@@ -6,7 +6,7 @@ setup.fetchProfessionChance = function (town, npc) {
 
   if (npc.socialClass) {
     console.log(`Social class was defined as ${npc.socialClass}, so filtering to the available professions!`)
-    professions.filter(function (profession) {
+    professions.filter(profession => {
       return town.professions[profession].socialClass === npc.socialClass
     })
     console.log(professions)
@@ -14,21 +14,20 @@ setup.fetchProfessionChance = function (town, npc) {
 
   if (setup.breakGenderNorms(town, npc) === false) {
     if (setup.isDominantGender(town, npc) === false) {
-      professions.filter(function (profession) {
+      professions.filter(profession => {
         return town.professions[profession].domSub !== 'dom'
       })
     } else {
-      professions.filter(function (profession) {
+      professions.filter(profession => {
         return town.professions[profession].domSub !== 'sub'
       })
     }
   }
-  const sum = professions
-    .map(function (profession) {
-      return town.professions[profession].population
-    }, town)
+  const sum = professions.map(profession => {
+    return town.professions[profession].population
+  })
   let totalWeight = 0
-  sum.forEach(function (single) {
+  sum.forEach(single => {
     totalWeight += single
   })
   let random = Math.floor(randomFloat(1) * totalWeight)

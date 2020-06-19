@@ -1,6 +1,6 @@
 /* global setup tippy jQuery settings */
 setup.profileTooltip = function (id, obj) {
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       if (obj.objectType) {
@@ -27,7 +27,7 @@ setup.profileTooltip = function (id, obj) {
 }
 
 setup.itemTooltip = function (id, item) {
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       span.title = item.description || item
@@ -37,7 +37,7 @@ setup.itemTooltip = function (id, item) {
 }
 
 setup.profileAgeTooltip = function (id, char) {
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       span.title = `${char.ageYears} years, to be exact.`
@@ -50,7 +50,7 @@ setup.profileHeightTooltip = function (id, char, heightVar) {
   if (heightVar) {
     char.heightRoll = heightVar
   }
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       if (settings.showMetric === true) {
@@ -71,7 +71,7 @@ setup.profileHeightTooltip = function (id, char, heightVar) {
 }
 
 setup.profileWeightTooltip = function (id, char) {
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       if (settings.showMetric === true) {
@@ -88,7 +88,7 @@ setup.profileWeightTooltip = function (id, char) {
 }
 
 setup.buildingTooltip = function (id, building) {
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       span.title = building.tippyDescription || `${setup.articles.output(building.size || building._size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness || building._cleanliness}, and is known for ${building.notableFeature}.`
@@ -98,7 +98,7 @@ setup.buildingTooltip = function (id, building) {
 }
 
 setup.politicsTooltip = function (id, type, town) {
-  jQuery(function () {
+  jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       switch (type) {
