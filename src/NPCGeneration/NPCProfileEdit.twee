@@ -28,11 +28,11 @@
     <</for>>
     <<set _gender += '<</listbox>>'>>
 
-    /* <<run Object.assign(_npcOptions, setup.misc.patreonCharacters)>> */
+    /* <<run Object.assign(_npcOptions, lib.patreonCharacters)>> */
     <<set _replaceNpc to $npcs[$currentPassage.key]>>
 <</silently>>\
 
-<<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom setup.misc.patreonCharacters>><</listbox>> -- <<button "Replace NPC">><<set $npcs[$currentPassage.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC">><<run setup.deleteNPC($npcs[$currentPassage.key])>><<goto "Start">><</button>>
+<<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom lib.patreonCharacters>><</listbox>> -- <<button "Replace NPC">><<set $npcs[$currentPassage.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC">><<run setup.deleteNPC($npcs[$currentPassage.key])>><<goto "Start">><</button>>
 
 <<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><<print $npcs[$currentPassage.key].name>> is a <span @id="_age" class="tip"><<textbox "$npcs[$currentPassage.key].age" $npcs[$currentPassage.key].age>></span> <span class="tip" title="Non binary options coming soon!">_gender</span> _race. <<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> is <span @id="_height" class="tip"><<textbox "$npcs[$currentPassage.key].height" $npcs[$currentPassage.key].height>></span> and <span @id="_weight" class="tip"><<textbox "$npcs[$currentPassage.key].weight" $npcs[$currentPassage.key].weight>></span>, and has <<textbox "$npcs[$currentPassage.key].eyes" $npcs[$currentPassage.key].eyes>> eyes<<if def $npcs[$currentPassage.key].beard>> and a <<textbox "$npcs[$currentPassage.key].beard" $npcs[$currentPassage.key].beard>>,<</if>> with <<textbox "$npcs[$currentPassage.key].skinColour" $npcs[$currentPassage.key].skinColour>> skin. 
 \The most notable physical trait of <<print $npcs[$currentPassage.key].firstName>> is that <<print $npcs[$currentPassage.key].heshe>> has <<textbox "$npcs[$currentPassage.key].physicalTrait" $npcs[$currentPassage.key].physicalTrait>>.
