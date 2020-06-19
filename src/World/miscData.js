@@ -396,32 +396,6 @@ setup.initMisc = () => {
       look: ['easy meal', 'fatty meal', 'steady meal ticket', 'fight it can win', 'shiny bauble', 'object its chief asked for, but the ogre can’t remember what it was'],
       misfortune: ['pressed into service in an orkish army', 'tricked into doing some dirty work by some goblins', 'charmed by a witch', 'badly burned in a fire', 'imprisoned in a cold, dark cell', 'bested by a rival for the affections of another ogre']
     },
-    spider: {
-      create: () => {
-        const spider = {
-          colour: setup.misc.spider.colour.random(),
-          markings: setup.misc.spider.markings().random(),
-          eyes: setup.misc.spider.eyes.random(),
-          mouth: setup.misc.spider.mouth.random(),
-          poison: setup.misc.spider.poison.random(),
-          tactics: setup.misc.spider.tactics.random(),
-          webs: setup.misc.spider.webs.random(),
-          habitat: setup.misc.spider.habitat.random()
-        }
-        spider.readout = `This spider is ${spider.colour}, and has ${spider.markings}, with ${spider.eyes} and a mouth ${spider.mouth}. This breed thrives in ${spider.habitat}, and their poison causes ${spider.poison}.Their webs are ${spider.webs}. It prefers to ${spider.tactics}`
-        spider.tippy = lib.createTippy(spider.readout)
-        spider.tippyWord = lib.createTippyWord(spider.tippy, 'spider')
-        return spider
-      },
-      colour: ['black', 'dark grey', 'dark brown', 'black and brown', 'black and grey', 'pale brown', 'brown and grey', 'reddish brown'],
-      markings: () => ['pale banding on its legs', 'dark banding on its legs', `bright ${['orange', 'red', 'white', 'yellow'].random()} banding on its legs`, 'pale stripes down its abdomen', 'dark stripes down its abdomen', `a distinct, crimson ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, `a distinct, ${['black', 'dark grey'].random()} ${['arrowhead', 'pair of eye-like spots', 'hourglass', 'star'].random()} on its abdomen`, 'no obvious markings'],
-      eyes: ['dull and black', 'reflective and black', 'dark grey, almost black', 'dark red', 'bright red', 'pearly white'],
-      mouth: ['flanked by fangs, dripping venom', 'flanked by hooked fangs', 'flanked by hairy chelicerae, each ending in a sharp fang', 'flanked by chelicerae, covered in hair that hides any fangs', 'hungrily opening and closing', 'yawning open'],
-      poison: ['paralysis', 'loss of consciousness', 'nausea', 'headache', 'loss of coordination', 'blindness', 'dizziness', 'shortness of breath'],
-      tactics: ['pick off weak, easy prey', 'pursue its prey until the opportune time to strike', 'lay web traps and wait', 'incapacitate prey, wrap it in webbing and carry it off to its larder', 'ambush prey in territory the spider knows well', 'poison its prey and then retreat, following the prey until it falls'],
-      webs: ['sheet-like webs', 'webs with radial symmetry', 'webs with triangular symmetry', 'webs with hexagonal symmetry', 'webs with irregular shapes', 'almost no webs; the spider is constantly on the move and on the hunt'],
-      habitat: ['in caverns', 'on cliff-sides', 'on the forest floor', 'in grasslands', 'in jungles', 'in rocky deserts', 'in rotting logs', 'in shallow burrows', 'in swamps', 'in treetops']
-    },
     cavern: {
       entrance: ['wide and tall, letting much daylight into the entry chamber', 'a wide sinkhole', 'an easy to spot, narrow passage', 'a steep, slippery sloped tunnel', 'a man-made tunnel', 'a collapsed tunnel, impassable without excavation', 'marked with several warning signs', 'hidden by some boulders', 'hidden by a waterfall', 'hidden by a rocky overhang', 'hidden by a hillock', 'hidden by a briar patch', 'hidden by a curtain of moss', 'hidden by some enormous ancient tree roots', 'hidden by some overgrown vines', 'up a cliff face', 'down a deep hole', 'in an underwater tunnel'],
       landmark: ['a trickle of water flowing down the walls and across the floor', 'an underground lake of potable water', 'a pool of stagnant water', 'a natural bridge over a chasm', 'a narrow chasm with walls close enough to climb between', 'a deep chasm with no bottom in sight', 'a shaft in the ceiling with no light coming from it', 'a shaft in the ceiling with dim light coming from it', 'a group of stalagmites arranged in a circle', 'an arrangement of two large stalactites and two large stalagmites, reminiscent of fangs in a yawning mouth', 'a pair of natural columns', 'a large stalactite that has broken off from the ceiling and fallen to the floor', 'an array of many small stalactites spreading across the ceiling', 'a damp wall covered in soft mold', 'a recess in the wall, covered in slimy mold', 'a large patch of glowing fungus', 'a large patch of small mushrooms', 'a group of enormous mushrooms', 'a large cavern with a strong echo', 'a claustrophobic tunnel with a low ceiling'],

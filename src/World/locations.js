@@ -30,8 +30,8 @@ setup.initMiscLocations = () => {
         let contents = setup.misc[biome].hole.random()
         // this is lazy. Will change hole from an array to an object once I make more creators.
         if (contents === 'a spider') {
-          const spider = setup.misc.spider.create()
-          contents = `a ${spider.tippyWord}.`
+          const spider = lib.createAutoTippy(lib.spider)('spider')
+          contents = `a ${spider}.`
         }
         const tree = setup.misc.tree.create(town, biome)
         return `a hole under a large ${tree.tippyWord}. <blockquote>Inside is ${contents}.</blockquote>`

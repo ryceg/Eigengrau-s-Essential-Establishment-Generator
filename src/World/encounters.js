@@ -120,8 +120,8 @@ setup.initMiscEncounters = () => {
     },
     'a goblin patrol': () => `a goblin patrol ${['lying in ambush.', 'squabbling over something.', 'in the middle of a meal.', 'arguing amongst themselves over something.', 'jumping up and down, for some reason.'].random()}`,
     'several giant spiders': () => {
-      const spider = setup.misc.spider.create()
-      return `several giant ${spider.tippyWord}<span class="dotted">s</span>.`
+      const spider = lib.createAutoTippy(lib.spider)('spiders')
+      return `several giant ${spider}.`
     },
     'a pack of wolves': () => {
       const wolves = lib.createAutoTippy(lib.wolf)('wolves')
@@ -351,8 +351,8 @@ setup.initMiscEncounters = () => {
     },
     'a poisonous snake': () => 'a poisonous snake',
     'a giant spider': () => {
-      const spider = setup.misc.spider.create()
-      return `a giant ${spider.tippyWord}`
+      const spider = lib.createAutoTippy(lib.spider)('spider')
+      return `a giant ${spider}`
     },
     'a giant scorpion': () => 'a giant scorpion',
     'a giant centipede': () => 'a giant centipede',
@@ -548,8 +548,8 @@ setup.initMiscEncounters = () => {
       return `a dangerous ${setup.profile(npc, 'fugitive')}`
     },
     'spiders and rats': () => {
-      const spider = setup.misc.spider.create()
-      return `${spider.tippyWord}<span class="dotted">s</span>` + ' and rats'
+      const spiders = lib.createAutoTippy(lib.spider)('spiders')
+      return `${spiders} and rats`
     },
     'a treasure hunter': town => {
       const npc = setup.createNPC(town, {
@@ -750,8 +750,8 @@ setup.initMiscEncounters = () => {
       return `a wailing ${lib.createTippyFull(readout, 'ghost')}`
     },
     'giant spiders': () => {
-      const spider = setup.misc.spider.create()
-      return `giant ${spider.tippyWord}<span class="dotted">s</span><<run setup.tippy("span")>>`
+      const spiders = lib.createAutoTippy(lib.spider)('spiders')
+      return `giant ${spiders}`
     },
     'hungry zombies': () => 'hungry zombies',
     'a lonely old woman': town => {

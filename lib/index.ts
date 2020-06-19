@@ -7,6 +7,7 @@ export * from './constructs/goblin'
 export * from './constructs/goblins'
 export * from './constructs/horse'
 export * from './constructs/orcs'
+export * from './constructs/spider'
 export * from './constructs/wolf'
 
 export * from './npc-generation/bmiDescriptions'
