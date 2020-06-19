@@ -91,16 +91,16 @@ setup.initMiscEncounters = () => {
       return `an ${lib.createTippyFull(readout, 'orc war band')}.`
     },
     'a handful of ogres': () => {
-      const ogre = setup.misc.ogre.create()
-      return `a handful of ${ogre.tippyWord}s`
+      const ogre = lib.createAutoTippy(lib.ogre)('ogre')
+      return `a handful of ${ogre}s`
     },
     'an ogre': () => {
-      const ogre = setup.misc.ogre.create()
-      return `a lone ${ogre.tippyWord}`
+      const ogre = lib.createAutoTippy(lib.ogre)('ogre')
+      return `a lone ${ogre}`
     },
     "an ogre's lair": () => {
-      const ogre = setup.misc.ogre.create()
-      return `a lair belonging to an ${ogre.tippyWord}`
+      const ogre = lib.createAutoTippy(lib.ogre)('ogre')
+      return `a lair belonging to an ${ogre}`
     },
     "some goblins' hideout": () => {
       const goblins = lib.goblins.create()
