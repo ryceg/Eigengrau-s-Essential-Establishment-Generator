@@ -34,7 +34,6 @@ setup.createNPC = function (town, base) {
   const lastName = base.lastName || data.raceTraits[race].lastName.random().toUpperFirst()
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
-  // let dndClass
 
   if (setup.findProfession(town, base, profession).type === 'dndClass') {
     base.hasClass = true
@@ -62,9 +61,6 @@ setup.createNPC = function (town, base) {
     ageStage,
     ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
     muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
-    // demeanour: data.demeanour.random(),
-    calmTrait: data.calmTrait.random(),
-    stressTrait: data.stressTrait.random(),
     pronouns: {
 
     },
@@ -130,9 +126,6 @@ setup.createNPC = function (town, base) {
         return Math.round(npc.finances.netIncome(town, npc) - npc.finances.lifestyleStandard(town, npc)[0] - npc.finances.lifestyleExpenses(town, npc))
       }
     },
-    // value: data.value.random(),
-    // drive: data.drive.random(),
-    // belief: data.belief.random(),
     hairColour: data.hairColour.random(),
     hairType: data.hairType.random(),
     get hair () {
@@ -205,11 +198,7 @@ setup.createNPC = function (town, base) {
     }
   }
 
-  if (!npc.vocalPattern) {
-    if (dice(2, 50) >= 75) {
-      npc.vocalPattern = data.vocalPattern.random()
-    }
-  }
+  setup.createPersonality(npc)
   // setup.createName(npc)
 
   setup.createAge(npc)
