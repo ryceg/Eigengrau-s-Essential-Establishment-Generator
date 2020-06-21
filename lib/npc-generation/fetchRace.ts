@@ -1,4 +1,5 @@
 import { randomFloat } from '../src/randomFloat'
+import { keys } from '../src/utils'
 
 interface Town {
   baseDemographics: Record<string, number>
@@ -31,7 +32,7 @@ export function fetchRace (town: Town, saveLoc: SaveLoc) {
   const namePool = Object.keys(args)
   let totalWeight = 0
 
-  for (const arg in args) {
+  for (const arg of keys(args)) {
     pool.push(args[arg])
     totalWeight += args[arg]
   }
