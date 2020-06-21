@@ -74,3 +74,11 @@ export function getUUID () {
     return value.toString(16)
   })
 }
+
+export function isDefined<T> (value?: T): value is T {
+  return typeof value !== 'undefined'
+}
+
+export function isUndefined<T> (value?: T): value is undefined {
+  return typeof value === 'undefined'
+}
