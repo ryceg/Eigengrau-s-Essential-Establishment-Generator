@@ -1,12 +1,5 @@
 import { fm } from '../src/dice'
-
-interface Faction {
-  roll: {
-    age: number
-    influence: number
-  }
-  influence: string
-}
+import { Faction } from './_common'
 
 export function influenceFaction (faction: Faction) {
   console.log('assigning influence...')

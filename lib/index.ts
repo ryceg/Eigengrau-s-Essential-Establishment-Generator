@@ -12,6 +12,7 @@ export * from './constructs/orcs'
 export * from './constructs/spider'
 export * from './constructs/wolf'
 
+export * from './faction/ageFaction'
 export * from './faction/influenceFaction'
 
 export * from './npc-generation/bmiDescriptions'

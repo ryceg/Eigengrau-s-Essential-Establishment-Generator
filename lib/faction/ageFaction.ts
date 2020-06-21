@@ -1,7 +1,9 @@
-setup.ageFaction = faction => {
+import { Faction } from './_common'
+
+export function ageFaction (faction: Faction) {
   console.log('ageing...')
 
-  const ranks = [
+  const ranks: readonly [number, string][] = [
     [95, 'ancient'],
     [90, 'extremely old'],
     [80, 'very old'],
@@ -23,9 +25,7 @@ setup.ageFaction = faction => {
   for (const [num, description] of ranks) {
     if (faction.roll.age > num) {
       faction.age = description
-      break
+      return
     }
   }
-
-  return faction.age
 }
