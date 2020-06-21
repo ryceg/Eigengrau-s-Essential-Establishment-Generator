@@ -1,6 +1,7 @@
 setup.createPersonality = npc => {
   const data = setup.npcData
-  Object.assign(npc, {
+
+  lib.assign(npc, {
     calmTrait: npc.calmTrait || data.calmTrait.random(),
     stressTrait: npc.stressTrait || data.stressTrait.random(),
     trait: npc.trait || data.trait.random(),
@@ -12,20 +13,13 @@ setup.createPersonality = npc => {
 
   if (!npc.vocalPattern) {
     if (lib.dice(2, 50) >= 75) {
-      npc.vocalPattern = data.vocalPattern.random()
+      lib.assign(npc, {
+        vocalPattern: data.vocalPattern.random()
+      })
     }
   }
 }
 
-setup.checkPersonality = (npc, createIfAbsent) => {
-  if (npc.hasPersonality) {
-    return true
-  } else if (npc.calmTrait && npc.stressTrait) {
-    return true
-  } else if (createIfAbsent === true) {
-    setup.createPersonality(npc)
-    return true
-  } else {
-    return false
-  }
+setup.hasPersonality = npc => {
+  return npc.hasPersonality || (npc.trait && npc.calmTrait && npc.stressTrait)
 }
