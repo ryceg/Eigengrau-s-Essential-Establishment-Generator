@@ -1,6 +1,6 @@
 import { Faction } from './_common'
 
-export function ageFaction (faction: Faction) {
+export function setFactionAge (faction: Faction) {
   console.log('ageing...')
 
   const ranks: readonly [number, string][] = [

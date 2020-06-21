@@ -1,7 +1,7 @@
 import { fm } from '../src/dice'
 import { Faction } from './_common'
 
-export function influenceFaction (faction: Faction) {
+export function setFactionInfluence (faction: Faction) {
   console.log('assigning influence...')
 
   if (faction.roll.age > 95) {
