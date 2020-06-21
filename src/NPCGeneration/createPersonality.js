@@ -1,4 +1,4 @@
-setup.createPersonality = (npc: NPC) => {
+setup.createPersonality = npc => {
   const data = setup.npcData
   Object.assign(npc, {
     calmTrait: npc.calmTrait || data.calmTrait.random(),
@@ -17,10 +17,10 @@ setup.createPersonality = (npc: NPC) => {
   }
 }
 
-setup.checkPersonality = (npc: NPC, createIfAbsent: boolean) => {
+setup.checkPersonality = (npc, createIfAbsent) => {
   if (npc.hasPersonality) {
     return true
-  } else if (npc.calmTrait && npc.stresTrait) {
+  } else if (npc.calmTrait && npc.stressTrait) {
     return true
   } else if (createIfAbsent === true) {
     setup.createPersonality(npc)
