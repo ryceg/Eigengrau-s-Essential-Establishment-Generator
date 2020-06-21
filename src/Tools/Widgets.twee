@@ -2,46 +2,54 @@
 :: Widgets [widget widgets]
 
 <<widget "goods">>
-	\<<set _obj to $args[0]>>
-	\<<set _target to $args[1]>>
-	\<<capture _obj, _target>>
-	\<table>
-	\<tr>
-		\<th>Goods</th>
-		\<th>Cost</th>
-	\</tr>
-	\<<for _key, _item range _target>>
-		\<<if ndef _item.exclusions>><<set _isValid to true>>
-		\<<elseif (typeof _item.exclusions === "function")>>
-			\<<run console.log("Is a function!")>>
-			\<<set _isValid to _item.exclusions($town, _obj)>>
-		\<</if>>
-		\<<if _isValid === true>>
-			\<<set _name to _item.name || _key>>
-			\<<set _name to _name.toUpperFirst()>>
-			\<tr><td>
-			\<<if def _item.description>>
-				\<<tooltip _name _item.description>>
-			\<<else>>
-				\<<print _item.name || _key>>
-			\<</if>>
-			\</td><td><<money _item.cost _obj>></td></tr>
-	\<</if>><<unset _isValid>><</for>>
-	\</table>
-	\<</capture>>
+<<nobr>>
+	<<set _obj to $args[0]>>
+	<<set _target to $args[1]>>
+	<<capture _obj, _target>>
+	<table>
+		<tr>
+			<th>Goods</th>
+			<th>Cost</th>
+		</tr>
+		<<for _key, _item range _target>>
+			<<if ndef _item.exclusions>>
+				<<set _isValid to true>>
+			<<elseif (typeof _item.exclusions === "function")>>
+				<<run console.log("Is a function!")>>
+				<<set _isValid to _item.exclusions($town, _obj)>>
+			<</if>>
+			<<if _isValid === true>>
+				<<set _name to _item.name || _key>>
+				<<set _name to _name.toUpperFirst()>>
+				<tr>
+					<td>
+					<<if def _item.description>>
+						<<tooltip _name _item.description>>
+					<<else>>
+						<<print _item.name || _key>>
+					<</if>>
+					</td>
+					<td><<money _item.cost _obj>></td>
+				</tr>
+		<</if>><<unset _isValid>><</for>>
+	</table>
+	<</capture>>
+<<nobr>>
 <</widget>>
 
-\<<widget "tooltip">>
-	\<<set _target to $args[0]>>
-	\<<set _description to $args[1] || $args[0]>>
-	\<<set _id to "tip-" + Util.slugify((_target.name || "tooltip")) + "-" + Math.floor(randomFloat(0, 1).toString(16))>>
-	\<span @id=_id class="tip dotted" @title=_description>_target</span>
-\<</widget>>
+<<widget "tooltip">>
+<<nobr>>
+	<<set _target to $args[0]>>
+	<<set _description to $args[1] || $args[0]>>
+	<<set _id to "tip-" + Util.slugify((_target.name || "tooltip")) + "-" + Math.floor(randomFloat(0, 1).toString(16))>>
+	<span @id=_id class="tip dotted" @title=_description>_target</span>
+<</nobr>>
+<</widget>>
 
 <<widget "money">><<silently>>
 		<<set _copper to Number($args[0])>>\
-		<<set _copper to (Math.round(_copper * setup.getPriceMod($args[1])))>>\
-\		<<if settings.silverStandard is true>>
+		<<set _copper to (Math.round(_copper * setup.getPriceMod($args[1])))>>
+		<<if settings.silverStandard is true>>
 			<<if _copper gte 10000>>\
 					<<set _gold to Math.trunc(_copper / 10000)>>\
 					<<set _copper %= 10000>>\
@@ -71,7 +79,8 @@
 		<</silently>>\
 		<<if _gold>><<= _gold>> Gold<</if>>\
 		<<if _silver>><<= _silver>> Silver<</if>>\
-		<<if _copper>><<= _copper>> Copper<</if>><</widget>>
+		<<if _copper>><<= _copper>> Copper<</if>>
+<</widget>>
 
 
 <<widget "profile">>
@@ -86,7 +95,7 @@
 						\<<goto _object.initPassage>>
 					\<<else>>
 						\<<goto _object.passageName>>
-						<</if>>
+					<</if>>
 				<</link>></span>
         \<<run setup.profileTooltip(_id, _object)>>
 				\<<run setup.tippy(".btn")>>
@@ -94,13 +103,16 @@
 \<</widget>>
 
 
-<<widget "temp">><<nobr>>
-		<<set _temp = $args[0]>>
-		<<capture _temp>>
-			<<if $showCelsius is true>>
-					<<set _temp -= 32>>
-					<<set _temp to Math.trunc(_temp *= 0.5556)>>_temp Celsius
-				<<else>>
-				_temp Fahrenheit
-			<</if>>
-		<</capture>><</nobr>><</widget>>
+<<widget "temp">>
+<<nobr>>
+	<<set _temp = $args[0]>>
+	<<capture _temp>>
+		<<if $showCelsius is true>>
+			<<set _temp -= 32>>
+			<<set _temp to Math.trunc(_temp *= 0.5556)>>_temp Celsius
+		<<else>>
+			_temp Fahrenheit
+		<</if>>
+	<</capture>>
+<</nobr>>
+<</widget>>
