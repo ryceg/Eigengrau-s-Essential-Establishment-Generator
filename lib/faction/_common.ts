@@ -9,4 +9,5 @@ export interface Faction {
   age: string
   influence: string
   stability: string
+  joiningFee: string
 }

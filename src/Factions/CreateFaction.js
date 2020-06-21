@@ -42,7 +42,7 @@ setup.createFaction = function (town, opts = {}) {
 
   setup.leaderFaction(town, faction)
 
-  setup.joinFaction(faction)
+  lib.setFactionJoinStats(faction)
 
   setup.createAllies(faction)
 

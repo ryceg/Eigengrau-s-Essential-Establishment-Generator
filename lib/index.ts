@@ -13,9 +13,10 @@ export * from './constructs/spider'
 export * from './constructs/wolf'
 
 export * from './faction/factionData'
-export * from './faction/setFactionName'
 export * from './faction/setFactionAge'
 export * from './faction/setFactionInfluence'
+export * from './faction/setFactionJoinStats'
+export * from './faction/setFactionName'
 export * from './faction/setFactionStability'
 
 export * from './npc-generation/bmiDescriptions'

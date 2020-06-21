@@ -1,6 +1,6 @@
-import { factionData } from './factionData'
 import { random } from '../src/random'
 import { Faction } from './_common'
+import { factionData } from './factionData'
 
 interface Town {
   name: string
