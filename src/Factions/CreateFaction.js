@@ -32,7 +32,7 @@ setup.createFaction = function (town, opts = {}) {
   console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
   setup.reputationFaction(faction)
 
-  setup.sizeFaction(town, faction)
+  lib.setFactionSize(town, faction)
 
   lib.setFactionInfluence(faction)
 

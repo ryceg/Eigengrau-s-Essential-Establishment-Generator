@@ -1,5 +1,11 @@
-setup.sizeFaction = (town, faction) => {
-  console.log('giving it a size...')
+import { Faction } from './_common'
+
+interface Town {
+  population: number
+}
+
+export function setFactionSize (town: Town, faction: Faction) {
+  console.log('calculating size...')
 
   if (faction.roll.age > 95) {
     faction.roll.size += 20

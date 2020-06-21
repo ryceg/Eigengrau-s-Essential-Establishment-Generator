@@ -17,6 +17,7 @@ export * from './faction/setFactionAge'
 export * from './faction/setFactionInfluence'
 export * from './faction/setFactionJoinStats'
 export * from './faction/setFactionName'
+export * from './faction/setFactionSize'
 export * from './faction/setFactionStability'
 
 export * from './npc-generation/bmiDescriptions'
