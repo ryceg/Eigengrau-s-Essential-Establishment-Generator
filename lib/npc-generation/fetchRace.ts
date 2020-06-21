@@ -13,7 +13,7 @@ interface SaveLoc {
 export function fetchRace (town: Town, saveLoc: SaveLoc) {
   console.log('Fetching race...')
 
-  const races = Object.keys(town.baseDemographics)
+  const races = keys(town.baseDemographics)
 
   // Calculate the sum of the raw demographic values.
   const sum = races
@@ -28,7 +28,7 @@ export function fetchRace (town: Town, saveLoc: SaveLoc) {
   const args = town._demographicPercentile
   console.log(args)
   const pool = []
-  const namePool = Object.keys(args)
+  const namePool = keys(args)
   let totalWeight = 0
 
   for (const arg of keys(args)) {
