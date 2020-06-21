@@ -1,34 +1,42 @@
+import { fm } from '../src/dice'
 
-setup.influenceFaction = function (faction) {
+interface Faction {
+  roll: {
+    age: number
+    influence: number
+  }
+  influence: string
+}
+
+export function influenceFaction (faction: Faction) {
   console.log('assigning influence...')
+
   if (faction.roll.age > 95) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 15)
+    faction.roll.influence += fm(faction.roll.influence, 15)
   } else if (faction.roll.age > 90) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 10)
+    faction.roll.influence += fm(faction.roll.influence, 10)
   } else if (faction.roll.age > 80) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 8)
+    faction.roll.influence += fm(faction.roll.influence, 8)
   } else if (faction.roll.age > 70) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 6)
+    faction.roll.influence += fm(faction.roll.influence, 6)
   } else if (faction.roll.age > 60) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 4)
+    faction.roll.influence += fm(faction.roll.influence, 4)
   } else if (faction.roll.age > 55) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 2)
+    faction.roll.influence += fm(faction.roll.influence, 2)
   } else if (faction.roll.age > 50) {
-    faction.roll.influence += lib.fm(faction.roll.influence, 1)
+    faction.roll.influence += fm(faction.roll.influence, 1)
   } else if (faction.roll.age > 45) {
-    faction.roll.influence += lib.fm(faction.roll.influence, -1)
+    faction.roll.influence += fm(faction.roll.influence, -1)
   } else if (faction.roll.age > 40) {
-    faction.roll.influence += lib.fm(faction.roll.influence, -2)
+    faction.roll.influence += fm(faction.roll.influence, -2)
   } else if (faction.roll.age > 30) {
-    faction.roll.influence += lib.fm(faction.roll.influence, -4)
+    faction.roll.influence += fm(faction.roll.influence, -4)
   } else if (faction.roll.age > 20) {
-    faction.roll.influence += lib.fm(faction.roll.influence, -6)
+    faction.roll.influence += fm(faction.roll.influence, -6)
   } else if (faction.roll.age > 10) {
-    faction.roll.influence += lib.fm(faction.roll.influence, -8)
-  } else if (faction.roll.age <= 5) {
-    faction.roll.influence += lib.fm(faction.roll.influence, -10)
+    faction.roll.influence += fm(faction.roll.influence, -8)
   } else {
-    faction.roll.influence += lib.fm(faction.roll.influence, 10)
+    faction.roll.influence += fm(faction.roll.influence, -10)
   }
 
   if (faction.roll.influence > 95) {
@@ -55,11 +63,7 @@ setup.influenceFaction = function (faction) {
     faction.influence = 'very poor'
   } else if (faction.roll.influence > 10) {
     faction.influence = 'extremely poor'
-  } else if (faction.roll.influence <= 5) {
-    faction.influence = 'abysmal'
   } else {
-    faction.influence = 'average'
+    faction.influence = 'abysmal'
   }
-
-  return faction
 }

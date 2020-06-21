@@ -34,7 +34,7 @@ setup.createFaction = function (town, opts = {}) {
 
   setup.sizeFaction(town, faction)
 
-  setup.influenceFaction(faction)
+  lib.influenceFaction(faction)
 
   setup.resourcesFaction(faction)
 
