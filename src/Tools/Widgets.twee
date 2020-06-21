@@ -34,7 +34,7 @@
 		<</if>><<unset _isValid>><</for>>
 	</table>
 	<</capture>>
-<<nobr>>
+<</nobr>>
 <</widget>>
 
 <<widget "tooltip">>
