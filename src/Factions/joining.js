@@ -13,7 +13,7 @@ setup.joinFaction = function (faction) {
     joiningInitiation: joiningInitiation.random()
   })
 
-  faction.joiningFeeRoll = dice(2, 50)
+  faction.joiningFeeRoll = lib.dice(2, 50)
 
   if (faction.joiningFeeRoll > 95) {
     faction.joiningFee = 'a single copper, as a show of faith'

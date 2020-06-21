@@ -1,7 +1,7 @@
 setup.createLeaderGroup = function (faction) {
-  const meetingAccessibilityRoll = dice(2, 50)
-  const meetingRegularityRoll = dice(2, 50) + Math.fm(faction.roll.stability, -50)
-  faction.leaderGroupSizeRoll = dice(3, 4)
+  const meetingAccessibilityRoll = lib.dice(2, 50)
+  const meetingRegularityRoll = lib.dice(2, 50) + lib.fm(faction.roll.stability, -50)
+  faction.leaderGroupSizeRoll = lib.dice(3, 4)
 
   if (meetingRegularityRoll > 95) {
     faction.meetingRegularity = 'every day, at 5pm sharp'

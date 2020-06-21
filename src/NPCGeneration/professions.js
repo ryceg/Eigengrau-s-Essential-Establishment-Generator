@@ -40,7 +40,7 @@ setup.initTownDataProfessions = () => {
       description: 'a peasant.',
       dailyWage: 14,
       socialClass: 'peasantry',
-      socialClassRoll () { return 30 + dice(8, 6) },
+      socialClassRoll () { return 30 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           lord: {
@@ -63,7 +63,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person living in a mountainous area.',
       dailyWage: 50,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'barbarian': {
       sv: 6500,
@@ -72,7 +72,7 @@ setup.initTownDataProfessions = () => {
       description: 'a warrior who gets lost in the craze of battle.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'bard': {
       sv: 6500,
@@ -81,7 +81,7 @@ setup.initTownDataProfessions = () => {
       description: 'uses their artistic talents to induce magical effects.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cleric': {
       sv: 6500,
@@ -91,7 +91,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 180,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'druid': {
       sv: 6500,
@@ -101,7 +101,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'fighter': {
       sv: 6500,
@@ -110,7 +110,7 @@ setup.initTownDataProfessions = () => {
       description: 'a common warrior.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'monk': {
       sv: 6500,
@@ -120,7 +120,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 20,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'rogue': {
       sv: 6500,
@@ -129,7 +129,7 @@ setup.initTownDataProfessions = () => {
       description: '.',
       dailyWage: 250,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'ranger': {
       sv: 6500,
@@ -138,7 +138,7 @@ setup.initTownDataProfessions = () => {
       description: 'wanders or ranges over a particular area or domain.',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'paladin': {
       sv: 6500,
@@ -147,7 +147,7 @@ setup.initTownDataProfessions = () => {
       description: 'a holy knight and divine spellcaster crusading in the name of their god.',
       dailyWage: 100,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'sorcerer': {
       sv: 6500,
@@ -156,7 +156,7 @@ setup.initTownDataProfessions = () => {
       description: 'magic user who derives their magical abilities innately rather than through study.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'warlock': {
       sv: 6500,
@@ -165,7 +165,7 @@ setup.initTownDataProfessions = () => {
       description: 'a mage who has gained their abilities by forming a pact with an otherworldly being.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'wizard': {
       sv: 6500,
@@ -174,7 +174,7 @@ setup.initTownDataProfessions = () => {
       description: 'derives their magical abilities through study.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'actor': {
       sv: 2500,
@@ -185,7 +185,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I always loved playing make-believe; this is just the natural result of that.'
       ],
@@ -210,7 +210,7 @@ setup.initTownDataProfessions = () => {
       description: 'practices or studies law, typically an attorney or a counselor.',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I have always had a strong moral compass, and wanted to defend those that I thought needed defending.'
       ],
@@ -234,7 +234,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 230,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'Becoming an advisor was simply a matter of being in the right place at the right time.'
       ]
@@ -247,7 +247,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'I have always had a knack for animal handling.'
       ]
@@ -260,7 +260,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 160,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I was taught apothecary at a young age.'
       ]
@@ -273,7 +273,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 600,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         "I had an apprenticeship, drafting up plans for houses. I made improvements to my master's plans. Now, I do it for a living."
       ],
@@ -297,7 +297,7 @@ setup.initTownDataProfessions = () => {
       description: 'maintains and is in charge of some sort archives.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I love ordering things, and archiving suits me perfectly.'
       ]
@@ -310,7 +310,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I did an apprenticeship and fell into armoring as a result of that.'
       ]
@@ -324,7 +324,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 450,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I loved the stars as a kid, and made a career out of it.'
       ],
@@ -348,7 +348,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'Early risers like me are well suited to the life of a baker.'
       ]
@@ -361,7 +361,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 800,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I love money, so wanted to work as somebody that would be in charge of money.'
       ]
@@ -373,7 +373,7 @@ setup.initTownDataProfessions = () => {
       description: 'cuts hair and shaves or trims beards.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I have a steady hand, and like to think that I am a good conversationalist- barbering was a natural fit.'
       ]
@@ -387,7 +387,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           client: {
@@ -419,7 +419,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 60,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'Bar work has been all that I have been able to find.'
       ]
@@ -432,7 +432,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I was an apprentice in the smithy, and took up the title when my old master passed on.',
         'I was a tinkerer, and just drifted from town to town doing odd jobs for people until I came to $town.name. I fell in love with the place, and then settled here.',
@@ -451,7 +451,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 50,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         "I'm doing an apprenticeship, I hope to be a full blacksmith one day."
       ]
@@ -464,7 +464,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'brewer': {
       sv: 550,
@@ -474,7 +474,7 @@ setup.initTownDataProfessions = () => {
       description: 'brews ale.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'I started out as a hobbyist, but then went fulltime.'
       ]
@@ -487,7 +487,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'pimp': {
       sv: 850,
@@ -498,7 +498,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         "Being a pimp is all about connections- it's all about who you know. With good clients comes good money."
       ],
@@ -529,7 +529,7 @@ setup.initTownDataProfessions = () => {
       description: 'a kind of privateer or free sailor.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'butcher': {
       sv: 1150,
@@ -539,7 +539,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'I had an apprenticeship, and have been butchering ever since.',
         "There's nothing quite like a nice sausage, right? Well, I'm picky, and like sausages my way."
@@ -572,7 +572,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 160,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I rose through the ranks, receiving awards for my bravery during battle, eventually landing at the position of captain.'
       ]
@@ -584,7 +584,7 @@ setup.initTownDataProfessions = () => {
       description: 'travels or lives in a caravan.',
       dailyWage: 50,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -605,7 +605,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cartographer': {
       sv: 1950,
@@ -615,7 +615,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 240,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I love maps, and have a good hand for drawing. Cartography is the natural intersection of the two.'
       ]
@@ -627,7 +627,7 @@ setup.initTownDataProfessions = () => {
       description: 'deals in provisions and supplies.',
       dailyWage: 90,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'chef': {
       sv: 1850,
@@ -637,7 +637,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'child': {
       sv: 10000,
@@ -647,7 +647,7 @@ setup.initTownDataProfessions = () => {
       description: 'a child, specifically one that is not working.',
       dailyWage: 4,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I want to be somebody important when I grow up!'
       ]
@@ -663,7 +663,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'clock maker': {
       sv: 4550,
@@ -674,7 +674,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'craftsman': {
       sv: 4550,
@@ -684,7 +684,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cobbler': {
       sv: 1550,
@@ -693,7 +693,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs footwear.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'cook': {
       sv: 450,
@@ -703,7 +703,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -723,7 +723,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs casks and barrels.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'courtesan': {
       sv: 1950,
@@ -733,7 +733,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 220,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -755,7 +755,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 320,
       socialClass: 'nobility',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cowherd': {
       sv: 250,
@@ -765,7 +765,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -786,7 +786,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -807,7 +807,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 440,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'diver': {
       sv: 3250,
@@ -817,7 +817,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'domestic partner': {
       sv: 50,
@@ -828,7 +828,7 @@ setup.initTownDataProfessions = () => {
       dailyWage: 4,
       socialClass: 'peasantry',
       exclusions (npc) { if (!npc.partnerID) return false },
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'farmer': {
       sv: 150,
@@ -838,7 +838,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'fisherman': {
       sv: 170,
@@ -848,7 +848,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'fishmonger': {
       sv: 250,
@@ -858,7 +858,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -880,7 +880,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'gardener': {
       sv: 550,
@@ -890,7 +890,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'general': {
       sv: 2250,
@@ -900,7 +900,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'gladiator': {
       sv: 3250,
@@ -910,7 +910,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 210,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'glovemaker': {
       sv: 2400,
@@ -920,7 +920,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'goldsmith': {
       sv: 6550,
@@ -930,7 +930,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 400,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'grocer': {
       sv: 450,
@@ -940,7 +940,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 105,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'guard': {
       sv: 150,
@@ -951,7 +951,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'Keeping the peace is easy enough. Might as well get paid for it.'
       ]
@@ -964,7 +964,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 900,
       socialClass: 'nobility',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'hatter': {
       sv: 950,
@@ -973,7 +973,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs headwear.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'healer': {
       sv: 950,
@@ -982,7 +982,7 @@ setup.initTownDataProfessions = () => {
       description: 'able to cure a disease or injury using magic.',
       dailyWage: 170,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'herald': {
       sv: 550,
@@ -992,7 +992,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'herbalist': {
       sv: 850,
@@ -1002,7 +1002,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'hermit': {
       sv: 950,
@@ -1014,7 +1014,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'historian': {
       sv: 4150,
@@ -1023,7 +1023,7 @@ setup.initTownDataProfessions = () => {
       description: 'an expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.',
       dailyWage: 230,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'hunter': {
       sv: 250,
@@ -1034,7 +1034,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'ice seller': {
       sv: 1950,
@@ -1043,7 +1043,7 @@ setup.initTownDataProfessions = () => {
       description: 'collects and sells ice.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'inventor': {
       sv: 2250,
@@ -1053,7 +1053,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'jailer': {
       sv: 1250,
@@ -1063,7 +1063,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'I know that jailing is not a pretty profession, but somebody has to do it- might as well be me, right?'
       ],
@@ -1087,7 +1087,7 @@ setup.initTownDataProfessions = () => {
       description: 'professional joker.',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -1110,7 +1110,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 240,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'judge': {
       sv: 850,
@@ -1120,7 +1120,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 650,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'knight': {
       sv: 1150,
@@ -1130,7 +1130,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 350,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -1153,7 +1153,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 350,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       exclusions (npc) { if (npc.gender !== 'woman') return false }
     },
     'leatherworker': {
@@ -1163,7 +1163,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes items from leather such as pouches, scabbards, straps, etc.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'librarian': {
       sv: 3150,
@@ -1173,7 +1173,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 160,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'linguist': {
       sv: 5150,
@@ -1183,7 +1183,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 260,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'locksmith': {
       sv: 1900,
@@ -1193,7 +1193,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'lord': {
       sv: 1150,
@@ -1203,7 +1203,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 400,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'lumberjack': {
       sv: 350,
@@ -1213,7 +1213,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -1234,7 +1234,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -1255,7 +1255,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'merchant': {
       sv: 650,
@@ -1264,7 +1264,7 @@ setup.initTownDataProfessions = () => {
       description: 'sells and trades goods.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         'I grew up poor. I learnt to hock stuff off to feed myself.',
         'Some people just have the gift of the gab- I have a talent for sales.',
@@ -1279,7 +1279,7 @@ setup.initTownDataProfessions = () => {
       description: 'carries messages between recipients.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'I was always good at running- being a messenger was a natural extension of that.'
       ]
@@ -1292,7 +1292,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         "I have always loved children, and can't bear the thought of a woman being alone during childbirth."
       ]
@@ -1305,7 +1305,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'miner': {
       sv: 550,
@@ -1315,7 +1315,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 60,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -1336,7 +1336,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 190,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'minstrel': {
       sv: 1450,
@@ -1346,7 +1346,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -1372,7 +1372,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       exclusions (npc) { if (npc.gender !== 'man') return false }
     },
     'mortician': {
@@ -1382,7 +1382,7 @@ setup.initTownDataProfessions = () => {
       description: 'prepares dead bodies for burial or cremation and makes arrangements for funerals.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'necromancer': {
       sv: 6150,
@@ -1392,7 +1392,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'noble': {
       sv: 3150,
@@ -1402,7 +1402,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person belonging to a class with high social or political status.',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'My family has owned lands for centuries.',
         'I was bestowed an estate for my service.',
@@ -1420,7 +1420,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       exclusions (npc) { if (npc.gender !== 'woman') return false }
     },
     'nurse': {
@@ -1431,7 +1431,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -1453,7 +1453,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'patissier': {
       sv: 1500,
@@ -1463,7 +1463,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'perfumer': {
       sv: 3150,
@@ -1472,7 +1472,7 @@ setup.initTownDataProfessions = () => {
       description: 'expert on creating perfume compositions.',
       dailyWage: 160,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'philosopher': {
       sv: 7150,
@@ -1482,7 +1482,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'physician': {
       sv: 4150,
@@ -1492,7 +1492,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'pilgrim': {
       sv: 5150,
@@ -1504,7 +1504,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'politician': {
       sv: 4000,
@@ -1514,7 +1514,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 800,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I dared to dream that I could change the world, and rise above the others.',
         'I became furious with the corruption in politics, so I decided to enter the rat-race myself.',
@@ -1530,7 +1530,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 800,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         "I was elected as the prime minister. It's both an honour and a true burden to serve.",
         "I got elected, and now I'm the top brass. Everyone else will realise soon enough that things run differently when the adults are in charge!",
@@ -1544,7 +1544,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes pots, bowls, plates, etc., out of clay.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'priest': {
       sv: 750,
@@ -1557,7 +1557,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         'I heard the calling of priesthood from a very young age- my path was never in question.',
         "I was initially going to be a chef- but then, one day, I felt the urge to go to church. I've never looked back."
@@ -1571,7 +1571,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'professor': {
       sv: 3150,
@@ -1581,7 +1581,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 350,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'roofer': {
       sv: 1800,
@@ -1591,7 +1591,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'ropemaker': {
       sv: 1850,
@@ -1601,7 +1601,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'rugmaker': {
       sv: 1850,
@@ -1610,7 +1610,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs rugs by braiding, hooking, weaving, etc.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'saddler': {
       sv: 1000,
@@ -1619,7 +1619,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs saddlery.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'sailor': {
       sv: 150,
@@ -1629,7 +1629,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'I can handle the rough seas, and the pay is alright, so here I am, a sailor.',
         "I don't like the sea all that much, but the pay is okay.",
@@ -1654,7 +1654,7 @@ setup.initTownDataProfessions = () => {
       description: 'crafts art by carving or casting blocks of marble, stones, or other hardened minerals.',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'scavenger': {
       sv: 350,
@@ -1664,7 +1664,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 30,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'scholar': {
       sv: 2250,
@@ -1674,7 +1674,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'seamstress': {
       sv: 450,
@@ -1684,7 +1684,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 190,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'seer': {
       sv: 3500,
@@ -1694,7 +1694,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 400,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'servant': {
       sv: 350,
@@ -1704,7 +1704,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       professionOrigin: [
         "Believe it or not, I didn't exactly hope to be a servant- terrible hours, awful pay, and having to work for some stuck up noble? Ugh.",
         'Being a servant was all the work that I could find.'
@@ -1730,7 +1730,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'shepherd': {
       sv: 150,
@@ -1739,7 +1739,7 @@ setup.initTownDataProfessions = () => {
       description: 'herds, tends, and guards sheep.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'Being a shepherd is easy enough- sheep are good company, if you take the time to get to know them.'
       ]
@@ -1752,7 +1752,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'shoemaker': {
       sv: 150,
@@ -1761,7 +1761,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes shoes out of different materials.',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'silversmith': {
       sv: 1250,
@@ -1771,7 +1771,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'slave': {
       sv: 150,
@@ -1808,7 +1808,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -1830,7 +1830,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -1850,7 +1850,7 @@ setup.initTownDataProfessions = () => {
       description: 'sells different kinds of spices.',
       dailyWage: 250,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'squire': {
       sv: 950,
@@ -1860,7 +1860,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -1883,7 +1883,7 @@ setup.initTownDataProfessions = () => {
       description: 'works in a stable.',
       dailyWage: 80,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'stevedore': {
       sv: 550,
@@ -1894,7 +1894,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -1915,7 +1915,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'steward': {
       sv: 950,
@@ -1925,7 +1925,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 250,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -1948,7 +1948,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'street sweeper': {
       sv: 450,
@@ -1958,7 +1958,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 60,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'student': {
       sv: 3150,
@@ -1968,7 +1968,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'surgeon': {
       sv: 4150,
@@ -1978,7 +1978,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 380,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'surveyor': {
       sv: 1150,
@@ -1987,7 +1987,7 @@ setup.initTownDataProfessions = () => {
       description: 'establishes maps and boundaries for ownership or other purposes required by government or civil law.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'tailor': {
       sv: 250,
@@ -1996,7 +1996,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes, alters, repairs, as well as occasionally designing garments.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'tanner': {
       sv: 200,
@@ -2005,7 +2005,7 @@ setup.initTownDataProfessions = () => {
       description: 'treats the skins and hides of animals to produce leather.',
       dailyWage: 70,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -2025,7 +2025,7 @@ setup.initTownDataProfessions = () => {
       description: 'owns or runs a shop.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       professionOrigin: [
         "Selling goods is easy enough. Selling for a profit? That's harder."
       ]
@@ -2038,7 +2038,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 25,
       socialClass: 'peasantry',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'tax collector': {
       sv: 1850,
@@ -2048,7 +2048,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 250,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'teacher': {
       sv: 1450,
@@ -2058,7 +2058,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'thatcher': {
       sv: 350,
@@ -2068,7 +2068,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -2088,7 +2088,7 @@ setup.initTownDataProfessions = () => {
       description: 'steals peoples property, especially by stealth and without using force or violence.',
       dailyWage: 120,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'torturer': {
       sv: 1850,
@@ -2098,7 +2098,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         "I don't expect you to understand why I'm a torturer. It's a job, alright?"
       ],
@@ -2123,7 +2123,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes public announcements in the streets or marketplace.',
       dailyWage: 60,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'toymaker': {
       sv: 2500,
@@ -2132,7 +2132,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs toys.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'vendor': {
       sv: 1150,
@@ -2142,7 +2142,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'veterinarian': {
       sv: 1250,
@@ -2151,7 +2151,7 @@ setup.initTownDataProfessions = () => {
       description: 'treats diseased or injured animals.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'vintner': {
       sv: 850,
@@ -2161,7 +2161,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'weaver': {
       sv: 600,
@@ -2171,7 +2171,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'wetnurse': {
       sv: 350,
@@ -2181,7 +2181,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       exclusions (npc) { return Boolean(npc.gender === 'woman') },
       professionOrigin: [
         "I sell my body for what it is worth. It is what it is- at least it's just an innocent baby."
@@ -2207,7 +2207,7 @@ setup.initTownDataProfessions = () => {
       description: 'fashions wood into various shapes.',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'wood seller': {
       sv: 2150,
@@ -2216,7 +2216,7 @@ setup.initTownDataProfessions = () => {
       description: 'sells wood, typically logs.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'wrestler': {
       sv: 6150,
@@ -2226,7 +2226,7 @@ setup.initTownDataProfessions = () => {
       description: 'performs in matches involving grappling and grappling-type techniques.',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'writer': {
       sv: 7150,
@@ -2236,7 +2236,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'animal/Monster Handler': {
       sv: 5000,
@@ -2246,7 +2246,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -2268,7 +2268,7 @@ setup.initTownDataProfessions = () => {
       description: 'maintains and cares for trees, often by surgically removing dying limbs.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'baler': {
       sv: 800,
@@ -2278,7 +2278,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 40,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'beekeeper': {
       sv: 2000,
@@ -2288,7 +2288,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'breeder': {
       sv: 1000,
@@ -2297,7 +2297,7 @@ setup.initTownDataProfessions = () => {
       description: 'breeds livestock, animals, or monsters.',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'dairymaid': {
       sv: 500,
@@ -2307,7 +2307,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -2329,7 +2329,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -2353,7 +2353,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'forager': {
       sv: 500,
@@ -2362,7 +2362,7 @@ setup.initTownDataProfessions = () => {
       description: 'searches for food in the wild.',
       dailyWage: 20,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'forester': {
       sv: 1000,
@@ -2371,7 +2371,7 @@ setup.initTownDataProfessions = () => {
       description: 'supervises the wellbeing of a forest.',
       dailyWage: 240,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'fowler': {
       sv: 750,
@@ -2380,7 +2380,7 @@ setup.initTownDataProfessions = () => {
       description: 'catches or ensnares birds.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           supplier: {
@@ -2401,7 +2401,7 @@ setup.initTownDataProfessions = () => {
       description: 'breeds and protects game, typically for a large estate.',
       dailyWage: 230,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -2424,7 +2424,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'herder': {
       sv: 100,
@@ -2434,7 +2434,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         "Livestock are simple. Feed 'em, keep 'em warm, then come slaughter time, you slaughter them. It's people that are hard."
       ],
@@ -2458,7 +2458,7 @@ setup.initTownDataProfessions = () => {
       description: 'tends to horses and teaches them different disciplines.',
       dailyWage: 210,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'master-of-Horses': {
       sv: 5000,
@@ -2468,7 +2468,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'master-of-Hounds': {
       sv: 7500,
@@ -2478,7 +2478,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 900,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -2501,7 +2501,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'plumer': {
       sv: 2000,
@@ -2511,7 +2511,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'prospector': {
       sv: 500,
@@ -2521,7 +2521,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 80,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'renderer': {
       sv: 3500,
@@ -2530,7 +2530,7 @@ setup.initTownDataProfessions = () => {
       description: 'converts waste animal tissue into usable materials.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         'Apologies for the smell. Rendering is not a pleasant profession, believe me, I know.'
       ]
@@ -2542,7 +2542,7 @@ setup.initTownDataProfessions = () => {
       description: 'separates grain from the plants by beating.',
       dailyWage: 50,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       professionOrigin: [
         "Believe it or not, I don't do this backbreaking work for fun- it's all I could find."
       ],
@@ -2565,7 +2565,7 @@ setup.initTownDataProfessions = () => {
       description: 'traps wild animals, especially for their fur.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'zookeeper': {
       sv: 10000,
@@ -2575,7 +2575,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
 
     },
     'construction Worker': {
@@ -2586,7 +2586,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'general contractor': {
       sv: 5000,
@@ -2596,7 +2596,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'glazier': {
       sv: 500,
@@ -2605,7 +2605,7 @@ setup.initTownDataProfessions = () => {
       description: 'fits glass into windows and doors.',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'plasterer': {
       sv: 750,
@@ -2614,7 +2614,7 @@ setup.initTownDataProfessions = () => {
       description: 'applies plaster to walls, ceilings, or other surfaces.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
 
     },
     'roadlayer': {
@@ -2625,7 +2625,7 @@ setup.initTownDataProfessions = () => {
       description: 'paves roads or streets.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'acrobat': {
       sv: 2500,
@@ -2635,7 +2635,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'trapezist': {
       sv: 3500,
@@ -2645,7 +2645,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'arranger': {
       sv: 2000,
@@ -2655,7 +2655,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'athlete': {
       sv: 500,
@@ -2665,7 +2665,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'busker': {
       sv: 2000,
@@ -2674,7 +2674,7 @@ setup.initTownDataProfessions = () => {
       description: 'performs in a public place, often for money.',
       dailyWage: 50,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'celebrity': {
       sv: 10000,
@@ -2684,7 +2684,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 1000,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       professionOrigin: [
         "I became famous after I received a lot of attention. Now, I live off that. It's a sweet gig, you should try it!"
       ]
@@ -2698,7 +2698,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'clown': {
       sv: 3000,
@@ -2708,7 +2708,7 @@ setup.initTownDataProfessions = () => {
       description: 'comic entertainer who wears a traditional costume and exaggerated makeup.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'comedian': {
       sv: 5000,
@@ -2718,7 +2718,7 @@ setup.initTownDataProfessions = () => {
       description: 'entertainer whose act is designed to make an audience laugh.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'conductor': {
       sv: 8000,
@@ -2729,7 +2729,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'contortionist': {
       sv: 5000,
@@ -2739,7 +2739,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'curator': {
       sv: 2500,
@@ -2750,7 +2750,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -2773,7 +2773,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'equilibrist': {
       sv: 3000,
@@ -2783,7 +2783,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'fashion designer': {
       sv: 5000,
@@ -2794,7 +2794,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'glasspainter': {
       sv: 5000,
@@ -2803,7 +2803,7 @@ setup.initTownDataProfessions = () => {
       description: 'produces colorful designs on or in glass.',
       dailyWage: 160,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'juggler': {
       sv: 3000,
@@ -2813,7 +2813,7 @@ setup.initTownDataProfessions = () => {
       description: 'keeps several objects in motion in the air at the same time by alternately tossing and catching them.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'limner': {
       sv: 7000,
@@ -2822,7 +2822,7 @@ setup.initTownDataProfessions = () => {
       description: 'paints and calligraphs to adorn or enlighten scrolls and manuscripts.',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'makeup artist': {
       sv: 4500,
@@ -2832,7 +2832,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           employer: {
@@ -2858,7 +2858,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 40 + dice(8, 6) }
+      socialClassRoll () { return 40 + lib.dice(8, 6) }
     },
     'model': {
       sv: 3500,
@@ -2868,7 +2868,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'musician': {
       sv: 800,
@@ -2879,7 +2879,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -2901,7 +2901,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'poet': {
       sv: 3500,
@@ -2912,7 +2912,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'ringmaster': {
       sv: 3500,
@@ -2922,7 +2922,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'ropewalker': {
       sv: 4000,
@@ -2932,7 +2932,7 @@ setup.initTownDataProfessions = () => {
       description: 'walks along a tightrope to entertain others.',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'singer': {
       sv: 2000,
@@ -2942,7 +2942,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -2963,7 +2963,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'stage magician': {
       sv: 3500,
@@ -2973,7 +2973,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'stuntman': {
       sv: 5000,
@@ -2983,7 +2983,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'tattooist': {
       sv: 3000,
@@ -2993,7 +2993,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'theater director': {
       sv: 5000,
@@ -3003,7 +3003,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'accountant': {
       sv: 3000,
@@ -3012,7 +3012,7 @@ setup.initTownDataProfessions = () => {
       description: 'keeps and inspects financial accounts.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'actuary': {
       sv: 6000,
@@ -3021,7 +3021,7 @@ setup.initTownDataProfessions = () => {
       description: 'compiles and analyzes statistics and uses them to calculate risk.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'animal collector': {
       sv: 10000,
@@ -3031,7 +3031,7 @@ setup.initTownDataProfessions = () => {
       description: 'collects and deals in rare and exotic animals and monsters.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'business owner': {
       sv: 500,
@@ -3041,7 +3041,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'debt collector': {
       sv: 3500,
@@ -3051,7 +3051,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'draper': {
       sv: 2500,
@@ -3060,7 +3060,7 @@ setup.initTownDataProfessions = () => {
       description: 'an alcohol merchant.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           supplier: {
@@ -3081,7 +3081,7 @@ setup.initTownDataProfessions = () => {
       description: 'assesses the monetary value of something.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'auctioneer': {
       sv: 4500,
@@ -3090,7 +3090,7 @@ setup.initTownDataProfessions = () => {
       description: 'conducts auctions by accepting bids and declaring goods sold.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'bagniokeeper': {
       sv: 1500,
@@ -3099,7 +3099,7 @@ setup.initTownDataProfessions = () => {
       description: 'owner of a bath house or brothel.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'bookkeeper': {
       sv: 2500,
@@ -3108,7 +3108,7 @@ setup.initTownDataProfessions = () => {
       description: 'keeps records of financial affairs.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'collector': {
       sv: 3000,
@@ -3118,7 +3118,7 @@ setup.initTownDataProfessions = () => {
       description: 'collects things of a specified type, professionally or as a hobby.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'entrepreneur': {
       sv: 5000,
@@ -3129,7 +3129,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'nobility',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'moneychanger': {
       sv: 2500,
@@ -3138,7 +3138,7 @@ setup.initTownDataProfessions = () => {
       description: 'exchanges one currency for another.',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'moneylender': {
       sv: 1500,
@@ -3147,7 +3147,7 @@ setup.initTownDataProfessions = () => {
       description: 'lends money to others who pay interest.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'peddler': {
       sv: 350,
@@ -3156,7 +3156,7 @@ setup.initTownDataProfessions = () => {
       description: 'travels from place to place selling assorted items.',
       dailyWage: 80,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'plantation owner': {
       sv: 1500,
@@ -3165,7 +3165,7 @@ setup.initTownDataProfessions = () => {
       description: 'an owner of an estate on which crops are cultivated by resident labor, typically slave labor.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           slave: {
@@ -3187,7 +3187,7 @@ setup.initTownDataProfessions = () => {
       description: 'invests in stocks, property, or other ventures in the hope of making a profit.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'thrift dealer': {
       sv: 800,
@@ -3196,7 +3196,7 @@ setup.initTownDataProfessions = () => {
       description: 'deals in secondhand items.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'tradesman': {
       sv: 500,
@@ -3205,7 +3205,7 @@ setup.initTownDataProfessions = () => {
       description: 'deals exclusively in bartering.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'billboard poster': {
       sv: 1000,
@@ -3214,7 +3214,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person who puts up notices, signs and advertisements.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'courier': {
       sv: 300,
@@ -3223,7 +3223,7 @@ setup.initTownDataProfessions = () => {
       description: 'transports packages and documents.',
       dailyWage: 50,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'interpreter': {
       sv: 5000,
@@ -3233,7 +3233,7 @@ setup.initTownDataProfessions = () => {
       description: 'interprets language and its meaning, especially within ancient manuscripts.',
       dailyWage: 190,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'coinsmith': {
       sv: 10000,
@@ -3242,7 +3242,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes currency for the government.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'bladesmith': {
       sv: 3000,
@@ -3252,7 +3252,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'bookbinder': {
       sv: 5000,
@@ -3261,7 +3261,7 @@ setup.initTownDataProfessions = () => {
       description: 'binds books and wraps scrolls.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           colleague: {
@@ -3281,7 +3281,7 @@ setup.initTownDataProfessions = () => {
       description: 'bottles drinks and other liquids.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'bowyer': {
       sv: 500,
@@ -3290,7 +3290,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes bows and crossbows.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'broom Maker': {
       sv: 4500,
@@ -3299,7 +3299,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes brooms and brushes.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'candlemaker': {
       sv: 2000,
@@ -3308,7 +3308,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes candles and wax from honey and tallow.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'cartwright': {
       sv: 500,
@@ -3317,7 +3317,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs carts and wagons.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'cutler': {
       sv: 7500,
@@ -3326,7 +3326,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes cutlery.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'dyer': {
       sv: 5000,
@@ -3335,7 +3335,7 @@ setup.initTownDataProfessions = () => {
       description: 'dyes cloth and other materials.',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'embroiderer': {
       sv: 2500,
@@ -3344,7 +3344,7 @@ setup.initTownDataProfessions = () => {
       description: 'ornaments with needlework.',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'engraver': {
       sv: 1000,
@@ -3353,7 +3353,7 @@ setup.initTownDataProfessions = () => {
       description: 'incises a design onto a hard surface by cutting grooves into it.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'farrier': {
       sv: 2000,
@@ -3363,7 +3363,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'fletcher': {
       sv: 1500,
@@ -3373,7 +3373,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'furniture artisan': {
       sv: 2500,
@@ -3382,7 +3382,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs furniture.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'glassworker': {
       sv: 5000,
@@ -3392,7 +3392,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'instrument Maker': {
       sv: 7500,
@@ -3402,7 +3402,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs musical instruments.',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'lapidary': {
       sv: 5000,
@@ -3412,7 +3412,7 @@ setup.initTownDataProfessions = () => {
       description: 'turns stone, minerals, or gemstones into decorative items such as cabochons, engraved gems, and faceted designs.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'luthier': {
       sv: 8500,
@@ -3422,7 +3422,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs stringed instruments.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'mercer': {
       sv: 2500,
@@ -3432,7 +3432,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'optician': {
       sv: 6500,
@@ -3442,7 +3442,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 190,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'printer': {
       sv: 2000,
@@ -3451,7 +3451,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person who applies pressure to an inked surface resting upon a print medium (such as paper or cloth), thereby transferring the ink to manufacture a text.',
       dailyWage: 140,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'restorer': {
       sv: 10000,
@@ -3461,7 +3461,7 @@ setup.initTownDataProfessions = () => {
       description: 'repairs or renovates a work of art so as to return it to its original condition.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'soaper': {
       sv: 3000,
@@ -3470,7 +3470,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes soap from accumulated mutton fat, wood ash, and natural soda.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'taxidermist': {
       sv: 4000,
@@ -3479,7 +3479,7 @@ setup.initTownDataProfessions = () => {
       description: 'prepares, stuffs, and mounts the skins of animals.',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'tinker': {
       sv: 3000,
@@ -3488,7 +3488,7 @@ setup.initTownDataProfessions = () => {
       description: 'travels from place to place mending utensils.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'weaponsmith': {
       sv: 2500,
@@ -3498,7 +3498,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 190,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'wheelwright': {
       sv: 1500,
@@ -3507,7 +3507,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes and repairs wooden wheels.',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'assassin': {
       sv: 5000,
@@ -3517,7 +3517,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'bandit': {
       sv: 8000,
@@ -3527,7 +3527,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -3549,7 +3549,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'conman': {
       sv: 750,
@@ -3559,7 +3559,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'gamefighter': {
       sv: 2000,
@@ -3569,7 +3569,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 190,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'crime boss': {
       sv: 6000,
@@ -3579,7 +3579,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 400,
       socialClass: 'nobility',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cutpurse': {
       sv: 500,
@@ -3588,7 +3588,7 @@ setup.initTownDataProfessions = () => {
       description: 'a pickpocket or thief.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'drug dealer': {
       sv: 1500,
@@ -3598,7 +3598,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'drug lord': {
       sv: 6000,
@@ -3608,7 +3608,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -3630,7 +3630,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'fence': {
       sv: 10000,
@@ -3639,7 +3639,7 @@ setup.initTownDataProfessions = () => {
       description: 'deals in stolen goods.',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'forger': {
       sv: 10000,
@@ -3648,7 +3648,7 @@ setup.initTownDataProfessions = () => {
       description: 'produces fraudulent copies or imitations.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'fugitive': {
       sv: 2500,
@@ -3657,7 +3657,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person who has escaped from a place or is in hiding, especially to avoid arrest or persecution.',
       dailyWage: 20,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'highwayman': {
       sv: 500,
@@ -3667,7 +3667,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'kidnapper': {
       sv: 1500,
@@ -3677,7 +3677,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'loan shark': {
       sv: 4500,
@@ -3687,7 +3687,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'pirate': {
       sv: 1500,
@@ -3696,7 +3696,7 @@ setup.initTownDataProfessions = () => {
       description: 'attacks and robs ships at sea.',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'wannabe pirate': {
       sv: 1500,
@@ -3705,7 +3705,7 @@ setup.initTownDataProfessions = () => {
       description: 'dreams of becoming a full fledged pirate, but currently is just a rowdy sailor.',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'poacher': {
       sv: 5000,
@@ -3714,7 +3714,7 @@ setup.initTownDataProfessions = () => {
       description: 'hunts illegal game.',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'poisoner': {
       sv: 7000,
@@ -3723,7 +3723,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes poisons to harm or kill.',
       dailyWage: 300,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'marauder': {
       sv: 3000,
@@ -3733,7 +3733,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'smuggler': {
       sv: 2500,
@@ -3742,7 +3742,7 @@ setup.initTownDataProfessions = () => {
       description: 'manages the import or export of goods secretly, in violation of the law, especially without payment of legal duty.',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'affeeror': {
       sv: 10000,
@@ -3751,7 +3751,7 @@ setup.initTownDataProfessions = () => {
       description: 'determines the values of fines and amercements.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'agister': {
       sv: 1500,
@@ -3760,7 +3760,7 @@ setup.initTownDataProfessions = () => {
       description: 'affords pasture to the livestock of others for a price.',
       dailyWage: 120,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'alderman': {
       sv: 1000,
@@ -3770,7 +3770,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'alienist': {
       sv: 3000,
@@ -3780,7 +3780,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           client: {
@@ -3800,7 +3800,7 @@ setup.initTownDataProfessions = () => {
       description: 'oversees the testing of currency.',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'baron': {
       sv: 2500,
@@ -3810,7 +3810,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'chancellor': {
       sv: 5000,
@@ -3820,7 +3820,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'chief': {
       sv: 9000,
@@ -3830,7 +3830,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 100,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'conservationist': {
       sv: 3000,
@@ -3840,7 +3840,7 @@ setup.initTownDataProfessions = () => {
       description: 'advocates for the protection and preservation of the environment and wildlife.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'count': {
       sv: 7000,
@@ -3850,7 +3850,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'duke': {
       sv: 15000,
@@ -3860,7 +3860,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 900,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'emperor': {
       sv: 25000,
@@ -3870,7 +3870,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 2400,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'king': {
       sv: 20000,
@@ -3880,7 +3880,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 2400,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'lady-in-Waiting': {
       sv: 3000,
@@ -3889,7 +3889,7 @@ setup.initTownDataProfessions = () => {
       description: 'attends a queen, princess, or other high-ranking feminine nobleperson.',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -3913,7 +3913,7 @@ setup.initTownDataProfessions = () => {
       description: 'a nobleperson ranking above a count and below a duke.',
       dailyWage: 600,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'master-of-Coin': {
       sv: 7500,
@@ -3923,7 +3923,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'master-of-the-Revels': {
       sv: 1000,
@@ -3933,7 +3933,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'notary': {
       sv: 3000,
@@ -3943,7 +3943,7 @@ setup.initTownDataProfessions = () => {
       description: 'performs certain legal formalities, especially to draw up or certify contracts, deeds, and other documents for use in other jurisdictions.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'orator': {
       sv: 3000,
@@ -3953,7 +3953,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -3976,7 +3976,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -3998,7 +3998,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'senator': {
       sv: 5000,
@@ -4008,7 +4008,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) },
+      socialClassRoll () { return 75 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -4029,7 +4029,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'spymaster': {
       sv: 1000,
@@ -4039,7 +4039,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 800,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'viscount': {
       sv: 7000,
@@ -4049,7 +4049,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'ward': {
       sv: 3000,
@@ -4058,7 +4058,7 @@ setup.initTownDataProfessions = () => {
       description: 'a member of a noble house who has been taken in by another noble family to be raised for a time.',
       dailyWage: 100,
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
     'acater': {
       sv: 3000,
@@ -4067,7 +4067,7 @@ setup.initTownDataProfessions = () => {
       description: 'provides and prepares foodstuffs or delicacies for events such as festivals.',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'tunner': {
       sv: 5000,
@@ -4076,7 +4076,7 @@ setup.initTownDataProfessions = () => {
       description: 'fills casks in a brewery or winery.',
       dailyWage: 30,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'barkeep': {
       sv: 500,
@@ -4085,7 +4085,7 @@ setup.initTownDataProfessions = () => {
       description: 'works and serves drinks in a bar.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
 
     'butler': {
@@ -4095,7 +4095,7 @@ setup.initTownDataProfessions = () => {
       description: 'the chief servant of a household.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -4117,7 +4117,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -4139,7 +4139,7 @@ setup.initTownDataProfessions = () => {
       description: 'manufactures charcoal by carbonizing wood in a kiln.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'chatelaine': {
       sv: 3000,
@@ -4148,7 +4148,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person in charge of a large household.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -4170,7 +4170,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person, typically a child, who ascends chimneys to clean them.',
       dailyWage: 50,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'clerk': {
       sv: 5000,
@@ -4180,7 +4180,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'copyist': {
       sv: 3000,
@@ -4190,7 +4190,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'croupier': {
       sv: 1500,
@@ -4199,7 +4199,7 @@ setup.initTownDataProfessions = () => {
       description: 'runs a gaming table by gathering in and paying out money or tokens.',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'exterminator': {
       sv: 2000,
@@ -4209,7 +4209,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'food and drink taster': {
       sv: 3500,
@@ -4218,7 +4218,7 @@ setup.initTownDataProfessions = () => {
       description: 'ingests food that was prepared for someone else to confirm it is safe to eat.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -4241,7 +4241,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 50,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'gravedigger': {
       sv: 500,
@@ -4254,7 +4254,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'groundskeeper': {
       sv: 1000,
@@ -4263,7 +4263,7 @@ setup.initTownDataProfessions = () => {
       description: 'maintains an athletic field, a park, or the grounds of a graveyard or other institution.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'kitchen drudge': {
       sv: 500,
@@ -4272,7 +4272,7 @@ setup.initTownDataProfessions = () => {
       description: 'performs menial work in a kitchen.',
       dailyWage: 50,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -4292,7 +4292,7 @@ setup.initTownDataProfessions = () => {
       description: 'disposes of dead or unwanted animals.',
       dailyWage: 40,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'lamplighter': {
       sv: 5000,
@@ -4301,7 +4301,7 @@ setup.initTownDataProfessions = () => {
       description: 'lights street or road lights at dusk.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'laundry worker': {
       sv: 2500,
@@ -4311,7 +4311,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 40,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'lector': {
       sv: 4000,
@@ -4320,7 +4320,7 @@ setup.initTownDataProfessions = () => {
       description: 'reads to others while they work for entertainment.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -4343,7 +4343,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           charge: {
@@ -4367,7 +4367,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'pastry chef': {
       sv: 1500,
@@ -4376,7 +4376,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes desserts, especially cakes and pastries.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'plumber': {
       sv: 3000,
@@ -4386,7 +4386,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 110,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'porter': {
       sv: 3000,
@@ -4396,7 +4396,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'harlot': {
       sv: 400,
@@ -4407,7 +4407,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -4427,7 +4427,7 @@ setup.initTownDataProfessions = () => {
       description: 'quarries stone.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'stagehand': {
       sv: 2500,
@@ -4436,7 +4436,7 @@ setup.initTownDataProfessions = () => {
       description: 'moves scenery or props before or during the performance of a theatrical production.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'street cleaner': {
       sv: 4000,
@@ -4446,7 +4446,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 50,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'talent scout': {
       sv: 7000,
@@ -4456,7 +4456,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 110,
       socialClass: 'nobility',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'trainer': {
       sv: 5000,
@@ -4466,7 +4466,7 @@ setup.initTownDataProfessions = () => {
       description: 'trains someone in a particular skill, usually physical, for money.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           client: {
@@ -4488,7 +4488,7 @@ setup.initTownDataProfessions = () => {
       description: 'brings water from rivers, wells, and lakes back to their settlement.',
       dailyWage: 40,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'abjurer': {
       sv: 5000,
@@ -4497,7 +4497,7 @@ setup.initTownDataProfessions = () => {
       description: 'a mage focused in protective spells.',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'alchemist': {
       sv: 2000,
@@ -4506,7 +4506,7 @@ setup.initTownDataProfessions = () => {
       description: 'transforms or creates something within nature through the magical and scientific manipulation of chemicals.',
       dailyWage: 1500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'archmage': {
       sv: 15000,
@@ -4516,7 +4516,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 1800,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'artificer': {
       sv: 7500,
@@ -4525,7 +4525,7 @@ setup.initTownDataProfessions = () => {
       description: 'unlocks magic in everyday objects as well as being an inventor.',
       dailyWage: 700,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
 
     'conjuror': {
@@ -4535,7 +4535,7 @@ setup.initTownDataProfessions = () => {
       description: 'conjures spirits or familiars.',
       dailyWage: 600,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'elementalist': {
       sv: 8000,
@@ -4544,7 +4544,7 @@ setup.initTownDataProfessions = () => {
       description: 'manipulates nature’s elements to their will.',
       dailyWage: 600,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'enchanter': {
       sv: 7500,
@@ -4553,7 +4553,7 @@ setup.initTownDataProfessions = () => {
       description: 'uses sorcery to put someone or something under a spell.',
       dailyWage: 3000,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'evoker': {
       sv: 8000,
@@ -4562,7 +4562,7 @@ setup.initTownDataProfessions = () => {
       description: 'manipulates energy or taps into an unseen source of power in order to produce a desired kinetic end.',
       dailyWage: 2300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'hearth witch': {
       sv: 6000,
@@ -4571,7 +4571,7 @@ setup.initTownDataProfessions = () => {
       description: 'incorporates spells and enchantments in cooking.',
       dailyWage: 1800,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'illusionist': {
       sv: 7500,
@@ -4580,7 +4580,7 @@ setup.initTownDataProfessions = () => {
       description: 'performs tricks and spells that deceive the senses.',
       dailyWage: 400,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'mage': {
       sv: 5000,
@@ -4589,7 +4589,7 @@ setup.initTownDataProfessions = () => {
       description: 'a magic-user.',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'medium': {
       sv: 8000,
@@ -4598,7 +4598,7 @@ setup.initTownDataProfessions = () => {
       description: 'uses extrasensory perception, magic, or divine powers to identify information hidden from the normal senses.',
       dailyWage: 400,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'meteorologist': {
       sv: 1000,
@@ -4607,7 +4607,7 @@ setup.initTownDataProfessions = () => {
       description: 'forecasts and manipulates weather.',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'ritualist': {
       sv: 4000,
@@ -4616,7 +4616,7 @@ setup.initTownDataProfessions = () => {
       description: 'practices or advocates the observance of ritual (formula intended to trigger a magical effect on a person or objects).',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'runecaster': {
       sv: 10000,
@@ -4625,7 +4625,7 @@ setup.initTownDataProfessions = () => {
       description: 'uses special alphabets to create runes (symbols possessing magical effects capable of being used multiple times).',
       dailyWage: 600,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'sage': {
       sv: 10000,
@@ -4634,7 +4634,7 @@ setup.initTownDataProfessions = () => {
       description: 'a wise and experienced magic-user.',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'shapeshifter': {
       sv: 7000,
@@ -4643,7 +4643,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person with the ability to change their physical form.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'summoner': {
       sv: 8000,
@@ -4652,7 +4652,7 @@ setup.initTownDataProfessions = () => {
       description: 'a mage able to summon forth magical beasts, creatures, and monsters.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'transmuter': {
       sv: 8000,
@@ -4661,7 +4661,7 @@ setup.initTownDataProfessions = () => {
       description: 'alters matter in form, appearance, or nature.',
       dailyWage: 600,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'witchdoctor': {
       sv: 3500,
@@ -4670,7 +4670,7 @@ setup.initTownDataProfessions = () => {
       description: 'a tribal mage with powers of healing, divination, and protection against the magic of others.',
       dailyWage: 190,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'witch': {
       sv: 4000,
@@ -4679,7 +4679,7 @@ setup.initTownDataProfessions = () => {
       description: 'a woman who has supernatural powers and practices sorcery, typically in solitude.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'wordsmith': {
       sv: 9000,
@@ -4688,7 +4688,7 @@ setup.initTownDataProfessions = () => {
       description: 'draws their power from language and casts by dictation.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'admiral': {
       sv: 1000,
@@ -4698,7 +4698,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'bailiff': {
       sv: 5000,
@@ -4708,7 +4708,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           prisoner: {
@@ -4730,7 +4730,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -4753,7 +4753,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 170,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'castellan': {
       sv: 8000,
@@ -4763,7 +4763,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cavalier': {
       sv: 2000,
@@ -4773,7 +4773,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'city watch': {
       sv: 4500,
@@ -4783,7 +4783,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -4804,7 +4804,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'constable': {
       sv: 500,
@@ -4814,7 +4814,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'investigator': {
       sv: 5000,
@@ -4824,7 +4824,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'fifer': {
       sv: 3000,
@@ -4834,7 +4834,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'duelist': {
       sv: 3000,
@@ -4845,7 +4845,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 250,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'executioner': {
       sv: 2500,
@@ -4855,7 +4855,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'firefighter': {
       sv: 500,
@@ -4864,7 +4864,7 @@ setup.initTownDataProfessions = () => {
       description: 'extinguishes fires.',
       dailyWage: 80,
       socialClass: 'paupery',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'inspection officer': {
       sv: 4000,
@@ -4874,7 +4874,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'intelligence Officer': {
       sv: 10000,
@@ -4884,7 +4884,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'lieutenant': {
       sv: 2000,
@@ -4894,7 +4894,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'marksman': {
       sv: 800,
@@ -4904,7 +4904,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'marshall': {
       sv: 5000,
@@ -4914,7 +4914,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'medic': {
       sv: 600,
@@ -4923,7 +4923,7 @@ setup.initTownDataProfessions = () => {
       description: 'a medical practitioner equipped for the battlefield.',
       dailyWage: 300,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'mercenary': {
       sv: 800,
@@ -4933,7 +4933,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -4954,7 +4954,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'royal Guard': {
       sv: 5000,
@@ -4964,7 +4964,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'runner': {
       sv: 750,
@@ -4973,7 +4973,7 @@ setup.initTownDataProfessions = () => {
       description: 'carries information between lines in wartime.',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'sapper': {
       sv: 5000,
@@ -4983,7 +4983,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'sergeant': {
       sv: 8000,
@@ -4993,7 +4993,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'sergeant-at-arms': {
       sv: 5000,
@@ -5003,7 +5003,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'scout': {
       sv: 5000,
@@ -5012,7 +5012,7 @@ setup.initTownDataProfessions = () => {
       description: "sent ahead of a main force so as to gather information about the enemy's position, strength, or movements.",
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'siege artillerist': {
       sv: 10000,
@@ -5022,7 +5022,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'slave driver': {
       sv: 1500,
@@ -5032,7 +5032,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'special force soldier': {
       sv: 6000,
@@ -5042,7 +5042,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 300,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'spy': {
       sv: 4500,
@@ -5052,7 +5052,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -5075,7 +5075,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 400,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'tollkeeper': {
       sv: 2000,
@@ -5084,7 +5084,7 @@ setup.initTownDataProfessions = () => {
       description: 'collects tolls at a bridge, road etc. where a charge is made.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'warden': {
       sv: 5000,
@@ -5094,7 +5094,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -5117,7 +5117,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 700,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'abbot': {
       sv: 6000,
@@ -5130,7 +5130,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(85, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'acolyte': {
       sv: 3000,
@@ -5142,7 +5142,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'almoner': {
       sv: 1500,
@@ -5155,7 +5155,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'archbishop': {
       sv: 5000,
@@ -5168,7 +5168,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(80, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'bishop': {
       sv: 10000,
@@ -5181,7 +5181,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(80, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cantor': {
       sv: 2000,
@@ -5195,7 +5195,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cardinal': {
       sv: 6500,
@@ -5208,7 +5208,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'nobility',
-      socialClassRoll () { return 75 + dice(8, 6) }
+      socialClassRoll () { return 75 + lib.dice(8, 6) }
     },
 
     'confessor': {
@@ -5223,7 +5223,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'cultist': {
       sv: 2000,
@@ -5235,7 +5235,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
       },
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -5262,7 +5262,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(95, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           cult: {
@@ -5287,7 +5287,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'diviner': {
       sv: 9000,
@@ -5300,7 +5300,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'exorcist': {
       sv: 6000,
@@ -5313,7 +5313,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'high priest': {
       sv: 15000,
@@ -5326,7 +5326,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'inquisitor': {
       sv: 3000,
@@ -5339,7 +5339,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'missionary': {
       sv: 2000,
@@ -5353,7 +5353,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(80, 100)
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'pardoner': {
       sv: 700,
@@ -5366,7 +5366,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'prophet': {
       sv: 8000,
@@ -5379,7 +5379,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = 100
       },
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'sexton': {
       sv: 800,
@@ -5392,7 +5392,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(70, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'templar': {
       sv: 500,
@@ -5405,7 +5405,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(90, 100)
       },
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -5426,7 +5426,7 @@ setup.initTownDataProfessions = () => {
       description: 'teaches the illiterate.',
       dailyWage: 60,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'anthropologist': {
       sv: 5000,
@@ -5435,7 +5435,7 @@ setup.initTownDataProfessions = () => {
       description: 'studies the customs, beliefs, and relationships of humanoids and intellectually and culturally advanced creatures.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'apprentice': {
       sv: 200,
@@ -5444,7 +5444,7 @@ setup.initTownDataProfessions = () => {
       description: 'studies a trade under a skilled employer.',
       dailyWage: 70,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) },
+      socialClassRoll () { return 20 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           coworker: {
@@ -5466,7 +5466,7 @@ setup.initTownDataProfessions = () => {
       description: 'studies humanoid history and prehistory through the excavation of sites and the analysis of artifacts and other physical remains.',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'assayer': {
       sv: 2000,
@@ -5475,7 +5475,7 @@ setup.initTownDataProfessions = () => {
       description: 'determiner of the proportions of metal in ore and the amount of copper, silver, gold, or platinum in coins.',
       dailyWage: 230,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
 
     'astronomer': {
@@ -5485,7 +5485,7 @@ setup.initTownDataProfessions = () => {
       description: 'makes observations of celestial and scientific phenomena within the material plane.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'bloodletter': {
       sv: 3000,
@@ -5495,7 +5495,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'botanist': {
       sv: 2000,
@@ -5505,7 +5505,7 @@ setup.initTownDataProfessions = () => {
       description: 'an expert in or student of the scientific study of plants.',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'chemist': {
       sv: 3500,
@@ -5516,7 +5516,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'dean': {
       sv: 8000,
@@ -5525,7 +5525,7 @@ setup.initTownDataProfessions = () => {
       description: 'the head of a college or university.',
       dailyWage: 500,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'drakologist': {
       sv: 10000,
@@ -5535,7 +5535,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 190,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'engineer': {
       sv: 5000,
@@ -5545,7 +5545,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'entomologist': {
       sv: 6000,
@@ -5554,7 +5554,7 @@ setup.initTownDataProfessions = () => {
       description: 'studies or is an expert in the branch of zoology concerned with insects.',
       dailyWage: 175,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'horologist': {
       sv: 8000,
@@ -5563,7 +5563,7 @@ setup.initTownDataProfessions = () => {
       description: 'a scholar of time and entropy.',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'mathematician': {
       sv: 5000,
@@ -5573,7 +5573,7 @@ setup.initTownDataProfessions = () => {
       description: 'a scholar of the abstract science of number, quantity, and space.',
       dailyWage: 230,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'optometrist': {
       sv: 3000,
@@ -5582,7 +5582,7 @@ setup.initTownDataProfessions = () => {
       description: 'examines the eyes for visual defects and prescribes eyeglasses.',
       dailyWage: 210,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'scribe': {
       sv: 2000,
@@ -5591,7 +5591,7 @@ setup.initTownDataProfessions = () => {
       description: 'copies out manuscripts.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'theologian': {
       sv: 6000,
@@ -5600,7 +5600,7 @@ setup.initTownDataProfessions = () => {
       description: 'engages in the study of the nature of God and religious belief.',
       dailyWage: 130,
       socialClass: 'commoner',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'tutor': {
       sv: 600,
@@ -5610,7 +5610,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           noble: {
@@ -5632,7 +5632,7 @@ setup.initTownDataProfessions = () => {
       description: 'an expert in or a student of the behavior, physiology, classification, and distribution of animals.',
       dailyWage: 140,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'boatman': {
       sv: 500,
@@ -5641,7 +5641,7 @@ setup.initTownDataProfessions = () => {
       description: 'mans a small seacraft.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'bosun': {
       sv: 1000,
@@ -5651,7 +5651,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'wagoner': {
       sv: 400,
@@ -5660,7 +5660,7 @@ setup.initTownDataProfessions = () => {
       description: 'drives a horse-drawn wagon.',
       dailyWage: 90,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'cabin boy': {
       sv: 9000,
@@ -5669,7 +5669,7 @@ setup.initTownDataProfessions = () => {
       description: 'waits on the orders of a ships officers and passengers.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'charioteer': {
       sv: 3000,
@@ -5678,7 +5678,7 @@ setup.initTownDataProfessions = () => {
       description: 'drives a chariot.',
       dailyWage: 80,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'carter': {
       sv: 500,
@@ -5687,7 +5687,7 @@ setup.initTownDataProfessions = () => {
       description: 'transports goods by cart.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'ferryman': {
       sv: 2500,
@@ -5696,7 +5696,7 @@ setup.initTownDataProfessions = () => {
       description: 'operates a ferry.',
       dailyWage: 80,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'first mate': {
       sv: 1000,
@@ -5706,7 +5706,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 230,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'helmsman': {
       sv: 2000,
@@ -5716,7 +5716,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'navigator': {
       sv: 1500,
@@ -5726,7 +5726,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'purser': {
       sv: 2500,
@@ -5736,7 +5736,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 210,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'shipwright': {
       sv: 3500,
@@ -5746,7 +5746,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'adventurer': {
       sv: 2000,
@@ -5755,7 +5755,7 @@ setup.initTownDataProfessions = () => {
       description: 'wanders the world in search of knowledge, treasure, fame, glory or a multitude of additional wants and desires.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'beggar': {
       sv: 2500,
@@ -5764,7 +5764,7 @@ setup.initTownDataProfessions = () => {
       description: 'lives by asking for money or food.',
       dailyWage: 10,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'monster hunter': {
       sv: 4500,
@@ -5774,7 +5774,7 @@ setup.initTownDataProfessions = () => {
       description: 'takes on jobs to hunt down and kill or capture dangerous creatures.',
       dailyWage: 230,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'bounty hunter': {
       sv: 3500,
@@ -5785,7 +5785,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 180,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'crossing sweeper': {
       sv: 6500,
@@ -5794,7 +5794,7 @@ setup.initTownDataProfessions = () => {
       description: 'sweeps a path ahead of people crossing dirty urban streets in exchange for a gratuity.',
       dailyWage: 20,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'deserter': {
       sv: 3500,
@@ -5804,7 +5804,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 15,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           'former sergeant': {
@@ -5827,7 +5827,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person of high birth who has since loss their respect, honor, or esteem in some or all noble circles.',
       dailyWage: 100,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           liege: {
@@ -5849,7 +5849,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person who is habitually drunk and considers themselves a professional in the task.',
       dailyWage: 25,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'dungeon delver': {
       sv: 5500,
@@ -5858,7 +5858,7 @@ setup.initTownDataProfessions = () => {
       description: 'navigates underground labyrinths in search of any treasure they may find.',
       dailyWage: 150,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'elder': {
       sv: 600,
@@ -5867,7 +5867,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person of a greater age, especially one with a respected position in society.',
       dailyWage: 200,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) },
+      socialClassRoll () { return 50 + lib.dice(8, 6) },
       exclusions (npc) { if (npc.age < 80) return false }
     },
     'exile': {
@@ -5877,7 +5877,7 @@ setup.initTownDataProfessions = () => {
       description: 'lives away from their native country, either from choice or compulsion.',
       dailyWage: 30,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'explorer': {
       sv: 3500,
@@ -5887,7 +5887,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'dom',
       dailyWage: 120,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'ex-criminal': {
       sv: 1200,
@@ -5896,7 +5896,7 @@ setup.initTownDataProfessions = () => {
       description: 'a person who has been convicted of a crime and has since served their sentence, or who has preemptively given up their life of crime.',
       dailyWage: 60,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'folk hero': {
       sv: 4000,
@@ -5905,7 +5905,7 @@ setup.initTownDataProfessions = () => {
       description: 'a celebrity who is greatly admired by many people of a particular kind or in a particular place.',
       dailyWage: 80,
       socialClass: 'commoner',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'gambler': {
       sv: 800,
@@ -5915,7 +5915,7 @@ setup.initTownDataProfessions = () => {
       description: 'bets money on sports, card games, or games of chance in the hope of a profit.',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'grave robber': {
       sv: 100,
@@ -5924,7 +5924,7 @@ setup.initTownDataProfessions = () => {
       description: 'steals valuables from graves and tombs.',
       dailyWage: 130,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'heretic': {
       sv: 2500,
@@ -5936,7 +5936,7 @@ setup.initTownDataProfessions = () => {
         if (npc.roll.religiosity < 70 || !npc.roll.religiosity) npc.roll.religiosity = random(0, 5)
       },
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'housewife': {
       sv: 150,
@@ -5947,7 +5947,7 @@ setup.initTownDataProfessions = () => {
       domSub: 'sub',
       dailyWage: 40,
       socialClass: 'peasantry',
-      socialClassRoll () { return 50 + dice(8, 6) }
+      socialClassRoll () { return 50 + lib.dice(8, 6) }
     },
     'prisoner': {
       sv: 350,
@@ -5956,7 +5956,7 @@ setup.initTownDataProfessions = () => {
       description: 'held in confinement as a punishment for crimes they have been convicted of.',
       dailyWage: 2,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(2, 6) }
+      socialClassRoll () { return 5 + lib.dice(2, 6) }
     },
     'rag-and-Bone Man': {
       sv: 750,
@@ -5965,7 +5965,7 @@ setup.initTownDataProfessions = () => {
       description: 'collects unwanted household items and sells them to merchants.',
       dailyWage: 25,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'political dissident': {
       sv: 4500,
@@ -5975,7 +5975,7 @@ setup.initTownDataProfessions = () => {
       description: 'rises in opposition or armed resistance against an established government or ruler.',
       dailyWage: 100,
       socialClass: 'peasantry',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'refugee': {
       sv: 5000,
@@ -5984,7 +5984,7 @@ setup.initTownDataProfessions = () => {
       description: 'left their home in order to escape war, persecution, or natural disaster.',
       dailyWage: 20,
       socialClass: 'paupery',
-      socialClassRoll () { return 20 + dice(8, 6) }
+      socialClassRoll () { return 20 + lib.dice(8, 6) }
     },
     'runaway Slave': {
       sv: 3000,
@@ -5993,7 +5993,7 @@ setup.initTownDataProfessions = () => {
       description: 'a slave who has left their master and traveled without authorization.',
       dailyWage: 100,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       relationships (town, npc) {
         return {
           exmaster: {
@@ -6015,7 +6015,7 @@ setup.initTownDataProfessions = () => {
       description: 'unlawfully occupies an uninhabited building or unused land.',
       dailyWage: 15,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(4, 6) }
+      socialClassRoll () { return 5 + lib.dice(4, 6) }
     },
     'vagabond': {
       sv: 1000,
@@ -6024,7 +6024,7 @@ setup.initTownDataProfessions = () => {
       description: 'wanders from place to place without a permanent home or job.',
       dailyWage: 15,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) }
+      socialClassRoll () { return 5 + lib.dice(8, 6) }
     },
     'urchin': {
       sv: 500,
@@ -6033,7 +6033,7 @@ setup.initTownDataProfessions = () => {
       description: 'a child who lives or spends most of their time in the streets, occasionally working as a thief or pickpocket.',
       dailyWage: 5,
       socialClass: 'paupery',
-      socialClassRoll () { return 5 + dice(8, 6) },
+      socialClassRoll () { return 5 + lib.dice(8, 6) },
       exclusions (town, npc) { if (npc.ageStage !== 'child') return false }
     }
 

@@ -8,33 +8,33 @@ setup.resourcesFaction = function (faction) {
   resourcesList.concat(setup.factionData.type[faction.type].resources)
 
   if (faction.roll.age > 95) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 15)
+    faction.roll.resources += lib.fm(faction.roll.resources, 15)
   } else if (faction.roll.age > 90) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 10)
+    faction.roll.resources += lib.fm(faction.roll.resources, 10)
   } else if (faction.roll.age > 80) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 8)
+    faction.roll.resources += lib.fm(faction.roll.resources, 8)
   } else if (faction.roll.age > 70) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 6)
+    faction.roll.resources += lib.fm(faction.roll.resources, 6)
   } else if (faction.roll.age > 60) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 4)
+    faction.roll.resources += lib.fm(faction.roll.resources, 4)
   } else if (faction.roll.age > 55) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 2)
+    faction.roll.resources += lib.fm(faction.roll.resources, 2)
   } else if (faction.roll.age > 50) {
-    faction.roll.resources += Math.fm(faction.roll.resources, 1)
+    faction.roll.resources += lib.fm(faction.roll.resources, 1)
   } else if (faction.roll.age > 45) {
-    faction.roll.resources += Math.fm(faction.roll.resources, -1)
+    faction.roll.resources += lib.fm(faction.roll.resources, -1)
   } else if (faction.roll.age > 40) {
-    faction.roll.resources += Math.fm(faction.roll.resources, -2)
+    faction.roll.resources += lib.fm(faction.roll.resources, -2)
   } else if (faction.roll.age > 30) {
-    faction.roll.resources += Math.fm(faction.roll.resources, -4)
+    faction.roll.resources += lib.fm(faction.roll.resources, -4)
   } else if (faction.roll.age > 20) {
-    faction.roll.resources += Math.fm(faction.roll.resources, -6)
+    faction.roll.resources += lib.fm(faction.roll.resources, -6)
   } else if (faction.roll.age > 10) {
-    faction.roll.resources += Math.fm(faction.roll.resources, -8)
+    faction.roll.resources += lib.fm(faction.roll.resources, -8)
   } else if (faction.roll.age <= 5) {
-    faction.roll.resources += Math.fm(faction.roll.resources, -10)
+    faction.roll.resources += lib.fm(faction.roll.resources, -10)
   } else {
-    faction.roll.resources += Math.fm(faction.roll.resources, 10)
+    faction.roll.resources += lib.fm(faction.roll.resources, 10)
   }
 
   if (faction.roll.resources > 95) {
@@ -89,7 +89,7 @@ setup.resourcesFaction = function (faction) {
 
   function getResources (bonus) {
     let tempGroupSize
-    const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
+    const groupSizeRoll = lib.dice(2, 50) + (groupSizeModifier + bonus)
     if (groupSizeRoll >= 90) {
       tempGroupSize = 'an enormous amount of '
     } else if (groupSizeRoll >= 80) {

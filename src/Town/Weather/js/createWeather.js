@@ -47,7 +47,7 @@ setup.createWeather = (town, biome, weather) => {
 
     weather = {
       temperature: seasonData.baseTemp || setup.townData.terrain.temperate.weather.season.summer.baseTemp,
-      tempVariation: dice(2, 50),
+      tempVariation: lib.dice(2, 50),
       currentSeason,
       timer: {
         precipitation: 0,

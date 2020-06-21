@@ -14,12 +14,12 @@ setup.createFaction = function (town, opts = {}) {
     membersTrait: setup.factionData.type[type].membersTrait.random(),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
     roll: {
-      influence: dice(2, 50),
-      reputation: dice(2, 50),
-      age: dice(2, 50),
-      size: dice(2, 50),
-      stability: dice(2, 50),
-      resources: dice(2, 50)
+      influence: lib.dice(2, 50),
+      reputation: lib.dice(2, 50),
+      age: lib.dice(2, 50),
+      size: lib.dice(2, 50),
+      stability: lib.dice(2, 50),
+      resources: lib.dice(2, 50)
     }
   }, opts)
   if (typeof faction.type === 'undefined') {

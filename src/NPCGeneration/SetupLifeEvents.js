@@ -5,7 +5,7 @@ setup.createLifeEvents = function (town, npc) {
 
   npc.lifeEvents = []
   if (npc.ageYears > 60) {
-    lifeEventsNumber = dice(2, 6)
+    lifeEventsNumber = lib.dice(2, 6)
   } else if (npc.ageYears > 50) {
     lifeEventsNumber = random(1, 7)
   } else if (npc.ageYears > 40) {

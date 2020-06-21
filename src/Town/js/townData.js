@@ -1223,11 +1223,11 @@ setup.initTownData = () => {
         weather: {
           tempVariation: {
             95: {
-              temperature: dice(3, 10),
+              temperature: lib.dice(3, 10),
               temperatureTimer: random(24, 48)
             },
             85: {
-              temperature: dice(2, 10),
+              temperature: lib.dice(2, 10),
               temperatureTimer: random(24, 96)
             },
             65: {
@@ -1243,7 +1243,7 @@ setup.initTownData = () => {
               temperatureTimer: random(48, 120)
             },
             5: {
-              temperature: 0 - dice(2, 10),
+              temperature: 0 - lib.dice(2, 10),
               temperatureTimer: random(24, 96)
             },
             0: {
@@ -1412,7 +1412,7 @@ setup.initTownData = () => {
         weather: {
           tempVariation: {
             85: {
-              temperature: dice(2, 10),
+              temperature: lib.dice(2, 10),
               temperatureTimer: random(24, 48)
             },
             55: {
@@ -1428,7 +1428,7 @@ setup.initTownData = () => {
               temperatureTimer: random(24, 48)
             },
             0: {
-              temperature: 0 - dice(2, 10),
+              temperature: 0 - lib.dice(2, 10),
               temperatureTimer: random(24, 48)
             }
           },
@@ -1604,11 +1604,11 @@ setup.initTownData = () => {
         weather: {
           tempVariation: {
             95: {
-              temperature: dice(3, 10),
+              temperature: lib.dice(3, 10),
               temperatureTimer: random(24, 48)
             },
             85: {
-              temperature: dice(2, 10),
+              temperature: lib.dice(2, 10),
               temperatureTimer: random(24, 96)
             },
             65: {
@@ -1624,11 +1624,11 @@ setup.initTownData = () => {
               temperatureTimer: random(48, 120)
             },
             5: {
-              temperature: 0 - dice(1, 10),
+              temperature: 0 - lib.dice(1, 10),
               temperatureTimer: random(24, 96)
             },
             0: {
-              temperature: 0 - dice(2, 6),
+              temperature: 0 - lib.dice(2, 6),
               temperatureTimer: random(24, 48)
             }
           },
@@ -1806,11 +1806,11 @@ setup.initTownData = () => {
         weather: {
           tempVariation: {
             100: {
-              temperature: dice(3, 10),
+              temperature: lib.dice(3, 10),
               temperatureTimer: random(24, 48)
             },
             95: {
-              temperature: dice(2, 10),
+              temperature: lib.dice(2, 10),
               temperatureTimer: random(24, 96)
             },
             80: {

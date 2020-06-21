@@ -1,8 +1,8 @@
 setup.leaderFaction = function (town, faction) {
   console.log('determining leaders...')
 
-  faction.roll.leaderBribes = dice(2, 50)
-  faction.roll.leaderCompetence = dice(2, 50)
+  faction.roll.leaderBribes = lib.dice(2, 50)
+  faction.roll.leaderCompetence = lib.dice(2, 50)
 
   if (faction.age === 'brand new' || faction.age === 'very new') {
     if (faction.leadershipType === 'group') {

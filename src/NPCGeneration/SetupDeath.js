@@ -151,14 +151,14 @@ setup.death = {
       [-15, 'squalid', 10, 'a mass grave'],
       [-25, 'wretched', 0, 'a mass grave as an afterthought']
     ]
-    npc.roll.deathConditions = Math.fm(random(1, 100), (town.roll.welfare - 50) / 2)
+    npc.roll.deathConditions = lib.fm(random(1, 100), (town.roll.welfare - 50) / 2)
     console.log('deathConditions roll:')
     console.log(npc.roll.deathConditions)
     const lifestyle = npc.finances.lifestyleStandard(town, npc)[1]
     let townHelpDescription = ''
     for (let i = 0; i < burialConditions.length; i++) {
       if (lifestyle === burialConditions[i][1]) {
-        Math.fm(npc.roll.deathConditions, burialConditions[i][0])
+        lib.fm(npc.roll.deathConditions, burialConditions[i][0])
         if ((town.roll.welfare - burialConditions[i][2]) > 20) {
           townHelpDescription = ' with help from the government.'
         } else if ((town.roll.welfare - burialConditions[i][2]) < -20) {
@@ -196,7 +196,7 @@ setup.npcDeath = function (town, npc, base) {
   npc.death = {
     cause: base.cause || lib.weightedRandomFetcher(town, setup.death.cause, npc),
     // murderer: base.murderer || npc.death.murderer || false,
-    timeSinceDeath: base.timeSinceDeath || dice(2, 60)
+    timeSinceDeath: base.timeSinceDeath || lib.dice(2, 60)
   }
   setup.death.burialConditions(town, npc, base)
   return npc

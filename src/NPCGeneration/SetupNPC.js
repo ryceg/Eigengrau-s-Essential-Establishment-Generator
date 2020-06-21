@@ -60,7 +60,7 @@ setup.createNPC = function (town, base) {
     },
     ageStage,
     ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
-    muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
+    muscleMass: data.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
     pronouns: {
 
     },
@@ -71,7 +71,7 @@ setup.createNPC = function (town, base) {
 
     },
     roll: {
-      _wageVariation: dice(5, 10) - 27,
+      _wageVariation: lib.dice(5, 10) - 27,
       wageVariation (town) {
         // _wageVariation is static; it's the "luck" that the NPC has in their profession.
         // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
@@ -79,7 +79,7 @@ setup.createNPC = function (town, base) {
         return lib.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
       physicalTrait: random(1, 100),
-      gregariousness: dice(3, 6)
+      gregariousness: lib.dice(3, 6)
 
     },
     finances: {
@@ -144,7 +144,7 @@ setup.createNPC = function (town, base) {
     // dndClass,
     profession,
     pockets: data.pockets.random(),
-    wealth: dice(2, 50),
+    wealth: lib.dice(2, 50),
     trait: data.trait.random(),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
