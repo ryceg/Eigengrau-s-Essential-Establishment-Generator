@@ -38,7 +38,7 @@ setup.createFaction = function (town, opts = {}) {
 
   setup.resourcesFaction(faction)
 
-  setup.stabilityFaction(faction)
+  lib.setFactionStability(faction)
 
   setup.leaderFaction(town, faction)
 

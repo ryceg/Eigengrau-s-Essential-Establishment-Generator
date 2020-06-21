@@ -15,6 +15,7 @@ export * from './constructs/wolf'
 export * from './faction/ageFaction'
 export * from './faction/factionData'
 export * from './faction/influenceFaction'
+export * from './faction/setFactionStability'
 
 export * from './npc-generation/bmiDescriptions'
 export * from './npc-generation/fetchRace'

@@ -1,4 +1,6 @@
-setup.stabilityFaction = faction => {
+import { Faction } from './_common'
+
+export function setFactionStability (faction: Faction) {
   console.log('determining stability...')
 
   if (faction.roll.stability > 95) {
