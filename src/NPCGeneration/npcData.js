@@ -89,7 +89,7 @@ setup.initNpcData = () => {
       performed: {
         probability: 3,
         exclusions (town, npc) {
-          const profession = setup.townData.professions[npc.profession]
+          const profession = lib.professions[npc.profession]
           return profession.socialClass === 'commoner' || profession.socialClass === 'nobility' || random(100) > 90
         },
         function (town, npc) {
@@ -187,14 +187,14 @@ setup.initNpcData = () => {
       warMedal: {
         probability: 2,
         exclusions (town, npc) {
-          return (setup.townData.professions[npc.profession].sector === 'military' || random(100) > 70) && npc.ageYears > 15
+          return (lib.professions[npc.profession].sector === 'military' || random(100) > 70) && npc.ageYears > 15
         },
         function (town, npc) {
           console.log('called lifeEvents.magicalCreature function')
           const medal = lib.medal.create()
           const medalType = setup.npcData.lifeEvents.warMedal.medalType.random()
           const medalStatus = setup.npcData.lifeEvents.warMedal.medalStatus.random()
-          if (setup.townData.professions[npc.profession].sector === 'military') {
+          if (lib.professions[npc.profession].sector === 'military') {
             return `${['after a recent war', 'after a brutal battle', 'after taking command of a dangerous situation', 'I fought in a war and'].random()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
           } else if (npc.ageYears > 60) {
             return `${['in my military youth', 'back when I was young enough for the army', 'in my army days', "after a forced recruitment into a noble's army", 'I was recruited into a war and afterwards '].random()} I was awarded a ${medal.tip} for ${medalType}.${medalStatus}.`
@@ -238,7 +238,7 @@ setup.initNpcData = () => {
       magicalCreature: {
         probability: 2,
         exclusions (town, npc) {
-          return setup.townData.professions[npc.profession].sector === 'adventuring' || random(100) > 90
+          return lib.professions[npc.profession].sector === 'adventuring' || random(100) > 90
         },
         function (town, npc) {
           console.log('called lifeEvents.magicalCreature function')
@@ -443,7 +443,7 @@ setup.initNpcData = () => {
       apprentice: {
         probability: 6,
         exclusions (town, npc) {
-          return setup.townData.professions[npc.profession].socialClass !== 'nobility'
+          return lib.professions[npc.profession].socialClass !== 'nobility'
         },
         function (town, npc) {
           console.log('called lifeEvents.apprentice function')
@@ -553,7 +553,7 @@ setup.initNpcData = () => {
       nobleEvent: {
         probability: 5,
         exclusions (town, npc) {
-          const profession = setup.townData.professions[npc.profession]
+          const profession = lib.professions[npc.profession]
           return profession.socialClass === 'commoner' || profession.socialClass === 'peasantry'
         },
         function (town, npc) {
@@ -839,7 +839,7 @@ setup.initNpcData = () => {
       pilgrimage: {
         probability: 5,
         exclusions (town, npc) {
-          return setup.townData.professions[npc.profession].sector === 'religion' || random(100) > 75
+          return lib.professions[npc.profession].sector === 'religion' || random(100) > 75
         },
         function (town, npc) {
           console.log('called lifeEvents.pilgrimage function')
@@ -1240,7 +1240,7 @@ setup.initNpcData = () => {
       crime: {
         probability: 10,
         exclusions (town, npc) {
-          return setup.townData.professions[npc.profession].sector === 'crime' || random(100) > 60
+          return lib.professions[npc.profession].sector === 'crime' || random(100) > 60
         },
         function (town, npc) {
           console.log('called lifeEvents.crime function')

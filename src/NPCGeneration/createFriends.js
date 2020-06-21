@@ -1,7 +1,7 @@
 setup.createFriends = (town, npc) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
-  const professionData = setup.townData.professions[npc.profession]
+  const professionData = lib.professions[npc.profession]
 
   if (professionData.type === 'business') friendsNumber += 2
   const friendsTypes = {

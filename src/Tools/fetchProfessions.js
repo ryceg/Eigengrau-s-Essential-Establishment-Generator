@@ -9,7 +9,7 @@ setup.fetchProfessions = town => {
   town = town || State.variables.town
   town.professions = {}
 
-  const professions = Object.entries(setup.townData.professions)
+  const professions = Object.entries(lib.professions)
 
   for (const [name, profession] of professions) {
     const townPop = town.population
