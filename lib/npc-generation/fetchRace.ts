@@ -13,7 +13,6 @@ interface SaveLoc {
 export function fetchRace (town: Town, saveLoc: SaveLoc) {
   console.log('Fetching race...')
 
-  // FIXME upon migration to React, reimplement getters and setters.
   const races = Object.keys(town.baseDemographics)
 
   // Calculate the sum of the raw demographic values.
