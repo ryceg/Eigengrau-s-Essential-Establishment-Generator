@@ -25,7 +25,7 @@ setup.createNPC = function (town, base) {
   setup.initSexistProfession(town, base)
 
   const gender = base.gender || ['man', 'woman'].random()
-  const race = base.race || setup.fetchRace(town, base)
+  const race = base.race || lib.fetchRace(town, base)
 
   console.log('Fetching profession.')
   const profession = base.profession || setup.fetchProfessionChance(town, base)

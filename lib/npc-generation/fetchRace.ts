@@ -1,5 +1,15 @@
+import { randomFloat } from '../src/randomFloat'
 
-setup.fetchRace = function (town, saveLoc) {
+interface Town {
+  baseDemographics: Record<string, number>
+  _demographicPercentile: Record<string, number>
+}
+
+interface SaveLoc {
+  raceRoll: number
+}
+
+export function fetchRace (town: Town, saveLoc: SaveLoc) {
   console.log('Fetching race...')
 
   // FIXME upon migration to React, reimplement getters and setters.
@@ -7,36 +17,33 @@ setup.fetchRace = function (town, saveLoc) {
 
   // Calculate the sum of the raw demographic values.
   const sum = races
-    .map(byRace => town.baseDemographics[byRace])
+    .map(race => town.baseDemographics[race])
     .reduce((acc, cur) => acc + cur, 0)
 
   // Calculate the demographic percentages.
-  races.forEach(byRace => {
-    town._demographicPercentile[byRace] = town.baseDemographics[byRace] / sum * 100
-  })
+  for (const race of races) {
+    town._demographicPercentile[race] = town.baseDemographics[race] / sum * 100
+  }
+
   const args = town._demographicPercentile
   console.log(args)
   const pool = []
   const namePool = Object.keys(args)
   let totalWeight = 0
+
   for (const arg in args) {
     pool.push(args[arg])
     totalWeight += args[arg]
   }
+
   saveLoc.raceRoll = saveLoc.raceRoll || Math.floor(randomFloat(1) * totalWeight)
   let random = saveLoc.raceRoll
-  // console.log(random)
-  for (let i = 0; i < pool.length; i++) {
-    random -= pool[i]
-    if (random < 0) {
-      // eslint-disable-next-line no-var
-      var index = i
-      break
-    }
+
+  let index = 0
+  for (; index < pool.length; index++) {
+    random -= pool[index]
+    if (random < 0) break
   }
-  // console.log(pool)
-  // console.log(namePool)
-  // console.log(selected)
-  // console.log(namePool[index])
+
   return namePool[index]
 }

@@ -13,6 +13,7 @@ export * from './constructs/spider'
 export * from './constructs/wolf'
 
 export * from './npc-generation/bmiDescriptions'
+export * from './npc-generation/fetchRace'
 export * from './npc-generation/professions'
 
 export * from './src/books'
