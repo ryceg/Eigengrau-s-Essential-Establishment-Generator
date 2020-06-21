@@ -11,7 +11,7 @@ setup.leaderFaction = function (town, faction) {
       faction.leaderQualification = ['the original founder', 'the original founder', 'the first appointed leader'].random()
     }
   } else {
-    faction.leaderQualification = setup.factionData.type[faction.type].leaderQualification.random()
+    faction.leaderQualification = lib.factionData.type[faction.type].leaderQualification.random()
   }
 
   faction.leaderBribes = lib.matchFirst.largerThan(faction.roll.leaderBribes, {
@@ -48,7 +48,7 @@ setup.leaderFaction = function (town, faction) {
 
   switch (faction.leadershipType) {
     case 'individual': {
-      const leaderTraits = setup.factionData.type[faction.type].leaderTraits
+      const leaderTraits = lib.factionData.type[faction.type].leaderTraits
       for (const key in leaderTraits) {
         if (Array.isArray(leaderTraits[key])) {
           leaderTraits[key] = leaderTraits[key].random()

@@ -1,6 +1,6 @@
 setup.createFaction = function (town, opts = {}) {
   // const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
-  const type = opts.type || Object.keys(setup.factionData.type).random()
+  const type = opts.type || Object.keys(lib.factionData.type).random()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
   const faction = opts.newFaction || Object.assign({
@@ -9,9 +9,9 @@ setup.createFaction = function (town, opts = {}) {
     associatedTown: town.name,
     type,
     objectType: 'faction',
-    wordNoun: setup.factionData.type[type].wordNoun,
-    motivation: setup.factionData.type[type].motivation.random(),
-    membersTrait: setup.factionData.type[type].membersTrait.random(),
+    wordNoun: lib.factionData.type[type].wordNoun,
+    motivation: lib.factionData.type[type].motivation.random(),
+    membersTrait: lib.factionData.type[type].membersTrait.random(),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
     roll: {
       influence: lib.dice(2, 50),

@@ -124,7 +124,7 @@ setup.createSocioPolitics = function (town) {
     delete State.variables.npcs[town.leader.key]
     delete town.leader
     const type = setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType
-    if (setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType !== setup.factionData.type[type]) {
+    if (setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType !== lib.factionData.type[type]) {
       console.log(`No faction that matches ${setup.townData.politicalIdeology[town.politicalIdeology].data.governmentType}. Creating random faction instead...`)
       town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',

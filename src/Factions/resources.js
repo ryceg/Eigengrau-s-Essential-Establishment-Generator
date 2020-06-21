@@ -5,7 +5,7 @@ setup.resourcesFaction = function (faction) {
   const resources = []
   let i
   // this is where weighting different groups happens. Needs updating with each new faction.
-  resourcesList.concat(setup.factionData.type[faction.type].resources)
+  resourcesList.concat(lib.factionData.type[faction.type].resources)
 
   if (faction.roll.age > 95) {
     faction.roll.resources += lib.fm(faction.roll.resources, 15)

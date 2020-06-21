@@ -11,7 +11,7 @@ They are <<print setup.articles.find($town.equality)>> <<print lib.createTippyFu
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 <h3>Factions</h3><<silently>>
     <<set _listbox to '<<listbox "$newFaction">>'>>
-    <<for _key range Object.keys(setup.factionData.type)>>
+    <<for _key range Object.keys(lib.factionData.type)>>
         <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _listbox += '<</listbox>>'>>

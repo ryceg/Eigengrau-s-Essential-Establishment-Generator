@@ -5,8 +5,8 @@ setup.joinFaction = function (faction) {
   const joiningInitiation = ['a secret task', 'a mission', 'a secret ritual', 'a simple form to be filled', 'nothing particularly interesting', 'an oath to be taken']
 
   // TODO: Create tasks for each type of guild, plus requirement
-  joiningRequirement.push(...setup.factionData.type[faction.type].joiningRequirement)
-  joiningInitiation.push(...setup.factionData.type[faction.type].joiningInitiation)
+  joiningRequirement.push(...lib.factionData.type[faction.type].joiningRequirement)
+  joiningInitiation.push(...lib.factionData.type[faction.type].joiningInitiation)
 
   Object.assign(faction, {
     joiningRequirement: joiningRequirement.random(),
