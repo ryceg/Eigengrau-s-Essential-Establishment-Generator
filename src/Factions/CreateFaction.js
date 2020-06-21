@@ -28,7 +28,7 @@ setup.createFaction = function (town, opts = {}) {
     faction.type = 'merchants'
   }
   lib.setFactionAge(faction)
-  faction.name = setup.nameFaction(town, faction)
+  lib.setFactionName(town, faction)
   console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
   setup.reputationFaction(faction)
 

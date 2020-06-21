@@ -1,4 +1,6 @@
 export interface Faction {
+  type: string
+  name: string
   roll: {
     age: number
     influence: number
