@@ -1,9 +1,10 @@
-setup.createPersonality = (npc) => {
+setup.createPersonality = (npc: NPC) => {
   const data = setup.npcData
   Object.assign(npc, {
     calmTrait: npc.calmTrait || data.calmTrait.random(),
     stressTrait: npc.stressTrait || data.stressTrait.random(),
-    trait: npc.trait || data.trait.random()
+    trait: npc.trait || data.trait.random(),
+    hasPersonality: true
     // value: npc.value || data.value.random(),
     // drive: npc.drive || data.drive.random(),
     // belief: npc.belief || data.belief.random(),
@@ -14,5 +15,17 @@ setup.createPersonality = (npc) => {
       npc.vocalPattern = data.vocalPattern.random()
     }
   }
-  return npc
+}
+
+setup.checkPersonality = (npc: NPC, createIfAbsent: boolean) => {
+  if (npc.hasPersonality) {
+    return true
+  } else if (npc.calmTrait && npc.stresTrait) {
+    return true
+  } else if (createIfAbsent === true) {
+    setup.createPersonality(npc)
+    return true
+  } else {
+    return false
+  }
 }
