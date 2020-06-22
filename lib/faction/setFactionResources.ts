@@ -19,25 +19,25 @@ export function setFactionResources (faction: Faction) {
 
   if (faction.roll.resources > 95) {
     faction.resourcesDescription = 'limitless'
-    for (let i = 1; i <= 5; ++i) { getResources(random(-10, 15)) }
+    repeat(() => getResources(random(-10, 15)), 5)
   } else if (faction.roll.resources > 90) {
     faction.resourcesDescription = 'near limitless'
-    for (let i = 1; i <= 4; ++i) { getResources(random(-10, 10)) }
+    repeat(() => getResources(random(-10, 10)), 4)
   } else if (faction.roll.resources > 80) {
     faction.resourcesDescription = 'extensive'
-    for (let i = 1; i <= 4; ++i) { getResources(random(-15, 5)) }
+    repeat(() => getResources(random(-15, 5)), 4)
   } else if (faction.roll.resources > 70) {
     faction.resourcesDescription = 'significant'
-    for (let i = 1; i <= 4; ++i) { getResources(random(-20, 5)) }
+    repeat(() => getResources(random(-20, 5)), 4)
   } else if (faction.roll.resources > 60) {
     faction.resourcesDescription = 'many'
-    for (let i = 1; i <= 3; ++i) { getResources(random(-10, 5)) }
+    repeat(() => getResources(random(-10, 5)), 3)
   } else if (faction.roll.resources > 55) {
     faction.resourcesDescription = 'decent'
-    for (let i = 1; i <= 3; ++i) { getResources(random(-15, 5)) }
+    repeat(() => getResources(random(-15, 5)), 3)
   } else if (faction.roll.resources > 50) {
     faction.resourcesDescription = 'average'
-    for (let i = 1; i <= 3; ++i) { getResources(random(-20, 5)) }
+    repeat(() => getResources(random(-20, 5)), 3)
   } else if (faction.roll.resources > 45) {
     faction.resourcesDescription = 'slightly below average'
     getResources(random(10, 15))
@@ -72,11 +72,10 @@ export function setFactionResources (faction: Faction) {
     const tempGroupSize = getTempGroupSize(groupSizeRoll)
 
     const tempGroup = random(resourcesList)
-    removeFromArray(resourcesList, tempGroup)
+
     removeFromArray(resourcesList, tempGroup)
 
-    const group = tempGroupSize + tempGroup
-    resources.push(group)
+    resources.push(tempGroupSize + tempGroup)
   }
 
   faction.resources = resources
@@ -113,4 +112,8 @@ function getTempGroupSize (roll: number): string {
 
 function removeFromArray<T> (array: T[], value: T) {
   array.splice(array.indexOf(value), 1)
+}
+
+function repeat (fn: (index: number) => void, times: number) {
+  for (let i = 0; i < times; i++) fn(i)
 }
