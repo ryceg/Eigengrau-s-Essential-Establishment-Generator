@@ -68,29 +68,8 @@ export function setFactionResources (faction: Faction) {
   }
 
   function getResources (bonus: number) {
-    let tempGroupSize
     const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
-    if (groupSizeRoll >= 90) {
-      tempGroupSize = 'an enormous amount of '
-    } else if (groupSizeRoll >= 80) {
-      tempGroupSize = 'more than enough '
-    } else if (groupSizeRoll >= 70) {
-      tempGroupSize = 'a large number of '
-    } else if (groupSizeRoll >= 60) {
-      tempGroupSize = 'quite a few '
-    } else if (groupSizeRoll >= 50) {
-      tempGroupSize = 'more than a couple '
-    } else if (groupSizeRoll >= 40) {
-      tempGroupSize = 'a couple '
-    } else if (groupSizeRoll >= 30) {
-      tempGroupSize = 'some '
-    } else if (groupSizeRoll >= 20) {
-      tempGroupSize = 'a few '
-    } else if (groupSizeRoll >= 10) {
-      tempGroupSize = 'a handful of '
-    } else {
-      tempGroupSize = 'some '
-    }
+    const tempGroupSize = getTempGroupSize(groupSizeRoll)
 
     const tempGroup = random(resourcesList)
     removeFromArray(resourcesList, tempGroup)
@@ -98,7 +77,6 @@ export function setFactionResources (faction: Faction) {
 
     const group = tempGroupSize + tempGroup
     resources.push(group)
-    return resources
   }
 
   faction.resources = resources
@@ -118,6 +96,19 @@ function getAgeModifier (roll: number): number {
   if (roll > 20) return -6
   if (roll > 10) return -8
   return -10
+}
+
+function getTempGroupSize (roll: number): string {
+  if (roll >= 90) return 'an enormous amount of '
+  if (roll >= 80) return 'more than enough '
+  if (roll >= 70) return 'a large number of '
+  if (roll >= 60) return 'quite a few '
+  if (roll >= 50) return 'more than a couple '
+  if (roll >= 40) return 'a couple '
+  if (roll >= 30) return 'some '
+  if (roll >= 20) return 'a few '
+  if (roll >= 10) return 'a handful of '
+  return 'some '
 }
 
 function removeFromArray<T> (array: T[], value: T) {
