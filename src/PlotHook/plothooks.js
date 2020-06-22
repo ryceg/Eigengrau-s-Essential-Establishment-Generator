@@ -15,8 +15,8 @@ setup.plothooks = {
         'Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as ',
         'This is a great opportunity to get players to roleplay. Ask them questions like ',
         'This would be a good chance to build on player backstory. Ask them questions such as '
-      ].random()}'${setup.misc.roleplayQuestions.create()}'` +
-      '<<button "Create another question!">><<set _question to setup.misc.roleplayQuestions.create()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>'
+      ].random()}'${lib.createRoleplayQuestion()}'` +
+      '<<button "Create another question!">><<set _question to lib.createRoleplayQuestion()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>'
     }
   },
   'The Magic Duel': {
