@@ -1,46 +1,49 @@
-setup.createAllies = faction => {
-  console.log('finding allies...')
-  const _sizeRoll = lib.dice(2, 50)
-  let group
-  const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
-  const groupSizeModifier = (_sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50))
-  const allies = []
-  let i
+import { dice } from '../src/dice'
+import { random } from '../src/random'
+import { Faction } from './_common'
 
-  if (_sizeRoll >= 90) {
+export function createAllies (faction: Faction) {
+  console.log('finding allies...')
+
+  const sizeRoll = dice(2, 50)
+  const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
+  const groupSizeModifier = (sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50))
+  const allies: string[] = []
+
+  if (sizeRoll >= 90) {
     faction.alliesDescription = 'an immense number of people to rely on for aid'
-    for (i = 1; i <= 6; ++i) { getAllyGroup(random(-10, 15)) }
-  } else if (_sizeRoll >= 80) {
+    for (let i = 1; i <= 6; ++i) { getAllyGroup(random(-10, 15)) }
+  } else if (sizeRoll >= 80) {
     faction.alliesDescription = 'many allies'
-    for (i = 1; i <= 5; ++i) { getAllyGroup(random(-15, 15)) }
-  } else if (_sizeRoll >= 70) {
+    for (let i = 1; i <= 5; ++i) { getAllyGroup(random(-15, 15)) }
+  } else if (sizeRoll >= 70) {
     faction.alliesDescription = 'a considerable number of allies'
-    for (i = 1; i <= 4; ++i) { getAllyGroup(random(-20, 15)) }
-  } else if (_sizeRoll >= 60) {
+    for (let i = 1; i <= 4; ++i) { getAllyGroup(random(-20, 15)) }
+  } else if (sizeRoll >= 60) {
     faction.alliesDescription = 'a decent number of allies'
-    for (i = 1; i <= 3; ++i) { getAllyGroup(15) }
-  } else if (_sizeRoll >= 50) {
+    for (let i = 1; i <= 3; ++i) { getAllyGroup(15) }
+  } else if (sizeRoll >= 50) {
     faction.alliesDescription = 'some strong allies'
-    for (i = 1; i <= 2; ++i) { getAllyGroup(10) }
-  } else if (_sizeRoll >= 40) {
+    for (let i = 1; i <= 2; ++i) { getAllyGroup(10) }
+  } else if (sizeRoll >= 40) {
     faction.alliesDescription = 'a handful of trusted allies'
     getAllyGroup(10)
     getAllyGroup(-10)
-  } else if (_sizeRoll >= 30) {
+  } else if (sizeRoll >= 30) {
     faction.alliesDescription = 'a couple trusted allies'
     getAllyGroup(-15)
-  } else if (_sizeRoll >= 20) {
+  } else if (sizeRoll >= 20) {
     faction.alliesDescription = 'few allies'
     getAllyGroup(10)
-  } else if (_sizeRoll < 20) {
+  } else if (sizeRoll < 20) {
     faction.alliesDescription = 'barely any allies'
     getAllyGroup(10)
   }
 
-  function getAllyGroup (bonus) {
-    let tempGroup
-    let tempGroupSize
-    const groupSizeRoll = lib.dice(2, 50) + (groupSizeModifier + bonus)
+  function getAllyGroup (bonus: number) {
+    let tempGroupSize: string
+    const groupSizeRoll = dice(2, 50) + groupSizeModifier + bonus
+
     if (groupSizeRoll >= 90) {
       tempGroupSize = 'a veritable army of '
     } else if (groupSizeRoll >= 80) {
@@ -63,23 +66,21 @@ setup.createAllies = faction => {
       tempGroupSize = 'three or four '
     }
 
-    tempGroup = groupList.random()
-    groupList.delete(tempGroup)
-    // console.log('tempGroup - ' + tempGroup)
-    groupList.delete(tempGroup)
+    let tempGroup = random(groupList)
+
+    removeFromArray(groupList, tempGroup)
+
     if (tempGroup === faction.type) {
       tempGroup = `fellow ${tempGroup}`
     }
-    // while (alliedGroups.indexOf(tempGroup) !== -1) {
-    //   tempGroup = groupList.pluck()
-    // }
-    // alliedGroups.push(tempGroup)
-    group = tempGroupSize + tempGroup
-    // console.log('group - ' + group)
-    allies.push(group)
-    // console.log('allies - ' + allies)
+
+    allies.push(tempGroupSize + tempGroup)
     return allies
   }
+
   faction.allies = allies
-  return faction
+}
+
+function removeFromArray<T> (array: T[], value: T) {
+  array.splice(array.indexOf(value), 1)
 }

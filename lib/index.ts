@@ -12,6 +12,7 @@ export * from './constructs/orcs'
 export * from './constructs/spider'
 export * from './constructs/wolf'
 
+export * from './faction/createAllies'
 export * from './faction/createLeaderGroup'
 export * from './faction/factionData'
 export * from './faction/setFactionAge'

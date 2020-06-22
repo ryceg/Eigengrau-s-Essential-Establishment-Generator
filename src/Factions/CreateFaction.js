@@ -44,7 +44,7 @@ setup.createFaction = function (town, opts = {}) {
 
   lib.setFactionJoinStats(faction)
 
-  setup.createAllies(faction)
+  lib.createAllies(faction)
 
   setup.createRivals(faction)
   console.log('other cool bits...')
