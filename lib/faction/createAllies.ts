@@ -43,7 +43,7 @@ export function createAllies (faction: Faction) {
 
   function getAllyGroup (bonus: number) {
     const groupSizeRoll = dice(2, 50) + groupSizeModifier + bonus
-    const tempGroupSize = getTempGroupSize(groupSizeRoll)
+    const tempGroupSize = getGroupSize(groupSizeRoll)
 
     let tempGroup = random(groupList)
     removeFromArray(groupList, tempGroup)
@@ -58,15 +58,15 @@ export function createAllies (faction: Faction) {
   faction.allies = allies
 }
 
-function getTempGroupSize (groupSizeRoll: number) {
-  if (groupSizeRoll >= 90) return 'a veritable army of '
-  if (groupSizeRoll >= 80) return 'a guild of '
-  if (groupSizeRoll >= 70) return 'a large number of '
-  if (groupSizeRoll >= 60) return 'quite a few '
-  if (groupSizeRoll >= 50) return 'more than a couple '
-  if (groupSizeRoll >= 40) return 'a couple '
-  if (groupSizeRoll >= 30) return 'some '
-  if (groupSizeRoll >= 20) return 'a few '
-  if (groupSizeRoll >= 10) return 'a handful of '
+function getGroupSize (roll: number) {
+  if (roll >= 90) return 'a veritable army of '
+  if (roll >= 80) return 'a guild of '
+  if (roll >= 70) return 'a large number of '
+  if (roll >= 60) return 'quite a few '
+  if (roll >= 50) return 'more than a couple '
+  if (roll >= 40) return 'a couple '
+  if (roll >= 30) return 'some '
+  if (roll >= 20) return 'a few '
+  if (roll >= 10) return 'a handful of '
   return 'three or four '
 }

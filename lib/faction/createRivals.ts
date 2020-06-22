@@ -1,6 +1,5 @@
 import { dice } from '../src/dice'
 import { removeFromArray, repeat } from '../src/utils'
-import { matchFirst } from '../src/matchFirst'
 import { random } from '../src/random'
 import { factionData } from './factionData'
 import { Faction } from './_common'
@@ -48,22 +47,10 @@ export function createRivals (faction: Faction) {
   }
 
   function getRivalGroup (bonus: number) {
-    let tempGroup
     const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
+    const tempGroupSize = getGroupSize(groupSizeRoll)
 
-    const tempGroupSize = matchFirst.largerThanOrEqualTo(groupSizeRoll, {
-      90: 'a guild of ',
-      80: 'a veritable army of ',
-      70: 'a large number of ',
-      60: 'quite a few ',
-      50: 'more than a couple ',
-      40: 'a couple ',
-      30: 'some ',
-      20: 'a few',
-      10: 'a handful of '
-    }, 'three or four ')
-
-    tempGroup = random(groupList)
+    let tempGroup = random(groupList)
     removeFromArray(groupList, tempGroup)
     if (tempGroup === faction.type) {
       tempGroup = `rival ${tempGroup}`
@@ -72,4 +59,17 @@ export function createRivals (faction: Faction) {
   }
 
   faction.rivals = rivals
+}
+
+function getGroupSize (roll: number) {
+  if (roll >= 90) return 'a guild of '
+  if (roll >= 80) return 'a veritable army of '
+  if (roll >= 70) return 'a large number of '
+  if (roll >= 60) return 'quite a few '
+  if (roll >= 50) return 'more than a couple '
+  if (roll >= 40) return 'a couple '
+  if (roll >= 30) return 'some '
+  if (roll >= 20) return 'a few '
+  if (roll >= 10) return 'a handful of '
+  return 'three or four '
 }
