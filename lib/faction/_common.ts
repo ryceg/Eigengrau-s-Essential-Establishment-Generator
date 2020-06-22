@@ -12,4 +12,9 @@ export interface Faction {
   influence: string
   stability: string
   joiningFee: string
+  leadershipType: 'individual' | 'group'
+  leaderGroupTitle: string
+  leaderGroupSizeRoll: number
+  meetingRegularity: string
+  meetingAccessibility: string
 }

@@ -1,7 +1,15 @@
-setup.createLeaderGroup = function (faction) {
-  const meetingAccessibilityRoll = lib.dice(2, 50)
-  const meetingRegularityRoll = lib.dice(2, 50) + lib.fm(faction.roll.stability, -50)
-  faction.leaderGroupSizeRoll = lib.dice(3, 4)
+import { dice, fm } from '../src/dice'
+import { Faction } from './_common'
+
+export function createLeaderGroup (faction: Faction) {
+  if (faction.leadershipType !== 'group') {
+    throw new Error('Incompatible faction leadership type.')
+  }
+
+  const meetingAccessibilityRoll = dice(2, 50)
+  const meetingRegularityRoll = dice(2, 50) + fm(faction.roll.stability, -50)
+
+  faction.leaderGroupSizeRoll = dice(3, 4)
 
   if (meetingRegularityRoll > 95) {
     faction.meetingRegularity = 'every day, at 5pm sharp'
@@ -57,10 +65,8 @@ setup.createLeaderGroup = function (faction) {
     faction.meetingAccessibility = 'are invite-only'
   } else if (meetingAccessibilityRoll > 10) {
     faction.meetingAccessibility = 'closed to all'
-  } else if (meetingAccessibilityRoll <= 5) {
-    faction.meetingAccessibility = 'closed and held in secret'
   } else {
-    faction.meetingAccessibility = 'are open to members'
+    faction.meetingAccessibility = 'closed and held in secret'
   }
 
   if (faction.leaderGroupSizeRoll > 11) {
@@ -71,8 +77,5 @@ setup.createLeaderGroup = function (faction) {
     faction.leaderGroupTitle = 'committee'
   } else if (faction.leaderGroupSizeRoll === 3) {
     faction.leaderGroupTitle = 'triumvirate'
-  } else if (faction.leadershipType === 'individual') {
-    faction.leaderGroupTitle = 'leader'
   }
-  return faction
 }

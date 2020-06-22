@@ -61,7 +61,7 @@ setup.leaderFaction = function (town, faction) {
       break
     }
     case 'group': {
-      setup.createLeaderGroup(faction)
+      lib.createLeaderGroup(faction)
     }
   }
 
