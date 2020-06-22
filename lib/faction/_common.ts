@@ -22,6 +22,8 @@ export interface Faction {
   meetingAccessibility: string
   alliesDescription: string
   allies: string[]
+  rivalsDescription: string
+  rivals: string[]
   resourcesDescription: string
   resources: string[]
   misc: string
