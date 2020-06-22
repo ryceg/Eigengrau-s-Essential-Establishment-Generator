@@ -13,35 +13,9 @@ export function setFactionResources (faction: Faction) {
   // this is where weighting different groups happens. Needs updating with each new faction.
   resourcesList.concat(factionData.type[faction.type].resources)
 
-  if (faction.roll.age > 95) {
-    faction.roll.resources += fm(faction.roll.resources, 15)
-  } else if (faction.roll.age > 90) {
-    faction.roll.resources += fm(faction.roll.resources, 10)
-  } else if (faction.roll.age > 80) {
-    faction.roll.resources += fm(faction.roll.resources, 8)
-  } else if (faction.roll.age > 70) {
-    faction.roll.resources += fm(faction.roll.resources, 6)
-  } else if (faction.roll.age > 60) {
-    faction.roll.resources += fm(faction.roll.resources, 4)
-  } else if (faction.roll.age > 55) {
-    faction.roll.resources += fm(faction.roll.resources, 2)
-  } else if (faction.roll.age > 50) {
-    faction.roll.resources += fm(faction.roll.resources, 1)
-  } else if (faction.roll.age > 45) {
-    faction.roll.resources += fm(faction.roll.resources, -1)
-  } else if (faction.roll.age > 40) {
-    faction.roll.resources += fm(faction.roll.resources, -2)
-  } else if (faction.roll.age > 30) {
-    faction.roll.resources += fm(faction.roll.resources, -4)
-  } else if (faction.roll.age > 20) {
-    faction.roll.resources += fm(faction.roll.resources, -6)
-  } else if (faction.roll.age > 10) {
-    faction.roll.resources += fm(faction.roll.resources, -8)
-  } else if (faction.roll.age <= 5) {
-    faction.roll.resources += fm(faction.roll.resources, -10)
-  } else {
-    faction.roll.resources += fm(faction.roll.resources, 10)
-  }
+  const ageModifier = getAgeModifier(faction.roll.age)
+
+  faction.roll.resources += fm(faction.roll.resources, ageModifier)
 
   if (faction.roll.resources > 95) {
     faction.resourcesDescription = 'limitless'
@@ -128,6 +102,22 @@ export function setFactionResources (faction: Faction) {
   }
 
   faction.resources = resources
+}
+
+function getAgeModifier (roll: number): number {
+  if (roll > 95) return 15
+  if (roll > 90) return 10
+  if (roll > 80) return 8
+  if (roll > 70) return 6
+  if (roll > 60) return 4
+  if (roll > 55) return 2
+  if (roll > 50) return 1
+  if (roll > 45) return -1
+  if (roll > 40) return -2
+  if (roll > 30) return -4
+  if (roll > 20) return -6
+  if (roll > 10) return -8
+  return -10
 }
 
 function removeFromArray<T> (array: T[], value: T) {
