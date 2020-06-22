@@ -96,3 +96,7 @@ export function removeFromArray<T> (array: T[], value: T) {
 export function repeat (fn: (index: number) => void, times: number) {
   for (let i = 0; i < times; i++) fn(i)
 }
+
+export function capitalizeFirstLetter (text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
