@@ -4,59 +4,41 @@ import { Faction } from './_common'
 export function setFactionInfluence (faction: Faction) {
   console.log('assigning influence...')
 
-  if (faction.roll.age > 95) {
-    faction.roll.influence += fm(faction.roll.influence, 15)
-  } else if (faction.roll.age > 90) {
-    faction.roll.influence += fm(faction.roll.influence, 10)
-  } else if (faction.roll.age > 80) {
-    faction.roll.influence += fm(faction.roll.influence, 8)
-  } else if (faction.roll.age > 70) {
-    faction.roll.influence += fm(faction.roll.influence, 6)
-  } else if (faction.roll.age > 60) {
-    faction.roll.influence += fm(faction.roll.influence, 4)
-  } else if (faction.roll.age > 55) {
-    faction.roll.influence += fm(faction.roll.influence, 2)
-  } else if (faction.roll.age > 50) {
-    faction.roll.influence += fm(faction.roll.influence, 1)
-  } else if (faction.roll.age > 45) {
-    faction.roll.influence += fm(faction.roll.influence, -1)
-  } else if (faction.roll.age > 40) {
-    faction.roll.influence += fm(faction.roll.influence, -2)
-  } else if (faction.roll.age > 30) {
-    faction.roll.influence += fm(faction.roll.influence, -4)
-  } else if (faction.roll.age > 20) {
-    faction.roll.influence += fm(faction.roll.influence, -6)
-  } else if (faction.roll.age > 10) {
-    faction.roll.influence += fm(faction.roll.influence, -8)
-  } else {
-    faction.roll.influence += fm(faction.roll.influence, -10)
-  }
+  const ageModifier = getAgeModifier(faction.roll.age)
 
-  if (faction.roll.influence > 95) {
-    faction.influence = 'excellent'
-  } else if (faction.roll.influence > 90) {
-    faction.influence = 'very good'
-  } else if (faction.roll.influence > 80) {
-    faction.influence = 'quite good'
-  } else if (faction.roll.influence > 70) {
-    faction.influence = 'good'
-  } else if (faction.roll.influence > 60) {
-    faction.influence = 'above average'
-  } else if (faction.roll.influence > 55) {
-    faction.influence = 'slightly above average'
-  } else if (faction.roll.influence > 50) {
-    faction.influence = 'average'
-  } else if (faction.roll.influence > 45) {
-    faction.influence = 'slightly below average'
-  } else if (faction.roll.influence > 40) {
-    faction.influence = 'poor'
-  } else if (faction.roll.influence > 30) {
-    faction.influence = 'quite poor'
-  } else if (faction.roll.influence > 20) {
-    faction.influence = 'very poor'
-  } else if (faction.roll.influence > 10) {
-    faction.influence = 'extremely poor'
-  } else {
-    faction.influence = 'abysmal'
-  }
+  faction.roll.influence += fm(faction.roll.influence, ageModifier)
+
+  faction.influence = getFactionInfluence(faction.roll.influence)
+}
+
+function getAgeModifier (roll: number) {
+  if (roll > 95) return 15
+  if (roll > 90) return 10
+  if (roll > 80) return 8
+  if (roll > 70) return 6
+  if (roll > 60) return 4
+  if (roll > 55) return 2
+  if (roll > 50) return 1
+  if (roll > 45) return -1
+  if (roll > 40) return -2
+  if (roll > 30) return -4
+  if (roll > 20) return -6
+  if (roll > 10) return -8
+  return -10
+}
+
+function getFactionInfluence (roll: number) {
+  if (roll > 95) return 'excellent'
+  if (roll > 90) return 'very good'
+  if (roll > 80) return 'quite good'
+  if (roll > 70) return 'good'
+  if (roll > 60) return 'above average'
+  if (roll > 55) return 'slightly above average'
+  if (roll > 50) return 'average'
+  if (roll > 45) return 'slightly below average'
+  if (roll > 40) return 'poor'
+  if (roll > 30) return 'quite poor'
+  if (roll > 20) return 'very poor'
+  if (roll > 10) return 'extremely poor'
+  return 'abysmal'
 }
