@@ -6,6 +6,7 @@ export interface Faction {
     size: number
     influence: number
     stability: number
+    resources: number
     reputation: number
   }
   age: string
@@ -21,5 +22,7 @@ export interface Faction {
   meetingAccessibility: string
   alliesDescription: string
   allies: string[]
+  resourcesDescription: string
+  resources: string[]
   misc: string
 }

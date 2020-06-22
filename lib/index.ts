@@ -21,6 +21,7 @@ export * from './faction/setFactionJoinStats'
 export * from './faction/setFactionMisc'
 export * from './faction/setFactionName'
 export * from './faction/setFactionReputation'
+export * from './faction/setFactionResources'
 export * from './faction/setFactionSize'
 export * from './faction/setFactionStability'
 

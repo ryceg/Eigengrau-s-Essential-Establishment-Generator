@@ -37,7 +37,7 @@ setup.createFaction = function (town, opts = {}) {
   lib.setFactionReputation(faction)
   lib.setFactionSize(town, faction)
   lib.setFactionInfluence(faction)
-  setup.resourcesFaction(faction)
+  lib.setFactionResources(faction)
   lib.setFactionStability(faction)
   setup.leaderFaction(town, faction)
   lib.setFactionJoinStats(faction)
