@@ -1,4 +1,5 @@
 import { dice, fm } from '../src/dice'
+import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
 import { factionData } from './factionData'
 import { Faction } from './_common'
@@ -108,12 +109,4 @@ function getTempGroupSize (roll: number): string {
   if (roll >= 20) return 'a few '
   if (roll >= 10) return 'a handful of '
   return 'some '
-}
-
-function removeFromArray<T> (array: T[], value: T) {
-  array.splice(array.indexOf(value), 1)
-}
-
-function repeat (fn: (index: number) => void, times: number) {
-  for (let i = 0; i < times; i++) fn(i)
 }

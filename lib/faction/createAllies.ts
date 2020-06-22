@@ -1,4 +1,5 @@
 import { dice } from '../src/dice'
+import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
 
@@ -12,19 +13,19 @@ export function createAllies (faction: Faction) {
 
   if (sizeRoll >= 90) {
     faction.alliesDescription = 'an immense number of people to rely on for aid'
-    for (let i = 1; i <= 6; ++i) { getAllyGroup(random(-10, 15)) }
+    repeat(() => getAllyGroup(random(-10, 15)), 5)
   } else if (sizeRoll >= 80) {
     faction.alliesDescription = 'many allies'
-    for (let i = 1; i <= 5; ++i) { getAllyGroup(random(-15, 15)) }
+    repeat(() => getAllyGroup(random(-15, 15)), 5)
   } else if (sizeRoll >= 70) {
     faction.alliesDescription = 'a considerable number of allies'
-    for (let i = 1; i <= 4; ++i) { getAllyGroup(random(-20, 15)) }
+    repeat(() => getAllyGroup(random(-20, 15)), 4)
   } else if (sizeRoll >= 60) {
     faction.alliesDescription = 'a decent number of allies'
-    for (let i = 1; i <= 3; ++i) { getAllyGroup(15) }
+    repeat(() => getAllyGroup(15), 3)
   } else if (sizeRoll >= 50) {
     faction.alliesDescription = 'some strong allies'
-    for (let i = 1; i <= 2; ++i) { getAllyGroup(10) }
+    repeat(() => getAllyGroup(10), 2)
   } else if (sizeRoll >= 40) {
     faction.alliesDescription = 'a handful of trusted allies'
     getAllyGroup(10)
@@ -68,8 +69,4 @@ function getTempGroupSize (groupSizeRoll: number) {
   if (groupSizeRoll >= 20) return 'a few '
   if (groupSizeRoll >= 10) return 'a handful of '
   return 'three or four '
-}
-
-function removeFromArray<T> (array: T[], value: T) {
-  array.splice(array.indexOf(value), 1)
 }
