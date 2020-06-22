@@ -50,9 +50,7 @@ export function createAllies (faction: Faction) {
     if (tempGroup === faction.type) {
       tempGroup = `fellow ${tempGroup}`
     }
-
     allies.push(tempGroupSize + tempGroup)
-    return allies
   }
 
   faction.allies = allies
