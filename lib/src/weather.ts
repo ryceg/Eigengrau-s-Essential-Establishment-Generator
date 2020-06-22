@@ -1,8 +1,24 @@
+import { random } from './random'
+import { dice } from './dice'
 
-setup.weather = {
+interface Weather {
+  roll: {
+    cloud: number
+    precipitation: number
+    precipitationIntensity: number
+  }
+  timer: {
+    cloud: number
+    precipitation: number
+  }
+  precipitation: string | false
+  cloudIntensity: string
+}
+
+export const weather = {
   precipitationIntensity: {
     1: {
-      cloud (weather) {
+      cloud (weather: Weather) {
         if (weather.roll.cloud > 85) {
           weather.cloudIntensity = 'overcast'
           weather.timer.cloud = random(8, 12)
@@ -14,19 +30,19 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         } else if (weather.roll.cloud <= 50 && weather.precipitation === false) {
           weather.cloudIntensity = 'clear'
-          weather.timer.cloud = lib.dice(3, 6)
+          weather.timer.cloud = dice(3, 6)
         } else {
           weather.cloudIntensity = 'light clouds'
-          weather.timer.cloud = lib.dice(2, 12)
+          weather.timer.cloud = dice(2, 12)
         }
       },
-      freezing (weather) {
+      freezing (weather: Weather) {
         if (weather.roll.precipitationIntensity > 75) {
           weather.precipitation = 'light snow'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 60) {
           weather.precipitation = 'light snow'
-          weather.timer.precipitation = lib.dice(1, 4)
+          weather.timer.precipitation = dice(1, 4)
         } else if (weather.roll.precipitationIntensity > 50) {
           weather.precipitation = 'light snow'
           weather.timer.precipitation = 1
@@ -41,16 +57,16 @@ setup.weather = {
           weather.timer.precipitation = random(1, 6)
         }
       },
-      raining (weather) {
+      raining (weather: Weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'light rain'
           weather.timer.precipitation = 1
         } else if (weather.roll.precipitationIntensity > 60) {
           weather.precipitation = 'light rain'
-          weather.timer.precipitation = lib.dice(1, 4)
+          weather.timer.precipitation = dice(1, 4)
         } else if (weather.roll.precipitationIntensity > 50) {
           weather.precipitation = 'drizzle'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 40) {
           weather.precipitation = 'drizzle'
           weather.timer.precipitation = random(1, 4)
@@ -64,7 +80,7 @@ setup.weather = {
       }
     },
     2: {
-      cloud (weather) {
+      cloud (weather: Weather) {
         if (weather.roll.cloud > 85) {
           weather.cloudIntensity = 'overcast'
           weather.timer.cloud = random(8, 12)
@@ -82,13 +98,13 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         }
       },
-      freezing (weather) {
+      freezing (weather: Weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'medium snow'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 50) {
           weather.precipitation = 'medium snow'
-          weather.timer.precipitation = lib.dice(1, 8)
+          weather.timer.precipitation = dice(1, 8)
         } else if (weather.roll.precipitationIntensity > 30) {
           weather.precipitation = 'heavy fog'
           weather.timer.precipitation = random(1, 4)
@@ -103,13 +119,13 @@ setup.weather = {
           weather.timer.precipitation = random(1, 6)
         }
       },
-      raining (weather) {
+      raining (weather: Weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'rain'
-          weather.timer.precipitation = lib.dice(1, 4)
+          weather.timer.precipitation = dice(1, 4)
         } else if (weather.roll.precipitationIntensity > 70) {
           weather.precipitation = 'rain'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 35) {
           weather.precipitation = 'rain'
           weather.timer.precipitation = random(1, 4)
@@ -126,7 +142,7 @@ setup.weather = {
       }
     },
     3: {
-      cloud (weather) {
+      cloud (weather: Weather) {
         if (weather.roll.cloud > 35) {
           weather.cloudIntensity = 'extremely overcase'
           weather.timer.cloud = random(8, 12)
@@ -138,43 +154,43 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         }
       },
-      freezing (weather) {
+      freezing (weather: Weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'heavy snow'
-          weather.timer.precipitation = lib.dice(1, 6)
+          weather.timer.precipitation = dice(1, 6)
         } else if (weather.roll.precipitationIntensity > 60) {
           weather.precipitation = 'medium snow'
-          weather.timer.precipitation = lib.dice(1, 8)
+          weather.timer.precipitation = dice(1, 8)
         } else if (weather.roll.precipitationIntensity > 20) {
           weather.precipitation = 'light snow'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 10) {
           weather.precipitation = 'heavy fog'
-          weather.timer.precipitation = lib.dice(2, 6)
+          weather.timer.precipitation = dice(2, 6)
         } else if (weather.roll.precipitationIntensity <= 10) {
           weather.precipitation = 'medium fog'
           weather.timer.precipitation = random(1, 6)
         }
       },
-      raining (weather) {
+      raining (weather: Weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'thunderstorm'
-          weather.timer.precipitation = lib.dice(1, 3)
+          weather.timer.precipitation = dice(1, 3)
         } else if (weather.roll.precipitationIntensity > 85) {
           weather.precipitation = 'thunderstorm'
           weather.timer.precipitation = 1
         } else if (weather.roll.precipitationIntensity > 70) {
           weather.precipitation = 'heavy rain'
-          weather.timer.precipitation = lib.dice(1, 8)
+          weather.timer.precipitation = dice(1, 8)
         } else if (weather.roll.precipitationIntensity > 50) {
           weather.precipitation = 'heavy rain'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 20) {
           weather.precipitation = 'heavy rain'
-          weather.timer.precipitation = lib.dice(1, 12)
+          weather.timer.precipitation = dice(1, 12)
         } else if (weather.roll.precipitationIntensity > 10) {
           weather.precipitation = 'heavy fog'
-          weather.timer.precipitation = lib.dice(2, 6)
+          weather.timer.precipitation = dice(2, 6)
         } else if (weather.roll.precipitationIntensity <= 10) {
           weather.precipitation = 'heavy fog'
           weather.timer.precipitation = random(1, 6)
@@ -182,7 +198,7 @@ setup.weather = {
       }
     },
     4: {
-      cloud (weather) {
+      cloud (weather: Weather) {
         if (weather.roll.cloud > 35) {
           weather.cloudIntensity = 'extremely overcast'
           weather.timer.cloud = random(8, 12)
@@ -194,43 +210,43 @@ setup.weather = {
           weather.timer.cloud = random(6, 10)
         }
       },
-      freezing (weather) {
+      freezing (weather: Weather) {
         if (weather.roll.precipitationIntensity > 90) {
           weather.precipitation = 'heavy snow'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 50) {
           weather.precipitation = 'heavy snow'
-          weather.timer.precipitation = lib.dice(1, 8)
+          weather.timer.precipitation = dice(1, 8)
         } else if (weather.roll.precipitationIntensity > 10) {
           weather.precipitation = 'heavy snow'
-          weather.timer.precipitation = lib.dice(1, 4)
+          weather.timer.precipitation = dice(1, 4)
         } else if (weather.roll.precipitationIntensity > 5) {
           weather.precipitation = 'heavy fog'
-          weather.timer.precipitation = lib.dice(2, 6)
+          weather.timer.precipitation = dice(2, 6)
         } else if (weather.roll.precipitationIntensity <= 5) {
           weather.precipitation = 'heavy fog'
           weather.timer.precipitation = random(1, 7)
         }
       },
-      raining (weather) {
+      raining (weather: Weather) {
         if (weather.roll.precipitationIntensity > 95) {
           weather.precipitation = 'thunderstorm'
-          weather.timer.precipitation = lib.dice(1, 6)
+          weather.timer.precipitation = dice(1, 6)
         } else if (weather.roll.precipitationIntensity > 80) {
           weather.precipitation = 'thunderstorm'
-          weather.timer.precipitation = lib.dice(1, 3)
+          weather.timer.precipitation = dice(1, 3)
         } else if (weather.roll.precipitationIntensity > 60) {
           weather.precipitation = 'heavy snow'
-          weather.timer.precipitation = lib.dice(2, 6)
+          weather.timer.precipitation = dice(2, 6)
         } else if (weather.roll.precipitationIntensity > 30) {
           weather.precipitation = 'heavy fog'
-          weather.timer.precipitation = lib.dice(2, 12)
+          weather.timer.precipitation = dice(2, 12)
         } else if (weather.roll.precipitationIntensity > 10) {
           weather.precipitation = 'heavy rain'
-          weather.timer.precipitation = lib.dice(2, 6)
+          weather.timer.precipitation = dice(2, 6)
         } else if (weather.roll.precipitationIntensity > 5) {
           weather.precipitation = 'heavy fog'
-          weather.timer.precipitation = lib.dice(2, 6)
+          weather.timer.precipitation = dice(2, 6)
         } else if (weather.roll.precipitationIntensity <= 5) {
           weather.precipitation = 'heavy fog'
           weather.timer.precipitation = random(1, 8)
@@ -239,27 +255,27 @@ setup.weather = {
     }
   },
   precipitationLevel: {
-    1 (weather) {
+    1 (weather: Weather) {
       if (weather.roll.precipitation >= 95) {
         return true
       }
     },
-    2 (weather) {
+    2 (weather: Weather) {
       if (weather.roll.precipitation >= 85) {
         return true
       }
     },
-    3 (weather) {
+    3 (weather: Weather) {
       if (weather.roll.precipitation >= 70) {
         return true
       }
     },
-    4 (weather) {
+    4 (weather: Weather) {
       if (weather.roll.precipitation >= 40) {
         return true
       }
     },
-    5 (weather) {
+    5 (weather: Weather) {
       if (weather.roll.precipitation >= 5) {
         return true
       }
@@ -388,5 +404,5 @@ setup.weather = {
     [0, 'extremely cold'],
     [-5, 'bitterly cold'],
     [-10, 'painfully cold']
-  ]
+  ] as [number, string][]
 }

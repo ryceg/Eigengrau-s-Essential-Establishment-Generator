@@ -47,17 +47,17 @@ setup.renderWeather = function (town, biome, weather) {
   if (weather.timer.precipitation < 1) {
     console.log('Resetting precipitation timer...')
     weather.roll.precipitation = random(1, 100)
-    weather.precipitation = setup.weather.precipitationLevel[weather.precipitationLevel](weather)
+    weather.precipitation = lib.weather.precipitationLevel[weather.precipitationLevel](weather)
   }
 
   if (weather.precipitation === true && weather.temperature <= 32) {
     console.log('Rolling on the freezing table...')
     weather.roll.precipitationIntensity = random(1, 100)
-    setup.weather.precipitationIntensity[weather.precipitationIntensity].freezing(weather)
+    lib.weather.precipitationIntensity[weather.precipitationIntensity].freezing(weather)
   } else if (weather.precipitation === true) {
     console.log('Rolling on the raining table...')
     weather.roll.precipitationIntensity = random(1, 100)
-    setup.weather.precipitationIntensity[weather.precipitationIntensity].raining(weather)
+    lib.weather.precipitationIntensity[weather.precipitationIntensity].raining(weather)
   } else {
     console.log('Clear day!')
     weather.precipitation = 'no precipitation'
@@ -67,10 +67,10 @@ setup.renderWeather = function (town, biome, weather) {
   if (weather.timer.cloud < 1) {
     console.log('Resetting cloud timer...')
     weather.roll.cloud = random(1, 100)
-    setup.weather.precipitationIntensity[weather.precipitationIntensity].cloud(weather)
+    lib.weather.precipitationIntensity[weather.precipitationIntensity].cloud(weather)
   }
 
-  weather.readout.precipitation = setup.weather.precipitationDescriptors[weather.precipitation].random()
+  weather.readout.precipitation = lib.weather.precipitationDescriptors[weather.precipitation].random()
   if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 18) {
     weather.readout.precipitation += ". It doesn't look like it'll be clearing up today"
   } else if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 12) {
@@ -78,10 +78,10 @@ setup.renderWeather = function (town, biome, weather) {
   } else if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation <= 2) {
     weather.readout.precipitation += ". It's clearing up pretty quickly, though"
   }
-  weather.readout.cloud = setup.weather.cloudIntensityDescriptors[weather.cloudIntensity].random()
+  weather.readout.cloud = lib.weather.cloudIntensityDescriptors[weather.cloudIntensity].random()
 
   console.log('Rendering temperature...')
-  for (const [threshold, description] of setup.weather.temperatureDescriptors) {
+  for (const [threshold, description] of lib.weather.temperatureDescriptors) {
     if (weather.temperature >= threshold) {
       const readout = `${setup.toCelsius(weather.temperature)}, to be precise.`
       weather.readout.temperature = lib.createTippyFull(readout, description)
