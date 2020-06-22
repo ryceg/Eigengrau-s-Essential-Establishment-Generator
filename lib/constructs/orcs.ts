@@ -3,20 +3,20 @@ import { getUUID } from '../src/utils'
 import { Construct, ConstructUtils } from './_common'
 
 interface Orcs extends Construct<'orcs'> {
-  type: string;
-  symbol: string;
-  value: string;
-  meat: string;
-  fear: string;
-  notorious: string;
-  knownFor: string;
-  attitude: string;
-  leader: string;
-  goals: string;
-  tactics: string;
-  pets: string;
-  slaves: string;
-  weapons: string;
+  type: string
+  symbol: string
+  value: string
+  meat: string
+  fear: string
+  notorious: string
+  knownFor: string
+  attitude: string
+  leader: string
+  goals: string
+  tactics: string
+  pets: string
+  slaves: string
+  weapons: string
 }
 
 export const orcs: ConstructUtils<Orcs> = {
