@@ -22,28 +22,25 @@ setup.createFaction = function (town, opts = {}) {
       resources: lib.dice(2, 50)
     }
   }, opts)
+
   if (typeof faction.type === 'undefined') {
     console.error('faction type was not defined! Defaulting to merchants.')
     console.log(faction)
     faction.type = 'merchants'
   }
+
   lib.setFactionAge(faction)
   lib.setFactionName(town, faction)
+
   console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
-  setup.reputationFaction(faction)
 
+  lib.setFactionReputation(faction)
   lib.setFactionSize(town, faction)
-
   lib.setFactionInfluence(faction)
-
   setup.resourcesFaction(faction)
-
   lib.setFactionStability(faction)
-
   setup.leaderFaction(town, faction)
-
   lib.setFactionJoinStats(faction)
-
   lib.createAllies(faction)
 
   setup.createRivals(faction)

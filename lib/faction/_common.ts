@@ -12,6 +12,7 @@ export interface Faction {
   size: string
   influence: string
   stability: string
+  reputation: string
   joiningFee: string
   leadershipType: 'individual' | 'group'
   leaderGroupTitle: string

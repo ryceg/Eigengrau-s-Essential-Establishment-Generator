@@ -1,44 +1,48 @@
-setup.reputationFaction = function (faction) {
+import { fm } from '../src/dice'
+import { Faction } from './_common'
+
+export function setFactionReputation (faction: Faction) {
   console.log('assigning a reputation...')
+
   switch (faction.age) {
     case 'ancient':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 30)
+      faction.roll.reputation += fm(faction.roll.reputation, 30)
       break
     case 'extremely old':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 25)
+      faction.roll.reputation += fm(faction.roll.reputation, 25)
       break
     case 'very old':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 20)
+      faction.roll.reputation += fm(faction.roll.reputation, 20)
       break
     case 'quite old':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 15)
+      faction.roll.reputation += fm(faction.roll.reputation, 15)
       break
     case 'well established':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 10)
+      faction.roll.reputation += fm(faction.roll.reputation, 10)
       break
     case 'somewhat old':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 5)
+      faction.roll.reputation += fm(faction.roll.reputation, 5)
       break
     case 'relatively new':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, -5)
+      faction.roll.reputation += fm(faction.roll.reputation, -5)
       break
     case 'recently established':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, -10)
+      faction.roll.reputation += fm(faction.roll.reputation, -10)
       break
     case 'new':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, -15)
+      faction.roll.reputation += fm(faction.roll.reputation, -15)
       break
     case 'quite new':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, -20)
+      faction.roll.reputation += fm(faction.roll.reputation, -20)
       break
     case 'very new':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, -25)
+      faction.roll.reputation += fm(faction.roll.reputation, -25)
       break
     case 'brand new':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, -25)
+      faction.roll.reputation += fm(faction.roll.reputation, -25)
       break
     case 'unknown':
-      faction.roll.reputation += lib.fm(faction.roll.reputation, 15)
+      faction.roll.reputation += fm(faction.roll.reputation, 15)
   }
 
   if (faction.roll.reputation > 95) {
@@ -70,6 +74,4 @@ setup.reputationFaction = function (faction) {
   } else {
     faction.reputation = 'average'
   }
-
-  return faction
 }
