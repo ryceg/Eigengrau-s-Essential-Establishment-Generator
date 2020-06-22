@@ -35,10 +35,8 @@ export function createLeaderGroup (faction: Faction) {
     faction.meetingRegularity = 'whenever three of the leaders happen to be together'
   } else if (meetingRegularityRoll > 10) {
     faction.meetingRegularity = 'once in a blue moon'
-  } else if (meetingRegularityRoll <= 5) {
-    faction.meetingRegularity = 'at literally any time'
   } else {
-    faction.meetingRegularity = "when there's an issue that needs discussion"
+    faction.meetingRegularity = 'at literally any time'
   }
 
   if (meetingAccessibilityRoll > 95) {
