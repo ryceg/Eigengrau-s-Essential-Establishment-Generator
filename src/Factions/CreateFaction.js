@@ -45,7 +45,7 @@ setup.createFaction = function (town, opts = {}) {
 
   setup.createRivals(faction)
   console.log('other cool bits...')
-  setup.createMisc(faction)
+  lib.setFactionMisc(faction)
 
   faction.tippyDescription = `${setup.articles.output(faction.size).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 

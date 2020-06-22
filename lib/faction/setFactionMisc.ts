@@ -1,5 +1,8 @@
-setup.createMisc = function (faction) {
-  faction.misc = [
+import { random } from '../src/random'
+import { Faction } from './_common'
+
+export function setFactionMisc (faction: Faction) {
+  faction.misc = random([
     'currently recruiting',
     'adjusting to a change in leadership',
     'extremely secretive',
@@ -16,7 +19,5 @@ setup.createMisc = function (faction) {
     'rumoured to own a powerful artifact',
     'rumoured to employ dangerous criminals',
     'rumoured to help lucky commoners'
-  ].random()
-
-  return faction
+  ])
 }
