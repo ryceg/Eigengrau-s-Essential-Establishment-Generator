@@ -19,33 +19,21 @@ export function setFactionJoinStats (faction: Faction) {
     joiningInitiation: random(joiningInitiation)
   })
 
-  const joiningFeeRoll = dice(2, 50)
+  faction.joiningFee = getJoiningFee(dice(2, 50))
+}
 
-  if (joiningFeeRoll > 95) {
-    faction.joiningFee = 'a single copper, as a show of faith'
-  } else if (joiningFeeRoll > 90) {
-    faction.joiningFee = 'a single gold piece'
-  } else if (joiningFeeRoll > 80) {
-    faction.joiningFee = 'ten gold pieces'
-  } else if (joiningFeeRoll > 70) {
-    faction.joiningFee = 'twenty gold pieces'
-  } else if (joiningFeeRoll > 60) {
-    faction.joiningFee = 'fifty gold pieces'
-  } else if (joiningFeeRoll > 55) {
-    faction.joiningFee = 'a hundred gold pieces'
-  } else if (joiningFeeRoll > 50) {
-    faction.joiningFee = 'two hundred gold pieces'
-  } else if (joiningFeeRoll > 45) {
-    faction.joiningFee = "two hundred gold pieces, provided there's an empty slot"
-  } else if (joiningFeeRoll > 40) {
-    faction.joiningFee = "three hundred gold pieces, provided there's an empty slot"
-  } else if (joiningFeeRoll > 30) {
-    faction.joiningFee = 'five hundred gold pieces'
-  } else if (joiningFeeRoll > 20) {
-    faction.joiningFee = "five hundred gold pieces, provided there's an empty slot"
-  } else if (joiningFeeRoll > 10) {
-    faction.joiningFee = 'five hundred gold pieces, plus a tremendous task'
-  } else {
-    faction.joiningFee = `absolutely anything; they could demand two thousand gold, or ${random(['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger'])}`
-  }
+function getJoiningFee (roll: number) {
+  if (roll > 95) return 'a single copper, as a show of faith'
+  if (roll > 90) return 'a single gold piece'
+  if (roll > 80) return 'ten gold pieces'
+  if (roll > 70) return 'twenty gold pieces'
+  if (roll > 60) return 'fifty gold pieces'
+  if (roll > 55) return 'a hundred gold pieces'
+  if (roll > 50) return 'two hundred gold pieces'
+  if (roll > 45) return "two hundred gold pieces, provided there's an empty slot"
+  if (roll > 40) return "three hundred gold pieces, provided there's an empty slot"
+  if (roll > 30) return 'five hundred gold pieces'
+  if (roll > 20) return "five hundred gold pieces, provided there's an empty slot"
+  if (roll > 10) return 'five hundred gold pieces, plus a tremendous task'
+  return `absolutely anything; they could demand two thousand gold, or ${random(['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger'])}`
 }
