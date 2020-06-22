@@ -4,74 +4,57 @@ import { Faction } from './_common'
 export function setFactionReputation (faction: Faction) {
   console.log('assigning a reputation...')
 
-  switch (faction.age) {
-    case 'ancient':
-      faction.roll.reputation += fm(faction.roll.reputation, 30)
-      break
-    case 'extremely old':
-      faction.roll.reputation += fm(faction.roll.reputation, 25)
-      break
-    case 'very old':
-      faction.roll.reputation += fm(faction.roll.reputation, 20)
-      break
-    case 'quite old':
-      faction.roll.reputation += fm(faction.roll.reputation, 15)
-      break
-    case 'well established':
-      faction.roll.reputation += fm(faction.roll.reputation, 10)
-      break
-    case 'somewhat old':
-      faction.roll.reputation += fm(faction.roll.reputation, 5)
-      break
-    case 'relatively new':
-      faction.roll.reputation += fm(faction.roll.reputation, -5)
-      break
-    case 'recently established':
-      faction.roll.reputation += fm(faction.roll.reputation, -10)
-      break
-    case 'new':
-      faction.roll.reputation += fm(faction.roll.reputation, -15)
-      break
-    case 'quite new':
-      faction.roll.reputation += fm(faction.roll.reputation, -20)
-      break
-    case 'very new':
-      faction.roll.reputation += fm(faction.roll.reputation, -25)
-      break
-    case 'brand new':
-      faction.roll.reputation += fm(faction.roll.reputation, -25)
-      break
-    case 'unknown':
-      faction.roll.reputation += fm(faction.roll.reputation, 15)
-  }
+  const ageModifier = getAgeModifier(faction.age)
 
-  if (faction.roll.reputation > 95) {
-    faction.reputation = 'excellent'
-  } else if (faction.roll.reputation > 90) {
-    faction.reputation = 'very good'
-  } else if (faction.roll.reputation > 80) {
-    faction.reputation = 'quite good'
-  } else if (faction.roll.reputation > 70) {
-    faction.reputation = 'good'
-  } else if (faction.roll.reputation > 60) {
-    faction.reputation = 'above average'
-  } else if (faction.roll.reputation > 55) {
-    faction.reputation = 'slightly above average'
-  } else if (faction.roll.reputation > 50) {
-    faction.reputation = 'average'
-  } else if (faction.roll.reputation > 45) {
-    faction.reputation = 'slightly below average'
-  } else if (faction.roll.reputation > 40) {
-    faction.reputation = 'poor'
-  } else if (faction.roll.reputation > 30) {
-    faction.reputation = 'quite poor'
-  } else if (faction.roll.reputation > 20) {
-    faction.reputation = 'very poor'
-  } else if (faction.roll.reputation > 10) {
-    faction.reputation = 'extremely poor'
-  } else if (faction.roll.reputation <= 5) {
-    faction.reputation = 'abysmal'
-  } else {
-    faction.reputation = 'average'
+  faction.roll.reputation += fm(faction.roll.reputation, ageModifier)
+
+  faction.reputation = getFactionReputation(faction.roll.reputation)
+}
+
+function getAgeModifier (age: string): number {
+  switch (age) {
+    case 'ancient':
+      return 30
+    case 'extremely old':
+      return 25
+    case 'very old':
+      return 20
+    case 'quite old':
+      return 15
+    case 'well established':
+      return 10
+    case 'somewhat old':
+      return 5
+    case 'relatively new':
+      return -5
+    case 'recently established':
+      return -10
+    case 'new':
+      return -15
+    case 'quite new':
+      return -20
+    case 'very new':
+      return -25
+    case 'brand new':
+      return -25
+    case 'unknown':
+      return 15
   }
+  return 0
+}
+
+function getFactionReputation (roll: number) {
+  if (roll > 95) return 'excellent'
+  if (roll > 90) return 'very good'
+  if (roll > 80) return 'quite good'
+  if (roll > 70) return 'good'
+  if (roll > 60) return 'above average'
+  if (roll > 55) return 'slightly above average'
+  if (roll > 50) return 'average'
+  if (roll > 45) return 'slightly below average'
+  if (roll > 40) return 'poor'
+  if (roll > 30) return 'quite poor'
+  if (roll > 20) return 'very poor'
+  if (roll > 10) return 'extremely poor'
+  return 'abysmal'
 }
