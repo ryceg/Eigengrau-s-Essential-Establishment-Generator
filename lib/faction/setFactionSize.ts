@@ -7,87 +7,56 @@ interface Town {
 export function setFactionSize (town: Town, faction: Faction) {
   console.log('calculating size...')
 
-  if (faction.roll.age > 95) {
-    faction.roll.size += 20
-  } else if (faction.roll.age > 90) {
-    faction.roll.size += 15
-  } else if (faction.roll.age > 80) {
-    faction.roll.size += 12
-  } else if (faction.roll.age > 70) {
-    faction.roll.size += 10
-  } else if (faction.roll.age > 60) {
-    faction.roll.size += 5
-  } else if (faction.roll.age > 55) {
-    faction.roll.size += 2
-  } else if (faction.roll.age > 50) {
-    faction.roll.size += 1
-  } else if (faction.roll.age > 45) {
-    faction.roll.size += -2
-  } else if (faction.roll.age > 40) {
-    faction.roll.size += -5
-  } else if (faction.roll.age > 30) {
-    faction.roll.size += -10
-  } else if (faction.roll.age > 20) {
-    faction.roll.size += -15
-  } else if (faction.roll.age > 10) {
-    faction.roll.size += -20
-  } else {
-    faction.roll.size += -25
-  }
+  faction.roll.size += getAgeModifier(faction.roll.age)
+  faction.roll.size += getPopulationModifier(town.population)
 
-  if (town.population > 6000) {
-    faction.roll.size += 25
-  } else if (town.population > 5800) {
-    faction.roll.size += 22
-  } else if (town.population > 5400) {
-    faction.roll.size += 20
-  } else if (town.population > 5000) {
-    faction.roll.size += 15
-  } else if (town.population > 4500) {
-    faction.roll.size += 10
-  } else if (town.population > 4000) {
-    faction.roll.size += 5
-  } else if (town.population > 3500) {
-    faction.roll.size += 5
-  } else if (town.population > 3000) {
-    faction.roll.size += 5
-  } else if (town.population > 2500) {
-    faction.roll.size += 5
-  } else if (town.population > 2000) {
-    faction.roll.size += -5
-  } else if (town.population > 1500) {
-    faction.roll.size += -15
-  } else if (town.population > 1000) {
-    faction.roll.size += -25
-  } else {
-    faction.roll.size += -30
-  }
+  faction.size = getFactionSize(faction.roll.size)
+}
 
-  if (faction.roll.size > 95) {
-    faction.size = 'huge'
-  } else if (faction.roll.size > 90) {
-    faction.size = 'very large'
-  } else if (faction.roll.size > 80) {
-    faction.size = 'quite large'
-  } else if (faction.roll.size > 70) {
-    faction.size = 'large'
-  } else if (faction.roll.size > 60) {
-    faction.size = 'above average sized'
-  } else if (faction.roll.size > 55) {
-    faction.size = 'slightly above average sized'
-  } else if (faction.roll.size > 50) {
-    faction.size = 'average sized'
-  } else if (faction.roll.size > 45) {
-    faction.size = 'slightly below average sized'
-  } else if (faction.roll.size > 40) {
-    faction.size = 'somewhat small'
-  } else if (faction.roll.size > 30) {
-    faction.size = 'quite small'
-  } else if (faction.roll.size > 20) {
-    faction.size = 'very small'
-  } else if (faction.roll.size > 10) {
-    faction.size = 'tiny'
-  } else {
-    faction.size = 'miniscule'
-  }
+function getAgeModifier (roll: number) {
+  if (roll > 95) return 20
+  if (roll > 90) return 15
+  if (roll > 80) return 12
+  if (roll > 70) return 10
+  if (roll > 60) return 5
+  if (roll > 55) return 2
+  if (roll > 50) return 1
+  if (roll > 45) return -2
+  if (roll > 40) return -5
+  if (roll > 30) return -10
+  if (roll > 20) return -15
+  if (roll > 10) return -20
+  return -25
+}
+
+function getPopulationModifier (population: number) {
+  if (population > 6000) return 25
+  if (population > 5800) return 22
+  if (population > 5400) return 20
+  if (population > 5000) return 15
+  if (population > 4500) return 10
+  if (population > 4000) return 5
+  if (population > 3500) return 5
+  if (population > 3000) return 5
+  if (population > 2500) return 5
+  if (population > 2000) return -5
+  if (population > 1500) return -15
+  if (population > 1000) return -25
+  return -30
+}
+
+function getFactionSize (roll: number) {
+  if (roll > 95) return 'huge'
+  if (roll > 90) return 'very large'
+  if (roll > 80) return 'quite large'
+  if (roll > 70) return 'large'
+  if (roll > 60) return 'above average sized'
+  if (roll > 55) return 'slightly above average sized'
+  if (roll > 50) return 'average sized'
+  if (roll > 45) return 'slightly below average sized'
+  if (roll > 40) return 'somewhat small'
+  if (roll > 30) return 'quite small'
+  if (roll > 20) return 'very small'
+  if (roll > 10) return 'tiny'
+  return 'miniscule'
 }
