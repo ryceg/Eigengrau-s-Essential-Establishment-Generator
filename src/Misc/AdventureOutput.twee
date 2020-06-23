@@ -4,7 +4,7 @@
 <<set $adventure.murderer to setup.createNPC($town, {gender: "man", hasClass: false, profession: "apothecarist"})>>
 <<set $adventure.alchemist to setup.createNPC($town, {gender: "man", hasClass: false, profession: "alchemist"})>>
 <<set $adventure.tavern to lib.objectArrayFetcher($town.buildings.tavern)>>
-<<set $adventure.herbs to setup.createAlchemy({type: "preserved herb"})>><</if>><</nobr>>
+<<set $adventure.herbs to lib.createAlchemy({ type: "preserved herb" })>><</if>><</nobr>>
 <h3>Place #1 - The Murder Site</h3>You come across the body of a woman lying in one of the back alleys near $adventure.tavern.name. She's well dressed, very pale, and roughly 45 years of age. It is not exactly clear how she died, but her eyes are bulging.
 <<linkreplace "<h4>Inspect the body (Medicine (Wis) DC 10 Check)</h4>">><h4>Clue #1 - The Woman's Body</h4>It looks as though she was gagging before dying.<</linkreplace>>
 

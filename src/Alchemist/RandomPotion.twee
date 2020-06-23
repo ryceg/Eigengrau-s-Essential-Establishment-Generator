@@ -1,6 +1,6 @@
 :: RandomPotion
 <<link "<h6>Generate a random potion!</h6>">>
-<<set $randomPotion to setup.createAlchemy({type: "potion"})>>
+<<set $randomPotion to lib.createAlchemy({ type: "potion" })>>
 <div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout</div>
 <blockquote>$randomPotion.effectReadout</blockquote>
     <<replace "#randpotion">>
