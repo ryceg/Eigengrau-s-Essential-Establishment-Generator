@@ -16,7 +16,6 @@ export function createAlchemy (base?: Base) {
   const substanceForm = ['chips', 'cubes', 'disks', 'flakes', 'granules', 'gravel', 'chunks', 'nuggets', 'pebbles', 'polyhedrons', 'powder', 'rocks', 'sequins', 'small cylinders', 'wire']
   const substanceType = ['amber', 'brimstone', 'bronze', 'brass', 'chitin', 'coal', 'emerald', 'ruby', 'sapphire', 'incense', 'iron', 'steel', 'obsidion', 'turquoise', 'opal', 'jade', 'pearl', 'rust', 'salt']
   const liquidTitle = ['potion', 'elixir', 'draught', 'vial', 'philter', 'tonic', 'brew', 'ichor', 'juice', 'concoction']
-  const potionTitleRoll = random(0, 99)
   const potionPurpose = ['love potion', 'fertility tonic', 'magical cure-all', 'terrible poison', 'component for a summoning ritual', 'component for a necromantic ritual', 'component for a polymorphing hex', 'component for a beguiling charm', 'potent acid solvent', 'potentially explosive substance', 'substitute for alcohol', 'substitute for drugs', 'substitute for food', 'substitute for animal feed']
   const potionContainer = ['conical smooth glass bottle', 'square glass bottle', 'not quite watertight leather waterskin', 'stone flask', 'metal thermos', 'glass syringe', 'small medical vial', 'small shot sized bottle', 'large metal bottle', 'capped horn', 'rather decorative glass bottle', 'geometric diamond shaped bottle', 'translucent long wine bottle', 'translucent beer bottle', 'leather pouch', 'spray bottle', 'coloured bottle', 'bone flask', 'small metal vial', 'large bottle that can be swigged several times']
   const vesselDescriptor = ['delicate', 'tiny', 'heavy-bottomed', 'thick', 'grimy', 'polished', 'shiny', 'blackened', 'well-worn', 'round-bottomed', 'quite large', 'comically large']
@@ -83,6 +82,7 @@ export function createAlchemy (base?: Base) {
       break
     }
     case 'potion': {
+      const potionTitleRoll = random(0, 99)
       const temp = {
         potionContainer: random(potionContainer),
         potionLabel: random(potionLabel),
