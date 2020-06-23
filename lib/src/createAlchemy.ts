@@ -37,102 +37,102 @@ export function createAlchemy (base?: Base) {
 
   assign(output, base)
 
-  switch (output.type) {
-    case 'alchemical ingredient':
-      assign(output, {
-        preservationMethod: random(preservationMethod),
-        smallThing: random(smallThing)
-      })
-      break
-    case 'body part':
-      assign(output, {
-        preservationMethod: random(preservationMethod),
-        bodyPart: random(bodyPart),
-        bodyPartOrigin: random(bodyPartOrigin)
-      })
-      break
-    case 'substance':
-      assign(output, {
-        substanceForm: random(substanceForm),
-        substanceType: random(substanceType)
-      })
-      break
-    case 'preserved herb':
-      assign(output, {
-        herbPreservation: random(herbPreservation),
-        herb: random(herb),
-        readout: `${random(herbPreservation)} ${random(herb)}`
-      })
-      break
-    case 'brewing potion': {
-      const temp = {
-        vesselDescriptor: random(vesselDescriptor),
-        vesselMaterial: random(vesselMaterial),
-        vesselType: random(vesselType),
-        liquidTexture: random(liquidTexture),
-        liquidColour: random(liquidColour),
-        liquidSecondary: random(liquidSecondary),
-        potionPurpose: random(potionPurpose)
-      }
-      assign(output, {
-        ...temp,
-        containerDescription: `${temp.vesselDescriptor} ${temp.vesselMaterial} ${temp.vesselType}`,
-        liquidDescription: `${temp.liquidTexture} ${temp.liquidColour} liquid with ${temp.liquidSecondary}`
-      })
-      break
-    }
-    case 'potion': {
-      const potionTitleRoll = random(0, 99)
-      const temp = {
-        potionContainer: random(potionContainer),
-        potionLabel: random(potionLabel),
-        potionStrength: random(potionStrength),
-        potionSideEffect: random(potionSideEffect),
-        smell: random(smell),
-        taste: random(smell),
-        liquidTitle: random(liquidTitle),
-        liquidColour: random(liquidColour),
-        liquidSecondary: random(liquidSecondary),
-        liquidTexture: random(liquidTexture),
-        potionTitleRoll,
-        potionTitle: potionTitle[potionTitleRoll],
-        potionEffect: potionEffect[potionTitleRoll]
-      }
-      assign(temp, {
-        titleReadout: `${capitalizeFirstLetter(temp.liquidTitle)} of ${temp.potionTitle}`,
-        descriptionReadout: `The potion is in a ${temp.potionContainer}, and has a label showing ${temp.potionLabel}. It looks ${temp.liquidColour} with ${temp.liquidSecondary}. ` + `It is ${temp.liquidTexture} and smells of ${temp.smell} but tastes of ${temp.taste}.`
-      })
-      switch (temp.potionStrength) {
-        case 'regular with no side effect':
-          assign(output, {
-            effectReadout: `The potion's strength is ${temp.potionStrength}, and ${temp.potionEffect}.`
-          })
-          break
-        case 'temporary, but strong and wears off quickly':
-          assign(output, {
-            effectReadout: `The potion's strength is ${temp.potionStrength}, and ${temp.potionEffect}.`
-          })
-          break
-        case 'seemingly permanent':
-          assign(output, {
-            effectReadout: `The potion's strength is ${temp.potionStrength}, and ${temp.potionEffect}.`
-          })
-          break
-        case 'poisonous. Almost no positive effect and is all side effect':
-          assign(output, {
-            effectReadout: `The potion's strength is ${temp.potionStrength}, and allegedly ${temp.potionEffect} but has the strong side effect of ${temp.potionSideEffect}.`
-          })
-          break
-        default:
-          assign(output, {
-            effectReadout: `The potion's strength is ${temp.potionStrength}, and ${temp.potionEffect}, with the side effect of ${temp.potionSideEffect}.`
-          })
-          break
-      }
-      assign(output, temp)
-      break
+  if (output.type === 'alchemical ingredient') {
+    return {
+      ...output,
+      preservationMethod: random(preservationMethod),
+      smallThing: random(smallThing)
     }
   }
 
-  return output
+  if (output.type === 'body part') {
+    return {
+      ...output,
+      preservationMethod: random(preservationMethod),
+      bodyPart: random(bodyPart),
+      bodyPartOrigin: random(bodyPartOrigin)
+    }
+  }
+
+  if (output.type === 'substance') {
+    return {
+      ...output,
+      substanceForm: random(substanceForm),
+      substanceType: random(substanceType)
+    }
+  }
+  if (output.type === 'preserved herb') {
+    return {
+      ...output,
+      herbPreservation: random(herbPreservation),
+      herb: random(herb),
+      readout: `${random(herbPreservation)} ${random(herb)}`
+    }
+  }
+
+  if (output.type === 'brewing potion') {
+    const temp = {
+      vesselDescriptor: random(vesselDescriptor),
+      vesselMaterial: random(vesselMaterial),
+      vesselType: random(vesselType),
+      liquidTexture: random(liquidTexture),
+      liquidColour: random(liquidColour),
+      liquidSecondary: random(liquidSecondary),
+      potionPurpose: random(potionPurpose)
+    }
+    return {
+      ...output,
+      ...temp,
+      containerDescription: `${temp.vesselDescriptor} ${temp.vesselMaterial} ${temp.vesselType}`,
+      liquidDescription: `${temp.liquidTexture} ${temp.liquidColour} liquid with ${temp.liquidSecondary}`
+    }
+  }
+
+  if (output.type === 'potion') {
+    const potionTitleRoll = random(0, 99)
+
+    assign(output, {
+      potionContainer: random(potionContainer),
+      potionLabel: random(potionLabel),
+      potionStrength: random(potionStrength),
+      potionSideEffect: random(potionSideEffect),
+      smell: random(smell),
+      taste: random(smell),
+      liquidTitle: random(liquidTitle),
+      liquidColour: random(liquidColour),
+      liquidSecondary: random(liquidSecondary),
+      liquidTexture: random(liquidTexture),
+      potionTitleRoll,
+      potionTitle: potionTitle[potionTitleRoll],
+      potionEffect: potionEffect[potionTitleRoll]
+    })
+
+    assign(output, {
+      titleReadout: `${capitalizeFirstLetter(output.liquidTitle)} of ${output.potionTitle}`,
+      descriptionReadout: `The potion is in a ${output.potionContainer}, and has a label showing ${output.potionLabel}. It looks ${output.liquidColour} with ${output.liquidSecondary}. ` + `It is ${output.liquidTexture} and smells of ${output.smell} but tastes of ${output.taste}.`
+    })
+
+    const getEffectReadout = () => {
+      switch (output.potionStrength) {
+        case 'regular with no side effect':
+          return `The potion's strength is ${output.potionStrength}, and ${output.potionEffect}.`
+        case 'temporary, but strong and wears off quickly':
+          return `The potion's strength is ${output.potionStrength}, and ${output.potionEffect}.`
+        case 'seemingly permanent':
+          return `The potion's strength is ${output.potionStrength}, and ${output.potionEffect}.`
+        case 'poisonous. Almost no positive effect and is all side effect':
+          return `The potion's strength is ${output.potionStrength}, and allegedly ${output.potionEffect} but has the strong side effect of ${output.potionSideEffect}.`
+        default:
+          return `The potion's strength is ${output.potionStrength}, and ${output.potionEffect}, with the side effect of ${output.potionSideEffect}.`
+      }
+    }
+
+    assign(output, {
+      effectReadout: getEffectReadout()
+    })
+
+    return output
+  }
+
+  throw new Error(`Invalid type: '${type}'.`)
 }
