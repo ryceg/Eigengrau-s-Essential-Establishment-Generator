@@ -1086,7 +1086,7 @@ setup.initNpcData = () => {
               'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
               'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
             if (adventureRoll === 100) {
-              const weapon = setup.createMagicWeapon()
+              const weapon = lib.createMagicWeapon()
               console.log('Called weapon function.')
               adventureResults = `came across a magical weapon- this is my trusty ${weapon.name}<blockquote>` + `<h4>${weapon.name}</h4>${weapon.description}</blockquote>`
             } else if (adventureRoll >= 91) {
