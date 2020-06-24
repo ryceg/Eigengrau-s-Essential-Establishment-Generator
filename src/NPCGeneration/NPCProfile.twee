@@ -102,5 +102,3 @@ $currentNPC.firstName currently earns <<money _finances.netIncome>> <<linkreplac
 </div>
 <</if>>
 <</nobr>><<run console.groupEnd()>><<run console.log($currentNPC)>>
-
-[[Return|previous()]]

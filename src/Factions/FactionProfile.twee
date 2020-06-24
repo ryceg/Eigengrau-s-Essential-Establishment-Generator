@@ -61,5 +61,3 @@ $currentFaction.name have $currentFaction.rivalsDescription; <<nobr>><<if $curre
     <</for>>
     and <<print $currentFaction.rivals[$currentFaction.rivals.length - 1]>>.
 <</if>><</nobr>>
-
-<<back>>

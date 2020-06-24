@@ -100,4 +100,3 @@
   <<run console.log('Saving changes to ' + $npcs[$currentPassage.key].name + '...')>>
   <<goto "NPCProfileEdit">>
 <</button>>
-[[Return|previous()]]

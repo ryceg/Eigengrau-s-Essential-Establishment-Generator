@@ -15,4 +15,3 @@ $town.guard.funding
 
 $town.law
 <<set $currentPassage to $town.guard>>
-<<back>>

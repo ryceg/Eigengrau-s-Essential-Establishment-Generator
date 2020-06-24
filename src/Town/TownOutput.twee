@@ -153,5 +153,3 @@ _listbox -- <<button "Create new faction">>
     \<</if>></td></tr><</capture>><</nobr>><</for>>
 </table>Total: <<print _count.toFixed(2)>>% of the total population.
 <</linkappend>>
-
-<<back>>
