@@ -65,10 +65,8 @@ setup.initMiscLocations = () => {
       available: ['forest'],
       function: (town, biome) => {
         const contents = lib.contentsFetcher(setup.misc[biome].cottageLives, setup.misc.encounters)(town, biome)
-        const cabin = setup.misc.cabin.create(town, biome, {
-          wordNoun: 'cottage'
-        })
-        return `a peculiar ${cabin.tippyWord}. <blockquote>${contents} lives here.</blockquote>`
+        const cottage = lib.createAutoTippy(lib.cabin, { wordNoun: 'cottage' })('cottage')
+        return `a peculiar ${cottage}. <blockquote>${contents} lives here.</blockquote>`
       }
     },
 
@@ -76,32 +74,29 @@ setup.initMiscLocations = () => {
       available: ['forest'],
       function: (town, biome) => {
         const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
-        const cabin = setup.misc.cabin.create(town, biome)
-        return `a woodsman's ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
+        const cabin = lib.createAutoTippy(lib.cabin)('cabin')
+        return `a woodsman's ${cabin}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
       }
     },
     'a cozy little cabin': {
       available: ['forest'],
       function: (town, biome) => {
         const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
-        const cabin = setup.misc.cabin.create(town, biome, {
-          wordNoun: 'cabin',
-          size: 'little'
-        })
-        return `a cozy little ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
+        const cabin = lib.createAutoTippy(lib.cabin, { size: 'little' })('cabin')
+        return `a cozy little ${cabin}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
       }
     },
     'an abandoned cabin': {
       available: ['forest', 'mountain'],
       function: (town, biome) => {
         const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
-        const cabin = setup.misc.cabin.create(town, biome)
+        const cabin = lib.createAutoTippy(lib.cabin)('cabin')
         return `an abandoned ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
       }
     },
     'an abandoned campsite': {
       available: ['forest', 'mountain', 'road', 'desert'],
-      function: (town, biome) => {
+      function: () => {
         const contents = ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'some elves', 'some refugees or fugitives', 'someone whose purposes are unclear', 'someone who left in an awful hurry']
         return `an abandoned campsite, which looks to have been occupied previously by ${contents.random()}`
       }
@@ -185,11 +180,8 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const lived = setup.misc[biome].houseLived.random()
         const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, setup.misc.encounters)(town, biome)
-        const cabin = setup.misc.cabin.create(town, biome, {
-          material: 'stone',
-          wordNoun: 'house'
-        })
-        return `an abandoned ${cabin.tippy}<span class="dotted">stone house</span></span>. <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
+        const house = lib.createAutoTippy(lib.cabin, { material: 'stone', wordNoun: 'house' })('stone house')
+        return `an abandoned ${house}. <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
       }
     },
     'a stone house': {
@@ -197,11 +189,8 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const lived = setup.misc[biome].houseLived.random()
         const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, setup.misc.encounters)(town, biome)
-        const cabin = setup.misc.cabin.create(town, biome, {
-          material: 'stone',
-          wordNoun: 'house'
-        })
-        return `a ${cabin.tippy}<span class="dotted">stone house</span></span> sheltered by a ${['canyon', 'gorge', 'bluff'].random()} <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
+        const house = lib.createAutoTippy(lib.cabin, { material: 'stone', wordNoun: 'house' })('stone house')
+        return `a ${house} sheltered by a ${['canyon', 'gorge', 'bluff'].random()} <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
       }
     },
     "a merchant caravan's camp": {

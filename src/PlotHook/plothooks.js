@@ -394,8 +394,8 @@ setup.plothooks = {
         gender: 'woman',
         dndClass: 'sorcerer'
       })
-      const cabin = setup.misc.cabin.create()
-      return `Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ${setup.profile(npc, 'witch')} that lives in ${setup.articles.output(cabin.tippyWord)} in old haunted forest; all the chickens have been enlarged.)`
+      const cabinTippy = lib.createAutoTippy(lib.cabin)
+      return `Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ${setup.profile(npc, 'witch')} that lives in ${cabinTippy(setup.articles.output('cabin'))} in old haunted forest; all the chickens have been enlarged.)`
     }
   },
   'Guard The Garlic': {
@@ -672,9 +672,9 @@ setup.plothooks = {
   },
   'Bucket Festival': {
     type: ['paper'],
-    function (town) {
-      const house = setup.misc.cabin.create()
-      return `Come join us for the first annual bucket festival! Bring a bucket and you favourite drinks to join in the festivities. Meet out back the delapited ${house.tippyWord} on the edge of town at any time. You know the one, you’ve seen it in your dreams.`
+    function () {
+      const house = lib.createAutoTippy(lib.cabin)('house')
+      return `Come join us for the first annual bucket festival! Bring a bucket and you favourite drinks to join in the festivities. Meet out back the delapited ${house} on the edge of town at any time. You know the one, you’ve seen it in your dreams.`
     }
   },
   'Need Bartender': {
