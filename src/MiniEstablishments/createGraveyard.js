@@ -13,7 +13,7 @@ setup.createGraveyard = (town, base = {}) => {
     cleanliness: setup.graveyard.cleanliness.random(),
     namePrefix: setup.graveyard.namePrefix.random(),
     nameSuffix: setup.graveyard.nameSuffix.random(),
-    tree: setup.misc.tree.create(town, 'plains'),
+    tree: lib.tree.create({ biome: 'plains' }),
     associatedNPC: setup.createNPC(town, {
       profession: 'gravedigger'
     }),

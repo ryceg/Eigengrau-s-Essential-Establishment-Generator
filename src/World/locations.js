@@ -36,8 +36,8 @@ setup.initMiscLocations = () => {
           const spider = lib.createAutoTippy(lib.spider)('spider')
           contents = `a ${spider}.`
         }
-        const tree = setup.misc.tree.create(town, biome)
-        return `a hole under a large ${tree.tippyWord}. <blockquote>Inside is ${contents}.</blockquote>`
+        const tree = lib.createAutoTippy(lib.tree, { biome })('tree')
+        return `a hole under a large ${tree}. <blockquote>Inside is ${contents}.</blockquote>`
       }
     },
     'a hole under a sheer cliff': {

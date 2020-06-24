@@ -11,6 +11,7 @@ export * from './constructs/horse'
 export * from './constructs/ogre'
 export * from './constructs/orcs'
 export * from './constructs/spider'
+export * from './constructs/tree'
 export * from './constructs/wolf'
 
 export * from './faction/createAllies'
