@@ -1,7 +1,7 @@
 
 setup.createGuard = function (town) {
   console.groupCollapsed('creating the guard...')
-  // console.log(townName + ' is the townName passed to the guard.')
+
   const guard = {
     associatedTown: town.name,
     objectType: 'guard',
@@ -10,19 +10,19 @@ setup.createGuard = function (town) {
       background: 'soldier'
     }),
     passageName: 'GuardOutput',
-    livery: `${setup.guardData.primaryColours.random()} and ${setup.guardData.secondaryColours.random()} livery adorned with an image of ${setup.guardData.insignia.random()}`
+    livery: `${lib.guardData.primaryColours.random()} and ${lib.guardData.secondaryColours.random()} livery adorned with an image of ${lib.guardData.insignia.random()}`
   }
 
-  const guardData = setup.guardData.name
+  const nameData = lib.guardData.name
   guard.name = [
-    `The ${guardData.group.random()} of ${town.name}`,
-    `The ${town.name} ${guardData.group.random()}`,
-    `The ${guardData.group.random()} of ${guardData.alternateAdjective.random()}`,
-    `The ${guardData.adjective.random()} ${guardData.group.random()}`,
-    `The ${guardData.adjective.random()} ${guardData.noun.random()}`,
-    `The ${guardData.adjective.random()} ${guardData.noun.random()} of ${guardData.alternateAdjective.random()}`,
-    `The ${guardData.adjective.random()} ${guardData.noun.random()} of ${town.name}`,
-    `The ${guardData.group.random()} ${guardData.noun.random()} of ${town.name}`
+    `The ${nameData.group.random()} of ${town.name}`,
+    `The ${town.name} ${nameData.group.random()}`,
+    `The ${nameData.group.random()} of ${nameData.alternateAdjective.random()}`,
+    `The ${nameData.adjective.random()} ${nameData.group.random()}`,
+    `The ${nameData.adjective.random()} ${nameData.noun.random()}`,
+    `The ${nameData.adjective.random()} ${nameData.noun.random()} of ${nameData.alternateAdjective.random()}`,
+    `The ${nameData.adjective.random()} ${nameData.noun.random()} of ${town.name}`,
+    `The ${nameData.group.random()} ${nameData.noun.random()} of ${town.name}`
   ].random()
 
   console.log(`${guard.name} is the name of the guard.`)
