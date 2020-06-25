@@ -19,6 +19,8 @@ interface Setup {
   createGuard(town: Town): any
 
   updateSocioPolitics(town: Town): Town
+
+  townData: ReturnType<typeof import('../lib/src/getTownData')['getTownData']>
 }
 
 interface Town {

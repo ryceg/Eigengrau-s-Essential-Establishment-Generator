@@ -1,6 +1,9 @@
-setup.initTownData = () => {
-  setup.townData = {
-    ...setup.townData || {},
+import { randomFloat } from './randomFloat'
+import { random } from './random'
+import { getTerrainData } from './getTerrainData'
+
+export function getTownData () {
+  const townData = {
     name: {
       prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
       suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
@@ -225,7 +228,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(30, 300) },
-        'startFactionsNumber' () { return [1, 1, 1, 1, 1, 2].random() },
+        'startFactionsNumber' () { return random([1, 1, 1, 1, 1, 2]) },
         // roadDuplication: d100 of whether to create a new road (new one if under).
         roadDuplication: 40,
         modifiers: {
@@ -339,7 +342,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(301, 1000) },
-        'startFactionsNumber' () { return [1, 1, 1, 2, 2, 2].random() },
+        'startFactionsNumber' () { return random([1, 1, 1, 2, 2, 2]) },
         roadDuplication: 50,
         modifiers: {
           wealth: -10,
@@ -452,7 +455,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(1001, 3000) },
-        'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3].random() },
+        'startFactionsNumber' () { return random([1, 1, 2, 2, 2, 3, 3]) },
         roadDuplication: 70,
         modifiers: {
           wealth: 15,
@@ -565,7 +568,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(3001, 6000) },
-        'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].random() },
+        'startFactionsNumber' () { return random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]) },
         roadDuplication: 90,
         modifiers: {
           wealth: 5,
@@ -851,7 +854,7 @@ setup.initTownData = () => {
       pedocracy: {
         leaderTraits: {
           hasClass: false,
-          profession: ['scholar', 'philosopher', 'horologist', 'mathematician'].random(),
+          profession: random(['scholar', 'philosopher', 'horologist', 'mathematician']),
           background: 'scholar',
           title: 'Sir',
           socialClass: 'nobility'
@@ -1218,6 +1221,8 @@ setup.initTownData = () => {
         'a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.',
         'a cave full of phosphorescent mushrooms that glow at night.']
     },
-    terrain: lib.getTerrainData()
+    terrain: getTerrainData()
   }
+
+  return townData
 }
