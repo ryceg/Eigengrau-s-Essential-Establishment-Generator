@@ -7,28 +7,8 @@
  * For factions, point towards `town.factions`
  */
 setup.profile = (obj, readout, type = 'npcs') => {
-  let targetObj
-  switch (type) {
-    case 'npcs':
-      targetObj = State.variables.npcs
-      break
-    case 'buildings':
-      targetObj = State.variables.town.buildings
-      break
-    case 'town.buildings':
-      targetObj = State.variables.town.buildings
-      break
-    case 'town.factions':
-      targetObj = State.variables.town.factions
-      break
-    case 'factions':
-      targetObj = State.variables.town.factions
-      break
-    default:
-      // TODO: add a function to find the correct object.
-      console.error(`setup.profile called with the type of ${type}!`)
-      targetObj = State.variables.npcs
-  }
+  const targetObj = getTarget(type)
+
   if (typeof obj === 'string') {
     console.error(`Profile function for ${obj} called with a string.`)
     obj = targetObj[type][obj]
@@ -40,4 +20,25 @@ setup.profile = (obj, readout, type = 'npcs') => {
   const key = JSON.stringify(obj.key)
 
   return `<<profile \`$${type}[${key}] \`${text}>>`
+}
+
+/**
+ * @param {string} type
+ * @returns {Record<string,unknown>}
+ */
+function getTarget (type) {
+  switch (type) {
+    case 'npcs':
+      return State.variables.npcs
+    case 'buildings':
+    case 'town.buildings':
+      return State.variables.town.buildings
+    case 'factions':
+    case 'town.factions':
+      return State.variables.town.factions
+  }
+
+  // TODO: add a function to find the correct object.
+  console.error(`setup.profile called with the type of ${type}!`)
+  return State.variables.npcs
 }
