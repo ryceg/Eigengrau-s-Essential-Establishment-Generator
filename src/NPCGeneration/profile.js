@@ -7,10 +7,9 @@
  * For factions, point towards `town.factions`
  */
 setup.profile = (obj, readout, type = 'npcs') => {
-  const targetObj = getTarget(type)
-
   if (typeof obj === 'string') {
     console.error(`Profile function for ${obj} called with a string.`)
+    const targetObj = getTarget(type)
     obj = targetObj[type][obj]
   }
 
