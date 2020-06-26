@@ -20,7 +20,7 @@ setup.createPersonality = (npc: NPC) => {
 setup.checkPersonality = (npc: NPC, createIfAbsent: boolean) => {
   if (npc.hasPersonality) {
     return true
-  } else if (npc.calmTrait && npc.stresTrait) {
+  } else if (npc.calmTrait && npc.stressTrait) {
     return true
   } else if (createIfAbsent === true) {
     setup.createPersonality(npc)
