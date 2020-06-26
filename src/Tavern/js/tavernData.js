@@ -156,7 +156,7 @@ setup.initTavernData = () => {
       },
       carousing (town, tavern) {
         const carousing = {
-          pickpocket () { return `A pickpocket lifts ${dice(5, 10)} gold from you.` },
+          pickpocket () { return `A pickpocket lifts ${lib.dice(5, 10)} gold from you.` },
           brawl () { return 'A bar brawl leaves you with a scar.' },
           memories () { return 'You have fuzzy memories of doing something very, very illegal, but can’t remember exactly what.' },
           banned (_, tavern) { return `You are banned from ${tavern.name} after some very obnoxious behaviour.` },

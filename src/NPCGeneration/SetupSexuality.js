@@ -11,13 +11,13 @@ setup.createSexuality = function (npc) {
       npc.roll.kinsey = 6
       npc.roll.sexuality = 99
     } else {
-      npc.roll.sexuality = 47 + dice(11, 4)
+      npc.roll.sexuality = 47 + lib.dice(11, 4)
     }
   }
 
   if (!npc.roll.kinsey) {
     const roll = random(0, 100)
-    npc.roll.sexuality = npc.roll.sexuality || roll || 47 + dice(13, 4)
+    npc.roll.sexuality = npc.roll.sexuality || roll || 47 + lib.dice(13, 4)
     if (npc.roll.sexuality < 70) {
       npc.roll.kinsey = 0
     } else if (npc.roll.sexuality < 75) {

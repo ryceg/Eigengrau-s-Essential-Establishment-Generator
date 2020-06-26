@@ -240,8 +240,8 @@ setup.initMiscEncounters = () => {
     'some graverobbers': () => 'some graverobbers',
     'some farmers': () => 'some farmers',
     'a plague-infested cabin': () => {
-      const cabin = setup.misc.cabin.create()
-      return `a plague-infested ${cabin.tippyWord}.`
+      const cabin = createAutoTippy(lib.cabin)('cabin')
+      return `a plague-infested ${cabin}.`
     },
     'some beserkers': () => 'some beserkers',
     'a caravan of gypsies': () => 'a caravan of gypsies',

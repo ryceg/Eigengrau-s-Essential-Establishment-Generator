@@ -1,13 +1,19 @@
 import { last, assert } from './utils'
 import { random } from './random'
 
-interface WithRolls {
-  name: string
+interface Named {
+  name?: string
+}
+
+interface Rolled {
   roll: Record<string, number>
-  [key: string]: unknown
 }
 
 type RollArray = [number, ...unknown[]][]
+
+export type RollData<T extends Rolled> = {
+  readonly [P in keyof T['roll']]: RollArray
+};
 
 /**
  * This handles setting up getters and setters for attributes like wealth,
@@ -25,7 +31,7 @@ type RollArray = [number, ...unknown[]][]
  * when you have multiple descriptions tied to the same thing
  * (long and short descriptions, or cleanliness controlling bedCleanliness as well.)
  */
-export function defineRollDataGetter <T extends WithRolls> (obj: T, rolls: Record<keyof T, RollArray>, propName: keyof T & string, keyName = propName, index = 1, rollLocation = obj.roll) {
+export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: RollData<T>, propName: keyof T & string, keyName = propName, index = 1, rollLocation = obj.roll) {
   console.groupCollapsed('DefineRollDataGetters')
 
   // eslint-disable-next-line prefer-rest-params
@@ -66,7 +72,7 @@ export function defineRollDataGetter <T extends WithRolls> (obj: T, rolls: Recor
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       this[`_${propName}`] = resultValue || result
-      return this[`_${propName}`]
+      return this[`_${propName}` as keyof typeof obj]
     },
     set (val) {
       console.log(`Setting ${this.name} ${propName}.`)

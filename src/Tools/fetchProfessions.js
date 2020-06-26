@@ -9,11 +9,11 @@ setup.fetchProfessions = town => {
   town = town || State.variables.town
   town.professions = {}
 
-  const professions = Object.entries(setup.townData.professions)
+  const professions = Object.entries(lib.professions)
 
   for (const [name, profession] of professions) {
     const townPop = town.population
-    const newSv = profession.sv + (dice('4d4-10') * 10)
+    const newSv = profession.sv + (lib.dice('4d4-10') * 10)
     const professionRoll = townPop / newSv /* Set the number of professions equal = the town's population divided by how many people are needed = support that type of business */
     const professionRollPercentage = townPop / profession.sv * 100
     const professionRollHundred = randomFloat(1, 100)

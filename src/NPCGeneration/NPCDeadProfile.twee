@@ -29,5 +29,3 @@ $currentNPC.death.cause $currentNPC.death.burialConditions
 <tr>
   <td><<profile $npcs[_key]>></td><td><<print _relationship.toUpperFirst()>></td>
 </tr><</for>></table><</nobr>></div><</if>>
-
-[[Return|previous()]]

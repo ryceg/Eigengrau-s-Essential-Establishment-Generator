@@ -47,10 +47,10 @@ setup.fetchProfessionChance = function (town, npc) {
   }
   console.log(`Profession is: ${resultantProfession}`)
   // the on-load function is handled in setup.createClass because it should apply to *every* NPC with the profession, not just those that are rolled with it
-  if (setup.townData.professions[resultantProfession].exclusions) {
-    if (typeof setup.townData.professions[resultantProfession].exclusions === 'function') {
+  if (lib.professions[resultantProfession].exclusions) {
+    if (typeof lib.professions[resultantProfession].exclusions === 'function') {
       console.log('There is an exclusion function. Testing...')
-      if (setup.townData.professions[resultantProfession].exclusions(town, npc) === false) {
+      if (lib.professions[resultantProfession].exclusions(town, npc) === false) {
         console.error(`${npc.name} is unable to be a ${resultantProfession}. Rerolling...`)
         resultantProfession = setup.fetchProfessionChance(town, npc)
       }
@@ -59,8 +59,8 @@ setup.fetchProfessionChance = function (town, npc) {
 
   console.log(`Testing to see whether ${resultantProfession} is a dndClass.`)
 
-  if (setup.townData.professions[resultantProfession].type !== undefined) {
-    if (setup.townData.professions[resultantProfession].type === 'dndClass') {
+  if (lib.professions[resultantProfession].type !== undefined) {
+    if (lib.professions[resultantProfession].type === 'dndClass') {
       console.log(`${npc.name} is a ${resultantProfession} and therefore has a dndClass.`)
       npc.hasClass = true
     } else {

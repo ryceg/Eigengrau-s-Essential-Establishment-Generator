@@ -84,8 +84,8 @@ setup.findParentRaces = function (npc) {
 setup.findChildRace = function (town, motherRace, fatherRace) {
   console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
 
-  motherRace = motherRace || fatherRace || setup.fetchRace(town)
-  fatherRace = fatherRace || motherRace || setup.fetchRace(town)
+  motherRace = motherRace || fatherRace || lib.fetchRace(town)
+  fatherRace = fatherRace || motherRace || lib.fetchRace(town)
   const races = []
   races.push(motherRace, fatherRace)
 

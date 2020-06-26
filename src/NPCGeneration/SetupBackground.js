@@ -22,14 +22,14 @@ setup.createBackground = function (npc) {
   npc.backgroundOrigin = npc.backgroundOrigin || backgroundOrigin
   npc.bond = npc.bond || bond
   npc.ideal = npc.ideal || ideal
-  // npc.wealth += dice(2, 50)
+  // npc.wealth += lib.dice(2, 50)
   // npc.wealth += typeof setup.npcData.classTraits[npc.background].wealth === 'function'
   //   ? setup.npcData.backgroundTraits[npc.background].wealth()
-  //   : dice(2, 50)
+  //   : lib.dice(2, 50)
   //
   // npc.knownLanguages += typeof setup.npcData.classTraits[npc.background].knownLanguages === 'function'
   //   ? setup.npcData.backgroundTraits[npc.background].knownLanguages()
-  //   : dice(2, 50)
+  //   : lib.dice(2, 50)
 
   // var getLanguages = function (npc) {
   //   if (random(1, 100) > 95) {

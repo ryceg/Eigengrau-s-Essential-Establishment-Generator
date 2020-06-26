@@ -87,19 +87,19 @@ setup.createTownBiome = function (base) {
       name: 'Test'
     },
     roll: {
-      wealth: dice(2, 50),
-      reputation: dice(2, 50),
-      religiosity: dice(2, 50),
-      sin: dice(2, 50),
-      diversity: dice(2, 50),
-      magic: dice(2, 50),
+      wealth: lib.dice(2, 50),
+      reputation: lib.dice(2, 50),
+      religiosity: lib.dice(2, 50),
+      sin: lib.dice(2, 50),
+      diversity: lib.dice(2, 50),
+      magic: lib.dice(2, 50),
       size: random(1, 100),
-      economics: dice(2, 50),
-      welfare: dice(3, 33) - 10,
-      military: dice(2, 50),
-      law: dice(2, 50),
-      arcana: dice(2, 50),
-      equality: dice(2, 50) - 20
+      economics: lib.dice(2, 50),
+      welfare: lib.dice(3, 33) - 10,
+      military: lib.dice(2, 50),
+      law: lib.dice(2, 50),
+      arcana: lib.dice(2, 50),
+      equality: lib.dice(2, 50) - 20
     }
   }, base)
 
@@ -115,14 +115,14 @@ setup.createTownBiome = function (base) {
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   Object.keys(setup.townData.type[town.type].modifiers).forEach(modifier => {
-    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
+    town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
   })
 
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   // economic ideology attribute modifiers
   Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
     console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
-    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+    town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
   })
 
   // political ideology modifiers
@@ -130,7 +130,7 @@ setup.createTownBiome = function (base) {
   Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
     console.log(modifier)
     console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
-    town.roll[modifier] = Math.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+    town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
   })
 
   Object.keys(town.roll).forEach(roll => {

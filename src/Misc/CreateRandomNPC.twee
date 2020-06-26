@@ -1,12 +1,14 @@
 :: CreateRandomNPC
 <<set _randomNPC to {
   gender: ["man", "woman"].random(),
+  race: Object.keys(setup.npcData.raceTraits).random(),
   ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly", "vulnerably elderly"].random(),
-  profession: Object.keys(setup.townData.professions).random()
+  profession: Object.keys(lib.professions).random()
 }>>
 \<<listbox "_randomNPC.gender" autoselect>><<optionsfrom ["man", "woman"]>><</listbox>>
 \ -- <<listbox "_randomNPC.ageStage" autoselect>><<optionsfrom ["young adult", "settled adult", "settled adult", "settled adult", "elderly", "vulnerably elderly"]>><</listbox>>
-\ -- <<listbox "_randomNPC.profession" autoselect>><<optionsfrom Object.keys(setup.townData.professions)>><</listbox>>
+\ -- <<listbox "_randomNPC.race" autoselect>><<optionsfrom Object.keys(setup.npcData.raceTraits)>><</listbox>>
+\ -- <<listbox "_randomNPC.profession" autoselect>><<optionsfrom Object.keys(lib.professions)>><</listbox>>
 \ -- <<button "Create NPC">>
   \<<if def _newNPC>>
     \<<run setup.deleteNPC($npcs[_newNPC])>>
@@ -17,7 +19,7 @@
             \<h3>$toolbox.randomNPC.name</h3>
             \<<print setup.articles.output($toolbox.randomNPC.descriptor).toUpperFirst()>> is currently <<print $toolbox.randomNPC.idle.random()>> in the corner. 
             \You strike up conversation with $toolbox.randomNPC.himher, and the $toolbox.randomNPC.descriptor introduces $toolbox.randomNPC.himherself as 
-            \<<profile $toolbox.randomNPC>>, <<print setup.articles.find($toolbox.randomNPC.profession)>> <<tooltip $toolbox.randomNPC.profession setup.townData.professions[$toolbox.randomNPC.profession].description.toUpperFirst()>>.</div>
+            \<<profile $toolbox.randomNPC>>, <<print setup.articles.find($toolbox.randomNPC.profession)>> <<tooltip $toolbox.randomNPC.profession lib.professions[$toolbox.randomNPC.profession].description.toUpperFirst()>>.</div>
     \<</replace>>
 <</button>>
 <div id="NPC"></div>

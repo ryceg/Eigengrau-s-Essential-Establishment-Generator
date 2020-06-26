@@ -8,19 +8,19 @@ setup.findProfession = function (town, npc, profession) {
     profession
   })
 
-  if (setup.townData.professions[profession]) {
+  if (lib.professions[profession]) {
     console.log(`${profession} is defined!`)
     console.groupEnd()
-    return setup.townData.professions[profession]
+    return lib.professions[profession]
   }
 
   console.log('could not find it. Looking for synonyms...')
-  const found = lib.findInContainer(setup.townData.professions, 'synonyms', profession)
+  const found = lib.findInContainer(lib.professions, 'synonyms', profession)
 
   if (typeof found === 'undefined') {
     console.error(`${profession} not found!`)
     console.groupEnd()
-    return setup.townData.professions.peasant
+    return lib.professions.peasant
   }
 
   console.log('Found a synonym!')

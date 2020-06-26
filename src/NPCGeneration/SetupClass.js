@@ -74,7 +74,7 @@ setup.createClass = function (town, npc) {
 
   // npc.wealth += typeof setup.npcData.classTraits[npc.dndClass].wealth === 'function'
   //   ? setup.npcData.classTraits[npc.dndClass].wealth()
-  //   : dice(2, 50)
+  //   : lib.dice(2, 50)
 
   return npc
 }

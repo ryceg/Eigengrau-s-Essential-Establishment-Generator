@@ -74,3 +74,29 @@ export function getUUID () {
     return value.toString(16)
   })
 }
+
+export function isDefined<T> (value?: T): value is T {
+  return typeof value !== 'undefined'
+}
+
+export function isUndefined<T> (value?: T): value is undefined {
+  return typeof value === 'undefined'
+}
+
+/**
+ * Removes a value from the array.
+ */
+export function removeFromArray<T> (array: T[], value: T) {
+  array.splice(array.indexOf(value), 1)
+}
+
+/**
+ * Calls a function N number of times.
+ */
+export function repeat (fn: (index: number) => void, times: number) {
+  for (let i = 0; i < times; i++) fn(i)
+}
+
+export function capitalizeFirstLetter (text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
