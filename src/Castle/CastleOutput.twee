@@ -1,0 +1,3 @@
+:: CastleOutput
+<<unset $currentPassageBuilding>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<h1><<print $building.name.toUpperFirst()>></h1><<print lib.firstCharacter("This")>> $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition. It is known for $building.knownFor, and is worth defending because $building.defense.reason. Its outer walls are defended by $building.defense.outerWalls, and its inner walls feature $building.defense.innerWalls.

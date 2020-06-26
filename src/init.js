@@ -17,5 +17,6 @@ setup.init = (setup => () => {
   setup.initTavernData()
   setup.initGoodsAndServices()
   setup.initDocks()
+  setup.initCastle()
   setup.initBuildingTypes()
 })(setup)

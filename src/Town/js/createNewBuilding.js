@@ -8,6 +8,7 @@ setup.initBuildingTypes = () => {
     'Barber': setup.goodsAndServices.default.create('barber'),
     'Brothel': setup.createBrothel,
     'Butcher': setup.goodsAndServices.default.create('butcher'),
+    'Castle': setup.createCastle,
     'Cobbler': setup.goodsAndServices.default.create('cobbler'),
     'Docks': setup.createDocks,
     'Fletcher': setup.goodsAndServices.default.create('fletcher'),
