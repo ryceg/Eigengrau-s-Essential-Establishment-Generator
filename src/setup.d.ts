@@ -16,10 +16,11 @@ interface Setup {
   createSocialClass(town: Town, npc: NPC): any
   firstCharacter(word: string): string
 
-  guardData: any
   createGuard(town: Town): any
 
   updateSocioPolitics(town: Town): Town
+
+  townData: ReturnType<typeof import('../lib/src/getTownData')['getTownData']>
 }
 
 interface Town {

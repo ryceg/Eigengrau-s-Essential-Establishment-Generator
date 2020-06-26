@@ -8,12 +8,13 @@ setup.init = (setup => () => {
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
 
+  setup.townData = lib.getTownData()
+
   setup.initMisc()
   setup.initMiscEncounters()
   setup.initMiscLocations()
   setup.initNpcData()
   setup.initTavernData()
-  setup.initTownData()
   setup.initGoodsAndServices()
   setup.initDocks()
   setup.initBuildingTypes()

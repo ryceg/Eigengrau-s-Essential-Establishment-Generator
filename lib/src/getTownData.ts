@@ -1,6 +1,9 @@
-setup.initTownData = () => {
-  setup.townData = {
-    ...setup.townData || {},
+import { randomFloat } from './randomFloat'
+import { random } from './random'
+import { getTerrainData } from './getTerrainData'
+
+export function getTownData () {
+  const townData = {
     name: {
       prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
       suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
@@ -107,17 +110,6 @@ setup.initTownData = () => {
         [10, 'patriarchal', 'It is a patriarchal society.'],
         [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
       ]
-      // 'economics': [
-      //   [90, 'Trade in ' + this.name + ' is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ' + this.name + ' are high.'],
-      //   [80, 'Trade in ' + this.name + ' is regulated, with taxes and restrictions on what can be brought in and out of the ' + this.type + ', and people live a ' + this.wealth + ' existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.'],
-      //   [70, 'Trade in ' + this.name + ' is regulated, with taxes applied to all goods and services rendered, and people live a ' + this.wealth + ' existence because of it. The trade guild enforces rules, with penalties for rule-breakers.'],
-      //   [60, 'Trade in ' + this.name + ' is mostly free, with some taxes applied to goods and services rendered in the city. People live a ' + this.wealth + ' existence because of it.'],
-      //   [50, 'Trade is reasonable in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it; some taxes are applied to certain goods and services that are rendered in the city.'],
-      //   [40, 'Trade is reasonable in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.'],
-      //   [30, 'Trade is rather free in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.'],
-      //   [20, 'Trade is free in ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. There are no taxes or regulations to speak of.'],
-      //   [0, 'Caveat emptor is the guiding philosophy of ' + this.name + ', and people live a ' + this.wealth + ' existence because of it. Without any taxes or regulations, the free market reigns supreme here.']
-      // ]
     },
     type: {
       // This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
@@ -225,7 +217,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(30, 300) },
-        'startFactionsNumber' () { return [1, 1, 1, 1, 1, 2].random() },
+        'startFactionsNumber' () { return random([1, 1, 1, 1, 1, 2]) },
         // roadDuplication: d100 of whether to create a new road (new one if under).
         roadDuplication: 40,
         modifiers: {
@@ -339,7 +331,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(301, 1000) },
-        'startFactionsNumber' () { return [1, 1, 1, 2, 2, 2].random() },
+        'startFactionsNumber' () { return random([1, 1, 1, 2, 2, 2]) },
         roadDuplication: 50,
         modifiers: {
           wealth: -10,
@@ -452,7 +444,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(1001, 3000) },
-        'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3].random() },
+        'startFactionsNumber' () { return random([1, 1, 2, 2, 2, 3, 3]) },
         roadDuplication: 70,
         modifiers: {
           wealth: 15,
@@ -565,7 +557,7 @@ setup.initTownData = () => {
           }
         },
         'population' () { return random(3001, 6000) },
-        'startFactionsNumber' () { return [1, 1, 2, 2, 2, 3, 3, 3, 3, 4].random() },
+        'startFactionsNumber' () { return random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]) },
         roadDuplication: 90,
         modifiers: {
           wealth: 5,
@@ -851,7 +843,7 @@ setup.initTownData = () => {
       pedocracy: {
         leaderTraits: {
           hasClass: false,
-          profession: ['scholar', 'philosopher', 'horologist', 'mathematician'].random(),
+          profession: random(['scholar', 'philosopher', 'horologist', 'mathematician']),
           background: 'scholar',
           title: 'Sir',
           socialClass: 'nobility'
@@ -1218,6 +1210,8 @@ setup.initTownData = () => {
         'a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.',
         'a cave full of phosphorescent mushrooms that glow at night.']
     },
-    terrain: lib.getTerrainData()
+    terrain: getTerrainData()
   }
+
+  return townData
 }
