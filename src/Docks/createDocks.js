@@ -1,7 +1,7 @@
 setup.createDocks = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || setup.createBuilding
 
-  const docks = createBuilding(town, 'docks')
+  const docks = createBuilding(town, 'docks', opts)
   Object.assign(docks, {
     notableFeature: setup.docks.notableFeature.random(),
     notice: setup.docks.notice.random(),
