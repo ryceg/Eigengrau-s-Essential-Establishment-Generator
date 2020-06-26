@@ -8,5 +8,16 @@ setup.history = (object, passageName, linkDescription) => {
       // history.splice(index)
     }
   })
-  if (Array.isArray(history)) history.push({ data: object, passageName, linkDescription })
+  if (Array.isArray(history)) {
+    history.push({
+      data: {
+        key: object.key,
+        passageName: object.passageName || passageName,
+        objectType: object.objectType,
+        linkDescription: object.linkDescription || linkDescription
+      },
+      passageName,
+      linkDescription
+    })
+  }
 }
