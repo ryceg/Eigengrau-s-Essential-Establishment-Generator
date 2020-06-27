@@ -11,7 +11,7 @@ setup.createPersonality = (npc: NPC) => {
   })
 
   if (!npc.vocalPattern) {
-    if (dice(2, 50) >= 75) {
+    if (lib.dice(2, 50) >= 75) {
       npc.vocalPattern = data.vocalPattern.random()
     }
   }
