@@ -57,11 +57,11 @@ setup.createSiege = (town, siege = {}) => {
   return siege
 }
 
-setup.createCastleName = (town, castle, namesake) => {
+setup.createCastleName = (town, castle, namesake = {}) => {
   Object.assign(namesake, {
     race: lib.fetchRace(town, {})
   })
-
+  namesake.socialClass = namesake.socialClass || 'nobility'
   namesake.firstName = namesake.firstName || setup.createName({ race: namesake.race })
   namesake.lastName = namesake.lastName || setup.createName({ race: namesake.race, firstOrLast: 'lastName' })
   console.log(namesake)
