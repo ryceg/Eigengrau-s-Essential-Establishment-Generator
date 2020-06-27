@@ -74,7 +74,8 @@ setup.createCastleName = (town, castle, namesake = {}) => {
     `${name.morphemes.prefix.random()}${name.nouns.random()}${name.morphemes.suffix.random()}`,
     `${name.morphemes.prefix.random()}${name.nouns.random()}`,
     `${name.adjectives.random()}${name.morphemes.suffix.random()}`,
-    `${town.name} ${castle.wordNoun}`
+    `${town.name} ${castle.wordNoun}`,
+    `${castle.unique.random()}`
   ].random()
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     castle.namesake = setup.createDeadNPC(town, namesake)

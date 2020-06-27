@@ -1,6 +1,20 @@
 setup.initCastle = () => {
   setup.castle = {
     name: {
+      unique: [
+        'Falkerstone Hold',
+        'Eastcairn Stronghold',
+        'Wray Castle',
+        'Dorgoil Palace',
+        'The Fortress',
+        'Castle Urrghh',
+        'Darkmere Palace',
+        'Guardswatch',
+        'Humblerock Castle',
+        'Evering Place',
+        'Axiom Towers',
+        'Cliffhaven Keep'
+      ],
       wordNouns: [
         'keep',
         'castle',
@@ -22,7 +36,8 @@ setup.initCastle = () => {
         'river',
         'lake',
         'lamb',
-        'dock'
+        'dock',
+        'cliff'
       ],
       adjectives: [
         'far',
@@ -61,7 +76,8 @@ setup.initCastle = () => {
           'ley',
           'ham',
           'dale',
-          'burn'
+          'burn',
+          'haven'
         ]
       }
     },
