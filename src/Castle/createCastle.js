@@ -79,5 +79,5 @@ setup.createCastleName = (town, castle, namesake) => {
   if (choiceName.includes(namesake.firstName || namesake.lastName)) {
     castle.namesake = setup.createDeadNPC(town, namesake)
   }
-  return choiceName
+  return lib.toTitleCase(choiceName)
 }
