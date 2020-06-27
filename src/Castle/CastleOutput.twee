@@ -1,10 +1,10 @@
 :: CastleOutput
 <<unset $currentPassageBuilding>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
-<h1><<print lib.toTitleCase($building.name)>></h1><<print lib.firstCharacter("This")>> $building.size $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition. 
-\<<if $building.namesake>>It is named after <<profile $building.namesake>>, a $building.namesake.profession.<</if>> 
-\It is known for $building.knownFor, and is worth defending because $building.defense.reason. 
-<h3>Defenses</h3>Its outer walls are defended by $building.defense.outerWalls, and its inner walls feature $building.defense.innerWalls.
+<h1><<print lib.toTitleCase($building.name)>></h1><<print lib.firstCharacter("This")>> $building.size $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition.
+\<<if $building.namesake>>It is named after <<profile $building.namesake>>, a $building.namesake.profession.<</if>> It is known for $building.knownFor, and is worth defending because $building.defense.reason. 
+<h3>Defenses</h3>Its outer walls are defended by $building.defense.outerWalls, and the lands it encompasses are $building.landSizeDescriptive.
+The $building.wordNoun's inner walls feature $building.defense.innerWalls, protecting the castle itself, which is $building.sizeDescriptive.
 <h3>Dungeon</h3>The dungeon of $building.name is located $building.dungeon.location and was built $building.dungeon.age. It is known for $building.dungeon.knownFor, and consists of $building.dungeon.format. It is rumoured that hidden inside the dungeon is $building.dungeon.secret.
 <h4>Cells</h4>The cells inside the dungeon are $building.dungeon.cells.condition, and prisoners are kept in $building.dungeon.cells.format. Prisoners of $building.name are treated $building.dungeon.cells.prisoners.treatment.
-<<button "Create a siege">>
+<<button "Create a historical siege">>
 <<set $building.siege to setup.createSiege()>><<replace "#siege">><div class='descriptive'>$building.siege.readout</div><</replace>><</button>><span id="siege"></span>

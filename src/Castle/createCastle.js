@@ -76,7 +76,7 @@ setup.createCastleName = (town, castle, namesake = {}) => {
     `${name.adjectives.random()}${name.morphemes.suffix.random()}`,
     `${town.name} ${castle.wordNoun}`
   ].random()
-  if (choiceName.includes(namesake.firstName || namesake.lastName)) {
+  if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     castle.namesake = setup.createDeadNPC(town, namesake)
   }
   return lib.toTitleCase(choiceName)
