@@ -1,3 +1,7 @@
 :: CastleOutput
 <<unset $currentPassageBuilding>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
-<h1><<print $building.name.toUpperFirst()>></h1><<print lib.firstCharacter("This")>> $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition. It is known for $building.knownFor, and is worth defending because $building.defense.reason. Its outer walls are defended by $building.defense.outerWalls, and its inner walls feature $building.defense.innerWalls.
+<h1><<print lib.toTitleCase($building.name)>></h1><<print lib.firstCharacter("This")>> $building.size $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition. 
+\It is known for $building.knownFor, and is worth defending because $building.defense.reason. 
+<h2>Defenses</h2>Its outer walls are defended by $building.defense.outerWalls, and its inner walls feature $building.defense.innerWalls.
+<h2>Dungeon</h2>The dungeon of $building.name is located $building.dungeon.location and was built $building.dungeon.age. It is known for $building.dungeon.knownFor, and consists of $building.dungeon.format. It is rumoured that hidden inside the dungeon is $building.dungeon.secret.
+<h3>Cells</h3>The cells inside the dungeon are $building.dungeon.cells.condition, and prisoners are kept in $building.dungeon.cells.format. Prisoners of $building.name are treated $building.dungeon.cells.prisoners.treatment.

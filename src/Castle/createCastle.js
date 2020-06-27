@@ -33,28 +33,38 @@ setup.createCastle = (town, opts = {}) => {
   })
   console.log('Created castle.')
   castle.name = castle.name || setup.createCastleName(town, castle)
+  if (!castle.roll.landSize) castle.roll.landSize = lib.dice(2, 50)
+
+  lib.defineRollDataGetter(castle, setup.castle.rollData, 'size', 'size', 1)
+  lib.defineRollDataGetter(castle, setup.castle.rollData, 'sizeDescriptive', 'size', 2)
+  lib.defineRollDataGetter(castle, setup.castle.rollData, 'landSize', 'landSize', 1)
+  lib.defineRollDataGetter(castle, setup.castle.rollData, 'landSizeDescriptive', 'landSize', 2)
+
   castle.tippyDescription = `A ${castle.wordNoun} built ${castle.age} that is known for ${castle.knownFor}.`
   return castle
 }
 
 setup.createCastleName = (town, castle) => {
-  const founder = {
+  const namesake = {
     race: lib.fetchRace(town, {})
   }
 
-  founder.firstName = setup.createName({ race: founder.race })
-  // founder.lastName = setup.createName({ race: founder.race, firstOrLast: 'lastName' })
-  console.log(founder)
+  namesake.firstName = setup.createName({ race: namesake.race })
+  namesake.lastName = setup.createName({ race: namesake.race, firstOrLast: 'lastName' })
+  console.log(namesake)
   const name = setup.castle.name
   const choiceName = [
-    `${founder.firstName}'s ${castle.wordNoun}`,
-    // `${founder.lastName}'s ${castle.wordNoun}`,
-    `The ${castle.wordNoun} of ${founder.lastName}`,
+    `${namesake.firstName}'s ${castle.wordNoun}`,
+    `${namesake.lastName}'s ${castle.wordNoun}`,
+    `The ${castle.wordNoun} of ${namesake.lastName}`,
     `${name.nouns.random()}${name.morphemes.suffix.random()}`,
     `${name.morphemes.prefix.random()}${name.nouns.random()}${name.morphemes.suffix.random()}`,
     `${name.morphemes.prefix.random()}${name.nouns.random()}`,
     `${name.adjectives.random()}${name.morphemes.suffix.random()}`,
     `${town.name} ${castle.wordNoun}`
   ].random()
+  if (choiceName.includes(namesake.firstName || namesake.lastName)) {
+    castle.namesake = setup.createNPC(town, namesake)
+  }
   return choiceName
 }
