@@ -44,13 +44,26 @@ setup.createCastle = (town, opts = {}) => {
   return castle
 }
 
-setup.createCastleName = (town, castle) => {
-  const namesake = {
-    race: lib.fetchRace(town, {})
-  }
+setup.createSiege = (town, siege = {}) => {
+  const data = setup.castle.siege
+  const result = Object.keys(data.result).random()
+  Object.assign(siege, {
+    causedBy: data.causedBy.random(),
+    length: data.length.random(),
+    event: data.event.random(),
+    result: data.result[result].random()
+  })
+  siege.readout = `The siege was ${['caused by', 'instigated by', 'eventuated due to'].random()} ${siege.causedBy}, and lasted ${siege.length}, during which ${siege.event}. Eventually, ${siege.result}.`
+  return siege
+}
 
-  namesake.firstName = setup.createName({ race: namesake.race })
-  namesake.lastName = setup.createName({ race: namesake.race, firstOrLast: 'lastName' })
+setup.createCastleName = (town, castle, namesake) => {
+  Object.assign(namesake, {
+    race: lib.fetchRace(town, {})
+  })
+
+  namesake.firstName = namesake.firstName || setup.createName({ race: namesake.race })
+  namesake.lastName = namesake.lastName || setup.createName({ race: namesake.race, firstOrLast: 'lastName' })
   console.log(namesake)
   const name = setup.castle.name
   const choiceName = [
@@ -64,7 +77,7 @@ setup.createCastleName = (town, castle) => {
     `${town.name} ${castle.wordNoun}`
   ].random()
   if (choiceName.includes(namesake.firstName || namesake.lastName)) {
-    castle.namesake = setup.createNPC(town, namesake)
+    castle.namesake = setup.createDeadNPC(town, namesake)
   }
   return choiceName
 }

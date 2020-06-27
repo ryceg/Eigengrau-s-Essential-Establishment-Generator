@@ -285,13 +285,13 @@ setup.initCastle = () => {
       secret: [
         // It is rumoured that hidden inside the dungeon is _____
         'a secret tunnel to the outside',
-        'the bones of a long-lost hero',
+        'the remnants of a long-lost hero',
         'the preserved head of an ancient villain',
         'a terrible beast to which prisoners are fed',
         'a missing lord or lady',
         'a famous jewel by a notorious prisoner',
         'a unique and terrible torture device',
-        'the bones of a deposed king or queen'
+        'the corpse of a deposed king or queen'
       ],
       location: [
         // the dungeon is located ____
