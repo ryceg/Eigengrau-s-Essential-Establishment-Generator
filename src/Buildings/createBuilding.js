@@ -24,7 +24,6 @@ setup.createBuilding = (town, type, base = {}) => {
     'a muddy pair of boots by the door',
     "a sign from the local paper which reads '<<print lib.newspaper.random()>>'"
   ].random()
-  const material = ['wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'wooden', 'wooden', 'wooden', 'wooden', 'wooden', 'stone', 'stone', 'stone', 'stone', 'hewn rock', 'chiseled stone', 'marble'].random()
   const building = Object.assign({
     key: randomFloat(1).toString(16),
     objectType: 'building',
@@ -42,7 +41,6 @@ setup.createBuilding = (town, type, base = {}) => {
     type,
     lighting,
     outside,
-    material,
     roll: {
       magic: Math.floor(randomFloat(1) * 80) + 20,
       size: Math.floor(randomFloat(1) * 80) + 20,

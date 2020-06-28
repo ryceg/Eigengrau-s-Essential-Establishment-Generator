@@ -14,7 +14,7 @@ setup.alchemistModifiers = alchemist => {
     alchemist.roll.activity += 3
   }
 
-  switch (alchemist.material) {
+  switch (alchemist.material.noun) {
     case 'hewn rock':
       alchemist.roll.roughness += 3
       break

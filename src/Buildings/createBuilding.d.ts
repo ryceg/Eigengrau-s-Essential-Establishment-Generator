@@ -6,6 +6,6 @@ interface Building {
   type: string
   lighting: string
   outside: string
-  material: string
+  material: any
   [key: string]: any
 }

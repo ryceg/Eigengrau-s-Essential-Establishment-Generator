@@ -665,7 +665,7 @@ setup.initTavernData = () => {
           },
           {
             draw: 'location by the river',
-            drawFeature: `${tavern.name} overlooks a gorgeous river, which you can hear gently rushing by the ${tavern.material} ${tavern.wordNoun} inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating.`
+            drawFeature: `${tavern.name} overlooks a gorgeous river, which you can hear gently rushing by the ${tavern.material.noun} ${tavern.wordNoun} inside. A fisherman is sitting at the bar, talking about his day's catch, which he's clearly exaggerating.`
           },
           {
             draw: 'wooden-chopping competition held weekly',
@@ -715,14 +715,14 @@ setup.initTavernData = () => {
             wealth: 10,
             note: [
               `${tavern.name} is just one huge, ${tavern.lighting} ${tavern.cleanliness} room, with a small section of the hall cordoned off as the kitchen and bar area. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`,
-              `${tavern.name} is huge, ${tavern.lighting}, and ${tavern.cleanliness}. There are several large ${tavern.material} tables.`
+              `${tavern.name} is huge, ${tavern.lighting}, and ${tavern.cleanliness}. There are several large ${tavern.material.noun} tables.`
             ].random()
           },
           {
             size: 80,
             wealth: 10,
             note: [
-              `${tavern.name} is quite large, ${tavern.lighting}, and ${tavern.cleanliness}. The ceiling is unusually high, and the amount of wood that ${bartender.firstName} must go through would be immense. The dining hall has several large ${tavern.material} tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`
+              `${tavern.name} is quite large, ${tavern.lighting}, and ${tavern.cleanliness}. The ceiling is unusually high, and the amount of wood that ${bartender.firstName} must go through would be immense. The dining hall has several large ${tavern.material.noun} tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`
             ].random()
           },
           {
@@ -736,7 +736,7 @@ setup.initTavernData = () => {
             size: 60,
             wealth: 10,
             note: [
-              `${tavern.name} is nice and spacious. The bar is roomy and ${tavern.lighting}, with several stools in front of it for patrons that wish to while away the evening talking to ${bartender.firstName}. There's a couple large ${tavern.material} tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.`
+              `${tavern.name} is nice and spacious. The bar is roomy and ${tavern.lighting}, with several stools in front of it for patrons that wish to while away the evening talking to ${bartender.firstName}. There's a couple large ${tavern.material.noun} tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.`
             ].random()
           },
           {
