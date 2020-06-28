@@ -68,7 +68,6 @@ const diceHelpers = {
     return result
   },
   processString: (string: string) => {
-    // debugger
     // remove all whitespace and trim
     const trimmed = string.trim().replace(/\s/g, '')
 
