@@ -1,4 +1,5 @@
 setup.createCastle = (town, opts = {}) => {
+  console.groupCollapsed('Creating a castle...')
   const castle = setup.createBuilding(town, 'castle', opts)
   const data = setup.castle
   Object.assign(castle, {
@@ -12,7 +13,10 @@ setup.createCastle = (town, opts = {}) => {
     age: data.rollData.age.random(),
     condition: data.rollData.condition.random(),
     defense: {
-      reason: data.defense.reason.random(),
+      reason: [
+        data.location.forest.defenseReason.random()
+        // data.defense.reason.random()
+      ].random(),
       innerWalls: data.defense.innerWalls.random(),
       outerWalls: data.defense.outerWalls.random()
     },
@@ -41,23 +45,13 @@ setup.createCastle = (town, opts = {}) => {
   lib.defineRollDataGetter(castle, setup.castle.rollData, 'landSizeDescriptive', 'landSize', 2)
 
   castle.tippyDescription = `A ${castle.wordNoun} built ${castle.age} that is known for ${castle.knownFor}.`
+  console.groupEnd()
+  console.log(castle)
   return castle
 }
 
-setup.createSiege = (town, siege = {}) => {
-  const data = setup.castle.siege
-  const result = Object.keys(data.result).random()
-  Object.assign(siege, {
-    causedBy: data.causedBy.random(),
-    length: data.length.random(),
-    event: data.event.random(),
-    result: data.result[result].random()
-  })
-  siege.readout = `The siege was ${['caused by', 'instigated by', 'eventuated due to'].random()} ${siege.causedBy}, and lasted ${siege.length}, during which ${siege.event}. Eventually, ${siege.result}.`
-  return siege
-}
-
 setup.createCastleName = (town, castle, namesake = {}) => {
+  console.log('Creating castle name...')
   Object.assign(namesake, {
     race: lib.fetchRace(town, {})
   })
@@ -75,10 +69,11 @@ setup.createCastleName = (town, castle, namesake = {}) => {
     `${name.morphemes.prefix.random()}${name.nouns.random()}`,
     `${name.adjectives.random()}${name.morphemes.suffix.random()}`,
     `${town.name} ${castle.wordNoun}`,
-    `${castle.unique.random()}`
+    `${name.unique.random()}`
   ].random()
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     castle.namesake = setup.createDeadNPC(town, namesake)
   }
+  console.log(lib.toTitleCase(choiceName))
   return lib.toTitleCase(choiceName)
 }

@@ -17,7 +17,7 @@ setup.createTownName = function (town) {
   if (random(100) > 90) {
     console.log('Named a founder!')
     if (town) {
-      const npc = setup.createNPC(town)
+      const npc = setup.createDeadNPC(town, { note: 'The namesake of the town.' })
       town.founder = npc.key
       name = town.founder.lastName + suffix.random()
     } else {

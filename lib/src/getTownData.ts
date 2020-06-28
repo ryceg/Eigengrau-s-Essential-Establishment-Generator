@@ -97,7 +97,6 @@ export function getTownData () {
         [0, 'destitute']
       ],
       equality: [
-        // TODO: Set equality as a toggleable option. The world is terrible enough without having your fantasy ALSO be patriarchal, and that should be respected.
         [95, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.'],
         [90, 'matriarchal', 'It is a matriarchal society.'],
         [85, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],

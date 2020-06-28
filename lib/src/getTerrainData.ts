@@ -125,7 +125,8 @@ export const getTerrainData = () => ({
       },
       'hills': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'a road traveled by merchants on the way to another, larger city',
@@ -143,7 +144,8 @@ export const getTerrainData = () => ({
       },
       'plains': {
         precipitationIntensity: 2,
-        origin: ['a wide, navigable river',
+        origin: [
+          'a wide, navigable river',
           'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
@@ -159,7 +161,8 @@ export const getTerrainData = () => ({
       },
       'mountains': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a river navigable by small craft',
           'a series of natural springs',
           'a road that connects two other cities',
@@ -177,7 +180,8 @@ export const getTerrainData = () => ({
       },
       'river coast': {
         precipitationIntensity: 2,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a wide, navigable river',
           'a river navigable by small craft'],
@@ -242,7 +246,8 @@ export const getTerrainData = () => ({
     location: {
       'seacoast': {
         precipitationIntensity: 3,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a large freshwater lake',
           'a wide, navigable river',
@@ -262,7 +267,8 @@ export const getTerrainData = () => ({
       },
       'forest': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'the mouth of a river',
@@ -282,7 +288,8 @@ export const getTerrainData = () => ({
       },
       'hills': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'a road traveled by merchants on the way to another, larger city',
@@ -299,7 +306,8 @@ export const getTerrainData = () => ({
       },
       'plains': {
         precipitationIntensity: 2,
-        origin: ['a wide, navigable river',
+        origin: [
+          'a wide, navigable river',
           'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
@@ -316,7 +324,8 @@ export const getTerrainData = () => ({
       },
       'mountains': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a river navigable by small craft',
           'a series of natural springs',
           'a road that connects two other cities',
@@ -334,7 +343,8 @@ export const getTerrainData = () => ({
       },
       'river coast': {
         precipitationIntensity: 2,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a wide, navigable river',
           'a river navigable by small craft'],
@@ -348,7 +358,8 @@ export const getTerrainData = () => ({
       },
       'jungle': {
         precipitationIntensity: 2,
-        origin: ['a river navigable by small craft',
+        origin: [
+          'a river navigable by small craft',
           'a series of natural springs',
           'a road that connects two other cities',
           'a road that leads through the jungle',
@@ -364,7 +375,8 @@ export const getTerrainData = () => ({
       },
       'volcanic field': {
         precipitationIntensity: 3,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'the mouth of a river',
@@ -442,7 +454,8 @@ export const getTerrainData = () => ({
     location: {
       'desert': {
         precipitationIntensity: 2,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a large freshwater lake',
           'a wide, navigable river',
@@ -463,7 +476,8 @@ export const getTerrainData = () => ({
       },
       'forest': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'the mouth of a river',
@@ -484,7 +498,8 @@ export const getTerrainData = () => ({
       },
       'hills': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'a road traveled by merchants on the way to another, larger city',
@@ -503,7 +518,8 @@ export const getTerrainData = () => ({
       },
       'plains': {
         precipitationIntensity: 2,
-        origin: ['a wide, navigable river',
+        origin: [
+          'a wide, navigable river',
           'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
@@ -520,7 +536,8 @@ export const getTerrainData = () => ({
       },
       'mountains': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a river navigable by small craft',
           'a series of natural springs',
           'a road that connects two other cities',
@@ -539,7 +556,8 @@ export const getTerrainData = () => ({
       },
       'river coast': {
         precipitationIntensity: 2,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a wide, navigable river',
           'a river navigable by small craft'],
@@ -554,7 +572,8 @@ export const getTerrainData = () => ({
       },
       'wasteland': {
         precipitationIntensity: 2,
-        origin: ['a road traveled by merchants on the way to another, larger city',
+        origin: [
+          'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
           'a well-traveled crossroads',
@@ -568,7 +587,8 @@ export const getTerrainData = () => ({
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'oasis': {
-        origin: ['a series of natural springs',
+        origin: [
+          'a series of natural springs',
           'a series of natural springs',
           'a large oasis of water',
           'a large oasis of water',
@@ -644,7 +664,8 @@ export const getTerrainData = () => ({
     location: {
       'seacoast': {
         precipitationIntensity: 3,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a large freshwater lake',
           'a wide, navigable river',
@@ -665,7 +686,8 @@ export const getTerrainData = () => ({
       },
       'forest': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'the mouth of a river',
@@ -686,7 +708,8 @@ export const getTerrainData = () => ({
       },
       'hills': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a wide, navigable river',
           'a river navigable by small craft',
           'a road traveled by merchants on the way to another, larger city',
@@ -705,7 +728,8 @@ export const getTerrainData = () => ({
       },
       'plains': {
         precipitationIntensity: 2,
-        origin: ['a wide, navigable river',
+        origin: [
+          'a wide, navigable river',
           'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
@@ -722,7 +746,8 @@ export const getTerrainData = () => ({
       },
       'mountains': {
         precipitationIntensity: 2,
-        origin: ['a large freshwater lake',
+        origin: [
+          'a large freshwater lake',
           'a river navigable by small craft',
           'a series of natural springs',
           'a road that connects two other cities',
@@ -741,7 +766,8 @@ export const getTerrainData = () => ({
       },
       'river coast': {
         precipitationIntensity: 2,
-        origin: ['a coastal harbor',
+        origin: [
+          'a coastal harbor',
           'a calm, coastal bay',
           'a wide, navigable river',
           'a river navigable by small craft'],
@@ -756,7 +782,8 @@ export const getTerrainData = () => ({
       },
       'tundra': {
         precipitationIntensity: 2,
-        origin: ['a wide, navigable river',
+        origin: [
+          'a wide, navigable river',
           'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
@@ -772,7 +799,8 @@ export const getTerrainData = () => ({
       },
       'ice sheet': {
         precipitationIntensity: 3,
-        origin: ['a wide, navigable river',
+        origin: [
+          'a wide, navigable river',
           'a road traveled by merchants on the way to another, larger city',
           'a well maintained road',
           'a road that connects two other cities',
