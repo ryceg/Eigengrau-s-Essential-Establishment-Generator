@@ -32,7 +32,7 @@ setup.createFriends = (town, npc) => {
       base: {
         gender: npc.partnerGenderProbability(npc),
         ageStage: npc.ageStage,
-        socialClass: npc.socialClass
+        socialClass: npc.socialClass || 'commoner'
       }
     },
     'mentor': {
@@ -46,7 +46,7 @@ setup.createFriends = (town, npc) => {
     'neighbour': {
       relationship: 'neighbour',
       base: {
-        socialClass: npc.socialClass
+        socialClass: npc.socialClass || 'commoner'
       }
     },
     'dealer': {
@@ -55,14 +55,14 @@ setup.createFriends = (town, npc) => {
       probability: 1,
       exclusions (town, npc) { if (town.roll.sin < 10) return false },
       base: {
-        socialClass: npc.socialClass,
+        socialClass: npc.socialClass || 'commoner',
         profession: 'drug dealer'
       }
     },
     'friendly acquaintance': {
       relationship: 'acquaintance',
       base: {
-        socialClass: npc.socialClass
+        socialClass: npc.socialClass || 'commoner'
       }
     },
     'pastor': {
@@ -71,7 +71,7 @@ setup.createFriends = (town, npc) => {
       probability: 2,
       exclusions (town, npc) { if (town.roll.religiosity < 20 || npc.roll.religiosity < 20 || npc.profession === 'pastor') return false },
       base: {
-        socialClass: npc.socialClass,
+        socialClass: npc.socialClass || 'commoner',
         profession: 'pastor'
       }
     },

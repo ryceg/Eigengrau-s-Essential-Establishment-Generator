@@ -4807,6 +4807,19 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     }
   },
+  'tourist': {
+    sv: 9000,
+    type: 'profession',
+    isHobby: true,
+    sector: 'hospitality',
+    description: 'Travels for a living, perhaps as a scout for royal visits.',
+    domSub: 'dom',
+    dailyWage: 200,
+    socialClass: 'commoner',
+    socialClassRoll () {
+      return 50 + dice(8, 6)
+    }
+  },
   'viscount': {
     sv: 7000,
     type: 'profession',
