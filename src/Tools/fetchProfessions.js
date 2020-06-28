@@ -26,9 +26,11 @@ setup.fetchProfessions = (town = State.variables.town) => {
     }
 
     if (population >= 1) {
-      profession.population = population
-      profession.name = name
-      townProfessions[name] = profession
+      townProfessions[name] = {
+        ...profession,
+        name,
+        population
+      }
     }
   }
 
