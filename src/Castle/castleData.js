@@ -84,7 +84,7 @@ setup.initCastle = () => {
     location: {
       'seashore': {
         vignette: [
-          'A hint of brine and seaweed is carried by the wind to your nose'
+          'a hint of brine and seaweed is carried by the wind to your nose'
         ],
         defenseReason: [
           'the nearby harbor is important for trade',
@@ -93,7 +93,7 @@ setup.initCastle = () => {
       },
       'forest': {
         vignette: [
-          'A hare dashes about, seemingly lost, unaware how to escape the confines of the castle',
+          'a hare dashes about, seemingly lost, unaware how to escape the confines of the castle',
           'A squirrel seems to be watching you from a nearby tree'
         ],
         defenseReason: [
@@ -103,7 +103,7 @@ setup.initCastle = () => {
       },
       'hills': {
         vignette: [
-          'A cart rolls by, with the scent of livestock thick on it'
+          'a cart rolls by, with the scent of livestock thick on it'
         ],
         defenseReason: [
           'the nearby mines are rich in ores or gems',
@@ -114,7 +114,7 @@ setup.initCastle = () => {
       },
       'plains': {
         vignette: [
-          'A cart rolls by, with the scent of livestock thick on it'
+          'a cart rolls by, with the scent of livestock thick on it'
         ],
         defenseReason: [
           'the surrounding land is excellent for growing crops',
@@ -124,7 +124,7 @@ setup.initCastle = () => {
       },
       'mountains': {
         vignette: [
-          'An eagle flies in the distance, rising suddenly as it finds an updraft, soon flying well above the mountains that the castle is built on'
+          'an eagle flies in the distance, rising suddenly as it finds an updraft, soon flying well above the mountains that the castle is built on'
         ],
         defenseReason: [
           'the nearby mines are rich in ores or gems',
@@ -135,7 +135,7 @@ setup.initCastle = () => {
       },
       'river coast': {
         vignette: [
-          'A child walks along, drenched from playing in the river'
+          'a child walks along, drenched from playing in the river'
         ],
         defenseReason: [
           'the nearby river is important for trade',
@@ -145,7 +145,7 @@ setup.initCastle = () => {
       },
       'seacoast': {
         vignette: [
-          'The scent of brine fills your noses, accompanied by the gentle lull of the waves'
+          'the scent of brine fills your noses, accompanied by the gentle lull of the waves'
         ],
         defenseReason: [
           'the nearby harbor is important for trade',
@@ -154,7 +154,7 @@ setup.initCastle = () => {
       },
       'jungle': {
         vignette: [
-          'The buzz of mosquitos in the air fills your ears; even in this corner of civilisation in the jungle, nobody is safe from the tiny bloodsuckers.'
+          'the buzz of mosquitos in the air fills your ears; even in this corner of civilisation in the jungle, nobody is safe from the tiny bloodsuckers.'
         ],
         defenseReason: [
           'the surrounding land is excellent for growing crops',
@@ -164,7 +164,7 @@ setup.initCastle = () => {
       },
       'volcanic field': {
         vignette: [
-          'The stench of sulphur seeps into your nostrils; it does not seem to bother any of the locals, but to your noses, this volcanic field stinks.'
+          'the stench of sulphur seeps into your nostrils; it does not seem to bother any of the locals, but to your noses, this volcanic field stinks.'
         ],
         defenseReason: [
           'the nearby mines are rich in ores or gems',
@@ -176,7 +176,7 @@ setup.initCastle = () => {
       },
       'wasteland': {
         vignette: [
-          'A single bird flies overhead, and you see a man trying to take aim with a bow.'
+          'a single bird flies overhead, and you see a man trying to take aim with a bow.'
         ],
         defenseReason: [
           'the nearby source of freshwater is precious in this region',
@@ -187,7 +187,7 @@ setup.initCastle = () => {
       },
       'oasis': {
         vignette: [
-          'There is a woman carrying a jug of water, moving carefully so as to not spill anything.'
+          'there is a woman carrying a jug of water, moving carefully so as to not spill anything.'
         ],
         defenseReason: [
           'the oasis provides incredibly precious water in the region',
@@ -196,7 +196,7 @@ setup.initCastle = () => {
       },
       'tundra': {
         vignette: [
-          'You can see a man carrying a single hare, a seemingly inconsequential hunt, though the man is beaming from ear to ear.'
+          'you can see a man carrying a single hare, a seemingly inconsequential hunt, though the man is beaming from ear to ear.'
         ],
         defenseReason: [
           'the wild lands beyond are full of threats',
@@ -205,7 +205,7 @@ setup.initCastle = () => {
       },
       'ice sheet': {
         vignette: [
-          'You see a group of men huddling around a fire, warming their hands, complaining about the cold.'
+          'you see a group of men huddling around a fire, warming their hands, complaining about the cold.'
         ],
         defenseReason: [
           'the nearby source of freshwater is precious in this region',
