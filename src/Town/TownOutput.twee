@@ -21,7 +21,7 @@ _listbox -- <<button "Create new faction">>
   <<set _tempFaction to setup.createFaction($town, {
   type: $newFaction
   })>>
-  <<set $town.factions[_tempFaction.name] = _tempFaction>>
+  <<set $town.factions[_tempFaction.key] = _tempFaction>>
   <<run console.log($town)>>
   <<goto "TownOutput">>
 <</button>>

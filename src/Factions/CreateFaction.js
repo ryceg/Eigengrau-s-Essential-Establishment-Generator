@@ -6,9 +6,9 @@ setup.createFaction = function (town, opts = {}) {
   const faction = opts.newFaction || Object.assign({
     key: randomFloat(1).toString(16),
     passageName: 'FactionProfile',
+    objectType: 'faction',
     associatedTown: town.name,
     type,
-    objectType: 'faction',
     wordNoun: lib.factionData.type[type].wordNoun,
     motivation: lib.factionData.type[type].motivation.random(),
     membersTrait: lib.factionData.type[type].membersTrait.random(),
