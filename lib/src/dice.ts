@@ -68,6 +68,7 @@ const diceHelpers = {
     return result
   },
   processString: (string: string) => {
+    // debugger
     // remove all whitespace and trim
     const trimmed = string.trim().replace(/\s/g, '')
 
@@ -75,7 +76,7 @@ const diceHelpers = {
     const parsed = trimmed.match(/(\d*d\d*)(.*)/)
 
     if (parsed) {
-      const [roll, modifier] = parsed
+      const [, roll, modifier] = parsed
       return [roll, Number(modifier)] as const // send the data off as an array
     }
 
