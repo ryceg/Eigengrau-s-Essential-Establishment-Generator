@@ -1,6 +1,6 @@
 setup.getPredominantRace = (percentages) => {
   console.log('Getting the predominant race...')
-  const sortable = setup.sortArray(percentages)
+  const sortable = lib.sortArray(percentages)
 
   const length = sortable.length - 1
   const majorRace = sortable[length][0]
