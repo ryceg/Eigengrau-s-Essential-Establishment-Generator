@@ -5,13 +5,11 @@
  * Individual professions are returned by the `fetchProfessionChance()`
  * function located in `NPCGeneration/fetchProfessionChance.js`
  */
-setup.fetchProfessions = town => {
-  town = town || State.variables.town
-  town.professions = {}
+setup.fetchProfessions = (town = State.variables.town) => {
+  const allProfessions = Object.entries(lib.professions)
+  const townProfessions = {}
 
-  const professions = Object.entries(lib.professions)
-
-  for (const [name, profession] of professions) {
+  for (const [name, profession] of allProfessions) {
     const townPop = town.population
     const newSv = profession.sv + (lib.dice('4d4-10') * 10)
     const professionRoll = townPop / newSv /* Set the number of professions equal = the town's population divided by how many people are needed = support that type of business */
@@ -30,9 +28,9 @@ setup.fetchProfessions = town => {
     if (population >= 1) {
       profession.population = population
       profession.name = name
-      town.professions[name] = profession
+      townProfessions[name] = profession
     }
   }
-  console.log(town.professions)
-  return town.professions
+
+  return townProfessions
 }
