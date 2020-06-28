@@ -15,6 +15,7 @@ interface Setup {
       adjective: string[]
       rider: string[]
     }
+    ingredients: string[]
   }
 }
 
