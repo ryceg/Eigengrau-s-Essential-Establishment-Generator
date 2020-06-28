@@ -3,7 +3,7 @@ setup.initNpcData = () => {
     gender: {
       man: {
         title: 'Mr',
-        altTitle: 'Master',
+        domTitle: 'Master',
         heshe: 'he',
         himher: 'him',
         himherself: 'himself',
@@ -24,7 +24,7 @@ setup.initNpcData = () => {
       },
       woman: {
         title: 'Ms',
-        altTitle: 'Mistress',
+        domTitle: 'Mistress',
         heshe: 'she',
         himher: 'her',
         himherself: 'herself',

@@ -147,8 +147,8 @@ interface GenderTraits {
 interface AgeTraits {
   ageDescriptors: [number, string][]
   elderly: AgeTrait
-  "settled adult": AgeTrait
-  "young adult": AgeTrait
+  'settled adult': AgeTrait
+  'young adult': AgeTrait
   child: AgeTrait
 }
 
@@ -172,7 +172,7 @@ interface LifeEvent {
 
 interface GenderGrammar {
   title: string
-  altTitle: string
+  domTitle: string
   heshe: string
   himher: string
   himherself: string

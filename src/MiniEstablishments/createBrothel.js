@@ -26,12 +26,12 @@ setup.createBrothel = (town, tavern) => {
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   }
-  // as title is already a value in npcData.js the title for the brothel owner appears as altTitle
   brothel.pimp = setup.createNPC(town, {
     ...setup.brothel.pimp[brothel.owner],
     isShallow: true,
     hasClass: false
   })
+  brothel.pimp.title = setup.npcData.gender[brothel.pimp.gender].domTitle
   brothel.pimp.greeting = [
     'nods at you', 'welcomes you warmly', 'smiles, greets you', 'raises a hand with a wave', 'sizes you up, before $associatedNPC.heshe nods at you', 'checks you out for just a moment before smiling at you', 'waves slightly in your direction', 'gives you you a slight nod', 'turns your way', 'frowns, but greets you just the same'
   ]
