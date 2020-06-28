@@ -16,7 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Known issues
 
-## 2.4.1
+## [2.4.1](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/releases/tag/2.4.1)
 
 ### Added 
 - Option to change biome before town creation
@@ -41,7 +41,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Changing town name still does not update buildings that reference the town
 - Weather still occasionally bugs out
 
-## 2.4
+## [2.4](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/releases/tag/2.4)
 
 ### Added 
 - Tutorial
