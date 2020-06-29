@@ -140,7 +140,12 @@ _listbox -- <<button "Create new faction">>
     <th>NPC</th>
   </tr>
   <<set $town.professions to setup.fetchProfessions($town)>>
-  <<for _name, _profession range $town.professions>><<nobr>><<capture _name, _profession>><<set _count += ((_profession.population / $town.population) * 100)>><<set _article to setup.articles.output(_name)>><<set _npcs to setup.filterNpcByProfession($npcs, _name)>><<set _nameTitle to lib.toTitleCase(_name)>>
+  <<for _name, _profession range $town.professions>><<nobr>>
+  <<capture _name, _profession>>
+  <<set _count += ((_profession.population / $town.population) * 100)>>
+  <<set _article to setup.articles.output(_name)>>
+  <<set _npcs to lib.filterNpcByProfession($npcs, _name)>>
+  <<set _nameTitle to lib.toTitleCase(_name)>>
   <tr><td><span class="tip dotted" @title="lib.professions[_npc.profession].description.toUpperFirst()">_name</span></td>
 <td>_profession.population</td>
 <td><<print ((_profession.population / $town.population) * 100).toFixed(2)>></td>

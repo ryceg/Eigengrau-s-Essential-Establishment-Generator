@@ -12,14 +12,3 @@ setup.findExistingNpc = function (town, npcs, npc, param, createNew) {
     return setup.createNPC(town, createNew)
   }
 }
-
-setup.filterNpcByProfession = function (npcs, profession) {
-  const array = []
-  const npcArray = Object.keys(npcs)
-  for (const obj of npcArray) {
-    if (npcs[obj].profession === profession) {
-      array.push(npcs[obj])
-    }
-  }
-  return array
-}
