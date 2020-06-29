@@ -62,25 +62,7 @@ export function townRender (town: Town) {
     town.wealth = 'squalid'
   }
 
-  if (town.roll.economics > 90) {
-    town.economics = `Trade in ${town.name} is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ${town.type}, and people live ${articles.output(town.wealth)} existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ${town.name} are high.`
-  } else if (town.roll.economics > 80) {
-    town.economics = `Trade in ${town.name} is regulated, with taxes and restrictions on what can be brought in and out of the ${town.type}, and people live ${articles.output(town.wealth)} existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.`
-  } else if (town.roll.economics > 70) {
-    town.economics = `Trade in ${town.name} is regulated, with taxes applied to all goods and services rendered, and people live ${articles.output(town.wealth)} existence because of it. The trade guild enforces rules, with penalties for rule-breakers.`
-  } else if (town.roll.economics > 60) {
-    town.economics = `Trade in ${town.name} is mostly free, with some taxes applied to goods and services rendered in the city. People live ${articles.output(town.wealth)} existence because of it.`
-  } else if (town.roll.economics > 50) {
-    town.economics = `Trade is reasonable in ${town.name}, and people live ${articles.output(town.wealth)} existence because of it; some taxes are applied to certain goods and services that are rendered in the city.`
-  } else if (town.roll.economics > 40) {
-    town.economics = `Trade is reasonable in ${town.name}, and people live ${articles.output(town.wealth)} existence because of it; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.`
-  } else if (town.roll.economics > 30) {
-    town.economics = `Trade is rather free in ${town.name}, and people live ${articles.output(town.wealth)} existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.`
-  } else if (town.roll.economics > 20) {
-    town.economics = `Trade is free in ${town.name}, and people live ${articles.output(town.wealth)} existence because of it. There are no taxes or regulations to speak of.`
-  } else if (town.roll.economics <= 20) {
-    town.economics = `Caveat emptor is the guiding philosophy of ${town.name}, and people live ${articles.output(town.wealth)} existence because of it. Without any taxes or regulations, the free market reigns supreme here.`
-  }
+  town.economics = getTownEconomics(town)
 
   if (town.roll.welfare > 90 && town.roll.wealth > 50) {
     town.welfare = 'Welfare is excellent. Citizens can expect free healthcare, education, child care, death services, safety nets, and other programs beneficial to the health of the public.'
@@ -272,4 +254,19 @@ export function townRender (town: Town) {
   }
 
   return town
+}
+
+function getTownEconomics (town: Town) {
+  const roll = town.roll.economics
+  const { name, wealth } = town
+
+  if (roll > 90) return `Trade in ${name} is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ${town.type}, and people live ${articles.output(wealth)} existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ${name} are high.`
+  if (roll > 80) return `Trade in ${name} is regulated, with taxes and restrictions on what can be brought in and out of the ${town.type}, and people live ${articles.output(wealth)} existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.`
+  if (roll > 70) return `Trade in ${name} is regulated, with taxes applied to all goods and services rendered, and people live ${articles.output(wealth)} existence because of it. The trade guild enforces rules, with penalties for rule-breakers.`
+  if (roll > 60) return `Trade in ${name} is mostly free, with some taxes applied to goods and services rendered in the city. People live ${articles.output(wealth)} existence because of it.`
+  if (roll > 50) return `Trade is reasonable in ${name}, and people live ${articles.output(wealth)} existence because of it; some taxes are applied to certain goods and services that are rendered in the city.`
+  if (roll > 40) return `Trade is reasonable in ${name}, and people live ${articles.output(wealth)} existence because of it; some taxes are applied to certain goods and services that are rendered in the city, but the more creative entrepenuers can find loopholes to make a better profit.`
+  if (roll > 30) return `Trade is rather free in ${name}, and people live ${articles.output(wealth)} existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell.`
+  if (roll > 20) return `Trade is free in ${name}, and people live ${articles.output(wealth)} existence because of it. There are no taxes or regulations to speak of.`
+  return `Caveat emptor is the guiding philosophy of ${name}, and people live ${articles.output(wealth)} existence because of it. Without any taxes or regulations, the free market reigns supreme here.`
 }
