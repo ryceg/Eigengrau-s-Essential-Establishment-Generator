@@ -218,7 +218,6 @@ setup.createTown = function (base) {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = town.origin || setup.townData.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
-  town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structure.material.types
 
   console.log('Defining taxes')
@@ -301,7 +300,9 @@ setup.createTown = function (base) {
   lib.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-  setup.setMaterialProbability(town)
+
+  const possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
+  lib.setMaterialProbability(town, possibleMaterials)
 
   console.groupEnd()
   // setup.createWeather(town)

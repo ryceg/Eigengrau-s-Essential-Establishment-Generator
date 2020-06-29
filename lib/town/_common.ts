@@ -24,4 +24,10 @@ export interface Town {
   guard: {
     funding: string
   }
+  possibleMaterials: string[]
+  materialProbability: {
+    [key: string]: {
+      probability: number
+    }
+  }
 }

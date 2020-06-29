@@ -18,13 +18,3 @@ setup.createTownMaterial = function (startLocationMaterials, wealth, size) {
     return lowTierMaterials.random()
   }
 }
-
-setup.setMaterialProbability = function (town) {
-  Object.keys(town.materialProbability).forEach((material) => {
-    town.possibleMaterials.forEach(possibleMaterial => {
-      if (possibleMaterial !== material) {
-        town.materialProbability[possibleMaterial].probability = 0
-      }
-    })
-  })
-}
