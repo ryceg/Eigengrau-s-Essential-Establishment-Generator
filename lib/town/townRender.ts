@@ -1,32 +1,5 @@
 import { articles } from '../src/articles'
-
-interface Town {
-  name: string
-  type: string
-  population: number
-  roll: {
-    guardFunding: number
-    wealth: number
-    economics: number
-    welfare: number
-    military: number
-    law: number
-    sin: number
-    arcana: number
-  }
-  wealth: string
-  economics: string
-  welfare: string
-  military: string
-  law: string
-  sin: string
-  arcana: string
-  politicalIdeology: string
-  hasBrothel: boolean
-  guard: {
-    funding: string
-  }
-}
+import { Town } from './_common'
 
 export function townRender (town: Town) {
   console.log(`Rendering ${town.name}...`)
@@ -47,9 +20,7 @@ export function townRender (town: Town) {
   }
 
   town.wealth = getTownWealth(town)
-
   town.economics = getTownEconomics(town)
-
   town.welfare = getTownWelfare(town)
 
   if (town.roll.military > 90) {
@@ -188,7 +159,6 @@ export function townRender (town: Town) {
   }
 
   town.guard.funding = getGuardFunding(town)
-
   town.hasBrothel = getHasBrothel(town)
 
   return town
