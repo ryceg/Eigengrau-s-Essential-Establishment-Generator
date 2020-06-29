@@ -46,21 +46,7 @@ export function townRender (town: Town) {
     town.population = 30
   }
 
-  if (town.roll.wealth > 95) {
-    town.wealth = 'kingly'
-  } else if (town.roll.wealth > 90) {
-    town.wealth = 'aristocratic'
-  } else if (town.roll.wealth > 80) {
-    town.wealth = 'wealthy'
-  } else if (town.roll.wealth > 70) {
-    town.wealth = 'comfortable'
-  } else if (town.roll.wealth > 30) {
-    town.wealth = 'modest'
-  } else if (town.roll.wealth > 25) {
-    town.wealth = 'poor'
-  } else if (town.roll.wealth <= 25) {
-    town.wealth = 'squalid'
-  }
+  town.wealth = getTownWealth(town)
 
   town.economics = getTownEconomics(town)
 
@@ -206,6 +192,18 @@ export function townRender (town: Town) {
   town.hasBrothel = getHasBrothel(town)
 
   return town
+}
+
+function getTownWealth (town: Town) {
+  const roll = town.roll.wealth
+
+  if (roll > 95) return 'kingly'
+  if (roll > 90) return 'aristocratic'
+  if (roll > 80) return 'wealthy'
+  if (roll > 70) return 'comfortable'
+  if (roll > 30) return 'modest'
+  if (roll > 25) return 'poor'
+  return 'squalid'
 }
 
 function getTownEconomics (town: Town) {
