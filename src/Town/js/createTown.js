@@ -298,7 +298,7 @@ setup.createTown = function (base) {
   lib.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
   lib.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
   town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
-  setup.townRender(town)
+  lib.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
   setup.setMaterialProbability(town)
