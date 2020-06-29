@@ -46,7 +46,7 @@ setup.createFaction = function (town, opts = {}) {
   lib.createAllies(faction)
   lib.createRivals(faction)
 
-  faction.tippyDescription = `${setup.articles.output(faction.size).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
+  faction.tippyDescription = `${lib.articles.output(faction.size).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 
   console.groupEnd()
   console.log(`${faction.name} have loaded.`)

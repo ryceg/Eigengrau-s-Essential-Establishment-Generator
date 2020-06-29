@@ -14,17 +14,17 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     market: {
       function (town) {
         const market = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
-        return `${setup.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
+        return `${lib.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     whyNot: {
       function (town) {
-        return `${setup.articles.output(weapon.random())}. Dunno why, just thought that it'd be fun to try and make one.`
+        return `${lib.articles.output(weapon.random())}. Dunno why, just thought that it'd be fun to try and make one.`
       }
     },
     replace: {
       function (town) {
-        return `${setup.articles.output(weapon.random())} to replace the one I sold the other day.`
+        return `${lib.articles.output(weapon.random())} to replace the one I sold the other day.`
       }
     },
     boring: {
@@ -34,12 +34,12 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     moreBoring: {
       function (town) {
-        return `${setup.articles.output(weapon.random())} for one of my drinking buddies.`
+        return `${lib.articles.output(weapon.random())} for one of my drinking buddies.`
       }
     },
     weddingGift: {
       function (town) {
-        return `${setup.articles.output(weapon.random())} for a wedding gift.`
+        return `${lib.articles.output(weapon.random())} for a wedding gift.`
       }
     },
     mundaneMarkets: {
@@ -57,7 +57,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           background: 'noble'
         })
         setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
-        return `${setup.articles.output(weapon.random())} for some big hobnob noble called ${setup.profile(npc)}.`
+        return `${lib.articles.output(weapon.random())} for some big hobnob noble called ${setup.profile(npc)}.`
       }
     },
     guard: {
@@ -71,7 +71,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           hasClass: false
         })
         setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
-        return `${setup.articles.output(weapon.random())} for one of the ${setup.profile(npc, 'guards')}.`
+        return `${lib.articles.output(weapon.random())} for one of the ${setup.profile(npc, 'guards')}.`
       }
     },
     guardCaptain: {
@@ -81,7 +81,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       function (town, smithy) {
         const npc = town.guard.captain
         setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
-        return `${setup.articles.output(weapon.random())} for the ${setup.profile(npc, 'captain of the guard')}.`
+        return `${lib.articles.output(weapon.random())} for the ${setup.profile(npc, 'captain of the guard')}.`
       }
     },
     guardRefresh: {

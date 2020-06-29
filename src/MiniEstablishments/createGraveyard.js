@@ -27,7 +27,7 @@ setup.createGraveyard = (town, base = {}) => {
   ].random()
   graveyard.feature = [
     `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.associatedNPC.race })}`,
-    `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is ${setup.articles.output(['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random())} shrine to a popular god`,
+    `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is ${lib.articles.output(['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random())} shrine to a popular god`,
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random()
@@ -39,8 +39,8 @@ setup.createGraveyard = (town, base = {}) => {
   ].random()
   // You enter the graveyard ___
   graveyard.entrance = [
-    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.metal.secondaryDescriptors.random()}, ${setup.graveyard.material.metal.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
-    `${['by walking through', 'through'].random()} ${setup.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.wood.secondaryDescriptors.random()}, ${setup.graveyard.material.wood.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
+    `${['by walking through', 'through'].random()} ${lib.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.metal.secondaryDescriptors.random()}, ${setup.graveyard.material.metal.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
+    `${['by walking through', 'through'].random()} ${lib.articles.output(setup.graveyard.qualityDescriptors.random())}, ${setup.graveyard.material.wood.secondaryDescriptors.random()}, ${setup.graveyard.material.wood.type.random()} ${['archway', 'gate', 'arch'].random()}${setup.graveyard.additionalDetail.random()}`,
     `under a small arch made up of the curved branches of several ${lib.flora.tree.typeS.random()} trees`,
     `through a large archway carved out of an enormous ${lib.flora.tree.typeS.random()} tree`,
     `by passing between a pair of ${graveyard.pairOf}`,
@@ -48,6 +48,6 @@ setup.createGraveyard = (town, base = {}) => {
     `by passing by several patches of ${['overgrown', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${lib.flora.flower.stemP.random()}`
   ].random()
 
-  graveyard.tippyDescription = `${setup.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`
+  graveyard.tippyDescription = `${lib.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`
   return graveyard
 }

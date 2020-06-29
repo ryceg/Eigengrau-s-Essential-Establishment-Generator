@@ -17,9 +17,9 @@
     \<<replace "#NPC">>
           \<div class="descriptive">
             \<h3>$toolbox.randomNPC.name</h3>
-            \<<print setup.articles.output($toolbox.randomNPC.descriptor).toUpperFirst()>> is currently <<print $toolbox.randomNPC.idle.random()>> in the corner. 
+            \<<print lib.articles.output($toolbox.randomNPC.descriptor).toUpperFirst()>> is currently <<print $toolbox.randomNPC.idle.random()>> in the corner. 
             \You strike up conversation with $toolbox.randomNPC.himher, and the $toolbox.randomNPC.descriptor introduces $toolbox.randomNPC.himherself as 
-            \<<profile $toolbox.randomNPC>>, <<print setup.articles.find($toolbox.randomNPC.profession)>> <<tooltip $toolbox.randomNPC.profession lib.professions[$toolbox.randomNPC.profession].description.toUpperFirst()>>.</div>
+            \<<profile $toolbox.randomNPC>>, <<print lib.articles.find($toolbox.randomNPC.profession)>> <<tooltip $toolbox.randomNPC.profession lib.professions[$toolbox.randomNPC.profession].description.toUpperFirst()>>.</div>
     \<</replace>>
 <</button>>
 <div id="NPC"></div>

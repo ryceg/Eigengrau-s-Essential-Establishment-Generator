@@ -880,7 +880,7 @@ setup.initNpcData = () => {
         journey: [
           // TODO ifix journeys
           // `The ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()} was ${setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random()},`,
-          // `It was ${setup.articles.output(setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random())} ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()},`,
+          // `It was ${lib.articles.output(setup.npcData.lifeEvents.pilgrimage.journeyDifficulty.random())} ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()},`,
           // `I was not prepared enough for the ${setup.npcData.lifeEvents.pilgrimage.journeySynonyms.random()}.`,
           'I had waited my whole life for this'
         ],

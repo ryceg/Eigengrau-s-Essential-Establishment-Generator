@@ -1,6 +1,6 @@
 setup.structure = {
   create (town, building, opts) {
-    console.groupCollapsed(`Creating the structure for ${setup.articles.output(building.wordNoun || 'building')}`)
+    console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
     if (!building) {
       building = {}
     }
@@ -52,13 +52,13 @@ setup.structure = {
     lib.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', undefined, building.roll)
 
     building.structure.descriptors = [
-      `${setup.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
-      `${setup.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${setup.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
+      `${lib.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
+      `${lib.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
     ]
 
     if (building.size) {
       building.structure.descriptorsAdd(
-        `${setup.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${setup.articles.output(building.structure.roof.verb)} roof`
+        `${lib.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${lib.articles.output(building.structure.roof.verb)} roof`
       )
     }
     console.log(building.structure)

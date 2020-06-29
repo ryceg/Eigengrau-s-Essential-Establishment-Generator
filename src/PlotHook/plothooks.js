@@ -395,7 +395,7 @@ setup.plothooks = {
         dndClass: 'sorcerer'
       })
       const cabinTippy = lib.createAutoTippy(lib.cabin)
-      return `Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ${setup.profile(npc, 'witch')} that lives in ${cabinTippy(setup.articles.output('cabin'))} in old haunted forest; all the chickens have been enlarged.)`
+      return `Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ${setup.profile(npc, 'witch')} that lives in ${cabinTippy(lib.articles.output('cabin'))} in old haunted forest; all the chickens have been enlarged.)`
     }
   },
   'Guard The Garlic': {

@@ -10,7 +10,7 @@ setup.createClass = function (town, npc) {
     //   ? setup.npcData.classTraits[npc.dndClass].professionOrigin.random()
     //   : Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
     //     ? setup.npcData.professionTraits[npc.profession].professionOrigin.random()
-    //     : 'My circumstances kept me from doing more than being ' + setup.articles.output(npc.profession)
+    //     : 'My circumstances kept me from doing more than being ' + lib.articles.output(npc.profession)
     background = Array.isArray(setup.npcData.classTraits[npc.dndClass].background)
       ? setup.npcData.classTraits[npc.dndClass].background.random()
       : Array.isArray(setup.npcData.professionTraits[npc.profession].background)
@@ -24,7 +24,7 @@ setup.createClass = function (town, npc) {
   } else if (npc.hasClass === false && typeof setup.npcData.professionTraits[npc.profession] !== 'undefined') {
     // professionOrigin = Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
     //   ? setup.npcData.professionTraits[npc.profession].professionOrigin.random()
-    //   : 'My circumstances kept me from doing more than being ' + setup.articles.output(npc.profession)
+    //   : 'My circumstances kept me from doing more than being ' + lib.articles.output(npc.profession)
     background = Array.isArray(setup.npcData.professionTraits[npc.profession].background)
       ? setup.npcData.professionTraits[npc.profession].background.random()
       : 'commoner'
@@ -33,7 +33,7 @@ setup.createClass = function (town, npc) {
       : 'a dagger'
   } else {
     console.log(`${npc.name} the ${npc.dndClass} did not have a valid class.`)
-    professionOrigin = `My circumstances kept me from doing more than being ${setup.articles.output(npc.profession)}`
+    professionOrigin = `My circumstances kept me from doing more than being ${lib.articles.output(npc.profession)}`
     background = 'commoner'
     classWeapon = 'a dagger'
   }
@@ -41,17 +41,17 @@ setup.createClass = function (town, npc) {
   const profession = setup.findProfession(town, npc)
 
   const originWage = [
-    [-25, `I've tried to do a good job as ${setup.articles.output(npc.profession)} but am just rubbish at it. I don't think I'm good at anything, really.`],
-    [-20, `I've been trying to make it as ${setup.articles.output(npc.profession)} but suck at it. I'm beginning to think I was never meant to be ${setup.articles.output(npc.profession)}.`],
-    [-15, `I've been trying to make it as ${setup.articles.output(npc.profession)} but just can't seem to hack it. I think I'll quit.`],
-    [-10, `I've had trouble as ${setup.articles.output(npc.profession)}. I guess some people are born with it- I'm sure as hell not.`],
-    [-5, `I've had a bit of a downturn as ${setup.articles.output(npc.profession)}. If it keeps up for much longer, I'm going to begin losing hope.`],
-    [0, `I'm working as ${setup.articles.output(npc.profession)}. The work is alright, ${['and I enjoy it', 'though it can be a bit tedious', 'I\'ve certainly had worse jobs', 'if a little dull', 'if a little dull at times'].random()}`],
-    [5, `I'm on the upswing as ${setup.articles.output(npc.profession)}. Things are looking better.`],
-    [10, `I'm doing really well as ${setup.articles.output(npc.profession)}! Maybe it's luck, maybe a natural talent, I don't know.`],
-    [15, `It turns out that I'm pretty good at being ${setup.articles.output(npc.profession)}! I enjoy the work.`],
-    [20, `It turns out that I'm really good at being ${setup.articles.output(npc.profession)}. It's actually kinda easy.`],
-    [25, `Not to brag, but I'm a born natural at being ${setup.articles.output(npc.profession)}. It's fun, very rewarding work.`]
+    [-25, `I've tried to do a good job as ${lib.articles.output(npc.profession)} but am just rubbish at it. I don't think I'm good at anything, really.`],
+    [-20, `I've been trying to make it as ${lib.articles.output(npc.profession)} but suck at it. I'm beginning to think I was never meant to be ${lib.articles.output(npc.profession)}.`],
+    [-15, `I've been trying to make it as ${lib.articles.output(npc.profession)} but just can't seem to hack it. I think I'll quit.`],
+    [-10, `I've had trouble as ${lib.articles.output(npc.profession)}. I guess some people are born with it- I'm sure as hell not.`],
+    [-5, `I've had a bit of a downturn as ${lib.articles.output(npc.profession)}. If it keeps up for much longer, I'm going to begin losing hope.`],
+    [0, `I'm working as ${lib.articles.output(npc.profession)}. The work is alright, ${['and I enjoy it', 'though it can be a bit tedious', 'I\'ve certainly had worse jobs', 'if a little dull', 'if a little dull at times'].random()}`],
+    [5, `I'm on the upswing as ${lib.articles.output(npc.profession)}. Things are looking better.`],
+    [10, `I'm doing really well as ${lib.articles.output(npc.profession)}! Maybe it's luck, maybe a natural talent, I don't know.`],
+    [15, `It turns out that I'm pretty good at being ${lib.articles.output(npc.profession)}! I enjoy the work.`],
+    [20, `It turns out that I'm really good at being ${lib.articles.output(npc.profession)}. It's actually kinda easy.`],
+    [25, `Not to brag, but I'm a born natural at being ${lib.articles.output(npc.profession)}. It's fun, very rewarding work.`]
   ]
 
   if (!npc.professionOrigin) {

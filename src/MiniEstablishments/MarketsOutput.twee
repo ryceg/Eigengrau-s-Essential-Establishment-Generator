@@ -9,8 +9,8 @@
 <</for>>
 <<link "<h4>Who else is there?</h4>">>
 <<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to lib.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to lib.market.vendors.tent.random()>>
-<<replace "#moreSellers">>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print setup.articles.output($building.moreSeller.merchant.tent)>>.<</replace>>
-<</link>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print setup.articles.output($building.moreSeller.merchant.tent)>>.<</if>>
+<<replace "#moreSellers">>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</replace>>
+<</link>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</if>>
 
 A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
 <<listbox "$building.magicSelection">>
@@ -22,12 +22,12 @@ A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling 
       <<set $building.magic to lib.createRing()>>
       <<replace "#magic">>The $building.magicSeller.manwoman beckons you over to $building.magicSeller.hisher stall, and introduces $building.magicSeller.himherself as <<profile $building.magicSeller>>, a purveyor of fine goods. The $building.magicSeller.raceNote asks you for your ring size, and then $building.magicSeller.heshe reaches below $building.magicSeller.hisher table, and procures a ring...
             <div class="descriptive">
-              <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
+              <h3><<print lib.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
               $building.magic.firstOutputs</div>
       <</replace>><<link "<h4>Look at another ring</h4>">><<set $building.magic to lib.createRing()>>
           <<replace "#magic">>
                 <div class="descriptive">
-                  <h3><<print setup.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
+                  <h3><<print lib.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
                   $building.magic.secondOutputs</div><</replace>><</link>><<run console.log($building.magic)>><</nobr>>
     <<default>>
       <<set $building.magic to lib.createMagic($building.magicType)>><<run console.log($building.magic)>>

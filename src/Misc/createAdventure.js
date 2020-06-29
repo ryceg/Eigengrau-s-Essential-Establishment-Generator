@@ -40,7 +40,7 @@ setup.createAdventure = (town, base) => {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
+        goal: `rescue ${adventureGoalNPC.name}, ${lib.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
       })
       break
     case 'discover the fate of a previous adventuring party.':
@@ -48,7 +48,7 @@ setup.createAdventure = (town, base) => {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
+        goal: `rescue ${adventureGoalNPC.name}, ${lib.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
       })
       break
     case 'find an npc who disappeared in the area.':
@@ -56,7 +56,7 @@ setup.createAdventure = (town, base) => {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: `find ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who disappeared in the area.`
+        goal: `find ${adventureGoalNPC.name}, ${lib.articles.output(adventureGoalNPC.raceNote)} who disappeared in the area.`
       })
       break
     case 'escort an npc to a destination.':
@@ -64,7 +64,7 @@ setup.createAdventure = (town, base) => {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: `escort ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who needs protection on the way to another place.`
+        goal: `escort ${adventureGoalNPC.name}, ${lib.articles.output(adventureGoalNPC.raceNote)} who needs protection on the way to another place.`
       })
       break
     case 'discover the fate of a missing group of explorers.':
@@ -80,7 +80,7 @@ setup.createAdventure = (town, base) => {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
+        goal: `rescue ${adventureGoalNPC.name}, ${lib.articles.output(adventureGoalNPC.raceNote)} who was captured and taken prisoner.`
       })
       break
     case 'rescue a character, monster, or object from a natural or unnatural disaster.':
@@ -88,7 +88,7 @@ setup.createAdventure = (town, base) => {
       SV.adventureGoalNPC = adventureGoalNPC
       Object.assign(adventure, {
         adventureGoalNPC,
-        goal: `rescue ${adventureGoalNPC.name}, ${setup.articles.output(adventureGoalNPC.raceNote)} who was caught in a natural disaster.`
+        goal: `rescue ${adventureGoalNPC.name}, ${lib.articles.output(adventureGoalNPC.raceNote)} who was caught in a natural disaster.`
       })
 
       switch (adventure.villain) {
@@ -234,7 +234,7 @@ setup.createAdventure = (town, base) => {
                 adventureAlly
               })
               break
-          };
+          }
 
           switch (adventure.patron) {
             case 'retired adventurer':

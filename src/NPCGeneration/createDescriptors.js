@@ -13,7 +13,7 @@ setup.createDescriptors = npc => {
   ]
 
   if (npc.beard) {
-    descriptors.push(`${npc.raceName} with ${setup.articles.output(npc.beard)}`)
+    descriptors.push(`${npc.raceName} with ${lib.articles.output(npc.beard)}`)
   }
 
   if (npc.hasClass) {

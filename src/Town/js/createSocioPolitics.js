@@ -35,7 +35,7 @@ setup.createSocioPolitics = function (town) {
           // }
           break
         default:
-          console.log(`Loaded ${setup.articles.output(town.politicalIdeologyIC)} absolute monarchy`)
+          console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} absolute monarchy`)
           setup.createTownLeader(town)
           town.dualLeaders = true
           town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
@@ -58,13 +58,13 @@ setup.createSocioPolitics = function (town) {
           // }
           break
         default:
-          console.log(`Loaded ${setup.articles.output(town.politicalIdeologyIC)} constitutional monarchy`)
+          console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} constitutional monarchy`)
           town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
           setup.createTownLeader(town)
       }
       break
     default:
-      console.log(`Loaded ${setup.articles.output(town.politicalIdeologyIC)} ${town.politicalSource}`)
+      console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} ${town.politicalSource}`)
       setup.createTownLeader(town)
       town.dualLeaders = false
   }

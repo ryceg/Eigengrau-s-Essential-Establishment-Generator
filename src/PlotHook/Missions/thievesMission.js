@@ -18,10 +18,10 @@ setup.thievesMission = function (town, mission) {
       "There's something I need you to do."
     ].random()} ${mission.difficultyText} ${["This one's a ", "It's a ", 'This is a '].random()}${mission.type} job.`,
     `${[
-      `I've got ${setup.articles.output(mission.type)} job for you.`,
-      `Got ${setup.articles.output(mission.type)} job for you to do.`,
-      `There's ${setup.articles.output(mission.type)} job I need you to do.`,
-      `There's ${setup.articles.output(mission.type)} job I need you to do.`
+      `I've got ${lib.articles.output(mission.type)} job for you.`,
+      `Got ${lib.articles.output(mission.type)} job for you to do.`,
+      `There's ${lib.articles.output(mission.type)} job I need you to do.`,
+      `There's ${lib.articles.output(mission.type)} job I need you to do.`
     ].random()} ${mission.difficultyText}`
   ].random()
 

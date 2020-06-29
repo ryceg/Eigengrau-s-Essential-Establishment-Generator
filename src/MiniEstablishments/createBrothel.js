@@ -21,7 +21,7 @@ setup.createBrothel = (town, tavern) => {
   brothel.size = ''
   brothel.cleanliness = ''
   setup.structure.create(town, brothel)
-  brothel.structure.brothelDescriptor = `${setup.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${setup.articles.output(brothel.structure.roof.verb)} roof`
+  brothel.structure.brothelDescriptor = `${lib.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${lib.articles.output(brothel.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(brothel, setup.brothel.rollData, propName)

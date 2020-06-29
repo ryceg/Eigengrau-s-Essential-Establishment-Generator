@@ -249,8 +249,8 @@ setup.createRumour = town => {
       'a powerful enemy is coming for you',
       'an enemy is plotting against you',
       'the government is investigating you',
-      `${setup.articles.output(['friend', 'lover', 'ally', 'friend'].random())} is lying to you`,
-      `${setup.articles.output(['friend', 'co-worker', 'ally', 'friend'].random())} is stealing from you`,
+      `${lib.articles.output(['friend', 'lover', 'ally', 'friend'].random())} is lying to you`,
+      `${lib.articles.output(['friend', 'co-worker', 'ally', 'friend'].random())} is stealing from you`,
       'a rival is spreading terrible lies and rumors',
       'an avatar is coming'
     ].random()

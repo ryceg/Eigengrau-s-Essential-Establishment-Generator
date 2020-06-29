@@ -6,7 +6,7 @@ setup.initGoodsAndServices = () => {
         // this is the template for the creation of generic buildings; i.e. those that are present in this list.
         // It is *not* for taverns, town squares, castles, or anything large scale.
         // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
-        console.groupCollapsed(`setup.goodsAndServices.default.create()ing ${setup.articles.output(type)}`)
+        console.groupCollapsed(`setup.goodsAndServices.default.create()ing ${lib.articles.output(type)}`)
         let building = {
           type,
           buildingType: type,
@@ -38,7 +38,7 @@ setup.initGoodsAndServices = () => {
         building.fruit = lib.flora.fruit.fruitS.random()
         building.fruits = lib.flora.fruit.fruitP.random()
 
-        building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -221,7 +221,7 @@ setup.initGoodsAndServices = () => {
             'measuring out flour',
             'buttering a pan',
             'slicing up a loaf of bread',
-            'slicing up <<print setup.articles.output($building.fruit)>>',
+            'slicing up <<print lib.articles.output($building.fruit)>>',
             'forming some dough into a loaf pan',
             'whisking together a bowl of batter',
             'blending together a bowl of ingredients',
@@ -274,7 +274,7 @@ setup.initGoodsAndServices = () => {
           if (typeData.synonyms) {
             bakedGood.synonym = typeData.synonyms.random()
           }
-          bakedGood.readout = `This ${bakedGood.precedingWord} ${bakedGood.synonym || bakedGood.type} is ${loc.qualityDescriptors[bakedGood.quality1].random()} and ${loc.qualityDescriptors[bakedGood.quality2].random()}. ${bakedGood.cookingDescriptor} and ${bakedGood.aroma}. ${['', '', `It is served with ${setup.articles.output(bakedGood.accoutrement || 'jam.')}`].random()}`
+          bakedGood.readout = `This ${bakedGood.precedingWord} ${bakedGood.synonym || bakedGood.type} is ${loc.qualityDescriptors[bakedGood.quality1].random()} and ${loc.qualityDescriptors[bakedGood.quality2].random()}. ${bakedGood.cookingDescriptor} and ${bakedGood.aroma}. ${['', '', `It is served with ${lib.articles.output(bakedGood.accoutrement || 'jam.')}`].random()}`
           bakedGood.tippyWord = lib.createTippyFull(bakedGood.readout, bakedGood.precedingWord + (bakedGood.synonym || bakedGood.type))
           return bakedGood
         },
@@ -496,7 +496,7 @@ setup.initGoodsAndServices = () => {
         building.flower2 = lib.flora.flower.stemP.random()
         building.flower = lib.flora.flower.stemS.random()
 
-        building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -774,7 +774,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -1364,7 +1364,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -1683,7 +1683,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -2212,7 +2212,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${setup.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {

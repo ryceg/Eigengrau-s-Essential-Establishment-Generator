@@ -6,13 +6,13 @@ setup.profileTooltip = function (id, obj) {
       if (obj.objectType) {
         switch (obj.objectType) {
           case 'npc':
-            span.title = `${setup.articles.output(obj.descriptor).toUpperFirst()} ${obj.profession} with ${obj.physicalTrait} called ${obj.name}`
+            span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} ${obj.profession} with ${obj.physicalTrait} called ${obj.name}`
             break
           case 'building':
-            span.title = obj.tippyDescription || `${setup.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            span.title = obj.tippyDescription || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
             break
           case 'faction':
-            span.title = obj.tippyDescription || `${setup.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
+            span.title = obj.tippyDescription || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
             break
           case 'guard':
             span.title = obj.tippyDescription || `${obj.name}, the guards.`
@@ -91,7 +91,7 @@ setup.buildingTooltip = function (id, building) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
-      span.title = building.tippyDescription || `${setup.articles.output(building.size || building._size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness || building._cleanliness}, and is known for ${building.notableFeature}.`
+      span.title = building.tippyDescription || `${lib.articles.output(building.size || building._size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness || building._cleanliness}, and is known for ${building.notableFeature}.`
       tippy(`#${span.id}`)
     }
   })

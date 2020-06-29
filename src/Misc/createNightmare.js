@@ -122,5 +122,5 @@ setup.createNightmare = base => {
     `the ${base.figure.type} is dragging away a party member. It looks up and makes eye contact with you`
   ].random()
 
-  return `You find yourself in ${base.location}. You see ${base.figure.prefix || setup.articles.find(base.figure.type)} ${base.figure.type} ${base.figure.whoWhich || 'which'} ${base.descriptor}. The ${base.figure.type} ${base.action}. You wake up in a cold sweat. ${base.wake.toUpperFirst()}`
+  return `You find yourself in ${base.location}. You see ${base.figure.prefix || lib.articles.find(base.figure.type)} ${base.figure.type} ${base.figure.whoWhich || 'which'} ${base.descriptor}. The ${base.figure.type} ${base.action}. You wake up in a cold sweat. ${base.wake.toUpperFirst()}`
 }

@@ -29,7 +29,7 @@ setup.createStartBuildings = function (town) {
   if ((town.population > 350 && town.roll.wealth > 40) || town.roll.wealth > 60) { buildingType.push('Barber') }
 
   for (const type of buildingType) {
-    console.log(`Creating ${setup.articles.output(type)}...`)
+    console.log(`Creating ${lib.articles.output(type)}...`)
     setup.createNewBuilding(town, type)
   }
 
