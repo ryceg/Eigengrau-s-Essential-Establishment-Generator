@@ -19,16 +19,18 @@ export function closestMatch<
   let scale2 = 1
 
   // Find highest and lowest values for each property in the array.
-  let min1 = array[0][key1]
-  let min2 = array[0][key2]
-  let max1 = array[0][key1]
-  let max2 = array[0][key2]
+  let min1 = Infinity
+  let min2 = Infinity
 
-  for (let i = 1; i < array.length; i++) {
-    if (min1 > array[0][key1]) min1 = array[0][key1]
-    if (min2 > array[0][key2]) min2 = array[0][key2]
-    if (max1 < array[0][key1]) max1 = array[0][key1]
-    if (max2 < array[0][key2]) max2 = array[0][key2]
+  let max1 = -Infinity
+  let max2 = -Infinity
+
+  for (const value of array) {
+    min1 = Math.min(min1, value[key1])
+    min2 = Math.min(min2, value[key2])
+
+    max1 = Math.max(max1, value[key1])
+    max2 = Math.max(max2, value[key2])
   }
 
   const range1 = max1 - min1
