@@ -1,5 +1,5 @@
-import { randomFloat } from './randomFloat'
-import { random } from './random'
+import { randomFloat } from '../src/randomFloat'
+import { random } from '../src/random'
 
 export function getTownData () {
   const townData = {
