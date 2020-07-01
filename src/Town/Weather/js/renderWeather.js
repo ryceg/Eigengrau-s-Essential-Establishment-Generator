@@ -1,29 +1,20 @@
 
-setup.renderWeather = function (town, biome, weather) {
+setup.renderWeather = (town, biome = town.terrain, weather) => {
   console.log('Rendering weather...')
-  // console.log(weather)
 
-  // if weather is undefined, call the createWeather function
-  if (!weather) {
-    weather = setup.createWeather(town, biome)
-  }
   weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
   weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
-  // console.log(weather)
-  biome = biome || town.terrain
 
-  // tempVariationRoll
   const tempVariationRoll = random(0, 100)
-
   const tempVariationKeys = Object.keys(lib.terrain[biome].weather.tempVariation).reverse()
   const intKeys = []
 
-  // interpret the key for each tempVariation object as an integer
+  // Interpret the key for each tempVariation object as an integer.
   for (const key of tempVariationKeys) {
     intKeys.push(parseInt(key))
   }
 
-  // find one that's equal or lesser than tempVariationRoll to use as the final key
+  // Find one that's equal or lesser than tempVariationRoll to use as the final key.
   const finalKey = intKeys.find(key => {
     if (tempVariationRoll >= key) {
       console.log({ key })
