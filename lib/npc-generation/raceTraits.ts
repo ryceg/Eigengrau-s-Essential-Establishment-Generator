@@ -6,9 +6,9 @@ interface RaceTrait {
   probability: number
   muscleMass: number
   bmiModifier: number
-  ageTraits: {
+  ageTraits: Record<AgeName, AgeTrait> & {
     ageDescriptors: [number, string][]
-  } & Record<AgeName, AgeTrait>
+  }
   genderTraits: Record<GenderName, GenderTrait>
   lastName: string[]
   eyes: string[]
