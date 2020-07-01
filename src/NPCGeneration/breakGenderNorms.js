@@ -42,7 +42,21 @@ setup.isDominantGender = (town, npc) => {
   return npc.gender === temp[2]
 }
 
-setup.checkProfessionGender = (town, professionString) => {
+setup.initSexistProfession = (town, npc) => {
+  if (npc.profession && !npc.gender) {
+    if (setup.breakGenderNorms(town, npc) === false) {
+      const newGender = checkProfessionGender(town, npc.profession)
+      if (newGender !== false) {
+        npc.gender = newGender
+      }
+    } else {
+      npc.isBreakingGenderNorms = true
+    }
+  }
+  return npc
+}
+
+function checkProfessionGender (town, professionString) {
   const profession = setup.findProfession(town, '', professionString)
   const genders = genderEqualityLikelihood.find(([threshold]) => {
     return threshold <= town.roll.equality
@@ -55,18 +69,4 @@ setup.checkProfessionGender = (town, professionString) => {
     default:
       return false
   }
-}
-
-setup.initSexistProfession = (town, npc) => {
-  if (npc.profession && !npc.gender) {
-    if (setup.breakGenderNorms(town, npc) === false) {
-      const newGender = setup.checkProfessionGender(town, npc.profession)
-      if (newGender !== false) {
-        npc.gender = newGender
-      }
-    } else {
-      npc.isBreakingGenderNorms = true
-    }
-  }
-  return npc
 }
