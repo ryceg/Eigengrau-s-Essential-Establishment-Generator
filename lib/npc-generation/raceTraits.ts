@@ -38,19 +38,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 50,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'settled adult': {
         baseAge: 20,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'young adult': {
         baseAge: 13,
-        'ageModifier' () { return dice(2, 4) }
+        ageModifier: () => dice(2, 4)
       },
       'child': {
         baseAge: 4,
-        'ageModifier' () { return dice(3, 4) }
+        ageModifier: () => dice(3, 4)
       }
     },
     genderTraits: {
@@ -59,16 +59,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 60,
         baseWeight: 130,
-        'heightModifier' () { return dice(2, 8) },
-        'weightModifier' () { return dice(2, 6) }
+        heightModifier: () => dice(2, 8),
+        weightModifier: () => dice(2, 6)
       },
       man: {
         firstName: ['Adrex', 'Arjhan', 'Azzakh', 'Balasar', 'Baradad', 'Bharash', 'Bidreked', 'Dadalan', 'Dazzazn', 'Direcris', 'Donaar', 'Fax', 'Gargax', 'Ghesh', 'Gorbundus', 'Greethen', 'Heskan', 'Hirrathak', 'Illdrex', 'Kaladan', 'Kerkad', 'Kiirith', 'Kriv', 'Maagog', 'Medrash', 'Mehen', 'Mozikth', 'Mreksh', 'Mugrunden', 'Nadarr', 'Nithther', 'Norkruuth', 'Nykkan', 'Pandjed', 'Patrin', 'Pijjink', 'Quarethon', 'Rathkran', 'Rhogar', 'Rivaan', 'Sethrekar', 'Shamash', 'Shedinn', 'Srorthen', 'Tarhun', 'Torinn', 'Trynnicus', 'Valorean', 'Vrondiss', 'Zedaar'],
         beardProbability: 90,
         baseHeight: 62,
         baseWeight: 160,
-        'heightModifier' () { return dice(2, 8) },
-        'weightModifier' () { return dice(2, 6) }
+        heightModifier: () => dice(2, 8),
+        weightModifier: () => dice(2, 6)
       }
     },
     lastName: ['Akambheryliiax', 'Argenthrixus', 'Baharoosh', 'Beryntolthropal', 'Bhenkumbyrznaax', 'Caavylteradyn', 'Chumbyxirinnish', 'Clethtinthiallor', 'Daardendrian', 'Delmirev', 'Dhyrktelonis', 'Ebynichtomonis', 'Esstyrlynn', 'Fharngnarthnost', 'Ghaallixirn', 'Grrrmmballhyst', 'Gygazzylyshrift', 'Hashphronyxadyn', 'Hshhsstoroth', 'lmbixtellrhyst', 'Jerynomonis', 'Jharthraxyn', 'Kerrhylon', 'Kimbatuul', 'Lhamboldennish', 'Linxakasendalor', 'Mohradyllion', 'Mystan', 'Nemmonis', 'Norixius', 'Ophinshtalajiir', 'Orexijandilin', 'Pfaphnyrennish', 'Phrahdrandon', 'Pyraxtallinost', 'Qyxpahrgh', 'Raghthroknaar', 'Shestendeliath', 'Skaarzborroosh', 'Sumnarghthrysh', 'Tiammanthyilish', 'Turnuroth', 'Umbyrphrael', 'Vangdondalor', 'Verthisathurgiesh', 'Wiwyrholdalphiax', 'Wystongjiir', 'Xephyrbahnor', 'Yarjerit', 'Zzzxaaxthroth'],
@@ -125,19 +125,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 197,
-        'ageModifier' () { return dice(3, 50) }
+        ageModifier: () => dice(3, 50)
       },
       'settled adult': {
         baseAge: 50,
-        'ageModifier' () { return dice(3, 50) }
+        ageModifier: () => dice(3, 50)
       },
       'young adult': {
         baseAge: 15,
-        'ageModifier' () { return dice(4, 8) }
+        ageModifier: () => dice(4, 8)
       },
       'child': {
         baseAge: 4,
-        'ageModifier' () { return dice(3, 6) }
+        ageModifier: () => dice(3, 6)
       }
     },
     genderTraits: {
@@ -146,16 +146,16 @@ export const raceTraits = {
         beardProbability: 80,
         baseHeight: 43,
         baseWeight: 120,
-        'heightModifier' () { return dice(2, 4) },
-        'weightModifier' () { return dice(2, 6) }
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(2, 6)
       },
       man: {
         firstName: ['Adrik', 'Alberich', 'Baern', 'Barendd', 'Beloril', 'Brottor', 'Dain', 'Dalgal', 'Darrak', 'Delg', 'Duergath', 'Dworic', 'Eberk', 'Einkil', 'Elaim', 'Erias', 'Fallond', 'Fargrim', 'Gardain', 'Garur', 'Gimgen', 'Gimurt', 'Harbek', 'Kildrak', 'Kilvar', 'Morgran', 'Morkral', 'Nalral', 'Nordak', 'Nuraval', 'Oloric', 'Olunt', 'Orsik', 'Oskar', 'Rangfim', 'Reirak', 'Rurik', 'Taklinn', 'Thoradin', 'Thorin', 'Thradal', 'Tordek', 'Traubon', 'Travok', 'Ulfgar', 'Urain', 'Veit', 'Vonbin', 'Vondal', 'Whurbin'],
         beardProbability: 4,
         baseHeight: 45,
         baseWeight: 150,
-        'heightModifier' () { return dice(2, 4) },
-        'weightModifier' () { return dice(2, 6) }
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(2, 6)
       }
     },
     lastName: ['Aranore', 'Balderk', 'Battlehammer', 'Bigtoe', 'Bloodkith', 'Bofdarm', 'Brawnanvil', 'Brazzik', 'Broodfist', 'Burrowfound', 'Caebrek', 'Daerdahk', 'Dankil', 'Daraln', 'Deepdelver', 'Durthane', 'Eversharp', 'FaHack', 'Fire-forge', 'Foamtankard', 'Frostbeard', 'Glanhig', 'Goblinbane', 'Goldfinder', 'Gorunn', 'Graybeard', 'Hammerstone', 'Helcral', 'Holderhek', 'Ironfist', 'Loderr', 'Lutgehr', 'Morigak', 'Orcfoe', 'Rakankrak', 'RubyEye', 'Rumnaheim', 'Silveraxe', 'Silverstone', 'Steelfist', 'Stoutale', 'Strakeln', 'Strongheart', 'Thrahak', 'Torevir', 'Torunn', 'Trollbleeder', 'Trueanvil', 'Trueblood', 'Ungart'],
@@ -214,19 +214,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 650,
-        'ageModifier' () { return dice(3, 50) }
+        ageModifier: () => dice(3, 50)
       },
       'settled adult': {
         baseAge: 450,
-        'ageModifier' () { return dice(3, 75) }
+        ageModifier: () => dice(3, 75)
       },
       'young adult': {
         baseAge: 100,
-        'ageModifier' () { return dice(4, 75) }
+        ageModifier: () => dice(4, 75)
       },
       'child': {
         baseAge: 10,
-        'ageModifier' () { return dice(4, 20) }
+        ageModifier: () => dice(4, 20)
       }
     },
     genderTraits: {
@@ -235,16 +235,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 61,
         baseWeight: 90,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(1, 4) }
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(1, 4)
       },
       man: {
         firstName: ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
         beardProbability: 75,
         baseHeight: 62,
         baseWeight: 100,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(1, 4) }
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(1, 4)
       }
     },
     lastName: ['Aloro', 'Amakiir', 'Amastacia', 'Ariessus', 'Arnuanna', 'Berevan', 'Caerdonel', 'Caphaxath', 'Casilltenirra', 'Cithreth', 'Dalanthan', 'Eathalena', 'Erenaeth', 'Ethanasath', 'Fasharash', 'Firahel', 'Floshern', 'Galanodel', 'Goltorah', 'Hanali', 'Holimion', 'Horineth', 'Iathrana', 'temnr', 'lranapha', 'Koehlanna', 'Lathalas', 'Liadon', 'Meliamne', 'Mellerelel', 'Mystralath', 'Nalio', 'Netyoive', 'Ofandrus', 'Ostoroth', 'Othronus', 'Qualanthri', 'Raethran', 'Rothenel', 'Selevarun', 'Siannodel', 'Suithrasas', 'Sylvaranth', 'Teinithra', 'Tiltathana', 'Wasanthi', 'Withrethin', 'Xiloscient', 'Xistsrith', 'Yaeldrin'],
@@ -305,19 +305,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 200,
-        'ageModifier' () { return dice(3, 100) }
+        ageModifier: () => dice(3, 100)
       },
       'settled adult': {
         baseAge: 40,
-        'ageModifier' () { return dice(3, 75) }
+        ageModifier: () => dice(3, 75)
       },
       'young adult': {
         baseAge: 18,
-        'ageModifier' () { return dice(2, 10) }
+        ageModifier: () => dice(2, 10)
       },
       'child': {
         baseAge: 6,
-        'ageModifier' () { return dice(2, 6) }
+        ageModifier: () => dice(2, 6)
       }
     },
     genderTraits: {
@@ -326,16 +326,16 @@ export const raceTraits = {
         beardProbability: 98,
         baseHeight: 35,
         baseWeight: 30,
-        'heightModifier' () { return dice(2, 4) },
-        'weightModifier' () { return dice(1, 1) }
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(1, 1)
       },
       man: {
         firstName: ['Alston', 'Alvyn', 'Anverth', 'Arumawann', 'Bilbron', 'Boddynock', 'Brocc', 'Burgell', 'Cockaby', 'Crampernap', 'Dabbledob', 'Delebean', 'Dimble', 'Eberdeb', 'Eldon', 'Erky', 'Fablen', 'Fibblestib', 'Fonkin', 'Frouse', 'Frug', 'Gerbo', 'Gimble', 'Glim', 'lgden', 'Jabble', 'Jebeddo', 'Kellen', 'Kipper', 'Namfoodle', 'Oppleby', 'Orryn', 'Paggen', 'PaHabar', 'Pog', 'Qualen', 'Ribbles', 'Rimple', 'Roondar', 'Sappw', 'Seebo', 'Senteq', 'Sindri', 'Umpen', 'Warryn', 'Wiggens', 'Wobbles', 'Wrenn', 'Zaffrab', 'Zook'],
         beardProbability: 37,
         baseHeight: 36,
         baseWeight: 35,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(1, 1) }
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(1, 1)
       }
     },
     lastName: ['Albaratie', 'Bafflestone', 'Beren', 'Boondiggles', 'Cobblelob', 'Daergel', 'Dunben', 'Fabblestabble', 'Fapplestamp', 'Fiddlefen', 'Folkor', 'Garrick', 'Gimlen', 'Glittergern', 'Gobblefirn', 'Gummen', 'Horcusporcus', 'Humplebumple', 'Ironhide', 'Leffery', 'Lingenhall', 'Loofollue', 'Maekkelferce', 'Miggledy', 'Munggen', 'Murnig', 'Musgraben', 'Nackle', 'Ningel', 'Nopenstallen', 'Nucklestamp', 'Offund', 'Oomtrowl', 'Pilwicken', 'Pingun', 'Quillsharpener', 'Raulnor', 'Reese', 'Rofierton', 'Scheppen', 'Shadowcloak', 'Silverthread', 'Sympony', 'Tarkelby', 'Timbers', 'Turen', 'Umbodoben', 'Waggletop', 'Welber', 'Wildwander'],
@@ -393,19 +393,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 150,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'settled adult': {
         baseAge: 50,
-        'ageModifier' () { return dice(3, 50) }
+        ageModifier: () => dice(3, 50)
       },
       'young adult': {
         baseAge: 20,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'child': {
         baseAge: 6,
-        'ageModifier' () { return dice(3, 4) }
+        ageModifier: () => dice(3, 4)
       }
     },
     genderTraits: {
@@ -414,16 +414,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 61,
         baseWeight: 90,
-        'heightModifier' () { return dice(2, 8) },
-        'weightModifier' () { return dice(2, 4) }
+        heightModifier: () => dice(2, 8),
+        weightModifier: () => dice(2, 4)
       },
       man: {
         firstName: ['Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efieril', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis'],
         beardProbability: 57,
         baseHeight: 62,
         baseWeight: 110,
-        'heightModifier' () { return dice(2, 8) },
-        'weightModifier' () { return dice(2, 4) }
+        heightModifier: () => dice(2, 8),
+        weightModifier: () => dice(2, 4)
       }
     },
     lastName: ['Alder', 'Ash', 'Ashdown', 'Atwood', 'Barnes', 'Becker', 'Berry', 'Briar', 'Briggs', 'Brock', 'Brook', 'Bundy', 'Burnside', 'Burroughs', 'Bush', 'Butcher', 'Butler', 'Clay', 'Court', 'Cox', 'Croft', 'Cross', 'Crump', 'Dale', 'Deane', 'Delaney', 'Dike', 'Dodd', 'Ford', 'Forrest', 'Fox', 'Freeman', 'Garside', 'Gorsuch', 'Graves', 'Green', 'Greeves', 'Gross', 'Grove', 'Grover', 'Hall', 'Hawthorne', 'Hazel', 'Head', 'Heather', 'Hill', 'Holley', 'Holmes', 'Holt', 'Homer', 'Hooke', 'Hope', 'House', 'Howe', 'Hume', 'Hyde', 'Johnston', 'Kaye', 'Keats', 'Kerry', 'Kirk', 'Lamb', 'Layne', 'Lea', 'Lowell', 'March', 'Marsh', 'Marshal', 'Martin', 'May', 'Millerchip', 'Mills', 'Moore', 'Newby', 'Paine', 'Paxton', 'Perrin', 'Pike', 'Pitt', 'Preacher', 'Provost', 'Purple', 'Ridge', 'Rock', 'Rose', 'Rowen', 'Sangster', 'Sellers', 'Shaw', 'Short', 'Thorne', 'Underwood', 'Walsh', 'Wells', 'West', 'Whitney', 'Wilde', 'Wood', 'Wragge', 'Wynne'],
@@ -481,19 +481,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 65,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'settled adult': {
         baseAge: 30,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'young adult': {
         baseAge: 16,
-        'ageModifier' () { return dice(2, 12) }
+        ageModifier: () => dice(2, 12)
       },
       'child': {
         baseAge: 4,
-        'ageModifier' () { return dice(2, 6) }
+        ageModifier: () => dice(2, 6)
       }
     },
     genderTraits: {
@@ -502,16 +502,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 30,
         baseWeight: 25,
-        'heightModifier' () { return dice(2, 4) },
-        'weightModifier' () { return dice(1, 1) }
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(1, 1)
       },
       man: {
         firstName: ['Alton', 'Ander', 'Bernie', 'Bobbin', 'Cade', 'Callus', 'Corrin', 'Dannad', 'Danniel', 'Eddie', 'Egart', 'Eldon', 'Errich', 'Fildo', 'Finnan', 'Franklin', 'Garret', 'Garth', 'Gilbert', 'Gob', 'Harol', 'Igor', 'Jasper', 'Keith', 'Kevin', 'Lazam', 'Lerry', 'Lindal', 'Lyle', 'Merric', 'Mican', 'Milo', 'Morrin', 'Nebin', 'Nevil', 'Osborn', 'Ostran', 'Oswalt', 'Perrin', 'Poppy', 'Reed', 'Roscoe', 'Sam', 'Shardon', 'Tye', 'Ulmo', 'Wellby', 'Wendel', 'Wenner', 'Wes'],
         beardProbability: 87,
         baseHeight: 32,
         baseWeight: 25,
-        'heightModifier' () { return dice(2, 4) },
-        'weightModifier' () { return dice(1, 1) }
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(1, 1)
       }
     },
     lastName: ['Appleblossom', 'Bigheart', 'Brightmoon', 'Brushgather', 'Cherrycheeks', 'Copperkettle', 'Deephollow', 'Elderberry', 'Fastfoot', 'Fastrabbit', 'Glenfellow', 'Goldfound', 'Goodbarrel', 'Goodearth', 'Goodbottle', 'Greenleaf', 'High-hill', 'Hilltopple', 'Hogcollar', 'Honeypot', 'Jamjar', 'Kettlewhistle', 'Leagallow', 'littlefoot', 'Nimblefingers', 'Porridgepot', 'Quickstep', 'Reedfellow', 'Shadowquick', 'Silvereyes', 'Smoothhands', 'Stonebridge', 'Stoutbridge', 'Stoutman', 'Strongbones', 'Sunmeadow', 'Swiftwhistle', 'Tallfellow', 'Tealeaf', 'Tenpenny', 'Thistletop', 'Thorngage', 'Tosscobble', 'Underbough', 'Underfoot', 'Warmwater', 'Whispermouse', 'Wildcloak', 'Wildheart', 'Wiseacre'],
@@ -569,19 +569,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 57,
-        'ageModifier' () { return dice(3, 6) }
+        ageModifier: () => dice(3, 6)
       },
       'settled adult': {
         baseAge: 45,
-        'ageModifier' () { return dice(3, 6) }
+        ageModifier: () => dice(3, 6)
       },
       'young adult': {
         baseAge: 15,
-        'ageModifier' () { return dice(3, 12) }
+        ageModifier: () => dice(3, 12)
       },
       'child': {
         baseAge: 3,
-        'ageModifier' () { return dice(3, 4) }
+        ageModifier: () => dice(3, 4)
       }
     },
     genderTraits: {
@@ -590,16 +590,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 53,
         baseWeight: 150,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(2, 6) }
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(2, 6)
       },
       man: {
         firstName: ['Argran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grurnbar', 'Gubrash', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mhflord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thrag', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed'],
         beardProbability: 60,
         baseHeight: 58,
         baseWeight: 110,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(2, 6) }
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(2, 6)
       }
     },
     lastName: ['Gultch', 'Goresmasher', 'Karaktoth', 'Krokk', 'Bogdoth', 'Bracka', 'Dargakk', 'Darknath', "Gul'Tchanth", 'Prathka', 'Rathkann', 'Rangakk'],
@@ -657,19 +657,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 65,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'settled adult': {
         baseAge: 30,
-        'ageModifier' () { return dice(3, 15) }
+        ageModifier: () => dice(3, 15)
       },
       'young adult': {
         baseAge: 15,
-        'ageModifier' () { return dice(3, 6) }
+        ageModifier: () => dice(3, 6)
       },
       'child': {
         baseAge: 4,
-        'ageModifier' () { return dice(3, 4) }
+        ageModifier: () => dice(3, 4)
       }
     },
     genderTraits: {
@@ -677,16 +677,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 53,
         baseWeight: 85,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(2, 4) },
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(2, 4),
         firstName: ['Abigayl', 'Aebria', 'Aeobreia', 'Breia', 'Aedria', 'Aodreia', 'Dreia', 'Aeliya', 'Aliya', 'Aella', 'Aemilya', 'Aemma', 'Aemy', 'Amy', 'Ami', 'Aeria', 'Arya', 'Aeva', 'Aevelyn', 'Evylann', 'Alaexa', 'Alyxa', 'Alina', 'Aelina', 'Aelinea', 'Allisann', 'Allysann', 'Alyce', 'Alys', 'Alysea', 'Alyssia', 'Aelyssa', 'Amelya', 'Maelya', 'Andreya', 'Aendrea', 'Arianna', 'Aryanna', 'Arielle', 'Aryell', 'Ariella', 'Ashlena', 'Aurora', 'Avaery', 'Avyrie', 'Bella', 'Baella', 'Brooklinea', 'Bryanna', 'Brynna', 'Brinna', 'Caemila', 'Chloe', 'Chloeia', 'Claira', 'Clayre', 'Clayra', 'Delyla', 'Dalyla', 'Elisybeth', 'Aelisabeth', 'Ellia', 'Ellya', 'Elyana', 'Eliana', 'Eva', 'Falyne', 'Genaesis', 'Genaesys', 'Gianna', 'Jianna', 'Janna', 'Graece', 'Grassa', 'Haenna', 'Hanna', 'Halya', 'Harperia', 'Peria', 'Hazyl', 'Hazel', 'Jasmyne', 'Jasmine', 'Jocelyne', 'Joceline', 'Celine', 'Kaelia', 'Kaelya', 'Kathryne', 'Kathrine', 'Kayla', 'Kaila', 'Kymber', 'Kimbera', 'Layla', 'Laylanna', 'Leia', 'Leya', 'Leah', 'Lilia', 'Lylia', 'Luna', 'Maedisa', 'Maelania', 'Melania', 'Maya', 'Mya', 'Myla', 'Milae', 'Naomi', 'Naome', 'Natalya', 'Talya', 'Nathylie', 'Nataliae', 'Thalia', 'Nicola', 'Nikola', 'Nycola', 'Olivya', 'Alivya', 'Penelope', 'Paenelope', 'Pynelope', 'Rianna', 'Ryanna', 'Ruby', 'Ryla', 'Samaentha', 'Samytha', 'Sara', 'Sarah', 'Savannia', 'Scarletta', 'Sharlotta', 'Caerlotta', 'Sophya', 'Stella', 'Stylla', 'Valentyna', 'Valerya', 'Valeria', 'Valia', 'Valea', 'Victorya', 'Vilettia', 'Ximena', 'Imaena', 'Ysabel', 'Zoe', 'Zoeia', 'Zoea', 'Zoesia']
       },
       man: {
         beardProbability: 27,
         baseHeight: 58,
         baseWeight: 120,
-        'heightModifier' () { return dice(2, 10) },
-        'weightModifier' () { return dice(2, 4) },
+        heightModifier: () => dice(2, 10),
+        weightModifier: () => dice(2, 4),
         firstName: ['Aaryn', 'Aaro', 'Aarus', 'Abramus', 'Abrahm', 'Abyl', 'Abelus', 'Adannius', 'Adanno', 'Aedam', 'Adym', 'Adamus', 'Aedrian', 'Aedrio', 'Aedyn', 'Aidyn', 'Aelijah', 'Elyjah', 'Aendro', 'Androe', 'Aenry', 'Hynroe', 'Hynrus', 'Aethan', 'Aethyn', 'Aevan', 'Evyn', 'Evanus', 'Alecks', 'Alyx', 'Alexandyr', 'Xandyr', 'Alyn', 'Alaen', 'Andrus', 'Aendrus', 'Anglo', 'Aenglo', 'Anglus', 'Antony', 'Antonyr', 'Astyn', 'Astinus', 'Axelus', 'Axyl', 'Benjamyn', 'Benjamyr', 'Braidyn', 'Brydus', 'Braddeus', 'Brandyn', 'Braendyn', 'Bryus', 'Bryne', 'Bryn', 'Branus', 'Caeleb', 'Caelyb', 'Caerlos', 'Carlus', 'Cameryn', 'Camerus', 'Cartus', 'Caertero', 'Charlus', 'Chaerles', 'Chyrles', 'Christophyr', 'Christo', 'Chrystian', 'Chrystan', 'Connorus', 'Connyr', 'Daemian', 'Damyan', 'Daenyel', 'Danyel', 'Davyd', 'Daevo', 'Dominac', 'Dylaen', 'Dylus', 'Elius', 'Aeli', 'Elyas', 'Helius', 'Helian', 'Emilyan', 'Emilanus', 'Emmanus', 'Emynwell', 'Ericus', 'Eryc', 'Eryck', 'Ezekius', 'Zeckus', 'Ezekio', 'Ezrus', 'Yzra', 'Gabrael', 'Gaebriel', 'Gael', 'Gayl', 'Gayel', 'Gaeus', 'Gavyn', 'Gaevyn', 'Goshwa', 'Joshoe', 'Graysus', 'Graysen', 'Gwann', 'Ewan', 'Gwyllam', 'Gwyllem', 'Haddeus', 'Hudsyn', 'Haesoe', 'Haesys', 'Haesus', 'Handus', 'Handyr', 'Hantus', 'Huntyr', 'Haroldus', 'Haryld', 'Horgus', 'Horus', 'Horys', 'Horyce', 'Hosea', 'Hosius', 'Iaen', 'Yan', 'Ianus', 'Ivaen', 'Yvan', 'Jaecoby', 'Jaecob', 'Jaeden', 'Jaedyn', 'Jaeremiah', 'Jeremus', 'Jasyn', 'Jaesen', 'Jaxon', 'Jaxyn', 'Jaxus', 'Johnus', 'Jonus', 'Jonaeth', 'Jonathyn', 'Jordus', 'Jordyn', 'Josaeth', 'Josephus', 'Josaeus', 'Josayah', 'Jovanus', 'Giovan', 'Julyan', 'Julyo', 'Jyck', 'Jaeck', 'Jacus', 'Kaevin', 'Kevyn', 'Vinkus', 'Laevi', 'Levy', 'Levius', 'Landyn', 'Laendus', 'Leo', 'Leonus', 'Leonaerdo', 'Leonyrdo', 'Lynardus', 'Lincon', 'Lyncon', 'Linconus', 'Logaen', 'Logus', 'Louis', 'Lucius', 'Lucae', 'Lucaen', 'Lucaes', 'Lucoe', 'Lucus', 'Lyam', 'Maeson', 'Masyn', 'Maetho', 'Mathoe', 'Matteus', 'Matto', 'Maxus', 'Maximus', 'Maximo', 'Maxymer', 'Mychael', 'Mygwell', 'Miglus', 'Mythro', 'Mithrus', 'Naemo', 'Naethyn', 'Nathanus', 'Naethynel', 'Nicholaes', 'Nycholas', 'Nicholys', 'Nicolus', 'Nolyn', 'Nolanus', 'Olivyr', 'Alivyr', 'Olivus', 'Oscarus', 'Oscoe', 'Raen', 'Ryn', 'Robertus', 'Robett', 'Bertus', 'Romyn', 'Romanus', 'Ryderus', 'Ridyr', 'Samwell', 'Saemuel', 'Santegus', 'Santaegus', 'Sybasten', 'Bastyen', 'Tago', 'Aemo', 'Tagus', 'Theodorus', 'Theodus', 'Thaeodore', 'Thomys', 'Thomas', 'Tommus', 'Tylus', 'Tilyr', 'Uwyn', 'Oewyn', 'Victor', 'Victyr', 'Victorus', 'Vincynt', 'Vyncent', 'Vincentus', 'Wyttus', 'Wyaett', 'Xavius', 'Havius', 'Xavyer', 'Yago', 'Tyago', 'Tyego', 'Ysaac', 'Aisaac', 'Ysaiah', 'Aisiah', 'Siahus', 'Zacharus', 'Zachar', 'Zachaery']
       }
     },
@@ -744,19 +744,19 @@ export const raceTraits = {
       ],
       'elderly': {
         baseAge: 70,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'settled adult': {
         baseAge: 40,
-        'ageModifier' () { return dice(3, 10) }
+        ageModifier: () => dice(3, 10)
       },
       'young adult': {
         baseAge: 18,
-        'ageModifier' () { return dice(3, 12) }
+        ageModifier: () => dice(3, 12)
       },
       'child': {
         baseAge: 4,
-        'ageModifier' () { return dice(3, 4) }
+        ageModifier: () => dice(3, 4)
       }
     },
     genderTraits: {
@@ -765,16 +765,16 @@ export const raceTraits = {
         beardProbability: 100,
         baseHeight: 54,
         baseWeight: 85,
-        'heightModifier' () { return dice(2, 8) },
-        'weightModifier' () { return dice(2, 4) }
+        heightModifier: () => dice(2, 8),
+        weightModifier: () => dice(2, 4)
       },
       man: {
         firstName: ['Abad', 'Ahrun', 'Akwmn', 'Anmon', 'Andram', 'Astar', 'Bmam', 'Barakas', 'Bathin', 'Cann', 'Chem', 'Chner', 'Cressel', 'Danmkos', 'Ekmnon', 'Euron', 'Fennz', 'Forcas', 'Habor', 'Iados', 'Kauon', 'Leucs', 'Manmen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paynon', 'Pelaios', 'Purson', 'Qemud', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan'],
         beardProbability: 60,
         baseHeight: 58,
         baseWeight: 120,
-        'heightModifier' () { return dice(2, 8) },
-        'weightModifier' () { return dice(2, 4) }
+        heightModifier: () => dice(2, 8),
+        weightModifier: () => dice(2, 4)
       }
     },
     lastName: ['Amarzian', 'Carnago', 'Domarien', 'Iscitan', 'Meluzan', 'Menetrian', 'Paradas', 'Romazi', 'Sarzan', 'Serechor', 'Shadowhorn', 'Szereban', 'Torzalan', 'Trelenus', 'Trevethor', 'Tryphon', 'Vadu', 'Vrago'],
