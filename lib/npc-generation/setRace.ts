@@ -9,13 +9,10 @@ export function setRace (npc: NPC) {
   const raceData = raceTraits[npc.race]
   const genderTraits = raceData.genderTraits[npc.gender]
 
-  console.log(`assigning racial traits to ${npc.name}...`)
-
   if (random(1, 100) >= genderTraits.beardProbability) {
     npc.beard = random(raceData.beard)
   }
 
-  console.log(`base height: ${genderTraits.baseHeight}`)
   npc.heightRoll = genderTraits.baseHeight + genderTraits.heightModifier()
   npc.weightRoll = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
   npc.bmi = Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * raceData.bmiModifier)
