@@ -6,7 +6,7 @@
 Created by /u/rcgy
 
 <<nobr>><<if settings.hideAds !== true>>
-<<if $isPatreon is true>><span class="tip" title="Thank you for your continued support!">
+<<if $data.isPatreon is true>><span class="tip" title="Thank you for your continued support!">
     <div id="patreon">[img[patreon][https://www.patreon.com/bePatron?u=399997]]</div>
 </span>
 <<else>><span class="tip" title="Thank you for your support!">
