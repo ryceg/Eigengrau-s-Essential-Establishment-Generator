@@ -155,7 +155,7 @@ setup.createNPC = function (town, base) {
     },
     set gender (gender) {
       this._gender = gender
-      Object.assign(this, data.gender[gender])
+      Object.assign(this, lib.genderData[gender])
     },
     get race () {
       return this._race
@@ -181,8 +181,8 @@ setup.createNPC = function (town, base) {
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
   // npc.key = randomFloat(0, 1)
-  Object.assign(npc, data.gender[npc.gender])
-  Object.assign(npc.pronouns, data.gender[npc.gender])
+  Object.assign(npc, lib.genderData[npc.gender])
+  Object.assign(npc.pronouns, lib.genderData[npc.gender])
 
   Object.assign(npc, data.raceTraits[npc.race].raceWords)
   npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]

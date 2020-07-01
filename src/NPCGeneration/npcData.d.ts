@@ -1,10 +1,6 @@
 interface Setup {
   initNpcData(): void
   npcData: {
-    gender: {
-      man: GenderGrammar
-      woman: GenderGrammar
-    }
     heightChart: [number, string][]
     lifeEvents: {
       performed: LifeEvent

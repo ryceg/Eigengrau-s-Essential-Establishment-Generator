@@ -39,14 +39,14 @@ setup.createSexuality = function (npc) {
     0: {
       sexuality: 'heterosexual',
       partnerGenderProbability (npc) {
-        return setup.npcData.gender[npc.gender].oppositeGender
+        return lib.genderData[npc.gender].oppositeGender
       }
     },
     1: {
       sexuality: 'heterosexual with passing interest in other $currentNPC.menwomen',
       partnerGenderProbability (npc) {
         if (random(100) < 90) {
-          return setup.npcData.gender[npc.gender].oppositeGender
+          return lib.genderData[npc.gender].oppositeGender
         } else {
           return npc.gender
         }
@@ -56,7 +56,7 @@ setup.createSexuality = function (npc) {
       sexuality: 'predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen',
       partnerGenderProbability (npc) {
         if (random(100) < 70) {
-          return setup.npcData.gender[npc.gender].oppositeGender
+          return lib.genderData[npc.gender].oppositeGender
         } else {
           return npc.gender
         }
@@ -66,7 +66,7 @@ setup.createSexuality = function (npc) {
       sexuality: 'bisexual',
       partnerGenderProbability (npc) {
         if (random(100) < 50) {
-          return setup.npcData.gender[npc.gender].oppositeGender
+          return lib.genderData[npc.gender].oppositeGender
         } else {
           return npc.gender
         }
@@ -78,7 +78,7 @@ setup.createSexuality = function (npc) {
         if (random(100) < 70) {
           return npc.gender
         } else {
-          return setup.npcData.gender[npc.gender].oppositeGender
+          return lib.genderData[npc.gender].oppositeGender
         }
       }
     },
@@ -88,7 +88,7 @@ setup.createSexuality = function (npc) {
         if (random(100) < 90) {
           return npc.gender
         } else {
-          return setup.npcData.gender[npc.gender].oppositeGender
+          return lib.genderData[npc.gender].oppositeGender
         }
       }
     },

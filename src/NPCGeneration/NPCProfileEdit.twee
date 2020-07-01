@@ -23,7 +23,7 @@
     <<set _race += '<</listbox>>'>>
 
     <<set _gender to '<<listbox "$npcs[$currentPassage.key].gender" autoselect>>'>>
-    <<for _key range Object.keys(setup.npcData.gender)>>
+    <<for _key range Object.keys(lib.genderData)>>
         <<set _gender += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _gender += '<</listbox>>'>>
