@@ -97,13 +97,6 @@ interface BackgroundTrait {
   wealth: number
 }
 
-interface ClassTrait {
-  professionOrigin: string[]
-  background: string[]
-  weapon: string[]
-  wealth(): number
-}
-
 interface Doesnt {
   probability: number
   exclusions(town: Town, npc: NPC): boolean

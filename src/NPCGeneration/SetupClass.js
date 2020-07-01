@@ -5,19 +5,19 @@ setup.createClass = function (town, npc) {
   let background
   let classWeapon
 
-  if (npc.hasClass !== false && typeof setup.npcData.classTraits[npc.dndClass] !== 'undefined') {
-    // professionOrigin = Array.isArray(setup.npcData.classTraits[npc.dndClass].professionOrigin)
-    //   ? setup.npcData.classTraits[npc.dndClass].professionOrigin.random()
+  if (npc.hasClass !== false && typeof lib.classTraits[npc.dndClass] !== 'undefined') {
+    // professionOrigin = Array.isArray(lib.classTraits[npc.dndClass].professionOrigin)
+    //   ? lib.classTraits[npc.dndClass].professionOrigin.random()
     //   : Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
     //     ? setup.npcData.professionTraits[npc.profession].professionOrigin.random()
     //     : 'My circumstances kept me from doing more than being ' + lib.articles.output(npc.profession)
-    background = Array.isArray(setup.npcData.classTraits[npc.dndClass].background)
-      ? setup.npcData.classTraits[npc.dndClass].background.random()
+    background = Array.isArray(lib.classTraits[npc.dndClass].background)
+      ? lib.classTraits[npc.dndClass].background.random()
       : Array.isArray(setup.npcData.professionTraits[npc.profession].background)
         ? setup.npcData.professionTraits[npc.profession].background.random()
         : 'commoner'
-    classWeapon = Array.isArray(setup.npcData.classTraits[npc.dndClass].weapon)
-      ? setup.npcData.classTraits[npc.dndClass].weapon.random()
+    classWeapon = Array.isArray(lib.classTraits[npc.dndClass].weapon)
+      ? lib.classTraits[npc.dndClass].weapon.random()
       : Array.isArray(setup.npcData.professionTraits[npc.profession].weapon)
         ? setup.npcData.professionTraits[npc.profession].weapon.random()
         : 'a dagger'
@@ -72,8 +72,8 @@ setup.createClass = function (town, npc) {
   npc.background = npc.background || background
   npc.weapon = npc.weapon || classWeapon
 
-  // npc.wealth += typeof setup.npcData.classTraits[npc.dndClass].wealth === 'function'
-  //   ? setup.npcData.classTraits[npc.dndClass].wealth()
+  // npc.wealth += typeof lib.classTraits[npc.dndClass].wealth === 'function'
+  //   ? lib.classTraits[npc.dndClass].wealth()
   //   : lib.dice(2, 50)
 
   return npc

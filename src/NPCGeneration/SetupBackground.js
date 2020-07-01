@@ -23,11 +23,11 @@ setup.createBackground = function (npc) {
   npc.bond = npc.bond || bond
   npc.ideal = npc.ideal || ideal
   // npc.wealth += lib.dice(2, 50)
-  // npc.wealth += typeof setup.npcData.classTraits[npc.background].wealth === 'function'
+  // npc.wealth += typeof lib.classTraits[npc.background].wealth === 'function'
   //   ? setup.npcData.backgroundTraits[npc.background].wealth()
   //   : lib.dice(2, 50)
   //
-  // npc.knownLanguages += typeof setup.npcData.classTraits[npc.background].knownLanguages === 'function'
+  // npc.knownLanguages += typeof lib.classTraits[npc.background].knownLanguages === 'function'
   //   ? setup.npcData.backgroundTraits[npc.background].knownLanguages()
   //   : lib.dice(2, 50)
 

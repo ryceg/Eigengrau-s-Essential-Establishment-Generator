@@ -5,7 +5,7 @@
 \<<set _height = Math.floor(randomFloat(1).toString(16))>><<run setup.profileHeightTooltip(_height, $npcs[$currentPassage.key])>>
 <<silently>>
     <<set _class to '<<listbox "$npcs[$currentPassage.key].dndClass" autoselect>>'>>
-    <<for _key range Object.keys(setup.npcData.classTraits)>>
+    <<for _key range Object.keys(lib.classTraits)>>
         <<set _class += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _class += '<</listbox>>'>>
