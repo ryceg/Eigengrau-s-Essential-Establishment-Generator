@@ -255,31 +255,11 @@ export const weather = {
     }
   },
   precipitationLevel: {
-    1 (weather: Weather) {
-      if (weather.roll.precipitation >= 95) {
-        return true
-      }
-    },
-    2 (weather: Weather) {
-      if (weather.roll.precipitation >= 85) {
-        return true
-      }
-    },
-    3 (weather: Weather) {
-      if (weather.roll.precipitation >= 70) {
-        return true
-      }
-    },
-    4 (weather: Weather) {
-      if (weather.roll.precipitation >= 40) {
-        return true
-      }
-    },
-    5 (weather: Weather) {
-      if (weather.roll.precipitation >= 5) {
-        return true
-      }
-    }
+    1: (weather: Weather) => weather.roll.precipitation >= 95,
+    2: (weather: Weather) => weather.roll.precipitation >= 85,
+    3: (weather: Weather) => weather.roll.precipitation >= 70,
+    4: (weather: Weather) => weather.roll.precipitation >= 40,
+    5: (weather: Weather) => weather.roll.precipitation >= 5
   },
   precipitationDescriptors: {
     'no precipitation': [
