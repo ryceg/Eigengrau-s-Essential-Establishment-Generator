@@ -19,7 +19,7 @@
     "build": "node scripts/build",
     "start": "node scripts/build --watch",
     "test": "jest",
-    "lint": "eslint **/*.js",
+    "lint": "eslint **/*.{js,ts}",
     "deploy": "gh-pages -d gh-pages"
   },
   "husky": {
