@@ -34,6 +34,7 @@ export * from './npc-generation/fetchRace'
 export * from './npc-generation/filterNpcByProfession'
 export * from './npc-generation/professions'
 export * from './npc-generation/raceTraits'
+export * from './npc-generation/setRace'
 
 export * from './src/articles'
 export * from './src/books'

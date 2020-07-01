@@ -203,7 +203,7 @@ setup.createNPC = function (town, base) {
 
   setup.createAge(npc)
 
-  setup.createRace(npc)
+  lib.setRace(npc)
 
   if (!npc.physicalTrait) {
     if (npc.roll.physicalTrait > 40) {
