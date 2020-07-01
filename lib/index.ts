@@ -30,6 +30,7 @@ export * from './faction/setFactionStability'
 
 export * from './npc-generation/bmiDescriptions'
 export * from './npc-generation/classTraits'
+export * from './npc-generation/fetchProfessionChance'
 export * from './npc-generation/fetchRace'
 export * from './npc-generation/filterNpcByProfession'
 export * from './npc-generation/professions'

@@ -1,3 +1,5 @@
+import { Profession } from '../npc-generation/professions'
+
 export interface Town {
   name: string
   type: string
@@ -30,4 +32,8 @@ export interface Town {
       probability: number
     }
   }
+  professions: Record<string, Profession & {
+    name: string,
+    population: number
+  }>
 }

@@ -28,7 +28,7 @@ setup.createNPC = function (town, base) {
   const race = base.race || lib.fetchRace(town, base)
 
   console.log('Fetching profession.')
-  const profession = base.profession || setup.fetchProfessionChance(town, base)
+  const profession = base.profession || lib.fetchProfessionChance(town, base)
 
   const firstName = base.firstName || lib.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   const lastName = base.lastName || lib.raceTraits[race].lastName.random().toUpperFirst()

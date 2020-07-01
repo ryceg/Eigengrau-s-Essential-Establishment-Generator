@@ -17,6 +17,8 @@ export interface NPC {
   roll: Record<string, number>
   partnerID?: string
   relationships: string[]
+  socialClass: string
+  hasClass: boolean
 }
 
 export interface Relationship {

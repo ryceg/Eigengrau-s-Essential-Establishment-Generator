@@ -37,7 +37,7 @@ type Sector =
   | 'food'
   | 'naval'
 
-interface Profession {
+export interface Profession {
   sv: number
   type: Type
   sector: Sector
