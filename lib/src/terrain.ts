@@ -1,37 +1,37 @@
 import { dice } from './dice'
 import { random } from './random'
 
-export const getTerrainData = () => ({
+export const terrain = {
   temperate: {
     weather: {
       tempVariation: {
         95: {
-          temperature: dice(3, 10),
-          temperatureTimer: random(24, 48)
+          temperature: () => dice(3, 10),
+          temperatureTimer: () => random(24, 48)
         },
         85: {
-          temperature: dice(2, 10),
-          temperatureTimer: random(24, 96)
+          temperature: () => dice(2, 10),
+          temperatureTimer: () => random(24, 96)
         },
         65: {
-          temperature: random(1, 10),
-          temperatureTimer: random(48, 120)
+          temperature: () => random(1, 10),
+          temperatureTimer: () => random(48, 120)
         },
         35: {
-          temperature: random(-5, 5),
-          temperatureTimer: random(48, 144)
+          temperature: () => random(-5, 5),
+          temperatureTimer: () => random(48, 144)
         },
         15: {
-          temperature: random(-1, -10),
-          temperatureTimer: random(48, 120)
+          temperature: () => random(-1, -10),
+          temperatureTimer: () => random(48, 120)
         },
         5: {
-          temperature: 0 - dice(2, 10),
-          temperatureTimer: random(24, 96)
+          temperature: () => 0 - dice(2, 10),
+          temperatureTimer: () => random(24, 96)
         },
         0: {
-          temperature: random(-1, -24),
-          temperatureTimer: random(24, 48)
+          temperature: () => random(-1, -24),
+          temperatureTimer: () => random(24, 48)
         }
       },
       season: {
@@ -199,24 +199,24 @@ export const getTerrainData = () => ({
     weather: {
       tempVariation: {
         85: {
-          temperature: dice(2, 10),
-          temperatureTimer: random(24, 48)
+          temperature: () => dice(2, 10),
+          temperatureTimer: () => random(24, 48)
         },
         55: {
-          temperature: random(1, 10),
-          temperatureTimer: random(48, 120)
+          temperature: () => random(1, 10),
+          temperatureTimer: () => random(48, 120)
         },
         25: {
-          temperature: 0 - random(-5, 5),
-          temperatureTimer: random(48, 120)
+          temperature: () => 0 - random(-5, 5),
+          temperatureTimer: () => random(48, 120)
         },
         10: {
-          temperature: 0 - random(1, 10),
-          temperatureTimer: random(24, 48)
+          temperature: () => 0 - random(1, 10),
+          temperatureTimer: () => random(24, 48)
         },
         0: {
-          temperature: 0 - dice(2, 10),
-          temperatureTimer: random(24, 48)
+          temperature: () => 0 - dice(2, 10),
+          temperatureTimer: () => random(24, 48)
         }
       },
       season: {
@@ -399,32 +399,32 @@ export const getTerrainData = () => ({
     weather: {
       tempVariation: {
         95: {
-          temperature: dice(3, 10),
-          temperatureTimer: random(24, 48)
+          temperature: () => dice(3, 10),
+          temperatureTimer: () => random(24, 48)
         },
         85: {
-          temperature: dice(2, 10),
-          temperatureTimer: random(24, 96)
+          temperature: () => dice(2, 10),
+          temperatureTimer: () => random(24, 96)
         },
         65: {
-          temperature: random(1, 10),
-          temperatureTimer: random(48, 120)
+          temperature: () => random(1, 10),
+          temperatureTimer: () => random(48, 120)
         },
         35: {
-          temperature: 0 - random(-5, 5),
-          temperatureTimer: random(48, 144)
+          temperature: () => 0 - random(-5, 5),
+          temperatureTimer: () => random(48, 144)
         },
         15: {
-          temperature: 0 - random(1, 4),
-          temperatureTimer: random(48, 120)
+          temperature: () => 0 - random(1, 4),
+          temperatureTimer: () => random(48, 120)
         },
         5: {
-          temperature: 0 - dice(1, 10),
-          temperatureTimer: random(24, 96)
+          temperature: () => 0 - dice(1, 10),
+          temperatureTimer: () => random(24, 96)
         },
         0: {
-          temperature: 0 - dice(2, 6),
-          temperatureTimer: random(24, 48)
+          temperature: () => 0 - dice(2, 6),
+          temperatureTimer: () => random(24, 48)
         }
       },
       season: {
@@ -609,32 +609,32 @@ export const getTerrainData = () => ({
     weather: {
       tempVariation: {
         100: {
-          temperature: dice(3, 10),
-          temperatureTimer: random(24, 48)
+          temperature: () => dice(3, 10),
+          temperatureTimer: () => random(24, 48)
         },
         95: {
-          temperature: dice(2, 10),
-          temperatureTimer: random(24, 96)
+          temperature: () => dice(2, 10),
+          temperatureTimer: () => random(24, 96)
         },
         80: {
-          temperature: random(1, 10),
-          temperatureTimer: random(48, 120)
+          temperature: () => random(1, 10),
+          temperatureTimer: () => random(48, 120)
         },
         60: {
-          temperature: random(-5, 5),
-          temperatureTimer: random(48, 144)
+          temperature: () => random(-5, 5),
+          temperatureTimer: () => random(48, 144)
         },
         40: {
-          temperature: random(0, -10),
-          temperatureTimer: random(48, 120)
+          temperature: () => random(0, -10),
+          temperatureTimer: () => random(48, 120)
         },
         20: {
-          temperature: random(-2, -20),
-          temperatureTimer: random(24, 96)
+          temperature: () => random(-2, -20),
+          temperatureTimer: () => random(24, 96)
         },
         0: {
-          temperature: random(-3, -30),
-          temperatureTimer: random(24, 48)
+          temperature: () => random(-3, -30),
+          temperatureTimer: () => random(24, 48)
         }
       },
       season: {
@@ -816,4 +816,4 @@ export const getTerrainData = () => ({
       }
     }
   }
-})
+}

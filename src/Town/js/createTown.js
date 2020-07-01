@@ -187,7 +187,7 @@ setup.createTown = function (base) {
       this._wealth = value
     },
     roads: {},
-    location: setup.townData.terrain[terrain].start.random(),
+    location: lib.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
     primaryExport: setup.townData.misc.primaryExport.random(),
     landmark: setup.townData.misc.landmark.random(),
@@ -216,8 +216,8 @@ setup.createTown = function (base) {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = town.origin || setup.townData.terrain[town.terrain].location[town.location].origin.random()
-  town.vegetation = town.vegetation || lib.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
+  town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
+  town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.materialProbability = setup.structure.material.types
 
   console.log('Defining taxes')
@@ -296,12 +296,11 @@ setup.createTown = function (base) {
   town.equalityDescription = ''
   lib.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
   lib.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
-  town.townMaterial = setup.createTownMaterial(setup.townData.terrain[town.terrain].location[town.location].possibleMaterials, town.roll.wealth, town.roll.size)
+  const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
+  town.townMaterial = setup.createTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
   lib.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-
-  const possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
   lib.setMaterialProbability(town, possibleMaterials)
 
   console.groupEnd()

@@ -1,7 +1,7 @@
 setup.createTownMaterial = function (startLocationMaterials, wealth, size) {
   if (!startLocationMaterials) {
     console.error('Main town building material has not initialised!')
-    startLocationMaterials = setup.townData.terrain.temperate.location.plains.possibleMaterials
+    startLocationMaterials = lib.terrain.temperate.location.plains.possibleMaterials
   }
   const filterArrayMaterial = (material) => {
     return startLocationMaterials.includes(material)

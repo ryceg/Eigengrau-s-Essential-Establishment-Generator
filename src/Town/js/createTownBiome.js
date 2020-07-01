@@ -77,7 +77,7 @@ setup.createTownBiome = function (base) {
       })
       return this._demographicPercentile
     },
-    location: setup.townData.terrain[terrain].start.random(),
+    location: lib.terrain[terrain].start.random(),
     primaryCrop: setup.townData.misc.primaryCrop.random(),
     primaryExport: setup.townData.misc.primaryExport.random(),
     landmark: setup.townData.misc.landmark.random(),
@@ -108,9 +108,9 @@ setup.createTownBiome = function (base) {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = town.origin || setup.townData.terrain[town.terrain].location[town.location].origin.random()
-  town.vegetation = town.vegetation || lib.weightRandom(setup.townData.terrain[town.terrain].location[town.location].vegetation)
-  town.possibleMaterials = setup.townData.terrain[town.terrain].location[town.location].possibleMaterials
+  town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
+  town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
+  town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structure.material.types
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)

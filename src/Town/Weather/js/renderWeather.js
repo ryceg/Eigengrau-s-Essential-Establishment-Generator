@@ -15,7 +15,7 @@ setup.renderWeather = function (town, biome, weather) {
   // tempVariationRoll
   const tempVariationRoll = random(0, 100)
 
-  const tempVariationKeys = Object.keys(setup.townData.terrain[biome].weather.tempVariation).reverse()
+  const tempVariationKeys = Object.keys(lib.terrain[biome].weather.tempVariation).reverse()
   const intKeys = []
 
   // interpret the key for each tempVariation object as an integer
@@ -34,14 +34,14 @@ setup.renderWeather = function (town, biome, weather) {
   if (weather.timer.temperature < 1) {
     console.log('Timer for temperature has run out. Rolling temp timer!')
     console.log({ weather, finalKey })
-    weather.timer.temperature = Math.trunc((setup.townData.terrain[biome].weather.tempVariation[finalKey].temperatureTimer || random(24, 48)) / 8)
+    weather.timer.temperature = Math.trunc((lib.terrain[biome].weather.tempVariation[finalKey].temperatureTimer() || random(24, 48)) / 8)
     console.log({ weather })
   }
   console.log('3')
-  const tempVariation = setup.townData.terrain[biome].weather.tempVariation[finalKey].temperature || setup.townData.terrain.temperate.weather.tempVariation[finalKey].temperature
+  const tempVariation = lib.terrain[biome].weather.tempVariation[finalKey].temperature() || lib.terrain.temperate.weather.tempVariation[finalKey].temperature()
   console.log(`tempVariation: ${tempVariation}`)
 
-  weather.temperature = (setup.townData.terrain[biome].weather.season[weather.currentSeason].baseTemp || setup.townData.terrain.temperate.weather.spring.baseTemp) + tempVariation - random(-2, 2)
+  weather.temperature = (lib.terrain[biome].weather.season[weather.currentSeason].baseTemp || lib.terrain.temperate.weather.season.spring.baseTemp) + tempVariation - random(-2, 2)
   console.log(`weather temp: ${weather.temperature}`)
 
   if (weather.timer.precipitation < 1) {

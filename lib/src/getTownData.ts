@@ -1,6 +1,5 @@
 import { randomFloat } from './randomFloat'
 import { random } from './random'
-import { getTerrainData } from './getTerrainData'
 
 export function getTownData () {
   const townData = {
@@ -1208,8 +1207,7 @@ export function getTownData () {
         'a very large tree covered in clear stones. If a creature of good approaches the tree, the stones and the leaves will grow green and blue, and flowers bloom on the tree. Neutral creatures makes them turn brown and orange. An evil creature makes them turn dark purple and red. Unaligned creatures make them turn different shades of gray.',
         'a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.',
         'a cave full of phosphorescent mushrooms that glow at night.']
-    },
-    terrain: getTerrainData()
+    }
   }
 
   return townData

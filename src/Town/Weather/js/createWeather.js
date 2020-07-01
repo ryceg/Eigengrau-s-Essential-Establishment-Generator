@@ -43,10 +43,10 @@ setup.createWeather = (town, biome, weather) => {
       weather.timer.cloud -= time
     }
   } else {
-    const seasonData = setup.townData.terrain[biome].weather.season[currentSeason]
+    const seasonData = lib.terrain[biome].weather.season[currentSeason]
 
     weather = {
-      temperature: seasonData.baseTemp || setup.townData.terrain.temperate.weather.season.summer.baseTemp,
+      temperature: seasonData.baseTemp || lib.terrain.temperate.weather.season.summer.baseTemp,
       tempVariation: lib.dice(2, 50),
       currentSeason,
       timer: {
