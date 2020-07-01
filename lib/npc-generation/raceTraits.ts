@@ -1,6 +1,49 @@
 import { dice } from '../src/dice'
 
-export const raceTraits = {
+type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling'
+
+interface RaceTrait {
+  probability: number
+  muscleMass: number
+  bmiModifier: number
+  ageTraits: {
+    ageDescriptors: [number, string][]
+  } & Record<AgeName, AgeTrait>
+  genderTraits: Record<GenderName, GenderTrait>
+  lastName: string[]
+  eyes: string[]
+  raceWords: {
+    raceName: string,
+    racePlural: string,
+    raceSingular: string,
+    raceAdjective: string,
+    raceLanguage: string
+  },
+  knownLanguages: string[]
+  beard: string[]
+  abilities: Record<string, string>
+
+}
+
+type AgeName = 'elderly' | 'settled adult' | 'young adult' | 'child'
+
+interface AgeTrait {
+  baseAge: number
+  ageModifier(): number
+}
+
+type GenderName = 'man' | 'woman'
+
+interface GenderTrait {
+  firstName: string[]
+  beardProbability: number
+  baseHeight: number
+  baseWeight: number
+  heightModifier(): number
+  weightModifier(): number
+}
+
+export const raceTraits: Record<RaceName, RaceTrait> = {
   'dragonborn': {
     probability: 1,
     muscleMass: 11,
@@ -265,7 +308,6 @@ export const raceTraits = {
       'Trance': "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is 'trance') While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.",
       'Elf Weapon Training': 'You have proficiency with the longsword, shortsword, shortbow, and longbow.',
       'Cantrip': 'You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.'
-
     }
   },
   'gnome': {
