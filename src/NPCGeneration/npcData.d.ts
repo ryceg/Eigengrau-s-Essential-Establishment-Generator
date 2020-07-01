@@ -54,7 +54,6 @@ interface Setup {
     religion: {
       strength: [number, string][]
     }
-    raceTraits: Record<string, RaceTrait>
     classTraits: Record<string, ClassTrait>
     backgroundTraits: Record<string, BackgroundTrait>
     professionTraits: Record<string, ProfessionTrait>
