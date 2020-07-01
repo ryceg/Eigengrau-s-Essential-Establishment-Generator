@@ -18,13 +18,13 @@ setup.familyData = {
   parentAge: (npc) => {
     const race = npc.race || 'human'
     const parentStage = lib.rollFromTable(setup.familyData.parentStageTable, 100)
-    const { baseAge, ageModifier } = setup.npcData.raceTraits[race].ageTraits[parentStage]
+    const { baseAge, ageModifier } = lib.raceTraits[race].ageTraits[parentStage]
     return npc.ageYears + baseAge + ageModifier()
   },
 
   siblingAge: (npc) => {
     const race = npc.race || 'human'
-    const { baseAge } = setup.npcData.raceTraits[race].ageTraits['young adult']
+    const { baseAge } = lib.raceTraits[race].ageTraits['young adult']
     return npc.ageYears + random(-baseAge, baseAge)
   },
 
@@ -46,7 +46,7 @@ setup.familyData = {
 
   partnerAge: (npc) => {
     const race = npc.race || 'human'
-    const { baseAge } = setup.npcData.raceTraits[race].ageTraits['young adult']
+    const { baseAge } = lib.raceTraits[race].ageTraits['young adult']
     return npc.ageYears + random(-baseAge, baseAge)
   },
 

@@ -15,7 +15,7 @@ setup.createRelative = (town, family, base = {}, force = false) => {
     }
     if (setup.isOfAge('elderly', base.race, base.ageYears)) {
       if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
-      if (base.ageYears >= setup.npcData.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
+      if (base.ageYears >= lib.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
         if (random(1, 100) <= setup.familyData.veryOldAbsencePercent) return undefined
       }
     }
@@ -123,7 +123,7 @@ setup.createChildren = (town, family, marriage, amount,
 }
 
 setup.createMarriage = (town, family, npc, force = false) => {
-  const marriageMin = setup.npcData.raceTraits[npc.race].ageTraits['young adult'].baseAge
+  const marriageMin = lib.raceTraits[npc.race].ageTraits['young adult'].baseAge
   const newMarriage = {
     parents: [npc.key],
     children: []

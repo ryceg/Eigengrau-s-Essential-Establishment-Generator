@@ -30,8 +30,8 @@ setup.createNPC = function (town, base) {
   console.log('Fetching profession.')
   const profession = base.profession || setup.fetchProfessionChance(town, base)
 
-  const firstName = base.firstName || data.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
-  const lastName = base.lastName || data.raceTraits[race].lastName.random().toUpperFirst()
+  const firstName = base.firstName || lib.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
+  const lastName = base.lastName || lib.raceTraits[race].lastName.random().toUpperFirst()
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
 
@@ -59,8 +59,8 @@ setup.createNPC = function (town, base) {
       this.lastName = words[1] || ''
     },
     ageStage,
-    ageYears: data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
-    muscleMass: data.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
+    ageYears: lib.raceTraits[race].ageTraits[ageStage].baseAge + lib.raceTraits[race].ageTraits[ageStage].ageModifier(),
+    muscleMass: lib.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
     pronouns: {
 
     },
@@ -139,7 +139,7 @@ setup.createNPC = function (town, base) {
     get descriptor () {
       return this.descriptors.random()
     },
-    eyes: data.raceTraits[race].eyes.random(),
+    eyes: lib.raceTraits[race].eyes.random(),
     skinColour: data.skinColour.random(),
     // dndClass,
     profession,
@@ -162,16 +162,16 @@ setup.createNPC = function (town, base) {
     },
     set race (race) {
       this._race = race
-      Object.assign(this, data.raceTraits[race].raceWords)
+      Object.assign(this, lib.raceTraits[race].raceWords)
     },
     get raceNote () {
       if (this._race === 'human') {
         return `${this.height} ${this.gender}`
       } else {
-        return data.raceTraits[this._race].raceWords.raceName
+        return lib.raceTraits[this._race].raceWords.raceName
       }
     },
-    knownLanguages: data.raceTraits[race].knownLanguages,
+    knownLanguages: lib.raceTraits[race].knownLanguages,
     reading: data.reading.random(),
 
     family: undefined
@@ -184,7 +184,7 @@ setup.createNPC = function (town, base) {
   Object.assign(npc, lib.genderData[npc.gender])
   Object.assign(npc.pronouns, lib.genderData[npc.gender])
 
-  Object.assign(npc, data.raceTraits[npc.race].raceWords)
+  Object.assign(npc, lib.raceTraits[npc.race].raceWords)
   npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
   if (typeof npc.hasClass === 'undefined') {

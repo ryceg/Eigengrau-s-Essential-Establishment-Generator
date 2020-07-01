@@ -21,7 +21,7 @@ setup.expandFamily = function (town, npc) {
   setup.createParentage(town, family, npc)
 
   // Marriages and descendants
-  const marriageMin = setup.npcData.raceTraits[npc.race].ageTraits['young adult'].baseAge
+  const marriageMin = lib.raceTraits[npc.race].ageTraits['young adult'].baseAge
   if (npc.ageYears <= marriageMin) {
     node.marriages = []
     node.canRemarry = false

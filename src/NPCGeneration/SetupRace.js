@@ -1,6 +1,6 @@
 
 setup.createRace = npc => {
-  const raceTraits = setup.npcData.raceTraits[npc.race]
+  const raceTraits = lib.raceTraits[npc.race]
   const genderTraits = raceTraits.genderTraits[npc.gender]
 
   console.log(`assigning racial traits to ${npc.name}...`)

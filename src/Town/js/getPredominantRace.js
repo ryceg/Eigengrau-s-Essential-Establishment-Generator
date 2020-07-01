@@ -4,9 +4,9 @@ setup.getPredominantRace = (percentages) => {
 
   const length = sortable.length - 1
   const majorRace = sortable[length][0]
-  const majorRaceWords = setup.npcData.raceTraits[majorRace].raceWords
+  const majorRaceWords = lib.raceTraits[majorRace].raceWords
   const secondaryRace = sortable[length - 1][0]
-  const secondaryRaceWords = setup.npcData.raceTraits[secondaryRace].raceWords
+  const secondaryRaceWords = lib.raceTraits[secondaryRace].raceWords
   if (sortable[length][1] > 90) {
     return {
       // $town.name is _____

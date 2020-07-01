@@ -21,7 +21,7 @@ setup.createTownName = function (town) {
       town.founder = npc.key
       name = town.founder.lastName + suffix.random()
     } else {
-      name = setup.npcData.raceTraits.human.lastName.random() + suffix.random()
+      name = lib.raceTraits.human.lastName.random() + suffix.random()
     }
   } else {
     name = prefix.random() + suffix.random()

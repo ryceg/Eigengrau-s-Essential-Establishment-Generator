@@ -17,7 +17,7 @@
     <<set _background += '<</listbox>>'>>
 
     <<set _race to '<<listbox "$npcs[$currentPassage.key].race" autoselect>>'>>
-    <<for _key range Object.keys(setup.npcData.raceTraits)>>
+    <<for _key range Object.keys(lib.raceTraits)>>
         <<set _race += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _race += '<</listbox>>'>>
