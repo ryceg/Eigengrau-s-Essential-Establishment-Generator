@@ -54,7 +54,6 @@ interface Setup {
     religion: {
       strength: [number, string][]
     }
-    classTraits: Record<string, ClassTrait>
     backgroundTraits: Record<string, BackgroundTrait>
     professionTraits: Record<string, ProfessionTrait>
     bodyParts: BodyParts
@@ -105,53 +104,6 @@ interface ClassTrait {
   wealth(): number
 }
 
-interface RaceTrait {
-  probability: number
-  muscleMass: number
-  bmiModifier: number
-  ageTraits: AgeTraits
-  genderTraits: {
-    man: GenderTraits
-    woman: GenderTraits
-  }
-  lastName: string[]
-  eyes: string[]
-  raceWords: RaceWords
-  knownLanguages: string[]
-  beard: string[]
-  abilities: Record<string, string>
-}
-
-interface RaceWords {
-  raceName: string
-  racePlural: string
-  raceSingular: string
-  raceAdjective: string
-  raceLanguage: string
-}
-
-interface GenderTraits {
-  firstName: string[]
-  beardProbability: number
-  baseHeight: number
-  baseWeight: number
-  heightModifier(): number
-  weightModifier(): number
-}
-
-interface AgeTraits {
-  ageDescriptors: [number, string][]
-  elderly: AgeTrait
-  'settled adult': AgeTrait
-  'young adult': AgeTrait
-  child: AgeTrait
-}
-
-interface AgeTrait {
-  baseAge: number
-  ageModifier(): number
-}
-
 interface Doesnt {
   probability: number
   exclusions(town: Town, npc: NPC): boolean
@@ -163,26 +115,4 @@ interface LifeEvent {
   exclusions(town: Town, npc: NPC): boolean
   function(town: Town, npc: NPC): string
   [key: string]: any
-}
-
-interface GenderGrammar {
-  title: string
-  domTitle: string
-  heshe: string
-  himher: string
-  himherself: string
-  hisher: string
-  hisherself: string
-  boygirl: string
-  manwoman: string
-  menwomen: string
-  malefemale: string
-  guygirl: string
-  marriageNoun: string
-  niblingReciprocalNoun: string
-  parentNoun: string
-  childNoun: string
-  siblingNoun: string
-  niblingNoun: string
-  oppositeGender: string
 }
