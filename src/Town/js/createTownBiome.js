@@ -111,7 +111,7 @@ setup.createTownBiome = function (base) {
   town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
-  town.materialProbability = setup.structure.material.types
+  town.materialProbability = setup.structureData.material.types
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   Object.keys(lib.townData.type[town.type].modifiers).forEach(modifier => {

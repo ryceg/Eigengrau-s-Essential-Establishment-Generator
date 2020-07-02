@@ -27,7 +27,7 @@ setup.createTemple = (town, opts = {}) => {
     blessingConvey: data.blessingConvey.random(),
     blessingGift: data.blessingGift.random()
   })
-  setup.structure.create(town, temple)
+  setup.createStructure(town, temple)
   temple.structure.templeDescriptor = `a ${temple.structure.material.wealth} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
   temple.name = [
     `The ${data.name.adjective.random().toUpperFirst()} ${temple.wordNoun.toUpperFirst()} of ${data.name.plural.random().toUpperFirst()}`,

@@ -22,7 +22,7 @@ setup.createGeneralStore = (town, opts = {}) => {
     initPassage: 'InitgeneralStore',
     buildingType: 'generalStore'
   })
-  setup.structure.create(town, generalStore)
+  setup.createStructure(town, generalStore)
   generalStore.structure.generalStoreDescriptor = `${lib.articles.output(generalStore.structure.material.wealth)} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with ${lib.articles.output(generalStore.structure.roof.verb)} roof`
   setup.createGeneralStoreName(town, generalStore)
   generalStore.wealth = ''

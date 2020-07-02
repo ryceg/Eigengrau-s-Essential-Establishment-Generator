@@ -92,7 +92,7 @@ setup.createTavern = function (town, opts = {}) {
     tavern.feature = setup.tavern.get.wealthyFeature(tavern)
   }
   // Sets up building structure and creates building description
-  setup.structure.create(town, tavern)
+  setup.createStructure(town, tavern)
   tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
   const rollData = setup.tavern.rollData
 

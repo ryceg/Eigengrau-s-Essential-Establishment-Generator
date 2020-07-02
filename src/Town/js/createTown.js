@@ -218,7 +218,7 @@ setup.createTown = function (base) {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
-  town.materialProbability = setup.structure.material.types
+  town.materialProbability = setup.structureData.material.types
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {

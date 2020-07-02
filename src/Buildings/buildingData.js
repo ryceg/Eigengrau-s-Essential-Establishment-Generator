@@ -1,70 +1,68 @@
-setup.structure = {
-  create (town, building, opts) {
-    console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
-    if (!building) {
-      building = {}
-    }
-    building.wordNoun = building.wordNoun || opts.wordNoun || 'building'
+setup.createStructure = (town, building = {}) => {
+  console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
+  building.wordNoun = building.wordNoun || 'building'
 
-    if (!building.structure) {
-      building.structure = {
-        get descriptor () {
-          return this.descriptors.random()
-        },
-        set descriptorsAdd (description) {
-          if (typeof description === 'string') {
-            console.log(this.descriptors)
-            if (this.descriptors.includes(description)) {
-              console.log('Throwing out duplicate description...')
-            } else {
-              this.descriptors.push(description)
-            }
+  if (!building.structure) {
+    building.structure = {
+      get descriptor () {
+        return this.descriptors.random()
+      },
+      set descriptorsAdd (description) {
+        if (typeof description === 'string') {
+          console.log(this.descriptors)
+          if (this.descriptors.includes(description)) {
+            console.log('Throwing out duplicate description...')
           } else {
-            console.log(`Expected a string operand and received ${description}`)
+            this.descriptors.push(description)
           }
-        },
-        material: {},
-        roof: {}
-      }
+        } else {
+          console.log(`Expected a string operand and received ${description}`)
+        }
+      },
+      material: {},
+      roof: {}
     }
-    if (!building.material) {
-      let tempMaterial = lib.weightedRandomFetcher(town, setup.structure.material.types, null, null, 'object')
-      if (Object.keys(tempMaterial).includes('variations')) {
-        console.log('Building material has variations. ')
-        tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
-      }
-      console.log('tempMaterial')
-      console.log(tempMaterial)
-      building.structure.material = tempMaterial
-    } else {
-      building.structure.material = building.material
+  }
+  if (!building.material) {
+    let tempMaterial = lib.weightedRandomFetcher(town, setup.structureData.material.types, null, null, 'object')
+    if (Object.keys(tempMaterial).includes('variations')) {
+      console.log('Building material has variations. ')
+      tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
     }
+    console.log('tempMaterial')
+    console.log(tempMaterial)
+    building.structure.material = tempMaterial
+  } else {
+    building.structure.material = building.material
+  }
 
-    building.structure.roof = lib.weightedRandomFetcher(town, setup.structure.roof.types, null, null, 'object')
+  building.structure.roof = lib.weightedRandomFetcher(town, setup.structureData.roof.types, null, null, 'object')
 
-    if (building.structure.roof.canBeColoured === true) {
-      building.structure.roof.colour = setup.structure.data.colour.random()
-      building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.verb}`
-      building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
-    }
+  if (building.structure.roof.canBeColoured === true) {
+    building.structure.roof.colour = setup.structureData.data.colour.random()
+    building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.verb}`
+    building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
+  }
 
-    lib.defineRollDataGetter(building.structure.roof, setup.structure.roof.rollData, 'wealth', 'wealth', undefined, building.roll)
-    lib.defineRollDataGetter(building.structure.material, setup.structure.material.rollData, 'wealth', 'wealth', undefined, building.roll)
+  lib.defineRollDataGetter(building.structure.roof, setup.structureData.roof.rollData, 'wealth', 'wealth', undefined, building.roll)
+  lib.defineRollDataGetter(building.structure.material, setup.structureData.material.rollData, 'wealth', 'wealth', undefined, building.roll)
 
-    building.structure.descriptors = [
-      `${lib.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
-      `${lib.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
-    ]
+  building.structure.descriptors = [
+    `${lib.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
+    `${lib.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
+  ]
 
-    if (building.size) {
-      building.structure.descriptorsAdd(
-        `${lib.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${lib.articles.output(building.structure.roof.verb)} roof`
-      )
-    }
-    console.log(building.structure)
-    console.groupEnd()
-    return building
-  },
+  if (building.size) {
+    building.structure.descriptorsAdd(
+      `${lib.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${lib.articles.output(building.structure.roof.verb)} roof`
+    )
+  }
+  console.log(building.structure)
+  console.groupEnd()
+  return building
+}
+
+setup.structureData = {
   data: {
     colour: [
       'red',

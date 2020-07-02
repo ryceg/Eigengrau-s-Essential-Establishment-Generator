@@ -22,7 +22,7 @@ setup.createAlchemist = (town, opts = {}) => {
     expertise: ''
   })
 
-  setup.structure.create(town, alchemist)
+  setup.createStructure(town, alchemist)
   alchemist.structure.alchemistDescriptor = `${alchemist.structure.material.wealth} ${alchemist.structure.material.noun} ${alchemist.wordNoun} with ${lib.articles.output(alchemist.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']

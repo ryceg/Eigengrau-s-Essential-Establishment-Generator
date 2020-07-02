@@ -18,7 +18,7 @@ setup.createSmithy = function (town, opts = {}) {
   smithy.cleanliness = ''
   smithy.expertise = ''
   smithy.activity = ''
-  setup.structure.create(town, smithy)
+  setup.createStructure(town, smithy)
   smithy.structure.smithyDescriptor = `${smithy.structure.material.wealth} ${smithy.structure.material.noun} ${smithy.wordNoun} with ${lib.articles.output(smithy.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']
