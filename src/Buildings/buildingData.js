@@ -2,33 +2,22 @@ setup.createStructure = (town, building = {}) => {
   console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
   building.wordNoun = building.wordNoun || 'building'
 
-  if (!building.structure) {
-    building.structure = {
-      get descriptor () {
-        return this.descriptors.random()
-      },
-      set descriptorsAdd (description) {
-        if (typeof description !== 'string') {
-          console.error(`Expected a string operand and received "${description}".`)
-        }
-        if (this.descriptors.includes(description)) {
-          console.log('Throwing out duplicate description...')
-          return
-        }
-        this.descriptors.push(description)
-      },
-      material: {},
-      roof: {}
-    }
+  building.structure = building.structure || {
+    get descriptor () {
+      return this.descriptors.random()
+    },
+    descriptors: [],
+    material: {},
+    roof: {}
   }
+
   if (!building.material) {
     let tempMaterial = lib.weightedRandomFetcher(town, setup.structureData.material.types, null, null, 'object')
-    if (Object.keys(tempMaterial).includes('variations')) {
+    if (tempMaterial.variations) {
       console.log('Building material has variations. ')
       tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
     }
-    console.log('tempMaterial')
-    console.log(tempMaterial)
+    console.log('tempMaterial', tempMaterial)
     building.structure.material = tempMaterial
   } else {
     building.structure.material = building.material
@@ -36,7 +25,7 @@ setup.createStructure = (town, building = {}) => {
 
   building.structure.roof = lib.weightedRandomFetcher(town, setup.structureData.roof.types, null, null, 'object')
 
-  if (building.structure.roof.canBeColoured === true) {
+  if (building.structure.roof.canBeColoured) {
     building.structure.roof.colour = setup.structureData.data.colour.random()
     building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.verb}`
     building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
@@ -51,13 +40,22 @@ setup.createStructure = (town, building = {}) => {
   ]
 
   if (building.size) {
-    building.structure.descriptorsAdd(
-      `${lib.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${lib.articles.output(building.structure.roof.verb)} roof`
-    )
+    addUniqueDescriptor(building.structure.descriptors, `${lib.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${lib.articles.output(building.structure.roof.verb)} roof`)
   }
   console.log(building.structure)
   console.groupEnd()
   return building
+}
+
+function addUniqueDescriptor (descriptors, description) {
+  if (typeof description !== 'string') {
+    console.error(`Expected a string operand and received "${description}".`)
+  }
+  if (descriptors.includes(description)) {
+    console.log('Throwing out duplicate description...')
+    return
+  }
+  descriptors.push(description)
 }
 
 setup.structureData = {
