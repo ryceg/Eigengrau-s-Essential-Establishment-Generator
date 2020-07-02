@@ -1,19 +1,7 @@
 import { Alchemist } from './_common'
 
 export function alchemistModifiers (alchemist: Alchemist) {
-  if (alchemist.roll.size > 80) {
-    alchemist.roll.activity -= 4
-  } else if (alchemist.roll.size > 70) {
-    alchemist.roll.activity -= 3
-  } else if (alchemist.roll.size > 60) {
-    alchemist.roll.activity -= 1
-  } else if (alchemist.roll.size > 30) {
-    alchemist.roll.activity += 1
-  } else if (alchemist.roll.size > 20) {
-    alchemist.roll.activity += 1
-  } else if (alchemist.roll.size <= 20) {
-    alchemist.roll.activity += 3
-  }
+  alchemist.roll.activity += getSizeModifierForActivity(alchemist.roll.size)
 
   switch (alchemist.material.noun) {
     case 'hewn rock':
@@ -116,4 +104,13 @@ export function alchemistModifiers (alchemist: Alchemist) {
     alchemist.roll.reputation -= 5
     alchemist.roll.cleanliness += 5
   }
+}
+
+function getSizeModifierForActivity (sizeRoll: number) {
+  if (sizeRoll > 80) return -4
+  if (sizeRoll > 70) return -3
+  if (sizeRoll > 60) return -1
+  if (sizeRoll > 30) return +1
+  if (sizeRoll > 20) return +1
+  return +3
 }
