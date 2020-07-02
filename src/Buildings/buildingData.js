@@ -8,16 +8,14 @@ setup.createStructure = (town, building = {}) => {
         return this.descriptors.random()
       },
       set descriptorsAdd (description) {
-        if (typeof description === 'string') {
-          console.log(this.descriptors)
-          if (this.descriptors.includes(description)) {
-            console.log('Throwing out duplicate description...')
-          } else {
-            this.descriptors.push(description)
-          }
-        } else {
-          console.log(`Expected a string operand and received ${description}`)
+        if (typeof description !== 'string') {
+          console.error(`Expected a string operand and received "${description}".`)
         }
+        if (this.descriptors.includes(description)) {
+          console.log('Throwing out duplicate description...')
+          return
+        }
+        this.descriptors.push(description)
       },
       material: {},
       roof: {}
