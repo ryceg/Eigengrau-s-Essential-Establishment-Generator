@@ -1,12 +1,11 @@
 export function findIndexInArray<T, K extends keyof T> (array: T[], key: K, value: T[K]) {
-  const obj = array.find(element => {
+  for (const [index, element] of array.entries()) {
     if (element[key] === value) {
       console.log(`Found matching key value of ${key}: ${value}!`)
-      console.log(element)
-      console.log(array.indexOf(element))
-      return array.indexOf(element)
+      console.log(element, index)
+      return index
     }
-  })
-  if (obj === undefined) throw new Error(`Could not find an object in the array with the matching key value of ${key}: ${value}!`)
-  return array.indexOf(obj)
+  }
+
+  throw new Error(`Could not find object matching the key/value of: "${key}"/"${value}"!`)
 }
