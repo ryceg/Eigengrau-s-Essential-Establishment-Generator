@@ -29,7 +29,7 @@ setup.createAlchemist = (town, opts = {}) => {
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(alchemist, lib.alchemistData.rollData, propName)
   }
-  setup.alchemistModifiers(alchemist)
+  lib.alchemistModifiers(alchemist)
 
   console.groupEnd()
   return alchemist

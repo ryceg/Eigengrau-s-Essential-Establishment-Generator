@@ -1,5 +1,6 @@
+import { Alchemist } from './_common'
 
-setup.alchemistModifiers = alchemist => {
+export function alchemistModifiers (alchemist: Alchemist) {
   if (alchemist.roll.size > 80) {
     alchemist.roll.activity -= 4
   } else if (alchemist.roll.size > 70) {
