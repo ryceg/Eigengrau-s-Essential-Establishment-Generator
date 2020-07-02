@@ -19,16 +19,16 @@ setup.updateSocioPolitics = function (town) {
     theocratic: 'theocracy',
     technocratic: 'technocracy'
   }
-  if (town.economicIdeologyIST !== setup.townData.economicIdeology[town.economicIdeology].descriptors.economicIdeologyIST) {
+  if (town.economicIdeologyIST !== lib.townData.economicIdeology[town.economicIdeology].descriptors.economicIdeologyIST) {
     town.economicIdeology = economicPairs[town.economicIdeologyIST]
   }
 
-  if (town.politicalIdeologyIC !== setup.townData.politicalIdeology[town.politicalIdeology].data.politicalIdeologyIC) {
+  if (town.politicalIdeologyIC !== lib.townData.politicalIdeology[town.politicalIdeology].data.politicalIdeologyIC) {
     town.politicalIdeology = politicalIdeologyPairs[town.politicalIdeologyIC]
   }
 
-  town = Object.assign(town, setup.townData.economicIdeology[town.economicIdeology].descriptors)
-  town = Object.assign(town, setup.townData.politicalIdeology[town.politicalIdeology].data)
+  town = Object.assign(town, lib.townData.economicIdeology[town.economicIdeology].descriptors)
+  town = Object.assign(town, lib.townData.politicalIdeology[town.politicalIdeology].data)
 
   return town
 }

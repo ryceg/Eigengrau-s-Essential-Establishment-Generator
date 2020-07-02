@@ -2,7 +2,7 @@
 setup.createStartFactions = function (town) {
   console.log('Creating starting factions...')
   const factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']
-  let factionsNumber = setup.townData.type[town.type].startFactionsNumber()
+  let factionsNumber = lib.townData.type[town.type].startFactionsNumber()
 
   if (town.roll.wealth > 90) {
     factionsNumber += 2

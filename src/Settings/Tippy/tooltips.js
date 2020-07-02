@@ -103,20 +103,20 @@ setup.politicsTooltip = function (id, type, town) {
     if (span) {
       switch (type) {
         case 'politicalIdeology':
-          span.title = setup.townData.politicalIdeology[town.politicalIdeology].data.description
+          span.title = lib.townData.politicalIdeology[town.politicalIdeology].data.description
           break
         case 'economicIdeology':
-          span.title = setup.townData.economicIdeology[town.economicIdeology].descriptors.tippy
+          span.title = lib.townData.economicIdeology[town.economicIdeology].descriptors.tippy
           break
         case 'politicalSource':
           if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
             if (town.politicalIdeology === 'autocracy') {
-              span.title = setup.townData.politicalSource[town.politicalSource].autocracy.description
+              span.title = lib.townData.politicalSource[town.politicalSource].autocracy.description
             } else {
-              span.title = setup.townData.politicalSource[town.politicalSource].default.description
+              span.title = lib.townData.politicalSource[town.politicalSource].default.description
             }
           } else {
-            span.title = setup.townData.politicalSource[town.politicalSource].description
+            span.title = lib.townData.politicalSource[town.politicalSource].description
           }
       }
       tippy(`#${span.id}`)

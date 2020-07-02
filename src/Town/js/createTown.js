@@ -12,10 +12,10 @@ setup.createTown = function (base) {
   console.log(base)
   const politicsWeightedRoll = (size, type) => {
     let totalWeight = 0
-    const loc = setup.townData.type[size].ideologies[type]
+    const loc = lib.townData.type[size].ideologies[type]
     const pool = Object.keys(loc)
     pool.forEach(key => {
-      totalWeight += setup.townData.type[size].ideologies[type][key]
+      totalWeight += lib.townData.type[size].ideologies[type][key]
     })
     let random = Math.floor(randomFloat(1) * totalWeight)
     let selected
@@ -33,7 +33,7 @@ setup.createTown = function (base) {
 
   const economicIdeology = base.economicIdeology || politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || politicsWeightedRoll(type, 'politicalSource')
-  const politicalIdeology = base.politicalIdeology || setup.townData.politicalSource[politicalSource].politicalIdeology.random()
+  const politicalIdeology = base.politicalIdeology || lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
@@ -95,10 +95,10 @@ setup.createTown = function (base) {
     buildings: [],
     families: {
     },
-    population: setup.townData.type[type].population(),
+    population: lib.townData.type[type].population(),
     _demographicPercentile: {},
     // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.random().output),
+    // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
       console.log('Getting base demographics.')
       return this._baseDemographics
@@ -139,7 +139,7 @@ setup.createTown = function (base) {
     set economicIdeology (value) {
       // console.log('Setting town economic ideology.')
       this._economicIdeology = value
-      Object.assign(this, setup.townData.economicIdeology[this._economicIdeology].descriptors)
+      Object.assign(this, lib.townData.economicIdeology[this._economicIdeology].descriptors)
     },
     get politicalSource () {
       // console.log(`Getting town political source - ${this._politicalSource}`)
@@ -156,28 +156,28 @@ setup.createTown = function (base) {
     set politicalIdeology (value) {
       // console.log('Setting town political ideology.')
       this._politicalIdeology = value
-      Object.assign(this, setup.townData.politicalIdeology[this._politicalIdeology].data)
+      Object.assign(this, lib.townData.politicalIdeology[this._politicalIdeology].data)
     },
     get politicalSourceDescription () {
       // console.log('Getting town political source description.')
       if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
         if (this.politicalIdeology === 'autocracy') {
-          return setup.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
+          return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
         } else {
-          return setup.townData.politicalSource[this._politicalSource].default.politicalSourceDescription
+          return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription
         }
       } else {
-        return setup.townData.politicalSource[this._politicalSource].politicalSourceDescription
+        return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription
       }
     },
     get wealth () {
       // console.log('Getting town wealth.')
-      let wealth = setup.townData.rollData.wealth.find(descriptor => {
+      let wealth = lib.townData.rollData.wealth.find(descriptor => {
         return descriptor[0] <= this.roll.wealth
       })
       if (wealth === undefined) {
         console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
-        wealth = setup.townData.rollData.wealth[setup.townData.rollData.wealth.length - 1]
+        wealth = lib.townData.rollData.wealth[lib.townData.rollData.wealth.length - 1]
       }
       this._wealth = wealth[1]
       return this._wealth
@@ -188,11 +188,11 @@ setup.createTown = function (base) {
     },
     roads: {},
     location: lib.terrain[terrain].start.random(),
-    primaryCrop: setup.townData.misc.primaryCrop.random(),
-    primaryExport: setup.townData.misc.primaryExport.random(),
-    landmark: setup.townData.misc.landmark.random(),
-    currentEvent: setup.townData.misc.currentEvent.random(),
-    microEvent: setup.townData.misc.microEvent,
+    primaryCrop: lib.townData.misc.primaryCrop.random(),
+    primaryExport: lib.townData.misc.primaryExport.random(),
+    landmark: lib.townData.misc.landmark.random(),
+    currentEvent: lib.townData.misc.currentEvent.random(),
+    microEvent: lib.townData.misc.microEvent,
     roll: {
       wealth: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
@@ -262,26 +262,26 @@ setup.createTown = function (base) {
 
   if (!town.pregen) {
     console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-    Object.keys(setup.townData.type[town.type].modifiers).forEach(modifier => {
-      town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
+    Object.keys(lib.townData.type[town.type].modifiers).forEach(modifier => {
+      town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.type[town.type].modifiers[modifier])
     })
 
     console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
     // economic ideology attribute modifiers
 
-    Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
-      console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
-      town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+    Object.keys(lib.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
+      console.log(lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+      town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
     })
     // political ideology modifiers
     console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
 
-    Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
+    Object.keys(lib.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
       console.log(modifier)
-      console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
-      town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+      console.log(lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+      town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
     })
-  // Object.assign(town.leader, setup.townData.politicalIdeology[town.politicalIdeology].data)
+  // Object.assign(town.leader, lib.townData.politicalIdeology[town.politicalIdeology].data)
   }
 
   setup.createSocioPolitics(town)
@@ -294,8 +294,8 @@ setup.createTown = function (base) {
   }
   town.equality = ''
   town.equalityDescription = ''
-  lib.defineRollDataGetter(town, setup.townData.rollData, 'equality', 'equality', 1)
-  lib.defineRollDataGetter(town, setup.townData.rollData, 'equalityDescription', 'equality', 2)
+  lib.defineRollDataGetter(town, lib.townData.rollData, 'equality', 'equality', 1)
+  lib.defineRollDataGetter(town, lib.townData.rollData, 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = setup.createTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
   lib.townRender(town)

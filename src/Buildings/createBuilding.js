@@ -3,15 +3,15 @@ setup.createBuilding = (town, type, base = {}) => {
   let roadType
 
   // Tables used later
-  if (random(100) < setup.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
+  if (random(100) < lib.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
     // Roads are currently only supported with two words
     const randRoad = Object.keys(town.roads).random()
     const roads = town.roads[randRoad].split(' ')
-    roadName = roads[0] || setup.townData.roads.name.random()
-    roadType = roads[1] || setup.townData.roads.type.random()
+    roadName = roads[0] || lib.townData.roads.name.random()
+    roadType = roads[1] || lib.townData.roads.type.random()
   } else {
-    roadName = setup.townData.roads.name.random()
-    roadType = setup.townData.roads.type.random()
+    roadName = lib.townData.roads.name.random()
+    roadType = lib.townData.roads.type.random()
   }
 
   const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()

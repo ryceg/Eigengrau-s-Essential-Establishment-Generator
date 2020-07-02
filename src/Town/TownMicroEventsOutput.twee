@@ -12,6 +12,6 @@
     <<else>>
       the road,
     <</if>>
-    <<print setup.townData.misc.microEvent.random()>>
+    <<print lib.townData.misc.microEvent.random()>>
   </blockquote><</if>>
 <</nobr>>

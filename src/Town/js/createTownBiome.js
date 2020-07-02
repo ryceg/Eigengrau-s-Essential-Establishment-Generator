@@ -7,10 +7,10 @@ setup.createTownBiome = function (base) {
 
   const politicsWeightedRoll = function (size, type) {
     let totalWeight = 0
-    const loc = setup.townData.type[size].ideologies[type]
+    const loc = lib.townData.type[size].ideologies[type]
     const pool = Object.keys(loc)
     pool.forEach(key => {
-      totalWeight += setup.townData.type[size].ideologies[type][key]
+      totalWeight += lib.townData.type[size].ideologies[type][key]
     })
     let random = Math.floor(randomFloat(1) * totalWeight)
     let selected
@@ -28,7 +28,7 @@ setup.createTownBiome = function (base) {
 
   const economicIdeology = politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = politicsWeightedRoll(type, 'politicalSource')
-  const politicalIdeology = setup.townData.politicalSource[politicalSource].politicalIdeology.random()
+  const politicalIdeology = lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     name: townName,
     terrain,
@@ -40,7 +40,7 @@ setup.createTownBiome = function (base) {
     buildings: [],
     families: {
     },
-    population: setup.townData.type[type].population(),
+    population: lib.townData.type[type].population(),
     _type: type,
     type,
     _economicIdeology: economicIdeology,
@@ -48,7 +48,7 @@ setup.createTownBiome = function (base) {
     _politicalIdeology: politicalIdeology,
     _demographicPercentile: {},
     // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.random().output),
+    // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
       console.log('Getting base demographics.')
       return this._baseDemographics
@@ -78,11 +78,11 @@ setup.createTownBiome = function (base) {
       return this._demographicPercentile
     },
     location: lib.terrain[terrain].start.random(),
-    primaryCrop: setup.townData.misc.primaryCrop.random(),
-    primaryExport: setup.townData.misc.primaryExport.random(),
-    landmark: setup.townData.misc.landmark.random(),
-    currentEvent: setup.townData.misc.currentEvent.random(),
-    microEvent: setup.townData.misc.microEvent,
+    primaryCrop: lib.townData.misc.primaryCrop.random(),
+    primaryExport: lib.townData.misc.primaryExport.random(),
+    landmark: lib.townData.misc.landmark.random(),
+    currentEvent: lib.townData.misc.currentEvent.random(),
+    microEvent: lib.townData.misc.microEvent,
     guard: {
       name: 'Test'
     },
@@ -114,23 +114,23 @@ setup.createTownBiome = function (base) {
   town.materialProbability = setup.structure.material.types
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-  Object.keys(setup.townData.type[town.type].modifiers).forEach(modifier => {
-    town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.type[town.type].modifiers[modifier])
+  Object.keys(lib.townData.type[town.type].modifiers).forEach(modifier => {
+    town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.type[town.type].modifiers[modifier])
   })
 
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   // economic ideology attribute modifiers
-  Object.keys(setup.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
-    console.log(setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
-    town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+  Object.keys(lib.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
+    console.log(lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+    town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
   })
 
   // political ideology modifiers
   console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
-  Object.keys(setup.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
+  Object.keys(lib.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
     console.log(modifier)
-    console.log(setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
-    town.roll[modifier] = lib.fm(town.roll[modifier], setup.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+    console.log(lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+    town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
   })
 
   Object.keys(town.roll).forEach(roll => {
