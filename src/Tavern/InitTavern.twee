@@ -5,9 +5,9 @@
 <<set _name to $town.buildings[$currentPassage.index].name>>
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<set $selectedBuilding.name to lib.createTavernName()>>>><<textbox "$selectedBuilding.name" $selectedBuilding.name>>
+            \<<set $town.buildings[$currentPassage.index].name to lib.createTavernName()>> <<textbox "$town.buildings[$currentPassage.index].name" _name>>
     <</replace>><</link>>
-<span id="tavernname"><<textbox "_name" _name>></span><</nobr>>
+<span id="tavernname"><<textbox "$town.buildings[$currentPassage.index].name" _name>></span><</nobr>>
 
 <<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
 
