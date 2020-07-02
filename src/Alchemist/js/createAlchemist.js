@@ -15,7 +15,7 @@ setup.createAlchemist = (town, opts = {}) => {
     initPassage: 'InitAlchemist',
     buildingType: 'alchemist',
     notableFeature: ['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments'].random(),
-    name: setup.createAlchemistName(associatedNPC.firstName),
+    name: lib.createAlchemistName(associatedNPC.firstName),
     size: '',
     cleanliness: '',
     wealth: '',

@@ -1,4 +1,5 @@
 export * from './alchemist/alchemistData'
+export * from './alchemist/createAlchemistName'
 
 export * from './constructs/bandits'
 export * from './constructs/bunny'
