@@ -1,5 +1,6 @@
 import { random } from '../src/random'
 import { closestMatch } from '../src/closestMatch'
+import { ThresholdTable } from '../src/rollFromTable'
 
 import { bmiDescriptions } from './bmiDescriptions'
 import { raceTraits } from './raceTraits'
@@ -25,7 +26,7 @@ export function setRace (npc: NPC) {
   }
 }
 
-const heightChart: [number, string][] = [
+const heightChart: ThresholdTable = [
   [78, 'giraffe-like'],
   [77, 'extremely tall'],
   [76, 'very tall'],

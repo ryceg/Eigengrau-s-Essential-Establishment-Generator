@@ -1,11 +1,12 @@
+import { ThresholdTable } from '../src/rollFromTable'
 import { Alchemist } from './_common'
 
 interface AlchemistData {
   rollData: {
-    wealth: RollThresholds
-    size: RollThresholds
-    cleanliness: RollThresholds
-    expertise: RollThresholds
+    wealth: ThresholdTable
+    size: ThresholdTable
+    cleanliness: ThresholdTable
+    expertise: ThresholdTable
   }
   get: {
     lookAround(alchemist: Alchemist): LookAround[]
@@ -18,8 +19,6 @@ interface AlchemistData {
   }
   ingredients: string[]
 }
-
-type RollThresholds = [number, string][]
 
 interface LookAround {
   cleanliness: number

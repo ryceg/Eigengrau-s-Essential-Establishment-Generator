@@ -1,3 +1,4 @@
+import { ThresholdTable } from '../src/rollFromTable'
 import { dice } from '../src/dice'
 
 export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling'
@@ -7,7 +8,7 @@ interface RaceTrait {
   muscleMass: number
   bmiModifier: number
   ageTraits: Record<AgeName, AgeTrait> & {
-    ageDescriptors: [number, string][]
+    ageDescriptors: ThresholdTable
   }
   genderTraits: Record<GenderName, GenderTrait>
   lastName: string[]

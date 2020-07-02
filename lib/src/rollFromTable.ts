@@ -1,10 +1,10 @@
 import { random } from './random'
 import { last } from './utils'
 
-type Table = [number, string][]
+export type ThresholdTable = [number, string][]
 
 /**
- * Gives a random value from a static table.
+ * Return a random value from a static roll table.
  * Designed to be less performance-intensive than weightedRandomFetcher,
  *
  * The table should contain the intended probabilities of each result
@@ -18,7 +18,7 @@ type Table = [number, string][]
  * skew results toward the first entries, and positive biases skew
  * toward the last entries.
  */
-export function rollFromTable (table: Table, maxRoll?: number, bias = 0) {
+export function rollFromTable (table: ThresholdTable, maxRoll?: number, bias = 0) {
   if (!maxRoll) {
     // set it to be the sum of probabilities
     maxRoll = table.reduce((a, [b]) => a + b, 0)

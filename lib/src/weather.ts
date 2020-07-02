@@ -1,5 +1,6 @@
 import { random } from './random'
 import { dice } from './dice'
+import { ThresholdTable } from './rollFromTable'
 
 interface Weather {
   roll: {
@@ -384,5 +385,5 @@ export const weather = {
     [0, 'extremely cold'],
     [-5, 'bitterly cold'],
     [-10, 'painfully cold']
-  ] as [number, string][]
+  ] as ThresholdTable
 }
