@@ -2,6 +2,7 @@ import { keys } from '../src/utils'
 import { randomFloat } from '../src/randomFloat'
 import { Town } from '../town/_common'
 
+import { isDominantGender, breakGenderNorms } from './breakGenderNorms'
 import { professions } from './professions'
 import { NPC } from './_common'
 
@@ -21,9 +22,8 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
     console.log(professionNames)
   }
 
-  // MIG: Disabled until `breakGenderNorms` & `isDominantGender` are migrated.
-  /* if (setup.breakGenderNorms(town, npc) === false) {
-    if (setup.isDominantGender(town, npc) === false) {
+  if (breakGenderNorms(town) === false) {
+    if (isDominantGender(town, npc) === false) {
       professionNames.filter(profession => {
         return town.professions[profession].domSub !== 'dom'
       })
@@ -32,7 +32,7 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
         return town.professions[profession].domSub !== 'sub'
       })
     }
-  } */
+  }
 
   const sum = professionNames.map(profession => {
     return town.professions[profession].population

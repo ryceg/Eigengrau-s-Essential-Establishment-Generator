@@ -1,9 +1,4 @@
-/**
- * Returns the keys from `T` whose property types match the type `V`.
- */
-type KeysMatching<T, V> = {
-  [K in keyof T]-?: T[K] extends V ? K : never
-}[keyof T]
+import { KeysMatching } from '../types'
 
 /**
  * FIXME: Somebody explain what this function does.

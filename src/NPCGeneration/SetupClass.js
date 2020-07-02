@@ -38,7 +38,7 @@ setup.createClass = function (town, npc) {
     classWeapon = 'a dagger'
   }
 
-  const profession = setup.findProfession(town, npc)
+  const profession = lib.findProfession(town, npc)
 
   const originWage = [
     [-25, `I've tried to do a good job as ${lib.articles.output(npc.profession)} but am just rubbish at it. I don't think I'm good at anything, really.`],

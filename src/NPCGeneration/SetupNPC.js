@@ -22,7 +22,7 @@ setup.createNPC = function (town, base) {
     base = lib.objectArrayFetcher(lib.patreonCharacters, town)
   }
 
-  setup.initSexistProfession(town, base)
+  lib.initSexistProfession(town, base)
 
   const gender = base.gender || ['man', 'woman'].random()
   const race = base.race || lib.fetchRace(town, base)
@@ -35,7 +35,7 @@ setup.createNPC = function (town, base) {
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
 
-  if (setup.findProfession(town, base, profession).type === 'dndClass') {
+  if (lib.findProfession(town, base, profession).type === 'dndClass') {
     base.hasClass = true
     // eslint-disable-next-line no-unused-vars
     const dndClass = base.dndClass || profession
@@ -92,7 +92,7 @@ setup.createNPC = function (town, base) {
       grossIncome (town, npc) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
-        const profession = setup.findProfession(town, npc)
+        const profession = lib.findProfession(town, npc)
         return Math.round(lib.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3)))
       },
       netIncome (town, npc) {
@@ -188,7 +188,7 @@ setup.createNPC = function (town, base) {
   npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
   if (typeof npc.hasClass === 'undefined') {
-    if (setup.findProfession(town, npc).type !== 'dndClass') {
+    if (lib.findProfession(town, npc).type !== 'dndClass') {
       npc.hasClass = false
       // npc.dndClass = npc.profession
     } else {

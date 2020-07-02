@@ -25,7 +25,7 @@ setup.death = {
     },
     {
       exclusions (town, npc) {
-        return setup.findProfession(town, npc).sector === 'construction'
+        return lib.findProfession(town, npc).sector === 'construction'
       },
       function (town, npc) {
         const text = `${npc.firstName} died in a workplace accident.`
@@ -41,7 +41,7 @@ setup.death = {
     // },
     {
       exclusions (town, npc) {
-        return setup.findProfession(town, npc).sector === 'arts'
+        return lib.findProfession(town, npc).sector === 'arts'
       },
       function (town, npc) {
         const text = `${npc.firstName} was killed in a freak accident at an art show.`
@@ -51,7 +51,7 @@ setup.death = {
     {
       probability: 1,
       exclusions (town, npc) {
-        return setup.findProfession(town, npc).sector === 'arts'
+        return lib.findProfession(town, npc).sector === 'arts'
       },
       function (town, npc) {
         const murderer = setup.createNPC(town, {
@@ -67,7 +67,7 @@ setup.death = {
     {
       probability: 2,
       exclusions (town, npc) {
-        return setup.findProfession(town, npc).sector === 'government and law'
+        return lib.findProfession(town, npc).sector === 'government and law'
       },
       function (town, npc) {
         const murderer = setup.createNPC(town, {

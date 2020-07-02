@@ -13,6 +13,7 @@ export interface Town {
     law: number
     sin: number
     arcana: number
+    equality: number
   }
   wealth: string
   economics: string

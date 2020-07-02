@@ -19,6 +19,8 @@ export interface NPC {
   relationships: string[]
   socialClass: string
   hasClass: boolean
+  dndClass?: string
+  isBreakingGenderNorms: boolean
 }
 
 export interface Relationship {

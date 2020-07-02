@@ -82,7 +82,7 @@
       <th>Relationship</th>
       <th>Delete</th>
     </tr>
-    <<for _key, _relationship range $currentNPC.relationships>><<set _profession to setup.findProfession($town, $npcs[_key])>><<set _reciprocal to $currentNPC.firstName + " is " + lib.articles.output($npcs[_key].relationships[$currentNPC.key]) + " to " + $npcs[_key].firstName>>
+    <<for _key, _relationship range $currentNPC.relationships>><<set _profession to lib.findProfession($town, $npcs[_key])>><<set _reciprocal to $currentNPC.firstName + " is " + lib.articles.output($npcs[_key].relationships[$currentNPC.key]) + " to " + $npcs[_key].firstName>>
     <tr>
       <td><<profile $npcs[_key]>></td>
       <td><<print $npcs[_key].race.toUpperFirst()>></td>
