@@ -82,6 +82,7 @@ export * from './src/weather'
 export * from './src/weightedRandomFetcher'
 export * from './src/weightRandom'
 export * from './src/findInArray'
+export * from './src/findIndexInArray'
 
 export * from './tavern/createTavernName'
 export * from './tavern/tavernModifiers'
