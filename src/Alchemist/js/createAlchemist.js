@@ -27,7 +27,7 @@ setup.createAlchemist = (town, opts = {}) => {
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(alchemist, setup.alchemist.rollData, propName)
+    lib.defineRollDataGetter(alchemist, lib.alchemistData.rollData, propName)
   }
   setup.alchemistModifiers(alchemist)
 

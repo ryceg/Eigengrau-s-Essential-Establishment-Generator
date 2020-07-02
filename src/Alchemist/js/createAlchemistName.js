@@ -1,10 +1,10 @@
 setup.createAlchemistName = chemistFirstName => {
   return [
-      `The ${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.noun.random()}`,
-      `${chemistFirstName} and ${setup.alchemist.name.adjective.random()}`,
-      `The ${setup.alchemist.name.noun.random()} and ${setup.alchemist.name.adjective.random()}`,
-      `The ${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.rider.random()}`,
-      `${setup.alchemist.name.adjective.random()} ${setup.alchemist.name.noun.random()}`,
-      `The ${setup.alchemist.name.adjective.random()} Alchemist`
+      `The ${lib.alchemistData.name.adjective.random()} ${lib.alchemistData.name.noun.random()}`,
+      `${chemistFirstName} and ${lib.alchemistData.name.adjective.random()}`,
+      `The ${lib.alchemistData.name.noun.random()} and ${lib.alchemistData.name.adjective.random()}`,
+      `The ${lib.alchemistData.name.adjective.random()} ${lib.alchemistData.name.rider.random()}`,
+      `${lib.alchemistData.name.adjective.random()} ${lib.alchemistData.name.noun.random()}`,
+      `The ${lib.alchemistData.name.adjective.random()} Alchemist`
   ].random()
 }

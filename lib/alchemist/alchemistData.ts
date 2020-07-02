@@ -1,4 +1,39 @@
-setup.alchemist = {
+import { Alchemist } from './_common'
+
+interface AlchemistData {
+  rollData: {
+    wealth: RollThresholds
+    size: RollThresholds
+    cleanliness: RollThresholds
+    expertise: RollThresholds
+  }
+  get: {
+    lookAround(alchemist: Alchemist): LookAround[]
+    priceTalk(alchemist: Alchemist): PriceTalk[]
+  }
+  name: {
+    noun: string[]
+    adjective: string[]
+    rider: string[]
+  }
+  ingredients: string[]
+}
+
+type RollThresholds = [number, string][]
+
+interface LookAround {
+  cleanliness: number
+  wealth: number
+  note: string
+}
+
+interface PriceTalk {
+  priceModifier: number
+  wealth: number
+  priceTalk: string
+}
+
+export const alchemistData: AlchemistData = {
   rollData: {
     wealth: [
       [95, 'kingly'],

@@ -57,7 +57,7 @@ setup.createChemist = town => setup.createNPC(town, {
     'discusses the latest developments in alchemy, almost all of which are either over your head, or totally boring',
     'talks about how $associatedNPC.hisher latest batch of potions are disappearing mysteriously',
     'chats with you all about $associatedNPC.hisher newest stock, none of which is particularly out of the ordinary',
-    'talks about the many uses for <<print setup.alchemist.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
+    'talks about the many uses for <<print lib.alchemistData.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
     'tries to push various products on you all as you look about the shop'
   ]
 })
