@@ -214,8 +214,8 @@ export function getTownData () {
             'constitutional monarchy': 1
           }
         },
-        'population' () { return random(30, 300) },
-        'startFactionsNumber' () { return random([1, 1, 1, 1, 1, 2]) },
+        population () { return random(30, 300) },
+        startFactionsNumber () { return random([1, 1, 1, 1, 1, 2]) },
         // roadDuplication: d100 of whether to create a new road (new one if under).
         roadDuplication: 40,
         modifiers: {
@@ -328,8 +328,8 @@ export function getTownData () {
             'constitutional monarchy': 1
           }
         },
-        'population' () { return random(301, 1000) },
-        'startFactionsNumber' () { return random([1, 1, 1, 2, 2, 2]) },
+        population () { return random(301, 1000) },
+        startFactionsNumber () { return random([1, 1, 1, 2, 2, 2]) },
         roadDuplication: 50,
         modifiers: {
           wealth: -10,
@@ -441,8 +441,8 @@ export function getTownData () {
             'constitutional monarchy': 1
           }
         },
-        'population' () { return random(1001, 3000) },
-        'startFactionsNumber' () { return random([1, 1, 2, 2, 2, 3, 3]) },
+        population () { return random(1001, 3000) },
+        startFactionsNumber () { return random([1, 1, 2, 2, 2, 3, 3]) },
         roadDuplication: 70,
         modifiers: {
           wealth: 15,
@@ -554,8 +554,8 @@ export function getTownData () {
             'constitutional monarchy': 50
           }
         },
-        'population' () { return random(3001, 6000) },
-        'startFactionsNumber' () { return random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]) },
+        population () { return random(3001, 6000) },
+        startFactionsNumber () { return random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]) },
         roadDuplication: 90,
         modifiers: {
           wealth: 5,
