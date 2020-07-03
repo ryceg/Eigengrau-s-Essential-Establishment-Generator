@@ -100,7 +100,7 @@ setup.createSexuality = function (npc) {
     }
   }
   // make sure that the kinsey hasn't strayed out of bounds.
-  Math.clamp(npc.roll.kinsey, 0, 6)
+  npc.roll.kinsey = Math.clamp(npc.roll.kinsey, 0, 6)
 
   Object.assign(npc, kinsey[npc.roll.kinsey])
   return npc
