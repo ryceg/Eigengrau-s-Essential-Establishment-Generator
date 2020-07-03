@@ -30,9 +30,9 @@ export function breakGenderNorms (town: Town) {
   clamp(town.roll.equality, 0, 100)
 
   // MIGRATION: Not available outside src.
-  /* if (settings.ignoreGender) {
+  if (town.ignoreGender) {
     return true
-  } */
+  }
 
   const temp = genderEqualityLikelihood.find(([threshold]) => {
     return threshold <= town.roll.equality

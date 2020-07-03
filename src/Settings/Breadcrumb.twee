@@ -1,5 +1,5 @@
 :: Breadcrumb
-<<nobr>><<if def $town>><<link "The $town.type of $town.name">>
+<<nobr>><<if def $town>><<set $town.ignoreGender to settings.ignoreGender>><<link "The $town.type of $town.name">>
     <<unset $currentPassage>>
     <<unset $currentNPC>>
     <<set $history to []>>

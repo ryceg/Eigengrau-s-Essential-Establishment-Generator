@@ -24,6 +24,7 @@ const settingIgnoreGender = function () {
   const ignoreGender = State.metadata.get('ignoreGender')
   if (settings.ignoreGender !== ignoreGender) {
     State.metadata.set('ignoreGender', settings.ignoreGender)
+    State.variables.town.ignoreGender = settings.ignoreGender
   }
 }
 

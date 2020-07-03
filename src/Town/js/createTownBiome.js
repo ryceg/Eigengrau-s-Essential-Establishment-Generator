@@ -33,6 +33,7 @@ setup.createTownBiome = function (base) {
     name: townName,
     terrain,
     currentSeason: season,
+    ignoreGender: false,
     season,
     pregen: true,
     factions: {

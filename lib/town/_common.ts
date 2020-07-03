@@ -4,6 +4,7 @@ export interface Town {
   name: string
   type: string
   population: number
+  ignoreGender: boolean
   roll: {
     guardFunding: number
     wealth: number

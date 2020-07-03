@@ -39,6 +39,7 @@ setup.createTown = function (base) {
     name: townName,
     objectType: 'town',
     townMaterial: 'mainTownMaterial',
+    ignoreGender: false,
     taxes: {
       base: 5,
       land: 5,
