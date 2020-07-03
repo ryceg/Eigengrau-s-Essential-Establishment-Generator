@@ -1,3 +1,5 @@
+import { Profession } from '../npc-generation/professions'
+
 export interface Town {
   name: string
   type: string
@@ -11,6 +13,7 @@ export interface Town {
     law: number
     sin: number
     arcana: number
+    equality: number
   }
   wealth: string
   economics: string
@@ -30,4 +33,8 @@ export interface Town {
       probability: number
     }
   }
+  professions: Record<string, Profession & {
+    name: string,
+    population: number
+  }>
 }

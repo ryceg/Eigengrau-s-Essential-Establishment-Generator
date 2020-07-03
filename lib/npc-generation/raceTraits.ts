@@ -33,7 +33,7 @@ interface AgeTrait {
   ageModifier(): number
 }
 
-type GenderName = 'man' | 'woman'
+export type GenderName = 'man' | 'woman'
 
 interface GenderTrait {
   firstName: string[]

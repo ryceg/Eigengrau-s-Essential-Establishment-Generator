@@ -67,7 +67,7 @@ setup.createSocialClass = function (town, npc) {
   if (!npc.roll) {
     npc.roll = {}
   }
-  const profession = setup.findProfession(town, npc)
+  const profession = lib.findProfession(town, npc)
 
   npc.roll.socialClass = npc.roll.socialClass || profession.socialClassRoll || 40 + lib.dice(8, 6)
 

@@ -71,7 +71,7 @@ setup.createLifestyleStandards = function (town, npc) {
     'is having',
     'is currently having'
   ].random()
-  const desc = setup.findProfession(town, npc)
+  const desc = lib.findProfession(town, npc)
 
   // if (!desc.description) {
   //   console.error(`Missing description for ${desc}`)
