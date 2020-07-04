@@ -1,84 +1,62 @@
 import { random } from '../src/random'
 import { clamp } from '../src/utils'
 import { Town } from '../town/_common'
-import { GenderName } from './raceTraits'
 import { NPC } from './_common'
-
-/**
- * town.roll.equality,
- * chance of breaking gender norm
- */
-const genderEqualityLikelihood: [number, number, GenderName, GenderName][] = [
-  [139, 10, 'woman', 'man'],
-  [99, 10, 'woman', 'man'],
-  [90, 15, 'woman', 'man'],
-  [80, 20, 'woman', 'man'],
-  [70, 30, 'woman', 'man'],
-  [60, 40, 'woman', 'man'],
-  [55, 60, 'woman', 'man'],
-  [50, 100, 'man', 'woman'],
-  [45, 60, 'man', 'woman'],
-  [40, 50, 'man', 'woman'],
-  [30, 40, 'man', 'woman'],
-  [20, 30, 'man', 'woman'],
-  [10, 20, 'man', 'woman'],
-  [5, 15, 'man', 'woman'],
-  [-101, 10, 'man', 'woman']
-]
+import { findProfession } from '../src/findProfession'
+import { dice } from '../src/dice'
 
 export function breakGenderNorms (town: Town) {
+  // tests to see whether the npc is able to break gender norms (determined by the )
   clamp(town.roll.equality, 0, 100)
-
   // MIGRATION: Not available outside src.
   if (town.ignoreGender) {
     return true
   }
-
-  const temp = genderEqualityLikelihood.find(([threshold]) => {
-    return threshold <= town.roll.equality
-  })
-
-  const percentage = temp ? temp[1] : 50
-  return random(1, 100) < percentage
+  return dice(2, 50) < town.roll.equality
 }
 
 export function isDominantGender (town: Town, npc: NPC) {
-  const temp = genderEqualityLikelihood.find(([threshold]) => {
-    return threshold <= town.roll.equality
-  })
-  if (temp) {
-    return npc.gender === temp[2]
-  }
-  throw new Error('Could not find match.')
+  // tests to see whether the supplied npc is of the dominant gender.
+  return npc.gender === town.dominantGender
 }
 
 export function initSexistProfession (town: Town, npc: NPC) {
+  // if the profession is defined, but the gender isn't (which is quite common)
   if (npc.profession && !npc.gender) {
+    // ...but the NPC is not brave enough to go against the grain
     if (breakGenderNorms(town) === false) {
+      // then, take the gender from the profession
       const newGender = checkProfessionGender(town, npc)
-      if (newGender) {
+      // if there's an associated gender, then that's assigned to the NPC
+      if (newGender === 'man' || newGender === 'woman') {
         npc.gender = newGender
       }
+      // if the NPC *was* brave enough to break gender norms, then flag that
     } else {
-      npc.isBreakingGenderNorms = true
+      npc.gender = random(['man', 'woman'])
+      if (npc.gender !== checkProfessionGender(town, npc)) npc.isBreakingGenderNorms = true
     }
   }
   return npc
 }
 
-// FIXME: Not sure what's going on here?
 function checkProfessionGender (town: Town, npc: NPC) {
-  /* const profession = findProfession(town, npc)
-  const genders = genderEqualityLikelihood.find(([threshold]) => {
-    return threshold <= town.roll.equality
-  })
-  if (genders) {
-    switch (genders.indexOf(profession.domSub)) {
-      case 2:
-        return genders[2]
-      case 3:
-        return genders[3]
-    }
-  } */
-  return npc.gender
+  const profession = findProfession(town, npc)
+  // test for whether the profession is gendered
+  let subGender
+  if (town.dominantGender === 'woman') {
+    subGender = 'man'
+  } else {
+    subGender = 'woman'
+  }
+
+  if (!profession.domSub) {
+    return null
+  }
+  if (profession.domSub === 'dom' && isDominantGender(town, npc)) {
+    return town.dominantGender
+  }
+  if (profession.domSub === 'sub' && isDominantGender(town, npc) === false) {
+    return subGender
+  }
 }

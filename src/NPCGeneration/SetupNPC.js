@@ -79,8 +79,11 @@ setup.createNPC = function (town, base) {
         return lib.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
       physicalTrait: random(1, 100),
-      gregariousness: lib.dice(3, 6)
-
+      gregariousness: lib.dice(3, 6),
+      // conformity: 1 is a sheep, 50 is a regular person, 100 is "call the cops cuz i really don't care"
+      // TODO: conformity would ideally be used in testing for breaking gender norms, but it is only initialised AFTER the test.
+      // not really sure how to go about fixing it.
+      conformity: lib.dice(2, 50)
     },
     finances: {
       creditors (town, npc) {

@@ -194,6 +194,7 @@ setup.createTown = function (base) {
     landmark: lib.townData.misc.landmark.random(),
     currentEvent: lib.townData.misc.currentEvent.random(),
     microEvent: lib.townData.misc.microEvent,
+    dominantGender: ['man', 'man', 'man', 'man', 'man', 'woman', 'woman'].random(),
     roll: {
       wealth: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
@@ -295,8 +296,8 @@ setup.createTown = function (base) {
   }
   town.equality = ''
   town.equalityDescription = ''
-  lib.defineRollDataGetter(town, lib.townData.rollData, 'equality', 'equality', 1)
-  lib.defineRollDataGetter(town, lib.townData.rollData, 'equalityDescription', 'equality', 2)
+  lib.defineRollDataGetter(town, lib.townData.rollData.equalityyy[town.dominantGender], 'equality', 'equality', 1)
+  lib.defineRollDataGetter(town, lib.townData.rollData.equalityyy[town.dominantGender], 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = setup.createTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
   lib.townRender(town)

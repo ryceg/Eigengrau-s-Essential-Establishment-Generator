@@ -1,10 +1,12 @@
 import { Profession } from '../npc-generation/professions'
+import { GenderName } from '../npc-generation/raceTraits'
 
 export interface Town {
   name: string
   type: string
   population: number
   ignoreGender: boolean
+  dominantGender: GenderName
   roll: {
     guardFunding: number
     wealth: number

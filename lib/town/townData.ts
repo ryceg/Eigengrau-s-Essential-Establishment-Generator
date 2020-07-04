@@ -76,7 +76,7 @@ export const townData = {
       },
       equality: {
         tooltip: 'How sexist is the society here?',
-        preceding: 'Patriarchy ---- Egalitarian ---- Matriarchy'
+        preceding: 'Totally sexist and oppressive ---- Bastion of equality'
       },
       guardFunding: {
         isHidden: true,
@@ -94,19 +94,44 @@ export const townData = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    equality: [
-      [95, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.'],
-      [90, 'matriarchal', 'It is a matriarchal society.'],
-      [85, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
-      [80, 'matriarchal', 'Women have cooler heads than men, and are therefore the heads of households here.'],
-      [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
-      [50, 'egalitarian', "Gender is irrelevant to one's place in society here."],
-      [40, 'egalitarian', 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
-      [30, 'egalitarian-ish', 'It is supposedly egalitarian society, though women face barriers socially and economically if they do not conform.'],
-      [20, 'patriarchal', 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
-      [10, 'patriarchal', 'It is a patriarchal society.'],
-      [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
-    ]
+    equalityyy: {
+      man: {
+        equality: [
+          [90, 'egalitarian', "Gender is totally irrelevant to one's place in society here."],
+          [80, 'egalitarian', "Gender is irrelevant to one's place in society here."],
+          [70, 'egalitarian', 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
+          [60, 'egalitarian-ish', 'It is supposedly egalitarian society, though women face barriers socially and economically if they do not conform.'],
+          [40, 'patriarchal', 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
+          [40, 'patriarchal', 'Women are oppressed, and do not enjoy many of the social liberties afforded to men.'],
+          [20, 'patriarchal', 'It is a patriarchal society.'],
+          [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
+        ]
+      },
+      woman: {
+        equality: [
+          [90, 'egalitarian', "Gender is totally irrelevant to one's place in society here."],
+          [80, 'egalitarian', "Gender is irrelevant to one's place in society here."],
+          [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
+          [50, 'matriarchal', 'Women have cooler heads than men, and are therefore the heads of households here.'],
+          [40, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
+          [20, 'matriarchal', 'It is a matriarchal society.'],
+          [0, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.']
+        ]
+      }
+    }
+    // equality: [
+    //   [95, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.'],
+    //   [90, 'matriarchal', 'It is a matriarchal society.'],
+    //   [85, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
+    //   [80, 'matriarchal', 'Women have cooler heads than men, and are therefore the heads of households here.'],
+    //   [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
+    //   [50, 'egalitarian', "Gender is irrelevant to one's place in society here."],
+    //   [40, 'egalitarian', 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
+    //   [30, 'egalitarian-ish', 'It is supposedly egalitarian society, though women face barriers socially and economically if they do not conform.'],
+    //   [20, 'patriarchal', 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
+    //   [10, 'patriarchal', 'It is a patriarchal society.'],
+    //   [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
+    // ]
   },
   type: {
     // This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
