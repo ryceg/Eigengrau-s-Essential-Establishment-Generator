@@ -94,7 +94,9 @@ export const townData = {
       [15, 'squalid'],
       [0, 'destitute']
     ],
-    equalityyy: {
+    equality: {
+      // due to the structure of lib.defineRollDataGetter, we need the equality to be the key to the array.
+      // therefore, equality.man.equality is working as intended
       man: {
         equality: [
           [90, 'egalitarian', "Gender is totally irrelevant to one's place in society here."],
@@ -119,19 +121,6 @@ export const townData = {
         ]
       }
     }
-    // equality: [
-    //   [95, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.'],
-    //   [90, 'matriarchal', 'It is a matriarchal society.'],
-    //   [85, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
-    //   [80, 'matriarchal', 'Women have cooler heads than men, and are therefore the heads of households here.'],
-    //   [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
-    //   [50, 'egalitarian', "Gender is irrelevant to one's place in society here."],
-    //   [40, 'egalitarian', 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
-    //   [30, 'egalitarian-ish', 'It is supposedly egalitarian society, though women face barriers socially and economically if they do not conform.'],
-    //   [20, 'patriarchal', 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
-    //   [10, 'patriarchal', 'It is a patriarchal society.'],
-    //   [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
-    // ]
   },
   type: {
     // This sets socio-economics for the different sized towns. It sets up the potential demographics, economic system, political system, number of factions, and other modifiers.
