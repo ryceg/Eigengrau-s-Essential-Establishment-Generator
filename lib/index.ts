@@ -32,7 +32,6 @@ export * from './faction/setFactionResources'
 export * from './faction/setFactionSize'
 export * from './faction/setFactionStability'
 
-export * from './npc-generation/bmiDescriptions'
 export * from './npc-generation/breakGenderNorms'
 export * from './npc-generation/classTraits'
 export * from './npc-generation/fetchProfessionChance'
