@@ -52,5 +52,5 @@ function getLeaderGroupTitle (groupSize: number): string {
   if (groupSize > 8) return 'board'
   if (groupSize > 3) return 'committee'
   if (groupSize > 2) return 'triumvirate'
-  return ''
+  throw new Error('Invalid group size.')
 }
