@@ -1,9 +1,7 @@
 import { createRing } from './createRing'
-import { magicData } from './magicData'
+import { magicData, MagicType } from './magicData'
 import { random } from './random'
 import { assign } from './utils'
-
-type MagicType = keyof typeof magicData
 
 export function createMagic <T extends MagicType> (type: T | 'ring') {
   console.log(`Type: ${type}`)
