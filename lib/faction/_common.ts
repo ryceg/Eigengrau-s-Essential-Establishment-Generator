@@ -17,7 +17,7 @@ export interface Faction {
   joiningFee: string
   leadershipType: 'individual' | 'group'
   leaderGroupTitle: string
-  leaderGroupSizeRoll: number
+  leaderGroupSize: number
   meetingRegularity: string
   meetingAccessibility: string
   alliesDescription: string
