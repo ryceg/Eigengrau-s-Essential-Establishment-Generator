@@ -4,6 +4,8 @@
     "target": "es2015",
     "strict": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "lib": ["dom", "esnext"],
   },
   "exclude": ["node_modules", "gh-pages"]
