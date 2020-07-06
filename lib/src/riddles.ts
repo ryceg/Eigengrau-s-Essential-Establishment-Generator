@@ -1,4 +1,4 @@
-import * as jsonData from './riddles.data.json'
+import jsonData from './riddles.data.json'
 
 interface Riddle {
   answer: string

@@ -1,4 +1,4 @@
-import * as jsonData from './books.data.json'
+import jsonData from './books.data.json'
 
 interface Books {
   normal: string[]

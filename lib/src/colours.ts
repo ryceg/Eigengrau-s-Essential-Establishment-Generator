@@ -1,6 +1,6 @@
 import { random } from './random'
 import { keys } from './utils'
-import * as jsonData from './colours.data.json'
+import jsonData from './colours.data.json'
 
 type ColourName = keyof typeof jsonData
 
