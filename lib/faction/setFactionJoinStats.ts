@@ -4,7 +4,7 @@ import { random } from '../src/random'
 import { Faction } from './_common'
 import { factionData } from './factionData'
 
-export function setFactionJoinStats (faction: Faction) {
+export function setFactionJoinStats (faction: Faction): void {
   console.log('determining joining stats...')
 
   const joiningRequirement = ['some social status', 'an excellent reputation', 'a favour to be done', 'to be called on for a favour', 'referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of loyalty', 'a display of skill', 'a display of bravery']
@@ -22,7 +22,7 @@ export function setFactionJoinStats (faction: Faction) {
   faction.joiningFee = getJoiningFee(dice(2, 50))
 }
 
-function getJoiningFee (roll: number) {
+function getJoiningFee (roll: number): string {
   if (roll > 95) return 'a single copper, as a show of faith'
   if (roll > 90) return 'a single gold piece'
   if (roll > 80) return 'ten gold pieces'

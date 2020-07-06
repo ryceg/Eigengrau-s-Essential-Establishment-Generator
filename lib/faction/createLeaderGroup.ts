@@ -1,7 +1,7 @@
 import { dice, fm } from '../src/dice'
 import { Faction } from './_common'
 
-export function createLeaderGroup (faction: Faction) {
+export function createLeaderGroup (faction: Faction): void {
   if (faction.leadershipType !== 'group') {
     throw new Error('Incompatible faction leadership type.')
   }

@@ -4,7 +4,7 @@ import { random } from '../src/random'
 import { factionData } from './factionData'
 import { Faction } from './_common'
 
-export function setFactionResources (faction: Faction) {
+export function setFactionResources (faction: Faction): void {
   console.log('assigning resources...')
 
   const resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']

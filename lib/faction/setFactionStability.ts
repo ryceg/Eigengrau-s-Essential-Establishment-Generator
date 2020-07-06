@@ -5,7 +5,7 @@ export function setFactionStability (faction: Faction) {
   faction.stability = getFactionStability(faction.roll.stability)
 }
 
-function getFactionStability (roll: number) {
+function getFactionStability (roll: number): string {
   if (roll > 95) return 'rock solid'
   if (roll > 90) return 'very stable'
   if (roll > 80) return 'quite stable'

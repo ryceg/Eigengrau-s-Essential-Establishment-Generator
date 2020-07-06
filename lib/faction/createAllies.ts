@@ -3,7 +3,7 @@ import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
 
-export function createAllies (faction: Faction) {
+export function createAllies (faction: Faction): void {
   console.log('finding allies...')
 
   const sizeRoll = dice(2, 50)
@@ -56,7 +56,7 @@ export function createAllies (faction: Faction) {
   faction.allies = allies
 }
 
-function getGroupSize (roll: number) {
+function getGroupSize (roll: number): string {
   if (roll >= 90) return 'a veritable army of '
   if (roll >= 80) return 'a guild of '
   if (roll >= 70) return 'a large number of '

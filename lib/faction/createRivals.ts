@@ -4,7 +4,7 @@ import { random } from '../src/random'
 import { factionData } from './factionData'
 import { Faction } from './_common'
 
-export function createRivals (faction: Faction) {
+export function createRivals (faction: Faction): void {
   console.log('accruing enemies...')
 
   const sizeRoll = dice(2, 50)
@@ -61,7 +61,7 @@ export function createRivals (faction: Faction) {
   faction.rivals = rivals
 }
 
-function getGroupSize (roll: number) {
+function getGroupSize (roll: number): string {
   if (roll >= 90) return 'a guild of '
   if (roll >= 80) return 'a veritable army of '
   if (roll >= 70) return 'a large number of '

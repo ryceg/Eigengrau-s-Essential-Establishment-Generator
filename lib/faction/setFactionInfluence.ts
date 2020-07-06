@@ -1,7 +1,7 @@
 import { fm } from '../src/dice'
 import { Faction } from './_common'
 
-export function setFactionInfluence (faction: Faction) {
+export function setFactionInfluence (faction: Faction): void {
   console.log('assigning influence...')
 
   const ageModifier = getAgeModifier(faction.roll.age)
@@ -11,7 +11,7 @@ export function setFactionInfluence (faction: Faction) {
   faction.influence = getFactionInfluence(faction.roll.influence)
 }
 
-function getAgeModifier (roll: number) {
+function getAgeModifier (roll: number): number {
   if (roll > 95) return 15
   if (roll > 90) return 10
   if (roll > 80) return 8
@@ -27,7 +27,7 @@ function getAgeModifier (roll: number) {
   return -10
 }
 
-function getFactionInfluence (roll: number) {
+function getFactionInfluence (roll: number): string {
   if (roll > 95) return 'excellent'
   if (roll > 90) return 'very good'
   if (roll > 80) return 'quite good'

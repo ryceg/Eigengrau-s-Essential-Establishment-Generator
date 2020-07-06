@@ -1,9 +1,7 @@
 import { ThresholdTable } from '../src/rollFromTable'
 import { Faction } from './_common'
 
-export function setFactionAge (faction: Faction) {
-  console.log('ageing...')
-
+export function setFactionAge (faction: Faction): void {
   const ranks: ThresholdTable = [
     [95, 'ancient'],
     [90, 'extremely old'],

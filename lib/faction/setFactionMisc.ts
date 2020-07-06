@@ -1,7 +1,7 @@
 import { random } from '../src/random'
 import { Faction } from './_common'
 
-export function setFactionMisc (faction: Faction) {
+export function setFactionMisc (faction: Faction): void {
   faction.misc = random([
     'currently recruiting',
     'adjusting to a change in leadership',

@@ -1,7 +1,7 @@
 import { fm } from '../src/dice'
 import { Faction } from './_common'
 
-export function setFactionReputation (faction: Faction) {
+export function setFactionReputation (faction: Faction): void {
   console.log('assigning a reputation...')
 
   const ageModifier = getAgeModifier(faction.age)
@@ -43,7 +43,7 @@ function getAgeModifier (age: string): number {
   return 0
 }
 
-function getFactionReputation (roll: number) {
+function getFactionReputation (roll: number): string {
   if (roll > 95) return 'excellent'
   if (roll > 90) return 'very good'
   if (roll > 80) return 'quite good'

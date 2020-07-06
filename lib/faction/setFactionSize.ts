@@ -4,7 +4,7 @@ interface Town {
   population: number
 }
 
-export function setFactionSize (town: Town, faction: Faction) {
+export function setFactionSize (town: Town, faction: Faction): void {
   console.log('calculating size...')
 
   faction.roll.size += getAgeModifier(faction.roll.age)
@@ -13,7 +13,7 @@ export function setFactionSize (town: Town, faction: Faction) {
   faction.size = getFactionSize(faction.roll.size)
 }
 
-function getAgeModifier (roll: number) {
+function getAgeModifier (roll: number): number {
   if (roll > 95) return 20
   if (roll > 90) return 15
   if (roll > 80) return 12
@@ -29,7 +29,7 @@ function getAgeModifier (roll: number) {
   return -25
 }
 
-function getPopulationModifier (population: number) {
+function getPopulationModifier (population: number): number {
   if (population > 6000) return 25
   if (population > 5800) return 22
   if (population > 5400) return 20
@@ -45,7 +45,7 @@ function getPopulationModifier (population: number) {
   return -30
 }
 
-function getFactionSize (roll: number) {
+function getFactionSize (roll: number): string {
   if (roll > 95) return 'huge'
   if (roll > 90) return 'very large'
   if (roll > 80) return 'quite large'
