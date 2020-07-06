@@ -12,34 +12,7 @@ export function createLeaderGroup (faction: Faction) {
   faction.leaderGroupSizeRoll = dice(3, 4)
 
   faction.meetingRegularity = getMeetingRegularity(meetingRegularityRoll)
-
-  if (meetingAccessibilityRoll > 95) {
-    faction.meetingAccessibility = 'announced well ahead of time and are open to anyone'
-  } else if (meetingAccessibilityRoll > 90) {
-    faction.meetingAccessibility = 'announced ahead of time and are open to anyone'
-  } else if (meetingAccessibilityRoll > 80) {
-    faction.meetingAccessibility = 'are open to anyone'
-  } else if (meetingAccessibilityRoll > 70) {
-    faction.meetingAccessibility = 'are open to senior members'
-  } else if (meetingAccessibilityRoll > 60) {
-    faction.meetingAccessibility = 'are open to members'
-  } else if (meetingAccessibilityRoll > 55) {
-    faction.meetingAccessibility = 'are open to people accompanied by a member'
-  } else if (meetingAccessibilityRoll > 50) {
-    faction.meetingAccessibility = 'are not usually open to non-members'
-  } else if (meetingAccessibilityRoll > 45) {
-    faction.meetingAccessibility = 'are not open to non-members'
-  } else if (meetingAccessibilityRoll > 40) {
-    faction.meetingAccessibility = 'are held behind closed doors'
-  } else if (meetingAccessibilityRoll > 30) {
-    faction.meetingAccessibility = 'are open to those that can find them'
-  } else if (meetingAccessibilityRoll > 20) {
-    faction.meetingAccessibility = 'are invite-only'
-  } else if (meetingAccessibilityRoll > 10) {
-    faction.meetingAccessibility = 'closed to all'
-  } else {
-    faction.meetingAccessibility = 'closed and held in secret'
-  }
+  faction.meetingAccessibility = getMeetingAccessibility(meetingAccessibilityRoll)
 
   if (faction.leaderGroupSizeRoll > 11) {
     faction.leaderGroupTitle = 'cabinet'
@@ -66,4 +39,20 @@ function getMeetingRegularity (roll: number): string {
   if (roll > 20) return 'whenever three of the leaders happen to be together'
   if (roll > 10) return 'once in a blue moon'
   return 'at literally any time'
+}
+
+function getMeetingAccessibility (roll: number): string {
+  if (roll > 95) return 'announced well ahead of time and are open to anyone'
+  if (roll > 90) return 'announced ahead of time and are open to anyone'
+  if (roll > 80) return 'are open to anyone'
+  if (roll > 70) return 'are open to senior members'
+  if (roll > 60) return 'are open to members'
+  if (roll > 55) return 'are open to people accompanied by a member'
+  if (roll > 50) return 'are not usually open to non-members'
+  if (roll > 45) return 'are not open to non-members'
+  if (roll > 40) return 'are held behind closed doors'
+  if (roll > 30) return 'are open to those that can find them'
+  if (roll > 20) return 'are invite-only'
+  if (roll > 10) return 'closed to all'
+  return 'closed and held in secret'
 }
