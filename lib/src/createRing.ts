@@ -1,3 +1,4 @@
+import { articles } from './articles'
 import { random } from './random'
 import { assign } from './utils'
 
@@ -180,11 +181,11 @@ export function createRing (base?: Partial<Options>) {
 
   assign(ring, {
     firstOutputs: random([
-      `This ring is made of ${ring.material} which is decorated with <<print lib.articles.output("${ring.decoration}")>>. It was intended for ${ring.intendedowner}. The ring grants the power to ${ring.power}.<blockquote>This ring works ${ring.works}, and works best ${ring.activation}. It grants the power to ${ring.power}, ${random(['but', 'however'])} ${ring.cost}.</blockquote>`,
+      `This ring is made of ${ring.material} which is decorated with ${articles.output(ring.decoration)}. It was intended for ${ring.intendedowner}. The ring grants the power to ${ring.power}.<blockquote>This ring works ${ring.works}, and works best ${ring.activation}. It grants the power to ${ring.power}, ${random(['but', 'however'])} ${ring.cost}.</blockquote>`,
       `This ring is made of ${ring.material}, and ${ring.setting} ${ring.cut} cut ${ring.gemstone}. It was intended for ${ring.intendedowner}. The ring grants the power to ${ring.power}.<blockquote>This ring works ${ring.works}, and works best ${ring.activation}. It grants the power to ${ring.power}, ${random(['but', 'however'])} ${ring.cost}.</blockquote>`
     ]),
     secondOutputs: random([
-      `This one's made of ${ring.material} which is decorated with <<print lib.articles.output("${ring.decoration}")>>. It was intended for ${ring.intendedowner}. The ring grants the power to ${ring.power}.<blockquote>This ring works ${ring.works}, and works best ${ring.activation}. It grants the power to ${ring.power}, ${random(['but', 'however'])} ${ring.cost}.</blockquote>`,
+      `This one's made of ${ring.material} which is decorated with ${articles.output(ring.decoration)}. It was intended for ${ring.intendedowner}. The ring grants the power to ${ring.power}.<blockquote>This ring works ${ring.works}, and works best ${ring.activation}. It grants the power to ${ring.power}, ${random(['but', 'however'])} ${ring.cost}.</blockquote>`,
       `This one's made of ${ring.material}, and ${ring.setting} ${ring.cut} cut ${ring.gemstone}. It was intended for ${ring.intendedowner}. The ring grants the power to ${ring.power}.<blockquote>This ring works ${ring.works}, and works best ${ring.activation}. It grants the power to ${ring.power}, ${random(['but', 'however'])} ${ring.cost}.</blockquote>`
     ])
   })
