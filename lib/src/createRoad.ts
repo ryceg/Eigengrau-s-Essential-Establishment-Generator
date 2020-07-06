@@ -14,10 +14,10 @@ export function createRoad () {
 
   if (noEncounter) {
     return `${intro} ${road.descriptiveType}, ${road.traffic}.`
-  } else {
-    const twist = random([random(['until you come across', 'and encounter', 'and cross paths with', 'and come across', 'and see in the distance', 'and spy in the distance']), `. ${random(['Turning the corner, you come across', 'Then, in the distance, you see', 'You walk for a while, and then come across', 'You walk for a few more minutes, until you come across', 'You walk along for a while, and then encounter'])}`])
-    return `${intro} ${road.descriptiveType}, ${road.traffic} ${twist} ${road.encounter}.`
   }
+
+  const twist = random([random(['until you come across', 'and encounter', 'and cross paths with', 'and come across', 'and see in the distance', 'and spy in the distance']), `. ${random(['Turning the corner, you come across', 'Then, in the distance, you see', 'You walk for a while, and then come across', 'You walk for a few more minutes, until you come across', 'You walk along for a while, and then encounter'])}`])
+  return `${intro} ${road.descriptiveType}, ${road.traffic} ${twist} ${road.encounter}.`
 }
 
 interface RoadTypeAttributes {
