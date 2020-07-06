@@ -15,9 +15,25 @@ export function createTrap (): Trap {
     type: random(types)
   }
 
-  switch (trap.type) {
+  assign(trap, getTrapTypeAttributes(trap.type))
+
+  assign(trap, {
+    description: `${random(['This trap is activated by', 'This trap is triggered by'])} ${trap.trigger}. When activated, ${trap.signal}. ${random(['The trap then delivers its payload:', 'Then,', 'And then,'])} ${trap.payload}.`
+  })
+
+  return trap
+}
+
+interface TrapTypeAttributes {
+  trigger: string
+  signal: string
+  payload: string
+}
+
+function getTrapTypeAttributes (type: string): TrapTypeAttributes {
+  switch (type) {
     case 'mechanical':
-      assign(trap, {
+      return {
         trigger: random([
           'trip wire',
           'pressure plate',
@@ -54,10 +70,9 @@ export function createTrap (): Trap {
           'the walls slowly begin closing inwards',
           'a large rolling boulder drops from the ceiling towards the party'
         ])
-      })
-      break
+      }
     case 'arcane':
-      assign(trap, {
+      return {
         trigger: random([
           'an arcane rune on the floor',
           'arcane markings around a door frame',
@@ -94,10 +109,9 @@ export function createTrap (): Trap {
           'everything in the room begins to levitate, no save',
           'the spell confusion is cast on everyone'
         ])
-      })
-      break
+      }
     case 'indirect':
-      assign(trap, {
+      return {
         trigger: random([
           'trip wire',
           'pressure plate',
@@ -134,10 +148,9 @@ export function createTrap (): Trap {
           'an alarm bell begins ringing alerting all enemies of the party',
           'another more sinister trap is set in another room'
         ])
-      })
-      break
+      }
     default:
-      assign(trap, {
+      return {
         trigger: random([
           'trip wire',
           'pressure plate',
@@ -174,12 +187,6 @@ export function createTrap (): Trap {
           'the walls slowly begin closing inwards',
           'a large rolling boulder drops from the ceiling towards the party'
         ])
-      })
+      }
   }
-
-  assign(trap, {
-    description: `${random(['This trap is activated by', 'This trap is triggered by'])} ${trap.trigger}. When activated, ${trap.signal}. ${random(['The trap then delivers its payload:', 'Then,', 'And then,'])} ${trap.payload}.`
-  })
-
-  return trap
 }
