@@ -21,7 +21,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['charlatan', 'criminal', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'outlander', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
     weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'two handaxes', 'two warhammers'],
-    'wealth' () { return dice('2d4') * 1000 }
+    wealth: () => dice('2d4') * 1000
   },
   bard: {
     professionOrigin: [
@@ -34,7 +34,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'noble', 'outlander', 'sailor', 'soldier', 'urchin'],
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers'],
-    'wealth' () { return dice('5d4') * 1000 }
+    wealth: () => dice('5d4') * 1000
   },
   cleric: {
     professionOrigin: [
@@ -46,7 +46,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
     weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow'],
-    'wealth' () { return dice('5d4') * 1000 }
+    wealth: () => dice('5d4') * 1000
   },
   druid: {
     professionOrigin: [
@@ -58,7 +58,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'charlatan', 'folk hero', 'folk hero', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
     weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow', 'a longbow', 'a longbow'],
-    'wealth' () { return dice('2d4') * 1000 }
+    wealth: () => dice('2d4') * 1000
   },
   fighter: {
     professionOrigin: [
@@ -71,7 +71,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'charlatan', 'criminal', 'criminal', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'outlander', 'sage', 'sailor', 'sailor', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin'],
     weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a long sword', 'a long bow', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
-    'wealth' () { return dice('5d4') * 1000 }
+    wealth: () => dice('5d4') * 1000
   },
   monk: {
     professionOrigin: [
@@ -84,7 +84,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'soldier', 'urchin'],
     weapon: ['fists', 'fists', 'fists', 'a quarterstaff', 'a quarterstaff'],
-    'wealth' () { return dice('2d4') * 100 }
+    wealth: () => dice('2d4') * 100
   },
   paladin: {
     professionOrigin: [
@@ -97,7 +97,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin'],
     weapon: ['a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
-    'wealth' () { return dice('5d4') * 1000 }
+    wealth: () => dice('5d4') * 1000
   },
   ranger: {
     professionOrigin: [
@@ -109,7 +109,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'a long bow', 'a long bow', 'two daggers'],
-    'wealth' () { return dice('4d4') * 1000 }
+    wealth: () => dice('4d4') * 1000
   },
   rogue: {
     professionOrigin: [
@@ -123,7 +123,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['charlatan', 'charlatan', 'charlatan', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'noble', 'noble', 'outlander', 'sailor', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin', 'urchin'],
     weapon: ['a long sword', 'a long sword', 'two daggers', 'two daggers', 'two daggers', 'two daggers', 'a crossbow', 'a crossbow', 'a crossbow'],
-    'wealth' () { return dice('4d4') * 1000 }
+    wealth: () => dice('4d4') * 1000
   },
   sorcerer: {
     professionOrigin: [
@@ -135,7 +135,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'charlatan', 'charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers', 'a dagger', 'a dagger'],
-    'wealth' () { return dice('3d4') * 1000 }
+    wealth: () => dice('3d4') * 1000
   },
   warlock: {
     professionOrigin: [
@@ -148,7 +148,7 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
     weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a dagger', 'a dagger', 'a dagger'],
-    'wealth' () { return dice('4d4') * 1000 }
+    wealth: () => dice('4d4') * 1000
   },
   wizard: {
     professionOrigin: [
@@ -161,6 +161,6 @@ export const classTraits: Record<ClassName, ClassTrait> = {
     ],
     background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
     weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
-    'wealth' () { return dice('4d4') * 1000 }
+    wealth: () => dice('4d4') * 1000
   }
 }
