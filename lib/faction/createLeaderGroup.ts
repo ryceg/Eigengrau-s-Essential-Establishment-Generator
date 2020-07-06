@@ -13,16 +13,7 @@ export function createLeaderGroup (faction: Faction) {
 
   faction.meetingRegularity = getMeetingRegularity(meetingRegularityRoll)
   faction.meetingAccessibility = getMeetingAccessibility(meetingAccessibilityRoll)
-
-  if (faction.leaderGroupSizeRoll > 11) {
-    faction.leaderGroupTitle = 'cabinet'
-  } else if (faction.leaderGroupSizeRoll > 8) {
-    faction.leaderGroupTitle = 'board'
-  } else if (faction.leaderGroupSizeRoll > 3) {
-    faction.leaderGroupTitle = 'committee'
-  } else if (faction.leaderGroupSizeRoll === 3) {
-    faction.leaderGroupTitle = 'triumvirate'
-  }
+  faction.leaderGroupTitle = getLeaderGroupTitle(faction.leaderGroupSizeRoll)
 }
 
 function getMeetingRegularity (roll: number): string {
@@ -55,4 +46,12 @@ function getMeetingAccessibility (roll: number): string {
   if (roll > 20) return 'are invite-only'
   if (roll > 10) return 'closed to all'
   return 'closed and held in secret'
+}
+
+function getLeaderGroupTitle (groupSizeRoll: number): string {
+  if (groupSizeRoll > 11) return 'cabinet'
+  if (groupSizeRoll > 8) return 'board'
+  if (groupSizeRoll > 3) return 'committee'
+  if (groupSizeRoll > 2) return 'triumvirate'
+  return ''
 }
