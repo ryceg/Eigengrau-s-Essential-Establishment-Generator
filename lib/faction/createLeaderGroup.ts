@@ -11,33 +11,7 @@ export function createLeaderGroup (faction: Faction) {
 
   faction.leaderGroupSizeRoll = dice(3, 4)
 
-  if (meetingRegularityRoll > 95) {
-    faction.meetingRegularity = 'every day, at 5pm sharp'
-  } else if (meetingRegularityRoll > 90) {
-    faction.meetingRegularity = 'every other day'
-  } else if (meetingRegularityRoll > 80) {
-    faction.meetingRegularity = 'every third day'
-  } else if (meetingRegularityRoll > 70) {
-    faction.meetingRegularity = 'every week'
-  } else if (meetingRegularityRoll > 60) {
-    faction.meetingRegularity = 'every ten days'
-  } else if (meetingRegularityRoll > 55) {
-    faction.meetingRegularity = 'whenever a meeting is called'
-  } else if (meetingRegularityRoll > 50) {
-    faction.meetingRegularity = 'once a fortnight'
-  } else if (meetingRegularityRoll > 45) {
-    faction.meetingRegularity = 'once every three weeks'
-  } else if (meetingRegularityRoll > 40) {
-    faction.meetingRegularity = 'once a month'
-  } else if (meetingRegularityRoll > 30) {
-    faction.meetingRegularity = 'whenever a leader calls them'
-  } else if (meetingRegularityRoll > 20) {
-    faction.meetingRegularity = 'whenever three of the leaders happen to be together'
-  } else if (meetingRegularityRoll > 10) {
-    faction.meetingRegularity = 'once in a blue moon'
-  } else {
-    faction.meetingRegularity = 'at literally any time'
-  }
+  faction.meetingRegularity = getMeetingRegularity(meetingRegularityRoll)
 
   if (meetingAccessibilityRoll > 95) {
     faction.meetingAccessibility = 'announced well ahead of time and are open to anyone'
@@ -76,4 +50,20 @@ export function createLeaderGroup (faction: Faction) {
   } else if (faction.leaderGroupSizeRoll === 3) {
     faction.leaderGroupTitle = 'triumvirate'
   }
+}
+
+function getMeetingRegularity (roll: number): string {
+  if (roll > 95) return 'every day, at 5pm sharp'
+  if (roll > 90) return 'every other day'
+  if (roll > 80) return 'every third day'
+  if (roll > 70) return 'every week'
+  if (roll > 60) return 'every ten days'
+  if (roll > 55) return 'whenever a meeting is called'
+  if (roll > 50) return 'once a fortnight'
+  if (roll > 45) return 'once every three weeks'
+  if (roll > 40) return 'once a month'
+  if (roll > 30) return 'whenever a leader calls them'
+  if (roll > 20) return 'whenever three of the leaders happen to be together'
+  if (roll > 10) return 'once in a blue moon'
+  return 'at literally any time'
 }
