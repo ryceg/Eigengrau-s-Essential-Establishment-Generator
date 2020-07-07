@@ -3,12 +3,12 @@ import { assign } from '../src/utils'
 import { townData } from './townData'
 import { Town } from './_common'
 
-export function updateTownSocioPolitics (town: Town) {
+export function updateTownSocioPolitics (town: Town): void {
   updateEconomicIdeology(town)
   updateTownPoliticalIdeology(town)
 }
 
-function updateEconomicIdeology (town: Town) {
+function updateEconomicIdeology (town: Town): void {
   const economicIdeologyData = townData.economicIdeology[town.economicIdeology]
 
   if (town.economicIdeologyIST !== economicIdeologyData.descriptors.economicIdeologyIST) {
@@ -18,7 +18,7 @@ function updateEconomicIdeology (town: Town) {
   assign(town, economicIdeologyData.descriptors)
 }
 
-function updateTownPoliticalIdeology (town: Town) {
+function updateTownPoliticalIdeology (town: Town): void {
   const politicalIdeologyData = townData.politicalIdeology[town.politicalIdeology]
 
   if (town.politicalIdeologyIC !== politicalIdeologyData.data.politicalIdeologyIC) {
