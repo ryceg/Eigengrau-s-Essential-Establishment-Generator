@@ -139,7 +139,7 @@ _listbox -- <<button "Create new faction">>
     <th>Percentage</th>
     <th>NPC</th>
   </tr>
-  <<set $town.professions to setup.fetchProfessions($town)>>
+  <<set $town.professions to lib.fetchProfessions($town)>>
   <<for _name, _profession range $town.professions>><<nobr>>
   <<capture _name, _profession>>
   <<set _count += ((_profession.population / $town.population) * 100)>>

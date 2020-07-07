@@ -213,7 +213,7 @@ setup.createTown = function (base) {
   }, base)
 
   setup.townDemographics(town)
-  town.professions = setup.fetchProfessions(town)
+  town.professions = lib.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology

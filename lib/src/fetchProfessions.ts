@@ -1,3 +1,9 @@
+import { Town } from '../town/_common'
+import { professions, Profession } from '../npc-generation/professions'
+
+import { dice } from './dice'
+import { randomFloat } from './randomFloat'
+
 /**
  * This is run on start up.
  * It returns the available town professions, with their support values.
@@ -5,9 +11,9 @@
  * Individual professions are returned by the `fetchProfessionChance()`
  * function located in `NPCGeneration/fetchProfessionChance.js`
  */
-setup.fetchProfessions = (town = State.variables.town) => {
-  const allProfessions = Object.entries(lib.professions)
-  const townProfessions = {}
+export function fetchProfessions (town: Town) {
+  const allProfessions = Object.entries(professions)
+  const townProfessions: Town['professions'] = {}
 
   for (const [name, profession] of allProfessions) {
     const population = getProfessionPopulation(town.population, profession)
@@ -24,8 +30,8 @@ setup.fetchProfessions = (town = State.variables.town) => {
   return townProfessions
 }
 
-function getProfessionPopulation (townPop, profession) {
-  const newSv = profession.sv + (lib.dice('4d4-10') * 10)
+function getProfessionPopulation (townPop: number, profession: Profession) {
+  const newSv = profession.sv + (dice('4d4-10') * 10)
   const professionRoll = townPop / newSv /* Set the number of professions equal = the town's population divided by how many people are needed = support that type of business */
   const professionRollPercentage = townPop / profession.sv * 100
   const professionRollHundred = randomFloat(1, 100)
