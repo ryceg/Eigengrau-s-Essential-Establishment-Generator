@@ -5,11 +5,15 @@ about: Create a report to help us improve
 ---
 
 **Describe the bug**
+
 A clear and concise description of what the bug is.
 
 **To Reproduce**
-Town Hash (the bit that comes after eigengrausgenerator.com- typically in the format of #adjectiveadjectiveanimal):
+
+Town Seed (click [here](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/FAQ#people-keep-talking-about-seeds-what-is-a-seed) for info):
+
 Page to navigate to, buttons to press, etc:
 
 **Additional context**
+
 Add any other context about the problem here.
