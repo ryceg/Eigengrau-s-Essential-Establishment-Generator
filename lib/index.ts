@@ -96,6 +96,7 @@ export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
 export * from './tavern/tavernRooms'
 
+export * from './town/getPredominantRace'
 export * from './town/getTownMaterial'
 export * from './town/setTownMaterialProbability'
 export * from './town/townData'

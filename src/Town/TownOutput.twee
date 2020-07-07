@@ -94,7 +94,7 @@ _listbox -- <<button "Create new faction">>
     <</capture>><</for>>
     </table></p><</linkappend>><</nobr>>
 
-<<linkappend "<h3>Racial demographics in $town.name</h3>">><div class='classTable'>$town.name is comprised <<print setup.getPredominantRace($town.demographicPercentile).amountDescriptive>>.<<nobr>><table>
+<<linkappend "<h3>Racial demographics in $town.name</h3>">><div class='classTable'>$town.name is comprised <<print lib.getPredominantRace($town.demographicPercentile).amountDescriptive>>.<<nobr>><table>
     <tr>
         <th>Race</th>
         <th>Population</th>

@@ -8,7 +8,7 @@ import { keys } from './utils'
  * // converts into
  * [['dragonborn', 0.3], ['dwarf', 6.1249], ['human', 16.12]]
  */
-export function sortArray (container: Record<string, number>) {
+export function sortArray <K extends string> (container: Record<K, number>) {
   const sortable = keys(container).map(key => {
     return [key, container[key]] as const
   })
