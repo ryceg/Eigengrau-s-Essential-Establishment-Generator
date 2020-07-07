@@ -4,7 +4,7 @@ import { random } from '../src/random'
 
 import { ConstructUtils, Construct } from './_common'
 
-interface BakedGood extends Construct<'bakedGood'>{
+interface Pastry extends Construct<'pastry'>{
   type: string
   aroma: string
   cooking: Cooking
@@ -16,13 +16,13 @@ interface BakedGood extends Construct<'bakedGood'>{
   cookingDescriptor: string
 }
 
-export const bakedGood: ConstructUtils<BakedGood> = {
+export const pastry: ConstructUtils<Pastry> = {
   create: base => {
     const type = random(keys(types))
     const typeData = types[type]
 
-    const bakedGood = {
-      $type: 'bakedGood' as const,
+    const pastry = {
+      $type: 'pastry' as const,
       $uuid: getUUID(),
       type,
       precedingWord: random(typeData.precedingWord),
@@ -33,34 +33,37 @@ export const bakedGood: ConstructUtils<BakedGood> = {
 
     // Replace the secondary quality
     // if it's the same as the primary one.
-    if (bakedGood.quality1 === bakedGood.quality2) {
+    if (pastry.quality1 === pastry.quality2) {
       for (const quality of typeData.qualities) {
-        if (quality !== bakedGood.quality1) {
-          assign(bakedGood, { quality2: quality })
+        if (quality !== pastry.quality1) {
+          assign(pastry, { quality2: quality })
           break
         }
       }
     }
 
-    assign(bakedGood, {
+    assign(pastry, {
       accoutrement: getAccoutrement(typeData.qualities),
-      aroma: random(descriptors.aroma[bakedGood.quality1]),
-      cookingDescriptor: random(descriptors.cooking[bakedGood.cooking])
+      aroma: random(descriptors.aroma[pastry.quality1]),
+      cookingDescriptor: random(descriptors.cooking[pastry.cooking])
     })
 
     if (typeData.synonyms) {
-      assign(bakedGood, {
+      assign(pastry, {
         synonym: random(typeData.synonyms)
       })
     }
 
-    assign(bakedGood, base)
-    return bakedGood
+    if (base) {
+      assign(pastry, base)
+    }
+
+    return pastry
   },
-  readout: bakedGood => {
-    const quality1 = random(descriptors.quality[bakedGood.quality1])
-    const quality2 = random(descriptors.quality[bakedGood.quality2])
-    return `This ${bakedGood.precedingWord} ${bakedGood.synonym || bakedGood.type} is ${quality1} and ${quality2}. ${bakedGood.cookingDescriptor} and ${bakedGood.aroma}. ${random(['', '', `It is served with ${articles.output(bakedGood.accoutrement || 'jam')}.`])}`
+  readout: pastry => {
+    const quality1 = random(descriptors.quality[pastry.quality1])
+    const quality2 = random(descriptors.quality[pastry.quality2])
+    return `This ${pastry.precedingWord} ${pastry.synonym || pastry.type} is ${quality1} and ${quality2}. ${pastry.cookingDescriptor} and ${pastry.aroma}. ${random(['', '', `It is served with ${articles.output(pastry.accoutrement || 'jam')}.`])}`
   }
 }
 

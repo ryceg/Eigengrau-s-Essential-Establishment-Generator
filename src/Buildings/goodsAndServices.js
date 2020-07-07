@@ -202,7 +202,7 @@ setup.initGoodsAndServices = () => {
         ].random()} You notice $building.notableFeature`,
         '',
         'This $building.wordNoun is known for $building.specialty There is a <<profile $building.associatedNPC $building.associatedNPC.descriptor>> currently <<print $building.associatedNPC.idle.random()>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
-        '<<button "Generate a pastry">><<set _pastry to lib.bakedGood.create()>><<replace "#pastry">><<print lib.bakedGood.readout(_pastry)>><</replace>><</button>>',
+        '<<button "Generate a pastry">><<set _pastry to lib.pastry.create()>><<replace "#pastry">><<print lib.pastry.readout(_pastry)>><</replace>><</button>>',
         '<div id="pastry"></div>',
         '<<goods $building setup.goodsAndServices[$building.type].goods>>'
       ],
