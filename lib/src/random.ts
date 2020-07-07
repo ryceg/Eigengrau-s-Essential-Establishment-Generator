@@ -7,7 +7,7 @@ export function setRandom (fn: typeof randomFn) {
   randomFn = fn
 }
 
-export function random <T>(array: T[]): T
+export function random <T>(array: readonly T[]): T
 export function random (max: number): number
 export function random (min: number, max: number): number
 export function random (min: unknown, max?: unknown): unknown {

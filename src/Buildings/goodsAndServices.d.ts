@@ -15,14 +15,6 @@ interface GoodsAndServices {
       beast: string[]
       foodAdjective: string[]
     }
-    bakedGoods: {
-      function(): unknown
-      type: Record<string, BakeryGoodType>
-      qualityDescriptors: Record<string, string[]>
-      cookingDescriptors: Record<string, string[]>
-      aroma: Record<string, string[]>
-      accoutrements: Record<string, string[]>
-    }
   }
   florist: GoodsAndService
   tailor: GoodsAndService

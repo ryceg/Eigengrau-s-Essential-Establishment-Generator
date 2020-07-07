@@ -2,6 +2,7 @@ export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
 
+export * from './constructs/bakedGood'
 export * from './constructs/bandits'
 export * from './constructs/bunny'
 export * from './constructs/cabin'
