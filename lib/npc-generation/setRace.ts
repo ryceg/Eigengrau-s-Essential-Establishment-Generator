@@ -20,7 +20,7 @@ export function setRace (npc: NPC) {
   npc.weight = npc.weight || closestMatch(bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
   for (const [height, description] of heightChart) {
-    if (height <= npc.heightRoll) {
+    if (height >= npc.heightRoll) {
       npc.height = description
     }
   }
