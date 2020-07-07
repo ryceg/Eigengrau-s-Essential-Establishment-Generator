@@ -17,8 +17,6 @@ interface Setup {
   firstCharacter(word: string): string
 
   createGuard(town: Town): any
-
-  updateSocioPolitics(town: Town): Town
 }
 
 interface Town {

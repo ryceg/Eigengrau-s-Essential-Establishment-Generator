@@ -70,7 +70,7 @@
 <<button "Save Changes">>
   <<run console.log($town)>>
   <<run setup.createSocioPolitics($town)>>
-  <<run setup.updateSocioPolitics($town)>>
+  <<run lib.updateTownSocioPolitics($town)>>
   <<run lib.townRender($town)>>
   <<run setup.checkRaces($town, $npcs)>>
   <<run console.log($town)>>

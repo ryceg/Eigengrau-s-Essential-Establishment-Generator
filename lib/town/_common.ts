@@ -1,5 +1,11 @@
 import { Profession } from '../npc-generation/professions'
 import { GenderName } from '../npc-generation/raceTraits'
+import { townData } from './townData'
+import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
+
+export type EconomicIdeology = keyof typeof townData.economicIdeology
+
+export type PoliticalIdeology = keyof typeof townData.politicalIdeology
 
 export interface Town {
   name: string
@@ -25,7 +31,6 @@ export interface Town {
   law: string
   sin: string
   arcana: string
-  politicalIdeology: string
   hasBrothel: boolean
   guard: {
     funding: string
@@ -40,4 +45,8 @@ export interface Town {
     name: string,
     population: number
   }>
+  economicIdeology: EconomicIdeology
+  politicalIdeology: PoliticalIdeology
+  economicIdeologyIST: EconomicIdeologyIST
+  politicalIdeologyIC: PoliticalIdeologyIC
 }
