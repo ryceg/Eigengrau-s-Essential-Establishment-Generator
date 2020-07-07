@@ -4,18 +4,27 @@ import { townData } from './townData'
 import { Town } from './_common'
 
 export function updateTownSocioPolitics (town: Town) {
+  updateEconomicIdeology(town)
+  updateTownPoliticalIdeology(town)
+}
+
+function updateEconomicIdeology (town: Town) {
   const economicIdeologyData = townData.economicIdeology[town.economicIdeology]
-  const politicalIdeologyData = townData.politicalIdeology[town.politicalIdeology]
 
   if (town.economicIdeologyIST !== economicIdeologyData.descriptors.economicIdeologyIST) {
     town.economicIdeology = economicPairs[town.economicIdeologyIST]
   }
 
+  assign(town, economicIdeologyData.descriptors)
+}
+
+function updateTownPoliticalIdeology (town: Town) {
+  const politicalIdeologyData = townData.politicalIdeology[town.politicalIdeology]
+
   if (town.politicalIdeologyIC !== politicalIdeologyData.data.politicalIdeologyIC) {
     town.politicalIdeology = politicalIdeologyPairs[town.politicalIdeologyIC]
   }
 
-  assign(town, economicIdeologyData.descriptors)
   assign(town, politicalIdeologyData.data)
 }
 
