@@ -62,15 +62,19 @@ if (watch) {
       utils.logError(error)
       return
     }
+    if (stats.hasErrors()) {
+      console.log(stats.toString())
+      return
+    }
     utils.logAction(`Built in ${stats.endTime - stats.startTime}ms.`)
   })
 } else {
-  compiler.run((error, misc) => {
+  compiler.run((error, stats) => {
     if (error) {
       throw error
     }
-    if (misc.hasErrors()) {
-      console.log(misc.toString())
+    if (stats.hasErrors()) {
+      console.log(stats.toString())
       process.exit(1)
     }
   })
