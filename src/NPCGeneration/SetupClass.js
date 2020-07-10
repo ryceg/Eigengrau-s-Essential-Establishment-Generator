@@ -1,16 +1,10 @@
-
-setup.createClass = function (town, npc) {
+setup.createClass = (town, npc) => {
   console.log(`assigning class traits to ${npc.name}...`)
   let professionOrigin
   let background
   let classWeapon
 
   if (npc.hasClass !== false && typeof lib.classTraits[npc.dndClass] !== 'undefined') {
-    // professionOrigin = Array.isArray(lib.classTraits[npc.dndClass].professionOrigin)
-    //   ? lib.classTraits[npc.dndClass].professionOrigin.random()
-    //   : Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
-    //     ? setup.npcData.professionTraits[npc.profession].professionOrigin.random()
-    //     : 'My circumstances kept me from doing more than being ' + lib.articles.output(npc.profession)
     background = Array.isArray(lib.classTraits[npc.dndClass].background)
       ? lib.classTraits[npc.dndClass].background.random()
       : Array.isArray(setup.npcData.professionTraits[npc.profession].background)
@@ -22,9 +16,6 @@ setup.createClass = function (town, npc) {
         ? setup.npcData.professionTraits[npc.profession].weapon.random()
         : 'a dagger'
   } else if (npc.hasClass === false && typeof setup.npcData.professionTraits[npc.profession] !== 'undefined') {
-    // professionOrigin = Array.isArray(setup.npcData.professionTraits[npc.profession].professionOrigin)
-    //   ? setup.npcData.professionTraits[npc.profession].professionOrigin.random()
-    //   : 'My circumstances kept me from doing more than being ' + lib.articles.output(npc.profession)
     background = Array.isArray(setup.npcData.professionTraits[npc.profession].background)
       ? setup.npcData.professionTraits[npc.profession].background.random()
       : 'commoner'
@@ -71,10 +62,6 @@ setup.createClass = function (town, npc) {
   npc.professionOrigin = npc.professionOrigin || professionOrigin
   npc.background = npc.background || background
   npc.weapon = npc.weapon || classWeapon
-
-  // npc.wealth += typeof lib.classTraits[npc.dndClass].wealth === 'function'
-  //   ? lib.classTraits[npc.dndClass].wealth()
-  //   : lib.dice(2, 50)
 
   return npc
 }
