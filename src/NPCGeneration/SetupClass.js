@@ -4,23 +4,26 @@ setup.createClass = (town, npc) => {
   let background
   let classWeapon
 
-  if (npc.hasClass !== false && typeof lib.classTraits[npc.dndClass] !== 'undefined') {
-    background = Array.isArray(lib.classTraits[npc.dndClass].background)
-      ? lib.classTraits[npc.dndClass].background.random()
-      : Array.isArray(setup.npcData.professionTraits[npc.profession].background)
-        ? setup.npcData.professionTraits[npc.profession].background.random()
+  const dndClassTraits = lib.classTraits[npc.dndClass]
+  const professionTraits = setup.npcData.professionTraits[npc.profession]
+
+  if (npc.hasClass !== false && typeof dndClassTraits !== 'undefined') {
+    background = Array.isArray(dndClassTraits.background)
+      ? dndClassTraits.background.random()
+      : Array.isArray(professionTraits.background)
+        ? professionTraits.background.random()
         : 'commoner'
-    classWeapon = Array.isArray(lib.classTraits[npc.dndClass].weapon)
-      ? lib.classTraits[npc.dndClass].weapon.random()
-      : Array.isArray(setup.npcData.professionTraits[npc.profession].weapon)
-        ? setup.npcData.professionTraits[npc.profession].weapon.random()
+    classWeapon = Array.isArray(dndClassTraits.weapon)
+      ? dndClassTraits.weapon.random()
+      : Array.isArray(professionTraits.weapon)
+        ? professionTraits.weapon.random()
         : 'a dagger'
-  } else if (npc.hasClass === false && typeof setup.npcData.professionTraits[npc.profession] !== 'undefined') {
-    background = Array.isArray(setup.npcData.professionTraits[npc.profession].background)
-      ? setup.npcData.professionTraits[npc.profession].background.random()
+  } else if (npc.hasClass === false && typeof professionTraits !== 'undefined') {
+    background = Array.isArray(professionTraits.background)
+      ? professionTraits.background.random()
       : 'commoner'
-    classWeapon = Array.isArray(setup.npcData.professionTraits[npc.profession].weapon)
-      ? setup.npcData.professionTraits[npc.profession].weapon.random()
+    classWeapon = Array.isArray(professionTraits.weapon)
+      ? professionTraits.weapon.random()
       : 'a dagger'
   } else {
     console.log(`${npc.name} the ${npc.dndClass} did not have a valid class.`)
