@@ -33,7 +33,7 @@ const birthplaceTable = [
   [1, 'on an Outer Plane']
 ]
 
-setup.familyUnits = {
+const familyUnits = {
   bothParents: {
     probability: 25,
     exclusions: (town, obj) => obj.npc.knewParents,
@@ -129,7 +129,7 @@ setup.createHistory = function (town, npc) {
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
       const obj = { npc, father, mother }
-      npc.familyUnit = lib.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
+      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, obj, null, 'descriptor')
       if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
     }
   }
