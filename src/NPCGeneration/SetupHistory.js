@@ -1,5 +1,5 @@
-
-setup.birthplaceTable = [
+/** @type {[number, string][]} */
+const birthplaceTable = [
   [50, 'at home'],
   [5, 'in the home of a friend'],
   [9, 'in the home of a midwife'],
@@ -113,7 +113,7 @@ setup.createHistory = function (town, npc) {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
-  if (!npc.birthplace) npc.birthplace = lib.rollFromTable(setup.birthplaceTable, 100)
+  if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
   let parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
