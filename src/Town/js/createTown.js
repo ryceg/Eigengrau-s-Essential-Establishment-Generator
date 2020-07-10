@@ -193,7 +193,6 @@ setup.createTown = function (base) {
     primaryExport: lib.townData.misc.primaryExport.random(),
     landmark: lib.townData.misc.landmark.random(),
     currentEvent: lib.townData.misc.currentEvent.random(),
-    microEvent: lib.townData.misc.microEvent,
     dominantGender: ['man', 'man', 'man', 'man', 'man', 'woman', 'woman'].random(),
     roll: {
       wealth: lib.dice(2, 50),
