@@ -39,8 +39,6 @@ setup.createClass = (town, npc) => {
   npc.professionOrigin = npc.professionOrigin || professionOrigin
   npc.background = npc.background || background
   npc.weapon = npc.weapon || classWeapon
-
-  return npc
 }
 
 function getProfessionOrigin (npc, town) {
