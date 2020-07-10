@@ -132,36 +132,6 @@ setup.createHistory = function (town, npc) {
       npc.familyUnit = lib.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
       if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
     }
-    /* const parentRoll = random(1, 100)
-    if (parentRoll >= 76) {
-      npc.familyUnit = 'my mother and father'
-    } else if (parentRoll >= 70) {
-      npc.familyUnit = 'my single stepmother'
-    } else if (parentRoll >= 56) {
-      npc.familyUnit = 'my single mother'
-    } else if (parentRoll >= 50) {
-      npc.familyUnit = 'my single stepfather'
-    } else if (parentRoll >= 36) {
-      npc.familyUnit = 'my single father'
-    } else if (parentRoll >= 26) {
-      npc.familyUnit = 'my adoptive family'
-    } else if (parentRoll >= 20) {
-      npc.familyUnit = 'my maternal grandparents'
-    } else if (parentRoll >= 16) {
-      npc.familyUnit = 'my paternal grandparents'
-    } else if (parentRoll >= 8) {
-      npc.familyUnit = 'my extended family'
-    } else if (parentRoll >= 6) {
-      npc.familyUnit = 'my guardian'
-    } else if (parentRoll >= 4) {
-      npc.familyUnit = 'the orphanage'
-    } else if (parentRoll >= 3) {
-      npc.familyUnit = 'the temple'
-    } else if (parentRoll >= 2) {
-      npc.familyUnit = 'the institution'
-    } else if (parentRoll < 2) {
-      npc.familyUnit = 'the streets'
-    } */
   }
 
   if (parentMarriage) {
