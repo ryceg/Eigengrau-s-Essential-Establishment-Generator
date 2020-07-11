@@ -1,5 +1,5 @@
-
-setup.birthplaceTable = [
+/** @type {[number, string][]} */
+const birthplaceTable = [
   [50, 'at home'],
   [5, 'in the home of a friend'],
   [9, 'in the home of a midwife'],
@@ -33,7 +33,7 @@ setup.birthplaceTable = [
   [1, 'on an Outer Plane']
 ]
 
-setup.familyUnits = {
+const familyUnits = {
   bothParents: {
     probability: 25,
     exclusions: (town, obj) => obj.npc.knewParents,
@@ -113,7 +113,7 @@ setup.createHistory = function (town, npc) {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
-  if (!npc.birthplace) npc.birthplace = lib.rollFromTable(setup.birthplaceTable, 100)
+  if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
   let parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
@@ -129,39 +129,9 @@ setup.createHistory = function (town, npc) {
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
       const obj = { npc, father, mother }
-      npc.familyUnit = lib.weightedRandomFetcher(town, setup.familyUnits, obj, null, 'descriptor')
+      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, obj, null, 'descriptor')
       if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
     }
-    /* const parentRoll = random(1, 100)
-    if (parentRoll >= 76) {
-      npc.familyUnit = 'my mother and father'
-    } else if (parentRoll >= 70) {
-      npc.familyUnit = 'my single stepmother'
-    } else if (parentRoll >= 56) {
-      npc.familyUnit = 'my single mother'
-    } else if (parentRoll >= 50) {
-      npc.familyUnit = 'my single stepfather'
-    } else if (parentRoll >= 36) {
-      npc.familyUnit = 'my single father'
-    } else if (parentRoll >= 26) {
-      npc.familyUnit = 'my adoptive family'
-    } else if (parentRoll >= 20) {
-      npc.familyUnit = 'my maternal grandparents'
-    } else if (parentRoll >= 16) {
-      npc.familyUnit = 'my paternal grandparents'
-    } else if (parentRoll >= 8) {
-      npc.familyUnit = 'my extended family'
-    } else if (parentRoll >= 6) {
-      npc.familyUnit = 'my guardian'
-    } else if (parentRoll >= 4) {
-      npc.familyUnit = 'the orphanage'
-    } else if (parentRoll >= 3) {
-      npc.familyUnit = 'the temple'
-    } else if (parentRoll >= 2) {
-      npc.familyUnit = 'the institution'
-    } else if (parentRoll < 2) {
-      npc.familyUnit = 'the streets'
-    } */
   }
 
   if (parentMarriage) {

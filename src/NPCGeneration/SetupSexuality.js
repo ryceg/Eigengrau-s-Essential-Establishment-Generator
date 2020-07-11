@@ -18,35 +18,21 @@ setup.createSexuality = function (npc) {
   if (!npc.roll.kinsey) {
     const roll = random(0, 100)
     npc.roll.sexuality = npc.roll.sexuality || roll || 47 + lib.dice(13, 4)
-    if (npc.roll.sexuality < 70) {
-      npc.roll.kinsey = 0
-    } else if (npc.roll.sexuality < 75) {
-      npc.roll.kinsey = 1
-    } else if (npc.roll.sexuality < 83) {
-      npc.roll.kinsey = 2
-    } else if (npc.roll.sexuality < 90) {
-      npc.roll.kinsey = 3
-    } else if (npc.roll.sexuality < 96) {
-      npc.roll.kinsey = 4
-    } else if (npc.roll.sexuality <= 100) {
-      npc.roll.kinsey = 5
-    } else {
-      npc.roll.kinsey = 3
-    }
+    npc.roll.kinsey = getKinseyRoll(npc.roll.sexuality)
   }
   const kinsey = {
     // true = male, false = female. Very basic function, am aware.
     0: {
       sexuality: 'heterosexual',
       partnerGenderProbability (npc) {
-        return lib.genderData[npc.gender].oppositeGender
+        return getOppositeGender(npc.gender)
       }
     },
     1: {
       sexuality: 'heterosexual with passing interest in other $currentNPC.menwomen',
       partnerGenderProbability (npc) {
         if (random(100) < 90) {
-          return lib.genderData[npc.gender].oppositeGender
+          return getOppositeGender(npc.gender)
         } else {
           return npc.gender
         }
@@ -56,7 +42,7 @@ setup.createSexuality = function (npc) {
       sexuality: 'predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen',
       partnerGenderProbability (npc) {
         if (random(100) < 70) {
-          return lib.genderData[npc.gender].oppositeGender
+          return getOppositeGender(npc.gender)
         } else {
           return npc.gender
         }
@@ -66,7 +52,7 @@ setup.createSexuality = function (npc) {
       sexuality: 'bisexual',
       partnerGenderProbability (npc) {
         if (random(100) < 50) {
-          return lib.genderData[npc.gender].oppositeGender
+          return getOppositeGender(npc.gender)
         } else {
           return npc.gender
         }
@@ -78,7 +64,7 @@ setup.createSexuality = function (npc) {
         if (random(100) < 70) {
           return npc.gender
         } else {
-          return lib.genderData[npc.gender].oppositeGender
+          return getOppositeGender(npc.gender)
         }
       }
     },
@@ -88,7 +74,7 @@ setup.createSexuality = function (npc) {
         if (random(100) < 90) {
           return npc.gender
         } else {
-          return lib.genderData[npc.gender].oppositeGender
+          return getOppositeGender(npc.gender)
         }
       }
     },
@@ -104,4 +90,26 @@ setup.createSexuality = function (npc) {
 
   Object.assign(npc, kinsey[npc.roll.kinsey])
   return npc
+}
+
+/**
+ * @param {'man' | 'woman'} gender
+ * @returns {'man' | 'woman'}
+ */
+function getOppositeGender (gender) {
+  return lib.genderData[gender].oppositeGender
+}
+
+/**
+ * @param {number} sexualityRoll
+ * @returns {number}
+ */
+function getKinseyRoll (sexualityRoll) {
+  if (sexualityRoll < 70) return 0
+  if (sexualityRoll < 75) return 1
+  if (sexualityRoll < 83) return 2
+  if (sexualityRoll < 90) return 3
+  if (sexualityRoll < 96) return 4
+  if (sexualityRoll <= 100) return 5
+  return 3
 }

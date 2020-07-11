@@ -1,5 +1,5 @@
-
-setup.socialClasses = [
+/** @type {[number, string, number][]} */
+const socialClasses = [
   [195, 'aristocracy', 5],
   [95, 'aristocracy', 5],
   [80, 'nobility', 4],
@@ -11,6 +11,7 @@ setup.socialClasses = [
   [10, 'paupery', 1],
   [0, 'indentured servitude', 0]
 ]
+
 setup.socialClassArray = ['indentured servitude', 'paupery', 'peasantry', 'commoner', 'nobility', 'aristocracy']
 setup.socialClassKeys = {
   'aristocracy': 5,
@@ -81,7 +82,7 @@ setup.createSocialClass = function (town, npc) {
     // otherwise, just roll some dice.
     } else {
       console.log(`No synonyms found for ${npc.dndClass}`)
-      const array = setup.socialClasses.find(desc => {
+      const array = socialClasses.find(desc => {
         return desc[0] <= npc.roll.socialClass
       })
       npc.socialClass = array[1]
@@ -90,7 +91,7 @@ setup.createSocialClass = function (town, npc) {
   }
   if (npc.socialClass === undefined) {
     console.log(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
-    npc.socialClass = setup.socialClasses[random(0, setup.socialClasses.length - 1)]
+    npc.socialClass = socialClasses[random(0, socialClasses.length - 1)]
   }
   return npc
 }

@@ -83,7 +83,6 @@ setup.createTownBiome = function (base) {
     primaryExport: lib.townData.misc.primaryExport.random(),
     landmark: lib.townData.misc.landmark.random(),
     currentEvent: lib.townData.misc.currentEvent.random(),
-    microEvent: lib.townData.misc.microEvent,
     guard: {
       name: 'Test'
     },
