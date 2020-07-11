@@ -4,15 +4,7 @@ setup.leaderFaction = function (town, faction) {
   faction.roll.leaderBribes = lib.dice(2, 50)
   faction.roll.leaderCompetence = lib.dice(2, 50)
 
-  if (faction.age === 'brand new' || faction.age === 'very new') {
-    if (faction.leadershipType === 'group') {
-      faction.leaderQualification = ['the original founders', 'the original founders', 'the first appointed leaders'].random()
-    } else {
-      faction.leaderQualification = ['the original founder', 'the original founder', 'the first appointed leader'].random()
-    }
-  } else {
-    faction.leaderQualification = lib.factionData.type[faction.type].leaderQualification.random()
-  }
+  faction.leaderQualification = getLeaderQualification(faction)
 
   faction.leaderBribes = lib.matchFirst.largerThan(faction.roll.leaderBribes, {
     95: 'will never, under any circumstances be accepted',
@@ -74,4 +66,15 @@ setup.leaderFaction = function (town, faction) {
   }
 
   return faction
+}
+
+/** @returns {string} */
+function getLeaderQualification (faction) {
+  if (faction.age === 'brand new' || faction.age === 'very new') {
+    if (faction.leadershipType === 'group') {
+      return ['the original founders', 'the original founders', 'the first appointed leaders'].random()
+    }
+    return ['the original founder', 'the original founder', 'the first appointed leader'].random()
+  }
+  return lib.factionData.type[faction.type].leaderQualification.random()
 }
