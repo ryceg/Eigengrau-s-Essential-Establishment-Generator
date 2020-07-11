@@ -89,7 +89,6 @@ setup.createSexuality = function (npc) {
   npc.roll.kinsey = Math.clamp(npc.roll.kinsey, 0, 6)
 
   Object.assign(npc, kinsey[npc.roll.kinsey])
-  return npc
 }
 
 /**
