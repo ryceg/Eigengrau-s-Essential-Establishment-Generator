@@ -7050,7 +7050,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
     exclusions (npc) {
-      if (npc.age < 80) return false
+      if (npc.ageYears < 80) return false
     }
   },
   'exile': {

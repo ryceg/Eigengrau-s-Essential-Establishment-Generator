@@ -204,7 +204,7 @@ setup.createNPC = function (town, base) {
   setup.createPersonality(npc)
   // setup.createName(npc)
 
-  setup.createAge(npc)
+  lib.setAge(npc)
 
   lib.setRace(npc)
 

@@ -2,8 +2,6 @@ interface Setup {
   init(): void
   npcTaxRate(town: Town, npc: NPC): number
   profile(obj: any, base?: string, type?: string): string
-  createAge(npc: NPC): any
-  isOfAge(ageStage, race, ageYears): boolean
   createBackground(npc: NPC): any
   createClass(town: Town, npc: NPC): any
   createFamily(town: Town, npc: NPC): void

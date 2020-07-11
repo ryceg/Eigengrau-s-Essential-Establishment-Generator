@@ -1,8 +1,8 @@
-import { RaceName } from './raceTraits'
+import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export interface NPC {
   name: string
-  gender: 'man' | 'woman'
+  gender: GenderName
   race: RaceName
   beard: string
   heightRoll: number
@@ -11,9 +11,11 @@ export interface NPC {
   weight: string
   bmi: number
   muscleMass: number
-  age: number
-  ageStage: string
+  age: string
+  ageStage: AgeName
+  ageYears: number
   profession: string
+  background: string
   roll: Record<string, number>
   partnerID?: string
   relationships: string[]

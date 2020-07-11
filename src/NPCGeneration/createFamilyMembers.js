@@ -13,7 +13,7 @@ setup.createRelative = (town, family, base = {}, force = false) => {
     if (random(1, 100) <= setup.familyData.absencePercent) {
       return
     }
-    if (setup.isOfAge('elderly', base.race, base.ageYears)) {
+    if (lib.isOfAge('elderly', base.race, base.ageYears)) {
       if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
       if (base.ageYears >= lib.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
         if (random(1, 100) <= setup.familyData.veryOldAbsencePercent) return undefined
@@ -108,7 +108,9 @@ setup.createChildren = (town, family, marriage, amount,
       hasHistory: false
     }
 
-    if (setup.isOfAge('young adult', siblingBase.race, siblingBase.ageYears)) { siblingBase.socialClass = setup.relativeSocialClass(siblingClass) }
+    if (lib.isOfAge('young adult', siblingBase.race, siblingBase.ageYears)) {
+      siblingBase.socialClass = setup.relativeSocialClass(siblingClass)
+    }
 
     const sibling = setup.createRelative(town, family, siblingBase, force)
     if (sibling) {
