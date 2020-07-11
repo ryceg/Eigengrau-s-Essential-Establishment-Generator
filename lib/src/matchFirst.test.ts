@@ -1,5 +1,5 @@
 
-import { matchFirst } from '../lib/src/matchFirst'
+import { matchFirst } from './matchFirst'
 
 const map = {
   2: 'A',
