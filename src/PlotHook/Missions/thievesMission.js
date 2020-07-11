@@ -53,6 +53,9 @@ function missionDifficulty (mission) {
   return ''
 }
 
+/**
+ * @returns {string[]}
+ */
 function missionDetails (mission) {
   switch (mission.type) {
     case 'alchemy': return alchemyMissionDetails(mission)
@@ -128,7 +131,7 @@ function assassinationMissionDetails (mission) {
         'kill a group of targets spread across several locations on the same day. Claim credit for it.',
         'kill a group of targets with ingested poison only, at a specific time and date.',
         'kill a group of targets with no visible means of assassination on the corpse.'
-      ].random()
+      ]
   }
 }
 
