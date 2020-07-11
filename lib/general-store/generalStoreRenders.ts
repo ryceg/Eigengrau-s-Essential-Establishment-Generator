@@ -1,24 +1,11 @@
 import { random } from '../src/random'
 import { keys } from '../src/utils'
-
-interface GeneralStore {
-  size: string | number
-  roll: {
-    warmth: number
-    cleanliness: number
-    expertise: number
-    activity: number
-  }
-  warmth: string
-  cleanliness: string
-  expertise: string
-  activity: string
-}
+import { GeneralStore } from './_common'
 
 export function generalStoreRenders (generalStore: GeneralStore) {
   // update warmth based on store size
   let warmthRoll = random(1, 100)
-  const size = generalStore.size
+  const size = generalStore.roll.size
   if (size > 80) {
     generalStore.size = 'huge'
     warmthRoll -= 20
@@ -61,8 +48,6 @@ export function generalStoreRenders (generalStore: GeneralStore) {
       }
     }
   }
-
-  return generalStore
 }
 
 const attributes = {

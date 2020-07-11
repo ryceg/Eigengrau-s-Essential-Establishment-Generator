@@ -30,7 +30,7 @@ setup.createGeneralStore = (town, opts = {}) => {
   generalStore.cleanliness = ''
   generalStore.expertise = ''
   generalStore.clutter = ''
-  setup.generalStoreModifiers(town, generalStore)
+  lib.generalStoreModifiers(town, generalStore)
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
   for (const propName of rollDataVariables) {

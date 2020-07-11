@@ -1,36 +1,41 @@
 import { generalStoreRenders } from './generalStoreRenders'
 import { setRandom } from '../src/random'
+import { GeneralStore } from './_common'
 
 // Set random to be deterministic
 setRandom((min: number, max: number) => (min + max) / 2)
 
 const store = {
   roll: {
-    warmth: 50,
-    cleanliness: 50,
+    activity: 50,
     expertise: 50,
-    activity: 50
+    cleanliness: 50,
+    size: 40,
+    warmth: 50
   },
-  size: 40,
-  warmth: '',
-  cleanliness: '',
+  activity: '',
   expertise: '',
-  activity: ''
+  cleanliness: '',
+  size: '',
+  warmth: ''
 }
 
 test('Testing general store rendering...', () => {
   const expected = {
     roll: {
-      cleanliness: 50,
-      expertise: 50,
       activity: 50,
+      expertise: 50,
+      cleanliness: 50,
+      size: 40,
       warmth: 65.5
     },
-    size: 'slightly cramped',
-    warmth: 'uncomfortably warm',
+    activity: 'not terribly busy',
     cleanliness: 'somewhat messy',
     expertise: 'well-crafted',
-    activity: 'not terribly busy'
+    size: 'slightly cramped',
+    warmth: 'uncomfortably warm'
   }
-  expect(generalStoreRenders(store)).toEqual(expected)
+
+  generalStoreRenders(store as GeneralStore)
+  expect(store).toEqual(expected)
 })

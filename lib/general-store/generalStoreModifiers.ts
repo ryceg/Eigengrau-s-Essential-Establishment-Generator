@@ -1,4 +1,7 @@
-setup.generalStoreModifiers = (town, generalStore) => {
+import { Town } from '../town/_common'
+import { GeneralStore } from './_common'
+
+export function generalStoreModifiers (town: Town, generalStore: GeneralStore): void {
   if (town.roll.wealth > 95) {
     generalStore.roll.wealth += 5
   } else if (town.roll.wealth > 80) {
@@ -80,6 +83,4 @@ setup.generalStoreModifiers = (town, generalStore) => {
     generalStore.roll.sin += 5
     generalStore.roll.wealth -= 8
   }
-
-  return generalStore
 }
