@@ -57,13 +57,7 @@ setup.leaderFaction = function (town, faction) {
     }
   }
 
-  if (faction.roll.stability <= 30) {
-    faction.stabilityCause = ['internal power struggles', 'conflicts with rivaling factions'].random()
-  } else if (faction.roll.stability >= 70 && faction.leadershipType === 'individual') {
-    faction.stabilityCause = ['the lack of infighting for the leadership role'].random()
-  } else if (faction.roll.stability >= 70 && faction.leadershipType === 'group') {
-    faction.stabilityCause = [`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'].random()
-  }
+  faction.stabilityCause = getStabilityCause(faction)
 
   return faction
 }
@@ -77,4 +71,17 @@ function getLeaderQualification (faction) {
     return ['the original founder', 'the original founder', 'the first appointed leader'].random()
   }
   return lib.factionData.type[faction.type].leaderQualification.random()
+}
+
+/** @returns {string} */
+function getStabilityCause (faction) {
+  if (faction.roll.stability <= 30) {
+    return ['internal power struggles', 'conflicts with rivaling factions'].random()
+  }
+  if (faction.roll.stability >= 70 && faction.leadershipType === 'individual') {
+    return ['the lack of infighting for the leadership role'].random()
+  }
+  if (faction.roll.stability >= 70 && faction.leadershipType === 'group') {
+    return [`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'].random()
+  }
 }
