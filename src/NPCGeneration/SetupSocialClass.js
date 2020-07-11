@@ -12,8 +12,16 @@ const socialClasses = [
   [0, 'indentured servitude', 0]
 ]
 
-setup.socialClassArray = ['indentured servitude', 'paupery', 'peasantry', 'commoner', 'nobility', 'aristocracy']
-setup.socialClassKeys = {
+const socialClassArray = [
+  'indentured servitude',
+  'paupery',
+  'peasantry',
+  'commoner',
+  'nobility',
+  'aristocracy'
+]
+
+const socialClassKeys = {
   'aristocracy': 5,
   'nobility': 4,
   'commoner': 3,
@@ -21,6 +29,7 @@ setup.socialClassKeys = {
   'paupery': 1,
   'indentured servitude': 0
 }
+
 // TODO: concatenate these four arrays and objects into one object.
 // too lazy to do it right now. Sorry.
 setup.socialClass = {
@@ -96,8 +105,11 @@ setup.createSocialClass = function (town, npc) {
   return npc
 }
 
-// Introduce modifiers for adult family members.
-setup.adultSocialMobilityTable = [
+/**
+ * Introduce modifiers for adult family members.
+ * @type {[number, number][]}
+ */
+const adultSocialMobilityTable = [
   [6, -2],
   [18, -1],
   [60, 0],
@@ -106,27 +118,26 @@ setup.adultSocialMobilityTable = [
 ]
 
 setup.relativeSocialClass = function (npcClass) {
-  let classIndex = setup.socialClassKeys[npcClass]
+  let classIndex = socialClassKeys[npcClass]
   if (classIndex < 0) classIndex = 3
 
-  const delta = lib.rollFromTable(setup.adultSocialMobilityTable, 100)
+  const delta = lib.rollFromTable(adultSocialMobilityTable, 100)
 
-  const newIndex = Math.clamp(classIndex + delta, 0, setup.socialClassArray.length - 1)
-  return setup.socialClassArray[newIndex]
+  const newIndex = Math.clamp(classIndex + delta, 0, socialClassArray.length - 1)
+  return socialClassArray[newIndex]
 }
 
 setup.familySocialClass = function (marriage) {
   if (marriage.parents.length === 0) {
     if (marriage.children.length === 0) {
       return 'commoner'
-    } else {
-      return State.variables.npcs[marriage.children[0]].socialClass
     }
-  } else {
-    const classArray = marriage.parents.map(key =>
-      setup.socialClassKeys[State.variables.npcs[key].socialClass])
-
-    const mean = Math.round(classArray.reduce((a, b) => a + b) / classArray.length)
-    return setup.socialClassArray[mean]
+    return State.variables.npcs[marriage.children[0]].socialClass
   }
+
+  const classArray = marriage.parents.map(key =>
+    socialClassKeys[State.variables.npcs[key].socialClass]
+  )
+  const mean = Math.round(classArray.reduce((a, b) => a + b) / classArray.length)
+  return socialClassArray[mean]
 }
