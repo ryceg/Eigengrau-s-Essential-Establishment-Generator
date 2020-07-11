@@ -33,6 +33,7 @@ export * from './faction/setFactionResources'
 export * from './faction/setFactionSize'
 export * from './faction/setFactionStability'
 
+export * from './general-store/generalStoreData'
 export * from './general-store/generalStoreModifiers'
 export * from './general-store/generalStoreRenders'
 

@@ -11,12 +11,12 @@ setup.createGeneralStore = (town, opts = {}) => {
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'assistant manager', 'acting manager'].random()
   })
   Object.assign(generalStore, {
-    note: setup.generalStore.get.note(generalStore),
-    shopkeepNote: setup.generalStore.get.shopkeepNote(generalStore),
-    say: setup.generalStore.get.say(generalStore),
+    note: lib.generalStore.get.note(generalStore),
+    shopkeepNote: lib.generalStore.get.shopkeepNote(generalStore),
+    say: lib.generalStore.get.say(generalStore),
     wordNoun: ['general store', 'shop'].random(),
-    crud: setup.generalStore.crud.random(),
-    idle: setup.generalStore.idle.random(),
+    crud: lib.generalStore.crud.random(),
+    idle: lib.generalStore.idle.random(),
     notableFeature: 'wide range of goods on sale',
     passageName: 'generalStoreOutput',
     initPassage: 'InitgeneralStore',
@@ -32,10 +32,11 @@ setup.createGeneralStore = (town, opts = {}) => {
   generalStore.clutter = ''
   lib.generalStoreModifiers(town, generalStore)
 
-  const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']
-  for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(generalStore, setup.generalStore.rollData, propName)
+  const rollData = lib.generalStore.rollData
+  for (const propName of lib.keys(rollData)) {
+    lib.defineRollDataGetter(generalStore, rollData, propName)
   }
+
   if (generalStore.roll.cleanliness <= 40) {
     generalStore.clutter = [
       `The store has a lot of ${generalStore.crud} laying about.`,

@@ -1,4 +1,11 @@
-setup.generalStore = {
+import { GeneralStore } from './_common'
+import { flora } from '../src/flora'
+import { random } from '../src/random'
+import { articles } from '../src/articles'
+import { colours } from '../src/colours'
+import { ThresholdTable } from '../src/rollFromTable'
+
+export const generalStore = {
   crud: [
     'rusty knives',
     'dull knives',
@@ -109,7 +116,7 @@ setup.generalStore = {
     'sharpening a knife',
     'cutting an apple into bite sized pieces',
     'biting into an apple',
-    "reading a book titled '<<print lib.books.pun.random()>>'",
+    "reading a book titled '<<print books.pun.random()>>'",
     're-stocking one of the shelves',
     'posing near the front of the store for some sort of painting',
     'polishing a grappling hook',
@@ -148,7 +155,7 @@ setup.generalStore = {
       [25, 'poor'],
       [15, 'squalid'],
       [0, 'destitute']
-    ],
+    ] as ThresholdTable,
     size: [
       [95, 'cavernous'],
       [80, 'huge'],
@@ -160,7 +167,7 @@ setup.generalStore = {
       [20, 'small'],
       [10, 'tiny'],
       [0, 'extremely cramped']
-    ],
+    ] as ThresholdTable,
     cleanliness: [
       [80, 'fastidious'],
       [70, 'very tidy'],
@@ -171,7 +178,7 @@ setup.generalStore = {
       [20, 'very messy'],
       [10, 'extremely messy'],
       [0, 'dangerously messy']
-    ],
+    ] as ThresholdTable,
     expertise: [
       [80, 'masterful'],
       [70, 'exceptional'],
@@ -182,11 +189,11 @@ setup.generalStore = {
       [20, 'somewhat amateur'],
       [10, 'amateur'],
       [0, 'blatantly amateur']
-    ]
+    ] as ThresholdTable
   },
   get: {
-    say (generalStore) {
-      const goods = [
+    say (generalStore: GeneralStore) {
+      const goods = random([
         'crowbar',
         'grappling hook',
         'hammer',
@@ -209,25 +216,24 @@ setup.generalStore = {
         'tent',
         'hatchet',
         'oil bottle'
-      ].random()
-      const shopkeepSays = [
+      ])
+      return random([
         `asks what ${generalStore.associatedNPC.heshe} can do for you`,
         'tells you everything you see just came in on a fresh shipment',
         `lets you know that all ${goods}s are 20% off`,
         `warns you that ${generalStore.associatedNPC.heshe} is down to ${generalStore.associatedNPC.hisher} last ${goods}`,
         'says the whole store is currently 10% off',
-        `tells you the store is closing soon because ${generalStore.associatedNPC.heshe} ${['wants to go home', 'has to start on a long journey', 'has to meet someone for a new shipment of goods', `has to go to take care of ${generalStore.associatedNPC.hisher} family`, 'is tired and bored for the day'].random()}`,
+        `tells you the store is closing soon because ${generalStore.associatedNPC.heshe} ${random(['wants to go home', 'has to start on a long journey', 'has to meet someone for a new shipment of goods', `has to go to take care of ${generalStore.associatedNPC.hisher} family`, 'is tired and bored for the day'])}`,
         'asks what it is you need today',
         `apologizes for being totally out of ${goods}s today`,
         `says a fresh shipment of ${goods}s are coming in tomorrow morning`,
         `warns you that you may want to buy a medical kit as there has been a recent outbreak of flu in town according to ${generalStore.associatedNPC.himher}`,
         "apologizes for currently being low on all of the shop's stock",
         `says you look like you could really use a nice ${goods}`,
-        `lets you know that the store is currently having a ${['buy two get one free', 'buy one get one free', 'buy one get one 50% off', 'buy one get one 25% off', 'buy two pay for three', 'two for one', 'three for one'].random()} deal`
-      ]
-      return shopkeepSays.random()
+        `lets you know that the store is currently having a ${random(['buy two get one free', 'buy one get one free', 'buy one get one 50% off', 'buy one get one 25% off', 'buy two pay for three', 'two for one', 'three for one'])} deal`
+      ])
     },
-    shopkeepNote (generalStore) {
+    shopkeepNote (generalStore: GeneralStore) {
       const shopkeep = generalStore.associatedNPC
       const shopkeepNote = [
         'does not seem to belong there, and looks very uncomfortable',
@@ -238,7 +244,7 @@ setup.generalStore = {
         'is a rather forceful salesman',
         `has a pungent and offensive smell about ${generalStore.associatedNPC.himher}`,
         `insists ${shopkeep.heshe} is from an ancient line of powerful merchants`,
-        `dresses ${['much better than expected', 'like a filthy beggar', `like ${generalStore.associatedNPC.heshe} is true royalty`, 'in rather colorfgul garb'].random()}`,
+        `dresses ${random(['much better than expected', 'like a filthy beggar', `like ${generalStore.associatedNPC.heshe} is true royalty`, 'in rather colorfgul garb'])}`,
         'looks like a beggar, but speaks like a noble',
         'is a very smooth salesperson and tries to talk you into several items',
         'is a sly and quite shrewd merchant who seems to know just what you want',
@@ -258,13 +264,14 @@ setup.generalStore = {
         'eyes you warely as you move around the store',
         'is acting strangely cold, and never seems to blink'
       ]
-      return `${shopkeep.firstName} ${shopkeepNote.random()}`
+      return `${shopkeep.firstName} ${random(shopkeepNote)}`
     },
-    note (generalStore) {
+    note (generalStore: GeneralStore) {
       const shopkeep = generalStore.associatedNPC
-      const colour1 = [lib.colours.yellow, lib.colours.orange, lib.colours.red, lib.colours.purple, lib.colours.blue, lib.colours.green, lib.colours.brown, lib.colours.black, lib.colours.white].random().colour.random()
-      const colour2 = [lib.colours.yellow, lib.colours.orange, lib.colours.red, lib.colours.purple, lib.colours.blue, lib.colours.green, lib.colours.brown, lib.colours.black, lib.colours.white].random().colour.random()
-      const note = [
+      const colour1 = random(random([colours.yellow, colours.orange, colours.red, colours.purple, colours.blue, colours.green, colours.brown, colours.black, colours.white]).colour)
+      const colour2 = random(random([colours.yellow, colours.orange, colours.red, colours.purple, colours.blue, colours.green, colours.brown, colours.black, colours.white]).colour)
+
+      return random([
         // You notice __
         `it looks like ${shopkeep.firstName}, the shopkeep, lives in a room attached to the shop`,
         'a bell rings every time someone enters the shop',
@@ -296,38 +303,37 @@ setup.generalStore = {
         'the shop has a strong odor of mildew',
         'a ghost is browsing the merchandise on one of the back shelves',
         'a legendary weapon is on display, but not for sale',
-        `colorful murals of ${['plants', 'flowers', 'animals', 'stars', 'trees', 'mountains', 'the sky', 'birds', 'beetles', 'the ocean', 'deserts', 'geometric shapes', 'organic shapes'].random()} line the walls`,
+        `colorful murals of ${random(['plants', 'flowers', 'animals', 'stars', 'trees', 'mountains', 'the sky', 'birds', 'beetles', 'the ocean', 'deserts', 'geometric shapes', 'organic shapes'])} line the walls`,
         'constables of the local guard, $town.guard.name are interviewing everyone in the shop',
         'several small cages with pure white rats are sitting on a table near the front door',
         'a strange green goop is leaking from one wall',
         'a large collection of cobwebs have formed in every corner of the shop',
         'a pair of eyes float above the counter, slowly looking from one side of the shop to the other over and over',
         'a low growl is emitting from beneath a large trapdoor in the floor',
-        `the front window of the shop has ${['plants', 'flowers', 'animals', 'stars', 'trees', 'mountains', 'the sky', 'birds', 'beetles', 'the ocean', 'deserts', 'geometric shapes', 'organic shapes'].random()} painted on it`,
+        `the front window of the shop has ${random(['plants', 'flowers', 'animals', 'stars', 'trees', 'mountains', 'the sky', 'birds', 'beetles', 'the ocean', 'deserts', 'geometric shapes', 'organic shapes'])} painted on it`,
         'the store is lit by jars full of glowing bugs hanging from the ceiling',
         'there is a small rack on the shop counter that is stocked with a biography of the shop owner',
         'a small fireplace in the corner of the shop is blazing warmly',
-        `the head of ${['a lion', 'a rhino', 'an eagle', 'an ostritch', 'a gopher', 'a boar', 'a cougar', 'a bear', 'a vulture', 'a python', 'a beaver', 'a moose', 'a deer', 'a swordfish', 'an elk', 'an owl', 'a troll', 'a goblin', 'a wolf', 'a coyote', 'a camel'].random()} is mounted on the wall on a ${['crude', 'fine', 'nice', 'fancy', 'clunky', 'cracked', 'dusty', 'poor'].random()} looking plaque`,
+        `the head of ${random(['a lion', 'a rhino', 'an eagle', 'an ostritch', 'a gopher', 'a boar', 'a cougar', 'a bear', 'a vulture', 'a python', 'a beaver', 'a moose', 'a deer', 'a swordfish', 'an elk', 'an owl', 'a troll', 'a goblin', 'a wolf', 'a coyote', 'a camel'])} is mounted on the wall on a ${random(['crude', 'fine', 'nice', 'fancy', 'clunky', 'cracked', 'dusty', 'poor'])} looking plaque`,
         'there is a small shelf filled with different colored lumpy candles labeled "Homemade Candles" ',
         'a large oil painting of the shop owner hangs from the wall',
         'all of the windows in the shop are covered by thick furs making the room rather dark',
         'the windows are all blacked out and the room is lit by glowing mushrooms',
-        `a large group of ${['owls', 'hawks', 'vultures', 'parakeets', 'crows', 'ravens', 'canaries', 'finches', 'parrots', 'bluejays', 'kingfishers', 'kookaburras', 'pigeons', 'doves', 'swallows', 'sparrows'].random()} are roosting in the rafters of the shop`,
-        `several large pots full of ${lib.flora.flower.stemP.random()} are placed around the shop`,
+        `a large group of ${random(['owls', 'hawks', 'vultures', 'parakeets', 'crows', 'ravens', 'canaries', 'finches', 'parrots', 'bluejays', 'kingfishers', 'kookaburras', 'pigeons', 'doves', 'swallows', 'sparrows'])} are roosting in the rafters of the shop`,
+        `several large pots full of ${random(flora.flower.stemP)} are placed around the shop`,
         'the shelves of this shop are looking a little bare',
         'a large glass orb sitting on a plush pillow is on a wide table in the middle of the shop',
         'the shop counter is embedded with coins from all different regions',
-        `there's a row of leatherbound books about ${['monsters', 'beasts', 'jewels', 'gems', 'art', 'painting', 'hunting', 'tracking', 'dungeoneering', 'arcane arts', 'blacksmithing', 'poisons', 'plants', 'farming', 'martial arts', 'ancient swords', 'ancient relics', 'magical items', 'cartography', 'sailing', 'insects', 'birds', 'religions', 'regional history', 'poetry'].random()}filling a nearby shelf`,
-        `a taxidermied ${['lion', 'rhino', 'eagle', 'ostritch', 'gopher', 'boar', 'cougar', 'bear', 'vulture', 'python', 'beaver', 'moose', 'deer', 'swordfish', 'elk', 'owl', 'troll', 'goblin', 'wolf', 'coyote', 'camel', 'cat', 'dog', 'duck', 'pig'].random()} is standing in one corner of the shop`,
-        `all of the walls are painted ${lib.articles.output(colour1)} colour${['', '', '', ` with ${colour2} coloured accents`, `, and the ceiling is ${colour2} coloured`, `, and the floors have been painted a ${colour2} color`].random()}`,
+        `there's a row of leatherbound books about ${random(['monsters', 'beasts', 'jewels', 'gems', 'art', 'painting', 'hunting', 'tracking', 'dungeoneering', 'arcane arts', 'blacksmithing', 'poisons', 'plants', 'farming', 'martial arts', 'ancient swords', 'ancient relics', 'magical items', 'cartography', 'sailing', 'insects', 'birds', 'religions', 'regional history', 'poetry'])}filling a nearby shelf`,
+        `a taxidermied ${random(['lion', 'rhino', 'eagle', 'ostritch', 'gopher', 'boar', 'cougar', 'bear', 'vulture', 'python', 'beaver', 'moose', 'deer', 'swordfish', 'elk', 'owl', 'troll', 'goblin', 'wolf', 'coyote', 'camel', 'cat', 'dog', 'duck', 'pig'])} is standing in one corner of the shop`,
+        `all of the walls are painted ${articles.output(colour1)} colour${random(['', '', '', ` with ${colour2} coloured accents`, `, and the ceiling is ${colour2} coloured`, `, and the floors have been painted a ${colour2} color`])}`,
         `the shop counter is painted a nice ${colour1} colour`,
         'a small silver bell sits on the shop counter in case the shop keeper is not around',
-        `the shop is lit from above by a large glowing orb emitting a ${['dim', 'strong', 'low', 'pulsing', 'flickering'].random()} ${colour1} coloured light`
-      ]
-      return note.random()
+        `the shop is lit from above by a large glowing orb emitting a ${random(['dim', 'strong', 'low', 'pulsing', 'flickering'])} ${colour1} coloured light`
+      ])
     },
-    priceTalk (generalStore) {
-      const priceTalk = [
+    priceTalk (generalStore: GeneralStore) {
+      return [
         {
           priceModifier: 5,
           wealth: 80,
@@ -389,7 +395,6 @@ setup.generalStore = {
           priceTalk: `Everything must go- can't afford to keep ${generalStore.name} open much longer, so I'm getting rid of the final stock.`
         }
       ]
-      return priceTalk
     }
   }
 }

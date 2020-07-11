@@ -2,6 +2,8 @@ import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export interface NPC {
   name: string
+  lastName: string
+  firstName: string
   gender: GenderName
   race: RaceName
   beard: string
@@ -23,6 +25,9 @@ export interface NPC {
   hasClass: boolean
   dndClass?: string
   isBreakingGenderNorms: boolean
+  heshe: string
+  hisher: string
+  himher: string
 }
 
 export interface Relationship {
