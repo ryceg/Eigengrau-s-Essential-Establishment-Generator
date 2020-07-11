@@ -26,7 +26,7 @@ interface RaceTrait {
 
 }
 
-type AgeName = 'elderly' | 'settled adult' | 'young adult' | 'child'
+export type AgeName = 'elderly' | 'settled adult' | 'young adult' | 'child'
 
 interface AgeTrait {
   baseAge: number
