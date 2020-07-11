@@ -43,7 +43,7 @@ setup.createGeneralStore = (town, opts = {}) => {
       `In one corner of the store there is a large pile of ${generalStore.crud}.`,
       `Several bins seemed to be cluttered with ${generalStore.crud}.`].random()
   }
-  // setup.generalStoreRenders(generalStore)
+  // lib.generalStoreRenders(generalStore)
   console.log(generalStore)
   console.groupEnd()
   return generalStore

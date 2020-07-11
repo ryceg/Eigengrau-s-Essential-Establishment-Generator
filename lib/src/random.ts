@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-let randomFn = (...args: unknown[]): number => {
+let randomFn = (min: number, max: number): number => {
   throw new Error('Function has not been set!')
 }
 
@@ -10,7 +10,8 @@ export function setRandom (fn: typeof randomFn) {
 export function random <T>(array: readonly T[]): T
 export function random (max: number): number
 export function random (min: number, max: number): number
-export function random (min: unknown, max?: unknown): unknown {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function random (min: any, max?: any): any {
   if (Array.isArray(min)) {
     return min[randomFn(0, min.length - 1)]
   }
