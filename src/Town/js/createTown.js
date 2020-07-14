@@ -21,18 +21,7 @@ setup.createTown = (base = {}) => {
       tithe: 1
     },
     taxRate (town) {
-      let totalTax = 0
-      Object.keys(town.taxes).forEach(tax => {
-        if (typeof town.taxes[tax] === 'number') {
-          totalTax += town.taxes[tax]
-        } else if (typeof town.taxes[tax] === 'function') {
-          const temp = town.taxes[tax](this)
-          totalTax += temp
-        } else {
-          console.log(`non-integer tax! ${town.taxes[tax]}`)
-        }
-      })
-      return Math.round(totalTax * 100) / 100
+      return getTaxRate(town)
     },
     get type () {
       // console.log('Getting town type.')
@@ -261,6 +250,26 @@ setup.politicsWeightedRoll = (size, type) => {
       return key
     }
   }
+}
+
+function getTaxRate (town) {
+  let totalTax = 0
+
+  for (const tax of Object.values(town.taxes)) {
+    if (typeof tax === 'number') {
+      totalTax += tax
+      continue
+    }
+
+    if (typeof tax === 'function') {
+      totalTax += tax(town)
+      continue
+    }
+
+    console.log('non-integer tax!', town.taxes[tax])
+  }
+
+  return Math.round(totalTax * 100) / 100
 }
 
 /**
