@@ -92,25 +92,9 @@ setup.createTownBiome = (base = {}) => {
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = setup.structureData.material.types
 
-  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-  Object.keys(lib.townData.type[town.type].modifiers).forEach(modifier => {
-    town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.type[town.type].modifiers[modifier])
-  })
-
-  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
-  // economic ideology attribute modifiers
-  Object.keys(lib.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
-    console.log(lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
-    town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
-  })
-
-  // political ideology modifiers
-  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
-  Object.keys(lib.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
-    console.log(modifier)
-    console.log(lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
-    town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
-  })
+  assignSizeModifiers(town)
+  assignEconomicModifiers(town)
+  assignPoliticalModifiers(town)
 
   Object.keys(town.roll).forEach(roll => {
     town.roll[roll].clamp(1, 100)
@@ -120,4 +104,25 @@ setup.createTownBiome = (base = {}) => {
   console.log(`${town.name} has loaded.`)
   console.log(town)
   return town
+}
+
+function assignSizeModifiers (town) {
+  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
+  assignRollModifiers(town, lib.townData.type[town.type].modifiers)
+}
+
+function assignEconomicModifiers (town) {
+  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
+  assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
+}
+
+function assignPoliticalModifiers (town) {
+  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
+  assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
+}
+
+function assignRollModifiers (town, modifiers) {
+  for (const [key, modifier] of Object.entries(modifiers)) {
+    town.roll[key] = lib.fm(town.roll[key], modifier)
+  }
 }
