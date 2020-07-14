@@ -118,7 +118,7 @@ setup.createFriends = (town, npc) => {
     console.log(friendsTypes)
   }
 
-  const createNewFriend = (town, npc) => {
+  const createNewFriend = () => {
     console.log('Creating a new friend!')
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
     const friend = setup.createNPC(town, friendObj.base)
@@ -126,23 +126,26 @@ setup.createFriends = (town, npc) => {
   }
 
   for (let step = 0; step < friendsNumber; step++) {
-    let friend
-    if (random(100) < 50) {
-      console.log('Finding an already existing NPC for a friend!')
-      friend = Object.values(State.variables.npcs).find(({ socialClass, relationships, key }) => {
-        return socialClass === npc.socialClass && !relationships[npc.key] && key !== npc.key
-      })
-      if (friend === undefined) {
-        console.log(`Nobody was in the same caste as ${npc.name}`)
-        createNewFriend(town, npc)
-      } else {
-        console.log('Found this person as a friend:')
-        console.log(friend)
-        setup.createRelationship(town, npc, friend, 'friend', 'friend')
-      }
-    } else {
-      createNewFriend(town, npc)
+    if (random(100) <= 50) {
+      createNewFriend()
+      continue
     }
+
+    console.log('Finding an already existing NPC for a friend!')
+    const friend = Object.values(State.variables.npcs).find(({ socialClass, relationships, key }) => {
+      return socialClass === npc.socialClass && !relationships[npc.key] && key !== npc.key
+    })
+
+    if (typeof friend === 'undefined') {
+      console.log(`Nobody was in the same caste as ${npc.name}`)
+      createNewFriend()
+      continue
+    }
+
+    console.log('Found this person as a friend:')
+    console.log(friend)
+    setup.createRelationship(town, npc, friend, 'friend', 'friend')
   }
+
   console.groupEnd()
 }
