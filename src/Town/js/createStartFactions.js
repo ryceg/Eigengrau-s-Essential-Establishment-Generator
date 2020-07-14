@@ -1,14 +1,8 @@
 
-setup.createStartFactions = function (town) {
+setup.createStartFactions = town => {
   console.log('Creating starting factions...')
   const factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']
-  let factionsNumber = lib.townData.type[town.type].startFactionsNumber()
-
-  if (town.roll.wealth > 90) {
-    factionsNumber += 2
-  } else if (town.roll.wealth > 70) {
-    factionsNumber += 1
-  }
+  const factionsNumber = getFactionsNumber(town)
 
   for (let i = 0; i <= factionsNumber; i++) {
     const tempFactionType = factions.random()
@@ -21,4 +15,18 @@ setup.createStartFactions = function (town) {
 
   console.log('Finished creating start factions!')
   return town
+}
+
+function getFactionsNumber (town) {
+  const factionsNumber = lib.townData.type[town.type].startFactionsNumber()
+  return factionsNumber + getFactionNumberWealthModifier(town.roll.wealth)
+}
+
+/**
+ * @param {number} wealthRoll
+ */
+function getFactionNumberWealthModifier (wealthRoll) {
+  if (wealthRoll > 90) return 2
+  if (wealthRoll > 70) return 1
+  return 0
 }
