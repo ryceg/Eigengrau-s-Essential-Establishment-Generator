@@ -1,33 +1,12 @@
-setup.createTownBiome = function (base) {
+setup.createTownBiome = (base = {}) => {
   const type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
   const season = ['summer', 'autumn', 'winter', 'spring'].random()
   const townName = setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
 
-  const politicsWeightedRoll = function (size, type) {
-    let totalWeight = 0
-    const loc = lib.townData.type[size].ideologies[type]
-    const pool = Object.keys(loc)
-    pool.forEach(key => {
-      totalWeight += lib.townData.type[size].ideologies[type][key]
-    })
-    let random = Math.floor(randomFloat(1) * totalWeight)
-    let selected
-    for (let i = 0; i < pool.length; i++) {
-      random -= loc[pool[i]]
-      if (random < 0) {
-        // console.log('Less than zero! Found one.')
-        // console.log(pool[i])
-        selected = pool[i]
-        break
-      }
-    }
-    return selected
-  }
-
-  const economicIdeology = politicsWeightedRoll(type, 'economicIdeology')
-  const politicalSource = politicsWeightedRoll(type, 'politicalSource')
+  const economicIdeology = setup.politicsWeightedRoll(type, 'economicIdeology')
+  const politicalSource = setup.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     name: townName,

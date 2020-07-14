@@ -1,35 +1,10 @@
-setup.createTown = function (base) {
-  if (!base) {
-    base = {
-    }
-  }
-
+setup.createTown = (base = {}) => {
   const type = base.type || ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = base.terrain || ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
   const season = base.season || ['summer', 'autumn', 'winter', 'spring'].random()
   const townName = base.name || setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
-  const politicsWeightedRoll = (size, type) => {
-    let totalWeight = 0
-    const loc = lib.townData.type[size].ideologies[type]
-    const pool = Object.keys(loc)
-    pool.forEach(key => {
-      totalWeight += lib.townData.type[size].ideologies[type][key]
-    })
-    let random = Math.floor(randomFloat(1) * totalWeight)
-    let selected
-    for (let i = 0; i < pool.length; i++) {
-      random -= loc[pool[i]]
-      if (random < 0) {
-        // console.log('Less than zero! Found one.')
-        // console.log(pool[i])
-        selected = pool[i]
-        break
-      }
-    }
-    return selected
-  }
 
   const economicIdeology = base.economicIdeology || politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || politicsWeightedRoll(type, 'politicalSource')
@@ -311,4 +286,18 @@ setup.createTown = function (base) {
   // console.log('loaded', town.wealth, town.roll.size)
   // confirm(town.townMaterial)
   return town
+}
+
+setup.politicsWeightedRoll = (size, type) => {
+  const loc = lib.townData.type[size].ideologies[type]
+  const pool = lib.keys(loc)
+  const totalWeight = pool.reduce((total, key) => total + loc[key], 0)
+  let random = Math.floor(randomFloat(1) * totalWeight)
+
+  for (const key of pool) {
+    random -= loc[key]
+    if (random < 0) {
+      return key
+    }
+  }
 }
