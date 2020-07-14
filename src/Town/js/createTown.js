@@ -230,26 +230,24 @@ setup.createTown = (base = {}) => {
 
   if (!town.pregen) {
     console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-    Object.keys(lib.townData.type[town.type].modifiers).forEach(modifier => {
-      town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.type[town.type].modifiers[modifier])
+    Object.entries(lib.townData.type[town.type].modifiers).forEach(([key, modifier]) => {
+      town.roll[key] = lib.fm(town.roll[key], modifier)
     })
 
-    console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
     // economic ideology attribute modifiers
+    console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
+    Object.entries(lib.townData.economicIdeology[town.economicIdeology].modifiers).forEach(([key, modifier]) => {
+      console.log(key, modifier)
 
-    Object.keys(lib.townData.economicIdeology[town.economicIdeology].modifiers).forEach(modifier => {
-      console.log(lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
-      town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.economicIdeology[town.economicIdeology].modifiers[modifier])
+      town.roll[key] = lib.fm(town.roll[key], modifier)
     })
+
     // political ideology modifiers
     console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
-
-    Object.keys(lib.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(modifier => {
-      console.log(modifier)
-      console.log(lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
-      town.roll[modifier] = lib.fm(town.roll[modifier], lib.townData.politicalIdeology[town.politicalIdeology].modifiers[modifier])
+    Object.entries(lib.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(([key, modifier]) => {
+      console.log(key, modifier)
+      town.roll[key] = lib.fm(town.roll[key], modifier)
     })
-  // Object.assign(town.leader, lib.townData.politicalIdeology[town.politicalIdeology].data)
   }
 
   setup.createSocioPolitics(town)
