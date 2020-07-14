@@ -230,11 +230,7 @@ setup.createTown = (base = {}) => {
 
   if (!town.pregen) {
     assignSizeModifiers(town)
-
-    // economic ideology attribute modifiers
     assignEconomicModifiers(town)
-
-    // political ideology modifiers
     assignPoliticalModifiers(town)
   }
 
