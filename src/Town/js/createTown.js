@@ -24,20 +24,7 @@ setup.createTown = (base = {}) => {
       return getTaxRate(town)
     },
     get type () {
-      // console.log('Getting town type.')
-      if (this.population > 3000) {
-        return 'city'
-      } else if (this.population > 1000) {
-        return 'town'
-      } else if (this.population > 300) {
-        return 'village'
-      } else if (this.population > 30) {
-        return 'hamlet'
-      } else if (this.population <= 30) {
-        console.log('Population is less than 30. Setting to 30.')
-        this.population = 30
-        return 'hamlet'
-      }
+      return getTownType(this)
     },
     set type (value) {
       console.log('Setting town type.')
@@ -270,6 +257,20 @@ function getTaxRate (town) {
   }
 
   return Math.round(totalTax * 100) / 100
+}
+
+function getTownType (town) {
+  if (town.population > 3000) return 'city'
+  if (town.population > 1000) return 'town'
+  if (town.population > 300) return 'village'
+  if (town.population > 30) return 'hamlet'
+
+  // TODO: Remove unexpected side effect are bad.
+  if (town.population <= 30) {
+    console.log('Population is less than 30. Setting to 30.')
+    town.population = 30
+    return 'hamlet'
+  }
 }
 
 /**
