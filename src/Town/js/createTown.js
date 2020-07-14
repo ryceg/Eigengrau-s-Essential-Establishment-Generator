@@ -6,8 +6,8 @@ setup.createTown = (base = {}) => {
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
 
-  const economicIdeology = base.economicIdeology || politicsWeightedRoll(type, 'economicIdeology')
-  const politicalSource = base.politicalSource || politicsWeightedRoll(type, 'politicalSource')
+  const economicIdeology = base.economicIdeology || setup.politicsWeightedRoll(type, 'economicIdeology')
+  const politicalSource = base.politicalSource || setup.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = base.politicalIdeology || lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     passageName: 'TownOutput',
