@@ -18,19 +18,11 @@ setup.createTown = (base = {}) => {
     taxes: {
       base: 5,
       land: 5,
-
-      // get military () {
-      //   return 1
-      //   // return (this.roll.military / 50)
-      // },
       tithe: 1
     },
     taxRate (town) {
       let totalTax = 0
       Object.keys(town.taxes).forEach(tax => {
-        // if (tax === 'land') {
-        // totalTax += (town.taxes[tax] * (setup.socialClass[npc.socialClass].landRate || 1))
-        // } else if (typeof town.taxes[tax] === 'number') {
         if (typeof town.taxes[tax] === 'number') {
           totalTax += town.taxes[tax]
         } else if (typeof town.taxes[tax] === 'function') {
