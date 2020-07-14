@@ -229,25 +229,13 @@ setup.createTown = (base = {}) => {
   town.guard = setup.createGuard(town)
 
   if (!town.pregen) {
-    console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-    Object.entries(lib.townData.type[town.type].modifiers).forEach(([key, modifier]) => {
-      town.roll[key] = lib.fm(town.roll[key], modifier)
-    })
+    assignSizeModifiers(town)
 
     // economic ideology attribute modifiers
-    console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
-    Object.entries(lib.townData.economicIdeology[town.economicIdeology].modifiers).forEach(([key, modifier]) => {
-      console.log(key, modifier)
-
-      town.roll[key] = lib.fm(town.roll[key], modifier)
-    })
+    assignEconomicModifiers(town)
 
     // political ideology modifiers
-    console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
-    Object.entries(lib.townData.politicalIdeology[town.politicalIdeology].modifiers).forEach(([key, modifier]) => {
-      console.log(key, modifier)
-      town.roll[key] = lib.fm(town.roll[key], modifier)
-    })
+    assignPoliticalModifiers(town)
   }
 
   setup.createSocioPolitics(town)
@@ -289,5 +277,26 @@ setup.politicsWeightedRoll = (size, type) => {
     if (random < 0) {
       return key
     }
+  }
+}
+
+function assignSizeModifiers (town) {
+  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
+  assignRollModifiers(town, lib.townData.type[town.type].modifiers)
+}
+
+function assignEconomicModifiers (town) {
+  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
+  assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
+}
+
+function assignPoliticalModifiers (town) {
+  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
+  assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
+}
+
+function assignRollModifiers (town, modifiers) {
+  for (const [key, modifier] of Object.entries(modifiers)) {
+    town.roll[key] = lib.fm(town.roll[key], modifier)
   }
 }
