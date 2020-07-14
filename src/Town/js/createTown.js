@@ -193,12 +193,7 @@ setup.createTown = (base = {}) => {
     get () {
       console.log(this)
       // TODO fix the getter's workaround.
-      const tempWelfare = State.variables.town.roll.welfare
-      const welfarePercentile = tempWelfare
-      const nominalTarget = 2
-      const result = nominalTarget + (-1 / (welfarePercentile + 0.1)) + (1 / (10 - welfarePercentile))
-      return result
-      // return (this.roll.welfare / 50)
+      return calculateTax(2, State.variables.town.roll.welfare)
     }
   })
 
@@ -206,12 +201,7 @@ setup.createTown = (base = {}) => {
     get () {
       console.log(this)
       // TODO fix the getter's workaround.
-      const tempMilitary = State.variables.town.roll.military
-      const militaryPercentile = tempMilitary
-      const nominalTarget = 2
-      const result = nominalTarget + (-1 / (militaryPercentile + 0.1)) + (1 / (10 - militaryPercentile))
-      return result
-      // return (this.roll.military / 50)
+      return calculateTax(2, State.variables.town.roll.military)
     }
   })
 
@@ -219,10 +209,7 @@ setup.createTown = (base = {}) => {
     get () {
       console.log(this)
       // TODO fix the getter's workaround.
-      const economics = State.variables.town.roll.economics
-      const nominalTarget = 3
-      const result = nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
-      return result
+      return calculateTax(3, State.variables.town.roll.economics)
     }
   })
 
@@ -274,6 +261,14 @@ setup.politicsWeightedRoll = (size, type) => {
       return key
     }
   }
+}
+
+/**
+ * @param {number} nominalTarget
+ * @param {number} economics
+ */
+function calculateTax (nominalTarget, economics) {
+  return nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
 }
 
 function assignSizeModifiers (town) {
