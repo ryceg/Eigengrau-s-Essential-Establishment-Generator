@@ -1,6 +1,5 @@
 
-setup.createSmithyName = function (town, smithy) {
-  const smithyNameRoll = random(1, 5)
+setup.createSmithyName = (town, smithy) => {
   const adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].random()
   const noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].random()
   const family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].random()
@@ -102,7 +101,7 @@ setup.createSmithyName = function (town, smithy) {
     }
   }
 
-  switch (smithyNameRoll) {
+  switch (random(1, 5)) {
     case 1:
       smithy.name = `The ${adjective} ${noun}`
       break
@@ -125,5 +124,4 @@ setup.createSmithyName = function (town, smithy) {
     default:
       smithy.name = `The ${adjective} Smithy`
   }
-  return smithy
 }
