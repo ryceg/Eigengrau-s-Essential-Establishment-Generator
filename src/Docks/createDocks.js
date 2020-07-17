@@ -46,7 +46,7 @@ setup.createDocks = (town, opts = {}) => {
   lib.defineRollDataGetter(docks, setup.docks.rollData, 'sizeDescriptive', 'size', 2)
   lib.defineRollDataGetter(docks, setup.docks.rollData, 'cleanlinessDescriptive', 'cleanliness', 2)
   lib.defineRollDataGetter(docks, setup.docks.rollData, 'activityDescriptive', 'activity')
-
+  docks.tippyDescription = `${lib.articles.output(docks.wordNoun).toUpperFirst()} that's ${docks.size || docks._size}. It is ${docks.cleanliness || docks._cleanliness}, and is known for ${docks.notableFeature}.`
   setup.docks.ships.create(town, docks)
 
   return docks
