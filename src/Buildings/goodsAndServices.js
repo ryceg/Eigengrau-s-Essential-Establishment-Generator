@@ -38,7 +38,7 @@ setup.initGoodsAndServices = () => {
         building.fruit = lib.flora.fruit.fruitS.random()
         building.fruits = lib.flora.fruit.fruitP.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}`
         return building
       },
       name: {
@@ -399,7 +399,7 @@ setup.initGoodsAndServices = () => {
         building.flower2 = lib.flora.flower.stemP.random()
         building.flower = lib.flora.flower.stemS.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}`
         return building
       },
       name: {

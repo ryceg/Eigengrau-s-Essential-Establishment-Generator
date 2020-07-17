@@ -28,7 +28,7 @@ setup.createTemple = (town, opts = {}) => {
     blessingGift: data.blessingGift.random()
   })
   setup.createStructure(town, temple)
-  temple.structure.templeDescriptor = `a ${temple.structure.material.wealth} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
+  temple.structure.templeDescriptor = `${lib.articles.output(temple.structure.material.wealth).toUpperFirst()} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
   temple.name = [
     `The ${data.name.adjective.random().toUpperFirst()} ${temple.wordNoun.toUpperFirst()} of ${data.name.plural.random().toUpperFirst()}`,
     `The ${temple.wordNoun.toUpperFirst()} of ${data.name.soleNoun.random().toUpperFirst()}`,
@@ -38,9 +38,6 @@ setup.createTemple = (town, opts = {}) => {
     `${['', 'St. '].random() + setup.createName({ race: temple.associatedNPC.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
   ].random()
 
-  temple.wealth = ''
-  temple.size = ''
-  temple.cleanliness = ''
   temple.blessing = `${temple.blessingConvey}. ${temple.blessingGift}.`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
@@ -51,6 +48,6 @@ setup.createTemple = (town, opts = {}) => {
   temple.guardReadout = `This ${temple.wordNoun} is protected by ${temple.guardedBy}.`
   temple.aboutReadout = `Within this holy place they pray to ${temple.prayerSubject}. The temple itself was originally dedicated to ${temple.dedicated} and is known for ${temple.knownFor}.`
   temple.interiorReadout = `You enter the ${temple.size}, ${temple.cleanliness} ${temple.wordNoun} and notice ${temple.features}. The main room is ${temple.floorPlan} in shape and is decorated with mostly ${temple.wealth} looking ${['furniture', 'relics', 'holy statues', 'holy symbols', 'stained glass windows', 'holy art'].random()}. The interior walls of the ${temple.wordNoun} are ${temple.walls} and the the ceiling is ${temple.ceiling}. The ${temple.wordNoun} was designed by ${temple.architect} and it is ${temple.complex}.`
-  temple.tippyDescription = `${lib.articles.output(temple.size)} and ${temple.cleanliness} ${temple.wordNoun} that is dedicated to ${temple.dedicated}`
+  temple.tippyDescription = `${lib.articles.output(temple.size).toUpperFirst()} and ${temple.cleanliness} ${temple.wordNoun} that is dedicated to ${temple.dedicated}`
   return temple
 }
