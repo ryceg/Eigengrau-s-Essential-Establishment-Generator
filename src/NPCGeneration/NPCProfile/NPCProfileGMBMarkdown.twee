@@ -1,4 +1,4 @@
-:: NPCProfileMarkdown
+:: NPCProfileGMBMarkdown
 {{{___}}}
 {{{> ## }}}$currentNPC.name
 {{{>*}}}$currentNPC.race($currentNPC.gender), $currentNPC.profession*
