@@ -46,6 +46,28 @@ setup.profileAgeTooltip = function (id, char) {
   })
 }
 
+setup.metricHeight = (height, isMetric) => {
+  if (isMetric === true) {
+    return `${(height * 0.0254).toFixed(2)}m`
+  } else {
+    const feet = Math.trunc(height / 12)
+    const inches = Math.round(height - Math.trunc(feet * 12))
+    if (inches === 0) {
+      return `${feet}ft. `
+    } else {
+      return `${feet}ft. ${inches}″`
+    }
+  }
+}
+
+setup.metricWeight = (npc, isMetric) => {
+  if (isMetric === true) {
+    return `${(npc.weightRoll / 2.2046).toFixed(1)}kg (with a BMI of ${npc.bmi})`
+  } else {
+    return `${npc.weightRoll}lbs. (with a BMI of ${npc.bmi})`
+  }
+}
+
 setup.profileHeightTooltip = function (id, char, heightVar) {
   if (heightVar) {
     char.heightRoll = heightVar
