@@ -8,7 +8,7 @@ about: Create a report to help us improve
 
 A clear and concise description of what the bug is.
 
-**To Reproduce**
+**To Reproduce (bugs MUST be replicable)**
 
 Town Seed (click [here](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/FAQ#people-keep-talking-about-seeds-what-is-a-seed) for info):
 
