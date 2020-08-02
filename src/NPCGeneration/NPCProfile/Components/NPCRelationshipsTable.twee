@@ -14,8 +14,8 @@
     <tr>
       <td><<profile $npcs[_key]>></td>
       <td><<print $npcs[_key].race.toUpperFirst()>></td>
-      <td><span id=${JSON.stringify($npcs[_key].firstName)} class=tip @title=_profession.description.toUpperFirst()><span class="dotted"><<print $npcs[_key].profession.toUpperFirst()>></span></span></td>
-      <td><span id=${JSON.stringify($npcs[_key].firstName)} class=tip @title=_reciprocal><span class="dotted"><<print _relationship.toUpperFirst()>></span></span></td>
+      <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_key].profession.toUpperFirst())>></td>
+      <td><<print lib.createTippyFull(_reciprocal, _relationship.toUpperFirst())>></td>
     </tr>
     <</for>>
     <tr>

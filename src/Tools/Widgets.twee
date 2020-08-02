@@ -37,14 +37,11 @@
 <</nobr>>
 <</widget>>
 
-<<widget "tooltip">>
-<<nobr>>
+<<widget "tooltip">><<nobr>>
 	<<set _target to $args[0]>>
 	<<set _description to $args[1] || $args[0]>>
-	<<set _id to "tip-" + Util.slugify((_target.name || "tooltip")) + "-" + Math.floor(randomFloat(0, 1).toString(16))>>
-	<span @id=_id class="tip dotted" @title=_description>_target</span>
-<</nobr>>
-<</widget>>
+	<<print lib.createTippyFull(_description, _target)>> 
+<</nobr>><</widget>>
 
 <<widget "money">><<silently>>
 		<<set _copper to Number($args[0])>>\

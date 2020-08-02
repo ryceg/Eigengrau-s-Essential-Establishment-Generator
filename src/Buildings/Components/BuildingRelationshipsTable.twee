@@ -12,7 +12,7 @@
 <<for _i to 0; _i lt _buildingRelationships.length; _i++>><<set _profession to lib.findProfession($town, $npcs[_buildingRelationships[_i].npcKey])>>
   <td><<profile $npcs[_buildingRelationships[_i].npcKey]>></td>
   <td><<print $npcs[_buildingRelationships[_i].npcKey].race.toUpperFirst()>></td>
-  <td><span id=${JSON.stringify($npcs[_buildingRelationships[_i].npcKey].firstName)} class=tip @title=_profession.description.toUpperFirst()><span class="dotted"><<print $npcs[_buildingRelationships[_i].npcKey].profession.toUpperFirst()>></span></span></td>
+  <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_buildingRelationships[_i].npcKey].profession.toUpperFirst())>></td>
   <td><<print lib.toTitleCase(_buildingRelationships[_i].relationship)>></td>
 <</for>>
 </table>
