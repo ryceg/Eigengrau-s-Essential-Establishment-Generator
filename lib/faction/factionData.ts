@@ -10,6 +10,7 @@ interface FactionType {
   rivalsList: string[]
   joiningRequirement: string[]
   joiningInitiation: string[]
+  members: members
   membersTrait: string[]
   main: string[]
   adjective: string[]
@@ -17,6 +18,12 @@ interface FactionType {
   unique: string[]
   motivation: string[]
   resources: string[]
+}
+
+interface members {
+  membershipIsMutuallyExclusive: boolean
+  membershipIsTotallyExclusive: boolean
+  professions: string[]
 }
 
 interface LeaderTraits {
@@ -42,6 +49,11 @@ export const factionData: FactionData = {
       rivalsList: ['nobles', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
       joiningRequirement: ['a display of skill', 'a display of skill', 'a display of skill', 'some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: false,
+        membershipIsTotallyExclusive: false,
+        professions: ['painter', 'dancer', 'bard', 'artisan', 'model', 'rope walker', 'furniture artisan', 'musician', 'playwright', 'poet', 'singer', 'skald', 'stage magician', 'theater director', 'stagehand', 'talent scout', 'actor', 'jester', 'minstrel', 'sculptor', 'writer', 'acrobat', 'trapezist', 'arranger', 'celebrity', 'choirmaster', 'clown', 'comedian', 'conductor', 'contortionist', 'curator', 'costumer', 'equilibrist', 'fashion designer', 'glass painter', 'juggler', 'limner', 'makeup artist']
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Creators', 'Visionaries', 'Artisans', 'Artists'],
       adjective: ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
@@ -63,6 +75,11 @@ export const factionData: FactionData = {
       rivalsList: ['scholars', 'scholars', 'mercenaries', 'mercenaries', 'mercenaries'],
       joiningRequirement: ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
       joiningInitiation: ['a secret task', 'an oath to be taken', 'a secret ritual', 'a secret task', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', "absolutely nothing; they're completely anonymous", 'their black sashes', 'their tendency to blink quickly', 'their quick tempers'],
       main: ['Dagger', 'Knife', 'Executioners', 'Hangmen', 'Hitmen', 'Killers', 'Doctors'],
       adjective: ['Cunning', 'Discreet', 'Quiet', 'Bloody', 'Rusted', 'Poisoned', 'Defiled'],
@@ -84,6 +101,11 @@ export const factionData: FactionData = {
       rivalsList: ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries', 'mercenaries'],
       joiningRequirement: ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
       joiningInitiation: ['a secret task', 'an oath to be taken', 'a secret ritual', 'a secret task', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
       main: ['Ravens', 'Crows', 'Jackals', 'Flesh', 'Knife', 'Club', 'Axe', 'Sword', 'Vultures', 'Dingoes', 'Tigers'],
       adjective: ['Cutthroat', 'Backstabbing', 'Two Timing', 'Orphaned', 'Dead', 'Brutal', 'Bleeding', 'Bloodied', 'Razor', 'Serrated'],
@@ -105,6 +127,11 @@ export const factionData: FactionData = {
       rivalsList: ['bandits', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: ['a display of skill', 'a display of skill', 'a display of skill', 'some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride', 'their terrible ballads', 'their limerick rhyming', 'their funky harmonies', 'their use of tritone substitution and negative harmony', 'their stochastically generated microtonal four-voice fugues'],
       main: ['Rehearsals', 'Musicians', 'Bards', 'Harmonies', 'Poems', 'Ballads', 'Arias', 'Lutes', 'Minstrels'],
       adjective: ['Tuneful', 'Melodious', 'Inspired', 'Twelve Tone', 'Busking'],
@@ -125,6 +152,11 @@ export const factionData: FactionData = {
       rivalsList: ['assassins', 'bards', 'thieves', 'commoners'],
       joiningRequirement: ['holy deeds', 'a show of faith', 'a good deed', 'a generous tithe'],
       joiningInitiation: ['sacraments and rituals', 'a blessing from the head priest'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: true,
+        professions: []
+      },
       membersTrait: ['amulets with a holy sigil', 'the ring that members are given'],
       main: ['Mother', 'Father', 'Lord'],
       adjective: ['Heavenly', 'Merciful', 'Holy', 'Righteous', 'Saintly'],
@@ -146,6 +178,11 @@ export const factionData: FactionData = {
       rivalsList: ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: false,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Creators', 'Visionaries', 'Crafters', 'Craftsmen'],
       adjective: ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
@@ -166,6 +203,11 @@ export const factionData: FactionData = {
       rivalsList: ['assassins', 'wizards'],
       joiningRequirement: ['become a druid', 'give up all worldly possessions'],
       joiningInitiation: ['fight a bear with your bare hands'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['brown and dirty robes'],
       main: ['Green', 'Wild', 'Forest', 'Stream', 'Sky'],
       adjective: ['Holy', 'Great', 'Wide', 'Open'],
@@ -186,6 +228,11 @@ export const factionData: FactionData = {
       rivalsList: ['wizards', 'assassins', 'commoners', 'commoners', 'priests', 'commoners', 'assassins'],
       joiningRequirement: ['familial ties to their home country', 'an expressed desire for citizenship', 'a bond of kinship'],
       joiningInitiation: ['complex citizenship paperwork', 'complex citizenship paperwork', 'an oath of fealty to their king', 'a sufficiently large bribe'],
+      members: {
+        membershipIsMutuallyExclusive: false,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['their tattoos and facial piercings', 'their outlandish clothes', 'their strangely colored hair', 'their orange clothes', 'their large earrings', 'their gaudy jewelry'],
       main: ['Peoples', 'Citizens', 'Lords', 'Peoples'],
       adjective: ['Foreign', 'Distant', 'External', 'Alien', 'Foreign'],
@@ -207,6 +254,11 @@ export const factionData: FactionData = {
       rivalsList: ['bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
       joiningRequirement: ['some social status', 'referral by an existing member', 'a display of bravery', 'a display of bravery'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: true,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
       main: ['Hand', 'Fist', 'Gauntlet', 'Glove', 'Hammer', 'Shield', 'Cloak', 'Dagger', 'Mace', 'Sword'],
       adjective: ['Black', 'White', 'Shining', 'Just', 'Tall', 'Impenetrable', 'Unbreakable', 'Brass', 'Bronze', 'Blue', 'Strong', 'Mighty'],
@@ -228,6 +280,11 @@ export const factionData: FactionData = {
       rivalsList: ['commoners', 'commoners', 'priests', 'priests', 'assassins', 'assassins', 'assassins'],
       joiningRequirement: ['some social status', 'an excellent reputation', 'some social status', 'an excellent reputation'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their purple robes', 'their gaudy jewelry', 'the fact that a member is always closely followed by a boy carrying a chest'],
       main: ['Merchants', 'Company', 'Sellers and Buyers', 'Traders', 'Dealers', 'Brokers', 'Pedlars', 'Hawkers', 'Distributors'],
       adjective: ['Shrewd', 'Thrifty', 'Golden Spoon', 'Rich', 'Miserly'],
@@ -249,6 +306,11 @@ export const factionData: FactionData = {
       rivalsList: ['bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
       joiningRequirement: ['some social status', 'referral by an existing member', 'a display of bravery', 'a display of bravery'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: true,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
       main: ['Hand', 'Fist', 'Gauntlet', 'Glove', 'Hammer', 'Shield', 'Cloak', 'Dagger', 'Mace', 'Sword'],
       adjective: ['Black', 'White', 'Shining', 'Just', 'Tall', 'Impenetrable', 'Unbreakable', 'Brass', 'Bronze', 'Blue', 'Strong', 'Mighty', 'Death'],
@@ -270,6 +332,11 @@ export const factionData: FactionData = {
       rivalsList: ['artisans', 'priests', 'priests', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: ['some social status', 'referral by an existing member', 'a display of skill', 'a display of skill'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: true,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their shaved heads', 'their malnutrition', 'their calm presence', 'their know-it-all answers', 'their terrible jokes', 'their amazing beer', 'the tankard that all members carry'],
       main: ['Monks', 'Robes', 'Stone', 'Rock'],
       adjective: ['Understanding', 'Meditating', 'Calm', 'Unmoving'],
@@ -290,6 +357,11 @@ export const factionData: FactionData = {
       rivalsList: ['commoners', 'commoners', 'commoners', 'commoners', 'commoners', 'bandits', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins', 'assassins'],
       joiningRequirement: ['some social status', 'some social status', 'some social status', 'an excellent reputation', 'an excellent reputation', 'an excellent reputation'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: false,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Ladies', 'People', 'Men', 'Lords', 'Heirs', 'Land Owners', 'Barons', 'Tycoons', 'Nobles', 'Gentlemen'],
       adjective: ['Sophisticated', 'Intelligent', 'Refined', 'Cultured', 'Wealthy', 'Distinguished'],
@@ -311,6 +383,11 @@ export const factionData: FactionData = {
       rivalsList: ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: ['some social status', 'referral by an existing member', 'a display of skill', 'a display of skill'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the walking sticks that all members carry', 'the beards that they grow', 'the grey robes they wear', 'the amulet they wear'],
       main: ['Priests', 'Clergy', 'Churchpeople', 'People of the Cloth', 'Robes', 'Incense', 'Elders', 'Preachers'],
       adjective: ['Holy', 'Faithful', 'Caring', 'Civil', 'Devout', 'Devoted', 'Compassionate'],
@@ -332,6 +409,11 @@ export const factionData: FactionData = {
       rivalsList: ['bandits', 'bandits', 'bandits', 'bandits', 'mercenaries', 'mercenaries', 'mercenaries'],
       joiningRequirement: ['some social status', 'referral by an existing member', 'a display of bravery', 'a display of bravery'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their pet ferrets', 'their pet sparrows', 'the twigs that are strewn throughout their hair', 'their terrible smell', 'the lack of footwear'],
       main: ['Wilderness', 'Woods', 'Lands', 'Forests', 'Trees', 'Animals'],
       adjective: ['Tree Loving', 'Padfoot', 'Barefoot', 'Protective', 'Watchful', 'Careful', 'Honest'],
@@ -353,6 +435,11 @@ export const factionData: FactionData = {
       rivalsList: ['seers', 'priests', 'priests', 'priests', 'commoners', 'bandits', 'bandits', 'bandits', 'assassins', 'assassins', 'assassins'],
       joiningRequirement: ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: false,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Scroll Keepers', 'Book Keepers', 'Collectors', 'Librarians', 'Knowledge Holders', 'Proof Readers', 'Academics'],
       adjective: ['Scholarly', 'Indentured', 'Absent Minded', 'Knowledgeable', 'Intelligent', 'Unknown', 'Eldritch', 'Memorized', 'Cited'],
@@ -374,6 +461,11 @@ export const factionData: FactionData = {
       rivalsList: ['scholars', 'scholars', 'scholars', 'scholars'],
       joiningRequirement: ['some social status', 'a display of skill', 'referral by an existing member', 'a display of skill', 'a display of skill'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the vacant look that members have', 'the vacant stare that members pull (in order to fit in with the others)', 'the plain robes they wear', 'the bright blue coloured sashes they wear'],
       main: ['Seers', 'Predictionists', 'Future Seers', 'Observers', 'Eyes', 'Historians'],
       adjective: ['All Seeing', 'All Knowing', 'Watchful', 'Future'],
@@ -395,6 +487,11 @@ export const factionData: FactionData = {
       rivalsList: ['priests', 'priests', 'priests', 'commoners', 'commoners', 'commoners', 'commoners'],
       joiningRequirement: ['referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of skill', 'a display of skill', 'a display of loyalty', 'a display of bravery'],
       joiningInitiation: ['a heist', 'a secret task', 'a secret ritual', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['a missing earlobe', "absolutely nothing; they're completely anonymous", 'a dagger given to ever member', 'a ring given to every member', 'a grey hood', 'their lack of manners', 'their bad stench', 'their rabble-rousing tendencies'],
       adjective: ['Clever', 'Sneaky', 'Cunning', 'Conniving', 'Honest', 'Black', 'Invisible', 'Silent'],
       main: ['Cutpurses', 'Pilferers', 'Thieves', 'Rogues', 'Property Reappropriaters'],
@@ -416,6 +513,11 @@ export const factionData: FactionData = {
       rivalsList: ['seers', 'priests', 'priests', 'priests', 'priests', 'assassins', 'assassins'],
       joiningRequirement: ['some social status', 'a display of skill', 'a display of skill', 'a display of skill'],
       joiningInitiation: ['a simple form to be filled', 'a simple form to be filled', 'an oath to be taken', 'a secret ritual'],
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: false,
+        professions: []
+      },
       membersTrait: ['their lack of table manners', 'their extreme interest in the oddities of the arcane', 'the blue robes they wear', 'the sash that members are given', 'the ring that members are given', 'their excessively bureaucratic tendencies'],
       main: ['Prestidigitators', 'Illusionists', 'Casters', 'Magic Users', 'Diviners', 'Evokers', 'Necromancers', 'Abjurers', 'Scroll Keepers', 'Book Keepers', 'Collectors', 'Librarians'],
       adjective: ['Arcane', 'Magical', 'Scholarly', 'Absent Minded', 'Knowledgeable', 'Intelligent', 'Unknown', 'Eldritch', 'Memorized'],
