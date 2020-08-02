@@ -12,6 +12,7 @@ setup.createCastle = (town, opts = {}) => {
     objectType: 'building',
     age: data.rollData.age.random(),
     condition: data.rollData.condition.random(),
+    dungeon: setup.createDungeon(town, opts),
     defense: {
       reason: [
         data.location.forest.defenseReason.random()
@@ -19,20 +20,6 @@ setup.createCastle = (town, opts = {}) => {
       ].random(),
       innerWalls: data.defense.innerWalls.random(),
       outerWalls: data.defense.outerWalls.random()
-    },
-    dungeon: {
-      knownFor: data.dungeon.knownFor.random(),
-      secret: data.dungeon.secret.random(),
-      location: data.dungeon.location.random(),
-      age: data.dungeon.age.random(),
-      format: data.dungeon.format.random(),
-      cells: {
-        prisoners: {
-          treatment: data.dungeon.cells.prisoners.treatment.random()
-        },
-        condition: data.dungeon.cells.condition.random(),
-        format: data.dungeon.cells.format.random()
-      }
     }
   })
   console.log('Created castle.')
@@ -48,6 +35,28 @@ setup.createCastle = (town, opts = {}) => {
   console.groupEnd()
   console.log(castle)
   return castle
+}
+
+setup.createDungeon = (town, opts = {}) => {
+  const data = setup.castle.dungeon
+  const dungeon = {
+    associatedNPC: setup.createNPC(town, {
+      profession: 'jailer'
+    }),
+    knownFor: data.knownFor.random(),
+    secret: data.secret.random(),
+    location: data.location.random(),
+    age: data.age.random(),
+    format: data.format.random(),
+    cells: {
+      prisoners: {
+        treatment: data.cells.prisoners.treatment.random()
+      },
+      condition: data.cells.condition.random(),
+      format: data.cells.format.random()
+    }
+  }
+  return dungeon
 }
 
 setup.createCastleName = (town, castle, namesake = {}) => {

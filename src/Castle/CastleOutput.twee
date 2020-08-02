@@ -8,3 +8,4 @@ The $building.wordNoun's inner walls feature $building.defense.innerWalls, prote
 <h4>Cells</h4>The cells inside the dungeon are $building.dungeon.cells.condition, and prisoners are kept in $building.dungeon.cells.format. Prisoners of $building.name are treated $building.dungeon.cells.prisoners.treatment.
 <<button "Create a historical siege">><<set $building.siege to setup.castle.siege.create($town)>><<replace "#siege">><div class='descriptive'>$building.siege.readout</div><</replace>><</button>>
 <span id="siege"></span>
+<<linkreplace "<h4>Customers</h4>" t8n>><<include "BuildingRelationshipsTable">><</linkreplace>>

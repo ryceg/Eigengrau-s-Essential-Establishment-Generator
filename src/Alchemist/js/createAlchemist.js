@@ -6,6 +6,7 @@ setup.createAlchemist = (town, opts = {}) => {
 
   const alchemist = createBuilding(town, 'alchemist')
   const associatedNPC = createChemist(town)
+  setup.createBuildingRelationship(town, alchemist, associatedNPC, 'owner')
 
   Object.assign(alchemist, {
     associatedNPC,

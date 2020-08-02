@@ -23,4 +23,5 @@ $building.entertainment
 <<include "Noticeboard">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
+<<linkreplace "<h4>Customers</h4>" t8n>><<include "BuildingRelationshipsTable">><</linkreplace>>
 <<run setup.tippy(".btn")>>

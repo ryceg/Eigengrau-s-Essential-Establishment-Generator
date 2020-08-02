@@ -83,6 +83,24 @@
 <</widget>>
 
 
+<<widget "building">>
+\<<set _building = $args[0],
+	_readout = $args[1] || _building.name>>
+\<span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_readout)>>
+\<<link "_buildingTitle">>
+  \<<set $currentPassage to _building>>
+  \<<run setup.history(_building, null, _readout)>>
+  \<<run console.log(_building)>>
+  \<<if settings.showSliders>>
+      \<<goto _building.initPassage>>
+    \<<else>>
+      \<<goto _building.passageName>>
+  \<</if>>
+\<</link>>
+\</span>
+\<<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
+<</widget>>
+
 <<widget "profile">>
     \<<set _object = $args[0],
         _readout = $args[1] || _object.name,

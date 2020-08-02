@@ -1,4 +1,4 @@
-setup.createBartender = function (town, associatedBuilding) {
+setup.createBartender = function (town, tavern) {
   const bartender = setup.createNPC(town, {
     // associatedBuilding: associatedBuilding,
     associatedTown: town.name,
@@ -35,5 +35,7 @@ setup.createBartender = function (town, associatedBuilding) {
       'barking orders at one of the barmaids',
       'breaking up a fight in front of the bar']
   })
+  if (tavern) setup.createBuildingRelationship(town, tavern, bartender, 'owner', 'business')
+
   return bartender
 }

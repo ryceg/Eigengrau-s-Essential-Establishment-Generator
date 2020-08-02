@@ -4,7 +4,7 @@ setup.createTavern = function (town, opts = {}) {
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.bartender = (opts.newBartender || setup.createBartender)(town, tavern.name)
+  tavern.bartender = (opts.newBartender || setup.createBartender)(town, tavern)
   tavern.associatedNPC = tavern.bartender
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
@@ -14,6 +14,8 @@ setup.createTavern = function (town, opts = {}) {
     profession: 'barmaid'
   })
   setup.createRelationship(town, tavern.bartender, tavern.barmaid, 'employee', 'employer')
+
+  setup.createBuildingRelationship(town, tavern, tavern.barmaid, 'employee', 'place of employment')
 
   Object.assign(tavern, {
     passageName: 'TavernOutput',

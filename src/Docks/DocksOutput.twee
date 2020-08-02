@@ -3,3 +3,4 @@
 
 <<button "Create a ship">>
 <<run setup.docks.ships.create($town, $building)>><<replace "#ships">><<include "ShipList">><</replace>><</button>><<include "ShipList">>
+<<linkreplace "<h4>Customers</h4>" t8n>><<include "BuildingRelationshipsTable">><</linkreplace>>

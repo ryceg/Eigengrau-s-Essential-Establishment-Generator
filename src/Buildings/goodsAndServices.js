@@ -31,6 +31,7 @@ setup.initGoodsAndServices = () => {
           return
         }
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
         building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
         building.specialty = setup.goodsAndServices[building.type].specialty.random()
@@ -390,6 +391,7 @@ setup.initGoodsAndServices = () => {
         const typeData = setup.goodsAndServices[building.type]
 
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
         building.notableFeature = typeData.notableFeature.random()
@@ -672,6 +674,7 @@ setup.initGoodsAndServices = () => {
         const typeData = setup.goodsAndServices[building.type]
 
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
         building.notableFeature = typeData.notableFeature.random()
@@ -1262,6 +1265,7 @@ setup.initGoodsAndServices = () => {
         const typeData = setup.goodsAndServices[building.type]
 
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
         building.notableFeature = typeData.notableFeature.random()
@@ -1581,6 +1585,7 @@ setup.initGoodsAndServices = () => {
         const typeData = setup.goodsAndServices[building.type]
 
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
         building.notableFeature = typeData.notableFeature.random()
@@ -1834,6 +1839,7 @@ setup.initGoodsAndServices = () => {
         const typeData = setup.goodsAndServices[building.type]
 
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
         building.notableFeature = typeData.notableFeature.random()
@@ -2110,6 +2116,7 @@ setup.initGoodsAndServices = () => {
         const typeData = setup.goodsAndServices[building.type]
 
         building.associatedNPC = setup.createNPC(town, opts.professionOpts || typeData.profession.opts)
+        setup.createBuildingRelationship(town, building, building.associatedNPC, 'owner')
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
         building.notableFeature = typeData.notableFeature.random()

@@ -39,6 +39,7 @@ setup.createTown = (base = {}) => {
     buildings: [],
     families: {
     },
+    buildingRelations: [],
     population: lib.townData.type[type].population(),
     _demographicPercentile: {},
     // Clone the raw demographic data for the town type.
