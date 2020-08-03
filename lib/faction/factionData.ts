@@ -10,7 +10,7 @@ interface FactionType {
   rivalsList: string[]
   joiningRequirement: string[]
   joiningInitiation: string[]
-  members: members
+  members: Members
   membersTrait: string[]
   main: string[]
   adjective: string[]
@@ -20,7 +20,7 @@ interface FactionType {
   resources: string[]
 }
 
-interface members {
+interface Members {
   membershipIsMutuallyExclusive: boolean
   membershipIsTotallyExclusive: boolean
   professions: string[]
