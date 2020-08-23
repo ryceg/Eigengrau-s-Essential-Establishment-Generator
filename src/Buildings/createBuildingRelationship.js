@@ -1,31 +1,51 @@
-setup.createBuildingRelationship = (town, building, npc, relationship, reciprocalRelationship) => {
+setup.createBuildingRelationship = (town, building, npc, relationshipObj) => {
   // this can also be used for factions.
-  if (!building || !npc || !relationship) {
+  if (!building || !npc || !relationshipObj) {
     console.error('Not enough parameters passed.')
   }
-  town.buildingRelations.find(object => {
-    if (object.buildingKey === building.key && object.npcKey === npc.key) {
+  let existingObj
+  town.buildingRelations.find(obj => {
+    if (obj.buildingKey === building.key && obj.npcKey === npc.key) {
       // if there is already an existing relationship between the two, test to see if the relationship needs updating
-      if (object.relationship !== relationship) {
-        // if it's not the same, update it.
-        object.relationship = relationship
-        return
-      }
-      if (reciprocalRelationship && object.reciprocalRelationship !== reciprocalRelationship) {
-        // if there's a reciprocal, and the object doesn't match, update it.
-        object.reciprocalRelationship = reciprocalRelationship
-      }
-    } else {
-
+      Object.keys(relationshipObj).forEach(key => {
+        obj[key] = relationshipObj[key]
+      })
+      existingObj = true
     }
   })
-  town.buildingRelations.push({
-    key: lib.getUUID(),
-    buildingKey: building.key,
-    npcKey: npc.key,
-    relationship,
-    reciprocalRelationship
-  })
+  if (!existingObj) {
+    switch (typeof relationshipObj.description) {
+      case 'function':
+        town.buildingRelations.push({
+          key: lib.getUUID(),
+          buildingKey: building.key,
+          npcKey: npc.key,
+          relationship: relationshipObj.relationship,
+          reciprocalRelationship: relationshipObj.reciprocalRelationship,
+          description: relationshipObj.description(building, npc) || relationshipObj.description || null
+        })
+        break
+      case 'string':
+        town.buildingRelations.push({
+          key: lib.getUUID(),
+          buildingKey: building.key,
+          npcKey: npc.key,
+          relationship: relationshipObj.relationship,
+          reciprocalRelationship: relationshipObj.reciprocalRelationship,
+          description: relationshipObj.description || null
+        })
+        break
+      default:
+        town.buildingRelations.push({
+          key: lib.getUUID(),
+          buildingKey: building.key,
+          npcKey: npc.key,
+          relationship: relationshipObj.relationship,
+          reciprocalRelationship: relationshipObj.reciprocalRelationship,
+          description: relationshipObj.description || null
+        })
+    }
+  }
 }
 
 setup.findBuildingRelationship = (town, building, npc) => {

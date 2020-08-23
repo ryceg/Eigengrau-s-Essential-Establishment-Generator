@@ -1,0 +1,31 @@
+:: CreateNewNpc
+<<set _randomNPC to {
+  gender: ["man", "woman"].random(),
+  race: Object.keys(lib.raceTraits).random(),
+  ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly", "vulnerably elderly"].random(),
+  profession: Object.keys(lib.professions).random()
+}>><<set _relationships to $currentPassage.availableRelationships || "visitor">><<set _selectedRelationship to _relationships.random().relationship>>
+\<<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>>
+\ -- <<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "elderly", "vulnerably elderly"]>><</listbox>>
+\ -- <<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>>
+\ -- <<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>>
+\ -- <<listbox "_selectedRelationship" autoselect>><<optionsfrom _relationships.map(obj => {
+    return obj.relationship
+  })>><</listbox>>
+\ -- <<button "Create NPC">>
+  \<<if def _newNPC>>
+    \<<run setup.deleteNPC($npcs[_newNPC])>>
+  \<</if>>
+\<<set $currentPassage.randomNPC to setup.createNPC($town, lib.filterNull(_randomNPC))>>
+\<<run setup.createBuildingRelationship($town, $currentPassage, $currentPassage.randomNPC, lib.findInArray($currentPassage.availableRelationships, "relationship", _selectedRelationship))>>
+    \<<replace "#NPC">>
+          \<div class="descriptive">
+            \<h3>$currentPassage.randomNPC.name</h3>
+            \<<print lib.articles.output($currentPassage.randomNPC.descriptor).toUpperFirst()>> is currently <<print $currentPassage.randomNPC.idle.random()>> in the corner. 
+            \You strike up conversation with $currentPassage.randomNPC.himher, and the $currentPassage.randomNPC.descriptor introduces $currentPassage.randomNPC.himherself as 
+            \<<profile $currentPassage.randomNPC>>, <<print lib.articles.find($currentPassage.randomNPC.profession)>> <<tooltip $currentPassage.randomNPC.profession lib.professions[$currentPassage.randomNPC.profession].description.toUpperFirst()>>.</div>
+    \<</replace>>
+    \<<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
+<</button>>
+<div id="NPC"></div>
+<<include "BuildingRelationshipsTable">>
