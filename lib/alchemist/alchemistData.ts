@@ -1,5 +1,7 @@
 import { ThresholdTable } from '../src/rollFromTable'
 import { Alchemist } from './_common'
+import { NPC } from '../npc-generation/_common'
+import { random } from '../src/random'
 
 interface AlchemistData {
   rollData: {
@@ -9,6 +11,7 @@ interface AlchemistData {
     expertise: ThresholdTable
   }
   get: {
+    customers: Customers[]
     lookAround(alchemist: Alchemist): LookAround[]
     priceTalk(alchemist: Alchemist): PriceTalk[]
   }
@@ -18,6 +21,12 @@ interface AlchemistData {
     rider: string[]
   }
   ingredients: string[]
+}
+
+interface Customers {
+  relationship: string
+  reciprocalRelationship?: string
+  description(alchemist: Alchemist, npc: NPC): string
 }
 
 interface LookAround {
@@ -80,6 +89,30 @@ export const alchemistData: AlchemistData = {
     ]
   },
   get: {
+    customers: [
+      {
+        relationship: 'customer',
+        description (building, npc) { return `${npc.firstName} purchases ${random(['herbs', 'some rare herbs', 'some reagents', 'salt', 'some spices', 'spices typically used in alchemy'])} from ${building.name} for cooking.` }
+      },
+      {
+        relationship: 'discrete customer',
+        description (building, npc) { return `${npc.firstName} secretly purchases ${random(['poison', 'some rare herbs used for poison', 'some reagents', 'unnamed powders', 'some things that could be considered dangerous', 'strange potions', 'potions', 'unnamed potions', 'glassware', 'glassware and alchemical reagents'])} from ${building.name}.` }
+      },
+      {
+        relationship: 'lovestruck customer',
+        description (building, npc) { return `${npc.firstName} secretly purchases ${random(['love potions', 'potions purported to beguile the imbiber', 'potions meant to make the drinker fall in love'])} from ${building.name}.` }
+      },
+      {
+        relationship: 'detractor',
+        reciprocalRelationship: 'target of ire',
+        description (building, npc) { return `${npc.firstName} is an outspoken detractor of ${building.name}, believing alchemy to be an abomination.` }
+      },
+      {
+        relationship: 'client',
+        reciprocalRelationship: 'supplier',
+        description (building, npc) { return `${npc.firstName} supplies ${random(['herbs', 'some rare herbs', 'some reagents', random(alchemistData.ingredients)])} to ${building.name}.` }
+      }
+    ],
     lookAround: alchemist => [
       {
         cleanliness: 80,
