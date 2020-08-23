@@ -96,6 +96,14 @@ export function getPredominantRace (percentages: Record<RaceName, number>) {
       secondaryRace
     }
   }
+  if (percentile < 20) {
+    return {
+      amount: 'diverse melting pot of races',
+      amountDescriptive: 'of a melting pot of all different races',
+      primaryRace,
+      secondaryRace
+    }
+  }
 }
 
 export function formatPercentile (percentages: [string, number][]): string[] {
