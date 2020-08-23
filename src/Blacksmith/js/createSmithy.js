@@ -3,7 +3,7 @@ setup.createSmithy = function (town, opts = {}) {
   const smithy = (opts.newBuilding || setup.createBuilding)(town, 'smithy')
   console.groupCollapsed('Smithy loading...')
   smithy.associatedNPC = setup.createBlacksmith(town, smithy)
-  setup.createBuildingRelationship(town, smithy, smithy.associatedNPC, 'owner')
+  setup.createBuildingRelationship(town, smithy, smithy.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   setup.createSmithyName(town, smithy)
   Object.assign(smithy, {
     wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].random(),

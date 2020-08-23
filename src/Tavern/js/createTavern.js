@@ -15,7 +15,7 @@ setup.createTavern = function (town, opts = {}) {
   })
   setup.createRelationship(town, tavern.bartender, tavern.barmaid, 'employee', 'employer')
 
-  setup.createBuildingRelationship(town, tavern, tavern.barmaid, 'employee', 'place of employment')
+  setup.createBuildingRelationship(town, tavern, tavern.barmaid, { relationship: 'employee', reciprocalRelationship: 'place of employment' })
 
   Object.assign(tavern, {
     passageName: 'TavernOutput',
