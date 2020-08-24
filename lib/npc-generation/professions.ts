@@ -45,7 +45,18 @@ export interface Profession {
    * Any words that should be filtered into it.
    */
   synonyms?: string[]
+  /**
+   * Is something that somebody might do for fun, in their spare time.
+   */
   isHobby?: boolean
+  /**
+   * Has additional data for backgrounds.
+   */
+  isBackground?: boolean
+  /**
+   * Uses another profession's data for background.
+   */
+  usesBackground?: string
   /**
    * Something succinct.
    */
@@ -66,6 +77,7 @@ export interface Profession {
 export const professions: Record<string, Profession> = {
   'peasant': {
     sv: 20,
+    isBackground: true,
     type: 'labourer',
     sector: 'agriculture',
     description: 'a peasant.',
@@ -850,7 +862,7 @@ export const professions: Record<string, Profession> = {
   },
   'courtesan': {
     sv: 1950,
-    type: '',
+    type: 'labourer',
     sector: 'hospitality',
     description: 'a prostitute with wealthy and noble clients.',
     domSub: 'sub',
@@ -1108,6 +1120,7 @@ export const professions: Record<string, Profession> = {
   },
   'guard': {
     sv: 150,
+    isBackground: true,
     synonyms: ['guardsman', 'guard', 'watchman', 'town guard'],
     type: 'profession',
     sector: 'military',
@@ -1184,6 +1197,7 @@ export const professions: Record<string, Profession> = {
   },
   'hermit': {
     sv: 950,
+    isBackground: true,
     type: 'profession',
     sector: 'outcast',
     description:
@@ -1491,6 +1505,7 @@ export const professions: Record<string, Profession> = {
     }
   },
   'merchant': {
+    isBackground: true,
     sv: 650,
     type: 'business',
     sector: 'business',
@@ -1657,6 +1672,7 @@ export const professions: Record<string, Profession> = {
   },
   'noble': {
     sv: 3150,
+    isBackground: true,
     synonyms: ['nobleman', 'noblewoman'],
     type: 'profession',
     sector: 'government and law',
@@ -1930,6 +1946,7 @@ export const professions: Record<string, Profession> = {
   },
   'sailor': {
     sv: 150,
+    isBackground: true,
     type: 'labourer',
     sector: 'transportation',
     description: 'works as a member of the crew of a commercial or naval ship or boat.',
@@ -2164,6 +2181,7 @@ export const professions: Record<string, Profession> = {
   },
   'soldier': {
     sv: 1000,
+    isBackground: true,
     type: 'profession',
     sector: 'military',
     description: 'serves in an army.',
@@ -5529,6 +5547,7 @@ export const professions: Record<string, Profession> = {
   },
   'sage': {
     sv: 10000,
+    isBackground: true,
     type: 'profession',
     sector: 'magic',
     description: 'a wise and experienced magic-user.',
@@ -7089,6 +7108,7 @@ export const professions: Record<string, Profession> = {
   },
   'folk hero': {
     sv: 4000,
+    isBackground: true,
     type: 'profession',
     sector: 'adventuring',
     description: 'a celebrity who is greatly admired by many people of a particular kind or in a particular place.',
@@ -7249,6 +7269,7 @@ export const professions: Record<string, Profession> = {
   },
   'urchin': {
     sv: 500,
+    isBackground: true,
     type: 'profession',
     sector: 'outcast',
     description: 'a child who lives or spends most of their time in the streets, occasionally working as a thief or pickpocket.',
