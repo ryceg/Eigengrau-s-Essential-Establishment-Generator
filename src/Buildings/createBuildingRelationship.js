@@ -3,6 +3,7 @@ setup.createBuildingRelationship = (town, building, npc, relationshipObj) => {
   if (!building || !npc || !relationshipObj) {
     console.error('Not enough parameters passed.')
   }
+  console.log(building, npc, relationshipObj)
   let existingObj
   town.buildingRelations.find(obj => {
     if (obj.buildingKey === building.key && obj.npcKey === npc.key) {
@@ -13,38 +14,23 @@ setup.createBuildingRelationship = (town, building, npc, relationshipObj) => {
       existingObj = true
     }
   })
+
   if (!existingObj) {
+    const newRelationship = {
+      key: lib.getUUID(),
+      buildingKey: building.key,
+      npcKey: npc.key,
+      relationship: relationshipObj.relationship,
+      reciprocalRelationship: relationshipObj.reciprocalRelationship
+    }
     switch (typeof relationshipObj.description) {
       case 'function':
-        town.buildingRelations.push({
-          key: lib.getUUID(),
-          buildingKey: building.key,
-          npcKey: npc.key,
-          relationship: relationshipObj.relationship,
-          reciprocalRelationship: relationshipObj.reciprocalRelationship,
-          description: relationshipObj.description(building, npc) || relationshipObj.description || null
-        })
-        break
-      case 'string':
-        town.buildingRelations.push({
-          key: lib.getUUID(),
-          buildingKey: building.key,
-          npcKey: npc.key,
-          relationship: relationshipObj.relationship,
-          reciprocalRelationship: relationshipObj.reciprocalRelationship,
-          description: relationshipObj.description || null
-        })
+        newRelationship.description = relationshipObj.description(building, npc)
         break
       default:
-        town.buildingRelations.push({
-          key: lib.getUUID(),
-          buildingKey: building.key,
-          npcKey: npc.key,
-          relationship: relationshipObj.relationship,
-          reciprocalRelationship: relationshipObj.reciprocalRelationship,
-          description: relationshipObj.description || null
-        })
+        newRelationship.description = relationshipObj.description || null
     }
+    town.buildingRelations.push(newRelationship)
   }
 }
 
