@@ -31,7 +31,7 @@
     <td></td>
     <td><<if _buildingRelationships[_i].description || _buildingRelationships[_i].reciprocalRelationship>><<print lib.createTippyFull(
     _buildingRelationships[_i].description || 
-    $npcs[_buildingRelationships[_i].npcKey].firstName + " is " + lib.articles.output(_buildingRelationships[_i].reciprocalRelationship) + " to " + lib.findInArray($town.buildings, "key", _buildingRelationships[_i].buildingKey), 
+    lib.findInArray($town.buildings, "key", _buildingRelationships[_i].buildingKey).name + " is " + lib.articles.output(_buildingRelationships[_i].reciprocalRelationship) + " to " + $npcs[_buildingRelationships[_i].npcKey].firstName, 
     lib.toTitleCase(_buildingRelationships[_i].reciprocalRelationship || _buildingRelationships[_i].relationship))>><<else>><<print lib.toTitleCase(_buildingRelationships[_i].reciprocalRelationship || _buildingRelationships[_i].relationship)>><</if>></td>
     <</capture>><</for>>
     <</if>>
