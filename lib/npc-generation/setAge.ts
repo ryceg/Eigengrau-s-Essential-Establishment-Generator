@@ -8,7 +8,7 @@ export function setAge (npc: NPC): void{
 
   if (typeof ageDescriptors !== 'undefined') {
     for (const [ageThreshold, ageDescriptor] of ageDescriptors) {
-      if (ageThreshold <= npc.ageYears) {
+      if (ageThreshold >= npc.ageYears) {
         npc.age = ageDescriptor
       }
     }
