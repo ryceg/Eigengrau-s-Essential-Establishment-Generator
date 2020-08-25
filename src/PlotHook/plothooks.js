@@ -45,8 +45,8 @@ setup.plothooks = {
   'The Godfather': {
     type: ['event'],
     function (town) {
-      const npc = setup.createNPC(town, {
-        background: 'criminal'
+      const npc = setup.createDeadNPC(town, {
+        background: 'charlatan'
       })
       return `The party stops to witness a funeral procession for a ${setup.profile(npc, 'crime lord')}. Soon after passing, the party hears an explosion and sees a gigantic smoking fireball rise into the sky a block away.`
     }
@@ -1377,12 +1377,12 @@ setup.plothooks = {
       const druid1 = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'druid',
-        ageStage: 'adult'
+        ageStage: 'settled adult'
       })
       const druid2 = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'druid',
-        ageStage: 'adult'
+        ageStage: 'settled adult'
       })
       const faction = setup.factionsForType(town, 'type', 'druids')
       return `A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ${druid1} and ${druid2}, are more than happy to introduce the party to ${setup.profile(faction, '', 'town.factions')}.`
