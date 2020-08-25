@@ -6,7 +6,10 @@ setup.profileTooltip = function (id, obj) {
       if (obj.objectType) {
         switch (obj.objectType) {
           case 'npc':
-            span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} ${obj.profession} with ${obj.physicalTrait} called ${obj.name}`
+            console.log(`obj.descriptor for ${obj.name}:`)
+            console.log(obj.descriptor)
+            console.log(obj)
+            span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
             break
           case 'building':
             span.title = obj.tippyDescription || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
@@ -17,6 +20,8 @@ setup.profileTooltip = function (id, obj) {
           case 'guard':
             span.title = obj.tippyDescription || `${obj.name}, the guards.`
             break
+          default:
+            alert(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
         }
       } else {
         span.title = obj.tippyDescription || obj.name

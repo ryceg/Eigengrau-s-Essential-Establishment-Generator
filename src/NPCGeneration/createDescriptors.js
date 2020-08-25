@@ -17,7 +17,7 @@ setup.createDescriptors = npc => {
   }
 
   if (npc.hasClass) {
-    descriptors.push(npc.dndClass)
+    descriptors.push(npc.profession)
   }
 
   npc.descriptors = descriptors

@@ -187,7 +187,7 @@ export const professions: Record<string, Profession> = {
     sv: 6500,
     type: 'dndClass',
     sector: 'adventuring',
-    description: '.',
+    description: 'A sneaky person.',
     dailyWage: 250,
     socialClass: 'commoner',
     socialClassRoll () {
