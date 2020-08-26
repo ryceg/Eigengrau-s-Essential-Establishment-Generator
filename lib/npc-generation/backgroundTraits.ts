@@ -1,6 +1,6 @@
 type BackgroundName = 'acolyte' | 'criminal' | 'folk hero' | 'noble' | 'sage' | 'soldier' |
 'charlatan' | 'entertainer' | 'guild artisan' | 'gladiator' | 'hermit' | 'knight' | 'outlander' | 'pirate' | 'sailor' | 'urchin' |
-'commoner' | 'merchant' | 'scholar'
+'commoner' | 'merchant' | 'child'
 
 interface BackgroundTrait {
   backgroundOrigin: string[]
@@ -593,5 +593,30 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
       ' '
     ],
     wealth: 1000
+  },
+  'child': {
+    // 'knownLanguages': function (npc) { return npc },
+    backgroundOrigin: [
+      ' '
+    ],
+    ideal: [
+      'I think that you should always share.',
+      'If someone else doesn\'t have something that you do have, you should share it.',
+      'Having fun is the best!',
+      'I want to be as good as my mum when I grow up!'
+    ],
+    personalityTrait: [
+      'I like running around outside',
+      'I love catching fish',
+      'I am always in the mood for a game',
+      'I am constantly hungry'
+    ],
+    bond: [
+      'I want my dog to come back from the farm',
+      'I miss my sister',
+      'I wish my dad could play with me more',
+      'I want to have another little brother'
+    ],
+    wealth: 1
   }
 }

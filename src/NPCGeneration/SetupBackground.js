@@ -6,8 +6,8 @@ setup.createBackground = npc => {
   let bond
   let ideal
 
-  const currentBackgroundTraits = setup.npcData.backgroundTraits[npc.background]
-  const defaultBackgroundTraits = setup.npcData.backgroundTraits.commoner
+  const currentBackgroundTraits = lib.backgroundTraits[npc.background]
+  const defaultBackgroundTraits = lib.backgroundTraits.commoner
 
   if (typeof currentBackgroundTraits !== 'undefined') {
     backgroundOrigin = Array.isArray(currentBackgroundTraits.backgroundOrigin)
@@ -22,9 +22,10 @@ setup.createBackground = npc => {
       ? currentBackgroundTraits.ideal.random()
       : defaultBackgroundTraits.ideal.random()
   } else {
-    console.log(`${npc.name}'s background of ${npc.background} was not valid.`)
-    backgroundOrigin = setup.npcData.backgroundTraits.commoner.backgroundOrigin.random()
-    bond = setup.npcData.backgroundTraits.commoner.bond.random()
+    console.error(`${npc.name}'s background of ${npc.background} was not valid.`)
+    npc.background = 'commoner'
+    backgroundOrigin = lib.backgroundTraits.commoner.backgroundOrigin.random()
+    bond = lib.backgroundTraits.commoner.bond.random()
   }
 
   npc.backgroundOrigin = npc.backgroundOrigin || backgroundOrigin
