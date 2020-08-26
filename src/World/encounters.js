@@ -219,7 +219,7 @@ setup.initMiscEncounters = () => {
     'an adventurer on a horse': town => {
       const horse = lib.createAutoTippy(lib.horse)('horse')
       const npc = setup.createNPC(town, {
-        dndClass: ['fighter', 'fighter', 'paladin'].random(),
+        profession: ['fighter', 'fighter', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
         isThrowaway: true
       })
@@ -240,7 +240,7 @@ setup.initMiscEncounters = () => {
     'some graverobbers': () => 'some graverobbers',
     'some farmers': () => 'some farmers',
     'a plague-infested cabin': () => {
-      const cabin = createAutoTippy(lib.cabin)('cabin')
+      const cabin = lib.createAutoTippy(lib.cabin)('cabin')
       return `a plague-infested ${cabin}.`
     },
     'some beserkers': () => 'some beserkers',
@@ -337,9 +337,8 @@ setup.initMiscEncounters = () => {
     },
     'a mounted barbarian scout': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'barbarian',
+        profession: 'barbarian',
         background: 'outlander',
-        profession: 'scout',
         isThrowaway: true
       })
       return `a mounted barbarian ${setup.profile(npc, 'scout')}`
@@ -375,7 +374,6 @@ setup.initMiscEncounters = () => {
     'a swarm of beetles': town => 'a swarm of beetles',
     'a half mad prophet': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
         background: 'acolyte',
         profession: 'prophet',
         note: 'This prophet is as crazy as can be.',
@@ -435,7 +433,7 @@ setup.initMiscEncounters = () => {
     'a nomadic warrior': town => {
       const npc = setup.createNPC(town, {
         background: 'outlander',
-        dndClass: 'fighter',
+        profession: 'fighter',
         isThrowaway: true
       })
       return `a nomadic ${setup.profile(npc, 'warrior')}`
@@ -685,14 +683,14 @@ setup.initMiscEncounters = () => {
     'a beggarly bandit': town => {
       const npc = setup.createNPC(town, {
         background: 'criminal',
-        dndClass: ['fighter', 'rogue', 'rogue'].random(),
+        profession: ['fighter', 'rogue', 'rogue'].random(),
         isThrowaway: true
       })
       return `a beggarly ${setup.profile(npc, 'bandit')}`
     },
     'an old witch': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
+        profession: 'sorcerer',
         gender: 'woman',
         background: 'acolyte',
         ageStage: 'elderly',
@@ -720,14 +718,14 @@ setup.initMiscEncounters = () => {
       const npc = setup.createNPC(town, {
         hasClass: false,
         gender: 'man',
-        profession: 'woodcutter',
+        profession: 'forester',
         isThrowaway: true
       })
       return `a ${setup.profile(npc, 'woodcutter')}, busy with the day's work`
     },
     'an intrepid hunter': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'ranger',
+        profession: 'ranger',
         background: 'outlander',
         isThrowaway: true
       })
@@ -735,7 +733,7 @@ setup.initMiscEncounters = () => {
     },
     'an elvish ranger': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'ranger',
+        profession: 'ranger',
         race: 'elf',
         background: 'outlander',
         isThrowaway: true
@@ -766,7 +764,7 @@ setup.initMiscEncounters = () => {
     },
     'a beautiful witch': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
+        profession: 'sorcerer',
         gender: 'woman',
         background: 'acolyte',
         note: 'This witch is very beautiful.',
@@ -776,7 +774,7 @@ setup.initMiscEncounters = () => {
     },
     'a horrible witch': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'sorcerer',
+        profession: 'sorcerer',
         gender: 'woman',
         background: 'acolyte',
         calmTrait: 'mean',
@@ -807,7 +805,7 @@ setup.initMiscEncounters = () => {
     },
     'a wood elf druid': town => {
       const npc = setup.createNPC(town, {
-        dndClass: 'druid',
+        profession: 'druid',
         background: 'outlander',
         race: 'elf',
         isThrowaway: true

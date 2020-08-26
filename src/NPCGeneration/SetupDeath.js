@@ -51,7 +51,6 @@ const death = {
       function (town, npc) {
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass,
-          // dndClass: npc.dndClass,
           profession: npc.profession,
           hasClass: npc.hasClass
         })

@@ -761,7 +761,7 @@ export const townData = {
     kleptocracy: {
       leaderTraits: () => ({
         hasClass: true,
-        dndClass: 'rogue',
+        profession: 'rogue',
         background: 'criminal',
         title: 'High Thief',
         socialClass: 'nobility'
@@ -784,7 +784,7 @@ export const townData = {
     magocracy: {
       leaderTraits: () => ({
         hasClass: true,
-        dndClass: 'wizard',
+        profession: 'wizard',
         background: 'sage',
         title: 'Archchancellor',
         socialClass: 'nobility'
@@ -807,7 +807,7 @@ export const townData = {
     militocracy: {
       leaderTraits: () => ({
         hasClass: true,
-        dndClass: 'fighter',
+        profession: 'fighter',
         background: 'soldier',
         title: 'Commander',
         socialClass: 'nobility'
@@ -878,7 +878,6 @@ export const townData = {
     theocracy: {
       leaderTraits: () => ({
         hasClass: true,
-        dndClass: 'cleric',
         profession: 'cleric',
         background: 'acolyte',
         title: 'High Priest',

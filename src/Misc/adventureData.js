@@ -354,8 +354,7 @@ setup.adventure = {
       // var npc = setup.createNPC({
       isThrowaway: true,
       background: 'soldier',
-      profession: 'city watch',
-      dndClass: 'fighter'
+      profession: 'fighter'
       // })
       // return setup.profile(npc, 'military officer')
     },
@@ -471,7 +470,7 @@ setup.adventure = {
       // var npc = setup.createNPC(town, {
       isThrowaway: true,
       background: 'soldier',
-      dndClass: 'fighter'
+      profession: 'fighter'
       // })
       // return setup.profile(npc, 'soldier')
     },
@@ -479,7 +478,7 @@ setup.adventure = {
       // var npc = setup.createNPC(town, {
       isThrowaway: true,
       background: 'acolyte',
-      dndClass: 'cleric'
+      profession: 'cleric'
       // })
       // return setup.profile(npc, 'priest')
     },
@@ -615,7 +614,7 @@ setup.adventure = {
     },
     '<<print setup.profile(adventure.villain, "cultist")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['cleric', 'sorcerer', 'wizard'].random(),
+        profession: ['cleric', 'sorcerer', 'wizard'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -623,7 +622,7 @@ setup.adventure = {
     },
     '<<print setup.profile(adventure.villain, "conqueror")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['barbarian', 'fighter', 'fighter'].random(),
+        profession: ['barbarian', 'fighter', 'fighter'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -645,7 +644,7 @@ setup.adventure = {
     },
     '<<print "a " + setup.profile(adventure.villain, "criminal mastermind")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['rogue', 'rogue', 'fighter'].random(),
+        profession: ['rogue', 'rogue', 'fighter'].random(),
         isThrowaway: true
       })
       return adventure.villain
@@ -653,7 +652,7 @@ setup.adventure = {
     },
     '<<print "a " + setup.profile(adventure.villain, "raider")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['fighter', 'rogue'].random(),
+        profession: ['fighter', 'rogue'].random(),
         race: ['half-orc', 'human', 'human'].random(),
         isThrowaway: true
       })
@@ -670,7 +669,7 @@ setup.adventure = {
     },
     '<<print "a " + setup.profile(adventure.villain, "misguided zealot")>>' (town, adventure) {
       adventure.villain = setup.createNPC({
-        dndClass: ['cleric', 'cleric', 'druid'].random(),
+        profession: ['cleric', 'cleric', 'druid'].random(),
         isThrowaway: true
       })
       return adventure.villain

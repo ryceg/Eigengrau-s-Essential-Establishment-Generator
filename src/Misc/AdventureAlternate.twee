@@ -1,6 +1,6 @@
 :: AdventureAlternate
 /* <<set $adventureGorn to setup.createNPC($town, {age: "venerable", firstName: "Gorn"})>>
-<<set $adventureBandit to setup.createNPC($town, {gender: "man", profession: "bandit", dndClass: "fighter", note: "$adventureBandit is currently drunk."})>>
+<<set $adventureBandit to setup.createNPC($town, {gender: "man", profession: "bandit", profession: "fighter", note: "$adventureBandit is currently drunk."})>>
 
 <blockquote><h3>The Premise</h3>
 The characters are coerced into delivering the corpse of a man to a crypt 3 days distant. There are factions who oppose this and will try and stop the party from completing their task.</blockquote>

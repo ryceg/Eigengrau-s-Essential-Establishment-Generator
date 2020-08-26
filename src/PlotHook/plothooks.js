@@ -26,7 +26,7 @@ setup.plothooks = {
     },
     function (town) {
       const npc = setup.createNPC(town, {
-        dndClass: ['sorcerer', 'wizard', 'warlock'].random(),
+        profession: ['sorcerer', 'wizard', 'warlock'].random(),
         gender: 'man'
       })
       return `<<profile $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${setup.profile(npc, 'real culprit')} before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
@@ -36,7 +36,7 @@ setup.plothooks = {
     type: ['event'],
     function (town) {
       const npc = setup.createNPC(town, {
-        dndClass: 'rogue',
+        profession: 'rogue',
         gender: 'man'
       })
       return `A woman falls into the street from the second story window in front of the party and dies on impact. Soon after, a PC notices a ${setup.profile(npc, 'hooded figure')} skillfully dropping, uninjured, from another second story window facing into the alley. The figure quickly disappears into a maze of side streets.`
@@ -174,8 +174,7 @@ setup.plothooks = {
       const faction = setup.factionsForType(town, 'type', 'wizards')
       const npc = setup.createNPC(town, {
         background: 'sage',
-        dndClass: 'wizard',
-        gender: 'man'
+        profession: 'wizard'
       })
       return `Street urchins are rumored to have special powers. A ${setup.profile(npc, 'representative')} of ${setup.profile(faction, '', 'town.factions')} approaches your party to investigate. In reality, they are learning magic from an unknown source. The children have less inhibition and magical control, but have much more mana and capability of replenishing mana, making them dangerous magic users.`
     }
@@ -239,7 +238,7 @@ setup.plothooks = {
     type: ['event'],
     function (town) {
       const npc = setup.createNPC(town, {
-        dndClass: 'wizard',
+        profession: 'wizard',
         gender: 'man'
       })
       return `There have long been rumours of the cemetery being desecrated by someone stealing the corpses. One night the PCs chance upon the ${setup.profile(npc, 'necromancer')} walking home with newly animated undead.`
@@ -367,7 +366,7 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         race: 'orc',
         hasClass: true,
-        dndClass: 'barbarian',
+        profession: 'barbarian',
         background: 'bandit'
       })
       return `Wanted Dead or Alive – ${setup.profile(npc)}, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’`
@@ -391,7 +390,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         gender: 'woman',
-        dndClass: 'sorcerer'
+        profession: 'sorcerer'
       })
       const cabinTippy = lib.createAutoTippy(lib.cabin)
       return `Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. <<money 100>>/chicken to return them, no questions asked.’ (Poster is True Neutral ${setup.profile(npc, 'witch')} that lives in ${cabinTippy(lib.articles.output('cabin'))} in old haunted forest; all the chickens have been enlarged.)`
@@ -602,7 +601,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'fighter',
+        profession: 'fighter',
         ageStage: ['child', 'young adult'].random(),
         gender: 'man'
       })
@@ -631,7 +630,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'bard'
+        profession: 'bard'
       })
       return `Troupe of traveling bards need a few strong individuals to help schlep and set up our equipment on our world tour. Can pay in booze and lodging. Please contact ${setup.profile(npc)} for details.`
     }
@@ -652,7 +651,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'wizard'
+        profession: 'wizard'
       })
       return `Book keepers needed! Not really. Bandit-wizards have been trying to steal from my personal library of arcane books. Need tough, preferably illiterate, bodies to defend collection until I can secure safer storage. Please contact ${setup.profile(npc)} for details.`
     }
@@ -708,7 +707,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'wizard'
+        profession: 'wizard'
       })
       return `Local ${setup.profile(npc, 'spell caster')} looking for lab ‘assistant.’ Intelligence not required, but a high resistance to pain appreciated.`
     }
@@ -890,7 +889,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'bard',
+        profession: 'bard',
         gender: 'man'
       })
       return `BARD EXTRAORDINARE: Art is the purest expression of the soul, and no-one expresses themselves more eloquently than ${setup.profile(npc)}, the hottest Bard to grace the realm. The Golem Guardian newspaper has called him, ‘A fresh voice, ${npc.name} will wow your tavern with his genre-bending style, and witty lyrics. A star in the making’. Send a pigeon and book him in now!`
@@ -989,7 +988,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: ['warlock', 'wizard'].random()
+        profession: ['warlock', 'wizard'].random()
       })
       return `Need basilisk eggs for experiment! Big reward! Please contact ${setup.profile(npc)} for details.`
     }
@@ -999,7 +998,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: ['warlock', 'wizard'].random()
+        profession: ['warlock', 'wizard'].random()
       })
       return `Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. <<money 5000>> & four (4) Stones of Farspeech upon return. Please contact ${setup.profile(npc)} for details.`
     }
@@ -1103,7 +1102,7 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         hasClass: true,
         background: 'entertainer',
-        dndClass: 'bard'
+        profession: 'bard'
       })
       return `Help recovering property! This is your local bard, ${setup.profile(npc)}, and if you’ve seen me lately you know that I haven’t quite been myself. The truth is I lost my prize peacock feather hat in a wager at the Lusty Mermaid two days ago. The man who won it from me said I could pay him back for the value of the hat, but when I went to the inn he was staying at I found he skipped town without even paying his tab! (And I found out he cheated at that game of cards by the by) Please, I need a skilled ranger or another who is good at tracking to get back my hat! I’ll pay you 4,000 gold to go with me to get it, and I’m willing increase the price to 5,000 if our quarry proves elusive.`
     }
@@ -1150,7 +1149,7 @@ setup.plothooks = {
         hasClass: true,
         ageStage: 'elderly',
         gender: 'woman',
-        dndClass: ['sorcerer', 'warlock', 'warlock'].random(),
+        profession: ['sorcerer', 'warlock', 'warlock'].random(),
         note: 'Is not a very nice witch.'
       })
       return `HELP WANTED: ${setup.profile(npc, 'poor old widow')} requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)`
@@ -1186,7 +1185,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'wizard'
+        profession: 'wizard'
       })
       return `IN NEED OF DURABLE IDIOT, WILL BE WORKING WITH IMPOSSIBLE GEOMETRIES. IDIOCY NOT NEEDED BUT DESIRED. BRING FRIENDS. snacks provided! (This was wrote incredibly hastily by a ${setup.profile(npc, 'desperate wizard')}, and his wife. The words ‘snacks provided’ are in much cleaner handwriting toward the bottom, obviously added as it was being posted.)`
     }
@@ -1318,7 +1317,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'wizard'
+        profession: 'wizard'
       })
       const secondNpc = setup.createNPC(town, {
         hasClass: true,
@@ -1334,7 +1333,7 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         hasClass: true,
         background: 'entertainer',
-        dndClass: 'bard'
+        profession: 'bard'
       })
       return `Seasoned adventurers needed! ${setup.profile(npc, 'Bard')} here, tell me the tales of your great adventures, I need some inspiration for my books/songs. Payment will be determined by how good your stories are.`
     }
@@ -1375,12 +1374,12 @@ setup.plothooks = {
     function (town) {
       const druid1 = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'druid',
+        profession: 'druid',
         ageStage: 'settled adult'
       })
       const druid2 = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'druid',
+        profession: 'druid',
         ageStage: 'settled adult'
       })
       const faction = setup.factionsForType(town, 'type', 'druids')
@@ -1442,7 +1441,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'rogue',
+        profession: 'rogue',
         background: 'criminal'
       })
       return `‘Wanted Dead or Alive – ${setup.profile(npc)}, master assassin! Warning: very heavily armed and dangerous. See attached picture. Reward: <<money 100000>>’`
@@ -1460,7 +1459,7 @@ setup.plothooks = {
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: 'wizard'
+        profession: 'wizard'
       })
       return `Local ${setup.profile(npc, 'spell caster')} looking for willing test subjects. <<money 20000>> per experiment. <money 400000>> if you lose a limb.`
     }

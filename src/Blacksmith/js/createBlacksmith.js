@@ -1,6 +1,5 @@
 
 setup.createBlacksmith = (town, smithy) => setup.createNPC(town, {
-  // dndClass: 'blacksmith',
   hasClass: false,
   profession: 'blacksmith',
   idle: ['talking with a customer', 'picking $associatedNPC.hisher nose', 'playing a card game by $associatedNPC.himherself', 'sharpening a knife', 'stocking the forge with fresh coals', 'lugging a piece of metal to be worked on', 'wiping the sweat from $associatedNPC.hisher brow', 'taking a drink of water', 'sweating profusely from exertion', 're-stocking the shop with new metalcrafts', 'hanging a new looking sword up on the wall', 'leaning back in a chair behind the counter playing with a hammer', 'unpacking a large crate that looks to be full of metal ingots of some sort', 'eyeing up the craftsmanship of a large axe', 'pouring molten metal into a cast in the far back', 'stoking the flames of the forge'],

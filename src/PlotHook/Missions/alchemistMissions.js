@@ -1,6 +1,6 @@
 const missions = {
   disappearingPotions (town) {
-    const npc = setup.createNPC(town, { dndClass: 'rogue', background: 'criminal' })
+    const npc = setup.createNPC(town, { profession: 'rogue', background: 'criminal' })
     return `${'I have had some issues with potions disappearing, and suspect that somebody is stealing from me. Would you be able to catch the thief?' + '<blockquote>The thief is <<profile `$npcs['}${JSON.stringify(npc.key)}]\`>></blockquote>`
   },
   testSubject () {
@@ -8,7 +8,7 @@ const missions = {
     return `${"I'm in need of a test subject for a new potion that I've been brewing; I'm not quite sure what the effects will be. Would you be interested in trying this?" + "<div class='descriptive'>" + '<h4>'}${missionPotion.titleReadout}</h4>${missionPotion.descriptionReadout}</div>` + `<blockquote>${missionPotion.effectReadout}</blockquote>`
   },
   bandits (town) {
-    const npc = setup.createNPC(town, { dndClass: ['rogue', 'fighter'].random(), background: 'criminal' })
+    const npc = setup.createNPC(town, { profession: ['rogue', 'fighter'].random(), background: 'criminal' })
     const missionIngredient = lib.createAlchemy({ type: 'preserved herb' })
     return `I had a shipment of ${missionIngredient.herb}, but it was attacked by bandits. They probably don't know what they got; they're hiding in the hills. Would you retrieve it for me?` + `<blockquote>The bandit captain responsible is <<profile \`$npcs[${JSON.stringify(npc.key)}]\`>></blockquote>`
   },

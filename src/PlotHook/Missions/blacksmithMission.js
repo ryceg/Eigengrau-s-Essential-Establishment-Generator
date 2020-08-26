@@ -1,13 +1,13 @@
 const missionsSmithy = {
   disappearingIngots (town) {
-    const npc = setup.createNPC(town, { dndClass: 'rogue', background: 'criminal' })
+    const npc = setup.createNPC(town, { profession: 'rogue', background: 'criminal' })
     return `${'I have had some issues with different types of ingots disappearing, and suspect that somebody is stealing from me. Would you be able to catch the thief?' + '<blockquote>The thief is <<profile `$npcs['}${JSON.stringify(npc.key)}]\`>></blockquote>`
   },
   testSubject () {
     return "I'm in need of someone to test out this new <<print $building.weapons.random()>> in a duel against me. Would you be interested in trying this? I would compensate you for the trouble of course."
   },
   bandits (town) {
-    const npc = setup.createNPC(town, { dndClass: ['rogue', 'fighter'].random(), background: 'criminal' })
+    const npc = setup.createNPC(town, { profession: ['rogue', 'fighter'].random(), background: 'criminal' })
     return `I had a shipment of ${['brass ingots', 'iron ingots', 'steel ingots', 'bronze ingots', 'dwarven steel', 'new anvils', 'silver ingots', 'gold ingots'].random()} being delivered here, but it was attacked by bandits. They'll probably try to sell it to some shady merchant; they're hiding in the hills. Would you retrieve the shipment for me?` + `<blockquote>The bandit captain responsible is <<profile \`$npcs[${JSON.stringify(npc.key)}]\`>></blockquote>`
   },
   collectRareThing () {

@@ -72,8 +72,7 @@ setup.initMisc = () => {
         },
         'a career soldier': {
           background: 'soldier',
-          dndClass: 'fighter',
-          profession: 'soldier'
+          profession: 'fighter'
         },
         'an outcast from a prominent family': {
           background: 'noble',

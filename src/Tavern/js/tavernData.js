@@ -180,7 +180,7 @@ setup.initTavernData = () => {
             return `A particularly obnoxious person called ${setup.profile(npc)} has taken an interest in you romantically.`
           },
           wizard (town) {
-            const npc = setup.createNPC(town, { dndClass: 'wizard', isThrowaway: true })
+            const npc = setup.createNPC(town, { profession: 'wizard', isThrowaway: true })
             return `You have made a foe out of a local spellcaster called ${setup.profile(npc)}.`
           },
           festival () { return 'You have been recruited to help run a local festival.' },
@@ -193,7 +193,7 @@ setup.initTavernData = () => {
             return `You have agreed to take on a noble called ${setup.profile(npc, npc.firstName)}'s debts.`
           },
           joust (town) {
-            const npc = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier', gender: 'man', isThrowaway: true })
+            const npc = setup.createNPC(town, { profession: 'fighter', background: 'soldier', gender: 'man', isThrowaway: true })
             return `You have been challenged to a joust by a knight called ${setup.profile(npc)}.`
           },
           foe (town) {
@@ -820,7 +820,7 @@ setup.initTavernData = () => {
         return `A ${setup.profile(npc, 'sea-captain')} has set up shop at a table and is trying to sell mementos and souvenirs from his latest great voyage of exploration. Birds, exotic coins, tiny mermaids, he has it all. Some of it looks fake though. A tiny bit looks disturbingly real.`
       },
       ranger (town) {
-        const npc = setup.createNPC(town, { background: 'commoner', profession: 'hunter', dndClass: 'ranger', gender: 'man' })
+        const npc = setup.createNPC(town, { background: 'commoner', profession: 'ranger', gender: 'man' })
         return `A ${setup.profile(npc, 'ranger')} sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.`
       },
       drunkard (town) {
@@ -828,7 +828,7 @@ setup.initTavernData = () => {
         return `A lone ${setup.profile(npc, 'drunkard')} is drinking at the end of the bar and softly crying and singing one country ballad after another.`
       },
       wizard (town) {
-        const npc = setup.createNPC(town, { background: 'sage', profession: 'wizard', dndClass: 'wizard', gender: 'man' })
+        const npc = setup.createNPC(town, { background: 'sage', profession: 'wizard', gender: 'man' })
         return `A stoned ${setup.profile(npc, 'magician')} is fumbling his way through one awful card trick after another.`
       },
       elves (town) {
@@ -840,7 +840,7 @@ setup.initTavernData = () => {
         return `A sad ${setup.profile(npc, 'clown')} is drinking a beer alone.`
       },
       guards (town) {
-        const npc = setup.createNPC(town, { background: 'soldier', profession: 'guard', dndClass: 'fighter' })
+        const npc = setup.createNPC(town, { background: 'soldier', profession: 'guard' })
         return `Two ${setup.profile(npc, 'guards')} are arguing at a table over who the captain likes more by comparing almost identical spears and claiming to have the better one.`
       },
       suitor (town) {
@@ -856,7 +856,7 @@ setup.initTavernData = () => {
         return `It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town ${setup.profile(npc, 'librarian')}.`
       },
       witch (town) {
-        const npc = setup.createNPC(town, { background: 'hermit', profession: 'witch', dndClass: 'wizard', gender: 'woman' })
+        const npc = setup.createNPC(town, { background: 'hermit', profession: 'wizard', gender: 'woman' })
         return `A surly old ${setup.profile(npc, 'witch')} is drinking sherry while stroking the fat grey cat sitting on her lap.`
       },
       overworked (town) {

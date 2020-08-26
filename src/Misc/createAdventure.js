@@ -107,7 +107,7 @@ setup.createAdventure = (town, base) => {
           })
           break
         case 'humanoid cultist':
-          adventureVillain = setup.createNPC(town, { dndClass: ['cleric', 'sorcerer', 'wizard'].random() })
+          adventureVillain = setup.createNPC(town, { profession: ['cleric', 'sorcerer', 'wizard'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
@@ -115,7 +115,7 @@ setup.createAdventure = (town, base) => {
           })
           break
         case 'humanoid conqueror':
-          adventureVillain = setup.createNPC(town, { dndClass: ['barbarian', 'fighter', 'paladin'].random() })
+          adventureVillain = setup.createNPC(town, { profession: ['barbarian', 'fighter', 'paladin'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
@@ -131,7 +131,7 @@ setup.createAdventure = (town, base) => {
           })
           break
         case 'humanoid schemer seeking to rule':
-          adventureVillain = setup.createNPC(town, { dndClass: ['sorcerer', 'rogue'].random() })
+          adventureVillain = setup.createNPC(town, { profession: ['sorcerer', 'rogue'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
@@ -139,7 +139,7 @@ setup.createAdventure = (town, base) => {
           })
           break
         case 'humanoid criminal mastermind':
-          adventureVillain = setup.createNPC(town, { dndClass: ['sorcerer', 'rogue'].random() })
+          adventureVillain = setup.createNPC(town, { profession: ['sorcerer', 'rogue'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
@@ -147,7 +147,7 @@ setup.createAdventure = (town, base) => {
           })
           break
         case 'humanoid raider or ravager':
-          adventureVillain = setup.createNPC(town, { dndClass: ['barbarian', 'fighter'].random() })
+          adventureVillain = setup.createNPC(town, { profession: ['barbarian', 'fighter'].random() })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
@@ -163,7 +163,7 @@ setup.createAdventure = (town, base) => {
           })
           break
         case 'misguided humanoid zealot':
-          adventureVillain = setup.createNPC(town, { dndClass: 'cleric' })
+          adventureVillain = setup.createNPC(town, { profession: 'cleric' })
           SV.adventureVillain = adventureVillain
           Object.assign(adventure, {
             adventureVillain,
@@ -186,28 +186,28 @@ setup.createAdventure = (town, base) => {
               })
               break
             case 'enthusiastic commoner':
-              adventureAlly = setup.createNPC(town, { dndClass: 'peasant' })
+              adventureAlly = setup.createNPC(town, { profession: 'peasant' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly
               })
               break
             case 'soldier':
-              adventureAlly = setup.createNPC(town, { dndClass: 'fighter', background: 'soldier' })
+              adventureAlly = setup.createNPC(town, { profession: 'fighter', background: 'soldier' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly
               })
               break
             case 'priest':
-              adventureAlly = setup.createNPC(town, { dndClass: 'cleric' })
+              adventureAlly = setup.createNPC(town, { profession: 'cleric' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly
               })
               break
             case 'sage':
-              adventureAlly = setup.createNPC(town, { dndClass: ['cleric', 'monk', 'druid', 'wizard'].random(), background: 'sage' })
+              adventureAlly = setup.createNPC(town, { profession: ['cleric', 'monk', 'druid', 'wizard'].random(), background: 'sage' })
               SV.adventureAlly = adventureAlly
               Object.assign(adventure, {
                 adventureAlly
@@ -245,28 +245,28 @@ setup.createAdventure = (town, base) => {
               })
               break
             case 'local ruler':
-              adventurePatron = setup.createNPC(town, { dndClass: 'lord' })
+              adventurePatron = setup.createNPC(town, { profession: 'lord' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron
               })
               break
             case 'military officer':
-              adventurePatron = setup.createNPC(town, { dndClass: ['fighter', 'paladin'].random(), background: 'soldier' })
+              adventurePatron = setup.createNPC(town, { profession: ['fighter', 'paladin'].random(), background: 'soldier' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron
               })
               break
             case 'temple official':
-              adventurePatron = setup.createNPC(town, { dndClass: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage' })
+              adventurePatron = setup.createNPC(town, { profession: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron
               })
               break
             case 'sage':
-              adventurePatron = setup.createNPC(town, { dndClass: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage' })
+              adventurePatron = setup.createNPC(town, { profession: ['cleric', 'cleric', 'cleric', 'paladin'].random(), background: 'sage' })
               SV.adventurePatron = adventurePatron
               Object.assign(adventure, {
                 adventurePatron
