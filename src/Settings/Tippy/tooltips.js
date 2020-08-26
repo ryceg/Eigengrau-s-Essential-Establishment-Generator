@@ -21,7 +21,7 @@ setup.profileTooltip = function (id, obj) {
             span.title = obj.tippyDescription || `${obj.name}, the guards.`
             break
           default:
-            alert(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
+            console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
         }
       } else {
         span.title = obj.tippyDescription || obj.name

@@ -157,7 +157,7 @@ setup.initDocks = () => {
           },
           'an ordinary looking sailor': {},
           'a stoic looking veteran': {
-            ageStage: 'settledAdult',
+            ageStage: 'settled adult',
             calmTrait: 'quiet',
             stressTrait: 'reliable'
           },
