@@ -855,7 +855,7 @@ export const townData = {
       leaderTraits: () => ({
         hasClass: false,
         profession: random(['scholar', 'philosopher', 'horologist', 'mathematician']),
-        background: 'scholar',
+        background: 'sage',
         title: 'Sir',
         socialClass: 'nobility'
       }),

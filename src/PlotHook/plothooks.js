@@ -70,7 +70,7 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         gender: 'woman',
         ageStage: 'child',
-        background: 'orphan'
+        background: 'urchin'
       })
       return `As you step out of the tavern, a ${setup.profile(npc, 'disheveled girl')} smashes into you. 'Wilkenson's dog is loose again!' she exclaims as she attempts to hide behind you. You turn back in the direction she came to see a metal construct resembling a dog charging toward you.`
     }
@@ -155,8 +155,7 @@ setup.plothooks = {
       // var blacksmith = smithy.associatedNPC
       const npc = setup.createNPC(town, {
         gender: 'man',
-        profession: 'blacksmith',
-        background: 'blacksmith'
+        profession: 'blacksmith'
       })
       // TODO: fix this
       return `Two blacksmiths, ${setup.profile(smithy.associatedNPC)} of ${setup.profile(smithy, null, 'town.buildings')} and ${setup.profile(npc)} are in competition to create better melee weapons for the King's army and only one can win the contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
@@ -174,7 +173,7 @@ setup.plothooks = {
     function (town) {
       const faction = setup.factionsForType(town, 'type', 'wizards')
       const npc = setup.createNPC(town, {
-        background: 'scholar',
+        background: 'sage',
         dndClass: 'wizard',
         gender: 'man'
       })
@@ -416,7 +415,7 @@ setup.plothooks = {
     type: ['paper'],
     function (town) {
       const npc = setup.createNPC(town, {
-        background: 'scholar',
+        background: 'sage',
         profession: 'librarian'
       })
       return `${setup.profile(npc, 'My')} book store has a shipment of rare books coming in and needs people to help unload them. Will pay 100 gold per person and not responsible for any injuries incurred on the job. (Caution: dangerous magic and pet books around.)`
@@ -1444,7 +1443,7 @@ setup.plothooks = {
       const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: 'rogue',
-        background: 'assassin'
+        background: 'criminal'
       })
       return `‘Wanted Dead or Alive – ${setup.profile(npc)}, master assassin! Warning: very heavily armed and dangerous. See attached picture. Reward: <<money 100000>>’`
     }

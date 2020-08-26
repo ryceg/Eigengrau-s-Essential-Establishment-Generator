@@ -386,7 +386,7 @@ export const plothook = {
     //   },
     //   function: function (town) {
     //     var npc = setup.createNPC(town, {
-    //       background: 'scholar',
+    //       background: 'sage',
     //       profession: 'librarian'
     //     })
     //     return setup.profile(npc, 'My') + ' book store has a shipment of rare books coming in and needs people to help unload them. Will pay 100 gold per person and not responsible for any injuries incurred on the job. (Caution: dangerous magic and pet books around.)'

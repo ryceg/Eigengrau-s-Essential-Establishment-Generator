@@ -852,7 +852,7 @@ setup.initTavernData = () => {
         return `Some ${setup.profile(npc, 'idiot')} is having a stag night. His friends are loud and obnoxiously harassing the barmaid.`
       },
       ladies (town) {
-        const npc = setup.createNPC(town, { background: 'scholar', profession: 'librarian', gender: 'woman' })
+        const npc = setup.createNPC(town, { background: 'sage', profession: 'librarian', gender: 'woman' })
         return `It's ladies night! And it's not disappointing... A few pretty little things from the weavers' guild are here, a couple of attractive healers from the temple, and the beautiful new town ${setup.profile(npc, 'librarian')}.`
       },
       witch (town) {
