@@ -36,11 +36,11 @@ setup.createNPC = function (town, base) {
   const lastName = base.lastName || lib.raceTraits[race].lastName.random().toUpperFirst()
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
-
+  let dndClass
   if (lib.findProfession(town, base, profession).type === 'dndClass') {
     base.hasClass = true
     // eslint-disable-next-line no-unused-vars
-    const dndClass = base.dndClass || profession
+    dndClass = base.dndClass || profession
   }
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
@@ -146,7 +146,7 @@ setup.createNPC = function (town, base) {
     },
     eyes: lib.raceTraits[race].eyes.random(),
     skinColour: data.skinColour.random(),
-    // dndClass,
+    dndClass,
     profession,
     pockets: data.pockets.random(),
     wealth: lib.dice(2, 50),
