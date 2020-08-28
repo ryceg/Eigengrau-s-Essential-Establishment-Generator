@@ -1,6 +1,6 @@
 :: BiomeGeneration
 
-<<nobr>><<set $tempTown to setup.createTownBiome()>>
+<<nobr>>
 <<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
 <<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "pedocratic": "pedocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
 <<link "reroll">>
