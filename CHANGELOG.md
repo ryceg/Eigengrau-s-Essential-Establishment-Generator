@@ -8,16 +8,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Description of racial makeup to the start page.
+- Ability to edit dominant gender
+- Customers
+- Relationships between buildings and NPCs
 
 ### Changed
 - Added race in dropdown NPC creation tool in the toolbox.
 - Fixed some bugs introduced in the last update.
+- Bug fixes for Tippy
+- Fix tavern material being [object Object]
+- Alchemist bugs
+- Fix creating new factions
 
 ### Removed
 - 'Return' option in profile pages has been removed to force navigation through the breadcrumb.
 
 ### Known issues
-- the shift of professions to lib.professions has broken profession descriptions.
+- Spymasters still sometimes live in abject poverty.
 
 ## [2.4.1](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/releases/tag/2.4.1)
 

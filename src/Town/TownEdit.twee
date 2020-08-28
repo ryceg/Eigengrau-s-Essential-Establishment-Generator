@@ -8,7 +8,8 @@
   $town.roll.welfare to $town.roll.welfare.clamp(1, 100),
   $town.roll.military to $town.roll.military.clamp(1, 100),
   $town.roll.arcana to $town.roll.arcana.clamp(1, 100),
-  $town.roll.law to $town.roll.law.clamp(1, 100)
+  $town.roll.law to $town.roll.law.clamp(1, 100),
+  $town.roll.equality to $town.roll.equality.clamp(1, 100)
 >>
 
 <<link "reroll">>
@@ -34,7 +35,7 @@
 <span class="tip" title="How does the economy work?"><<listbox "$town.economicIdeology" autoselect>><<optionsfrom $economicIdeologyTypes>><</listbox>></span>\
 <span class="tip" title="Who leads the people?"><<listbox "$town.politicalIdeology" autoselect>><<optionsfrom $politicalIdeologyTypes>><</listbox>></span>\
 <span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$town.politicalSource" autoselect>><<optionsfrom $politicalSourceTypes>><</listbox>></span>\
-
+<<set _description to "Which is the dominant gender? Note that the degree of dominance is determined by the $town.type's equality, not this dropdown."<span class="tip" title="@_description"><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></span>
 
 <span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.roll.economics" $town.roll.economics 1 100 1>></span>
 
@@ -47,6 +48,9 @@
 <span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$town.roll.law" $town.roll.law 1 100 1>></span>
 
 <span class="tip" title="How religious are they here?">Atheistic ---- Extremely Religious: <<numberslider "$town.roll.religiosity" $town.roll.religiosity 1 100 1>></span>
+
+<span class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>>)</span> ---- Total Egalitarianism: <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></span>
+
 <<link "Add 1">><<set $town.baseDemographics['dwarf'] += 50>><<run console.log($town)>><<goto "TownEdit">><</link>>
 <<nobr>>
 <table>
