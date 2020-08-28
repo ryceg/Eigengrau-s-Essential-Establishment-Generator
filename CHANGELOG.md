@@ -18,7 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Bug fixes for Tippy
 - Fix tavern material being [object Object]
 - Alchemist bugs
-- Fix creating new factions
+- Fix creating new faction.
+- Improvements to onboarding process
 
 ### Removed
 - 'Return' option in profile pages has been removed to force navigation through the breadcrumb.
