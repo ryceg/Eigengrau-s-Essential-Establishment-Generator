@@ -3,6 +3,15 @@
 <<nobr>>
 <<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
 <<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "pedocratic": "pedocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
+<<set
+  $tempTown.roll.wealth to $tempTown.roll.wealth.clamp(1, 100),
+  $tempTown.roll.economics to $tempTown.roll.economics.clamp(1, 100),
+  $tempTown.roll.welfare to $tempTown.roll.welfare.clamp(1, 100),
+  $tempTown.roll.military to $tempTown.roll.military.clamp(1, 100),
+  $tempTown.roll.arcana to $tempTown.roll.arcana.clamp(1, 100),
+  $tempTown.roll.law to $tempTown.roll.law.clamp(1, 100),
+  $tempTown.roll.equality to $tempTown.roll.equality.clamp(1, 100)
+>>
 <<link "reroll">>
     <<replace "#townName">>
             \<<set $tempTown.name to setup.createTownName()>><<textbox "$tempTown.name" $tempTown.name>>

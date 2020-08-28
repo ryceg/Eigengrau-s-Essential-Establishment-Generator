@@ -35,7 +35,6 @@
 <span class="tip" title="How does the economy work?"><<listbox "$town.economicIdeology" autoselect>><<optionsfrom $economicIdeologyTypes>><</listbox>></span>\
 <span class="tip" title="Who leads the people?"><<listbox "$town.politicalIdeology" autoselect>><<optionsfrom $politicalIdeologyTypes>><</listbox>></span>\
 <span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$town.politicalSource" autoselect>><<optionsfrom $politicalSourceTypes>><</listbox>></span>\
-<<set _description to "Which is the dominant gender? Note that the degree of dominance is determined by the $town.type's equality, not this dropdown."<span class="tip" title="@_description"><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></span>
 
 <span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$town.roll.economics" $town.roll.economics 1 100 1>></span>
 
