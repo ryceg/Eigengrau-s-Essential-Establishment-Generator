@@ -19,7 +19,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fix tavern material being [object Object]
 - Alchemist bugs
 - Fix creating new faction.
-- Improvements to onboarding process
+- Fix sliders.
+- Improvements to onboarding process and tutorial.
+
 
 ### Removed
 - 'Return' option in profile pages has been removed to force navigation through the breadcrumb.

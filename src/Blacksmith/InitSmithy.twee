@@ -1,8 +1,8 @@
 
 :: InitSmithy [output]
-<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
-<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
-<<set _name to $town.buildings[$currentPassage.index].name>>
+\<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
+\<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
+\<<set _name to $town.buildings[$currentPassage.index].name>>
 <<linkreplace "Rename <strong>_name</strong>">><h3><<textbox "$town.buildings[$currentPassage.index].name" _name>></h3><</linkreplace>>
 
 <<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
