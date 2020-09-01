@@ -19,14 +19,14 @@ export function createMagic <T extends MagicType> (type: T | 'ring') {
 
   const magic = {
     type: random(data.type),
-    prefix: data.prefix[prefixRoll],
-    suffix: data.suffix[suffixRoll],
-    prefixProperty: data.property[prefixRoll],
-    suffixProperty: data.property[suffixRoll]
+    prefix: data.property[prefixRoll].prefix,
+    suffix: data.property[suffixRoll].suffix,
+    prefixProperty: data.property[prefixRoll].effect,
+    suffixProperty: data.property[suffixRoll].effect
   }
 
   assign(magic, {
-    description: `${magic.prefixProperty}. ${magic.suffixProperty}`,
+    description: `${magic.prefixProperty} ${magic.suffixProperty}`,
     name: `${magic.prefix} ${magic.type} ${magic.suffix}`
   })
 
