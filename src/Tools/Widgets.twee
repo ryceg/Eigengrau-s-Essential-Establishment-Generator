@@ -37,6 +37,45 @@
 <</nobr>>
 <</widget>>
 
+\<<widget "shop">>
+\<<set _building to $args[0]>>
+\<<set _tableHeaders to $args[1].tableHeaders || {
+	left: "item",
+	right: "cost"
+}>>
+\<<set _title to $args[1].title || null>>
+\<table><tr>
+    \<th><<print lib.toTitleCase(_tableHeaders.left)>></th>
+    \<th><<print lib.toTitleCase(_tableHeaders.right)>></th></tr>
+\<<for _i, _type range Object.keys($args[1].category)>>
+	\<h6><<print lib.toTitleCase(_type)>></h6>
+	\<<set _availableItems to lib.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === _type
+  && item.availabilityLocation.includes($building.buildingType)
+  })>>
+	\<<if _availableItems.length > 0>>
+	\<<for _i, _item range _availableItems>>
+	\<tr><td>_item.name</td><td><<money _item.cost $building>></td></tr>
+	\<</for>><</if>>
+\<</for>></table><</widget>>
+
+\<<widget "sell">>
+\<<set _building to $args[0]>>
+	\<<set _title to $args[1]>>
+	\<<set _key to $args[2]>>
+\<<if ndef _key>><<set _key to _title>><</if>>
+\<<set _availableItems to lib.inventory.filter(function (item) {
+  return item.availability <= _availability
+  && item.type === _key
+  && item.availabilityLocation.includes($building.buildingType)
+  })>>
+<tr><th><<print lib.toTitleCase(_title)>></th><th>Cost</th></tr>
+	\<<for _i, _item range _availableItems>>
+	<tr><td>_item.name</td><td><<money _item.cost $building>></td></tr>
+	\<</for>>
+<</widget>>
+
 <<widget "tooltip">><<nobr>>
 	<<set _target to $args[0]>>
 	<<set _description to $args[1] || $args[0]>>

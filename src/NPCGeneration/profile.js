@@ -28,11 +28,14 @@ setup.profile = (obj, readout, type = 'npcs') => {
 function getTarget (type) {
   switch (type) {
     case 'npcs':
+    case 'npc':
       return State.variables.npcs
     case 'buildings':
+    case 'building':
     case 'town.buildings':
       return State.variables.town.buildings
     case 'factions':
+    case 'faction':
     case 'town.factions':
       return State.variables.town.factions
   }

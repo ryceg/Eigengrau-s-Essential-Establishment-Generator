@@ -12,15 +12,15 @@
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
 <<set $history to []>>
+<<set $tempTown to setup.createTownBiome()>>
 
 <<if State.metadata.get("showTutorial") is true>>
-	<<set $town to setup.createTown()>>
 	<<set Config.passages.start = "Welcome">>
 <<else>>
 	<<if State.metadata.get("showBiomeGenerationSettings") is true>>
 			<<set Config.passages.start = "BiomeGeneration">>
 		<<else>>
 			<<set Config.passages.start = "Start">>
-			<<set $town to setup.createTown()>>
+			<<set $town to setup.createTown($tempTown)>>
 	<</if>>
 <</if>>

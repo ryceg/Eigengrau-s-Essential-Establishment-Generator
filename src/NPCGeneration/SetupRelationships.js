@@ -6,10 +6,15 @@ setup.createRelationship = function (town, npc, targetNPC, type, targetType) {
   if (typeof npc === 'string') {
     console.error('First argument was passed a string!')
     npc = State.variables.npcs[npc]
+  } else {
+    npc = State.variables.npcs[npc.key]
   }
+
   if (typeof targetNPC === 'string') {
     console.error('Second argument was passed a string!')
     targetNPC = State.variables.npcs[targetNPC]
+  } else {
+    targetNPC = State.variables.npcs[targetNPC.key]
   }
   // if (!npc || !targetNPC || !npc.key || !targetNPC.key) {
   //   console.log('Called createRelationship() with a null/undefined argument')

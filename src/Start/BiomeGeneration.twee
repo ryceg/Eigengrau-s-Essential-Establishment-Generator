@@ -1,8 +1,17 @@
 :: BiomeGeneration
 
-<<nobr>><<set $tempTown to setup.createTownBiome()>>
+<<nobr>>
 <<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
 <<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "pedocratic": "pedocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
+<<set
+  $tempTown.roll.wealth to $tempTown.roll.wealth.clamp(1, 100),
+  $tempTown.roll.economics to $tempTown.roll.economics.clamp(1, 100),
+  $tempTown.roll.welfare to $tempTown.roll.welfare.clamp(1, 100),
+  $tempTown.roll.military to $tempTown.roll.military.clamp(1, 100),
+  $tempTown.roll.arcana to $tempTown.roll.arcana.clamp(1, 100),
+  $tempTown.roll.law to $tempTown.roll.law.clamp(1, 100),
+  $tempTown.roll.equality to $tempTown.roll.equality.clamp(1, 100)
+>>
 <<link "reroll">>
     <<replace "#townName">>
             \<<set $tempTown.name to setup.createTownName()>><<textbox "$tempTown.name" $tempTown.name>>
@@ -26,12 +35,14 @@
 
 <span class="tip" title="How religious are they here?">Atheistic ---- Extremely Religious: <<numberslider "$tempTown.roll.religiosity" $tempTown.roll.religiosity 1 100 1>></span>
 
+<span class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$tempTown.dominantGender" autoselect>><<option "men" "man">><<option "women" "woman">><</listbox>>)</span> ---- Total Egalitarianism: <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></span>
+
 <<nobr>><table class="sortable">
     <tr>
         <th>Race</th>
-        <th class="sorttable_numeric">Population</th>
-        <th class="sorttable_numeric">Percentage</th>
-        <th class="sorttable_numeric"><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
+        <th>Population</th>
+        <th>Percentage</th>
+        <th><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
     </tr>
 <<for _race, _percentage range $tempTown.demographicPercentile>>
     <tr>

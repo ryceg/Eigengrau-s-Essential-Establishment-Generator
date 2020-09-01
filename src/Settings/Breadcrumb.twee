@@ -1,5 +1,14 @@
 :: Breadcrumb
-<<nobr>><<if def $town>><<set $town.ignoreGender to settings.ignoreGender>><<link "The $town.type of $town.name">>
+<<nobr>><<if ndef $town>>
+    <<link "The $tempTown.type of $tempTown.name">>
+    <<unset $currentPassage>>
+    <<unset $currentNPC>>
+    <<set $history to []>>
+    <<set $town to setup.createTown($tempTown)>>
+    <<goto "Start">>
+<</link>>
+<<else>>
+    <<set $town.ignoreGender to settings.ignoreGender>><<link "The $town.type of $town.name">>
     <<unset $currentPassage>>
     <<unset $currentNPC>>
     <<set $history to []>>

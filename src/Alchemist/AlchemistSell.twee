@@ -7,7 +7,7 @@
   <<case "town">>
   $associatedNPC.name says "Well, what is it you need? We specialise in <<print ["healing", "combat", "regenerative", "medicinal", "the more... poisonous", "healing", "minor", "major"].random()>> potions, but can do just about anything for you.
   <<case "village">>
-  $associatedNPC.name says "Sure, what are you after? <<print $associatedNPC.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
+  $associatedNPC.name says "Sure, what are you after? <<print lib.alchemistData.ingredients.random().toUpperFirst()>>? Or perhaps a potion?
   <<case "hamlet">>
   $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; salts, herbs, <<print lib.alchemistData.ingredients.random()>>, <<print lib.alchemistData.ingredients.random()>>, <<print lib.alchemistData.ingredients.random()>>, you name it!
 <</switch>><<print lib.closestMatch(lib.alchemistData.get.priceTalk($building), "priceTalk", "priceModifier", "wealth", $building.priceModifier, $building.roll.wealth)>>"</div>
@@ -23,36 +23,12 @@
   <<default>>
     <<set _availability to 3>>
 <</switch>>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Cost</th>
-  </tr>
-<h6>Adventuring Gear</h6>
-<<for _i, _item range lib.inventory.filter(function (item) {
-  return item.availability <= _availability
-  && item.type === "adventuring gear"
-  && item.availabilityLocation.includes("alchemist");
-  })>><tr><td>_item.name</td>
-<td><<money _item.cost $building>></td></tr>
-<</for>>
-
-<h6>Tools</h6>
-<<for _i, _item range lib.inventory.filter(function (item) {
-  return item.availability <= _availability
-  && item.type === "tools"
-  && item.availabilityLocation.includes("alchemist");
-  })>><tr><td>_item.name</td>
-<td><<money _item.cost $building>></td></tr>
-<</for>>
-
-<h6>Consumables</h6>
-<<for _i, _item range lib.inventory.filter(function (item) {
-  return item.availability <= _availability
-  && item.type === "consumables"
-  && item.availabilityLocation.includes("alchemist");
-  })>><tr><td>_item.name</td>
-<td><<money _item.cost $building>></td></tr>
-<</for>>
-
-  </table><</nobr>><</linkreplace>>
+<<set _selling to {
+    category: {
+      'adventuring gear': 'adventuring gear',
+      'tools': 'tools'
+      'consumables': 'consumables'
+    }
+}>>
+<<shop $building, _selling>>
+</table><</nobr>><</linkreplace>>
