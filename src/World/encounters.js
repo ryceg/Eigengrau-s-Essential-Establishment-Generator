@@ -292,9 +292,7 @@ setup.initMiscEncounters = () => {
     'a lone zombie': () => 'a lone zombie',
     'a strange hermit': town => {
       const npc = setup.createNPC(town, {
-        background: 'hermit',
-        isThrowaway: true,
-        canBeCustom: true
+        background: 'hermit'
       })
       return `a strange ${setup.profile(npc, 'hermit')}`
     },
@@ -363,6 +361,7 @@ setup.initMiscEncounters = () => {
     'an hobgoblin scout': () => 'an hobgoblin scout',
     'a roc on the wing': () => 'a roc on the wing',
     'a wyvern on the wing': () => 'a wyvern on the wing',
+    'a bear’s lair': () => 'a bear\'s lair',
     'lots of bats': town => 'lots of bats',
     'many spider webs': town => 'many spider webs',
     "a troll's stash.": town => { return "a troll's stash." },
