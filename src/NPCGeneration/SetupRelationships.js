@@ -16,6 +16,10 @@ setup.createRelationship = function (town, npc, targetNPC, type, targetType) {
   //   return
   // }
   // console.log('Forming a relationship with ' + npc.name + ' and ' + targetNPC.name)
+  if (npc.key === targetNPC.key) {
+    console.error('Tried to make a relationship with the same NPC.')
+    return
+  }
   const npcsToClean = []
   if (npc.relationships[targetNPC.key] && npcs[npc.relationships[targetNPC.key]]) {
     /* npc already had a valid partner; mark it for removal */
