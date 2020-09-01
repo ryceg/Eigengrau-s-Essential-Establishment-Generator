@@ -129,6 +129,7 @@ const death = {
   ],
   burialConditions (town, npc, base) {
     /** @type {[number, string, number, string][]} */
+    console.log('Burial conditions...')
     const burialConditions = [
       // [lifestyleModifier, lifestyleType, graveRoll, graveDescription]
       [70, 'aristocratic', 80, 'a beautiful ornate coffin on a private plot'],
@@ -178,8 +179,10 @@ const death = {
   ]
 }
 
-setup.createDeadNPC = (town, base) => {
+setup.createDeadNPC = (town, base = {}) => {
+  console.groupCollapsed('Creating a dead NPC!')
   const npc = setup.createNPC(town, base)
+  console.log('RIP ', npc.firstName)
   setup.npcDeath(town, npc, base)
   return npc
 }

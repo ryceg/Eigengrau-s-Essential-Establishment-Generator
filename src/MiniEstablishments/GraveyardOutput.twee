@@ -8,5 +8,5 @@ The gravedigger greets you as you come near, and introduces $building.associated
 
 
 
-<<link "Visit a grave">><<set $grave to setup.misc.graveStone.create($town)>><<replace "#grave">><<print $grave.readout>><</replace>><</link>>
+<<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.misc.graveStone.create($town)>><<replace "#grave">><<print $building.grave.readout>><</replace>><</link>>
 <div id="grave"></div>
