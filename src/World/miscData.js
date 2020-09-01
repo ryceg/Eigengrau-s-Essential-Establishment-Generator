@@ -322,7 +322,7 @@ setup.initMisc = () => {
           console.log('Location: ', encounterKey)
           encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
-          encounterKey = setup.misc.forest.encounters.random()
+          encounterKey = setup.misc.desert.encounters.random()
           console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
         }
@@ -403,6 +403,7 @@ setup.initMisc = () => {
           console.log('Location: ', encounterKey)
           encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
+          // intentionally uses forest
           encounterKey = setup.misc.forest.encounters.random()
           console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
