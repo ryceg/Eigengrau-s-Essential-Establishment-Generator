@@ -4,8 +4,16 @@ import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { colours } from '../src/colours'
 import { ThresholdTable } from '../src/rollFromTable'
+import { NPC } from '../npc-generation/_common'
 
 export const generalStore = {
+  goods: {
+    'food staples': ['beans', 'milk', 'flour', 'oil', 'butter'],
+    'tools': ['hammers', 'nails', 'wood', 'quills', 'rope'],
+    'luxuries': ['honey', 'chocolate'],
+    'fabrics': ['backpacks', 'canvas', 'thread', 'down feathers'],
+    'cleaning supplies': ['rags', 'soap', 'brushes', 'lye', 'salt']
+  },
   crud: [
     'rusty knives',
     'dull knives',
@@ -192,6 +200,56 @@ export const generalStore = {
     ] as ThresholdTable
   },
   get: {
+    customers: [
+      {
+        relationship: 'customer',
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} purchases ${random(['herbs', 'vegetables', 'staple foods', 'spices', 'utensils', ''])} from ${building.name} for cooking.` }
+      },
+      {
+        relationship: 'former customer',
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} no longer buys anything from ${building.name} because ${random(['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`])}.` }
+      },
+      {
+        relationship: 'client',
+        reciprocalRelationship: 'supplier',
+        base: {
+          profession: 'merchant'
+        },
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} buys ${random(['food staples', 'tools', 'luxuries', 'fabrics', 'cleaning supplies'])} from ${building.name}.` }
+      },
+      {
+        relationship: 'fish supplier',
+        reciprocalRelationship: 'client',
+        base: {
+          profession: 'fisherman'
+        },
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} fish to ${building.name}.` }
+      },
+      {
+        relationship: 'produce supplier',
+        reciprocalRelationship: 'client',
+        base: {
+          profession: 'gardener'
+        },
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} vegetables to ${building.name}.` }
+      },
+      {
+        relationship: 'milk supplier',
+        reciprocalRelationship: 'client',
+        base: {
+          profession: 'dairymaid'
+        },
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells milk to ${building.name}.` }
+      },
+      {
+        relationship: 'blacksmith',
+        reciprocalRelationship: 'client',
+        base: {
+          profession: 'blacksmith'
+        },
+        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} wares to ${building.name}.` }
+      }
+    ],
     say (generalStore: GeneralStore) {
       const goods = random([
         'crowbar',

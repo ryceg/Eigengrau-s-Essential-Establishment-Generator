@@ -150,6 +150,80 @@ setup.initTavernData = () => {
       "A grey haired story teller is sitting near the fire holding a contest. He'll give a large purse for a story he hasn't heard yet, but so far no one has won."
     ],
     get: {
+      customers: [
+        {
+          relationship: 'regular',
+          description (building, npc) { return `${npc.firstName} is a regular at ${building.name}.` }
+        },
+        {
+          relationship: 'former customer',
+          description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
+        },
+        {
+          relationship: 'wine supplier',
+          reciprocalRelationship: 'client',
+          base: {
+            profession: 'vintner'
+          },
+          description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
+        },
+        {
+          relationship: 'beer supplier',
+          reciprocalRelationship: 'client',
+          base: {
+            profession: 'draper'
+          },
+          description (building, npc) { return `${npc.firstName} sells alcohol to ${building.name}.` }
+        },
+        {
+          relationship: 'butcher',
+          reciprocalRelationship: 'client',
+          base: {
+            profession: 'butcher'
+          },
+          description (building, npc) { return `${npc.firstName} sells meat cuts to ${building.name}.` }
+        },
+        {
+          relationship: 'bard',
+          reciprocalRelationship: 'client',
+          base: {
+            profession: 'bard'
+          },
+          description (building, npc) { return `${npc.firstName} plays music in ${building.name}.` }
+        },
+        {
+          relationship: 'exterminator',
+          reciprocalRelationship: 'client',
+          base: {
+            profession: 'exterminator'
+          },
+          description (building, npc) { return `${npc.firstName} kills pests that reside in ${building.name}.` }
+        },
+        {
+          relationship: 'gongfarmer',
+          reciprocalRelationship: 'client',
+          base: {
+            profession: 'gongfarmer'
+          },
+          description (building, npc) { return `${npc.firstName} cleans the lavatories of ${building.name}.` }
+        },
+        {
+          relationship: 'barmaid',
+          reciprocalRelationship: 'place of employment',
+          base: {
+            profession: 'barmaid'
+          },
+          description (building, npc) { return `${npc.firstName} serves drinks in ${building.name}.` }
+        },
+        {
+          relationship: 'cook',
+          reciprocalRelationship: 'place of employment',
+          base: {
+            profession: 'cook'
+          },
+          description (building, npc) { return `${npc.firstName} works in the kitchen of ${building.name}.` }
+        }
+      ],
       patrons (town, tavern) {
         const patron = Object.values(setup.tavern.patrons).random()
         return patron(town, tavern)
