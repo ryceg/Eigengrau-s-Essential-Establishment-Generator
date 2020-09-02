@@ -1,6 +1,42 @@
 
 setup.smithy = {
   get: {
+    customers: [
+      {
+        relationship: 'regular',
+        base: {
+          professionType: 'labourer'
+        },
+        description (building, npc) { return `${npc.firstName} regularly gets tools repaired.` }
+      },
+      {
+        relationship: 'buyer',
+        base: {
+          profession: 'wagoner'
+        },
+        description (building, npc) { return `${npc.firstName} buys horse shoes regularly.` }
+      },
+      {
+        relationship: 'former customer',
+        description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
+      },
+      {
+        relationship: 'carpenter',
+        reciprocalRelationship: 'client',
+        base: {
+          profession: 'carpenter'
+        },
+        description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
+      },
+      {
+        relationship: 'patron',
+        reciprocalRelationship: 'client',
+        base: {
+          socialClass: 'nobility'
+        },
+        description (building, npc) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
+      }
+    ],
     expertise: smithy => [
       {
         expertise: 80,
