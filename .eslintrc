@@ -14,6 +14,7 @@
     "object-shorthand": ["warn", "always"],
     "quote-props": ["warn", "consistent-as-needed"],
     "accessor-pairs": "off",
+    "no-use-before-define": "off",
     "function-call-context/call-in-function": [
       "warn",
       {
