@@ -8,11 +8,11 @@
 \<<set $currentPassage.randomNPC to setup.createNPC($town, _randomNPC)>>
 \<<run setup.createBuildingRelationship($town, $currentPassage, $currentPassage.randomNPC, lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship))>>
     \<<replace "#NPC">>
-          \<div class="descriptive">
-            \<h3>$currentPassage.randomNPC.name</h3>
-            \<<print lib.articles.output($currentPassage.randomNPC.descriptor).toUpperFirst()>> is currently <<print $currentPassage.randomNPC.idle.random()>> in the corner. 
-            \You strike up conversation with $currentPassage.randomNPC.himher, and the $currentPassage.randomNPC.descriptor introduces $currentPassage.randomNPC.himherself as 
-            \<<profile $currentPassage.randomNPC>>, <<print lib.articles.find($currentPassage.randomNPC.profession)>> <<tooltip $currentPassage.randomNPC.profession lib.professions[$currentPassage.randomNPC.profession].description.toUpperFirst()>>.</div>
+          <div class="descriptive">
+            <h3>$currentPassage.randomNPC.name</h3>
+<<print lib.articles.output($currentPassage.randomNPC.descriptor).toUpperFirst()>> is currently <<print $currentPassage.randomNPC.idle.random()>> in the corner. 
+You strike up conversation with $currentPassage.randomNPC.himher, and the $currentPassage.randomNPC.descriptor introduces $currentPassage.randomNPC.himherself as 
+<<profile $currentPassage.randomNPC>>, <<print lib.articles.find($currentPassage.randomNPC.profession)>> <<tooltip $currentPassage.randomNPC.profession lib.professions[$currentPassage.randomNPC.profession].description.toUpperFirst()>>.</div>
     \<</replace>>
     \<<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
     \<<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
