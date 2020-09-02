@@ -17,14 +17,14 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
     socialClass: 'socialClass',
     professionType: 'type',
     professionSector: 'sector'
-  }
+  } as const
   keys(professionThings).forEach(key => {
     if (npc[key]) {
       const temp = professionThings[key]
       console.log(`${key} was defined as ${npc[key]}, so filtering to the available professions! Filtering down from:`)
       console.log(professionNames)
-      professionNames = professionNames.filter(profession => {
-        return town.professions[profession][temp] === npc[key]
+      professionNames = professionNames.filter(professionName => {
+        return town.professions[professionName][temp] === npc[key]
       })
       console.log(professionNames)
     }
