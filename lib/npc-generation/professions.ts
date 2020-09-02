@@ -1365,7 +1365,7 @@ export const professions: Record<string, Profession> = {
           },
           probability: 20,
           base: {
-            socialClass: 'aristocracy'
+            socialClass: 'nobility'
           }
         }
       }
@@ -2974,7 +2974,7 @@ export const professions: Record<string, Profession> = {
           },
           probability: 20,
           base: {
-            socialClass: 'aristocracy'
+            socialClass: 'nobility'
           }
         }
       }
@@ -3296,7 +3296,7 @@ export const professions: Record<string, Profession> = {
           },
           probability: 20,
           base: {
-            socialClass: 'aristocracy'
+            socialClass: 'nobility'
           }
         }
       }
@@ -5049,7 +5049,7 @@ export const professions: Record<string, Profession> = {
           },
           probability: 20,
           base: {
-            socialClass: 'aristocracy'
+            socialClass: 'nobility'
           }
         }
       }
@@ -6051,7 +6051,7 @@ export const professions: Record<string, Profession> = {
           },
           probability: 20,
           base: {
-            socialClass: 'aristocracy'
+            socialClass: 'nobility'
           }
         }
       }
@@ -6103,7 +6103,7 @@ export const professions: Record<string, Profession> = {
           },
           probability: 20,
           base: {
-            socialClass: 'aristocracy'
+            socialClass: 'nobility'
           }
         }
       }
