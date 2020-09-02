@@ -22,6 +22,8 @@ export interface NPC {
   partnerID?: string
   relationships: string[]
   socialClass: string
+  professionType: string
+  professionSector: string
   hasClass: boolean
   dndClass?: string
   isBreakingGenderNorms: boolean

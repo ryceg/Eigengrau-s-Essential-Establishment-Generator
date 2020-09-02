@@ -13,14 +13,22 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
   console.log('Fetching profession...')
 
   let professionNames = keys(town.professions)
-
-  if (npc.socialClass) {
-    console.log(`Social class was defined as ${npc.socialClass}, so filtering to the available professions!`)
-    professionNames = professionNames.filter(profession => {
-      return town.professions[profession].socialClass === npc.socialClass
-    })
-    console.log(professionNames)
+  const professionThings = {
+    socialClass: 'socialClass',
+    professionType: 'type',
+    professionSector: 'sector'
   }
+  keys(professionThings).forEach(key => {
+    if (npc[key]) {
+      const temp = professionThings[key]
+      console.log(`${key} was defined as ${npc[key]}, so filtering to the available professions! Filtering down from:`)
+      console.log(professionNames)
+      professionNames = professionNames.filter(profession => {
+        return town.professions[profession][temp] === npc[key]
+      })
+      console.log(professionNames)
+    }
+  })
 
   if (breakGenderNorms(town) === false) {
     if (isDominantGender(town, npc) === false) {
