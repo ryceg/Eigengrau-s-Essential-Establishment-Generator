@@ -2,21 +2,25 @@ setup.initMisc = () => {
   setup.misc = {
     graveStone: {
       create: (town, base) => {
-        const grave = Object.assign({
+        console.log('setup.misc.graveStone called...')
+        const grave = {
           shapeSmall: setup.misc.graveStone.shapeSmall.random(),
           shapeMedium: setup.misc.graveStone.shapeMedium.random(),
           weaponType: setup.misc.graveStone.weaponType.random(),
           gravePhrases: setup.misc.graveStone.gravePhrases.random(),
           graveImages: setup.misc.graveStone.graveImages.random()
-        }, base)
+        }
+        console.log(grave)
         const owner = setup.createDeadNPC(town)
         const graveMaterial = Object.keys(setup.misc.graveStone.material).random()
+        console.log('before sentenceStrings')
         grave.sentenceStrings = [
             `a very small, ${setup.misc.graveStone.material.wood.secondaryDescriptors.random()}, ${setup.misc.graveStone.material.wood.type.random()} grave in the shape of ${lib.articles.output(grave.shapeSmall)}. ${['There are no distinguishing marks on this grave', 'The owner of this grave has been lost to time', 'No name has been left to remember the owner of this grave', 'This appears to be an unmarked grave', `The name ${setup.profile(owner)} has been crudely scrawled across the grave`].random()}.`,
            `a small pile of earth with ${lib.articles.output(setup.misc.graveStone.material.metal.secondaryDescriptors.random())} ${setup.misc.graveStone.material.metal.type.random()} ${grave.weaponType} stuck into it. ${['A long forgotten solider likely lays here', 'A mighty fallen warrior was likely laid to rest here', 'Surely a strong fighter was laid to rest here', 'Here lays a hero who fell in battle, their name is now forgotten'].random()}.`,
            `${['a small', 'an average sized', 'a modestly sized'].random()}, ${setup.misc.graveStone.material[graveMaterial].secondaryDescriptors.random()}, ${setup.misc.graveStone.material[graveMaterial].type.random()} grave in the shape of ${lib.articles.output(grave.shapeMedium)}. ${[`The grave has the name "${setup.profile(owner)}" ${setup.misc.graveStone.material[graveMaterial].iconPlacement.random()} onto it and nothing else.`, `${['Near the top', 'Near the bottom', 'In the middle'].random()} of the grave, ${setup.misc.graveStone.material[graveMaterial].iconPlacement.random()} onto it are the words "${['Here lies', 'R.I.P.', 'Here is burried'].random()} ${setup.profile(owner)}. ${grave.gravePhrases}."`].random()}${['', '', `${['  Just above the writing', '  Just below the writing', ' On the other side'].random()}, ${setup.misc.graveStone.material[graveMaterial].iconPlacement.random()} onto the grave is an image of ${lib.articles.output([grave.graveImages, grave.weaponType].random())}.`].random()}`
         ].random()
         grave.readout = `You come upon ${grave.sentenceStrings}`
+        console.log(grave)
         return grave
       },
       material: {
@@ -318,7 +322,7 @@ setup.initMisc = () => {
           console.log('Location: ', encounterKey)
           encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
-          encounterKey = setup.misc.forest.encounters.random()
+          encounterKey = setup.misc.desert.encounters.random()
           console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
         }
@@ -399,6 +403,7 @@ setup.initMisc = () => {
           console.log('Location: ', encounterKey)
           encounter = setup.misc.locations[encounterKey].function(town, biome)
         } else {
+          // intentionally uses forest
           encounterKey = setup.misc.forest.encounters.random()
           console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)

@@ -14,6 +14,7 @@ interface Setup {
     stageDescriptor: string[]
     fun: string[]
     get: {
+      customers: Customers[]
       patrons(town: Town, tavern: Tavern): string
       carousing(town: Town, tavern: Tavern): string
       entertainment(tavern: Tavern): string
@@ -82,4 +83,13 @@ interface TavernGame {
   description: string
   rules: string
   bet: number
+}
+
+interface Customers {
+  relationship: string
+  reciprocalRelationship?: string
+  base?: {
+    profession?: string
+  }
+  description(building: Tavern, npc: NPC): unknown
 }

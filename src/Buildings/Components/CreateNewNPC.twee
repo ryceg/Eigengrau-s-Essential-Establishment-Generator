@@ -1,7 +1,7 @@
 :: CreateNewNpc
-<div id="NPCListboxes"><<include "NPCListboxes">></div>
-\ -- <<button "Create NPC">><<set _selectedRelationship to lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship)>>
-<<if _selectedRelationship.base>><<set _randomNPC to Object.assign(_randomNPC, _selectedRelationship.base)>><</if>>
+<<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">>
+\<<set _selectedRelationship to lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship)>>
+\<<if _selectedRelationship.base>><<set _randomNPC to Object.assign(_randomNPC, _selectedRelationship.base)>><</if>>
   \<<if def _newNPC>>
     \<<run setup.deleteNPC($npcs[_newNPC])>>
   \<</if>><<run console.log("_randomNPC:")>><<run console.log(_randomNPC)>>
@@ -16,6 +16,6 @@
     \<</replace>>
     \<<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
     \<<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
-<</button>>
+\<</button>><</nobr>>
 <div id="NPC"></div>
 <<include "BuildingRelationshipsTable">>

@@ -34,7 +34,6 @@ type Sector =
   | 'unemployed'
   | 'self employed'
   | 'caregiver'
-  | 'food'
   | 'naval'
 
 export interface Profession {
@@ -4883,18 +4882,6 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     }
   },
-  'barkeep': {
-    sv: 500,
-    type: 'profession',
-    sector: 'hospitality',
-    description: 'works and serves drinks in a bar.',
-    dailyWage: 100,
-    socialClass: 'peasantry',
-    socialClassRoll () {
-      return 20 + dice(8, 6)
-    }
-  },
-
   'butler': {
     sv: 2000,
     type: 'profession',
@@ -5237,7 +5224,7 @@ export const professions: Record<string, Profession> = {
   'pastry chef': {
     sv: 1500,
     type: 'profession',
-    sector: 'food',
+    sector: 'hospitality',
     description: 'makes desserts, especially cakes and pastries.',
     dailyWage: 120,
     socialClass: 'commoner',
