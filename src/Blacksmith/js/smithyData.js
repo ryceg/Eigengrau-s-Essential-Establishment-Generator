@@ -35,6 +35,14 @@ setup.smithy = {
           socialClass: 'nobility'
         },
         description (building, npc) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
+      },
+      {
+        relationship: 'superstitious peasant',
+        reciprocalRelationship: 'client',
+        base: {
+          socialClass: 'peasantry'
+        },
+        description (building, npc) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits.` }
       }
     ],
     expertise: smithy => [
