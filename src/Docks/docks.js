@@ -608,6 +608,40 @@ setup.initDocks = () => {
           [10, 'change me']
         ]
       }
+    },
+    get: {
+      customers: [
+        {
+          relationship: 'regular',
+          base: {
+            professionSector: 'naval'
+          },
+          description (building, npc) { return `${npc.firstName} works with ships.` }
+        },
+        {
+          relationship: 'shipwright',
+          base: {
+            profession: 'shipwright'
+          },
+          description (building, npc) { return `${npc.firstName} constructs and repairs ships in ${building.name}.` }
+        },
+        {
+          relationship: 'bosun',
+          reciprocalRelationship: 'place of work',
+          base: {
+            profession: 'bosun'
+          },
+          description (building, npc) { return `${npc.firstName} works to organise equipment to be loaded off ${building.name} and onto ${npc.hisher} ship.` }
+        },
+        {
+          relationship: 'stevedore',
+          reciprocalRelationship: 'place of work',
+          base: {
+            socialClass: 'stevedore'
+          },
+          description (building, npc) { return `${npc.firstName} hauls stuff off ships and onto ${building.name}.` }
+        }
+      ]
     }
   }
 }

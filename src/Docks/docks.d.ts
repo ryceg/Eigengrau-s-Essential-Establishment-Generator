@@ -7,6 +7,9 @@ interface Setup {
     }
     notableFeature: string[]
     notice: string[]
+    get: {
+      customers: Customer[]
+    }
     ships: {
       create(town: Town, docks: any, opts?: any): any
       crew: {
@@ -31,6 +34,12 @@ interface Setup {
   }
 }
 
+interface Customer {
+    relationship: string
+    reciprocalRelationship?: string
+    base?: Base
+    description(docks: Docks, npc: NPC): string
+}
 interface ShipType {
   masts: number,
   rigging: string,
