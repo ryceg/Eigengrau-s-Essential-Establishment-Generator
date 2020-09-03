@@ -55,6 +55,177 @@ setup.temple = {
       [0, 'festering with bugs']
     ]
   },
+  get: {
+    customers: [
+      // [100, 'fanatical true believer'],
+      // [90, 'unshakingly devoted believer'],
+      // [80, 'conspicuously faithful believer'],
+      // [70, 'outspoken believer'],
+      // [60, 'quiet true believer'],
+      // [50, 'casual observer'],
+      // [40, 'open-minded seeker'],
+      // [30, 'cautious listener'],
+      // [20, 'critical student'],
+      // [10, 'outspoken cynic'],
+      // [0, 'broken heretic']
+      {
+        relationship: 'regular attendee',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'quiet true believer'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} attends ${building.name} for a weekly sermon.` }
+      },
+      {
+        relationship: 'fanatical worshiper',
+        reciprocalRelationship: 'beloved place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'valued member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'unshakingly devoted believer'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} is the second person to arrive, after the priest, and always participates in any and every church event.` }
+      },
+      {
+        relationship: 'superstitious peasant',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'member of flock'
+        },
+        base: {
+          socialClass: 'peasantry',
+          religion: {
+            strength: 'conspicuously faithful believer'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits. ${npc.heshe.toUpperFirst()} attends every ceremony that ${npc.heshe} can.` }
+      },
+      {
+        relationship: 'frequent attendee',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'outspoken believer'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} loves attending ${building.name}, and tries to attend as many services as ${npc.heshe} can.` }
+      },
+      {
+        relationship: 'frequent and critical attendee',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'annoying member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'open-minded seeker'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} participates in the discussions of the teachings with gusto, frequently challenging the more controversial parts.` }
+      },
+      {
+        relationship: 'quiet attendee',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'cautious listener'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} seems to attend services once in a blue moon, but never offers up ${npc.hisher} own thoughts on the teachings.` }
+      },
+      {
+        relationship: 'noble attendee',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'member of flock'
+        },
+        base: {
+          socialClass: 'nobility',
+          religion: {
+            strength: 'conspicuously faithful believer'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} makes sure to attend ${building.name} regularly, to uphold ${npc.hisher} image.` }
+      },
+      {
+        relationship: 'reluctant attendee',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'critical student'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} attends ${building.name}, but doesn't seem to enjoy it.` }
+      },
+      {
+        relationship: 'frequent agitant',
+        reciprocalRelationship: 'place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'irritating member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'outspoken cynic'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} sometimes attends ${building.name}, but frequently causes a huge scene when ${npc.heshe} does. Most people would rather that ${npc.heshe} didn't attend.` }
+      },
+      {
+        relationship: 'heretic',
+        reciprocalRelationship: 'former place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'former member of flock'
+        },
+        base: {
+          religion: {
+            strength: 'broken heretic'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} attended ${building.name}, but was banned for blaspheme.` }
+      },
+      {
+        relationship: 'non-attendee',
+        reciprocalRelationship: 'one-time place of worship',
+        associatedNPC: {
+          relationship: 'pastor',
+          reciprocalRelationship: 'one-time sermon attendee'
+        },
+        base: {
+          religion: {
+            strength: 'critical student'
+          }
+        },
+        description (building, npc) { return `${npc.firstName} attended ${building.name} once, but never returned.` }
+      }
+    ]
+  },
   prayerSubject: [
     // They pray to
     'one god and only one god',
