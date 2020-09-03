@@ -15,5 +15,10 @@ setup.createReligiosity = function (town, npc) {
     if (typeof npc.religion.strength === 'undefined') {
       npc.religion.strength = 'quiet true believer'
     }
+  } else {
+    const temp = setup.npcData.religion.strength.find(desc => {
+      return desc[1] === npc.religion.strength
+    })
+    npc.roll.religiosity = temp[0] + random(1, 5)
   }
 }
