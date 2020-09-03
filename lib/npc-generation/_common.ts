@@ -34,7 +34,7 @@ export interface NPC {
 
 export interface Relationship {
   relationship: string
-  reciprocal?: string
+  reciprocalRelationship?: string
   probability: number
   base: {
     profession?: string

@@ -28,7 +28,7 @@ setup.createFriends = (town, npc) => {
     },
     'secret crush': {
       relationship: 'secret crush',
-      reciprocal: ['friend', 'friend', 'friend', 'just a friend', 'creepy stalker', 'secret crush'].random(),
+      reciprocalRelationship: ['friend', 'friend', 'friend', 'just a friend', 'creepy stalker', 'secret crush'].random(),
       base: {
         gender: npc.partnerGenderProbability(npc),
         ageStage: npc.ageStage,
@@ -37,7 +37,7 @@ setup.createFriends = (town, npc) => {
     },
     'mentor': {
       relationship: 'mentor',
-      reciprocal: 'student',
+      reciprocalRelationship: 'student',
       base: {
         profession: npc.profession,
         ageStage: 'settled adult'
@@ -51,7 +51,7 @@ setup.createFriends = (town, npc) => {
     },
     'dealer': {
       relationship: 'dealer',
-      reciprocal: 'drug buyer',
+      reciprocalRelationship: 'drug buyer',
       probability: 1,
       exclusions (town, npc) { if (town.roll.sin < 10) return false },
       base: {
@@ -67,7 +67,7 @@ setup.createFriends = (town, npc) => {
     },
     'pastor': {
       relationship: 'pastor',
-      reciprocal: 'goes to church',
+      reciprocalRelationship: 'goes to church',
       probability: 2,
       exclusions (town, npc) { if (town.roll.religiosity < 20 || npc.roll.religiosity < 20 || npc.profession === 'pastor') return false },
       base: {
@@ -77,7 +77,7 @@ setup.createFriends = (town, npc) => {
     },
     'customer': {
       relationship: 'customer',
-      reciprocal: npc.profession,
+      reciprocalRelationship: npc.profession,
       probability: 20,
       exclusions (town, npc) { if (professionData.type !== 'business') return false },
       base: {
@@ -87,7 +87,7 @@ setup.createFriends = (town, npc) => {
     },
     'servant': {
       relationship: 'employee',
-      reciprocal: 'employer',
+      reciprocalRelationship: 'employer',
       exclusions (town, npc) { if (!['wealthy', 'aristocratic'].includes(npc.finances.lifestyleStandard(town, npc)[1]) && !(npc.finances.profit(town, npc) > -5 || npc.finances.profit(town, npc) < -100)) { return false } },
       base: {
         profession: 'servant'
@@ -98,7 +98,7 @@ setup.createFriends = (town, npc) => {
   if (professionData.type === 'profession' && professionData.sector === 'arts') {
     const patron = {
       relationship: 'patron',
-      reciprocal: npc.profession,
+      reciprocalRelationship: npc.profession,
       probability: 20,
       base: {
         canBeCustom: true,
@@ -122,7 +122,7 @@ setup.createFriends = (town, npc) => {
     console.log('Creating a new friend!')
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
     const friend = setup.createNPC(town, friendObj.base)
-    setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocal || friendObj.relationship)
+    setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
   }
 
   for (let step = 0; step < friendsNumber; step++) {
