@@ -385,7 +385,9 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
     professionOrigin: [
-      'I love ordering things, and archiving suits me perfectly.'
+      'I love ordering things, and archiving suits me perfectly.',
+      'Everything being in its place suits me very well.',
+      'I have an amazing memory, and can find what someone is looking for almost instantly.'
     ]
   },
   'armorer': {
@@ -441,7 +443,9 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
     professionOrigin: [
-      'Early risers like me are well suited to the life of a baker.'
+      'Early risers like me are well suited to the life of a baker.',
+      'I love bread!',
+      'Watching yeast rise is meditative.'
     ]
   },
   'banker': {
@@ -2258,7 +2262,7 @@ export const professions: Record<string, Profession> = {
     sv: 550,
     synonyms: ['ship worker', 'dock worker'],
     type: 'labourer',
-    sector: 'agriculture',
+    sector: 'naval',
     description: 'loads and unloads cargo from ships.',
     domSub: 'dom',
     dailyWage: 80,
@@ -6898,7 +6902,7 @@ export const professions: Record<string, Profession> = {
   'shipwright': {
     sv: 3500,
     type: 'profession',
-    sector: 'craftsmanship',
+    sector: 'naval',
     description: 'a carpenter skilled in ship construction and repair.',
     domSub: 'dom',
     dailyWage: 130,
