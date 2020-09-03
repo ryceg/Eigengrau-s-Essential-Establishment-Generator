@@ -1,5 +1,7 @@
 :: TempleOutput
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
+\<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+\<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
+\<<set $currentPassage.availableRelationships to setup.temple.get.customers>>
 <h1>$building.name</h1><<include "TownMicroEventsOutput">><<print lib.firstCharacter("You")>> come across $building.structure.templeDescriptor. $building.guardReadout
 $building.interiorReadout
 <br>$building.aboutReadout
@@ -24,27 +26,14 @@ The priest greets you, and introduces $associatedNPC.himherself as <<profile $as
   <<default>>
     <<set _availability to 3>>
 <</switch>>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Cost</th>
-  </tr>
-<h6>Adventuring Gear</h6>
-<<for _i, _item range lib.inventory.filter(function (item) {
-  return item.availability <= _availability
-  && item.type === "adventuring gear"
-  && item.availabilityLocation.includes("temple");
-  })>><tr><td>_item.name</td>
-<td><<money _item.cost $building>></td></tr>
-<</for>>
 
-<h6>Tools</h6>
-<<for _i, _item range lib.inventory.filter(function (item) {
-  return item.availability <= _availability
-  && item.type === "tools"
-  && item.availabilityLocation.includes("temple");
-  })>><tr><td>_item.name</td>
-<td><<money _item.cost $building>></td></tr>
-<</for>>
-</table>
+\<<set _selling to {
+    category: {
+      'adventuring gear': 'adventuring gear',
+      'tools': 'tools'
+    }
+}>>
+<<shop $building, _selling>>
+
 <</linkappend>><</nobr>>
+<<linkreplace "<h4>Church Attendees</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>

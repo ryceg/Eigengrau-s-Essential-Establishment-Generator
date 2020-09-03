@@ -1285,7 +1285,7 @@ setup.initNpcData = () => {
       strength: [
         // npc.name is a _______
         [100, 'fanatical true believer'],
-        [90, 'unshakingly devoted'],
+        [90, 'unshakingly devoted believer'],
         [80, 'conspicuously faithful believer'],
         [70, 'outspoken believer'],
         [60, 'quiet true believer'],
