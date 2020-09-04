@@ -1,0 +1,18 @@
+:: TownListFactions
+<div class='classTable'><<nobr>><table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Delete</th>
+        /* <th>Raw Number</th> */
+    </tr>
+<<for _key, _faction range $town.factions>><<capture _key, _faction>>
+  <tr>
+    <td><<profile _faction>></td>
+    <td><<print _faction.type.toUpperFirst()>> <<print _faction.wordNoun.toUpperFirst()>></td>
+    <td><<print lib.toTitleCase(_faction.size)>></td>
+    <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
+  </tr>
+ /* - A _faction.size _faction.type _faction.wordNoun */
+<</capture>><</for>></table><</nobr>></div>
