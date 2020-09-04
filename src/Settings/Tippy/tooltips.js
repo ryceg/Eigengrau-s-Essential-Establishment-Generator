@@ -6,9 +6,6 @@ setup.profileTooltip = function (id, obj) {
       if (obj.objectType) {
         switch (obj.objectType) {
           case 'npc':
-            console.log(`obj.descriptor for ${obj.name}:`)
-            console.log(obj.descriptor)
-            console.log(obj)
             span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
             break
           case 'building':
