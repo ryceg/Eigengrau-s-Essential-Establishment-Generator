@@ -1,0 +1,32 @@
+:: TownListThrowaway
+<<nobr>>
+  /* <<set _throwaway>><<run for (var key in $npcs) {
+    if ($npcs[key].isThrowaway === true) {
+      State.temporary.throwaway === true
+    }
+    }>><<if _throwaway !== true>><span class="tip" title="There are no more throwaway NPCs!"><h3>Throwaway NPCs</h3></span><<else>> */
+    <<linkappend "<h3>Throwaway NPCs</h3>">><<button "Wipe all throwaway NPCs">>
+  <<run for (let key in $npcs) {
+     if ($npcs.hasOwnProperty(key)) {
+       if ($npcs[key].isThrowaway === true) {
+         setup.deleteNPC($npcs[key])
+       }
+     }
+  }>>
+  <<goto "TownOutput">><</button>>
+  <p><table>
+    <tr>
+      <th>Name</th>
+      <th>Race</th>
+      <th>Profession</th>
+      <th>Delete</th>
+    </tr>
+    <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if _npc.isThrowaway>>
+    <tr><td><<profile $npcs[_npc.key]>></td>
+    <td><<print _npc.race.toUpperFirst()>></td>
+    <td>_profession</td>
+    <td><<link "x">><<run setup.deleteNPC($npcs[_npc.key])>><<goto "TownOutput">><</link>></td>
+    </tr>
+    <</if>>
+    <</capture>><</for>>
+    </table></p><</linkappend>><</nobr>>

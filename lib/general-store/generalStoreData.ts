@@ -203,15 +203,27 @@ export const generalStore = {
     customers: [
       {
         relationship: 'customer',
+        associatedNPC: {
+          relationship: 'shopkeep',
+          reciprocalRelationship: 'customer'
+        },
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} purchases ${random(['herbs', 'vegetables', 'staple foods', 'spices', 'utensils', ''])} from ${building.name} for cooking.` }
       },
       {
         relationship: 'former customer',
+        associatedNPC: {
+          relationship: 'target of boycott',
+          reciprocalRelationship: 'boycotter'
+        },
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} no longer buys anything from ${building.name} because ${random(['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`])}.` }
       },
       {
         relationship: 'client',
         reciprocalRelationship: 'supplier',
+        associatedNPC: {
+          relationship: 'shopkeep',
+          reciprocalRelationship: 'customer'
+        },
         base: {
           profession: 'merchant'
         },
@@ -220,6 +232,10 @@ export const generalStore = {
       {
         relationship: 'fish supplier',
         reciprocalRelationship: 'client',
+        associatedNPC: {
+          relationship: 'supplier of fish',
+          reciprocalRelationship: 'shopkeep'
+        },
         base: {
           profession: 'fisherman'
         },
@@ -228,6 +244,10 @@ export const generalStore = {
       {
         relationship: 'produce supplier',
         reciprocalRelationship: 'client',
+        associatedNPC: {
+          relationship: 'produce supplier',
+          reciprocalRelationship: 'shopkeep'
+        },
         base: {
           profession: 'gardener'
         },
@@ -236,6 +256,10 @@ export const generalStore = {
       {
         relationship: 'milk supplier',
         reciprocalRelationship: 'client',
+        associatedNPC: {
+          relationship: 'shopkeep',
+          reciprocalRelationship: 'supplier'
+        },
         base: {
           profession: 'dairymaid'
         },
@@ -244,6 +268,10 @@ export const generalStore = {
       {
         relationship: 'blacksmith',
         reciprocalRelationship: 'client',
+        associatedNPC: {
+          relationship: 'shopkeep',
+          reciprocalRelationship: 'supplier'
+        },
         base: {
           profession: 'blacksmith'
         },

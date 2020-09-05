@@ -6,7 +6,11 @@
     \<<run setup.deleteNPC($npcs[_newNPC])>>
   \<</if>><<run console.log("_randomNPC:")>><<run console.log(_randomNPC)>>
 \<<set $currentPassage.randomNPC to setup.createNPC($town, _randomNPC)>>
-\<<run setup.createBuildingRelationship($town, $currentPassage, $currentPassage.randomNPC, lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship))>>
+\<<set _profession to lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship)>>
+\<<if _profession.associatedNPC>>
+\<<run setup.createRelationship($town, $npcs[$currentPassage.associatedNPC.key], $npcs[$currentPassage.randomNPC.key], _profession.associatedNPC.relationship, _profession.associatedNPC.reciprocalRelationship)>>
+\<</if>>
+\<<run setup.createBuildingRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], _profession)>>
     \<<replace "#NPC">>
           <div class="descriptive">
             <h3>$currentPassage.randomNPC.name</h3>

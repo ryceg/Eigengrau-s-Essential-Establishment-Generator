@@ -18,7 +18,7 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
     professionType: 'type',
     professionSector: 'sector'
   } as const
-  keys(professionThings).forEach(key => {
+  for (const key of keys(professionThings)) {
     if (npc[key]) {
       const temp = professionThings[key]
       console.log(`${key} was defined as ${npc[key]}, so filtering to the available professions! Filtering down from:`)
@@ -28,15 +28,15 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
       })
       console.log(professionNames)
     }
-  })
+  }
 
   if (breakGenderNorms(town) === false) {
     if (isDominantGender(town, npc) === false) {
-      professionNames.filter(profession => {
+      professionNames = professionNames.filter(profession => {
         return town.professions[profession].domSub !== 'dom'
       })
     } else {
-      professionNames.filter(profession => {
+      professionNames = professionNames.filter(profession => {
         return town.professions[profession].domSub !== 'sub'
       })
     }

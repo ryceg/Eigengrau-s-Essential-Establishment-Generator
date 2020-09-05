@@ -449,7 +449,7 @@ setup.initNpcData = () => {
           return true
         },
         function () {
-          const trinket = lib.createMagicTrinket()
+          const trinket = lib.createMagic('trinket')
           console.log('called lifeEvents.trinket function')
           return `${[
             "I was given a magical trinket- it's a ",
@@ -1003,7 +1003,7 @@ setup.initNpcData = () => {
               'I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ',
               'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
             if (adventureRoll === 100) {
-              const weapon = lib.createMagicWeapon()
+              const weapon = lib.createMagic('weapon')
               console.log('Called weapon function.')
               adventureResults = `came across a magical weapon- this is my trusty ${weapon.name}<blockquote>` + `<h4>${weapon.name}</h4>${weapon.description}</blockquote>`
             } else if (adventureRoll >= 91) {
@@ -1285,7 +1285,7 @@ setup.initNpcData = () => {
       strength: [
         // npc.name is a _______
         [100, 'fanatical true believer'],
-        [90, 'unshakingly devoted'],
+        [90, 'unshakingly devoted believer'],
         [80, 'conspicuously faithful believer'],
         [70, 'outspoken believer'],
         [60, 'quiet true believer'],

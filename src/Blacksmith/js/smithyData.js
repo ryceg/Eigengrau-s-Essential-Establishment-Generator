@@ -4,6 +4,10 @@ setup.smithy = {
     customers: [
       {
         relationship: 'regular',
+        associatedNPC: {
+          relationship: 'blacksmith',
+          reciprocalRelationship: 'client'
+        },
         base: {
           professionType: 'labourer'
         },
@@ -11,6 +15,10 @@ setup.smithy = {
       },
       {
         relationship: 'buyer',
+        associatedNPC: {
+          relationship: 'blacksmith',
+          reciprocalRelationship: 'client'
+        },
         base: {
           profession: 'wagoner'
         },
@@ -18,23 +26,48 @@ setup.smithy = {
       },
       {
         relationship: 'former customer',
+        associatedNPC: {
+          relationship: 'target of boycott',
+          reciprocalRelationship: 'former client'
+        },
         description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
       },
       {
+
         relationship: 'carpenter',
         reciprocalRelationship: 'client',
+        associatedNPC: {
+          relationship: 'blacksmith',
+          reciprocalRelationship: 'client'
+        },
         base: {
           profession: 'carpenter'
         },
         description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
       },
       {
+        associatedNPC: {
+          relationship: 'blacksmith',
+          reciprocalRelationship: 'client'
+        },
         relationship: 'patron',
         reciprocalRelationship: 'client',
         base: {
           socialClass: 'nobility'
         },
         description (building, npc) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
+      },
+      {
+        relationship: 'superstitious peasant',
+        reciprocalRelationship: 'client',
+        associatedNPC: {
+          relationship: 'blacksmith',
+          reciprocalRelationship: 'client'
+        },
+        base: {
+          socialClass: 'peasantry'
+        },
+        description (building, npc) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits.` }
       }
     ],
     expertise: smithy => [

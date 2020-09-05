@@ -89,7 +89,7 @@ export const professions: Record<string, Profession> = {
       return {
         lord: {
           relationship: 'lord',
-          reciprocal: 'labourer',
+          reciprocalRelationship: 'labourer',
           exclusions (town, npc) {
             return Object.values(npc.relationships).includes('lord')
           },
@@ -271,7 +271,7 @@ export const professions: Record<string, Profession> = {
       return {
         patron: {
           relationship: 'patron',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             socialClass: 'nobility'
@@ -298,7 +298,7 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         }
@@ -365,7 +365,7 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             socialClass: 'nobility'
@@ -385,7 +385,9 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
     professionOrigin: [
-      'I love ordering things, and archiving suits me perfectly.'
+      'I love ordering things, and archiving suits me perfectly.',
+      'Everything being in its place suits me very well.',
+      'I have an amazing memory, and can find what someone is looking for almost instantly.'
     ]
   },
   'armorer': {
@@ -422,7 +424,7 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         }
@@ -441,7 +443,9 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
     professionOrigin: [
-      'Early risers like me are well suited to the life of a baker.'
+      'Early risers like me are well suited to the life of a baker.',
+      'I love bread!',
+      'Watching yeast rise is meditative.'
     ]
   },
   'banker': {
@@ -489,7 +493,7 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'drunkard',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         }
@@ -612,13 +616,13 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         },
         prostitute: {
           relationship: 'prostitute',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             profession: 'prostitute'
@@ -657,13 +661,13 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         },
         supplier: {
           relationship: 'supplier',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             profession: 'cowherd'
@@ -874,7 +878,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             socialClass: 'nobility'
@@ -1023,7 +1027,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'supplier',
-          reciprocal: 'client',
+          reciprocalRelationship: 'client',
           probability: 20,
           base: {
             profession: 'fisherman'
@@ -1279,7 +1283,7 @@ export const professions: Record<string, Profession> = {
       return {
         prisoner: {
           relationship: 'prisoner',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             profession: 'prisoner'
@@ -1302,7 +1306,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -1357,7 +1361,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -1612,7 +1616,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2051,7 +2055,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'employer',
-          reciprocal: 'servant',
+          reciprocalRelationship: 'servant',
           probability: 20,
           base: {
             socialClass: 'nobility'
@@ -2140,7 +2144,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'slaver',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('slaver')) {
               return false
@@ -2169,7 +2173,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'slave',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {
             profession: 'slave'
@@ -2228,7 +2232,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2258,7 +2262,7 @@ export const professions: Record<string, Profession> = {
     sv: 550,
     synonyms: ['ship worker', 'dock worker'],
     type: 'labourer',
-    sector: 'agriculture',
+    sector: 'naval',
     description: 'loads and unloads cargo from ships.',
     domSub: 'dom',
     dailyWage: 80,
@@ -2305,7 +2309,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2513,7 +2517,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2617,7 +2621,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2692,7 +2696,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2767,7 +2771,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'co-worker',
-          reciprocal: 'co-worker',
+          reciprocalRelationship: 'co-worker',
           probability: 20,
           base: {
             profession: 'cowherd'
@@ -2791,7 +2795,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             return !Object.values(npc.relationships).includes('liege')
           },
@@ -2852,7 +2856,7 @@ export const professions: Record<string, Profession> = {
       return {
         supplier: {
           relationship: 'client',
-          reciprocal: 'supplier',
+          reciprocalRelationship: 'supplier',
           probability: 20,
           base: {
             profession: 'plumer'
@@ -2875,7 +2879,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -2919,7 +2923,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'co-worker',
-          reciprocal: 'co-worker',
+          reciprocalRelationship: 'co-worker',
           probability: 20,
           base: {
             profession: 'cowherd'
@@ -2966,7 +2970,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -3288,7 +3292,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -3389,7 +3393,7 @@ export const professions: Record<string, Profession> = {
       return {
         employer: {
           relationship: 'employer',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('employer')) {
               return false
@@ -3659,7 +3663,7 @@ export const professions: Record<string, Profession> = {
       return {
         supplier: {
           relationship: 'client',
-          reciprocal: 'supplier',
+          reciprocalRelationship: 'supplier',
           probability: 20,
           base: {
             profession: 'bartender'
@@ -3784,7 +3788,7 @@ export const professions: Record<string, Profession> = {
       return {
         slave: {
           relationship: 'slave',
-          reciprocal: 'owner',
+          reciprocalRelationship: 'owner',
           probability: 20,
           base: {
             profession: 'slave'
@@ -4218,7 +4222,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'fellow bandit',
-          reciprocal: 'fellow bandit',
+          reciprocalRelationship: 'fellow bandit',
           probability: 20,
           base: {
             profession: npc.profession
@@ -4313,7 +4317,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'buyer',
-          reciprocal: 'drug supplier',
+          reciprocalRelationship: 'drug supplier',
           probability: 20,
           base: {
             profession: 'drug dealer'
@@ -4519,7 +4523,7 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         }
@@ -4647,7 +4651,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -4727,7 +4731,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -4756,7 +4760,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'page',
+          reciprocalRelationship: 'page',
           probability: 20,
           base: {
             socialClass: 'nobility'
@@ -4896,7 +4900,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'butler',
+          reciprocalRelationship: 'butler',
           probability: 20,
           base: {
             socialClass: 'nobility'
@@ -4920,7 +4924,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'client',
-          reciprocal: 'carer',
+          reciprocalRelationship: 'carer',
           probability: 20,
           base: {
             socialClass: 'nobility',
@@ -4955,7 +4959,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'employee',
+          reciprocalRelationship: 'employee',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('employer')) {
               return false
@@ -5041,7 +5045,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'food taster',
+          reciprocalRelationship: 'food taster',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('employer')) {
               return false
@@ -5165,7 +5169,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'employee',
+          reciprocalRelationship: 'employee',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('employer')) {
               return false
@@ -5194,7 +5198,7 @@ export const professions: Record<string, Profession> = {
       return {
         charge: {
           relationship: 'charge',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('charge')) {
               return false
@@ -5342,7 +5346,7 @@ export const professions: Record<string, Profession> = {
       return {
         client: {
           relationship: 'client',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             return !Object.values(npc.relationships).includes('client')
           },
@@ -5637,7 +5641,7 @@ export const professions: Record<string, Profession> = {
       return {
         prisoner: {
           relationship: 'prisoner',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           probability: 20,
           base: {}
         }
@@ -5659,7 +5663,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'employee',
+          reciprocalRelationship: 'employee',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('employer')) {
               return false
@@ -6043,7 +6047,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -6095,7 +6099,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -6278,7 +6282,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'cult leader',
-          reciprocal: 'cult follower',
+          reciprocalRelationship: 'cult follower',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('cult leader')) {
               return false
@@ -6313,7 +6317,7 @@ export const professions: Record<string, Profession> = {
       return {
         cult: {
           relationship: 'follower',
-          reciprocal: 'cult leader',
+          reciprocalRelationship: 'cult leader',
           probability: 20,
           base: {
             profession: 'cultist'
@@ -6541,7 +6545,7 @@ export const professions: Record<string, Profession> = {
       return {
         coworker: {
           relationship: 'mentor',
-          reciprocal: 'teacher',
+          reciprocalRelationship: 'teacher',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('mentor')) {
               return false
@@ -6744,7 +6748,7 @@ export const professions: Record<string, Profession> = {
       return {
         noble: {
           relationship: 'employer',
-          reciprocal: 'tutor',
+          reciprocalRelationship: 'tutor',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('employer')) {
               return false
@@ -6898,7 +6902,7 @@ export const professions: Record<string, Profession> = {
   'shipwright': {
     sv: 3500,
     type: 'profession',
-    sector: 'craftsmanship',
+    sector: 'naval',
     description: 'a carpenter skilled in ship construction and repair.',
     domSub: 'dom',
     dailyWage: 130,
@@ -6980,7 +6984,7 @@ export const professions: Record<string, Profession> = {
       return {
         'former sergeant': {
           relationship: 'former sergeant',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('former sergeant')) {
               return false
@@ -7009,7 +7013,7 @@ export const professions: Record<string, Profession> = {
       return {
         liege: {
           relationship: 'liege',
-          reciprocal: npc.profession,
+          reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('liege')) {
               return false
@@ -7218,7 +7222,7 @@ export const professions: Record<string, Profession> = {
       return {
         exmaster: {
           relationship: 'ex-master',
-          reciprocal: 'escaped slave',
+          reciprocalRelationship: 'escaped slave',
           exclusions (town, npc) {
             if (Object.values(npc.relationships).includes('ex-master')) {
               return false
