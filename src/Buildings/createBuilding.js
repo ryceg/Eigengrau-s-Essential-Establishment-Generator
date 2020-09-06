@@ -60,18 +60,9 @@ setup.createBuilding = (town, type, base = {}) => {
   town.roads[building.key] = building.road
 
   // building.priceModifier += town.taxes.economics
-  building.roll.wealth = Math.clamp(building.roll.wealth, 1, 100)
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
-  building.roll.reputation = Math.clamp(building.roll.reputation, 1, 100)
-  building.roll.sin = Math.clamp(building.roll.sin, 1, 100)
-  building.roll.diversity = Math.clamp(building.roll.diversity, 1, 100)
-  building.roll.magic = Math.clamp(building.roll.magic, 1, 100)
-  building.roll.size = Math.clamp(building.roll.size, 1, 100)
-  building.roll.population = Math.clamp(building.roll.population, 1, 100)
-  building.roll.roughness = Math.clamp(building.roll.roughness, 1, 100)
-  building.roll.cleanliness = Math.clamp(building.roll.cleanliness, 1, 100)
-  building.roll.expertise = Math.clamp(building.roll.expertise, 1, 100)
-  building.roll.activity = Math.clamp(building.roll.activity, 1, 100)
+
+  lib.clampRolls(building.roll)
 
   building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 

@@ -205,9 +205,8 @@ setup.createTown = (base = {}) => {
 
   setup.createSocioPolitics(town)
 
-  Object.keys(town.roll).forEach(roll => {
-    town.roll[roll].clamp(1, 100)
-  })
+  lib.clampRolls(town.roll)
+
   if (settings.ignoreGender === true || town.ignoreGender === true) {
     town.roll.equality = 100
   }

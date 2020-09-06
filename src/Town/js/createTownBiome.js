@@ -96,9 +96,7 @@ setup.createTownBiome = (base = {}) => {
   assignEconomicModifiers(town)
   assignPoliticalModifiers(town)
 
-  Object.keys(town.roll).forEach(roll => {
-    town.roll[roll].clamp(1, 100)
-  })
+  lib.clampRolls(town.roll)
 
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
