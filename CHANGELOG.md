@@ -7,20 +7,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Castles
+- Infinite breadcrumbs
 - Description of racial makeup to the start page.
 - Ability to edit dominant gender
-- Customers
+- Customers and expanded relationships
 - Relationships between buildings and NPCs
 
 ### Changed
+- Equality slider has changed; previously 0 was a completely matriarchal society, 50 was perfect egalitarianism, and 100 was patriarchal. Now, there is a dropdown for which gender is the 'dominant' gender, and 0 is sexist with 100 being perfect egalitarianism.
 - Added race in dropdown NPC creation tool in the toolbox.
 - Fixed some bugs introduced in the last update.
-- Bug fixes for Tippy
+- Bug fixes for Tippy on profiles
 - Fix tavern material being [object Object]
 - Alchemist bugs
 - Fix creating new faction.
 - Fix sliders.
 - Improvements to onboarding process and tutorial.
+- Formatting improvements in town edit
+- Fixed empty headers sometimes appearing in shops
 
 
 ### Removed
@@ -28,6 +33,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Known issues
 - Spymasters still sometimes live in abject poverty.
+- NPC profiles still break on refresh
+- Changing town name still does not update establishments
 
 ## [2.4.1](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/releases/tag/2.4.1)
 
