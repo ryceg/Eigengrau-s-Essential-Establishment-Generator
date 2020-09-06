@@ -1,23 +1,20 @@
 :: TownListRaces
 <<nobr>>
-<<linkappend "<h3>Racial demographics in $town.name</h3>">><<run setup.updateDemographics($town, $town._baseDemographics)>>
+<<run setup.updateDemographics($town, $town._baseDemographics)>>
 <div class='classTable'>$town.name is comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
 <table>
     <tr>
         <th>Race</th>
         <th>Population</th>
         <th>Percentage</th>
-        <th>Raw Number</th>
     </tr>
 <<for _race, _percentage range $town._demographicPercentile>>
     <tr>
         <td><<print _race.toUpperFirst()>></td>
         <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
-        <td><<print $town._baseDemographics[_race]>></td>
     </tr>
 <</for>>
 </table>
 </div>
-<</linkappend>>
 <</nobr>>

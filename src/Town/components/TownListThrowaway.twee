@@ -5,7 +5,7 @@
       State.temporary.throwaway === true
     }
     }>><<if _throwaway !== true>><span class="tip" title="There are no more throwaway NPCs!"><h3>Throwaway NPCs</h3></span><<else>> */
-    <<linkappend "<h3>Throwaway NPCs</h3>">><<button "Wipe all throwaway NPCs">>
+<<button "Wipe all throwaway NPCs">>
   <<run for (let key in $npcs) {
      if ($npcs.hasOwnProperty(key)) {
        if ($npcs[key].isThrowaway === true) {
@@ -29,4 +29,4 @@
     </tr>
     <</if>>
     <</capture>><</for>>
-    </table></p><</linkappend>><</nobr>>
+    </table></p><</nobr>>

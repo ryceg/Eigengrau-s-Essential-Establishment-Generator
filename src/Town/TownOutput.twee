@@ -1,5 +1,4 @@
 :: TownOutput
-<<set _town to $town>>
 <<button "Edit $town.name">><<run setup.history($town, null, "Editing town")>><<goto "TownEdit">><</button>>
 
 <<print lib.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin. They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
@@ -9,28 +8,12 @@
 They are <<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> <span @id="_economicIdeologyDescription" class="tip dotted">$town.economicIdeologyIST</span> <span @id="_politicalIdeologyDescription" class="tip dotted">$town.politicalIdeologyIC</span> <span @id="_politicalSourceDescription" class="tip dotted">$town.politicalSource</span>. The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output($town.wealth)>> existence. <<print $town.currentEvent.toUpperFirst()>> is currently taking place.
 <h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
-<h3>Factions</h3><<silently>>
-    <<set _listbox to '<<listbox "$newFaction">>'>>
-    <<for _key range Object.keys(lib.factionData.type)>>
-        <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
-    <</for>>
-    <<set _listbox += '<</listbox>>'>>
-<</silently>>\
-_listbox -- <<button "Create new faction">>
-  <<run console.log('Creating a new ' + $newFaction)>>
-  <<set _tempFaction to setup.createFaction($town, {
-  type: $newFaction
-  })>>
-  <<set $town.factions[_tempFaction.key] = _tempFaction>>
-  <<run console.log($town)>>
-  <<goto "TownOutput">>
-<</button>>
-<<include "TownListRaces">>
-<<include "TownListFactions">>
-<<include "TownListBuildings">>
-<<include "TownListNpcs">>
-<<include "TownListThrowaway">>
-<<include "TownListProfessions">>
+<<linkappend "<h3>Racial Demographics</h3>">><<include "TownListRaces">><</linkappend>>
+<<linkappend "<h3>List of Factions</h3>">><<include "TownListFactions">><</linkappend>>
+<<linkappend "<h3>List of NPCs</h3>">><<include "TownListNpcs">><</linkappend>>
+<<linkappend "<h3>List of Buildings</h3>">><<include "TownListBuildings">><</linkappend>>
+<<linkappend "<h3>List of Throwaway NPCs</h3>">><<include "TownListThrowaway">><</linkappend>>
+<<linkappend "<h3>Professions in $town.name</h3>">><<include "TownListProfessions">><</linkappend>>
 
 
 
