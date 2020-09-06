@@ -50,7 +50,7 @@
 
 <span class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>>)</span> ---- Total Egalitarianism: <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></span>
 
-<<link "Add 1">><<set $town.baseDemographics['dwarf'] += 50>><<run console.log($town)>><<goto "TownEdit">><</link>>
+<<link "Add 1">><<set $town._baseDemographics["dwarf"] += 50>><<run console.log($town)>><<goto "TownEdit">><</link>>
 <<nobr>>
 <table>
   <tr>
@@ -59,23 +59,26 @@
     <th>Percentage</th>
     <th><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
   </tr>
-<<for _race, _percentage range $town.demographicPercentile>>
+<<for _race, _percentage range $town._demographicPercentile>>
   <tr>
     <td>_race</td>
     <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
     <td><<print _percentage.toFixed(2)>></td>
-    <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town.baseDemographics['" + _race + "']"` $town.baseDemographics[_race] 0 100 1>></span></td>
+    <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></td>
   </tr>
 <</for>>
 </table>
 <</nobr>>
 
 <<button "Save Changes">>
+  <<run console.log("Saving changes...")>>
+  <<run setup.updateDemographics($town, $town._baseDemographics)>>
   <<run console.log($town)>>
   <<run setup.createSocioPolitics($town)>>
   <<run lib.updateTownSocioPolitics($town)>>
   <<run lib.townRender($town)>>
   <<run setup.checkRaces($town, $npcs)>>
+  
   <<run console.log($town)>>
   <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>
   <<goto "TownOutput">>

@@ -45,16 +45,21 @@ setup.createTown = (base = {}) => {
     // Clone the raw demographic data for the town type.
     // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
-      console.log('Getting base demographics.')
+      // console.log('Getting base demographics.')
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
-      console.log('Setting base demographics.')
+      console.log('Setting base demographics. Old:')
+      console.log(this._baseDemographics)
+      console.log('New:')
+      console.log(newDemographics)
       if (!this._baseDemographics) this._baseDemographics = {}
       Object.keys(newDemographics).forEach(byRace => {
         this._baseDemographics[byRace] = newDemographics[byRace]
       })
-      console.log(this.demographicPercentile)
+      console.log('Updated:')
+      console.log(this._baseDemographics)
+      // console.log(this.demographicPercentile)
     },
     get demographicPercentile () {
       console.log('Getting demographic percent.')
@@ -73,7 +78,7 @@ setup.createTown = (base = {}) => {
       })
       return this._demographicPercentile
     },
-    set demographicPercentile (data) { console.log('Setter for demographicPercentile is not a thing. Chucking out the following data:', data) },
+    set demographicPercentile (data) { console.error('Setter for demographicPercentile is not a thing. Chucking out the following data:', data) },
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
