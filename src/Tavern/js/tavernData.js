@@ -866,7 +866,7 @@ setup.initTavernData = () => {
         return `There's a ${setup.profile(npc, 'musician')} that is having a drink, clearly in between sets.`
       },
       preacher (town) {
-        const npc = setup.createNPC(town, { roll: { religiosity: 99 } })
+        const npc = setup.createNPC(town, { religion: { strength: 'fanatical true believer' } })
         return `There's a ${setup.profile(npc, npc.descriptor)} that is supposedly "spreading the good word" about ${npc.hisher} deity. In reality, all ${npc.heshe} is doing is just annoying the other patrons.`
       },
       amateurMusician (town) {
@@ -898,7 +898,7 @@ setup.initTavernData = () => {
         return `A ${setup.profile(npc, 'ranger')} sits alone in a corner, smoking. A hood covers most of his face. At his feet is a sleeping wolfhound. Everyone is giving him a wide berth.`
       },
       drunkard (town) {
-        const npc = setup.createNPC(town, { background: 'commoner', profession: 'drunkard', gender: 'man' })
+        const npc = setup.createNPC(town, { background: 'commoner', gender: 'man' })
         return `A lone ${setup.profile(npc, 'drunkard')} is drinking at the end of the bar and softly crying and singing one country ballad after another.`
       },
       wizard (town) {
@@ -906,7 +906,7 @@ setup.initTavernData = () => {
         return `A stoned ${setup.profile(npc, 'magician')} is fumbling his way through one awful card trick after another.`
       },
       elves (town) {
-        const npc = setup.createNPC(town, { background: 'noble', profession: 'noble', race: 'elf', gender: 'woman', weapon: 'an obsidian bow' })
+        const npc = setup.createNPC(town, { background: 'noble', race: 'elf', gender: 'woman', weapon: 'an obsidian bow' })
         return `A mixed group of Elves are drinking bad wine and holding scented handkerchiefs up to their noses to keep out the stench. ${setup.profile(npc, 'One')} has an obsidian bow strapped to her back.`
       },
       clown (town) {
