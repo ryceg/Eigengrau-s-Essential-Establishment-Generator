@@ -1,63 +1,13 @@
 :: FactionProfile
-<<set $currentFaction to $town.factions[$currentPassage.key]>><h1>$currentFaction.name</h1><<print lib.firstCharacter($currentFaction.name)>> is <<print lib.articles.output($currentFaction.type)>> $currentFaction.wordNoun. It's $currentFaction.age, and the $currentFaction.size faction has <<print lib.articles.output($currentFaction.reputation)>> reputation, and is motivated by $currentFaction.motivation. They are $currentFaction.misc.
-<<set _leader to $currentFaction.leader>>
-<h3>Governance</h3>It's ruled by <<nobr>>
-<<switch $currentFaction.leadershipType>>
-  <<case "group">>
-  <<print lib.articles.output($currentFaction.leaderGroupTitle)>> of $currentFaction.leaderGroupSize, who were $currentFaction.leaderQualification. They are $currentFaction.leaderCompetence, and their positions on the $currentFaction.leaderGroupTitle are $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Their meetings are held $currentFaction.meetingRegularity, and are $currentFaction.meetingAccessibility. Bribes to the $currentFaction.leaderGroupTitle $currentFaction.leaderBribes.
-  <<default>>
-  <<profile $npcs[$currentFaction.leader.key]>>, who was $currentFaction.leaderQualification. <<print _leader.heshe.toUpperFirst()>> is $currentFaction.leaderCompetence, and _leader.hisher position is $currentFaction.stability<<if def $currentFaction.stabilityCause>> due to $currentFaction.stabilityCause<</if>>. Bribes $currentFaction.leaderBribes.
-<</switch>>
-<</nobr>><h3>Resources</h3><<nobr>>
-They have $currentFaction.resourcesDescription resources. <<if $currentFaction.resources.length == 2>>
-    <<print $currentFaction.resources[0].toUpperFirst()>> and $currentFaction.resources[1] are their only significant resources.
-  <<elseif $currentFaction.resources.length == 1>>
-    <<print $currentFaction.resources[0].toUpperFirst()>> are their only significant resources.
-  <<else>>
-    <<print $currentFaction.resources[0].toUpperFirst()>>
-    <<print [
-        "are jealously guarded, as are ",
-        "are part of those resources. Also at their disposal are ",
-        "are in their warchest, as are "
-    ].random()>>
-    <<for _resources range $currentFaction.resources.slice(1, -1)>>
-        _resources,
-    <</for>>
-    and <<print $currentFaction.resources[$currentFaction.resources.length - 1]>>.
-<</if>><</nobr>>
-<h3>Members</h3>Members of $currentFaction.name are identifiable by $currentFaction.membersTrait. Membership requires $currentFaction.joiningRequirement, and costs $currentFaction.joiningFee. The initiation into $currentFaction.name involves $currentFaction.joiningInitiation.
-<h3>Politics</h3>$currentFaction.name have $currentFaction.alliesDescription; <<nobr>>
-
-<<if $currentFaction.allies.length == 2>>
-    <<print $currentFaction.allies[0].toUpperFirst()>> and $currentFaction.allies[1] can be called on for aid.
-  <<elseif $currentFaction.allies.length == 1>>
-    <<print $currentFaction.allies[0].toUpperFirst()>> are the only others they can rely on.
-  <<else>>
-    <<print $currentFaction.allies[0].toUpperFirst()>>
-    <<print [
-        "will answer a call for aid, as will ",
-        "regularly assist $currentFaction.name. At their disposal, they also have ",
-        "will help if called upon, as will "
-    ].random()>>
-    <<for _allies range $currentFaction.allies.slice(1, -1)>>
-        _allies,
-    <</for>>
-    and <<print $currentFaction.allies[$currentFaction.allies.length - 1]>>.
-<</if>><</nobr>>
-
-$currentFaction.name have $currentFaction.rivalsDescription; <<nobr>><<if $currentFaction.rivals.length == 2>>
-    <<print $currentFaction.rivals[0].toUpperFirst()>> and $currentFaction.rivals[1] are the only that wish $currentFaction.name ill.
-  <<elseif $currentFaction.rivals.length == 1>>
-    <<print $currentFaction.rivals[0].toUpperFirst()>> are the enemies of $currentFaction.name.
-  <<else>>
-    <<print $currentFaction.rivals[0].toUpperFirst()>>
-    <<print [
-        "are enemies of $currentFaction.name, as are ",
-        "wish ill of $currentFaction.name. Their other enemies also include ",
-        "are rivals. Other enemies include "
-    ].random()>>
-    <<for _rivals range $currentFaction.rivals.slice(1, -1)>>
-        _rivals,
-    <</for>>
-    and <<print $currentFaction.rivals[$currentFaction.rivals.length - 1]>>.
-<</if>><</nobr>>
+\<<set $currentPassage to $town.factions[$currentPassage.key]>>
+\<<set $currentPassage.availableRelationships to lib.factionData.type[$currentPassage.type].members.professions>>
+\<h1>$currentPassage.name</h1>
+<<print lib.firstCharacter($currentPassage.name)>> is <<print lib.articles.output($currentPassage.type)>> $currentPassage.wordNoun. It's $currentPassage.age, and the $currentPassage.size faction has <<print lib.articles.output($currentPassage.reputation)>> reputation, and is motivated by $currentPassage.motivation. They are $currentPassage.misc.
+<<set _leader to $currentPassage.leader>>
+<<include "FactionGovernance">>
+<h3>Members</h3>
+Members of $currentPassage.name are identifiable by $currentPassage.membersTrait. Membership requires $currentPassage.joiningRequirement, and costs $currentPassage.joiningFee. The initiation into $currentPassage.name involves $currentPassage.joiningInitiation.
+<<linkreplace "<h4>Create Members</h4>" t8n>><<include "CreateFactionNpc">><</linkreplace>>
+<<include "FactionRelationshipsTable">>
+<<include "FactionResources">>
+<<include "FactionPolitics">>

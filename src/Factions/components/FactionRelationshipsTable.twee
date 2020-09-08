@@ -1,0 +1,22 @@
+:: FactionRelationshipsTable
+<div id="BuildingRelationshipsTable"><<nobr>><<set _factionRelationships to setup.findBuildingRelationship($town, $town.factions[$currentPassage.key], null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_factionRelationships)>>
+<<if _factionRelationships.length > 0>><div class='classTable'>
+  <h3>Relationships</h3>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Race</th>
+  <th>Occupation</th>
+  <th>Relationship</th>
+</tr>
+<<for _i to 0; _i lt _factionRelationships.length; _i++>><<set _profession to lib.findProfession($town, $npcs[_factionRelationships[_i].npcKey])>>
+  <tr><td><<profile $npcs[_factionRelationships[_i].npcKey]>></td>
+  <td><<print $npcs[_factionRelationships[_i].npcKey].race.toUpperFirst()>></td>
+  <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_factionRelationships[_i].npcKey].profession.toUpperFirst())>></td>
+  <td><<if _factionRelationships[_i].description || _factionRelationships[_i].reciprocalRelationship>><<print lib.createTippyFull(
+    _factionRelationships[_i].description || 
+    lib.findInArray($town.factions, "key", _factionRelationships[_i].buildingKey).name + " is " + lib.articles.output(_factionRelationships[_i].reciprocalRelationship) + " to " + $npcs[_factionRelationships[_i].npcKey].firstName, 
+    lib.toTitleCase(_factionRelationships[_i].relationship))>><<else>><<print lib.toTitleCase(_factionRelationships[_i].relationship)>><</if>></td></tr>
+<</for>>
+</table>
+</div><</if>><</nobr>></div>

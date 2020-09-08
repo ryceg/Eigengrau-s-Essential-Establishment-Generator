@@ -1,0 +1,18 @@
+:: FactionResources
+<h3>Resources</h3><<nobr>>
+They have $currentPassage.resourcesDescription resources. <<if $currentPassage.resources.length == 2>>
+    <<print $currentPassage.resources[0].toUpperFirst()>> and $currentPassage.resources[1] are their only significant resources.
+  <<elseif $currentPassage.resources.length == 1>>
+    <<print $currentPassage.resources[0].toUpperFirst()>> are their only significant resources.
+  <<else>>
+    <<print $currentPassage.resources[0].toUpperFirst()>>
+    <<print [
+        "are jealously guarded, as are ",
+        "are part of those resources. Also at their disposal are ",
+        "are in their warchest, as are "
+    ].random()>>
+    <<for _resources range $currentPassage.resources.slice(1, -1)>>
+        _resources,
+    <</for>>
+    and <<print $currentPassage.resources[$currentPassage.resources.length - 1]>>.
+<</if>><</nobr>>
