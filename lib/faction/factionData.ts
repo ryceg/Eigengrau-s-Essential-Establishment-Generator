@@ -67,7 +67,7 @@ export const factionData: FactionData = {
         hasClass: true,
         title: 'High Assassin',
         profession: 'rogue',
-        background: ['charlatan', 'soldier', 'criminal']
+        background: ['charlatan', 'soldier', 'criminal', 'kidnapper', 'forger', 'thief']
       },
       wordNoun: 'company',
       leaderQualification: ['the wealthiest of the group', 'the strongest of the group', 'the strongest of the group', 'able to rise to power by completing an ordeal', 'the most charismatic of the group', 'democratically elected', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to oust the previous leadership', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'able to rise to power through nepotism', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group', 'promoted by being the most powerful in the group'],
@@ -78,7 +78,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['assassin', 'rogue', 'poisoner']
       },
       membersTrait: ['the ring that members are given', "absolutely nothing; they're completely anonymous", 'their black sashes', 'their tendency to blink quickly', 'their quick tempers'],
       main: ['Dagger', 'Knife', 'Executioners', 'Hangmen', 'Hitmen', 'Killers', 'Doctors'],
@@ -104,7 +104,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['thief', 'smuggler', 'marauder', 'kidnapper', 'highwayman', 'fugitive', 'burglar', 'bandit']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
       main: ['Ravens', 'Crows', 'Jackals', 'Flesh', 'Knife', 'Club', 'Axe', 'Sword', 'Vultures', 'Dingoes', 'Tigers'],
@@ -130,7 +130,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['bard', 'singer', 'musician', 'arranger', 'composer', 'copyist', 'instrument Maker', 'playwright', 'luthier']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride', 'their terrible ballads', 'their limerick rhyming', 'their funky harmonies', 'their use of tritone substitution and negative harmony', 'their stochastically generated microtonal four-voice fugues'],
       main: ['Rehearsals', 'Musicians', 'Bards', 'Harmonies', 'Poems', 'Ballads', 'Arias', 'Lutes', 'Minstrels'],
@@ -155,7 +155,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
-        professions: []
+        professions: ['priest', 'pilgrim', 'nun', 'friar', 'clergyman', 'theologian', 'templar', 'sexton', 'prophet', 'pardoner', 'missionary', 'inquisitor', 'high priest', 'exorcist', 'diviner', 'deacon', 'confessor', 'cardinal', 'cantor', 'bishop', 'archbishop', 'almoner', 'acolyte', 'abbot']
       },
       membersTrait: ['amulets with a holy sigil', 'the ring that members are given'],
       main: ['Mother', 'Father', 'Lord'],
@@ -181,7 +181,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['potter', 'perfumer', 'locksmith', 'leatherworker', 'jeweler', 'hatter', 'goldsmith', 'silversmith', 'glovemaker', 'furrier', 'cobbler', 'craftsman', 'clock maker', 'carpenter', 'blacksmith', 'armorer', 'apprentice', 'wheelwright', 'weaponsmith', 'tinker', 'printer', 'optician', 'luthier', 'lapidary', 'instrument Maker', 'glassblower', 'furniture artisan', 'engraver']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Creators', 'Visionaries', 'Crafters', 'Craftsmen'],
@@ -206,7 +206,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['druid', 'ranger', 'forester', 'fowler', 'forager', 'arborist']
       },
       membersTrait: ['brown and dirty robes'],
       main: ['Green', 'Wild', 'Forest', 'Stream', 'Sky'],
@@ -231,7 +231,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['noble', 'diplomat', 'missionary', 'exile', 'merchant']
       },
       membersTrait: ['their tattoos and facial piercings', 'their outlandish clothes', 'their strangely colored hair', 'their orange clothes', 'their large earrings', 'their gaudy jewelry'],
       main: ['Peoples', 'Citizens', 'Lords', 'Peoples'],
@@ -257,7 +257,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
-        professions: []
+        professions: ['fighter', 'captain', 'warmage', 'special force soldier', 'sapper', 'runner', 'sergeant', 'quartermaster', 'mercenary', 'medic', 'marshall', 'marksman', 'lieutenant', 'fifer', 'commissar', 'cavalier', 'privateer', 'general']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
       main: ['Hand', 'Fist', 'Gauntlet', 'Glove', 'Hammer', 'Shield', 'Cloak', 'Dagger', 'Mace', 'Sword'],
@@ -283,7 +283,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['noble', 'merchant', 'apothecarist', 'bookseller', 'butcher', 'fishmonger', 'ice seller', 'patissier', 'spice merchant', 'street seller', 'shopkeep', 'wood seller', 'banker', 'chandler', 'grocer', 'minister']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their purple robes', 'their gaudy jewelry', 'the fact that a member is always closely followed by a boy carrying a chest'],
       main: ['Merchants', 'Company', 'Sellers and Buyers', 'Traders', 'Dealers', 'Brokers', 'Pedlars', 'Hawkers', 'Distributors'],
@@ -309,7 +309,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
-        professions: []
+        professions: ['fighter', 'captain', 'warmage', 'special force soldier', 'sapper', 'runner', 'sergeant', 'quartermaster', 'medic', 'marshall', 'marksman', 'lieutenant', 'fifer', 'commissar', 'cavalier', 'general']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their distinctive headgear', 'their white horses', 'their love of a good fight', 'their love of a good fight', 'their love of a good fight', 'being ruthless in combat', 'following any order given to them', 'fighting to the death'],
       main: ['Hand', 'Fist', 'Gauntlet', 'Glove', 'Hammer', 'Shield', 'Cloak', 'Dagger', 'Mace', 'Sword'],
@@ -335,7 +335,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
-        professions: []
+        professions: ['monk', 'hermit']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their shaved heads', 'their malnutrition', 'their calm presence', 'their know-it-all answers', 'their terrible jokes', 'their amazing beer', 'the tankard that all members carry'],
       main: ['Monks', 'Robes', 'Stone', 'Rock'],
@@ -360,7 +360,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['noble']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Ladies', 'People', 'Men', 'Lords', 'Heirs', 'Land Owners', 'Barons', 'Tycoons', 'Nobles', 'Gentlemen'],
@@ -386,7 +386,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['priest', 'pilgrim', 'friar', 'clergyman', 'theologian', 'templar', 'sexton', 'prophet', 'pardoner', 'missionary', 'inquisitor', 'high priest', 'exorcist', 'diviner', 'deacon', 'confessor', 'cardinal', 'cantor', 'bishop', 'archbishop', 'almoner', 'acolyte', 'abbot']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the walking sticks that all members carry', 'the beards that they grow', 'the grey robes they wear', 'the amulet they wear'],
       main: ['Priests', 'Clergy', 'Churchpeople', 'People of the Cloth', 'Robes', 'Incense', 'Elders', 'Preachers'],
@@ -412,7 +412,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['druid', 'ranger', 'forester', 'fowler', 'forager', 'arborist']
       },
       membersTrait: ['the ring that members are given', 'their pet ferrets', 'their pet sparrows', 'the twigs that are strewn throughout their hair', 'their terrible smell', 'the lack of footwear'],
       main: ['Wilderness', 'Woods', 'Lands', 'Forests', 'Trees', 'Animals'],
@@ -438,7 +438,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['political dissident', 'scholar', 'cartographer', 'mathematician', 'horologist', 'entomologism', 'engineer', 'drakologist', 'dean', 'chemist', 'botanist', 'astronomer', 'assayer', 'archaeologist', 'anthropologist', 'abecedarian', 'teacher', 'student', 'professor', 'philosopher', 'linguist', 'librarian', 'historian']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'their absentmindedness', 'their egos', 'their attention to detail', 'their creativity', 'their lust for fame', 'their pride'],
       main: ['Scroll Keepers', 'Book Keepers', 'Collectors', 'Librarians', 'Knowledge Holders', 'Proof Readers', 'Academics'],
@@ -464,7 +464,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['pilgrim', 'medium', 'friar', 'clergyman', 'theologian', 'templar', 'sexton', 'prophet', 'missionary', 'inquisitor', 'high priest', 'diviner', 'deacon', 'cardinal', 'cantor', 'bishop', 'archbishop', 'acolyte', 'abbot']
       },
       membersTrait: ['the ring that members are given', 'their excessively bureaucratic tendencies', 'the vacant look that members have', 'the vacant stare that members pull (in order to fit in with the others)', 'the plain robes they wear', 'the bright blue coloured sashes they wear'],
       main: ['Seers', 'Predictionists', 'Future Seers', 'Observers', 'Eyes', 'Historians'],
@@ -490,7 +490,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['thief', 'burglar', 'highwayman', 'rogue', 'assassin', 'bandit', 'conman', 'fence', 'gamefighter', 'cutpurse', 'crime boss', 'drug dealer', 'drug lord', 'extortioner', 'forger', 'fugitive', 'kidnapper', 'loan shark', 'grave robber', 'poacher', 'smuggler', 'gambler']
       },
       membersTrait: ['a missing earlobe', "absolutely nothing; they're completely anonymous", 'a dagger given to ever member', 'a ring given to every member', 'a grey hood', 'their lack of manners', 'their bad stench', 'their rabble-rousing tendencies'],
       adjective: ['Clever', 'Sneaky', 'Cunning', 'Conniving', 'Honest', 'Black', 'Invisible', 'Silent'],
@@ -516,7 +516,7 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: []
+        professions: ['wizard', 'sorcerer', 'archmage', 'abjurer', 'mage', 'medium', 'artificer', 'conjuror', 'elementalist', 'enchanter', 'evoker', 'hearth witch', 'illusionist', 'meteorologist', 'ritualist', 'runecaster', 'sage', 'shapeshifter', 'summoner', 'transmuter', 'witchdoctor', 'witch', 'wordsmith', 'warmage', 'necromancer']
       },
       membersTrait: ['their lack of table manners', 'their extreme interest in the oddities of the arcane', 'the blue robes they wear', 'the sash that members are given', 'the ring that members are given', 'their excessively bureaucratic tendencies'],
       main: ['Prestidigitators', 'Illusionists', 'Casters', 'Magic Users', 'Diviners', 'Evokers', 'Necromancers', 'Abjurers', 'Scroll Keepers', 'Book Keepers', 'Collectors', 'Librarians'],
