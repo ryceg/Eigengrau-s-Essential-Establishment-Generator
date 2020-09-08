@@ -47,6 +47,7 @@ setup.leaderFaction = function (town, faction) {
         }
       }
       faction.leader = setup.createNPC(town, leaderTraits)
+      setup.createBuildingRelationship(town, faction, faction.leader, { relationship: 'head of faction', reciprocalRelationship: 'controlled faction', description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.` })
       if (faction.isPoliticalPower === true) {
         town.leader = faction.leader
       }
