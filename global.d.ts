@@ -16,3 +16,11 @@ function tippy(selector: string | NodeList, options?: any): any
  */
 
 declare const global: NodeJS.Global & Record<string, any>
+
+function ga(send: string, event: {
+  hitType: string,
+  eventCategory: string,
+  eventAction?: string,
+  eventLabel?: string,
+  eventValue?: string
+})

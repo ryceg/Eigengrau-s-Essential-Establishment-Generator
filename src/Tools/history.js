@@ -19,5 +19,17 @@ setup.history = (object, passageName, linkDescription) => {
       passageName,
       linkDescription
     })
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'passage',
+      eventAction: 'loaded',
+      eventLabel: passageName
+    })
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'seed',
+      eventAction: 'used',
+      eventLabel: location.hash
+    })
   }
 }
