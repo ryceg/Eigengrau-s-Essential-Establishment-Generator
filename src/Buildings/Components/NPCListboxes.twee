@@ -10,4 +10,6 @@
 \ -- <<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "elderly"]>><</listbox>>
 \ -- <<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>>
 \/*\ -- <<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>>*/
-\ -- <<listbox "_stringRelationship" autoselect>><<optionsfrom _relationships.map(obj => { return obj.relationship })>><</listbox>>
+\ -- <<if passage() is "FactionProfile">><<listbox "_stringRelationship" autoselect>><<optionsfrom $currentPassage.availableRelationships>><</listbox>>
+\<<else>>
+\<<listbox "_stringRelationship" autoselect>><<optionsfrom _relationships.map(obj => { return obj.relationship })>><</listbox>><</if>>
