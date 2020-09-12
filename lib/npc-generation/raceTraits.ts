@@ -1,7 +1,7 @@
 import { ThresholdTable } from '../src/rollFromTable'
 import { dice } from '../src/dice'
 
-export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling'
+export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin'
 
 interface RaceTrait {
   probability: number
@@ -397,6 +397,86 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       'Gnome Cunning': 'You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.',
       "Artificer's Lore": 'Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.',
       'Tinker': "You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.,,When you create a device, choose one of the following options:,,Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.,,Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.,,Music Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed."
+    }
+  },
+  'goblin': {
+    probability: 1,
+    muscleMass: 9,
+    bmiModifier: 703,
+    ageTraits: {
+      'ageDescriptors': [
+        [70, 'vulnerably elderly'],
+        [65, 'withered'],
+        [60, 'elderly'],
+        [55, 'weathered'],
+        [53, 'aged'],
+        [50, 'old'],
+        [45, 'middle aged'],
+        [40, 'middle aged'],
+        [35, 'early middle aged'],
+        [20, 'adult'],
+        [18, 'prime adult aged'],
+        [16, 'young adult'],
+        [15, 'youthful adult'],
+        [14, 'relatively young'],
+        [13, 'surprisingly young'],
+        [12, 'barely adult aged'],
+        [11, 'youngster'],
+        [8, 'adolescent'],
+        [7, 'prepubescent'],
+        [3, 'child'],
+        [2, 'young child'],
+        [1, 'toddler'],
+        [0, 'newborn']
+      ],
+      'elderly': {
+        baseAge: 50,
+        ageModifier: () => dice(3, 4)
+      },
+      'settled adult': {
+        baseAge: 30,
+        ageModifier: () => dice(3, 10)
+      },
+      'young adult': {
+        baseAge: 20,
+        ageModifier: () => dice(4, 5)
+      },
+      'child': {
+        baseAge: 5,
+        ageModifier: () => dice(3, 4)
+      }
+    },
+    genderTraits: {
+      woman: {
+        firstName: [''],
+        beardProbability: 0,
+        baseHeight: 43,
+        baseWeight: 50,
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(2, 6)
+      },
+      man: {
+        firstName: [''],
+        beardProbability: 4,
+        baseHeight: 45,
+        baseWeight: 55,
+        heightModifier: () => dice(2, 4),
+        weightModifier: () => dice(3, 6)
+      }
+    },
+    lastName: [''],
+    eyes: ['yellow', 'amber', 'brown', 'dark brown', 'hazel', 'red', 'blood red', 'dark red'],
+    raceWords: {
+      raceName: 'goblin',
+      racePlural: 'goblins',
+      raceSingular: 'goblin',
+      raceAdjective: 'goblinoid',
+      raceLanguage: 'Goblin'
+    },
+    knownLanguages: ['Common', 'Goblin'],
+    beard: ['scraggly beard', 'long, flowing beard', 'goatee', 'goatee that seems to be trying to level up into a beard', 'rather wild, unkempt beard', 'dreadful beard'],
+    abilities: {
+      Darkvision: "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
     }
   },
   'half-elf': {
