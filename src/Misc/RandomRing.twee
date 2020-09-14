@@ -1,6 +1,6 @@
 :: RandomRing
 <<nobr>>
-<<linkreplace "<h6>Look at the ring!</h6>">>
+<<linkreplace "<h6>Look at the ring!</h6>" t8n>>
   <<set $randomRing to lib.createRing()>>
   <<replace "#ring">>
     <div class='descriptive'>
@@ -10,7 +10,7 @@
       $randomRing.firstOutputs
     </div>
   <</replace>>
-  <<link "<h6>Look at another ring</h6>">>
+  <<link "<h6>Look at another ring</h6>" t8n>>
     <<set $randomRing to lib.createRing()>>
     <<replace "#ring">>
       <div class='descriptive'>

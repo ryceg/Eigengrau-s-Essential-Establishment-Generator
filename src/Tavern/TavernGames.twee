@@ -5,7 +5,7 @@
 <div class="descriptive">
 <h3>$building.game.name</h3>
 $building.game.description
-<<linkreplace "Ask to play">>
+<<linkreplace "Ask to play" t8n>>
 	<br>The <<profile $building.gamer $building.gamer.descriptor>> that was playing says "$building.game.rules The current bet is <<money $building.game.bet>>."
 <</linkreplace>>
 </div>
