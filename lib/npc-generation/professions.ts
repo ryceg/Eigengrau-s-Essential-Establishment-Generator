@@ -1857,7 +1857,7 @@ export const professions: Record<string, Profession> = {
     }
   },
   'priest': {
-    sv: 750,
+    sv: 600,
     type: 'profession',
     sector: 'religion',
     description: 'has the authority to perform certain rites and administer certain sacraments.',
@@ -3872,18 +3872,6 @@ export const professions: Record<string, Profession> = {
     description: 'makes currency for the government.',
     dailyWage: 300,
     socialClass: 'commoner',
-    socialClassRoll () {
-      return 20 + dice(8, 6)
-    }
-  },
-  'bladesmith': {
-    sv: 3000,
-    type: 'business',
-    sector: 'craftsmanship',
-    description: 'specializes in making and repairing bladed weapons, especially swords and daggers.',
-    domSub: 'dom',
-    dailyWage: 100,
-    socialClass: 'peasantry',
     socialClassRoll () {
       return 20 + dice(8, 6)
     }
@@ -6176,7 +6164,7 @@ export const professions: Record<string, Profession> = {
     }
   },
   'archbishop': {
-    sv: 5000,
+    sv: 10000,
     type: 'profession',
     sector: 'religion',
     description: 'responsible for an archdiocese, their surrounding district.',
@@ -6193,7 +6181,7 @@ export const professions: Record<string, Profession> = {
     }
   },
   'bishop': {
-    sv: 10000,
+    sv: 5000,
     type: 'profession',
     sector: 'religion',
     description: 'a senior member of the clergy, usually in charge of a diocese and empowered to confer holy orders.',
