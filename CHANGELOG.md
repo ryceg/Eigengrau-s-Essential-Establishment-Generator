@@ -13,10 +13,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Ability to edit dominant gender
 - Customers and expanded relationships
 - Relationships between buildings and NPCs
+- Added race in dropdown NPC creation tool in the toolbox.
 
 ### Changed
 - Equality slider has changed; previously 0 was a completely matriarchal society, 50 was perfect egalitarianism, and 100 was patriarchal. Now, there is a dropdown for which gender is the 'dominant' gender, and 0 is sexist with 100 being perfect egalitarianism.
-- Added race in dropdown NPC creation tool in the toolbox.
+- Changed the function that generates initial buildings to test for whether a person with the corresponding profession lives in the town (don't flip a coin to see if there's a bakery when you've already got a concrete answer of whether there's a baker!)
 - Fixed some bugs introduced in the last update.
 - Bug fixes for Tippy on profiles
 - Fix tavern material being [object Object]
