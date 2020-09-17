@@ -472,6 +472,117 @@ setup.initCastle = () => {
       ],
       cells: {
         prisoners: {
+          npcs: {
+            bread: {
+              reasonForPunishment: 'was caught stealing a loaf of bread from a festival.',
+              base: {
+                socialClass: 'peasantry'
+              }
+            },
+            poacher: {
+              reasonForPunishment: 'was captured poaching deer.',
+              base: {
+                profession: 'poacher'
+              }
+            },
+            joke: {
+              reasonForPunishment: 'offended the lord with an off-colour joke.',
+              base: {
+                socialClass: 'peasantry'
+              }
+            },
+            musician: {
+              reasonForPunishment: 'offended the lord with a poorly played tune.',
+              base: {
+                profession: 'musician'
+              }
+            },
+            adultery: {
+              reasonForPunishment: 'was caught philandering with another man\'s wife.',
+              base: {
+                gender: 'man'
+              }
+            },
+            crime: {
+              reasonForPunishment: 'had too much to drink, and committed a minor crime.',
+              base: {
+                socialClass: 'peasantry'
+              }
+            },
+            spy: {
+              reasonForPunishment: 'is believed to be a spy for the enemy.',
+              base: {
+                profession: 'spy'
+              }
+            },
+            falseNoble: {
+              reasonForPunishment: 'was caught impersonating a noble.',
+              base: {
+                background: 'charlatan'
+              }
+            },
+            falseMessenger: {
+              reasonForPunishment: 'was caught impersonating a messenger.',
+              base: {
+                background: 'charlatan'
+              }
+            },
+            taxDodger: {
+              reasonForPunishment: 'was caught dodging taxes.',
+              base: {
+                socialClass: 'peasantry'
+              }
+            },
+            taxPayer: {
+              reasonForPunishment: 'was unable to pay taxes.',
+              base: {
+                socialClass: 'paupery'
+              }
+            },
+            poisoner: {
+              reasonForPunishment: 'was caught attempting to poison someone.',
+              base: {
+                socialClass: 'commoner'
+              }
+            },
+            chef: {
+              reasonForPunishment: 'was an embarassment with sub-standard cooking at an important feast.',
+              base: {
+                profession: 'chef'
+              }
+            },
+            framed: {
+              reasonForPunishment: 'killed a noble.',
+              base: {
+                note: 'Was actually framed.'
+              }
+            },
+            nobleRansom: {
+              reasonForPunishment: 'is an enemy who has been captured and is now being held for ransom.',
+              base: {
+                socialClass: 'aristocracy'
+              }
+            },
+            criminal: {
+              reasonForPunishment: 'was caught committing criminal acts.',
+              probability: 30,
+              base: {
+                professionSector: 'crime'
+              }
+            },
+            jailbreaker: {
+              reasonForPunishment: 'was caught attempting to rescue someone else from jail.',
+              base: {
+                background: 'criminal'
+              }
+            },
+            cat: {
+              reasonForPunishment: 'stepped on the tail of the the lord\'s cat while delivering a package',
+              base: {
+                profession: 'courier'
+              }
+            }
+          },
           treatment: [
             // the prisoners are treated ____
             'humanely; they receive reasonable meals, some exercise, and healing when needed',
