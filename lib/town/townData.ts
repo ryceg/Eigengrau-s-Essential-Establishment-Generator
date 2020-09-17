@@ -227,7 +227,16 @@ export const townData = {
           'constitutional monarchy': 1
         }
       },
-      population: () => random(30, 300),
+      population: () => {
+        return random([
+          random(30, 150),
+          random(100, 300),
+          random(450, 800),
+          random(500, 700),
+          random(800, 950),
+          random(900, 999)
+        ])
+      },
       startFactionsNumber: () => random([1, 1, 1, 1, 1, 2]),
       // roadDuplication: d100 of whether to create a new road (new one if under).
       roadDuplication: 40,
@@ -341,7 +350,16 @@ export const townData = {
           'constitutional monarchy': 1
         }
       },
-      population: () => random(301, 1000),
+      population: () => {
+        return random([
+          random(1000, 1200),
+          random(1000, 1300),
+          random(1400, 1800),
+          random(1700, 2300),
+          random(2000, 3000),
+          random(2500, 3000)
+        ])
+      },
       startFactionsNumber: () => random([1, 1, 1, 2, 2, 2]),
       roadDuplication: 50,
       modifiers: {
@@ -454,7 +472,17 @@ export const townData = {
           'constitutional monarchy': 1
         }
       },
-      population: () => random(1001, 3000),
+      population: () => {
+        return random([
+          random(3000, 3300),
+          random(3200, 3400),
+          random(3000, 4500),
+          random(3700, 4200),
+          random(4000, 5300),
+          random(5000, 5500),
+          random(5500, 6000)
+        ])
+      },
       startFactionsNumber: () => random([1, 1, 2, 2, 2, 3, 3]),
       roadDuplication: 70,
       modifiers: {
@@ -567,7 +595,18 @@ export const townData = {
           'constitutional monarchy': 50
         }
       },
-      population: () => random(3001, 6000),
+      population: () => {
+        return random([
+          random(4000, 4300),
+          random(4200, 4400),
+          random(4000, 5500),
+          random(4700, 5200),
+          random(5000, 7300),
+          random(6000, 6500),
+          random(6500, 9000),
+          random(8500, 9500)
+        ])
+      },
       startFactionsNumber: () => random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]),
       roadDuplication: 90,
       modifiers: {

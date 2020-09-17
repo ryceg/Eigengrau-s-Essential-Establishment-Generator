@@ -19,7 +19,7 @@
 <span id="townName"><<textbox "$tempTown.name" $tempTown.name>></span><</nobr>><<button "Refresh">><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
 <span id="refresh"><<include "BiomeGenerationRefresh">></span>
 
-<span class="tip" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 6000 10>></span>
+<span class="tip" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span>
 
 <span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$tempTown.roll.wealth" $tempTown.roll.wealth 1 100 1>></span>
 

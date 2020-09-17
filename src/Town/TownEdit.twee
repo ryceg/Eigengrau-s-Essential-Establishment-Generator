@@ -22,7 +22,7 @@
 
 <</nobr>>
 
-<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 6000 10>></span>
+<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
 
 <span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$town.roll.wealth" $town.roll.wealth 1 100 1>></span>
 

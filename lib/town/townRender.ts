@@ -6,19 +6,6 @@ export function townRender (town: Town) {
 
   town.roll.guardFunding = 0
 
-  if (town.population > 3000) {
-    town.type = 'city'
-  } else if (town.population > 1000) {
-    town.type = 'town'
-  } else if (town.population > 300) {
-    town.type = 'village'
-  } else if (town.population > 30) {
-    town.type = 'hamlet'
-  } else if (town.population <= 30) {
-    town.type = 'hamlet'
-    town.population = 30
-  }
-
   town.wealth = getTownWealth(town)
   town.economics = getTownEconomics(town)
   town.welfare = getTownWelfare(town)

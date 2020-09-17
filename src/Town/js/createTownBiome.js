@@ -1,5 +1,5 @@
 setup.createTownBiome = (base = {}) => {
-  const type = ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
+  const type = ['hamlet', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
   const season = ['summer', 'autumn', 'winter', 'spring'].random()
   const townName = setup.createTownName()

@@ -265,9 +265,9 @@ function getTaxRate (town) {
 }
 
 function getTownType (town) {
-  if (town.population > 3000) return 'city'
-  if (town.population > 1000) return 'town'
-  if (town.population > 300) return 'village'
+  if (town.population > 6000) return 'city'
+  if (town.population > 3000) return 'town'
+  if (town.population > 1000) return 'village'
   if (town.population > 30) return 'hamlet'
 
   // TODO: Remove unexpected side effect are bad.
