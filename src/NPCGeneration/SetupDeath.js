@@ -144,7 +144,7 @@ const death = {
     npc.roll.deathConditions = lib.fm(random(1, 100), (town.roll.welfare - 50) / 2)
     console.log('deathConditions roll:')
     console.log(npc.roll.deathConditions)
-    const lifestyle = npc.finances.lifestyleStandard(town, npc)[1]
+    const lifestyle = setup.npcLifestyleStandard(town, npc).lifestyleStandard
 
     let townHelpDescription = ''
 
