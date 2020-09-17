@@ -88,48 +88,8 @@ setup.createNPC = function (town, base) {
       conformity: lib.dice(2, 50)
     },
     finances: {
-      creditors (town, npc) {
-        return {}
-      },
-      debtors (town, npc) {
-        return {}
-      },
-      grossIncome (town, npc) {
-        // TODO add hobbies
-        console.log(`Returning ${npc.name}'s gross income...`)
-        const profession = lib.findProfession(town, npc)
-        return Math.round(lib.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3)))
-      },
-      netIncome (town, npc) {
-        console.log(`Returning ${npc.name}'s net income...`)
-        return Math.round(lib.calcPercentage(npc.finances.grossIncome(town, npc), -setup.npcTaxRate(town, npc)))
-      },
-      lifestyleStandard (town, npc) {
-        console.log(`Returning ${npc.name}'s lifestyle standard...`)
-        const income = npc.finances.netIncome(town, npc)
-        let lifestyleStandard
-        for (lifestyleStandard of lib.lifestyleStandards) {
-          if (income >= lifestyleStandard[0]) {
-            return lifestyleStandard
-          }
-        }
-        // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
-        // various bits use all three, so it was easier to specify which than create three virtually identical functions.
-        return lifestyleStandard
-      },
-      lifestyleExpenses (town, npc) {
-        console.log(`Returning ${npc.name}'s lifestyle expenses...`)
-        const income = npc.finances.grossIncome(town, npc)
-        const living = npc.finances.lifestyleStandard(town, npc)
-        const ratio = lib.lifestyleStandards.find(desc => {
-          return desc[1] === living[1]
-        })
-        return Math.round(income * (ratio[2] / 100))
-      },
-      profit (town, npc) {
-        console.log(`Returning ${npc.name}'s profit...`)
-        return Math.round(npc.finances.netIncome(town, npc) - npc.finances.lifestyleStandard(town, npc)[0] - npc.finances.lifestyleExpenses(town, npc))
-      }
+      creditors: {},
+      debtors: {}
     },
     hairColour: data.hairColour.random(),
     hairType: data.hairType.random(),
@@ -253,7 +213,7 @@ setup.createNPC = function (town, base) {
   setup.createLifestyleStandards(town, npc)
   setup.createReligiosity(town, npc)
 
-  if (npc.finances.profit(town, npc) < 0 && npc.isShallow !== true) {
+  if (setup.npcProfit(town, npc) < 0 && npc.isShallow !== true) {
     setup.createDebt(town, npc)
   }
   if (npc.hasHistory !== false) setup.expandNPC(town, npc)

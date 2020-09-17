@@ -22,7 +22,7 @@
 \<</button>>
 
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">><<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name<<else>><<print lib.firstCharacter($currentNPC.name)>><</if>> is <<print lib.articles.output($currentNPC.age)>>, $currentNPC.ageYears years old $currentNPC.malefemale $currentNPC.raceAdjective $currentNPC.profession. <<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.height (<<print setup.metricHeight($currentNPC.heightRoll, settings.showMetric)>>) and $currentNPC.weight at <<print setup.metricWeight($currentNPC, settings.showMetric)>>. $currentNPC.firstName has $currentNPC.eyes eyes<<if def $currentNPC.beard>> and <<print lib.articles.output($currentNPC.beard)>>,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.
-<<set _lifestyleStandard to $currentNPC.finances.lifestyleStandard($town, $currentNPC)>>
+<<set _lifestyleStandard to setup.npcLifestyleStandard($town, $currentNPC)>>
 $currentNPC.firstName $currentNPC.trait. 
 \<<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>
 \When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. 

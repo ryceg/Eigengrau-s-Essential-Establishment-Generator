@@ -2,7 +2,7 @@
 <<include "NPCHeader">>
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">><<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name<<else>><<print lib.firstCharacter($currentNPC.name)>><</if>> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
 \<<print $currentNPC.heshe.toUpperFirst()>> is <<print lib.createTippyFull(setup.metricHeight($currentNPC.heightRoll, settings.showMetric), $currentNPC.height)>> and <<print lib.createTippyFull(setup.metricWeight($currentNPC, settings.showMetric), $currentNPC.weight)>>, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>> and <<print lib.articles.output($currentNPC.beard)>>,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.
-<<run console.log($currentNPC)>><<set $currentNPC.lifestyleStandardTemp to $currentNPC.finances.lifestyleStandard($town, $currentNPC)>>
+<<run console.log($currentNPC)>>
 $currentNPC.firstName $currentNPC.trait. 
 \<<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>
 \When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. 
@@ -10,10 +10,10 @@ $currentNPC.firstName $currentNPC.trait.
 
 
 \<<if $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll._wageVariation > 0>>Despite sexism against $currentNPC.himher, <<elseif $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll._wageVariation < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
-\<<if setup.socialClass[$currentNPC.socialClass].lifestyle.includes($currentNPC.lifestyleStandardTemp[1])>>
-  \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + $currentNPC.lifestyleStandardTemp[3], $currentNPC.socialClass)>> social class
+\<<if setup.socialClass[$currentNPC.socialClass].lifestyle.includes(setup.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>
+  \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + setup.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, $currentNPC.socialClass)>> social class
 \<<else>>
-  \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but $currentNPC.lifestyleStandardTemp[3]
+  \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but <<print setup.npcLifestyleStandard($town, $currentNPC).lifestyleDescription>>
 \<</if>>. 
 
 

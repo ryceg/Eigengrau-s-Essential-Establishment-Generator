@@ -1,25 +1,22 @@
 :: NPCIncomeTable
 <<nobr>>
-<<set _finances to {}>><<for _key, _value range $currentNPC.finances>><<set _finances[_key] to _value($town, $currentNPC)>>
-<</for>><<set _finances.tax to _finances.grossIncome - _finances.netIncome,
-_finances.totalLifestyleExpenses to _finances.lifestyleStandard[0] + _finances.lifestyleExpenses>>
 
-$currentNPC.firstName currently earns <<money _finances.netIncome>> <<linkreplace "per day." t8n>>per day.
+$currentNPC.firstName currently earns <<print setup.money(setup.npcNetIncome($town, $currentNPC))>> <<linkreplace "per day." t8n>>per day.
 
 <table><h3>Finances</h3>
     <tr>
         <th>Type</th>
         <th>Amount</th>
     </tr>
-    <tr><td>Gross Income</td><td><<money _finances.grossIncome>></td></tr>
-    <tr><td><i>Tax</i></td><td><i><<money _finances.tax>></i></td></tr>
-    <tr><td>Net Income</td><td><<money _finances.netIncome>></td></tr>
-    <tr><td>Total Lifestyle Expenses (<<print lib.createTippyFull($currentNPC.firstName + " " + _lifestyleStandard[3], _finances.lifestyleStandard[1])>>)</td><td><<money _finances.totalLifestyleExpenses>></td></tr>
-    <tr><td>Profit</td><td><<money _finances.profit>></td></tr>
-    <<for _creditorKey, _debtOwed range _finances.creditors>>
-    <tr><td>Money owed to <<profile $npcs[_creditorKey]>></td><td><<money _debtOwed>></td></tr>
+    <tr><td>Gross Income</td><td><<print setup.money(setup.npcGrossIncome($town, $currentNPC))>></td></tr>
+    <tr><td><i>Tax</i></td><td><i><<print setup.money(setup.npcTaxRate($town, $currentNPC))>></i></td></tr>
+    <tr><td>Net Income</td><td><<print setup.money(setup.npcNetIncome($town, $currentNPC))>></td></tr>
+    <tr><td>Total Lifestyle Expenses (<<print lib.createTippyFull($currentNPC.firstName + " " + setup.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, setup.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>)</td><td><<print setup.money(setup.npcTotalLifestyleExpenses($town, $currentNPC))>></td></tr>
+    <tr><td>Profit</td><td><<print setup.money(setup.npcProfit($town, $currentNPC))>></td></tr>
+    <<for _creditorKey, _debtOwed range $currentNPC.finances.creditors>>
+    <tr><td>Money owed to <<profile $npcs[_creditorKey]>></td><td><<print setup.money(_debtOwed)>></td></tr>
     <</for>>
-    <<for _debtorKey, _debtOwed range _finances.debtors>>
-    <tr><td>Money owed by <<profile $npcs[_debtorKey]>></td><td><<money _debtOwed>></td></tr>
+    <<for _debtorKey, _debtOwed range $currentNPC.finances.debtors>>
+    <tr><td>Money owed by <<profile $npcs[_debtorKey]>></td><td><<print setup.money(_debtOwed)>></td></tr>
     <</for>>
 </table><</linkreplace>><</nobr>>
