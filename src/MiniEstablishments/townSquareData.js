@@ -416,7 +416,7 @@ setup.townSquare = {
     'parlourWizard': {
       type: ['event'],
       exclusions (town) {
-        return town.population > 1000 && town.roll.arcana > 40
+        return town.professions.wizard.population > 0 && town.roll.arcana > 40
       },
       function (town) {
         const npc = setup.createNPC(town, {
@@ -429,7 +429,7 @@ setup.townSquare = {
     'bardImprov': {
       type: ['event'],
       exclusions (town) {
-        return town.population > 1000 && town.roll.wealth > 40
+        return town.professions.bard.population > 0 && town.roll.wealth > 40
       },
       function (town) {
         const npc = setup.createNPC(town, {

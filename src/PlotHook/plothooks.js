@@ -107,7 +107,7 @@ setup.plothooks = {
   'The Zoo': {
     type: ['event'],
     exclusions (town) {
-      return town.population > 4000 && town.wealth > 50
+      return town.professions.zookeeper.population > 0 && town.wealth > 50
     },
     function (town) {
       return 'The city has a zoo filled with wondrous and dangerous creatures brought from far places. Just recently, some of the creatures escaped and now there is a royal reward for recovering the rare animals unharmed. How can this be done?'
