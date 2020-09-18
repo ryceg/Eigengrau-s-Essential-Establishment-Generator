@@ -420,6 +420,18 @@ setup.initCastle = () => {
       ]
     },
     dungeon: {
+      name: {
+        unique: ['Crag Rock', "Hell's Hole", 'Ashburn Grave', "Hope's Lament", "Killer's Cradle", 'Tenth Hell', 'Bloodrock', 'Folly Hole', "Cerberus' Den", 'Necropolis', 'Blackthorn', 'The Spike'],
+        adjectives: ['Dark', 'Cold', 'Penitence', 'Sorrowful', 'Death', 'Fear', 'Heart', 'Sunken', 'Revenant'],
+        nouns: ['Blade', 'Blood', 'Door', 'Den', 'Pit', 'Jail', 'Prison', 'Cell'],
+        verbs: ['Embrace', 'Kiss', 'Touch', 'Decay'],
+        wordNoun: ['dungeon', 'oubliette', 'jail', 'prison']
+      },
+      jailer: {
+        base: {
+          profession: 'jailer'
+        }
+      },
       knownFor: [
         'many prisoners dying in a terrible plague',
         'a mass escape in the past',
@@ -472,6 +484,19 @@ setup.initCastle = () => {
       ],
       cells: {
         prisoners: {
+          create (town, obj) {
+            let imprisonmentLocation
+            if (obj.parentKey) {
+              imprisonmentLocation = obj.dungeon
+            } else {
+              imprisonmentLocation = obj
+            }
+            const selected = lib.weightedRandomFetcher(town, setup.castle.dungeon.cells.prisoners.npcs, imprisonmentLocation, null, 'object')
+            const npc = setup.createNPC(town, selected.base)
+            setup.createRelationship(town, npc, imprisonmentLocation.associatedNPC, 'captor', 'prisoner')
+            setup.createBuildingRelationship(town, imprisonmentLocation, npc, { relationship: 'prisoner', reciprocalRelationship: 'Is currently being held captive here', description: `${npc.firstName} ${selected.reasonForPunishment}` })
+            return `${setup.profile(npc, npc.firstName)}, ${lib.articles.output(npc.descriptor)} who ${selected.reasonForPunishment}`
+          },
           npcs: [
             {
               reasonForPunishment: 'was caught stealing a loaf of bread from a festival.',
