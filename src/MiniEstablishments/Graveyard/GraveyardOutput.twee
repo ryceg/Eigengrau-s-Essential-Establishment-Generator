@@ -4,21 +4,6 @@ You walk down $building.road to the $building.wordNoun. It is $building.location
 <h3> Gravedigger </h3>
 $building.gravediggerLook.
 The gravedigger greets you as you come near, and introduces $building.associatedNPC.himherself as <<profile $building.associatedNPC>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
-<<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.misc.graveStone.create($town)>><<replace "#grave">><<print $building.grave.readout>><</replace>><</link>>
+<<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.misc.graveStone.create($town)>><<replace "#grave">><<print $building.grave.readout>><</replace>><<replace "#graveyardTable">><<include "GraveyardTable">><</replace>><</link>>
 <div id="grave"></div>
-  <p><table>
-    <tr>
-      <th>Name</th>
-      <th>Race</th>
-      <th>Profession</th>
-      <th>Delete</th>
-    </tr>
-    <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if _npc.passageName is "NPCDeadProfile">>
-    <tr><td><<profile $npcs[_npc.key]>></td>
-    <td><<print _npc.race.toUpperFirst()>></td>
-    <td>_profession</td>
-    <td><<link "x">><<run setup.deleteNPC($npcs[_npc.key])>><<goto "TownOutput">><</link>></td>
-    </tr>
-    <</if>>
-    <</capture>><</for>>
-    </table></p><</nobr>>
+<div id="graveyardTable"><<linkappend "People Buried Here" t8n>><<include "GraveyardTable">><</linkappend>></div>
