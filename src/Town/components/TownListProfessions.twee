@@ -14,7 +14,7 @@
   <<set _article to lib.articles.output(_name)>>
   <<set _npcs to lib.filterNpcByProfession($npcs, _name)>>
   <<set _nameTitle to lib.toTitleCase(_name)>>
-  <tr><td><span class="tip dotted" @title="lib.professions[_npc.profession].description.toUpperFirst()">_name</span></td>
+  <tr><td><<print lib.createTippyFull(lib.professions[_name].description.toUpperFirst(), _nameTitle)>></td>
 <td>_profession.population</td>
 <td><<print ((_profession.population / $town.population) * 100).toFixed(2)>></td>
 <td><<if _npcs.length === 1>>
