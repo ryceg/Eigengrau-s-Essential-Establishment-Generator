@@ -2,14 +2,11 @@
 <div class="stain"></div><span id="body">[img[banner]]  
 <h3>Quick Scenario Generator</h3><<include "CreateScenario">>
 <h3>The <<print $town.type.toUpperFirst()>> of $town.name</h3>
-<<print lib.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised <span @title="lib.formatPercentile(lib.sortArray($town.demographicPercentile))" class="tip dotted"><<print lib.getPredominantRace($town.demographicPercentile).amountDescriptive>></span>.
-\<<set _politicalIdeology to "tip">><<run setup.politicsTooltip(_politicalIdeology, "politicalIdeology", $town)>>
-\<<set _economicIdeology to "tip2">><<run setup.politicsTooltip(_economicIdeology, "economicIdeology", $town)>>
-\<<set _politicalSource to "tip3">><<run setup.politicsTooltip(_politicalSource, "politicalSource", $town)>> They are 
+<<print lib.firstCharacter($town.name)>> is a <<print lib.createTippyFull("With a population of " + $town.population + ".", $town.type)>>   located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised <span @title="lib.formatPercentile(lib.sortArray($town.demographicPercentile))" class="tip dotted"><<print lib.getPredominantRace($town.demographicPercentile).amountDescriptive>></span>. They are 
 \<<if $town.ignoreGender is false>><<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> 
 \<<else>>
-\<<print lib.articles.find($town.economicIdeologyIST)>> <</if>>
-\<span @id="_economicIdeology" class="tip dotted">$town.economicIdeologyIST</span> <span @id="_politicalIdeology" class="tip dotted">$town.politicalIdeologyIC</span> <span @id="_politicalSource" class="tip dotted">$town.politicalSource</span>.
+\<<print lib.articles.find($town.economicIdeologyIST)>> <</if>> /* this gets the article, not the economic ideology! */
+\<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>>.
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><<goto "TownOutput">><</link>></span>
 <<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
 <</listbox>> -- <<button "Create New Building">>
