@@ -11,6 +11,9 @@ setup.profileTooltip = function (id, obj) {
           case 'building':
             span.title = obj.tippyDescription || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
             break
+          case 'room':
+            span.title = obj.tippyDescription || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            break
           case 'faction':
             span.title = obj.tippyDescription || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
             break
@@ -121,28 +124,34 @@ setup.buildingTooltip = function (id, building) {
   })
 }
 
+setup.politicsDescription = (town, type) => {
+  let description
+  switch (type) {
+    case 'politicalIdeology':
+      description = lib.townData.politicalIdeology[town.politicalIdeology].data.description
+      break
+    case 'economicIdeology':
+      description = lib.townData.economicIdeology[town.economicIdeology].descriptors.tippy
+      break
+    case 'politicalSource':
+      if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
+        if (town.politicalIdeology === 'autocracy') {
+          description = lib.townData.politicalSource[town.politicalSource].autocracy.description
+        } else {
+          description = lib.townData.politicalSource[town.politicalSource].default.description
+        }
+      } else {
+        description = lib.townData.politicalSource[town.politicalSource].description
+      }
+  }
+  return description
+}
+
 setup.politicsTooltip = function (id, type, town) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
-      switch (type) {
-        case 'politicalIdeology':
-          span.title = lib.townData.politicalIdeology[town.politicalIdeology].data.description
-          break
-        case 'economicIdeology':
-          span.title = lib.townData.economicIdeology[town.economicIdeology].descriptors.tippy
-          break
-        case 'politicalSource':
-          if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
-            if (town.politicalIdeology === 'autocracy') {
-              span.title = lib.townData.politicalSource[town.politicalSource].autocracy.description
-            } else {
-              span.title = lib.townData.politicalSource[town.politicalSource].default.description
-            }
-          } else {
-            span.title = lib.townData.politicalSource[town.politicalSource].description
-          }
-      }
+      span.title = setup.politicsDescription(town, type)
       tippy(`#${span.id}`)
     }
   })
