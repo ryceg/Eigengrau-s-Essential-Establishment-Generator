@@ -59,6 +59,10 @@ setup.createBuilding = (town, type, base = {}) => {
 
   town.roads[building.key] = building.road
 
+  if (base.parentKey) {
+    building.isChild = true
+    building.road = town.roads[base.parentKey]
+  }
   // building.priceModifier += town.taxes.economics
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
 

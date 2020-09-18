@@ -9,16 +9,29 @@ setup.history = (object, passageName, linkDescription) => {
     }
   })
   if (Array.isArray(history)) {
-    history.push({
-      data: {
-        key: object.key,
-        passageName: object.passageName || passageName,
-        objectType: object.objectType,
-        linkDescription: object.linkDescription || linkDescription
-      },
-      passageName,
-      linkDescription
-    })
+    if (object.parentKey) {
+      history.push({
+        data: {
+          key: object.parentKey,
+          passageName: object.passageName || passageName,
+          objectType: object.objectType,
+          linkDescription: object.linkDescription || linkDescription
+        },
+        passageName: object.passageName,
+        linkDescription: object.linkDescription
+      })
+    } else {
+      history.push({
+        data: {
+          key: object.key,
+          passageName: object.passageName || passageName,
+          objectType: object.objectType,
+          linkDescription: object.linkDescription || linkDescription
+        },
+        passageName,
+        linkDescription
+      })
+    }
     ga('send', {
       hitType: 'event',
       eventCategory: 'passage',
