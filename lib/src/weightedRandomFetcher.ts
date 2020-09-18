@@ -22,8 +22,13 @@ export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, o
   const pool = []
 
   let totalWeight = 0
-
-  for (const arg of Object.values(args)) {
+  let argArray
+  if (typeof args === 'object') {
+    argArray = Object.values(args)
+  } else {
+    argArray = args
+  }
+  for (const arg of argArray) {
     let isValid: boolean
     let fnValid: boolean
 
