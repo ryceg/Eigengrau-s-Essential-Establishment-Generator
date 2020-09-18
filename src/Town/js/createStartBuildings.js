@@ -18,6 +18,7 @@ setup.createStartBuildings = function (town) {
     'Alchemist': ['alchemist', 'wizard'],
     'Bakery': ['pastry chef', 'baker'],
     'General Store': ['shopkeep'],
+    'Dungeon': ['jailer'],
     'Smithy': ['goldsmith', 'weaponsmith', 'silversmith', 'blacksmith', 'farrier', 'armorer'],
     'Florist': ['florist', 'botanist'],
     'Tailor': 'tailor',
