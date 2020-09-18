@@ -50,7 +50,7 @@ body {
 
 @media (min-width: 992px) {
   .passage {
-    columns: 2;
+    columns: 1;
   }  
   .container {
     max-width: 960px;
@@ -59,7 +59,7 @@ body {
 
 @media (min-width: 1200px) {
   .passage {
-    columns: 2;
+    columns: 1;
   }  
   .container {
     max-width: 1140px;
