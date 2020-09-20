@@ -34,6 +34,8 @@ setup.createCastle = (town, opts = {}) => {
 
   castle.tippyDescription = `${lib.articles.output(castle.wordNoun).toUpperFirst()} built ${castle.age} that is known for ${castle.knownFor}.`
   setup.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'place of employment' })
+
+  setup.createCastlePopulation(town, castle, opts)
   console.groupEnd()
   console.log(castle)
   return castle
