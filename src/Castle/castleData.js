@@ -243,26 +243,26 @@ setup.initCastle = () => {
       'the quality of its meals'
     ],
     ruler: {
-      methodsOfRuling (town, castle) {
+      getAcquisitionMethod (town, castle) {
         const methods = [
         // it was ____
           {
-            reason: `acquired through canny negotiation to get its former owner out of debt to ${setup.profile(castle.ruler, castle.ruler.firstName)}`
+            acquisitionMethod: `acquired through canny negotiation to get its former owner out of debt to ${setup.profile(castle.associatedNPC, castle.associatedNPC.firstName)}`
           },
           {
-            reason: 'passed down through the generations'
+            acquisitionMethod: 'passed down through the generations'
           },
           {
-            reason: 'inherited several decades ago through a series of well-planned marriages'
+            acquisitionMethod: 'inherited several decades ago through a series of well-planned marriages'
           },
           {
-            reason: 'inherited when the male heirs all coincidentally died a year after marriage'
+            acquisitionMethod: 'inherited when the male heirs all coincidentally died a year after marriage'
           },
           {
-            reason: 'won in a bet with a foolhardy drunkard king'
+            acquisitionMethod: 'won in a bet with a foolhardy drunkard king'
           },
           {
-            reason: 'forcefully seized from a rival'
+            acquisitionMethod: 'forcefully seized from a rival'
           }
         ]
         return methods.random()
@@ -277,6 +277,7 @@ setup.initCastle = () => {
         },
         {
           type: 'urchins who occupied a ruined castle, slowly rebuilding it',
+          acquisitionMethod: 'abandoned for many years until the urchins began to rebuild it',
           base: {
             ageStage: 'child',
             profession: 'urchin'
@@ -284,6 +285,7 @@ setup.initCastle = () => {
         },
         {
           type: 'a rich and ambitious merchant who styles themselves a noble',
+          acquisitionMethod: 'bought the castle as a way of showing off',
           base: {
             profession: 'merchant',
             socialClass: 'nobility'
@@ -291,12 +293,14 @@ setup.initCastle = () => {
         },
         {
           type: 'the state, the castle is placed on the border to defend against invaders',
+          acquisitionMethod: 'built as a tactical vantage point',
           base: {
             profession: 'general'
           }
         },
         {
           type: 'the people, after they rose up against an unjust ruler',
+          acquisitionMethod: 'wrested from its previous owner\'s control in a bloody revolt',
           base: {
             profession: 'prime minister',
             socialClass: 'peasantry'
@@ -310,12 +314,14 @@ setup.initCastle = () => {
         },
         {
           type: 'a holy monastic order who were given a castle by a faithful prince',
+          acquisitionMethod: 'gifted to the order by a prince as a show of his faith',
           base: {
             profession: 'cardinal'
           }
         },
         {
           type: 'a holy order guarding something in the basement',
+          acquisitionMethod: 'built as a tactical vantage point',
           base: {
             profession: 'cardinal'
           }
@@ -334,6 +340,7 @@ setup.initCastle = () => {
         },
         {
           type: 'an adventuring party who found a cursed keep with the symbol of a golden knight, questing to break the curse',
+          acquisitionMethod: 'found abandoned',
           base: {
             profession: 'paladin'
           }
@@ -365,25 +372,29 @@ setup.initCastle = () => {
           }
         },
         {
-          type: 'a band of magical few, casting illusions to make people think the castle is full of people',
+          type: 'a band of magical fey, casting illusions to make people think the castle is full of people',
+          acquisitionMethod: 'captured by the fey a long time ago',
           base: {
-            note: 'Is actually a fe'
+            note: 'Is actually a fey'
           }
         },
         {
           type: 'a band of raiders, hired by a lord to extort even more money out of people',
+          acquisitionMethod: 'brutally taken from the hands of the lord that previously owned it by force',
           base: {
             profession: 'bandit'
           }
         },
         {
           type: 'a band of deserters who captured the castle and have started styling themselves as nobles',
+          acquisitionMethod: 'taken over in the dead of night',
           base: {
             profession: 'deserter'
           }
         },
         {
           type: 'a garrison of soldiers who were part of a war that ended a long time ago but managed to keep hold of the castle',
+          acquisitionMethod: 'a tactical vantage in a long-since ended war',
           base: {
             profession: 'general'
           }
@@ -403,18 +414,21 @@ setup.initCastle = () => {
         },
         {
           type: 'a wizard, calling herself a lord, who created the castle with her magic',
+          acquisitionMethod: 'created by a wizard',
           base: {
-            profession: 'wizard'
+            profession: 'wizard',
+            gender: 'woman'
           }
         },
         {
           type: 'a strange man who found the castle - it has followed him ever since',
+          acquisitionMethod: 'not always there, appearing several years ago',
           base: {
             gender: 'man'
           }
         },
         {
-          type: 'a young orphan girl who wandered into the castle and lives in luxury, served by various magical beings',
+          type: 'a young orphan girl who wandered into the castle. Its previous owners all died until she was the only one left, and now she is the de facto ruler, and lives in luxury, served by various magical beings',
           base: {
             ageStage: 'child',
             gender: 'woman'
@@ -422,6 +436,7 @@ setup.initCastle = () => {
         },
         {
           type: 'an author, gifted a magical quill, and all that they write comes into being',
+          acquisitionMethod: 'created by magic',
           base: {
             profession: 'writer',
             note: 'Owns a magical quill. It is not clear whether the magical properties come from the quill or the owner.'
