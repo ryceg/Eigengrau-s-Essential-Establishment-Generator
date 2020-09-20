@@ -242,6 +242,199 @@ setup.initCastle = () => {
       'its breathtakingly beautiful chapel',
       'the quality of its meals'
     ],
+    ruler: {
+      methodsOfRuling (town, castle) {
+        const methods = [
+        // it was ____
+          {
+            reason: `acquired through canny negotiation to get its former owner out of debt to ${setup.profile(castle.ruler, castle.ruler.firstName)}`
+          },
+          {
+            reason: 'passed down through the generations'
+          },
+          {
+            reason: 'inherited several decades ago through a series of well-planned marriages'
+          },
+          {
+            reason: 'inherited when the male heirs all coincidentally died a year after marriage'
+          },
+          {
+            reason: 'won in a bet with a foolhardy drunkard king'
+          },
+          {
+            reason: 'forcefully seized from a rival'
+          }
+        ]
+        return methods.random()
+      },
+      types: [
+        // the castle is ruled by ____
+        {
+          probability: 150,
+          base: {
+            socialClass: 'aristocracy'
+          }
+        },
+        {
+          type: 'urchins who occupied a ruined castle, slowly rebuilding it',
+          base: {
+            ageStage: 'child',
+            profession: 'urchin'
+          }
+        },
+        {
+          type: 'a rich and ambitious merchant who styles themselves a noble',
+          base: {
+            profession: 'merchant',
+            socialClass: 'nobility'
+          }
+        },
+        {
+          type: 'the state, the castle is placed on the border to defend against invaders',
+          base: {
+            profession: 'general'
+          }
+        },
+        {
+          type: 'the people, after they rose up against an unjust ruler',
+          base: {
+            profession: 'prime minister',
+            socialClass: 'peasantry'
+          }
+        },
+        {
+          type: 'a third child who inherited it after both their siblings died in the war',
+          base: {
+            ageStage: 'child'
+          }
+        },
+        {
+          type: 'a holy monastic order who were given a castle by a faithful prince',
+          base: {
+            profession: 'cardinal'
+          }
+        },
+        {
+          type: 'a holy order guarding something in the basement',
+          base: {
+            profession: 'cardinal'
+          }
+        },
+        {
+          type: 'a lonely abandoned child of nobility, exiled into a castle on the edge of the kingdom',
+          base: {
+            ageStage: 'child'
+          }
+        },
+        {
+          type: 'a knight, guarding the border from something deep in the wilderness',
+          base: {
+            profession: 'knight'
+          }
+        },
+        {
+          type: 'an adventuring party who found a cursed keep with the symbol of a golden knight, questing to break the curse',
+          base: {
+            profession: 'paladin'
+          }
+        },
+        {
+          type: 'a family descended from a dragon who took the shape of a human',
+          base: {
+            note: 'Has dragon heritage.'
+          }
+        },
+        {
+          type: 'a banished prince, given a castle with the absolute minimum staff',
+          base: {
+            profession: 'exile',
+            background: 'noble',
+            socialClass: 'aristocracy'
+          }
+        },
+        {
+          type: 'a bastard child who killed the legitimate heir, living in fear of being uncovered',
+          base: {
+            note: 'Killed the legitimate heir.'
+          }
+        },
+        {
+          type: 'an untrained bastard child who inherited the castle from their old and heirless parent',
+          base: {
+            note: 'Inherited the castle.'
+          }
+        },
+        {
+          type: 'a band of magical few, casting illusions to make people think the castle is full of people',
+          base: {
+            note: 'Is actually a fe'
+          }
+        },
+        {
+          type: 'a band of raiders, hired by a lord to extort even more money out of people',
+          base: {
+            profession: 'bandit'
+          }
+        },
+        {
+          type: 'a band of deserters who captured the castle and have started styling themselves as nobles',
+          base: {
+            profession: 'deserter'
+          }
+        },
+        {
+          type: 'a garrison of soldiers who were part of a war that ended a long time ago but managed to keep hold of the castle',
+          base: {
+            profession: 'general'
+          }
+        },
+        {
+          type: 'a king and his court, frozen in time after angering a powerful magical being',
+          base: {
+            gender: 'man',
+            profession: 'king'
+          }
+        },
+        {
+          type: 'a demon and their retinue, disguising themselves as human, plotting to take over the kingdom',
+          base: {
+            note: 'Is actually a demon.'
+          }
+        },
+        {
+          type: 'a wizard, calling herself a lord, who created the castle with her magic',
+          base: {
+            profession: 'wizard'
+          }
+        },
+        {
+          type: 'a strange man who found the castle - it has followed him ever since',
+          base: {
+            gender: 'man'
+          }
+        },
+        {
+          type: 'a young orphan girl who wandered into the castle and lives in luxury, served by various magical beings',
+          base: {
+            ageStage: 'child',
+            gender: 'woman'
+          }
+        },
+        {
+          type: 'an author, gifted a magical quill, and all that they write comes into being',
+          base: {
+            profession: 'writer',
+            note: 'Owns a magical quill. It is not clear whether the magical properties come from the quill or the owner.'
+          }
+        },
+        {
+          type: 'the court fool, gifted the castle by a mad king',
+          base: {
+            profession: 'clown'
+          }
+        }
+      ]
+    },
     siege: {
       create (town, siege = {}) {
         const data = setup.castle.siege
@@ -428,6 +621,114 @@ setup.initCastle = () => {
         wordNoun: ['dungeon', 'oubliette', 'jail', 'prison']
       },
       jailer: {
+        types: [
+          {
+            type: 'a bright-eyed youth, easily seduced',
+            base: {
+              ageStage: 'young adult',
+              calmTrait: 'gullible'
+            }
+          },
+          {
+            type: "a noble's son, punished with the job for misconduct",
+            base: {
+              ageStage: 'young adult',
+              gender: 'man',
+              socialClass: 'nobility',
+              background: 'noble'
+            }
+          },
+          {
+            type: 'a middle-aged woman, loyal to the job because she is providing for her family',
+            base: {
+              gender: 'woman',
+              ageStage: 'settled adult',
+              socialClass: 'commoner'
+            }
+          },
+          {
+            type: 'a deformed wretch of a person, forced to work in the dungeon to keep them out of the way',
+            base: {
+              physicalTrait: 'a hideous deformity'
+            }
+          },
+          {
+            type: 'a haunted woman who applied to job to ulitmately free their lover, only for them to die before she had the chance',
+            base: {
+              gender: 'woman',
+              calmTrait: 'quiet',
+              ageStage: 'settled adult'
+            }
+          },
+          {
+            type: 'a blind man who can hear every whispered plot the prisoners make',
+            base: {
+              gender: 'man',
+              ageStage: 'settled adult',
+              socialClass: 'commoner',
+              physicalTrait: 'two glass eyes that never move',
+              eyes: 'glass'
+            }
+          },
+          {
+            type: 'an old man who has seen every trick in the book - and has learnt how to stop them',
+            base: {
+              gender: 'man',
+              ageStage: 'elderly',
+              socialClass: 'commoner'
+            }
+          },
+          {
+            type: 'a holy man whose god demands they bind the wicked',
+            base: {
+              gender: 'man',
+              ageStage: 'settled adult',
+              socialClass: 'commoner',
+              religion: {
+                strength: 'unshakingly devoted believer'
+              }
+            }
+          },
+          {
+            type: 'a repentant thief, who made a living jail-breaking, only to release the worst serial killer in the land',
+            base: {
+              background: 'criminal',
+              profession: 'ex-criminal'
+            }
+          },
+          {
+            type: "a bard, who sings the worst songs to to the prisoners (who are referred to as 'the audience')",
+            base: {
+              background: 'entertainer'
+            }
+          },
+          {
+            type: 'a wizard, who has been promised both living subjects and cadavers for experimentation',
+            base: {
+              background: 'sage',
+              profession: 'wizard'
+            }
+          },
+          {
+            type: 'an alchemist, who keeps the rowdy prisoners dosed with potions',
+            base: {
+              profession: 'alchemist'
+            }
+          },
+          {
+            type: 'an honour-bound warrior, who made a promise to the lord to do their bidding',
+            base: {
+              profession: 'fighter',
+              calmTrait: 'solemnn'
+            }
+          },
+          {
+            type: 'a person whose family has been jailers for the past three centuries',
+            base: {
+              socialClass: 'commoner'
+            }
+          }
+        ],
         base: {
           profession: 'jailer'
         }
@@ -455,15 +756,35 @@ setup.initCastle = () => {
         'a unique and terrible torture device',
         'the corpse of a deposed king or queen'
       ],
-      location: [
-        // the dungeon is located ____
-        'in a tower set apart from the main castle',
-        'beneath the keep',
-        'in a flanking tower of the castle',
-        'beneath the flanking tower in the castle',
-        'in a corner tower of the castle',
-        'beneath the corner tower'
-      ],
+      location: {
+        castle: [
+          // the dungeon is ____
+          'in a tower set apart from the main castle',
+          'beneath the keep',
+          'in a flanking tower of the castle',
+          'beneath the flanking tower in the castle',
+          'in a corner tower of the castle',
+          'beneath the corner tower'
+        ],
+        standalone: [
+          'at the bottom of a deep ravine',
+          'on top of a cliff with a long drop down',
+          'on the inside of a bend in a river',
+          'built inside of a tall mountain',
+          'surrounded on three sides by mountains',
+          'on top of a hill in the middle of a city',
+          'suspended off of the underside of an overhang, dangling with a precarious path up to it',
+          'in the middle of a salt pan',
+          'deep into the steppes, days away from civilization',
+          'submerged in the middle of a lake - halfway to the bottom',
+          'chiseled into an enormous glacier',
+          'buried underneath sand in a desert, with few markers of its location',
+          'built into the branches of a series of trees',
+          'built inside a hollowed out giant tree',
+          'deep underground, near the bottom of a deep system of caverns',
+          'clinging on the roof of a giant cave with one set of stairs leading to the top'
+        ]
+      },
       age: [
         // located _____, and was built _____
         'as part of the original castle',
