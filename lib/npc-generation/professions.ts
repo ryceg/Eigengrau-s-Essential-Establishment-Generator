@@ -4805,7 +4805,7 @@ export const professions: Record<string, Profession> = {
     }
   },
   'spymaster': {
-    sv: 1000,
+    sv: 10000,
     type: 'profession',
     sector: 'government and law',
     description: 'directs a network of subordinate espionage agents for a state, kingdom, or empire.',
