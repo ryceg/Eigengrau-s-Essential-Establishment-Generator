@@ -21,8 +21,9 @@ setup.createCastle = (town, opts = {}) => {
       outerWalls: data.defense.outerWalls.random()
     }
   })
-  console.log('Created castle.')
+
   castle.name = castle.name || setup.createCastleName(town, castle)
+  console.log(`Created the castle ${castle.name}`)
   castle.dungeon = setup.createDungeon(town, { opts, parentKey: castle.key })
   castle.dungeon.passageName = 'CastleOutput'
   if (!castle.roll.landSize) castle.roll.landSize = lib.dice(2, 50)
