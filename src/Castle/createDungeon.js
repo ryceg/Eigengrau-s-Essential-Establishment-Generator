@@ -1,4 +1,5 @@
 setup.createDungeon = (town, opts) => {
+  console.groupCollapsed('Creating a dungeon!')
   const data = setup.castle.dungeon
   const dungeon = setup.createBuilding(town, 'dungeon', opts)
   Object.assign(dungeon, {
@@ -19,11 +20,13 @@ setup.createDungeon = (town, opts) => {
       format: data.cells.format.random()
     }
   })
+
   const jailerData = data.jailer.types.random()
   if (!Object.keys(jailerData.base).includes('profession')) {
     jailerData.base.profession = 'jailer'
   }
   dungeon.jailerType = jailerData.type
+
   dungeon.associatedNPC = setup.createNPC(town, jailerData.base)
   setup.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
 
@@ -35,7 +38,7 @@ setup.createDungeon = (town, opts) => {
   dungeon.name = setup.createDungeonName(town, dungeon)
   dungeon.tippyDescription = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
   dungeon.tooltip = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
-
+  console.groupEnd()
   return dungeon
 }
 
