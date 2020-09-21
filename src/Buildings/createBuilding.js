@@ -26,6 +26,7 @@ setup.createBuilding = (town, type, base = {}) => {
   ].random()
   const building = Object.assign({
     key: randomFloat(1).toString(16),
+    childKeys: [],
     objectType: 'building',
     roadName,
     roadType,
@@ -60,8 +61,12 @@ setup.createBuilding = (town, type, base = {}) => {
   town.roads[building.key] = building.road
 
   if (base.parentKey) {
+    console.log('Has a parent!')
     building.isChild = true
     building.road = town.roads[base.parentKey]
+    const parentIndex = setup.findBuilding(town, base.parentKey, true)
+    town.buildings[parentIndex].childKeys.push(building.key)
+    console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
   }
   // building.priceModifier += town.taxes.economics
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
