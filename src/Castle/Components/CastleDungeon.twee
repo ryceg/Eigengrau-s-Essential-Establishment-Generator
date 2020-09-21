@@ -1,6 +1,6 @@
 :: CastleDungeon
 <h3>Dungeon</h3>
-$building.dungeon.name is known as $building.dungeon.name. It is located $building.dungeon.location and was built $building.dungeon.age. 
+\$building.dungeon.name is known as $building.dungeon.name. It is located $building.dungeon.location and was built $building.dungeon.age. 
 \It is known for $building.dungeon.knownFor, and consists of $building.dungeon.format. 
 \It is rumoured that hidden inside the dungeon is $building.dungeon.secret.
 <h4>Cells</h4>The cells inside the dungeon are $building.dungeon.cells.condition, and prisoners are kept in $building.dungeon.cells.format. 
