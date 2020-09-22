@@ -205,11 +205,6 @@ setup.createNPC = function (town, base) {
   // npc.key = npc.name
   if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
 
-  npc.profile = function (npc, base) {
-    base = npc.name || base
-    return `<<profile \`$npcs[${JSON.stringify(npc.key)}] \`${JSON.stringify(base)}>>`
-  }
-
   setup.createSexuality(npc)
   setup.createSocialClass(town, npc)
   setup.createLifestyleStandards(town, npc)
