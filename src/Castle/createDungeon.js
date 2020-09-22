@@ -28,12 +28,15 @@ setup.createDungeon = (town, opts) => {
   dungeon.jailerType = jailerData.type
 
   dungeon.associatedNPC = setup.createNPC(town, jailerData.base)
-  setup.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
+  // TODO: fix associations. Essentially, the castle object needs to be returned before it's accessible from town.buildings[index]
+  // however, I'm a smoothbrain, and can't think of a simple way to do that.
+  // The end result should be that the jailer has a relationship both with the dungeon (which is their workplace), and the castle (which is their place of employment)
 
   if (opts.parentKey) {
     dungeon.location = data.location.castle.random()
   } else {
     dungeon.location = data.location.standalone.random()
+    setup.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   }
   dungeon.name = setup.createDungeonName(town, dungeon)
   dungeon.tippyDescription = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`

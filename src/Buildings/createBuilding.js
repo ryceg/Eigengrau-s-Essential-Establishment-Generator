@@ -64,9 +64,9 @@ setup.createBuilding = (town, type, base = {}) => {
     console.log('Has a parent!')
     building.isChild = true
     building.road = town.roads[base.parentKey]
-    const parentIndex = setup.findBuilding(town, base.parentKey, true)
-    town.buildings[parentIndex].childKeys.push(building.key)
-    console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
+    // const parentIndex = setup.findBuilding(town, base.parentKey, true)
+    // town.buildings[parentIndex].childKeys.push(building.key)
+    // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
   }
   // building.priceModifier += town.taxes.economics
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
