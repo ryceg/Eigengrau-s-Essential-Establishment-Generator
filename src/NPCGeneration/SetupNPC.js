@@ -172,14 +172,16 @@ setup.createNPC = function (town, base) {
 
   if (!npc.physicalTrait) {
     if (npc.roll.physicalTrait > 40) {
-      const hair = setup.npcData.bodyParts.head.hair.random()
-      const eyes = setup.npcData.bodyParts.head.eyes.random()
-      const nose = setup.npcData.bodyParts.head.nose.random()
-      const mouth = setup.npcData.bodyParts.head.mouth.random()
-      const chin = setup.npcData.bodyParts.head.chin.random()
-      const ears = setup.npcData.bodyParts.head.ears.random()
-      const headMisc = setup.npcData.bodyParts.head.misc.random()
-      npc.physicalTrait = [hair, eyes, nose, mouth, chin, ears, headMisc].random()
+      const headParts = setup.npcData.bodyParts.head
+      npc.physicalTrait = [
+        headParts.hair.random(),
+        headParts.eyes.random(),
+        headParts.nose.random(),
+        headParts.mouth.random(),
+        headParts.chin.random(),
+        headParts.ears.random(),
+        headParts.misc.random()
+      ].random()
     } else if (npc.roll.physicalTrait > 30) {
       npc.physicalTrait = setup.npcData.bodyParts.torso.descriptions.random()
     } else if (npc.roll.physicalTrait > 20) {
