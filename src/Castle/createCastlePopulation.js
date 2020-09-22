@@ -19,7 +19,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
   }
 
   const castleHelpers = ['maid', 'laundry worker', 'nanny', 'groundskeeper', 'kitchen drudge', 'stablehand', 'servant', 'seamstress', 'butler', 'herald', 'gardener', 'gamekeeper', 'falconer', 'dairymaid', 'breeder', 'beekeeper', 'page', 'knight', 'noble', 'lady', 'advisor']
-  const numberOfHelpers = Math.max(2, (castle.roll.wealth / 20) * ((castle.roll.size / 10) - ((town.roll.wealth / 10) - 8)))
+  const numberOfHelpers = Math.max(2, ((castle.roll.wealth / 20) * ((town.roll.wealth - 50) - 10)) + (castle.roll.landSize / 25))
 
   for (let i = 0; i < numberOfHelpers; i++) {
     if (castleHelpers.length > 0) {

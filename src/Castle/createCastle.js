@@ -25,6 +25,7 @@ setup.createCastle = (town, opts = {}) => {
   castle.name = castle.name || setup.createCastleName(town, castle)
   console.log(`Created the castle ${castle.name}`)
   castle.dungeon = setup.createDungeon(town, { opts, parentKey: castle.key })
+  setup.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   castle.dungeon.passageName = 'CastleOutput'
   if (!castle.roll.landSize) castle.roll.landSize = lib.dice(2, 50)
 
