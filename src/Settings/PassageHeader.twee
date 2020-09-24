@@ -1,8 +1,11 @@
 :: PassageHeader
-<h5><<nobr>>
-<<if $history.length > 2>>
-    <div class="scrollmenu"><<include "Breadcrumb">></div>
-  <<else>>
-    <<include "Breadcrumb">>
-<</if>>
-<</nobr>></h5>
+<<nobr>>
+<div class="header" id="passage-header">
+<div class="scrollmenu"><<include "Breadcrumb">></div>
+<div id="page-title" class="big-title">
+<<if def $history.last()>><<print lib.toTitleCase($history.last().linkDescription)>>
+<<else>>
+$town.name
+<</if>></div>
+</div>
+<</nobr>>
