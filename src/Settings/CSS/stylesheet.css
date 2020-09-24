@@ -11,23 +11,78 @@ body {
   font-size: 18px;
   margin-bottom: 4px;
   margin-top: 4px;
-  z-index: 10;
 }
 
-.container {
+@font-face {
+  font-family: Bookinsanity;
+  src: 
+    local(Bookinsanity)
+}
+
+.header {
+  /* padding: 50px 10px;  */
+  position: fixed; /* Fixed position - sit on top of the page */
+  top: 0;
+  width: 100%; /* Full width */
+  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+
+#illustration-banner {
+  column-span: all;
+}
+
+#passage-header {
+	position: fixed;
+  top: 0;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  background-color: #eeeeee;
+  /* background-blend-mode: lighten; */
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  column-span: all;
+}
+
+.big-title {
+  font-size:          .987cm;
+  transition: 0.2s;
+  border-bottom:      6px solid #c9ad6a;
+  background-color: #eeeeee;
+  left: auto;
+}
+
+.invis-title {
+  visibility: hidden;
+  transition: 0.2s;
+  border-bottom:      6px solid #c9ad6a;
+  background-color: transparent;
+}
+
+.townIllustration {
+  background-image: url("../src/Resources/townIllustration.jpg");
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 8vw 16px;
+  transition: 0.2s;
+  column-span: all;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  background-image: url("../src/Resources/footer.png");
+  background-size: cover;
+  z-index: 90;
+  column-span: all;
 }
 
 @media (min-width: 576px) {
   .passage {
     columns: 1;
-  }
-  .container {
-    max-width: 540px;
   }
   blockquote {
       -webkit-margin-start: .5em;
@@ -39,9 +94,6 @@ body {
   .passage {
     columns: 1;
   }
-  .container {
-    max-width: 720px;
-  }
   blockquote {
       -webkit-margin-start: .5em;
       -webkit-margin-end: .5em;
@@ -50,23 +102,21 @@ body {
 
 @media (min-width: 992px) {
   .passage {
-    columns: 1;
+    columns: 2;
+    column-fill: auto;
   }  
-  .container {
-    max-width: 960px;
-  }
 }
 
 @media (min-width: 1200px) {
   .passage {
-    columns: 1;
+    columns: 2;
+    column-fill: auto;
   }  
-  .container {
-    max-width: 1140px;
-  }
 }
 
 
+
+ 
 
 .dotted {
 	border-bottom: 1px dotted #000;
@@ -91,6 +141,7 @@ body {
 div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
+  column-span: all;
 }
 
 
@@ -404,8 +455,9 @@ width: 180px;
         left: 0;
         height: 55px;
         width: 100%;
-        background-image: url("../src/Resources/footer.png");;
-        background-size: cover
+        background-image: url("../src/Resources/footer.png");
+        background-size: cover;
+        column-span: all;
     }
     .body:nth-child(even):after {transform: scaleX(-1)}
     .body:nth-child(even) .pageNumber {left: 2px}
