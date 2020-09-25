@@ -7,5 +7,5 @@
 The $building.wordNoun's inner walls feature $building.defense.innerWalls, protecting the castle itself, which is $building.sizeDescriptive.
 <<include "CastleDungeon">>
 <<linkreplace "<h4>Relationships</h4>" t8n>><<include "BuildingRelationshipsTable">><</linkreplace>>
-<<button "Create a historical siege">><<set $building.siege to setup.castle.siege.create($town)>><<replace "#siege">><div class='descriptive'>$building.siege.readout</div><</replace>><</button>>
+<<button "Create a historical siege">><<set $building.siege to setup.castle.siege.create($town)>><<replace "#siege">><div class='descriptive'><h3>$building.siege.name</h3> $building.siege.readout</div><</replace>><</button>>
 <span id="siege"></span>

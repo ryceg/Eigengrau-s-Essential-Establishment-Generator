@@ -13,14 +13,18 @@ setup.initCastle = () => {
         'Humblerock Castle',
         'Evering Place',
         'Axiom Towers',
-        'Cliffhaven Keep'
+        'Cliffhaven Keep',
+        'The Rock',
+        'Dragonspire'
       ],
       wordNouns: [
         'keep',
         'castle',
         'fort',
         'fortress',
-        'stronghold'
+        'stronghold',
+        'citadel',
+        'hold'
       ],
       nouns: [
         'oak',
@@ -37,7 +41,8 @@ setup.initCastle = () => {
         'lake',
         'lamb',
         'dock',
-        'cliff'
+        'cliff',
+        'valor'
       ],
       adjectives: [
         'far',
@@ -61,7 +66,11 @@ setup.initCastle = () => {
           'pre',
           'phil',
           'tel',
-          'glen'
+          'glen',
+          'bre',
+          'dal',
+          'kin',
+          'ern'
         ],
         suffix: [
           'borough',
@@ -77,7 +86,12 @@ setup.initCastle = () => {
           'ham',
           'dale',
           'burn',
-          'haven'
+          'haven',
+          'bury',
+          'ford',
+          'stead',
+          'wick',
+          'ton'
         ]
       }
     },
@@ -216,9 +230,11 @@ setup.initCastle = () => {
     },
     builtBy: [
       'a wise king',
-      'an ambitious lord or lady',
+      'an ambitious lord',
+      'an ambitious lady',
       'an evil tyrant',
-      'a mighty warrior or warlord',
+      'a mighty warrior',
+      'a conquering warlord',
       'a retired adventurer',
       'a celebrated war hero',
       'an unscrupulous king',
@@ -226,7 +242,14 @@ setup.initCastle = () => {
       'a powerful witch or wizard',
       'a beloved sovereign',
       'a prosperous merchant',
-      'a member of an ancient noble house'
+      'a member of an ancient noble house',
+      'a group of well meaning citizens',
+      'a wicked queen',
+      'a gentle ruler',
+      'a well off craftsperson',
+      'a reclusive miser',
+      'a paranoid noble',
+      'a mysterious and unknown figure'
     ],
     knownFor: [
       'withstanding a grueling, lengthy siege',
@@ -240,7 +263,15 @@ setup.initCastle = () => {
       'its unusual architectural style',
       'its beautiful, historic tapestries',
       'its breathtakingly beautiful chapel',
-      'the quality of its meals'
+      'the quality of its meals',
+      'the many hidden passages rumored to be within',
+      'the uprising that once happened here',
+      'the important part it played in a previous war',
+      'always falling in sieges',
+      'the excellent masonry',
+      'the grand library hidden within',
+      'the many artifacts it houses',
+      'hosting many parties for foreign nobility'
     ],
     ruler: {
       getAcquisitionMethod (town, castle) {
@@ -263,6 +294,9 @@ setup.initCastle = () => {
           },
           {
             acquisitionMethod: 'forcefully seized from a rival'
+          },
+          {
+            acquisitionMethod: 'purchased for a heft fee'
           }
         ]
         return methods.random()
@@ -458,11 +492,38 @@ setup.initCastle = () => {
           causedBy: data.causedBy.random(),
           length: data.length.random(),
           event: data.event.random(),
-          result: data.result[result].random()
+          result: data.result[result].random(),
+          namePrefix: data.namePrefix.random(),
+          nameAdjective: data.nameAdjective.random(),
+          nameNoun: data.nameNoun.random()
         })
+        siege.name = [[`${siege.namePrefix} ${['$building.name', '$town.name'].random()}`], [`The ${siege.nameAdjective} ${siege.nameNoun}`]].random()
         siege.readout = `The siege was ${['caused by', 'instigated by', 'eventuated due to'].random()} ${siege.causedBy}, and lasted ${siege.length}, during which ${siege.event}. Eventually, ${siege.result}.`
         return siege
       },
+      namePrefix: [
+        'The Siege of',
+        'The Sacking of',
+        'The Battle of',
+        'The Massacre of',
+        'The Invasion of',
+        'The Razing of'
+      ],
+      nameAdjective: [
+        'Bloody',
+        'Battered',
+        'Ruined',
+        'Red',
+        'Broken'
+      ],
+      nameNoun: [
+        'Walls',
+        'Gates',
+        'Halls',
+        'Fields',
+        'Siege',
+        'Massacre'
+      ],
       causedBy: [
         // the siege was caused by ____
         'a minor disagreement which spiraled out of hand',
@@ -515,7 +576,8 @@ setup.initCastle = () => {
         'fantastic bombs were created and lobbed from the keep',
         'a baby was born',
         'a noble girl got pregnant mysteriously',
-        'all of the gold in the treasury went missing'
+        'all of the gold in the treasury went missing',
+        'a plague ran rampant through the castle'
       ],
       result: {
         // eventually, _____
@@ -556,6 +618,7 @@ setup.initCastle = () => {
         'the surrounding land is held sacred',
         'the nearby lands are home to a rare herb, tree, or creature that has magical uses'
       ],
+      // Its outer walls are defended by ____
       outerWalls: [
         'very high stone walls',
         'incredibly thick stone walls',
@@ -566,15 +629,23 @@ setup.initCastle = () => {
         'a moat filled with sharp spikes',
         'a moat that is home to one or more dangerous aquatic beasts',
         'an immense barbican',
-        'a narrow footbridge to reach the postern'
+        'a narrow footbridge to reach the postern',
+        'hidden pitfalls full of sharp spikes',
+        'a retractable drawbridge over a muddy moat',
+        'caged war dogs'
       ],
+      // The inner walls feature ___
       innerWalls: [
         'hundreds of arrow slits',
         "one of the world's largest dual-portcullis gates",
         'a winding climb to reach the entrance',
         'several covered parapets with murder holes under which intruders must pass',
         'a wide courtyard surrounded by flanking towers in the curtain wall',
-        'an unusual or hidden means of entry'
+        'an unusual or hidden means of entry',
+        'several heavy-duty, mounted balistas',
+        'several mounted buckets of hot tar',
+        'a set of trapped stairs going up to the entrance that can be turned into a ramp',
+        'a set of heavy iron doors'
       ]
     },
     rollData: {
@@ -805,7 +876,8 @@ setup.initCastle = () => {
         'as part of the original castle',
         'as a later addition',
         'for another purpose originally',
-        'long before most of the castle'
+        'long before most of the castle',
+        'by the original owner of the castle'
       ],
       format: [
         // and consists of ____
@@ -859,9 +931,9 @@ setup.initCastle = () => {
               }
             },
             {
-              reasonForPunishment: 'was caught philandering with another man\'s wife.',
+              reasonForPunishment: 'was caught philandering with someone elses wife.',
               base: {
-                gender: 'man'
+                socialClass: 'commoner'
               }
             },
             {
@@ -942,6 +1014,30 @@ setup.initCastle = () => {
               base: {
                 profession: 'courier'
               }
+            },
+            {
+              reasonForPunishment: 'was caught attempting to sell a king a rotten cabbage.',
+              base: {
+                socialClass: 'peasantry'
+              }
+            },
+            {
+              reasonForPunishment: 'was caught while crossing the border on a stolen horse.',
+              base: {
+                socialClass: 'peasantry'
+              }
+            },
+            {
+              reasonForPunishment: 'is a prisoner of war.',
+              base: {
+                socialClass: 'commoner'
+              }
+            },
+            {
+              reasonForPunishment: 'was stealing from orphanages.',
+              base: {
+                background: 'criminal'
+              }
             }
           ],
           treatment: [
@@ -1005,7 +1101,8 @@ setup.initCastle = () => {
           'the shouting of distant voices',
           'howls of agony',
           'horrific screams',
-          'the clanking of chains'
+          'the clanking of chains',
+          'the distinct smell of stale blood'
         ]
       }
     }
