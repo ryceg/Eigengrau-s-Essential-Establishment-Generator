@@ -4,11 +4,13 @@ window.onscroll = function () { scrollFunction() }
 function scrollFunction () {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.getElementById('passage-header').style.backgroundColor = '#eeeeee'
+    if (document.getElementById('last-link')) document.getElementById('last-link').style.visibility = 'hidden'
     const title = document.getElementById('page-title')
     title.classList.remove('invis-title')
     title.classList.add('big-title')
   } else {
     document.getElementById('passage-header').style.backgroundColor = 'transparent'
+    if (document.getElementById('last-link')) document.getElementById('last-link').style.visibility = 'visible'
     const title = document.getElementById('page-title')
     title.classList.remove('big-title')
     title.classList.add('invis-title')

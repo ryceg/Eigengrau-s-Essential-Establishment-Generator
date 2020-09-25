@@ -23,4 +23,4 @@
     <<run setup.history(_passage.data, _passage.passageName, _passage.linkDescription)>>
 <</link>><</if>>
 <</capture>><</for>>
-<<if def $history.last()>><b> > <<print lib.toTitleCase($history.last().linkDescription)>></b><</if>><</nobr>>
+<<if def $history.last()>><span id="last-link"><b> > <<print lib.toTitleCase($history.last().linkDescription)>></b></span><</if>><</nobr>>

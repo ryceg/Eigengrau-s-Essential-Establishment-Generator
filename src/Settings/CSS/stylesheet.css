@@ -19,9 +19,10 @@ body {
     local(Bookinsanity)
 }
 
-.header {
+header #passage-header{
   /* padding: 50px 10px;  */
   position: fixed; /* Fixed position - sit on top of the page */
+  left: 0;
   top: 0;
   width: 100%; /* Full width */
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
@@ -31,9 +32,15 @@ body {
   column-span: all;
 }
 
+#last-link {
+  visibility: visible;
+  color: #111;
+}
+
 #passage-header {
 	position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: #eeeeee;
   /* background-blend-mode: lighten; */
