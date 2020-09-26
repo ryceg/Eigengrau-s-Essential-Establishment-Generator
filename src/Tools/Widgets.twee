@@ -90,11 +90,12 @@
 	_readout = $args[1] || _building.name>>
 <span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_readout)>>
 <<link "_buildingTitle">>
-	<<if _building.parentKey>>
+<<set $currentPassage to _building>>
+	/*<<if _building.parentKey>>
 		<<set $currentPassage to lib.findInArray($town.buildings, "key", _building.parentKey)>>
 		<<else>>
 		<<set $currentPassage to _building>>
-	<</if>>
+	<</if>>*/
   
   <<run setup.history(_building, null, _readout)>>
   <<run console.log(_building)>>
