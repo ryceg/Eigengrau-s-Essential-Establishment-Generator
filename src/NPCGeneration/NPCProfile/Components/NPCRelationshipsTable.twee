@@ -25,7 +25,7 @@
       <th></th>
       <th>Relationship</th>
     </tr>
-    <<for _i to 0; _i lt _buildingRelationships.length; _i++>><<set _building to setup.findBuilding($town, "key", _buildingRelationships[_i].buildingKey)>><<capture _building>>
+    <<for _i to 0; _i lt _buildingRelationships.length; _i++>><<set _building to setup.findBuilding($town, _buildingRelationships[_i].buildingKey)>><<capture _building>>
     <td><<building _building _building.name>></td>
     <td><<print lib.toTitleCase(_building.wordNoun)>></td>
     <td></td>
