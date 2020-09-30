@@ -44,7 +44,7 @@ const politicalIdeologyPairs = {
   magocratic: 'magocracy',
   militocratic: 'militocracy',
   oligarchic: 'oligarchy',
-  pedocratic: 'pedocracy',
+  sophocratic: 'sophocracy',
   theocratic: 'theocracy',
   technocratic: 'technocracy'
 } as const
