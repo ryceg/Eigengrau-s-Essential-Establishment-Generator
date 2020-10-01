@@ -7,7 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Artwork by Juho Huttunen
+- Paper watercolours in DMG style by /u/FlamableConcrete
 - Castles
+- Dungeons
+- Prisoners
+- Sieges
 - Infinite breadcrumbs
 - Description of racial makeup to the start page.
 - Ability to edit dominant gender
@@ -24,7 +29,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fix tavern material being [object Object]
 - Alchemist bugs
 - Fix creating new faction.
-- Fix sliders.
+- Fix some slider bugs.
+- Fix tavern material bug.
+- Put patreon supporters list in a table.
 - Improvements to onboarding process and tutorial.
 - Formatting improvements in town edit
 - Fixed empty headers sometimes appearing in shops
