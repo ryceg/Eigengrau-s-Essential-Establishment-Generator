@@ -21,4 +21,5 @@
 <</button>>
 <span id="buildings"><<include "BuildingsList">></span>
 <<run console.log($town)>>
+
 <<include "Popup">>
