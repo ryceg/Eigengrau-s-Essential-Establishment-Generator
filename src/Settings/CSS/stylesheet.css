@@ -1,16 +1,49 @@
 
 
 body {
-  background-image: url("../src/Resources/paper2.jpg");
+  background-image: url("../src/Resources/bottom 0001.png");
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
-  background-color: white;
+  background-color: #dedede;
   color: #111;
   font-family: Bookinsanity;
   font-size: 18px;
   margin-bottom: 4px;
   margin-top: 4px;
+}
+
+#paper {
+  /* background-image: url("../src/Resources/0001.png"); */
+  background-attachment: scroll;
+  background-repeat: repeat;
+  background-size: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: -1;
+}
+
+#illustration {
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  transition: 0.2s;
+  column-span: all;
+  z-index: -2;
+}
+
+#illustration-buffer {
+  padding-bottom: 5vw;
 }
 
 @font-face {
@@ -26,6 +59,10 @@ header #passage-header{
   top: 0;
   width: 100%; /* Full width */
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+
+#header-text {
+  left: auto;
 }
 
 #illustration-banner {
@@ -64,19 +101,6 @@ header #passage-header{
   background-color: transparent;
 }
 
-.townIllustration {
-  background-image: url("../src/Resources/townIllustration.jpg");
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 8vw 16px;
-  transition: 0.2s;
-  column-span: all;
-}
 
 .footer {
   position: absolute;
@@ -87,6 +111,18 @@ header #passage-header{
   column-span: all;
 }
 
+@media (min-width: 411px) {
+  .passage {
+    columns: 1;
+  }
+  #illustration-buffer {
+    padding-bottom: 18vw;
+  }
+  #paper {
+    top: 14vw
+  }
+}
+
 @media (min-width: 576px) {
   .passage {
     columns: 1;
@@ -94,6 +130,12 @@ header #passage-header{
   blockquote {
       -webkit-margin-start: .5em;
       -webkit-margin-end: .5em;
+  }
+  #illustration-buffer {
+    padding-bottom: 26vw;
+  }
+  #paper {
+    top: 13vw
   }
 }
 
@@ -105,6 +147,12 @@ header #passage-header{
       -webkit-margin-start: .5em;
       -webkit-margin-end: .5em;
   }
+  #illustration-buffer {
+    padding-bottom: 28vw;
+  }
+  #paper {
+    top: 13.5vw
+  }
 }
 
 @media (min-width: 992px) {
@@ -112,6 +160,13 @@ header #passage-header{
     columns: 2;
     column-fill: auto;
   }  
+  #illustration-buffer {
+    column-span: all;
+    padding: 18vw;
+  }
+  #paper {
+    top: 13vw
+  }
 }
 
 @media (min-width: 1200px) {
@@ -119,6 +174,14 @@ header #passage-header{
     columns: 2;
     column-fill: auto;
   }  
+  #illustration-buffer {
+    column-span: all;
+    padding: 17vw;
+  }
+
+  #paper {
+    top: 14vw
+  }
 }
 
 

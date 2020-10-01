@@ -1,11 +1,11 @@
 :: PassageHeader
 <<nobr>>
 <header id="passage-header">
-<div id="passages"><div class="scrollmenu"><<include "Breadcrumb">></div>
+<div id="passages"><div id="header-text"><div class="scrollmenu"><<include "Breadcrumb">></div>
 <div id="page-title" class="big-title">
 <<if def $history.last()>><<print lib.toTitleCase($history.last().linkDescription)>>
 <<else>>
 $town.name
 <</if>></div>
-</div>
+</div></div>
 </header><</nobr>>
