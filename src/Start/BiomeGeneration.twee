@@ -2,7 +2,7 @@
 
 <<nobr>>
 <<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
-<<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "pedocratic": "pedocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
+<<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
 <<set
   $tempTown.roll.wealth to $tempTown.roll.wealth.clamp(1, 100),
   $tempTown.roll.economics to $tempTown.roll.economics.clamp(1, 100),

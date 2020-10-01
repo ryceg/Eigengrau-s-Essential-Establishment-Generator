@@ -694,7 +694,7 @@ export const townData = {
   },
   politicalSource: {
     'absolute monarchy': {
-      politicalIdeology: ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      politicalIdeology: ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       autocracy: {
         politicalSourceDescription: "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
         description: 'The crown holds both supreme executive and judicial powers.'
@@ -705,7 +705,7 @@ export const townData = {
       }
     },
     'constitutional monarchy': {
-      politicalIdeology: ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      politicalIdeology: ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       autocracy: {
         politicalSourceDescription: '<<print $town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.',
         description: 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
@@ -716,12 +716,12 @@ export const townData = {
       }
     },
     'republic': {
-      politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       politicalSourceDescription: 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
       description: 'An elected body of representatives wield the powers of government.'
     },
     'anarchy': {
-      politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'pedocracy', 'theocracy', 'technocracy'],
+      politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       politicalSourceDescription: 'None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
       description: 'No formal political system exists.'
     }
@@ -890,7 +890,7 @@ export const townData = {
         description: 'Governed by the powerful few.'
       }
     },
-    pedocracy: {
+    sophocracy: {
       leaderTraits: () => ({
         hasClass: false,
         profession: random(['scholar', 'philosopher', 'horologist', 'mathematician']),
@@ -910,7 +910,7 @@ export const townData = {
         isFaction: true,
         leaderType: 'the scholars',
         governmentType: 'scholars',
-        politicalIdeologyIC: 'pedocratic',
+        politicalIdeologyIC: 'sophocratic',
         description: 'Governed by the scholars.'
       }
     },
