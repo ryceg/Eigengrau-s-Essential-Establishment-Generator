@@ -55,6 +55,10 @@ header #passage-header{
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
 
+.force-one-column .passage  {
+  column-count: 1;
+}
+
 .force-one-column {
   column-count: 1;
 }

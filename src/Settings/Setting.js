@@ -13,6 +13,14 @@ if (State.metadata.get('showBiomeGenerationSettings') !== settings.showBiomeGene
   settings.showBiomeGenerationSettings = State.metadata.get('showBiomeGenerationSettings')
 }
 
+if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
+  settings.forceOneColumn = State.metadata.get('forceOneColumn')
+}
+
+if (settings.forceOneColumn) {
+  jQuery('html').addClass('force-one-column')
+}
+
 const settingShowTutorial = function () {
   const showTutorial = State.metadata.get('showTutorial')
   if (settings.showTutorial !== showTutorial) {
@@ -40,6 +48,18 @@ const settingHideAds = function () {
     settings.hideAds = true
   } else {
     settings.hideAds = false
+  }
+}
+
+const settingForceOneColumn = function () {
+  const forceOneColumn = State.metadata.get('forceOneColumn')
+  if (settings.forceOneColumn !== forceOneColumn) {
+    State.metadata.set('forceOneColumn', settings.forceOneColumn)
+  }
+  if (settings.forceOneColumn) {
+    jQuery('html').addClass('force-one-column')
+  } else {
+    jQuery('html').removeClass('force-one-column')
   }
 }
 
@@ -73,6 +93,12 @@ Setting.addToggle('silverStandard', {
 Setting.addToggle('ignoreGender', {
   label: '<span id="gender" class="tip dotted" title="If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.">Ignore gender inequality?</span>',
   onChange: settingIgnoreGender
+})
+
+Setting.addToggle('forceOneColumn', {
+  label: '<span id="oneColumn" class="tip dotted" title="Force one column for larger screens.">Force one column?</span>',
+  desc: 'Force one column for larger screens',
+  onChange: settingForceOneColumn
 })
 
 Setting.addToggle('hideAds', {
