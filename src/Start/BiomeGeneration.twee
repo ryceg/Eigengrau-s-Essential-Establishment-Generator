@@ -48,7 +48,7 @@
     </tr>
 <<for _race, _percentage range $tempTown.demographicPercentile>>
     <tr>
-        <td>_race</td>
+        <td><<print lib.toTitleCase(_race)>></td>
         <td><<print Math.trunc($tempTown.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
         <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$tempTown.baseDemographics['" + _race + "']"` $tempTown.baseDemographics[_race] 0 100 1>></span></td>
