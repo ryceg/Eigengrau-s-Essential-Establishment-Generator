@@ -86,8 +86,17 @@ interface TavernGame {
 }
 
 interface Customers {
-  relationship: string
-  reciprocalRelationship?: string
+  relationshipDescription: string
+  relationships: {
+    building: {
+      relationship: string
+      reciprocalRelationship?: string
+    }
+    associatedNPC?: {
+      relationship: string
+      reciprocalRelationship?: string
+    }
+  }
   base?: {
     profession?: string
   }
