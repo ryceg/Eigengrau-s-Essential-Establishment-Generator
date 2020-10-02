@@ -6,7 +6,7 @@
     <div id="page-title" class="invis-title">
       <<if def $history.last()>><<print lib.toTitleCase($history.last().linkDescription)>>
       <<else>>
-      $town.name
+      <<if ndef $town>>$tempTown.name<<else>>$town.name<</if>>
       <</if>>
     </div>
   </div>
