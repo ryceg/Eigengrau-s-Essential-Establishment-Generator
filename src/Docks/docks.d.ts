@@ -11,7 +11,7 @@ interface Setup {
       customers: Customer[]
     }
     ships: {
-      create(town: Town, docks: any, opts?: any): any
+      create(town: Town, docks: Docks, opts?: any): any
       crew: {
         create(town: Town): string
         type: Record<string, any>
@@ -35,8 +35,17 @@ interface Setup {
 }
 
 interface Customer {
-    relationship: string
-    reciprocalRelationship?: string
+    relationshipDescription: string
+    relationships: {
+      building: {
+        relationship: string
+        reciprocalRelationship?: string
+      }
+      associatedNPC: {
+        relationship: string
+        reciprocalRelationship?: string
+      }
+    }
     base?: Base
     description(docks: Docks, npc: NPC): string
 }

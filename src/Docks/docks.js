@@ -612,30 +612,64 @@ setup.initDocks = () => {
     get: {
       customers: [
         {
-          relationship: 'regular',
+          relationshipDescription: 'regular',
+          relationships: {
+            building: {
+              relationship: 'regular',
+              reciprocalRelationship: 'place of work'
+            },
+            associatedNPC: {
+              relationship: 'acquaintance'
+            }
+          },
           base: {
             professionSector: 'naval'
           },
           description (building, npc) { return `${npc.firstName} works with ships.` }
         },
         {
-          relationship: 'shipwright',
+          relationshipDescription: 'shipwright',
+          relationships: {
+            building: {
+              relationship: 'shipwright',
+              reciprocalRelationship: 'place of work'
+            },
+            associatedNPC: {
+              relationship: 'acquaintance'
+            }
+          },
           base: {
             profession: 'shipwright'
           },
           description (building, npc) { return `${npc.firstName} constructs and repairs ships in ${building.name}.` }
         },
         {
-          relationship: 'bosun',
-          reciprocalRelationship: 'place of work',
+          relationshipDescription: 'bosun',
+          relationships: {
+            building: {
+              relationship: 'bosun',
+              reciprocalRelationship: 'place of work'
+            },
+            associatedNPC: {
+              relationship: 'acquaintance'
+            }
+          },
           base: {
             profession: 'bosun'
           },
           description (building, npc) { return `${npc.firstName} works to organise equipment to be loaded off ${building.name} and onto ${npc.hisher} ship.` }
         },
         {
-          relationship: 'stevedore',
-          reciprocalRelationship: 'place of work',
+          relationshipDescription: 'stevedore',
+          relationships: {
+            building: {
+              relationship: 'stevedore',
+              reciprocalRelationship: 'place of work'
+            },
+            associatedNPC: {
+              relationship: 'acquaintance'
+            }
+          },
           base: {
             socialClass: 'stevedore'
           },

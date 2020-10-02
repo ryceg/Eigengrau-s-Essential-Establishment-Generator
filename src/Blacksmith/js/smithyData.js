@@ -3,10 +3,15 @@ setup.smithy = {
   get: {
     customers: [
       {
-        relationship: 'regular',
-        associatedNPC: {
-          relationship: 'blacksmith',
-          reciprocalRelationship: 'client'
+        relationshipDescription: 'regular',
+        relationships: {
+          building: {
+            relationship: 'regular'
+          },
+          associatedNPC: {
+            relationship: 'blacksmith',
+            reciprocalRelationship: 'client'
+          }
         },
         base: {
           professionType: 'labourer'
@@ -14,10 +19,15 @@ setup.smithy = {
         description (building, npc) { return `${npc.firstName} regularly gets tools repaired.` }
       },
       {
-        relationship: 'buyer',
-        associatedNPC: {
-          relationship: 'blacksmith',
-          reciprocalRelationship: 'client'
+        relationshipDescription: 'buyer',
+        relationships: {
+          building: {
+            relationship: 'buyer'
+          },
+          associatedNPC: {
+            relationship: 'blacksmith',
+            reciprocalRelationship: 'client'
+          }
         },
         base: {
           profession: 'wagoner'
@@ -25,20 +35,29 @@ setup.smithy = {
         description (building, npc) { return `${npc.firstName} buys horse shoes regularly.` }
       },
       {
-        relationship: 'former customer',
-        associatedNPC: {
-          relationship: 'target of boycott',
-          reciprocalRelationship: 'former client'
+        relationshipDescription: 'former customer',
+        relationships: {
+          building: {
+            relationship: 'former customer'
+          },
+          associatedNPC: {
+            relationship: 'target of boycott',
+            reciprocalRelationship: 'former client'
+          }
         },
         description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
       },
       {
-
-        relationship: 'carpenter',
-        reciprocalRelationship: 'client',
-        associatedNPC: {
-          relationship: 'blacksmith',
-          reciprocalRelationship: 'client'
+        relationshipDescription: 'carpenter',
+        relationships: {
+          building: {
+            relationship: 'carpenter',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'blacksmith',
+            reciprocalRelationship: 'client'
+          }
         },
         base: {
           profession: 'carpenter'
@@ -46,23 +65,33 @@ setup.smithy = {
         description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
       },
       {
-        associatedNPC: {
-          relationship: 'blacksmith',
-          reciprocalRelationship: 'client'
+        relationshipDescription: 'patron',
+        relationships: {
+          building: {
+            relationship: 'patron',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'blacksmith',
+            reciprocalRelationship: 'client'
+          }
         },
-        relationship: 'patron',
-        reciprocalRelationship: 'client',
         base: {
           socialClass: 'nobility'
         },
         description (building, npc) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
       },
       {
-        relationship: 'superstitious peasant',
-        reciprocalRelationship: 'client',
-        associatedNPC: {
-          relationship: 'blacksmith',
-          reciprocalRelationship: 'client'
+        relationshipDescription: 'superstitious peasant',
+        relationships: {
+          building: {
+            relationship: 'superstitious peasant',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'blacksmith',
+            reciprocalRelationship: 'client'
+          }
         },
         base: {
           socialClass: 'peasantry'
