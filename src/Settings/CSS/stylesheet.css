@@ -2602,7 +2602,7 @@ pre code {
     border-image-repeat:round;
     border-image-slice:150 200 150 200;
     border-image-source: url("../src/Resources/table-wrap.png");
-    border-image-width:47px
+    border-image-width:47px;
 }
 .classTable h5{
     margin-bottom:10px
