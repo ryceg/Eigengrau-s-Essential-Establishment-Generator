@@ -13,10 +13,11 @@
   <tr><td><<profile $npcs[_factionRelationships[_i].npcKey]>></td>
   <td><<print $npcs[_factionRelationships[_i].npcKey].race.toUpperFirst()>></td>
   <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_factionRelationships[_i].npcKey].profession.toUpperFirst())>></td>
-  <td><<if _factionRelationships[_i].description || _factionRelationships[_i].reciprocalRelationship>><<print lib.createTippyFull(
+  <td><<print lib.createTippyFull(
     _factionRelationships[_i].description || 
-    lib.findInArray($town.factions, "key", _factionRelationships[_i].buildingKey).name + " is " + lib.articles.output(_factionRelationships[_i].reciprocalRelationship) + " to " + $npcs[_factionRelationships[_i].npcKey].firstName, 
-    lib.toTitleCase(_factionRelationships[_i].relationship))>><<else>><<print lib.toTitleCase(_factionRelationships[_i].relationship)>><</if>></td></tr>
+    $town.factions[$currentPassage.key].name + " is " + lib.articles.output(_factionRelationships[_i].reciprocalRelationship), 
+    (lib.toTitleCase(_factionRelationships[_i].relationship || "member"))
+    )>></td></tr>
 <</for>>
 </table>
 </div><</if>><</nobr>></div>
