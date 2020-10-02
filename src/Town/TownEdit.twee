@@ -13,12 +13,12 @@
   $town.roll.equality to $town.roll.equality.clamp(1, 100)
 >>
 
-<<link "reroll">>
-  <<replace "#townName">>
-    <<set $town.name to setup.createTownName()>>
-    <<textbox "$town.name" $town.name>>
-  <</replace>>
-<</link>> -- <span id="townName"><<textbox "$town.name" $town.name>></span>
+<<liveblock>>
+    <<link "reroll">>
+        <<set $town.name to setup.createTownName()>><<update>>
+    <</link>>
+        <span class="auto-update"><<textbox "$town.name" $town.name>></span>
+<</liveblock>>
 
 <</nobr>>
 

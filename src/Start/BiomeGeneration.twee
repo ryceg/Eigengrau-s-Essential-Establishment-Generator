@@ -12,11 +12,13 @@
   $tempTown.roll.law to $tempTown.roll.law.clamp(1, 100),
   $tempTown.roll.equality to $tempTown.roll.equality.clamp(1, 100)
 >>
-<<link "reroll">>
-    <<replace "#townName">>
-            \<<set $tempTown.name to setup.createTownName()>><<textbox "$tempTown.name" $tempTown.name>>
-    <</replace>><</link>>
-<span id="townName"><<textbox "$tempTown.name" $tempTown.name>></span><</nobr>><<button "Refresh">><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
+<<liveblock>>
+    <<link "reroll">>
+        <<set $tempTown.name to setup.createTownName()>><<update>>
+    <</link>>
+        <span class="auto-update"><<textbox "$tempTown.name" $tempTown.name>></span>
+<</liveblock>>
+<</nobr>><<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
 <span id="refresh"><<include "BiomeGenerationRefresh">></span>
 
 <span class="tip" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span>

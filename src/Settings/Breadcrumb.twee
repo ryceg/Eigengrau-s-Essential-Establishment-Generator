@@ -1,26 +1,26 @@
 :: Breadcrumb
 <<nobr>><<if ndef $town>>
-    <<link "The $tempTown.type of $tempTown.name">>
+    <<liveblock>><<link "The $tempTown.type of $tempTown.name">>
     <<unset $currentPassage>>
     <<unset $currentNPC>>
     <<set $history to []>>
     <<set $town to setup.createTown($tempTown)>>
     <<goto "Start">>
-<</link>>
+<</link>><</liveblock>>
 <<else>>
-    <<set $town.ignoreGender to settings.ignoreGender>><<link "The $town.type of $town.name">>
+    <<set $town.ignoreGender to settings.ignoreGender>><<liveblock>><<link "The $town.type of $town.name">>
     <<unset $currentPassage>>
     <<unset $currentNPC>>
     <<set $history to []>>
     <<goto "Start">>
-<</link>>
+<</link>><</liveblock>>
 <</if>>
 <<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>><<capture _i, _passage, _link>>
-<<if _i < $history.length - 1>>> <<link _link>>
+<<if _i < $history.length - 1>>> <<liveblock>><<link _link>>
     <<set $currentPassage to _passage.data>>
     <<goto _passage.passageName>>
     <<run $history.length = _i>>
     <<run setup.history(_passage.data, _passage.passageName, _passage.linkDescription)>>
-<</link>><</if>>
+<</link>><</liveblock>><</if>>
 <</capture>><</for>>
 <<if def $history.last()>><span id="last-link"><b> > <<print lib.toTitleCase($history.last().linkDescription)>></b></span><</if>><</nobr>>
