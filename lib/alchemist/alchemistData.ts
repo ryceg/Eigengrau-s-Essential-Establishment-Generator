@@ -24,12 +24,17 @@ interface AlchemistData {
 }
 
 interface Customer {
-  associatedNPC?: {
-    relationship: string
-    reciprocalRelationship: string
+  relationshipDescription: string
+  relationships: {
+    building?: {
+      relationship: string
+      reciprocalRelationship?: string
+    }
+    associatedNPC?: {
+      relationship: string
+      reciprocalRelationship: string
+    }
   }
-  relationship: string
-  reciprocalRelationship?: string
   base?: Base
   description(alchemist: Alchemist, npc: NPC): string
 }
@@ -103,18 +108,28 @@ export const alchemistData: AlchemistData = {
   get: {
     customers: [
       {
-        relationship: 'customer',
-        associatedNPC: {
-          relationship: 'client',
-          reciprocalRelationship: 'alchemist'
+        relationshipDescription: 'customer',
+        relationships: {
+          building: {
+            relationship: 'customer'
+          },
+          associatedNPC: {
+            relationship: 'client',
+            reciprocalRelationship: 'alchemist'
+          }
         },
         description (building, npc) { return `${npc.firstName} purchases ${random(['herbs', 'some rare herbs', 'some reagents', 'salt', 'some spices', 'spices typically used in alchemy'])} from ${building.name} for cooking.` }
       },
       {
-        relationship: 'weight-loss customer',
-        associatedNPC: {
-          relationship: 'client',
-          reciprocalRelationship: 'supplier of weight-loss medication'
+        relationshipDescription: 'weight-loss customer',
+        relationships: {
+          building: {
+            relationship: 'weight-loss customer'
+          },
+          associatedNPC: {
+            relationship: 'client',
+            reciprocalRelationship: 'supplier of weight-loss medication'
+          }
         },
         base: {
           weight: 'fat',
@@ -123,27 +138,42 @@ export const alchemistData: AlchemistData = {
         description (building, npc) { return `${npc.firstName} purchases ${random(['herbs', 'some rare herbs', 'some reagents', 'salt', 'some spices', 'literal snake oil'])} from ${building.name} for weight loss purposes. It ${random(['doesn\'t seem to be working.', 'seems to be working?', 'is too early to tell if it is working or not.', 'is very clearly a scam.'])}` }
       },
       {
-        relationship: 'discrete customer',
-        associatedNPC: {
-          relationship: 'client',
-          reciprocalRelationship: 'alchemist'
+        relationshipDescription: 'discrete customer',
+        relationships: {
+          building: {
+            relationship: 'discrete customer'
+          },
+          associatedNPC: {
+            relationship: 'client',
+            reciprocalRelationship: 'alchemist'
+          }
         },
         description (building, npc) { return `${npc.firstName} secretly purchases ${random(['poison', 'some rare herbs used for poison', 'some reagents', 'unnamed powders', 'some things that could be considered dangerous', 'strange potions', 'potions', 'unnamed potions', 'glassware', 'glassware and alchemical reagents'])} from ${building.name}.` }
       },
       {
-        relationship: 'lovestruck customer',
-        associatedNPC: {
-          relationship: 'client',
-          reciprocalRelationship: 'love potion supplier'
+        relationshipDescription: 'lovestruck customer',
+        relationships: {
+          building: {
+            relationship: 'lovestruck customer'
+          },
+          associatedNPC: {
+            relationship: 'client',
+            reciprocalRelationship: 'love potion supplier'
+          }
         },
         description (building, npc) { return `${npc.firstName} secretly purchases ${random(['love potions', 'potions purported to beguile the imbiber', 'potions meant to make the drinker fall in love'])} from ${building.name}.` }
       },
       {
-        relationship: 'detractor',
-        reciprocalRelationship: 'target of ire',
-        associatedNPC: {
-          relationship: 'target of ire',
-          reciprocalRelationship: 'detractor'
+        relationshipDescription: 'detractor',
+        relationships: {
+          building: {
+            relationship: 'detractor',
+            reciprocalRelationship: 'target of ire'
+          },
+          associatedNPC: {
+            relationship: 'target of ire',
+            reciprocalRelationship: 'detractor'
+          }
         },
         base: {
           background: 'acolyte'
@@ -151,11 +181,16 @@ export const alchemistData: AlchemistData = {
         description (building, npc) { return `${npc.firstName} is an outspoken detractor of ${building.name}, believing alchemy to be an abomination.` }
       },
       {
-        relationship: 'client',
-        reciprocalRelationship: 'supplier',
-        associatedNPC: {
-          relationship: 'alchemist',
-          reciprocalRelationship: 'client'
+        relationshipDescription: 'client',
+        relationships: {
+          building: {
+            relationship: 'client',
+            reciprocalRelationship: 'supplier'
+          },
+          associatedNPC: {
+            relationship: 'alchemist',
+            reciprocalRelationship: 'client'
+          }
         },
         base: {
           profession: 'merchant'

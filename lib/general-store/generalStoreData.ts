@@ -202,27 +202,44 @@ export const generalStore = {
   get: {
     customers: [
       {
-        relationship: 'customer',
-        associatedNPC: {
-          relationship: 'shopkeep',
-          reciprocalRelationship: 'customer'
+        relationshipDescription: 'customer',
+        relationships: {
+          building: {
+            relationship: 'customer',
+            reciprocalRelationship: ''
+          },
+          associatedNPC: {
+            relationship: 'shopkeep',
+            reciprocalRelationship: 'customer'
+          }
         },
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} purchases ${random(['herbs', 'vegetables', 'staple foods', 'spices', 'utensils', ''])} from ${building.name} for cooking.` }
       },
       {
-        relationship: 'former customer',
-        associatedNPC: {
-          relationship: 'target of boycott',
-          reciprocalRelationship: 'boycotter'
+        relationshipDescription: 'former customer',
+        relationships: {
+          building: {
+            relationship: 'former customer',
+            reciprocalRelationship: 'boycotter'
+          },
+          associatedNPC: {
+            relationship: 'target of boycott',
+            reciprocalRelationship: 'boycotter'
+          }
         },
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} no longer buys anything from ${building.name} because ${random(['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`])}.` }
       },
       {
-        relationship: 'client',
-        reciprocalRelationship: 'supplier',
-        associatedNPC: {
-          relationship: 'shopkeep',
-          reciprocalRelationship: 'customer'
+        relationshipDescription: 'client',
+        relationships: {
+          building: {
+            relationship: 'client',
+            reciprocalRelationship: 'supplier'
+          },
+          associatedNPC: {
+            relationship: 'shopkeep',
+            reciprocalRelationship: 'customer'
+          }
         },
         base: {
           profession: 'merchant'
@@ -230,11 +247,16 @@ export const generalStore = {
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} buys ${random(['food staples', 'tools', 'luxuries', 'fabrics', 'cleaning supplies'])} from ${building.name}.` }
       },
       {
-        relationship: 'fish supplier',
-        reciprocalRelationship: 'client',
-        associatedNPC: {
-          relationship: 'supplier of fish',
-          reciprocalRelationship: 'shopkeep'
+        relationshipDescription: 'fish supplier',
+        relationships: {
+          building: {
+            relationship: 'fish supplier',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'supplier of fish',
+            reciprocalRelationship: 'shopkeep'
+          }
         },
         base: {
           profession: 'fisherman'
@@ -242,11 +264,16 @@ export const generalStore = {
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} fish to ${building.name}.` }
       },
       {
-        relationship: 'produce supplier',
-        reciprocalRelationship: 'client',
-        associatedNPC: {
-          relationship: 'produce supplier',
-          reciprocalRelationship: 'shopkeep'
+        relationshipDescription: 'produce supplier',
+        relationships: {
+          building: {
+            relationship: 'produce supplier',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'produce supplier',
+            reciprocalRelationship: 'shopkeep'
+          }
         },
         base: {
           profession: 'gardener'
@@ -254,11 +281,16 @@ export const generalStore = {
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} vegetables to ${building.name}.` }
       },
       {
-        relationship: 'milk supplier',
-        reciprocalRelationship: 'client',
-        associatedNPC: {
-          relationship: 'shopkeep',
-          reciprocalRelationship: 'supplier'
+        relationshipDescription: 'milk supplier',
+        relationships: {
+          building: {
+            relationship: 'milk supplier',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'shopkeep',
+            reciprocalRelationship: 'supplier'
+          }
         },
         base: {
           profession: 'dairymaid'
@@ -266,11 +298,16 @@ export const generalStore = {
         description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells milk to ${building.name}.` }
       },
       {
-        relationship: 'blacksmith',
-        reciprocalRelationship: 'client',
-        associatedNPC: {
-          relationship: 'shopkeep',
-          reciprocalRelationship: 'supplier'
+        relationshipDescription: 'blacksmith',
+        relationships: {
+          building: {
+            relationship: 'blacksmith',
+            reciprocalRelationship: 'client'
+          },
+          associatedNPC: {
+            relationship: 'shopkeep',
+            reciprocalRelationship: 'supplier'
+          }
         },
         base: {
           profession: 'blacksmith'
