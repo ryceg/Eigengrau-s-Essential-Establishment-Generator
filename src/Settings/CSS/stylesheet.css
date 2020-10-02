@@ -90,6 +90,7 @@ header #passage-header{
 }
 
 .invis-title {
+  font-size: 6px;
   visibility: hidden;
   transition: 0.2s;
   border-bottom:      6px solid #c9ad6a;
@@ -106,6 +107,25 @@ header #passage-header{
   column-span: all;
 }
 
+@media (min-width: 360px) {
+  .passage {
+    columns: 1;
+  }
+  #illustration-buffer {
+    padding-bottom: 0vw;
+  }
+  #paper {
+    top: 15vw
+  }
+  body {
+    font-size: 16px
+  }
+  #passage-header {
+    padding-top: 0em;
+    padding-bottom: 0em;
+  }
+}
+
 @media (min-width: 411px) {
   .passage {
     columns: 1;
@@ -114,11 +134,18 @@ header #passage-header{
     padding-bottom: 18vw;
   }
   #paper {
-    top: 14vw
+    top: 14vw;
+  }
+  #passage-header {
+    padding-top: 0em;
+    padding-bottom: 0em;
   }
 }
 
 @media (min-width: 576px) {
+  body {
+    font-size: 17px
+  }
   .passage {
     columns: 1;
   }
@@ -132,9 +159,16 @@ header #passage-header{
   #paper {
     top: 13vw
   }
+  #passage-header {
+    padding-top: 0em;
+    padding-bottom: 0em;
+  }
 }
 
 @media (min-width: 768px) {
+  body {
+    font-size: 18px
+  }
   .passage {
     columns: 1;
   }
@@ -148,23 +182,37 @@ header #passage-header{
   #paper {
     top: 13.5vw
   }
+  #passage-header {
+    padding-top: 0.2em;
+    padding-bottom: 0em;
+  }
 }
 
 @media (min-width: 992px) {
+  body {
+    font-size: 18px
+  }
   .passage {
     columns: 2;
     column-fill: auto;
   }  
   #illustration-buffer {
     column-span: all;
-    padding: 18vw;
+    padding: 16vw;
   }
   #paper {
     top: 13vw
   }
+  #passage-header {
+    padding-top: 0.2em;
+    padding-bottom: 0em;
+  }
 }
 
 @media (min-width: 1200px) {
+  body {
+    font-size: 18px
+  }
   .passage {
     columns: 2;
     column-fill: auto;
@@ -176,6 +224,10 @@ header #passage-header{
 
   #paper {
     top: 14vw
+  }
+  #passage-header {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
   }
 }
 
