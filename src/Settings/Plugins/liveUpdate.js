@@ -1,3 +1,6 @@
+// by Cyrus Ferheir
+// https://github.com/cyrusfirheir/cycy-wrote-custom-macros/tree/master/live-update
+
 (function () {
   'use strict'
 
