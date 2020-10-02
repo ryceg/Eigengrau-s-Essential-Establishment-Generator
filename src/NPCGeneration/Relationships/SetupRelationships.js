@@ -16,6 +16,11 @@ setup.createRelationship = function (town, npc, targetNPC, type, targetType) {
   } else {
     targetNPC = State.variables.npcs[targetNPC.key]
   }
+
+  if (typeof type === 'object') {
+    targetType = type.reciprocalRelationship || type.relationship
+    type = type.relationship
+  }
   // if (!npc || !targetNPC || !npc.key || !targetNPC.key) {
   //   console.log('Called createRelationship() with a null/undefined argument')
   //   return
