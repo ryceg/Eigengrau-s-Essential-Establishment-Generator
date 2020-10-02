@@ -8,6 +8,10 @@ setup.createCastlePopulation = (town, castle, opts) => {
   if (!selected.acquisitionMethod) {
     selected.acquisitionMethod = setup.castle.ruler.getAcquisitionMethod(town, castle).acquisitionMethod
   }
+
+  if (!selected.lookingFor) {
+    selected.lookingFor = selected.lookingFor.random() || setup.castle.ruler.lookingFor.random()
+  }
   if (!selected.type) {
     selected.type = `${lib.articles.output(castle.associatedNPC.calmTrait)} ${castle.associatedNPC.descriptor}`
   }
@@ -15,7 +19,8 @@ setup.createCastlePopulation = (town, castle, opts) => {
   castle.ruler = {
     key: castle.associatedNPC.key,
     type: selected.type,
-    acquisitionMethod: selected.acquisitionMethod
+    acquisitionMethod: selected.acquisitionMethod,
+    lookingFor: selected.lookingFor
   }
 
   const castleHelpers = ['maid', 'laundry worker', 'nanny', 'groundskeeper', 'kitchen drudge', 'stablehand', 'servant', 'seamstress', 'butler', 'herald', 'gardener', 'gamekeeper', 'falconer', 'dairymaid', 'breeder', 'beekeeper', 'page', 'knight', 'noble', 'lady', 'advisor']
