@@ -55,6 +55,14 @@ header #passage-header{
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
 
+.force-one-column {
+  column-count: 1;
+}
+
+#passage-biomegeneration {
+  column-count: 1;
+}
+
 #header-text {
   left: auto;
 }
