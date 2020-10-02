@@ -152,72 +152,164 @@ setup.initTavernData = () => {
     get: {
       customers: [
         {
-          relationship: 'regular',
+          relationshipDescription: 'regular',
+          relationships: {
+            building: {
+              relationship: 'regular',
+              reciprocalRelationship: 'regular'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: 'regular'
+            }
+          },
           description (building, npc) { return `${npc.firstName} is a regular at ${building.name}.` }
         },
         {
-          relationship: 'former customer',
+          relationshipDescription: 'former customer',
+          relationships: {
+            building: {
+              relationship: 'former customer',
+              reciprocalRelationship: 'former customer'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: 'bloody git'
+            }
+          },
           description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
         },
         {
-          relationship: 'wine supplier',
-          reciprocalRelationship: 'client',
+          relationshipDescription: 'wine supplier',
+          relationships: {
+            building: {
+              relationship: 'wine supplier',
+              reciprocalRelationship: 'client'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: 'wine supplier'
+            }
+          },
           base: {
             profession: 'vintner'
           },
           description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
         },
         {
-          relationship: 'beer supplier',
-          reciprocalRelationship: 'client',
+          relationshipDescription: 'beer supplier',
+          relationships: {
+            building: {
+              relationship: 'beer supplier',
+              reciprocalRelationship: 'client'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: 'beer supplier'
+            }
+          },
           base: {
             profession: 'draper'
           },
           description (building, npc) { return `${npc.firstName} sells alcohol to ${building.name}.` }
         },
         {
-          relationship: 'butcher',
-          reciprocalRelationship: 'client',
+          relationshipDescription: 'butcher',
+          relationships: {
+            building: {
+              relationship: 'butcher',
+              reciprocalRelationship: 'client'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: 'meat supplier'
+            }
+          },
           base: {
             profession: 'butcher'
           },
           description (building, npc) { return `${npc.firstName} sells meat cuts to ${building.name}.` }
         },
         {
-          relationship: 'bard',
-          reciprocalRelationship: 'client',
+          relationshipDescription: 'bard',
+          relationships: {
+            building: {
+              relationship: 'bard',
+              reciprocalRelationship: 'client'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: 'tavern entertainment'
+            }
+          },
           base: {
             profession: 'bard'
           },
           description (building, npc) { return `${npc.firstName} plays music in ${building.name}.` }
         },
         {
-          relationship: 'exterminator',
-          reciprocalRelationship: 'client',
+          relationshipDescription: 'exterminator',
+          relationships: {
+            building: {
+              relationship: 'exterminator',
+              reciprocalRelationship: 'client'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: ''
+            }
+          },
           base: {
             profession: 'exterminator'
           },
           description (building, npc) { return `${npc.firstName} kills pests that reside in ${building.name}.` }
         },
         {
-          relationship: 'gongfarmer',
-          reciprocalRelationship: 'client',
+          relationshipDescription: 'gongfarmer',
+          relationships: {
+            building: {
+              relationship: 'gongfarmer',
+              reciprocalRelationship: 'client'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: ''
+            }
+          },
           base: {
             profession: 'gongfarmer'
           },
           description (building, npc) { return `${npc.firstName} cleans the lavatories of ${building.name}.` }
         },
         {
-          relationship: 'barmaid',
-          reciprocalRelationship: 'place of employment',
+          relationshipDescription: 'barmaid',
+          relationships: {
+            building: {
+              relationship: 'barmaid',
+              reciprocalRelationship: 'place of employment'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: ''
+            }
+          },
           base: {
             profession: 'barmaid'
           },
           description (building, npc) { return `${npc.firstName} serves drinks in ${building.name}.` }
         },
         {
-          relationship: 'cook',
-          reciprocalRelationship: 'place of employment',
+          relationshipDescription: 'cook',
+          relationships: {
+            building: {
+              relationship: 'cook',
+              reciprocalRelationship: 'place of employment'
+            },
+            associatedNPC: {
+              relationship: 'bartender',
+              reciprocalRelationship: ''
+            }
+          },
           base: {
             profession: 'cook'
           },
