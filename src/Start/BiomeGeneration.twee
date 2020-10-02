@@ -1,5 +1,5 @@
 :: BiomeGeneration
-
+<div class="force-one-column">
 <<nobr>>
 <<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
 <<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
@@ -55,4 +55,4 @@
 </table><</nobr>>
 
 <<button "Save Changes">><<set $town to setup.createTown($tempTown)>><<goto "Start">>
-<</button>>
+<</button>></div>
