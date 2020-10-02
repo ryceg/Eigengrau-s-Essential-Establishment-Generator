@@ -1,5 +1,5 @@
 :: BrothelOutput [brothel]
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<set $associatedNPC to $npcs[$building.pimp.key]>>
+/<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<set $associatedNPC to $npcs[$building.pimp.key]>>\<<set $currentPassage.availableRelationships to setup.brothel.customers>>
 <h1>$building.name</h1><<include "TownMicroEventsOutput">><<print lib.firstCharacter("You")>> make your way down $building.road, and enter $building.name $building.structure.brothelDescriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
 When people talk about $building.name, they say $building.talk. Apparently, it specialises in $building.specialty.
 Rumours abound in whorehouses, and $building.name is no different; apparently, $building.rumour.
@@ -8,3 +8,5 @@ Rumours abound in whorehouses, and $building.name is no different; apparently, $
 The $associatedNPC.title is $building.idle, $associatedNPC.heshe appears to be $building.owner. <<print ['Upon seeing you come in', 'Upon noticing your arrival', 'Once $associatedNPC.heshe notices you', 'After a few minutes', 'As soon as you enter'].random()>> the $associatedNPC.raceNote <<print $associatedNPC.greeting.random()>>, and <<print ["saunters", "walks", "strolls", "walks", "slowly walks", "swaggers", "quickly walks", "slides", 'quickly walks', 'casually saunters', 'ambles', 'trudges', 'strides', 'slowly wanders', 'marches'].random()>> over to where you are. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.title of $building.name, and asks what $associatedNPC.heshe can do for you.
 
 <<link "<h4>Meet one of the harlots</h4>">><<set $building.harlot to setup.brothel.harlot.create($town, $building)>><<replace "#harlot">>$building.harlot<</replace>><</link>><div id="harlot"><<if def $building.harlot>>$building.harlot<</if>></div>
+
+<<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>

@@ -9,11 +9,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Artwork by Juho Huttunen
 - Paper watercolours in DMG style by /u/FlamableConcrete
+- Two column style
+- Some auto-updating elements
+- Goblins
 - Castles
 - Dungeons
 - Prisoners
 - Sieges
 - Infinite breadcrumbs
+- Hover information for settlement size
 - Description of racial makeup to the start page.
 - Ability to edit dominant gender
 - Customers and expanded relationships
@@ -41,9 +45,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 'Return' option in profile pages has been removed to force navigation through the breadcrumb.
 
 ### Known issues
+- Sliders are still very bugged. We know.
+- Tippy not being used in Settings menu
+- Still no consistent style language between links that take to new page, append, or replace existing content
 - Spymasters still sometimes live in abject poverty.
+- Sticky heading does not span the entire width on some viewports
 - NPC profiles still break on refresh
 - Changing town name still does not update establishments
+- Two column layout sometimes slices tables in half
+
 
 ## [2.4.1](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/releases/tag/2.4.1)
 
