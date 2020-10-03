@@ -605,7 +605,7 @@
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
 
-"@types/jquery@^3.5.1":
+"@types/jquery@*", "@types/jquery@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.1.tgz#cebb057acf5071c40e439f30e840c57a30d406c3"
   integrity sha512-Tyctjh56U7eX2b9udu3wG853ASYP0uagChJcQJXLUXEU6C/JiW5qt5dl8ao01VRj1i5pgXPAf8f1mq4+FDLRQg==
@@ -661,6 +661,13 @@
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
   integrity sha512-W+bw9ds02rAQaMvaLYxAbJ6cvguW/iJXNT6lTssS1ps6QdrMKttqEAMEG/b5CR8TZl3/L7/lH0ZV5nNR1LXikA==
+
+"@types/twine-sugarcube@^2.33.0":
+  version "2.33.0"
+  resolved "https://registry.yarnpkg.com/@types/twine-sugarcube/-/twine-sugarcube-2.33.0.tgz#6af6568c19634f2dfa3db912aa1b091c3d5ee2cd"
+  integrity sha512-fRWa4HoVvabU0FnBnbqIYJH5n2vcjOEaggVTWiP1GCLQVIo+nIISAA7aFtmrUqkFLKPEQCwIb1p7CBPVkZPXrQ==
+  dependencies:
+    "@types/jquery" "*"
 
 "@types/uglify-js@*":
   version "3.9.2"
