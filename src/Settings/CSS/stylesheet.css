@@ -114,7 +114,7 @@ footer {
   position: relative;
   width: 100%;
   height: 55px;
-  bottom: 0;
+  bottom: -2em;
   left: 0;
   background-image: url("../src/Resources/footer.png");
   background-size: cover;
