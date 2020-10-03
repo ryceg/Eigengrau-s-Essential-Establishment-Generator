@@ -105,8 +105,8 @@ export const townData = {
           [60, 'egalitarian-ish', 'It is supposedly egalitarian society, though women face barriers socially and economically if they do not conform.'],
           [40, 'patriarchal', 'It is largely a patriarchal society. Women are pressured to conform socially, but not legally.'],
           [40, 'patriarchal', 'Women are oppressed, and do not enjoy many of the social liberties afforded to men.'],
-          [20, 'patriarchal', 'It is a patriarchal society.'],
-          [0, 'overwhelmingly patriarchal', 'It is overwhelmingly patriarchal.']
+          [20, 'patriarchal', 'Men occupy most positions of authority.'],
+          [0, 'overwhelmingly patriarchal', 'Almost all positions of authority are occupied by men.']
         ]
       },
       woman: {
@@ -116,8 +116,8 @@ export const townData = {
           [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
           [50, 'matriarchal', 'Women have cooler heads than men, and are therefore the heads of households here.'],
           [40, 'matriarchal', 'The brawn of men is utilised where necessary, but men are largely kept at home.'],
-          [20, 'matriarchal', 'It is a matriarchal society.'],
-          [0, 'overwhelmingly matriarchal', 'It is an overwhelmingly matriarchal society.']
+          [20, 'matriarchal', 'Women occupy most positions of authority.'],
+          [0, 'overwhelmingly matriarchal', 'Almost all positions of authority are occupied by women.']
         ]
       }
     }
