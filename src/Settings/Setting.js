@@ -82,8 +82,7 @@ Setting.addToggle('showBiomeGenerationSettings', {
 })
 
 Setting.addToggle('showSliders', {
-  label: '<span id="sliders" class="tip dotted" title="If you would like to change the output of buildings, enable this. Warning: feature is in beta.">Show sliders?</span>',
-  onInit: false
+  label: '<span id="sliders" class="tip dotted" title="If you would like to change the output of buildings, enable this. Warning: feature is in beta.">Show sliders?</span>'
 })
 
 Setting.addToggle('silverStandard', {
@@ -103,7 +102,6 @@ Setting.addToggle('forceOneColumn', {
 
 Setting.addToggle('hideAds', {
   label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
-  onInit: false,
   onChange: settingHideAds
 })
 
