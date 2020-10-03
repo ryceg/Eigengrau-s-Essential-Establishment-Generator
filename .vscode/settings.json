@@ -22,5 +22,6 @@
   "files.associations": {
     "*.twee": "twee3"
   },
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "twee3LanguageTools.storyformat.current": "sugarcube-2"
 }
