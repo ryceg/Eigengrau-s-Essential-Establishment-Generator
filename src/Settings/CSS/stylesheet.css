@@ -110,9 +110,12 @@ header #passage-header{
 }
 
 
-.footer {
-  position: absolute;
+footer {
+  position: relative;
   width: 100%;
+  height: 55px;
+  bottom: 0;
+  left: 0;
   background-image: url("../src/Resources/footer.png");
   background-size: cover;
   z-index: 90;
