@@ -1,21 +1,30 @@
 sugarcube-2:
   macros:
+    # widgets
+    building: {}
+    profile: {}
+    tooltip: {}
+    money: {}
+    shop: {}
+
+    # misc
+    numberslider: {}
     numberbox:
-       container: true
+      container: true
+    notify:
+      container: true
+    fadein:
+      container: true
+    fadeout:
+      container: true
+
     # live-update.js
-    live:
-      name: live
-    l:
-      name: l
-    lh:
-      name: lh
+    live: {}
+    l: {}
+    lh: {}
     liveblock:
-      name: liveblock
       container: true
     lb:
-      name: lb
       container: true
-    update:
-      name: update
-    upd:
-      name: upd
+    update: {}
+    upd: {}
