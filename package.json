@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.13",
     "@types/jquery": "^3.5.1",
+    "@types/twine-sugarcube": "^2.33.0",
     "@types/webpack": "^4.41.21",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
