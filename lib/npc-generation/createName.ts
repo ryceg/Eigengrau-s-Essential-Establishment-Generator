@@ -8,7 +8,7 @@ interface Params {
   firstOrLast?: 'lastName'
 }
 
-export function createName (parameters: Params) {
+export function createName (parameters: Params = {}) {
   console.log('Returning a name!')
 
   const raceTrait = raceTraits[parameters.race || 'human']
