@@ -164,7 +164,7 @@ setup.createNPC = function (town, base) {
   }
 
   setup.createPersonality(npc)
-  // setup.createName(npc)
+  // lib.createName(npc)
 
   lib.setAge(npc)
 
