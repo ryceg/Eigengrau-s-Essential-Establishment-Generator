@@ -296,7 +296,7 @@ setup.initCastle = () => {
             acquisitionMethod: 'forcefully seized from a rival'
           },
           {
-            acquisitionMethod: 'purchased for a heft fee'
+            acquisitionMethod: 'purchased for a hefty fee'
           }
         ]
         return methods.random()
@@ -604,6 +604,46 @@ setup.initCastle = () => {
           }
         }
       ]
+    },
+    lookingFor (town, building) {
+      const reasons = [
+        // the castle needs assistance ____
+        function () {
+          return 'divining the potential wealth of an ore vein nearby'
+        },
+        function () {
+          return ' to fund its rapidly emptying coffers, in exchange for a place on council'
+        },
+        function () {
+          return 'as counsel on where to spend some accumulated gold'
+        },
+        function (town) {
+          const npc = setup.createNPC(town, { socialClass: 'nobility' })
+          return `from someone able to act as an escort for a ${setup.profile(npc, 'covert envoy')} to another region`
+        },
+        function (town) {
+          const npc = setup.createNPC(town, { socialClass: 'nobility' })
+          return `tracking down a ${setup.profile(npc, 'VIP')} who has disappeared`
+        },
+        function (town) {
+          const npc = setup.createNPC(town, { socialClass: 'nobility' })
+          return `with the covert escape of an ${setup.profile(npc, 'individual')}`
+        },
+        function () {
+          return 'from someone able to provide a magical ward or enchantment to the structure itself'
+        },
+        function () {
+          return 'with purging of the undead that infest a part of it'
+        },
+        function () {
+          const ghost = lib.ghost.create()
+          return `with the exorcision of the ${ghost.readout} that is haunting it`
+        },
+        function () {
+          return 'seeking out the source of a curse or hex that afflicts the inhabitants'
+        }
+      ]
+      return lib.random(reasons)(town)
     },
     siege: {
       create (town, siege = {}) {

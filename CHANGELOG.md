@@ -9,13 +9,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Footer
 - New syntax extension to the workflow
-- Wording for 100% one race
+- Wording for totally racially homogenous towns
+- Castle-specific assistance
 
 ### Changed
 - Fixed tables getting cut in half in two-column layouts.
+- Fixed castle ruler looking for array printing everything
 - Forced one column for town edit page.
+- Added test for ga() so adblockers don't make the generator complain (there are no ads, just Google Analytics tracking, just FYI!)
 - Definitions of extremely sexist societies
-- Fixed races not applying 
+- Fixed changing races not applying 
 - Fixed creating magic armour not working
 - Updated dependencies
 

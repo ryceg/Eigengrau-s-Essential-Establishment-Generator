@@ -1,6 +1,6 @@
 setup.createCastlePopulation = (town, castle, opts) => {
   const selected = lib.weightedRandomFetcher(town, setup.castle.ruler.types, castle, null, 'object')
-
+  console.log(selected)
   if (!selected.base.profession) selected.base.profession = 'castellan'
   castle.associatedNPC = setup.createNPC(town, selected.base)
   setup.createBuildingRelationship(town, castle, castle.associatedNPC, { relationship: 'ruler', reciprocalRelationship: `castle ${castle.associatedNPC.heshe} rules` })
@@ -10,7 +10,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
   }
 
   if (!selected.lookingFor) {
-    selected.lookingFor = selected.lookingFor.random() || setup.castle.ruler.lookingFor.random()
+    selected.lookingFor = setup.castle.ruler.lookingFor
   }
   if (!selected.type) {
     selected.type = `${lib.articles.output(castle.associatedNPC.calmTrait)} ${castle.associatedNPC.descriptor}`
@@ -20,7 +20,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
     key: castle.associatedNPC.key,
     type: selected.type,
     acquisitionMethod: selected.acquisitionMethod,
-    lookingFor: selected.lookingFor
+    lookingFor: selected.lookingFor.random()
   }
 
   const castleHelpers = ['maid', 'laundry worker', 'nanny', 'groundskeeper', 'kitchen drudge', 'stablehand', 'servant', 'seamstress', 'butler', 'herald', 'gardener', 'gamekeeper', 'falconer', 'dairymaid', 'breeder', 'beekeeper', 'page', 'knight', 'noble', 'lady', 'advisor']
