@@ -21,14 +21,14 @@ if (settings.forceOneColumn) {
   jQuery('html').addClass('force-one-column')
 }
 
-const settingShowTutorial = function () {
+function settingShowTutorial () {
   const showTutorial = State.metadata.get('showTutorial')
   if (settings.showTutorial !== showTutorial) {
     State.metadata.set('showTutorial', settings.showTutorial)
   }
 }
 
-const settingIgnoreGender = function () {
+function settingIgnoreGender () {
   const ignoreGender = State.metadata.get('ignoreGender')
   if (settings.ignoreGender !== ignoreGender) {
     State.metadata.set('ignoreGender', settings.ignoreGender)
@@ -36,14 +36,14 @@ const settingIgnoreGender = function () {
   }
 }
 
-const settingshowBiomeGenerationSettings = function () {
+function settingShowBiomeGenerationSettings () {
   const showBiomeGenerationSettings = State.metadata.get('showBiomeGenerationSettings')
   if (settings.showBiomeGenerationSettings !== showBiomeGenerationSettings) {
     State.metadata.set('showBiomeGenerationSettings', settings.showBiomeGenerationSettings)
   }
 }
 
-const settingHideAds = function () {
+function settingHideAds () {
   if (settings.hideAds === true) {
     settings.hideAds = true
   } else {
@@ -51,7 +51,7 @@ const settingHideAds = function () {
   }
 }
 
-const settingForceOneColumn = function () {
+function settingForceOneColumn () {
   const forceOneColumn = State.metadata.get('forceOneColumn')
   if (settings.forceOneColumn !== forceOneColumn) {
     State.metadata.set('forceOneColumn', settings.forceOneColumn)
@@ -78,7 +78,7 @@ Setting.addToggle('showMetric', {
 
 Setting.addToggle('showBiomeGenerationSettings', {
   label: '<span id="sliders" class="tip dotted" title="If you want to specify the biome and demographics before town creation, enable this.">Show town biome prompt upon restart?</span>',
-  onChange: settingshowBiomeGenerationSettings
+  onChange: settingShowBiomeGenerationSettings
 })
 
 Setting.addToggle('showSliders', {
