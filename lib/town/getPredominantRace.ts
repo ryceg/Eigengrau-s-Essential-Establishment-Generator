@@ -14,6 +14,17 @@ export function getPredominantRace (percentages: Record<RaceName, number>) {
   const [secondaryRace] = secondary
   const secondaryRaceWords = raceTraits[secondaryRace].raceWords
 
+  if (percentile > 99) {
+    return {
+      // $town.name is _____
+      amount: 'completely',
+      // $town.name is comprised _____
+      amountDescriptive: `entirely, without fail, of ${majorRaceWords.racePlural}`,
+      primaryRace,
+      secondaryRace
+    }
+  }
+
   if (percentile > 90) {
     return {
       // $town.name is _____

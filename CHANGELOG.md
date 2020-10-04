@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## Unreleased
+
+### Added
+- Footer
+- New syntax extension to the workflow
+- Wording for 100% one race
+
+### Changed
+- Fixed tables getting cut in half in two-column layouts.
+- Definitions of extremely sexist societies
+- Fixed races not applying 
+- Fixed creating magic armour not working
+- Updated dependencies
+
+### Removed
+- Rumour WIP from the toolbox since it was a mess of spaghetti code
+
+### Known issues
+
 ## 2.5
 
 ### Added
