@@ -67,6 +67,10 @@ header #passage-header{
   column-count: 1;
 }
 
+#passage-townedit {
+  column-count: 1;
+}
+
 #header-text {
   left: auto;
 }

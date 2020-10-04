@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - Fixed tables getting cut in half in two-column layouts.
+- Forced one column for town edit page.
 - Definitions of extremely sexist societies
 - Fixed races not applying 
 - Fixed creating magic armour not working
