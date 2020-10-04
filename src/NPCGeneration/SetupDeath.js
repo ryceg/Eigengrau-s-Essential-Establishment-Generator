@@ -128,8 +128,9 @@ const death = {
     }
   ],
   burialConditions (town, npc, base) {
-    /** @type {[number, string, number, string][]} */
     console.log('Burial conditions...')
+
+    /** @type {[number, string, number, string][]} */
     const burialConditions = [
       // [lifestyleModifier, lifestyleType, graveRoll, graveDescription]
       [70, 'aristocratic', 80, 'a beautiful ornate coffin on a private plot'],
