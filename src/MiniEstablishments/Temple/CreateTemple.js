@@ -34,8 +34,8 @@ setup.createTemple = (town, opts = {}) => {
     `The ${temple.wordNoun.toUpperFirst()} of ${data.name.soleNoun.random().toUpperFirst()}`,
     `The ${temple.wordNoun.toUpperFirst()} of ${data.name.adjective.random().toUpperFirst()} ${data.name.plural.random().toUpperFirst()}`,
     `The ${data.name.colour.random().toUpperFirst()} ${temple.wordNoun.toUpperFirst()}${['', ` of ${data.name.plural.random().toUpperFirst()}`, ` of ${data.name.soleNoun.random().toUpperFirst()}`].random()}`,
-    `${['', 'St. '].random() + setup.createName({ race: temple.associatedNPC.race })}'s ${temple.wordNoun.toUpperFirst()}`,
-    `${['', 'St. '].random() + setup.createName({ race: temple.associatedNPC.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
+    `${['', 'St. '].random() + lib.createName({ race: temple.associatedNPC.race })}'s ${temple.wordNoun.toUpperFirst()}`,
+    `${['', 'St. '].random() + lib.createName({ race: temple.associatedNPC.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
   ].random()
   setup.createBuildingRelationship(town, temple, temple.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'temple' })
 

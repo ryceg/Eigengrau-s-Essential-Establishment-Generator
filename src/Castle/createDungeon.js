@@ -51,8 +51,8 @@ setup.createDungeonName = (town, dungeon, namesake = {}) => {
     race: lib.fetchRace(town, {})
   })
   namesake.socialClass = namesake.socialClass || 'nobility'
-  namesake.firstName = namesake.firstName || setup.createName({ race: namesake.race })
-  namesake.lastName = namesake.lastName || setup.createName({ race: namesake.race, firstOrLast: 'lastName' })
+  namesake.firstName = namesake.firstName || lib.createName({ race: namesake.race })
+  namesake.lastName = namesake.lastName || lib.createName({ race: namesake.race, firstOrLast: 'lastName' })
   console.log(namesake)
   const name = setup.castle.dungeon.name
   const choiceName = [

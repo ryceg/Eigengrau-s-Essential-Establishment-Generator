@@ -23,10 +23,10 @@ setup.createGraveyard = (town, base = {}) => {
   graveyard.name = [
     `${town.name} ${graveyard.wordNoun.toUpperFirst()}`,
     `${graveyard.nameSuffix} ${graveyard.namePrefix} ${graveyard.wordNoun.toUpperFirst()}`,
-    `St. ${setup.createName({ race: graveyard.associatedNPC.race })}'s ${graveyard.wordNoun.toUpperFirst()}`
+    `St. ${lib.createName({ race: graveyard.associatedNPC.race })}'s ${graveyard.wordNoun.toUpperFirst()}`
   ].random()
   graveyard.feature = [
-    `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${setup.createName({ race: graveyard.associatedNPC.race })}`,
+    `a large ${['stone', 'bronze', 'copper', 'gold', 'obsidian', 'slate', 'marble'].random()} memorial to St. ${lib.createName({ race: graveyard.associatedNPC.race })}`,
     `${['off to one side', 'in the center', 'at the far end', 'right near the front'].random()} of the ${graveyard.wordNoun} is ${lib.articles.output(['quite small', 'very large', 'large', 'decently sized', 'tiny', 'well kempt', 'rather rundown', 'dirty looking'].random())} shrine to a popular god`,
     setup.graveyard.feature.random(),
     setup.graveyard.feature.random(),

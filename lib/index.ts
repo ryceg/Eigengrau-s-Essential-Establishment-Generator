@@ -39,6 +39,7 @@ export * from './general-store/generalStoreRenders'
 
 export * from './npc-generation/breakGenderNorms'
 export * from './npc-generation/classTraits'
+export * from './npc-generation/createName'
 export * from './npc-generation/backgroundTraits'
 export * from './npc-generation/fetchProfessionChance'
 export * from './npc-generation/fetchRace'
