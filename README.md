@@ -71,6 +71,3 @@ To deploy the latest version, build the .html file as `gh-pages/index.html` and 
 If you can't contribute pull requests consider supporting the Generator through [Patreon](https://www.patreon.com/eigengrausgenerator)
 
 We hope that you find it useful!
-
-## The generator is being overhauled! 
-EEEG is transferring from a Twine program to a server based react app! If you'd like to help with the engine migration head over to [here!](https://github.com/Glinkis/rpg-story-engine) 
