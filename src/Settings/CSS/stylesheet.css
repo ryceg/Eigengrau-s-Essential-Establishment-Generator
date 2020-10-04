@@ -73,6 +73,8 @@ header #passage-header{
 
 #header-text {
   left: auto;
+  max-width: 54em;
+  margin: 0 auto;
 }
 
 #illustration-banner {
@@ -95,6 +97,11 @@ header #passage-header{
   padding-top: 1em;
   padding-bottom: 0.5em;
   column-span: all;
+}
+
+#passage-header.overlay {
+  background-color: #eeeeee;
+  position: fixed;
 }
 
 .big-title {
