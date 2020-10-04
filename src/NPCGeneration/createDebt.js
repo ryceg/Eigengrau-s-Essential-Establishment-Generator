@@ -16,12 +16,12 @@ setup.createDebt = (town, npc) => {
     npc.wealth *= 1 - debtRate
   }
 
-  const debtorParameters = function (town, npc, obj) {
-    if (obj.profession === 'moneylender' && obj.key !== npc.key) return true
+  const debtorParameters = (town, npc, obj) => {
+    return obj.profession === 'moneylender' && obj.key !== npc.key
   }
 
-  const sharkParameters = function (town, npc, obj) {
-    if (obj.profession === 'loan shark' && obj.key !== npc.key) return true
+  const sharkParameters = (town, npc, obj) => {
+    return obj.profession === 'loan shark' && obj.key !== npc.key
   }
 
   if (profit < -40) {
