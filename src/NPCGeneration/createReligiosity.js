@@ -1,4 +1,4 @@
-setup.createReligiosity = function (town, npc) {
+setup.createReligiosity = (town, npc) => {
   console.log(`Creating religion strength for ${npc.name}`)
   npc.roll.religiosity = lib.fm(lib.dice(2, 40) + 10, town.roll.religiosity - 50)
   npc.roll.religiosity = Math.clamp(npc.roll.religiosity, 1, 100)
