@@ -21,6 +21,7 @@ setup.createCastle = (town, opts = {}) => {
       outerWalls: data.defense.outerWalls.random()
     }
   })
+  castle.lookingFor = setup.castle.lookingFor(town, castle)
 
   castle.name = castle.name || setup.createCastleName(town, castle)
   console.log(`Created the castle ${castle.name}`)
