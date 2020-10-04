@@ -6,3 +6,7 @@
 
 
 <footer class="footer"></footer>
+<<if !State.metadata.has('cookiePopupWasShown')>>
+  <<include "CookieConsent">>
+  <<run State.metadata.set('cookiePopupWasShown', true)>>
+<</if>>

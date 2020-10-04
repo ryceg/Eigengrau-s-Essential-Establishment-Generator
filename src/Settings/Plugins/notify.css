@@ -17,3 +17,12 @@
 	transition-duration : 0.3s;
 }
 #notify.open { right : 0; }
+
+#notify.cookie {
+	width: 60%;
+	right: 0;
+	top: auto;
+	bottom: 1em;
+	padding: 1em;
+	z-index: 100;
+}
