@@ -21,7 +21,7 @@ export interface NPC {
   background: string
   roll: Record<string, number>
   partnerID?: string
-  relationships: string[]
+  relationships: Record<string, string>
   socialClass: string
   professionType: string
   professionSector: string
