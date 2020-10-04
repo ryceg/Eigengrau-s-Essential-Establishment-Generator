@@ -18,6 +18,7 @@ declare module 'twine-sugarcube' {
    * TODO: Fill in these types.
    */
   export interface SugarCubeStoryVariables {
+    town: Town
     npcs: Record<string, NPC>
     [key: string]: unknown
   }
