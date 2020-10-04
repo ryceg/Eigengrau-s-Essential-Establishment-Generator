@@ -1,18 +1,22 @@
-// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = scrollFunction
-
+/**
+ * When the user scrolls down from the top of the document,
+ * update the style of the passage header.
+ */
 function scrollFunction () {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById('passage-header').style.backgroundColor = '#eeeeee'
-    if (document.getElementById('last-link')) document.getElementById('last-link').style.visibility = 'hidden'
-    const title = document.getElementById('page-title')
-    title.classList.remove('invis-title')
-    title.classList.add('big-title')
+  const passageHeader = document.getElementById('passage-header')
+
+  if (isScrolledOver(50)) {
+    passageHeader.classList.add('scrolled')
   } else {
-    document.getElementById('passage-header').style.backgroundColor = 'transparent'
-    if (document.getElementById('last-link')) document.getElementById('last-link').style.visibility = 'visible'
-    const title = document.getElementById('page-title')
-    title.classList.remove('big-title')
-    title.classList.add('invis-title')
+    passageHeader.classList.remove('scrolled')
   }
 }
+
+/**
+ * @param {number} amount
+ */
+function isScrolledOver (amount) {
+  return document.body.scrollTop > amount || document.documentElement.scrollTop > amount
+}
+
+window.addEventListener('scroll', scrollFunction)
