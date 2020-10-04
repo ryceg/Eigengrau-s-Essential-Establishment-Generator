@@ -307,7 +307,29 @@ setup.initCastle = () => {
         'what is causing an awful smell in the cellar',
         'neutral mediators for a conflict with a neighboring ruler',
         'advice on the construction of a new tower that defends the castle against goblin tribes',
-        'dealing with a criminal tailor that just sold a box of nothingfabric.'
+        'a criminal tailor that just sold a box of nothingfabric to the local tailor',
+        'a large bugbear pelt to use as a rug in the main hall ',
+        'a talented architect to design a new wing for the building',
+        'a band of mercenaries to temporarily guard the area',
+        'a master painter to create a portrait of them',
+        'a talented sculptor to create a grand piece of art for the main hall',
+        'a head chef to come handle the kitchen',
+        'a new treasurer to handle the finances',
+        'a very unique plant to use in the surrounding landscaping',
+        'an experienced landscaper to take care of the grounds',
+        'a new set of fine dishware for the dining hall',
+        'a local vassal who went missing from the court',
+        'a bard to write an epic song about them',
+        'a new tailor to sew some fine tapestries to hang around',
+        'a large collection of books for a planned library',
+        'the keys to an old forgotten tower nearby',
+        'an exterminator for a recent giant rat infestation',
+        'a master archer to compete in an upcoming tournament',
+        'an experienced commander to lead the local guard',
+        'a powerful magic user to dispell a curse on them',
+        'a way to get the funds needed to upkeep the building and staff',
+        'more maids to take care of the grounds',
+        'a talented seamstress to take care of their wardrobe'
       ],
       types: [
         // the castle is ruled by ____
@@ -334,7 +356,8 @@ setup.initCastle = () => {
           lookingFor: [
             'somebody to show off in front of',
             'an exotic creature to show off at the next ball',
-            'an impressive date to a high-class event'
+            'an impressive date to a high-class event',
+            'a mecenary band to protect a large caravan of goods being sent to another town'
           ],
           acquisitionMethod: 'bought the castle as a way of showing off',
           base: {
@@ -346,7 +369,9 @@ setup.initCastle = () => {
           type: 'the state, the castle is placed on the border to defend against invaders',
           lookingFor: [
             'a tactician able to improve the defenses',
-            'a couple soldiers able to help withstand a forthcoming siege'
+            'a couple soldiers able to help withstand a forthcoming siege',
+            'some laborers to help dig moats around the area',
+            'a new blacksmith to forge better weapons for the local guard'
           ],
           acquisitionMethod: 'built as a tactical vantage point',
           base: {
@@ -357,7 +382,8 @@ setup.initCastle = () => {
           type: 'the people, after they rose up against an unjust ruler',
           lookingFor: [
             'a new form of governing that is fairer to all',
-            'a creative way to punish their former ruler'
+            'a creative way to punish their former ruler',
+            'the best way to properly partition rooms to all the townsfolk'
           ],
           acquisitionMethod: 'wrested from its previous owner\'s control in a bloody revolt',
           base: {
@@ -375,7 +401,10 @@ setup.initCastle = () => {
           type: 'a holy monastic order who were given a castle by a faithful prince',
           lookingFor: [
             'a sign that they are in their gods favour',
-            'a holy relic'
+            'a holy relic',
+            'an ancient holy tome',
+            'an architect to help design a new chapel for the building',
+            'a way to bring in more followers'
           ],
           acquisitionMethod: 'gifted to the order by a prince as a show of his faith',
           base: {
@@ -386,7 +415,8 @@ setup.initCastle = () => {
           type: 'a holy order guarding something in the basement',
           lookingFor: [
             'a way to better contain whatever lies beneath the castle',
-            'an excuse to escape from the castle'
+            'an excuse to escape from the castle',
+            'new ways to protect their secrets'
           ],
           acquisitionMethod: 'built as a tactical vantage point',
           base: {
@@ -397,7 +427,8 @@ setup.initCastle = () => {
           type: 'a lonely abandoned child of nobility, exiled into a castle on the edge of the kingdom',
           lookingFor: [
             'a friend',
-            'someone to explain why nobody visits'
+            'someone to explain why nobody visits',
+            'a visit from their parents'
           ],
           base: {
             ageStage: 'child'
@@ -419,7 +450,8 @@ setup.initCastle = () => {
           lookingFor: [
             'an excuse to get out of the castle',
             'someone to pawn the castle off to',
-            'a way to escape'
+            'a way to escape',
+            'a way to break the curse of the keep'
           ],
           acquisitionMethod: 'found abandoned',
           base: {
@@ -437,7 +469,9 @@ setup.initCastle = () => {
           lookingFor: [
             'some way to regain lost honour',
             'someone to have dinner with',
-            'an interesting conversation to liven up an otherwise dull life'
+            'an interesting conversation to liven up an otherwise dull life',
+            'a way to amass more funds and grow their realm',
+            'a way to regain their honor'
           ],
           base: {
             profession: 'exile',
@@ -449,7 +483,8 @@ setup.initCastle = () => {
           type: 'a bastard child who killed the legitimate heir, living in fear of being uncovered',
           lookingFor: [
             'the one person that knows the truth',
-            'someone to kill off those that threaten to uncover the truth'
+            'someone to kill off those that threaten to uncover the truth',
+            'someone they can confide their sins to'
           ],
           base: {
             note: 'Killed the legitimate heir.'
@@ -459,7 +494,7 @@ setup.initCastle = () => {
           type: 'an untrained bastard child who inherited the castle from their old and heirless parent',
           lookingFor: [
             'someone to train with',
-            'an advisor'
+            'an advisor to help manage affairs'
           ],
           base: {
             note: 'Inherited the castle.'
@@ -483,7 +518,8 @@ setup.initCastle = () => {
           lookingFor: [
             'the latest in torture methods',
             'treasure',
-            'ways to extort even more'
+            'ways to extort even more money',
+            'new ways to terrorize the local peasants'
           ],
           acquisitionMethod: 'brutally taken from the hands of the lord that previously owned it by force',
           base: {
@@ -495,7 +531,9 @@ setup.initCastle = () => {
           lookingFor: [
             'a pardon from their general',
             'company to have dinner with',
-            'somebody to impress'
+            'somebody to impress',
+            'recognition from the real local nobility',
+            'respect from neighboring rulers'
           ],
           acquisitionMethod: 'taken over in the dead of night',
           base: {
@@ -507,7 +545,8 @@ setup.initCastle = () => {
           lookingFor: [
             'a change of posting',
             'something to liven up the place',
-            'sparring partners'
+            'sparring partners',
+            'reinforcements from their long fallen kingdom'
           ],
           acquisitionMethod: 'a tactical vantage in a long-since ended war',
           base: {
@@ -520,7 +559,8 @@ setup.initCastle = () => {
             'a way to ensure that the being does not come after him again',
             'weapons to defend himself with',
             'magic users able to return him to his time',
-            'someone that died long ago'
+            'someone that died long ago',
+            'ways to recruit more demons into their keep'
           ],
           base: {
             gender: 'man',
@@ -543,7 +583,9 @@ setup.initCastle = () => {
           lookingFor: [
             'the latest in magical textbooks',
             'magical test subjects',
-            'someone to tell her whether she is going mad'
+            'someone to tell her whether she is going mad',
+            'other magic users to discuss magical studies with',
+            'the local nobility to finally come to one of her magical balls'
           ],
           acquisitionMethod: 'created by a wizard',
           base: {
