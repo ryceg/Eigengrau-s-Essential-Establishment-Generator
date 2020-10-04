@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs')
 const path = require('path')
 const spawn = require('child_process').spawn
 const utils = require('./utils')
@@ -7,6 +8,12 @@ const webpack = require('webpack')
 utils.logClear()
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
+if (!fs.existsSync(tweego)) {
+  utils.logError('Cannot find path to tweego.')
+  utils.logError('Perhaps tweego has not been downloaded.')
+  utils.logError('Try running `yarn install-compiler` first.')
+  process.exit(1)
+}
 
 // Extract extra arguments.
 const [, , ...flags] = process.argv
