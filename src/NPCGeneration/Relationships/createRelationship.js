@@ -1,16 +1,16 @@
-setup.createRelationship = (town, npc, targetNPC, type, targetType) => {
-  console.log('Forming a relationship.', npc, targetNPC)
+setup.createRelationship = (town, sourceNPC, targetNPC, type, targetType) => {
+  console.log('Forming a relationship.', sourceNPC, targetNPC)
 
-  const npcs = State.variables.npcs
+  const { npcs } = State.variables
 
-  if (typeof npc === 'string') {
+  if (typeof sourceNPC === 'string') {
     console.error('First npc was passed a string!')
-    npc = State.variables.npcs[npc]
+    sourceNPC = npcs[sourceNPC]
   }
 
   if (typeof targetNPC === 'string') {
     console.error('Second npc was passed a string!')
-    targetNPC = State.variables.npcs[targetNPC]
+    targetNPC = npcs[targetNPC]
   }
 
   if (typeof type === 'object') {
@@ -18,30 +18,32 @@ setup.createRelationship = (town, npc, targetNPC, type, targetType) => {
     type = type.relationship
   }
 
-  if (npc.key === targetNPC.key) {
+  if (sourceNPC.key === targetNPC.key) {
     console.error('Tried to make a relationship with the same NPC.')
     return
   }
 
+  /** @type {NPC[]} */
   const npcsToClean = []
-  if (npc.relationships[targetNPC.key] && npcs[npc.relationships[targetNPC.key]]) {
+
+  if (sourceNPC.relationships[targetNPC.key] && npcs[sourceNPC.relationships[targetNPC.key]]) {
     /* npc already had a valid partner; mark it for removal */
     npcsToClean.push(npcs[targetNPC.key])
   }
-  if (targetNPC.relationships[npc.key] && npcs[targetNPC.relationships[npc.key]]) {
+  if (targetNPC.relationships[sourceNPC.key] && npcs[targetNPC.relationships[sourceNPC.key]]) {
     /* targetNPC already had a valid partner; mark it for removal */
-    npcsToClean.push(npcs[targetNPC.relationships[npc.key]])
+    npcsToClean.push(npcs[targetNPC.relationships[sourceNPC.key]])
   }
 
   /* Remove "old" partners first */
   for (const n of npcsToClean) {
-    n.relationships[npc.key] = ''
+    n.relationships[sourceNPC.key] = ''
     n.relationships[targetNPC.key] = ''
   }
 
   /* Link the two */
-  npc.relationships[targetNPC.key] = type
-  targetNPC.relationships[npc.key] = targetType
-  console.log(`${npc.name} is ${lib.articles.output(type)} to ${targetNPC.name}`)
-  console.log(`${targetNPC.name} is ${lib.articles.output(targetType)} to ${npc.name}`)
+  sourceNPC.relationships[targetNPC.key] = type
+  targetNPC.relationships[sourceNPC.key] = targetType
+  console.log(`${sourceNPC.name} is ${lib.articles.output(type)} to ${targetNPC.name}`)
+  console.log(`${targetNPC.name} is ${lib.articles.output(targetType)} to ${sourceNPC.name}`)
 }
