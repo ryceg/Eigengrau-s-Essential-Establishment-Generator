@@ -27,6 +27,7 @@ export interface NPC {
   professionSector: string
   hasClass: boolean
   dndClass?: string
+  isThrowaway?: boolean
   isBreakingGenderNorms: boolean
   heshe: string
   hisher: string

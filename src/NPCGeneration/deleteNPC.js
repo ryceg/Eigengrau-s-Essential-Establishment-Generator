@@ -14,3 +14,13 @@ setup.deleteNPC = npc => {
 
   delete State.variables.npcs[npc.key]
 }
+
+setup.deleteThrowawayNPCs = () => {
+  const npcs = Object.values(State.variables.npcs)
+
+  for (const npc of npcs) {
+    if (npc.isThrowaway === true) {
+      setup.deleteNPC(npc)
+    }
+  }
+}
