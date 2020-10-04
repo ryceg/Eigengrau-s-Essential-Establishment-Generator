@@ -1,4 +1,4 @@
-setup.createDebt = function (town, npc) {
+setup.createDebt = (town, npc) => {
   console.groupCollapsed(`${npc.name} is in debt!`)
   const profit = setup.npcProfit(town, npc) // expressed in copper! Assumed to be negative (often is not, though!)
   const grossIncome = setup.npcGrossIncome(town, npc) // expressed in copper!
@@ -38,5 +38,4 @@ setup.createDebt = function (town, npc) {
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
   }
   console.groupEnd()
-  return npc
 }
