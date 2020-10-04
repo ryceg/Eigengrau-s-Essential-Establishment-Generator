@@ -1,3 +1,6 @@
+type Town = import('../lib/town/_common').Town
+type NPC = import('../lib/npc-generation/_common').NPC
+
 interface Setup {
   init(): void
   npcTaxRate(town: Town, npc: NPC): number
@@ -15,14 +18,6 @@ interface Setup {
   firstCharacter(word: string): string
 
   createGuard(town: Town): any
-}
-
-interface Town {
-  [key: string]: any
-}
-
-interface NPC {
-  [key: string]: any
 }
 
 interface CreateNameParameters {
