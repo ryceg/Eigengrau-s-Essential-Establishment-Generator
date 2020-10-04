@@ -1,6 +1,7 @@
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export interface NPC {
+  key: string
   name: string
   lastName: string
   firstName: string
