@@ -1,6 +1,7 @@
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export interface NPC {
+  key: string
   name: string
   lastName: string
   firstName: string
@@ -20,12 +21,13 @@ export interface NPC {
   background: string
   roll: Record<string, number>
   partnerID?: string
-  relationships: string[]
+  relationships: Record<string, string>
   socialClass: string
   professionType: string
   professionSector: string
   hasClass: boolean
   dndClass?: string
+  isThrowaway?: boolean
   isBreakingGenderNorms: boolean
   heshe: string
   hisher: string
