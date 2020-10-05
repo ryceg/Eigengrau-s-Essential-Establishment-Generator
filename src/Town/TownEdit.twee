@@ -64,9 +64,8 @@
   <<run console.log($town)>>
   <<run setup.createSocioPolitics($town)>>
   <<run lib.updateTownSocioPolitics($town)>>
+  <<set $npcs to setup.checkRaces($town, $npcs)>>
   <<run lib.townRender($town)>>
-  <<run setup.checkRaces($town, $npcs)>>
-  
   <<run console.log($town)>>
   <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>
   <<goto "TownOutput">>

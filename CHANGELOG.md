@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Castle-specific assistance
 
 ### Changed
+- Fixed races not changing properly.
 - Fixed tables getting cut in half in two-column layouts.
 - Fixed castle ruler looking for array printing everything
 - Forced one column for town edit page.
@@ -20,12 +21,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Definitions of extremely sexist societies
 - Fixed changing races not applying 
 - Fixed creating magic armour not working
+- Fixed renaming towns not applying to buildings and factions that feature the name
 - Updated dependencies
 
 ### Removed
 - Rumour WIP from the toolbox since it was a mess of spaghetti code
 
 ### Known issues
+- NPC profiles still break on refresh
+- Sliders are still very bugged. We know.
+- Tippy not being used in Settings menu
+- Still no consistent style language between links that take to new page, append, or replace existing content
+- Spymasters still sometimes live in abject poverty.
+- "Error: <<run>>: bad evaluation: Reduce of empty array with no initial value" sometimes appears on NPC profile pages.
 
 ## 2.5
 

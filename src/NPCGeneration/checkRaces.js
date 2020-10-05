@@ -4,7 +4,7 @@ setup.checkRaces = function (town, npcs) {
   for (const npcKey in npcs) {
     const npc = npcs[npcKey]
     const race = lib.fetchRace(town, npc)
-    console.log(npc.race, race)
+    console.log(npc.race, 'to a', race)
     if (npc.race !== race) {
       console.log(`${npc.name}'s race now does not match! Changing ${npc.pronouns.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
       npcs[npcKey] = setup.createNPC(town, {
@@ -13,14 +13,17 @@ setup.checkRaces = function (town, npcs) {
         key: npc.key,
         gender: npc.gender,
         profession: npc.profession,
+        ageStage: npc.ageStage,
+        socialClass: npc.socialClass,
         dndClass: npc.dndClass,
         hasClass: npc.hasClass,
-        ageStage: npc.ageStage,
         physicalTrait: npc.physicalTrait,
         calmTrait: npc.calmTrait,
         stressTrait: npc.stressTrait,
         raceRoll: npc.raceRoll,
-        roll: npc.roll
+        roll: npc.roll,
+        relationships: npc.relationships,
+        religion: npc.religion
       })
     }
   }

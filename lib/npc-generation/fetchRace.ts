@@ -17,12 +17,12 @@ export function fetchRace (town: Town, saveLoc: SaveLoc) {
 
   // Calculate the sum of the raw demographic values.
   const sum = races
-    .map(race => town.baseDemographics[race])
+    .map(race => town._baseDemographics[race])
     .reduce((acc, cur) => acc + cur, 0)
 
   // Calculate the demographic percentages.
   for (const race of races) {
-    town._demographicPercentile[race] = town.baseDemographics[race] / sum * 100
+    town._demographicPercentile[race] = town._baseDemographics[race] / sum * 100
   }
 
   const args = town._demographicPercentile
