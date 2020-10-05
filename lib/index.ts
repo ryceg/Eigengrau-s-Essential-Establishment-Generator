@@ -2,6 +2,7 @@ export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
 
+export * from './buildings/createBuildingRelationship'
 export * from './buildings/deleteBuildingRelationship'
 export * from './buildings/findBuildingRelationship'
 

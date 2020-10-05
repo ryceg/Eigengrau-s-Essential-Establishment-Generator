@@ -8,4 +8,5 @@ export interface BuildingRelationship {
   npcKey: string,
   relationship: string,
   reciprocalRelationship: string
+  description: string | null
 }
