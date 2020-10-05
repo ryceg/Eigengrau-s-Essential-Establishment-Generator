@@ -28,5 +28,17 @@ setup.createTownName = function (town) {
   }
 
   // linguisticDrift runs some RegEx on the names.
-  return lib.linguisticDrift(name)
+  const driftName = lib.linguisticDrift(name)
+
+  if (town && town.buildings) {
+    console.log(town.name, driftName)
+    // Replace existing names of buildings if they reference town name
+    town.buildings.forEach(building => {
+      building.name = building.name.replace(town.name, driftName)
+      building.associatedTown = driftName
+      building.tooltip = building.tooltip.replace(town.name, driftName)
+    })
+  }
+
+  return driftName
 }
