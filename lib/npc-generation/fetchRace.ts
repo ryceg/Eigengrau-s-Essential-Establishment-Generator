@@ -1,10 +1,6 @@
 import { randomFloat } from '../src/randomFloat'
 import { keys } from '../src/utils'
-
-interface Town {
-  baseDemographics: Record<string, number>
-  _demographicPercentile: Record<string, number>
-}
+import { Town } from '../town/_common'
 
 interface SaveLoc {
   raceRoll?: number

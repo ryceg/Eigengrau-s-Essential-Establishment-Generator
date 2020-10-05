@@ -1,5 +1,5 @@
 import { Profession } from '../npc-generation/professions'
-import { GenderName } from '../npc-generation/raceTraits'
+import { GenderName, RaceName } from '../npc-generation/raceTraits'
 import { townData } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 
@@ -49,4 +49,7 @@ export interface Town {
   politicalIdeology: PoliticalIdeology
   economicIdeologyIST: EconomicIdeologyIST
   politicalIdeologyIC: PoliticalIdeologyIC
+  baseDemographics: Record<RaceName, number>
+  _baseDemographics: Record<RaceName, number>
+  _demographicPercentile: Record<RaceName, number>
 }
