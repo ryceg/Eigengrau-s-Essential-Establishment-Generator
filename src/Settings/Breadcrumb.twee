@@ -16,11 +16,11 @@
 <</link>><</liveblock>>
 <</if>>
 <<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>><<capture _i, _passage, _link>>
-<<if _i < $history.length - 1>>> <<liveblock>><<link _link>>
+<<if _i < $history.length - 1>><<liveblock>><span class="breadcrumb-link"><<link _link>>
     <<set $currentPassage to _passage.data>>
     <<goto _passage.passageName>>
     <<run $history.length = _i>>
     <<run setup.history(_passage.data, _passage.passageName, _passage.linkDescription)>>
-<</link>><</liveblock>><</if>>
+<</link>></span><</liveblock>><</if>>
 <</capture>><</for>>
-<<if def $history.last()>><span id="last-link"><b> > <<print lib.toTitleCase($history.last().linkDescription)>></b></span><</if>><</nobr>>
+<<if def $history.last()>><span class="breadcrumb-link last"><<print lib.toTitleCase($history.last().linkDescription)>></span><</if>><</nobr>>
