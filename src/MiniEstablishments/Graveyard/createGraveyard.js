@@ -47,7 +47,7 @@ setup.createGraveyard = (town, base = {}) => {
     `past a group of ${['overgrown', 'nicely trimmed', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${lib.flora.flower.bush.random()} bushes`,
     `by passing by several patches of ${['overgrown', 'well planted', 'interestingly arranged', 'dying', 'thriving', 'wild'].random()} ${lib.flora.flower.stemP.random()}`
   ].random()
-  setup.createBuildingRelationship(town, graveyard, graveyard.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'place of employment' })
+  lib.createBuildingRelationship(town, graveyard, graveyard.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'place of employment' })
 
   graveyard.tippyDescription = `${lib.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`
   return graveyard

@@ -1105,7 +1105,7 @@ setup.initCastle = () => {
             const selected = lib.weightedRandomFetcher(town, setup.castle.dungeon.cells.prisoners.npcs, imprisonmentLocation, null, 'object')
             const npc = setup.createNPC(town, selected.base)
             setup.createRelationship(town, npc, imprisonmentLocation.associatedNPC, 'captor', 'prisoner')
-            setup.createBuildingRelationship(town, imprisonmentLocation, npc, { relationship: 'prisoner', reciprocalRelationship: 'Is currently being held captive here', description: `${npc.firstName} ${selected.reasonForPunishment}` })
+            lib.createBuildingRelationship(town, imprisonmentLocation, npc, { relationship: 'prisoner', reciprocalRelationship: 'Is currently being held captive here', description: `${npc.firstName} ${selected.reasonForPunishment}` })
             return `${setup.profile(npc, npc.firstName)}, ${lib.articles.output(npc.descriptor)} who ${selected.reasonForPunishment}`
           },
           npcs: [

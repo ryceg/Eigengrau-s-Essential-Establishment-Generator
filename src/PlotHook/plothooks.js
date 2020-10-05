@@ -157,7 +157,7 @@ setup.plothooks = {
         profession: 'blacksmith'
       })
       setup.createRelationship(town, npc, smithy.associatedNPC, 'competitor on a contract', 'competitor on a contract')
-      setup.createBuildingRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
+      lib.createBuildingRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
       // TODO: fix this
       return `Two blacksmiths, ${setup.profile(smithy.associatedNPC)} of ${smithy.name} and ${setup.profile(npc)} are in competition to create better weapons for a lucrative contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
     }

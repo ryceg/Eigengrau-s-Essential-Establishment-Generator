@@ -18,7 +18,7 @@
   <<run setup.createRelationship($town, $npcs[$currentPassage.associatedNPC.key], $npcs[$currentPassage.randomNPC.key], _profession.associatedNPC.relationship, _profession.associatedNPC.reciprocalRelationship)>>
 <</if>>
 
-<<run setup.createBuildingRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], _profession)>>*/
+<<run lib.createBuildingRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], _profession)>>*/
     <<replace "#NPC">>
           <div class="descriptive">
             <h3>$currentPassage.randomNPC.name</h3>

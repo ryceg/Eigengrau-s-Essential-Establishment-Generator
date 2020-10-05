@@ -36,7 +36,7 @@ setup.createDungeon = (town, opts) => {
     dungeon.location = data.location.castle.random()
   } else {
     dungeon.location = data.location.standalone.random()
-    setup.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
+    lib.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   }
   dungeon.name = setup.createDungeonName(town, dungeon)
   dungeon.tippyDescription = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
@@ -67,7 +67,7 @@ setup.createDungeonName = (town, dungeon, namesake = {}) => {
   ].random()
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     dungeon.namesake = setup.createDeadNPC(town, namesake)
-    setup.createBuildingRelationship(town, dungeon, dungeon.namesake, { relationship: 'namesake', reciprocalRelationship: `Dungeon named after ${dungeon.namesake.himher}` })
+    lib.createBuildingRelationship(town, dungeon, dungeon.namesake, { relationship: 'namesake', reciprocalRelationship: `Dungeon named after ${dungeon.namesake.himher}` })
   }
   console.log(lib.toTitleCase(choiceName))
   return lib.toTitleCase(choiceName)

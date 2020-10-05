@@ -37,7 +37,7 @@ setup.createTemple = (town, opts = {}) => {
     `${['', 'St. '].random() + lib.createName({ race: temple.associatedNPC.race })}'s ${temple.wordNoun.toUpperFirst()}`,
     `${['', 'St. '].random() + lib.createName({ race: temple.associatedNPC.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
   ].random()
-  setup.createBuildingRelationship(town, temple, temple.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'temple' })
+  lib.createBuildingRelationship(town, temple, temple.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'temple' })
 
   temple.blessing = `${temple.blessingConvey}. ${temple.blessingGift}.`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']

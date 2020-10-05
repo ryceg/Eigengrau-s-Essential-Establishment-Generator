@@ -26,7 +26,7 @@ setup.createCastle = (town, opts = {}) => {
   castle.name = castle.name || setup.createCastleName(town, castle)
   console.log(`Created the castle ${castle.name}`)
   castle.dungeon = setup.createDungeon(town, { opts, parentKey: castle.key })
-  setup.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
+  lib.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   castle.dungeon.passageName = 'CastleOutput'
   if (!castle.roll.landSize) castle.roll.landSize = lib.dice(2, 50)
 
@@ -36,7 +36,7 @@ setup.createCastle = (town, opts = {}) => {
   lib.defineRollDataGetter(castle, setup.castle.rollData, 'landSizeDescriptive', 'landSize', 2)
 
   castle.tippyDescription = `${lib.articles.output(castle.wordNoun).toUpperFirst()} built ${castle.age} that is known for ${castle.knownFor}.`
-  setup.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'place of employment' })
+  lib.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'place of employment' })
 
   setup.createCastlePopulation(town, castle, opts)
   console.groupEnd()
@@ -71,7 +71,7 @@ setup.createCastleName = (town, castle, namesake = {}) => {
 
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     castle.namesake = setup.createDeadNPC(town, namesake)
-    setup.createBuildingRelationship(town, castle, castle.namesake, { relationship: 'namesake', reciprocalRelationship: `Castle named after ${castle.namesake.himher}` })
+    lib.createBuildingRelationship(town, castle, castle.namesake, { relationship: 'namesake', reciprocalRelationship: `Castle named after ${castle.namesake.himher}` })
   }
 
   console.log(lib.toTitleCase(choiceName))

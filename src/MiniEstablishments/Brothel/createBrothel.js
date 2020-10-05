@@ -35,7 +35,7 @@ setup.createBrothel = (town, tavern) => {
   brothel.pimp.greeting = [
     'nods at you', 'welcomes you warmly', 'smiles, greets you', 'raises a hand with a wave', 'sizes you up, before $associatedNPC.heshe nods at you', 'checks you out for just a moment before smiling at you', 'waves slightly in your direction', 'gives you you a slight nod', 'turns your way', 'frowns, but greets you just the same'
   ]
-  setup.createBuildingRelationship(town, brothel, brothel.pimp, { relationship: 'pimp', reciprocalRelationship: 'business', description: `Owns ${brothel.name}.` })
+  lib.createBuildingRelationship(town, brothel, brothel.pimp, { relationship: 'pimp', reciprocalRelationship: 'business', description: `Owns ${brothel.name}.` })
   console.log(brothel)
   return brothel
 }

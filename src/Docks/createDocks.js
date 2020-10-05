@@ -17,7 +17,7 @@ setup.createDocks = (town, opts = {}) => {
     ships: {},
     typePool: setup.docks.ships.typePool
   })
-  setup.createBuildingRelationship(town, docks, docks.associatedNPC, { relationship: 'stevedore', reciprocalRelationship: 'place of employment' })
+  lib.createBuildingRelationship(town, docks, docks.associatedNPC, { relationship: 'stevedore', reciprocalRelationship: 'place of employment' })
 
   docks.name = [
     `The ${['Old', 'New', '', ''].random()} ${[`${town.name}`, `${town.name}`, '', '', ''].random()} ${docks.wordNoun.toUpperFirst()}`,

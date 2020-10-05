@@ -35,7 +35,7 @@ setup.createBartender = function (town, tavern) {
       'barking orders at one of the barmaids',
       'breaking up a fight in front of the bar']
   })
-  if (tavern) setup.createBuildingRelationship(town, tavern, bartender, { relationship: 'owner', reciprocalRelationship: 'business' })
+  if (tavern) lib.createBuildingRelationship(town, tavern, bartender, { relationship: 'owner', reciprocalRelationship: 'business' })
 
   return bartender
 }

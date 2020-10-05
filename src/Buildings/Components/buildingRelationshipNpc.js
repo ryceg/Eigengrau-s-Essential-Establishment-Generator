@@ -31,7 +31,7 @@ setup.createBuildingRelationshipNpc = (town, building, associatedNPC, relationsh
     setup.createRelationship(town, associatedNPC, npc, relationship.relationships.associatedNPC.relationship, relationship.relationships.associatedNPC.reciprocalRelationship)
   }
   console.log('4')
-  setup.createBuildingRelationship(town, building, npc, {
+  lib.createBuildingRelationship(town, building, npc, {
     description: relationship.description(building, npc),
     relationship: relationship.relationships.building.relationship,
     reciprocalRelationship: relationship.relationships.building.reciprocalRelationship || relationship.relationships.building.relationship

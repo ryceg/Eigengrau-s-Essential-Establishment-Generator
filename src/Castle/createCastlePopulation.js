@@ -3,7 +3,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
   console.log(selected)
   if (!selected.base.profession) selected.base.profession = 'castellan'
   castle.associatedNPC = setup.createNPC(town, selected.base)
-  setup.createBuildingRelationship(town, castle, castle.associatedNPC, { relationship: 'ruler', reciprocalRelationship: `castle ${castle.associatedNPC.heshe} rules` })
+  lib.createBuildingRelationship(town, castle, castle.associatedNPC, { relationship: 'ruler', reciprocalRelationship: `castle ${castle.associatedNPC.heshe} rules` })
 
   if (!selected.acquisitionMethod) {
     selected.acquisitionMethod = setup.castle.ruler.getAcquisitionMethod(town, castle).acquisitionMethod
@@ -29,7 +29,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
   for (let i = 0; i < numberOfHelpers; i++) {
     if (castleHelpers.length > 0) {
       const newNPC = setup.createNPC(town, { profession: castleHelpers.pluck() })
-      setup.createBuildingRelationship(town, castle, newNPC, { relationship: `${newNPC.profession}`, reciprocalRelationship: 'place of employment' })
+      lib.createBuildingRelationship(town, castle, newNPC, { relationship: `${newNPC.profession}`, reciprocalRelationship: 'place of employment' })
       setup.createRelationship(town, newNPC, castle.associatedNPC, 'liege', 'subject')
     }
   }

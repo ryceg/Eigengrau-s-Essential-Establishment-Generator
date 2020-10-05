@@ -25,7 +25,7 @@ setup.createBuilding = (town, type, base = {}) => {
     "a sign from the local paper which reads '<<print lib.newspaper.random()>>'"
   ].random()
   const building = Object.assign({
-    key: randomFloat(1).toString(16),
+    key: lib.getUUID(),
     childKeys: [],
     objectType: 'building',
     roadName,
