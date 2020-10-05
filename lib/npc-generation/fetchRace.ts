@@ -6,9 +6,8 @@ interface SaveLoc {
   raceRoll?: number
 }
 
-export function fetchRace (town: Town, saveLoc: SaveLoc) {
+export function fetchRace (town: Town, saveLoc: SaveLoc = {}) {
   console.log('Fetching race...')
-  if (!saveLoc) saveLoc = {}
   const races = keys(town.baseDemographics)
 
   // Calculate the sum of the raw demographic values.
