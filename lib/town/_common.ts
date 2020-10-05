@@ -1,3 +1,4 @@
+import { BuildingRelationship } from '../buildings/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
 import { townData } from './townData'
@@ -45,6 +46,7 @@ export interface Town {
     name: string,
     population: number
   }>
+  buildingRelations: BuildingRelationship[]
   economicIdeology: EconomicIdeology
   politicalIdeology: PoliticalIdeology
   economicIdeologyIST: EconomicIdeologyIST

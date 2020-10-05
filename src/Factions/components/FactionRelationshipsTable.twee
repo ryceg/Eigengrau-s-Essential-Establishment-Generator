@@ -1,5 +1,5 @@
 :: FactionRelationshipsTable
-<div id="BuildingRelationshipsTable"><<nobr>><<set _factionRelationships to setup.findBuildingRelationship($town, $town.factions[$currentPassage.key], null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_factionRelationships)>>
+<div id="BuildingRelationshipsTable"><<nobr>><<set _factionRelationships to lib.findBuildingRelationship($town, $town.factions[$currentPassage.key], null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_factionRelationships)>>
 <<if _factionRelationships.length > 0>><div class='classTable'>
   <h3>Relationships</h3>
 <table>
