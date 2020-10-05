@@ -33,15 +33,3 @@ setup.createBuildingRelationship = (town, building, npc, relationshipObj) => {
     town.buildingRelations.push(newRelationship)
   }
 }
-
-setup.deleteBuildingRelationship = (town, building, npc) => {
-  // deletes building relationships.
-  const found = lib.findBuildingRelationship(town, building, npc)
-  found.forEach(objectKey => {
-    town.buildingRelations.splice(
-      town.buildingRelations.findIndex(function (obj) {
-        obj.some((obj) => obj.key === objectKey)
-      })
-    )
-  })
-}
