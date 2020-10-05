@@ -8,7 +8,8 @@ const webpack = require('webpack')
 utils.logClear()
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
-if (!fs.existsSync(tweego)) {
+
+if (!fs.existsSync(tweego) && !fs.existsSync(`${tweego}.exe`)) {
   utils.logError('Cannot find path to tweego.')
   utils.logError('Perhaps tweego has not been downloaded.')
   utils.logError('Try running `yarn install-compiler` first.')
