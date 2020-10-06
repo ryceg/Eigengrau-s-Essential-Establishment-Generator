@@ -2,7 +2,14 @@ import { sortArray } from '../src/sortArray'
 import { toTitleCase } from '../src/toTitleCase'
 import { raceTraits, RaceName } from '../npc-generation/raceTraits'
 
-export function getPredominantRace (percentages: Record<RaceName, number>) {
+interface PredominantRace {
+  amount: string;
+  amountDescriptive: string;
+  primaryRace: RaceName;
+  secondaryRace: RaceName;
+}
+
+export function getPredominantRace (percentages: Record<RaceName, number>): PredominantRace {
   console.log('Getting the predominant race...')
 
   // Pick out the primary & secondary Race name percentages.
@@ -107,13 +114,11 @@ export function getPredominantRace (percentages: Record<RaceName, number>) {
       secondaryRace
     }
   }
-  if (percentile < 20) {
-    return {
-      amount: 'diverse melting pot of races',
-      amountDescriptive: 'of a melting pot of all different races',
-      primaryRace,
-      secondaryRace
-    }
+  return {
+    amount: 'diverse melting pot of races',
+    amountDescriptive: 'of a melting pot of all different races',
+    primaryRace,
+    secondaryRace
   }
 }
 
