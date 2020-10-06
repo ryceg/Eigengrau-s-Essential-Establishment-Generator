@@ -5,8 +5,8 @@ setup.createTownBiome = (base = {}) => {
   const townName = setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
 
-  const economicIdeology = setup.politicsWeightedRoll(type, 'economicIdeology')
-  const politicalSource = setup.politicsWeightedRoll(type, 'politicalSource')
+  const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology')
+  const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     name: townName,

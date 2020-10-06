@@ -108,6 +108,7 @@ export * from './tavern/tavernRooms'
 
 export * from './town/getPredominantRace'
 export * from './town/getTownMaterial'
+export * from './town/politicsWeightedRoll'
 export * from './town/setTownMaterialProbability'
 export * from './town/townData'
 export * from './town/townRender'
