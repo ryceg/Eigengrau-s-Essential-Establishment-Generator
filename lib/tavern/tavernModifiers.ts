@@ -1,24 +1,5 @@
-interface Town {
-  roll: {
-    wealth: number
-  }
-}
-
-interface Tavern {
-  type: string
-  draw: string
-  material: string
-  roll: {
-    wealth: number
-    population: number
-    sin: number
-    roughness: number
-    cleanliness: number
-    size: number
-    reputation: number
-  }
-  priceModifier: number
-}
+import { Town } from '../town/_common'
+import { Tavern } from './_common'
 
 export function tavernModifiers (town: Town, tavern: Tavern) {
   const townRoll = town.roll
