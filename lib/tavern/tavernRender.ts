@@ -1,19 +1,4 @@
-interface Rolled<T> {
-  wealth: T
-  size: T
-  roughness: T
-  cleanliness: T
-  sin: T
-  reputation: T
-  diversity: T
-}
-
-interface Tavern extends Rolled<string> {
-  roll: Rolled<number>
-  lodging: number
-  food: number
-  bedCleanliness: string
-}
+import { Tavern } from './_common'
 
 export function tavernRender (tavern: Tavern) {
   if (tavern.roll.wealth > 95) {

@@ -12,4 +12,14 @@ export interface Tavern {
     reputation: number
   }
   priceModifier: number
+  lodging: number
+  food: number
+  wealth: string
+  sin: string
+  size: string
+  roughness: string
+  cleanliness: string
+  bedCleanliness: string
+  diversity: string
+  reputation: string
 }
