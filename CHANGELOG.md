@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - Fixed races not changing properly.
+- Removed large title in the sticky header
 - Fixed tables getting cut in half in two-column layouts.
 - Fixed castle ruler looking for array printing everything
 - Forced one column for town edit page.
@@ -22,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed changing races not applying 
 - Fixed creating magic armour not working
 - Fixed renaming towns not applying to buildings and factions that feature the name
+- Fixed local build script for windows
 - Updated dependencies
 
 ### Removed
