@@ -1,3 +1,5 @@
+type Tavern = import('../../../lib/tavern/_common').Tavern
+
 interface Setup {
   initTavernData(): void
   tavern: {
@@ -31,10 +33,6 @@ interface Setup {
     specialBrew: SpecialBrew[]
     overheard: string[]
   }
-}
-
-interface Tavern extends Building {
-  bartender: NPC
 }
 
 interface SpecialBrew {
