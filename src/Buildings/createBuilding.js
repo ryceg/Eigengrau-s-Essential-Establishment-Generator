@@ -64,7 +64,7 @@ setup.createBuilding = (town, type, base = {}) => {
     console.log('Has a parent!')
     building.isChild = true
     building.road = town.roads[base.parentKey]
-    // const parentIndex = setup.findBuilding(town, base.parentKey, true)
+    // const parentIndex = lib.findBuildingIndex(town, base.parentKey)
     // town.buildings[parentIndex].childKeys.push(building.key)
     // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
   }
