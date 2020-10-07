@@ -6,6 +6,7 @@ export * from './buildings/createBuildingRelationship'
 export * from './buildings/deleteBuildingRelationship'
 export * from './buildings/findBuilding'
 export * from './buildings/findBuildingRelationship'
+export * from './buildings/structureData'
 
 export * from './constructs/bandits'
 export * from './constructs/bunny'

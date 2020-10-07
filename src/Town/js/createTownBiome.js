@@ -90,7 +90,7 @@ setup.createTownBiome = (base = {}) => {
   town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
-  town.materialProbability = setup.structureData.material.types
+  town.materialProbability = lib.structureData.material.types
 
   assignSizeModifiers(town)
   assignEconomicModifiers(town)
