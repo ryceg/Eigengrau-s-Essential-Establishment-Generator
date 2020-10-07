@@ -4,7 +4,6 @@ import { random } from '../src/random'
 import { findProfession } from '../src/findProfession'
 import { Town } from '../town/_common'
 
-import { GenderName } from './raceTraits'
 import { NPC } from './_common'
 
 /**
@@ -38,7 +37,7 @@ export function initSexistProfession (town: Town, npc: NPC): void {
       // then, take the gender from the profession
       const newGender = checkProfessionGender(town, npc)
       // if there's an associated gender, then that's assigned to the NPC
-      if (newGender === 'man' || newGender === 'woman') {
+      if (newGender) {
         npc.gender = newGender
       }
     }
@@ -48,7 +47,7 @@ export function initSexistProfession (town: Town, npc: NPC): void {
 /**
  * Test for whether the profession is gendered.
  */
-function checkProfessionGender (town: Town, npc: NPC): GenderName | null {
+function checkProfessionGender (town: Town, npc: NPC) {
   const profession = findProfession(town, npc)
 
   const subGender = town.dominantGender === 'woman' ? 'man' : 'woman'
@@ -56,8 +55,8 @@ function checkProfessionGender (town: Town, npc: NPC): GenderName | null {
   if (profession.domSub === 'dom' && isDominantGender(town, npc)) {
     return town.dominantGender
   }
+
   if (profession.domSub === 'sub' && !isDominantGender(town, npc)) {
     return subGender
   }
-  return null
 }
