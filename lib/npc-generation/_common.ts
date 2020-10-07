@@ -32,6 +32,7 @@ export interface NPC {
   heshe: string
   hisher: string
   himher: string
+  isShallow?: boolean
 }
 
 export interface Relationship {
