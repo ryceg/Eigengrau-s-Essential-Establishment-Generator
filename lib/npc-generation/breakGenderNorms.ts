@@ -27,19 +27,19 @@ export function isDominantGender (town: Town, npc: NPC): boolean {
 export function initSexistProfession (town: Town, npc: NPC): void {
   // if the profession is defined, but the gender isn't (which is quite common)
   if (npc.profession && !npc.gender) {
-    // ...but the NPC is not brave enough to go against the grain
-    if (!breakGenderNorms(town)) {
+    // if the NPC *was* brave enough to break gender norms, then flag that
+    if (breakGenderNorms(town)) {
+      npc.gender = random(['man', 'woman'])
+      if (npc.gender !== checkProfessionGender(town, npc)) {
+        npc.isBreakingGenderNorms = true
+      }
+      // ...but the NPC is not brave enough to go against the grain
+    } else {
       // then, take the gender from the profession
       const newGender = checkProfessionGender(town, npc)
       // if there's an associated gender, then that's assigned to the NPC
       if (newGender === 'man' || newGender === 'woman') {
         npc.gender = newGender
-      }
-      // if the NPC *was* brave enough to break gender norms, then flag that
-    } else {
-      npc.gender = random(['man', 'woman'])
-      if (npc.gender !== checkProfessionGender(town, npc)) {
-        npc.isBreakingGenderNorms = true
       }
     }
   }
