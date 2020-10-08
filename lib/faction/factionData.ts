@@ -8,7 +8,7 @@ interface FactionType {
   leaderTraits: LeaderTraits
   wordNoun: string
   leaderQualification: WeightRecord<string>
-  alliesList: string[]
+  alliesList: WeightRecord<string>
   rivalsList: string[]
   joiningRequirement: string[]
   joiningInitiation: string[]
@@ -57,7 +57,10 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: ['hitmen', 'hitmen', 'nobles', 'nobles', 'nobles', 'nobles'],
+      alliesList: {
+        hitmen: 2,
+        nobles: 4
+      },
       rivalsList: [
         'nobles',
         'commoners',
@@ -212,17 +215,11 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 3
       },
-      alliesList: [
-        'thieves',
-        'thieves',
-        'thieves',
-        'urchins',
-        'urchins',
-        'urchins',
-        'bandits',
-        'bandits',
-        'bandits'
-      ],
+      alliesList: {
+        thieves: 3,
+        urchins: 3,
+        bandits: 3
+      },
       rivalsList: [
         'scholars',
         'scholars',
@@ -346,14 +343,10 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'urchins',
-        'urchins'
-      ],
+      alliesList: {
+        hitmen: 4,
+        urchins: 2
+      },
       rivalsList: [
         'commoners',
         'commoners',
@@ -515,14 +508,11 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'priests',
-        'urchins',
-        'urchins',
-        'nobles',
-        'nobles',
-        'nobles'
-      ],
+      alliesList: {
+        priests: 1,
+        urchins: 2,
+        nobles: 3
+      },
       rivalsList: ['bandits', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: [
         'a display of skill',
@@ -656,7 +646,13 @@ export const factionData: FactionData = {
         'wearing flowing white robes': 1,
         'a holy symbol tattooed on their face': 1
       },
-      alliesList: ['mercenaries', 'commoners', 'nobles', 'artisans', 'seers'],
+      alliesList: {
+        mercenaries: 1,
+        commoners: 1,
+        nobles: 1,
+        artisans: 1,
+        seers: 1
+      },
       rivalsList: ['assassins', 'bards', 'thieves', 'commoners'],
       joiningRequirement: [
         'holy deeds',
@@ -732,18 +728,13 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'priests',
-        'nobles',
-        'nobles',
-        'nobles',
-        'artisans',
-        'artisans',
-        'seers',
-        'commoners',
-        'commoners',
-        'commoners'
-      ],
+      alliesList: {
+        priests: 1,
+        nobles: 3,
+        artisans: 2,
+        seers: 1,
+        commoners: 3
+      },
       rivalsList: ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: [
         'some social status',
@@ -866,8 +857,13 @@ export const factionData: FactionData = {
         background: 'noble'
       },
       wordNoun: 'grove',
-      leaderQualification: { 'leathery tanned skin': 1 },
-      alliesList: ['bards', 'rangers'],
+      leaderQualification: {
+        'leathery tanned skin': 1
+      },
+      alliesList: {
+        bards: 1,
+        rangers: 1
+      },
       rivalsList: ['assassins', 'wizards'],
       joiningRequirement: ['become a druid', 'give up all worldly possessions'],
       joiningInitiation: ['fight a bear with your bare hands'],
@@ -910,19 +906,14 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 1,
         'the most intelligent man in the room': 1
       },
-      alliesList: [
-        'merchants',
-        'merchants',
-        'mercenaries',
-        'commoners',
-        'nobles',
-        'nobles',
-        'nobles',
-        'artisans',
-        'craftsmen',
-        'craftsmen',
-        'artisans'
-      ],
+      alliesList: {
+        merchants: 2,
+        mercenaries: 1,
+        commoners: 1,
+        nobles: 3,
+        artisans: 2,
+        craftsmen: 2
+      },
       rivalsList: [
         'wizards',
         'assassins',
@@ -996,19 +987,11 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'nobles',
-        'nobles',
-        'nobles',
-        'nobles',
-        'bandits',
-        'bandits',
-        'bandits'
-      ],
+      alliesList: {
+        hitmen: 4,
+        nobles: 4,
+        bandits: 3
+      },
       rivalsList: [
         'bandits',
         'bandits',
@@ -1175,29 +1158,15 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'priests',
-        'priests',
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'nobles',
-        'nobles',
-        'nobles',
-        'artisans',
-        'artisans',
-        'artisans',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries',
-        'craftsmen',
-        'craftsmen',
-        'craftsmen',
-        'craftsmen',
-        'commoners',
-        'commoners'
-      ],
+      alliesList: {
+        priests: 2,
+        hitmen: 3,
+        nobles: 3,
+        artisans: 3,
+        mercenaries: 4,
+        craftsmen: 4,
+        commoners: 2
+      },
       rivalsList: [
         'commoners',
         'commoners',
@@ -1324,19 +1293,11 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'nobles',
-        'nobles',
-        'nobles',
-        'nobles',
-        'bandits',
-        'bandits',
-        'bandits'
-      ],
+      alliesList: {
+        hitmen: 4,
+        nobles: 4,
+        bandits: 3
+      },
       rivalsList: [
         'bandits',
         'bandits',
@@ -1508,14 +1469,10 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'priests',
-        'priests',
-        'priests',
-        'priests',
-        'artisans',
-        'artisans'
-      ],
+      alliesList: {
+        priests: 4,
+        artisans: 2
+      },
       rivalsList: [
         'artisans',
         'priests',
@@ -1598,7 +1555,11 @@ export const factionData: FactionData = {
       ]
     },
     nobles: {
-      leaderTraits: { title: 'Lord', hasClass: false, background: 'noble' },
+      leaderTraits: {
+        title: 'Lord',
+        hasClass: false,
+        background: 'noble'
+      },
       wordNoun: 'society',
       leaderQualification: {
         'the wealthiest of the group': 3,
@@ -1609,15 +1570,10 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'hitmen',
-        'seers',
-        'seers',
-        'seers'
-      ],
+      alliesList: {
+        hitmen: 4,
+        seers: 3
+      },
       rivalsList: [
         'commoners',
         'commoners',
@@ -1749,7 +1705,10 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: ['nobles', 'nobles', 'nobles', 'artisans', 'artisans'],
+      alliesList: {
+        nobles: 3,
+        artisans: 2
+      },
       rivalsList: ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
       joiningRequirement: [
         'some social status',
@@ -1893,7 +1852,11 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: ['priests', 'priests', 'nobles', 'nobles', 'seers', 'seers'],
+      alliesList: {
+        priests: 2,
+        nobles: 2,
+        seers: 2
+      },
       rivalsList: [
         'bandits',
         'bandits',
@@ -2011,16 +1974,12 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'priests',
-        'priests',
-        'priests',
-        'nobles',
-        'nobles',
-        'artisans',
-        'artisans',
-        'seers'
-      ],
+      alliesList: {
+        priests: 3,
+        nobles: 2,
+        artisans: 2,
+        seers: 1
+      },
       rivalsList: [
         'seers',
         'priests',
@@ -2181,16 +2140,10 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'priests',
-        'priests',
-        'priests',
-        'priests',
-        'nobles',
-        'nobles',
-        'nobles',
-        'nobles'
-      ],
+      alliesList: {
+        priests: 4,
+        nobles: 4
+      },
       rivalsList: ['scholars', 'scholars', 'scholars', 'scholars'],
       joiningRequirement: [
         'some social status',
@@ -2304,21 +2257,13 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: [
-        'thieves',
-        'thieves',
-        'thieves',
-        'urchins',
-        'hitmen',
-        'hitmen',
-        'urchins',
-        'urchins',
-        'assassins',
-        'assassins',
-        'bandits',
-        'bandits',
-        'bandits'
-      ],
+      alliesList: {
+        thieves: 3,
+        urchins: 3,
+        hitmen: 2,
+        assassins: 2,
+        bandits: 3
+      },
       rivalsList: [
         'priests',
         'priests',
@@ -2470,7 +2415,11 @@ export const factionData: FactionData = {
         'able to rise to power through nepotism': 3,
         'promoted by being the most powerful in the group': 1
       },
-      alliesList: ['nobles', 'nobles', 'artisans', 'artisans', 'seers'],
+      alliesList: {
+        nobles: 2,
+        artisans: 2,
+        seers: 1
+      },
       rivalsList: [
         'seers',
         'priests',
