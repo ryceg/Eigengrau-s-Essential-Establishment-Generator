@@ -12,25 +12,8 @@ $('body').on('change', '.auto-update select', () => {
     primaryCrop: lib.townData.misc.primaryCrop,
     primaryExport: lib.townData.misc.primaryExport,
     season: Object.keys(lib.terrain.temperate.weather.season),
-    economicIdeology: {
-      feudalist: 'feudalism',
-      capitalist: 'capitalism',
-      syndicalist: 'syndicalism',
-      communist: 'communism',
-      primitivist: 'primitivism'
-    },
-    politicalIdeology: {
-      autocratic: 'autocracy',
-      meritocratic: 'meritocracy',
-      democratic: 'democracy',
-      kleptocratic: 'kleptocracy',
-      magocratic: 'magocracy',
-      militocratic: 'militocracy',
-      oligarchic: 'oligarchy',
-      sophocratic: 'sophocracy',
-      theocratic: 'theocracy',
-      technocratic: 'theocracy'
-    },
+    economicIdeology: lib.economicPairs,
+    politicalIdeology: lib.politicalIdeologyPairs,
     politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'anarchy']
   }
 

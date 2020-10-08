@@ -28,7 +28,7 @@ function updateTownPoliticalIdeology (town: Town): void {
   assign(town, politicalIdeologyData.data)
 }
 
-const economicPairs = {
+export const economicPairs = {
   feudalist: 'feudalism',
   capitalist: 'capitalism',
   syndicalist: 'syndicalism',
@@ -36,7 +36,7 @@ const economicPairs = {
   communist: 'communism'
 } as const
 
-const politicalIdeologyPairs = {
+export const politicalIdeologyPairs = {
   autocratic: 'autocracy',
   meritocratic: 'meritocracy',
   democratic: 'democracy',
