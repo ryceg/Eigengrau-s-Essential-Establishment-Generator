@@ -25,6 +25,17 @@ export function assign <T, S> (target: T, source: S): asserts target is T & S {
 }
 
 /**
+ * Freezes objects to prevent accidental mutation.
+ * To improve speed, it does not apply in production mode.
+ */
+export function freeze<T> (obj: T) {
+  if (process.env.NODE_ENV === 'production') {
+    return obj
+  }
+  return Object.freeze(obj)
+}
+
+/**
  * Error class for assertion errors.
  */
 export class AssertionError extends Error {}

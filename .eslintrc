@@ -13,6 +13,7 @@
     "no-extra-parens": ["warn", "all", { "nestedBinaryExpressions": false }],
     "object-shorthand": ["warn", "always"],
     "quote-props": ["warn", "consistent-as-needed"],
+    "no-redeclare": "off",
     "accessor-pairs": "off",
     "no-use-before-define": "off",
     "function-call-context/call-in-function": [
@@ -24,6 +25,7 @@
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/type-annotation-spacing": "warn"
+    "@typescript-eslint/type-annotation-spacing": "warn",
+    "@typescript-eslint/no-redeclare": "error"
   }
 }

@@ -1,4 +1,4 @@
-import { assign } from '../src/utils'
+import { assign, freeze } from '../src/utils'
 
 import { townData } from './townData'
 import { Town } from './_common'
@@ -28,15 +28,15 @@ function updateTownPoliticalIdeology (town: Town): void {
   assign(town, politicalIdeologyData.data)
 }
 
-export const economicPairs = {
+export const economicPairs = freeze({
   feudalist: 'feudalism',
   capitalist: 'capitalism',
   syndicalist: 'syndicalism',
   primitivist: 'primitivism',
   communist: 'communism'
-} as const
+} as const)
 
-export const politicalIdeologyPairs = {
+export const politicalIdeologyPairs = freeze({
   autocratic: 'autocracy',
   meritocratic: 'meritocracy',
   democratic: 'democracy',
@@ -47,7 +47,7 @@ export const politicalIdeologyPairs = {
   sophocratic: 'sophocracy',
   theocratic: 'theocracy',
   technocratic: 'technocracy'
-} as const
+} as const)
 
 export type EconomicIdeologyIST = keyof typeof economicPairs
 
