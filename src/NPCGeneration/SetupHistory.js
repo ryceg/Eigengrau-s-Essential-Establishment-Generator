@@ -196,5 +196,4 @@ setup.createHistory = function (town, npc) {
       setup.createRelationship(town, npc, friend, 'bully', 'victim of bullying')
     }
   }
-  return npc
 }

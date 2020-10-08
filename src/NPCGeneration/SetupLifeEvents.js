@@ -33,5 +33,4 @@ setup.createLifeEvents = function (town, npc) {
   }
 
   console.groupEnd()
-  return npc
 }

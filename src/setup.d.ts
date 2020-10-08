@@ -6,15 +6,15 @@ interface Setup {
   npcTaxRate(town: Town, npc: NPC): number
   profile(obj: any, base?: string, type?: string): string
   createBackground(npc: NPC): any
-  createClass(town: Town, npc: NPC): any
+  createClass(town: Town, npc: NPC): void
   createFamily(town: Town, npc: NPC): void
   expandFamily(town: Town, npc: NPC): void
   fetchFamily(town: Town, npc: NPC): Record<string, any>
-  createHistory(town: Town, npc: NPC): any
-  createLifeEvents(town: Town, npc: NPC): any
+  createHistory(town: Town, npc: NPC): void
+  createLifeEvents(town: Town, npc: NPC): void
   createName(parameters: CreateNameParameters): string
   createNPC(town: Town, base?: Partial<NPC>): NPC
-  createSocialClass(town: Town, npc: NPC): any
+  createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
 
   createGuard(town: Town): any

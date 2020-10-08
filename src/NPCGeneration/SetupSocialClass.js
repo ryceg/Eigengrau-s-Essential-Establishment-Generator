@@ -102,7 +102,6 @@ setup.createSocialClass = function (town, npc) {
     console.log(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
     npc.socialClass = socialClasses[random(0, socialClasses.length - 1)]
   }
-  return npc
 }
 
 /**
