@@ -1,7 +1,11 @@
 setup.createClass = (town, npc) => {
-  console.log(`assigning class traits to ${npc.name}...`)
+  console.log(`Assigning class traits to "${npc.name}".`)
+
+  /** @type {string} */
   let professionOrigin
+  /** @type {string} */
   let background
+  /** @type {string} */
   let classWeapon
 
   const dndClassTraits = lib.classTraits[npc.dndClass]
@@ -20,13 +24,9 @@ setup.createClass = (town, npc) => {
     classWeapon = 'a dagger'
   }
 
-  if (!npc.professionOrigin) {
-    npc.professionOrigin = getProfessionOrigin(npc, town)
-  }
-
-  npc.professionOrigin = npc.professionOrigin || professionOrigin
-  npc.background = npc.background || background
-  npc.weapon = npc.weapon || classWeapon
+  npc.professionOrigin ||= professionOrigin || getProfessionOrigin(npc, town)
+  npc.background ||= background
+  npc.weapon ||= classWeapon
 }
 
 function getProfessionOrigin (npc, town) {
