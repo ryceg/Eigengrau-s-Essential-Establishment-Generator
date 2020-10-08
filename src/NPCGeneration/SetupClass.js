@@ -8,16 +8,8 @@ setup.createClass = (town, npc) => {
   const professionTraits = lib.professionTraits[npc.profession]
 
   if (npc.hasClass !== false && dndClassTraits) {
-    background = Array.isArray(dndClassTraits.background)
-      ? dndClassTraits.background.random()
-      : professionTraits
-        ? professionTraits.background.random()
-        : 'commoner'
-    classWeapon = Array.isArray(dndClassTraits.weapon)
-      ? dndClassTraits.weapon.random()
-      : professionTraits
-        ? professionTraits.weapon.random()
-        : 'a dagger'
+    background = dndClassTraits.background.random()
+    classWeapon = dndClassTraits.weapon.random()
   } else if (npc.hasClass === false && professionTraits) {
     background = professionTraits.background.random()
     classWeapon = professionTraits.weapon.random()
