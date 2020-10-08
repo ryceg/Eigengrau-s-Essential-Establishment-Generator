@@ -29,6 +29,10 @@ setup.createClass = (town, npc) => {
   npc.weapon ||= classWeapon
 }
 
+/**
+ * @param {NPC} npc
+ * @param {Town} town
+ */
 function getProfessionOrigin (npc, town) {
   const profession = lib.findProfession(town, npc)
 
