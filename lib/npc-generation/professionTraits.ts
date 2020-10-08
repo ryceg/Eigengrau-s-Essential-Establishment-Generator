@@ -1,11 +1,11 @@
-interface ProfessionTrait {
+interface ProfessionTraits {
   professionOrigin: string[]
   background: string[]
   weapon: string[]
   wealth: number
 }
 
-export const professionTraits: Record<string, ProfessionTrait> = {
+export const professionTraits: Record<string, ProfessionTraits> = {
   bartender: {
     professionOrigin: [
       'I came across the tavern as a youngster, and spent many a night here drinking with my buddies. When the old owner died, it went to auction, and I tried to kep the dream alive by buying it. One by one all my friends grew out of it, or moved away.',

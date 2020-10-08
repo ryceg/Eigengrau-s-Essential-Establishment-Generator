@@ -1,15 +1,15 @@
 import { dice } from '../src/dice'
 
-type ClassName = 'barbarian' | 'bard' | 'cleric' | 'druid' | 'fighter' | 'monk' | 'paladin' | 'ranger' | 'rogue' | 'sorcerer' | 'warlock' | 'wizard'
+export type ClassName = 'barbarian' | 'bard' | 'cleric' | 'druid' | 'fighter' | 'monk' | 'paladin' | 'ranger' | 'rogue' | 'sorcerer' | 'warlock' | 'wizard'
 
-interface ClassTrait {
+interface ClassTraits {
   professionOrigin: string[]
   background: string[]
   weapon: string[]
   wealth(): number
 }
 
-export const classTraits: Record<ClassName, ClassTrait> = {
+export const classTraits: Record<ClassName, ClassTraits> = {
   barbarian: {
     professionOrigin: [
       'My devotion to my people lifted me in battle, and I learned to control my bloodlust.',
