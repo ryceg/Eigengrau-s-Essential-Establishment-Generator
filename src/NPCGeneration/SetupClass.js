@@ -7,7 +7,7 @@ setup.createClass = (town, npc) => {
   const dndClassTraits = lib.classTraits[npc.dndClass]
   const professionTraits = lib.professionTraits[npc.profession]
 
-  if (npc.hasClass !== false && typeof dndClassTraits !== 'undefined') {
+  if (npc.hasClass !== false && dndClassTraits) {
     background = Array.isArray(dndClassTraits.background)
       ? dndClassTraits.background.random()
       : professionTraits
