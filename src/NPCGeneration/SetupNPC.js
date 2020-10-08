@@ -35,7 +35,7 @@ setup.createNPC = function (town, base) {
   const firstName = base.firstName || lib.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
   const lastName = base.lastName || lib.raceTraits[race].lastName.random().toUpperFirst()
   console.groupCollapsed(`${firstName} ${lastName}`)
-  const ageStage = base.ageStage || ['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'].random()
+  const ageStage = base.ageStage || getRandomAgeStage()
   let dndClass
   if (lib.findProfession(town, base, profession).type === 'dndClass') {
     base.hasClass = true
@@ -61,7 +61,7 @@ setup.createNPC = function (town, base) {
       this.lastName = words[1] || ''
     },
     ageStage,
-    ageYears: lib.raceTraits[race].ageTraits[ageStage].baseAge + lib.raceTraits[race].ageTraits[ageStage].ageModifier(),
+    ageYears: lib.getAgeInYears(race, ageStage),
     muscleMass: lib.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
     pronouns: {
 
@@ -224,4 +224,11 @@ setup.createNPC = function (town, base) {
   console.log(npc)
   console.groupEnd()
   return npc
+}
+
+/**
+ * @returns {import("../../lib/index").AgeName}
+ */
+function getRandomAgeStage () {
+  return lib.random(['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'])
 }
