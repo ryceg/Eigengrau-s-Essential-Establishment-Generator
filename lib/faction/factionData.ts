@@ -9,7 +9,7 @@ interface FactionType {
   wordNoun: string
   leaderQualification: WeightRecord<string>
   alliesList: WeightRecord<string>
-  rivalsList: string[]
+  rivalsList: WeightRecord<string>
   joiningRequirement: string[]
   joiningInitiation: string[]
   members: Members
@@ -61,17 +61,12 @@ export const factionData: FactionData = {
         hitmen: 2,
         nobles: 4
       },
-      rivalsList: [
-        'nobles',
-        'commoners',
-        'bandits',
-        'bandits',
-        'bandits',
-        'bandits',
-        'assassins',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        nobles: 1,
+        commoners: 1,
+        bandits: 4,
+        assassins: 3
+      },
       joiningRequirement: [
         'a display of skill',
         'a display of skill',
@@ -220,13 +215,10 @@ export const factionData: FactionData = {
         urchins: 3,
         bandits: 3
       },
-      rivalsList: [
-        'scholars',
-        'scholars',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries'
-      ],
+      rivalsList: {
+        scholars: 2,
+        mercenaries: 3
+      },
       joiningRequirement: [
         'referral by an existing member',
         'referral by several members',
@@ -347,21 +339,11 @@ export const factionData: FactionData = {
         hitmen: 4,
         urchins: 2
       },
-      rivalsList: [
-        'commoners',
-        'commoners',
-        'commoners',
-        'commoners',
-        'commoners',
-        'bandits',
-        'bandits',
-        'bandits',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries'
-      ],
+      rivalsList: {
+        commoners: 5,
+        bandits: 3,
+        mercenaries: 5
+      },
       joiningRequirement: [
         'referral by an existing member',
         'referral by several members',
@@ -513,7 +495,9 @@ export const factionData: FactionData = {
         urchins: 2,
         nobles: 3
       },
-      rivalsList: ['bandits', 'bandits', 'bandits', 'bandits'],
+      rivalsList: {
+        bandits: 4
+      },
       joiningRequirement: [
         'a display of skill',
         'a display of skill',
@@ -653,7 +637,12 @@ export const factionData: FactionData = {
         artisans: 1,
         seers: 1
       },
-      rivalsList: ['assassins', 'bards', 'thieves', 'commoners'],
+      rivalsList: {
+        assassins: 1,
+        bards: 1,
+        thieves: 1,
+        commoners: 1
+      },
       joiningRequirement: [
         'holy deeds',
         'a show of faith',
@@ -735,7 +724,10 @@ export const factionData: FactionData = {
         seers: 1,
         commoners: 3
       },
-      rivalsList: ['commoners', 'commoners', 'bandits', 'bandits', 'bandits'],
+      rivalsList: {
+        commoners: 2,
+        bandits: 3
+      },
       joiningRequirement: [
         'some social status',
         'a display of skill',
@@ -864,7 +856,10 @@ export const factionData: FactionData = {
         bards: 1,
         rangers: 1
       },
-      rivalsList: ['assassins', 'wizards'],
+      rivalsList: {
+        assassins: 1,
+        wizards: 1
+      },
       joiningRequirement: ['become a druid', 'give up all worldly possessions'],
       joiningInitiation: ['fight a bear with your bare hands'],
       members: {
@@ -914,15 +909,12 @@ export const factionData: FactionData = {
         artisans: 2,
         craftsmen: 2
       },
-      rivalsList: [
-        'wizards',
-        'assassins',
-        'commoners',
-        'commoners',
-        'priests',
-        'commoners',
-        'assassins'
-      ],
+      rivalsList: {
+        wizards: 1,
+        assassins: 2,
+        commoners: 3,
+        priests: 1
+      },
       joiningRequirement: [
         'familial ties to their home country',
         'an expressed desire for citizenship',
@@ -992,15 +984,10 @@ export const factionData: FactionData = {
         nobles: 4,
         bandits: 3
       },
-      rivalsList: [
-        'bandits',
-        'bandits',
-        'bandits',
-        'assassins',
-        'assassins',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        bandits: 3,
+        assassins: 4
+      },
       joiningRequirement: [
         'some social status',
         'referral by an existing member',
@@ -1167,15 +1154,11 @@ export const factionData: FactionData = {
         craftsmen: 4,
         commoners: 2
       },
-      rivalsList: [
-        'commoners',
-        'commoners',
-        'priests',
-        'priests',
-        'assassins',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        commoners: 2,
+        priests: 2,
+        assassins: 3
+      },
       joiningRequirement: [
         'some social status',
         'an excellent reputation',
@@ -1298,15 +1281,10 @@ export const factionData: FactionData = {
         nobles: 4,
         bandits: 3
       },
-      rivalsList: [
-        'bandits',
-        'bandits',
-        'bandits',
-        'assassins',
-        'assassins',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        bandits: 3,
+        assassins: 4
+      },
       joiningRequirement: [
         'some social status',
         'referral by an existing member',
@@ -1473,14 +1451,11 @@ export const factionData: FactionData = {
         priests: 4,
         artisans: 2
       },
-      rivalsList: [
-        'artisans',
-        'priests',
-        'priests',
-        'bandits',
-        'bandits',
-        'bandits'
-      ],
+      rivalsList: {
+        artisans: 1,
+        priests: 2,
+        bandits: 3
+      },
       joiningRequirement: [
         'some social status',
         'referral by an existing member',
@@ -1574,21 +1549,11 @@ export const factionData: FactionData = {
         hitmen: 4,
         seers: 3
       },
-      rivalsList: [
-        'commoners',
-        'commoners',
-        'commoners',
-        'commoners',
-        'commoners',
-        'bandits',
-        'bandits',
-        'bandits',
-        'bandits',
-        'assassins',
-        'assassins',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        commoners: 5,
+        bandits: 4,
+        assassins: 4
+      },
       joiningRequirement: [
         'some social status',
         'some social status',
@@ -1709,7 +1674,10 @@ export const factionData: FactionData = {
         nobles: 3,
         artisans: 2
       },
-      rivalsList: ['artisans', 'bandits', 'bandits', 'bandits', 'bandits'],
+      rivalsList: {
+        artisans: 1,
+        bandits: 4
+      },
       joiningRequirement: [
         'some social status',
         'referral by an existing member',
@@ -1857,15 +1825,10 @@ export const factionData: FactionData = {
         nobles: 2,
         seers: 2
       },
-      rivalsList: [
-        'bandits',
-        'bandits',
-        'bandits',
-        'bandits',
-        'mercenaries',
-        'mercenaries',
-        'mercenaries'
-      ],
+      rivalsList: {
+        bandits: 4,
+        mercenaries: 3
+      },
       joiningRequirement: [
         'some social status',
         'referral by an existing member',
@@ -1980,19 +1943,13 @@ export const factionData: FactionData = {
         artisans: 2,
         seers: 1
       },
-      rivalsList: [
-        'seers',
-        'priests',
-        'priests',
-        'priests',
-        'commoners',
-        'bandits',
-        'bandits',
-        'bandits',
-        'assassins',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        seers: 1,
+        priests: 3,
+        commoners: 1,
+        bandits: 3,
+        assassins: 3
+      },
       joiningRequirement: [
         'some social status',
         'a display of skill',
@@ -2144,7 +2101,9 @@ export const factionData: FactionData = {
         priests: 4,
         nobles: 4
       },
-      rivalsList: ['scholars', 'scholars', 'scholars', 'scholars'],
+      rivalsList: {
+        scholars: 4
+      },
       joiningRequirement: [
         'some social status',
         'a display of skill',
@@ -2264,15 +2223,10 @@ export const factionData: FactionData = {
         assassins: 2,
         bandits: 3
       },
-      rivalsList: [
-        'priests',
-        'priests',
-        'priests',
-        'commoners',
-        'commoners',
-        'commoners',
-        'commoners'
-      ],
+      rivalsList: {
+        priests: 3,
+        commoners: 4
+      },
       joiningRequirement: [
         'referral by an existing member',
         'referral by several members',
@@ -2420,15 +2374,11 @@ export const factionData: FactionData = {
         artisans: 2,
         seers: 1
       },
-      rivalsList: [
-        'seers',
-        'priests',
-        'priests',
-        'priests',
-        'priests',
-        'assassins',
-        'assassins'
-      ],
+      rivalsList: {
+        seers: 1,
+        priests: 4,
+        assassins: 2
+      },
       joiningRequirement: [
         'some social status',
         'a display of skill',
