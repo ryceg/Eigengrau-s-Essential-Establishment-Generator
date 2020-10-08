@@ -1,4 +1,4 @@
-setup.createNPC = function (town, base) {
+setup.createNPC = (town, base) => {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
@@ -32,8 +32,8 @@ setup.createNPC = function (town, base) {
   console.log('Fetching profession.')
   const profession = base.profession || lib.fetchProfessionChance(town, base)
 
-  const firstName = base.firstName || lib.raceTraits[race].genderTraits[gender].firstName.random().toUpperFirst()
-  const lastName = base.lastName || lib.raceTraits[race].lastName.random().toUpperFirst()
+  const firstName = base.firstName || getFirstName(race, gender)
+  const lastName = base.lastName || getLastName(race)
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
   let dndClass
@@ -224,6 +224,21 @@ setup.createNPC = function (town, base) {
   console.log(npc)
   console.groupEnd()
   return npc
+}
+
+/**
+ * @param {import("../../lib/index").RaceName} race
+ */
+function getLastName (race) {
+  return lib.random(lib.raceTraits[race].lastName).toUpperFirst()
+}
+
+/**
+ * @param {import("../../lib/index").RaceName} race
+ * @param {import("../../lib/index").GenderName} gender
+ */
+function getFirstName (race, gender) {
+  return lib.random(lib.raceTraits[race].genderTraits[gender].firstName).toUpperFirst()
 }
 
 /**
