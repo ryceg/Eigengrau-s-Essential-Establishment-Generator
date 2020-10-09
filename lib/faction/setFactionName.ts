@@ -11,12 +11,12 @@ export function setFactionName (town: Town, faction: Faction): void {
   const data = factionData.type[faction.type]
 
   const name = random([
-    `The ${random(data.group)} of ${random(data.adjective)} ${random(data.main)}`,
-    `The ${random(data.group)} of ${random(data.main)}`,
-    `The ${random(data.adjective)} ${random(data.group)}`,
-    `The ${random(data.main)} of ${town.name}`,
-    `The ${town.name} ${random(data.main)}`,
-    random(data.unique)
+    `The ${random(data.names.group)} of ${random(data.names.adjective)} ${random(data.names.main)}`,
+    `The ${random(data.names.group)} of ${random(data.names.main)}`,
+    `The ${random(data.names.adjective)} ${random(data.names.group)}`,
+    `The ${random(data.names.main)} of ${town.name}`,
+    `The ${town.name} ${random(data.names.main)}`,
+    random(data.names.unique)
   ])
 
   console.log(`Named the ${faction.type} ${name}`)

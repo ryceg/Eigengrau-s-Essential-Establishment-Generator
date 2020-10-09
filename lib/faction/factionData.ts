@@ -14,10 +14,12 @@ interface FactionType {
   joiningInitiation: WeightRecord<string>
   members: Members
   membersTrait: WeightRecord<string>
-  main: string[]
-  adjective: string[]
-  group: string[]
-  unique: string[]
+  names: {
+    main: string[]
+    adjective: string[]
+    group: string[]
+    unique: string[]
+  }
   motivation: WeightRecord<string>
   resources: WeightRecord<string>
 }
@@ -131,37 +133,39 @@ export const factionData: FactionData = {
         'their lust for fame': 1,
         'their pride': 1
       },
-      main: [
-        'Creators',
-        'Visionaries',
-        'Artisans',
-        'Artists'
-      ],
-      adjective: [
-        'Creative',
-        'Inspired',
-        'Bohemian',
-        'Unpaid',
-        'God-Touched'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'The Cubists',
-        'The Impressionables',
-        'The Impressionists',
-        'The Romanticists',
-        'The Dirty Paintings',
-        'The Dirty Painters',
-        'The Dirty Paint Club'
-      ],
+      names: {
+        main: [
+          'Creators',
+          'Visionaries',
+          'Artisans',
+          'Artists'
+        ],
+        adjective: [
+          'Creative',
+          'Inspired',
+          'Bohemian',
+          'Unpaid',
+          'God-Touched'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'The Cubists',
+          'The Impressionables',
+          'The Impressionists',
+          'The Romanticists',
+          'The Dirty Paintings',
+          'The Dirty Painters',
+          'The Dirty Paint Club'
+        ]
+      },
       motivation: {
         money: 5,
         fame: 3,
@@ -238,45 +242,47 @@ export const factionData: FactionData = {
         'their tendency to blink quickly': 1,
         'their quick tempers': 1
       },
-      main: [
-        'Dagger',
-        'Knife',
-        'Executioners',
-        'Hangmen',
-        'Hitmen',
-        'Killers',
-        'Doctors'
-      ],
-      adjective: [
-        'Cunning',
-        'Discreet',
-        'Quiet',
-        'Bloody',
-        'Rusted',
-        'Poisoned',
-        'Defiled'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'Dead Is Dead',
-        'The Killers',
-        'The Slayers',
-        'The Big Game Players',
-        'The Blood Club',
-        'The League of Silence',
-        'The Silencers',
-        'The Whispers',
-        'The Shadow Faction',
-        'Shadowfront'
-      ],
+      names: {
+        main: [
+          'Dagger',
+          'Knife',
+          'Executioners',
+          'Hangmen',
+          'Hitmen',
+          'Killers',
+          'Doctors'
+        ],
+        adjective: [
+          'Cunning',
+          'Discreet',
+          'Quiet',
+          'Bloody',
+          'Rusted',
+          'Poisoned',
+          'Defiled'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'Dead Is Dead',
+          'The Killers',
+          'The Slayers',
+          'The Big Game Players',
+          'The Blood Club',
+          'The League of Silence',
+          'The Silencers',
+          'The Whispers',
+          'The Shadow Faction',
+          'Shadowfront'
+        ]
+      },
       motivation: {
         money: 3,
         fame: 1,
@@ -359,61 +365,63 @@ export const factionData: FactionData = {
         'following any order given to them': 1,
         'fighting to the death': 1
       },
-      main: [
-        'Ravens',
-        'Crows',
-        'Jackals',
-        'Flesh',
-        'Knife',
-        'Club',
-        'Axe',
-        'Sword',
-        'Vultures',
-        'Dingoes',
-        'Tigers'
-      ],
-      adjective: [
-        'Cutthroat',
-        'Backstabbing',
-        'Two Timing',
-        'Orphaned',
-        'Dead',
-        'Brutal',
-        'Bleeding',
-        'Bloodied',
-        'Razor',
-        'Serrated'
-      ],
-      group: [
-        'Gang',
-        'Sons',
-        'Clan',
-        'Vassals'
-      ],
-      unique: [
-        'Tunnel Snakes',
-        'Moonrunners',
-        'The Orphans',
-        'Turnbull ACs',
-        'VanCortlandt Rangers',
-        'The Destroyers',
-        'The Jones Street Boys',
-        'Saracens',
-        "Satan's Mothers",
-        'The Warriors',
-        'Baseball Furies',
-        'Boppers',
-        'Electric Eliminators',
-        'Gramercy Riffs',
-        'Hi-Hats',
-        'Hurricanes',
-        'Lizzies',
-        'Panzers',
-        'Punks',
-        'Rogues',
-        'Savage Huns',
-        'The VanBuren Boys'
-      ],
+      names: {
+        main: [
+          'Ravens',
+          'Crows',
+          'Jackals',
+          'Flesh',
+          'Knife',
+          'Club',
+          'Axe',
+          'Sword',
+          'Vultures',
+          'Dingoes',
+          'Tigers'
+        ],
+        adjective: [
+          'Cutthroat',
+          'Backstabbing',
+          'Two Timing',
+          'Orphaned',
+          'Dead',
+          'Brutal',
+          'Bleeding',
+          'Bloodied',
+          'Razor',
+          'Serrated'
+        ],
+        group: [
+          'Gang',
+          'Sons',
+          'Clan',
+          'Vassals'
+        ],
+        unique: [
+          'Tunnel Snakes',
+          'Moonrunners',
+          'The Orphans',
+          'Turnbull ACs',
+          'VanCortlandt Rangers',
+          'The Destroyers',
+          'The Jones Street Boys',
+          'Saracens',
+          "Satan's Mothers",
+          'The Warriors',
+          'Baseball Furies',
+          'Boppers',
+          'Electric Eliminators',
+          'Gramercy Riffs',
+          'Hi-Hats',
+          'Hurricanes',
+          'Lizzies',
+          'Panzers',
+          'Punks',
+          'Rogues',
+          'Savage Huns',
+          'The VanBuren Boys'
+        ]
+      },
       motivation: {
         money: 3,
         fame: 1,
@@ -496,47 +504,49 @@ export const factionData: FactionData = {
         'their use of tritone substitution and negative harmony': 1,
         'their stochastically generated microtonal four-voice fugues': 1
       },
-      main: [
-        'Rehearsals',
-        'Musicians',
-        'Bards',
-        'Harmonies',
-        'Poems',
-        'Ballads',
-        'Arias',
-        'Lutes',
-        'Minstrels'
-      ],
-      adjective: [
-        'Tuneful',
-        'Melodious',
-        'Inspired',
-        'Twelve Tone',
-        'Busking'
-      ],
-      group: [
-        'Symphony',
-        'Quartet',
-        'Ensemble',
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'Copperback',
-        'The Tumbling Pebbles',
-        'King',
-        'Megabeggars',
-        'The Wu Tang Clang',
-        'Earth, Wind and Shire',
-        'Iron Wench',
-        'Sex Crossbows',
-        'Def leprechaun'
-      ],
+      names: {
+        main: [
+          'Rehearsals',
+          'Musicians',
+          'Bards',
+          'Harmonies',
+          'Poems',
+          'Ballads',
+          'Arias',
+          'Lutes',
+          'Minstrels'
+        ],
+        adjective: [
+          'Tuneful',
+          'Melodious',
+          'Inspired',
+          'Twelve Tone',
+          'Busking'
+        ],
+        group: [
+          'Symphony',
+          'Quartet',
+          'Ensemble',
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'Copperback',
+          'The Tumbling Pebbles',
+          'King',
+          'Megabeggars',
+          'The Wu Tang Clang',
+          'Earth, Wind and Shire',
+          'Iron Wench',
+          'Sex Crossbows',
+          'Def leprechaun'
+        ]
+      },
       motivation: {
         money: 3,
         fame: 5,
@@ -620,31 +630,33 @@ export const factionData: FactionData = {
         'amulets with a holy sigil': 1,
         'the ring that members are given': 1
       },
-      main: [
-        'Mother',
-        'Father',
-        'Lord'
-      ],
-      adjective: [
-        'Heavenly',
-        'Merciful',
-        'Holy',
-        'Righteous',
-        'Saintly'
-      ],
-      group: [
-        'Church',
-        'Convent',
-        'Congregation',
-        'Clergy'
-      ],
-      unique: [
-        "The Lord's Chosen",
-        'The Greater Good',
-        'The Greatest Good',
-        'The Convent',
-        'The Clergy'
-      ],
+      names: {
+        main: [
+          'Mother',
+          'Father',
+          'Lord'
+        ],
+        adjective: [
+          'Heavenly',
+          'Merciful',
+          'Holy',
+          'Righteous',
+          'Saintly'
+        ],
+        group: [
+          'Church',
+          'Convent',
+          'Congregation',
+          'Clergy'
+        ],
+        unique: [
+          "The Lord's Chosen",
+          'The Greater Good',
+          'The Greatest Good',
+          'The Convent',
+          'The Clergy'
+        ]
+      },
       motivation: {
         devotion: 3,
         power: 1,
@@ -738,36 +750,38 @@ export const factionData: FactionData = {
         'their lust for fame': 1,
         'their pride': 1
       },
-      main: [
-        'Creators',
-        'Visionaries',
-        'Crafters',
-        'Craftsmen'
-      ],
-      adjective: [
-        'Creative',
-        'Inspired',
-        'Bohemian',
-        'Unpaid',
-        'God-Touched'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order',
-        'Workshop',
-        'Factory'
-      ],
-      unique: [
-        'The Clicks of the Spring',
-        'The Offerman Order',
-        'The Blessed Workshop',
-        'The Factory'
-      ],
+      names: {
+        main: [
+          'Creators',
+          'Visionaries',
+          'Crafters',
+          'Craftsmen'
+        ],
+        adjective: [
+          'Creative',
+          'Inspired',
+          'Bohemian',
+          'Unpaid',
+          'God-Touched'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order',
+          'Workshop',
+          'Factory'
+        ],
+        unique: [
+          'The Clicks of the Spring',
+          'The Offerman Order',
+          'The Blessed Workshop',
+          'The Factory'
+        ]
+      },
       motivation: {
         money: 5,
         fame: 1,
@@ -825,28 +839,30 @@ export const factionData: FactionData = {
       membersTrait: {
         'brown and dirty robes': 1
       },
-      main: [
-        'Green',
-        'Wild',
-        'Forest',
-        'Stream',
-        'Sky'
-      ],
-      adjective: [
-        'Holy',
-        'Great',
-        'Wide',
-        'Open'
-      ],
-      group: [
-        'Coven',
-        'Circle',
-        'Tribe',
-        'Grove'
-      ],
-      unique: [
-        'Circle of the Green'
-      ],
+      names: {
+        main: [
+          'Green',
+          'Wild',
+          'Forest',
+          'Stream',
+          'Sky'
+        ],
+        adjective: [
+          'Holy',
+          'Great',
+          'Wide',
+          'Open'
+        ],
+        group: [
+          'Coven',
+          'Circle',
+          'Tribe',
+          'Grove'
+        ],
+        unique: [
+          'Circle of the Green'
+        ]
+      },
       motivation: {
         'peace': 1,
         'growth of nature': 1,
@@ -920,32 +936,34 @@ export const factionData: FactionData = {
         'their large earrings': 1,
         'their gaudy jewelry': 1
       },
-      main: [
-        'Peoples',
-        'Citizens',
-        'Lords',
-        'Peoples'
-      ],
-      adjective: [
-        'Foreign',
-        'Distant',
-        'External',
-        'Alien',
-        'Foreign'
-      ],
-      group: [
-        'Embassy',
-        'Embassy',
-        'Embassy',
-        'Consulate',
-        'Legation',
-        'Ministry',
-        'Diplomatic Mission'
-      ],
-      unique: [
-        "Citizen's Permanent Mission",
-        'Alien Consulate General'
-      ],
+      names: {
+        main: [
+          'Peoples',
+          'Citizens',
+          'Lords',
+          'Peoples'
+        ],
+        adjective: [
+          'Foreign',
+          'Distant',
+          'External',
+          'Alien',
+          'Foreign'
+        ],
+        group: [
+          'Embassy',
+          'Embassy',
+          'Embassy',
+          'Consulate',
+          'Legation',
+          'Ministry',
+          'Diplomatic Mission'
+        ],
+        unique: [
+          "Citizen's Permanent Mission",
+          'Alien Consulate General'
+        ]
+      },
       motivation: {
         'power': 1,
         'peace': 1,
@@ -1029,74 +1047,76 @@ export const factionData: FactionData = {
         'following any order given to them': 1,
         'fighting to the death': 1
       },
-      main: [
-        'Hand',
-        'Fist',
-        'Gauntlet',
-        'Glove',
-        'Hammer',
-        'Shield',
-        'Cloak',
-        'Dagger',
-        'Mace',
-        'Sword'
-      ],
-      adjective: [
-        'Black',
-        'White',
-        'Shining',
-        'Just',
-        'Tall',
-        'Impenetrable',
-        'Unbreakable',
-        'Brass',
-        'Bronze',
-        'Blue',
-        'Strong',
-        'Mighty'
-      ],
-      group: [
-        'Axemen',
-        'Swordsmen',
-        'Pikesmen',
-        'Squad',
-        'Battalion',
-        'Battlesquad',
-        'Fighters'
-      ],
-      unique: [
-        'The Steel Hydras',
-        'The Silver Hippogryphs',
-        'The Black Glove of Anubis',
-        "Hera's Tears",
-        'The Rabid Possums',
-        'Macguffins, Ltd.',
-        'The Wayfaring Strangers',
-        'Valiant, Inc.',
-        'Blood of the Gordon',
-        'The Green Hand',
-        'The Tomb Raiders',
-        'The Order of the Obsidian Flame',
-        "The King's Ransom",
-        'The Golden Guardians',
-        'Dragonfire, Inc.',
-        'Path of the Righteous Man',
-        'Hellraisers for Hire',
-        'Band of the Crimson Lion',
-        'Company of Champions',
-        'The Covenant of the Shield',
-        'Crusaders of the Everlasting Chalice',
-        'The Iron Fang',
-        'The Sapphire Guard',
-        'The Azure Guild',
-        'Goblincleavers',
-        'The Redcrest Five',
-        'Necessary Chaotic Neutral',
-        'Magic Item and Artifact Retrieval Specialists',
-        'The Dungeon Delvers',
-        'Brave Crusaders',
-        'Daring Champions'
-      ],
+      names: {
+        main: [
+          'Hand',
+          'Fist',
+          'Gauntlet',
+          'Glove',
+          'Hammer',
+          'Shield',
+          'Cloak',
+          'Dagger',
+          'Mace',
+          'Sword'
+        ],
+        adjective: [
+          'Black',
+          'White',
+          'Shining',
+          'Just',
+          'Tall',
+          'Impenetrable',
+          'Unbreakable',
+          'Brass',
+          'Bronze',
+          'Blue',
+          'Strong',
+          'Mighty'
+        ],
+        group: [
+          'Axemen',
+          'Swordsmen',
+          'Pikesmen',
+          'Squad',
+          'Battalion',
+          'Battlesquad',
+          'Fighters'
+        ],
+        unique: [
+          'The Steel Hydras',
+          'The Silver Hippogryphs',
+          'The Black Glove of Anubis',
+          "Hera's Tears",
+          'The Rabid Possums',
+          'Macguffins, Ltd.',
+          'The Wayfaring Strangers',
+          'Valiant, Inc.',
+          'Blood of the Gordon',
+          'The Green Hand',
+          'The Tomb Raiders',
+          'The Order of the Obsidian Flame',
+          "The King's Ransom",
+          'The Golden Guardians',
+          'Dragonfire, Inc.',
+          'Path of the Righteous Man',
+          'Hellraisers for Hire',
+          'Band of the Crimson Lion',
+          'Company of Champions',
+          'The Covenant of the Shield',
+          'Crusaders of the Everlasting Chalice',
+          'The Iron Fang',
+          'The Sapphire Guard',
+          'The Azure Guild',
+          'Goblincleavers',
+          'The Redcrest Five',
+          'Necessary Chaotic Neutral',
+          'Magic Item and Artifact Retrieval Specialists',
+          'The Dungeon Delvers',
+          'Brave Crusaders',
+          'Daring Champions'
+        ]
+      },
       motivation: {
         money: 6,
         fame: 1,
@@ -1182,40 +1202,42 @@ export const factionData: FactionData = {
         'their gaudy jewelry': 1,
         'the fact that a member is always closely followed by a boy carrying a chest': 1
       },
-      main: [
-        'Merchants',
-        'Company',
-        'Sellers and Buyers',
-        'Traders',
-        'Dealers',
-        'Brokers',
-        'Pedlars',
-        'Hawkers',
-        'Distributors'
-      ],
-      adjective: [
-        'Shrewd',
-        'Thrifty',
-        'Golden Spoon',
-        'Rich',
-        'Miserly'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'Amazang',
-        'Goodest Purchase',
-        'Nasduq Traders',
-        'Fence Street Bets',
-        'Personal Financers'
-      ],
+      names: {
+        main: [
+          'Merchants',
+          'Company',
+          'Sellers and Buyers',
+          'Traders',
+          'Dealers',
+          'Brokers',
+          'Pedlars',
+          'Hawkers',
+          'Distributors'
+        ],
+        adjective: [
+          'Shrewd',
+          'Thrifty',
+          'Golden Spoon',
+          'Rich',
+          'Miserly'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'Amazang',
+          'Goodest Purchase',
+          'Nasduq Traders',
+          'Fence Street Bets',
+          'Personal Financers'
+        ]
+      },
       motivation: {
         money: 5,
         power: 1,
@@ -1302,75 +1324,77 @@ export const factionData: FactionData = {
         'following any order given to them': 1,
         'fighting to the death': 1
       },
-      main: [
-        'Hand',
-        'Fist',
-        'Gauntlet',
-        'Glove',
-        'Hammer',
-        'Shield',
-        'Cloak',
-        'Dagger',
-        'Mace',
-        'Sword'
-      ],
-      adjective: [
-        'Black',
-        'White',
-        'Shining',
-        'Just',
-        'Tall',
-        'Impenetrable',
-        'Unbreakable',
-        'Brass',
-        'Bronze',
-        'Blue',
-        'Strong',
-        'Mighty',
-        'Death'
-      ],
-      group: [
-        'Axemen',
-        'Swordsmen',
-        'Pikesmen',
-        'Squad',
-        'Battalion',
-        'Battlesquad',
-        'Fighters'
-      ],
-      unique: [
-        'The Steel Hydras',
-        'The Silver Hippogryphs',
-        'The Black Glove of Anubis',
-        "Hera's Tears",
-        'The Rabid Possums',
-        'Macguffins, Ltd.',
-        'The Wayfaring Strangers',
-        'Valiant, Inc.',
-        'Blood of the Gordon',
-        'The Green Hand',
-        'The Tomb Raiders',
-        'The Order of the Obsidian Flame',
-        "The King's Ransom",
-        'The Golden Guardians',
-        'Dragonfire, Inc.',
-        'Path of the Righteous Man',
-        'Hellraisers for Hire',
-        'Band of the Crimson Lion',
-        'Company of Champions',
-        'The Covenant of the Shield',
-        'Crusaders of the Everlasting Chalice',
-        'The Iron Fang',
-        'The Sapphire Guard',
-        'The Azure Guild',
-        'Goblincleavers',
-        'The Redcrest Five',
-        'Necessary Chaotic Neutral',
-        'Magic Item and Artifact Retrieval Specialists',
-        'The Dungeon Delvers',
-        'Brave Crusaders',
-        'Daring Champions'
-      ],
+      names: {
+        main: [
+          'Hand',
+          'Fist',
+          'Gauntlet',
+          'Glove',
+          'Hammer',
+          'Shield',
+          'Cloak',
+          'Dagger',
+          'Mace',
+          'Sword'
+        ],
+        adjective: [
+          'Black',
+          'White',
+          'Shining',
+          'Just',
+          'Tall',
+          'Impenetrable',
+          'Unbreakable',
+          'Brass',
+          'Bronze',
+          'Blue',
+          'Strong',
+          'Mighty',
+          'Death'
+        ],
+        group: [
+          'Axemen',
+          'Swordsmen',
+          'Pikesmen',
+          'Squad',
+          'Battalion',
+          'Battlesquad',
+          'Fighters'
+        ],
+        unique: [
+          'The Steel Hydras',
+          'The Silver Hippogryphs',
+          'The Black Glove of Anubis',
+          "Hera's Tears",
+          'The Rabid Possums',
+          'Macguffins, Ltd.',
+          'The Wayfaring Strangers',
+          'Valiant, Inc.',
+          'Blood of the Gordon',
+          'The Green Hand',
+          'The Tomb Raiders',
+          'The Order of the Obsidian Flame',
+          "The King's Ransom",
+          'The Golden Guardians',
+          'Dragonfire, Inc.',
+          'Path of the Righteous Man',
+          'Hellraisers for Hire',
+          'Band of the Crimson Lion',
+          'Company of Champions',
+          'The Covenant of the Shield',
+          'Crusaders of the Everlasting Chalice',
+          'The Iron Fang',
+          'The Sapphire Guard',
+          'The Azure Guild',
+          'Goblincleavers',
+          'The Redcrest Five',
+          'Necessary Chaotic Neutral',
+          'Magic Item and Artifact Retrieval Specialists',
+          'The Dungeon Delvers',
+          'Brave Crusaders',
+          'Daring Champions'
+        ]
+      },
       motivation: {
         money: 6,
         fame: 1,
@@ -1443,32 +1467,34 @@ export const factionData: FactionData = {
         'their amazing beer': 1,
         'the tankard that all members carry': 1
       },
-      main: [
-        'Monks',
-        'Robes',
-        'Stone',
-        'Rock'
-      ],
-      adjective: [
-        'Understanding',
-        'Meditating',
-        'Calm',
-        'Unmoving'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'Ommmm',
-        'The Holy Loincloth',
-        'The Purposely Unwashed'
-      ],
+      names: {
+        main: [
+          'Monks',
+          'Robes',
+          'Stone',
+          'Rock'
+        ],
+        adjective: [
+          'Understanding',
+          'Meditating',
+          'Calm',
+          'Unmoving'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'Ommmm',
+          'The Holy Loincloth',
+          'The Purposely Unwashed'
+        ]
+      },
       motivation: {
         money: 3,
         knowledge: 2,
@@ -1536,40 +1562,42 @@ export const factionData: FactionData = {
         'their lust for fame': 1,
         'their pride': 1
       },
-      main: [
-        'Ladies',
-        'People',
-        'Men',
-        'Lords',
-        'Heirs',
-        'Land Owners',
-        'Barons',
-        'Tycoons',
-        'Nobles',
-        'Gentlemen'
-      ],
-      adjective: [
-        'Sophisticated',
-        'Intelligent',
-        'Refined',
-        'Cultured',
-        'Wealthy',
-        'Distinguished'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'Dinner Club',
-        'League',
-        'Club'
-      ],
-      unique: [
-        'The People Hunters',
-        'The Fur Coat Enthusiasts',
-        'The Heir Apparents',
-        'The Dead Parents Club',
-        'The High Horse'
-      ],
+      names: {
+        main: [
+          'Ladies',
+          'People',
+          'Men',
+          'Lords',
+          'Heirs',
+          'Land Owners',
+          'Barons',
+          'Tycoons',
+          'Nobles',
+          'Gentlemen'
+        ],
+        adjective: [
+          'Sophisticated',
+          'Intelligent',
+          'Refined',
+          'Cultured',
+          'Wealthy',
+          'Distinguished'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'Dinner Club',
+          'League',
+          'Club'
+        ],
+        unique: [
+          'The People Hunters',
+          'The Fur Coat Enthusiasts',
+          'The Heir Apparents',
+          'The Dead Parents Club',
+          'The High Horse'
+        ]
+      },
       motivation: {
         money: 3,
         fame: 1,
@@ -1662,44 +1690,46 @@ export const factionData: FactionData = {
         'the grey robes they wear': 1,
         'the amulet they wear': 1
       },
-      main: [
-        'Priests',
-        'Clergy',
-        'Churchpeople',
-        'People of the Cloth',
-        'Robes',
-        'Incense',
-        'Elders',
-        'Preachers'
-      ],
-      adjective: [
-        'Holy',
-        'Faithful',
-        'Caring',
-        'Civil',
-        'Devout',
-        'Devoted',
-        'Compassionate'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Servants',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Brotherhood',
-        'Priesthood',
-        'Order'
-      ],
-      unique: [
-        'Definitely Not A Tax Haven',
-        'Repent Now',
-        'The Church of the Real God Unlike Those Fake Gods',
-        'The Church of the Real God',
-        'The Gods'
-      ],
+      names: {
+        main: [
+          'Priests',
+          'Clergy',
+          'Churchpeople',
+          'People of the Cloth',
+          'Robes',
+          'Incense',
+          'Elders',
+          'Preachers'
+        ],
+        adjective: [
+          'Holy',
+          'Faithful',
+          'Caring',
+          'Civil',
+          'Devout',
+          'Devoted',
+          'Compassionate'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Servants',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Brotherhood',
+          'Priesthood',
+          'Order'
+        ],
+        unique: [
+          'Definitely Not A Tax Haven',
+          'Repent Now',
+          'The Church of the Real God Unlike Those Fake Gods',
+          'The Church of the Real God',
+          'The Gods'
+        ]
+      },
       motivation: {
         money: 3,
         knowledge: 2,
@@ -1776,40 +1806,42 @@ export const factionData: FactionData = {
         'their terrible smell': 1,
         'the lack of footwear': 1
       },
-      main: [
-        'Wilderness',
-        'Woods',
-        'Lands',
-        'Forests',
-        'Trees',
-        'Animals'
-      ],
-      adjective: [
-        'Tree Loving',
-        'Padfoot',
-        'Barefoot',
-        'Protective',
-        'Watchful',
-        'Careful',
-        'Honest'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order',
-        'Protectors',
-        'Defenders',
-        'Conservationists',
-        'Guardians'
-      ],
-      unique: [
-        'Feathers, Fur and Friends',
-        'Boy Scouts',
-        'Primitive Technologists'
-      ],
+      names: {
+        main: [
+          'Wilderness',
+          'Woods',
+          'Lands',
+          'Forests',
+          'Trees',
+          'Animals'
+        ],
+        adjective: [
+          'Tree Loving',
+          'Padfoot',
+          'Barefoot',
+          'Protective',
+          'Watchful',
+          'Careful',
+          'Honest'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order',
+          'Protectors',
+          'Defenders',
+          'Conservationists',
+          'Guardians'
+        ],
+        unique: [
+          'Feathers, Fur and Friends',
+          'Boy Scouts',
+          'Primitive Technologists'
+        ]
+      },
       motivation: {
         money: 1,
         knowledge: 3,
@@ -1908,45 +1940,47 @@ export const factionData: FactionData = {
         'their lust for fame': 1,
         'their pride': 1
       },
-      main: [
-        'Scroll Keepers',
-        'Book Keepers',
-        'Collectors',
-        'Librarians',
-        'Knowledge Holders',
-        'Proof Readers',
-        'Academics'
-      ],
-      adjective: [
-        'Scholarly',
-        'Indentured',
-        'Absent Minded',
-        'Knowledgeable',
-        'Intelligent',
-        'Unknown',
-        'Eldritch',
-        'Memorized',
-        'Cited'
-      ],
-      group: [
-        'Society',
-        'Candidates',
-        'Academy',
-        'University',
-        'Club',
-        'Scholarly Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'Citation Needed',
-        'Indentured Candidates',
-        'The Cultists of Weekee',
-        'Encyclopaedia Uninformatica'
-      ],
+      names: {
+        main: [
+          'Scroll Keepers',
+          'Book Keepers',
+          'Collectors',
+          'Librarians',
+          'Knowledge Holders',
+          'Proof Readers',
+          'Academics'
+        ],
+        adjective: [
+          'Scholarly',
+          'Indentured',
+          'Absent Minded',
+          'Knowledgeable',
+          'Intelligent',
+          'Unknown',
+          'Eldritch',
+          'Memorized',
+          'Cited'
+        ],
+        group: [
+          'Society',
+          'Candidates',
+          'Academy',
+          'University',
+          'Club',
+          'Scholarly Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'Citation Needed',
+          'Indentured Candidates',
+          'The Cultists of Weekee',
+          'Encyclopaedia Uninformatica'
+        ]
+      },
       motivation: {
         money: 2,
         fame: 3,
@@ -2034,33 +2068,35 @@ export const factionData: FactionData = {
         'the plain robes they wear': 1,
         'the bright blue coloured sashes they wear': 1
       },
-      main: [
-        'Seers',
-        'Predictionists',
-        'Future Seers',
-        'Observers',
-        'Eyes',
-        'Historians'
-      ],
-      adjective: [
-        'All Seeing',
-        'All Knowing',
-        'Watchful',
-        'Future'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'We Looked Into The Future To Find Our Name And This Was The Name So I Guess This Is The Name',
-        'Seers of the Obscene',
-        'Seers of the Scenic'
-      ],
+      names: {
+        main: [
+          'Seers',
+          'Predictionists',
+          'Future Seers',
+          'Observers',
+          'Eyes',
+          'Historians'
+        ],
+        adjective: [
+          'All Seeing',
+          'All Knowing',
+          'Watchful',
+          'Future'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'We Looked Into The Future To Find Our Name And This Was The Name So I Guess This Is The Name',
+          'Seers of the Obscene',
+          'Seers of the Scenic'
+        ]
+      },
       motivation: {
         money: 2,
         knowledge: 4,
@@ -2157,47 +2193,49 @@ export const factionData: FactionData = {
         'their bad stench': 1,
         'their rabble-rousing tendencies': 1
       },
-      adjective: [
-        'Clever',
-        'Sneaky',
-        'Cunning',
-        'Conniving',
-        'Honest',
-        'Black',
-        'Invisible',
-        'Silent'
-      ],
-      main: [
-        'Cutpurses',
-        'Pilferers',
-        'Thieves',
-        'Rogues',
-        'Property Reappropriaters'
-      ],
-      group: [
-        'Society',
-        'Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'Silent Movers',
-        'Silent Partners',
-        'The Tip-Toe Club',
-        'Good Fences',
-        'League of Lifters and Grifters',
-        'The Neighborhood Watch',
-        'The Unseen Hand',
-        'The Kleptocrats',
-        'The Riverside Raiders',
-        'Black Market Mayhem',
-        'The Boondock Burglars',
-        'The Dock Workers',
-        'Pickpockets Anonymous'
-      ],
+      names: {
+        main: [
+          'Cutpurses',
+          'Pilferers',
+          'Thieves',
+          'Rogues',
+          'Property Reappropriaters'
+        ],
+        adjective: [
+          'Clever',
+          'Sneaky',
+          'Cunning',
+          'Conniving',
+          'Honest',
+          'Black',
+          'Invisible',
+          'Silent'
+        ],
+        group: [
+          'Society',
+          'Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'Silent Movers',
+          'Silent Partners',
+          'The Tip-Toe Club',
+          'Good Fences',
+          'League of Lifters and Grifters',
+          'The Neighborhood Watch',
+          'The Unseen Hand',
+          'The Kleptocrats',
+          'The Riverside Raiders',
+          'Black Market Mayhem',
+          'The Boondock Burglars',
+          'The Dock Workers',
+          'Pickpockets Anonymous'
+        ]
+      },
       motivation: {
         money: 5,
         fame: 1,
@@ -2291,59 +2329,61 @@ export const factionData: FactionData = {
         'the ring that members are given': 1,
         'their excessively bureaucratic tendencies': 1
       },
-      main: [
-        'Prestidigitators',
-        'Illusionists',
-        'Casters',
-        'Magic Users',
-        'Diviners',
-        'Evokers',
-        'Necromancers',
-        'Abjurers',
-        'Scroll Keepers',
-        'Book Keepers',
-        'Collectors',
-        'Librarians'
-      ],
-      adjective: [
-        'Arcane',
-        'Magical',
-        'Scholarly',
-        'Absent Minded',
-        'Knowledgeable',
-        'Intelligent',
-        'Unknown',
-        'Eldritch',
-        'Memorized'
-      ],
-      group: [
-        'Society',
-        'Academy',
-        'University',
-        'Club',
-        'Scholarly Group',
-        'League',
-        'Collective',
-        'Brothers',
-        'Brotherhood',
-        'Order'
-      ],
-      unique: [
-        'We Make Magic!',
-        'The Academy',
-        'The Arcane Order',
-        'Adepts Anonymous',
-        'The Callers Club',
-        'The Union of Universal Magic',
-        'The University of the Unusual and Unexplained',
-        'The College of Conjurers',
-        "Necromancers' Network",
-        "The Evokers' League",
-        'The Nation of Abjuration',
-        "Seers' and Company",
-        'The Illusory Faction',
-        'Spellcasters Anonymous'
-      ],
+      names: {
+        main: [
+          'Prestidigitators',
+          'Illusionists',
+          'Casters',
+          'Magic Users',
+          'Diviners',
+          'Evokers',
+          'Necromancers',
+          'Abjurers',
+          'Scroll Keepers',
+          'Book Keepers',
+          'Collectors',
+          'Librarians'
+        ],
+        adjective: [
+          'Arcane',
+          'Magical',
+          'Scholarly',
+          'Absent Minded',
+          'Knowledgeable',
+          'Intelligent',
+          'Unknown',
+          'Eldritch',
+          'Memorized'
+        ],
+        group: [
+          'Society',
+          'Academy',
+          'University',
+          'Club',
+          'Scholarly Group',
+          'League',
+          'Collective',
+          'Brothers',
+          'Brotherhood',
+          'Order'
+        ],
+        unique: [
+          'We Make Magic!',
+          'The Academy',
+          'The Arcane Order',
+          'Adepts Anonymous',
+          'The Callers Club',
+          'The Union of Universal Magic',
+          'The University of the Unusual and Unexplained',
+          'The College of Conjurers',
+          "Necromancers' Network",
+          "The Evokers' League",
+          'The Nation of Abjuration',
+          "Seers' and Company",
+          'The Illusory Faction',
+          'Spellcasters Anonymous'
+        ]
+      },
       motivation: {
         money: 2,
         fame: 3,
