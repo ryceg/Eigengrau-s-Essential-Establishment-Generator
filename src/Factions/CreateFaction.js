@@ -10,7 +10,7 @@ setup.createFaction = function (town, opts = {}) {
     associatedTown: town.name,
     type,
     wordNoun: lib.factionData.type[type].wordNoun,
-    motivation: lib.factionData.type[type].motivation.random(),
+    motivation: lib.weightRandom(lib.factionData.type[type].motivation),
     membersTrait: lib.weightRandom(lib.factionData.type[type].membersTrait),
     leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
     roll: {

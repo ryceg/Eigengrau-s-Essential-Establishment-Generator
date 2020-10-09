@@ -18,7 +18,7 @@ interface FactionType {
   adjective: string[]
   group: string[]
   unique: string[]
-  motivation: string[]
+  motivation: WeightRecord<string>
   resources: string[]
 }
 
@@ -162,21 +162,13 @@ export const factionData: FactionData = {
         'The Dirty Painters',
         'The Dirty Paint Club'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'fame',
-        'fame',
-        'fame',
-        'glory',
-        'glory',
-        'glory',
-        'vengeance',
-        'politics'
-      ],
+      motivation: {
+        money: 5,
+        fame: 3,
+        glory: 3,
+        vengeance: 1,
+        politics: 1
+      },
       resources: [
         'artifacts',
         'artifacts',
@@ -291,22 +283,14 @@ export const factionData: FactionData = {
         'The Shadow Faction',
         'Shadowfront'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 3,
+        fame: 1,
+        power: 3,
+        glory: 1,
+        vengeance: 3,
+        politics: 3
+      },
       resources: [
         'bits of blackmail material',
         'bits of blackmail material',
@@ -444,22 +428,14 @@ export const factionData: FactionData = {
         'Savage Huns',
         'The VanBuren Boys'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 3,
+        fame: 1,
+        power: 3,
+        glory: 1,
+        vengeance: 3,
+        politics: 3
+      },
       resources: [
         'magical weapons',
         'magical weapons',
@@ -586,20 +562,12 @@ export const factionData: FactionData = {
         'Sex Crossbows',
         'Def leprechaun'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'fame',
-        'fame',
-        'fame',
-        'fame',
-        'fame',
-        'glory',
-        'glory',
-        'glory',
-        'politics'
-      ],
+      motivation: {
+        money: 3,
+        fame: 5,
+        glory: 3,
+        politics: 1
+      },
       resources: [
         'chests of gold',
         'chests of gold',
@@ -718,13 +686,11 @@ export const factionData: FactionData = {
         'The Convent',
         'The Clergy'
       ],
-      motivation: [
-        'devotion',
-        'devotion',
-        'devotion',
-        'power',
-        'politics'
-      ],
+      motivation: {
+        devotion: 3,
+        power: 1,
+        politics: 1
+      },
       resources: [
         'money',
         'contacts',
@@ -843,22 +809,14 @@ export const factionData: FactionData = {
         'The Blessed Workshop',
         'The Factory'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics'
-      ],
+      motivation: {
+        money: 5,
+        fame: 1,
+        power: 3,
+        glory: 1,
+        vengeance: 3,
+        politics: 1
+      },
       resources: [
         'chests of gold',
         'chests of gold',
@@ -943,11 +901,11 @@ export const factionData: FactionData = {
       unique: [
         'Circle of the Green'
       ],
-      motivation: [
-        'peace',
-        'growth of nature',
-        'love of nature'
-      ],
+      motivation: {
+        'peace': 1,
+        'growth of nature': 1,
+        'love of nature': 1
+      },
       resources: [
         'magic',
         'knowledge',
@@ -1042,12 +1000,12 @@ export const factionData: FactionData = {
         "Citizen's Permanent Mission",
         'Alien Consulate General'
       ],
-      motivation: [
-        'power',
-        'peace',
-        'connections',
-        'political power'
-      ],
+      motivation: {
+        'power': 1,
+        'peace': 1,
+        'connections': 1,
+        'political power': 1
+      },
       resources: [
         'contacts',
         'contacts',
@@ -1196,18 +1154,13 @@ export const factionData: FactionData = {
         'Brave Crusaders',
         'Daring Champions'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'glory',
-        'politics'
-      ],
+      motivation: {
+        money: 6,
+        fame: 1,
+        power: 1,
+        glory: 1,
+        politics: 1
+      },
       resources: [
         'magical weapons',
         'magical weapons',
@@ -1326,19 +1279,13 @@ export const factionData: FactionData = {
         'Fence Street Bets',
         'Personal Financers'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'power',
-        'glory',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 5,
+        power: 1,
+        glory: 1,
+        vengeance: 1,
+        politics: 3
+      },
       resources: [
         'trade goods',
         'trade goods',
@@ -1499,23 +1446,13 @@ export const factionData: FactionData = {
         'Brave Crusaders',
         'Daring Champions'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'glory',
-        'glory',
-        'politics'
-      ],
+      motivation: {
+        money: 6,
+        fame: 1,
+        power: 4,
+        glory: 3,
+        politics: 1
+      },
       resources: [
         'magical weapons',
         'magical weapons',
@@ -1613,23 +1550,15 @@ export const factionData: FactionData = {
         'The Holy Loincloth',
         'The Purposely Unwashed'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'knowledge',
-        'knowledge',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 3,
+        knowledge: 2,
+        fame: 1,
+        power: 3,
+        glory: 1,
+        vengeance: 3,
+        politics: 2
+      },
       resources: [
         'artifacts',
         'artifacts',
@@ -1731,25 +1660,14 @@ export const factionData: FactionData = {
         'The Dead Parents Club',
         'The High Horse'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 3,
+        fame: 1,
+        power: 4,
+        glory: 1,
+        vengeance: 3,
+        politics: 5
+      },
       resources: [
         'chests of gold',
         'chests of gold',
@@ -1886,25 +1804,15 @@ export const factionData: FactionData = {
         'The Church of the Real God',
         'The Gods'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'knowledge',
-        'knowledge',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 3,
+        knowledge: 2,
+        fame: 1,
+        power: 3,
+        glory: 1,
+        vengeance: 3,
+        politics: 4
+      },
       resources: [
         'artifacts',
         'artifacts',
@@ -2015,23 +1923,15 @@ export const factionData: FactionData = {
         'Boy Scouts',
         'Primitive Technologists'
       ],
-      motivation: [
-        'money',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'glory',
-        'glory',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 1,
+        knowledge: 3,
+        fame: 1,
+        power: 3,
+        glory: 3,
+        vengeance: 1,
+        politics: 3
+      },
       resources: [
         'old favours',
         'old favours',
@@ -2168,25 +2068,15 @@ export const factionData: FactionData = {
         'The Cultists of Weekee',
         'Encyclopaedia Uninformatica'
       ],
-      motivation: [
-        'money',
-        'money',
-        'fame',
-        'fame',
-        'fame',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 2,
+        fame: 3,
+        knowledge: 4,
+        power: 3,
+        glory: 1,
+        vengeance: 2,
+        politics: 2
+      },
       resources: [
         'chests of gold',
         'chests of gold',
@@ -2304,22 +2194,15 @@ export const factionData: FactionData = {
         'Seers of the Obscene',
         'Seers of the Scenic'
       ],
-      motivation: [
-        'money',
-        'money',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'fame',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'politics',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 2,
+        knowledge: 4,
+        fame: 1,
+        power: 2,
+        glory: 1,
+        vengeance: 1,
+        politics: 3
+      },
       resources: [
         'artifacts',
         'artifacts',
@@ -2454,22 +2337,14 @@ export const factionData: FactionData = {
         'The Dock Workers',
         'Pickpockets Anonymous'
       ],
-      motivation: [
-        'money',
-        'money',
-        'money',
-        'money',
-        'money',
-        'fame',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'vengeance',
-        'politics'
-      ],
+      motivation: {
+        money: 5,
+        fame: 1,
+        power: 3,
+        glory: 1,
+        vengeance: 3,
+        politics: 1
+      },
       resources: [
         'bits of blackmail material',
         'bits of blackmail material',
@@ -2616,25 +2491,15 @@ export const factionData: FactionData = {
         'The Illusory Faction',
         'Spellcasters Anonymous'
       ],
-      motivation: [
-        'money',
-        'money',
-        'fame',
-        'fame',
-        'fame',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'knowledge',
-        'power',
-        'power',
-        'power',
-        'glory',
-        'vengeance',
-        'vengeance',
-        'politics',
-        'politics'
-      ],
+      motivation: {
+        money: 2,
+        fame: 3,
+        knowledge: 4,
+        power: 3,
+        glory: 1,
+        vengeance: 2,
+        politics: 2
+      },
       resources: [
         'magic scrolls',
         'magic scrolls',
