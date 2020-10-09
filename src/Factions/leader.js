@@ -71,7 +71,7 @@ function getLeaderQualification (faction) {
     }
     return ['the original founder', 'the original founder', 'the first appointed leader'].random()
   }
-  return lib.factionData.type[faction.type].leaderQualification.random()
+  return lib.weightRandom(lib.factionData.type[faction.type].leaderQualification)
 }
 
 /** @returns {string} */

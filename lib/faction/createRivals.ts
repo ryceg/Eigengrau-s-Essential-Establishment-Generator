@@ -1,6 +1,7 @@
 import { dice } from '../src/dice'
-import { removeFromArray, repeat } from '../src/utils'
-import { random } from '../src/random'
+import { repeat, sumWeights } from '../src/utils'
+import { weightRandom } from '../src/weightRandom'
+import { WeightRecord } from '../types'
 import { factionData } from './factionData'
 import { Faction } from './_common'
 
@@ -8,13 +9,34 @@ export function createRivals (faction: Faction): void {
   console.log('accruing enemies...')
 
   const sizeRoll = dice(2, 50)
-  const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
+
+  const defaultWeightedGroups: WeightRecord<string> = {
+    artisans: 1,
+    assassins: 1,
+    bandits: 1,
+    bards: 1,
+    commoners: 1,
+    craftsmen: 1,
+    knights: 1,
+    mercenaries: 1,
+    merchants: 1,
+    monks: 1,
+    nobles: 1,
+    politicians: 1,
+    priests: 1,
+    rangers: 1,
+    scholars: 1,
+    seers: 1,
+    thieves: 1,
+    wizards: 1
+  }
+
   const groupSizeModifier = (sizeRoll - 50) + ((faction.roll.reputation - 50) + (faction.roll.influence - 50))
   const rivals: string[] = []
 
   // This is where weighting different groups happens.
   // Needs updating with each new faction.
-  groupList.push(...factionData.type[faction.type].rivalsList)
+  const weightedGroups = sumWeights(defaultWeightedGroups, factionData.type[faction.type].rivalsList)
 
   if (sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'
@@ -50,8 +72,10 @@ export function createRivals (faction: Faction): void {
     const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
     const tempGroupSize = getGroupSize(groupSizeRoll)
 
-    let tempGroup = random(groupList)
-    removeFromArray(groupList, tempGroup)
+    let tempGroup = weightRandom(weightedGroups)
+
+    weightedGroups[tempGroup] -= 1
+
     if (tempGroup === faction.type) {
       tempGroup = `rival ${tempGroup}`
     }
