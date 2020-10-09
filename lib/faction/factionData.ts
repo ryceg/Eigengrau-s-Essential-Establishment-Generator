@@ -10,7 +10,7 @@ interface FactionType {
   leaderQualification: WeightRecord<string>
   alliesList: WeightRecord<string>
   rivalsList: WeightRecord<string>
-  joiningRequirement: string[]
+  joiningRequirement: WeightRecord<string>
   joiningInitiation: string[]
   members: Members
   membersTrait: string[]
@@ -67,17 +67,11 @@ export const factionData: FactionData = {
         bandits: 4,
         assassins: 3
       },
-      joiningRequirement: [
-        'a display of skill',
-        'a display of skill',
-        'a display of skill',
-        'some social status',
-        'some social status',
-        'some social status',
-        'an excellent reputation',
-        'an excellent reputation',
-        'an excellent reputation'
-      ],
+      joiningRequirement: {
+        'a display of skill': 3,
+        'some social status': 3,
+        'an excellent reputation': 3
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -138,8 +132,19 @@ export const factionData: FactionData = {
         'their lust for fame',
         'their pride'
       ],
-      main: ['Creators', 'Visionaries', 'Artisans', 'Artists'],
-      adjective: ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
+      main: [
+        'Creators',
+        'Visionaries',
+        'Artisans',
+        'Artists'
+      ],
+      adjective: [
+        'Creative',
+        'Inspired',
+        'Bohemian',
+        'Unpaid',
+        'God-Touched'
+      ],
       group: [
         'Society',
         'Group',
@@ -219,15 +224,14 @@ export const factionData: FactionData = {
         scholars: 2,
         mercenaries: 3
       },
-      joiningRequirement: [
-        'referral by an existing member',
-        'referral by several members',
-        'endorsement by the current leader',
-        'a display of skill',
-        'a display of skill',
-        'a display of loyalty',
-        'a display of bravery'
-      ],
+      joiningRequirement: {
+        'referral by an existing member': 1,
+        'referral by several members': 1,
+        'endorsement by the current leader': 1,
+        'a display of skill': 2,
+        'a display of loyalty': 1,
+        'a display of bravery': 1
+      },
       joiningInitiation: [
         'a secret task',
         'an oath to be taken',
@@ -239,7 +243,11 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
-        professions: ['assassin', 'rogue', 'poisoner']
+        professions: [
+          'assassin',
+          'rogue',
+          'poisoner'
+        ]
       },
       membersTrait: [
         'the ring that members are given',
@@ -322,7 +330,11 @@ export const factionData: FactionData = {
         title: 'Chief',
         hasClass: true,
         profession: 'fighter',
-        background: ['soldier', 'charlatan', 'criminal']
+        background: [
+          'soldier',
+          'charlatan',
+          'criminal'
+        ]
       },
       wordNoun: 'gang',
       leaderQualification: {
@@ -344,15 +356,14 @@ export const factionData: FactionData = {
         bandits: 3,
         mercenaries: 5
       },
-      joiningRequirement: [
-        'referral by an existing member',
-        'referral by several members',
-        'endorsement by the current leader',
-        'a display of skill',
-        'a display of skill',
-        'a display of loyalty',
-        'a display of bravery'
-      ],
+      joiningRequirement: {
+        'referral by an existing member': 1,
+        'referral by several members': 1,
+        'endorsement by the current leader': 1,
+        'a display of skill': 2,
+        'a display of loyalty': 1,
+        'a display of bravery': 1
+      },
       joiningInitiation: [
         'a secret task',
         'an oath to be taken',
@@ -412,7 +423,12 @@ export const factionData: FactionData = {
         'Razor',
         'Serrated'
       ],
-      group: ['Gang', 'Sons', 'Clan', 'Vassals'],
+      group: [
+        'Gang',
+        'Sons',
+        'Clan',
+        'Vassals'
+      ],
       unique: [
         'Tunnel Snakes',
         'Moonrunners',
@@ -498,17 +514,11 @@ export const factionData: FactionData = {
       rivalsList: {
         bandits: 4
       },
-      joiningRequirement: [
-        'a display of skill',
-        'a display of skill',
-        'a display of skill',
-        'some social status',
-        'some social status',
-        'some social status',
-        'an excellent reputation',
-        'an excellent reputation',
-        'an excellent reputation'
-      ],
+      joiningRequirement: {
+        'a display of skill': 3,
+        'some social status': 3,
+        'an excellent reputation': 3
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -556,7 +566,13 @@ export const factionData: FactionData = {
         'Lutes',
         'Minstrels'
       ],
-      adjective: ['Tuneful', 'Melodious', 'Inspired', 'Twelve Tone', 'Busking'],
+      adjective: [
+        'Tuneful',
+        'Melodious',
+        'Inspired',
+        'Twelve Tone',
+        'Busking'
+      ],
       group: [
         'Symphony',
         'Quartet',
@@ -643,12 +659,12 @@ export const factionData: FactionData = {
         thieves: 1,
         commoners: 1
       },
-      joiningRequirement: [
-        'holy deeds',
-        'a show of faith',
-        'a good deed',
-        'a generous tithe'
-      ],
+      joiningRequirement: {
+        'holy deeds': 1,
+        'a show of faith': 1,
+        'a good deed': 1,
+        'a generous tithe': 1
+      },
       joiningInitiation: [
         'sacraments and rituals',
         'a blessing from the head priest'
@@ -687,9 +703,24 @@ export const factionData: FactionData = {
         'amulets with a holy sigil',
         'the ring that members are given'
       ],
-      main: ['Mother', 'Father', 'Lord'],
-      adjective: ['Heavenly', 'Merciful', 'Holy', 'Righteous', 'Saintly'],
-      group: ['Church', 'Convent', 'Congregation', 'Clergy'],
+      main: [
+        'Mother',
+        'Father',
+        'Lord'
+      ],
+      adjective: [
+        'Heavenly',
+        'Merciful',
+        'Holy',
+        'Righteous',
+        'Saintly'
+      ],
+      group: [
+        'Church',
+        'Convent',
+        'Congregation',
+        'Clergy'
+      ],
       unique: [
         "The Lord's Chosen",
         'The Greater Good',
@@ -697,8 +728,18 @@ export const factionData: FactionData = {
         'The Convent',
         'The Clergy'
       ],
-      motivation: ['devotion', 'devotion', 'devotion', 'power', 'politics'],
-      resources: ['money', 'contacts', 'connections']
+      motivation: [
+        'devotion',
+        'devotion',
+        'devotion',
+        'power',
+        'politics'
+      ],
+      resources: [
+        'money',
+        'contacts',
+        'connections'
+      ]
     },
     craftsmen: {
       leaderTraits: {
@@ -728,13 +769,11 @@ export const factionData: FactionData = {
         commoners: 2,
         bandits: 3
       },
-      joiningRequirement: [
-        'some social status',
-        'a display of skill',
-        'referral by an existing member',
-        'a display of skill',
-        'a display of skill'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'a display of skill': 3,
+        'referral by an existing member': 1
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -785,8 +824,19 @@ export const factionData: FactionData = {
         'their lust for fame',
         'their pride'
       ],
-      main: ['Creators', 'Visionaries', 'Crafters', 'Craftsmen'],
-      adjective: ['Creative', 'Inspired', 'Bohemian', 'Unpaid', 'God-Touched'],
+      main: [
+        'Creators',
+        'Visionaries',
+        'Crafters',
+        'Craftsmen'
+      ],
+      adjective: [
+        'Creative',
+        'Inspired',
+        'Bohemian',
+        'Unpaid',
+        'God-Touched'
+      ],
       group: [
         'Society',
         'Group',
@@ -860,8 +910,13 @@ export const factionData: FactionData = {
         assassins: 1,
         wizards: 1
       },
-      joiningRequirement: ['become a druid', 'give up all worldly possessions'],
-      joiningInitiation: ['fight a bear with your bare hands'],
+      joiningRequirement: {
+        'become a druid': 1,
+        'give up all worldly possessions': 1
+      },
+      joiningInitiation: [
+        'fight a bear with your bare hands'
+      ],
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -874,13 +929,41 @@ export const factionData: FactionData = {
           'arborist'
         ]
       },
-      membersTrait: ['brown and dirty robes'],
-      main: ['Green', 'Wild', 'Forest', 'Stream', 'Sky'],
-      adjective: ['Holy', 'Great', 'Wide', 'Open'],
-      group: ['Coven', 'Circle', 'Tribe', 'Grove'],
-      unique: ['Circle of the Green'],
-      motivation: ['peace', 'growth of nature', 'love of nature'],
-      resources: ['magic', 'knowledge', 'history']
+      membersTrait: [
+        'brown and dirty robes'
+      ],
+      main: [
+        'Green',
+        'Wild',
+        'Forest',
+        'Stream',
+        'Sky'
+      ],
+      adjective: [
+        'Holy',
+        'Great',
+        'Wide',
+        'Open'
+      ],
+      group: [
+        'Coven',
+        'Circle',
+        'Tribe',
+        'Grove'
+      ],
+      unique: [
+        'Circle of the Green'
+      ],
+      motivation: [
+        'peace',
+        'growth of nature',
+        'love of nature'
+      ],
+      resources: [
+        'magic',
+        'knowledge',
+        'history'
+      ]
     },
     foreigners: {
       leaderTraits: {
@@ -915,11 +998,11 @@ export const factionData: FactionData = {
         commoners: 3,
         priests: 1
       },
-      joiningRequirement: [
-        'familial ties to their home country',
-        'an expressed desire for citizenship',
-        'a bond of kinship'
-      ],
+      joiningRequirement: {
+        'familial ties to their home country': 1,
+        'an expressed desire for citizenship': 1,
+        'a bond of kinship': 1
+      },
       joiningInitiation: [
         'complex citizenship paperwork',
         'complex citizenship paperwork',
@@ -929,7 +1012,13 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
-        professions: ['noble', 'diplomat', 'missionary', 'exile', 'merchant']
+        professions: [
+          'noble',
+          'diplomat',
+          'missionary',
+          'exile',
+          'merchant'
+        ]
       },
       membersTrait: [
         'their tattoos and facial piercings',
@@ -939,8 +1028,19 @@ export const factionData: FactionData = {
         'their large earrings',
         'their gaudy jewelry'
       ],
-      main: ['Peoples', 'Citizens', 'Lords', 'Peoples'],
-      adjective: ['Foreign', 'Distant', 'External', 'Alien', 'Foreign'],
+      main: [
+        'Peoples',
+        'Citizens',
+        'Lords',
+        'Peoples'
+      ],
+      adjective: [
+        'Foreign',
+        'Distant',
+        'External',
+        'Alien',
+        'Foreign'
+      ],
       group: [
         'Embassy',
         'Embassy',
@@ -950,8 +1050,16 @@ export const factionData: FactionData = {
         'Ministry',
         'Diplomatic Mission'
       ],
-      unique: ["Citizen's Permanent Mission", 'Alien Consulate General'],
-      motivation: ['power', 'peace', 'connections', 'political power'],
+      unique: [
+        "Citizen's Permanent Mission",
+        'Alien Consulate General'
+      ],
+      motivation: [
+        'power',
+        'peace',
+        'connections',
+        'political power'
+      ],
       resources: [
         'contacts',
         'contacts',
@@ -988,12 +1096,11 @@ export const factionData: FactionData = {
         bandits: 3,
         assassins: 4
       },
-      joiningRequirement: [
-        'some social status',
-        'referral by an existing member',
-        'a display of bravery',
-        'a display of bravery'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'referral by an existing member': 1,
+        'a display of bravery': 2
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1133,7 +1240,11 @@ export const factionData: FactionData = {
         title: 'Executive Officer',
         hasClass: false,
         profession: 'merchant',
-        background: ['merchant', 'charlatan', 'noble']
+        background: [
+          'merchant',
+          'charlatan',
+          'noble'
+        ]
       },
       wordNoun: 'guild',
       leaderQualification: {
@@ -1159,12 +1270,10 @@ export const factionData: FactionData = {
         priests: 2,
         assassins: 3
       },
-      joiningRequirement: [
-        'some social status',
-        'an excellent reputation',
-        'some social status',
-        'an excellent reputation'
-      ],
+      joiningRequirement: {
+        'some social status': 2,
+        'an excellent reputation': 2
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1210,7 +1319,13 @@ export const factionData: FactionData = {
         'Hawkers',
         'Distributors'
       ],
-      adjective: ['Shrewd', 'Thrifty', 'Golden Spoon', 'Rich', 'Miserly'],
+      adjective: [
+        'Shrewd',
+        'Thrifty',
+        'Golden Spoon',
+        'Rich',
+        'Miserly'
+      ],
       group: [
         'Society',
         'Group',
@@ -1263,7 +1378,11 @@ export const factionData: FactionData = {
         title: 'Commander',
         hasClass: true,
         profession: 'fighter',
-        background: ['soldier', 'soldier', 'noble']
+        background: [
+          'soldier',
+          'soldier',
+          'noble'
+        ]
       },
       wordNoun: 'army',
       leaderQualification: {
@@ -1285,12 +1404,11 @@ export const factionData: FactionData = {
         bandits: 3,
         assassins: 4
       },
-      joiningRequirement: [
-        'some social status',
-        'referral by an existing member',
-        'a display of bravery',
-        'a display of bravery'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'referral by an existing member': 1,
+        'a display of bravery': 2
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1434,7 +1552,10 @@ export const factionData: FactionData = {
         title: 'High Monk',
         hasClass: true,
         profession: 'monk',
-        background: ['acolyte', 'sage']
+        background: [
+          'acolyte',
+          'sage'
+        ]
       },
       wordNoun: 'group',
       leaderQualification: {
@@ -1456,12 +1577,11 @@ export const factionData: FactionData = {
         priests: 2,
         bandits: 3
       },
-      joiningRequirement: [
-        'some social status',
-        'referral by an existing member',
-        'a display of skill',
-        'a display of skill'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'referral by an existing member': 1,
+        'a display of skill': 2
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1471,7 +1591,10 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
-        professions: ['monk', 'hermit']
+        professions: [
+          'monk',
+          'hermit'
+        ]
       },
       membersTrait: [
         'the ring that members are given',
@@ -1484,8 +1607,18 @@ export const factionData: FactionData = {
         'their amazing beer',
         'the tankard that all members carry'
       ],
-      main: ['Monks', 'Robes', 'Stone', 'Rock'],
-      adjective: ['Understanding', 'Meditating', 'Calm', 'Unmoving'],
+      main: [
+        'Monks',
+        'Robes',
+        'Stone',
+        'Rock'
+      ],
+      adjective: [
+        'Understanding',
+        'Meditating',
+        'Calm',
+        'Unmoving'
+      ],
       group: [
         'Society',
         'Group',
@@ -1495,7 +1628,11 @@ export const factionData: FactionData = {
         'Brotherhood',
         'Order'
       ],
-      unique: ['Ommmm', 'The Holy Loincloth', 'The Purposely Unwashed'],
+      unique: [
+        'Ommmm',
+        'The Holy Loincloth',
+        'The Purposely Unwashed'
+      ],
       motivation: [
         'money',
         'money',
@@ -1554,14 +1691,10 @@ export const factionData: FactionData = {
         bandits: 4,
         assassins: 4
       },
-      joiningRequirement: [
-        'some social status',
-        'some social status',
-        'some social status',
-        'an excellent reputation',
-        'an excellent reputation',
-        'an excellent reputation'
-      ],
+      joiningRequirement: {
+        'some social status': 3,
+        'an excellent reputation': 3
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1571,7 +1704,9 @@ export const factionData: FactionData = {
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
-        professions: ['noble']
+        professions: [
+          'noble'
+        ]
       },
       membersTrait: [
         'the ring that members are given',
@@ -1603,7 +1738,13 @@ export const factionData: FactionData = {
         'Wealthy',
         'Distinguished'
       ],
-      group: ['Society', 'Group', 'Dinner Club', 'League', 'Club'],
+      group: [
+        'Society',
+        'Group',
+        'Dinner Club',
+        'League',
+        'Club'
+      ],
       unique: [
         'The People Hunters',
         'The Fur Coat Enthusiasts',
@@ -1657,7 +1798,10 @@ export const factionData: FactionData = {
         title: 'The Holy',
         hasClass: true,
         profession: 'cleric',
-        background: ['acolyte', 'sage']
+        background: [
+          'acolyte',
+          'sage'
+        ]
       },
       wordNoun: 'college',
       leaderQualification: {
@@ -1678,12 +1822,11 @@ export const factionData: FactionData = {
         artisans: 1,
         bandits: 4
       },
-      joiningRequirement: [
-        'some social status',
-        'referral by an existing member',
-        'a display of skill',
-        'a display of skill'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'referral by an existing member': 1,
+        'a display of skill': 2
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1807,7 +1950,10 @@ export const factionData: FactionData = {
         title: 'Lord Ranger',
         hasClass: true,
         profession: 'ranger',
-        background: ['outlander', 'hermit']
+        background: [
+          'outlander',
+          'hermit'
+        ]
       },
       wordNoun: 'guild',
       leaderQualification: {
@@ -1829,12 +1975,11 @@ export const factionData: FactionData = {
         bandits: 4,
         mercenaries: 3
       },
-      joiningRequirement: [
-        'some social status',
-        'referral by an existing member',
-        'a display of bravery',
-        'a display of bravery'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'referral by an existing member': 1,
+        'a display of bravery': 2
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -1861,7 +2006,14 @@ export const factionData: FactionData = {
         'their terrible smell',
         'the lack of footwear'
       ],
-      main: ['Wilderness', 'Woods', 'Lands', 'Forests', 'Trees', 'Animals'],
+      main: [
+        'Wilderness',
+        'Woods',
+        'Lands',
+        'Forests',
+        'Trees',
+        'Animals'
+      ],
       adjective: [
         'Tree Loving',
         'Padfoot',
@@ -1924,7 +2076,10 @@ export const factionData: FactionData = {
         title: 'Chief Scholar',
         hasClass: false,
         profession: 'professor',
-        background: ['sage', 'acolyte']
+        background: [
+          'sage',
+          'acolyte'
+        ]
       },
       wordNoun: 'guild',
       leaderQualification: {
@@ -1950,13 +2105,11 @@ export const factionData: FactionData = {
         bandits: 3,
         assassins: 3
       },
-      joiningRequirement: [
-        'some social status',
-        'a display of skill',
-        'referral by an existing member',
-        'a display of skill',
-        'a display of skill'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'a display of skill': 3,
+        'referral by an existing member': 1
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -2084,7 +2237,10 @@ export const factionData: FactionData = {
         title: 'High Seer',
         hasClass: false,
         profession: 'seer',
-        background: ['acolyte', 'sage']
+        background: [
+          'acolyte',
+          'sage'
+        ]
       },
       wordNoun: 'guild',
       leaderQualification: {
@@ -2104,13 +2260,11 @@ export const factionData: FactionData = {
       rivalsList: {
         scholars: 4
       },
-      joiningRequirement: [
-        'some social status',
-        'a display of skill',
-        'referral by an existing member',
-        'a display of skill',
-        'a display of skill'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'a display of skill': 3,
+        'referral by an existing member': 1
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',
@@ -2158,7 +2312,12 @@ export const factionData: FactionData = {
         'Eyes',
         'Historians'
       ],
-      adjective: ['All Seeing', 'All Knowing', 'Watchful', 'Future'],
+      adjective: [
+        'All Seeing',
+        'All Knowing',
+        'Watchful',
+        'Future'
+      ],
       group: [
         'Society',
         'Group',
@@ -2204,7 +2363,10 @@ export const factionData: FactionData = {
         title: 'High Rogue',
         hasClass: true,
         profession: 'rogue',
-        background: ['charlatan', 'criminal']
+        background: [
+          'charlatan',
+          'criminal'
+        ]
       },
       wordNoun: 'guild',
       leaderQualification: {
@@ -2227,15 +2389,14 @@ export const factionData: FactionData = {
         priests: 3,
         commoners: 4
       },
-      joiningRequirement: [
-        'referral by an existing member',
-        'referral by several members',
-        'endorsement by the current leader',
-        'a display of skill',
-        'a display of skill',
-        'a display of loyalty',
-        'a display of bravery'
-      ],
+      joiningRequirement: {
+        'referral by an existing member': 1,
+        'referral by several members': 1,
+        'endorsement by the current leader': 1,
+        'a display of skill': 2,
+        'a display of loyalty': 1,
+        'a display of bravery': 1
+      },
       joiningInitiation: [
         'a heist',
         'a secret task',
@@ -2356,7 +2517,10 @@ export const factionData: FactionData = {
         title: 'Archmage',
         hasClass: true,
         profession: 'wizard',
-        background: ['acolyte', 'sage']
+        background: [
+          'acolyte',
+          'sage'
+        ]
       },
       wordNoun: 'college',
       leaderQualification: {
@@ -2379,12 +2543,10 @@ export const factionData: FactionData = {
         priests: 4,
         assassins: 2
       },
-      joiningRequirement: [
-        'some social status',
-        'a display of skill',
-        'a display of skill',
-        'a display of skill'
-      ],
+      joiningRequirement: {
+        'some social status': 1,
+        'a display of skill': 3
+      },
       joiningInitiation: [
         'a simple form to be filled',
         'a simple form to be filled',

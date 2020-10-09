@@ -1,5 +1,5 @@
 import { dice } from '../src/dice'
-import { repeat } from '../src/utils'
+import { repeat, sumWeights } from '../src/utils'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { factionData } from './factionData'
@@ -10,7 +10,7 @@ export function createRivals (faction: Faction): void {
 
   const sizeRoll = dice(2, 50)
 
-  const weightedGroups: WeightRecord<string> = {
+  const defaultWeightedGroups: WeightRecord<string> = {
     artisans: 1,
     assassins: 1,
     bandits: 1,
@@ -36,13 +36,7 @@ export function createRivals (faction: Faction): void {
 
   // This is where weighting different groups happens.
   // Needs updating with each new faction.
-  const rivalsWeightTuples = Object.entries(factionData.type[faction.type].rivalsList)
-
-  for (let i = 0; i < rivalsWeightTuples.length; i++) {
-    const [groupName, groupWeight] = rivalsWeightTuples[i]
-
-    weightedGroups[groupName] += groupWeight
-  }
+  const weightedGroups = sumWeights(defaultWeightedGroups, factionData.type[faction.type].rivalsList)
 
   if (sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'
