@@ -19,7 +19,7 @@ interface FactionType {
   group: string[]
   unique: string[]
   motivation: WeightRecord<string>
-  resources: string[]
+  resources: WeightRecord<string>
 }
 
 interface Members {
@@ -169,17 +169,11 @@ export const factionData: FactionData = {
         vengeance: 1,
         politics: 1
       },
-      resources: [
-        'artifacts',
-        'artifacts',
-        'artifacts',
-        'magical trinkets',
-        'magical trinkets',
-        'magical trinkets',
-        'masterpieces',
-        'masterpieces',
-        'masterpieces'
-      ]
+      resources: {
+        'artifacts': 3,
+        'magical trinkets': 3,
+        'masterpieces': 3
+      }
     },
     assassins: {
       leaderTraits: {
@@ -291,19 +285,11 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 3
       },
-      resources: [
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods',
-        'contacts',
-        'contacts',
-        'contacts'
-      ]
+      resources: {
+        'bits of blackmail material': 4,
+        'stolen goods': 4,
+        'contacts': 3
+      }
     },
     bandits: {
       leaderTraits: {
@@ -436,23 +422,12 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 3
       },
-      resources: [
-        'magical weapons',
-        'magical weapons',
-        'magical weapons',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods'
-      ]
+      resources: {
+        'magical weapons': 3,
+        'chests of gold': 3,
+        'bits of blackmail material': 4,
+        'stolen goods': 5
+      }
     },
     bards: {
       leaderTraits: {
@@ -568,30 +543,14 @@ export const factionData: FactionData = {
         glory: 3,
         politics: 1
       },
-      resources: [
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'contacts',
-        'contacts',
-        'contacts',
-        'contacts',
-        'contacts',
-        'old favours',
-        'old favours',
-        'old favours',
-        'old favours',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'masterpieces',
-        'masterpieces',
-        'masterpieces',
-        'magical instruments',
-        'magical instruments',
-        'magical instruments'
-      ]
+      resources: {
+        'chests of gold': 3,
+        'contacts': 5,
+        'old favours': 4,
+        'important manuscripts': 4,
+        'masterpieces': 3,
+        'magical instruments': 3
+      }
     },
     clergy: {
       leaderTraits: {
@@ -691,11 +650,11 @@ export const factionData: FactionData = {
         power: 1,
         politics: 1
       },
-      resources: [
-        'money',
-        'contacts',
-        'connections'
-      ]
+      resources: {
+        money: 1,
+        contacts: 1,
+        connections: 1
+      }
     },
     craftsmen: {
       leaderTraits: {
@@ -817,27 +776,14 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 1
       },
-      resources: [
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'contacts',
-        'contacts',
-        'contacts',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'masterpieces',
-        'masterpieces',
-        'masterpieces',
-        'artifacts',
-        'artifacts',
-        'artifacts',
-        'magical contraptions',
-        'magical contraptions',
-        'magical contraptions'
-      ]
+      resources: {
+        'chests of gold': 3,
+        'contacts': 3,
+        'important manuscripts': 4,
+        'masterpieces': 3,
+        'artifacts': 3,
+        'magical contraptions': 3
+      }
     },
     druids: {
       leaderTraits: {
@@ -906,11 +852,11 @@ export const factionData: FactionData = {
         'growth of nature': 1,
         'love of nature': 1
       },
-      resources: [
-        'magic',
-        'knowledge',
-        'history'
-      ]
+      resources: {
+        magic: 1,
+        knowledge: 1,
+        history: 1
+      }
     },
     foreigners: {
       leaderTraits: {
@@ -1006,14 +952,11 @@ export const factionData: FactionData = {
         'connections': 1,
         'political power': 1
       },
-      resources: [
-        'contacts',
-        'contacts',
-        'contacts',
-        'political influence',
-        'foreign goods',
-        'foreign goods'
-      ]
+      resources: {
+        'contacts': 3,
+        'political influence': 1,
+        'foreign goods': 2
+      }
     },
     mercenaries: {
       leaderTraits: {
@@ -1161,17 +1104,11 @@ export const factionData: FactionData = {
         glory: 1,
         politics: 1
       },
-      resources: [
-        'magical weapons',
-        'magical weapons',
-        'magical weapons',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'old favours',
-        'old favours',
-        'old favours'
-      ]
+      resources: {
+        'magical weapons': 3,
+        'chests of gold': 3,
+        'old favours': 3
+      }
     },
     merchants: {
       leaderTraits: {
@@ -1286,23 +1223,11 @@ export const factionData: FactionData = {
         vengeance: 1,
         politics: 3
       },
-      resources: [
-        'trade goods',
-        'trade goods',
-        'trade goods',
-        'trade goods',
-        'trade goods',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'debtors',
-        'debtors',
-        'debtors',
-        'debtors',
-        'debtors',
-        'debtors'
-      ]
+      resources: {
+        'trade goods': 5,
+        'chests of gold': 4,
+        'debtors': 6
+      }
     },
     military: {
       leaderTraits: {
@@ -1453,17 +1378,11 @@ export const factionData: FactionData = {
         glory: 3,
         politics: 1
       },
-      resources: [
-        'magical weapons',
-        'magical weapons',
-        'magical weapons',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'old favours',
-        'old favours',
-        'old favours'
-      ]
+      resources: {
+        'magical weapons': 3,
+        'chests of gold': 3,
+        'old favours': 3
+      }
     },
     monks: {
       leaderTraits: {
@@ -1559,21 +1478,12 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 2
       },
-      resources: [
-        'artifacts',
-        'artifacts',
-        'artifacts',
-        'holy relics',
-        'holy relics',
-        'holy relics',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'sacred texts',
-        'sacred texts',
-        'sacred texts',
-        'sacred texts'
-      ]
+      resources: {
+        'artifacts': 3,
+        'holy relics': 3,
+        'chests of gold': 3,
+        'sacred texts': 4
+      }
     },
     nobles: {
       leaderTraits: {
@@ -1668,27 +1578,13 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 5
       },
-      resources: [
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'contacts',
-        'contacts',
-        'contacts',
-        'contacts',
-        'contacts',
-        'old favours',
-        'old favours',
-        'old favours',
-        'old favours',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'masterpieces',
-        'masterpieces',
-        'masterpieces'
-      ]
+      resources: {
+        'chests of gold': 3,
+        'contacts': 5,
+        'old favours': 4,
+        'important manuscripts': 4,
+        'masterpieces': 3
+      }
     },
     priests: {
       leaderTraits: {
@@ -1813,21 +1709,12 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 4
       },
-      resources: [
-        'artifacts',
-        'artifacts',
-        'artifacts',
-        'holy relics',
-        'holy relics',
-        'holy relics',
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'sacred texts',
-        'sacred texts',
-        'sacred texts',
-        'sacred texts'
-      ]
+      resources: {
+        'artifacts': 3,
+        'holy relics': 3,
+        'chests of gold': 3,
+        'sacred texts': 4
+      }
     },
     rangers: {
       leaderTraits: {
@@ -1932,19 +1819,11 @@ export const factionData: FactionData = {
         vengeance: 1,
         politics: 3
       },
-      resources: [
-        'old favours',
-        'old favours',
-        'old favours',
-        'old favours',
-        'tame animals',
-        'tame animals',
-        'tame animals',
-        'tame animals',
-        'contacts',
-        'contacts',
-        'contacts'
-      ]
+      resources: {
+        'old favours': 4,
+        'tame animals': 4,
+        'contacts': 3
+      }
     },
     scholars: {
       leaderTraits: {
@@ -2077,24 +1956,12 @@ export const factionData: FactionData = {
         vengeance: 2,
         politics: 2
       },
-      resources: [
-        'chests of gold',
-        'chests of gold',
-        'chests of gold',
-        'contacts',
-        'contacts',
-        'contacts',
-        'contacts',
-        'contacts',
-        'old favours',
-        'old favours',
-        'old favours',
-        'old favours',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts',
-        'important manuscripts'
-      ]
+      resources: {
+        'chests of gold': 3,
+        'contacts': 5,
+        'old favours': 4,
+        'important manuscripts': 4
+      }
     },
     seers: {
       leaderTraits: {
@@ -2203,16 +2070,10 @@ export const factionData: FactionData = {
         vengeance: 1,
         politics: 3
       },
-      resources: [
-        'artifacts',
-        'artifacts',
-        'artifacts',
-        'artifacts',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material'
-      ]
+      resources: {
+        'artifacts': 4,
+        'bits of blackmail material': 4
+      }
     },
     thieves: {
       leaderTraits: {
@@ -2345,19 +2206,11 @@ export const factionData: FactionData = {
         vengeance: 3,
         politics: 1
       },
-      resources: [
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'bits of blackmail material',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods',
-        'stolen goods',
-        'contacts',
-        'contacts',
-        'contacts'
-      ]
+      resources: {
+        'bits of blackmail material': 4,
+        'stolen goods': 4,
+        'contacts': 3
+      }
     },
     wizards: {
       leaderTraits: {
@@ -2500,16 +2353,10 @@ export const factionData: FactionData = {
         vengeance: 2,
         politics: 2
       },
-      resources: [
-        'magic scrolls',
-        'magic scrolls',
-        'magic scrolls',
-        'magic scrolls',
-        'magic trinkets',
-        'magic trinkets',
-        'magic trinkets',
-        'magic trinkets'
-      ]
+      resources: {
+        'magic scrolls': 4,
+        'magic trinkets': 4
+      }
     }
   }
 }

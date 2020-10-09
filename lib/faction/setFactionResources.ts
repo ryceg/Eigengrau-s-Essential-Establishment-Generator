@@ -1,18 +1,34 @@
 import { dice, fm } from '../src/dice'
-import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
+import { repeat, sumWeights } from '../src/utils'
+import { weightRandom } from '../src/weightRandom'
+import { WeightRecord } from '../types'
 import { factionData } from './factionData'
 import { Faction } from './_common'
 
 export function setFactionResources (faction: Faction): void {
   console.log('assigning resources...')
 
-  const resourcesList = ['old favours', 'chests of gold', 'gems', 'contacts', 'shinies', 'debtors', 'trade goods', 'artifacts', 'magic trinkets', 'magic weapons', 'magic scrolls', 'bits of blackmail material']
+  const defaultWeightedResources: WeightRecord<string> = {
+    'artifacts': 1,
+    'bits of blackmail material': 1,
+    'chests of gold': 1,
+    'contacts': 1,
+    'debtors': 1,
+    'gems': 1,
+    'magic scrolls': 1,
+    'magic trinkets': 1,
+    'magic weapons': 1,
+    'old favours': 1,
+    'shinies': 1,
+    'trade goods': 1
+  }
+
   const groupSizeModifier = (faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2
   const resources: string[] = []
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  resourcesList.concat(factionData.type[faction.type].resources)
+  const weightedResources = sumWeights(defaultWeightedResources, factionData.type[faction.type].resources)
 
   const ageModifier = getAgeModifier(faction.roll.age)
 
@@ -72,9 +88,9 @@ export function setFactionResources (faction: Faction): void {
     const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
     const tempGroupSize = getTempGroupSize(groupSizeRoll)
 
-    const tempGroup = random(resourcesList)
+    const tempGroup = weightRandom(weightedResources)
 
-    removeFromArray(resourcesList, tempGroup)
+    weightedResources[tempGroup] -= 1
 
     resources.push(tempGroupSize + tempGroup)
   }
