@@ -21,16 +21,23 @@ export function setFactionJoinStats (faction: Faction): void {
     'to be called on for a favour': 1
   }
 
-  const joiningInitiation = ['a secret task', 'a mission', 'a secret ritual', 'a simple form to be filled', 'nothing particularly interesting', 'an oath to be taken']
+  const defaultWeightedJoiningInitiation = {
+    'a mission': 1,
+    'a secret ritual': 1,
+    'a secret task': 1,
+    'a simple form to be filled': 1,
+    'an oath to be taken': 1,
+    'nothing particularly interesting': 1
+  }
 
   // TODO: Create tasks for each type of guild, plus requirement
   const weightedJoiningRequirement = sumWeights(defaultWeightedJoiningRequirement, factionData.type[faction.type].joiningRequirement)
 
-  joiningInitiation.push(...factionData.type[faction.type].joiningInitiation)
+  const weightedJoiningInitiation = sumWeights(defaultWeightedJoiningInitiation, factionData.type[faction.type].joiningInitiation)
 
   assign(faction, {
     joiningRequirement: weightRandom(weightedJoiningRequirement),
-    joiningInitiation: random(joiningInitiation)
+    joiningInitiation: weightRandom(weightedJoiningInitiation)
   })
 
   faction.joiningFee = getJoiningFee(dice(2, 50))

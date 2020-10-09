@@ -11,7 +11,7 @@ interface FactionType {
   alliesList: WeightRecord<string>
   rivalsList: WeightRecord<string>
   joiningRequirement: WeightRecord<string>
-  joiningInitiation: string[]
+  joiningInitiation: WeightRecord<string>
   members: Members
   membersTrait: string[]
   main: string[]
@@ -72,12 +72,11 @@ export const factionData: FactionData = {
         'some social status': 3,
         'an excellent reputation': 3
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
@@ -232,14 +231,11 @@ export const factionData: FactionData = {
         'a display of loyalty': 1,
         'a display of bravery': 1
       },
-      joiningInitiation: [
-        'a secret task',
-        'an oath to be taken',
-        'a secret ritual',
-        'a secret task',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a secret task': 2,
+        'an oath to be taken': 2,
+        'a secret ritual': 2
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -364,14 +360,11 @@ export const factionData: FactionData = {
         'a display of loyalty': 1,
         'a display of bravery': 1
       },
-      joiningInitiation: [
-        'a secret task',
-        'an oath to be taken',
-        'a secret ritual',
-        'a secret task',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a secret task': 2,
+        'an oath to be taken': 2,
+        'a secret ritual': 2
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -519,12 +512,11 @@ export const factionData: FactionData = {
         'some social status': 3,
         'an excellent reputation': 3
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -665,10 +657,10 @@ export const factionData: FactionData = {
         'a good deed': 1,
         'a generous tithe': 1
       },
-      joiningInitiation: [
-        'sacraments and rituals',
-        'a blessing from the head priest'
-      ],
+      joiningInitiation: {
+        'sacraments and rituals': 1,
+        'a blessing from the head priest': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
@@ -774,12 +766,11 @@ export const factionData: FactionData = {
         'a display of skill': 3,
         'referral by an existing member': 1
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
@@ -914,9 +905,9 @@ export const factionData: FactionData = {
         'become a druid': 1,
         'give up all worldly possessions': 1
       },
-      joiningInitiation: [
-        'fight a bear with your bare hands'
-      ],
+      joiningInitiation: {
+        'fight a bear with your bare hands': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -1003,12 +994,11 @@ export const factionData: FactionData = {
         'an expressed desire for citizenship': 1,
         'a bond of kinship': 1
       },
-      joiningInitiation: [
-        'complex citizenship paperwork',
-        'complex citizenship paperwork',
-        'an oath of fealty to their king',
-        'a sufficiently large bribe'
-      ],
+      joiningInitiation: {
+        'complex citizenship paperwork': 2,
+        'an oath of fealty to their king': 1,
+        'a sufficiently large bribe': 1
+      },
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
@@ -1101,12 +1091,11 @@ export const factionData: FactionData = {
         'referral by an existing member': 1,
         'a display of bravery': 2
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
@@ -1274,11 +1263,10 @@ export const factionData: FactionData = {
         'some social status': 2,
         'an excellent reputation': 2
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -1409,12 +1397,11 @@ export const factionData: FactionData = {
         'referral by an existing member': 1,
         'a display of bravery': 2
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
@@ -1582,12 +1569,11 @@ export const factionData: FactionData = {
         'referral by an existing member': 1,
         'a display of skill': 2
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: true,
@@ -1695,12 +1681,11 @@ export const factionData: FactionData = {
         'some social status': 3,
         'an excellent reputation': 3
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
@@ -1827,14 +1812,11 @@ export const factionData: FactionData = {
         'referral by an existing member': 1,
         'a display of skill': 2
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 2,
+        'a secret ritual': 2
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -1980,12 +1962,11 @@ export const factionData: FactionData = {
         'referral by an existing member': 1,
         'a display of bravery': 2
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -2110,12 +2091,11 @@ export const factionData: FactionData = {
         'a display of skill': 3,
         'referral by an existing member': 1
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: false,
         membershipIsTotallyExclusive: false,
@@ -2265,12 +2245,11 @@ export const factionData: FactionData = {
         'a display of skill': 3,
         'referral by an existing member': 1
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -2397,12 +2376,11 @@ export const factionData: FactionData = {
         'a display of loyalty': 1,
         'a display of bravery': 1
       },
-      joiningInitiation: [
-        'a heist',
-        'a secret task',
-        'a secret ritual',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a heist': 1,
+        'a secret task': 1,
+        'a secret ritual': 2
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
@@ -2547,12 +2525,11 @@ export const factionData: FactionData = {
         'some social status': 1,
         'a display of skill': 3
       },
-      joiningInitiation: [
-        'a simple form to be filled',
-        'a simple form to be filled',
-        'an oath to be taken',
-        'a secret ritual'
-      ],
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
       members: {
         membershipIsMutuallyExclusive: true,
         membershipIsTotallyExclusive: false,
