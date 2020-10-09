@@ -13,7 +13,7 @@ interface FactionType {
   joiningRequirement: WeightRecord<string>
   joiningInitiation: WeightRecord<string>
   members: Members
-  membersTrait: string[]
+  membersTrait: WeightRecord<string>
   main: string[]
   adjective: string[]
   group: string[]
@@ -121,16 +121,16 @@ export const factionData: FactionData = {
           'makeup artist'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their absentmindedness',
-        'their egos',
-        'their attention to detail',
-        'their creativity',
-        'their lust for fame',
-        'their pride'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their absentmindedness': 1,
+        'their egos': 1,
+        'their attention to detail': 1,
+        'their creativity': 1,
+        'their lust for fame': 1,
+        'their pride': 1
+      },
       main: [
         'Creators',
         'Visionaries',
@@ -245,13 +245,13 @@ export const factionData: FactionData = {
           'poisoner'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        "absolutely nothing; they're completely anonymous",
-        'their black sashes',
-        'their tendency to blink quickly',
-        'their quick tempers'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        "absolutely nothing; they're completely anonymous": 1,
+        'their black sashes': 1,
+        'their tendency to blink quickly': 1,
+        'their quick tempers': 1
+      },
       main: [
         'Dagger',
         'Knife',
@@ -379,18 +379,16 @@ export const factionData: FactionData = {
           'bandit'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their distinctive headgear',
-        'their white horses',
-        'their love of a good fight',
-        'their love of a good fight',
-        'their love of a good fight',
-        'being ruthless in combat',
-        'following any order given to them',
-        'fighting to the death'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their distinctive headgear': 1,
+        'their white horses': 1,
+        'their love of a good fight': 3,
+        'being ruthless in combat': 1,
+        'following any order given to them': 1,
+        'fighting to the death': 1
+      },
       main: [
         'Ravens',
         'Crows',
@@ -532,21 +530,21 @@ export const factionData: FactionData = {
           'luthier'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their absentmindedness',
-        'their egos',
-        'their attention to detail',
-        'their creativity',
-        'their lust for fame',
-        'their pride',
-        'their terrible ballads',
-        'their limerick rhyming',
-        'their funky harmonies',
-        'their use of tritone substitution and negative harmony',
-        'their stochastically generated microtonal four-voice fugues'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their absentmindedness': 1,
+        'their egos': 1,
+        'their attention to detail': 1,
+        'their creativity': 1,
+        'their lust for fame': 1,
+        'their pride': 1,
+        'their terrible ballads': 1,
+        'their limerick rhyming': 1,
+        'their funky harmonies': 1,
+        'their use of tritone substitution and negative harmony': 1,
+        'their stochastically generated microtonal four-voice fugues': 1
+      },
       main: [
         'Rehearsals',
         'Musicians',
@@ -691,10 +689,10 @@ export const factionData: FactionData = {
           'abbot'
         ]
       },
-      membersTrait: [
-        'amulets with a holy sigil',
-        'the ring that members are given'
-      ],
+      membersTrait: {
+        'amulets with a holy sigil': 1,
+        'the ring that members are given': 1
+      },
       main: [
         'Mother',
         'Father',
@@ -805,16 +803,16 @@ export const factionData: FactionData = {
           'engraver'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their absentmindedness',
-        'their egos',
-        'their attention to detail',
-        'their creativity',
-        'their lust for fame',
-        'their pride'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their absentmindedness': 1,
+        'their egos': 1,
+        'their attention to detail': 1,
+        'their creativity': 1,
+        'their lust for fame': 1,
+        'their pride': 1
+      },
       main: [
         'Creators',
         'Visionaries',
@@ -920,9 +918,9 @@ export const factionData: FactionData = {
           'arborist'
         ]
       },
-      membersTrait: [
-        'brown and dirty robes'
-      ],
+      membersTrait: {
+        'brown and dirty robes': 1
+      },
       main: [
         'Green',
         'Wild',
@@ -1010,14 +1008,14 @@ export const factionData: FactionData = {
           'merchant'
         ]
       },
-      membersTrait: [
-        'their tattoos and facial piercings',
-        'their outlandish clothes',
-        'their strangely colored hair',
-        'their orange clothes',
-        'their large earrings',
-        'their gaudy jewelry'
-      ],
+      membersTrait: {
+        'their tattoos and facial piercings': 1,
+        'their outlandish clothes': 1,
+        'their strangely colored hair': 1,
+        'their orange clothes': 1,
+        'their large earrings': 1,
+        'their gaudy jewelry': 1
+      },
       main: [
         'Peoples',
         'Citizens',
@@ -1120,18 +1118,16 @@ export const factionData: FactionData = {
           'general'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their distinctive headgear',
-        'their white horses',
-        'their love of a good fight',
-        'their love of a good fight',
-        'their love of a good fight',
-        'being ruthless in combat',
-        'following any order given to them',
-        'fighting to the death'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their distinctive headgear': 1,
+        'their white horses': 1,
+        'their love of a good fight': 3,
+        'being ruthless in combat': 1,
+        'following any order given to them': 1,
+        'fighting to the death': 1
+      },
       main: [
         'Hand',
         'Fist',
@@ -1289,13 +1285,13 @@ export const factionData: FactionData = {
           'minister'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their purple robes',
-        'their gaudy jewelry',
-        'the fact that a member is always closely followed by a boy carrying a chest'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their purple robes': 1,
+        'their gaudy jewelry': 1,
+        'the fact that a member is always closely followed by a boy carrying a chest': 1
+      },
       main: [
         'Merchants',
         'Company',
@@ -1424,18 +1420,16 @@ export const factionData: FactionData = {
           'general'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their distinctive headgear',
-        'their white horses',
-        'their love of a good fight',
-        'their love of a good fight',
-        'their love of a good fight',
-        'being ruthless in combat',
-        'following any order given to them',
-        'fighting to the death'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their distinctive headgear': 1,
+        'their white horses': 1,
+        'their love of a good fight': 3,
+        'being ruthless in combat': 1,
+        'following any order given to them': 1,
+        'fighting to the death': 1
+      },
       main: [
         'Hand',
         'Fist',
@@ -1582,17 +1576,17 @@ export const factionData: FactionData = {
           'hermit'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their shaved heads',
-        'their malnutrition',
-        'their calm presence',
-        'their know-it-all answers',
-        'their terrible jokes',
-        'their amazing beer',
-        'the tankard that all members carry'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their shaved heads': 1,
+        'their malnutrition': 1,
+        'their calm presence': 1,
+        'their know-it-all answers': 1,
+        'their terrible jokes': 1,
+        'their amazing beer': 1,
+        'the tankard that all members carry': 1
+      },
       main: [
         'Monks',
         'Robes',
@@ -1693,16 +1687,16 @@ export const factionData: FactionData = {
           'noble'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their absentmindedness',
-        'their egos',
-        'their attention to detail',
-        'their creativity',
-        'their lust for fame',
-        'their pride'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their absentmindedness': 1,
+        'their egos': 1,
+        'their attention to detail': 1,
+        'their creativity': 1,
+        'their lust for fame': 1,
+        'their pride': 1
+      },
       main: [
         'Ladies',
         'People',
@@ -1846,14 +1840,14 @@ export const factionData: FactionData = {
           'abbot'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'the walking sticks that all members carry',
-        'the beards that they grow',
-        'the grey robes they wear',
-        'the amulet they wear'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'the walking sticks that all members carry': 1,
+        'the beards that they grow': 1,
+        'the grey robes they wear': 1,
+        'the amulet they wear': 1
+      },
       main: [
         'Priests',
         'Clergy',
@@ -1979,14 +1973,14 @@ export const factionData: FactionData = {
           'arborist'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their pet ferrets',
-        'their pet sparrows',
-        'the twigs that are strewn throughout their hair',
-        'their terrible smell',
-        'the lack of footwear'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their pet ferrets': 1,
+        'their pet sparrows': 1,
+        'the twigs that are strewn throughout their hair': 1,
+        'their terrible smell': 1,
+        'the lack of footwear': 1
+      },
       main: [
         'Wilderness',
         'Woods',
@@ -2125,16 +2119,16 @@ export const factionData: FactionData = {
           'historian'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'their absentmindedness',
-        'their egos',
-        'their attention to detail',
-        'their creativity',
-        'their lust for fame',
-        'their pride'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their absentmindedness': 1,
+        'their egos': 1,
+        'their attention to detail': 1,
+        'their creativity': 1,
+        'their lust for fame': 1,
+        'their pride': 1
+      },
       main: [
         'Scroll Keepers',
         'Book Keepers',
@@ -2275,14 +2269,14 @@ export const factionData: FactionData = {
           'abbot'
         ]
       },
-      membersTrait: [
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies',
-        'the vacant look that members have',
-        'the vacant stare that members pull (in order to fit in with the others)',
-        'the plain robes they wear',
-        'the bright blue coloured sashes they wear'
-      ],
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'the vacant look that members have': 1,
+        'the vacant stare that members pull (in order to fit in with the others)': 1,
+        'the plain robes they wear': 1,
+        'the bright blue coloured sashes they wear': 1
+      },
       main: [
         'Seers',
         'Predictionists',
@@ -2409,16 +2403,16 @@ export const factionData: FactionData = {
           'gambler'
         ]
       },
-      membersTrait: [
-        'a missing earlobe',
-        "absolutely nothing; they're completely anonymous",
-        'a dagger given to ever member',
-        'a ring given to every member',
-        'a grey hood',
-        'their lack of manners',
-        'their bad stench',
-        'their rabble-rousing tendencies'
-      ],
+      membersTrait: {
+        'a missing earlobe': 1,
+        "absolutely nothing; they're completely anonymous": 1,
+        'a dagger given to ever member': 1,
+        'a ring given to every member': 1,
+        'a grey hood': 1,
+        'their lack of manners': 1,
+        'their bad stench': 1,
+        'their rabble-rousing tendencies': 1
+      },
       adjective: [
         'Clever',
         'Sneaky',
@@ -2561,14 +2555,14 @@ export const factionData: FactionData = {
           'necromancer'
         ]
       },
-      membersTrait: [
-        'their lack of table manners',
-        'their extreme interest in the oddities of the arcane',
-        'the blue robes they wear',
-        'the sash that members are given',
-        'the ring that members are given',
-        'their excessively bureaucratic tendencies'
-      ],
+      membersTrait: {
+        'their lack of table manners': 1,
+        'their extreme interest in the oddities of the arcane': 1,
+        'the blue robes they wear': 1,
+        'the sash that members are given': 1,
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1
+      },
       main: [
         'Prestidigitators',
         'Illusionists',
