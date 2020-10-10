@@ -1,0 +1,11 @@
+:: QuickEditRaces
+<<button "Edit races">>
+<<replace "#races">>
+  <<include "EditRaces">>
+    <<button "Save Changes">>
+    <<include "Rerender">>
+    <<removeclass "#races" "classTable">><<replace "#races">><<include "TownListRaces">><</replace>>
+    <<update>>
+<</button>>
+<</replace>>
+<</button>>
