@@ -1,3 +1,4 @@
+import { WeightRecord } from '../types'
 import { randomFloat } from './randomFloat'
 
 /**
@@ -8,7 +9,7 @@ import { randomFloat } from './randomFloat'
  * Object.keys(obj) // string[]
  * keys(obj) // "a" | "b"
  */
-export function keys <T> (object: T) {
+export function keys<T> (object: T) {
   return Object.keys(object) as (keyof T)[]
 }
 
@@ -20,8 +21,19 @@ export function keys <T> (object: T) {
  * const obj = { a: 0, b: 1}
  * assign(obj, { c: 2 }) // Typescript now knows that c is available.
  */
-export function assign <T, S> (target: T, source: S): asserts target is T & S {
+export function assign<T, S> (target: T, source: S): asserts target is T & S {
   Object.assign(target, source)
+}
+
+/**
+ * Freezes objects to prevent accidental mutation.
+ * To improve speed, it does not apply in production mode.
+ */
+export function freeze<T> (obj: T) {
+  if (process.env.NODE_ENV === 'production') {
+    return obj
+  }
+  return Object.freeze(obj)
 }
 
 /**
@@ -39,7 +51,10 @@ export class AssertionError extends Error {}
  * assert(typeof value === 'string')
  * // After, 'value' is known to be a string.
  */
-export function assert (condition: boolean, message?: string): asserts condition {
+export function assert (
+  condition: boolean,
+  message?: string
+): asserts condition {
   if (!condition) {
     throw new AssertionError(message)
   }
@@ -48,8 +63,8 @@ export function assert (condition: boolean, message?: string): asserts condition
 /**
  * Returns the first element of an array or string.
  */
-export function first (array: string): string
-export function first<T> (array: T[]): T
+export function first(array: string): string
+export function first<T>(array: T[]): T
 export function first<T> (array: T[] | string) {
   return array[0]
 }
@@ -57,8 +72,8 @@ export function first<T> (array: T[] | string) {
 /**
  * Returns the last element of an array.
  */
-export function last (array: string): string
-export function last<T> (array: T[]): T
+export function last(array: string): string
+export function last<T>(array: T[]): T
 export function last<T> (array: T[] | string) {
   return array[array.length - 1]
 }
@@ -74,7 +89,7 @@ export function clamp (value: number, min: number, max: number) {
 export function getUUID () {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, char => {
     const randomValue = randomFloat(16) | 0
-    const value = char === 'x' ? randomValue : randomValue & 0x3 | 0x8
+    const value = char === 'x' ? randomValue : (randomValue & 0x3) | 0x8
     return value.toString(16)
   })
 }
@@ -103,4 +118,21 @@ export function repeat (fn: (index: number) => void, times: number) {
 
 export function capitalizeFirstLetter (text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1)
+}
+
+export function sumWeights<T extends string> (
+  defaultWeights: WeightRecord<T>,
+  customWeights: WeightRecord<T>
+) {
+  const finalWeights = { ...defaultWeights }
+
+  const customWeightsTuples = Object.entries<number>(customWeights)
+
+  for (let i = 0; i < customWeightsTuples.length; i++) {
+    const [name, weight] = customWeightsTuples[i]
+
+    finalWeights[name as T] += weight
+  }
+
+  return finalWeights
 }

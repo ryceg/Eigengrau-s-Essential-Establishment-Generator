@@ -5,8 +5,8 @@ setup.createTownBiome = (base = {}) => {
   const townName = setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
 
-  const economicIdeology = setup.politicsWeightedRoll(type, 'economicIdeology')
-  const politicalSource = setup.politicsWeightedRoll(type, 'politicalSource')
+  const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology')
+  const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     name: townName,
@@ -90,7 +90,7 @@ setup.createTownBiome = (base = {}) => {
   town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
-  town.materialProbability = setup.structureData.material.types
+  town.materialProbability = lib.structureData.material.types
 
   assignSizeModifiers(town)
   assignEconomicModifiers(town)

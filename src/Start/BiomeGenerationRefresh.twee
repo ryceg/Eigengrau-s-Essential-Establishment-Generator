@@ -7,8 +7,8 @@
   primaryCrop: lib.townData.misc.primaryCrop,
   primaryExport: lib.townData.misc.primaryExport,
   season: Object.keys(lib.terrain.temperate.weather.season),
-  economicIdeology: {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"},
-  politicalIdeology: {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"},
+  economicIdeology: lib.economicPairs,
+  politicalIdeology: lib.politicalIdeologyPairs,
   politicalSource: ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]
 }>><span class="auto-update"><<print lib.firstCharacter($tempTown.name)>> is located in the <<listbox "$tempTown.terrain" autoselect>><<optionsfrom $listboxes.terrain>><</listbox>> 
 \<span class="tip" title="This changes based on the terrain- refresh to update"><<listbox "$tempTown.location" autoselect>><<optionsfrom $listboxes.location>><</listbox>></span>

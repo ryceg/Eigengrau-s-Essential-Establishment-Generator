@@ -1,3 +1,4 @@
+/** @type {Record<string, [number, string][]>} */
 const lifestyleTables = {
   'aristocracy': [
     [5, 'comfortable'],

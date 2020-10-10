@@ -1,11 +1,5 @@
 import { random } from '../src/random'
-
-interface Tavern {
-  roll: {
-    size: number
-    population: number
-  }
-}
+import { Tavern } from './_common'
 
 export function tavernRooms (tavern: Tavern) {
   return getRoomsBySize(tavern.roll.size) + getPopulationModifier(tavern.roll.population)

@@ -1,7 +1,7 @@
 import { raceTraits, AgeName, RaceName } from './raceTraits'
 import { NPC } from './_common'
 
-export function setAge (npc: NPC): void{
+export function setAge (npc: NPC): void {
   console.log(`ageing ${npc.name}...`)
 
   const ageDescriptors = raceTraits[npc.race].ageTraits.ageDescriptors

@@ -6,8 +6,8 @@ setup.createTown = (base = {}) => {
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
 
-  const economicIdeology = base.economicIdeology || setup.politicsWeightedRoll(type, 'economicIdeology')
-  const politicalSource = base.politicalSource || setup.politicsWeightedRoll(type, 'politicalSource')
+  const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
+  const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = base.politicalIdeology || lib.townData.politicalSource[politicalSource].politicalIdeology.random()
   const town = Object.assign({
     passageName: 'TownOutput',
@@ -168,7 +168,7 @@ setup.createTown = (base = {}) => {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
-  town.materialProbability = setup.structureData.material.types
+  town.materialProbability = lib.structureData.material.types
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
@@ -228,20 +228,6 @@ setup.createTown = (base = {}) => {
   // console.log('loaded', town.wealth, town.roll.size)
   // confirm(town.townMaterial)
   return town
-}
-
-setup.politicsWeightedRoll = (size, type) => {
-  const loc = lib.townData.type[size].ideologies[type]
-  const pool = lib.keys(loc)
-  const totalWeight = pool.reduce((total, key) => total + loc[key], 0)
-  let random = Math.floor(randomFloat(1) * totalWeight)
-
-  for (const key of pool) {
-    random -= loc[key]
-    if (random < 0) {
-      return key
-    }
-  }
 }
 
 function getTaxRate (town) {

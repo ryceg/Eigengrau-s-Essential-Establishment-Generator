@@ -55,7 +55,6 @@ interface Setup {
       strength: [number, string][]
     }
     backgroundTraits: Record<string, BackgroundTrait>
-    professionTraits: Record<string, ProfessionTrait>
     bodyParts: BodyParts
   }
 }
@@ -79,13 +78,6 @@ interface BodyParts {
   legs: {
     descriptions: string[]
   }
-}
-
-interface ProfessionTrait {
-  professionOrigin: string[]
-  background: string[]
-  weapon: string[]
-  wealth: number
 }
 
 interface BackgroundTrait {

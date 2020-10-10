@@ -1,22 +1,43 @@
-import { assign } from '../src/utils'
+import { assign, sumWeights } from '../src/utils'
 import { dice } from '../src/dice'
 import { random } from '../src/random'
 import { Faction } from './_common'
 import { factionData } from './factionData'
+import { weightRandom } from '../src/weightRandom'
 
 export function setFactionJoinStats (faction: Faction): void {
   console.log('determining joining stats...')
 
-  const joiningRequirement = ['some social status', 'an excellent reputation', 'a favour to be done', 'to be called on for a favour', 'referral by an existing member', 'referral by several members', 'endorsement by the current leader', 'a display of loyalty', 'a display of skill', 'a display of bravery']
-  const joiningInitiation = ['a secret task', 'a mission', 'a secret ritual', 'a simple form to be filled', 'nothing particularly interesting', 'an oath to be taken']
+  const defaultWeightedJoiningRequirement = {
+    'a display of bravery': 1,
+    'a display of loyalty': 1,
+    'a display of skill': 1,
+    'a favour to be done': 1,
+    'an excellent reputation': 1,
+    'endorsement by the current leader': 1,
+    'referral by an existing member': 1,
+    'referral by several members': 1,
+    'some social status': 1,
+    'to be called on for a favour': 1
+  }
+
+  const defaultWeightedJoiningInitiation = {
+    'a mission': 1,
+    'a secret ritual': 1,
+    'a secret task': 1,
+    'a simple form to be filled': 1,
+    'an oath to be taken': 1,
+    'nothing particularly interesting': 1
+  }
 
   // TODO: Create tasks for each type of guild, plus requirement
-  joiningRequirement.push(...factionData.type[faction.type].joiningRequirement)
-  joiningInitiation.push(...factionData.type[faction.type].joiningInitiation)
+  const weightedJoiningRequirement = sumWeights(defaultWeightedJoiningRequirement, factionData.type[faction.type].joiningRequirement)
+
+  const weightedJoiningInitiation = sumWeights(defaultWeightedJoiningInitiation, factionData.type[faction.type].joiningInitiation)
 
   assign(faction, {
-    joiningRequirement: random(joiningRequirement),
-    joiningInitiation: random(joiningInitiation)
+    joiningRequirement: weightRandom(weightedJoiningRequirement),
+    joiningInitiation: weightRandom(weightedJoiningInitiation)
   })
 
   faction.joiningFee = getJoiningFee(dice(2, 50))

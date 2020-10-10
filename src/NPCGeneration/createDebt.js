@@ -16,26 +16,41 @@ setup.createDebt = (town, npc) => {
     npc.wealth *= 1 - debtRate
   }
 
-  const debtorParameters = (town, npc, obj) => {
-    return obj.profession === 'moneylender' && obj.key !== npc.key
-  }
-
-  const sharkParameters = (town, npc, obj) => {
-    return obj.profession === 'loan shark' && obj.key !== npc.key
-  }
-
   if (profit < -40) {
-    const debtor = setup.findExistingNpc(town, State.variables.npcs, npc, debtorParameters, { profession: 'moneylender', isShallow: true })
+    const debtor = findOrCreateDebtor(town, npc)
     setup.createRelationship(town, npc, debtor, 'debtor', 'creditor')
     npc.finances.creditors[debtor.key] = Math.round(cashLiquidity * grossIncome)
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
   if (profit < -300 || setup.socialClass[npc.socialClass].key <= 3) {
-    const predatoryDebtor = setup.findExistingNpc(town, State.variables.npcs, npc, sharkParameters, { profession: 'loan shark', isShallow: true })
+    const predatoryDebtor = findOrCreatePredatoryDebtor(town, npc)
     setup.createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
   }
+
   console.groupEnd()
+}
+
+/**
+ * @param {Town} town
+ * @param {NPC} npc
+ */
+function findOrCreateDebtor (town, npc) {
+  const found = Object.values(State.variables.npcs).find(otherNPC => {
+    return otherNPC.profession === 'moneylender' && otherNPC.key !== npc.key
+  })
+  return found || setup.createNPC(town, { profession: 'moneylender', isShallow: true })
+}
+
+/**
+ * @param {Town} town
+ * @param {NPC} npc
+ */
+function findOrCreatePredatoryDebtor (town, npc) {
+  const found = Object.values(State.variables.npcs).find(otherNPC => {
+    return otherNPC.profession === 'loan shark' && otherNPC.key !== npc.key
+  })
+  return found || setup.createNPC(town, { profession: 'loan shark', isShallow: true })
 }

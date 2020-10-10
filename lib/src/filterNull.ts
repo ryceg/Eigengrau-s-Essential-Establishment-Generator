@@ -1,4 +1,6 @@
-/* for removing null entries */
+/**
+ * Removes all null entries.
+ */
 export function filterNull<T> (obj: Record<string, T>) {
   const propNames = Object.getOwnPropertyNames(obj)
   for (let i = 0; i < propNames.length; i++) {

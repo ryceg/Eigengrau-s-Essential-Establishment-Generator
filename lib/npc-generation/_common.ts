@@ -1,3 +1,4 @@
+import { ClassName } from './classTraits'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export interface NPC {
@@ -26,12 +27,13 @@ export interface NPC {
   professionType: string
   professionSector: string
   hasClass: boolean
-  dndClass?: string
+  dndClass?: ClassName
   isThrowaway?: boolean
   isBreakingGenderNorms: boolean
   heshe: string
   hisher: string
   himher: string
+  isShallow?: boolean
 }
 
 export interface Relationship {

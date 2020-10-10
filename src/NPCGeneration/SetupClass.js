@@ -1,30 +1,22 @@
 setup.createClass = (town, npc) => {
-  console.log(`assigning class traits to ${npc.name}...`)
+  console.log(`Assigning class traits to "${npc.name}".`)
+
+  /** @type {string} */
   let professionOrigin
+  /** @type {string} */
   let background
+  /** @type {string} */
   let classWeapon
 
   const dndClassTraits = lib.classTraits[npc.dndClass]
-  const professionTraits = setup.npcData.professionTraits[npc.profession]
+  const professionTraits = lib.professionTraits[npc.profession]
 
-  if (npc.hasClass !== false && typeof dndClassTraits !== 'undefined') {
-    background = Array.isArray(dndClassTraits.background)
-      ? dndClassTraits.background.random()
-      : Array.isArray(professionTraits.background)
-        ? professionTraits.background.random()
-        : 'commoner'
-    classWeapon = Array.isArray(dndClassTraits.weapon)
-      ? dndClassTraits.weapon.random()
-      : Array.isArray(professionTraits.weapon)
-        ? professionTraits.weapon.random()
-        : 'a dagger'
-  } else if (npc.hasClass === false && typeof professionTraits !== 'undefined') {
-    background = Array.isArray(professionTraits.background)
-      ? professionTraits.background.random()
-      : 'commoner'
-    classWeapon = Array.isArray(professionTraits.weapon)
-      ? professionTraits.weapon.random()
-      : 'a dagger'
+  if (npc.hasClass !== false && dndClassTraits) {
+    background = dndClassTraits.background.random()
+    classWeapon = dndClassTraits.weapon.random()
+  } else if (npc.hasClass === false && professionTraits) {
+    background = professionTraits.background.random()
+    classWeapon = professionTraits.weapon.random()
   } else {
     console.log(`${npc.name} the ${npc.dndClass} did not have a valid class.`)
     professionOrigin = `My circumstances kept me from doing more than being ${lib.articles.output(npc.profession)}`
@@ -32,15 +24,15 @@ setup.createClass = (town, npc) => {
     classWeapon = 'a dagger'
   }
 
-  if (!npc.professionOrigin) {
-    npc.professionOrigin = getProfessionOrigin(npc, town)
-  }
-
-  npc.professionOrigin = npc.professionOrigin || professionOrigin
-  npc.background = npc.background || background
-  npc.weapon = npc.weapon || classWeapon
+  npc.professionOrigin ||= professionOrigin || getProfessionOrigin(npc, town)
+  npc.background ||= background
+  npc.weapon ||= classWeapon
 }
 
+/**
+ * @param {NPC} npc
+ * @param {Town} town
+ */
 function getProfessionOrigin (npc, town) {
   const profession = lib.findProfession(town, npc)
 
@@ -65,7 +57,7 @@ function getProfessionOrigin (npc, town) {
     [25, `Not to brag, but I'm a born natural at being ${professionWithArticle}. It's fun, very rewarding work.`]
   ]
 
-  const professionTrait = setup.npcData.professionTraits[npc.profession]
+  const professionTrait = lib.professionTraits[npc.profession]
   if (typeof professionTrait !== 'undefined') {
     return lib.random(professionTrait.professionOrigin)
   }
