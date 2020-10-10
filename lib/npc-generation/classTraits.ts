@@ -2,7 +2,7 @@ import { dice } from '../src/dice'
 
 export type ClassName = 'barbarian' | 'bard' | 'cleric' | 'druid' | 'fighter' | 'monk' | 'paladin' | 'ranger' | 'rogue' | 'sorcerer' | 'warlock' | 'wizard'
 
-interface ClassTraits {
+export interface ClassTraits {
   professionOrigin: string[]
   background: string[]
   weapon: string[]
