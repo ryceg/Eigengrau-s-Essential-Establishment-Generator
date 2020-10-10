@@ -19,7 +19,7 @@ setup.createChemist = town => setup.createNPC(town, {
     'staring off at nothing while slowly rapping their fingers on the counter',
     'crushing up some sort of herb with a pestle very gently',
     'mashing up herbs with a pestle frantically',
-    'pouring a thick blue liquid into a a small bottle',
+    'pouring a thick blue liquid into a small bottle',
     'pouring a bright green sludge into a glass bottle',
     'sprinkling what looks like gold shavings into a large copper pot',
     'rearranging a shelf full of alchemical tomes',
