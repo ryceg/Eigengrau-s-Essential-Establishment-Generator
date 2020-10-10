@@ -1,5 +1,5 @@
 :: ShipList
-<<nobr>>
+<<liveblock>><<nobr>>
 <div id="ships">
   <div class='classTable'>
     <table>
@@ -25,6 +25,7 @@
               <<set _deleted to $building.ships[_ship.key]>>
               <<run setup.deleteNPC(_deleted.captain)>><<if def $building.ships[_ship.key].crew>><<run setup.deleteNPC($building.ships[_ship.key].crew)>><</if>>
               <<run delete $town.buildings[$currentPassage.index].ships[_ship.key]>>
+              <<update>>
               <<notify 5000>>Deleted _deleted.name<</notify>>
             <</link>>
             </td>
@@ -34,4 +35,4 @@
     </table>
   </div>
 </div>
-<</nobr>>
+<</nobr>><</liveblock>>
