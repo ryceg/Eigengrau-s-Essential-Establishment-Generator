@@ -1,24 +1,5 @@
 :: CreateNewNpc
 <<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">><<set $currentPassage.randomNPC to setup.createBuildingRelationshipNpc($town, $building, $associatedNPC, $currentPassage.availableRelationships, {targetKey: _stringRelationship})>>
-/*<<set _selectedRelationship to lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship)>>
-<<if _selectedRelationship.base>>
-  <<set _randomNPC to Object.assign(_randomNPC, _selectedRelationship.base)>>
-<</if>>
-
-<<if def _newNPC>>
-  <<run setup.deleteNPC($npcs[_newNPC])>>
-<</if>>
-
-<<run console.log("_randomNPC:")>><<run console.log(_randomNPC)>>
-
-<<set $currentPassage.randomNPC to setup.createNPC($town, _randomNPC)>>
-<<set _profession to lib.findInArray($currentPassage.availableRelationships, "relationship", _stringRelationship)>>
-
-<<if _profession.relationships.associatedNPC>>
-  <<run setup.createRelationship($town, $npcs[$currentPassage.associatedNPC.key], $npcs[$currentPassage.randomNPC.key], _profession.associatedNPC.relationship, _profession.associatedNPC.reciprocalRelationship)>>
-<</if>>
-
-<<run lib.createBuildingRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], _profession)>>*/
     <<replace "#NPC">>
           <div class="descriptive">
             <h3>$currentPassage.randomNPC.name</h3>
