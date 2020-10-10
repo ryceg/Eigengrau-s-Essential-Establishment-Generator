@@ -1,0 +1,29 @@
+:: TownEdit
+<<nobr>>
+<<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
+<<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
+<<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>
+<<set
+  $town.roll.wealth to $town.roll.wealth.clamp(1, 100),
+  $town.roll.economics to $town.roll.economics.clamp(1, 100),
+  $town.roll.welfare to $town.roll.welfare.clamp(1, 100),
+  $town.roll.military to $town.roll.military.clamp(1, 100),
+  $town.roll.arcana to $town.roll.arcana.clamp(1, 100),
+  $town.roll.law to $town.roll.law.clamp(1, 100),
+  $town.roll.equality to $town.roll.equality.clamp(1, 100)
+>>
+
+<<include "EditTownName">>
+
+<</nobr>>
+
+<<include "EditSociopolitics">>
+
+<<include "EditSliders">>
+<<nobr>>
+<<include "EditRaces">><</nobr>>
+<<button "Save Changes">>
+  <<include "Rerender">>
+  <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>
+  <<goto "TownOutput">>
+<</button>>

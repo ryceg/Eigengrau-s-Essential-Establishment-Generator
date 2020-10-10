@@ -1,0 +1,8 @@
+:: EditSociopolitics
+<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
+
+<span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$town.roll.wealth" $town.roll.wealth 1 100 1>></span>
+
+<span class="tip" title="How does the economy work?"><<listbox "$town.economicIdeology" autoselect>><<optionsfrom $economicIdeologyTypes>><</listbox>></span>\
+<span class="tip" title="Who leads the people?"><<listbox "$town.politicalIdeology" autoselect>><<optionsfrom $politicalIdeologyTypes>><</listbox>></span>\
+<span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$town.politicalSource" autoselect>><<optionsfrom $politicalSourceTypes>><</listbox>></span>\

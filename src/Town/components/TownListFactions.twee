@@ -13,9 +13,9 @@ _listbox -- <<button "Create new faction">>
   })>>
   <<set $town.factions[_tempFaction.key] = _tempFaction>>
   <<run console.log($town)>>
-  <<goto "TownOutput">>
+  <<update>>
 <</button>>
-<div class='classTable'><<nobr>><table>
+<<liveblock>><div class='classTable'><<nobr>><table>
     <tr>
         <th>Name</th>
         <th>Type</th>
@@ -28,7 +28,7 @@ _listbox -- <<button "Create new faction">>
     <td><<profile _faction>></td>
     <td><<print _faction.type.toUpperFirst()>> <<print _faction.wordNoun.toUpperFirst()>></td>
     <td><<print lib.toTitleCase(_faction.size)>></td>
-    <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<goto "TownOutput">><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
+    <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<update>><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
   </tr>
  /* - A _faction.size _faction.type _faction.wordNoun */
-<</capture>><</for>></table><</nobr>></div>
+<</capture>><</for>></table><</nobr>></div><</liveblock>>

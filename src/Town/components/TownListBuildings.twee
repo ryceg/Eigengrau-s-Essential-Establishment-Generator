@@ -1,5 +1,5 @@
 :: TownListBuildings
-<<nobr>>
+<<liveblock>><<nobr>>
 <table>
   <tr>
     <th>Name</th>
@@ -12,8 +12,8 @@
     <tr><td><span @id="_building.name"><<include "BuildingLink">></span></td>
       <td><<print lib.toTitleCase(_building.wordNoun || _building.type)>></td>
       <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
-      <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<goto "TownOutput">><</link>></td>
+      <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td>
     </tr>
   \<</capture>><<set _previousBuilding to _building>>
 <</for>>
-</table><</nobr>>
+</table><</nobr>><</liveblock>>
