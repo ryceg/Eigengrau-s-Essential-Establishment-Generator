@@ -10,9 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Footer
 - New syntax extension to the workflow
 - Wording for totally racially homogenous towns
-- Castle-specific assistance
+- Castle-specific requests for assistance
+- Capacity for factional policing
 
 ### Changed
+- Guards are now a faction.
 - Fixed races not changing properly.
 - Removed large title in the sticky header
 - Fixed tables getting cut in half in two-column layouts.
@@ -20,7 +22,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Forced one column for town edit page.
 - Added test for ga() so adblockers don't make the generator complain (there are no ads, just Google Analytics tracking, just FYI!)
 - Definitions of extremely sexist societies
-- Fixed changing races not applying 
 - Fixed creating magic armour not working
 - Fixed renaming towns not applying to buildings and factions that feature the name
 - Fixed local build script for windows
