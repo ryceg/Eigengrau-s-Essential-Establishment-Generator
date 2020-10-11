@@ -1,7 +1,7 @@
 :: TownListRaces
 <<nobr>>
 <<run setup.updateDemographics($town, $town._baseDemographics)>>
-<div class='classTable'>$town.name is comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
+<div class='classTable' id="races">$town.name is comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>. <<include "QuickEditRaces">>
 <table>
     <tr>
         <th>Race</th>

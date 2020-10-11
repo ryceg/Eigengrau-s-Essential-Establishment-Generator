@@ -1,5 +1,7 @@
-setup.createStartBuildings = function (town) {
-  const buildingType = [
+setup.createStartBuildings = town => {
+  console.log('Creating starting buildings...', town)
+
+  const buildingTypes = [
     'Town Square',
     // 'Tavern',
     // 'General Store',
@@ -7,14 +9,19 @@ setup.createStartBuildings = function (town) {
     'Market'
     // 'Temple'
   ]
-  console.log('Creating starting buildings...')
-  console.log(town)
-  if (town.location === 'seashore' || town.location === 'river coast') { buildingType.push('Docks') }
-  if (town.population > 500 || town.roll.wealth > 60) { buildingType.push('Graveyard') }
-  if (town.hasBrothel) { buildingType.push('Brothel') }
+
+  if (town.location === 'seashore' || town.location === 'river coast') {
+    buildingTypes.push('Docks')
+  }
+  if (town.population > 500 || town.roll.wealth > 60) {
+    buildingTypes.push('Graveyard')
+  }
+  if (town.hasBrothel) {
+    buildingTypes.push('Brothel')
+  }
 
   const professions = {
-    'Tavern': 'bartender',
+    'Tavern': ['bartender'],
     'Alchemist': ['alchemist', 'wizard'],
     'Bakery': ['pastry chef', 'baker'],
     'General Store': ['shopkeep'],
@@ -22,35 +29,30 @@ setup.createStartBuildings = function (town) {
     'Castle': ['castellan', 'king'],
     'Smithy': ['goldsmith', 'weaponsmith', 'silversmith', 'blacksmith', 'farrier', 'armorer'],
     'Florist': ['florist', 'botanist'],
-    'Tailor': 'tailor',
-    'Butcher': 'butcher',
-    'Cobbler': 'cobbler',
-    'Brothel': 'pimp',
+    'Tailor': ['tailor'],
+    'Butcher': ['butcher'],
+    'Cobbler': ['cobbler'],
+    'Brothel': ['pimp'],
     'Barber': ['barber', 'surgeon'],
     'Temple': ['high priest', 'archbishop', 'cardinal', 'bishop', 'priest', 'deacon']
   }
-  for (const building in professions) {
-    console.log(building)
-    if (Array.isArray(professions[building])) {
-      for (const profession in professions[building]) {
-        console.log(professions[building])
-        if (town.professions[profession] && town.professions[profession].population > 0) {
-          console.log(profession, 'exists')
-          buildingType.push(building)
-        }
-      }
-    } else {
-      if (town.professions[professions[building]] && town.professions[professions[building]].population > 0) {
-        console.log(professions[building], 'exists')
-        buildingType.push(building)
+
+  for (const buildingType of lib.keys(professions)) {
+    console.log(buildingType)
+
+    for (const profession of professions[buildingType]) {
+      console.log(professions[buildingType])
+
+      if (town.professions[profession] && town.professions[profession].population > 0) {
+        console.log(profession, 'exists')
+
+        buildingTypes.push(buildingType)
       }
     }
   }
 
-  for (const type of buildingType) {
+  for (const type of buildingTypes) {
     console.log(`Creating ${lib.articles.output(type)}...`)
     setup.createNewBuilding(town, type)
   }
-
-  return town
 }

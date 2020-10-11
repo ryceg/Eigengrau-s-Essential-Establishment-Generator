@@ -4,5 +4,5 @@
 \    <<run setup.deleteNPC($npcs[_newNPC])>>
 \<</if>>
 \<<set $poster to lib.weightedRandomFetcher($town, setup.plothooks, null, setup.misc.town.type.paper)>>
-\<<replace "#poster">><descriptive>$poster</descriptive><</replace>><</button>>
-\<div id="poster"><<if def $poster>><descriptive>$poster</descriptive><</if>></div>
+<<update>><</button>>
+\<<liveblock>><div id="poster"><<if def $poster>><descriptive>$poster</descriptive><</if>></div><</liveblock>>

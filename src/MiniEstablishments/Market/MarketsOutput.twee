@@ -9,8 +9,8 @@
 <</for>>
 <<link "<h4>Who else is there?</h4>">>
 <<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to lib.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to lib.market.vendors.tent.random()>>
-<<replace "#moreSellers">>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</replace>>
-<</link>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</if>>
+<<update>>
+<</link>><<liveblock>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</if>><</liveblock>>
 
 A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
 <<listbox "$building.magicSelection">>

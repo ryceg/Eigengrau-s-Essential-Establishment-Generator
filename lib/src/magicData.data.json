@@ -788,7 +788,7 @@
         "effect": "Treat as a +1 magic weapon when attacking Undead. Any creature slain with this weapon cannot be raised as undead."
       }, {
         "prefix": "Concentrated", "suffix": "of Concentration",
-        "effect": "As a action you gain advantage on your next ability check made before the end of your next turn. You cannot use this ability again until you complete a short or long rest."
+        "effect": "As an action you gain advantage on your next ability check made before the end of your next turn. You cannot use this ability again until you complete a short or long rest."
       }, {
         "prefix": "Corrosive", "suffix": "of Dissolving",
         "effect": "When the bearer hits a creature with this weapon, they may deal their proficiency bonus in acid damage to a different creature within 5 feet of the target."
@@ -938,7 +938,7 @@
         "effect": "As a bonus action you gain advantage on your next ability check made before the end of your next turn. You cannot use this ability again until you complete a long rest."
       }, {
         "prefix": "Focusing", "suffix": "of Concentrating",
-        "effect": "As a action you may gain advantage on your next attack roll made before the end of your next turn. You cannot use this ability again until you complete a short rest."
+        "effect": "As an action you may gain advantage on your next attack roll made before the end of your next turn. You cannot use this ability again until you complete a short rest."
       }, {
         "prefix": "Force", "suffix": "of Force",
         "effect": "The bearer may choose to deal Force damage with this weapon and gain a +1 bonus to damage."

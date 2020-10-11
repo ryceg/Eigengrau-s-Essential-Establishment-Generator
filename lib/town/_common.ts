@@ -1,6 +1,7 @@
 import { Building, BuildingRelationship } from '../buildings/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
+import { NPC } from '../npc-generation/_common'
 import { townData } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 
@@ -11,6 +12,7 @@ export type PoliticalIdeology = keyof typeof townData.politicalIdeology
 export interface Town {
   name: string
   type: string
+  location: string
   population: number
   ignoreGender: boolean
   dominantGender: GenderName
@@ -46,6 +48,8 @@ export interface Town {
     name: string,
     population: number
   }>
+  leaderType: string
+  leader: NPC
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
   economicIdeology: EconomicIdeology

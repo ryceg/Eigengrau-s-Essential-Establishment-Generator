@@ -16,8 +16,6 @@ interface Setup {
   createNPC(town: Town, base?: Partial<NPC>): NPC
   createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
-
-  createGuard(town: Town): any
 }
 
 interface CreateNameParameters {

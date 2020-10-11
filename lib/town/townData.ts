@@ -1246,7 +1246,7 @@ export const townData = {
       'a region of open sand dunes a half days hike across and several days hike long that has swallowed a northern rainforest. Only the tops of verdant hills peek through like tree islands in an ocean of sand.',
       'a weathered treestump about the height of a man. Dozens of age-tarnished coins have been hammered into one side of the stump.',
       'a large black obelisk stationed in the middle of a small island that is within what is now a lake. A river eroded the area and over the course of time the river carved out a small lake around the obelisk.',
-      'a small cave at the start of river or brook. Inside the cave is small oasis, a waterfall, pool of crisp clear water, and flowering vines crawling up the walls leading to a an opening that lets in sunlight.',
+      'a small cave at the start of river or brook. Inside the cave is small oasis, a waterfall, pool of crisp clear water, and flowering vines crawling up the walls leading to an opening that lets in sunlight.',
       'an old tree with a fox shaped canopy when viewed from the South East.',
       'a small clearing between some rocks, with three sitting petrified trolls, with horrified looks in their faces.',
       'two extremely close peaks with a river flowing between them. Looks like a mountain that was cut in half by the water.',

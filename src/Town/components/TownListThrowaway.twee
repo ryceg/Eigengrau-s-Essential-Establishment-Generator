@@ -1,8 +1,8 @@
 :: TownListThrowaway
-<<nobr>>
+<<liveblock>><<nobr>>
 <<button "Wipe all throwaway NPCs">>
   <<run setup.deleteThrowawayNPCs()>>
-  <<goto "TownOutput">>
+  <<update>>
 <</button>>
 <table>
   <tr>
@@ -19,10 +19,10 @@
           <td><<profile $npcs[_npc.key]>></td>
           <td><<print _npc.race.toUpperFirst()>></td>
           <td><<print lib.createTippyFull(lib.professions[_npc.profession].description.toUpperFirst(), _profession)>></td>
-          <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td>
+          <td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<update>><</link>></td>
         </tr>
       <</if>>
     <</capture>>
   <</for>>
 </table>
-<</nobr>>
+<</nobr>><</liveblock>>
