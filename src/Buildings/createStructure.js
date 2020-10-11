@@ -50,9 +50,14 @@ setup.createStructure = (town, building) => {
   return building
 }
 
+/**
+ * @param {string[]} descriptors
+ * @param {string} description
+ */
 function addUniqueDescriptor (descriptors, description) {
   if (typeof description !== 'string') {
     console.error(`Expected a string operand and received "${description}".`)
+    return
   }
   if (descriptors.includes(description)) {
     console.log('Throwing out duplicate description...')
