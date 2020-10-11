@@ -44,10 +44,10 @@ setup.createTownName = function (town) {
   if (town && town.factions) {
     console.log(town.name, driftName)
     // Replace existing names of factions if they reference town name
-    for (const faction in town.factions) {
-      town.factions[faction].name = town.factions[faction].name.replace(town.name, driftName)
-      town.factions[faction].associatedTown = driftName
-      town.factions[faction].tippyDescription = town.factions[faction].tippyDescription.replace(town.name, driftName)
+    for (const faction of Object.values(town.factions)) {
+      town.factions[faction.key].name = town.factions[faction.key].name.replace(town.name, driftName)
+      town.factions[faction.key].associatedTown = driftName
+      town.factions[faction.key].tippyDescription = town.factions[faction.key].tippyDescription.replace(town.name, driftName)
     }
   }
 
