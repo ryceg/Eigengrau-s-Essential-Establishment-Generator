@@ -1,5 +1,6 @@
 setup.createStructure = (town, building) => {
-  console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
+  const { output } = lib.articles
+  console.groupCollapsed(`Creating the structure for ${output(building.wordNoun || 'building')}`)
   building.wordNoun = building.wordNoun || 'building'
 
   const structure = building.structure || {
@@ -35,12 +36,12 @@ setup.createStructure = (town, building) => {
   lib.defineRollDataGetter(structure.material, lib.structureData.material.rollData, 'wealth', 'wealth', undefined, building.roll)
 
   structure.descriptors = [
-    `${lib.articles.output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(structure.roof.wealth)} ${structure.roof.verb} roof`,
-    `${lib.articles.output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(structure.roof.wealth)} ${structure.roof.verb} roof`
+    `${output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`,
+    `${output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`
   ]
 
   if (building.size) {
-    addUniqueDescriptor(structure.descriptors, `${lib.articles.output(building.size)} and ${structure.material.wealth} ${structure.material.noun} ${building.wordNoun} with ${lib.articles.output(structure.roof.verb)} roof`)
+    addUniqueDescriptor(structure.descriptors, `${output(building.size)} and ${structure.material.wealth} ${structure.material.noun} ${building.wordNoun} with ${output(structure.roof.verb)} roof`)
   }
   console.log(structure)
   console.groupEnd()
