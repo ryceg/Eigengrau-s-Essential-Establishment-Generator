@@ -126,12 +126,9 @@ export function sumWeights<T extends string> (
 ) {
   const finalWeights = { ...defaultWeights }
 
-  const customWeightsTuples = Object.entries<number>(customWeights)
-
-  for (let i = 0; i < customWeightsTuples.length; i++) {
-    const [name, weight] = customWeightsTuples[i]
-
-    finalWeights[name as T] += weight
+  for (const name of keys(customWeights)) {
+    const weight = customWeights[name]
+    finalWeights[name] += weight
   }
 
   return finalWeights
