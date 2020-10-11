@@ -8,6 +8,8 @@ export interface Faction {
     stability: number
     resources: number
     reputation: number
+    meetingAccessibility?: number
+    meetingRegularity?: number
   }
   age: string
   size: string

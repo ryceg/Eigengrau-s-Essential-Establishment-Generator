@@ -4,15 +4,16 @@ setup.createFaction = function (town, opts = {}) {
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
   const faction = opts.newFaction || Object.assign({
-    key: randomFloat(1).toString(16),
+    key: lib.getUUID(),
     passageName: 'FactionProfile',
     objectType: 'faction',
     associatedTown: town.name,
     type,
+    isPolicing: false,
     wordNoun: lib.factionData.type[type].wordNoun,
     motivation: lib.weightRandom(lib.factionData.type[type].motivation),
     membersTrait: lib.weightRandom(lib.factionData.type[type].membersTrait),
-    leadershipType: ['individual', 'individual', 'individual', 'group', 'group'].random(),
+    leadershipType: lib.weightRandom(lib.factionData.type[type].leader.format),
     roll: {
       influence: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
@@ -27,6 +28,18 @@ setup.createFaction = function (town, opts = {}) {
     console.error('faction type was not defined! Defaulting to merchants.')
     console.log(faction)
     faction.type = 'merchants'
+  }
+
+  if (lib.factionData.type[faction.type].livery) {
+    const liveryData = lib.factionData.type[faction.type].livery
+    faction.livery = {
+      colours: {
+        primary: lib.random(liveryData.colours.primary),
+        secondary: lib.random(liveryData.colours.secondary)
+      },
+      insignia: lib.random(liveryData.insignia)
+    }
+    faction.livery.readout = `${faction.livery.colours.primary} and ${faction.livery.colours.secondary} livery adorned with an image of ${faction.livery.insignia}`
   }
 
   lib.setFactionAge(faction)

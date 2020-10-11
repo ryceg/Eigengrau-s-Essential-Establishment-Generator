@@ -6,12 +6,12 @@ export function createLeaderGroup (faction: Faction): void {
     throw new Error('Incompatible faction leadership type.')
   }
 
-  const meetingAccessibilityRoll = dice(2, 50)
-  const meetingRegularityRoll = dice(2, 50) + fm(faction.roll.stability, -50)
+  faction.roll.meetingAccessibility = dice(2, 50)
+  faction.roll.meetingRegularity = dice(2, 50) + fm(faction.roll.stability, -50)
 
   faction.leaderGroupSize = dice(3, 4)
-  faction.meetingRegularity = getMeetingRegularity(meetingRegularityRoll)
-  faction.meetingAccessibility = getMeetingAccessibility(meetingAccessibilityRoll)
+  faction.meetingRegularity = getMeetingRegularity(faction.roll.meetingRegularity)
+  faction.meetingAccessibility = getMeetingAccessibility(faction.roll.meetingAccessibility)
   faction.leaderGroupTitle = getLeaderGroupTitle(faction.leaderGroupSize)
 }
 
