@@ -5,9 +5,15 @@ interface FactionData {
 }
 
 interface FactionType {
-  leaderTraits: LeaderTraits
+  leader: Leader
   wordNoun: string
-  leaderQualification: WeightRecord<string>
+  livery?: {
+    colours: {
+      primary: string[]
+      secondary: string[]
+    }
+    insignia: string[]
+  }
   alliesList: WeightRecord<string>
   rivalsList: WeightRecord<string>
   joiningRequirement: WeightRecord<string>
@@ -17,11 +23,18 @@ interface FactionType {
   names: {
     main: string[]
     adjective: string[]
+    alternateAdjective?: string[]
     group: string[]
     unique: string[]
   }
   motivation: WeightRecord<string>
   resources: WeightRecord<string>
+}
+
+interface Leader {
+  format: WeightRecord<string>
+  qualification: WeightRecord<string>
+  base: LeaderTraits
 }
 
 interface Members {
@@ -41,24 +54,30 @@ interface LeaderTraits {
 export const factionData: FactionData = {
   type: {
     artisans: {
-      leaderTraits: {
-        title: 'Aesthetician',
-        hasClass: false,
-        profession: 'artisan',
-        background: 'guild artisan'
+      leader: {
+        format: {
+          group: 3,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 1,
+          'able to rise to power by completing a masterpiece': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Aesthetician',
+          hasClass: false,
+          profession: 'artisan',
+          background: 'guild artisan'
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 1,
-        'able to rise to power by completing a masterpiece': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         hitmen: 2,
         nobles: 4
@@ -180,30 +199,36 @@ export const factionData: FactionData = {
       }
     },
     assassins: {
-      leaderTraits: {
-        hasClass: true,
-        title: 'High Assassin',
-        profession: 'rogue',
-        background: [
-          'charlatan',
-          'soldier',
-          'criminal',
-          'kidnapper',
-          'forger',
-          'thief'
-        ]
+      leader: {
+        format: {
+          group: 2,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 3,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 3
+        },
+        base: {
+          hasClass: true,
+          title: 'High Assassin',
+          profession: 'rogue',
+          background: [
+            'charlatan',
+            'soldier',
+            'criminal',
+            'kidnapper',
+            'forger',
+            'thief'
+          ]
+        }
       },
       wordNoun: 'company',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 3,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 3
-      },
       alliesList: {
         thieves: 3,
         urchins: 3,
@@ -298,27 +323,33 @@ export const factionData: FactionData = {
       }
     },
     bandits: {
-      leaderTraits: {
-        title: 'Chief',
-        hasClass: true,
-        profession: 'fighter',
-        background: [
-          'soldier',
-          'charlatan',
-          'criminal'
-        ]
+      leader: {
+        format: {
+          group: 2,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 3,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Chief',
+          hasClass: true,
+          profession: 'fighter',
+          background: [
+            'soldier',
+            'charlatan',
+            'criminal'
+          ]
+        }
       },
       wordNoun: 'gang',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 3,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         hitmen: 4,
         urchins: 2
@@ -438,24 +469,30 @@ export const factionData: FactionData = {
       }
     },
     bards: {
-      leaderTraits: {
-        title: 'Maestro',
-        hasClass: true,
-        profession: 'bard',
-        background: 'entertainer'
+      leader: {
+        format: {
+          group: 5,
+          individual: 3
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 1,
+          'able to rise to power by completing a masterpiece': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Maestro',
+          hasClass: true,
+          profession: 'bard',
+          background: 'entertainer'
+        }
       },
       wordNoun: 'college',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 1,
-        'able to rise to power by completing a masterpiece': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 1,
         urchins: 2,
@@ -563,16 +600,28 @@ export const factionData: FactionData = {
       }
     },
     clergy: {
-      leaderTraits: {
-        title: 'Clergyman',
-        hasClass: true,
-        profession: 'cleric'
+      leader: {
+        format: {
+          group: 5,
+          individual: 3
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'able to rise to power by communing with a deity': 4,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Clergyman',
+          hasClass: true,
+          profession: 'cleric'
+        }
       },
       wordNoun: 'church',
-      leaderQualification: {
-        'wearing flowing white robes': 1,
-        'a holy symbol tattooed on their face': 1
-      },
       alliesList: {
         mercenaries: 1,
         commoners: 1,
@@ -628,7 +677,9 @@ export const factionData: FactionData = {
       },
       membersTrait: {
         'amulets with a holy sigil': 1,
-        'the ring that members are given': 1
+        'the ring that members are given': 1,
+        'wearing flowing white robes': 1,
+        'a holy symbol tattooed on their face': 1
       },
       names: {
         main: [
@@ -669,22 +720,28 @@ export const factionData: FactionData = {
       }
     },
     craftsmen: {
-      leaderTraits: {
-        title: 'Master',
-        hasClass: false,
-        profession: 'craftsman',
-        background: 'guild artisan'
+      leader: {
+        format: {
+          group: 5,
+          individual: 3
+        },
+        qualification: {
+          'the wealthiest of the group': 3,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Master',
+          hasClass: false,
+          profession: 'craftsman',
+          background: 'guild artisan'
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the wealthiest of the group': 3,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 1,
         nobles: 3,
@@ -800,15 +857,26 @@ export const factionData: FactionData = {
       }
     },
     druids: {
-      leaderTraits: {
-        hasClass: true,
-        profession: 'druid',
-        background: 'noble'
+      leader: {
+        format: {
+          group: 5,
+          individual: 3
+        },
+        qualification: {
+          'the wealthiest of the group': 3,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          hasClass: true,
+          profession: 'druid'
+        }
       },
       wordNoun: 'grove',
-      leaderQualification: {
-        'leathery tanned skin': 1
-      },
       alliesList: {
         bards: 1,
         rangers: 1
@@ -837,7 +905,8 @@ export const factionData: FactionData = {
         ]
       },
       membersTrait: {
-        'brown and dirty robes': 1
+        'brown and dirty robes': 1,
+        'leathery tanned skin': 1
       },
       names: {
         main: [
@@ -875,24 +944,30 @@ export const factionData: FactionData = {
       }
     },
     foreigners: {
-      leaderTraits: {
-        hasClass: false,
-        profession: 'diplomat',
-        background: 'noble'
+      leader: {
+        format: {
+          group: 5,
+          individual: 3
+        },
+        qualification: {
+          'incredibly well spoken': 2,
+          'fluent in common, though with a strong accent': 2,
+          'the best dressed of the group': 1,
+          'the most charismatic of the group': 1,
+          'chosen by his government as a representative': 1,
+          'incredibly beautiful and charming': 1,
+          'driven and ambitious': 1,
+          'the fattest man you have ever seen': 1,
+          'able to rise to power through nepotism': 1,
+          'the most intelligent man in the room': 1
+        },
+        base: {
+          hasClass: false,
+          profession: 'diplomat',
+          background: 'noble'
+        }
       },
       wordNoun: 'embassy',
-      leaderQualification: {
-        'incredibly well spoken': 2,
-        'fluent in common, though with a strong accent': 2,
-        'the best dressed of the group': 1,
-        'the most charismatic of the group': 1,
-        'chosen by his government as a representative': 1,
-        'incredibly beautiful and charming': 1,
-        'driven and ambitious': 1,
-        'the fattest man you have ever seen': 1,
-        'able to rise to power through nepotism': 1,
-        'the most intelligent man in the room': 1
-      },
       alliesList: {
         merchants: 2,
         mercenaries: 1,
@@ -976,24 +1051,303 @@ export const factionData: FactionData = {
         'foreign goods': 2
       }
     },
-    mercenaries: {
-      leaderTraits: {
-        title: 'Commander',
-        hasClass: true,
-        profession: 'fighter',
-        background: 'soldier'
+    guards: {
+      leader: {
+        format: {
+          group: 1,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 3,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Captain',
+          hasClass: true,
+          profession: 'fighter',
+          background: 'soldier'
+        }
       },
       wordNoun: 'company',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 3,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
+      livery: {
+        colours: {
+          primary: [
+            'black',
+            'red',
+            'scarlet',
+            'forest green',
+            'royal blue',
+            'light blue',
+            'magenta',
+            'pale yellow',
+            'brown',
+            'dark grey',
+            'gunmetal',
+            'maroon',
+            'navy blue',
+            'steel',
+            'olive green',
+            'orange',
+            'sun yellow',
+            'purple',
+            'aquamarine',
+            'turquoise',
+            'lime green',
+            'teal',
+            'deep indigo',
+            'violet',
+            'white'
+          ],
+          secondary: [
+            'black',
+            'gold',
+            'silver',
+            'white',
+            'pearl white',
+            'purple',
+            'tan',
+            'olive green',
+            'dark turquoise',
+            'light brown'
+          ]
+        },
+        insignia: [
+          'a skull',
+          'a bow & arrow',
+          'an eagle',
+          'a star',
+          'an axe',
+          'a set of crossed spears',
+          'a shield',
+          'a ghost',
+          'a clenched fist',
+          'a flame',
+          'an arrow',
+          'a dagger',
+          'a sword',
+          'a hammer',
+          'the sun',
+          'the moon',
+          'a bat',
+          'a bull',
+          'a dragon',
+          'a falcon',
+          'a lion',
+          'a raven',
+          'a scorpion',
+          'a snake',
+          'a vulture',
+          'a wolf',
+          'a stag',
+          'a sunburst',
+          'three waves',
+          'two fighting lions',
+          'a leaping fish',
+          'two crossed scimitars',
+          'a crown',
+          'a rose',
+          'a squid',
+          'an octopus',
+          'a spider',
+          'a stallion'
+        ]
       },
+      alliesList: {
+        hitmen: 4,
+        nobles: 4,
+        commoners: 2,
+        mercenaries: 1,
+        merchants: 1,
+        military: 3
+      },
+      rivalsList: {
+        bandits: 3,
+        assassins: 4,
+        thieves: 3
+      },
+      joiningRequirement: {
+        'some social status': 1,
+        'referral by an existing member': 1,
+        'a display of bravery': 2
+      },
+      joiningInitiation: {
+        'a simple form to be filled': 2,
+        'an oath to be taken': 1,
+        'a secret ritual': 1
+      },
+      members: {
+        membershipIsMutuallyExclusive: true,
+        membershipIsTotallyExclusive: true,
+        professions: [
+          'fighter',
+          'captain',
+          'warmage',
+          'special force soldier',
+          'sapper',
+          'runner',
+          'sergeant',
+          'quartermaster',
+          'mercenary',
+          'medic',
+          'marshall',
+          'marksman',
+          'lieutenant',
+          'fifer',
+          'commissar',
+          'cavalier',
+          'privateer',
+          'general'
+        ]
+      },
+      membersTrait: {
+        'the ring that members are given': 1,
+        'their excessively bureaucratic tendencies': 1,
+        'their distinctive headgear': 1,
+        'their white horses': 1,
+        'their love of a good fight': 3,
+        'being ruthless in combat': 1,
+        'following any order given to them': 1,
+        'fighting to the death': 1
+      },
+      names: {
+        main: [
+          'Hand',
+          'Fist',
+          'Gauntlet',
+          'Glove',
+          'Hammer',
+          'Shield',
+          'Cloak',
+          'Dagger',
+          'Mace',
+          'Sword',
+          'Truncheon',
+          'Club',
+          'Maul',
+          'Wand'
+        ],
+        adjective: [
+          'Black',
+          'White',
+          'Shining',
+          'Just',
+          'Tall',
+          'Impenetrable',
+          'Unbreakable',
+          'Brass',
+          'Bronze',
+          'Blue',
+          'Strong',
+          'Mighty',
+          'Lawful'
+        ],
+        alternateAdjective: [
+          'Justice',
+          'Righteousness',
+          'Law',
+          'Order',
+          'Safety',
+          'Strength'
+        ],
+        group: [
+          'Regiment',
+          'Guard',
+          'Officers',
+          'Guardsmen',
+          'Protectors',
+          'Protectorate',
+          'Defenders',
+          'Watch',
+          'Watchers',
+          'Watchmen',
+          'Police',
+          'Peacemen',
+          'Axemen',
+          'Swordsmen',
+          'Pikesmen',
+          'Squad',
+          'Battalion',
+          'Battlesquad',
+          'Fighters',
+          'Keepers'
+        ],
+        unique: [
+          'The Steel Hydras',
+          'The Silver Hippogryphs',
+          'The Black Glove of Anubis',
+          "Hera's Tears",
+          'The Rabid Possums',
+          'Macguffins, Ltd.',
+          'The Wayfaring Strangers',
+          'Valiant, Inc.',
+          'Blood of the Gordon',
+          'The Green Hand',
+          'The Tomb Raiders',
+          'The Order of the Obsidian Flame',
+          "The King's Ransom",
+          'The Golden Guardians',
+          'Dragonfire, Inc.',
+          'Path of the Righteous Man',
+          'Hellraisers for Hire',
+          'Band of the Crimson Lion',
+          'Company of Champions',
+          'The Covenant of the Shield',
+          'Crusaders of the Everlasting Chalice',
+          'The Iron Fang',
+          'The Sapphire Guard',
+          'The Azure Guild',
+          'Goblincleavers',
+          'The Redcrest Five',
+          'Necessary Chaotic Neutral',
+          'Magic Item and Artifact Retrieval Specialists',
+          'The Dungeon Delvers',
+          'Brave Crusaders',
+          'Daring Champions'
+        ]
+      },
+      motivation: {
+        money: 6,
+        fame: 1,
+        power: 1,
+        glory: 1,
+        politics: 1
+      },
+      resources: {
+        'magical weapons': 3,
+        'chests of gold': 3,
+        'old favours': 3
+      }
+    },
+    mercenaries: {
+      leader: {
+        format: {
+          group: 2,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 3,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Commander',
+          hasClass: true,
+          profession: 'fighter',
+          background: 'soldier'
+        }
+      },
+      wordNoun: 'company',
       alliesList: {
         hitmen: 4,
         nobles: 4,
@@ -1131,26 +1485,32 @@ export const factionData: FactionData = {
       }
     },
     merchants: {
-      leaderTraits: {
-        title: 'Executive Officer',
-        hasClass: false,
-        profession: 'merchant',
-        background: [
-          'merchant',
-          'charlatan',
-          'noble'
-        ]
+      leader: {
+        format: {
+          group: 2,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 3,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Executive Officer',
+          hasClass: false,
+          profession: 'merchant',
+          background: [
+            'merchant',
+            'charlatan',
+            'noble'
+          ]
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the wealthiest of the group': 3,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 2,
         hitmen: 3,
@@ -1252,27 +1612,33 @@ export const factionData: FactionData = {
       }
     },
     military: {
-      leaderTraits: {
-        title: 'Commander',
-        hasClass: true,
-        profession: 'fighter',
-        background: [
-          'soldier',
-          'soldier',
-          'noble'
-        ]
+      leader: {
+        format: {
+          group: 1,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 3,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Commander',
+          hasClass: true,
+          profession: 'fighter',
+          background: [
+            'soldier',
+            'soldier',
+            'noble'
+          ]
+        }
       },
       wordNoun: 'army',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 3,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         hitmen: 4,
         nobles: 4,
@@ -1409,26 +1775,32 @@ export const factionData: FactionData = {
       }
     },
     monks: {
-      leaderTraits: {
-        title: 'High Monk',
-        hasClass: true,
-        profession: 'monk',
-        background: [
-          'acolyte',
-          'sage'
-        ]
+      leader: {
+        format: {
+          group: 1,
+          individual: 5
+        },
+        qualification: {
+          'the poorest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal involving fasting for over a month': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'High Monk',
+          hasClass: true,
+          profession: 'monk',
+          background: [
+            'acolyte',
+            'sage'
+          ]
+        }
       },
       wordNoun: 'group',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 4,
         artisans: 2
@@ -1512,21 +1884,27 @@ export const factionData: FactionData = {
       }
     },
     nobles: {
-      leaderTraits: {
-        title: 'Lord',
-        hasClass: false,
-        background: 'noble'
+      leader: {
+        format: {
+          group: 1,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 3,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Lord',
+          hasClass: false,
+          background: 'noble'
+        }
       },
       wordNoun: 'society',
-      leaderQualification: {
-        'the wealthiest of the group': 3,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         hitmen: 4,
         seers: 3
@@ -1615,26 +1993,32 @@ export const factionData: FactionData = {
       }
     },
     priests: {
-      leaderTraits: {
-        title: 'The Holy',
-        hasClass: true,
-        profession: 'cleric',
-        background: [
-          'acolyte',
-          'sage'
-        ]
+      leader: {
+        format: {
+          group: 1,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the holiest of the group': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'The Holy',
+          hasClass: true,
+          profession: 'cleric',
+          background: [
+            'acolyte',
+            'sage'
+          ]
+        }
       },
       wordNoun: 'college',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the holiest of the group': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         nobles: 3,
         artisans: 2
@@ -1747,26 +2131,32 @@ export const factionData: FactionData = {
       }
     },
     rangers: {
-      leaderTraits: {
-        title: 'Lord Ranger',
-        hasClass: true,
-        profession: 'ranger',
-        background: [
-          'outlander',
-          'hermit'
-        ]
+      leader: {
+        format: {
+          group: 4,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 3,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Lord Ranger',
+          hasClass: true,
+          profession: 'ranger',
+          background: [
+            'outlander',
+            'hermit'
+          ]
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 3,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 2,
         nobles: 2,
@@ -1858,26 +2248,32 @@ export const factionData: FactionData = {
       }
     },
     scholars: {
-      leaderTraits: {
-        title: 'Chief Scholar',
-        hasClass: false,
-        profession: 'professor',
-        background: [
-          'sage',
-          'acolyte'
-        ]
+      leader: {
+        format: {
+          group: 4,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Chief Scholar',
+          hasClass: false,
+          profession: 'professor',
+          background: [
+            'sage',
+            'acolyte'
+          ]
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 3,
         nobles: 2,
@@ -1998,26 +2394,32 @@ export const factionData: FactionData = {
       }
     },
     seers: {
-      leaderTraits: {
-        title: 'High Seer',
-        hasClass: false,
-        profession: 'seer',
-        background: [
-          'acolyte',
-          'sage'
-        ]
+      leader: {
+        format: {
+          group: 4,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'High Seer',
+          hasClass: false,
+          profession: 'seer',
+          background: [
+            'acolyte',
+            'sage'
+          ]
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         priests: 4,
         nobles: 4
@@ -2112,25 +2514,31 @@ export const factionData: FactionData = {
       }
     },
     thieves: {
-      leaderTraits: {
-        title: 'High Rogue',
-        hasClass: true,
-        profession: 'rogue',
-        background: [
-          'charlatan',
-          'criminal'
-        ]
+      leader: {
+        format: {
+          group: 1,
+          individual: 5
+        },
+        qualification: {
+          'the most skilled of the group': 1,
+          'able to rise to power by completing an ordeal': 2,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 3,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'High Rogue',
+          hasClass: true,
+          profession: 'rogue',
+          background: [
+            'charlatan',
+            'criminal'
+          ]
+        }
       },
       wordNoun: 'guild',
-      leaderQualification: {
-        'the most skilled of the group': 1,
-        'able to rise to power by completing an ordeal': 2,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 3,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         thieves: 3,
         urchins: 3,
@@ -2251,26 +2659,32 @@ export const factionData: FactionData = {
       }
     },
     wizards: {
-      leaderTraits: {
-        title: 'Archmage',
-        hasClass: true,
-        profession: 'wizard',
-        background: [
-          'acolyte',
-          'sage'
-        ]
+      leader: {
+        format: {
+          group: 5,
+          individual: 5
+        },
+        qualification: {
+          'the wealthiest of the group': 1,
+          'the strongest of the group': 2,
+          'able to rise to power by completing an ordeal': 1,
+          'the most charismatic of the group': 1,
+          'democratically elected': 1,
+          'able to oust the previous leadership': 1,
+          'able to rise to power through nepotism': 3,
+          'promoted by being the most powerful in the group': 1
+        },
+        base: {
+          title: 'Archmage',
+          hasClass: true,
+          profession: 'wizard',
+          background: [
+            'acolyte',
+            'sage'
+          ]
+        }
       },
       wordNoun: 'college',
-      leaderQualification: {
-        'the wealthiest of the group': 1,
-        'the strongest of the group': 2,
-        'able to rise to power by completing an ordeal': 1,
-        'the most charismatic of the group': 1,
-        'democratically elected': 1,
-        'able to oust the previous leadership': 1,
-        'able to rise to power through nepotism': 3,
-        'promoted by being the most powerful in the group': 1
-      },
       alliesList: {
         nobles: 2,
         artisans: 2,
