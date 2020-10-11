@@ -74,7 +74,7 @@ setup.tavernBrawl = function (town, tavern) {
     }
     if (tavern.guardPresent === true) {
       tavern.brawlEnd = [
-        `A ${tavernGuard.descriptor} wearing the ${town.guard.livery} signifying that they are a member of <<profile $town.guard>> is currently pulling the ${brawlInstigator.descriptor} off the ${brawlResponder.descriptor}.`,
+        `A ${tavernGuard.descriptor} wearing a uniform of <<profile $town.guard>> is currently pulling the ${brawlInstigator.descriptor} off the ${brawlResponder.descriptor}.`,
         'A member of <<profile $town.guard>> is currently trying to pull the two apart.'
       ].random()
     } else {

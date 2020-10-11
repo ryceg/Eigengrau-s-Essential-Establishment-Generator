@@ -195,8 +195,6 @@ setup.createTown = (base = {}) => {
     }
   })
 
-  town.guard = setup.createGuard(town)
-
   if (!town.pregen) {
     assignSizeModifiers(town)
     assignEconomicModifiers(town)
@@ -219,6 +217,8 @@ setup.createTown = (base = {}) => {
   lib.townRender(town)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
+  setup.policingSource(town)
+
   lib.setMaterialProbability(town, possibleMaterials)
 
   console.groupEnd()
