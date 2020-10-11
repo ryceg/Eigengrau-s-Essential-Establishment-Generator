@@ -4,7 +4,6 @@ setup.createGuard = town => {
   const guard = {
     name: createGuardName(town.name),
     livery: createGuardLivery(),
-    associatedTown: town.name,
     objectType: 'guard',
     captain: setup.createNPC(town, {
       profession: 'guard',

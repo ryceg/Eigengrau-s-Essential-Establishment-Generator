@@ -36,7 +36,6 @@ setup.createTownName = function (town) {
     // Replace existing names of buildings if they reference town name
     town.buildings.forEach(building => {
       building.name = building.name.replace(town.name, driftName)
-      building.associatedTown = driftName
       building.tooltip = building.tooltip.replace(town.name, driftName)
     })
   }

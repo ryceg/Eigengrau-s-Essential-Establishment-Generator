@@ -7,7 +7,6 @@ setup.createFaction = function (town, opts = {}) {
     key: randomFloat(1).toString(16),
     passageName: 'FactionProfile',
     objectType: 'faction',
-    associatedTown: town.name,
     type,
     wordNoun: lib.factionData.type[type].wordNoun,
     motivation: lib.weightRandom(lib.factionData.type[type].motivation),

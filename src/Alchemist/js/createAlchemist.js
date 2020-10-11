@@ -11,7 +11,6 @@ setup.createAlchemist = (town, opts = {}) => {
   Object.assign(alchemist, {
     associatedNPC,
     wordNoun: ['alchemist', 'potion shop', 'apothecary', 'alchemist'].random(),
-    associatedTown: town.name,
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',
     buildingType: 'alchemist',

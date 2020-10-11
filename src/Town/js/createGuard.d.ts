@@ -3,7 +3,6 @@ interface Setup {
 }
 
 interface Guard {
-  associatedTown: string,
   objectType: string,
   captain: NPC,
   passageName: string,
