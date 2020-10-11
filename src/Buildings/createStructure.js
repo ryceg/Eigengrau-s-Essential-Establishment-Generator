@@ -2,7 +2,7 @@ setup.createStructure = (town, building) => {
   console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
   building.wordNoun = building.wordNoun || 'building'
 
-  building.structure = building.structure || {
+  const structure = building.structure || {
     get descriptor () {
       return this.descriptors.random()
     },
@@ -18,32 +18,34 @@ setup.createStructure = (town, building) => {
       tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
     }
     console.log('tempMaterial', tempMaterial)
-    building.structure.material = tempMaterial
+    structure.material = tempMaterial
   } else {
-    building.structure.material = building.material
+    structure.material = building.material
   }
 
-  building.structure.roof = lib.weightedRandomFetcher(town, lib.structureData.roof.types, null, null, 'object')
+  structure.roof = lib.weightedRandomFetcher(town, lib.structureData.roof.types, null, null, 'object')
 
-  if (building.structure.roof.canBeColoured) {
-    building.structure.roof.colour = lib.structureData.data.colour.random()
-    building.structure.roof.verb = `${building.structure.roof.colour} ${building.structure.roof.verb}`
-    building.structure.roof.noun = `${building.structure.roof.colour} ${building.structure.roof.noun}`
+  if (structure.roof.canBeColoured) {
+    structure.roof.colour = lib.structureData.data.colour.random()
+    structure.roof.verb = `${structure.roof.colour} ${structure.roof.verb}`
+    structure.roof.noun = `${structure.roof.colour} ${structure.roof.noun}`
   }
 
-  lib.defineRollDataGetter(building.structure.roof, lib.structureData.roof.rollData, 'wealth', 'wealth', undefined, building.roll)
-  lib.defineRollDataGetter(building.structure.material, lib.structureData.material.rollData, 'wealth', 'wealth', undefined, building.roll)
+  lib.defineRollDataGetter(structure.roof, lib.structureData.roof.rollData, 'wealth', 'wealth', undefined, building.roll)
+  lib.defineRollDataGetter(structure.material, lib.structureData.material.rollData, 'wealth', 'wealth', undefined, building.roll)
 
-  building.structure.descriptors = [
-    `${lib.articles.output(building.structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`,
-    `${lib.articles.output(building.structure.material.wealth)} ${building.structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(building.structure.roof.wealth)} ${building.structure.roof.verb} roof`
+  structure.descriptors = [
+    `${lib.articles.output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(structure.roof.wealth)} ${structure.roof.verb} roof`,
+    `${lib.articles.output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${lib.articles.output(structure.roof.wealth)} ${structure.roof.verb} roof`
   ]
 
   if (building.size) {
-    addUniqueDescriptor(building.structure.descriptors, `${lib.articles.output(building.size)} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with ${lib.articles.output(building.structure.roof.verb)} roof`)
+    addUniqueDescriptor(structure.descriptors, `${lib.articles.output(building.size)} and ${structure.material.wealth} ${structure.material.noun} ${building.wordNoun} with ${lib.articles.output(structure.roof.verb)} roof`)
   }
-  console.log(building.structure)
+  console.log(structure)
   console.groupEnd()
+
+  building.structure = structure
   return building
 }
 
