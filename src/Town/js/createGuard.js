@@ -2,7 +2,7 @@ setup.createGuard = town => {
   console.groupCollapsed('Creating the guard...')
 
   const guard = {
-    name: createGuardName(town),
+    name: createGuardName(town.name),
     livery: createGuardLivery(),
     associatedTown: town.name,
     objectType: 'guard',
@@ -19,21 +19,21 @@ setup.createGuard = town => {
 }
 
 /**
- * @param {Town} town
+ * @param {string} townName
  * @returns {string}
  */
-function createGuardName (town) {
+function createGuardName (townName) {
   const { name } = lib.guardData
 
   return lib.random([
-    `The ${name.group.random()} of ${town.name}`,
-    `The ${town.name} ${name.group.random()}`,
+    `The ${name.group.random()} of ${townName}`,
+    `The ${townName} ${name.group.random()}`,
     `The ${name.group.random()} of ${name.alternateAdjective.random()}`,
     `The ${name.adjective.random()} ${name.group.random()}`,
     `The ${name.adjective.random()} ${name.noun.random()}`,
     `The ${name.adjective.random()} ${name.noun.random()} of ${name.alternateAdjective.random()}`,
-    `The ${name.adjective.random()} ${name.noun.random()} of ${town.name}`,
-    `The ${name.group.random()} ${name.noun.random()} of ${town.name}`
+    `The ${name.adjective.random()} ${name.noun.random()} of ${townName}`,
+    `The ${name.group.random()} ${name.noun.random()} of ${townName}`
   ])
 }
 
