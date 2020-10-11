@@ -1074,7 +1074,7 @@ export const factionData: FactionData = {
           background: 'soldier'
         }
       },
-      wordNoun: 'company',
+      wordNoun: 'watch',
       livery: {
         colours: {
           primary: [
@@ -1186,23 +1186,13 @@ export const factionData: FactionData = {
         membershipIsTotallyExclusive: true,
         professions: [
           'fighter',
+          'guard',
+          'city watch',
           'captain',
           'warmage',
-          'special force soldier',
-          'sapper',
-          'runner',
-          'sergeant',
-          'quartermaster',
           'mercenary',
           'medic',
-          'marshall',
-          'marksman',
-          'lieutenant',
-          'fifer',
-          'commissar',
-          'cavalier',
-          'privateer',
-          'general'
+          'lieutenant'
         ]
       },
       membersTrait: {
