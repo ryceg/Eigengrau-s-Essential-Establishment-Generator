@@ -63,7 +63,6 @@ setup.createTownBiome = (base = {}) => {
     landmark: lib.townData.misc.landmark.random(),
     currentEvent: lib.townData.misc.currentEvent.random(),
     guard: {
-      name: 'Test'
     },
     roll: {
       wealth: lib.dice(2, 50),
