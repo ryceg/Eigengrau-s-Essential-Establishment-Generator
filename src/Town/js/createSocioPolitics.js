@@ -157,20 +157,3 @@ setup.createSocioPolitics = function (town) {
   console.groupEnd()
   return town
 }
-
-setup.createTownLeader = function (town) {
-  console.log('Creating town leader')
-  const politicalIdeology = lib.townData.politicalIdeology[town.politicalIdeology]
-  town.leaderType = politicalIdeology.data.leaderType || 'commoners'
-  if (typeof politicalIdeology.leaderTraits !== 'undefined') {
-    town.leader = setup.createNPC(town, politicalIdeology.leaderTraits())
-  } else {
-    console.log(`Invalid political ideology of ${town.politicalIdeology}. Leader defaulting to random NPC...`)
-    town.leader = setup.createNPC(town, {
-      profession: 'politician'
-    })
-  }
-  console.log('Town leader:')
-  console.log(town.leader)
-  return town
-}

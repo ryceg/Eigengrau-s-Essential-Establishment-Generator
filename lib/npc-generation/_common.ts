@@ -18,6 +18,7 @@ export interface NPC {
   age: string
   ageStage: AgeName
   ageYears: number
+  title: string
   profession: string
   background: string
   roll: Record<string, number>
