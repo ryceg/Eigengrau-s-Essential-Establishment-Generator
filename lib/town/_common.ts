@@ -11,6 +11,7 @@ export type PoliticalIdeology = keyof typeof townData.politicalIdeology
 export interface Town {
   name: string
   type: string
+  location: string
   population: number
   ignoreGender: boolean
   dominantGender: GenderName
