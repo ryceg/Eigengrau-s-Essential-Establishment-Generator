@@ -1,4 +1,4 @@
-setup.createStructure = (town, building = {}) => {
+setup.createStructure = (town, building) => {
   console.groupCollapsed(`Creating the structure for ${lib.articles.output(building.wordNoun || 'building')}`)
   building.wordNoun = building.wordNoun || 'building'
 
