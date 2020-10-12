@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Wording for totally racially homogenous towns
 - Castle-specific requests for assistance
 - Capacity for factional policing
+- Multiple of the same building can now be generated on launch
+- Building owners' professions are no longer hardcoded (expect to see goldsmiths and other specialised versions of professions now)
 
 ### Changed
 - Guards are now a faction.
