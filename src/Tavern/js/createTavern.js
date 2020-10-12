@@ -78,8 +78,8 @@ setup.createTavern = function (town, opts = {}) {
   tavern.lodging = ''
   tavern.sin = ''
   tavern.food = ''
-  tavern.colour1 = [lib.colours.yellow.colour.random(), lib.colours.orange.colour.random(), lib.colours.red.colour.random(), lib.colours.purple.colour.random(), lib.colours.blue.colour.random(), lib.colours.green.colour.random(), lib.colours.brown.colour.random(), lib.colours.black.colour.random(), lib.colours.white.colour.random()].random()
-  tavern.colour2 = [lib.colours.yellow.colour.random(), lib.colours.orange.colour.random(), lib.colours.red.colour.random(), lib.colours.purple.colour.random(), lib.colours.blue.colour.random(), lib.colours.green.colour.random(), lib.colours.brown.colour.random(), lib.colours.black.colour.random(), lib.colours.white.colour.random()].random()
+  tavern.colour1 = getRandomTavernColour()
+  tavern.colour2 = getRandomTavernColour()
   tavern.bedCleanliness = ''
   // Define entertainment if large enough
   if (tavern.roll.size >= 30) {
@@ -176,4 +176,11 @@ setup.createTavern = function (town, opts = {}) {
   console.log(tavern)
   console.groupEnd()
   return tavern
+}
+
+function getRandomTavernColour () {
+  const { colours, random } = lib
+  const available = [colours.yellow, colours.orange, colours.red, colours.purple, colours.blue, colours.green, colours.brown, colours.black, colours.white]
+  const selected = random(available)
+  return random(selected.colour)
 }
