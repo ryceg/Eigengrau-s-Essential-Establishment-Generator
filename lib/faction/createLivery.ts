@@ -1,5 +1,4 @@
-import { factionData } from './factionData'
-import { Faction } from './_common'
+import { factionData, FactionType } from './factionData'
 import { random } from '../src/random'
 
 interface Livery {
@@ -10,19 +9,19 @@ interface Livery {
     insignia: string
 }
 
-export function createLivery (faction: Faction) {
-  const factionType = factionData[faction.type]
+export function createLivery (type: FactionType) {
+  const typeData = factionData[type]
 
-  if (factionType.livery == null) {
+  if (typeData.livery == null) {
     return
   }
 
   const livery: Livery = {
     colours: {
-      primary: random(factionType.livery.colours.primary),
-      secondary: random(factionType.livery.colours.secondary)
+      primary: random(typeData.livery.colours.primary),
+      secondary: random(typeData.livery.colours.secondary)
     },
-    insignia: random(factionType.livery.insignia)
+    insignia: random(typeData.livery.insignia)
   }
 
   return livery

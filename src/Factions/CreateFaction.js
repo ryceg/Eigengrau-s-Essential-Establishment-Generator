@@ -30,7 +30,7 @@ setup.createFaction = (town, opts = {}) => {
   }
 
   lib.assign(faction, {
-    livery: lib.createLivery(faction)
+    livery: lib.createLivery(faction.type)
   })
 
   lib.setFactionAge(faction)
