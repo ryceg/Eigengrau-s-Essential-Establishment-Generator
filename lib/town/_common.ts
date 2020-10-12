@@ -1,4 +1,5 @@
 import { Building, BuildingRelationship } from '../buildings/_common'
+import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
 import { NPC } from '../npc-generation/_common'
@@ -50,6 +51,7 @@ export interface Town {
   }>
   leaderType: string
   leader: NPC
+  factions: Record<string, Faction>
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
   economicIdeology: EconomicIdeology
