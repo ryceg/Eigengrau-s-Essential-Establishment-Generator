@@ -4,7 +4,7 @@ interface Setup {
   initTavernData(): void
   tavern: {
     rollData: {
-      wealth: [number, string, number, number][]
+      wealth: [number, string, number][]
       size: [number, string][]
       cleanliness: [number, string][]
       bedCleanliness: [number, string][]
@@ -16,7 +16,7 @@ interface Setup {
     stageDescriptor: string[]
     fun: string[]
     get: {
-      customers: Customers[]
+      customers: Customer[]
       patrons(town: Town, tavern: Tavern): string
       carousing(town: Town, tavern: Tavern): string
       entertainment(tavern: Tavern): string
@@ -81,22 +81,4 @@ interface TavernGame {
   description: string
   rules: string
   bet: number
-}
-
-interface Customers {
-  relationshipDescription: string
-  relationships: {
-    building: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-    associatedNPC?: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-  }
-  base?: {
-    profession?: string
-  }
-  description(building: Tavern, npc: NPC): unknown
 }

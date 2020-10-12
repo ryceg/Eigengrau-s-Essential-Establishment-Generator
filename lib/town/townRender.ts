@@ -10,7 +10,7 @@ export function townRender (town: Town) {
   town.wealth = getTownWealth(town)
   town.economics = getTownEconomics(town)
   town.welfare = getTownWelfare(town)
-  const police = getPolice(town)
+  const police = getPolice(town.factions)
   console.log(police)
   switch (police.type) {
     case 'guards':

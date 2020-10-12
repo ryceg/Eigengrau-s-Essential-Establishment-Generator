@@ -1,5 +1,5 @@
 
-setup.createTavern = function (town, opts = {}) {
+setup.createTavern = (town, opts = {}) => {
   const tavern = (opts.newBuilding || setup.createBuilding)(town, 'tavern')
 
   tavern.name = lib.createTavernName()
@@ -75,12 +75,11 @@ setup.createTavern = function (town, opts = {}) {
   tavern.size = ''
   tavern.cleanliness = ''
   tavern.expertise = ''
-  tavern.lodging = ''
+  tavern.lodging = 0
   tavern.sin = ''
-  tavern.food = ''
-  tavern.colour1 = [lib.colours.yellow.colour.random(), lib.colours.orange.colour.random(), lib.colours.red.colour.random(), lib.colours.purple.colour.random(), lib.colours.blue.colour.random(), lib.colours.green.colour.random(), lib.colours.brown.colour.random(), lib.colours.black.colour.random(), lib.colours.white.colour.random()].random()
-  tavern.colour2 = [lib.colours.yellow.colour.random(), lib.colours.orange.colour.random(), lib.colours.red.colour.random(), lib.colours.purple.colour.random(), lib.colours.blue.colour.random(), lib.colours.green.colour.random(), lib.colours.brown.colour.random(), lib.colours.black.colour.random(), lib.colours.white.colour.random()].random()
-  tavern.bedCleanliness = ''
+  tavern.colour1 = getRandomTavernColour()
+  tavern.colour2 = getRandomTavernColour()
+
   // Define entertainment if large enough
   if (tavern.roll.size >= 30) {
     tavern.entertainment = setup.tavern.get.entertainment(tavern)
@@ -96,76 +95,6 @@ setup.createTavern = function (town, opts = {}) {
   // Sets up building structure and creates building description
   setup.createStructure(town, tavern)
   tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
-  const rollData = setup.tavern.rollData
-
-  Object.defineProperty(tavern, 'lodging', {
-    get () {
-      console.log(`Fetching ${tavern.name} lodging.`)
-      let lodging = rollData.wealth.find(descriptor => {
-        return descriptor[0] <= this.roll.wealth
-      })
-      if (lodging === undefined) {
-        lodging = rollData.wealth[rollData.wealth.length - 1]
-      }
-      this._lodging = lodging[2]
-      return this._lodging
-    }
-  })
-  Object.defineProperty(tavern, 'food', {
-    get () {
-      console.log(`Fetching ${tavern.name} food.`)
-      let food = rollData.wealth.find(descriptor => {
-        return descriptor[0] <= this.roll.wealth
-      })
-      if (food === undefined) {
-        food = rollData.wealth[rollData.wealth.length - 1]
-      }
-      this._food = food[2]
-      return this._food
-    }
-  })
-  Object.defineProperty(tavern, 'bedCleanliness', {
-    get () {
-      console.log(`Fetching ${tavern.name} bed cleanliness.`)
-      let bedCleanliness = rollData.cleanliness.find(descriptor => {
-        return descriptor[0] <= this.roll.bedCleanliness
-      })
-      if (bedCleanliness === undefined) {
-        bedCleanliness = rollData.cleanliness[rollData.cleanliness.length - 1]
-      }
-      this._bedCleanliness = bedCleanliness[1]
-      return this._bedCleanliness
-    }
-  })
-  Object.defineProperty(tavern, 'sin', {
-    get () {
-      console.log(`Fetching ${tavern.name} sin.`)
-      if (this.roll.sin > 80) {
-        this._sin = 'corrupt'
-      } else if (this.roll.sin > 70) {
-        this._sin = 'venal'
-      } else if (this.roll.sin > 60) {
-        this._sin = 'sleazy'
-      } else if (this.roll.sin > 50) {
-        this._sin = 'seedy'
-      } else if (this.roll.sin > 40 && this.roll.reputation > 60) {
-        this._sin = 'surprisingly trustworthy'
-      } else if (this.roll.sin > 40) {
-        this._sin = 'trustworthy'
-      } else if (this.roll.sin > 30 && this.roll.reputation > 60) {
-        this._sin = 'surprisingly reliable'
-      } else if (this.roll.sin > 30) {
-        this._sin = 'reliable'
-      } else if (this.roll.sin <= 20 && this.roll.reputation > 60) {
-        this._sin = 'surprisingly honest'
-      } else if (this.roll.sin <= 20) {
-        this._sin = 'honest'
-      } else {
-        this._sin = 'reasonably trustworthy'
-      }
-      return this._sin
-    }
-  })
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
@@ -176,4 +105,59 @@ setup.createTavern = function (town, opts = {}) {
   console.log(tavern)
   console.groupEnd()
   return tavern
+}
+
+setup.getTavernLodging = tavern => {
+  console.log(`Fetching ${tavern.name} lodging.`)
+  const { wealth } = setup.tavern.rollData
+
+  const [,, lodging] = wealth.find(([threshold]) => {
+    return threshold <= tavern.roll.wealth
+  }) || lib.last(wealth)
+
+  return lodging
+}
+
+setup.getTavernBedCleanliness = (tavern) => {
+  console.log(`Fetching ${tavern.name} bed cleanliness.`)
+  const { cleanliness } = setup.tavern.rollData
+
+  const [, bedCleanliness] = cleanliness.find(([threshold]) => {
+    return threshold <= tavern.roll.bedCleanliness
+  }) || lib.last(cleanliness)
+
+  return bedCleanliness
+}
+
+setup.getTavernSin = tavern => {
+  console.log(`Fetching ${tavern.name} sin.`)
+
+  if (tavern.roll.sin > 80) {
+    return 'corrupt'
+  } else if (tavern.roll.sin > 70) {
+    return 'venal'
+  } else if (tavern.roll.sin > 60) {
+    return 'sleazy'
+  } else if (tavern.roll.sin > 50) {
+    return 'seedy'
+  } else if (tavern.roll.sin > 40 && tavern.roll.reputation > 60) {
+    return 'surprisingly trustworthy'
+  } else if (tavern.roll.sin > 40) {
+    return 'trustworthy'
+  } else if (tavern.roll.sin > 30 && tavern.roll.reputation > 60) {
+    return 'surprisingly reliable'
+  } else if (tavern.roll.sin > 30) {
+    return 'reliable'
+  } else if (tavern.roll.sin <= 20 && tavern.roll.reputation > 60) {
+    return 'surprisingly honest'
+  } else {
+    return 'honest'
+  }
+}
+
+function getRandomTavernColour () {
+  const { colours, random } = lib
+  const available = [colours.yellow, colours.orange, colours.red, colours.purple, colours.blue, colours.green, colours.brown, colours.black, colours.white]
+  const selected = random(available)
+  return random(selected.colour)
 }

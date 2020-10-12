@@ -24,25 +24,10 @@ interface Setup {
       flawSeverity: string[]
       looks: string[]
     }
-    customers: Customers[]
+    customers: Customer[]
   }
 }
 
-interface Customers {
-  relationshipDescription: string
-  relationships: {
-    building: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-    associatedNPC: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-  }
-  base?: Partial<NPC>
-  description(brothel: Brothel, npc: NPC)
-}
 interface HarlotTypeData {
   gender: string
   ageStage?: string

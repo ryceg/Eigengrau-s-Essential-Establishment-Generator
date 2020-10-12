@@ -1,7 +1,7 @@
 :: TownListFactions
 <<silently>>
     <<set _listbox to '<<listbox "$newFaction">>'>>
-    <<for _key range Object.keys(lib.factionData.type)>>
+    <<for _key range Object.keys(lib.factionData)>>
         <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _listbox += '<</listbox>>'>>

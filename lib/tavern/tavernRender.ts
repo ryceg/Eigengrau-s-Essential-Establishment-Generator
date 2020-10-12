@@ -4,31 +4,24 @@ export function tavernRender (tavern: Tavern) {
   if (tavern.roll.wealth > 95) {
     tavern.wealth = 'kingly'
     tavern.lodging = 800
-    tavern.food = 400
   } else if (tavern.roll.wealth > 80) {
     tavern.wealth = 'aristocratic'
     tavern.lodging = 400
-    tavern.food = 200
   } else if (tavern.roll.wealth > 70) {
     tavern.wealth = 'wealthy'
     tavern.lodging = 200
-    tavern.food = 80
   } else if (tavern.roll.wealth > 60) {
     tavern.wealth = 'comfortable'
     tavern.lodging = 50
-    tavern.food = 40
   } else if (tavern.roll.wealth > 50) {
     tavern.wealth = 'modest'
     tavern.lodging = 30
-    tavern.food = 30
   } else if (tavern.roll.wealth > 25) {
     tavern.wealth = 'poor'
     tavern.lodging = 10
-    tavern.food = 6
   } else {
     tavern.wealth = 'squalid'
     tavern.lodging = 7
-    tavern.food = 3
   }
 
   /* ------------------------- SIZE -------------------------- */
@@ -73,28 +66,20 @@ export function tavernRender (tavern: Tavern) {
 
   if (tavern.roll.cleanliness > 80) {
     tavern.cleanliness = 'absolutely spotless'
-    tavern.bedCleanliness = 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'
   } else if (tavern.roll.cleanliness > 70) {
     tavern.cleanliness = 'spotless'
-    tavern.bedCleanliness = 'freshly cleaned and neat'
   } else if (tavern.roll.cleanliness > 60) {
     tavern.cleanliness = 'hygienic'
-    tavern.bedCleanliness = 'tidy and neat'
   } else if (tavern.roll.cleanliness > 50) {
     tavern.cleanliness = 'decently hygienic'
-    tavern.bedCleanliness = 'reasonably clean'
   } else if (tavern.roll.cleanliness > 40) {
     tavern.cleanliness = 'slightly grubby'
-    tavern.bedCleanliness = 'somewhat tidy'
   } else if (tavern.roll.cleanliness > 30) {
     tavern.cleanliness = 'quite dirty'
-    tavern.bedCleanliness = 'disgusting'
   } else if (tavern.roll.cleanliness > 20) {
     tavern.cleanliness = 'rather filthy'
-    tavern.bedCleanliness = 'teeming with rats'
   } else {
     tavern.cleanliness = 'absolutely putrid'
-    tavern.bedCleanliness = 'festering with bugs'
   }
 
   /* ------------------------- SIN -------------------------- */

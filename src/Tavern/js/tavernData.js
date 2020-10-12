@@ -2,14 +2,14 @@ setup.initTavernData = () => {
   setup.tavern = {
     rollData: {
       wealth: [
-        [95, 'kingly', 800, 400],
-        [80, 'aristocratic', 400, 200],
-        [70, 'wealthy', 200, 80],
-        [60, 'comfortable', 50, 40],
-        [50, 'modest', 30, 30],
-        [25, 'poor', 10, 6],
-        [15, 'squalid', 7, 3],
-        [0, 'destitute', 6, 2]
+        [95, 'kingly', 800],
+        [80, 'aristocratic', 400],
+        [70, 'wealthy', 200],
+        [60, 'comfortable', 50],
+        [50, 'modest', 30],
+        [25, 'poor', 10],
+        [15, 'squalid', 7],
+        [0, 'destitute', 6]
       ],
       size: [
         [95, 'cavernous'],

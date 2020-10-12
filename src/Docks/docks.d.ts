@@ -34,21 +34,6 @@ interface Setup {
   }
 }
 
-interface Customer {
-    relationshipDescription: string
-    relationships: {
-      building: {
-        relationship: string
-        reciprocalRelationship?: string
-      }
-      associatedNPC: {
-        relationship: string
-        reciprocalRelationship?: string
-      }
-    }
-    base?: Base
-    description(docks: Docks, npc: NPC): string
-}
 interface ShipType {
   masts: number,
   rigging: string,
