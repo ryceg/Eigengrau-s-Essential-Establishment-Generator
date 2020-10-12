@@ -112,36 +112,6 @@ setup.createTavern = (town, opts = {}) => {
     }
   })
 
-  Object.defineProperty(tavern, 'sin', {
-    get () {
-      console.log(`Fetching ${tavern.name} sin.`)
-      if (this.roll.sin > 80) {
-        this._sin = 'corrupt'
-      } else if (this.roll.sin > 70) {
-        this._sin = 'venal'
-      } else if (this.roll.sin > 60) {
-        this._sin = 'sleazy'
-      } else if (this.roll.sin > 50) {
-        this._sin = 'seedy'
-      } else if (this.roll.sin > 40 && this.roll.reputation > 60) {
-        this._sin = 'surprisingly trustworthy'
-      } else if (this.roll.sin > 40) {
-        this._sin = 'trustworthy'
-      } else if (this.roll.sin > 30 && this.roll.reputation > 60) {
-        this._sin = 'surprisingly reliable'
-      } else if (this.roll.sin > 30) {
-        this._sin = 'reliable'
-      } else if (this.roll.sin <= 20 && this.roll.reputation > 60) {
-        this._sin = 'surprisingly honest'
-      } else if (this.roll.sin <= 20) {
-        this._sin = 'honest'
-      } else {
-        this._sin = 'reasonably trustworthy'
-      }
-      return this._sin
-    }
-  })
-
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
@@ -173,6 +143,32 @@ setup.getTavernBedCleanliness = (tavern) => {
   }) || lib.last(cleanliness)
 
   return bedCleanliness
+}
+
+setup.getTavernSin = tavern => {
+  console.log(`Fetching ${tavern.name} sin.`)
+
+  if (tavern.roll.sin > 80) {
+    return 'corrupt'
+  } else if (tavern.roll.sin > 70) {
+    return 'venal'
+  } else if (tavern.roll.sin > 60) {
+    return 'sleazy'
+  } else if (tavern.roll.sin > 50) {
+    return 'seedy'
+  } else if (tavern.roll.sin > 40 && tavern.roll.reputation > 60) {
+    return 'surprisingly trustworthy'
+  } else if (tavern.roll.sin > 40) {
+    return 'trustworthy'
+  } else if (tavern.roll.sin > 30 && tavern.roll.reputation > 60) {
+    return 'surprisingly reliable'
+  } else if (tavern.roll.sin > 30) {
+    return 'reliable'
+  } else if (tavern.roll.sin <= 20 && tavern.roll.reputation > 60) {
+    return 'surprisingly honest'
+  } else {
+    return 'honest'
+  }
 }
 
 function getRandomTavernColour () {
