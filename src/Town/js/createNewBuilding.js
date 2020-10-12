@@ -25,11 +25,11 @@ setup.initBuildingTypes = () => {
   }
 }
 
-setup.createNewBuilding = (town, type) => {
+setup.createNewBuilding = (town, type, opts) => {
   // this is necessary to point the function towards where the building creation function is kept.
   // unfortunately, it currently needs to be updated manually with each new building.
 
-  const newBuilding = setup.buildingTypes[lib.toTitleCase(type)](town, { isHighlighted: true })
+  const newBuilding = setup.buildingTypes[lib.toTitleCase(type)](town, { ...opts, isHighlighted: true })
   console.log(town)
   if (Array.isArray(town.buildings)) town.buildings.push(newBuilding)
   return newBuilding
