@@ -3,6 +3,7 @@ export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
 
 export * from './buildings/createBuildingRelationship'
+export * from './buildings/cullBuildings'
 export * from './buildings/deleteBuildingRelationship'
 export * from './buildings/findBuilding'
 export * from './buildings/findBuildingRelationship'

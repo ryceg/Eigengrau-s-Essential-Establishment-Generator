@@ -2,18 +2,12 @@ setup.createStartBuildings = town => {
   console.log('Creating starting buildings...', town)
 
   const buildingsToCreate = [
-    {
-      buildingType: 'Town Square',
-      opts: null
-    },
-    {
-      buildingType: 'Market',
-      opts: null
-    }
+    { buildingType: 'Town Square' },
+    { buildingType: 'Market' }
   ]
 
   if (town.location === 'seashore' || town.location === 'river coast') {
-    buildingsToCreate.push({ buildingType: 'Docks', opts: null })
+    buildingsToCreate.push({ buildingType: 'Docks' })
   }
 
   const professions = {
@@ -44,5 +38,9 @@ setup.createStartBuildings = town => {
       }
     }
   }
-  lib.cullBuildings(town, buildingsToCreate)
+
+  for (const building of lib.cullBuildings(buildingsToCreate)) {
+    console.log(`Creating ${lib.articles.output(building.buildingType)}...`)
+    setup.createNewBuilding(town, building.buildingType, building.opts)
+  }
 }
