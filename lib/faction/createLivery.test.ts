@@ -11,11 +11,12 @@ describe('createLivery', () => {
 
     for (const type of keys(factionData)) {
       if (factionData[type].livery) {
-        expect(createLivery(type)).toBeDefined()
+        const livery = createLivery(type)
+        expect(livery).toBeDefined()
         calledNumberOfTimes += 1
       }
-
-      expect(calledNumberOfTimes).toBeGreaterThanOrEqual(1)
     }
+
+    expect(calledNumberOfTimes).toBeGreaterThan(0)
   })
 })
