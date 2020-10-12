@@ -80,7 +80,7 @@ setup.createTavern = (town, opts = {}) => {
   tavern.food = ''
   tavern.colour1 = getRandomTavernColour()
   tavern.colour2 = getRandomTavernColour()
-  tavern.bedCleanliness = ''
+
   // Define entertainment if large enough
   if (tavern.roll.size >= 30) {
     tavern.entertainment = setup.tavern.get.entertainment(tavern)

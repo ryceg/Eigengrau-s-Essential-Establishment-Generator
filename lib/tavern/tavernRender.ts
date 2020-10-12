@@ -73,28 +73,20 @@ export function tavernRender (tavern: Tavern) {
 
   if (tavern.roll.cleanliness > 80) {
     tavern.cleanliness = 'absolutely spotless'
-    tavern.bedCleanliness = 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'
   } else if (tavern.roll.cleanliness > 70) {
     tavern.cleanliness = 'spotless'
-    tavern.bedCleanliness = 'freshly cleaned and neat'
   } else if (tavern.roll.cleanliness > 60) {
     tavern.cleanliness = 'hygienic'
-    tavern.bedCleanliness = 'tidy and neat'
   } else if (tavern.roll.cleanliness > 50) {
     tavern.cleanliness = 'decently hygienic'
-    tavern.bedCleanliness = 'reasonably clean'
   } else if (tavern.roll.cleanliness > 40) {
     tavern.cleanliness = 'slightly grubby'
-    tavern.bedCleanliness = 'somewhat tidy'
   } else if (tavern.roll.cleanliness > 30) {
     tavern.cleanliness = 'quite dirty'
-    tavern.bedCleanliness = 'disgusting'
   } else if (tavern.roll.cleanliness > 20) {
     tavern.cleanliness = 'rather filthy'
-    tavern.bedCleanliness = 'teeming with rats'
   } else {
     tavern.cleanliness = 'absolutely putrid'
-    tavern.bedCleanliness = 'festering with bugs'
   }
 
   /* ------------------------- SIN -------------------------- */

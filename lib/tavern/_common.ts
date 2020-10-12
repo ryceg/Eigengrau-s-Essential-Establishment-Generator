@@ -21,7 +21,6 @@ export interface Tavern {
   size: string
   roughness: string
   cleanliness: string
-  bedCleanliness: string
   diversity: string
   reputation: string
   stageDescriptor: string
