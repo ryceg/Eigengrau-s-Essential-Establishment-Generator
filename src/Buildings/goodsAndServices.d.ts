@@ -27,7 +27,7 @@ interface GoodsAndServices {
 interface GoodsAndService {
   create(town: Town, building: Building, opts?: unknown): Building
   name: {
-    function(town: Building): string
+    function(town: Town, building: Building): string
     unique: string[]
     noun: string[]
     adjective: string[]

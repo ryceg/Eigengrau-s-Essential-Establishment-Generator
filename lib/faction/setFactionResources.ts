@@ -28,7 +28,7 @@ export function setFactionResources (faction: Faction): void {
   const resources: string[] = []
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  const weightedResources = sumWeights(defaultWeightedResources, factionData.type[faction.type].resources)
+  const weightedResources = sumWeights(defaultWeightedResources, factionData[faction.type].resources)
 
   const ageModifier = getAgeModifier(faction.roll.age)
 

@@ -31,9 +31,9 @@ export function setFactionJoinStats (faction: Faction): void {
   }
 
   // TODO: Create tasks for each type of guild, plus requirement
-  const weightedJoiningRequirement = sumWeights(defaultWeightedJoiningRequirement, factionData.type[faction.type].joiningRequirement)
+  const weightedJoiningRequirement = sumWeights(defaultWeightedJoiningRequirement, factionData[faction.type].joiningRequirement)
 
-  const weightedJoiningInitiation = sumWeights(defaultWeightedJoiningInitiation, factionData.type[faction.type].joiningInitiation)
+  const weightedJoiningInitiation = sumWeights(defaultWeightedJoiningInitiation, factionData[faction.type].joiningInitiation)
 
   assign(faction, {
     joiningRequirement: weightRandom(weightedJoiningRequirement),

@@ -1,4 +1,4 @@
-setup.policingSource = (town) => {
+setup.findPoliceSource = (town) => {
   for (const factionKey of Object.keys(town.factions)) {
     const faction = town.factions[factionKey]
     const motivations = ['power', 'politics', 'influence']

@@ -41,6 +41,7 @@ export interface NPC {
   heshe: string
   hisher: string
   himher: string
+  himherself: string
 }
 
 export interface Relationship {

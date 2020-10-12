@@ -36,7 +36,7 @@ export function createRivals (faction: Faction): void {
 
   // This is where weighting different groups happens.
   // Needs updating with each new faction.
-  const weightedGroups = sumWeights(defaultWeightedGroups, factionData.type[faction.type].rivalsList)
+  const weightedGroups = sumWeights(defaultWeightedGroups, factionData[faction.type].rivalsList)
 
   if (sizeRoll >= 90) {
     faction.rivalsDescription = 'managed to become almost universally disliked'

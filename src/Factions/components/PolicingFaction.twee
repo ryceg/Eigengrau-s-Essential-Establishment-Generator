@@ -4,6 +4,6 @@
   <<case "guard">>$town.name is policed by $currentPassage.name. $town.guard.funding
   <<default>>$town.name is policed by $currentPassage.name, rather than a separate guard. $town.guard.funding
 <</switch>>
-One can recognise a member of $currentPassage.name by the <<if def $currentPassage.livery>>$currentPassage.livery.readout<<else>>$currentPassage.membersTrait<</if>>.
+One can recognise a member of $currentPassage.name by the <<if def $currentPassage.livery>><<print lib.readoutLivery($currentPassage.livery)>><<else>>$currentPassage.membersTrait<</if>>.
 <h4>Law in $town.name</h4>
 $town.law
