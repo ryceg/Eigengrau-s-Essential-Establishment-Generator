@@ -1,6 +1,7 @@
 export interface Tavern {
   type: string
   draw: string
+  name: string
   material: string
   roll: {
     wealth: number

@@ -1,5 +1,5 @@
 
-setup.createTavern = function (town, opts = {}) {
+setup.createTavern = (town, opts = {}) => {
   const tavern = (opts.newBuilding || setup.createBuilding)(town, 'tavern')
 
   tavern.name = lib.createTavernName()
@@ -75,7 +75,7 @@ setup.createTavern = function (town, opts = {}) {
   tavern.size = ''
   tavern.cleanliness = ''
   tavern.expertise = ''
-  tavern.lodging = ''
+  tavern.lodging = 0
   tavern.sin = ''
   tavern.food = ''
   tavern.colour1 = getRandomTavernColour()
@@ -98,19 +98,6 @@ setup.createTavern = function (town, opts = {}) {
   tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
   const rollData = setup.tavern.rollData
 
-  Object.defineProperty(tavern, 'lodging', {
-    get () {
-      console.log(`Fetching ${tavern.name} lodging.`)
-      let lodging = rollData.wealth.find(descriptor => {
-        return descriptor[0] <= this.roll.wealth
-      })
-      if (lodging === undefined) {
-        lodging = rollData.wealth[rollData.wealth.length - 1]
-      }
-      this._lodging = lodging[2]
-      return this._lodging
-    }
-  })
   Object.defineProperty(tavern, 'food', {
     get () {
       console.log(`Fetching ${tavern.name} food.`)
@@ -176,6 +163,17 @@ setup.createTavern = function (town, opts = {}) {
   console.log(tavern)
   console.groupEnd()
   return tavern
+}
+
+setup.getTavernLodging = tavern => {
+  console.log(`Fetching ${tavern.name} lodging.`)
+  const { rollData } = setup.tavern
+
+  const lodging = rollData.wealth.find(([threshold]) => {
+    return threshold <= tavern.roll.wealth
+  }) || lib.last(rollData.wealth)
+
+  return lodging[2]
 }
 
 function getRandomTavernColour () {
