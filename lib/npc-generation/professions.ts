@@ -7110,7 +7110,7 @@ export const professions: Record<string, Profession> = {
     }
   },
   'grave robber': {
-    sv: 100,
+    sv: 5000,
     type: 'profession',
     sector: 'crime',
     description: 'steals valuables from graves and tombs.',
