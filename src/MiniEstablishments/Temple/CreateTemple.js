@@ -7,10 +7,10 @@ setup.createTemple = (town, opts = {}) => {
     initPassage: 'TempleOutput',
     buildingType: 'temple',
     wordNoun: data.name.wordNoun.random(),
-    associatedNPC: setup.createNPC(town, {
+    associatedNPC: setup.createNPC(town, Object.assign({
       profession: ['priest', 'priest', 'priest', 'priest', 'priest', 'cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
       background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random()
-    }),
+    }, opts.npc)),
     prayerSubject: data.prayerSubject.random(),
     dedicated: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random(), data.dedicated.random()].random(),
     knownFor: data.knownFor.random(),

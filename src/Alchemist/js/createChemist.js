@@ -1,5 +1,5 @@
 
-setup.createChemist = town => setup.createNPC(town, {
+setup.createChemist = (town, opts) => setup.createNPC(town, Object.assign({
   profession: ['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].random(),
   background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].random(),
   idle: [
@@ -59,4 +59,4 @@ setup.createChemist = town => setup.createNPC(town, {
     'talks about the many uses for <<print lib.alchemistData.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
     'tries to push various products on you all as you look about the shop'
   ]
-})
+}, opts.npc))

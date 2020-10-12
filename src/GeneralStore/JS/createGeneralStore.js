@@ -4,12 +4,12 @@ setup.createGeneralStore = (town, opts = {}) => {
 
   const generalStore = createBuilding(town, 'generalStore')
   console.groupCollapsed('General Store loading...')
-  generalStore.associatedNPC = createShopkeep(town, {
+  generalStore.associatedNPC = createShopkeep(town, Object.assign({
     profession: 'merchant',
     mundane: ['pliers', 'tins', 'twine', 'cups', 'spoons', 'pans', 'chairs', 'cushions'],
     greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'checks you out for just a moment before smiling at you'],
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'assistant manager', 'acting manager'].random()
-  })
+  }, opts.npc))
   lib.createBuildingRelationship(town, generalStore, generalStore.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   Object.assign(generalStore, {
     note: lib.generalStore.get.note(generalStore),

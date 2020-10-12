@@ -1,10 +1,8 @@
-setup.createBartender = function (town, tavern) {
-  const bartender = setup.createNPC(town, {
-    // associatedBuilding: associatedBuilding,
+setup.createBartender = function (town, tavern, opts) {
+  const bartender = setup.createNPC(town, Object.assign({
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].random(),
     profession: ['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'].random()
-    // profession: 'bartender'
-  })
+  }, opts.npc))
   Object.assign(bartender, {
     greeting: [
       'nods at you',

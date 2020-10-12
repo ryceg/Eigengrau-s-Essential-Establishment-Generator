@@ -9,10 +9,10 @@ setup.createDocks = (town, opts = {}) => {
     initPassage: 'DocksOutput',
     buildingType: 'docks',
     needsWordNoun: false,
-    associatedNPC: setup.createNPC(town, {
+    associatedNPC: setup.createNPC(town, Object.assign({
       isShallow: true,
       profession: 'stevedore'
-    }),
+    }, opts.npc)),
     wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina', 'jetty', 'harbor', 'berth', 'port', 'seaport', 'dockyard'].random(),
     ships: {},
     typePool: setup.docks.ships.typePool

@@ -5,7 +5,7 @@ setup.createAlchemist = (town, opts = {}) => {
   console.groupCollapsed('Alchemist loading...')
 
   const alchemist = createBuilding(town, 'alchemist')
-  const associatedNPC = createChemist(town)
+  const associatedNPC = createChemist(town, opts)
   lib.createBuildingRelationship(town, alchemist, associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
 
   Object.assign(alchemist, {

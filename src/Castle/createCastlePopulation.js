@@ -2,7 +2,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
   const selected = lib.weightedRandomFetcher(town, setup.castle.ruler.types, castle, null, 'object')
   console.log(selected)
   if (!selected.base.profession) selected.base.profession = 'castellan'
-  castle.associatedNPC = setup.createNPC(town, selected.base)
+  castle.associatedNPC = setup.createNPC(town, opts.npc || selected.base)
   lib.createBuildingRelationship(town, castle, castle.associatedNPC, { relationship: 'ruler', reciprocalRelationship: `castle ${castle.associatedNPC.heshe} rules` })
 
   if (!selected.acquisitionMethod) {

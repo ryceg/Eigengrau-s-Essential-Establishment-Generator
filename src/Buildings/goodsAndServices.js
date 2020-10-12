@@ -30,7 +30,7 @@ setup.initGoodsAndServices = () => {
           console.error('A building was not passed!')
           return
         }
-        building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+        building.associatedNPC = setup.createNPC(town, opts.npc || setup.goodsAndServices[building.type].profession.opts)
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
         building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
