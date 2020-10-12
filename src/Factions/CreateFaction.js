@@ -29,17 +29,7 @@ setup.createFaction = function (town, opts = {}) {
     faction.type = 'merchants'
   }
 
-  if (lib.factionData.type[faction.type].livery) {
-    const liveryData = lib.factionData.type[faction.type].livery
-    faction.livery = {
-      colours: {
-        primary: lib.random(liveryData.colours.primary),
-        secondary: lib.random(liveryData.colours.secondary)
-      },
-      insignia: lib.random(liveryData.insignia)
-    }
-    faction.livery.readout = `${faction.livery.colours.primary} and ${faction.livery.colours.secondary} livery adorned with an image of ${faction.livery.insignia}`
-  }
+  if (lib.factionData.type[faction.type].livery) lib.createLivery(faction)
 
   lib.setFactionAge(faction)
   lib.setFactionName(town, faction)
