@@ -29,7 +29,9 @@ setup.createFaction = (town, opts = {}) => {
     faction.type = 'merchants'
   }
 
-  if (lib.factionData[faction.type].livery) lib.createLivery(faction)
+  lib.assign(faction, {
+    livery: lib.createLivery(faction)
+  })
 
   lib.setFactionAge(faction)
   lib.setFactionName(town, faction)
