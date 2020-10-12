@@ -30,5 +30,6 @@ export interface Faction {
   rivals: string[]
   resourcesDescription: string
   resources: string[]
+  isPolicing: boolean
   misc: string
 }
