@@ -12,13 +12,20 @@ interface Livery {
 }
 
 export function createLivery (faction: Faction): void {
+  const factionType = factionData[faction.type]
+
+  if (factionType.livery == null) {
+    return
+  }
+
   const livery: Livery = {
     colours: {
-      primary: random(factionData[faction.type].livery.colours.primary),
-      secondary: random(factionData[faction.type].livery.colours.secondary)
+      primary: random(factionType.livery.colours.primary),
+      secondary: random(factionType.livery.colours.secondary)
     },
-    insignia: random(factionData[faction.type].livery.insignia),
+    insignia: random(factionType.livery.insignia),
     readout: `${faction.livery.colours.primary} and ${faction.livery.colours.secondary} livery adorned with an image of ${faction.livery.insignia}`
   }
+
   faction.livery = livery
 }

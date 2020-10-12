@@ -48,6 +48,8 @@ interface LeaderTraits {
   background?: string | string[]
 }
 
+export type FactionType = keyof typeof factionData
+
 export const factionData = constrainRecord<FactionTypeData>()({
   artisans: {
     leader: {

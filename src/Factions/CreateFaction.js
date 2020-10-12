@@ -1,9 +1,9 @@
-setup.createFaction = function (town, opts = {}) {
+setup.createFaction = (town, opts = {}) => {
   // const type = ['thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars'].random()
   const type = opts.type || Object.keys(lib.factionData).random()
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
-  const faction = opts.newFaction || Object.assign({
+  const faction = Object.assign({
     key: lib.getUUID(),
     passageName: 'FactionProfile',
     objectType: 'faction',

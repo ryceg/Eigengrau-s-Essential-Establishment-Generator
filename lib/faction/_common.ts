@@ -1,5 +1,7 @@
+import type { FactionType } from './factionData'
+
 export interface Faction {
-  type: string
+  type: FactionType
   name: string
   roll: {
     age: number
