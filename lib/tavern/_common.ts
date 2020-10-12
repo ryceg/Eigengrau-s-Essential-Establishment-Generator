@@ -22,4 +22,7 @@ export interface Tavern {
   bedCleanliness: string
   diversity: string
   reputation: string
+  stageDescriptor: string
+  colour1: string
+  colour2: string
 }
