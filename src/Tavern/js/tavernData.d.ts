@@ -4,7 +4,7 @@ interface Setup {
   initTavernData(): void
   tavern: {
     rollData: {
-      wealth: [number, string, number, number][]
+      wealth: [number, string, number][]
       size: [number, string][]
       cleanliness: [number, string][]
       bedCleanliness: [number, string][]
