@@ -2,7 +2,6 @@ setup.createGraveyard = (town, base = {}) => {
   const graveyard = (base.newBuilding || setup.createBuilding)(town, 'graveyard')
 
   Object.assign(graveyard, {
-    associatedTown: town.name,
     initPassage: 'GraveyardOutput',
     passageName: 'GraveyardOutput',
     buildingType: 'graveyard',

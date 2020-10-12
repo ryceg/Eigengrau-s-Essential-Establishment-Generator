@@ -1,7 +1,7 @@
 :: TownEdit
 <<nobr>>
-<<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
-<<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
+<<set $economicIdeologyTypes to lib.economicPairs>>
+<<set $politicalIdeologyTypes to lib.politicalIdeologyPairs>>
 <<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>
 <<set
   $town.roll.wealth to $town.roll.wealth.clamp(1, 100),

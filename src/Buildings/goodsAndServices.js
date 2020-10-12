@@ -7,7 +7,7 @@ setup.initGoodsAndServices = () => {
         // It is *not* for taverns, town squares, castles, or anything large scale.
         // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
         console.groupCollapsed(`setup.goodsAndServices.default.create()ing ${lib.articles.output(type)}`)
-        let building = {
+        const building = {
           type,
           buildingType: type,
           passageName: 'GenericPassage',
@@ -17,7 +17,7 @@ setup.initGoodsAndServices = () => {
         building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.random() || 'building'
         building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat()
         setup.goodsAndServices[type].create(town, building, opts)
-        building = setup.createStructure(town, building)
+        setup.createStructure(town, building)
 
         console.groupEnd()
         return building

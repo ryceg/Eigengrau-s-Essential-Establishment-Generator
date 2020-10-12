@@ -2,7 +2,6 @@ setup.createMarket = (town, opts = {}) => {
   const market = (opts.newBuilding || setup.createBuilding)(town, 'market')
 
   Object.assign(market, {
-    associatedTown: town.name,
     initPassage: 'MarketOutput',
     passageName: 'MarketOutput',
     buildingType: 'market',

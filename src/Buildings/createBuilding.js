@@ -38,7 +38,6 @@ setup.createBuilding = (town, type, base = {}) => {
       this.roadName = roads[0] || ''
       this.roadType = roads[1] || ''
     },
-    associatedTown: town.name,
     type,
     lighting,
     outside,

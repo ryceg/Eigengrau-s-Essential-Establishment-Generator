@@ -36,9 +36,18 @@ setup.createTownName = function (town) {
     // Replace existing names of buildings if they reference town name
     town.buildings.forEach(building => {
       building.name = building.name.replace(town.name, driftName)
-      building.associatedTown = driftName
       building.tooltip = building.tooltip.replace(town.name, driftName)
     })
+  }
+
+  if (town && town.factions) {
+    console.log(town.name, driftName)
+    // Replace existing names of factions if they reference town name
+    for (const faction of Object.values(town.factions)) {
+      town.factions[faction.key].name = town.factions[faction.key].name.replace(town.name, driftName)
+      town.factions[faction.key].associatedTown = driftName
+      town.factions[faction.key].tippyDescription = town.factions[faction.key].tippyDescription.replace(town.name, driftName)
+    }
   }
 
   return driftName

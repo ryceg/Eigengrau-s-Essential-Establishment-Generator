@@ -7,7 +7,6 @@ setup.createFaction = function (town, opts = {}) {
     key: lib.getUUID(),
     passageName: 'FactionProfile',
     objectType: 'faction',
-    associatedTown: town.name,
     type,
     isPolicing: false,
     wordNoun: lib.factionData.type[type].wordNoun,
