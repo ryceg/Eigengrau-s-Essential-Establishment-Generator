@@ -15,7 +15,6 @@ export interface Tavern {
   }
   priceModifier: number
   lodging: number
-  food: number
   wealth: string
   sin: string
   size: string

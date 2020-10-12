@@ -77,7 +77,6 @@ setup.createTavern = (town, opts = {}) => {
   tavern.expertise = ''
   tavern.lodging = 0
   tavern.sin = ''
-  tavern.food = ''
   tavern.colour1 = getRandomTavernColour()
   tavern.colour2 = getRandomTavernColour()
 
@@ -96,21 +95,6 @@ setup.createTavern = (town, opts = {}) => {
   // Sets up building structure and creates building description
   setup.createStructure(town, tavern)
   tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
-  const rollData = setup.tavern.rollData
-
-  Object.defineProperty(tavern, 'food', {
-    get () {
-      console.log(`Fetching ${tavern.name} food.`)
-      let food = rollData.wealth.find(descriptor => {
-        return descriptor[0] <= this.roll.wealth
-      })
-      if (food === undefined) {
-        food = rollData.wealth[rollData.wealth.length - 1]
-      }
-      this._food = food[2]
-      return this._food
-    }
-  })
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {

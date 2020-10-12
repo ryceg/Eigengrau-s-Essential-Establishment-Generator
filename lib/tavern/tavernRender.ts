@@ -4,31 +4,24 @@ export function tavernRender (tavern: Tavern) {
   if (tavern.roll.wealth > 95) {
     tavern.wealth = 'kingly'
     tavern.lodging = 800
-    tavern.food = 400
   } else if (tavern.roll.wealth > 80) {
     tavern.wealth = 'aristocratic'
     tavern.lodging = 400
-    tavern.food = 200
   } else if (tavern.roll.wealth > 70) {
     tavern.wealth = 'wealthy'
     tavern.lodging = 200
-    tavern.food = 80
   } else if (tavern.roll.wealth > 60) {
     tavern.wealth = 'comfortable'
     tavern.lodging = 50
-    tavern.food = 40
   } else if (tavern.roll.wealth > 50) {
     tavern.wealth = 'modest'
     tavern.lodging = 30
-    tavern.food = 30
   } else if (tavern.roll.wealth > 25) {
     tavern.wealth = 'poor'
     tavern.lodging = 10
-    tavern.food = 6
   } else {
     tavern.wealth = 'squalid'
     tavern.lodging = 7
-    tavern.food = 3
   }
 
   /* ------------------------- SIZE -------------------------- */
