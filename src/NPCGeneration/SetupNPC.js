@@ -20,13 +20,13 @@ setup.createNPC = (town, base) => {
     base.hasHistory = base.hasHistory || false
   }
 
-  if (base.canBeCustom === true && random(1, 100) > 99) {
+  if (base.canBeCustom === true && lib.random(1, 100) > 99) {
     base = lib.objectArrayFetcher(lib.patreonCharacters)
   }
 
   lib.initSexistProfession(town, base)
 
-  const gender = base.gender || ['man', 'woman'].random()
+  const gender = base.gender || lib.random(['man', 'woman'])
   const race = base.race || lib.fetchRace(town, base)
 
   console.log('Fetching profession.')
@@ -80,7 +80,7 @@ setup.createNPC = (town, base) => {
         // expected range should be between -25 and 25.
         return lib.calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
-      physicalTrait: random(1, 100),
+      physicalTrait: lib.random(1, 100),
       gregariousness: lib.dice(3, 6),
       // conformity: 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care"
       // TODO: conformity would ideally be used in testing for breaking gender norms, but it is only initialised AFTER the test.
@@ -91,8 +91,8 @@ setup.createNPC = (town, base) => {
       creditors: {},
       debtors: {}
     },
-    hairColour: data.hairColour.random(),
-    hairType: data.hairType.random(),
+    hairColour: lib.random(data.hairColour),
+    hairType: lib.random(data.hairType),
     get hair () {
       return `${this.hairType} ${this.hairColour} hair`
     },
@@ -104,13 +104,13 @@ setup.createNPC = (town, base) => {
     get descriptor () {
       return this.descriptors.random()
     },
-    eyes: lib.raceTraits[race].eyes.random(),
-    skinColour: data.skinColour.random(),
+    eyes: lib.random(lib.raceTraits[race].eyes),
+    skinColour: lib.random(data.skinColour),
     dndClass,
     profession,
-    pockets: data.pockets.random(),
+    pockets: lib.random(data.pockets),
     wealth: lib.dice(2, 50),
-    trait: data.trait.random(),
+    trait: lib.random(data.trait),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
@@ -137,7 +137,7 @@ setup.createNPC = (town, base) => {
       }
     },
     knownLanguages: lib.raceTraits[race].knownLanguages,
-    reading: data.reading.random(),
+    reading: lib.random(data.reading),
 
     family: undefined
     // pubRumour: setup.createPubRumour()
@@ -158,7 +158,7 @@ setup.createNPC = (town, base) => {
       // npc.dndClass = npc.profession
     } else {
       npc.hasClass = true
-      npc.adventure = data.adventure.random() || 'looking for work'
+      npc.adventure = lib.random(data.adventure) || 'looking for work'
       npc.dndClass = npc.dndClass || npc.profession
     }
   }
@@ -173,27 +173,27 @@ setup.createNPC = (town, base) => {
   if (!npc.physicalTrait) {
     if (npc.roll.physicalTrait > 40) {
       const headParts = setup.npcData.bodyParts.head
-      npc.physicalTrait = [
-        headParts.hair.random(),
-        headParts.eyes.random(),
-        headParts.nose.random(),
-        headParts.mouth.random(),
-        headParts.chin.random(),
-        headParts.ears.random(),
-        headParts.misc.random()
-      ].random()
+      npc.physicalTrait = lib.random([
+        lib.random(headParts.hair),
+        lib.random(headParts.eyes),
+        lib.random(headParts.nose),
+        lib.random(headParts.mouth),
+        lib.random(headParts.chin),
+        lib.random(headParts.ears),
+        lib.random(headParts.misc)
+      ])
     } else if (npc.roll.physicalTrait > 30) {
-      npc.physicalTrait = setup.npcData.bodyParts.torso.descriptions.random()
+      npc.physicalTrait = lib.random(setup.npcData.bodyParts.torso.descriptions)
     } else if (npc.roll.physicalTrait > 20) {
-      npc.physicalTrait = setup.npcData.bodyParts.arms.descriptions.random()
+      npc.physicalTrait = lib.random(setup.npcData.bodyParts.arms.descriptions)
     } else if (npc.roll.physicalTrait > 13) {
-      npc.physicalTrait = setup.npcData.bodyParts.legs.descriptions.random()
+      npc.physicalTrait = lib.random(setup.npcData.bodyParts.legs.descriptions)
     } else if (npc.roll.physicalTrait > 8) {
-      npc.physicalTrait = data.scar.random()
+      npc.physicalTrait = lib.random(data.scar)
     } else if (npc.roll.physicalTrait > 5) {
       npc.physicalTrait = npc.hair
     } else if (npc.roll.physicalTrait <= 5) {
-      npc.physicalTrait = data.tattoo.random()
+      npc.physicalTrait = lib.random(data.tattoo)
     }
   }
   setup.createClass(town, npc)
@@ -230,7 +230,7 @@ setup.createNPC = (town, base) => {
  * @param {import("../../lib/index").RaceName} race
  */
 function getLastName (race) {
-  return lib.random(lib.raceTraits[race].lastName).toUpperFirst()
+  return lib.toTitleCase(lib.random(lib.raceTraits[race].lastName))
 }
 
 /**
@@ -238,7 +238,7 @@ function getLastName (race) {
  * @param {import("../../lib/index").GenderName} gender
  */
 function getFirstName (race, gender) {
-  return lib.random(lib.raceTraits[race].genderTraits[gender].firstName).toUpperFirst()
+  return lib.toTitleCase(lib.random(lib.raceTraits[race].genderTraits[gender].firstName))
 }
 
 /**
