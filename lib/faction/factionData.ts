@@ -1,3 +1,4 @@
+import { constrainRecord } from '../src/constrainRecord'
 import { WeightRecord } from '../types'
 
 interface FactionTypeData {
@@ -47,7 +48,7 @@ interface LeaderTraits {
   background?: string | string[]
 }
 
-export const factionData: Record<string, FactionTypeData> = {
+export const factionData = constrainRecord<FactionTypeData>()({
   artisans: {
     leader: {
       format: {
@@ -2797,4 +2798,4 @@ export const factionData: Record<string, FactionTypeData> = {
       'magic trinkets': 4
     }
   }
-}
+})
