@@ -9,6 +9,7 @@ export interface Tavern {
     sin: number
     roughness: number
     cleanliness: number
+    bedCleanliness: number
     size: number
     reputation: number
   }

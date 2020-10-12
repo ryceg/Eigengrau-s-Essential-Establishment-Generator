@@ -111,19 +111,7 @@ setup.createTavern = (town, opts = {}) => {
       return this._food
     }
   })
-  Object.defineProperty(tavern, 'bedCleanliness', {
-    get () {
-      console.log(`Fetching ${tavern.name} bed cleanliness.`)
-      let bedCleanliness = rollData.cleanliness.find(descriptor => {
-        return descriptor[0] <= this.roll.bedCleanliness
-      })
-      if (bedCleanliness === undefined) {
-        bedCleanliness = rollData.cleanliness[rollData.cleanliness.length - 1]
-      }
-      this._bedCleanliness = bedCleanliness[1]
-      return this._bedCleanliness
-    }
-  })
+
   Object.defineProperty(tavern, 'sin', {
     get () {
       console.log(`Fetching ${tavern.name} sin.`)
@@ -174,6 +162,17 @@ setup.getTavernLodging = tavern => {
   }) || lib.last(wealth)
 
   return lodging
+}
+
+setup.getTavernBedCleanliness = (tavern) => {
+  console.log(`Fetching ${tavern.name} bed cleanliness.`)
+  const { cleanliness } = setup.tavern.rollData
+
+  const [, bedCleanliness] = cleanliness.find(([threshold]) => {
+    return threshold <= tavern.roll.bedCleanliness
+  }) || lib.last(cleanliness)
+
+  return bedCleanliness
 }
 
 function getRandomTavernColour () {

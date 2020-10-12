@@ -3,16 +3,16 @@
 <<nobr>>
 <<set _freeRooms to lib.tavernRooms($building)>>
 <<if _freeRooms <= 0>>
-	<span id="room-cost"><<print "You talk with the " + setup.profile($building.barmaid, "barmaid") + " about lodgings, and she says that there are no free rooms in $building.name at the moment...">></span>
+	<span id="room-cost">You talk with the <<print setup.profile($building.barmaid, "barmaid")>> about lodgings, and she says that there are no free rooms in $building.name at the moment...</span>
 	<<elseif _freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$building.name has just one available room, which is $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money setup.getTavernLodging($building)>> to stay here for the night.">></span>
+		<span id="room-cost">$building.name has just one available room, which is $building.size and <<print setup.getTavernBedCleanliness($building)>>. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money setup.getTavernLodging($building)>> to stay here for the night.</span>
 	<<elseif _freeRooms >= 2>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<print setup.tavernSleep($building)>><</replace>>
 		<</linkreplace>>
-		<span id="room-cost"><<print "$building.name has _freeRooms available rooms, which are $building.size and $building.bedCleanliness. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money setup.getTavernLodging($building)>> to stay here for the night.">></span>
+		<span id="room-cost">$building.name has _freeRooms available rooms, which are $building.size and <<print setup.getTavernBedCleanliness($building)>>. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money setup.getTavernLodging($building)>> to stay here for the night.</span>
 <</if>>
 <</nobr>>
