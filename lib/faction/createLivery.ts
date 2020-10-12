@@ -1,12 +1,12 @@
 import { factionData, FactionType } from './factionData'
 import { random } from '../src/random'
 
-interface Livery {
-    colours: {
-      primary: string
-      secondary: string
-    }
-    insignia: string
+export interface Livery {
+  colours: {
+    primary: string
+    secondary: string
+  }
+  insignia: string
 }
 
 export function createLivery (type: FactionType) {
