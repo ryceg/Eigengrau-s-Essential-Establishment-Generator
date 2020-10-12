@@ -217,7 +217,7 @@ setup.createTown = (base = {}) => {
 
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-  setup.policingSource(town)
+  setup.findPoliceSource(town)
   lib.townRender(town)
   lib.setMaterialProbability(town, possibleMaterials)
 
