@@ -36,7 +36,5 @@ export function * cullBuildings (buildingsToCreate: BuildingToCreate[]) {
       yield building
       continue
     }
-
-    console.log(`Too many ${building.buildingType}s! Chucking one out...`)
   }
 }
