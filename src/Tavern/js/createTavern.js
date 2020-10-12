@@ -169,11 +169,11 @@ setup.getTavernLodging = tavern => {
   console.log(`Fetching ${tavern.name} lodging.`)
   const { rollData } = setup.tavern
 
-  const lodging = rollData.wealth.find(([threshold]) => {
+  const [,, lodging] = rollData.wealth.find(([threshold]) => {
     return threshold <= tavern.roll.wealth
   }) || lib.last(rollData.wealth)
 
-  return lodging[2]
+  return lodging
 }
 
 function getRandomTavernColour () {
