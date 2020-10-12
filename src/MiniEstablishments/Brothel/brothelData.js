@@ -447,7 +447,7 @@ setup.brothel = {
         socialClass: 'commoner',
         gender: 'man'
       },
-      description (building, npc) { return `${npc.firstName} is a regular at ${building.name}.` }
+      description: (building, npc) => `${npc.firstName} is a regular at ${building.name}.`
     },
     {
       relationshipDescription: 'discrete regular',
@@ -463,7 +463,7 @@ setup.brothel = {
         socialClass: 'nobility',
         gender: 'man'
       },
-      description (building, npc) { return `${npc.firstName} is a regular at ${building.name}, though would prefer that that be kept a secret.` }
+      description: (building, npc) => `${npc.firstName} is a regular at ${building.name}, though would prefer that that be kept a secret.`
     },
     {
       relationshipDescription: 'pest',
@@ -480,7 +480,7 @@ setup.brothel = {
         socialClass: 'commoner',
         gender: 'man'
       },
-      description (building, npc) { return `${npc.firstName} is an annoying pest who fancies one of the workers of ${building.name} a little too much.` }
+      description: (building, npc) => `${npc.firstName} is an annoying pest who fancies one of the workers of ${building.name} a little too much.`
     },
     {
       relationshipDescription: 'detractor',
@@ -495,12 +495,9 @@ setup.brothel = {
         }
       },
       base: {
-        socialClass: 'commoner',
-        religion: {
-          religiosity: 'devout believer'
-        }
+        socialClass: 'commoner'
       },
-      description (building, npc) { return `${npc.firstName} is constantly campaigning to get rid of ${building.name}.` }
+      description: (building, npc) => `${npc.firstName} is constantly campaigning to get rid of ${building.name}.`
     },
     {
       relationshipDescription: 'ex-employee',
@@ -518,7 +515,7 @@ setup.brothel = {
         profession: 'prostitute',
         gender: 'woman'
       },
-      description (building, npc) { return `${npc.firstName} is an ex-employee of ${building.name} after ${['deciding that the line of work wasn\'t for her', 'getting fed up with being mistreated by the customers', 'being mistreated', 'finding religion', 'finding a lover', 'getting pregnant'].random()}.` }
+      description: (building, npc) => `${npc.firstName} is an ex-employee of ${building.name} after ${['deciding that the line of work wasn\'t for her', 'getting fed up with being mistreated by the customers', 'being mistreated', 'finding religion', 'finding a lover', 'getting pregnant'].random()}.`
     }
   ]
 }
