@@ -167,11 +167,11 @@ setup.createTavern = (town, opts = {}) => {
 
 setup.getTavernLodging = tavern => {
   console.log(`Fetching ${tavern.name} lodging.`)
-  const { rollData } = setup.tavern
+  const { wealth } = setup.tavern.rollData
 
-  const [,, lodging] = rollData.wealth.find(([threshold]) => {
+  const [,, lodging] = wealth.find(([threshold]) => {
     return threshold <= tavern.roll.wealth
-  }) || lib.last(rollData.wealth)
+  }) || lib.last(wealth)
 
   return lodging
 }
