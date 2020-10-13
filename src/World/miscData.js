@@ -309,24 +309,18 @@ setup.initMisc = () => {
       create: town => {
         const biome = 'desert'
         let encounter
-        let encounterKey
-        const encounterArray = []
         if (random(1, 100) >= 50) {
-          const potentialKeys = Object.keys(setup.misc.locations)
-          potentialKeys.forEach(location => {
-            if (setup.misc.locations[location].available.includes(biome)) {
-              encounterArray.push(location)
-            }
+          const locations = setup.misc.locations.filter(location => {
+            return location.available.includes(biome)
           })
-          encounterKey = encounterArray.random()
-          console.log('Location: ', encounterKey)
-          encounter = setup.misc.locations[encounterKey].function(town, biome)
+          const location = locations.random()
+          console.log('Location: ', location.summary)
+          encounter = getLocationDescription(location, town, biome)
         } else {
-          encounterKey = setup.misc.desert.encounters.random()
+          const encounterKey = setup.misc.desert.encounters.random()
           console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
         }
-        console.log(encounterKey)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${encounter}`
       },
       location: [
@@ -390,25 +384,19 @@ setup.initMisc = () => {
       create: town => {
         const biome = 'mountain'
         let encounter
-        let encounterKey
-        const encounterArray = []
         if (random(1, 100) >= 50) {
-          const potentialKeys = Object.keys(setup.misc.locations)
-          potentialKeys.forEach(location => {
-            if (setup.misc.locations[location].available.includes(biome)) {
-              encounterArray.push(location)
-            }
+          const locations = setup.misc.locations.filter(location => {
+            return location.available.includes(biome)
           })
-          encounterKey = encounterArray.random()
-          console.log('Location: ', encounterKey)
-          encounter = setup.misc.locations[encounterKey].function(town, biome)
+          const location = locations.random()
+          console.log('Location: ', location)
+          encounter = getLocationDescription(location, town, biome)
         } else {
           // intentionally uses forest
-          encounterKey = setup.misc.forest.encounters.random()
-          console.log(encounterKey)
+          const encounterKey = setup.misc.forest.encounters.random()
+          console.log(location)
           encounter = setup.misc.encounters[encounterKey](town)
         }
-        console.log(encounterKey)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${encounter}`
       },
       landmark: [
@@ -498,24 +486,18 @@ setup.initMisc = () => {
       create: town => {
         const biome = 'forest'
         let encounter
-        let encounterKey
-        const encounterArray = []
         if (random(1, 100) >= 50) {
-          const potentialKeys = Object.keys(setup.misc.locations)
-          potentialKeys.forEach(location => {
-            if (setup.misc.locations[location].available.includes(biome)) {
-              encounterArray.push(location)
-            }
+          const locations = setup.misc.locations.filter(location => {
+            return location.available.includes(biome)
           })
-          encounterKey = encounterArray.random()
-          console.log('Location: ', encounterKey)
-          encounter = setup.misc.locations[encounterKey].function(town, biome)
+          const location = locations.random()
+          console.log('Location: ', location)
+          encounter = getLocationDescription(location, town, biome)
         } else {
-          encounterKey = setup.misc.forest.encounters.random()
+          const encounterKey = setup.misc.forest.encounters.random()
           console.log(encounterKey)
           encounter = setup.misc.encounters[encounterKey](town)
         }
-        console.log(encounterKey)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${encounter}`
       },
       location: [
@@ -547,4 +529,16 @@ setup.initMisc = () => {
       hole: ['a snake', 'a spider', 'a badger', 'earthworms', 'a centipede', 'unusual fungus']
     }
   }
+}
+
+/**
+ * @param {LocationObject} location
+ * @param {Town} town
+ * @param {string} biome
+ */
+function getLocationDescription (location, town, biome) {
+  if (location.function) {
+    return location.function(town, biome)
+  }
+  return location.summary
 }
