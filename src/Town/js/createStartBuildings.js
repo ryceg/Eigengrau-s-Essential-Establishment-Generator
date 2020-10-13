@@ -18,9 +18,9 @@ setup.createStartBuildings = town => {
     'Graveyard': ['gravedigger', 'sexton'],
     'Dungeon': ['jailer', 'bailiff'],
     'Castle': ['castellan', 'king'],
-    'Smithy': ['goldsmith', 'weaponsmith', 'silversmith', 'blacksmith', 'farrier', 'armorer'],
+    'Smithy': ['weaponsmith', 'blacksmith', 'farrier', 'armorer'],
     'Florist': ['florist', 'botanist'],
-    'Jeweller': ['lapidary', 'jeweller'],
+    'Jeweller': ['lapidary', 'goldsmith', 'silversmith', 'jeweller'],
     'Tailor': ['tailor', 'seamstress', 'fashion designer'],
     'Butcher': ['butcher'],
     'Cobbler': ['cobbler', 'shoemaker'],
@@ -36,6 +36,10 @@ setup.createStartBuildings = town => {
       if (town.professions[profession] && town.professions[profession].population > 0) {
         console.log(profession, 'exists')
         buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
+        if (town.professions[profession].population > 5) {
+          // there's a LOT of this profession = a second
+          buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
+        }
       }
     }
   }
