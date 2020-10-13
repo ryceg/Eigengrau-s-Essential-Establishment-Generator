@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { hydrate } from 'react-dom'
-import { renderToString } from 'react-dom/server'
+import { render } from 'react-dom'
 
 const getDomID = ((index) => () => `react-node-${++index}`)(0)
 
-export function render<P> (Component: React.ComponentType<P>, props: P) {
+export function renderReact<P> (Component: React.ComponentType<P>, props: P) {
   const id = getDomID()
-  setTimeout(() => hydrate(<Component {...props} />, document.getElementById(id)), 10)
-  return renderToString(<div id={id} />)
+  setTimeout(() => render(<Component {...props} />, document.getElementById(id)), 10)
+  return `<div id=${id}></div>`
 }
 
 export function Component () {
@@ -16,7 +15,7 @@ export function Component () {
   const increment = () => setState((state) => state + 1)
 
   return (
-    <div className="COMPONENT">
+    <div style={{ background: 'pink' }}>
       <button onClick={increment}>Button</button>
       <span>Click {state}</span>
     </div>
