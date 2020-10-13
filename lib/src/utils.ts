@@ -1,4 +1,4 @@
-import { WeightRecord } from '../types'
+import { DeepReadonly, WeightRecord } from '../types'
 import { randomFloat } from './randomFloat'
 
 /**
@@ -31,7 +31,7 @@ export function assign<T, S> (target: T, source: S): asserts target is T & S {
  */
 export function freeze<T> (obj: T) {
   if (process.env.NODE_ENV === 'production') {
-    return obj
+    return obj as Readonly<T>
   }
   return Object.freeze(obj)
 }
@@ -41,7 +41,7 @@ export function freeze<T> (obj: T) {
  */
 export function deepFreeze <T> (obj: T) {
   if (process.env.NODE_ENV === 'production') {
-    return obj
+    return obj as DeepReadonly<T>
   }
   for (const key of keys(obj)) {
     if (Object.isFrozen(obj[key])) {
@@ -51,7 +51,7 @@ export function deepFreeze <T> (obj: T) {
       deepFreeze(obj[key])
     }
   }
-  return freeze(obj)
+  return freeze(obj) as DeepReadonly<T>
 }
 
 /**
