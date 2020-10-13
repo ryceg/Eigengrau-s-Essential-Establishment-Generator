@@ -1,12 +1,8 @@
 :: AdventureOutput
-<<if def $adventure>>
-<<print lib.renderReact(lib.AdventureOutput, $adventure)>>
-<<else>>
 <<print lib.renderReact(lib.AdventureOutput, {
   merchant: setup.createNPC($town, {gender: "man", hasClass: false, profession: "merchant"}),
   madame: setup.createNPC($town, {gender: "woman", race: "human", lastName: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged", canBeCustom: false}),
   murderer: setup.createNPC($town, {gender: "man", hasClass: false, profession: "apothecarist"}),
   alchemist: setup.createNPC($town, {gender: "man", hasClass: false, profession: "alchemist"}),
-  profile: setup.profile
+  profile: (obj) => setup.profileTooltip("",obj)
 })>>
-<</if>>
