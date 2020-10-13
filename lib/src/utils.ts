@@ -37,6 +37,24 @@ export function freeze<T> (obj: T) {
 }
 
 /**
+ * Recursive variant of `freeze`
+ */
+export function deepFreeze <T> (obj: T) {
+  if (process.env.NODE_ENV === 'production') {
+    return obj
+  }
+  for (const key of keys(obj)) {
+    if (Object.isFrozen(obj[key])) {
+      continue
+    }
+    if (typeof obj[key] === 'object') {
+      deepFreeze(obj[key])
+    }
+  }
+  return freeze(obj)
+}
+
+/**
  * Error class for assertion errors.
  */
 export class AssertionError extends Error {}
