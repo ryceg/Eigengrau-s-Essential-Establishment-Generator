@@ -31,7 +31,7 @@ setup.initGoodsAndServices = () => {
           return
         }
         const typeData = setup.goodsAndServices[building.type]
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
         building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
@@ -391,7 +391,7 @@ setup.initGoodsAndServices = () => {
 
         const typeData = setup.goodsAndServices[building.type]
 
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
@@ -674,7 +674,7 @@ setup.initGoodsAndServices = () => {
 
         const typeData = setup.goodsAndServices[building.type]
 
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
@@ -1265,7 +1265,7 @@ setup.initGoodsAndServices = () => {
 
         const typeData = setup.goodsAndServices[building.type]
 
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
@@ -1585,7 +1585,7 @@ setup.initGoodsAndServices = () => {
 
         const typeData = setup.goodsAndServices[building.type]
 
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
@@ -1840,7 +1840,7 @@ setup.initGoodsAndServices = () => {
 
         const typeData = setup.goodsAndServices[building.type]
 
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
@@ -2117,7 +2117,7 @@ setup.initGoodsAndServices = () => {
           return
         }
         const typeData = setup.goodsAndServices[building.type]
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         console.log('Making a name!')
         building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
@@ -2350,7 +2350,7 @@ setup.initGoodsAndServices = () => {
 
         const typeData = setup.goodsAndServices[building.type]
 
-        building.associatedNPC = setup.createNPC(town, Object.assign(typeData.profession.opts, opts.npc))
+        building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
         building.name = building.name || opts.name || typeData.name.function(town, building)
 
