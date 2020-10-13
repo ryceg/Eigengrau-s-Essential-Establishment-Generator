@@ -10,6 +10,8 @@ interface SetupMisc {
 
 interface LocationObject {
   summary: string
-  available: string[]
-  function? (town: Town, biome: string): string
+  available: BiomeName[]
+  function? (town: Town, biome: BiomeName): string
 }
+
+type BiomeName = 'mountain' | 'desert' | 'road' | 'forest'
