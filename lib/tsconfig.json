@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "esnext"],
+    "jsx": "react"
   },
   "exclude": ["node_modules", "gh-pages"]
 }

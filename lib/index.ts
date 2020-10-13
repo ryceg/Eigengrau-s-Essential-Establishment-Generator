@@ -120,3 +120,5 @@ export * from './town/setTownMaterialProbability'
 export * from './town/townData'
 export * from './town/townRender'
 export * from './town/updateTownSocioPolitics'
+
+export * from './components'

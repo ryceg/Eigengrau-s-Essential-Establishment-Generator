@@ -17,3 +17,5 @@
 <<link "<h6>Create a pub rumour</h6>">><<set $toolbox.pubRumour to setup.createPubRumour()>><<replace "#pub">><div class='descriptive'>$toolbox.pubRumour</div><</replace>><</link>><span id="pub"></span>
 <<link "<h6>Generate a nightmare</h6>">><<set $toolbox.nightmare to setup.createNightmare()>><<replace "#nightmare">><div class='descriptive'>$toolbox.nightmare</div><</replace>><</link>><span id="nightmare"></span>
 <<link "<h6>Generate a road</h6>">><<set $toolbox.road to lib.createRoad()>><<replace "#road">><div class='descriptive'>$toolbox.road</div><</replace>><</link>><span id="road"></span>
+
+<<print lib.render(lib.Component)>>
