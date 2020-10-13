@@ -7,7 +7,6 @@
   madame: setup.createNPC($town, {gender: "woman", race: "human", lastName: "Beaudry", title: "Madame", hasClass: false, profession: "apothecarist", background: "noble", age: "middle aged", canBeCustom: false}),
   murderer: setup.createNPC($town, {gender: "man", hasClass: false, profession: "apothecarist"}),
   alchemist: setup.createNPC($town, {gender: "man", hasClass: false, profession: "alchemist"}),
-  tavern: lib.objectArrayFetcher($town.buildings.tavern),
-  herbs: lib.createAlchemy({ type: "preserved herb" })
+  profile: setup.profile
 })>>
 <</if>>

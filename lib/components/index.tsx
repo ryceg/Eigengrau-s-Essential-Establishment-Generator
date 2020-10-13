@@ -21,3 +21,5 @@ export function Component () {
     </div>
   )
 }
+
+export * from './AdventureOutput'
