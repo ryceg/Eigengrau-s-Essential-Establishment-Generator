@@ -50,9 +50,9 @@ const death = {
       },
       function (town, npc) {
         const murderer = setup.createNPC(town, {
-          socialClass: npc.socialClass,
-          profession: npc.profession,
-          hasClass: npc.hasClass
+          socialClass: npc.socialClass || 'commoner',
+          profession: npc.profession || null,
+          hasClass: npc.hasClass || false
         })
         return `${npc.firstName} was murdered by ${setup.profile(murderer, `another competing ${murderer.profession}`)}.`
       }

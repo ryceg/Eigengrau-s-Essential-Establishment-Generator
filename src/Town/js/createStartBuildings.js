@@ -20,6 +20,7 @@ setup.createStartBuildings = town => {
     'Castle': ['castellan', 'king'],
     'Smithy': ['goldsmith', 'weaponsmith', 'silversmith', 'blacksmith', 'farrier', 'armorer'],
     'Florist': ['florist', 'botanist'],
+    'Jeweller': ['lapidary', 'jeweller'],
     'Tailor': ['tailor', 'seamstress', 'fashion designer'],
     'Butcher': ['butcher'],
     'Cobbler': ['cobbler', 'shoemaker'],

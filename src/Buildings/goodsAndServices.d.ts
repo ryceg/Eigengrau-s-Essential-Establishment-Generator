@@ -22,6 +22,7 @@ interface GoodsAndServices {
   cobbler: GoodsAndService
   fletcher: GoodsAndService
   barber: GoodsAndService
+  jeweller: GoodsAndService
 }
 
 interface GoodsAndService {

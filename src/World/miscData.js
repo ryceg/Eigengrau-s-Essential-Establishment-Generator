@@ -124,7 +124,7 @@ setup.initMisc = () => {
       guardTrait: ['an unsightly scar', 'a foolish grin', 'a stupid stare', 'a blade with an inscription', 'a highly polished blade', 'a token from a favorite harlot', 'a silk handkerchief', 'a flask of wine', 'a pair of dice or a deck of cards', 'a beautiful, waxed mustache'],
       guideType: ['a nomadic herder', 'a strange hermit', 'a skilled hunter', 'a savage warrior'],
       guideLook: ['help the caravan in any way', 'lead the caravan astray', 'fill his purse with gold', 'eat, drink, and be merry'],
-      guideCarry: ['an unusual map', 'a unique trinket or piece of jewelry', 'a spear or walking staff', 'a large knife and some rope'],
+      guideCarry: ['an unusual map', 'a unique trinket or piece of jewellery', 'a spear or walking staff', 'a large knife and some rope'],
       merchantIs: ['a member of a trading clan', 'a minor lord or lady', 'an enterprising trader', 'a member of a prominent family', 'of common birth', 'the real owner’s representative'],
       merchantLook: ['obtain a mysterious artifact', 'negotiate a trade contract', 'purchase goods', 'sabotage a rival merchant', 'secure a marriage', 'have a good time with somebody'],
       merchantCarry: ['a family heirloom', 'several inventories and invoices', 'some very valuable jewels', 'a compromising love letter'],

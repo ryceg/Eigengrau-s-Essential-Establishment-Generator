@@ -389,7 +389,7 @@ setup.initNpcData = () => {
           'cooper',
           'goldsmith',
           'hatter',
-          'jeweler',
+          'jeweller',
           'leatherworker',
           'locksmith',
           'minstrel',

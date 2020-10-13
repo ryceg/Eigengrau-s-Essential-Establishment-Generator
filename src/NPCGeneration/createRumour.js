@@ -52,7 +52,7 @@ setup.createRumour = town => {
   function ItemInformation () {
     return [
       ['artifact'],
-      ['jewelry', 'chest', 'map', 'bucket', 'lantern', 'jar'].random(),
+      ['jewellery', 'chest', 'map', 'bucket', 'lantern', 'jar'].random(),
       ['piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'piece of armor', 'set of armor'].random(),
       ['common', 'common', 'common', 'common', 'common', 'common', 'rare', 'rare', 'rare', 'valuable'].random() + ['longsword', 'longbow', 'short sword', 'dagger', 'greataxe', 'crossbow'].random(),
       ['rod', 'staff', 'wand', 'sceptre', 'crown', 'gemstone'].random(),

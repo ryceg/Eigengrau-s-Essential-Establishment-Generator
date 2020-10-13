@@ -1563,7 +1563,7 @@ setup.initGoodsAndServices = () => {
         'killing the animals right out back to keep the meat fresh',
         'the questionable treatment of their livestock',
         'always trying to underweigh customer orders',
-        'using the leftover animal bones to make jewelry',
+        'using the leftover animal bones to make jewellery',
         'selling a variety of pickled tongues',
         'keeping their meats in a locker that has been enchanted with a permanent cold spell',
         'running excellent sales throughout the week',
@@ -1771,6 +1771,7 @@ setup.initGoodsAndServices = () => {
         },
         'shoe repair': {
           cost: random(1, 10),
+          type: 'service',
           description: 'Repair services for shoes or boots of any kind within reason'
         }
       },
@@ -2107,15 +2108,16 @@ setup.initGoodsAndServices = () => {
       ]
     },
 
-    jeweler: {
+    jeweller: {
       // the bakery can be used as an example of how to add more features to a building.
       create (town, building, opts = {}) {
         if (!building) {
           console.error('A building was not passed!')
           return
         }
-        building.associatedNPC = setup.createNPC(town, opts.professionOpts || setup.goodsAndServices[building.type].profession.opts)
+        building.associatedNPC = setup.createNPC(town, opts.npc || setup.goodsAndServices[building.type].profession.opts)
         lib.createBuildingRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
+        console.log('Making a name!')
         building.name = building.name || opts.name || setup.goodsAndServices[building.type].name.function(town, building)
         building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
         building.specialty = setup.goodsAndServices[building.type].specialty.random()
@@ -2128,10 +2130,11 @@ setup.initGoodsAndServices = () => {
           const name = setup.goodsAndServices[building.type].name
           const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
           return [
-            `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
-            `The ${name.jewelryAdjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
+            `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random(), name.wordNoun.random()].random().toUpperFirst()}`,
+            `The ${name.jewelleryAdjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
             `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${name.adjective.random().toUpperFirst()} ${name.nounJewelledGood.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.lastName}'s ${name.noun.random().toUpperFirst()}`,
             unique
@@ -2174,7 +2177,7 @@ setup.initGoodsAndServices = () => {
           'moonstone',
           'sunstone'
         ],
-        nounJeweledGood: [
+        nounJewelledGood: [
           'gemstone',
           'amulet',
           'necklace',
@@ -2193,7 +2196,7 @@ setup.initGoodsAndServices = () => {
           'artisian',
           'friendly'
         ],
-        jeweleryAdjective: [
+        jewelleryAdjective: [
           'shiny',
           'expensive',
           'mesmerizing',
@@ -2206,13 +2209,13 @@ setup.initGoodsAndServices = () => {
           'fine cut'
         ],
         wordNoun: [
-          'jewelery',
-          'jewelery shop',
+          'jewellery',
+          'jewellery shop',
           'gem smith',
           'gold smith',
           'silver smith',
           'gem shop',
-          'jeweler'
+          'jeweller'
         ]
       },
       PassageFormat: () => [
@@ -2227,9 +2230,9 @@ setup.initGoodsAndServices = () => {
         '<<goods $building setup.goodsAndServices[$building.type].goods>>'
       ],
       profession: {
-        name: 'jeweler',
+        name: 'jeweller',
         opts: {
-          profession: 'jeweler',
+          profession: 'jeweller',
           hasClass: false,
           idle: [
             // name is currently _______
@@ -2244,18 +2247,43 @@ setup.initGoodsAndServices = () => {
         }
       },
       goods: {
+        'appraisal': {
+          cost: 200,
+          type: 'service',
+          description: 'For a price, jewellery and gemstones can be appraised.'
+        },
         'silver trinket': {
           // cost: in copper pieces. The <<money>> macro handles currency conversion.
           cost: 300,
           // description: used in tooltip.
-          description: 'A lucky charm made of out fine silver.',
+          description: 'A lucky charm made out of fine silver.',
           // exclusions for testing whether it is available. Can be ommitted if it is always available. Return truthiness.
           exclusions (town, building) {
             return building.roll.wealth > 20
           }
         },
+        'silver cutlery': {
+          cost: random(15, 25),
+          description: 'A piece of cutlery that has been silvered.'
+        },
+        'singing cutlery': {
+          cost: random(15, 25),
+          description: 'A piece of cutlery that has a hymn of praise engraved into the side of the blade.'
+        },
+        'slotted ring': {
+          cost: lib.dice(5, 20),
+          description: 'This is a ring that has a slot for a gem, which makes it ideal for enchantments by a wizard.'
+        },
+        'religious symbols': {
+          cost: lib.dice(4, 10),
+          description: 'A religious symbol, that has been embossed in a relatively cheap metal.'
+        },
+        'large religious symbol': {
+          cost: lib.dice(4, 10),
+          description: 'A large religious symbol of the prominent good deity with a hidden compartment containing the religious symbol of a secret/oppressed evil deity.'
+        },
         'brass ring': {
-          cost: random(1, 10),
+          cost: random(5, 15),
           description: "A discolored old ring. Don't propose to a lovely lady with this one."
         },
         'gold ring': {
@@ -2280,11 +2308,11 @@ setup.initGoodsAndServices = () => {
           }
         }
       },
-      type: 'jewelers',
+      type: 'jewellers',
       notableFeature: [
         // you notice _______
         'a stack of finely cut gems behind the counter.',
-        'the jeweler is assisting a royal member.',
+        'the jeweller is assisting a royal member.',
         'a collection of rare minerials on the front counter.',
         'a trophy with "Finest Gemstones awarded to $building.name" etched into it sitting on a shelf near the entry.',
         'silver trinkets for sale in a display case.',
@@ -2297,7 +2325,7 @@ setup.initGoodsAndServices = () => {
         'the shop counter is made of lavish mahagony wood.'
       ],
       specialty: [
-        // the jeweler is known for _______
+        // the jeweller is known for _______
         'charging an arm and a leg.',
         'the fine gemstones cut every day.',
         'being the best place to fix an earring.',

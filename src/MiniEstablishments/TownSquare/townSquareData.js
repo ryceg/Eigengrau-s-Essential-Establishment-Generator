@@ -267,13 +267,13 @@ setup.townSquare = {
           'runaway cart.', 'chicken.', 'pig.', 'barrel rolling ahead of them.', 'piece of parchment blowing in the breeze.'].random()}`
       }
     },
-    Jewelry: {
+    Jewellery: {
       function (town) {
         const npc = setup.createNPC(town, {
           background: 'noble',
-          note: 'Has some jewelry.'
+          note: 'Has some jewellery.'
         })
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is wearing some ${['very nice jewelry.', 'incredibly gaudy jewelry.', 'cheap looking jewelry.', 'very fake looking jewelry.', 'very fine jewelry.', 'jewelry that infers they may be royalty of some sort.', 'very ugly jewelry.', 'brilliantly radiant jewelry.'].random()}`
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is wearing some ${['very nice jewellery.', 'incredibly gaudy jewellery.', 'cheap looking jewellery.', 'very fake looking jewellery.', 'very fine jewellery.', 'jewellery that infers they may be royalty of some sort.', 'very ugly jewellery.', 'brilliantly radiant jewellery.'].random()}`
       }
     },
     cart: {

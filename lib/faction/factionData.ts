@@ -769,7 +769,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
         'perfumer',
         'locksmith',
         'leatherworker',
-        'jeweler',
+        'jeweller',
         'hatter',
         'goldsmith',
         'silversmith',
@@ -1007,7 +1007,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       'their strangely colored hair': 1,
       'their orange clothes': 1,
       'their large earrings': 1,
-      'their gaudy jewelry': 1
+      'their gaudy jewellery': 1
     },
     names: {
       main: [
@@ -1547,7 +1547,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       'the ring that members are given': 1,
       'their excessively bureaucratic tendencies': 1,
       'their purple robes': 1,
-      'their gaudy jewelry': 1,
+      'their gaudy jewellery': 1,
       'the fact that a member is always closely followed by a boy carrying a chest': 1
     },
     names: {

@@ -452,7 +452,7 @@ setup.plothooks = {
       return true
     },
     function (town) {
-      return 'Squirrel Hunting: A squirrel has been seen in town stealing jewelry from citizens. We think there may be more than one squirrel involved — they always head west after the theft. They need to be captured or killed; a bonus available if stolen items are returned.'
+      return 'Squirrel Hunting: A squirrel has been seen in town stealing jewellery from citizens. We think there may be more than one squirrel involved — they always head west after the theft. They need to be captured or killed; a bonus available if stolen items are returned.'
     }
   },
   'Stolen Earrings': {
@@ -1066,15 +1066,15 @@ setup.plothooks = {
       return `Horsebreaker needed! Inquire at the Post Office, ask for ${setup.profile(npc)}. The job is preparing young horses to accept the saddle and harness so they can be ridden or pull carts. They must also be taught basic commands and gaits. The job is successful if the handler can get the horses to calmly accept riders and obey simple orders.`
     }
   },
-  'Jeweler Needed': {
+  'Jeweller Needed': {
     type: ['paper'],
     function (town) {
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'merchant',
-        profession: 'jeweler'
+        profession: 'jeweller'
       })
-      return `Do you think you know your gems? A grand test awaits at ${setup.profile(npc, npc.lastName)}'s` + ' Emporium. Only those who truly appreciate mines and minerals should apply! A local jeweler’s outfit acquired a large stock of specialty mineral samples and gems from a flash sale of unclaimed shipments. They need them identified but want someone, preferentially a dwarf, who isn’t going to undersell them. The first part of the job is a basic knowledge test and then they move onto the unusual samples. They pay in wholesale gems of the player’s choice.'
+      return `Do you think you know your gems? A grand test awaits at ${setup.profile(npc, npc.lastName)}'s` + ' Emporium. Only those who truly appreciate mines and minerals should apply! A local jeweller’s outfit acquired a large stock of specialty mineral samples and gems from a flash sale of unclaimed shipments. They need them identified but want someone, preferentially a dwarf, who isn’t going to undersell them. The first part of the job is a basic knowledge test and then they move onto the unusual samples. They pay in wholesale gems of the player’s choice.'
     }
   },
   'Music Tutor Needed': {
