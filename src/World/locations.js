@@ -101,7 +101,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
         const cabin = lib.createAutoTippy(lib.cabin)('cabin')
-        return `an abandoned ${cabin.tippyWord}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
+        return `an abandoned ${cabin}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
       }
     },
     {
