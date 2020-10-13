@@ -153,7 +153,7 @@ function LinkReplace ({ label, children }: LinkReplaceProps) {
       <div>
         <a onClick={toggle}>{label}</a>
       </div>
-      {isOpen && <blockquote>{children}</blockquote>}
+      {isOpen && <div>{children}</div>}
     </>
   )
 }
