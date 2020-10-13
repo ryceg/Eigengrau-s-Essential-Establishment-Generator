@@ -114,8 +114,7 @@ setup.initMiscLocations = () => {
     },
     {
       summary: 'a sacred grove',
-      available: ['forest', 'mountain', 'desert'],
-      function: () => 'a sacred grove.'
+      available: ['forest', 'mountain', 'desert']
     },
     {
       summary: 'a shrine',
