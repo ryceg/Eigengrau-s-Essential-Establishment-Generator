@@ -240,11 +240,11 @@ setup.initMisc = () => {
     road: {
       create: (town, base) => {
         const type = lib.random(['trail', 'path', 'path', 'road', 'road', 'road'])
-        const encounter = getEncounterEvent(type)
+        const encounter = setup.getEncounterEvent(type)
         const road = {
           type: setup.misc.road[type].type.random(),
           traffic: setup.misc.road[type].traffic.random(),
-          encounter: getEventDescription(encounter, town, type),
+          encounter: setup.getEventDescription(encounter, town, type),
           ...base
         }
         return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()}`].random()}${road.encounter}`
@@ -273,8 +273,8 @@ setup.initMisc = () => {
     desert: {
       create: town => {
         const biome = 'desert'
-        const event = random(1, 100) >= 50 ? getLocationEvent(biome) : getEncounterEvent(biome)
-        const description = getEventDescription(event, town, biome)
+        const event = random(1, 100) >= 50 ? setup.getLocationEvent(biome) : setup.getEncounterEvent(biome)
+        const description = setup.getEventDescription(event, town, biome)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${description}`
       },
       location: [
@@ -315,8 +315,8 @@ setup.initMisc = () => {
     mountain: {
       create: town => {
         const biome = 'mountain'
-        const event = random(1, 100) >= 50 ? getLocationEvent(biome) : getEncounterEvent(biome)
-        const description = getEventDescription(event, town, biome)
+        const event = random(1, 100) >= 50 ? setup.getLocationEvent(biome) : setup.getEncounterEvent(biome)
+        const description = setup.getEventDescription(event, town, biome)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${description}`
       },
       landmark: [
@@ -404,8 +404,8 @@ setup.initMisc = () => {
     forest: {
       create: town => {
         const biome = 'forest'
-        const event = random(1, 100) >= 50 ? getLocationEvent(biome) : getEncounterEvent(biome)
-        const description = getEventDescription(event, town, biome)
+        const event = random(1, 100) >= 50 ? setup.getLocationEvent(biome) : setup.getEncounterEvent(biome)
+        const description = setup.getEventDescription(event, town, biome)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${description}`
       },
       location: [
@@ -436,34 +436,4 @@ setup.initMisc = () => {
       hole: ['a snake', 'a spider', 'a badger', 'earthworms', 'a centipede', 'unusual fungus']
     }
   }
-}
-
-/**
- * @param {BiomeName} biome
- */
-function getLocationEvent (biome) {
-  return lib.random(setup.misc.locations.filter(location => {
-    return location.available.includes(biome)
-  }))
-}
-
-/**
- * @param {BiomeName} biome
- */
-function getEncounterEvent (biome) {
-  return lib.random(setup.misc.encounters.filter(encounter => {
-    return encounter.available && encounter.available.includes(biome)
-  }))
-}
-
-/**
- * @param {LocationObject|Encounter} event
- * @param {Town} town
- * @param {BiomeName} biome
- */
-function getEventDescription (event, town, biome) {
-  if (event.function) {
-    return event.function(town, biome)
-  }
-  return event.summary
 }
