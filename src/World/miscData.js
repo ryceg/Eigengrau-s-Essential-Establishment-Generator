@@ -534,7 +534,7 @@ setup.initMisc = () => {
 /**
  * @param {LocationObject} location
  * @param {Town} town
- * @param {string} biome
+ * @param {BiomeName} biome
  */
 function getLocationDescription (location, town, biome) {
   if (location.function) {
