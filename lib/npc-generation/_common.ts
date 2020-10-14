@@ -27,6 +27,11 @@ export interface NPC {
   roll: Record<string, number>
   partnerID?: string
   relationships: Record<string, string>
+  wealth: number
+  finances: {
+    creditors: Record<string, string>
+    debtors: Record<string, string>
+  }
   socialClass: string
   professionType: string
   professionSector: string
