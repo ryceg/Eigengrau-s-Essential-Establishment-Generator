@@ -496,7 +496,7 @@ setup.initMisc = () => {
         } else {
           const encounterKey = setup.misc.forest.encounters.random()
           console.log(encounterKey)
-          encounter = lib.contentsFetcher(encounterKey, encounterKey)(town)
+          encounter = lib.contentsFetcher(encounterKey, setup.misc.encounters)(town)
         }
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${encounter}`
       },
