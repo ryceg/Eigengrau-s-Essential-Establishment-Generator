@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Footer
+- Jewellers
 - New syntax extension to the workflow
 - Wording for totally racially homogenous towns
 - Castle-specific requests for assistance
