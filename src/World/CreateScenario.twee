@@ -4,30 +4,15 @@
     <<run setup.deleteNPC($npcs[_newNPC.key])>>
     <<unset _newNPC>>
 <</if>>
-<<if def _rememberSeason && _rememberSeason !== $town.currentSeason>>
-    <<set $town.weather.timer.temperature to 0>>
-    <<set $town.weather.timer.precipitation to 0>>
-    <<set $town.weather.timer.cloud to 0>>
-
+<<if def $town.previousSeason && $town.previousSeason !== $town.currentSeason>>
+  <<set $town.weather.timer = {
+    temperature: 0,
+    precipitation: 0,
+    cloud: 0
+  }>>
 <</if>>
-<<set _rememberSeason to $town.currentSeason>>
-<<if $town.currentSeason !== "null" && $town.currentSeason !== $town.currentSeason>>
-    <<set $town.currentSeason to $town.currentSeason>>
-<</if>>
-<<if def $scenario && $town.weather && $town.currentSeason !==  "null">>
-    <<set $town.weather.timer.temperature -= 4>>
-    <<set $town.weather.timer.precipitation -= 4>>
-    <<set $town.weather.timer.cloud -= 4>>
-    /* <<set $scenario to setup.createEncounter($town, $scenarioType)>> */
-    <<set $scenario to setup.misc[$scenarioType].create($town)>>
-    <<set _scenarioWeather to setup.createWeather($town, $scenarioType, $town.weather)>>
-    <<set $town.weather to _scenarioWeather>>
-  <<else>>
-    <<set $scenario to setup.misc[$scenarioType].create($town)>>
-    /* <<set $scenario to setup.createEncounter($town, $scenarioType)>> */
-    <<if $town.currentSeason !== "null">>
-      <<set $town.weather to setup.createWeather($town, $scenarioType, $town.weather)>>
-    <</if>>
-<</if>>
-<<replace "#scenario">><<if $town.currentSeason !== "null">>$town.weather.readout.full<</if>> $scenario<</replace>><</button>>
-<div id="scenario"><<if def $scenario>><<if $town.currentSeason !== "null">>$town.weather.readout.full<</if>> $scenario<</if>></div>
+<<set $town.previousSeason to $town.currentSeason>>
+<<set $scenario to setup.misc[$scenarioType].create($town)>>
+<<if $town.currentSeason !== "null">><<set $town.weather to setup.createWeather($town, $scenarioType, $town.weather)>><</if>>
+<<update>><</button>>
+<<liveblock>><div id="scenario"><<if def $scenario>><<if $town.currentSeason !== "null">>$town.weather.readout.full<</if>> $scenario<</if>></div><</liveblock>>
