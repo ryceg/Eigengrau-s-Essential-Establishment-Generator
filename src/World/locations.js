@@ -146,7 +146,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const cavern = lib.cavern.create({ entrance: 'in a canyon wall' })
         const readout = lib.cavern.readout(cavern)
-        const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
+        const encounter = getEventDescription(getEncounterEvent(biome), town, biome)
         return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -156,7 +156,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const cavern = lib.cavern.create({ entrance: 'hidden by a boulder' })
         const readout = lib.cavern.readout(cavern)
-        const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
+        const encounter = getEventDescription(getEncounterEvent(biome), town, biome)
         return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -176,7 +176,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const cavern = lib.cavern.create()
         const readout = lib.cavern.readout(cavern)
-        const encounter = lib.contentsFetcher(setup.misc[biome].encounters, setup.misc.encounters)(town, biome)
+        const encounter = getEventDescription(getEncounterEvent(biome), town, biome)
         return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -352,4 +352,25 @@ setup.initMiscLocations = () => {
       }
     }
   ]
+}
+
+/**
+* @param {BiomeName} biome
+*/
+function getEncounterEvent (biome) {
+  return lib.random(setup.misc.encounters.filter(encounter => {
+    return encounter.available && encounter.available.includes(biome)
+  }))
+}
+
+/**
+* @param {LocationObject|Encounter} event
+* @param {Town} town
+* @param {BiomeName} biome
+*/
+function getEventDescription (event, town, biome) {
+  if (event.function) {
+    return event.function(town, biome)
+  }
+  return event.summary
 }

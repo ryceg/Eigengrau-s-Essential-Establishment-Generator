@@ -2,6 +2,7 @@ setup.initMiscEncounters = () => {
   setup.misc.encounters = [
     {
       summary: 'a group of bandits operating a toll road',
+      available: ['trail'],
       function: () => {
         const bandits = lib.bandits.create({
           business: 'scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)'
@@ -12,6 +13,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a band of robbers',
+      available: ['trail'],
       function: () => {
         const bandits = lib.bandits.create({
           business: 'attacking people using the trail'
@@ -22,6 +24,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'some robbers',
+      available: ['path', 'road'],
       function: () => {
         const bandits = lib.bandits.create({
           business: 'attacking people using the trail'
@@ -32,6 +35,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a party of raiders',
+      available: ['trail'],
       function: () => {
         const bandits = lib.bandits.create()
         const readout = lib.bandits.readout(bandits)
@@ -40,6 +44,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a pair of outlaws',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'criminal',
@@ -62,6 +67,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'some bandits',
+      available: ['mountain', 'path'],
       function: () => {
         const bandits = lib.bandits.create({
           business: 'attacking people using the trail'
@@ -94,6 +100,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a band of mercenaries',
+      available: ['path', 'road'],
       function: (town) => {
         const mercenaries = setup.createMercenaries(town)
         return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
@@ -101,6 +108,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a marching army',
+      available: ['road'],
       function: (town) => {
         const mercenaries = setup.createMercenaries(town)
         return `a small army, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
@@ -108,6 +116,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a small merchant caravan',
+      available: ['trail'],
       function: (town) => {
         const caravan = setup.misc.caravan.create(town)
         return `a small merchant caravan. ${caravan.readout}`
@@ -115,6 +124,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a merchant caravan',
+      available: ['path', 'road'],
       function: (town) => {
         const caravan = setup.misc.caravan.create(town)
         return `a merchant caravan. ${caravan.readout}`
@@ -130,6 +140,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'several orc raiders',
+      available: ['mountain'],
       function: () => {
         const orcs = lib.orcs.create()
         const readout = lib.orcs.readout(orcs)
@@ -138,6 +149,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an orkish war band',
+      available: ['desert'],
       function: () => {
         const orcs = lib.orcs.create()
         const readout = lib.orcs.readout(orcs)
@@ -161,6 +173,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an ogre',
+      available: ['forest'],
       function: () => {
         const ogre = lib.createAutoTippy(lib.ogre)('ogre')
         return `a lone ${ogre}`
@@ -182,7 +195,8 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a pair of goblin scouts'
+      summary: 'a pair of goblin scouts',
+      available: ['forest']
     },
     {
       summary: 'a lone goblin',
@@ -207,6 +221,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a goblin patrol',
+      available: ['forest'],
       function: () =>
         `a goblin patrol ${[
           'lying in ambush.',
@@ -218,6 +233,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'several giant spiders',
+      available: ['forest'],
       function: () => {
         const spider = lib.createAutoTippy(lib.spider)('spiders')
         return `several giant ${spider}.`
@@ -225,6 +241,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a pack of wolves',
+      available: ['forest'],
       function: () => {
         const wolves = lib.createAutoTippy(lib.wolf)('wolves')
         return `a pack of ${wolves}`
@@ -232,6 +249,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a lone wolf',
+      available: ['forest'],
       function: () => {
         const wolf = lib.createAutoTippy(lib.wolf)('wolf')
         return `a lone ${wolf}.`
@@ -239,6 +257,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a hunting cat',
+      available: ['forest'],
       function: () => {
         const cat = lib.createAutoTippy(lib.cat)('cat')
         return `a hunting ${cat}.`
@@ -246,6 +265,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an itinerant priest',
+      available: ['trail'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -258,6 +278,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a hermit',
+      available: ['trail'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -269,6 +290,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a solitary hunter',
+      available: ['trail'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'hunter',
@@ -280,6 +302,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a solitary bandit',
+      available: ['trail'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'bandit',
@@ -291,6 +314,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an injured knight',
+      available: ['trail'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: ['fighter', 'knight', 'paladin'].random(),
@@ -302,6 +326,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a ranger',
+      available: ['trail'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'ranger',
@@ -312,49 +337,64 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a diseased animal corpse'
+      summary: 'a diseased animal corpse',
+      available: ['trail']
     },
     {
-      summary: 'a dead body'
+      summary: 'a dead body',
+      available: ['trail']
     },
     {
-      summary: 'a group of dwarves'
+      summary: 'a group of dwarves',
+      available: ['trail']
     },
     {
-      summary: 'a handful of farmers'
+      summary: 'a handful of farmers',
+      available: ['trail']
     },
     {
-      summary: 'the border patrol'
+      summary: 'the border patrol',
+      available: ['trail']
     },
     {
-      summary: 'a travelling peddler'
+      summary: 'a travelling peddler',
+      available: ['trail']
     },
     {
-      summary: 'a hunting party'
+      summary: 'a hunting party',
+      available: ['trail', 'path']
     },
     {
-      summary: 'another adventuring party'
+      summary: 'another adventuring party',
+      available: ['trail', 'path', 'road']
     },
     {
-      summary: 'some escaped convicts'
+      summary: 'some escaped convicts',
+      available: ['trail', 'path', 'road']
     },
     {
-      summary: 'some herdsmen'
+      summary: 'some herdsmen',
+      available: ['trail']
     },
     {
-      summary: 'some particularly dense overgrowth'
+      summary: 'some particularly dense overgrowth',
+      available: ['trail']
     },
     {
-      summary: 'some tribesmen'
+      summary: 'some tribesmen',
+      available: ['trail', 'path']
     },
     {
-      summary: 'the undead'
+      summary: 'the undead',
+      available: ['trail', 'path']
     },
     {
-      summary: '[monster encounter]'
+      summary: '[monster encounter]',
+      available: ['trail', 'path']
     },
     {
       summary: 'a traveling peddler',
+      available: ['path'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -379,6 +419,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an adventurer on a horse',
+      available: ['path'],
       function: (town) => {
         const horse = lib.createAutoTippy(lib.horse)('horse')
         const npc = setup.createNPC(town, {
@@ -391,6 +432,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a mounted messenger',
+      available: ['path'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -401,38 +443,48 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a work gang heading home'
+      summary: 'a work gang heading home',
+      available: ['path']
     },
     {
-      summary: 'the road wardens'
+      summary: 'the road wardens',
+      available: ['path']
     },
     {
-      summary: 'some of the local militia'
+      summary: 'some of the local militia',
+      available: ['path']
     },
     {
-      summary: 'a pair of travelling clerics'
+      summary: 'a pair of travelling clerics',
+      available: ['path']
     },
     {
-      summary: 'some graverobbers'
+      summary: 'some graverobbers',
+      available: ['path']
     },
     {
-      summary: 'some farmers'
+      summary: 'some farmers',
+      available: ['path', 'road']
     },
     {
       summary: 'a plague-infested cabin',
+      available: ['path'],
       function: () => {
         const cabin = lib.createAutoTippy(lib.cabin)('cabin')
         return `a plague-infested ${cabin}.`
       }
     },
     {
-      summary: 'some beserkers'
+      summary: 'some beserkers',
+      available: ['path']
     },
     {
-      summary: 'a caravan of gypsies'
+      summary: 'a caravan of gypsies',
+      available: ['path', 'road']
     },
     {
       summary: 'a knight errant',
+      available: ['road'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'knight',
@@ -444,6 +496,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a wounded knight',
+      available: ['road'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: ['fighter', 'fighter', 'paladin'].random(),
@@ -455,6 +508,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a traveling lady',
+      available: ['road'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -467,6 +521,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a courier',
+      available: ['road'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -477,38 +532,48 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a wedding party'
+      summary: 'a wedding party',
+      available: ['road']
     },
     {
       summary: 'a group of pilgrims'
+
     },
     {
-      summary: 'a funeral procession'
+      summary: 'a funeral procession',
+      available: ['road']
     },
     {
-      summary: 'a plague cart'
+      summary: 'a plague cart',
+      available: ['road']
     },
     {
       summary: 'a lone horse, trotting the other way',
+      available: ['road'],
       function: () => {
         const horse = lib.createAutoTippy(lib.horse)('horse')
         return `a lone ${horse}, trotting the other way`
       }
     },
     {
-      summary: 'a traveling theatre troupe'
+      summary: 'a traveling theatre troupe',
+      available: ['road']
     },
     {
-      summary: 'some beggars'
+      summary: 'some beggars',
+      available: ['road']
     },
     {
-      summary: 'a caravan of slavers'
+      summary: 'a caravan of slavers',
+      available: ['road']
     },
     {
-      summary: 'a lone zombie'
+      summary: 'a lone zombie',
+      available: ['road']
     },
     {
       summary: 'a strange hermit',
+      available: ['desert'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'hermit'
@@ -518,6 +583,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a lost traveler',
+      available: ['desert'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'outlander',
@@ -543,6 +609,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a suspicious miner',
+      available: ['desert'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -556,6 +623,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a barbarian hunter',
+      available: ['desert'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'outlander',
@@ -567,6 +635,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a mounted barbarian scout',
+      available: ['desert'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'barbarian',
@@ -578,6 +647,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'the ghost of a traveler',
+      available: ['desert'],
       function: () => {
         const ghost = lib.ghost.create()
         const readout = lib.ghost.readout(ghost)
@@ -585,44 +655,56 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a poisonous snake'
+      summary: 'a poisonous snake',
+      available: ['desert']
     },
     {
       summary: 'a giant spider',
+      available: ['desert', 'forest'],
       function: () => {
         const spider = lib.createAutoTippy(lib.spider)('spider')
         return `a giant ${spider}`
       }
     },
     {
-      summary: 'a giant scorpion'
+      summary: 'a giant scorpion',
+      available: ['desert']
     },
     {
-      summary: 'a giant centipede'
+      summary: 'a giant centipede',
+      available: ['desert']
     },
     {
-      summary: 'a pack of jackals'
+      summary: 'a pack of jackals',
+      available: ['desert']
     },
     {
-      summary: 'a hungry jackalwere'
+      summary: 'a hungry jackalwere',
+      available: ['desert']
     },
     {
-      summary: 'a giant lizard'
+      summary: 'a giant lizard',
+      available: ['desert']
     },
     {
-      summary: 'a pair of gnolls'
+      summary: 'a pair of gnolls',
+      available: ['desert']
     },
     {
-      summary: 'a pair of bandits'
+      summary: 'a pair of bandits',
+      available: ['desert']
     },
     {
-      summary: 'an hobgoblin scout'
+      summary: 'an hobgoblin scout',
+      available: ['desert']
     },
     {
-      summary: 'a roc on the wing'
+      summary: 'a roc on the wing',
+      available: ['desert']
     },
     {
-      summary: 'a wyvern on the wing'
+      summary: 'a wyvern on the wing',
+      available: ['desert']
     },
     {
       summary: 'lots of bats'
@@ -840,6 +922,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a paranoid shapeshifter',
+      available: ['mountain'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'hermit',
@@ -1025,6 +1108,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a lost prospector',
+      available: ['mountain'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'outlander',
@@ -1037,6 +1121,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a solemn warrior',
+      available: ['mountain'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'fighter',
@@ -1049,6 +1134,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a seasoned mountaineer',
+      available: ['mountain'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'outlander',
@@ -1061,6 +1147,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an eccentric witch',
+      available: ['mountain'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           gender: 'woman',
@@ -1074,6 +1161,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a contemplative monk',
+      available: ['mountain'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'acolyte',
@@ -1086,25 +1174,32 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a hunting peryton'
+      summary: 'a hunting peryton',
+      available: ['mountain']
     },
     {
-      summary: 'a mountain lion'
+      summary: 'a mountain lion',
+      available: ['mountain']
     },
     {
-      summary: 'a pair of harpies'
+      summary: 'a pair of harpies',
+      available: ['mountain']
     },
     {
-      summary: 'a flock of ravens'
+      summary: 'a flock of ravens',
+      available: ['mountain']
     },
     {
-      summary: 'several homeless dwarves'
+      summary: 'several homeless dwarves',
+      available: ['mountain']
     },
     {
-      summary: 'an angry wraith'
+      summary: 'an angry wraith',
+      available: ['mountain']
     },
     {
       summary: 'a malevolent ghost',
+      available: ['forest', 'mountain'],
       function: () => {
         const ghost = lib.ghost.create({ reaction: 'murderous and cruel' })
         const readout = lib.ghost.readout(ghost)
@@ -1112,19 +1207,24 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a mated pair of manticores'
+      summary: 'a mated pair of manticores',
+      available: ['mountain']
     },
     {
-      summary: 'a trio of monstrous trolls'
+      summary: 'a trio of monstrous trolls',
+      available: ['mountain']
     },
     {
-      summary: 'a clan of stone giants at rest'
+      summary: 'a clan of stone giants at rest',
+      available: ['mountain']
     },
     {
-      summary: 'a roc tearing apart some prey'
+      summary: 'a roc tearing apart some prey',
+      available: ['mountain']
     },
     {
       summary: 'a beggarly bandit',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           background: 'criminal',
@@ -1136,6 +1236,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an old witch',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'sorcerer',
@@ -1149,6 +1250,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a curious herbalist',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -1161,6 +1263,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a lost child',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           ageStage: 'child',
@@ -1171,6 +1274,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'a woodcutter busy with the day’s work',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           hasClass: false,
@@ -1183,6 +1287,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an intrepid hunter',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'ranger',
@@ -1194,6 +1299,7 @@ setup.initMiscEncounters = () => {
     },
     {
       summary: 'an elvish ranger',
+      available: ['forest'],
       function: (town) => {
         const npc = setup.createNPC(town, {
           profession: 'ranger',
@@ -1205,13 +1311,16 @@ setup.initMiscEncounters = () => {
       }
     },
     {
-      summary: 'a large bear'
+      summary: 'a large bear',
+      available: ['forest']
     },
     {
-      summary: 'a bear cub'
+      summary: 'a bear cub',
+      available: ['forest']
     },
     {
       summary: 'a wailing ghost',
+      available: ['forest'],
       function: () => {
         const ghost = lib.ghost.create()
         const readout = lib.ghost.readout(ghost)

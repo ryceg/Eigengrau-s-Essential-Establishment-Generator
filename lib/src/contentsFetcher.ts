@@ -15,7 +15,12 @@ export function contentsFetcher<T extends string> (keyTarget: T | T[], contentsT
   const value = contentsTarget.find(({ summary }) => summary === key)
 
   if (value == null) {
-    throw new TypeError('Not a valid result!')
+    // Return a debuggable message instead of throwing.
+    return (_: Town, biome?: string) => {
+      const result = `!!INVALID[ ${biome} ${key} ${value} ]!!`
+      console.error(result)
+      return result
+    }
   }
 
   if (typeof value.function === 'function') {

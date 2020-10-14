@@ -17,5 +17,6 @@ interface SetupMisc {
 
 interface Encounter {
   summary: string
+  available?: BiomeName[]
   function?(town: Town, biome: BiomeName): string
 }
