@@ -1,5 +1,5 @@
 :: EditSociopolitics
-<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
+<<liveblock>><<run setup.updateDemographics($town, $town._baseDemographics)>><span class="tip" title="How many people live here?" ontouchend="$('.race-slider').trigger(':liveupdate')" onmouseup="$('.race-slider').trigger(':liveupdate')">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span><</liveblock>>
 
 <span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$town.roll.wealth" $town.roll.wealth 1 100 1>></span>
 

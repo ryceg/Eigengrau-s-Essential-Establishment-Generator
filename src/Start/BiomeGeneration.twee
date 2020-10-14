@@ -39,7 +39,7 @@
 
 <span class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$tempTown.dominantGender" autoselect>><<option "men" "man">><<option "women" "woman">><</listbox>>)</span> ---- Total Egalitarianism: <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></span>
 
-<<nobr>><table class="sortable">
+<<liveblock>><<run setup.updateDemographics($tempTown, $tempTown._baseDemographics)>><<nobr>><table class="sortable">
     <tr>
         <th>Race</th>
         <th>Population</th>
@@ -51,10 +51,10 @@
         <td><<print lib.toTitleCase(_race)>></td>
         <td><<print Math.trunc($tempTown.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
-        <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$tempTown._baseDemographics['" + _race + "']"` $tempTown._baseDemographics[_race] 0 100 1>></span></td>
+        <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!" ontouchend="$('.race-slider').trigger(':liveupdate')" onmouseup="$('.race-slider').trigger(':liveupdate')"><<numberslider `"$tempTown._baseDemographics['" + _race + "']"` $tempTown._baseDemographics[_race] 0 100 1>></span></td>
     </tr>
 <</for>>
-</table><</nobr>>
+</table><</nobr>><</liveblock>>
 
 <<button "Save Changes">><<set $town to setup.createTown($tempTown)>><<goto "Start">>
 <</button>></div>

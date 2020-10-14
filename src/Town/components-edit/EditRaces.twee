@@ -1,5 +1,5 @@
 :: EditRaces
-<table id='races' style='column-span: all'>
+<<liveblock>><<run setup.updateDemographics($town, $town._baseDemographics)>><table id='races' style='column-span: all'>
   <tr>
     <th>Race</th>
     <th>Population</th>
@@ -10,6 +10,6 @@
   <tr><td><<print _race.toUpperFirst()>></td>
     <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
     <td><<print _percentage.toFixed(2)>></td>
-    <td><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></td></tr>
+    <td><span class="race-slider"><span class="tip" ontouchend="$('.race-slider').trigger(':liveupdate')" onmouseup="$('.race-slider').trigger(':liveupdate')" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></span></td></tr>
 <</for>>
-</table>
+</table><</liveblock>>
