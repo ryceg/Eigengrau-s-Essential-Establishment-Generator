@@ -240,7 +240,7 @@ setup.initMisc = () => {
     road: {
       create: (town, base) => {
         const type = lib.random(['trail', 'path', 'path', 'road', 'road', 'road'])
-        const encounter = setup.getEncounterEvent(type)
+        const encounter = setup.getEncounter(type)
         const road = {
           type: setup.misc.road[type].type.random(),
           traffic: setup.misc.road[type].traffic.random(),
@@ -273,7 +273,7 @@ setup.initMisc = () => {
     desert: {
       create: town => {
         const biome = 'desert'
-        const event = random(1, 100) >= 50 ? setup.getLocationEvent(biome) : setup.getEncounterEvent(biome)
+        const event = random(1, 100) >= 50 ? setup.getLocation(biome) : setup.getEncounter(biome)
         const description = setup.getEventDescription(event, town, biome)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${description}`
       },
@@ -315,7 +315,7 @@ setup.initMisc = () => {
     mountain: {
       create: town => {
         const biome = 'mountain'
-        const event = random(1, 100) >= 50 ? setup.getLocationEvent(biome) : setup.getEncounterEvent(biome)
+        const event = random(1, 100) >= 50 ? setup.getLocation(biome) : setup.getEncounter(biome)
         const description = setup.getEventDescription(event, town, biome)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${description}`
       },
@@ -404,7 +404,7 @@ setup.initMisc = () => {
     forest: {
       create: town => {
         const biome = 'forest'
-        const event = random(1, 100) >= 50 ? setup.getLocationEvent(biome) : setup.getEncounterEvent(biome)
+        const event = random(1, 100) >= 50 ? setup.getLocation(biome) : setup.getEncounter(biome)
         const description = setup.getEventDescription(event, town, biome)
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${description}`
       },

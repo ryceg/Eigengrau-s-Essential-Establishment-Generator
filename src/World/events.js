@@ -1,10 +1,10 @@
-setup.getLocationEvent = biome => {
+setup.getLocation = biome => {
   return lib.random(setup.misc.locations.filter(location => {
     return location.available.includes(biome)
   }))
 }
 
-setup.getEncounterEvent = biome => {
+setup.getEncounter = biome => {
   return lib.random(setup.misc.encounters.filter(encounter => {
     return encounter.available && encounter.available.includes(biome)
   }))

@@ -146,7 +146,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const cavern = lib.cavern.create({ entrance: 'in a canyon wall' })
         const readout = lib.cavern.readout(cavern)
-        const encounter = setup.getEventDescription(setup.getEncounterEvent(biome), town, biome)
+        const encounter = setup.getEventDescription(setup.getEncounter(biome), town, biome)
         return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -156,7 +156,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const cavern = lib.cavern.create({ entrance: 'hidden by a boulder' })
         const readout = lib.cavern.readout(cavern)
-        const encounter = setup.getEventDescription(setup.getEncounterEvent(biome), town, biome)
+        const encounter = setup.getEventDescription(setup.getEncounter(biome), town, biome)
         return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
@@ -176,7 +176,7 @@ setup.initMiscLocations = () => {
       function: (town, biome) => {
         const cavern = lib.cavern.create()
         const readout = lib.cavern.readout(cavern)
-        const encounter = setup.getEventDescription(setup.getEncounterEvent(biome), town, biome)
+        const encounter = setup.getEventDescription(setup.getEncounter(biome), town, biome)
         return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
       }
     },
