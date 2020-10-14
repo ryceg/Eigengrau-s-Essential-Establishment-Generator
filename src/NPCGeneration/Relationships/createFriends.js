@@ -126,8 +126,9 @@ setup.createFriends = (town, npc) => {
   }
 
   for (let step = 0; step < friendsNumber; step++) {
-    if (random(100) <= 50) {
+    if (random(100) >= town.reuseNpcProbability) {
       createNewFriend()
+      lib.fm(town.reuseNpcProbability, 1)
       continue
     }
 

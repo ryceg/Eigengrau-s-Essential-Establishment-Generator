@@ -143,6 +143,8 @@ setup.createTown = (base = {}) => {
     landmark: lib.townData.misc.landmark.random(),
     currentEvent: lib.townData.misc.currentEvent.random(),
     dominantGender: ['man', 'man', 'man', 'man', 'man', 'woman', 'woman'].random(),
+    // for creating relationships (so there aren't a trillion npcs that all don't know one another)
+    reuseNpcProbability: 0,
     roll: {
       wealth: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
@@ -222,11 +224,8 @@ setup.createTown = (base = {}) => {
   lib.setMaterialProbability(town, possibleMaterials)
 
   console.groupEnd()
-  // setup.createWeather(town)
   console.log(`${town.name} has loaded.`)
   console.log(town)
-  // console.log('loaded', town.wealth, town.roll.size)
-  // confirm(town.townMaterial)
   return town
 }
 
