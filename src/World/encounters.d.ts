@@ -4,7 +4,7 @@ interface Setup {
 }
 
 interface SetupMisc {
-  encounters: Record<string, (town: Town, biome: unknown) => string>
+  encounters: Encounter[]
   graveStone: Record<string, (town: Town, base?: unknown) => unknown>
   caravan: Record<string, unknown>
   religion: Record<string, unknown>
@@ -13,4 +13,10 @@ interface SetupMisc {
   desert: Record<string, unknown>
   mountain: Record<string, unknown>
   forest: Record<string, unknown>
+}
+
+interface Encounter {
+  summary: string
+  available?: BiomeName[]
+  function?(town: Town, biome: BiomeName): string
 }

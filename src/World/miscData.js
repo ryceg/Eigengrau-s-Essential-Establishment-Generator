@@ -239,55 +239,23 @@ setup.initMisc = () => {
     },
     road: {
       create: (town, base) => {
-        const type = ['trail', 'path', 'path', 'road', 'road', 'road'].random()
-        const encounterKey = setup.misc.road[type].encounters.random()
-        console.log(encounterKey)
+        const type = lib.random(['trail', 'path', 'path', 'road', 'road', 'road'])
+        const encounter = setup.getEncounter(type)
         const road = {
           type: setup.misc.road[type].type.random(),
           traffic: setup.misc.road[type].traffic.random(),
-          encounter: setup.misc.encounters[encounterKey](town),
+          encounter: setup.getEventDescription(encounter, town, type),
           ...base
         }
         return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()}`].random()}${road.encounter}`
       },
       trail: {
         type: ["hunter's trail", 'animal trail', 'dirt trail'],
-        traffic: ['which seems to have been recently used', 'which is overgrown with weeds', 'that has blood spatters in the grass which indicate a recent hunt', 'with canopy trees providing shade overhead'],
-        encounters: [
-          'the border patrol',
-          'a travelling peddler',
-          'a hunting party',
-          'another adventuring party',
-          'some escaped convicts',
-          'a group of bandits operating a toll road',
-          'an itinerant priest',
-          'a dead body',
-          'a small merchant caravan',
-          'a diseased animal corpse',
-          'a group of dwarves',
-          'a solitary hunter',
-          'a handful of farmers',
-          'a solitary bandit',
-          'an injured knight',
-          'a party of raiders',
-          'a ranger',
-          '[monster encounter]',
-          '[monster encounter]',
-          'some herdsmen',
-          'a band of robbers',
-          'some particularly dense overgrowth',
-          'some tribesmen',
-          'a hermit',
-          'the undead'
-        ]
+        traffic: ['which seems to have been recently used', 'which is overgrown with weeds', 'that has blood spatters in the grass which indicate a recent hunt', 'with canopy trees providing shade overhead']
       },
       path: {
         type: ['simple path', 'overgrown dirt path', 'riding path'],
-        traffic: ['which looks to be desolate and abandoned', 'dotted with hoofprints', 'with heavy bootprints in the dirt', 'with the occassional burnt out campfire on the side'],
-        encounters: [
-          'the road wardens', 'a merchant caravan', 'a work gang heading home', 'another adventuring party', 'some escaped convicts', 'some of the local militia', 'a pair of travelling clerics', 'some graverobbers', 'a traveling peddler', 'some farmers', 'a plague-infested cabin', 'a hunting party', 'some farmers', 'some bandits', 'an adventurer on a horse', 'a band of mercenaries', 'a solitary troubador', 'a mounted messenger', 'some beserkers', 'some robbers', '[monster encounter]', 'some tribesmen', 'a caravan of gypsies', 'the undead'
-          // 'some raiders'
-        ]
+        traffic: ['which looks to be desolate and abandoned', 'dotted with hoofprints', 'with heavy bootprints in the dirt', 'with the occassional burnt out campfire on the side']
       },
       road: {
         type: ['crossroads', 'droveway', 'patrol road', 'dirt road', 'busy droveway', 'busy dirt road', 'military road', 'cobblestone road', 'busy cobblestone road', 'crumbling cobblestone road', 'paved road', 'busy paved road', 'crumbling paved road'],
@@ -299,29 +267,15 @@ setup.initMisc = () => {
           'that has checkpoints or guard posts every couple of miles',
           'which seems to have been marred by time or, perhaps warfare',
           'which passes a tavern that seems to be doing very well'
-        ],
-        encounters: [
-          'a marching army', 'a merchant caravan', 'a wedding party', 'another adventuring party', 'a group of pilgrims', 'some escaped convicts', 'a funeral procession', 'a plague cart', 'some farmers', 'a knight errant', 'a wounded knight', 'a lone horse, trotting the other way', 'a band of mercenaries', 'a traveling theatre troupe', 'a courier', 'some beggars', 'a caravan of slavers', 'a traveling lady', 'some robbers', 'a caravan of gypsies', 'a lone zombie'
         ]
       }
     },
     desert: {
       create: town => {
         const biome = 'desert'
-        let encounter
-        if (random(1, 100) >= 50) {
-          const locations = setup.misc.locations.filter(location => {
-            return location.available.includes(biome)
-          })
-          const location = locations.random()
-          console.log('Location: ', location.summary)
-          encounter = getLocationDescription(location, town, biome)
-        } else {
-          const encounterKey = setup.misc.desert.encounters.random()
-          console.log(encounterKey)
-          encounter = setup.misc.encounters[encounterKey](town)
-        }
-        return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${encounter}`
+        const event = random(1, 100) >= 50 ? setup.getLocation(biome) : setup.getEncounter(biome)
+        const description = setup.getEventDescription(event, town, biome)
+        return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${description}`
       },
       location: [
         'a cavern in a canyon wall',
@@ -349,28 +303,6 @@ setup.initMisc = () => {
       feature: ['a buzzard circles overhead', 'a vulture screams', 'a scorpion scuttles away', 'a large beetle scuttles away', 'a toad hops behind a rock', 'a lizard crawls under a rock', 'a jackal barks', 'a snake slithers away', 'a butterfly flutters by', 'a rattlesnake sounds', 'an unusual bird chirps', 'a gentle breeze blows', 'the wind blows harder', 'the wind kicks up dust', 'small loose stones tumble down a slope', 'a hint of moisture on the ground', 'a prickly plant with brightly colored fruit', 'a strange desert flower', 'a small palm tree', 'several small prickly plants'],
       landscape: ['rocky', 'hilly', 'bleak', 'rugged', 'boulder-strewn', 'forbidding', 'jagged', 'wind-swept'],
       ground: ['sandy', 'pebbly', 'cracked', 'hard-packed', 'pale brown', 'muddy brown', 'deep red', 'grey'],
-      encounters: [
-        'a strange hermit',
-        'a lost traveler',
-        'a poor nomad',
-        'a suspicious miner',
-        'a barbarian hunter',
-        'a mounted barbarian scout',
-        'an orkish war band',
-        'the ghost of a traveler',
-        'a poisonous snake',
-        'a giant spider',
-        'a giant scorpion',
-        'a giant centipede',
-        'a pack of jackals',
-        'a hungry jackalwere',
-        'a giant lizard',
-        'a pair of gnolls',
-        'a pair of bandits',
-        'an hobgoblin scout',
-        'a roc on the wing',
-        'a wyvern on the wing'
-      ],
       cave: ['a swarm of beetles', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", 'some gnolls’ hideout', 'bare rock', 'mummified remains', 'some bandits’ hideout', 'a reclusive sorcerer', 'some abandoned mining equipment', 'a half-mad prophet'],
       camped: ['a merchant of exotic goods', 'a misanthropic shapeshifter', 'an eccentric monk', 'a nomadic herder', 'a nomadic warrior', 'an outcast elf'],
       houseLived: ['a strange hermit', 'a reclusive scholar', 'an eccentric healer', 'a poor goatherder', 'a mining prospector', 'a religious fanatic with his many wives'],
@@ -383,21 +315,9 @@ setup.initMisc = () => {
     mountain: {
       create: town => {
         const biome = 'mountain'
-        let encounter
-        if (random(1, 100) >= 50) {
-          const locations = setup.misc.locations.filter(location => {
-            return location.available.includes(biome)
-          })
-          const location = locations.random()
-          console.log('Location: ', location)
-          encounter = getLocationDescription(location, town, biome)
-        } else {
-          // intentionally uses forest
-          const encounterKey = setup.misc.forest.encounters.random()
-          console.log(location)
-          encounter = setup.misc.encounters[encounterKey](town)
-        }
-        return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${encounter}`
+        const event = random(1, 100) >= 50 ? setup.getLocation(biome) : setup.getEncounter(biome)
+        const description = setup.getEventDescription(event, town, biome)
+        return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${description}`
       },
       landmark: [
         'a trickle of water flowing down a rock wall',
@@ -468,7 +388,6 @@ setup.initMisc = () => {
       cave: ['a mountain lion’s den', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", "some goblins' hideout", 'some abandoned mining equipment', 'bare rock', 'a potable spring', 'unidentifiable remains', 'some outlaws’ hideout', 'an orc war band', 'a hungry ettin', 'a band of dwarvish refugees', 'a griffon’s nest', 'a manticore’s den', 'a basilisk’s lair', 'a wyvern’s nest', 'a clan of stone giants', 'a sleeping dragon'],
       cabinLives: ['an owlbear', 'an ogre', 'a troll', 'a mad witch', 'a reclusive shapeshifter', 'restless ghosts', 'an outcast orc', 'a strange hermit'],
       watchtowerLives: ['a disciplined military company', 'a rowdy mercenary troop', 'a band of desperate outlaws', 'a handful of dwarves', 'a clan of orcs', 'a goblin war party', 'several harpies', 'ghostly warriors'],
-      encounters: ['a lost prospector', 'a solemn warrior', 'an angry wraith', 'a malevolent ghost', 'some bandits', 'a seasoned mountaineer', 'a paranoid shapeshifter', 'an ancient vampire', 'several homeless dwarves', 'an eccentric witch', 'a contemplative monk', 'a mountain lion', 'a pair of harpies', 'a flock of ravens', 'several orc raiders', 'a hunting peryton', 'a mated pair of manticores', 'a trio of monstrous trolls', 'a clan of stone giants at rest', 'a roc tearing apart some prey'],
       cabinLived: ['a fugitive from justice', 'a stubborn miner', 'a dwarvish prospector', 'a dwarvish war veteran', 'a gnomish wizard', 'a mystic sage'],
       camped: ['a party of orc scouts', 'a goblin raiding party', 'some miners or prospectors', 'a pair of wandering elves', 'some refugees or fugitives', 'someone whose purposes are unclear'],
       miners: ['greedy dwarves', 'ambitious humans', 'tricky goblins', 'industrious kobolds'],
@@ -485,20 +404,9 @@ setup.initMisc = () => {
     forest: {
       create: town => {
         const biome = 'forest'
-        let encounter
-        if (random(1, 100) >= 50) {
-          const locations = setup.misc.locations.filter(location => {
-            return location.available.includes(biome)
-          })
-          const location = locations.random()
-          console.log('Location: ', location)
-          encounter = getLocationDescription(location, town, biome)
-        } else {
-          const encounterKey = setup.misc.forest.encounters.random()
-          console.log(encounterKey)
-          encounter = setup.misc.encounters[encounterKey](town)
-        }
-        return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${encounter}`
+        const event = random(1, 100) >= 50 ? setup.getLocation(biome) : setup.getEncounter(biome)
+        const description = setup.getEventDescription(event, town, biome)
+        return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${description}`
       },
       location: [
         'a cavern behind a waterfall',
@@ -519,7 +427,6 @@ setup.initMisc = () => {
       feature: ['a flock of birds scatter', 'a hawk cries', 'a woodpecker drumming', 'an owl hoots', 'birds chirping', 'a chipmunk scurrying', 'a deer dashes away', 'a deer watches curiously', 'a squirrel leaps from one tree to another', 'a wolf howls', 'butterflies fluttering about', 'squirrels chittering', 'an eerie silence', 'the breeze stops', 'the wind blows harder', 'a twig snaps', 'brightly, colored berries', 'leaves rustling', 'the scent of flowers', 'the smell of decay'],
       trees: ['apple or pear trees', 'ashes', 'birches', 'beeches', 'cedars or junipers', 'cherry or plum trees', 'chestnut or hazel trees', 'cypresses', 'elms', 'firs', 'hawthorns or hemlocks', 'hickory or walnut trees', 'linden or lime trees', 'maples', 'oaks', 'pines', 'poplars', 'spruces', 'willows', 'yew or holly trees'],
       cave: ['a bear’s lair', 'lots of bats', 'many spider webs', "a troll's stash", "an ogre's lair", "some goblins' hideout", 'some abandoned mining equipment', 'bare rock', 'a potable spring', 'unidentifiable remains', 'some outlaws’ hideout', 'a strange hermit'],
-      encounters: ['a large bear', 'a bear cub', 'a giant spider', 'several giant spiders', 'a pack of wolves', 'a lone wolf', 'a hunting cat', 'a wailing ghost', 'a malevolent ghost', 'a pair of goblin scouts', 'a goblin patrol', 'an ogre', 'a pair of outlaws', 'a beggarly bandit', 'an old witch', 'a curious herbalist', 'a lost child', 'a woodcutter busy with the day’s work', 'an intrepid hunter', 'an elvish ranger'],
       cottageLives: ['a lonely old woman', 'a reclusive shapeshifter', 'an eccentric healer', 'a beautiful witch', 'a horrible witch', 'an outcast dwarf'],
       cabinLives: ['an owlbear', 'an ogre', 'a troll', 'a mad witch', 'a paranoid shapeshifter', 'restless ghosts'],
       ruinsLives: ['a dwarf prospector', 'a wood elf druid', 'poisonous snakes', 'giant spiders', 'hungry zombies', 'restless ghosts', 'a handful of ogres', 'some irritable trolls', 'a pair of manticores', 'a dragon'],
@@ -529,16 +436,4 @@ setup.initMisc = () => {
       hole: ['a snake', 'a spider', 'a badger', 'earthworms', 'a centipede', 'unusual fungus']
     }
   }
-}
-
-/**
- * @param {LocationObject} location
- * @param {Town} town
- * @param {BiomeName} biome
- */
-function getLocationDescription (location, town, biome) {
-  if (location.function) {
-    return location.function(town, biome)
-  }
-  return location.summary
 }

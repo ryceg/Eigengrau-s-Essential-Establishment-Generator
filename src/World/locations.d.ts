@@ -14,4 +14,4 @@ interface LocationObject {
   function? (town: Town, biome: BiomeName): string
 }
 
-type BiomeName = 'mountain' | 'desert' | 'road' | 'forest'
+type BiomeName = 'mountain' | 'desert' | 'forest' | 'road' | 'trail' |'path'
