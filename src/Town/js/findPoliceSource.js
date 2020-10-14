@@ -5,12 +5,16 @@ setup.findPoliceSource = (town) => {
     if (motivations.some(r => faction.motivation.includes(r))) {
       if (faction.roll.influence > 80) {
         setup.makePolice(town, faction)
+        return
       } else if (faction.roll.influence > 50 && faction.roll.size > 70) {
         setup.makePolice(town, faction)
+        return
       } else if (faction.roll.influence > 50 && faction.roll.reputation > 90 && faction.roll.size > 60) {
         setup.makePolice(town, faction)
+        return
       } else if (faction.roll.influence > 70 && faction.roll.size > 50 && faction.roll.reputation > 90) {
         setup.makePolice(town, faction)
+        return
       } else {
         const guards = setup.createFaction(town, {
           type: 'guards',
@@ -18,6 +22,7 @@ setup.findPoliceSource = (town) => {
         })
         town.factions[guards.key] = guards
         setup.makePolice(town, guards)
+        return
       }
     } else {
       const guards = setup.createFaction(town, {
@@ -26,6 +31,7 @@ setup.findPoliceSource = (town) => {
       })
       town.factions[guards.key] = guards
       setup.makePolice(town, guards)
+      return
     }
   }
 }
