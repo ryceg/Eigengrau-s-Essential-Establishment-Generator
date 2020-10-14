@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
-    "@types/jquery": "^3.5.2",
+    "@types/jquery": "^3.5.3",
     "@types/twine-sugarcube": "^2.33.0",
     "@types/webpack": "^4.41.22",
-    "@typescript-eslint/eslint-plugin": "^4.4.0",
-    "@typescript-eslint/parser": "^4.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
     "chalk": "^4.0.0",
     "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
@@ -51,7 +51,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^3.1.0",
     "husky": "^4.3.0",
-    "jest": "^26.5.2",
+    "jest": "^26.5.3",
     "lint-staged": "^10.4.0",
     "shelljs": "^0.8.3",
     "ts-jest": "^26.4.1",
@@ -59,7 +59,7 @@
     "yauzl": "^2.10.0"
   },
   "dependencies": {
-    "ts-loader": "^8.0.4",
+    "ts-loader": "^8.0.5",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   }
