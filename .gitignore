@@ -2,6 +2,7 @@ package-lock.json
 node_modules
 tooling
 gh-pages/**/*
+!gh-pages/Resources/**/*
 !gh-pages/CNAME
 .twine
 *.log
