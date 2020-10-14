@@ -3,7 +3,6 @@ import { randomFloat } from '../src/randomFloat'
 import { Town } from '../town/_common'
 
 import { isDominantGender, breakGenderNorms } from './breakGenderNorms'
-import { professions } from './professions'
 import { NPC } from './_common'
 
 /**
@@ -13,6 +12,7 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
   console.log('Fetching profession...')
 
   let professionNames = keys(town.professions)
+  let tempProfessionNames
   const professionThings = {
     socialClass: 'socialClass',
     professionType: 'type',
@@ -23,22 +23,31 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
       const temp = professionThings[key]
       console.log(`${key} was defined as ${npc[key]}, so filtering to the available professions! Filtering down from:`)
       console.log(professionNames)
-      professionNames = professionNames.filter(professionName => {
+      tempProfessionNames = professionNames.filter(professionName => {
         return town.professions[professionName][temp] === npc[key]
       })
+      if (tempProfessionNames.length > 0) {
+        professionNames = tempProfessionNames
+      }
       console.log(professionNames)
     }
   }
 
   if (breakGenderNorms(town) === false) {
     if (isDominantGender(town, npc) === false) {
-      professionNames = professionNames.filter(profession => {
+      tempProfessionNames = professionNames.filter(profession => {
         return town.professions[profession].domSub !== 'dom'
       })
+      if (tempProfessionNames.length > 0) {
+        professionNames = tempProfessionNames
+      }
     } else {
-      professionNames = professionNames.filter(profession => {
+      tempProfessionNames = professionNames.filter(profession => {
         return town.professions[profession].domSub !== 'sub'
       })
+      if (tempProfessionNames.length > 0) {
+        professionNames = tempProfessionNames
+      }
     }
   }
 
@@ -65,13 +74,10 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
     }
   }
 
-  console.log(`Testing to see whether ${resultantProfession} is a dndClass.`)
-
   if (professions[resultantProfession].type === 'dndClass') {
     console.log(`${npc.name} is a ${resultantProfession} and therefore has a dndClass.`)
     npc.hasClass = true
   } else {
-    console.log(`${npc.name} is a ${resultantProfession} and therefore does not have a dndClass.`)
     npc.hasClass = false
   }
 
