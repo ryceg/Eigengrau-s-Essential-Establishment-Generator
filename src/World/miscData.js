@@ -245,7 +245,7 @@ setup.initMisc = () => {
         const road = {
           type: setup.misc.road[type].type.random(),
           traffic: setup.misc.road[type].traffic.random(),
-          encounter: setup.misc.encounters[encounterKey](town),
+          encounter: lib.contentsFetcher(encounterKey, setup.misc.encounters)(town),
           ...base
         }
         return `${['You walk along the ', 'You trudge along the ', 'Making your way across the countryside on the ', 'You make your way along the ', 'You walk along the '].random() + road.type}, ${road.traffic}${[[' until you come across ', ' and encounter ', ' and cross paths with ', ' and come across ', ' and see in the distance ', ' and spy in the distance '].random(), `. ${['Turning the corner, you come across ', 'Then, in the distance, you see ', 'You walk for a while, and then come across ', 'You walk for a few more minutes, until you come across ', 'You walk along for a while, and then encounter '].random()}`].random()}${road.encounter}`
@@ -319,7 +319,7 @@ setup.initMisc = () => {
         } else {
           const encounterKey = setup.misc.desert.encounters.random()
           console.log(encounterKey)
-          encounter = setup.misc.encounters[encounterKey](town)
+          encounter = lib.contentsFetcher(encounterKey, setup.misc.encounters)(town)
         }
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk across'].random()} the desert, you see ${setup.misc.desert.landmark.random()}. You notice ${setup.misc.desert.feature.random()}. Up ahead, you see ${encounter}`
       },
@@ -395,7 +395,7 @@ setup.initMisc = () => {
           // intentionally uses forest
           const encounterKey = setup.misc.forest.encounters.random()
           console.log(location)
-          encounter = setup.misc.encounters[encounterKey](town)
+          encounter = lib.contentsFetcher(encounterKey, setup.misc.encounters)(town)
         }
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along', 'travel across', 'walk on'].random()} the mountain, you see ${setup.misc.mountain.landmark.random()}. You notice ${setup.misc.mountain.feature.random()}. Up ahead, you see ${encounter}`
       },
@@ -496,7 +496,7 @@ setup.initMisc = () => {
         } else {
           const encounterKey = setup.misc.forest.encounters.random()
           console.log(encounterKey)
-          encounter = setup.misc.encounters[encounterKey](town)
+          encounter = lib.contentsFetcher(encounterKey, encounterKey)(town)
         }
         return `${['While', 'As', 'After a while, as'].random()} you ${['traverse', 'trudge along in', 'travel through', 'walk through'].random()} the forest, you see ${setup.misc.forest.landmark.random()}. You notice ${setup.misc.forest.feature.random()}. Up ahead, you see ${encounter}`
       },
