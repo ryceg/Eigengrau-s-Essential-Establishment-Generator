@@ -1,5 +1,5 @@
 :: FactionProfile
-\<<set $currentPassage to $currentFaction>>
+\<<set $currentPassage to $town.factions[$currentPassage.key]>>
 \<<set $currentPassage.availableRelationships to lib.factionData[$currentPassage.type].members.professions>>
 \<h1>$currentPassage.name</h1>
 <<print lib.firstCharacter($currentPassage.name)>> is <<print lib.articles.output($currentPassage.type)>> $currentPassage.wordNoun. It's $currentPassage.age, and the $currentPassage.size faction has <<print lib.articles.output($currentPassage.reputation)>> reputation, and is motivated by $currentPassage.motivation. They are $currentPassage.misc.
