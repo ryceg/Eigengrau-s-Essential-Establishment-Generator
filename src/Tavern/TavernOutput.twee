@@ -7,10 +7,8 @@
 <h3>The Tavern</h3>
 <<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
 <<print lib.closestMatch(setup.tavern.get.lookAround($building), 'note', 'population', 'roughness', $building.roll.population, $building.roll.roughness)>>
-<div id="patron">
-<<if ndef $building.patron>><<set $building.patron to setup.tavern.get.patrons($town, $building)>><</if>>$building.patron
-<<include "TavernPatrons">>
-</div>
+<div id="patron"><<if ndef $building.patron>><<set $building.patron to setup.tavern.get.patrons($town, $building)>><</if>>$building.patron
+<<include "TavernPatrons">></div>
 <<include "TavernDrinker">>
 <h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, <<print lib.articles.output($associatedNPC.descriptor)>> who is currently <<print $associatedNPC.idle.random()>>. You walk up to the bar, and strike up conversation with the $associatedNPC.manwoman, who introduces $associatedNPC.himherself as <<print setup.profile($associatedNPC)>>, the $associatedNPC.owner of $building.name.
 <<include "BartenderTalk">>
@@ -19,9 +17,8 @@
 <h3>Tavern Entertainment</h3>
 $building.entertainment
 <<include "TavernGames">>
-<<link "Go on a bender">>
-\<<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<replace "#carousing">>$building.carousing<</replace>><</link>>
-\<p><<if def $building.carousing>><span id="carousing">$building.carousing</span><<else>><span id="carousing"></span><</if>></p>
+<<link "<h4>Go on a bender</h4>">><<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<update>><</link>>
+\<<liveblock>><<if def $building.carousing>><span id="carousing">$building.carousing</span><</if>><</liveblock>>
 <<include "Noticeboard">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
