@@ -1,8 +1,9 @@
 setup.initNpcData = () => {
   setup.npcData = {
 
-    lifeEvents: {
-      performed: {
+    lifeEvents: [
+      {
+        summary: 'performed',
         probability: 3,
         exclusions (town, npc) {
           const profession = lib.professions[npc.profession]
@@ -100,7 +101,8 @@ setup.initNpcData = () => {
           'The judges were really amazed by my performance'
         ]
       },
-      warMedal: {
+      {
+        summary: 'warMedal',
         probability: 2,
         exclusions (town, npc) {
           return (lib.professions[npc.profession].sector === 'military' || random(100) > 70) && npc.ageYears > 15
@@ -151,7 +153,8 @@ setup.initNpcData = () => {
           'The thing was stolen from me one night and I never saw it again'
         ]
       },
-      magicalCreature: {
+      {
+        summary: 'magicalCreature',
         probability: 2,
         exclusions (town, npc) {
           return lib.professions[npc.profession].sector === 'adventuring' || random(100) > 90
@@ -273,7 +276,8 @@ setup.initNpcData = () => {
           'wolverine'
         ]
       },
-      festival: {
+      {
+        summary: 'festival',
         probability: 5,
         exclusions (town, npc) {
           return true
@@ -356,7 +360,8 @@ setup.initNpcData = () => {
           "visited several brewing stalls and drank to my heart's content"
         ]
       },
-      apprentice: {
+      {
+        summary: 'apprentice',
         probability: 6,
         exclusions (town, npc) {
           return lib.professions[npc.profession].socialClass !== 'nobility'
@@ -443,7 +448,8 @@ setup.initNpcData = () => {
           "I learned I'm not very good at the trade"
         ]
       },
-      trinket: {
+      {
+        summary: 'trinket',
         probability: 5,
         exclusions (town, npc) {
           return true
@@ -467,7 +473,8 @@ setup.initNpcData = () => {
           ].random() + trinket.name}.` + '<blockquote>' + `<h4>${trinket.name}</h4>${trinket.description}</blockquote>`
         }
       },
-      nobleEvent: {
+      {
+        summary: 'nobleEvent',
         probability: 5,
         exclusions (town, npc) {
           const profession = lib.professions[npc.profession]
@@ -559,7 +566,8 @@ setup.initNpcData = () => {
           'stiff and firm'
         ]
       },
-      journey: {
+      {
+        summary: 'journey',
         probability: 3,
         exclusions (town, npc) {
           return true
@@ -674,7 +682,8 @@ setup.initNpcData = () => {
           "and to be honest I'm kind of glad I didn't make it"
         ]
       },
-      lostChild: {
+      {
+        summary: 'lostChild',
         probability: 3,
         exclusions (town, npc) {
           return true
@@ -753,7 +762,8 @@ setup.initNpcData = () => {
           'and I studied up on maps of the area so I would never get lost again'
         ]
       },
-      pilgrimage: {
+      {
+        summary: 'pilgrimage',
         probability: 5,
         exclusions (town, npc) {
           return lib.professions[npc.profession].sector === 'religion' || random(100) > 75
@@ -818,7 +828,8 @@ setup.initNpcData = () => {
           'but I sacrificed much to finish the trip'
         ]
       },
-      meetFriendNPC: {
+      {
+        summary: 'meetFriendNPC',
         probability: 8,
         exclusions (town, npc) {
           return true
@@ -862,7 +873,8 @@ setup.initNpcData = () => {
           }
         }
       },
-      meetEnemyNPC: {
+      {
+        summary: 'meetEnemyNPC',
         probability: 8,
         exclusions (town, npc) {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
@@ -904,7 +916,8 @@ setup.initNpcData = () => {
           ].random()
         }
       },
-      meetPartnerNPC: {
+      {
+        summary: 'meetPartnerNPC',
         probability: 10,
         exclusions (town, npc) {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
@@ -949,7 +962,8 @@ setup.initNpcData = () => {
           return childMsg + partnerMsg
         }
       },
-      backgroundWork: {
+      {
+        summary: 'backgroundWork',
         probability: 20,
         exclusions (town, npc) {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
@@ -968,7 +982,8 @@ setup.initNpcData = () => {
             'to pay off a debt, I had to work as a '].random() + [npc.background, npc.background, npc.background, npc.background, npc.profession, npc.profession, npc.profession].random()}.`
         }
       },
-      meetImportantNPC: {
+      {
+        summary: 'meetImportantNPC',
         probability: 5,
         exclusions (town, npc) {
           return true
@@ -982,7 +997,8 @@ setup.initNpcData = () => {
           ].random()
         }
       },
-      adventure: {
+      {
+        summary: 'adventure',
         probability: 5,
         exclusions (town, npc) {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
@@ -1035,7 +1051,8 @@ setup.initNpcData = () => {
           return adventurePrefix + adventureResults
         }
       },
-      supernatural: {
+      {
+        summary: 'supernatural',
         probability: 2,
         exclusions (town, npc) {
           return true
@@ -1052,7 +1069,8 @@ setup.initNpcData = () => {
           ].random()
         }
       },
-      miracle: {
+      {
+        summary: 'miracle',
         probability: 2,
         exclusions (town, npc) {
           return true
@@ -1117,7 +1135,8 @@ setup.initNpcData = () => {
           'The next morning all the children of the town had vanished'
         ]
       },
-      war: {
+      {
+        summary: 'war',
         probability: 5,
         exclusions (town, npc) {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
@@ -1154,7 +1173,8 @@ setup.initNpcData = () => {
           return warDescription
         }
       },
-      crime: {
+      {
+        summary: 'crime',
         probability: 10,
         exclusions (town, npc) {
           return lib.professions[npc.profession].sector === 'crime' || random(100) > 60
@@ -1176,7 +1196,8 @@ setup.initNpcData = () => {
           return crimeReadout
         }
       },
-      arcaneMatters: {
+      {
+        summary: 'arcaneMatters',
         probability: 4,
         exclusions (town, npc) {
           return true
@@ -1195,7 +1216,8 @@ setup.initNpcData = () => {
           ].random()
         }
       },
-      weirdStuff: {
+      {
+        summary: 'weirdStuff',
         probability: 1,
         exclusions (town, npc) {
           return true
@@ -1214,7 +1236,7 @@ setup.initNpcData = () => {
           ].random()
         }
       }
-    },
+    ],
     doesnt: {
       'wants to grow a beard': {
         probability: 5,
