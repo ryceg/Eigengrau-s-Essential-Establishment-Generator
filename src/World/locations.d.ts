@@ -5,5 +5,13 @@ interface Setup {
 
 interface SetupMisc {
   graveStone: Record<string, unknown>
-  locations: Record<string, unknown>
+  locations: LocationObject[]
 }
+
+interface LocationObject {
+  summary: string
+  available: BiomeName[]
+  function? (town: Town, biome: BiomeName): string
+}
+
+type BiomeName = 'mountain' | 'desert' | 'road' | 'forest'
