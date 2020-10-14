@@ -38,8 +38,7 @@ module.exports = (fileInfo, api) => {
       }
 
       return jsc.objectExpression(properties)
-    })
-    )
+    }))
   })
   return doc.toSource()
 }
