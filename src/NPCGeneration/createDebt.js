@@ -17,14 +17,14 @@ setup.createDebt = (town, npc) => {
   }
 
   if (profit < -40) {
-    const debtor = findOrCreateDebtor(town, npc)
+    const debtor = findOrCreateDebtor(town, npc, 'moneylender')
     setup.createRelationship(town, npc, debtor, 'debtor', 'creditor')
     npc.finances.creditors[debtor.key] = Math.round(cashLiquidity * grossIncome)
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
   if (profit < -300 || setup.socialClass[npc.socialClass].key <= 3) {
-    const predatoryDebtor = findOrCreatePredatoryDebtor(town, npc)
+    const predatoryDebtor = findOrCreateDebtor(town, npc, 'predatory debtor')
     setup.createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
@@ -37,20 +37,13 @@ setup.createDebt = (town, npc) => {
  * @param {Town} town
  * @param {NPC} npc
  */
-function findOrCreateDebtor (town, npc) {
-  const found = Object.values(State.variables.npcs).find(otherNPC => {
-    return otherNPC.profession === 'moneylender' && otherNPC.key !== npc.key
-  })
-  return found || setup.createNPC(town, { profession: 'moneylender', isShallow: true })
-}
-
-/**
- * @param {Town} town
- * @param {NPC} npc
- */
-function findOrCreatePredatoryDebtor (town, npc) {
-  const found = Object.values(State.variables.npcs).find(otherNPC => {
-    return otherNPC.profession === 'loan shark' && otherNPC.key !== npc.key
-  })
-  return found || setup.createNPC(town, { profession: 'loan shark', isShallow: true })
+function findOrCreateDebtor (town, npc, type) {
+  let found = null
+  if (town.professions[type] && town.professions[type].population > 0) {
+    found = Object.values(State.variables.npcs).find(otherNPC => {
+      return otherNPC.profession === type && otherNPC.key !== npc.key
+    })
+  }
+  if (!found) found = setup.createNPC(town, { professionSector: 'crime', isShallow: true })
+  return found
 }

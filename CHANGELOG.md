@@ -4,12 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## 2.5.1
+## 2.6
 
 ### Added
 - Footer
 - Jewellers
 - New syntax extension to the workflow
+- Quick editing for racial demographics
+- Racial demographic sliders now update instantly
 - Wording for totally racially homogenous towns
 - Castle-specific requests for assistance
 - Capacity for factional policing
@@ -23,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed tables getting cut in half in two-column layouts.
 - Fixed castle ruler looking for array printing everything
 - Forced one column for town edit page.
+- Money lenders and predatory debtors will only spawn if there's the population for them. If not, then a criminal will be selected instead.
 - Added test for ga() so adblockers don't make the generator complain (there are no ads, just Google Analytics tracking, just FYI!)
 - Definitions of extremely sexist societies
 - Fixed creating magic armour not working
