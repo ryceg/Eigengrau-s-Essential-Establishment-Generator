@@ -40,5 +40,7 @@ module.exports = (fileInfo, api) => {
       return jsc.objectExpression(properties)
     }))
   })
-  return doc.toSource()
+  return doc.toSource({
+    quote: 'single'
+  })
 }
