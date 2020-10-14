@@ -43,6 +43,10 @@ export interface NPC {
   hasHistory?: boolean
   isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
+  trait: string
+  calmTrait: string
+  stressTrait: string
+  relaxedTrait: string
   heshe: string
   hisher: string
   himher: string
