@@ -1037,7 +1037,7 @@ setup.initTavernData = () => {
         return 'The attendant in the bathroom is a foul-smelling zombie. He offers you a mint crystal.'
       },
       mophand (town) {
-        const npc = setup.createNPC(town, { background: 'commoner', profession: 'maid-servant', hasClass: false })
+        const npc = setup.createNPC(town, { background: 'commoner', profession: 'maid', hasClass: false })
         return `The ${setup.profile(npc, 'toothless mop-hand')} reminisces with a military has-been over ales about how an otyugh in the loo isn't as bad as the time a carrion crawler was in there.`
       },
       doppelganger (town) {

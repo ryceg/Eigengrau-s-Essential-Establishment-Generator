@@ -1472,7 +1472,7 @@ export const professions: Record<string, Profession> = {
       }
     }
   },
-  'maid-servant': {
+  'maid': {
     sv: 250,
     type: 'labourer',
     sector: 'craftsmanship',
