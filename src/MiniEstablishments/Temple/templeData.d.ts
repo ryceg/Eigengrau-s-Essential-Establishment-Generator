@@ -1,3 +1,3 @@
 interface Setup {
-  temple: any
+  temple: unknown
 }
