@@ -37,7 +37,7 @@ interface GoodsAndService {
   }
   PassageFormat(): string[]
   profession: GoodsAndServicesProfession
-  goods: Array<GeneralGood>
+  goods: GeneralGood[]
   type: string
   notableFeature: string[]
   specialty: string[]
