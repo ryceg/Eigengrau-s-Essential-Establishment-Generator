@@ -2,14 +2,15 @@ import { getUUID, keys } from '../src/utils'
 import { random } from '../src/random'
 import { Construct, ConstructUtils } from './_common'
 
-interface Tree extends Construct<'tree'> {
+export interface Tree extends Construct<'tree'> {
   species: string
   size: string
   feature: string
+  biome?: keyof typeof biomes
 }
 
 export const tree: ConstructUtils<Tree> = {
-  create: (base?: Partial<Tree & { biome: keyof typeof biomes }>) => {
+  create: base => {
     const biome = biomes[base?.biome || random(keys(biomes))]
 
     return {
