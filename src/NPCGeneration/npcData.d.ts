@@ -54,7 +54,6 @@ interface Setup {
     religion: {
       strength: [number, string][]
     }
-    backgroundTraits: Record<string, BackgroundTrait>
     bodyParts: BodyParts
   }
 }
@@ -78,15 +77,6 @@ interface BodyParts {
   legs: {
     descriptions: string[]
   }
-}
-
-interface BackgroundTrait {
-  extraLanguage?: boolean
-  backgroundOrigin: string[]
-  ideal: string[]
-  personalityTrait: string[]
-  bond: string[]
-  wealth: number
 }
 
 interface Doesnt {
