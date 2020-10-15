@@ -172,7 +172,7 @@ setup.createNPC = (town, base) => {
 
   if (!npc.physicalTrait) {
     if (npc.roll.physicalTrait > 40) {
-      const headParts = setup.npcData.bodyParts.head
+      const headParts = lib.bodyParts.head
       npc.physicalTrait = lib.random([
         lib.random(headParts.hair),
         lib.random(headParts.eyes),
@@ -183,11 +183,11 @@ setup.createNPC = (town, base) => {
         lib.random(headParts.misc)
       ])
     } else if (npc.roll.physicalTrait > 30) {
-      npc.physicalTrait = lib.random(setup.npcData.bodyParts.torso.descriptions)
+      npc.physicalTrait = lib.random(lib.bodyParts.torso.descriptions)
     } else if (npc.roll.physicalTrait > 20) {
-      npc.physicalTrait = lib.random(setup.npcData.bodyParts.arms.descriptions)
+      npc.physicalTrait = lib.random(lib.bodyParts.arms.descriptions)
     } else if (npc.roll.physicalTrait > 13) {
-      npc.physicalTrait = lib.random(setup.npcData.bodyParts.legs.descriptions)
+      npc.physicalTrait = lib.random(lib.bodyParts.legs.descriptions)
     } else if (npc.roll.physicalTrait > 8) {
       npc.physicalTrait = lib.random(data.scar)
     } else if (npc.roll.physicalTrait > 5) {

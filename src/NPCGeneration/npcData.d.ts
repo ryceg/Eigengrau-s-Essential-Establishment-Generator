@@ -54,28 +54,6 @@ interface Setup {
     religion: {
       strength: [number, string][]
     }
-    bodyParts: BodyParts
-  }
-}
-
-interface BodyParts {
-  head: {
-    hair: string[]
-    eyes: string[]
-    nose: string[]
-    mouth: string[]
-    chin: string[]
-    ears: string[]
-    misc: string[]
-  }
-  torso: {
-    descriptions: string[]
-  }
-  arms: {
-    descriptions: string[]
-  }
-  legs: {
-    descriptions: string[]
   }
 }
 
