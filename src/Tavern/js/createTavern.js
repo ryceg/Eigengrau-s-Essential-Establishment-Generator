@@ -71,12 +71,7 @@ setup.createTavern = (town, opts = {}) => {
       tavern.notableFeature = `its ${tavern.draw}`
   }
   lib.tavernModifiers(town, tavern)
-  tavern.wealth = ''
-  tavern.size = ''
-  tavern.cleanliness = ''
-  tavern.expertise = ''
   tavern.lodging = 0
-  tavern.sin = ''
   tavern.colour1 = getRandomTavernColour()
   tavern.colour2 = getRandomTavernColour()
 

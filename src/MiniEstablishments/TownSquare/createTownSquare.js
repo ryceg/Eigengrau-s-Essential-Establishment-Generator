@@ -11,9 +11,6 @@ setup.createTownSquare = (town, opts = {}) => {
     feature: setup.townSquare.feature().random()
   })
 
-  townSquare.size = ''
-  townSquare.cleanliness = ''
-
   const rollDataVariables = ['size', 'cleanliness']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(townSquare, setup.townSquare.rollData, propName)

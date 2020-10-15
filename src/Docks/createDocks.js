@@ -31,18 +31,10 @@ setup.createDocks = (town, opts = {}) => {
     ].random()} ${docks.wordNoun.toUpperFirst()}`
   ].random()
 
-  docks.activity = ''
-  docks.size = ''
-  docks.cleanliness = ''
-
   const rollDataVariables = ['size', 'cleanliness', 'activity']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(docks, setup.docks.rollData, propName)
   }
-
-  docks.sizeDescriptive = ''
-  docks.cleanlinessDescriptive = ''
-  docks.activityDescriptive = ''
 
   lib.defineRollDataGetter(docks, setup.docks.rollData, 'sizeDescriptive', 'size', 2)
   lib.defineRollDataGetter(docks, setup.docks.rollData, 'cleanlinessDescriptive', 'cleanliness', 2)

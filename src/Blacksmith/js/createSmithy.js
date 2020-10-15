@@ -13,11 +13,7 @@ setup.createSmithy = function (town, opts = {}) {
     weapons: ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick'],
     mundane: ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
   })
-  smithy.wealth = ''
-  smithy.size = ''
-  smithy.cleanliness = ''
-  smithy.expertise = ''
-  smithy.activity = ''
+
   setup.createStructure(town, smithy)
   smithy.structure.smithyDescriptor = `${smithy.structure.material.wealth} ${smithy.structure.material.noun} ${smithy.wordNoun} with ${lib.articles.output(smithy.structure.roof.verb)} roof`
 

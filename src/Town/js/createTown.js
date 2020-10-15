@@ -39,6 +39,25 @@ setup.createTown = (base = {}) => {
     buildings: [],
     families: {
     },
+    bans: {
+      alcoholDiscouraged: false,
+      alcohol: false,
+      softDrugs: false,
+      hardDrugs: true,
+      schools: false,
+      elderly: false,
+      sickness: false,
+      religion: false,
+      magic: false,
+      music: false,
+      artwork: false,
+      acting: false,
+      nobility: false,
+      outsiders: false,
+      slavery: false,
+      unemployment: false,
+      panhandling: false
+    },
     buildingRelations: [],
     population: lib.townData.type[type].population(),
     _demographicPercentile: {},
@@ -210,8 +229,7 @@ setup.createTown = (base = {}) => {
   if (settings.ignoreGender === true || town.ignoreGender === true) {
     town.roll.equality = 100
   }
-  town.equality = ''
-  town.equalityDescription = ''
+
   lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender], 'equality', 'equality', 1)
   lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender], 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials

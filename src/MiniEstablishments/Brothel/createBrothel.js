@@ -16,10 +16,6 @@ setup.createBrothel = (town, tavern) => {
     owner: Object.keys(setup.brothel.pimp).random()
   })
   brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`
-
-  brothel.wealth = ''
-  brothel.size = ''
-  brothel.cleanliness = ''
   setup.createStructure(town, brothel)
   brothel.structure.brothelDescriptor = `${lib.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${lib.articles.output(brothel.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
