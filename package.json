@@ -61,7 +61,7 @@
   "dependencies": {
     "jscodeshift": "^0.11.0",
     "ts-loader": "^8.0.5",
-    "webpack": "^5.1.0",
+    "webpack": "^5.1.1",
     "webpack-cli": "^4.0.0"
   }
 }
