@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Footer
 - Jewellers
+- Cleanliness descriptions to ships
 - New syntax extension to the workflow
 - Quick editing for racial demographics
 - Racial demographic sliders now update instantly

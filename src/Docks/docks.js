@@ -103,18 +103,20 @@ setup.initDocks = () => {
           captainType: Object.keys(setup.docks.ships.captain).random(),
           hull: setup.docks.ships.hullDesc.random(),
           detail: setup.docks.ships.shipDetail.random(),
-          event: setup.docks.ships.eventDetail.random()
+          event: setup.docks.ships.eventDetail.random(),
+          roll: {
+            size: random(1, 100),
+            cleanliness: random(1, 100)
+          }
         }
         Object.assign(ship, setup.docks.ships.type[ship.type])
         ship.captain = setup.createNPC(town, setup.docks.ships.captain[ship.captainType])
         docks.ships[ship.name] = ship
-        ship.size = ''
-        ship.cleanliness = ''
 
-        // var rollDataVariables = ['size', 'cleanliness']
-        // rollDataVariables.forEach(function (propName) {
-        //   lib.defineRollDataGetter(ship, setup.docks.ships.rollData, propName)
-        // })
+        const rollDataVariables = ['size', 'cleanliness']
+        rollDataVariables.forEach(function (propName) {
+          lib.defineRollDataGetter(ship, setup.docks.ships.rollData, propName)
+        })
         return ship
       },
       crew: {
@@ -589,23 +591,25 @@ setup.initDocks = () => {
         }
       },
       rollData: {
-        cleanliness: [
-          [80, 'change me to something really clean'],
-          [70, 'change me'],
-          [50, 'change me'],
-          [40, 'change me'],
-          [30, 'change me'],
-          [20, 'change me.']
-        ],
         size: [
-          [90, 'change me'],
-          [80, 'change me'],
-          [60, 'change me'],
-          [50, 'change me'],
-          [40, 'change me'],
-          [30, 'change me in, if you were lucky'],
-          [20, 'change me little else'],
-          [10, 'change me']
+          // it is a _______ $ship.type
+          [90, 'huge'],
+          [80, 'impressively sized'],
+          [60, 'somewhat impressive'],
+          [50, ''],
+          [30, 'somewhat unimpressive'],
+          [20, 'cluttered'],
+          [10, 'cluttered and cramped']
+        ],
+        cleanliness: [
+          // ... that is
+          [80, 'absolutely spotless; it must have been cleaned recently, as no barnacles adorn the bottom of the ship'],
+          [80, 'spotless, save for a couple barnacles'],
+          [70, 'in quite good condition, with only a couple barnacles clinging on to the bottom'],
+          [50, 'in reasonable condition, with some barnacles hanging on, creating drag at speed'],
+          [40, 'in need of a good clean, with barnacles clinging to the bottom of the ship'],
+          [30, 'in desperate need of a thorough de-barnacleing, as well as a general clean'],
+          [20, 'filthy and laden with barnacles covering the bottom of the boat']
         ]
       }
     },
