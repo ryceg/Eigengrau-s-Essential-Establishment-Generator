@@ -37,7 +37,7 @@ interface GoodsAndService {
   }
   PassageFormat(): string[]
   profession: GoodsAndServicesProfession
-  goods: Record<string, GeneralGood>
+  goods: Array<GeneralGood>
   type: string
   notableFeature: string[]
   specialty: string[]
@@ -60,6 +60,7 @@ interface BakeryGoodType {
 }
 
 interface GeneralGood {
+  summary: string
   cost: number
   type?: string
   description: string

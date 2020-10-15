@@ -246,8 +246,9 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'loaf of rye bread': {
+      goods: [
+        {
+          summary: 'loaf of rye bread',
           // cost: in copper pieces. The <<money>> macro handles currency conversion.
           cost: 15,
           // description: used in tooltip.
@@ -257,54 +258,62 @@ setup.initGoodsAndServices = () => {
             return building.roll.wealth > 40
           }
         },
-        'unleavened bread': {
+        {
+          summary: 'unleavened bread',
           cost: 4,
           description: 'A dense and difficult to digest loaf. Typically used as a plate for meats, with the juices soaking into the bread to make it more palatable.'
         },
-        'loaf of barley bread': {
+        {
+          summary: 'loaf of barley bread',
           cost: 18,
           description: 'A loaf of barley bread.',
           exclusions (town, building) {
             return building.roll.wealth > 40
           }
         },
-        'loaf of dwarven bread': {
+        {
+          summary: 'loaf of dwarven bread',
           cost: 15,
           description: "A loaf of dwarven bread. It's hard as rock.",
           exclusions (town, building) {
             return town.population < 1500 && building.roll.wealth > 25
           }
         },
-        'elven biscuits': {
+        {
+          summary: 'elven biscuits',
           cost: 15,
           description: 'Small, round, golden looking pucks of some kind of baked grains. It feels invigorating to eat, and keeps you full all day.',
           exclusions (town, building) {
             return town.population > 2000 && building.roll.wealth > 50
           }
         },
-        'stale bread': {
+        {
+          summary: 'stale bread',
           cost: random(1, 4),
           description: 'A stale loaf. Not very appetizing.'
         },
-        'biscuit loaf': {
+        {
+          summary: 'biscuit loaf',
           cost: random(9, 14),
           description: 'A loaf sliced and then baked a second time, biscuits last for a long time.'
         },
-        'sweet tart': {
+        {
+          summary: 'sweet tart',
           cost: random(10, 15),
           description: 'A tasty looking fruit tart.',
           exclusions (town, building) {
             return building.roll.wealth > 70
           }
         },
-        'gold loaf': {
+        {
+          summary: 'gold loaf',
           cost: 1300,
           description: 'A loaf with gold leaf on top. Debug.',
           exclusions (town, building) {
             return building.roll.wealth > 99
           }
         }
-      },
+      ],
       type: 'bakery',
       notableFeature: [
         // you notice _______
@@ -564,26 +573,29 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'Small Bouquet': {
+      goods: [
+        {
+          summary: 'Small Bouquet',
           // cost: in copper pieces. The <<money>> macro handles currency conversion.
           cost: 4,
           // description: used in tooltip.
           description: 'A small bouquet made up of mostly wildflowers.'
         },
-        'Mid-Size Bouquet': {
+        {
+          summary: 'Mid-Size Bouquet',
           // cost: in copper pieces. The <<money>> macro handles currency conversion.
           cost: 8,
           // description: used in tooltip.
           description: 'A medium sized bouquet made up of an assortment of colorful flowers.'
         },
-        'Large Bouquet': {
+        {
+          summary: 'Large Bouquet',
           // cost: in copper pieces. The <<money>> macro handles currency conversion.
           cost: 15,
           // description: used in tooltip.
           description: 'A large bouquet comprised of many colorful and intricately arranged flowers.'
         }
-      },
+      ],
       type: 'florist',
       notableFeature: [
         // you notice _______
@@ -813,416 +825,518 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'tailoring': {
+      goods: [
+        {
+          summary: 'tailoring',
           cost: 7,
           type: 'service',
           description: 'A service offered to fit clothing, take up shirts, and generally tailor clothing to fit better.'
         },
-        'hole repair': {
+        {
+          summary: 'hole repair',
           cost: 3,
           type: 'service',
           description: 'A service offered to patch up holey or tattered clothing people may have.'
         },
-        'Boots, forest caiman skin': {
+        {
+          summary: 'Boots, forest caiman skin',
           description: 'Boots, forest caiman skin',
           cost: 410
         },
-        'Boots, indigo caiman skin': {
+        {
+          summary: 'Boots, indigo caiman skin',
           description: 'Boots, indigo caiman skin',
           cost: 380
         },
-        'Boots, leather, ankle-high, brown': {
+        {
+          summary: 'Boots, leather, ankle-high, brown',
           description: 'Boots, leather, ankle-high, brown',
           cost: 100
         },
-        'Boots, leather, thigh-high, brown': {
+        {
+          summary: 'Boots, leather, thigh-high, brown',
           description: 'Boots, leather, thigh-high, brown',
           cost: 120
         },
-        'Boots, river caiman skin': {
+        {
+          summary: 'Boots, river caiman skin',
           description: 'Boots, river caiman skin',
           cost: 215
         },
-        'Breeches, good linen, fine': {
+        {
+          summary: 'Breeches, good linen, fine',
           description: 'Breeches, good linen, fine',
           cost: 150
         },
-        'Breeches, good linen, fine, dyed blue (indigo)': {
+        {
+          summary: 'Breeches, good linen, fine, dyed blue (indigo)',
           description: 'Breeches, good linen, fine, dyed blue (indigo)',
           cost: 163
         },
-        'Breeches, good linen, fine, dyed red (madder)': {
+        {
+          summary: 'Breeches, good linen, fine, dyed red (madder)',
           description: 'Breeches, good linen, fine, dyed red (madder)',
           cost: 159
         },
-        'Breeches, good linen, light, fine': {
+        {
+          summary: 'Breeches, good linen, light, fine',
           description: 'Breeches, good linen, light, fine',
           cost: 120
         },
-        'Breeches, good linen, light, fine, dyed blue (indigo)': {
+        {
+          summary: 'Breeches, good linen, light, fine, dyed blue (indigo)',
           description: 'Breeches, good linen, light, fine, dyed blue (indigo)',
           cost: 131
         },
-        'Breeches, good linen, light, fine, dyed red (madder)': {
+        {
+          summary: 'Breeches, good linen, light, fine, dyed red (madder)',
           description: 'Breeches, good linen, light, fine, dyed red (madder)',
           cost: 129
         },
-        'Breeches, silk, fine': {
+        {
+          summary: 'Breeches, silk, fine',
           description: 'Breeches, silk, fine',
           cost: 900
         },
-        'Breeches, thick cotton, fine': {
+        {
+          summary: 'Breeches, thick cotton, fine',
           description: 'Breeches, thick cotton, fine',
           cost: 175
         },
-        'Breeches, thin cotton, fine': {
+        {
+          summary: 'Breeches, thin cotton, fine',
           description: 'Breeches, thin cotton, fine',
           cost: 150
         },
-        'Breeches, wool, fine': {
+        {
+          summary: 'Breeches, wool, fine',
           description: 'Breeches, wool, fine',
           cost: 130
         },
-        'Breeches, wool, fine, dyed blue (indigo)': {
+        {
+          summary: 'Breeches, wool, fine, dyed blue (indigo)',
           description: 'Breeches, wool, fine, dyed blue (indigo)',
           cost: 135
         },
-        'Breeches, wool, fine, dyed red (madder)': {
+        {
+          summary: 'Breeches, wool, fine, dyed red (madder)',
           description: 'Breeches, wool, fine, dyed red (madder)',
           cost: 133
         },
-        'Button, ivory': {
+        {
+          summary: 'Button, ivory',
           description: 'Button, ivory',
           cost: 60
         },
-        'Button, wood': {
+        {
+          summary: 'Button, wood',
           description: 'Button, wood',
           cost: 4
         },
 
-        'Coat (great), good linen, fine': {
+        {
+          summary: 'Coat (great), good linen, fine',
           description: 'Coat (great), good linen, fine',
           cost: 380
         },
-        'Coat (great), good linen, light, fine': {
+        {
+          summary: 'Coat (great), good linen, light, fine',
           description: 'Coat (great), good linen, light, fine',
           cost: 300
         },
-        'Coat (great), heavy wool, fine': {
+        {
+          summary: 'Coat (great), heavy wool, fine',
           description: 'Coat (great), heavy wool, fine',
           cost: 400
         },
-        'Coat (great), thick cotton, fine': {
+        {
+          summary: 'Coat (great), thick cotton, fine',
           description: 'Coat (great), thick cotton, fine',
           cost: 450
         },
-        'Coat (great), thin cotton, fine': {
+        {
+          summary: 'Coat (great), thin cotton, fine',
           description: 'Coat (great), thin cotton, fine',
           cost: 380
         },
-        'Coat (great), wool, fine': {
+        {
+          summary: 'Coat (great), wool, fine',
           description: 'Coat (great), wool, fine',
           cost: 320
         },
-        'Coat, beaver fur': {
+        {
+          summary: 'Coat, beaver fur',
           description: 'Coat, beaver fur',
           cost: 900
         },
-        'Coat, buckskin': {
+        {
+          summary: 'Coat, buckskin',
           description: 'Coat, buckskin',
           cost: 500
         },
-        'Coat, fox fur': {
+        {
+          summary: 'Coat, fox fur',
           description: 'Coat, fox fur',
           cost: 1500
         },
-        'Coat, leather (steer), black': {
+        {
+          summary: 'Coat, leather (steer), black',
           description: 'Coat, leather (steer), black',
           cost: 500
         },
-        'Coat, leather (steer), natural color': {
+        {
+          summary: 'Coat, leather (steer), natural color',
           description: 'Coat, leather (steer), natural color',
           cost: 450
         },
-        'Coat, lynx fur': {
+        {
+          summary: 'Coat, lynx fur',
           description: 'Coat, lynx fur',
           cost: 1800
         },
-        'Coat, rabbit fur': {
+        {
+          summary: 'Coat, rabbit fur',
           description: 'Coat, rabbit fur',
           cost: 580
         },
-        'Coat, skunk fur': {
+        {
+          summary: 'Coat, skunk fur',
           description: 'Coat, skunk fur',
           cost: 1100
         },
-        'Collar, dog, with iron buckle': {
+        {
+          summary: 'Collar, dog, with iron buckle',
           description: 'Collar, dog, with iron buckle',
           cost: 8
         },
-        'Dress, simple, good linen, fine': {
+        {
+          summary: 'Dress, simple, good linen, fine',
           description: 'Dress, simple, good linen, fine',
           cost: 220
         },
-        'Dress, simple, good linen, light, fine': {
+        {
+          summary: 'Dress, simple, good linen, light, fine',
           description: 'Dress, simple, good linen, light, fine',
           cost: 180
         },
-        'Dress, simple, silk, fine': {
+        {
+          summary: 'Dress, simple, silk, fine',
           description: 'Dress, simple, silk, fine',
           cost: 1500
         },
-        'Dress, simple, thick cotton, fine': {
+        {
+          summary: 'Dress, simple, thick cotton, fine',
           description: 'Dress, simple, thick cotton, fine',
           cost: 270
         },
-        'Dress, simple, thin cotton, fine': {
+        {
+          summary: 'Dress, simple, thin cotton, fine',
           description: 'Dress, simple, thin cotton, fine',
           cost: 220
         },
-        'Dress, simple, wool, fine': {
+        {
+          summary: 'Dress, simple, wool, fine',
           description: 'Dress, simple, wool, fine',
           cost: 200
         },
-        "Gloves, horse hide, workman's": {
+
+        {
+          summary: "Gloves, horse hide, workman's",
           description: "Gloves, horse hide, workman's",
           cost: 50
         },
-        "Gloves, leather, workman's": {
+        {
+          summary: "Gloves, leather, workman's",
           description: "Gloves, leather, workman's",
           cost: 46
         },
-        'Gloves, wool, knit': {
+        {
+          summary: 'Gloves, wool, knit',
           description: 'Gloves, wool, knit',
           cost: 50
         },
-        "Handkerchief, good linen, 1'sq.": {
+        {
+          summary: "Handkerchief, good linen, 1'sq.",
           description: "Handkerchief, good linen, 1'sq.",
           cost: 7
         },
-        "Handkerchief, soft light canvas, 1'sq.": {
+        {
+          summary: "Handkerchief, soft light canvas, 1'sq.",
           description: "Handkerchief, soft light canvas, 1'sq.",
           cost: 5
         },
-        'Hat, beaver fur': {
+        {
+          summary: 'Hat, beaver fur',
           description: 'Hat, beaver fur',
           cost: 90
         },
-        'Hat, rabbit fur': {
+        {
+          summary: 'Hat, rabbit fur',
           description: 'Hat, rabbit fur',
           cost: 60
         },
-        'Hat, very large, beaver fur': {
+        {
+          summary: 'Hat, very large, beaver fur',
           description: 'Hat, very large, beaver fur',
           cost: 150
         },
-        'Hat, very large, rabbit fur': {
+        {
+          summary: 'Hat, very large, rabbit fur',
           description: 'Hat, very large, rabbit fur',
           cost: 140
         },
-        'Hat, very large, skunk fur': {
+        {
+          summary: 'Hat, very large, skunk fur',
           description: 'Hat, very large, skunk fur',
           cost: 200
         },
-        'Hat, wool, knit, simple, 3 color': {
+        {
+          summary: 'Hat, wool, knit, simple, 3 color',
           description: 'Hat, wool, knit, simple, 3 color',
           cost: 40
         },
-        'Jacket, beaver fur': {
+        {
+          summary: 'Jacket, beaver fur',
           description: 'Jacket, beaver fur',
           cost: 600
         },
-        'Jacket, buckskin': {
+        {
+          summary: 'Jacket, buckskin',
           description: 'Jacket, buckskin',
           cost: 320
         },
-        'Jacket, fox fur, silver': {
+        {
+          summary: 'Jacket, fox fur, silver',
           description: 'Jacket, fox fur, silver',
           cost: 1000
         },
-        'Jacket, leather (steer), black': {
+        {
+          summary: 'Jacket, leather (steer), black',
           description: 'Jacket, leather (steer), black',
           cost: 370
         },
-        'Jacket, leather (steer), natural color': {
+        {
+          summary: 'Jacket, leather (steer), natural color',
           description: 'Jacket, leather (steer), natural color',
           cost: 330
         },
-        'Jacket, lynx fur': {
+        {
+          summary: 'Jacket, lynx fur',
           description: 'Jacket, lynx fur',
           cost: 1200
         },
-        'Jacket, rabbit fur': {
+        {
+          summary: 'Jacket, rabbit fur',
           description: 'Jacket, rabbit fur',
           cost: 380
         },
-        'Jacket, skunk fur': {
+        {
+          summary: 'Jacket, skunk fur',
           description: 'Jacket, skunk fur',
           cost: 700
         },
-        'Jacket, wolf fur': {
+        {
+          summary: 'Jacket, wolf fur',
           description: 'Jacket, wolf fur',
           cost: 750
         },
-        'Kilt, wool': {
+        {
+          summary: 'Kilt, wool',
           description: 'Kilt, wool',
           cost: 180
         },
-        'Mittens, wool, knit': {
+        {
+          summary: 'Mittens, wool, knit',
           description: 'Mittens, wool, knit',
           cost: 20
         },
-        "Napkin, good linen, 1'sq.": {
+        {
+          summary: "Napkin, good linen, 1'sq.",
           description: "Napkin, good linen, 1'sq.",
           cost: 7
         },
 
-        'Sandals, leather, natural color': {
+        {
+          summary: 'Sandals, leather, natural color',
           description: 'Sandals, leather, natural color',
           cost: 40
         },
-        "Scarf, gauze silk, 4'": {
+        {
+          summary: "Scarf, gauze silk, 4'",
           description: "Scarf, gauze silk, 4'",
           cost: 135
         },
-        "Scarf, silk, 4'": {
+        {
+          summary: "Scarf, silk, 4'",
           description: "Scarf, silk, 4'",
           cost: 175
         },
-        'Scarf, wool, knit': {
+        {
+          summary: 'Scarf, wool, knit',
           description: 'Scarf, wool, knit',
           cost: 55
         },
-        'Shirt, good linen, fine': {
+        {
+          summary: 'Shirt, good linen, fine',
           description: 'Shirt, good linen, fine',
           cost: 150
         },
-        'Shirt, good linen, fine, dyed orange (saffron)': {
+        {
+          summary: 'Shirt, good linen, fine, dyed orange (saffron)',
           description: 'Shirt, good linen, fine, dyed orange (saffron)',
           cost: 205
         },
-        'Shirt, good linen, fine, dyed purple (true)': {
+        {
+          summary: 'Shirt, good linen, fine, dyed purple (true)',
           description: 'Shirt, good linen, fine, dyed purple (true)',
           cost: 275
         },
-        'Shirt, good linen, fine, dyed red (carmine)': {
+        {
+          summary: 'Shirt, good linen, fine, dyed red (carmine)',
           description: 'Shirt, good linen, fine, dyed red (carmine)',
           cost: 195
         },
-        'Shirt, good linen, light, fine': {
+        {
+          summary: 'Shirt, good linen, light, fine',
           description: 'Shirt, good linen, light, fine',
           cost: 125
         },
-        'Shirt, good linen, light, fine, dyed lt. blue (indigo)': {
+        {
+          summary: 'Shirt, good linen, light, fine, dyed lt. blue (indigo)',
           description: 'Shirt, good linen, light, fine, dyed lt. blue (indigo)',
           cost: 133
         },
-        'Shirt, good linen, light, fine, dyed red (madder)': {
+        {
+          summary: 'Shirt, good linen, light, fine, dyed red (madder)',
           description: 'Shirt, good linen, light, fine, dyed red (madder)',
           cost: 135
         },
-        'Shirt, good linen, light, fine, dyed yellow (weld)': {
+        {
+          summary: 'Shirt, good linen, light, fine, dyed yellow (weld)',
           description: 'Shirt, good linen, light, fine, dyed yellow (weld)',
           cost: 130
         },
-        'Shirt, silk, fine': {
+        {
+          summary: 'Shirt, silk, fine',
           description: 'Shirt, silk, fine',
           cost: 1000
         },
-        'Shirt, thick cotton, fine': {
+        {
+          summary: 'Shirt, thick cotton, fine',
           description: 'Shirt, thick cotton, fine',
           cost: 180
         },
-        'Shirt, thin cotton, fine': {
+        {
+          summary: 'Shirt, thin cotton, fine',
           description: 'Shirt, thin cotton, fine',
           cost: 150
         },
-        'Shirt, thin cotton, fine, dyed lt. blue (indigo)': {
+        {
+          summary: 'Shirt, thin cotton, fine, dyed lt. blue (indigo)',
           description: 'Shirt, thin cotton, fine, dyed lt. blue (indigo)',
           cost: 164
         },
-        'Shirt, thin cotton, fine, dyed red (madder)': {
+        {
+          summary: 'Shirt, thin cotton, fine, dyed red (madder)',
           description: 'Shirt, thin cotton, fine, dyed red (madder)',
           cost: 165
         },
-        'Shirt, thin cotton, fine, dyed yellow (weld)': {
+        {
+          summary: 'Shirt, thin cotton, fine, dyed yellow (weld)',
           description: 'Shirt, thin cotton, fine, dyed yellow (weld)',
           cost: 162
         },
-        'Shirt, wool, fine': {
+        {
+          summary: 'Shirt, wool, fine',
           description: 'Shirt, wool, fine',
           cost: 130
         },
-        'Shirt, wool, fine, dyed lt. blue (indigo)': {
+        {
+          summary: 'Shirt, wool, fine, dyed lt. blue (indigo)',
           description: 'Shirt, wool, fine, dyed lt. blue (indigo)',
           cost: 138
         },
-        'Shirt, wool, fine, dyed orange (saffron)': {
+        {
+          summary: 'Shirt, wool, fine, dyed orange (saffron)',
           description: 'Shirt, wool, fine, dyed orange (saffron)',
           cost: 160
         },
-        'Shirt, wool, fine, dyed purple (true)': {
+        {
+          summary: 'Shirt, wool, fine, dyed purple (true)',
           description: 'Shirt, wool, fine, dyed purple (true)',
           cost: 200
         },
-        'Shirt, wool, fine, dyed red (carmine)': {
+        {
+          summary: 'Shirt, wool, fine, dyed red (carmine)',
           description: 'Shirt, wool, fine, dyed red (carmine)',
           cost: 153
         },
-        'Shirt, wool, fine, dyed red (madder)': {
+        {
+          summary: 'Shirt, wool, fine, dyed red (madder)',
           description: 'Shirt, wool, fine, dyed red (madder)',
           cost: 140
         },
-        'Shirt, wool, fine, dyed yellow (weld)': {
+        {
+          summary: 'Shirt, wool, fine, dyed yellow (weld)',
           description: 'Shirt, wool, fine, dyed yellow (weld)',
           cost: 135
         },
-        'Shoes, leather, black': {
+        {
+          summary: 'Shoes, leather, black',
           description: 'Shoes, leather, black',
           cost: 70
         },
-        'Socks, wool, knit, thick': {
+        {
+          summary: 'Socks, wool, knit, thick',
           description: 'Socks, wool, knit, thick',
           cost: 25
         },
-        'Socks, wool, knit, thin': {
+        {
+          summary: 'Socks, wool, knit, thin',
           description: 'Socks, wool, knit, thin',
           cost: 12
         },
-        'Staff, walking, plain': {
+        {
+          summary: 'Staff, walking, plain',
           description: 'Staff, walking, plain',
           cost: 20
         },
-        'Sweater, heavy wool': {
+        {
+          summary: 'Sweater, heavy wool',
           description: 'Sweater, heavy wool',
           cost: 160
         },
-        'Sweater, winter wool': {
+        {
+          summary: 'Sweater, winter wool',
           description: 'Sweater, winter wool',
           cost: 240
         },
-        'Sweater, wool': {
+        {
+          summary: 'Sweater, wool',
           description: 'Sweater, wool',
           cost: 120
         },
-        'Vest, good linen, fine': {
+        {
+          summary: 'Vest, good linen, fine',
           description: 'Vest, good linen, fine',
           cost: 100
         },
-        'Vest, silk, fine': {
+        {
+          summary: 'Vest, silk, fine',
           description: 'Vest, silk, fine',
           cost: 700
         },
-        'Vest, thick cotton, fine': {
+        {
+          summary: 'Vest, thick cotton, fine',
           description: 'Vest, thick cotton, fine',
           cost: 120
         },
-        'Vest, wool, fine': {
+        {
+          summary: 'Vest, wool, fine',
           description: 'Vest, wool, fine',
           cost: 90
         }
-      },
+      ],
       type: 'tailors',
       notableFeature: [
         // you notice _______
@@ -1415,112 +1529,138 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'chicken': {
+      goods: [
+        {
+          summary: 'chicken',
           cost: 30,
           description: 'A full chicken, defeatheread and ready to cook.'
         },
-        'sausage': {
+        {
+          summary: 'sausage',
           cost: 20,
           description: "A large sausage; it is unclear what it's stuffed with."
         },
-        'prime roast': {
+        {
+          summary: 'prime roast',
           cost: 40,
           description: 'A juicy looking roast tied with a butcher knot.'
         },
-        'sliced ham': {
+        {
+          summary: 'sliced ham',
           cost: 30,
           description: 'Thin cut slices of ham perfect for a meal.'
         },
-        'smoked bacon': {
+        {
+          summary: 'smoked bacon',
           cost: 20,
           description: 'Bacon that has been smoked, which lasts longer.'
         },
-        'bacon': {
+        {
+          summary: 'bacon',
           cost: 14,
           description: 'A pound of bacon.'
         },
-        'beef': {
+        {
+          summary: 'beef',
           cost: 5,
           description: 'A pound of uncured, raw beef.'
         },
-        'beef, corned': {
+        {
+          summary: 'beef, corned',
           cost: 12,
           description: 'Salt-cured brisket of beef.'
         },
-        'beef, sausage': {
+        {
+          summary: 'beef, sausage',
           cost: 5,
           description: 'Offal that has been put in entrail casings.'
         },
-        'beef, sausage, dried': {
+        {
+          summary: 'beef, sausage, dried',
           cost: 13,
           description: 'Offal that has been put in entrail casings, dried to last longer.'
         },
-        'beef, smoked': {
+        {
+          summary: 'beef, smoked',
           cost: 22,
           description: 'A pound of cured beef that has been smoked to last longer.'
         },
-        'fish': {
+        {
+          summary: 'fish',
           cost: 2,
           description: 'A pound of uncured, raw fish.'
         },
-        'fish, salted': {
+        {
+          summary: 'fish, salted',
           cost: 8,
           description: 'A pound of fish that has been salted to last longer.'
         },
-        'ham, sugar cured, 12 pounds': {
+        {
+          summary: 'ham, sugar cured, 12 pounds',
           cost: 125,
           description: 'A sugar-cured haunch of ham. Only available in bulk due to the expense of sugar.'
         },
-        'lamb': {
+        {
+          summary: 'lamb',
           cost: 4,
           description: 'A pound of uncured, raw lamb.'
         },
-        'pork': {
+        {
+          summary: 'pork',
           cost: 2,
           description: 'A pound of uncured, raw pork.'
         },
-        'pork, sausage': {
+        {
+          summary: 'pork, sausage',
           cost: 2,
           description: 'Offal that has been put in entrail casings.'
         },
-        'pork, sausage, dried': {
+        {
+          summary: 'pork, sausage, dried',
           cost: 5,
           description: 'Offal that has been put in entrail casings, dried to last longer.'
         },
-        'pork, smoked': {
+        {
+          summary: 'pork, smoked',
           cost: 17,
           description: 'A pound of cured pork that has been smoked to last longer.'
         },
-        'pork, chops': {
+        {
+          summary: 'pork, chops',
           cost: 4,
           description: 'A pound of pork chops.'
         },
-        'pork, salted': {
+        {
+          summary: 'pork, salted',
           cost: 12,
           description: 'A pound of cured pork that has been salted heavily to last longer.'
         },
-        'salt, pound': {
+        {
+          summary: 'salt, pound',
           cost: 5,
           description: 'A pound of salt.'
         },
-        'venison': {
+        {
+          summary: 'venison',
           cost: 3,
           description: 'A pound of uncured, raw venison.'
         },
-        'venison, sausage': {
+        {
+          summary: 'venison, sausage',
           cost: 3,
           description: 'Offal that has been put in entrail casings.'
         },
-        'venison, sausage, dried': {
+        {
+          summary: 'venison, sausage, dried',
           cost: 5,
           description: 'Offal that has been put in entrail casings, dried to last longer.'
         },
-        'venison, smoked': {
+        {
+          summary: 'venison, smoked',
           cost: 6,
           description: 'A pound of cured venison that has been smoked to last longer.'
         }
-      },
+      ],
       type: 'butchers',
       notableFeature: [
         // you notice _______
@@ -1753,29 +1893,34 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'short boots': {
+      goods: [
+        {
+          summary: 'short boots',
           cost: 10,
           description: 'A pair of barely ankle height boots made of some kind of leather'
         },
-        'high boots': {
+        {
+          summary: 'high boots',
           cost: 15,
           description: 'A tall pair of thick leather boots'
         },
-        'heeled shoes': {
+        {
+          summary: 'heeled shoes',
           cost: 10,
           description: 'A fine looking pair of shoes with a thick heel on the back'
         },
-        'dress shoes': {
+        {
+          summary: 'dress shoes',
           cost: 25,
           description: 'A fancy looking pair of shoes made to wear to formal events'
         },
-        'shoe repair': {
+        {
+          summary: 'shoe repair',
           cost: random(1, 10),
           type: 'service',
           description: 'Repair services for shoes or boots of any kind within reason'
         }
-      },
+      ],
       type: 'cobblers',
       notableFeature: [
         // you notice _______
@@ -1979,82 +2124,99 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        '20 arrows': {
+      goods: [
+        {
+          summary: '20 arrows',
           cost: 100,
           description: 'A bundle of 20 standard arrows.'
         },
-        '10 silvered arrows': {
+        {
+          summary: '10 silvered arrows',
           cost: 10050,
           description: 'Ten arrows plated with silver to bypass weapon immunities. Good for vampires and lycanthropes.',
           exclusions (town, building) {
             return town.population > 2000 && building.roll.wealth > 60
           }
         },
-        '20 bolts': {
+        {
+          summary: '20 bolts',
           cost: 100,
           description: 'A bundle of 20 standard crossbow bolts.'
         },
-        '10 silvered bolts': {
+        {
+          summary: '10 silvered bolts',
           cost: 10050,
           description: 'Ten bolts plated with silver to bypass weapon immunities. Good for vampires and lycanthropes.',
           exclusions (town, building) {
             return town.population > 2000 && building.roll.wealth > 60
           }
         },
-        '50 blowgun needles': {
+        {
+          summary: '50 blowgun needles',
           cost: 100,
           description: 'A bundle of 50 blowgun needles.'
         },
-        '20 sling bullets': {
+        {
+          summary: '20 sling bullets',
           cost: 4,
           description: 'Small lead bullets used with a sling to bludgeon enemies.'
         },
-        'shortbow': {
+        {
+          summary: 'shortbow',
           cost: 2500,
           description: 'A simple lightweight bow with low draw weight. Easy to use, but limited in range.'
         },
-        'longbow': {
+        {
+          summary: 'longbow',
           cost: 5000,
           description: 'A large bow with a high draw weight. Requires some practice to use, but has double the range of a shortbow.'
         },
-        'blowgun': {
+        {
+          summary: 'blowgun',
           cost: 1000,
           description: 'A lightweight ranged weapon with little damage. It is often used to deliver poisons.'
         },
-        'sling': {
+        {
+          summary: 'sling',
           cost: 10,
           description: 'A simple and light ranged weapon, used to hurl lead bullets at enemies.'
         },
-        'light crossbow': {
+        {
+          summary: 'light crossbow',
           cost: 2500,
           description: 'A lightweight crossbow, comparable in range to a shortbow. Slow to reload, but packs a punch.'
         },
-        'hand crossbow': {
+        {
+          summary: 'hand crossbow',
           cost: 7500,
           description: 'A specialized crossbow that can be wielded with one hand in exchange for less power and shorter range.'
         },
-        'heavy crossbow': {
+        {
+          summary: 'heavy crossbow',
           cost: 5000,
           description: 'A hefty crossbow. Slow to reload and lacks the range of a longbow, but hits hard.'
         },
-        'dart': {
+        {
+          summary: 'dart',
           cost: 5,
           description: 'A simple throwing dart.'
         },
-        'quiver': {
+        {
+          summary: 'quiver',
           cost: 100,
           description: 'A quiver to hold 20 arrows.'
         },
-        'case, crossbow bolt': {
+        {
+          summary: 'case, crossbow bolt',
           cost: 100,
           description: 'A case to hold 20 crossbow bolts.'
         },
-        "woodcarver's tools": {
+        {
+          summary: "woodcarver's tools",
           cost: 100,
           description: 'A common set of tools used for woodcarving.'
         }
-      },
+      ],
       type: 'fletcher',
       notableFeature: [
         // you notice _______
@@ -2248,13 +2410,15 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'appraisal': {
+      goods: [
+        {
+          summary: 'appraisal',
           cost: 200,
           type: 'service',
           description: 'For a price, jewellery and gemstones can be appraised.'
         },
-        'silver trinket': {
+        {
+          summary: 'silver trinket',
           // cost: in copper pieces. The <<money>> macro handles currency conversion.
           cost: 300,
           // description: used in tooltip.
@@ -2264,52 +2428,61 @@ setup.initGoodsAndServices = () => {
             return building.roll.wealth > 20
           }
         },
-        'silver cutlery': {
+        {
+          summary: 'silver cutlery',
           cost: random(15, 25),
           description: 'A piece of cutlery that has been silvered.'
         },
-        'singing cutlery': {
+        {
+          summary: 'singing cutlery',
           cost: random(15, 25),
           description: 'A piece of cutlery that has a hymn of praise engraved into the side of the blade.'
         },
-        'slotted ring': {
+        {
+          summary: 'slotted ring',
           cost: lib.dice(5, 20),
           description: 'This is a ring that has a slot for a gem, which makes it ideal for enchantments by a wizard.'
         },
-        'religious symbols': {
+        {
+          summary: 'religious symbols',
           cost: lib.dice(4, 10),
           description: 'A religious symbol, that has been embossed in a relatively cheap metal.'
         },
-        'large religious symbol': {
+        {
+          summary: 'large religious symbol',
           cost: lib.dice(4, 10),
           description: 'A large religious symbol of the prominent good deity with a hidden compartment containing the religious symbol of a secret/oppressed evil deity.'
         },
-        'brass ring': {
+        {
+          summary: 'brass ring',
           cost: random(5, 15),
           description: "A discolored old ring. Don't propose to a lovely lady with this one."
         },
-        'gold ring': {
+        {
+          summary: 'gold ring',
           cost: random(200, 400),
           description: 'A ring made out of gold. Suitable for a noble perhaps.',
           exclusions (town, building) {
             return building.roll.wealth > 25
           }
         },
-        'gemstone ring': {
+        {
+          summary: 'gemstone ring',
           cost: 850,
           description: 'A captivating ring made with fine gems cast in gold.',
           exclusions (town, building) {
             return town.population > 1500 && building.roll.wealth > 25
           }
         },
-        'gemstone amulet': {
+        {
+          summary: 'gemstone amulet',
           cost: 1000,
           description: 'Fine diamonds hang from a silver string. A wearable chandelier.',
           exclusions (town, building) {
             return town.population > 2000 && building.roll.wealth > 50
           }
         }
-      },
+      ],
       type: 'jewellers',
       notableFeature: [
         // you notice _______
@@ -2493,65 +2666,75 @@ setup.initGoodsAndServices = () => {
           ]
         }
       },
-      goods: {
-        'hair shave': {
+      goods: [
+        {
+          summary: 'hair shave',
           cost: 5,
           description: 'Using a razor, totally shaving the entire head. Super quick and easy.'
         },
-        'trim': {
+        {
+          summary: 'trim',
           cost: 9,
           description: 'A quick trim; expect a bowl-cut, or something similarly efficient, yet not entirely fashionable.'
         },
-        'shave': {
+        {
+          summary: 'shave',
           cost: 8,
           description: 'A beard shave, quick and effective for de-aging to a 14 year old.'
         },
-        'beard trim': {
+        {
+          summary: 'beard trim',
           cost: 6,
           description: 'A beard trim.'
         },
-        'cut': {
+        {
+          summary: 'cut',
           cost: 12,
           description: 'A better quality haircut, using new blades. Also safer.'
         },
-        'style': {
+        {
+          summary: 'style',
           cost: 16,
           description: 'Restyling of hair. Includes the standard awkward small talk.'
         },
-        'wig': {
+        {
+          summary: 'wig',
           cost: 22,
           description: 'A wig made out of real human hair! It won\'t last forever, and is pretty scratchy, but is better than nothing.'
         },
-        'surgery': {
+        {
+          summary: 'surgery',
           cost: 200,
           exclusions (town, building) {
             return building.roll.expertise > 20
           },
           description: 'Most barbers moonlight as surgeons, due to having the sharpest blades. Definitely not the best of care that you could receive, but better than letting appendicitis go untreated.'
         },
-        'tooth pull': {
+        {
+          summary: 'tooth pull',
           cost: 100,
           exclusions (town, building) {
             return building.roll.expertise > 10
           },
           description: 'Got a tooth that\'s giving you a bit of trouble? This barber can yank it right out.'
         },
-        'leeching': {
+        {
+          summary: 'leeching',
           cost: 60,
           exclusions (town, building) {
             return building.roll.expertise < 30
           },
           description: 'If you\'re feeling a bit sick this barber will place leeches all over you to draw out the bad blood.'
         },
-        'dangerous surgery': {
+        {
+          summary: 'dangerous surgery',
           cost: 200,
           exclusions (town, building) {
             return building.roll.expertise < 20
           },
           description: 'This barber isn\'t familiar with surgery, but has the sharp tools to do the job.'
         }
-
-      },
+      ],
       type: 'barber',
       notableFeature: [
         // you notice _______
