@@ -198,7 +198,7 @@ setup.createNPC = (town, base) => {
   }
   setup.createClass(town, npc)
 
-  setup.createBackground(npc)
+  lib.createBackground(npc)
 
   setup.createDescriptors(npc)
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`

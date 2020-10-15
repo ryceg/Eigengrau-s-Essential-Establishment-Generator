@@ -1,3 +1,4 @@
+import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
@@ -23,7 +24,7 @@ export interface NPC {
   ageYears: number
   adventure?: string
   profession: string
-  background: string
+  background: BackgroundName
   roll: Record<string, number>
   partnerID?: string
   relationships: Record<string, string>
@@ -51,6 +52,9 @@ export interface NPC {
   hisher: string
   himher: string
   himherself: string
+  backgroundOrigin: string
+  bond: string
+  ideal: string
 }
 
 export interface Relationship {
