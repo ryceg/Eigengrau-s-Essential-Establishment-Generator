@@ -79,15 +79,7 @@ setup.createBuilding = (town, type, base = {}) => {
 
 function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
   // Set probability for other buildings depending on the building 'tier'
-  let buildingTier = 0
-  const wealth = town.roll.wealth + (buildingWealth * 0.2)
-  if (wealth >= 70) {
-    buildingTier = 3
-  } else if (wealth >= 50 && wealth < 70) {
-    buildingTier = 2
-  } else if (wealth < 50) {
-    buildingTier = 1
-  }
+  const buildingTier = getBuildingTier(town.roll.wealth, buildingWealth)
   const objectKeys = Object.keys(town.materialProbability)
   objectKeys.forEach((material) => {
     const tier = [...town.materialProbability[material].tier]
@@ -102,4 +94,22 @@ function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
     tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
   }
   return tempMaterial
+}
+
+/**
+ * @param {number} townWealth
+ * @param {number} buildingWealth
+ */
+function getBuildingTier (townWealth, buildingWealth) {
+  const wealth = townWealth + (buildingWealth * 0.2)
+  if (wealth >= 70) {
+    return 3
+  }
+  if (wealth >= 50 && wealth < 70) {
+    return 2
+  }
+  if (wealth < 50) {
+    return 1
+  }
+  return 0
 }
