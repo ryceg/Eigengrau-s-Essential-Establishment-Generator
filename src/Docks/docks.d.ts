@@ -24,7 +24,6 @@ interface Setup {
       shipDetail: string[]
       eventDetail: string[]
       type: Record<string, ShipType>
-      typePool: string[]
       captain: Record<string, Partial<NPC>>
       rollData: {
         cleanliness: [number, string][]

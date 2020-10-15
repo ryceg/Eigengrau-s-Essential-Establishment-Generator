@@ -99,7 +99,7 @@ setup.initDocks = () => {
       create (town, docks, opts) {
         const ship = {
           name: setup.docks.ships.name.random(),
-          type: docks.typePool.random(),
+          type: Object.keys(setup.docks.ships.type).random(),
           captainType: Object.keys(setup.docks.ships.captain).random(),
           hull: setup.docks.ships.hullDesc.random(),
           detail: setup.docks.ships.shipDetail.random(),
@@ -498,7 +498,6 @@ setup.initDocks = () => {
           crewMen: random(65, 120)
         }
       },
-      typePool: ['caravel', 'dory', 'drifter', 'herring buss', 'carrack', 'crayer', 'hoy', 'picard', 'galley', 'longship', 'balinger', 'frigate', 'galleon', 'galleass', 'galley', 'nef', 'barque'],
       captain: {
         'a seasoned veteran': {
           profession: "ship's captain",

@@ -14,8 +14,7 @@ setup.createDocks = (town, opts = {}) => {
       profession: 'stevedore'
     }, opts.npc)),
     wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina', 'jetty', 'harbor', 'berth', 'port', 'seaport', 'dockyard'].random(),
-    ships: {},
-    typePool: setup.docks.ships.typePool
+    ships: {}
   })
   lib.createBuildingRelationship(town, docks, docks.associatedNPC, { relationship: 'stevedore', reciprocalRelationship: 'place of employment' })
 
