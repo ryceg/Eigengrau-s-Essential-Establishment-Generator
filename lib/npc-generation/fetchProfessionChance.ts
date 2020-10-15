@@ -64,17 +64,17 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
   console.log(`Profession is: ${resultantProfession}`)
 
   // the on-load function is handled in setup.createClass because it should apply to *every* NPC with the profession, not just those that are rolled with it
-  if (professions[resultantProfession].exclusions) {
-    if (typeof professions[resultantProfession].exclusions === 'function') {
+  if (town.professions[resultantProfession].exclusions) {
+    if (typeof town.professions[resultantProfession].exclusions === 'function') {
       console.log('There is an exclusion function. Testing...')
-      if (!professions[resultantProfession].exclusions?.(npc)) {
+      if (!town.professions[resultantProfession].exclusions?.(npc)) {
         console.error(`${npc.name} is unable to be a ${resultantProfession}. Rerolling...`)
         resultantProfession = fetchProfessionChance(town, npc)
       }
     }
   }
 
-  if (professions[resultantProfession].type === 'dndClass') {
+  if (town.professions[resultantProfession].type === 'dndClass') {
     console.log(`${npc.name} is a ${resultantProfession} and therefore has a dndClass.`)
     npc.hasClass = true
   } else {
