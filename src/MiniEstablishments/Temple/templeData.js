@@ -57,17 +57,6 @@ setup.temple = {
   },
   get: {
     customers: [
-      // [100, 'fanatical true believer'],
-      // [90, 'unshakingly devoted believer'],
-      // [80, 'conspicuously faithful believer'],
-      // [70, 'outspoken believer'],
-      // [60, 'quiet true believer'],
-      // [50, 'casual observer'],
-      // [40, 'open-minded seeker'],
-      // [30, 'cautious listener'],
-      // [20, 'critical student'],
-      // [10, 'outspoken cynic'],
-      // [0, 'broken heretic']
       {
         relationshipDescription: 'regular attendee',
         relationships: {
