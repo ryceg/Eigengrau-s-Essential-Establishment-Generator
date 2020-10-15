@@ -127,26 +127,57 @@ setup.createFriends = (town, npc) => {
 
   for (let step = 0; step < friendsNumber; step++) {
     if (random(100) >= town.reuseNpcProbability) {
+      town.reuseNpcProbability += lib.fm(town.reuseNpcProbability, 1)
+      town.reuseNpcProbability = Math.clamp(town.reuseNpcProbability, 1, 90)
       createNewFriend()
-      lib.fm(town.reuseNpcProbability, 1)
       continue
     }
 
     console.log('Finding an already existing NPC for a friend!')
-    const friend = Object.values(State.variables.npcs).find(({ socialClass, relationships, key }) => {
-      return socialClass === npc.socialClass && !relationships[npc.key] && key !== npc.key
-    })
-
+    let friend = sameSocialClass(town, State.variables.npcs, npc)
     if (typeof friend === 'undefined') {
       console.log(`Nobody was in the same caste as ${npc.name}`)
+      friend = sameProfessionSector(town, State.variables.npcs, npc)
+    }
+    if (typeof friend === 'undefined') {
+      console.log(`Nobody was in the same profession sector as ${npc.name}`)
       createNewFriend()
       continue
     }
-
-    console.log('Found this person as a friend:')
-    console.log(friend)
-    setup.createRelationship(town, npc, friend, 'friend', 'friend')
   }
 
   console.groupEnd()
+}
+
+function basicFilterNpc (npc, otherNpc) {
+  return !otherNpc.relationships[npc.key] && otherNpc.key !== npc.key
+}
+
+function sameSocialClass (town, npcs, npc) {
+  console.log('Looking for a friend of the same social class...')
+  const friend = Object.values(npcs).find(otherNpc => {
+    return basicFilterNpc(npc, otherNpc) && otherNpc.socialClass === npc.socialClass
+  })
+  console.log('friend:')
+  console.log(friend)
+  if (typeof friend === 'object') {
+    const relObj = lib.weightedRandomFetcher(town, setup.socialClass[npc.socialClass].relationships(npc, friend), npc, null, 'object')
+    setup.createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
+  }
+  return friend
+}
+
+function sameProfessionSector (town, npcs, npc) {
+  console.log('Looking for a friend of the same profession sector...')
+  const friend = Object.values(npcs).find(otherNpc => {
+    return basicFilterNpc(npc, otherNpc) && otherNpc.professionSector === npc.professionSector
+  })
+  if (friend) {
+    if (npc.profession === friend.profession) {
+      setup.createRelationship(town, npc, friend, 'peer', 'peer')
+    } else {
+      setup.createRelationship(town, npc, friend, 'industry peer', 'industry peer')
+    }
+  }
+  return friend
 }

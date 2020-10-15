@@ -36,6 +36,7 @@ export interface Town {
   sin: string
   arcana: string
   hasBrothel: boolean
+  reuseNpcProbability: number
   guard: {
     funding: string
   }
