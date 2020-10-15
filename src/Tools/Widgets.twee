@@ -11,7 +11,8 @@
 			<th>Goods</th>
 			<th>Cost</th>
 		</tr>
-		<<for _key, _item range _target>>
+		<<for _i to 0; _i lt _target.length; _i++>>
+			<<set _item to _target[_i]>>
 			<<if ndef _item.exclusions>>
 				<<set _isValid to true>>
 			<<elseif (typeof _item.exclusions === "function")>>
@@ -19,14 +20,14 @@
 				<<set _isValid to _item.exclusions($town, _obj)>>
 			<</if>>
 			<<if _isValid === true>>
-				<<set _name to _item.name || _key>>
+				<<set _name to _item.name || _item.summary>>
 				<<set _name to _name.toUpperFirst()>>
 				<tr>
 					<td>
 					<<if def _item.description>>
 						<<tooltip _name _item.description>>
 					<<else>>
-						<<print _item.name || _key>>
+						<<print _item.name || _item.summary>>
 					<</if>>
 					</td>
 					<td><<money _item.cost _obj>></td>
