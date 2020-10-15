@@ -1,3 +1,5 @@
+import { constrainRecord } from '../src/constrainRecord'
+
 interface ProfessionTraits {
   professionOrigin: string[]
   background: string[]
@@ -5,7 +7,7 @@ interface ProfessionTraits {
   wealth: number
 }
 
-export const professionTraits: Record<string, ProfessionTraits> = {
+export const professionTraits = constrainRecord<ProfessionTraits>()({
   bartender: {
     professionOrigin: [
       'I came across the tavern as a youngster, and spent many a night here drinking with my buddies. When the old owner died, it went to auction, and I tried to kep the dream alive by buying it. One by one all my friends grew out of it, or moved away.',
@@ -55,4 +57,4 @@ export const professionTraits: Record<string, ProfessionTraits> = {
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
     wealth: 2400
   }
-}
+})
