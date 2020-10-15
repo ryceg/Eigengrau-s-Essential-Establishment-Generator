@@ -485,12 +485,11 @@ setup.initNpcData = () => {
             background: 'noble',
             isShallow: true
           })
-          const nobleEventData = setup.npcData.lifeEvents.nobleEvent
-          const prefix = nobleEventData.prefix.random()
-          const banquetCelebrate = nobleEventData.banquetCelebrate.random()
-          const ballCelebrate = nobleEventData.ballCelebrate.random()
-          const carriage = nobleEventData.carriage.random()
-          const handshake = nobleEventData.handshake.random()
+          const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.random()
+          const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.random()
+          const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.random()
+          const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.random()
+          const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.random()
           return [`${prefix} the royal wedding of a local ${setup.profile(noble, 'noble')}.`,
           `${prefix} the royal ${['banquet', 'feast', 'gathering'].random()} of a local ${setup.profile(noble, 'noble')} in celebration of ${banquetCelebrate}.`,
           `${prefix} the royal ${['ball', 'dance', 'gala', 'masquerade ball'].random()} hosted by a local ${setup.profile(noble, 'noble')} in honor of ${ballCelebrate}.`,
