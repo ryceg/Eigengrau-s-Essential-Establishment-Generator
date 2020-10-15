@@ -1,4 +1,3 @@
-import { constrainRecord } from '../src/constrainRecord'
 import { dice } from '../src/dice'
 import { random } from '../src/random'
 import { NPC, Relationship } from './_common'
@@ -74,7 +73,7 @@ export interface Profession {
   exclusions?(npc: NPC): boolean | undefined
 }
 
-export const professions = constrainRecord<Profession>()({
+export const professions: Record<string, Profession> = {
   'peasant': {
     sv: 20,
     isBackground: true,
@@ -7262,4 +7261,4 @@ export const professions = constrainRecord<Profession>()({
       return npc.ageStage === 'child'
     }
   }
-})
+}
