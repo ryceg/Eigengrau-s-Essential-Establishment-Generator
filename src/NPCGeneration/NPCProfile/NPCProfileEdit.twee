@@ -11,7 +11,7 @@
     <<set _class += '<</listbox>>'>>
 
     <<set _background to '<<listbox "$npcs[$currentPassage.key].background" autoselect>>'>>
-    <<for _key range Object.keys(setup.npcData.backgroundTraits)>>
+    <<for _key range Object.keys(lib.backgroundTraits)>>
         <<set _background += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
     <<set _background += '<</listbox>>'>>
