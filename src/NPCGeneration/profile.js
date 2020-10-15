@@ -8,7 +8,7 @@
  */
 setup.profile = (obj, readout, type = 'npcs') => {
   if (typeof obj === 'string') {
-    console.error(`Profile function for ${obj} called with a string.`)
+    console.warn(`Profile function for ${obj} called with a string.`)
     const targetObj = getTarget(type)
     obj = targetObj[type][obj]
   }
