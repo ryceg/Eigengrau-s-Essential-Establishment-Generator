@@ -1,3 +1,0 @@
-interface Setup {
-  graveyard: any
-}
