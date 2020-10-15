@@ -3,7 +3,7 @@ setup.adventure = {
   create (town) {
     const adventure = {
       // villain: setup.adventure.villain[villainType],
-      villainType: Object.keys(setup.adventure.villain).random(),
+      villainType: lib.keys(setup.adventure.villain).random(),
       villain: {
         name: 'Test',
         firstName: 'Test',
@@ -11,16 +11,17 @@ setup.adventure = {
         gender: 'it',
         hisher: 'it'
       },
-      allyType: Object.keys(setup.adventure.ally).random(),
-      patronType: Object.keys(setup.adventure.patron).random(),
-      sidequestType: Object.keys(setup.adventure.sidequest).random()
+      allyType: lib.keys(setup.adventure.ally).random(),
+      patronType: lib.keys(setup.adventure.patron).random(),
+      sidequestType: lib.keys(setup.adventure.sidequest).random()
     }
 
-    adventure.ally = setup.createNPC(town, setup.adventure.ally[adventure.allyType])
-    adventure.patron = setup.createNPC(town, setup.adventure.patron[adventure.patronType])
-    // setup.adventure.villain[adventure.villainType](town, adventure)
-    // console.log(adventure.villain)
-    Object.assign(adventure, {
+    lib.assign(adventure, {
+      ally: setup.createNPC(town, setup.adventure.ally[adventure.allyType]),
+      patron: setup.createNPC(town, setup.adventure.patron[adventure.patronType])
+    })
+
+    lib.assign(adventure, {
       climax: setup.adventure.climax.random(),
       introduction: setup.adventure.introduction.random(),
       otherGoal: setup.adventure.otherGoal.random(),
@@ -31,9 +32,17 @@ setup.adventure = {
       villainActions: setup.adventure.villainActions.random()
     })
 
-    adventure.location = Object.keys(setup.adventure.location).random()
-    const goal = Object.keys(setup.adventure.location[adventure.location]).random()
-    adventure.goal = setup.adventure.location[adventure.location][goal](town, adventure)
+    lib.assign(adventure, {
+      location: lib.keys(setup.adventure.location).random()
+    })
+
+    const adventureLocation = setup.adventure.location[adventure.location]
+    const goalKey = lib.keys(adventureLocation).random()
+
+    lib.assign(adventure, {
+      goal: adventureLocation[goalKey](town, adventure)
+    })
+
     console.log(adventure)
     return adventure
   },

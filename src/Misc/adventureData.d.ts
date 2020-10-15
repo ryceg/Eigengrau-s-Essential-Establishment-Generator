@@ -1,6 +1,6 @@
 interface Setup {
   adventure: {
-    create(town: Town): any
+    create(town: Town): Adventure
     location: {
       dungeon: AdventureLocation
       wilderness: AdventureLocation
@@ -13,17 +13,38 @@ interface Setup {
     quandary: string[]
     twist: string[]
     villainActions: string[]
-    sidequest: Record<string, (town: Town, adventure: Adventure) => string>
+    sidequest: Record<string, (town: Town, adventure: Partial<Adventure>) => string>
     patron: Record<string, Partial<NPC>>
     ally: Record<string, Partial<NPC>>
-    villain: Record<string, (town: Town, adventure: Adventure) => Partial<NPC>>
+    villain: Record<string, (town: Town, adventure: Partial<Adventure>) => Partial<NPC>>
   }
 }
 
 interface Adventure {
-  [key: string]: any
+  villainType: string
+  villain: {
+      name: string
+      firstName: string
+      himher: string
+      gender: string
+      hisher: string
+  };
+  ally: NPC
+  allyType: string
+  patron: NPC
+  patronType: string
+  sidequestType: string
+  climax: string
+  introduction: string
+  otherGoal: string
+  backdrop: string
+  quandary: string
+  twist: string
+  sidequest: string
+  villainActions: string
+  goal: string
 }
 
 interface AdventureLocation {
-  [key: string]: (town: Town, adventure: Adventure) => string
+  [key: string]: (town: Town, adventure: Partial<Adventure>) => string
 }
