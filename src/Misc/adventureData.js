@@ -313,19 +313,19 @@ setup.adventure = {
       }
     },
     'receive information from an npc in the area.' (town, adventure) {
-      const npc = setup.createNPC({
+      const npc = setup.createNPC(town, {
         isThrowaway: true
       })
       return `receive information from ${setup.profile(npc)} who is in the area.`
     },
     'rescue a captive.' (town, adventure) {
-      const npc = setup.createNPC({
+      const npc = setup.createNPC(town, {
         isThrowaway: true
       })
       return `rescue the captive ${setup.profile(npc)}.`
     },
     'discover the fate of a missing npc.' (town, adventure) {
-      const npc = setup.createNPC({
+      const npc = setup.createNPC(town, {
         isThrowaway: true
       })
       return `discover the fate of the missing ${setup.profile(npc)}.`
@@ -622,7 +622,7 @@ setup.adventure = {
       // return 'fey with a mysterious goal'
     },
     '<<print setup.profile(adventure.villain, "cultist")>>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         profession: ['cleric', 'sorcerer', 'wizard'].random(),
         isThrowaway: true
       })
@@ -630,7 +630,7 @@ setup.adventure = {
       // return 'a ' + setup.profile(adventure.villain, 'cultist')
     },
     '<<print setup.profile(adventure.villain, "conqueror")>>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         profession: ['barbarian', 'fighter', 'fighter'].random(),
         isThrowaway: true
       })
@@ -638,21 +638,21 @@ setup.adventure = {
       // return 'a ' + setup.profile(adventure.villain, 'conqueror')
     },
     '<<print "a " + setup.profile(adventure.villain, adventure.villain.race) + " seeking revenge">>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         isThrowaway: true
       })
       return adventure.villain
       // return 'a ' + setup.profile(adventure.villain, adventure.villain.race) + ' seeking revenge'
     },
     '<<print "a " + setup.profile(adventure.villain, "schemer") + " seeking to rule">>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         isThrowaway: true
       })
       return adventure.villain
       // return 'a ' + setup.profile(adventure.villain, 'schemer') + ' seeking to rule'
     },
     '<<print "a " + setup.profile(adventure.villain, "criminal mastermind")>>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         profession: ['rogue', 'rogue', 'fighter'].random(),
         isThrowaway: true
       })
@@ -660,7 +660,7 @@ setup.adventure = {
       // return 'a ' + setup.profile(adventure.villain, 'criminal mastermind')
     },
     '<<print "a " + setup.profile(adventure.villain, "raider")>>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         profession: ['fighter', 'rogue'].random(),
         race: ['half-orc', 'human', 'human'].random(),
         isThrowaway: true
@@ -669,7 +669,7 @@ setup.adventure = {
       // return 'a ' + setup.profile(adventure.villain, 'raider')
     },
     '<<print "a " + setup.profile(adventure.villain, adventure.villain.race) + " under a curse">>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         isThrowaway: true,
         note: 'Is under a curse.'
       })
@@ -677,7 +677,7 @@ setup.adventure = {
       // return 'a ' + setup.profile(adventure.villain, adventure.villain.race) + ' under a curse'
     },
     '<<print "a " + setup.profile(adventure.villain, "misguided zealot")>>' (town, adventure) {
-      adventure.villain = setup.createNPC({
+      adventure.villain = setup.createNPC(town, {
         profession: ['cleric', 'cleric', 'druid'].random(),
         isThrowaway: true
       })
