@@ -18,15 +18,6 @@ const socialClassArray = [
   'aristocracy'
 ]
 
-const socialClassKeys = {
-  'aristocracy': 5,
-  'nobility': 4,
-  'commoner': 3,
-  'peasantry': 2,
-  'paupery': 1,
-  'indentured servitude': 0
-}
-
 // TODO: concatenate these four arrays and objects into one object.
 // too lazy to do it right now. Sorry.
 setup.socialClass = {
@@ -184,7 +175,7 @@ const adultSocialMobilityTable = [
 ]
 
 setup.relativeSocialClass = function (npcClass) {
-  let classIndex = socialClassKeys[npcClass]
+  let classIndex = socialClassArray.indexOf(npcClass)
   if (classIndex < 0) classIndex = 3
 
   const delta = lib.rollFromTable(adultSocialMobilityTable, 100)
@@ -201,9 +192,9 @@ setup.familySocialClass = function (marriage) {
     return State.variables.npcs[marriage.children[0]].socialClass
   }
 
-  const classArray = marriage.parents.map(key =>
-    socialClassKeys[State.variables.npcs[key].socialClass]
-  )
+  const classArray = marriage.parents.map(key => {
+    return socialClassArray.indexOf(State.variables.npcs[key].socialClass)
+  })
   const mean = Math.round(classArray.reduce((a, b) => a + b) / classArray.length)
   return socialClassArray[mean]
 }
