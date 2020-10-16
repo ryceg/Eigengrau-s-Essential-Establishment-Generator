@@ -1,3 +1,5 @@
+import { GenderName } from '../npc-generation/raceTraits'
+
 export const genderData = {
   man: {
     title: 'Mr',
@@ -42,3 +44,7 @@ export const genderData = {
     oppositeGender: 'man'
   }
 } as const
+
+export function getOppositeGender (gender: GenderName): GenderName {
+  return genderData[gender].oppositeGender
+}

@@ -25,14 +25,14 @@ setup.createSexuality = function (npc) {
     0: {
       sexuality: 'heterosexual',
       partnerGenderProbability (npc) {
-        return getOppositeGender(npc.gender)
+        return lib.getOppositeGender(npc.gender)
       }
     },
     1: {
       sexuality: 'heterosexual with passing interest in other $currentNPC.menwomen',
       partnerGenderProbability (npc) {
         if (random(100) < 90) {
-          return getOppositeGender(npc.gender)
+          return lib.getOppositeGender(npc.gender)
         } else {
           return npc.gender
         }
@@ -42,7 +42,7 @@ setup.createSexuality = function (npc) {
       sexuality: 'predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen',
       partnerGenderProbability (npc) {
         if (random(100) < 70) {
-          return getOppositeGender(npc.gender)
+          return lib.getOppositeGender(npc.gender)
         } else {
           return npc.gender
         }
@@ -52,7 +52,7 @@ setup.createSexuality = function (npc) {
       sexuality: 'bisexual',
       partnerGenderProbability (npc) {
         if (random(100) < 50) {
-          return getOppositeGender(npc.gender)
+          return lib.getOppositeGender(npc.gender)
         } else {
           return npc.gender
         }
@@ -64,7 +64,7 @@ setup.createSexuality = function (npc) {
         if (random(100) < 70) {
           return npc.gender
         } else {
-          return getOppositeGender(npc.gender)
+          return lib.getOppositeGender(npc.gender)
         }
       }
     },
@@ -74,7 +74,7 @@ setup.createSexuality = function (npc) {
         if (random(100) < 90) {
           return npc.gender
         } else {
-          return getOppositeGender(npc.gender)
+          return lib.getOppositeGender(npc.gender)
         }
       }
     },
@@ -89,14 +89,6 @@ setup.createSexuality = function (npc) {
   npc.roll.kinsey = Math.clamp(npc.roll.kinsey, 0, 6)
 
   Object.assign(npc, kinsey[npc.roll.kinsey])
-}
-
-/**
- * @param {'man' | 'woman'} gender
- * @returns {'man' | 'woman'}
- */
-function getOppositeGender (gender) {
-  return lib.genderData[gender].oppositeGender
 }
 
 /**
