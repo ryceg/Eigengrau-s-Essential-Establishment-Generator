@@ -9,6 +9,7 @@ utils.logClear()
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
 
+// Verify correct tweego installation
 if (!fs.existsSync(tweego) && !fs.existsSync(`${tweego}.exe`)) {
   utils.logError('Cannot find path to tweego.')
   utils.logError('Perhaps tweego has not been downloaded.')
@@ -16,6 +17,16 @@ if (!fs.existsSync(tweego) && !fs.existsSync(`${tweego}.exe`)) {
   process.exit(1)
 }
 
+// Verify executable permissions on unix systems.
+if (['linux', 'darwin'].includes(process.platform)) {
+  try {
+    fs.accessSync(tweego, fs.constants.X_OK)
+  } catch (err) {
+    utils.logError(`${tweego} does not have permissions to execute.
+    If you are on a Unix-based system you can grant permissions with 'chmod +x ${tweego}'`)
+    process.exit(1)
+  }
+}
 // Extract extra arguments.
 const [, , ...flags] = process.argv
 
