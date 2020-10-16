@@ -110,7 +110,6 @@ setup.createNPC = (town, base) => {
     profession,
     pockets: lib.random(data.pockets),
     wealth: lib.dice(2, 50),
-    trait: lib.random(data.trait),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
