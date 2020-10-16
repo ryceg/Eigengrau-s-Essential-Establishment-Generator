@@ -112,8 +112,8 @@ export * from './src/findIndexInArray'
 export * from './src/filterNull'
 
 export * from './tavern/createTavernName'
+export * from './tavern/getTavernSin'
 export * from './tavern/tavernModifiers'
-export * from './tavern/tavernRooms'
 export * from './tavern/tavernRooms'
 
 export * from './town/getPredominantRace'
