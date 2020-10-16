@@ -31,8 +31,6 @@ const socialClassKeys = {
 // too lazy to do it right now. Sorry.
 setup.socialClass = {
   'aristocracy': {
-    roll: 95,
-    key: 5,
     landRate: 3, // landRate is a multiple
     lifestyle: ['aristocratic'],
     // this will be more interesting when the relationships are no longer just key pairs
@@ -56,8 +54,6 @@ setup.socialClass = {
     ]
   },
   'nobility': {
-    roll: 80,
-    key: 4,
     landRate: 2,
     lifestyle: ['aristocratic', 'wealthy', 'comfortable'],
     relationships: (npc, otherNpc) => [
@@ -80,8 +76,6 @@ setup.socialClass = {
     ]
   },
   'commoner': {
-    roll: 60,
-    key: 3,
     landRate: 1,
     lifestyle: ['comfortable', 'modest', 'poor'],
     relationships: (npc, otherNpc) => [
@@ -104,8 +98,6 @@ setup.socialClass = {
     ]
   },
   'peasantry': {
-    roll: 20,
-    key: 2,
     landRate: 0.5,
     lifestyle: ['modest', 'poor', 'squalid'],
     relationships: (npc, otherNpc) => [
@@ -120,8 +112,6 @@ setup.socialClass = {
     ]
   },
   'paupery': {
-    roll: 10,
-    key: 1,
     landRate: 0,
     lifestyle: ['poor', 'squalid', 'wretched'],
     relationships: (npc, otherNpc) => [
@@ -136,8 +126,6 @@ setup.socialClass = {
     ]
   },
   'indentured servitude': {
-    roll: 0,
-    key: 0,
     landRate: 0,
     lifestyle: ['squalid', 'wretched'],
     relationships: (npc, otherNpc) => [
@@ -151,35 +139,36 @@ setup.socialClass = {
 
 setup.createSocialClass = function (town, npc) {
   console.log('Creating social class...')
-
-  if (!npc.roll) {
-    npc.roll = {}
+  if (npc.socialClass) {
+    return
   }
+
   const profession = lib.findProfession(town, npc)
 
+  npc.roll = npc.roll || {}
   npc.roll.socialClass = npc.roll.socialClass || profession.socialClassRoll() || 40 + lib.dice(8, 6)
 
   console.log({ npc })
-  if (!npc.socialClass) {
-    console.log(`Social class not predefined. Searching for the social class of a ${npc.profession}...`)
-    // if .socialClass is defined in the professions.js, then that's all dandy.
-    if (profession.socialClass) {
-      npc.socialClass = profession.socialClass
-      return npc
-    // otherwise, just roll some dice.
-    } else {
-      console.log(`No synonyms found for ${npc.dndClass}`)
-      const array = socialClasses.find(desc => {
-        return desc[0] <= npc.roll.socialClass
-      })
-      npc.socialClass = array[1]
-      console.log(`Unidentified profession- ${npc.profession} does not exist in townData.professions!`)
-    }
+  console.log(`Social class not predefined. Searching for the social class of a ${npc.profession}...`)
+  // If .socialClass is defined in the professions.js, then that's all dandy.
+  if (profession.socialClass) {
+    npc.socialClass = profession.socialClass
+    return
   }
-  if (npc.socialClass === undefined) {
-    console.log(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
-    npc.socialClass = socialClasses[random(0, socialClasses.length - 1)]
+
+  // Otherwise, just roll some dice.
+  console.log(`Unidentified profession- ${npc.profession} does not exist in townData.professions!`)
+  const array = socialClasses.find(([threshold]) => {
+    return threshold <= npc.roll.socialClass
+  })
+
+  if (array) {
+    npc.socialClass = array[1]
+    return
   }
+
+  console.log(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
+  npc.socialClass = socialClasses[random(0, socialClasses.length - 1)]
 }
 
 /**
