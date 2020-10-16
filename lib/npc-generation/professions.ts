@@ -1,6 +1,6 @@
 import { dice } from '../src/dice'
 import { random } from '../src/random'
-import { NPC, Relationship } from './_common'
+import { NPC, Relationship, SocialClassName } from './_common'
 
 type Type =
   | ''
@@ -65,7 +65,7 @@ export interface Profession {
    * Expressed in copper.
    */
   dailyWage: number
-  socialClass: string
+  socialClass: SocialClassName
   professionOrigin?: string[]
   function?(town: unknown, npc: NPC): void
   socialClassRoll(): number
