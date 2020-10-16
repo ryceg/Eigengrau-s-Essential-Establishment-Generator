@@ -24,7 +24,7 @@ setup.createTown = (base = {}) => {
       return getTaxRate(town)
     },
     get type () {
-      return getTownType(this)
+      return setup.getTownType(this)
     },
     set type (value) {
       console.log('Setting town type.')
@@ -267,7 +267,7 @@ function getTaxRate (town) {
   return Math.round(totalTax * 100) / 100
 }
 
-function getTownType (town) {
+setup.getTownType = town => {
   if (town.population > 6000) return 'city'
   if (town.population > 3000) return 'town'
   if (town.population > 1000) return 'village'
