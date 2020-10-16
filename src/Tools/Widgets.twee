@@ -11,8 +11,7 @@
 			<th>Goods</th>
 			<th>Cost</th>
 		</tr>
-		<<for _i to 0; _i lt _target.length; _i++>>
-			<<set _item to _target[_i]>>
+		<<for _item range _target>>
 			<<if ndef _item.exclusions>>
 				<<set _isValid to true>>
 			<<elseif (typeof _item.exclusions === "function")>>
