@@ -163,7 +163,7 @@ setup.createNPC = (town, base) => {
     }
   }
 
-  setup.createPersonality(npc)
+  lib.createPersonality(npc)
   // lib.createName(npc)
 
   lib.setAge(npc)

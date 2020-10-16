@@ -56,6 +56,7 @@ export interface NPC {
   calmTrait: string
   stressTrait: string
   relaxedTrait: string
+  vocalPattern: string
   heshe: string
   hisher: string
   himher: string
