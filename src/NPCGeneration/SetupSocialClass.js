@@ -1,15 +1,12 @@
-/** @type {[number, string, number][]} */
+/** @type {[number, string][]} */
 const socialClasses = [
-  [195, 'aristocracy', 5],
-  [95, 'aristocracy', 5],
-  [80, 'nobility', 4],
-  // [75, 'high class'],
-  // [65, 'upper-middle class'],
-  [60, 'commoner', 3],
-  // [40, 'lower-middle class'],
-  [20, 'peasantry', 2],
-  [10, 'paupery', 1],
-  [0, 'indentured servitude', 0]
+  [195, 'aristocracy'],
+  [95, 'aristocracy'],
+  [80, 'nobility'],
+  [60, 'commoner'],
+  [20, 'peasantry'],
+  [10, 'paupery'],
+  [0, 'indentured servitude']
 ]
 
 const socialClassArray = [
