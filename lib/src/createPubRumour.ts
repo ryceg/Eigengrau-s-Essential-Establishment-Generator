@@ -1,5 +1,7 @@
-setup.createPubRumour = () => {
-  const origin = lib.random([
+import { random } from './random'
+
+export function createPubRumour () {
+  const origin = random([
     'a child',
     'a fat merchant',
     'a priest',
@@ -14,11 +16,11 @@ setup.createPubRumour = () => {
     'the tailor'
   ])
 
-  const complication = lib.random(getComplications(origin))
-  const discovery = lib.random(getDiscoveries(complication))
-  const result = lib.random(getResults(discovery))
+  const complication = random(getComplications(origin))
+  const discovery = random(getDiscoveries(complication))
+  const result = random(getResults(discovery))
 
-  const opening = lib.random([
+  const opening = random([
     'Did you hear?',
     'Did you hear the news?',
     'Did you hear about the news?',
@@ -28,11 +30,7 @@ setup.createPubRumour = () => {
   return `${opening} ${origin.toUpperFirst()} ${complication} and discovered ${discovery}, and now ${result}`
 }
 
-/**
- * @param {string} origin
- * @returns {string[]}
- */
-function getComplications (origin) {
+function getComplications (origin: string): string[] {
   if (origin === 'a child') {
     return [
       "got drunk off his dad's grog",
@@ -282,13 +280,11 @@ function getComplications (origin) {
       'walked off into the forest'
     ]
   }
+
+  return ['got drunk']
 }
 
-/**
- * @param {string} complication
- * @returns {string[]}
- */
-function getDiscoveries (complication) {
+function getDiscoveries (complication: string): string[] {
   if (complication === 'got drunk') {
     return [
       'a new disease',
@@ -554,11 +550,7 @@ function getDiscoveries (complication) {
   ]
 }
 
-/**
- * @param {string} discovery
- * @returns {string[]}
- */
-function getResults (discovery) {
+function getResults (discovery: string): string[] {
   if (discovery === 'a new disease') {
     return [
       'people are disappearing!',
