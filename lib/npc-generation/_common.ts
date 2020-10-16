@@ -2,6 +2,14 @@ import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
+export type SocialClassName =
+  | 'indentured servitude'
+  | 'paupery'
+  | 'peasantry'
+  | 'commoner'
+  | 'nobility'
+  | 'aristocracy'
+
 export interface NPC {
   key: string
   name: string
@@ -33,7 +41,7 @@ export interface NPC {
     creditors: Record<string, string>
     debtors: Record<string, string>
   }
-  socialClass: string
+  socialClass: SocialClassName
   professionType: string
   professionSector: string
   hasClass: boolean
