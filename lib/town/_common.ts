@@ -17,6 +17,7 @@ export type PoliticalSource = keyof typeof townData.politicalSource
 export interface Town {
   name: string
   type: string
+  _type: string
   location: string
   population: number
   ignoreGender: boolean
@@ -33,6 +34,11 @@ export interface Town {
     equality: number
     religiosity: number
   }
+  taxes: {
+    welfare: number
+    military: number
+    economics: number
+  }
   wealth: string
   economics: string
   welfare: string
@@ -41,6 +47,7 @@ export interface Town {
   sin: string
   arcana: string
   hasBrothel: boolean
+  pregen?: boolean
   reuseNpcProbability: number
   guard: {
     funding: string
@@ -69,4 +76,6 @@ export interface Town {
   baseDemographics: Record<RaceName, number>
   _baseDemographics: Record<RaceName, number>
   _demographicPercentile: Record<RaceName, number>
+  origin: string
+  vegetation: string
 }
