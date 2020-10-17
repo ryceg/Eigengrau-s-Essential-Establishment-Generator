@@ -31,6 +31,7 @@ interface Setup {
   createStartBuildings(town: Town): any
   createStartFactions(town: Town): any
   findPoliceSource(town: Town): any
+  makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
   createTownName(): string
   townDemographics(town: Town): void
