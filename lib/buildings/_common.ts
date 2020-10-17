@@ -20,6 +20,9 @@ export interface Building {
     noun: string
     probability: number
   }
+  tippyDescription: string
+  road: string
+  notableFeature?: string
 }
 
 export interface BuildingStructure {
