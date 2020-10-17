@@ -39,7 +39,6 @@ setup.createNPC = (town, base) => {
   let dndClass
   if (lib.findProfession(town, base, profession).type === 'dndClass') {
     base.hasClass = true
-    // eslint-disable-next-line no-unused-vars
     dndClass = base.dndClass || profession
   }
 
@@ -110,10 +109,8 @@ setup.createNPC = (town, base) => {
     profession,
     pockets: lib.random(data.pockets),
     wealth: lib.dice(2, 50),
-    trait: lib.random(data.trait),
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
-    // id: Math.floor(randomFloat(1) * 0x10000),
     idle: data.idle,
     get gender () {
       return this._gender
@@ -140,22 +137,18 @@ setup.createNPC = (town, base) => {
     reading: lib.random(data.reading),
 
     family: undefined
-    // pubRumour: setup.createPubRumour()
   }, base)
 
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
-  // npc.key = randomFloat(0, 1)
   Object.assign(npc, lib.genderData[npc.gender])
   Object.assign(npc.pronouns, lib.genderData[npc.gender])
 
   Object.assign(npc, lib.raceTraits[npc.race].raceWords)
-  npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
 
   if (typeof npc.hasClass === 'undefined') {
     if (lib.findProfession(town, npc).type !== 'dndClass') {
       npc.hasClass = false
-      // npc.dndClass = npc.profession
     } else {
       npc.hasClass = true
       npc.adventure = lib.random(data.adventure) || 'looking for work'
@@ -163,7 +156,7 @@ setup.createNPC = (town, base) => {
     }
   }
 
-  setup.createPersonality(npc)
+  lib.createPersonality(npc)
   // lib.createName(npc)
 
   lib.setAge(npc)
@@ -202,7 +195,6 @@ setup.createNPC = (town, base) => {
 
   setup.createDescriptors(npc)
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
-  // npc.key = npc.name
   if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
 
   setup.createSexuality(npc)

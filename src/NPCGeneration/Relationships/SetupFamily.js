@@ -49,51 +49,43 @@ setup.fetchFamily = function (town, npc, depth = 2) {
   // We fetch nodes in breadth-first order.
   const relativeList = [{ key: npc.key, depth: 0, relationship: '', gender: npc.gender }]
   const relatives = {}
-  let ptr = 0
   console.log(`fetching ${npc.key} relativeList...`)
+
   const family = town.families[npc.family]
   console.log(family)
+
+  let ptr = 0
+
   while (ptr < relativeList.length) {
-    if (!(relativeList[ptr].key in relatives)) {
-      const nounKey = `${relativeList[ptr].relationship}${State.variables.npcs[relativeList[ptr].key].gender[0]}`
-      relatives[relativeList[ptr].key] = nounKey
+    const relative = relativeList[ptr]
 
-      if (relativeList[ptr].depth < depth) {
+    const createRelative = type => relativeKey => ({
+      key: relativeKey,
+      depth: relative.depth + 1,
+      relationship: `${relative.relationship}${type}`
+    })
+
+    if (!(relative.key in relatives)) {
+      const nounKey = `${relative.relationship}${State.variables.npcs[relative.key].gender[0]}`
+      relatives[relative.key] = nounKey
+
+      if (relative.depth < depth) {
         // Expand node first before fetching
-        setup.expandFamily(town, State.variables.npcs[relativeList[ptr].key])
+        setup.expandFamily(town, State.variables.npcs[relative.key])
 
-        const familyNode = family.members[relativeList[ptr].key]
+        const familyNode = family.members[relative.key]
         if (familyNode.parentMarriage) {
-          relativeList.push(...familyNode.parentMarriage.parents.map(relativeKey => ({
-            key: relativeKey,
-            depth: relativeList[ptr].depth + 1,
-            relationship: `${relativeList[ptr].relationship}E`
-          })))
+          relativeList.push(...familyNode.parentMarriage.parents.map(createRelative('E')))
         }
 
         if (familyNode.siblings) {
-          relativeList.push(...familyNode.siblings
-            .map(relativeKey => ({
-              key: relativeKey,
-              depth: relativeList[ptr].depth + 1,
-              relationship: `${relativeList[ptr].relationship}B`
-            })))
+          relativeList.push(...familyNode.siblings.map(createRelative('B')))
         }
 
         if (familyNode.marriages) {
           for (const marriage of familyNode.marriages) {
-            const partners = marriage.parents
-            relativeList.push(...partners.map(relativeKey => ({
-              key: relativeKey,
-              depth: relativeList[ptr].depth + 1,
-              relationship: `${relativeList[ptr].relationship}C`
-            })))
-
-            relativeList.push(...marriage.children.map(relativeKey => ({
-              key: relativeKey,
-              depth: relativeList[ptr].depth + 1,
-              relationship: `${relativeList[ptr].relationship}D`
-            })))
+            relativeList.push(...marriage.parents.map(createRelative('C')))
+            relativeList.push(...marriage.children.map(createRelative('D')))
           }
         }
       }

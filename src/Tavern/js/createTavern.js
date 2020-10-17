@@ -124,32 +124,6 @@ setup.getTavernBedCleanliness = (tavern) => {
   return bedCleanliness
 }
 
-setup.getTavernSin = tavern => {
-  console.log(`Fetching ${tavern.name} sin.`)
-
-  if (tavern.roll.sin > 80) {
-    return 'corrupt'
-  } else if (tavern.roll.sin > 70) {
-    return 'venal'
-  } else if (tavern.roll.sin > 60) {
-    return 'sleazy'
-  } else if (tavern.roll.sin > 50) {
-    return 'seedy'
-  } else if (tavern.roll.sin > 40 && tavern.roll.reputation > 60) {
-    return 'surprisingly trustworthy'
-  } else if (tavern.roll.sin > 40) {
-    return 'trustworthy'
-  } else if (tavern.roll.sin > 30 && tavern.roll.reputation > 60) {
-    return 'surprisingly reliable'
-  } else if (tavern.roll.sin > 30) {
-    return 'reliable'
-  } else if (tavern.roll.sin <= 20 && tavern.roll.reputation > 60) {
-    return 'surprisingly honest'
-  } else {
-    return 'honest'
-  }
-}
-
 function getRandomTavernColour () {
   const { colours, random } = lib
   const available = [colours.yellow, colours.orange, colours.red, colours.purple, colours.blue, colours.green, colours.brown, colours.black, colours.white]

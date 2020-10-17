@@ -24,7 +24,7 @@ setup.getChildSurname = marriage => {
   if (marriage.parents.length === 0) return undefined
 
   const familyGender = setup.marriageIsMatrilineal(marriage) ? 'woman' : 'man'
-  const maidenGender = lib.genderData[familyGender].oppositeGender
+  const maidenGender = lib.getOppositeGender(familyGender)
 
   let head = marriage.parents.find((key) => State.variables.npcs[key].gender === familyGender)
   console.log(head)

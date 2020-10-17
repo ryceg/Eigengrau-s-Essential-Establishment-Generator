@@ -1,27 +1,12 @@
-export interface Tavern {
-  type: string
+import { Building, BuildingRolls } from '../buildings/_common'
+
+export interface Tavern extends Building {
   draw: string
-  name: string
-  material: string
-  roll: {
-    wealth: number
-    population: number
-    sin: number
-    roughness: number
-    cleanliness: number
+  roll: BuildingRolls & {
     bedCleanliness: number
-    size: number
-    reputation: number
   }
   priceModifier: number
   lodging: number
-  wealth: string
-  sin: string
-  size: string
-  roughness: string
-  cleanliness: string
-  diversity: string
-  reputation: string
   stageDescriptor: string
   colour1: string
   colour2: string

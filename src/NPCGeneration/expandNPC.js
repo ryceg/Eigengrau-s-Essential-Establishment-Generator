@@ -10,7 +10,7 @@ setup.expandNPC = function (town, npc) {
   setup.createLifeEvents(town, npc)
 
   const relatives = setup.fetchFamily(town, npc)
-  Object.keys(setup.fetchFamily(town, npc)).forEach((key) => {
+  Object.keys(relatives).forEach((key) => {
     const relative = State.variables.npcs[key]
     const relationship = relatives[key]
     const inverse = setup.familyRelationships.inverse(npc, relationship)

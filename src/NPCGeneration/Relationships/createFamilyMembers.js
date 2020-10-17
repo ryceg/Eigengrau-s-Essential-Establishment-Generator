@@ -133,7 +133,7 @@ setup.createMarriage = (town, family, npc, force = false) => {
 
   // TODO finish support for non-heterosexual marriages
   const partnerBase = Object.assign({}, setup.familyData.relativeBase(npc), {
-    gender: lib.genderData[npc.gender].oppositeGender,
+    gender: lib.getOppositeGender(npc.gender),
     ageYears: setup.familyData.partnerAge(npc),
     race: setup.findPartnerRace(town, npc),
     socialClass: setup.relativeSocialClass(setup.relativeSocialClass(npc.socialClass))

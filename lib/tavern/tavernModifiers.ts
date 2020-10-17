@@ -138,7 +138,7 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
 
   /* ---------------------- TAVERN STRUCTURE MATERIAL ----------------------- */
 
-  switch (tavern.material) {
+  switch (tavern.material.noun) {
     case 'hewn rock':
       tavernRoll.roughness += 3
       break

@@ -2108,7 +2108,6 @@ setup.initGoodsAndServices = () => {
         'making powerful arrows that have a side effect of breaking more often.'
       ]
     },
-
     jeweller: {
       // the bakery can be used as an example of how to add more features to a building.
       create (town, building, opts = {}) {
@@ -2340,7 +2339,6 @@ setup.initGoodsAndServices = () => {
         'their collection of odd trinkets.'
       ]
     },
-
     barber: {
       create (town, building, opts = {}) {
         if (!building) {
