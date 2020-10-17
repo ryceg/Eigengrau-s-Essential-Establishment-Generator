@@ -1,5 +1,23 @@
 
 setup.townSquare = {
+  passageData: {
+    enter: [
+      'walk through the square',
+      'walk along',
+      'stroll along',
+      'pass through',
+      'enter the town square'
+    ],
+    subsequentViews: [
+      'You can see',
+      'You see',
+      'In the corner, you see',
+      'Nearby, you can see',
+      'You can see there is',
+      'Over the other side of the square, you see',
+      'You can see'
+    ]
+  },
   rollData: {
     cleanliness: [
       [80, 'astonishingly well-kempt'],
