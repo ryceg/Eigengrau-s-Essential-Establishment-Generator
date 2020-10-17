@@ -10,6 +10,8 @@ export type EconomicIdeology = keyof typeof townData.economicIdeology
 
 export type PoliticalIdeology = keyof typeof townData.politicalIdeology
 
+export type PoliticalSource = keyof typeof townData.politicalSource
+
 export interface Town {
   name: string
   type: string
@@ -55,6 +57,7 @@ export interface Town {
   factions: Record<string, Faction>
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
+  politicalSource: PoliticalSource
   economicIdeology: EconomicIdeology
   politicalIdeology: PoliticalIdeology
   economicIdeologyIST: EconomicIdeologyIST
