@@ -28,7 +28,7 @@ interface Setup {
   ): Marriage
 }
 
-interface Family {
+export interface Family {
   key: string
   members: Record<string, any>
 }
