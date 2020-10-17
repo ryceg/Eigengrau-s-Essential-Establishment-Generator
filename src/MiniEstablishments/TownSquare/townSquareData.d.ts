@@ -1,5 +1,9 @@
 interface Setup {
   townSquare: {
+    passageData: {
+      enter: string[]
+      subsequentViews: string[]
+    }
     rollData: {
       cleanliness: [number, string][]
       size: [number, string][]
