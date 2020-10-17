@@ -63,6 +63,8 @@ export interface Town {
     name: string,
     population: number
   }>
+  roads: Record<string, string>
+  townMaterial: string
   leaderType: string
   leader: NPC
   factions: Record<string, Faction>
