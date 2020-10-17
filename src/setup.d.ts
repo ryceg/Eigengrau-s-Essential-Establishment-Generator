@@ -1,7 +1,9 @@
+import { Family } from './NPCGeneration/Relationships/createFamilyMembers'
+
 type Town = import('../lib/town/_common').Town
 type NPC = import('../lib/npc-generation/_common').NPC
 
-interface Setup {
+export interface Setup {
   init(): void
   initMisc(): void
   npcTaxRate(town: Town, npc: NPC): number
@@ -9,7 +11,14 @@ interface Setup {
   createClass(town: Town, npc: NPC): void
   createFamily(town: Town, npc: NPC): void
   expandFamily(town: Town, npc: NPC): void
-  fetchFamily(town: Town, npc: NPC): Record<string, any>
+  createParentage(town: Town, family: Family, npc: NPC, forceFather: boolean, forceMother: boolean): void
+  createRelative(town: Town, family: Family, base: Partial<NPC>, force: boolean): NPC
+
+  fetchFamily(town: Town, npc: NPC): Family
+  createMarriage(town: Town, family: Family, npc: NPC, force: boolean): Marriage
+  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force: boolean)
+  familyData: FamilyData
+
   createHistory(town: Town, npc: NPC): void
   createLifeEvents(town: Town, npc: NPC): void
   createName(parameters: CreateNameParameters): string
@@ -23,19 +32,36 @@ interface Setup {
   npcLifestyleExpenses(town: Town, npc: NPC): number
   npcGrossIncome(town: Town, npc: NPC): number
   npcNetIncome(town: Town, npc: NPC): number
-  npcDeath(town: Town, npc: NPC, base?: Partial<NPC>)
-  createDeadNPC(town: Town, base?: Partial<NPC>)
+  npcDeath(town: Town, npc: NPC, base?: Partial<NPC>): NPC
+  createDeadNPC(town: Town, base?: Partial<NPC>): NPC
   expandNPC(town: Town, npc: NPC)
   checkRaces(town: Town, npcs: Record<string, NPC>)
 
   createStartBuildings(town: Town): any
   createStartFactions(town: Town): any
+  createBrothel(town: Town): Building
   findPoliceSource(town: Town): any
   makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
   createTownName(): string
   townDemographics(town: Town): void
   updateDemographics(town: Town, newDemographics: Record<RaceName, number>): void
+}
+
+export interface FamilyData {
+  absencePercent: number
+  oldAbsencePercent: number
+  veryOldAbsencePercent: number
+  orphanPercent: number
+  marriagePercent: number
+  remarriagePercent: number
+  parentStageTable: string[string[]]
+  parentAge(npc: NPC): number
+  siblingAge(npc: NPC): number
+  childAge(npc: NPC): number
+  partnerAge(npc: NPC): number
+  siblingRoll(): number
+  relativeBase: Partial<NPC>
 }
 
 interface CreateNameParameters {

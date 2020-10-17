@@ -1,4 +1,4 @@
-interface Setup {
+export interface Setup {
   createRelative(
     town: Town,
     family: Family,
@@ -26,6 +26,11 @@ interface Setup {
     npc: NPC,
     force?: boolean
   ): Marriage
+  findParentRaces(npc: NPC): {
+    lineage: string
+    motherRace: string
+    fatherRace: string
+  }
 }
 
 export interface Family {
@@ -33,7 +38,7 @@ export interface Family {
   members: Record<string, any>
 }
 
-interface Marriage {
+export interface Marriage {
   parents: string[]
   children: any[]
   socialClass?: string
