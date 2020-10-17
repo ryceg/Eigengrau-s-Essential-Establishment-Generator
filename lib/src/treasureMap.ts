@@ -10,6 +10,9 @@ interface TreasureMap {
   five: string
   six: string
   seven: string
+  readout: string
+  tippy: string
+  tippyWord: string
 }
 
 export const treasureMap = {
