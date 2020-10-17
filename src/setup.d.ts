@@ -15,6 +15,15 @@ interface Setup {
   createNPC(town: Town, base?: Partial<NPC>): NPC
   createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
+
+  npcLifestyleStandard(town: Town, npc: NPC): any
+  npcTotalLifestyleExpenses(town: Town, npc: NPC): number
+  npcProfit(town: Town, npc: NPC): number
+  npcLifestyleExpenses(town: Town, npc: NPC): number
+  npcGrossIncome(town: Town, npc: NPC): number
+  npcNetIncome(town: Town, npc: NPC): number
+  npcDeath(town: Town, npc: NPC, base?: Partial<NPC>)
+  createDeadNPC(town: Town, base?: Partial<NPC>)
 }
 
 interface CreateNameParameters {
