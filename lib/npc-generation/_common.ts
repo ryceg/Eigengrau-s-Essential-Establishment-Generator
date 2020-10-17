@@ -48,6 +48,7 @@ export interface NPC {
   professionSector: string
   hasClass: boolean
   dndClass?: ClassName
+  weapon?: string
   canBeCustom?: boolean
   isThrowaway?: boolean
   isShallow?: boolean
@@ -65,10 +66,19 @@ export interface NPC {
   himherself: string
   malefemale: string
   manwoman: string
+  boygirl: string
   note?: string
   descriptors: string[]
   descriptor: string
   backgroundOrigin: string
+  birthplace: string
+  siblingNumber: number
+  childhoodMemories: string
+  family: string
+  familyHome: string
+  familyLifestyle: string
+  familyUnit: string
+  knewParents: boolean
   bond: string
   ideal: string
   death?: {
