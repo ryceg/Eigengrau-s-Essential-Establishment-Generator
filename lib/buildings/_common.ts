@@ -2,6 +2,8 @@ export interface Building {
   key: string
   type: string
   name: string
+  wordNoun: string
+  structure: BuildingStructure
   roll: BuildingRolls
   wealth: string
   sin: string
@@ -17,6 +19,24 @@ export interface Building {
   }
 }
 
+export interface BuildingStructure {
+    descriptor: string
+    descriptors: string[]
+    material: BuildingMaterial
+    roof: BuildingRoof
+}
+export interface BuildingRoof {
+    canBeColoured: boolean
+    colour: string
+    wealth: string
+    verb: string
+    noun: string
+}
+
+export interface BuildingMaterial {
+    noun: string
+    wealth: string
+}
 export interface BuildingRolls {
   activity: number
   cleanliness: number
