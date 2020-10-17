@@ -20,6 +20,7 @@ export interface NPC {
   gender: GenderName
   race: RaceName
   beard: string
+  skinColour: string
   heightRoll: number
   height: string
   weightRoll: number
@@ -61,6 +62,11 @@ export interface NPC {
   hisher: string
   himher: string
   himherself: string
+  malefemale: string
+  manwoman: string
+  note?: string
+  descriptors: string[]
+  descriptor: string
   backgroundOrigin: string
   bond: string
   ideal: string
