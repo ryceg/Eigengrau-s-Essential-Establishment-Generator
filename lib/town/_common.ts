@@ -48,6 +48,7 @@ export interface Town {
   arcana: string
   hasBrothel: boolean
   pregen?: boolean
+  dualLeaders: boolean
   reuseNpcProbability: number
   guard: {
     funding: string
