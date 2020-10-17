@@ -147,8 +147,8 @@ setup.townSquare = {
     },
     animal: {
       function (town) {
-        return `a large cage with ${['a bear', 'a lion', 'a tiger', 'a leopard', 'an ape', 'a gorilla', 'a hippo', 'a wyvern', 'an ostrich', 'an ox', 'a bull', 'an anaconda',
-          'a crocodile', 'an alligator', 'an elephant', 'a mammoth', 'an eagle', 'a vulture', 'a giant tortoise', 'a giant otter', 'a hyena', 'a wolf', 'a kangaroo', 'a giant pangolin'].random()} inside of it.`
+        return `a large cage with ${lib.articles.output(['bear', 'lion', 'tiger', 'leopard', 'ape', 'gorilla', 'hippo', 'wyvern', 'ostrich', 'ox', 'bull', 'anaconda',
+          'crocodile', 'alligator', 'elephant', 'mammoth', 'eagle', 'vulture', 'giant tortoise', 'giant otter', 'hyena', 'wolf', 'kangaroo', 'giant pangolin'].random())} inside of it.`
       }
     },
     drunkard: {
