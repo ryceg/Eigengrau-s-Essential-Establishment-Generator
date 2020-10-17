@@ -1,8 +1,11 @@
+import { NPC } from '../npc-generation/_common'
+
 export interface Building {
   key: string
   type: string
   name: string
   wordNoun: string
+  associatedNPC?: NPC
   structure: BuildingStructure
   roll: BuildingRolls
   wealth: string
