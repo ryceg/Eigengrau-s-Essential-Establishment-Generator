@@ -398,7 +398,7 @@ setup.townSquare = {
           background: 'charlatan',
           profession: 'conman'
         })
-        return `a ${setup.profile(npc, npc.description)} who calls out to you, and says "You look lost. Do you know your way around the city? I can guide you, for just <<money 50>>". <blockquote>${npc.heshe.toUpperFirst()} will lead the players down an alley where ${npc.hisher} compatriots will attempt to rob the players.</blockquote>`
+        return `a ${setup.profile(npc, npc.descriptor)} who calls out to you, and says "You look lost. Do you know your way around the city? I can guide you, for just <<money 50>>". <blockquote>${npc.heshe.toUpperFirst()} will lead the players down an alley where ${npc.hisher} compatriots will attempt to rob the players.</blockquote>`
       }
     },
     'preacher': {
@@ -410,7 +410,7 @@ setup.townSquare = {
           dndClass: 'cleric',
           note: `Worships ${god}.`
         })
-        return `a ${setup.profile(npc, npc.description)} who is preaching the good word of ${god}.`
+        return `a ${setup.profile(npc, npc.descriptor)} who is preaching the good word of ${god}.`
       }
     },
     'parlourWizard': {
@@ -436,7 +436,7 @@ setup.townSquare = {
           hasClass: true,
           dndClass: 'bard'
         })
-        return `a ${setup.profile(npc, npc.description)} that is singing songs, improvising off of words that the audience call out to ${npc.himher}.`
+        return `a ${setup.profile(npc, npc.descriptor)} that is singing songs, improvising off of words that the audience call out to ${npc.himher}.`
       }
     },
     'sheep': {
