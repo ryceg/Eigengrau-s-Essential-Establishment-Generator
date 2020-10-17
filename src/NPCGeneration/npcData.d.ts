@@ -1,4 +1,4 @@
-interface Setup {
+export interface Setup {
   initNpcData(): void
   npcData: {
     heightChart: [number, string][]
