@@ -9,7 +9,6 @@ setup.createCastle = (town, opts = {}) => {
     passageName: 'CastleOutput',
     initPassage: 'CastleOutput',
     buildingType: 'castle',
-    objectType: 'building',
     age: data.rollData.age.random(),
     condition: data.rollData.condition.random(),
     defense: {
