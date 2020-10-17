@@ -26,6 +26,7 @@ export interface NPC {
   height: string
   weightRoll: number
   weight: string
+  raceRoll: number
   bmi: number
   muscleMass: number
   physicalTrait: string
@@ -63,6 +64,15 @@ export interface NPC {
   stressTrait: string
   relaxedTrait: string
   vocalPattern: string
+  pronouns: {
+    heshe: string
+    hisher: string
+    himher: string
+    himherself: string
+    malefemale: string
+    manwoman: string
+    boygirl: string
+  }
   heshe: string
   hisher: string
   himher: string
