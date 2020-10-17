@@ -1,4 +1,5 @@
 import type { FactionType } from './factionData'
+import { NPC } from '../npc-generation/_common'
 
 export interface Faction {
   type: FactionType
@@ -19,6 +20,7 @@ export interface Faction {
   stability: string
   reputation: string
   joiningFee: string
+  leader?: NPC
   leadershipType: 'individual' | 'group'
   leaderGroupTitle: string
   leaderGroupSize: number
