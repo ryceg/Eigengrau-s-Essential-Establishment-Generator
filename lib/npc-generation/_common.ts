@@ -12,6 +12,7 @@ export type SocialClassName =
 
 export interface NPC {
   key: string
+  passageName: string
   name: string
   formalName: string
   title: string
@@ -39,8 +40,8 @@ export interface NPC {
   relationships: Record<string, string>
   wealth: number
   finances: {
-    creditors: Record<string, string>
-    debtors: Record<string, string>
+    creditors: Record<string, number>
+    debtors: Record<string, number>
   }
   socialClass: SocialClassName
   professionType: string
@@ -70,6 +71,10 @@ export interface NPC {
   backgroundOrigin: string
   bond: string
   ideal: string
+  death?: {
+    cause: string
+    timeSinceDeath: number
+  }
 }
 
 export interface Relationship {
