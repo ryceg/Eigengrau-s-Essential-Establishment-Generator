@@ -345,7 +345,7 @@ setup.brothel = {
       }, base)
       Object.assign(harlotTraits, setup.brothel.harlot.type[harlotType])
       const harlot = setup.createNPC(town, harlotTraits)
-      setup.createRelationship(town, harlot, State.variables.npcs[brothel.pimp.key], 'employer', 'employee')
+      setup.createRelationship(town, harlot, State.variables.npcs[brothel.associatedNPC.key], 'employer', 'employee')
       lib.createBuildingRelationship(town, brothel, harlot, { relationship: 'worker', reciprocalRelationship: 'place of work' })
       return `This harlot is ${harlotType} called ${setup.profile(harlot)}. She has ${readout.feature} and is particularly good at ${readout.skill}. However, she has ${harlot.physicalTrait}, which is ${readout.flawSeverity}. She is looking to ${readout.looks}.`
     },

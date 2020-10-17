@@ -23,6 +23,8 @@ export interface Building {
   tippyDescription: string
   road: string
   notableFeature?: string
+  specialty?: string
+  owner?: string
 }
 
 export interface BuildingStructure {

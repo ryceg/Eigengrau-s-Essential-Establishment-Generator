@@ -94,6 +94,7 @@ export interface NPC {
   knewParents: boolean
   bond: string
   ideal: string
+  greeting?: string[]
   death?: {
     cause: string
     timeSinceDeath: number

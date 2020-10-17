@@ -17,21 +17,21 @@ setup.createBrothel = (town, tavern) => {
   })
   brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`
   setup.createStructure(town, brothel)
-  brothel.structure.brothelDescriptor = `${lib.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${lib.articles.output(brothel.structure.roof.verb)} roof`
+  brothel.structure.descriptor = `${lib.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${lib.articles.output(brothel.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
   }
-  brothel.pimp = setup.createNPC(town, {
+  brothel.associatedNPC = setup.createNPC(town, {
     ...setup.brothel.pimp[brothel.owner],
     isShallow: true,
     hasClass: false
   })
-  brothel.pimp.title = lib.genderData[brothel.pimp.gender].domTitle
-  brothel.pimp.greeting = [
+  brothel.associatedNPC.title = lib.genderData[brothel.associatedNPC.gender].domTitle
+  brothel.associatedNPC.greeting = [
     'nods at you', 'welcomes you warmly', 'smiles, greets you', 'raises a hand with a wave', 'sizes you up, before $associatedNPC.heshe nods at you', 'checks you out for just a moment before smiling at you', 'waves slightly in your direction', 'gives you you a slight nod', 'turns your way', 'frowns, but greets you just the same'
   ]
-  lib.createBuildingRelationship(town, brothel, brothel.pimp, { relationship: 'pimp', reciprocalRelationship: 'business', description: `Owns ${brothel.name}.` })
+  lib.createBuildingRelationship(town, brothel, brothel.associatedNPC, { relationship: 'pimp', reciprocalRelationship: 'business', description: `Owns ${brothel.name}.` })
   console.log(brothel)
   return brothel
 }
