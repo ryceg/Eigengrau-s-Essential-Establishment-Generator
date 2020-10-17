@@ -35,6 +35,7 @@ interface GoodsAndService {
     wordNoun: string[]
     adjectivePerson?: string[]
   }
+  wordNoun: string
   PassageFormat(): string[]
   profession: GoodsAndServicesProfession
   goods: GeneralGood[]
