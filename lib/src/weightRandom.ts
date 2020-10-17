@@ -21,6 +21,5 @@ export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
     if (value <= sum) return prop
   }
 
-  // Should never happen, purely for type safety
-  return specsKeys[specsKeys.length - 1]
+  throw new Error('Invalid random roll.')
 }
