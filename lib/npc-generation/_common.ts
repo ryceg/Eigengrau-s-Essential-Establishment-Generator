@@ -43,6 +43,9 @@ export interface NPC {
     creditors: Record<string, number>
     debtors: Record<string, number>
   }
+  religion: {
+    strength: string
+  }
   socialClass: SocialClassName
   professionType: string
   professionSector: string

@@ -31,6 +31,7 @@ export interface Town {
     sin: number
     arcana: number
     equality: number
+    religiosity: number
   }
   wealth: string
   economics: string
