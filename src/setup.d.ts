@@ -24,6 +24,14 @@ interface Setup {
   npcNetIncome(town: Town, npc: NPC): number
   npcDeath(town: Town, npc: NPC, base?: Partial<NPC>)
   createDeadNPC(town: Town, base?: Partial<NPC>)
+  expandNPC(town: Town, npc: NPC)
+  checkRaces(town: Town, npcs: Record<string, NPC>)
+
+  createStartBuildings(town: Town): any
+  createStartFactions(town: Town): any
+  findPoliceSource(town: Town): any
+  getTownType(town: Town): string
+  createTownName(): string
 }
 
 interface CreateNameParameters {
