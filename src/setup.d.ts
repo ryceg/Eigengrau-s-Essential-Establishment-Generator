@@ -3,6 +3,7 @@ type NPC = import('../lib/npc-generation/_common').NPC
 
 interface Setup {
   init(): void
+  initMisc(): void
   npcTaxRate(town: Town, npc: NPC): number
   profile(obj: any, base?: string, type?: string): string
   createClass(town: Town, npc: NPC): void
@@ -32,6 +33,8 @@ interface Setup {
   findPoliceSource(town: Town): any
   getTownType(town: Town): string
   createTownName(): string
+  townDemographics(town: Town): void
+  updateDemographics(town: Town, newDemographics: Record<RaceName, number>): void
 }
 
 interface CreateNameParameters {
