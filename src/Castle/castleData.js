@@ -208,6 +208,14 @@ setup.initCastle = () => {
           'the oasis renders long-term sieges incredibly difficult'
         ]
       },
+      'desert': {
+        vignette: [
+          'there is a condensation trap set up, which a man is checking; a few precious drops have been collected.'
+        ],
+        defenseReason: [
+          'the desert is a valuable tactical chokepoint'
+        ]
+      },
       'tundra': {
         vignette: [
           'you can see a man carrying a single hare, a seemingly inconsequential hunt, though the man is beaming from ear to ear.'
