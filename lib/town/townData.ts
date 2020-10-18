@@ -220,7 +220,7 @@ export const townData = {
       ],
       ideologies: {
         economicIdeology: {
-          feudalism: 30,
+          feudalism: 50,
           capitalism: 10,
           syndicalism: 3,
           communism: 2,
@@ -349,7 +349,7 @@ export const townData = {
       ],
       ideologies: {
         economicIdeology: {
-          feudalism: 20,
+          feudalism: 50,
           capitalism: 10,
           syndicalism: 3,
           communism: 2,
@@ -477,7 +477,7 @@ export const townData = {
       ],
       ideologies: {
         economicIdeology: {
-          feudalism: 20,
+          feudalism: 40,
           capitalism: 20,
           syndicalism: 5,
           communism: 3,
@@ -607,7 +607,7 @@ export const townData = {
       ideologies: {
         economicIdeology: {
           feudalism: 20,
-          capitalism: 25,
+          capitalism: 30,
           syndicalism: 3,
           communism: 1,
           primitivism: 1
