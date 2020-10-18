@@ -131,10 +131,12 @@ setup.townSquare = {
       exclusions (town) { return !town.bans.panhandling },
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} haggling with a street vendor for ${lib.articles.output(['pile of fish', 'piece of pottery', 'fine piece of art', 'cheap looking statue',
+        const hagglingItem = ['pile of fish', 'piece of pottery', 'fine piece of art', 'cheap looking statue',
           'tattered looking map', 'dyed roll of cloth', 'pair of fleece leggings', 'checker patterned tunic', 'dusty old tome', 'pair of scrolls', 'fresh loaf of bread',
-          'shiny green apple', 'large cheese wheel', 'caged owl', 'large tanned hide', 'small crate of torches', 'crude looking dagger', 'fine looking sword'].random())}.`
+          'shiny green apple', 'large cheese wheel', 'caged owl', 'large tanned hide', 'small crate of torches', 'crude looking dagger', 'fine looking sword']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} haggling with a street vendor for ${lib.articles.output(hagglingItem.random())}.`
       }
+
     },
     colorfulRobes: {
       function (town) {
@@ -142,16 +144,18 @@ setup.townSquare = {
           hasClass: true,
           dndClass: 'wizard'
         })
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} wearing strange ${['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple',
+        const colour = ['indigo', 'rainbow', 'brown', 'red', 'blue', 'orange', 'yellow', 'gold', 'emerald', 'purple',
           'mauve', 'green', 'magenta', 'maroon', 'tan', 'cyan', 'olive', 'navy', 'aquamarine', 'turquoise', 'silver', 'lime', 'teal', 'violet', 'pearl', 'white', 'black', 'gray', 'cerulean', 'sky blue',
-          'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe'].random()} coloured robes.`
+          'azure', 'chartreuse', 'amber', 'pink', 'peach', 'apricot', 'ochre', 'plum', 'beige', 'jade', 'pear', 'periwinkle', 'salmon', 'taupe']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} wearing strange ${colour.random()} coloured robes.`
       }
     },
     animal: {
       exclusions (town) { return !town.bans.animals },
       function (town) {
-        return `a large cage with ${lib.articles.output(['bear', 'lion', 'tiger', 'leopard', 'ape', 'gorilla', 'hippo', 'wyvern', 'ostrich', 'ox', 'bull', 'anaconda',
-          'crocodile', 'alligator', 'elephant', 'mammoth', 'eagle', 'vulture', 'giant tortoise', 'giant otter', 'hyena', 'wolf', 'kangaroo', 'giant pangolin'].random())} inside of it.`
+        const animal = ['bear', 'lion', 'tiger', 'leopard', 'ape', 'gorilla', 'hippo', 'wyvern', 'ostrich', 'ox', 'bull', 'anaconda',
+          'crocodile', 'alligator', 'elephant', 'mammoth', 'eagle', 'vulture', 'giant tortoise', 'giant otter', 'hyena', 'wolf', 'kangaroo', 'giant pangolin']
+        return `a large cage with ${lib.articles.output(animal.random())} inside of it.`
       }
     },
     drunkard: {
@@ -177,7 +181,8 @@ setup.townSquare = {
     gawk: {
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is gawking at a nearby ${['beautiful woman', 'handsome man', 'rugged dwarf', 'ethereal elf'].random()}.`
+        const gawkSubject = ['beautiful woman', 'handsome man', 'rugged dwarf', 'ethereal elf']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is gawking at a nearby ${gawkSubject.random()}.`
       }
     },
     parcel: {
@@ -247,8 +252,9 @@ setup.townSquare = {
     charity: {
       function (town) {
         const npc = setup.createNPC(town)
-        return setup.profile(npc, lib.articles.output(npc.descriptor)) + [' toss a coin to a beggar.', ' give part of a loaf of bread to a small child.', ' feed some scraps to a mutt.',
-          " drop some coins in a street performer's cup.", ' help an old woman cross the square.'].random()
+        const charityAct = ['toss a coin to a beggar', 'give part of a loaf of bread to a small child', 'feed some scraps to a mutt',
+          "drop some coins in a street performer's cup", 'help an old woman cross the square']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} ${charityAct.random()}.`
       }
     },
     guardBait: {
@@ -259,8 +265,9 @@ setup.townSquare = {
         const npc = setup.createNPC(town, {
           background: 'criminal'
         })
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${['being chased by guards.', 'being beaten by guards.', 'being pushed into a cell by guards.', 'having their hands tied up by guards.',
-          'being surrounded by several guards.', 'being told off by a guard.'].random()}`
+        const action = ['being chased by guards.', 'being beaten by guards.', 'being pushed into a cell by guards.', 'having their hands tied up by guards.',
+          'being surrounded by several guards.', 'being told off by a guard.']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${action.random()}`
       }
     },
     ridingMule: {
@@ -278,24 +285,27 @@ setup.townSquare = {
     ridingOtherAnimals: {
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} riding ${lib.articles.output(['camel', 'ox', 'cow', 'zebra', 'ostrich', 'reindeer', 'yak.',
-          'giant tortoise', 'llama', 'water buffalo', 'large boar', 'hippo', 'lion', 'elephant'].random())}.`
+        const animal = ['camel', 'ox', 'cow', 'zebra', 'ostrich', 'reindeer', 'yak',
+          'giant tortoise', 'llama', 'water buffalo', 'large boar', 'hippo', 'lion', 'elephant']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} riding ${lib.articles.output(animal.random())}.`
       }
     },
     chasingSomething: {
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is chasing ${lib.articles.output(['child', 'cat', 'dog', 'group of kids', 'man holding a small bag', 'woman holding a small chest', 'horse',
-          'runaway cart', 'chicken', 'pig', 'barrel rolling ahead of them', 'piece of parchment blowing in the breeze'].random())}.`
+        const chaseSubject = ['child', 'cat', 'dog', 'group of kids', 'man holding a small bag', 'woman holding a small chest', 'horse',
+          'runaway cart', 'chicken', 'pig', 'barrel rolling ahead of them', 'piece of parchment blowing in the breeze']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is chasing ${lib.articles.output(chaseSubject.random())}.`
       }
     },
-    Jewellery: {
+    jewellery: {
       function (town) {
         const npc = setup.createNPC(town, {
           background: 'noble',
           note: 'Has some jewellery.'
         })
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is wearing some ${['very nice jewellery', 'incredibly gaudy jewellery', 'cheap looking jewellery', 'very fake looking jewellery', 'very fine jewellery', 'jewellery that infers they may be royalty of some sort', 'very ugly jewellery', 'brilliantly radiant jewellery'].random()}.`
+        const jewellery = ['very nice jewellery', 'incredibly gaudy jewellery', 'cheap looking jewellery', 'very fake looking jewellery', 'very fine jewellery', 'jewellery that infers they may be royalty of some sort', 'very ugly jewellery', 'brilliantly radiant jewellery']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is wearing some ${jewellery.random()}.`
       }
     },
     cart: {
@@ -303,15 +313,17 @@ setup.townSquare = {
         const npc = setup.createNPC(town, {
           background: 'commoner'
         })
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${['pulling a cart', 'pushing a cart stuck in a rut', 'fixing a cart off to the side', 'riding in a cart pulled by an ox',
-          'riding in a cart pulled by a horse', 'riding in a large cart pulled by horses', 'riding in a cart pulled by slaves', 'loading a cart full of goods from the market', 'unloading goods from a cart'].random()}.`
+        const cart = ['pulling a cart', 'pushing a cart stuck in a rut', 'fixing a cart off to the side', 'riding in a cart pulled by an ox',
+          'riding in a cart pulled by a horse', 'riding in a large cart pulled by horses', 'riding in a cart pulled by slaves', 'loading a cart full of goods from the market', 'unloading goods from a cart']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${cart.random()}.`
       }
     },
     npcMovement: {
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${['wandering aimlessly', 'strutting with haste', 'meandering through the crowds', 'running through the square', 'wandering as if lost',
-          'walking very slowly', `favoring their ${['right leg', 'left leg'].random()} as they limp by`, 'hastily walking past'].random()}.`
+        const moving = ['wandering aimlessly', 'strutting with haste', 'meandering through the crowds', 'running through the square', 'wandering as if lost',
+          'walking very slowly', `favoring their ${['right leg', 'left leg'].random()} as they limp by`, 'hastily walking past']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${moving.random()}.`
       }
     },
     map: {
@@ -334,15 +346,17 @@ setup.townSquare = {
         const npc = setup.createNPC(town, {
           profession: 'bard'
         })
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is playing ${['a sweet tune on a lute', 'a beat on a small wooden box', 'an off-key song on a lute', 'a bitter tune on a harp',
-          'an interesting song on a sitar', 'a merry tune on a flute', 'a quick beat on a pair of drums', 'a fine song on a fiddle'].random()}.`
+        const music = ['a sweet tune on a lute', 'a beat on a small wooden box', 'an off-key song on a lute', 'a bitter tune on a harp',
+          'an interesting song on a sitar', 'a merry tune on a flute', 'a quick beat on a pair of drums', 'a fine song on a fiddle']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is playing ${music.random()}.`
       }
     },
     singer: {
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${['singing off-key', 'singing a single note', 'humming a sweet tune', 'singing a lovely song',
-          'singing soft and sweetly', 'singing loudly', 'singing terribly', 'humming off-key', 'singing very badly', 'singing a funny song'].random()} as ${npc.heshe} walks along.`
+        const singing = ['singing off-key', 'singing a single note', 'humming a sweet tune', 'singing a lovely song',
+          'singing soft and sweetly', 'singing loudly', 'singing terribly', 'humming off-key', 'singing very badly', 'singing a funny song']
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is ${singing.random()} as ${npc.heshe} walks along.`
       }
     }
   },
