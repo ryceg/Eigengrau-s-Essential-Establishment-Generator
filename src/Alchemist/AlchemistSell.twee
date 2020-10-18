@@ -26,7 +26,7 @@
 <<set _selling to {
     category: {
       'adventuring gear': 'adventuring gear',
-      'tools': 'tools'
+      'tools': 'tools',
       'consumables': 'consumables'
     }
 }>>
