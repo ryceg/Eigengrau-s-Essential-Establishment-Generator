@@ -17,7 +17,6 @@ setup.createBrothel = (town, tavern) => {
   })
   brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`
   setup.createStructure(town, brothel)
-  brothel.structure.descriptor = `${lib.articles.output(brothel.structure.material.wealth)} ${brothel.structure.material.noun} ${brothel.wordNoun} with ${lib.articles.output(brothel.structure.roof.verb)} roof`
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
