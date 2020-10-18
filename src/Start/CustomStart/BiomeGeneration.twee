@@ -25,32 +25,31 @@
 
 <span class="tip" title="How wealthy is the town?">Town Wealth: <<numberslider "$tempTown.roll.wealth" $tempTown.roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How free is the market, and how many regulations are there?">Free Trade ---- Regulated trade: <<numberslider "$tempTown.roll.economics" $tempTown.roll.economics 1 100 1>></span>
-
-<span class="tip" title="How do they treat their less fortunate citizens?">Indifferent welfare ---- Benevolent Welfare: <<numberslider "$tempTown.roll.welfare" $tempTown.roll.welfare 1 100 1>></span>
-
-<span class="tip" title="How heavy is the armed presence here?">Relaxed military ---- Strict military: <<numberslider "$tempTown.roll.military" $tempTown.roll.military 1 100 1>></span>
-
-<span class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic ---- Regulated magic: <<numberslider "$tempTown.roll.arcana" $tempTown.roll.arcana 1 100 1>></span>
-
-<span class="tip" title="How do they treat law-breakers here?">Reform-based law ---- Punishment-based law: <<numberslider "$tempTown.roll.law" $tempTown.roll.law 1 100 1>></span>
-
-<span class="tip" title="How religious are they here?">Atheistic ---- Extremely Religious: <<numberslider "$tempTown.roll.religiosity" $tempTown.roll.religiosity 1 100 1>></span>
-
-<span class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$tempTown.dominantGender" autoselect>><<option "men" "man">><<option "women" "woman">><</listbox>>)</span> ---- Total Egalitarianism: <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></span>
-
+<table>
+  <tr>
+    <th>Attribute Slider</th>
+    <th>Percentage Value</th>
+  </tr>
+<tr><td class="tip" title="How free is the market, and how many regulations are there?">Free Trade -- Regulated trade:</td><td style="21vw"> <<numberslider "$tempTown.roll.economics" $tempTown.roll.economics 1 100 1>></td></tr>
+<tr><td class="tip" title="How do they treat their less fortunate citizens?">Indifferent welfare -- Benevolent Welfare:</td><td style="21vw"> <<numberslider "$tempTown.roll.welfare" $tempTown.roll.welfare 1 100 1>></td></tr>
+<tr><td class="tip" title="How heavy is the armed presence here?">Relaxed military -- Strict military:</td><td style="21vw"> <<numberslider "$tempTown.roll.military" $tempTown.roll.military 1 100 1>></td></tr>
+<tr><td class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic -- Regulated magic:</td><td style="21vw"> <<numberslider "$tempTown.roll.arcana" $tempTown.roll.arcana 1 100 1>></td></tr>
+<tr><td class="tip" title="How do they treat law-breakers here?">Reform-based law -- Punishment-based law:</td><td style="21vw"> <<numberslider "$tempTown.roll.law" $tempTown.roll.law 1 100 1>></td></tr>
+<tr><td class="tip" title="How religious are they here?">Atheistic -- Extremely Religious:</td><td style="21vw"> <<numberslider "$tempTown.roll.religiosity" $tempTown.roll.religiosity 1 100 1>></td></tr>
+<tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$tempTown.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></td></tr>
+</table>
 ----
 
-<<liveblock>>
+<<liveblock>><<run setup.updateDemographics($tempTown, $tempTown._baseDemographics)>>$tempTown.name is a <<print setup.getTownType($tempTown)>> comprised <<print lib.getPredominantRace($tempTown._demographicPercentile).amountDescriptive>>.
 <span class="races-slider"><span class="tip" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span></span>
-<<nobr>><<run setup.updateDemographics($tempTown, $tempTown._baseDemographics)>><table class="sortable">
+<<nobr>><table class="sortable">
     <tr>
         <th>Race</th>
         <th>Population</th>
         <th>Percentage</th>
         <th><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
     </tr>
-<<for _race, _percentage range $tempTown.demographicPercentile>>
+<<for _race, _percentage range $tempTown._demographicPercentile>>
     <tr>
         <td><<print lib.toTitleCase(_race)>></td>
         <td><<print Math.trunc($tempTown.population * (_percentage / 100))>></td>
@@ -60,5 +59,5 @@
 <</for>>
 </table><</nobr>><</liveblock>>
 
-<<button "Save Changes">><<set $town to setup.createTown($tempTown)>><<goto "Start">>
+<<button "Save Changes">><<set $tempTown to setup.createTown($tempTown)>><<goto "Start">>
 <</button>></div>
