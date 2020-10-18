@@ -46,6 +46,7 @@ setup.createTown = (base = {}) => {
       hardDrugs: true,
       schools: false,
       elderly: false,
+      young: false,
       sickness: false,
       religion: false,
       magic: false,
@@ -55,6 +56,7 @@ setup.createTown = (base = {}) => {
       nobility: false,
       outsiders: false,
       slavery: false,
+      animals: false,
       unemployment: false,
       panhandling: false
     },
