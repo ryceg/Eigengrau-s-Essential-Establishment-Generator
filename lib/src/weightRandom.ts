@@ -20,6 +20,6 @@ export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
     sum += specs[prop] / totalWeight
     if (value <= sum) return prop
   }
-
-  throw new Error('Invalid random roll.')
+  return specsKeys[specsKeys.length - 1]
+  // throw new Error('Invalid random roll.')
 }
