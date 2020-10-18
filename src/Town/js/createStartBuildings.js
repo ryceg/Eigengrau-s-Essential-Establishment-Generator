@@ -3,7 +3,8 @@ setup.createStartBuildings = town => {
 
   const buildingsToCreate = [
     { buildingType: 'Town Square' },
-    { buildingType: 'Market' }
+    { buildingType: 'Market' },
+    { buildingType: 'Tavern' }
   ]
 
   if (town.location === 'seashore' || town.location === 'river coast') {
