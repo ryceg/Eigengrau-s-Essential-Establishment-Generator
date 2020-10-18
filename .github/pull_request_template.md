@@ -1,6 +1,6 @@
 ## What does this do?
 
-## How was this tested?
+## How was this tested? Did you test the changes in the compiled `.html` file?
 
 ## Is there a [GitHub Issue](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aopen+is%3Aissue) that this is resolving?
 
