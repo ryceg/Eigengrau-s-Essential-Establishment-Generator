@@ -74,10 +74,18 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
       secondaryRace
     }
   }
-  if (percentile > 50) {
+  if (percentile > 55) {
     return {
       amount: 'mostly',
       amountDescriptive: `mostly of ${majorRaceWords.racePlural}, with some ${secondaryRaceWords.racePlural}`,
+      primaryRace,
+      secondaryRace
+    }
+  }
+  if (percentile > 50) {
+    return {
+      amount: 'mostly',
+      amountDescriptive: `of ${majorRaceWords.racePlural}, with a slim majority, along with some ${secondaryRaceWords.racePlural}`,
       primaryRace,
       secondaryRace
     }
@@ -90,10 +98,10 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
       secondaryRace
     }
   }
-  if (percentile > 40) {
+  if (percentile > 35) {
     return {
-      amount: '',
-      amountDescriptive: `of many different races, with the most common race just barely being ${majorRaceWords.raceAdjective}`,
+      amount: 'rather diverse',
+      amountDescriptive: `of many different races, with the most common race of ${majorRaceWords.raceAdjective} just barely making up slightly over a third of the population`,
       primaryRace,
       secondaryRace
     }
