@@ -13,6 +13,7 @@ export const structureData = {
     ],
     rollData: {
       size: [
+        [99, 'cavernous'],
         [95, 'cavernous'],
         [80, 'huge'],
         [70, 'quite large'],
@@ -29,6 +30,7 @@ export const structureData = {
   material: {
     rollData: {
       wealth: [
+        [99, 'very solid'],
         [90, 'solid'],
         [80, 'finely crafted'],
         [70, 'well built'],
@@ -144,6 +146,7 @@ export const structureData = {
   roof: {
     rollData: {
       wealth: [
+        [99, 'immaculately maintained'],
         [90, 'perfectly maintained'],
         [80, 'well maintained'],
         [60, 'weathered'],
