@@ -110,6 +110,10 @@ export function fm (base: number, val: number) {
     throw new TypeError('fairmath given incorrect argument or an argument that is out of the valid 0-100 range.')
   }
 
+  if (base < rangeStart || base > rangeEnd) {
+    console.warn('Clamping a roll of ', base)
+    base = clamp(Math.trunc(base), rangeStart, rangeEnd)
+  }
   // a 0 increase or decrease; just trunc and clamp
   if (val === 0) {
     return clamp(Math.trunc(base), rangeStart, rangeEnd)
