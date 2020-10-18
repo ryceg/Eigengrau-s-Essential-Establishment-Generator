@@ -105,7 +105,7 @@ function find (word: string) {
 
 function article (word: string, upper?: boolean) {
   if (!word || typeof word !== 'string') {
-    console.error(`"${word}" is in an acceptable format.`)
+    console.error(`"${word}" is not in an acceptable format.`)
     return word // ? just throw back whatever we got
   }
   const article = find(word) || ''
