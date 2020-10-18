@@ -10,32 +10,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Footer
 - Jewellers
 - Cleanliness descriptions to ships
-- New syntax extension to the workflow
 - Quick editing for racial demographics
 - Racial demographic sliders now update instantly
-- Wording for totally racially homogenous towns
+- More racial demographics descriptions
 - Castle-specific requests for assistance
 - Capacity for factional policing
 - Multiple of the same building can now be generated on launch
 - Building owners' professions are no longer hardcoded (expect to see goldsmiths and other specialised versions of professions now)
+- Added test for ga() so adblockers don't make the generator complain (there are no ads, just Google Analytics tracking, just FYI!)
+- New syntax extension to the workflow
 
 ### Changed
 - Guards are now a faction.
-- Fixed races not changing properly.
-- Removed large title in the sticky header
-- Fixed tables getting cut in half in two-column layouts.
-- Fixed castle ruler looking for array printing everything
 - Forced one column for town edit page.
 - Money lenders and predatory debtors will only spawn if there's the population for them. If not, then a criminal will be selected instead.
-- Added test for ga() so adblockers don't make the generator complain (there are no ads, just Google Analytics tracking, just FYI!)
 - Definitions of extremely sexist societies
+- Fixed tables getting cut in half in two-column layouts.
+- Fixed castle ruler looking for array printing everything
+- Fixed town square encounters not rendering properly nine times out of ten.
+- Fixed races not changing properly.
 - Fixed creating magic armour not working
 - Fixed renaming towns not applying to buildings and factions that feature the name
-- Fixed local build script for windows
+- Fixed local build script for Windows
 - Updated dependencies
 
 ### Removed
 - Rumour WIP from the toolbox since it was a mess of spaghetti code
+- Removed large title in the sticky header
 
 ### Known issues
 - NPC profiles still break on refresh
