@@ -118,6 +118,7 @@ setup.townSquare = {
   ],
   crowd: {
     shoeShine: {
+      exclusions (town) { return !town.bans.children },
       function (town) {
         const npc = setup.createNPC(town, {
           ageStage: 'child',
@@ -127,11 +128,12 @@ setup.townSquare = {
       }
     },
     haggling: {
+      exclusions (town) { return !town.bans.panhandling },
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} haggling with a street vendor for a ${['pile of fish.', 'piece of pottery.', 'fine piece of art.', 'cheap looking statue.',
-          'tattered looking map.', 'dyed roll of cloth.', 'pair of fleece leggings.', 'checker patterned tunic.', 'dusty old tome.', 'pair of scrolls.', 'fresh loaf of bread.',
-          'shiny green apple.', 'large cheese wheel.', 'caged owl.', 'large tanned hide.', 'small crate of torches.', 'crude looking dagger.', 'fine looking sword.'].random()}`
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} haggling with a street vendor for ${lib.articles.output(['pile of fish', 'piece of pottery', 'fine piece of art', 'cheap looking statue',
+          'tattered looking map', 'dyed roll of cloth', 'pair of fleece leggings', 'checker patterned tunic', 'dusty old tome', 'pair of scrolls', 'fresh loaf of bread',
+          'shiny green apple', 'large cheese wheel', 'caged owl', 'large tanned hide', 'small crate of torches', 'crude looking dagger', 'fine looking sword'].random())}.`
       }
     },
     colorfulRobes: {
@@ -146,12 +148,14 @@ setup.townSquare = {
       }
     },
     animal: {
+      exclusions (town) { return !town.bans.animals },
       function (town) {
         return `a large cage with ${lib.articles.output(['bear', 'lion', 'tiger', 'leopard', 'ape', 'gorilla', 'hippo', 'wyvern', 'ostrich', 'ox', 'bull', 'anaconda',
           'crocodile', 'alligator', 'elephant', 'mammoth', 'eagle', 'vulture', 'giant tortoise', 'giant otter', 'hyena', 'wolf', 'kangaroo', 'giant pangolin'].random())} inside of it.`
       }
     },
     drunkard: {
+      exclusions (town) { return !town.bans.alcohol },
       function (town) {
         const npc = setup.createNPC(town)
         return `${setup.profile(npc, lib.articles.output(npc.descriptor))} clearly drunk off their ass just wandering about.`
@@ -167,13 +171,13 @@ setup.townSquare = {
       function (town) {
         const npc = setup.createNPC(town)
         const npc2 = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} and a ${setup.profile(npc2, npc2.descriptor)} carrying a large and heavy looking chest.`
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} and ${setup.profile(npc2, lib.articles.output(npc2.descriptor))} carrying a large and heavy looking chest.`
       }
     },
     gawk: {
       function (town) {
         const npc = setup.createNPC(town)
-        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is gawking at a nearby ${['beautiful woman.', 'handsome man.', 'rugged dwarf.', 'ethereal elf.'].random()}`
+        return `${setup.profile(npc, lib.articles.output(npc.descriptor))} who is gawking at a nearby ${['beautiful woman', 'handsome man', 'rugged dwarf', 'ethereal elf'].random()}.`
       }
     },
     parcel: {
