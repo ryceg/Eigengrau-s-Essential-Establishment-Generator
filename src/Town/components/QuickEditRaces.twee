@@ -1,11 +1,13 @@
 :: QuickEditRaces
 <<button "Edit races">>
 <<replace "#races">>
-  <<include "EditRaces">>
+  <<include "EditRaces">><<run $("body").on("change", ".races-slider", function() {
+  $(document).trigger(":liveupdate");
+});>>
     <<button "Save Changes">>
     <<include "Rerender">>
-    <<removeclass "#races" "classTable">><<replace "#races">><<include "TownListRaces">><</replace>>
     <<update>>
+    <<removeclass "#races" "classTable">><<replace "#races">><<include "TownListRaces">><</replace>>
 <</button>>
 <</replace>>
 <</button>>
