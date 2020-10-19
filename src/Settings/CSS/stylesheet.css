@@ -50,7 +50,7 @@ body {
   column-count: 1;
 }
 
-.force-one-column {
+#force-one-column {
   column-count: 1;
 }
 
@@ -59,6 +59,10 @@ body {
 }
 
 #passage-townedit {
+  column-count: 1;
+}
+
+#passage-npcprofileedit {
   column-count: 1;
 }
 

@@ -1,5 +1,5 @@
 :: BiomeGeneration
-<div class="force-one-column">
+<div id="force-one-column">
 <<nobr>><<run $("body").on("change", ".races-slider", function() {
   $(document).trigger(":liveupdate");
 });>>
