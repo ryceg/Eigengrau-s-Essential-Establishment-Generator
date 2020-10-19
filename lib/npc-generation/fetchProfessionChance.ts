@@ -68,7 +68,7 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
     if (typeof town.professions[resultantProfession].exclusions === 'function') {
       console.log('There is an exclusion function. Testing...')
       if (!town.professions[resultantProfession].exclusions?.(npc)) {
-        console.error(`${npc.name} is unable to be a ${resultantProfession}. Rerolling...`)
+        console.warn(`${npc.name} is unable to be a ${resultantProfession}. Rerolling...`)
         resultantProfession = fetchProfessionChance(town, npc)
       }
     }
