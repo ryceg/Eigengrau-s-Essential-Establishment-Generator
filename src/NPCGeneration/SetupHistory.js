@@ -115,7 +115,7 @@ setup.createHistory = function (town, npc) {
 
   if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
-  let parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
+  const parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
 
   npc.knewParents = setup.knewParents(town, npc)
@@ -130,7 +130,9 @@ setup.createHistory = function (town, npc) {
       const { father, mother } = setup.getFatherMother(town, npc)
       const obj = { npc, father, mother }
       npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, obj, null, 'descriptor')
-      if (parentMarriage) { parentMarriage = Object.assign(parentMarriage, { familyUnit: npc.familyUnit }) }
+      if (parentMarriage) {
+        lib.assign(parentMarriage, { familyUnit: npc.familyUnit })
+      }
     }
   }
 
