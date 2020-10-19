@@ -809,12 +809,7 @@ setup.initTavernData = () => {
           },
           {
             draw: 'magic incense which is constantly burning',
-            drawFeature: "You smell a peculiar aroma, which you can't quite place, only that it reminds you of the fond days of your childhood, until you see wafts of smoke trailing from behind the bar; there's a stick of incense burning, clearly at least somewhat magical.",
-            drawFunction: function increaseTavernMagic (tavern) {
-              console.log('Increased tavern magic!')
-              tavern.roll.magic += 10
-              return tavern
-            }
+            drawFeature: "You smell a peculiar aroma, which you can't quite place, only that it reminds you of the fond days of your childhood, until you see wafts of smoke trailing from behind the bar; there's a stick of incense burning, clearly at least somewhat magical."
           },
           {
             draw: 'proximity to the brothel',
@@ -822,12 +817,7 @@ setup.initTavernData = () => {
           },
           {
             draw: 'proximity to the church',
-            drawFeature: `You see a sign by the door which reads 'No proselytising'. Clearly, ${tavern.name} has an issue with the nearby church.`,
-            drawFunction: function increaseTavernMagic (tavern) {
-              console.log('Increased tavern magic!')
-              tavern.roll.magic += 10
-              return tavern
-            }
+            drawFeature: `You see a sign by the door which reads 'No proselytising'. Clearly, ${tavern.name} has an issue with the nearby church.`
           },
           {
             draw: 'location by the river',
@@ -851,12 +841,7 @@ setup.initTavernData = () => {
           },
           {
             draw: 'magic bedbugs',
-            drawFeature: "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face.",
-            drawFunction: function increaseTavernMagic (tavern) {
-              console.log('Increased tavern magic!')
-              tavern.roll.magic += 10
-              return tavern
-            }
+            drawFeature: "You see a patron enter the bar from the sleeping quarters, who's scratching his arms madly, with a doped up smile upon his face."
           },
           {
             draw: 'huge fireplace',

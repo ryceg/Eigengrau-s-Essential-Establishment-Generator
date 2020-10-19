@@ -54,7 +54,6 @@ interface TavernDescription {
 interface TavernDraw {
   draw: string
   drawFeature: string
-  drawFunction?(tavern: unknown): unknown
 }
 
 interface TavernSleep {
