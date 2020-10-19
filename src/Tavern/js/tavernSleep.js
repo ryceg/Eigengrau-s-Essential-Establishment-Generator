@@ -100,7 +100,7 @@ function getWakeUpByType (tavern) {
  * @returns {string}
  */
 function getWakeUpByWealth (tavern) {
-  const bartender = tavern.bartender
+  const bartender = tavern.associatedNPC
 
   if (tavern.wealth === 'kingly') {
     return `In the morning, you're awakened to a knock on the door; apparently ${tavern.name} comes with a complimentary breakfast in bed. You get dressed and open the door, and one of the ${setup.profile(tavern.barmaid, 'barmaids')} comes in wheeling a trolley, upon which is laden with toast, fruits, cured meats, porridge, and all kinds of cheeses with breads.`
