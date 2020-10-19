@@ -5,6 +5,7 @@ export interface Faction {
   type: FactionType
   key: string
   name: string
+  wordNoun: string
   roll: {
     age: number
     size: number
