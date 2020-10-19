@@ -45,6 +45,7 @@ const homeBiases = {
   wretched: -40
 }
 
+/** @type {[number,string][]} */
 const homeTable = [
   [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
@@ -58,7 +59,7 @@ const homeTable = [
   [40, 'a palace'] // unreachable without biases
 ]
 
-setup.createLifestyleStandards = function (town, npc) {
+setup.createLifestyleStandards = (town, npc) => {
   console.groupCollapsed(`Creating living standards for ${npc.name}`)
   const isCurrently = [
     'has been',
@@ -74,12 +75,7 @@ setup.createLifestyleStandards = function (town, npc) {
   ].random()
   const desc = lib.findProfession(town, npc)
 
-  // if (!desc.description) {
-  //   console.error(`Missing description for ${desc}`)
-  //   let tippy = npc.dndClass || npc.profession
-  // } else {
-  const tippy = `<span id=${JSON.stringify(npc.firstName)} class=tip title=${JSON.stringify(desc.description.toUpperFirst())}><span class="dotted">${npc.profession || npc.dndClass}</span></span>`
-  // }
+  const tippy = lib.createTippyFull(lib.capitalizeFirstLetter(desc.description), npc.profession || npc.dndClass)
 
   const wageVarianceNotes = [
     [-25, `${isCurrently} impossibly unsuccessful as`],
@@ -116,16 +112,15 @@ setup.createLifestyleStandards = function (town, npc) {
   const note = wageVarianceNotes.find(desc => {
     return desc[0] >= npc.roll.wageVariation(town)
   })
-  // TODO: line 119 sometimes returns undefined
+
   npc.professionSuccess = `${npc.firstName} ${note[1] || wageVarianceNotes[5][1]} ${lib.articles.find(npc.profession)} ${tippy}`
   console.groupEnd()
-  return npc
 }
 
-setup.createFamilyLifestyle = function (marriage) {
+setup.createFamilyLifestyle = marriage => {
   const lifestyle = lib.rollFromTable(lifestyleTables[marriage.socialClass], 100)
 
   const home = lib.rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
 
-  return Object.assign(marriage, { lifestyle, home })
+  lib.assign(marriage, { lifestyle, home })
 }
