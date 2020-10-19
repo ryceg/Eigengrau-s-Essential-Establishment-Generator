@@ -151,14 +151,14 @@ setup.createHistory = function (town, npc) {
     npc.familyHome = marriage.home
   }
 
-  npc.childhoodMemories = setChildhoodMemories(town, npc)
+  npc.childhoodMemories = createChildhoodMemories(town, npc)
 }
 
 /**
  * @param {Town} town
  * @param {NPC} npc
  */
-function setChildhoodMemories (town, npc) {
+function createChildhoodMemories (town, npc) {
   if (npc.childhoodMemories) {
     return npc.childhoodMemories
   }
