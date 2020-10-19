@@ -3,7 +3,7 @@ setup.createGuard = town => {
 
   const guard = {
     name: lib.createGuardName(town.name),
-    livery: createGuardLivery(),
+    livery: lib.createGuardLivery(),
     objectType: 'guard',
     captain: setup.createNPC(town, {
       profession: 'guard',
@@ -15,14 +15,4 @@ setup.createGuard = town => {
   console.log(`${guard.name} is the name of the guard.`)
   console.groupEnd()
   return guard
-}
-
-/**
- * @returns {string}
- */
-function createGuardLivery () {
-  const insignia = lib.random(lib.guardData.insignia)
-  const primaryColour = lib.random(lib.guardData.primaryColours)
-  const secondaryColour = lib.random(lib.guardData.secondaryColours)
-  return `${primaryColour} and ${secondaryColour} livery adorned with an image of ${insignia}`
 }
