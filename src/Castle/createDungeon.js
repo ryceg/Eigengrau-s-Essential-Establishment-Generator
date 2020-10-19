@@ -48,7 +48,7 @@ setup.createDungeon = (town, opts) => {
 setup.createDungeonName = (town, dungeon, namesake = {}) => {
   console.log('Creating dungeon name...')
   Object.assign(namesake, {
-    race: lib.fetchRace(town, {})
+    race: lib.fetchRace(town)
   })
   namesake.socialClass = namesake.socialClass || 'nobility'
   namesake.firstName = namesake.firstName || lib.createName({ race: namesake.race })
