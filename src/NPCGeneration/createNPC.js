@@ -1,18 +1,17 @@
-setup.createNPC = (town, base = {}) => {
+const defaultBase = {
+  isShallow: true
+}
+
+setup.createNPC = (town, base = defaultBase) => {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
+
   lib.filterNull(base)
-  console.log('Base:')
-  console.log({ base })
+  console.log('Base:', { base })
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   const data = setup.npcData
 
-  if (!base) {
-    base = {
-      isShallow: true
-    }
-  }
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
     base.isThrowaway = base.isThrowaway || true
