@@ -27,8 +27,7 @@ setup.createLifeEvents = function (town, npc) {
     ].random()]
   }
 
-  let i
-  for (i = 0; i < lifeEventsNumber; i++) {
+  for (let i = 0; i < lifeEventsNumber; i++) {
     npc.lifeEvents.push(lib.weightedRandomFetcher(town, setup.npcData.lifeEvents, npc))
   }
 
