@@ -5,7 +5,6 @@ interface Setup {
 
 interface SetupMisc {
   encounters: Encounter[]
-  graveStone: Record<string, (town: Town, base?: unknown) => unknown>
   caravan: Record<string, unknown>
   religion: Record<string, unknown>
   town: Record<string, unknown>
