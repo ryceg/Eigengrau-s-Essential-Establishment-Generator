@@ -39,7 +39,7 @@ setup.socialClass = {
         description: `${npc.firstName} had ${otherNpc.firstName} as a dinner guest many moons ago, and ${otherNpc.heshe} quickly returned the favour.`
       },
       {
-        relationship: 'art lover',
+        relationship: 'fellow art lover',
         description: `${npc.firstName} and ${otherNpc.firstName} frequently attend art exhibits and plays together.`
       }
     ]
@@ -61,7 +61,7 @@ setup.socialClass = {
         description: `${npc.firstName} had ${otherNpc.firstName} as a dinner guest many moons ago, and ${otherNpc.heshe} quickly returned the favour.`
       },
       {
-        relationship: 'art lover',
+        relationship: 'fellow art lover',
         description: `${npc.firstName} and ${otherNpc.firstName} frequently attend art exhibits and plays together.`
       }
     ]
@@ -83,7 +83,7 @@ setup.socialClass = {
         description: `${npc.firstName} had ${otherNpc.firstName} as a dinner guest many moons ago, and ${otherNpc.heshe} quickly returned the favour.`
       },
       {
-        relationship: 'play lover',
+        relationship: 'fellow theatre lover',
         description: `${npc.firstName} and ${otherNpc.firstName} frequently attend plays together.`
       }
     ]
@@ -97,7 +97,7 @@ setup.socialClass = {
         description: `${npc.firstName} and ${otherNpc.firstName} share little in common, save for their poor financial circumstances and low social class.`
       },
       {
-        relationship: 'same landlord',
+        relationship: 'has the same landlord',
         description: `${npc.firstName} and ${otherNpc.firstName} have the same landlord.`
       }
     ]
