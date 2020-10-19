@@ -17,14 +17,14 @@ setup.createDebt = (town, npc) => {
   }
 
   if (profit < -40) {
-    const debtor = findOrCreateDebtor(town, npc, 'moneylender')
+    const debtor = findDebtor(town, npc, 'moneylender') || createDebtor(town)
     setup.createRelationship(town, npc, debtor, 'debtor', 'creditor')
     npc.finances.creditors[debtor.key] = Math.round(cashLiquidity * grossIncome)
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
   if (profit < -300 || setup.socialClass[npc.socialClass].key <= 3) {
-    const predatoryDebtor = findOrCreateDebtor(town, npc, 'predatory debtor')
+    const predatoryDebtor = findDebtor(town, npc, 'predatory debtor') || createDebtor(town)
     setup.createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
@@ -38,19 +38,20 @@ setup.createDebt = (town, npc) => {
  * @param {NPC} npc
  * @param {string} type
  */
-function findOrCreateDebtor (town, npc, type) {
+function findDebtor (town, npc, type) {
   const profession = town.professions[type]
 
   if (profession && profession.population > 0) {
-    const debtor = Object.values(State.variables.npcs).find(otherNPC => {
+    return Object.values(State.variables.npcs).find(otherNPC => {
       return otherNPC.profession === type && otherNPC.key !== npc.key
     })
-
-    if (debtor) {
-      return debtor
-    }
   }
+}
 
+/**
+ * @param {Town} town
+ */
+function createDebtor (town) {
   return setup.createNPC(town, {
     professionSector: 'crime',
     isShallow: true
