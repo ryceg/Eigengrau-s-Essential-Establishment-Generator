@@ -1,4 +1,3 @@
-
 setup.urlSeed = () => {
   const seed = getValidSeed(location.hash.replace('#', ''))
 

@@ -1,3 +1,5 @@
+import './sentry'
+
 export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
