@@ -9,13 +9,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added 
 - Added option to disable Google Analytics in settings
 - Added special wording when income earned per day is less than a copper
+- Autoupdating pronouns on NPC edit.
 
 ### Changed
 - Fixed bug with alchemist selling.
 - Fixed bug with half-elves sometimes not having an age descriptor
 - Renamed "play lover" relationship to "fellow play lover" since it sounded real weird
 - Fix murderers breaking everything (because of course).
-
+- Fix certain changes not saving on editing NPCs
 
 ## 2.6
 
