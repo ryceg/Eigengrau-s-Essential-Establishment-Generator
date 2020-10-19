@@ -36,6 +36,7 @@ setup.createDebt = (town, npc) => {
 /**
  * @param {Town} town
  * @param {NPC} npc
+ * @param {string} type
  */
 function findOrCreateDebtor (town, npc, type) {
   const profession = town.professions[type]
