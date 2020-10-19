@@ -17,7 +17,7 @@
 <<if State.metadata.get("showTutorial") is true>>
 	<<set Config.passages.start = "Welcome">>
 <<else>>
-	<<if State.metadata.get("showBiomeGenerationSettings") is true>>
+	<<if State.metadata.get("showBiomeGeneration") is true>>
 			<<set Config.passages.start = "BiomeGeneration">>
 		<<else>>
 			<<set Config.passages.start = "Start">>

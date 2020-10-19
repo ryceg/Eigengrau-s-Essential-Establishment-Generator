@@ -9,7 +9,7 @@ declare module 'twine-sugarcube' {
     silverStandard?: boolean
     ignoreGender?: boolean
     showTutorial?: boolean
-    showBiomeGenerationSettings?: boolean
+    showBiomeGeneration?: boolean
     forceOneColumn?: boolean
     hideAds?: boolean
     disableAnalytics?: boolean
