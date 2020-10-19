@@ -1,7 +1,7 @@
 :: NPCIncomeTable
 <<nobr>>
 
-$currentNPC.firstName currently earns <<print setup.money(setup.npcNetIncome($town, $currentNPC))>> <<linkreplace "per day." t8n>>per day.
+$currentNPC.firstName currently earns <<if setup.money(setup.npcNetIncome($town, $currentNPC)) < 1>>next to nothing <<else>><<print setup.money(setup.npcNetIncome($town, $currentNPC))>><</if>> <<linkreplace "per day." t8n>>per day.
 
 <table><h3>Finances</h3>
     <tr>
