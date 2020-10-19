@@ -99,7 +99,7 @@ setup.createTown = (base = {}) => {
       })
       return this._demographicPercentile
     },
-    set demographicPercentile (data) { console.error('Setter for demographicPercentile is not a thing. Chucking out the following data:', data) },
+    set demographicPercentile (data) { console.warn('Setter for demographicPercentile is not a thing. Chucking out the following data:', data) },
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
