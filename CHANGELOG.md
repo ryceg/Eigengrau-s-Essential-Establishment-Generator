@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed bug with alchemist selling.
 - Fixed bug with half-elves sometimes not having an age descriptor
 - Renamed "play lover" relationship to "fellow play lover" since it sounded real weird
+- Fix murderers breaking everything (because of course).
 
 
 ## 2.6
