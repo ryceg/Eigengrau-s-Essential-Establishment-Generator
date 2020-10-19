@@ -12,6 +12,7 @@ declare module 'twine-sugarcube' {
     showBiomeGenerationSettings?: boolean
     forceOneColumn?: boolean
     hideAds?: boolean
+    disableAnalytics?: boolean
   }
 
   /**

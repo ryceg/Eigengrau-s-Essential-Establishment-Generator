@@ -1,6 +1,8 @@
 :: CookieConsent
-<div id="cookie"><<notify 500000 'cookie'>><<button "x">><<run State.metadata.set('cookiePopupWasShown', true)>><<run document.getElementById("notify").remove()>><</button>>We use cookies to anonymously track site usage, like most modern websites. This helps us understand what parts of the website are being used with what technologies, and other anonymous data.
+<div id="cookie"><<notify 500000 'cookie'>><<button "X Close">>
+  <<include "RemoveCookieNotifier">>
+<</button>>We use cookies to anonymously track site usage, like most modern websites. This helps us understand what parts of the website are being used with what technologies, and other anonymous data.
 
-If you don't want to be tracked, you can build the generator from source on our GitHub page.
+If you don't want to be tracked, you can build the generator from source on our GitHub page, or hit this button: <<button "Don't track me">><<include "DisableAnalytics">><<include "RemoveCookieNotifier">><</button>>.
 
 By closing this banner or continuing to browse otherwise, you agree to the use of cookies and our Google Analytics tracking.<</notify>></div>

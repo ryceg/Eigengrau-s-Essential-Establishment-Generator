@@ -32,7 +32,7 @@ setup.history = (object, passageName, linkDescription) => {
         linkDescription
       })
     }
-    if (ga) {
+    if (window['ga-disable-UA-119249239-1'] === true || typeof ga === 'function') {
       ga('send', {
         hitType: 'event',
         eventCategory: 'passage',

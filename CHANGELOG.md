@@ -6,8 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2.6.1
 
+### Added 
+- Added option to disable Google Analytics in settings
+
 ### Changed
 - Fixed bug with alchemist selling.
+
 
 ## 2.6
 

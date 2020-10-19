@@ -9,8 +9,13 @@ if (State.metadata.get('showTutorial') !== settings.showTutorial) {
   settings.showTutorial = State.metadata.get('showTutorial')
 }
 
-if (State.metadata.get('showBiomeGenerationSettings') !== settings.showBiomeGenerationSettings) {
-  settings.showBiomeGenerationSettings = State.metadata.get('showBiomeGenerationSettings')
+if (State.metadata.get('disableAnalytics') !== settings.disableAnalytics) {
+  settings.disableAnalytics = State.metadata.get('disableAnalytics')
+  window['ga-disable-UA-119249239-1'] = settings.disableAnalytics
+}
+
+if (State.metadata.get('showBiomeGeneration') !== settings.showBiomeGeneration) {
+  settings.showBiomeGeneration = State.metadata.get('showBiomeGeneration')
 }
 
 if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
@@ -36,10 +41,10 @@ function settingIgnoreGender () {
   }
 }
 
-function settingShowBiomeGenerationSettings () {
-  const showBiomeGenerationSettings = State.metadata.get('showBiomeGenerationSettings')
-  if (settings.showBiomeGenerationSettings !== showBiomeGenerationSettings) {
-    State.metadata.set('showBiomeGenerationSettings', settings.showBiomeGenerationSettings)
+function settingShowBiomeGeneration () {
+  const showBiomeGeneration = State.metadata.get('showBiomeGeneration')
+  if (settings.showBiomeGeneration !== showBiomeGeneration) {
+    State.metadata.set('showBiomeGeneration', settings.showBiomeGeneration)
   }
 }
 
@@ -48,6 +53,14 @@ function settingHideAds () {
     settings.hideAds = true
   } else {
     settings.hideAds = false
+  }
+}
+
+function settingDisableAnalytics () {
+  const disableAnalytics = State.metadata.get('disableAnalytics')
+  if (settings.disableAnalytics !== disableAnalytics) {
+    State.metadata.set('disableAnalytics', settings.disableAnalytics)
+    window['ga-disable-UA-119249239-1'] = settings.disableAnalytics
   }
 }
 
@@ -76,13 +89,15 @@ Setting.addToggle('showMetric', {
   label: 'Show metric?'
 })
 
-Setting.addToggle('showBiomeGenerationSettings', {
-  label: '<span id="sliders" class="tip dotted" title="If you want to specify the biome and demographics before town creation, enable this.">Show town biome prompt upon restart?</span>',
-  onChange: settingShowBiomeGenerationSettings
+Setting.addToggle('showBiomeGeneration', {
+  label: 'Edit biome before generation?',
+  desc: 'If you want to specify the biome and demographics before town creation, enable this.',
+  onChange: settingShowBiomeGeneration
 })
 
 Setting.addToggle('showSliders', {
-  label: '<span id="sliders" class="tip dotted" title="If you would like to change the output of buildings, enable this. Warning: feature is in beta.">Show sliders?</span>'
+  label: 'Show sliders?',
+  desc: 'If you would like to change the variables of buildings, enable this. Warning: feature is in beta.'
 })
 
 Setting.addToggle('silverStandard', {
@@ -90,19 +105,24 @@ Setting.addToggle('silverStandard', {
 })
 
 Setting.addToggle('ignoreGender', {
-  label: '<span id="gender" class="tip dotted" title="If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.">Ignore gender inequality?</span>',
+  label: 'Ignore gender?',
+  desc: 'If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.',
   onChange: settingIgnoreGender
 })
 
 Setting.addToggle('forceOneColumn', {
   label: '<span id="oneColumn" class="tip dotted" title="Force one column for larger screens.">Force one column?</span>',
-  desc: 'Force one column for larger screens',
   onChange: settingForceOneColumn
 })
 
 Setting.addToggle('hideAds', {
   label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
   onChange: settingHideAds
+})
+
+Setting.addToggle('disableAnalytics', {
+  label: '<span id="analytics" class="tip dotted" title="We just use analytics to know how many people use the site, and what they find useful- nothing sinister, we swear!">Disable analytics?</span>',
+  onChange: settingDisableAnalytics
 })
 
 Setting.save()
