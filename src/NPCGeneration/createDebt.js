@@ -38,12 +38,20 @@ setup.createDebt = (town, npc) => {
  * @param {NPC} npc
  */
 function findOrCreateDebtor (town, npc, type) {
-  let found = null
-  if (town.professions[type] && town.professions[type].population > 0) {
-    found = Object.values(State.variables.npcs).find(otherNPC => {
+  const profession = town.professions[type]
+
+  if (profession && profession.population > 0) {
+    const debtor = Object.values(State.variables.npcs).find(otherNPC => {
       return otherNPC.profession === type && otherNPC.key !== npc.key
     })
+
+    if (debtor) {
+      return debtor
+    }
   }
-  if (!found) found = setup.createNPC(town, { professionSector: 'crime', isShallow: true })
-  return found
+
+  return setup.createNPC(town, {
+    professionSector: 'crime',
+    isShallow: true
+  })
 }
