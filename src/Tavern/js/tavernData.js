@@ -886,36 +886,6 @@ setup.initTavernData = () => {
             ].random()
           },
           {
-            size: 80,
-            wealth: 50,
-            note: [
-              `${tavern.name} is quite large, ${tavern.lighting}, and ${tavern.cleanliness}. The ceiling is unusually high, and the amount of wood that ${bartender.firstName} must go through would be immense. The dining hall has several large ${tavern.material.noun} tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`
-            ].random()
-          },
-          {
-            size: 70,
-            wealth: 50,
-            note: [
-              `${tavern.name} is a large building, with the ${tavern.cleanliness} bar occupying the ground floor, and the beds for patrons are on the floor directly above you. It's ${tavern.lighting}.`
-            ].random()
-          },
-          {
-            size: 60,
-            wealth: 30,
-            note: [
-              `${tavern.name} is nice and spacious. The bar is roomy and ${tavern.lighting}, with several stools in front of it for patrons that wish to while away the evening talking to ${bartender.firstName}. There's a couple large ${tavern.material.noun} tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.`
-            ].random()
-          },
-          {
-            size: 50,
-            wealth: 30,
-            note: [
-              `${tavern.name} is a tall building, but not particularly spacious; the ${tavern.cleanliness} bar occupies the ground floor which is ${tavern.lighting}, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ${tavern.structure.material.noun} building.`,
-              `${tavern.name} is a reasonably spacious building that is ${tavern.lighting}, and very similar to the countless other taverns that you've come across in your times, right down to the specials board being somewhat battered with so many uses, and the dart board with many holes constantly seeing use.`,
-              `${tavern.name} is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is ${tavern.cleanliness}, and ${tavern.lighting}.`
-            ].random()
-          },
-          {
             size: 40,
             wealth: 10,
             note: [
@@ -937,6 +907,23 @@ setup.initTavernData = () => {
             ].random()
           },
           {
+            size: 60,
+            wealth: 30,
+            note: [
+              `${tavern.name} is nice and spacious. The bar is roomy and ${tavern.lighting}, with several stools in front of it for patrons that wish to while away the evening talking to ${bartender.firstName}. There's a couple large ${tavern.material.noun} tables, which are large enough to put out a map and still have room for your mugs of ale; perhaps a deliberate choice on the owner's part.`
+            ].random()
+          },
+          {
+            size: 50,
+            wealth: 30,
+            note: [
+              `${tavern.name} is a tall building, but not particularly spacious; the ${tavern.cleanliness} bar occupies the ground floor which is ${tavern.lighting}, and you see a barmaid carrying a dish down from the stairs; the sign outside said that it had accomodation, so the beds must be on the third floor of the ${tavern.structure.material.noun} building.`,
+              `${tavern.name} is a reasonably spacious building that is ${tavern.lighting}, and very similar to the countless other taverns that you've come across in your times, right down to the specials board being somewhat battered with so many uses, and the dart board with many holes constantly seeing use.`,
+              `${tavern.name} is clearly a converted house; you can see that a bathroom was originally where the bar is, due to the unmistakable water staining that comes with bathtubs. The tavern is ${tavern.cleanliness}, and ${tavern.lighting}.`
+            ].random()
+          },
+
+          {
             size: 90,
             wealth: 50,
             note: [
@@ -944,10 +931,24 @@ setup.initTavernData = () => {
             ].random()
           },
           {
+            size: 80,
+            wealth: 50,
+            note: [
+              `${tavern.name} is quite large, ${tavern.lighting}, and ${tavern.cleanliness}. The ceiling is unusually high, and the amount of wood that ${bartender.firstName} must go through would be immense. The dining hall has several large ${tavern.material.noun} tables, fit for up to twelve people each. Off to the side is a spiral staircase, which you would assume leads up to the lodgings.`
+            ].random()
+          },
+          {
             size: 70,
             wealth: 50,
             note: [
               `${tavern.name} is very large indeed; the ${tavern.cleanliness} ${tavern.wordNoun} has rows of tables, as well as a dedicated kitchen and bar area, indicating that at least some thought went into its construction.`
+            ].random()
+          },
+          {
+            size: 60,
+            wealth: 50,
+            note: [
+              `${tavern.name} is a large building, with the ${tavern.cleanliness} bar occupying the ground floor, and the beds for patrons are on the floor directly above you. It's ${tavern.lighting}.`
             ].random()
           },
           {

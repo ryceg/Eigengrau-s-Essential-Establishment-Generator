@@ -4,8 +4,8 @@ setup.createTavern = (town, opts = {}) => {
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.bartender = (opts.newBartender || setup.createBartender)(town, tavern, opts)
-  tavern.associatedNPC = tavern.bartender
+  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts)
+  tavern.bartender = tavern.associatedNPC
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
     gender: 'woman',
@@ -13,7 +13,7 @@ setup.createTavern = (town, opts = {}) => {
     hasClass: false,
     profession: 'barmaid'
   })
-  setup.createRelationship(town, tavern.bartender, tavern.barmaid, 'employee', 'employer')
+  setup.createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
 
   lib.createBuildingRelationship(town, tavern, tavern.barmaid, { relationship: 'employee', reciprocalRelationship: 'place of employment' })
 
@@ -41,7 +41,7 @@ setup.createTavern = (town, opts = {}) => {
       'high-end dining club',
       'gambling den',
       'gambling den',
-      `${tavern.bartender.race} only club`,
+      `${tavern.associatedNPC.race} only club`,
       "guild-member's only club",
       "guild-member's only club",
       'members-only club',
