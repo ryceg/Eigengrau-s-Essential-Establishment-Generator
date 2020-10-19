@@ -1,4 +1,4 @@
-export interface Setup {
+interface Setup {
   createRelative(
     town: Town,
     family: Family,
@@ -33,12 +33,12 @@ export interface Setup {
   }
 }
 
-export interface Family {
+interface Family {
   key: string
   members: Record<string, any>
 }
 
-export interface Marriage {
+interface Marriage {
   parents: string[]
   children: any[]
   socialClass?: string

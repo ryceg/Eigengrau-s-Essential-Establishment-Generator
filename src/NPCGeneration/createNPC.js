@@ -1,3 +1,4 @@
+/** @type {Partial<NPC>} */
 const defaultBase = {
   isShallow: true
 }

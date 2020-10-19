@@ -1,9 +1,7 @@
-import { Family } from './NPCGeneration/Relationships/createFamilyMembers'
-
 type Town = import('../lib/town/_common').Town
 type NPC = import('../lib/npc-generation/_common').NPC
 
-export interface Setup {
+interface Setup {
   init(): void
   initMisc(): void
   npcTaxRate(town: Town, npc: NPC): number
@@ -22,7 +20,6 @@ export interface Setup {
   createHistory(town: Town, npc: NPC): void
   createLifeEvents(town: Town, npc: NPC): void
   createName(parameters: CreateNameParameters): string
-  createNPC(town: Town, base?: Partial<NPC>): NPC
   createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
 
@@ -48,7 +45,7 @@ export interface Setup {
   updateDemographics(town: Town, newDemographics: Record<RaceName, number>): void
 }
 
-export interface FamilyData {
+interface FamilyData {
   absencePercent: number
   oldAbsencePercent: number
   veryOldAbsencePercent: number
