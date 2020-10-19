@@ -24,9 +24,9 @@ setup.createClass = (town, npc) => {
     classWeapon = 'a dagger'
   }
 
-  npc.professionOrigin ||= professionOrigin || getProfessionOrigin(npc, town)
-  npc.background ||= background
-  npc.weapon ||= classWeapon
+  npc.professionOrigin = npc.professionOrigin || professionOrigin || getProfessionOrigin(npc, town)
+  npc.background = npc.background || background
+  npc.weapon = npc.weapon || classWeapon
 }
 
 /**
