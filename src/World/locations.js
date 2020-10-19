@@ -242,7 +242,7 @@ setup.initMiscLocations = () => {
       summary: 'an old watchtower',
       available: ['mountain', 'desert', 'road', 'forest'],
       function: (town, biome) => {
-      // intentionally uses the mountain biome
+        // intentionally uses the mountain biome
         const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
         return `an old, weathered watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
       }
@@ -251,7 +251,7 @@ setup.initMiscLocations = () => {
       summary: 'an abandoned watchtower',
       available: ['mountain', 'desert', 'road', 'forest'],
       function: (town, biome) => {
-      // intentionally uses the mountain biome
+        // intentionally uses the mountain biome
         const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
         return `a run down, abandoned watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is inhabited by ${encounter}.</blockquote>`
       }
@@ -260,7 +260,7 @@ setup.initMiscLocations = () => {
       summary: 'a strategically located watchtower',
       available: ['mountain', 'desert', 'road', 'forest'],
       function: (town, biome) => {
-      // intentionally uses the mountain biome
+        // intentionally uses the mountain biome
         const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
         return `a strategically located watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
       }
