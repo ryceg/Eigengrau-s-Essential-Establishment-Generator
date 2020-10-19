@@ -1,5 +1,6 @@
 interface Setup {
-  initCastleData(): void
+  castle: CastleData
+  initCastle(): void
   createCastle(town: Town, opts?: Partial<Castle>): Castle
 }
 
@@ -19,7 +20,7 @@ interface CastleData {
   knownFor: string[]
   ruler: {
     lookingFor: string[]
-    getAcquisitionMethod(town: Town, castle: Castle): any
+    getAcquisitionMethod(town: Town, castle: Castle): AquisitionMethod
     types: CastleRulerType
   }
   lookingFor(town: Town): string
@@ -37,4 +38,8 @@ interface CastleRulerType {
 interface CastleLocation {
   vignette: string[]
   defenseReason: string[]
+}
+
+interface AquisitionMethod {
+  acquisitionMethod: string
 }
