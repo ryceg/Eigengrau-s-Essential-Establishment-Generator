@@ -624,7 +624,7 @@ setup.plothooks = [
     type: ['paper'],
     function (town) {
       const blacksmithPool = town.buildings.smithy
-      const smithy = lib.objectArrayFetcher(blacksmithPool)
+      const smithy = lib.getRandomValue(blacksmithPool)
       return `Koboliam Ore Needed: A local ${setup.profile(smithy.associatedNPC, 'blacksmith')} needs Koboliam Ore, which is only found in the Myriad caves to the North. Once a Kobold stronghold, this abandoned cave is full of traps and possibly other dangers — will pay top gold for each block of Ore.`
     }
   },

@@ -21,7 +21,7 @@ setup.createNPC = (town, base = defaultBase) => {
   }
 
   if (base.canBeCustom === true && lib.random(1, 100) > 99) {
-    base = lib.objectArrayFetcher(lib.patreonCharacters)
+    base = lib.getRandomValue(lib.patreonCharacters)
   }
 
   lib.initSexistProfession(town, base)

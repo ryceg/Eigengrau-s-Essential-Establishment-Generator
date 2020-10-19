@@ -102,7 +102,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     priest: {
       exclusions (town, smithy) {
-        return smithy.roll.expertise > 40 || lib.objectArrayFetcher(town.buildings.temple).roll.wealth > 60
+        return smithy.roll.expertise > 40 || lib.getRandomValue(town.buildings.temple).roll.wealth > 60
       },
       function (town) {
         const building = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
