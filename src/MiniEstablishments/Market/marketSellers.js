@@ -1,4 +1,4 @@
-setup.createMarketSellers = (town, obj, opts = {}, number) => {
+setup.createMarketSellers = (town, obj, number) => {
   const shout = [
     'shouting out ',
     'calling ',
@@ -10,7 +10,7 @@ setup.createMarketSellers = (town, obj, opts = {}, number) => {
   ]
 
   for (let i = 0; i < number; i++) {
-    const npc = setup.createNPC(town, Object.assign({
+    const npc = setup.createNPC(town, {
       profession: 'merchant',
       merchant: {
         selling: [
@@ -23,7 +23,7 @@ setup.createMarketSellers = (town, obj, opts = {}, number) => {
       isThrowaway: true,
       isShallow: true,
       canBeCustom: true
-    }, opts))
+    })
     obj[npc.key] = npc.merchant
   }
   return obj
