@@ -7,11 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2.6.1
 
 ### Added 
-- Implemented Sentry error tracking.
 - Added error tracking with Sentry.
 - Added option to disable Google Analytics in settings.
 - Added special wording when income earned per day is less than a copper.
 - Autoupdating pronouns on NPC edit.
+- More tavern size / wealth descriptions.
 
 ### Changed
 - Fixed bug with alchemist selling.
