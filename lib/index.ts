@@ -118,6 +118,7 @@ export * from './tavern/getTavernSin'
 export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
 
+export * from './town/createGuardName'
 export * from './town/getPredominantRace'
 export * from './town/getTownMaterial'
 export * from './town/getPolice'
