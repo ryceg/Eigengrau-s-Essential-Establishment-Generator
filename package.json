@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.26.0",
+    "@sentry/integrations": "^5.26.0",
     "@sentry/tracing": "^5.26.0",
     "jscodeshift": "^0.11.0",
     "ts-loader": "^8.0.5",
