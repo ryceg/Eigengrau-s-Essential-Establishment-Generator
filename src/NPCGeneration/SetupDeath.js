@@ -49,11 +49,13 @@ const death = {
         return lib.findProfession(town, npc).sector === 'arts'
       },
       function (town, npc) {
+        console.log('Hello! Creating a murderer.')
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass || 'commoner',
-          profession: npc.profession || null,
-          hasClass: npc.hasClass || false
+          profession: npc.profession,
+          isShallow: true
         })
+        setup.createRelationship(town, npc, murderer, 'murderer', `competing ${murderer.profession} who ${murderer.heshe} murdered.`)
         return `${npc.firstName} was murdered by ${setup.profile(murderer, `another competing ${murderer.profession}`)}.`
       }
     },
@@ -66,6 +68,7 @@ const death = {
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass
         })
+        setup.createRelationship(town, npc, murderer, 'murderer', `someone who ${murderer.heshe} murdered.`)
         npc.death.murderer = murderer.key
         return `${npc.firstName} was murdered by ${setup.profile(murderer, 'someone with a grudge')}.`
       }
@@ -183,17 +186,20 @@ const death = {
 setup.createDeadNPC = (town, base = {}) => {
   console.groupCollapsed('Creating a dead NPC!')
   const npc = setup.createNPC(town, base)
-  console.log('RIP ', npc.firstName)
+  console.log('RIP', npc.firstName)
   setup.npcDeath(town, npc, base)
   return npc
 }
 
 setup.npcDeath = (town, npc, base = {}) => {
   npc.passageName = 'NPCDeadProfile'
+  npc.death = {}
   npc.death = {
-    cause: base.cause || lib.weightedRandomFetcher(town, death.cause, npc),
-    // murderer: base.murderer || npc.death.murderer || false,
-    timeSinceDeath: base.timeSinceDeath || lib.dice(2, 60)
+    cause: lib.weightedRandomFetcher(town, death.cause, npc),
+    murderer: false,
+    timeSinceDeath: lib.dice(2, 60),
+    ...base,
+    ...npc.death
   }
   death.burialConditions(town, npc, base)
   return npc
