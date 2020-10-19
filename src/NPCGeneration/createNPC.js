@@ -1,4 +1,4 @@
-setup.createNPC = (town, base) => {
+setup.createNPC = (town, base = {}) => {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
