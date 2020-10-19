@@ -41,8 +41,7 @@ const familyUnits = {
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town, obj) =>
-      setup.getMarriages(town, State.variables.npcs[obj.father]).length > 1,
+    exclusions: (town, obj) => setup.getMarriages(town, State.variables.npcs[obj.father]).length > 1,
     descriptor: 'my single stepmother'
   },
   singleMother: {
@@ -52,8 +51,7 @@ const familyUnits = {
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town, obj) =>
-      setup.getMarriages(town, State.variables.npcs[obj.mother]).length > 1,
+    exclusions: (town, obj) => setup.getMarriages(town, State.variables.npcs[obj.mother]).length > 1,
     descriptor: 'my single stepfather'
   },
   singleFather: {
@@ -103,8 +101,7 @@ const familyUnits = {
   },
   streets: {
     probability: 1,
-    exclusions: (town, obj) => !obj.npc.knewParents &&
-      !['aristocracy', 'nobility'].includes(obj.npc.socialClass),
+    exclusions: (town, obj) => !obj.npc.knewParents && !['aristocracy', 'nobility'].includes(obj.npc.socialClass),
     descriptor: 'the streets'
   }
 }
