@@ -13,14 +13,11 @@ setup.npcNetIncome = (town, npc) => {
 setup.npcLifestyleStandard = (town, npc) => {
   console.log(`Returning ${npc.name}'s lifestyle standard...`)
   const income = setup.npcNetIncome(town, npc)
-  let selected
-  for (const lifestyleStandard in lib.lifestyleStandards) {
-    if (income >= lib.lifestyleStandards[lifestyleStandard].incomeThreshold) {
-      selected = lib.lifestyleStandards[lifestyleStandard]
-      return selected
+  for (const lifestyleStandard of Object.values(lib.lifestyleStandards)) {
+    if (income >= lifestyleStandard.incomeThreshold) {
+      return lifestyleStandard
     }
   }
-  return selected
 }
 
 setup.npcLifestyleExpenses = (town, npc) => {

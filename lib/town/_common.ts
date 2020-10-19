@@ -6,8 +6,6 @@ import { NPC } from '../npc-generation/_common'
 import { townData } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 
-import { Family } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
-
 export type EconomicIdeology = keyof typeof townData.economicIdeology
 
 export type PoliticalIdeology = keyof typeof townData.politicalIdeology
@@ -68,7 +66,7 @@ export interface Town {
   leaderType: string
   leader: NPC
   factions: Record<string, Faction>
-  families: Record<string, Family>
+  families: Record<string, unknown>
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
   politicalSource: PoliticalSource

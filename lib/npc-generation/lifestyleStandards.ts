@@ -1,4 +1,4 @@
-export const lifestyleStandards: Record<string, unknown> = {
+export const lifestyleStandards = {
   aristocratic: {
     dailyWagePercentage: 40,
     incomeThreshold: 1000,
