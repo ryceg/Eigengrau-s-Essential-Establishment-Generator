@@ -4,16 +4,18 @@ setup.createTemple = (town, opts = {}) => {
   const temple = (opts.newBuilding || setup.createBuilding)(town, 'temple')
   const data = setup.temple
 
+  const npc = setup.createNPC(town, {
+    profession: lib.random(['priest', 'priest', 'priest', 'priest', 'priest', 'cleric', 'cleric', 'cleric', 'cleric', 'druid']),
+    background: lib.random(['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage']),
+    ...opts.npc
+  })
+
   lib.assign(temple, {
     passageName: 'TempleOutput',
     initPassage: 'TempleOutput',
     buildingType: 'temple',
     wordNoun: data.name.wordNoun.random(),
-    associatedNPC: setup.createNPC(town, {
-      profession: ['priest', 'priest', 'priest', 'priest', 'priest', 'cleric', 'cleric', 'cleric', 'cleric', 'druid'].random(),
-      background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'sage', 'sage', 'sage'].random(),
-      ...opts.npc
-    }),
+    associatedNPC: npc,
     prayerSubject: data.prayerSubject.random(),
     dedicated: [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random(), setup.misc.religion.saint.random(), data.dedicated.random()].random(),
     knownFor: data.knownFor.random(),

@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  release:
+    types: [published, prereleased]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install twine compiler
+        run: yarn install-compiler
+
+      - name: Fix permissions
+        run: chmod +x ./.twine/tweego
+
+      - name: Build
+        run: yarn build
+
+      - name: Copy resources
+        run: cp -r ./src/Resources ./gh-pages
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: gh-pages
+
+      - name: Create a Sentry.io release
+        uses: tclindner/sentry-releases-action@v1.2.0
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: eigengraus-generator
+          SENTRY_PROJECT: eigengraus-generator
+        with:
+          tagName: ${{ github.ref }}
+          environment: production
+          sourceMapOptions: '{"include": ["gh-pages"]}'
