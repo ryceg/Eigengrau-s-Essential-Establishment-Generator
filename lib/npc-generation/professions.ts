@@ -767,7 +767,7 @@ export const professions: Record<string, Profession> = {
     sv: 10000,
     type: 'family',
     sector: 'family',
-    synonyms: ['prepubescent', 'kid', 'baby'],
+    synonyms: ['adolescent', 'late teenager', 'teenager', 'young teenager', 'youngster', 'prepubescent', 'toddler', 'young child', 'kid', 'baby', 'newborn'],
     description: 'a child, specifically one that is not working.',
     dailyWage: 4,
     socialClass: 'commoner',
