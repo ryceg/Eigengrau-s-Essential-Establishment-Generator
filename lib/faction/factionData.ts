@@ -3,7 +3,9 @@ import { WeightRecord } from '../types'
 
 interface FactionTypeData {
   leader: Leader
+  type: string
   wordNoun: string
+  probability: number
   livery?: {
     colours: {
       primary: string[]
@@ -52,6 +54,7 @@ export type FactionType = keyof typeof factionData
 
 export const factionData = constrainRecord<FactionTypeData>()({
   artisans: {
+    type: 'artisans',
     leader: {
       format: {
         group: 3,
@@ -76,6 +79,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 5,
     alliesList: {
       hitmen: 2,
       nobles: 4
@@ -197,6 +201,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   assassins: {
+    type: 'assassins',
     leader: {
       format: {
         group: 2,
@@ -224,6 +229,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'company',
+    probability: 4,
     alliesList: {
       thieves: 3,
       urchins: 3,
@@ -318,6 +324,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   bandits: {
+    type: 'bandits',
     leader: {
       format: {
         group: 2,
@@ -345,6 +352,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'gang',
+    probability: 2,
     alliesList: {
       hitmen: 4,
       urchins: 2
@@ -464,6 +472,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   bards: {
+    type: 'bards',
     leader: {
       format: {
         group: 5,
@@ -488,6 +497,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'college',
+    probability: 5,
     alliesList: {
       priests: 1,
       urchins: 2,
@@ -595,6 +605,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   clergy: {
+    type: 'clergy',
     leader: {
       format: {
         group: 5,
@@ -617,6 +628,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'church',
+    probability: 5,
     alliesList: {
       mercenaries: 1,
       commoners: 1,
@@ -715,6 +727,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   craftsmen: {
+    type: 'craftsmen',
     leader: {
       format: {
         group: 5,
@@ -737,6 +750,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 5,
     alliesList: {
       priests: 1,
       nobles: 3,
@@ -852,6 +866,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   druids: {
+    type: 'druids',
     leader: {
       format: {
         group: 5,
@@ -872,6 +887,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'grove',
+    probability: 5,
     alliesList: {
       bards: 1,
       rangers: 1
@@ -939,6 +955,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   foreigners: {
+    type: 'foreigners',
     leader: {
       format: {
         group: 5,
@@ -963,6 +980,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'embassy',
+    probability: 2,
     alliesList: {
       merchants: 2,
       mercenaries: 1,
@@ -1047,6 +1065,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   guards: {
+    type: 'guards',
     leader: {
       format: {
         group: 1,
@@ -1070,6 +1089,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'watch',
+    probability: 5,
     livery: {
       colours: {
         primary: [
@@ -1310,6 +1330,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   mercenaries: {
+    type: 'mercenaries',
     leader: {
       format: {
         group: 2,
@@ -1333,6 +1354,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'company',
+    probability: 3,
     alliesList: {
       hitmen: 4,
       nobles: 4,
@@ -1470,6 +1492,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   merchants: {
+    type: 'merchants',
     leader: {
       format: {
         group: 2,
@@ -1496,6 +1519,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 10,
     alliesList: {
       priests: 2,
       hitmen: 3,
@@ -1597,6 +1621,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   military: {
+    type: 'military',
     leader: {
       format: {
         group: 1,
@@ -1624,6 +1649,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'army',
+    probability: 3,
     alliesList: {
       hitmen: 4,
       nobles: 4,
@@ -1760,6 +1786,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   monks: {
+    type: 'monks',
     leader: {
       format: {
         group: 1,
@@ -1786,6 +1813,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'group',
+    probability: 4,
     alliesList: {
       priests: 4,
       artisans: 2
@@ -1869,6 +1897,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   nobles: {
+    type: 'nobles',
     leader: {
       format: {
         group: 1,
@@ -1890,6 +1919,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'society',
+    probability: 8,
     alliesList: {
       hitmen: 4,
       seers: 3
@@ -1978,6 +2008,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   priests: {
+    type: 'priests',
     leader: {
       format: {
         group: 1,
@@ -2004,6 +2035,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'college',
+    probability: 5,
     alliesList: {
       nobles: 3,
       artisans: 2
@@ -2116,6 +2148,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   rangers: {
+    type: 'rangers',
     leader: {
       format: {
         group: 4,
@@ -2142,6 +2175,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 4,
     alliesList: {
       priests: 2,
       nobles: 2,
@@ -2233,6 +2267,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   scholars: {
+    type: 'scholars',
     leader: {
       format: {
         group: 4,
@@ -2259,6 +2294,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 3,
     alliesList: {
       priests: 3,
       nobles: 2,
@@ -2379,6 +2415,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   seers: {
+    type: 'seers',
     leader: {
       format: {
         group: 4,
@@ -2405,6 +2442,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 3,
     alliesList: {
       priests: 4,
       nobles: 4
@@ -2499,6 +2537,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   thieves: {
+    type: 'thieves',
     leader: {
       format: {
         group: 1,
@@ -2524,6 +2563,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'guild',
+    probability: 10,
     alliesList: {
       thieves: 3,
       urchins: 3,
@@ -2644,6 +2684,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
     }
   },
   wizards: {
+    type: 'wizards',
     leader: {
       format: {
         group: 5,
@@ -2670,6 +2711,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
       }
     },
     wordNoun: 'college',
+    probability: 10,
     alliesList: {
       nobles: 2,
       artisans: 2,

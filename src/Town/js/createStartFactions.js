@@ -1,15 +1,11 @@
 
 setup.createStartFactions = town => {
   console.log('Creating starting factions...')
-  const factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']
+  // const factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']
   const factionsNumber = getFactionsNumber(town)
 
   for (let i = 0; i <= factionsNumber; i++) {
-    const tempFactionType = factions.random()
-    factions.delete(tempFactionType)
-    const tempFaction = setup.createFaction(town, {
-      type: tempFactionType
-    })
+    const tempFaction = setup.createFaction(town)
     town.factions[tempFaction.key] = tempFaction
   }
 
