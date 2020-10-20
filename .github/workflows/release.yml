@@ -26,7 +26,7 @@ jobs:
         run: yarn build
 
       - name: Copy resources
-        run: cp -r ./src/Resources ./gh-pages/src
+        run: cp -r ./src/Resources ./gh-pages/src/Resources
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
