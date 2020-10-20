@@ -1337,7 +1337,7 @@ setup.plothooks = [
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
-        profession: 'demolition company contractor'
+        profession: 'construction Worker'
       })
       return `Need demolition help: A demolition company ${setup.profile(npc, 'contractor')} is looking for outside help to clear out and then tear down a vacant house. The reward can be money or allowing the players to scavenge what they find inside the house. (What the company doesn’t tell the adventurers is that no one will do the job because of the powerful stench coming from the house. Exploring the house reveals a locked (mechanically or magically) wooden door leading to the basement of the house. The basement contains 1d4 Dretchs accidentally summoned by the previous owner.)`
     }
