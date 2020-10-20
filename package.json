@@ -19,8 +19,7 @@
     "build": "node scripts/build",
     "start": "node scripts/build --watch",
     "test": "jest",
-    "lint": "eslint **/*.{js,ts}",
-    "deploy": "gh-pages -d gh-pages"
+    "lint": "eslint **/*.{js,ts}"
   },
   "husky": {
     "hooks": {
@@ -49,7 +48,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^3.1.0",
     "husky": "^4.3.0",
     "jest": "^26.6.0",
     "lint-staged": "^10.4.2",

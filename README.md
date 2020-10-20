@@ -55,11 +55,6 @@ If you don't want to code, that's okay! The Generator is built out of a novel's 
 
 You can also find easy work to do on the generator [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
-## Deploying :cloud:
-
-To deploy the latest version, build the .html file as `gh-pages/index.html` and run either `npm run deploy`, or `yarn deploy`.
-
-
 ## Built With :hammer:
 
 * [Twine](https://twinery.org/) - The front end framework 
