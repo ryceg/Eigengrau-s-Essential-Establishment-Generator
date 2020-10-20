@@ -1157,7 +1157,7 @@ setup.plothooks = [
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
-        profession: 'postmaster'
+        profession: 'courier'
       })
       return `Horsebreaker needed! Inquire at the Post Office, ask for ${setup.profile(npc)}. The job is preparing young horses to accept the saddle and harness so they can be ridden or pull carts. They must also be taught basic commands and gaits. The job is successful if the handler can get the horses to calmly accept riders and obey simple orders.`
     }
