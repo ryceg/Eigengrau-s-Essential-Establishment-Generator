@@ -219,10 +219,7 @@ export const factionData = constrainRecord<FactionTypeData>()({
         background: [
           'charlatan',
           'soldier',
-          'criminal',
-          'kidnapper',
-          'forger',
-          'thief'
+          'criminal'
         ]
       }
     },
