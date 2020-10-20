@@ -135,7 +135,7 @@ setup.plothooks = [
       const npc = setup.createNPC(town, {
         background: 'noble',
         gender: 'man',
-        profession: 'museum curator',
+        profession: 'curator',
         lastName: 'Jones'
       })
       return `One member of the party is seen carrying an exotic weapon and the authority of the local museum is told about it. This ${setup.profile(npc, 'museum curator')} has been an adventurer and masters some kind of whip weapon. He prepares an ambush to steal the exotic weapon, yelling at the PCs on sight, 'That belongs in a museum!'`
