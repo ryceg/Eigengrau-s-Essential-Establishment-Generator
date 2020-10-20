@@ -10,17 +10,26 @@ export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
 
   let totalWeight = 0
   for (const prop of specsKeys) {
-    totalWeight += specs[prop]
+    const value = validateWeight(specs[prop])
+
+    totalWeight += value
   }
 
   const value = randomFloat(1)
 
   let sum = 0
   for (const prop of specsKeys) {
-    sum += specs[prop] / totalWeight
+    sum += validateWeight(specs[prop]) / totalWeight
     if (value <= sum) return prop
   }
 
   console.error('Invalid random roll!')
   return specsKeys[specsKeys.length - 1]
+}
+
+function validateWeight (weight?: number) {
+  if (typeof weight === 'number') {
+    return weight
+  }
+  throw new TypeError(`Weight "${weight}" is not a number.`)
 }
