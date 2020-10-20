@@ -1,9 +1,8 @@
-name: ReleaseWorkflow
+name: Release
 
 on:
   release:
     types: [published, prereleased]
-
 
 jobs:
   createRelease:
