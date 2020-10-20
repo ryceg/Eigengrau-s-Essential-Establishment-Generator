@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed blacksmith missions
 - Fixed children sometimes breaking professions
 - Fixed courier bug in plothooks
+- Fixed high thief background being invalid
 
 ## 2.6.1
 
