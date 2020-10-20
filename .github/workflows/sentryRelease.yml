@@ -6,11 +6,29 @@ on:
 
 
 jobs:
-  createSentryRelease:
+  createRelease:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: yarn install
+        
+      - name: Install twine compiler
+        run: yarn install-compiler
+
+      - name: Build
+        run: yarn build
+
+      - name: Copy resources
+        run: cp -r ./src/Resources ./gh-pages
+
+      - name: Publish
+        run: yarn gh-pages -d gh-pages
+
       - name: Create a Sentry.io release
         uses: tclindner/sentry-releases-action@v1.2.0
         env:
@@ -19,4 +37,5 @@ jobs:
           SENTRY_PROJECT: eigengraus-generator
         with:
           tagName: ${{ github.ref }}
-          environment: qa
+          environment: production
+          sourceMapOptions: '{"include": ["gh-pages"]}'
