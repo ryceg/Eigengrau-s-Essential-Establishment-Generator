@@ -35,7 +35,6 @@ setup.createStartBuildings = town => {
     for (const profession of professions[buildingType]) {
       console.log(professions[buildingType])
       if (town.professions[profession] && town.professions[profession].population > 0) {
-        console.log(profession, 'exists')
         buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
         if (town.professions[profession].population > 5) {
           // there's a LOT of this profession = a second
