@@ -28,8 +28,12 @@ jobs:
       - name: Copy resources
         run: cp -r ./src/Resources ./gh-pages
 
-      - name: Publish
-        run: yarn gh-pages -d gh-pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: gh-pages
 
       - name: Create a Sentry.io release
         uses: tclindner/sentry-releases-action@v1.2.0
