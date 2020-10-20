@@ -84,7 +84,7 @@ export const patreonCharacters = {
     profession: 'monk',
     hasClass: true,
     isThrowaway: false,
-    background: 'cultist',
+    background: 'acolyte',
     familyUnit: "Brugo's single father; Brugo has no clue who his mother was.",
     parentalLineage: "Brugo's father was an orc, and his mother a human. He doesn't know who she was, though.",
     professionOrigin: 'Brugo has always liked fight. Brugo discover that being punched is most common pain among outsiders. So Brugo decide that is friendliest profession. Brugo tried other pains but outsiders were lot more scared of them. Brugo get respect for good punches for curious reason.',
