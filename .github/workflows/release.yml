@@ -18,6 +18,9 @@ jobs:
         
       - name: Install twine compiler
         run: yarn install-compiler
+      
+      - name: Fix permissions
+        run: chmod +x ./.twine/tweego
 
       - name: Build
         run: yarn build
