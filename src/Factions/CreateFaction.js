@@ -24,9 +24,15 @@ setup.createFaction = (town, opts = {}) => {
   }, opts)
 
   if (typeof faction.type === 'undefined') {
-    console.error('faction type was not defined! Defaulting to merchants.')
+    console.warn('Faction type was somehow missed. Rerolling...')
     console.log(faction)
-    faction.type = 'merchants'
+    const type2 = lib.weightedRandomFetcher(town, lib.factionData, null, null, 'object').type
+    if (!type2) {
+      console.error('faction type was not defined! Defaulting to merchants.')
+      faction.type = 'merchants'
+    } else {
+      faction.type = type2
+    }
   }
 
   lib.assign(faction, {
