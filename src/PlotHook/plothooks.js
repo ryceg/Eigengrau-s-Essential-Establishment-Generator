@@ -1413,7 +1413,7 @@ setup.plothooks = [
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
-        profession: 'aspiring intern',
+        profession: 'squire',
         note: 'Wants to be an adventurer.',
         ageStage: 'young adult'
       })
