@@ -1,7 +1,7 @@
 
 
 body {
-  background-image: url("../src/Resources/bottom 0001.png");
+  background-image: url("/src/Resources/bottom 0001.png");
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
@@ -14,7 +14,7 @@ body {
 }
 
 #paper {
-  /* background-image: url("../src/Resources/0001.png"); */
+  /* background-image: url("/src/Resources/0001.png"); */
   position: absolute;
   left: 0;
   right: 0;
@@ -115,7 +115,7 @@ footer {
   height: 55px;
   bottom: -2em;
   left: 0;
-  background-image: url("../src/Resources/footer.png");
+  background-image: url("/src/Resources/footer.png");
   background-size: cover;
   z-index: 90;
   column-span: all;
@@ -411,7 +411,7 @@ blockquote {
     background-color: #e5e4c1;
     border-style: solid;
     border-width: 11px;
-    border-image: url("../src/Resources/note-wrap.png") 11;
+    border-image: url("/src/Resources/note-wrap.png") 11;
     border-image-outset: 9px 0;
     box-shadow: 1px 4px 14px #888
 }
@@ -447,7 +447,7 @@ blockquote h5 {
     font-family:ScalySans;
     border-style:solid;
     border-width:7px;
-    border-image: url("../src/Resources/sidebars.png") 12 round;
+    border-image: url("/src/Resources/sidebars.png") 12 round;
     border-image-outset: 4px;
     box-shadow:0 0 6px #faf7ea
 }
@@ -479,7 +479,7 @@ descriptive {
     font-family:ScalySans;
     border-style:solid;
     border-width:7px;
-    border-image: url("../src/Resources/sidebars.png") 12 round;
+    border-image: url("/src/Resources/sidebars.png") 12 round;
     border-image-outset:4px;
     box-shadow:0 0 6px #faf7ea
 }
@@ -552,7 +552,7 @@ width: 180px;
         left: 0;
         height: 55px;
         width: 100%;
-        background-image: url("../src/Resources/footer.png");
+        background-image: url("/src/Resources/footer.png");
         background-size: cover;
         column-span: all;
     }
@@ -2573,7 +2573,7 @@ pre code {
     border-image-outset:25px 17px;
     border-image-repeat:round;
     border-image-slice:150 200 150 200;
-    border-image-source: url("../src/Resources/table-wrap.png");
+    border-image-source: url("/src/Resources/table-wrap.png");
     border-image-width:47px;
 }
 .classTable h5{
