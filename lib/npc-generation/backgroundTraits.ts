@@ -183,7 +183,7 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
 
     ],
     bond: [
-      'I have a family, but I have no idea where they are.  One day, I hope to see them again.',
+      'I have a family, but I have no idea where they are. One day, I hope to see them again.',
       'I worked the land, I love the land, and I will protect the land.',
       'A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.',
       'My tools are symbols of my past life, and I carry them so that I will never forget my roots.',

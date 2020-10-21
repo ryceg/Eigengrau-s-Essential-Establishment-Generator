@@ -54,7 +54,7 @@ const diceHelpers = {
     }
 
     /*
-      we're going to roll each die.  we could generate a number
+      we're going to roll each die. we could generate a number
       between the max and min possible simply enough,
       but real dice have weights -- rolling 3d6 is far more likely to result
       in 10 or 11 than in 3 or 18, and pure randomization will not emulate this
