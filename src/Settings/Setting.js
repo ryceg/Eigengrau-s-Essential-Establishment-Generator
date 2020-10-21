@@ -1,4 +1,7 @@
 /* global Setting State */
+
+document.cookie = 'SameSite=Strict'
+
 Setting.addHeader('Content Settings')
 
 if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
