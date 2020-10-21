@@ -53,8 +53,6 @@ export const patreonCharacters = {
     idle: [],
     profession: 'wizard',
     background: 'sage',
-    professionOrigin: '',
-    backgroundOrigin: '',
     note: "Galder Fendt is the wizard of /u/SomeHairyGuy, a Reddit user who suffered from advanced pelvic RMS. It's his wish that his character, Galder, be used in games around the world. #CreateAgainstCancer"
   },
   "Brugo Gul'Moth": {

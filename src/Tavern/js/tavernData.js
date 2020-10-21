@@ -256,7 +256,7 @@ setup.initTavernData = () => {
             },
             associatedNPC: {
               relationship: 'bartender',
-              reciprocalRelationship: ''
+              reciprocalRelationship: 'exterminator'
             }
           },
           base: {
@@ -273,7 +273,7 @@ setup.initTavernData = () => {
             },
             associatedNPC: {
               relationship: 'bartender',
-              reciprocalRelationship: ''
+              reciprocalRelationship: 'gongfarmer'
             }
           },
           base: {
@@ -290,7 +290,7 @@ setup.initTavernData = () => {
             },
             associatedNPC: {
               relationship: 'bartender',
-              reciprocalRelationship: ''
+              reciprocalRelationship: 'employee'
             }
           },
           base: {
@@ -307,7 +307,7 @@ setup.initTavernData = () => {
             },
             associatedNPC: {
               relationship: 'bartender',
-              reciprocalRelationship: ''
+              reciprocalRelationship: 'employee'
             }
           },
           base: {
