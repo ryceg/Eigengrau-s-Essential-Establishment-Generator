@@ -24,6 +24,9 @@ jobs:
 
       - name: Build
         run: yarn build
+        
+      - name: Make directory
+        run: mkdir -p ./gh-pages/src
 
       - name: Copy resources
         run: cp -r ./src/Resources ./gh-pages/src/Resources
