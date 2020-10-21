@@ -1,5 +1,4 @@
-:: BiomeGeneration
-<div id="force-one-column">
+:: BiomeGeneration [force-one-column]
 <<nobr>><<run $("body").on("change", ".races-slider", function() {
   $(document).trigger(":liveupdate");
 });>>
@@ -60,4 +59,4 @@
 </table><</nobr>><</liveblock>>
 
 <<button "Save Changes">><<set $town to setup.createTown($tempTown)>><<goto "Start">>
-<</button>></div>
+<</button>>

@@ -1,4 +1,4 @@
-:: BiomeGenerationRefresh
+:: BiomeGenerationRefresh [force-one-column]
 \<<liveblock>><<set $listboxes to {
   terrain: Object.keys(lib.terrain),
   location: Object.keys(lib.terrain[$tempTown.terrain].location),

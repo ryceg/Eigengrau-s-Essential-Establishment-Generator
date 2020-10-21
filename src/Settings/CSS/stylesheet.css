@@ -50,7 +50,11 @@ body {
   column-count: 1;
 }
 
-#force-one-column {
+body[data-tags~="force-one-column"] {
+  column-count: 1;
+}
+
+.force-one-column {
   column-count: 1;
 }
 

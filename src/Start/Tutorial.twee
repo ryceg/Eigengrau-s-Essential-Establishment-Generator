@@ -1,4 +1,4 @@
-:: Tutorial
+:: Tutorial [force-one-column]
 
 <<set _town to $town || $tempTown>>
 Eigengrau's Generator procedurally generates towns that are ready out-of-the-box to read to players, complete with sociopolitics, descriptions, and those little touches of creativity that separate a hand-crafted tavern from the drudgery of improvising your umpteenth tavern on the spot.

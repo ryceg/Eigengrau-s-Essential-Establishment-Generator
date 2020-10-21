@@ -1,5 +1,5 @@
-:: NPCProfileEdit
-<div id="force-one-column"><<liveblock>><span class="auto-update"><h1><<include "NPCSaveEdits">><<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>></h1></span>
+:: NPCProfileEdit [force-one-column]
+<<liveblock>><span class="auto-update"><h1><<include "NPCSaveEdits">><<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>></h1></span>
 \<<set $currentPassage.deleteEnabled to true>>
 <<include "NPCEditListbox">><<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom lib.patreonCharacters>><</listbox>> -- <<button "Replace NPC">><<set $npcs[$currentPassage.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC">><<run setup.deleteNPC($npcs[$currentPassage.key])>><<goto "Start">><</button>>
 
@@ -44,4 +44,4 @@
 <<button "Save changes">>
   <<include "NPCSaveEdits">>
   <<goto "NPCProfileEdit">>
-<</button>><</liveblock>></div>
+<</button>><</liveblock>>

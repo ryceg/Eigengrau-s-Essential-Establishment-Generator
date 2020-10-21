@@ -1,5 +1,5 @@
 
-:: InitAlchemist [output]
+:: InitAlchemist [force-one-column]
 \<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
 \<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
 \<<set _name to $town.buildings[$currentPassage.index].name>>
