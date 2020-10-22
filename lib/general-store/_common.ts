@@ -3,7 +3,7 @@ import { NPC } from '../npc-generation/_common'
 export interface GeneralStore {
   name: string
   associatedNPC: NPC
-
+  assistant?: NPC
   roll: {
     sin: number
     size: number
