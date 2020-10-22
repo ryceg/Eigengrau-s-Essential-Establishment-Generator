@@ -80,6 +80,10 @@ export interface NPC {
   malefemale: string
   manwoman: string
   boygirl: string
+  parentNoun: string
+  siblingNoun: string
+  niblingNoun: string
+  childNoun: string
   note?: string
   descriptors: string[]
   descriptor: string
