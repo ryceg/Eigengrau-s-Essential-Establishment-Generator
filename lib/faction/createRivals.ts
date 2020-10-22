@@ -1,6 +1,6 @@
 import { dice } from '../src/dice'
 import { repeat, sumWeights } from '../src/utils'
-import { weightRandom } from '../src/weightRandom'
+import { validateWeight, weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { factionData } from './factionData'
 import { Faction } from './_common'
@@ -74,7 +74,7 @@ export function createRivals (faction: Faction): void {
 
     let tempGroup = weightRandom(weightedGroups)
 
-    weightedGroups[tempGroup] -= 1
+    weightedGroups[tempGroup] = validateWeight(weightedGroups[tempGroup]) - 1
 
     if (tempGroup === faction.type) {
       tempGroup = `rival ${tempGroup}`
