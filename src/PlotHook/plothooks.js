@@ -900,7 +900,7 @@ setup.plothooks = [
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
-        profession: 'entertainer'
+        profession: 'musician'
       })
       return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${setup.profile(building, null, 'town.buildings')} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${setup.profile(npc)}`
     }
