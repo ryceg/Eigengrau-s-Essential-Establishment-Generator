@@ -10,9 +10,7 @@ export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
 
   let totalWeight = 0
   for (const prop of specsKeys) {
-    const value = validateWeight(specs[prop])
-
-    totalWeight += value
+    totalWeight += validateWeight(specs[prop])
   }
 
   const value = randomFloat(1)
@@ -27,7 +25,7 @@ export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
   return specsKeys[specsKeys.length - 1]
 }
 
-function validateWeight (weight?: number) {
+export function validateWeight (weight?: number) {
   if (typeof weight === 'number') {
     return weight
   }
