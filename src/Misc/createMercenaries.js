@@ -143,83 +143,8 @@ setup.createMercenaries = function (town) {
       'scimitars and a shields'].random()
   }
 
-  switch (mercenaries.commanderTrait) {
-    case 'a brazen outlaw':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'criminal'
-      })
-      break
-    case 'a charismatic demagogue':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'charlatan',
-        calmTrait: 'charismatic',
-        stressTrait: 'manipulative'
-      })
-      break
-    case 'a mysterious foreigner':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'outlander'
-      })
-      break
-    case 'an outcast from a prominent family':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'noble'
-      })
-      break
-    case 'a ruthless killer':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'criminal'
-      })
-      break
-    case 'a dashing swashbuckler':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'sailor',
-        profession: 'fighter'
-      })
-      break
-    case 'a brutish thug':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'criminal',
-        profession: 'fighter'
-      })
-      break
-    case 'a celebrated war hero':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'soldier',
-        profession: 'fighter'
-      })
-      break
-    case 'a disgraced knight':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'criminal',
-        profession: 'paladin'
-      })
-      break
-    case 'a former arena champion':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'gladiator',
-        profession: 'fighter'
-      })
-      break
-    case 'an ex-gladiator':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'gladiator',
-        profession: 'fighter'
-      })
-      break
-    case 'an escaped slave':
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'criminal'
-      })
-      break
-    default:
-      mercenaries.captain = setup.createNPC(town, {
-        background: 'soldier',
-        profession: 'fighter'
-      })
-  }
+  mercenaries.captain = createMercenaryCaptain(mercenaries.commanderTrait, town)
 
-  const mercenariesCaptain = mercenaries.captain
   mercenaries.name = [
     `The ${lib.factionData.mercenaries.names.group.random()} of ${lib.factionData.mercenaries.names.adjective.random()} ${lib.factionData.mercenaries.names.main.random()}`,
     `The ${lib.factionData.mercenaries.names.group.random()} of ${lib.factionData.mercenaries.names.main.random()}`,
@@ -229,7 +154,79 @@ setup.createMercenaries = function (town) {
     lib.factionData.mercenaries.names.unique.random()
   ].random()
 
-  mercenaries.readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${setup.profile(mercenariesCaptain)}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
+  mercenaries.readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${setup.profile(mercenaries.captain)}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   mercenaries.tippyWord = lib.createTippyFull(mercenaries.readout, 'mercenaries')
   return mercenaries
+}
+
+/**
+ * @param {string} trait
+ * @param {Town} town
+ */
+function createMercenaryCaptain (trait, town) {
+  const { createNPC } = setup
+
+  switch (trait) {
+    case 'a brazen outlaw':
+      return createNPC(town, {
+        background: 'criminal'
+      })
+    case 'a charismatic demagogue':
+      return createNPC(town, {
+        background: 'charlatan',
+        calmTrait: 'charismatic',
+        stressTrait: 'manipulative'
+      })
+    case 'a mysterious foreigner':
+      return createNPC(town, {
+        background: 'outlander'
+      })
+    case 'an outcast from a prominent family':
+      return createNPC(town, {
+        background: 'noble'
+      })
+    case 'a ruthless killer':
+      return createNPC(town, {
+        background: 'criminal'
+      })
+    case 'a dashing swashbuckler':
+      return createNPC(town, {
+        background: 'sailor',
+        profession: 'fighter'
+      })
+    case 'a brutish thug':
+      return createNPC(town, {
+        background: 'criminal',
+        profession: 'fighter'
+      })
+    case 'a celebrated war hero':
+      return createNPC(town, {
+        background: 'soldier',
+        profession: 'fighter'
+      })
+    case 'a disgraced knight':
+      return createNPC(town, {
+        background: 'criminal',
+        profession: 'paladin'
+      })
+    case 'a former arena champion':
+      return createNPC(town, {
+        background: 'gladiator',
+        profession: 'fighter'
+      })
+    case 'an ex-gladiator':
+      return createNPC(town, {
+        background: 'gladiator',
+        profession: 'fighter'
+      })
+    case 'an escaped slave':
+      return createNPC(town, {
+        background: 'criminal'
+      })
+    default:
+      return createNPC(town, {
+        background: 'soldier',
+        profession: 'fighter'
+      })
+  }
 }

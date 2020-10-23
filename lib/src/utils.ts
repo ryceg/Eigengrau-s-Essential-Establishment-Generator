@@ -1,5 +1,6 @@
 import { DeepReadonly, WeightRecord } from '../types'
 import { randomFloat } from './randomFloat'
+import { validateWeight } from './weightRandom'
 
 /**
  * An alternative, stricter typed version of `Object.keys`.
@@ -142,11 +143,12 @@ export function sumWeights<T extends string> (
   defaultWeights: WeightRecord<T>,
   customWeights: WeightRecord<T>
 ) {
-  const finalWeights = { ...defaultWeights }
+  const finalWeights: WeightRecord<T> = {}
 
   for (const name of keys(customWeights)) {
-    const weight = customWeights[name]
-    finalWeights[name] += weight
+    const weight = validateWeight(customWeights[name])
+    const defaultWeight = defaultWeights[name] ?? 0
+    finalWeights[name] = defaultWeight + weight
   }
 
   return finalWeights
