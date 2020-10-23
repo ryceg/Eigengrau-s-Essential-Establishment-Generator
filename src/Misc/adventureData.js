@@ -73,19 +73,20 @@ setup.adventure = {
         const npc = setup.createNPC(town, {
           background: ['urchin', 'urchin', 'urchin', 'commoner', 'commoner', 'commoner', 'commoner', 'noble', 'noble'].random(),
           profession: 'slave',
-          hasClass: false,
           isThrowaway: true
         })
         return `rescue ${setup.profile(npc)}, a ${npc.descriptor} who was captured and taken prisoner.`
       },
       'discover the fate of a previous adventuring party.' (town, adventure) {
         const npc = setup.createNPC(town, {
+          professionType: 'dndClass',
           hasClass: true
         })
         return `discover the fate of ${setup.profile(npc)} and ${npc.hisher} adventuring party.`
       },
       'find an npc who disappeared in the area.' (town, adventure) {
         const npc = setup.createNPC(town, {
+          professionType: 'dndClass',
           hasClass: true
         })
         return `find ${setup.profile(npc)}, who disappeared in the area.`
@@ -120,10 +121,11 @@ setup.adventure = {
     },
     wilderness: {
       'assess the scope of a natural or unnatural disaster.' (town, adventure) {
-        return ''
+        return 'assess the scope of a natural or unnatural disaster.'
       },
       'escort an npc to a destination.' (town, adventure) {
         const npc = setup.createNPC(town, {
+          professionType: 'dndClass',
           hasClass: true
         })
         return `escort ${setup.profile(npc)} to a destination.`
@@ -345,6 +347,7 @@ setup.adventure = {
     'retired adventurer': {
       // var npc = setup.createNPC({
       isThrowaway: true,
+      professionType: 'dndClass',
       hasClass: true,
       ageStage: 'elderly'
       // })
@@ -454,6 +457,7 @@ setup.adventure = {
   ally: {
     'skilled adventurer': {
       // var npc = setup.createNPC(town, {
+      professionType: 'dndClass',
       hasClass: true,
       ageStage: 'elderly',
       isThrowaway: true
@@ -463,6 +467,7 @@ setup.adventure = {
     'inexperienced adventurer': {
       // var npc = setup.createNPC(town, {
       isThrowaway: true,
+      professionType: 'dndClass',
       hasClass: true
       // })
       // return setup.profile(npc, 'inexperienced adventurer')
@@ -508,6 +513,7 @@ setup.adventure = {
     'raving lunatic adventurer': {
       // var npc = setup.createNPC(town, {
       isThrowaway: true,
+      professionType: 'dndClass',
       hasClass: true,
       calmTrait: 'mildly crazy',
       stressTrait: 'totally insane'
