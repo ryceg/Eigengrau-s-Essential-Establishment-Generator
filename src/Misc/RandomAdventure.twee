@@ -1,19 +1,12 @@
 :: RandomAdventure
-<<nobr>><<linkreplace "<h4>Generate an adventure!</h4>">>
-<<set $adventure to setup.adventure.create($town)>>
-/* <<include "AdventureGenerator">> */
-    <<replace "#adventure">>
-          <blockquote>
-            <h3>Campaign</h3>
-            The players must $adventure.goal Their patron, a <<print setup.profile($adventure.patron, $adventure.patronType)>>, has also requested that they $adventure.sidequest Acting against the party's interests is $adventure.villainType, who will accomplish $adventure.villain.hisher goal $adventure.villainActions. The adventurers are aided by a <<print setup.profile($adventure.ally, $adventure.allyType)>>. They do this on the backdrop of <<print lib.articles.output($adventure.backdrop)>>.
+<<nobr>><<link "<h4>Roll up an adventure!</h4>">><<set $adventure to setup.adventure.create($town)>><</link>>
+<<if $adventure>>
+<span id="adventure">
+<blockquote>
+  <h3>Another campaign</h3>
+  The players must $adventure.goal Their patron, a <<print setup.profile($adventure.patron, $adventure.patronType)>>, has also requested that they $adventure.sidequest Acting against the party's interests is $adventure.villainType, who will accomplish $adventure.villain.hisher goal $adventure.villainActions. The adventurers are aided by a <<print setup.profile($adventure.ally, $adventure.allyType)>>. They do this on the backdrop of <<print lib.articles.output($adventure.backdrop)>>.
 
-            $adventure.introduction $adventure.climax $adventure.twist</blockquote>
-    <</replace>><<link "<h4>Try another adventure!</h4>">><<set $adventure to setup.adventure.create($town)>>
-        <<replace "#adventure">>
-              <blockquote>
-                <h3>Another campaign</h3>
-                The players must $adventure.goal Their patron, a <<print setup.profile($adventure.patron, $adventure.patronType)>>, has also requested that they $adventure.sidequest Acting against the party's interests is $adventure.villainType, who will accomplish $adventure.villain.hisher goal $adventure.villainActions. The adventurers are aided by a <<print setup.profile($adventure.ally, $adventure.allyType)>>. They do this on the backdrop of <<print lib.articles.output($adventure.backdrop)>>.
-
-                $adventure.introduction $adventure.climax $adventure.twist</blockquote><</replace>><</link>>
-<</linkreplace>>
-<span id="adventure"></span><</nobr>>
+  $adventure.introduction $adventure.climax $adventure.twist
+  </blockquote>
+</span>
+<</if>><</nobr>>
