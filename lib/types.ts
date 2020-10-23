@@ -8,7 +8,7 @@ export type KeysMatching<T, V> = {
 /**
  * Each value represents the weight of its key
  */
-export type WeightRecord<T extends string> = Record<T, number>
+export type WeightRecord<T extends string> = { [P in T]?: number }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type ReadonlyPrimitive = undefined | null | boolean | string | number | Function;

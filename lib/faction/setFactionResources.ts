@@ -1,7 +1,7 @@
 import { dice, fm } from '../src/dice'
 import { random } from '../src/random'
 import { repeat, sumWeights } from '../src/utils'
-import { weightRandom } from '../src/weightRandom'
+import { validateWeight, weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { factionData } from './factionData'
 import { Faction } from './_common'
@@ -90,7 +90,7 @@ export function setFactionResources (faction: Faction): void {
 
     const tempGroup = weightRandom(weightedResources)
 
-    weightedResources[tempGroup] -= 1
+    weightedResources[tempGroup] = validateWeight(weightedResources[tempGroup]) - 1
 
     resources.push(tempGroupSize + tempGroup)
   }

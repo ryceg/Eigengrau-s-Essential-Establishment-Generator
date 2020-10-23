@@ -1,10 +1,12 @@
 import { dice } from '../src/dice'
+import { WeightRecord } from '../types'
+import { BackgroundName } from './backgroundTraits'
 
 export type ClassName = 'barbarian' | 'bard' | 'cleric' | 'druid' | 'fighter' | 'monk' | 'paladin' | 'ranger' | 'rogue' | 'sorcerer' | 'warlock' | 'wizard'
 
 export interface ClassTraits {
   professionOrigin: string[]
-  background: string[]
+  background: WeightRecord<BackgroundName>
   weapon: string[]
   wealth(): number
 }
@@ -19,7 +21,15 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       "I was struck by lightning, but miraculously lived. Ever since that day, I've been stronger, faster, and able to push through any struggle.",
       'I needed an outlet to channel my anger, otherwise I would have snapped, and killed an innocent person.'
     ],
-    background: ['charlatan', 'criminal', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'outlander', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
+    background: {
+      'charlatan': 1,
+      'criminal': 1,
+      'folk hero': 1,
+      'hermit': 5,
+      'outlander': 5,
+      'soldier': 4,
+      'urchin': 1
+    },
     weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'two handaxes', 'two warhammers'],
     wealth: () => dice('2d4') * 1000
   },
@@ -32,7 +42,18 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'I joined one of the great colleges to learn old lore, and did music as an elective.',
       'I picked up an instrument one day, and found that I could play it perfectly.'
     ],
-    background: ['charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'noble', 'outlander', 'sailor', 'soldier', 'urchin'],
+    background: {
+      'charlatan': 2,
+      'criminal': 1,
+      'entertainer': 6,
+      'folk hero': 2,
+      'guild artisan': 2,
+      'noble': 1,
+      'outlander': 1,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers'],
     wealth: () => dice('5d4') * 1000
   },
@@ -44,7 +65,20 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       "I've always been devout, but it wasn't until I completed a pilgrimage to a sacred site that I found my true calling.",
       'I used to serve in the beauracracy of the church, but found the work unrewarding. Being able to spread the message to the farthest corners of the land is much more satisfying work.'
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 5,
+      'charlatan': 1,
+      'criminal': 1,
+      'entertainer': 1,
+      'folk hero': 3,
+      'guild artisan': 2,
+      'hermit': 2,
+      'noble': 3,
+      'sage': 4,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow'],
     wealth: () => dice('5d4') * 1000
   },
@@ -56,7 +90,18 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'I befriended a druid that frequented an old pub, and he convinced me that the world needed me to carry on his work as a druid.',
       'Whiie l was growing up, I saw spirits all around me— entities no one else could perceive. I sought out the druids to help me understand the visions, and communicate with these beings.'
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'charlatan', 'folk hero', 'folk hero', 'folk hero', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 3,
+      'charlatan': 1,
+      'folk hero': 3,
+      'hermit': 5,
+      'noble': 2,
+      'outlander': 4,
+      'sage': 3,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['a mace', 'a mace', 'a morning star', 'a club', 'a quarterstaff', 'a crossbow', 'a longbow', 'a longbow'],
     wealth: () => dice('2d4') * 1000
   },
@@ -69,7 +114,21 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'I joined the army, and learnt how to fight in a group as a team against a common enemy.',
       'I always had a knack for just about any weapon which I picked up.'
     ],
-    background: ['acolyte', 'charlatan', 'criminal', 'criminal', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'outlander', 'sage', 'sailor', 'sailor', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 1,
+      'charlatan': 1,
+      'criminal': 4,
+      'entertainer': 1,
+      'folk hero': 3,
+      'guild artisan': 1,
+      'hermit': 1,
+      'noble': 1,
+      'outlander': 2,
+      'sage': 1,
+      'sailor': 3,
+      'soldier': 6,
+      'urchin': 1
+    },
     weapon: ['a huge greataxe', 'a battleaxe', 'a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a long sword', 'a long bow', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
     wealth: () => dice('5d4') * 1000
   },
@@ -82,7 +141,19 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'I always felt a power within me, and sought out an order of monks to help me understand it and harness that energy for good.',
       'I was wild, and undisciplined as a child, until I realised the error of my ways. I sought out the monks to atone for my sins.'
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 4,
+      'charlatan': 1,
+      'criminal': 1,
+      'folk hero': 1,
+      'guild artisan': 1,
+      'hermit': 3,
+      'noble': 2,
+      'outlander': 1,
+      'sage': 3,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['fists', 'fists', 'fists', 'a quarterstaff', 'a quarterstaff'],
     wealth: () => dice('2d4') * 100
   },
@@ -95,7 +166,21 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'Evil must be opposed on all fronts, and I decided to be the first line of defense against such scum.',
       'Becoming a paladin was a natural consequence of my unwavering faith. I saw the need for the faith to be protected with sword and shield.'
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'soldier', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin'],
+    background: {
+      'acolyte': 4,
+      'charlatan': 1,
+      'criminal': 1,
+      'entertainer': 1,
+      'folk hero': 4,
+      'guild artisan': 1,
+      'hermit': 1,
+      'noble': 5,
+      'outlander': 1,
+      'sage': 1,
+      'sailor': 1,
+      'soldier': 5,
+      'urchin': 4
+    },
     weapon: ['a greatsword', 'a long sword', 'a long sword', 'a long sword', 'a short sword', 'a war pick', 'a falcheon', 'a halberdier'],
     wealth: () => dice('5d4') * 1000
   },
@@ -107,7 +192,20 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'I met a grizzled ranger who taught me the secrets of woodcraft and surviving in the wild.',
       'I served in the army, and led my division by scouting ahead, blazing trails and tracking our enemies.'
     ],
-    background: ['acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'folk hero', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'outlander', 'outlander', 'outlander', 'outlander', 'sage', 'sailor', 'soldier', 'soldier', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 2,
+      'charlatan': 1,
+      'criminal': 1,
+      'entertainer': 1,
+      'folk hero': 4,
+      'guild artisan': 1,
+      'hermit': 4,
+      'outlander': 4,
+      'sage': 1,
+      'sailor': 1,
+      'soldier': 3,
+      'urchin': 1
+    },
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'a long bow', 'a long bow', 'two daggers'],
     wealth: () => dice('4d4') * 1000
   },
@@ -121,7 +219,18 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       "I'm a sucker for a shiny bauble or bag of coins, as long as I can get it without risking life and limb.",
       "I just love the thrill of the heist. There's nothing that makes me feel more alive than taking something from right under someone's nose."
     ],
-    background: ['charlatan', 'charlatan', 'charlatan', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'criminal', 'folk hero', 'folk hero', 'guild artisan', 'guild artisan', 'hermit', 'noble', 'noble', 'outlander', 'sailor', 'soldier', 'urchin', 'urchin', 'urchin', 'urchin', 'urchin'],
+    background: {
+      'charlatan': 3,
+      'criminal': 6,
+      'folk hero': 2,
+      'guild artisan': 2,
+      'hermit': 1,
+      'noble': 2,
+      'outlander': 1,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 5
+    },
     weapon: ['a long sword', 'a long sword', 'two daggers', 'two daggers', 'two daggers', 'two daggers', 'a crossbow', 'a crossbow', 'a crossbow'],
     wealth: () => dice('4d4') * 1000
   },
@@ -133,7 +242,21 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'A monster attacked one of my friends when I was younger, and I lashed out in a burst of energy, saving my friend, but unlocking the torrent of power which I still struggle to control.',
       "After a magical conflagration, I realised that while I was unharmed, I had been fundamentally changed by the outburst of magical energy. I'm only just beginning to understand what has happened to me."
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'charlatan', 'charlatan', 'charlatan', 'criminal', 'entertainer', 'entertainer', 'folk hero', 'folk hero', 'guild artisan', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 4,
+      'charlatan': 4,
+      'criminal': 1,
+      'entertainer': 2,
+      'folk hero': 2,
+      'guild artisan': 1,
+      'hermit': 1,
+      'noble': 3,
+      'outlander': 1,
+      'sage': 3,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['a crossbow', 'a longsword', 'a longsword', 'a longsword', 'a long bow', 'two daggers', 'a dagger', 'a dagger'],
     wealth: () => dice('3d4') * 1000
   },
@@ -146,7 +269,21 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'My future patron visited me in my dreams, and offered great power in exchange for my servie.',
       'One of my ancestors had a pact with my patron, which bound me to the same fate.'
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 6,
+      'charlatan': 1,
+      'criminal': 1,
+      'entertainer': 1,
+      'folk hero': 1,
+      'guild artisan': 1,
+      'hermit': 6,
+      'noble': 3,
+      'outlander': 1,
+      'sage': 5,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a dagger', 'a dagger', 'a dagger'],
     wealth: () => dice('4d4') * 1000
   },
@@ -159,7 +296,21 @@ export const classTraits: Record<ClassName, ClassTraits> = {
       'While exploring the restricted section of a library, I came across a magical tome, which sparked the interest in me.',
       'I was a prodigy that demonstrated mastery of the arcane arts at a very young age. When I became old enough to set out on my own, I did so to continue my studies and expand my powers.'
     ],
-    background: ['acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'hermit', 'noble', 'noble', 'noble', 'outlander', 'sage', 'sage', 'sage', 'sage', 'sage', 'sailor', 'soldier', 'urchin'],
+    background: {
+      'acolyte': 6,
+      'charlatan': 1,
+      'criminal': 1,
+      'entertainer': 1,
+      'folk hero': 1,
+      'guild artisan': 1,
+      'hermit': 6,
+      'noble': 3,
+      'outlander': 1,
+      'sage': 5,
+      'sailor': 1,
+      'soldier': 1,
+      'urchin': 1
+    },
     weapon: ['a crossbow', 'a quarterstaff', 'a quarterstaff', 'a quarterstaff', 'a longsword', 'a longsword', 'a longsword', 'a dagger'],
     wealth: () => dice('4d4') * 1000
   }

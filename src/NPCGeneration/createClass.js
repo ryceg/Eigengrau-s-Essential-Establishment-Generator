@@ -12,7 +12,7 @@ setup.createClass = (town, npc) => {
   const professionTraits = lib.professionTraits[npc.profession]
 
   if (npc.hasClass !== false && dndClassTraits) {
-    background = dndClassTraits.background.random()
+    background = lib.weightRandom(dndClassTraits.background)
     classWeapon = dndClassTraits.weapon.random()
   } else if (npc.hasClass === false && professionTraits) {
     background = professionTraits.background.random()
