@@ -167,7 +167,7 @@ setup.initDocks = () => {
             note: 'This person has extremely dirty clothing on.'
           },
           'a suspiciously regal and seasick looking sailor': {
-            profession: 'seasick sailor',
+            profession: 'sailor',
             socialClass: 'nobility',
             note: 'This character is a noble in hiding.'
           }
@@ -595,7 +595,7 @@ setup.initDocks = () => {
           [90, 'huge'],
           [80, 'impressively sized'],
           [60, 'somewhat impressive'],
-          [50, ''],
+          [50, 'average sized'],
           [30, 'somewhat unimpressive'],
           [20, 'cluttered'],
           [10, 'cluttered and cramped']
