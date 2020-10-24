@@ -674,7 +674,7 @@ setup.initDocks = () => {
             }
           },
           base: {
-            socialClass: 'stevedore'
+            profession: 'stevedore'
           },
           description (building, npc) { return `${npc.firstName} hauls stuff off ships and onto ${building.name}.` }
         }
