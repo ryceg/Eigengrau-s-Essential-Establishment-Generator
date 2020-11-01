@@ -197,6 +197,8 @@ footer {
   .passage {
     columns: 2;
     column-fill: auto;
+    column-gap: 35px;
+    max-width: 60em;
   }  
   #illustration-buffer {
     column-span: all;
@@ -211,9 +213,12 @@ footer {
   body {
     font-size: 18px
   }
+
   .passage {
     columns: 2;
     column-fill: auto;
+    column-gap: 40px;
+    max-width: 65em;
   }  
   #illustration-buffer {
     column-span: all;
