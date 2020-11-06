@@ -1,6 +1,6 @@
 export type BackgroundName = 'acolyte' | 'criminal' | 'folk hero' | 'noble' | 'sage' | 'soldier' |
 'charlatan' | 'entertainer' | 'guild artisan' | 'gladiator' | 'hermit' | 'knight' | 'outlander' | 'pirate' | 'sailor' | 'urchin' |
-'commoner' | 'merchant' | 'child'
+'commoner' | 'merchant' | 'child' | 'peasant'
 
 interface BackgroundTrait {
   backgroundOrigin: string[]
@@ -525,7 +525,15 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
       ' '
     ],
     ideal: [
-      ' '
+      '<b>Integrity</b>. My morals and principles are the upmost things I respect.',
+      "<b>Obedience</b>. I have sworn to carry out my liege's will, and I will do so, no matter what it is.",
+      '<b>Chivalry</b>. I have a strict code of social mores that I strive to uphold and through them I strive to be a paragon of knighthood.',
+      "<b>Courtesy</b>. There is always a proper way to behave, no matter the social situation. As a symbol of my liege's power, it is important to also demonstrate courtly manners.",
+      '<b>Power</b>. I respect power and strive for more. I have greater ambitions than being sworn to a liege.',
+      '<b>Friendship</b>. I serve people best when I know them well and can sympathize with their struggles. I keep up strong personal connections with the towns in my region.',
+      '<b>Courage</b>. I have trained all my life to face horrors most would struggle to look in the eye.',
+      '<b>Piety</b>. I serve a power greater than any earthly lord. I fight for the glory of my deity.'
+
     ],
     personalityTrait: [
       ' '
@@ -535,12 +543,60 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
     ],
     wealth: 1000
   },
+  'peasant': {
+    backgroundOrigin: [
+      ' '
+    ],
+    ideal: [
+      '<b>Community</b>. With your friends, family, and neighbours, there\'s no winter too cold- together we\'ll be able pull through just about anything.',
+      '<b>Hospitality</b>. It is a sacred duty to take care of travelers who pass through our town. Besides, any stranger could be a god in disguise.',
+      '<b>Austerity</b>. Waste not, want not, and always save for the future.',
+      '<b>Piety</b>. The gods are very real and have strong influence over my life, so I define myself as a servant of the gods.',
+      '<b>Survival</b>. Everything I do is to ensure I will see another sunrise.',
+      '<b>Hedonism</b>. Life is going to be short, so I will do whatever I can to make my life filled with visceral pleasures.',
+      '<b>Family</b>. Keeping my family bloodline going is the most important thing I can do.',
+      '<b>Amity</b>. You are never too downtrodden to be a good person to someone.',
+      '<b>Ambition</b>. I will rise in status, I can\'t continue to live like a peasant my whole life.',
+      '<b>Duty</b>. Loyalty to my home and my community is something I can always rely on.',
+      '<b>Stoicism</b>. I must be strong for those that rely on me, no matter what.',
+      '<b>Diligency</b>. Working hard always gives fuits.',
+      '<b>Sloth</b>. Save your energy for stuff that matters.'
+    ],
+    personalityTrait: [
+      ' '
+    ],
+    bond: [
+      ' '
+    ],
+    flaw: [
+      'I\'m a penny pincher, and am always looking to save money.',
+      'I get anxious when presented with simple arithmetic.',
+      'I tend to hum tunelessly when I work.',
+      'I feel that people above me are stuck up, but those below me are lazy.',
+      'I struggle to live beyond my means, trying to keep appearances.',
+      'I steal tiny portions from markets when I pass by.',
+      'I\'d rather waste money on drink than provide my own needs. ',
+      'I am hilariously uneducated.',
+      'I am proud of my way of life, and I will stop myself from getting any richer.',
+      'I am immensely superstitious.',
+      'I am an easy person when offered money.',
+      'I am jealous of people who are better off than I, but I\'m too stuck in my ways to improve my circumstances.  So I just quietly seethe with stifled anger.'
+    ],
+    wealth: 10
+  },
   'merchant': {
     backgroundOrigin: [
       ' '
     ],
     ideal: [
-      ' '
+      '<b>Capitalism</b>. Capitalism inherently self-corrects, and the free market leads to riches for everyone.',
+      '<b>Mercantilism</b>. Maximise exports and minimise imports, and be as self sufficient as possible.',
+      '<b>Colonialism</b>. Create colonies which produces the raw resources which the homeland will make into finished goods',
+      '<b>Pious</b>. A proportion of their profits/goods is to be dedicated to a god or used to glorify them.',
+      '<b>Prosperity Gospel</b>. The gods reward those that are good with wealth. If you\'re earning money, it\'s because you\'re doing the right thing.',
+      '<b>Shared Rewards</b>. My employees deserve to be rewarded for their hard work when my business is prosperous.',
+      '<b>Charity</b>. Being able to help others is more important than lining your own pockets.',
+      '<b>Experience</b>. I love traveling and sharing items with other.'
     ],
     personalityTrait: [
       ' '
