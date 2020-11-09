@@ -46,12 +46,6 @@ interface Setup {
 }
 
 interface FamilyData {
-  absencePercent: number
-  oldAbsencePercent: number
-  veryOldAbsencePercent: number
-  orphanPercent: number
-  marriagePercent: number
-  remarriagePercent: number
   parentStageTable: string[string[]]
   parentAge(npc: NPC): number
   siblingAge(npc: NPC): number

@@ -1,3 +1,6 @@
+const MARRIAGE_PERCENT = 55
+const REMARRIAGE_PERCENT = 9
+
 setup.createFamily = function (town, npc) {
   const key = `${npc.lastName} family`
   const family = {
@@ -29,14 +32,14 @@ setup.expandFamily = function (town, npc) {
 
   if (node.marriages === undefined) {
     node.marriages = []
-    if (random(1, 100) <= setup.familyData.marriagePercent) {
+    if (random(1, 100) <= MARRIAGE_PERCENT) {
       const newMarriage = setup.createMarriage(town, family, npc)
       node.marriages.push(newMarriage)
     }
   }
 
   while (node.canRemarry) {
-    if (random(1, 100) <= setup.familyData.remarriagePercent) {
+    if (random(1, 100) <= REMARRIAGE_PERCENT) {
       const newMarriage = setup.createMarriage(town, family, npc, marriageMin)
       node.marriages.push(newMarriage)
     } else {

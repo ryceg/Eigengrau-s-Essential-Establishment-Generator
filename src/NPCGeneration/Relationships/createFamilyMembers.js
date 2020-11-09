@@ -1,3 +1,8 @@
+const ABSENCE_PERCENT = 74
+const OLD_ABSENCE_PERCENT = 40
+const VERY_OLD_ABSENCE_PERCENT = 70
+const ORPHAN_PERCENT = 10
+
 /**
  * General function for inserting individual relatives.
  * Returns the corresponding relative, or undefined
@@ -10,13 +15,13 @@ setup.createRelative = (town, family, base = {}, force = false) => {
 
   // Avoid secondary NPC spam
   if (!force) {
-    if (random(1, 100) <= setup.familyData.absencePercent) {
+    if (random(1, 100) <= ABSENCE_PERCENT) {
       return
     }
     if (lib.isOfAge('elderly', base.race, base.ageYears)) {
-      if (random(1, 100) <= setup.familyData.oldAbsencePercent) return undefined
+      if (random(1, 100) <= OLD_ABSENCE_PERCENT) return undefined
       if (base.ageYears >= lib.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
-        if (random(1, 100) <= setup.familyData.veryOldAbsencePercent) return undefined
+        if (random(1, 100) <= VERY_OLD_ABSENCE_PERCENT) return undefined
       }
     }
   }
@@ -35,7 +40,7 @@ setup.createRelative = (town, family, base = {}, force = false) => {
 setup.createParentage = (town, family, npc, forceFather = false, forceMother = false) => {
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {
-    if (random(1, 100) <= setup.familyData.orphanPercent &&
+    if (random(1, 100) <= ORPHAN_PERCENT &&
       !forceFather && !forceMother) {
       node.parentMarriage = null
     } else {
