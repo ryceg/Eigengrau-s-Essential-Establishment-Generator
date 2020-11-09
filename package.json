@@ -34,9 +34,9 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
-    "@types/jquery": "^3.5.3",
-    "@types/twine-sugarcube": "^2.33.0",
-    "@types/webpack": "^4.41.22",
+    "@types/jquery": "^3.5.4",
+    "@types/twine-sugarcube": "^2.33.1",
+    "@types/webpack": "^4.41.24",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "chalk": "^4.0.0",
