@@ -26,62 +26,64 @@ export const townData = {
       // this means that refactoring edit pages will have to wait until the macro is updated.
       wealth: {
         tooltip: 'How wealthy is the town?',
-        preceding: 'Dirt poor ---- Fabulously wealthy'
+        preceding: 'Dirt poor -- Fabulously wealthy'
+      },
+      size: {
+        tooltip: 'How much land is covered?',
+        preceding: 'Tiny -- Sprawling'
       },
       reputation: {
         isHidden: true,
         tooltip: 'How well known is this town?',
-        preceding: 'Virtually unheard of ---- Known throughout the region'
+        preceding: 'Virtually unheard of -- Known throughout the region'
       },
       religiosity: {
         tooltip: 'How religious are they here?',
-        preceding: 'Atheistic ---- Extremely Religious: '
-      },
-      sin: {
-        tooltip: 'How much of a culture of crime is there?',
-        preceding: 'Squeaky clean ---- Wretched hive of scum and villainy'
+        preceding: 'Atheistic -- Extremely Religious: '
       },
       diversity: {
+        isHidden: true,
         tooltip: 'How diverse is the population?',
-        preceding: 'Monoracial ---- Totally diverse'
-      },
-      arcana: {
-        tooltip: 'How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic."',
-        preceding: 'Restricted magic ---- Regulated magic: '
-      },
-      size: {
-        tooltip: 'How much land is covered?',
-        preceding: 'Tiny ---- Sprawling'
+        preceding: 'Monoracial -- Totally diverse'
       },
       economics: {
         tooltip: 'How free is the market, and how many regulations are there?',
-        preceding: 'Free Trade ---- Regulated trade: '
+        preceding: 'Free Trade -- Regulated trade: '
       },
       welfare: {
         tooltip: 'How do they treat their less fortunate citizens?',
-        preceding: 'Indifferent welfare ---- Benevolent Welfare: '
+        preceding: 'Indifferent welfare -- Benevolent Welfare: '
       },
       military: {
         tooltip: 'How heavy is the armed presence here?',
-        preceding: 'Relaxed military ---- Strict military: '
+        preceding: 'Relaxed military -- Strict military: '
       },
       law: {
         tooltip: 'How do they treat law-breakers here?',
-        preceding: 'Reform-based law ---- Punishment-based law: '
+        preceding: 'Reform-based law -- Punishment-based law: '
+      },
+      arcana: {
+        tooltip: 'How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.',
+        preceding: 'Restricted magic -- Regulated magic: '
       },
       magic: {
         isHidden: true,
         tooltip: 'How common is it for a peasant to see magic here?',
-        preceding: 'Gritty low-magic ---- Magic is commonplace'
+        preceding: 'Gritty low-magic -- Magic is commonplace'
+      },
+      sin: {
+        tooltip: 'How much of a culture of crime is there?',
+        preceding: 'Squeaky clean -- Wretched hive of scum and villainy'
       },
       equality: {
+        isHidden: true,
         tooltip: 'How sexist is the society here?',
-        preceding: 'Totally sexist and oppressive ---- Bastion of equality'
+        preceding: 'Totally sexist and oppressive -- Bastion of equality'
       },
       guardFunding: {
         isHidden: true,
         tooltip: 'How much funding is put towards keeping the peace here?',
-        preceding: 'Next to no funding ---- Well funded'
+        preceding: 'Next to no funding -- Well funded'
       }
     },
     wealth: [
