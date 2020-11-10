@@ -4,11 +4,12 @@
     <th>Attribute Slider</th>
     <th>Percentage Value</th>
   </tr>
-<tr><td class="tip" title="How free is the market, and how many regulations are there?">Free Trade -- Regulated trade:</td><td style="21vw"> <<numberslider "$town.roll.economics" $town.roll.economics 1 100 1>></td></tr>
-<tr><td class="tip" title="How do they treat their less fortunate citizens?">Indifferent welfare -- Benevolent Welfare:</td><td style="21vw"> <<numberslider "$town.roll.welfare" $town.roll.welfare 1 100 1>></td></tr>
-<tr><td class="tip" title="How heavy is the armed presence here?">Relaxed military -- Strict military:</td><td style="21vw"> <<numberslider "$town.roll.military" $town.roll.military 1 100 1>></td></tr>
-<tr><td class="tip" title="How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.">Restricted magic -- Regulated magic:</td><td style="21vw"> <<numberslider "$town.roll.arcana" $town.roll.arcana 1 100 1>></td></tr>
-<tr><td class="tip" title="How do they treat law-breakers here?">Reform-based law -- Punishment-based law:</td><td style="21vw"> <<numberslider "$town.roll.law" $town.roll.law 1 100 1>></td></tr>
-<tr><td class="tip" title="How religious are they here?">Atheistic -- Extremely Religious:</td><td style="21vw"> <<numberslider "$town.roll.religiosity" $town.roll.religiosity 1 100 1>></td></tr>
+  <<nobr>><<for _key, _obj range lib.townData.rollData.sliderTooltips>><<set _tooltip to lib.townData.rollData.sliderTooltips[_key].tooltip>>
+  <<if _obj.isHidden>>
+    <<continue>>
+    <<else>>
+    <tr><td><<print lib.createTippyFull(_tooltip, lib.townData.rollData.sliderTooltips[_key].preceding)>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr>
+    <</if>>
+  <</for>><</nobr>>
 <tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></td></tr>
 </table>
