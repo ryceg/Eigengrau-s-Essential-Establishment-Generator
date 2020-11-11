@@ -65,9 +65,6 @@ setup.createNPC = (town, base = defaultBase) => {
     pronouns: {
 
     },
-    relationships: {
-
-    },
     religion: {
 
     },
@@ -137,6 +134,9 @@ setup.createNPC = (town, base = defaultBase) => {
 
     family: undefined
   }, base)
+
+  // Add npc to npcRelations
+  town.npcRelations[npc.key] = []
 
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race

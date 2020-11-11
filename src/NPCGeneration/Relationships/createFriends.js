@@ -149,14 +149,14 @@ setup.createFriends = (town, npc) => {
   console.groupEnd()
 }
 
-function basicFilterNpc (npc, otherNpc) {
-  return !otherNpc.relationships[npc.key] && otherNpc.key !== npc.key
+function basicFilterNpc (town, npc, otherNpc) {
+  return !town.npcRelations[otherNpc.key].map(r => r.targetNpcKey).includes(npc.key) && otherNpc.key !== npc.key
 }
 
 function sameSocialClass (town, npcs, npc) {
   console.log('Looking for a friend of the same social class...')
   const friend = Object.values(npcs).find(otherNpc => {
-    return basicFilterNpc(npc, otherNpc) && otherNpc.socialClass === npc.socialClass
+    return basicFilterNpc(town, npc, otherNpc) && otherNpc.socialClass === npc.socialClass
   })
   console.log('friend:')
   console.log(friend)

@@ -61,6 +61,7 @@ setup.createTown = (base = {}) => {
       panhandling: false
     },
     buildingRelations: [],
+    npcRelations: {},
     population: lib.townData.type[type].population(),
     _demographicPercentile: {},
     // Clone the raw demographic data for the town type.

@@ -18,6 +18,7 @@ setup.createTownBiome = (base = {}) => {
     factions: {
     },
     buildings: [],
+    npcRelations: {},
     families: {
     },
     population: lib.townData.type[type].population(),

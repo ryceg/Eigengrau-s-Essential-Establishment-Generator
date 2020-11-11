@@ -1,6 +1,7 @@
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, GenderName, AgeName } from './raceTraits'
+import { Town } from '../town/_common'
 
 export type SocialClassName =
   | 'indentured servitude'
@@ -38,7 +39,6 @@ export interface NPC {
   background: BackgroundName
   roll: Record<string, number>
   partnerID?: string
-  relationships: Record<string, string>
   wealth: number
   finances: {
     creditors: Record<string, number>
@@ -113,5 +113,11 @@ export interface Relationship {
     profession?: string
     socialClass?: string
   }
-  exclusions?(town: unknown, npc: NPC): boolean | undefined
+  exclusions?(town: Partial<Town>, npc: NPC): boolean | undefined
+}
+
+export interface NpcRelationship {
+  targetNpcKey: string
+  relation: string
+  description: string | null
 }

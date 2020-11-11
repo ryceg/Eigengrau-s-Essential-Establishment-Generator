@@ -110,12 +110,14 @@ setup.createGeneralStoreName = (town, generalStore) => {
     case 2:
       generalStore.name = `${associatedNPC.firstName} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, associatedNPC, generalStore.assistant, family, generalStore.assistant.relationships[associatedNPC.key])
+      setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
+        town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     case 3:
       generalStore.name = `The ${noun} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, associatedNPC, generalStore.assistant, family, generalStore.assistant.relationships[associatedNPC.key])
+      setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
+        town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     case 4:
       generalStore.name = `The ${adjective} ${rider}`
