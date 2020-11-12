@@ -19,23 +19,31 @@ setup.townSquare = {
     ]
   },
   rollData: {
-    cleanliness: [
-      [80, 'astonishingly well-kempt'],
-      [70, 'surprisingly clean'],
-      [50, 'relatively tidy'],
-      [40, 'somewhat dirty'],
-      [30, 'rather dirty'],
-      [20, 'riddled with refuse'],
-      [10, 'overflowing with refuse and other garbage']
-    ],
-    size: [
-      [80, 'huge and hectic'],
-      [70, 'large and bustling'],
-      [50, 'relatively large'],
-      [40, 'rather packed'],
-      [20, 'somewhat cramped'],
-      [10, 'little more than an empty lot']
-    ]
+    cleanliness: {
+      description: 'How clean is the town square?',
+      preceding: 'Town Square Cleanliness:',
+      rolls: [
+        [80, 'astonishingly well-kempt'],
+        [70, 'surprisingly clean'],
+        [50, 'relatively tidy'],
+        [40, 'somewhat dirty'],
+        [30, 'rather dirty'],
+        [20, 'riddled with refuse'],
+        [10, 'overflowing with refuse and other garbage']
+      ]
+    },
+    size: {
+      description: 'How large is the town square?',
+      preceding: 'Town Square Size:',
+      rolls: [
+        [80, 'huge and hectic'],
+        [70, 'large and bustling'],
+        [50, 'relatively large'],
+        [40, 'rather packed'],
+        [20, 'somewhat cramped'],
+        [10, 'little more than an empty lot']
+      ]
+    }
   },
   feature: () => [
     // the town square features _______

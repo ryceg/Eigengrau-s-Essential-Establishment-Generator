@@ -48,17 +48,20 @@ export interface BuildingMaterial {
     wealth: string
 }
 export interface BuildingRolls {
-  activity: number
-  cleanliness: number
-  diversity: number
-  expertise: number
-  magic: number
-  population: number
-  reputation: number
-  roughness: number
-  sin: number
-  size: number
   wealth: number
+  cleanliness: number
+  size: number
+  landSize?: number
+  age?: number
+  condition?: number
+  activity?: number
+  diversity?: number
+  expertise?: number
+  magic?: number
+  population?: number
+  reputation?: number
+  roughness?: number
+  sin?: number
 }
 
 export interface BuildingRelationship {
