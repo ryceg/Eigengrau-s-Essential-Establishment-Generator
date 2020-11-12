@@ -138,7 +138,7 @@ setup.smithy = {
       {
         expertise: 10,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}. It's obviously amateurish. $${smithy.associatedNPC.firstName} moves around the shop, unsure of $${smithy.associatedNPC.himherself}, betraying ${smithy.associatedNPC.hisher} lack of skills.`
+        note: `On the bench lies a ${smithy.weapons.random()}. It's obviously amateurish. ${smithy.associatedNPC.firstName} moves around the shop, unsure of ${smithy.associatedNPC.himherself}, betraying ${smithy.associatedNPC.hisher} lack of skills.`
       }
     ],
     lookAround: smithy => [
