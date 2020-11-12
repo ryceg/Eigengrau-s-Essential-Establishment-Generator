@@ -143,12 +143,12 @@ setup.createTown = (base = {}) => {
     },
     get wealth () {
       // console.log('Getting town wealth.')
-      let wealth = lib.townData.rollData.wealth.find(descriptor => {
+      let wealth = lib.townData.rollData.wealth.rolls.find(descriptor => {
         return descriptor[0] <= this.roll.wealth
       })
       if (wealth === undefined) {
         console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
-        wealth = lib.townData.rollData.wealth[lib.townData.rollData.wealth.length - 1]
+        wealth = lib.townData.rollData.wealth.rolls[lib.townData.rollData.wealth.rolls.length - 1]
       }
       this._wealth = wealth[1]
       return this._wealth
@@ -232,8 +232,8 @@ setup.createTown = (base = {}) => {
     town.roll.equality = 100
   }
 
-  lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender], 'equality', 'equality', 1)
-  lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender], 'equalityDescription', 'equality', 2)
+  lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender].rolls, 'equality', 'equality', 1)
+  lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender].rolls, 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = lib.getTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
 

@@ -9,8 +9,6 @@ setup.createCastle = (town, opts = {}) => {
     passageName: 'CastleOutput',
     initPassage: 'CastleOutput',
     buildingType: 'castle',
-    age: data.rollData.age.random(),
-    condition: data.rollData.condition.random(),
     defense: {
       reason: [
         data.location[town.location].defenseReason.random()
@@ -28,11 +26,15 @@ setup.createCastle = (town, opts = {}) => {
   lib.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   castle.dungeon.passageName = 'CastleOutput'
   if (!castle.roll.landSize) castle.roll.landSize = lib.dice(2, 50)
+  if (!castle.roll.condition) castle.roll.condition = lib.dice(2, 50)
+  if (!castle.roll.age) castle.roll.age = lib.dice(2, 50)
 
-  lib.defineRollDataGetter(castle, setup.castle.rollData, 'size', 'size', 1)
-  lib.defineRollDataGetter(castle, setup.castle.rollData, 'sizeDescriptive', 'size', 2)
-  lib.defineRollDataGetter(castle, setup.castle.rollData, 'landSize', 'landSize', 1)
-  lib.defineRollDataGetter(castle, setup.castle.rollData, 'landSizeDescriptive', 'landSize', 2)
+  lib.defineRollDataGetter(castle, setup.castle.rollData.age.rolls, 'age', 'age', 1)
+  lib.defineRollDataGetter(castle, setup.castle.rollData.condition.rolls, 'condition', 'condition', 1)
+  lib.defineRollDataGetter(castle, setup.castle.rollData.size.rolls, 'size', 'size', 1)
+  lib.defineRollDataGetter(castle, setup.castle.rollData.size.rolls, 'sizeDescriptive', 'size', 2)
+  lib.defineRollDataGetter(castle, setup.castle.rollData.landSize.rolls, 'landSize', 'landSize', 1)
+  lib.defineRollDataGetter(castle, setup.castle.rollData.landSize.rolls, 'landSizeDescriptive', 'landSize', 2)
 
   castle.tippyDescription = `${lib.articles.output(castle.wordNoun).toUpperFirst()} built ${castle.age} that is known for ${castle.knownFor}.`
   lib.createBuildingRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'place of employment' })
