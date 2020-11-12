@@ -21,86 +21,25 @@ export const townData = {
     [0, 'wretched']
   ],
   rollData: {
-    sliderTooltips: {
-      // currently, the <<numberslider>> macro does not support capturing temporary variables
-      // this means that refactoring edit pages will have to wait until the macro is updated.
-      wealth: {
-        tooltip: 'How wealthy is the town?',
-        preceding: 'Dirt poor -- Fabulously wealthy'
-      },
-      size: {
-        tooltip: 'How much land is covered?',
-        preceding: 'Tiny -- Sprawling'
-      },
-      reputation: {
-        isHidden: true,
-        tooltip: 'How well known is this town?',
-        preceding: 'Virtually unheard of -- Known throughout the region'
-      },
-      religiosity: {
-        tooltip: 'How religious are they here?',
-        preceding: 'Atheistic -- Extremely Religious: '
-      },
-      diversity: {
-        isHidden: true,
-        tooltip: 'How diverse is the population?',
-        preceding: 'Monoracial -- Totally diverse'
-      },
-      economics: {
-        tooltip: 'How free is the market, and how many regulations are there?',
-        preceding: 'Free Trade -- Regulated trade: '
-      },
-      welfare: {
-        tooltip: 'How do they treat their less fortunate citizens?',
-        preceding: 'Indifferent welfare -- Benevolent Welfare: '
-      },
-      military: {
-        tooltip: 'How heavy is the armed presence here?',
-        preceding: 'Relaxed military -- Strict military: '
-      },
-      law: {
-        tooltip: 'How do they treat law-breakers here?',
-        preceding: 'Reform-based law -- Punishment-based law: '
-      },
-      arcana: {
-        tooltip: 'How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.',
-        preceding: 'Restricted magic -- Regulated magic: '
-      },
-      magic: {
-        isHidden: true,
-        tooltip: 'How common is it for a peasant to see magic here?',
-        preceding: 'Gritty low-magic -- Magic is commonplace'
-      },
-      sin: {
-        tooltip: 'How much of a culture of crime is there?',
-        preceding: 'Squeaky clean -- Wretched hive of scum and villainy'
-      },
-      equality: {
-        isHidden: true,
-        tooltip: 'How sexist is the society here?',
-        preceding: 'Totally sexist and oppressive -- Bastion of equality'
-      },
-      guardFunding: {
-        isHidden: true,
-        tooltip: 'How much funding is put towards keeping the peace here?',
-        preceding: 'Next to no funding -- Well funded'
-      }
+    wealth: {
+      tooltip: 'How wealthy is the town?',
+      preceding: 'Dirt poor -- Fabulously wealthy',
+      rolls: [
+        [95, 'kingly'],
+        [80, 'aristocratic'],
+        [70, 'wealthy'],
+        [60, 'comfortable'],
+        [50, 'modest'],
+        [25, 'poor'],
+        [15, 'squalid'],
+        [0, 'destitute']
+      ]
     },
-    wealth: [
-      [95, 'kingly'],
-      [80, 'aristocratic'],
-      [70, 'wealthy'],
-      [60, 'comfortable'],
-      [50, 'modest'],
-      [25, 'poor'],
-      [15, 'squalid'],
-      [0, 'destitute']
-    ],
     equality: {
-      // due to the structure of lib.defineRollDataGetter, we need the equality to be the key to the array.
-      // therefore, equality.man.equality is working as intended
       man: {
-        equality: [
+        tooltip: 'How sexist is the society here?',
+        preceding: 'Totally sexist and oppressive -- Bastion of equality',
+        rolls: [
           [90, 'egalitarian', "Gender is totally irrelevant to one's place in society here."],
           [80, 'egalitarian', "Gender is irrelevant to one's place in society here."],
           [70, 'egalitarian', 'It is a relatively egalitarian society, although men are expected to be the primary breadwinners.'],
@@ -112,7 +51,9 @@ export const townData = {
         ]
       },
       woman: {
-        equality: [
+        tooltip: 'How sexist is the society here?',
+        preceding: 'Totally sexist and oppressive -- Bastion of equality',
+        rolls: [
           [90, 'egalitarian', "Gender is totally irrelevant to one's place in society here."],
           [80, 'egalitarian', "Gender is irrelevant to one's place in society here."],
           [70, 'egalitarian', 'Femininity is celebrated, and women enjoy equal opportunities here.'],
@@ -122,6 +63,69 @@ export const townData = {
           [0, 'overwhelmingly matriarchal', 'Almost all positions of authority are occupied by women.']
         ]
       }
+    },
+    size: {
+      tooltip: 'How much land is covered?',
+      preceding: 'Tiny -- Sprawling'
+    },
+    reputation: {
+      tooltip: 'How well known is this town?',
+      preceding: 'Virtually unheard of -- Known throughout the region',
+      isHidden: true,
+      hasRolls: false
+    },
+    religiosity: {
+      tooltip: 'How religious are they here?',
+      preceding: 'Atheistic -- Extremely Religious',
+      hasRolls: false
+    },
+    diversity: {
+      isHidden: true,
+      tooltip: 'How diverse is the population?',
+      preceding: 'Monoracial -- Totally diverse',
+      hasRolls: false
+    },
+    economics: {
+      tooltip: 'How free is the market, and how many regulations are there?',
+      preceding: 'Free Trade -- Regulated trade:',
+      hasRolls: false
+    },
+    welfare: {
+      tooltip: 'How do they treat their less fortunate citizens?',
+      preceding: 'Indifferent welfare -- Benevolent Welfare:',
+      hasRolls: false
+    },
+    military: {
+      tooltip: 'How heavy is the armed presence here?',
+      preceding: 'Relaxed military -- Strict military:',
+      hasRolls: false
+    },
+    law: {
+      tooltip: 'How do they treat law-breakers here?',
+      preceding: 'Reform-based law -- Punishment-based law:',
+      hasRolls: false
+    },
+    arcana: {
+      tooltip: 'How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.',
+      preceding: 'Restricted magic -- Regulated magic:',
+      hasRolls: false
+    },
+    magic: {
+      tooltip: 'How common is it for a peasant to see magic here?',
+      preceding: 'Gritty low-magic -- Magic is commonplace',
+      isHidden: true,
+      hasRolls: false
+    },
+    sin: {
+      tooltip: 'How much of a culture of crime is there?',
+      preceding: 'Squeaky clean -- Wretched hive of scum and villainy',
+      hasRolls: false
+    },
+    guardFunding: {
+      tooltip: 'How much funding is put towards keeping the peace here?',
+      preceding: 'Next to no funding -- Well funded',
+      isHidden: true,
+      hasRolls: false
     }
   },
   type: {
