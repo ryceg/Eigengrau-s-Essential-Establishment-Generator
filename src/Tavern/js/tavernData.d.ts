@@ -4,13 +4,41 @@ interface Setup {
   initTavernData(): void
   tavern: {
     rollData: {
-      wealth: [number, string, number][]
-      size: [number, string][]
-      cleanliness: [number, string][]
-      bedCleanliness: [number, string][]
-      expertise: [number, string][]
-      roughness: [number, string][]
-      reputation: [number, string][]
+      wealth: {
+        description: string
+        preceding: string
+        rolls: [number, string, number][]
+      }
+      size: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      cleanliness: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      bedCleanliness: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      expertise: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      roughness: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      reputation: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
     }
     games: TavernGame[]
     stageDescriptor: string[]
