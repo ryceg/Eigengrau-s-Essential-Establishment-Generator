@@ -24,17 +24,17 @@ interface Setup {
         preceding: string
         rolls: [number, string][]
       }
-      expertise: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
       roughness: {
         description: string
         preceding: string
         rolls: [number, string][]
       }
       reputation: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      sin: {
         description: string
         preceding: string
         rolls: [number, string][]
