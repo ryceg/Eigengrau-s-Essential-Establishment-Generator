@@ -66,7 +66,7 @@ export interface Town {
   townMaterial: string
   leaderType: string
   leader: NPC
-  founder?: NPC
+  founder?: string
   factions: Record<string, Faction>
   families: Record<string, Family>
   buildings: Building[]
