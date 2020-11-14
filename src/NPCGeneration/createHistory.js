@@ -157,6 +157,7 @@ setup.createHistory = function (town, npc) {
 /**
  * @param {Town} town
  * @param {NPC} npc
+ * @returns {string}
  */
 function createChildhoodMemories (town, npc) {
   if (npc.childhoodMemories) {

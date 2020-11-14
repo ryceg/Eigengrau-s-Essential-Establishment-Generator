@@ -99,6 +99,7 @@ function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
 /**
  * @param {number} townWealth
  * @param {number} buildingWealth
+ * @returns {number}
  */
 function getBuildingTier (townWealth, buildingWealth) {
   const wealth = townWealth + (buildingWealth * 0.2)

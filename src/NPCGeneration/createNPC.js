@@ -219,6 +219,7 @@ setup.createNPC = (town, base = defaultBase) => {
 
 /**
  * @param {import("../../lib/index").RaceName} race
+ * @returns {string}
  */
 function getLastName (race) {
   return lib.toTitleCase(lib.random(lib.raceTraits[race].lastName))
@@ -227,6 +228,7 @@ function getLastName (race) {
 /**
  * @param {import("../../lib/index").RaceName} race
  * @param {import("../../lib/index").GenderName} gender
+ * @returns {string}
  */
 function getFirstName (race, gender) {
   return lib.toTitleCase(lib.random(lib.raceTraits[race].genderTraits[gender].firstName))
