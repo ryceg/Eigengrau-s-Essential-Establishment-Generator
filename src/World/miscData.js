@@ -38,7 +38,7 @@ setup.initMisc = () => {
           note: 'Outcast from their family.'
         },
         'a celebrated explorer': {
-          background: ['outlander', 'sailor'].random(),
+          background: 'outlander',
           hasClass: false,
           profession: 'explorer'
         },
@@ -48,7 +48,7 @@ setup.initMisc = () => {
           gender: 'woman'
         },
         'a charming rogue': {
-          background: ['criminal', 'charlatan'].random(),
+          background: 'criminal',
           dndClass: 'rogue',
           calmTrait: 'charming'
         },
