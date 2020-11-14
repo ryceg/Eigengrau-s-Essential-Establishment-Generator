@@ -35,10 +35,13 @@ export interface NPC {
   ageYears: number
   adventure?: string
   profession: string
+  professionOrigin: string
+  professionSuccess: string
   background: BackgroundName
   roll: Record<string, number>
   partnerID?: string
   relationships: Record<string, string>
+  lifeEvents: string[]
   wealth: number
   finances: {
     creditors: Record<string, number>
