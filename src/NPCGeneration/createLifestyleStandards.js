@@ -110,7 +110,7 @@ setup.createLifestyleStandards = (town, npc) => {
     ].random()]
   ]
   const note = wageVarianceNotes.find(desc => {
-    return desc[0] >= npc.roll.wageVariation(town)
+    return desc[0] >= npc.roll.wageVariation(town, npc)
   })
 
   npc.professionSuccess = `${npc.firstName} ${note[1] || wageVarianceNotes[5][1]} ${lib.articles.find(npc.profession)} ${tippy}`
