@@ -58,6 +58,9 @@ export interface BuildingRolls {
   roughness: number
   sin: number
   size: number
+  landSize?: number
+  condition?: number
+  age?: number
   wealth: number
 }
 
