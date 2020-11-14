@@ -1,3 +1,5 @@
+import { RaceName } from '../../../lib/index'
+
 interface Setup {
   createRelative(
     town: Town,
@@ -16,8 +18,8 @@ interface Setup {
     family: Family,
     marriage: Marriage,
     amount: number,
-    motherRace?: string,
-    fatherRace?: string,
+    motherRace?: RaceName,
+    fatherRace?: RaceName,
     force?: boolean
   ): any
   createMarriage(
@@ -28,8 +30,8 @@ interface Setup {
   ): Marriage
   findParentRaces(npc: NPC): {
     lineage: string
-    motherRace: string
-    fatherRace: string
+    motherRace: RaceName
+    fatherRace: RaceName
   }
 }
 
