@@ -7,7 +7,7 @@ interface Options {
   npc: Partial<NPC>
 }
 
-interface Castle {
+export interface Castle {
   initPassage: string
   passageName: string
   buildingType: string
@@ -29,4 +29,5 @@ interface Castle {
   size: string
   cleanliness: string
   tippyDescription?: string
+  dungeon: Dungeon
 }
