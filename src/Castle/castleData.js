@@ -699,7 +699,7 @@ setup.initCastle = () => {
       create (town, siege = {}) {
         const data = setup.castle.siege
         const result = Object.keys(data.result).random()
-        Object.assign(siege, {
+        lib.assign(siege, {
           causedBy: data.causedBy.random(),
           length: data.length.random(),
           event: data.event.random(),
@@ -1317,6 +1317,5 @@ setup.initCastle = () => {
         ]
       }
     }
-
   }
 }
