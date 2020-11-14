@@ -9,12 +9,12 @@ interface Setup {
   createClass(town: Town, npc: NPC): void
   createFamily(town: Town, npc: NPC): void
   expandFamily(town: Town, npc: NPC): void
-  createParentage(town: Town, family: Family, npc: NPC, forceFather: boolean, forceMother: boolean): void
-  createRelative(town: Town, family: Family, base: Partial<NPC>, force: boolean): NPC
+  createParentage(town: Town, family: Family, npc: NPC, forceFather?: boolean, forceMother?: boolean): void
+  createRelative(town: Town, family: Family, base: Partial<NPC>, force?: boolean): NPC
 
   fetchFamily(town: Town, npc: NPC): Family
-  createMarriage(town: Town, family: Family, npc: NPC, force: boolean): Marriage
-  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force: boolean)
+  createMarriage(town: Town, family: Family, npc: NPC, force?: boolean): Marriage
+  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force?: boolean)
   familyData: FamilyData
 
   createHistory(town: Town, npc: NPC): void
