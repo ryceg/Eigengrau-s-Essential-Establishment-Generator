@@ -34,13 +34,13 @@ interface Setup {
   expandNPC(town: Town, npc: NPC)
   checkRaces(town: Town, npcs: Record<string, NPC>)
 
-  createStartBuildings(town: Town): any
-  createStartFactions(town: Town): any
+  createStartBuildings(town: Town): void
+  createStartFactions(town: Town): void
   createBrothel(town: Town): Building
   findPoliceSource(town: Town): any
   makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
-  createTownName(): string
+  createTownName(town: Town): string
   townDemographics(town: Town): void
   updateDemographics(town: Town, newDemographics: Record<RaceName, number>): void
 }
