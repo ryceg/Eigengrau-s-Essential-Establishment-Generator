@@ -4,7 +4,7 @@ setup.createTavern = (town, opts = {}) => {
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts)
+  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
   tavern.bartender = tavern.associatedNPC
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
