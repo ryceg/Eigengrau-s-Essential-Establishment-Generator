@@ -49,10 +49,10 @@ interface FamilyData {
   parentStageTable: string[string[]]
   parentAge(npc: NPC): number
   siblingAge(npc: NPC): number
-  childAge(npc: NPC): number
+  childAge(marriage: Marriage): number
   partnerAge(npc: NPC): number
   siblingRoll(): number
-  relativeBase: Partial<NPC>
+  relativeBase(npc: NPC): Partial<NPC>
 }
 
 interface CreateNameParameters {
