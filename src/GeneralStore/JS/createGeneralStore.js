@@ -28,9 +28,9 @@ setup.createGeneralStore = (town, opts = {}) => {
   generalStore.name = setup.createGeneralStoreName(town, generalStore)
   lib.generalStoreModifiers(town, generalStore)
 
-  const rollData = lib.generalStore.rollData
-  for (const propName of lib.keys(rollData)) {
-    lib.defineRollDataGetter(generalStore, rollData, propName)
+  const props = ['wealth', 'cleanliness', 'size', 'expertise']
+  for (const propName of props) {
+    lib.defineRollDataGetter(generalStore, lib.generalStore.rollData[propName].rolls, propName)
   }
 
   if (generalStore.roll.cleanliness <= 40) {

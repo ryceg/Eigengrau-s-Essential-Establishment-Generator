@@ -20,7 +20,7 @@ setup.createBrothel = (town, opts = {}) => {
   setup.createStructure(town, brothel)
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(brothel, setup.brothel.rollData, propName)
+    lib.defineRollDataGetter(brothel, setup.brothel.rollData[propName].rolls, propName)
   }
   brothel.associatedNPC = setup.createNPC(town, {
     ...setup.brothel.pimp[brothel.owner],

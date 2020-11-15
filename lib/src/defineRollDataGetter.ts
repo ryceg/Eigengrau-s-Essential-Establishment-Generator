@@ -48,7 +48,7 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
         console.log(`Fetching ${this.name} ${propName}.`)
       }
 
-      const rollArray = rolls[keyName]
+      const rollArray = rolls
 
       let result = rollArray.find(desc => {
         if (rollLocation) {
@@ -76,7 +76,7 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
     },
     set (val) {
       console.log(`Setting ${this.name} ${propName}.`)
-      const rollArray = rolls[keyName]
+      const rollArray = rolls
       assert(Array.isArray(rollArray))
 
       let result = rollArray.find(desc => {

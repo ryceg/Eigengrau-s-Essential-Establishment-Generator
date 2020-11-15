@@ -4,9 +4,21 @@ export interface Setup {
   initDocks(): void
   docks: {
     rollData: {
-      cleanliness: [number, string, string][]
-      size: [number, string, string][]
-      activity: [number, string | string[]][]
+      cleanliness: {
+        description: string
+        preceding: string
+        rolls: [number, string, string][]
+      }
+      size: {
+        description: string
+        preceding: string
+        rolls: [number, string, string][]
+      }
+      activity: {
+        description: string
+        preceding: string
+        rolls: [number, string | string[]][]
+      }
     }
     notableFeature: string[]
     notice: string[]
