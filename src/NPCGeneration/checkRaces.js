@@ -22,7 +22,6 @@ setup.checkRaces = function (town, npcs) {
         stressTrait: npc.stressTrait,
         raceRoll: npc.raceRoll,
         roll: npc.roll,
-        relationships: npc.relationships,
         religion: npc.religion
       })
     }

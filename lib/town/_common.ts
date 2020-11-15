@@ -3,7 +3,7 @@ import { Building, BuildingRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
-import { NPC } from '../npc-generation/_common'
+import { NPC, NpcRelationship } from '../npc-generation/_common'
 import { townData } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 
@@ -71,6 +71,7 @@ export interface Town {
   families: Record<string, Family>
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
+  npcRelations: Record<string, NpcRelationship[]>
   politicalSource: PoliticalSource
   economicIdeology: EconomicIdeology
   politicalIdeology: PoliticalIdeology

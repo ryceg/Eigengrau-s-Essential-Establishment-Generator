@@ -1,6 +1,7 @@
 import { dice } from '../src/dice'
 import { random } from '../src/random'
-import { NPC, Relationship, SocialClassName } from './_common'
+import { NPC, NpcRelationship, Relationship, SocialClassName } from './_common'
+import { Town } from '../town/_common'
 
 type Type =
   | ''
@@ -69,7 +70,7 @@ export interface Profession {
   professionOrigin?: string[]
   function?(town: unknown, npc: NPC): void
   socialClassRoll(): number
-  relationships?(town: unknown, npc: NPC): Record<string, Relationship>
+  relationships?(town: Partial<Town>, npc: NPC): Record<string, Relationship>
   exclusions?(npc: NPC): boolean | undefined
 }
 
@@ -91,7 +92,11 @@ export const professions: Record<string, Profession> = {
           relationship: 'lord',
           reciprocalRelationship: 'labourer',
           exclusions (town, npc) {
-            return Object.values(npc.relationships).includes('lord')
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('lord')
+              }
+            }
           },
           probability: 20,
           base: {
@@ -1308,8 +1313,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -1363,8 +1370,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -1618,8 +1627,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2146,8 +2157,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'slaver',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('slaver')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('slaver')
+              }
             }
           },
           probability: 20,
@@ -2234,8 +2247,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2311,8 +2326,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2519,8 +2536,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2623,8 +2642,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2698,8 +2719,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2797,7 +2820,11 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            return !Object.values(npc.relationships).includes('liege')
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
+            }
           },
           probability: 20,
           base: {
@@ -2881,8 +2908,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -2972,8 +3001,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -3294,8 +3325,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -3395,8 +3428,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'employer',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('employer')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('employer')
+              }
             }
           },
           probability: 20,
@@ -4641,8 +4676,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -4721,8 +4758,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -4949,8 +4988,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'employer',
           reciprocalRelationship: 'employee',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('employer')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('employer')
+              }
             }
           },
           probability: 20,
@@ -5035,8 +5076,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'employer',
           reciprocalRelationship: 'food taster',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('employer')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('employer')
+              }
             }
           },
           probability: 20,
@@ -5159,8 +5202,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'employer',
           reciprocalRelationship: 'employee',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('employer')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('employer')
+              }
             }
           },
           probability: 20,
@@ -5188,8 +5233,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'charge',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('charge')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('charge')
+              }
             }
           },
           probability: 20,
@@ -5336,7 +5383,11 @@ export const professions: Record<string, Profession> = {
           relationship: 'client',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            return !Object.values(npc.relationships).includes('client')
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('client')
+              }
+            }
           },
           probability: 20,
           base: {
@@ -5653,8 +5704,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'employer',
           reciprocalRelationship: 'employee',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('employer')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('employer')
+              }
             }
           },
           probability: 20,
@@ -6037,8 +6090,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -6089,8 +6144,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -6272,8 +6329,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'cult leader',
           reciprocalRelationship: 'cult follower',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('cult leader')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('cult leader')
+              }
             }
           },
           probability: 20,
@@ -6535,8 +6594,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'mentor',
           reciprocalRelationship: 'teacher',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('mentor')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('mentor')
+              }
             }
           },
           probability: 20,
@@ -6738,8 +6799,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'employer',
           reciprocalRelationship: 'tutor',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('employer')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('employer')
+              }
             }
           },
           probability: 20,
@@ -6974,8 +7037,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'former sergeant',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('former sergeant')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('former sergeant')
+              }
             }
           },
           probability: 20,
@@ -7003,8 +7068,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'liege',
           reciprocalRelationship: npc.profession,
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('liege')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('liege')
+              }
             }
           },
           probability: 20,
@@ -7212,8 +7279,10 @@ export const professions: Record<string, Profession> = {
           relationship: 'ex-master',
           reciprocalRelationship: 'escaped slave',
           exclusions (town, npc) {
-            if (Object.values(npc.relationships).includes('ex-master')) {
-              return false
+            if (town.npcRelations) {
+              if (town.npcRelations[npc.key]) {
+                return !town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('ex-master')
+              }
             }
           },
           probability: 20,

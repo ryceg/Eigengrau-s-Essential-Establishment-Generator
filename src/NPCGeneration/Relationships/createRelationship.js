@@ -23,27 +23,44 @@ setup.createRelationship = (town, sourceNPC, targetNPC, type, targetType) => {
     return
   }
 
-  /** @type {NPC[]} */
   const npcsToClean = []
 
-  if (sourceNPC.relationships[targetNPC.key] && npcs[sourceNPC.relationships[targetNPC.key]]) {
+  if (checkPreviousRelationships(town, sourceNPC, targetNPC)) {
     /* npc already had a valid partner; mark it for removal */
-    npcsToClean.push(npcs[targetNPC.key])
+    npcsToClean.push({ source: sourceNPC.key, partner: targetNPC.key })
   }
-  if (targetNPC.relationships[sourceNPC.key] && npcs[targetNPC.relationships[sourceNPC.key]]) {
-    /* targetNPC already had a valid partner; mark it for removal */
-    npcsToClean.push(npcs[targetNPC.relationships[sourceNPC.key]])
+
+  if (checkPreviousRelationships(town, targetNPC, sourceNPC)) {
+    /* targetNpc already had a valid partner; mark it for removal */
+    npcsToClean.push({ source: targetNPC.key, partner: sourceNPC.key })
   }
 
   /* Remove "old" partners first */
-  for (const n of npcsToClean) {
-    n.relationships[sourceNPC.key] = ''
-    n.relationships[targetNPC.key] = ''
+  for (const npc of npcsToClean) {
+    const oldRelationship = town.npcRelations[npc.source].map(
+      relationship => relationship.targetNpcKey
+    ).indexOf(npc.partner)
+    town.npcRelations[npc.source].splice(oldRelationship)
   }
 
-  /* Link the two */
-  sourceNPC.relationships[targetNPC.key] = type
-  targetNPC.relationships[sourceNPC.key] = targetType
-  console.log(`${sourceNPC.name} is ${lib.articles.output(type)} to ${targetNPC.name}`)
-  console.log(`${targetNPC.name} is ${lib.articles.output(targetType)} to ${sourceNPC.name}`)
+  /* Create new relationship between these two */
+  town.npcRelations[sourceNPC.key].push(buildRelationship(targetNPC, type))
+  town.npcRelations[targetNPC.key].push(buildRelationship(sourceNPC, targetType))
+}
+
+function checkPreviousRelationships (town, sourceNPC, targetNPC) {
+  town.npcRelations[sourceNPC]?.forEach(relation => {
+    if (relation.targetNpcKey === targetNPC.key) {
+      return true
+    }
+  })
+  return false
+}
+
+function buildRelationship (targetNPC, type) {
+  return {
+    targetNpcKey: targetNPC.key,
+    relation: type,
+    description: null
+  }
 }
