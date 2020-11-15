@@ -58,7 +58,7 @@ setup.createTemple = (town, opts = {}) => {
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(temple, data.rollData, propName)
+    lib.defineRollDataGetter(temple, data.rollData[propName].rolls, propName)
   }
 
   // These are the full sentence printouts referenced within TempleOutput.twee

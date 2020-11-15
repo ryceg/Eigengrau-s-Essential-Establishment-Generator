@@ -74,11 +74,11 @@ setup.tavernSleep = tavern => {
     sleepEasy -= 3
   }
 
-  tavern.sleepOutput = lib.closestMatch(setup.tavern.get.sleep(tavern), 'note', 'restfulness', 'sleepEasy', restfulness, sleepEasy)
+  let sleepOutput = lib.closestMatch(setup.tavern.get.sleep(tavern), 'note', 'restfulness', 'sleepEasy', restfulness, sleepEasy)
 
-  tavern.sleepOutput += ` ${getWakeUpByType(tavern)}. ${getWakeUpByWealth(tavern)}`
+  sleepOutput += ` ${getWakeUpByType(tavern)}. ${getWakeUpByWealth(tavern)}`
 
-  return tavern.sleepOutput
+  return sleepOutput
 }
 
 /**

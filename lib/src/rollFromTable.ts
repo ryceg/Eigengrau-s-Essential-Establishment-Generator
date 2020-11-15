@@ -2,7 +2,13 @@ import { random } from './random'
 import { last } from './utils'
 
 export type ThresholdTable<T = string> = [number, T][]
-
+export interface rollsData {
+  description: string
+  preceding: string
+  rolls: ThresholdTable
+  isHidden?: boolean
+  hasRolls?: boolean
+ }
 /**
  * Return a random value from a static roll table.
  * Designed to be less performance-intensive than weightedRandomFetcher,

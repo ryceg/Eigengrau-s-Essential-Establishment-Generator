@@ -5,8 +5,16 @@ interface Setup {
       subsequentViews: string[]
     }
     rollData: {
-      cleanliness: [number, string][]
-      size: [number, string][]
+      cleanliness: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      size: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
     }
     feature(): string[]
     crowd: Record<string, Crowd>

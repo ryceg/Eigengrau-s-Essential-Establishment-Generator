@@ -102,39 +102,35 @@ setup.createGeneralStoreName = (town, generalStore) => {
       profession: professions.random()
     }
   }
+  let roll
+  if (generalStore) {
+    roll = random(1, 7)
+  } else {
+    roll = random(1, 5)
+  }
 
-  switch (random(1, 7)) {
+  switch (roll) {
     case 1:
-      generalStore.name = `The ${adjective} ${noun}`
-      break
+      return `The ${adjective} ${noun}`
     case 2:
-      generalStore.name = `${associatedNPC.firstName} and ${family.toUpperFirst()}`
-      generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
-        town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
-      break
+      return `${associatedNPC.firstName}'s ${adjective} ${rider}`
     case 3:
+      return associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
+    case 4:
+      return `The ${adjective} ${rider}`
+    case 5:
+      return `The ${adjective} ${noun}`
+    case 6:
       generalStore.name = `The ${noun} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
-      break
-    case 4:
-      generalStore.name = `The ${adjective} ${rider}`
-      break
-    case 5:
-      generalStore.name = `The ${adjective} ${noun}`
-      break
-    case 6:
-      generalStore.name = associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
-      break
     case 7:
-      generalStore.name = `${associatedNPC.firstName}'s ${adjective} ${rider}`
-      break
+      generalStore.name = `${associatedNPC.firstName} and ${family.toUpperFirst()}`
+      generalStore.assistant = setup.createNPC(town, fam[family])
+      setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
+        town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
     default:
-      generalStore.name = `The ${adjective} Adventurer's Store`
-      break
+      return `The ${adjective} Adventurer's Store`
   }
-
-  return generalStore
 }

@@ -1,80 +1,104 @@
 setup.initTavernData = () => {
   setup.tavern = {
     rollData: {
-      wealth: [
-        [95, 'kingly', 800],
-        [80, 'aristocratic', 400],
-        [70, 'wealthy', 200],
-        [60, 'comfortable', 50],
-        [50, 'modest', 30],
-        [25, 'poor', 10],
-        [15, 'squalid', 7],
-        [0, 'destitute', 6]
-      ],
-      size: [
-        [95, 'cavernous'],
-        [80, 'huge'],
-        [70, 'quite large'],
-        [60, 'large'],
-        [50, 'spacious'],
-        [40, 'average sized'],
-        [30, 'somewhat cramped'],
-        [20, 'small'],
-        [10, 'tiny'],
-        [0, 'extremely cramped']
-      ],
-      cleanliness: [
-        [80, 'absolutely spotless'],
-        [75, 'spotless'],
-        [70, 'nice and well cleaned'],
-        [60, 'hygienic'],
-        [50, 'decently hygienic'],
-        [40, 'slightly grubby'],
-        [30, 'quite dirty'],
-        [20, 'filthy'],
-        [10, 'rather filthy'],
-        [0, 'absolutely putrid']
-      ],
-      bedCleanliness: [
-        [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
-        [75, 'recently prepared and well cleaned'],
-        [70, 'freshly cleaned and neat'],
-        [60, 'tidy and neat'],
-        [50, 'reasonably clean'],
-        [40, 'somewhat tidy'],
-        [30, 'disgusting'],
-        [20, 'teeming with rats'],
-        [10, 'rather filthy'],
-        [0, 'festering with bugs']
-      ],
-      expertise: [
-        [80, 'masterful'],
-        [70, 'exceptional'],
-        [60, 'superior quality'],
-        [50, 'finely crafted'],
-        [40, 'well crafted'],
-        [30, 'sloppily made'],
-        [20, 'somewhat amateur'],
-        [10, 'amateur'],
-        [0, 'blatantly amateur']
-      ],
-      roughness: [
-        [80, 'bloodthirsty'],
-        [60, 'rough'],
-        [50, 'alright'],
-        [40, 'placid'],
-        [30, 'calm'],
-        [20, 'tranquil'],
-        [10, 'serene'],
-        [0, 'utterly serene']
-      ],
-      reputation: [
-        [80, 'famous'],
-        [60, 'well known'],
-        [40, 'famoush-ish'],
-        [20, 'reviled'],
-        [0, 'infamous']
-      ]
+      wealth: {
+        description: 'How wealthy is the patronage?',
+        preceding: 'Tavern Wealth:',
+        rolls: [
+          [95, 'kingly', 800],
+          [80, 'aristocratic', 400],
+          [70, 'wealthy', 200],
+          [60, 'comfortable', 50],
+          [50, 'modest', 30],
+          [25, 'poor', 10],
+          [15, 'squalid', 7],
+          [0, 'destitute', 6]
+        ]
+      },
+      size: {
+        description: 'How large is the tavern?',
+        preceding: 'Tavern Size:',
+        rolls: [
+          [95, 'cavernous'],
+          [80, 'huge'],
+          [70, 'quite large'],
+          [60, 'large'],
+          [50, 'spacious'],
+          [40, 'average sized'],
+          [30, 'somewhat cramped'],
+          [20, 'small'],
+          [10, 'tiny'],
+          [0, 'extremely cramped']
+        ]
+      },
+      cleanliness: {
+        description: 'How clean is the tavern?',
+        preceding: 'Tavern Cleanliness:',
+        rolls: [
+          [80, 'absolutely spotless'],
+          [75, 'spotless'],
+          [70, 'nice and well cleaned'],
+          [60, 'hygienic'],
+          [50, 'decently hygienic'],
+          [40, 'slightly grubby'],
+          [30, 'quite dirty'],
+          [20, 'filthy'],
+          [10, 'rather filthy'],
+          [0, 'absolutely putrid']
+        ]
+      },
+      bedCleanliness: {
+        description: 'How clean are the beds?',
+        preceding: 'Bed Cleanliness',
+        rolls: [
+          [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
+          [75, 'recently prepared and well cleaned'],
+          [70, 'freshly cleaned and neat'],
+          [60, 'tidy and neat'],
+          [50, 'reasonably clean'],
+          [40, 'somewhat tidy'],
+          [30, 'disgusting'],
+          [20, 'teeming with rats'],
+          [10, 'rather filthy'],
+          [0, 'festering with bugs']
+        ]
+      },
+      roughness: {
+        description: 'How likely is there to be a fight here?',
+        preceding: 'Tavern Roughness:',
+        rolls: [
+          [80, 'bloodthirsty'],
+          [60, 'rough'],
+          [50, 'alright'],
+          [40, 'placid'],
+          [30, 'calm'],
+          [20, 'tranquil'],
+          [10, 'serene'],
+          [0, 'utterly serene']
+        ]
+      },
+      reputation: {
+        description: 'How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?',
+        preceding: 'Tavern Reputation',
+        rolls: [
+          [80, 'famous'],
+          [60, 'well known'],
+          [40, 'famoush-ish'],
+          [20, 'reviled'],
+          [0, 'infamous']
+        ]
+      },
+      sin: {
+        description: 'Is it a respectable venue, or a wretched hive of scum and villainy??',
+        preceding: 'Tavern Sin',
+        rolls: [
+          [80, 'extremely shady'],
+          [60, 'dodgy'],
+          [40, 'somewhat shady'],
+          [20, 'honest'],
+          [0, 'a paragon of virtue']
+        ]
+      }
     },
     games: [
       {
@@ -443,7 +467,7 @@ setup.initTavernData = () => {
           `There is ${lib.articles.output(tavern.colour1)} coloured trim running along the bottom of the tavern walls.`,
           'The are several finely painted posters of past performers pinned up along one of the tavern walls.',
           'The bar of the tavern has a fine laquer and only a few mug scratches.',
-          `The tables of the tavern have been a painted ${lib.articles.output(tavern.colour1)} colour and only have a few knicks and scratches.`,
+          `The tables of the tavern have been painted ${lib.articles.output(tavern.colour1)} colour and only have a few knicks and scratches.`,
           `The floor of the tavern ${['is a fine bed of straw', 'is a nicely planked floor', 'is a roughly hewn stone floor', `is made up of clay tiles painted ${lib.articles.output(tavern.colour1)} colour`].random()}.`,
           `The legs of all the tables in tavern are shaped like ${['lions', 'bears', 'bulls', 'cows', 'trees', 'mountains', 'dwarves', 'elves', 'different fish', 'different weapons', 'dragons', 'beer mugs', 'human legs', 'ocean waves'].random()}`,
           `A ${['stacked stone fireplace', 'stone fireplace', 'slate stone fireplace', 'clay fireplace'].random()} blazes in a corner of the tavern with a ${['large cauldron bubbling away above it', 'haunch of mutton cooking on a skewer in it', 'few people huddled around it for warmth', 'small group of pots being warmed in it', 'patron stoking the flames'].random()}.`,
@@ -474,7 +498,7 @@ setup.initTavernData = () => {
           `There is ${lib.articles.output(tavern.colour1)} coloured trim running along the top and bottom of the tavern walls.`,
           'There are several very finely painted posters of past performers nicely framed up along one of the tavern walls.',
           'The bar of the tavern has a fine laquer and only a few mug scratches.',
-          `The bar of the tavern has been freshly painted a fine ${tavern.colour1}colour.`,
+          `The bar of the tavern has been freshly painted a fine ${tavern.colour1} colour.`,
           'The bar of the tavern is embedded with gold coins from all over the place.',
           'The lanterns on the tavern walls are incredibly ornate and wrought iron.',
           `The tavern is lit by ${tavern.colour1}coloured paper lanterns hung from the ceiling`,

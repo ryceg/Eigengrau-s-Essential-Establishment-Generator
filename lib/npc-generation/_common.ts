@@ -1,3 +1,4 @@
+import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, GenderName, AgeName } from './raceTraits'
@@ -36,9 +37,13 @@ export interface NPC {
   ageYears: number
   adventure?: string
   profession: string
+  professionOrigin: string
+  professionSuccess: string
   background: BackgroundName
   roll: Record<string, number>
   partnerID?: string
+  lifeEvents: string[]
+  callbackFunction?(town: Town): any
   wealth: number
   finances: {
     creditors: Record<string, number>

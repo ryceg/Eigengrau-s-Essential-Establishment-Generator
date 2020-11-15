@@ -4,7 +4,7 @@ setup.createTavern = (town, opts = {}) => {
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts)
+  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
   tavern.bartender = tavern.associatedNPC
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
@@ -93,7 +93,7 @@ setup.createTavern = (town, opts = {}) => {
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(tavern, setup.tavern.rollData, propName)
+    lib.defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
   }
   // lib.tavernRender(tavern)
   tavern.tippyDescription = `${lib.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`

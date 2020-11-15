@@ -70,45 +70,51 @@ const insideFeatures = [
 
 function setRollGetters (cabin: Cabin) {
   for (const propName of keys(rollData)) {
-    defineRollDataGetter(cabin, rollData, propName)
+    defineRollDataGetter(cabin, rollData[propName].rolls, propName)
   }
 }
 
 const rollData: RollData<Cabin> = {
-  size: [
-    [95, 'huge'],
-    [80, 'quite large'],
-    [70, 'large'],
-    [60, 'spacious'],
-    [50, 'relatively spacious'],
-    [40, 'average sized'],
-    [30, 'somewhat cramped'],
-    [20, 'small'],
-    [10, 'tiny'],
-    [0, 'extremely cramped']
-  ],
-  cleanliness: [
-    [80, 'absolutely spotless'],
-    [75, 'spotless'],
-    [70, 'nice and well cleaned'],
-    [60, 'hygienic'],
-    [50, 'decently hygienic'],
-    [40, 'slightly grubby'],
-    [30, 'quite dirty'],
-    [20, 'filthy'],
-    [10, 'rather filthy'],
-    [0, 'absolutely putrid']
-  ],
-  bedCleanliness: [
-    [90, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
-    [80, 'recently prepared and well cleaned'],
-    [70, 'freshly cleaned and neat'],
-    [60, 'tidy and neat'],
-    [50, 'reasonably clean'],
-    [40, 'somewhat tidy'],
-    [30, 'disgusting'],
-    [20, 'teeming with rats'],
-    [10, 'rather filthy'],
-    [0, 'festering with bugs']
-  ]
+  size: {
+    rolls: [
+      [95, 'huge'],
+      [80, 'quite large'],
+      [70, 'large'],
+      [60, 'spacious'],
+      [50, 'relatively spacious'],
+      [40, 'average sized'],
+      [30, 'somewhat cramped'],
+      [20, 'small'],
+      [10, 'tiny'],
+      [0, 'extremely cramped']
+    ]
+  },
+  cleanliness: {
+    rolls: [
+      [80, 'absolutely spotless'],
+      [75, 'spotless'],
+      [70, 'nice and well cleaned'],
+      [60, 'hygienic'],
+      [50, 'decently hygienic'],
+      [40, 'slightly grubby'],
+      [30, 'quite dirty'],
+      [20, 'filthy'],
+      [10, 'rather filthy'],
+      [0, 'absolutely putrid']
+    ]
+  },
+  bedCleanliness: {
+    rolls: [
+      [90, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
+      [80, 'recently prepared and well cleaned'],
+      [70, 'freshly cleaned and neat'],
+      [60, 'tidy and neat'],
+      [50, 'reasonably clean'],
+      [40, 'somewhat tidy'],
+      [30, 'disgusting'],
+      [20, 'teeming with rats'],
+      [10, 'rather filthy'],
+      [0, 'festering with bugs']
+    ]
+  }
 }

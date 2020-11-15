@@ -1,10 +1,26 @@
 interface Setup {
   brothel: {
     rollData: {
-      wealth: [number, string][]
-      size: [number, string][]
-      cleanliness: [number, string][]
-      bedCleanliness: [number, string][]
+      wealth: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      size: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      cleanliness: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
+      bedCleanliness: {
+        description: string
+        preceding: string
+        rolls: [number, string][]
+      }
     }
     name: string[]
     specialty: string[]

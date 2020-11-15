@@ -1,3 +1,5 @@
+import { ThresholdTable } from '../../lib/index'
+
 interface Setup {
   castle: CastleData
   initCastle(): void
@@ -24,15 +26,91 @@ interface CastleData {
     types: CastleRulerType
   }
   lookingFor(town: Town): string
+  siege: {
+    create(town: Town, siege: Siege): Siege
+    namePrefix: string[]
+    nameAdjective: string[]
+    nameNoun: string[]
+    causedBy: string[]
+    length: string[]
+    event: string[]
+    result: {
+      invadersWin: string[]
+      castleWin: string[]
+      other: string[]
+    }
+  }
+  rollData: {
+    condition: string[]
+    age: string[]
+    size: ThresholdTable,
+    landSize: ThresholdTable
+  }
+  dungeon: {
+    name: {
+      unique: string[]
+      adjectives: string[]
+      nouns: string[]
+      verbs: string[]
+      wordNoun: string[]
+    }
+    jailer: {
+      types: JailerTypes[]
+      base: {
+        profession: string
+      }
+    }
+    knownFor: string[]
+    secret: string[]
+    location: {
+      castle: string[]
+      standalone: string[]
+    }
+    age: string[]
+    format: string[]
+    cells: {
+      prisoners: {
+        create(town: Town, obj: any): string
+        npcs: PrisonerType[]
+        treatment: string[]
+      }
+      condition: string[]
+      format: string[]
+    }
+    rooms: {
+      type: string[]
+      feature: string[]
+    }
+  }
+}
 
+interface PrisonerType {
+  reasonForPunishment: string
+  base?: Partial<NPC>
+}
+interface JailerTypes {
+  type?: string
+  base?: Partial<NPC>
 }
 
 interface CastleRulerType {
   probability?: number
-  type: string
+  type?: string
   lookingFor?: string[]
-  acquisitionMethod: string
-  base: Partial<NPC>
+  acquisitionMethod?: string
+  base?: Partial<NPC>
+}
+
+interface Siege {
+  causedBy: string
+  length: string
+  event: string
+  result: string
+  namePrefix: string
+  nameAdjective: string
+  nameNoun: string
+  name: string
+  readout: string
 }
 
 interface CastleLocation {

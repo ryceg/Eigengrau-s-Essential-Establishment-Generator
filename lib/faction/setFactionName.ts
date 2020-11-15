@@ -6,7 +6,7 @@ interface Town {
   name: string
 }
 
-export function setFactionName (town: Town, faction: Faction): void {
+export function setFactionName (town: Town, faction: Faction): string {
   console.log(`Naming the ${faction.type} faction`)
   const data = factionData[faction.type]
 
@@ -20,5 +20,5 @@ export function setFactionName (town: Town, faction: Faction): void {
   ])
 
   console.log(`Named the ${faction.type} ${name}`)
-  faction.name = name
+  return name
 }

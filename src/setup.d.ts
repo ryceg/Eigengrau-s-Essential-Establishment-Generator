@@ -9,12 +9,12 @@ interface Setup {
   createClass(town: Town, npc: NPC): void
   createFamily(town: Town, npc: NPC): void
   expandFamily(town: Town, npc: NPC): void
-  createParentage(town: Town, family: Family, npc: NPC, forceFather: boolean, forceMother: boolean): void
-  createRelative(town: Town, family: Family, base: Partial<NPC>, force: boolean): NPC
+  createParentage(town: Town, family: Family, npc: NPC, forceFather?: boolean, forceMother?: boolean): void
+  createRelative(town: Town, family: Family, base: Partial<NPC>, force?: boolean): NPC
 
   fetchFamily(town: Town, npc: NPC): Family
-  createMarriage(town: Town, family: Family, npc: NPC, force: boolean): Marriage
-  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force: boolean)
+  createMarriage(town: Town, family: Family, npc: NPC, force?: boolean): Marriage
+  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force?: boolean)
   familyData: FamilyData
 
   createHistory(town: Town, npc: NPC): void
@@ -34,13 +34,13 @@ interface Setup {
   expandNPC(town: Town, npc: NPC)
   checkRaces(town: Town, npcs: Record<string, NPC>)
 
-  createStartBuildings(town: Town): any
-  createStartFactions(town: Town): any
+  createStartBuildings(town: Town): void
+  createStartFactions(town: Town): void
   createBrothel(town: Town): Building
-  findPoliceSource(town: Town): any
+  findPoliceSource(town: Town): void
   makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
-  createTownName(): string
+  createTownName(town: Town): string
   townDemographics(town: Town): void
   updateDemographics(town: Town, newDemographics: Record<RaceName, number>): void
 }
@@ -49,10 +49,10 @@ interface FamilyData {
   parentStageTable: string[string[]]
   parentAge(npc: NPC): number
   siblingAge(npc: NPC): number
-  childAge(npc: NPC): number
+  childAge(marriage: Marriage): number
   partnerAge(npc: NPC): number
   siblingRoll(): number
-  relativeBase: Partial<NPC>
+  relativeBase(npc: NPC): Partial<NPC>
 }
 
 interface CreateNameParameters {

@@ -70,7 +70,11 @@ setup.createNPC = (town, base = defaultBase) => {
     },
     roll: {
       professionLuck: lib.dice(5, 10) - 27,
-      wageVariation (town) {
+      /**
+      * @param {Town} town
+      * @param {NPC} npc
+      * @returns {number} */
+      wageVariation (town, npc) {
         // town.roll.wealth increases or decreases npc.professionLuck by up to 10%, reflecting the strength of the economy.
         // expected range should be between -25 and 25.
         return lib.calcPercentage(npc.roll.professionLuck, (town.roll.wealth - 50) / 5)
@@ -219,6 +223,7 @@ setup.createNPC = (town, base = defaultBase) => {
 
 /**
  * @param {import("../../lib/index").RaceName} race
+ * @returns {string}
  */
 function getLastName (race) {
   return lib.toTitleCase(lib.random(lib.raceTraits[race].lastName))
@@ -227,6 +232,7 @@ function getLastName (race) {
 /**
  * @param {import("../../lib/index").RaceName} race
  * @param {import("../../lib/index").GenderName} gender
+ * @returns {string}
  */
 function getFirstName (race, gender) {
   return lib.toTitleCase(lib.random(lib.raceTraits[race].genderTraits[gender].firstName))

@@ -12,37 +12,41 @@ export const structureData = {
       'orange'
     ],
     rollData: {
-      size: [
-        [99, 'cavernous'],
-        [95, 'cavernous'],
-        [80, 'huge'],
-        [70, 'quite large'],
-        [60, 'large'],
-        [50, 'spacious'],
-        [40, 'average sized'],
-        [30, 'somewhat cramped'],
-        [20, 'small'],
-        [10, 'tiny'],
-        [0, 'extremely cramped']
-      ] as ThresholdTable
+      size: {
+        rolls: [
+          [99, 'cavernous'],
+          [95, 'cavernous'],
+          [80, 'huge'],
+          [70, 'quite large'],
+          [60, 'large'],
+          [50, 'spacious'],
+          [40, 'average sized'],
+          [30, 'somewhat cramped'],
+          [20, 'small'],
+          [10, 'tiny'],
+          [0, 'extremely cramped']
+        ] as ThresholdTable
+      }
     }
   },
   material: {
     rollData: {
-      wealth: [
-        [99, 'very solid'],
-        [90, 'solid'],
-        [80, 'finely crafted'],
-        [70, 'well built'],
-        [60, 'decently built'],
-        [50, 'ageing'],
-        [30, 'poorly made'],
-        [20, 'run down'],
-        [10, 'crumbling'],
-        [0, 'structurally unsound'],
-        [-100, 'death-trap tier']
+      wealth: {
+        rolls: [
+          [99, 'very solid'],
+          [90, 'solid'],
+          [80, 'finely crafted'],
+          [70, 'well built'],
+          [60, 'decently built'],
+          [50, 'ageing'],
+          [30, 'poorly made'],
+          [20, 'run down'],
+          [10, 'crumbling'],
+          [0, 'structurally unsound'],
+          [-100, 'death-trap tier']
         // FIXME currently defineRollDataGetter.js is mishandling rolls that are lower than any of the items.
-      ] as ThresholdTable
+        ] as ThresholdTable
+      }
     },
     types: {
       'wood': {
@@ -145,17 +149,19 @@ export const structureData = {
   },
   roof: {
     rollData: {
-      wealth: [
-        [99, 'immaculately maintained'],
-        [90, 'perfectly maintained'],
-        [80, 'well maintained'],
-        [60, 'weathered'],
-        [40, 'shabby'],
-        [30, 'moss covered'],
-        [20, 'patchy'],
-        [0, 'hole riddled'],
-        [-100, 'hole riddled']
-      ] as ThresholdTable
+      wealth: {
+        rolls: [
+          [99, 'immaculately maintained'],
+          [90, 'perfectly maintained'],
+          [80, 'well maintained'],
+          [60, 'weathered'],
+          [40, 'shabby'],
+          [30, 'moss covered'],
+          [20, 'patchy'],
+          [0, 'hole riddled'],
+          [-100, 'hole riddled']
+        ] as ThresholdTable
+      }
     },
     types: {
       thatch: {
