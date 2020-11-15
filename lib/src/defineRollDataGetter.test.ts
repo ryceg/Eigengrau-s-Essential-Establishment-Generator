@@ -6,18 +6,18 @@ describe('defineRollDataGetter', () => {
     const wealthyTavern = {
       name: 'Test Tavern',
       roll: {
-        wealth: 99,
+        wealth: 99
       },
       wealth: undefined,
       rollData: {
         wealth: [
           [99, 'very solid'],
           [90, 'solid'],
-          [50, 'not solid'],
+          [50, 'not solid']
         ] as ThresholdTable
       }
     }
-    defineRollDataGetter(wealthyTavern, wealthyTavern.rollData, 'wealth')
+    defineRollDataGetter(wealthyTavern, wealthyTavern.rollData.wealth, 'wealth')
     // This should roll a '99' and go with the default
     expect(wealthyTavern.wealth).toEqual('very solid')
   })
@@ -25,18 +25,18 @@ describe('defineRollDataGetter', () => {
     const wealthyTavern = {
       name: 'Test Tavern',
       roll: {
-        wealth: 95,
+        wealth: 95
       },
       wealth: undefined,
       rollData: {
         wealth: [
           [99, 'very solid'],
           [90, 'solid'],
-          [50, 'not solid'],
+          [50, 'not solid']
         ] as ThresholdTable
       }
     }
-    defineRollDataGetter(wealthyTavern, wealthyTavern.rollData, 'wealth')
+    defineRollDataGetter(wealthyTavern, wealthyTavern.rollData.wealth, 'wealth')
     // This should roll a '95' and go between '90' and '99'
     expect(wealthyTavern.wealth).toEqual('solid')
   })
@@ -44,18 +44,18 @@ describe('defineRollDataGetter', () => {
     const wealthyTavern = {
       name: 'Test Tavern',
       roll: {
-        wealth: -5,
+        wealth: -5
       },
       wealth: undefined,
       rollData: {
         wealth: [
           [99, 'very solid'],
           [90, 'solid'],
-          [50, 'not solid'],
+          [50, 'not solid']
         ] as ThresholdTable
       }
     }
-    defineRollDataGetter(wealthyTavern, wealthyTavern.rollData, 'wealth')
+    defineRollDataGetter(wealthyTavern, wealthyTavern.rollData.wealth, 'wealth')
     // This should roll a '-5' and then default to the last value in array
     expect(wealthyTavern.wealth).toEqual('not solid')
   })
