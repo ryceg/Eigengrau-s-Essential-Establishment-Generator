@@ -1,12 +1,13 @@
-setup.createBrothel = (town, tavern) => {
+setup.createBrothel = (town, opts = {}) => {
   console.log('Creating a brothel...')
   const brothel = setup.createBuilding(town, 'brothel')
 
-  Object.assign(brothel, {
+  lib.assign(brothel, {
     name: setup.brothel.name.random(),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
     buildingType: 'brothel',
+    needsWordNoun: true,
     wordNoun: ['brothel', 'whorehouse', "gentleman's club", 'bordello', 'cathouse', 'house of ill-repute', 'massage parlor', 'den of vice'].random(),
     specialty: setup.brothel.specialty.random(),
     talk: setup.brothel.talk().random(),

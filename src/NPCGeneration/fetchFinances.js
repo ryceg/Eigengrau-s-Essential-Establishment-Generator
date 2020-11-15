@@ -2,7 +2,7 @@ setup.npcGrossIncome = (town, npc) => {
   // TODO add hobbies
   console.log(`Returning ${npc.name}'s gross income...`)
   const profession = lib.findProfession(town, npc)
-  return Math.round(lib.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3)))
+  return Math.round(lib.calcPercentage(profession.dailyWage, (npc.roll.wageVariation(town, npc), (town.roll.wealth - 50) / 3)))
 }
 
 setup.npcNetIncome = (town, npc) => {

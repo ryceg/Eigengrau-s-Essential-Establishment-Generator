@@ -1,4 +1,4 @@
-
+// already has a definition
 setup.createStartFactions = town => {
   console.log('Creating starting factions...')
   // const factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']
@@ -10,9 +10,12 @@ setup.createStartFactions = town => {
   }
 
   console.log('Finished creating start factions!')
-  return town
 }
 
+/**
+ *
+ * @param {Town} town
+ */
 function getFactionsNumber (town) {
   const factionsNumber = lib.townData.type[town.type].startFactionsNumber()
   return factionsNumber + getFactionNumberWealthModifier(town.roll.wealth)

@@ -50,6 +50,7 @@ function findDebtor (town, npc, type) {
 
 /**
  * @param {Town} town
+ * @returns {NPC}
  */
 function createDebtor (town) {
   return setup.createNPC(town, {

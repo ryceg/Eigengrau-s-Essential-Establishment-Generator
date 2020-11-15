@@ -162,6 +162,7 @@ setup.createMercenaries = function (town) {
 /**
  * @param {string} trait
  * @param {Town} town
+ * @returns {NPC}
  */
 function createMercenaryCaptain (trait, town) {
   const { createNPC } = setup

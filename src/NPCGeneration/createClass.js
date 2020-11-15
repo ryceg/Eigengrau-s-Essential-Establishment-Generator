@@ -32,8 +32,10 @@ setup.createClass = (town, npc) => {
 /**
  * @param {NPC} npc
  * @param {Town} town
+ * @returns {string}
  */
 function getProfessionOrigin (npc, town) {
+  /** @type {import("../../lib/index").Profession} */
   const profession = lib.findProfession(town, npc)
 
   if (Array.isArray(profession.professionOrigin)) {
@@ -62,7 +64,7 @@ function getProfessionOrigin (npc, town) {
     return lib.random(professionTrait.professionOrigin)
   }
 
-  const wageVariation = npc.roll.wageVariation(town)
+  const wageVariation = npc.roll.wageVariation(town, npc)
   for (const [amount, origin] of originWage) {
     if (amount >= wageVariation) return origin
   }

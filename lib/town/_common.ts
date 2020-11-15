@@ -1,3 +1,4 @@
+import { Family } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
 import { Building, BuildingRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
@@ -65,8 +66,9 @@ export interface Town {
   townMaterial: string
   leaderType: string
   leader: NPC
+  founder?: string
   factions: Record<string, Faction>
-  families: Record<string, unknown>
+  families: Record<string, Family>
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
   politicalSource: PoliticalSource

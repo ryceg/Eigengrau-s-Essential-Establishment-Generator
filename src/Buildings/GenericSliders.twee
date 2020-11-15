@@ -1,0 +1,19 @@
+:: GenericSliders
+\<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
+\<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
+\<<set _name to $town.buildings[$currentPassage.index].name>>
+<<nobr>><<link "reroll">>
+    <<replace "#name">>
+            \<<set $town.buildings[$currentPassage.index].name to lib.createname()>> <<textbox "$town.buildings[$currentPassage.index].name" _name>>
+    <</replace>><</link>>
+<span id="name"><<textbox "$town.buildings[$currentPassage.index].name" _name>></span><</nobr>>
+
+<<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
+
+  <<for _key, _obj range lib.townData.rollData.sliderTooltips>>
+  <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.townData.rollData.sliderTooltips[_key].tooltip><<print lib.townData.rollData.sliderTooltips[_key].preceding>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
+  <</for>>
+
+<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+
+When you're ready, here's the [[output|TavernOutput]]

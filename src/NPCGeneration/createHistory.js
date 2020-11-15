@@ -66,12 +66,12 @@ const familyUnits = {
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, obj) => obj.mother && setup.knewParents(obj.mother),
+    exclusions: (town, obj) => obj.mother && setup.knewParents(town, obj.mother),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, obj) => obj.father && setup.knewParents(obj.father),
+    exclusions: (town, obj) => obj.father && setup.knewParents(town, obj.father),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
@@ -157,6 +157,7 @@ setup.createHistory = function (town, npc) {
 /**
  * @param {Town} town
  * @param {NPC} npc
+ * @returns {string}
  */
 function createChildhoodMemories (town, npc) {
   if (npc.childhoodMemories) {

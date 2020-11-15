@@ -62,6 +62,7 @@ export interface BuildingRolls {
   reputation?: number
   roughness?: number
   sin?: number
+
 }
 
 export interface BuildingRelationship {
