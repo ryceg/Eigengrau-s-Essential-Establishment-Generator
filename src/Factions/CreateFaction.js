@@ -6,6 +6,7 @@ setup.createFaction = (town, opts = {}) => {
   const faction = Object.assign({
     key: lib.getUUID(),
     passageName: 'FactionProfile',
+    initPassage: 'FactionSliders',
     objectType: 'faction',
     type,
     isPolicing: false,

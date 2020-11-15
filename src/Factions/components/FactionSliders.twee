@@ -1,0 +1,21 @@
+:: FactionSliders [force-one-column]
+\<<set $currentPassage to $town.factions[$currentPassage.key]>>
+<<liveblock>>
+    <<link "reroll">>
+        <<set $currentPassage.name to lib.setFactionName($town, $currentPassage)>><<update>>
+    <</link>> -- <span class="auto-update"><<textbox "$currentPassage.name" $currentPassage.name>></span> -- <<button "Delete $currentPassage.name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
+<</liveblock>>
+<table>
+  <tr>
+    <th>Attribute Slider</th>
+    <th>Percentage Value</th>
+  </tr>
+  <<for _key, _obj range lib.factionSliders>><<run lib.clampRolls($town.factions[$currentPassage.key].roll)>>
+  <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.factionSliders[_key].description><<print lib.factionSliders[_key].preceding>></td><td style="21vw"> <<numberslider "$town.factions[$currentPassage.key].roll[_key]" $town.factions[$currentPassage.key].roll[_key] 1 100 1>></td></tr><</if>>
+  <</for>>
+</table>
+Motivation: <<listbox "$currentPassage.motivation" autoselect>><<optionsfrom Object.keys(lib.factionData[$currentPassage.type].motivation)>><</listbox>>
+Member's Trait: <<listbox "$currentPassage.membersTrait" autoselect>><<optionsfrom Object.keys(lib.factionData[$currentPassage.type].membersTrait)>><</listbox>>
+Leadership Type: <<listbox "$currentPassage.leadershipType" autoselect>><<optionsfrom Object.keys(lib.factionData[$currentPassage.type].leader.format)>><</listbox>>
+
+<<button "Save">><<goto "FactionProfile">><</button>>
