@@ -40,7 +40,7 @@ setup.createFaction = (town, opts = {}) => {
   })
 
   lib.setFactionAge(faction)
-  lib.setFactionName(town, faction)
+  faction.name = lib.setFactionName(town, faction)
 
   console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
 
