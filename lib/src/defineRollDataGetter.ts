@@ -31,7 +31,7 @@ export type RollData<T extends Rolled> = {
  * when you have multiple descriptions tied to the same thing
  * (long and short descriptions, or cleanliness controlling bedCleanliness as well.)
  */
-export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: RollData<T>, propName: keyof T & string, keyName = propName, index = 1, rollLocation = obj.roll) {
+export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: RollArray, propName: keyof T & string, keyName = propName, index = 1, rollLocation = obj.roll) {
   console.groupCollapsed('DefineRollDataGetters')
 
   // eslint-disable-next-line prefer-rest-params
