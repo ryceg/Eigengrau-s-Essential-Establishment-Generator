@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 
 /**
@@ -17,10 +18,9 @@ function tippy(selector: string | NodeList, options?: any): any
 
 declare const global: NodeJS.Global & Record<string, any>
 
-function ga(send: string, event: {
-  hitType: string,
-  eventCategory: string,
-  eventAction?: string,
-  eventLabel?: string,
-  eventValue?: string
+function gtag(event: string, action: string, data: {
+  event_category?: string,
+  event_label?: string,
+  event_action?: string,
+  value?: string
 })

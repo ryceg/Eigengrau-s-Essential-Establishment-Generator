@@ -32,19 +32,20 @@ setup.history = (object, passageName, linkDescription) => {
         linkDescription
       })
     }
-    if (window['ga-disable-UA-119249239-1'] === true || typeof ga === 'function') {
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'passage',
-        eventAction: 'loaded',
-        eventLabel: passageName
+    if (window['ga-disable-UA-119249239-1'] !== true && typeof gtag === 'function') {
+      console.log('GA is working!')
+      gtag('event', 'passage', {
+        event_category: 'passage',
+        event_action: 'loaded',
+        event_label: passageName
       })
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'seed',
-        eventAction: 'used',
-        eventLabel: location.hash
+      gtag('event', 'passage', {
+        event_category: 'seed',
+        event_action: 'used',
+        event_label: location.hash
       })
+    } else if (window['ga-disable-UA-119249239-1'] === true || typeof gtag !== 'function') {
+      console.log('GA is blocked.')
     }
   }
 }
