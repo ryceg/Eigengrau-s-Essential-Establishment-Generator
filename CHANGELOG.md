@@ -8,9 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Tag that will make it much easier to force one-column layout for elements that should always be presented in one column
+- Some traits and bits of text here and there
+- Lots of interfaces for improved code reliability in future
+- Sliders for factions
 
 ### Changed
+- Made widescreen layout slightly less cramped
 - Welcome & tutorial are now one column
+- Attempts to fix the ongoing issues with Google Analytics
+- Behind the scenes, shifted to a centralised source for NPC relationships.
+- Restructured rollData to directly access property
+- Fix bug with stevedores
+- Fixed bug with children being raised by grandmothers not being passed the town object.
+- Refactored some code so it's more maintainable
+- Update dependencies
  
 ## 2.6.2
 

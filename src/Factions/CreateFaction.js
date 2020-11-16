@@ -20,7 +20,9 @@ setup.createFaction = (town, opts = {}) => {
       age: lib.dice(2, 50),
       size: lib.dice(2, 50),
       stability: lib.dice(2, 50),
-      resources: lib.dice(2, 50)
+      resources: lib.dice(2, 50),
+      leaderCompetence: lib.dice(2, 50),
+      leaderBribes: lib.dice(2, 50)
     }
   }, opts)
 
@@ -41,7 +43,7 @@ setup.createFaction = (town, opts = {}) => {
   })
 
   lib.setFactionAge(faction)
-  faction.name = lib.setFactionName(town, faction)
+  faction.name = faction.name || lib.setFactionName(town, faction)
 
   console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
 

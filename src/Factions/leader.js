@@ -1,9 +1,6 @@
 setup.leaderFaction = function (town, faction) {
   console.log('determining leaders...')
 
-  faction.roll.leaderBribes = lib.dice(2, 50)
-  faction.roll.leaderCompetence = lib.dice(2, 50)
-
   faction.leaderQualification = getLeaderQualification(faction)
 
   faction.leaderBribes = lib.matchFirst.largerThan(faction.roll.leaderBribes, {
@@ -46,7 +43,7 @@ setup.leaderFaction = function (town, faction) {
           leaderTraits[key] = leaderTraits[key].random()
         }
       }
-      faction.leader = setup.createNPC(town, leaderTraits)
+      faction.leader = faction.leader || setup.createNPC(town, leaderTraits)
       lib.createBuildingRelationship(town, faction, faction.leader, { relationship: 'head of faction', reciprocalRelationship: 'controlled faction', description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.` })
       if (faction.isPoliticalPower === true) {
         town.leader = faction.leader
