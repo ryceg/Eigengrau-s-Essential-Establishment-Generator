@@ -22,7 +22,8 @@ setup.createFaction = (town, opts = {}) => {
       stability: lib.dice(2, 50),
       resources: lib.dice(2, 50),
       leaderCompetence: lib.dice(2, 50),
-      leaderBribes: lib.dice(2, 50)
+      leaderBribes: lib.dice(2, 50),
+      joiningFee: lib.dice(2, 50)
     }
   }, opts)
 

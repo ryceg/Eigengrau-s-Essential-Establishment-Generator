@@ -36,5 +36,10 @@ export const factionSliders = constrainRecord<FactionSlider>()({
     name: 'Resources',
     description: "How many resources are at this faction's disposal?",
     preceding: 'Faction Resources:'
+  },
+  joiningFee: {
+    name: 'Joining Fee',
+    description: 'How expensive is it to join this faction?',
+    preceding: 'Faction Joining Fee:'
   }
 })

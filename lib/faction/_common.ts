@@ -13,6 +13,7 @@ export interface Faction {
     stability: number
     resources: number
     reputation: number
+    joiningFee: number
     meetingAccessibility?: number
     meetingRegularity?: number
   }
@@ -21,7 +22,6 @@ export interface Faction {
   influence: string
   stability: string
   reputation: string
-  joiningFee: string
   motivation: string
   leader?: NPC
   leadershipType: 'individual' | 'group'
@@ -31,6 +31,9 @@ export interface Faction {
   leaderCompetence: string
   leaderQualification: string
   stabilityCause?: string
+  joiningRequirement: string
+  joiningInitiation: string
+  joiningFee: string
   meetingRegularity: string
   meetingAccessibility: string
   alliesDescription: string
@@ -42,4 +45,5 @@ export interface Faction {
   isPoliticalPower: boolean
   isPolicing: boolean
   misc: string
+  tippyDescription: string
 }
