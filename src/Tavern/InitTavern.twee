@@ -13,7 +13,7 @@
 
 <span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$town.buildings[$currentPassage.index].roll.population" $town.buildings[$currentPassage.index].roll.population 1 100 1>></span>
+<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
 
 <span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
 

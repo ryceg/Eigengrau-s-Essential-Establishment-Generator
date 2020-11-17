@@ -6,7 +6,7 @@
 <<print lib.firstCharacter("You")>> make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.tavernDescriptor that the locals know best for its $building.draw.
 <h3>The Tavern</h3>
 <<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
-<<print lib.closestMatch(setup.tavern.get.lookAround($building), 'note', 'population', 'roughness', $building.roll.population, $building.roll.roughness)>>
+<<print lib.closestMatch(setup.tavern.get.lookAround($building), 'note', 'population', 'roughness', $building.roll.activity, $building.roll.roughness)>>
 <div id="patron"><<if ndef $building.patron>><<set $building.patron to setup.tavern.get.patrons($town, $building)>><</if>>$building.patron
 <<include "TavernPatrons">></div>
 <<include "TavernDrinker">>

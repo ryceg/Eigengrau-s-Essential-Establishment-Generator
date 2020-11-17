@@ -12,23 +12,23 @@ setup.tavernBrawl = function (town, tavern) {
     tavern.guardPresent = false
   }
 
-  if (tavern.roll.population > 80) {
+  if (tavern.roll.activity > 80) {
     brawlRoll += 15
-  } else if (tavern.roll.population > 70) {
+  } else if (tavern.roll.activity > 70) {
     brawlRoll += 13
-  } else if (tavern.roll.population > 60) {
+  } else if (tavern.roll.activity > 60) {
     brawlRoll += 11
-  } else if (tavern.roll.population > 55) {
+  } else if (tavern.roll.activity > 55) {
     brawlRoll += 8
-  } else if (tavern.roll.population > 50) {
+  } else if (tavern.roll.activity > 50) {
     brawlRoll += 0
-  } else if (tavern.roll.population > 40) {
+  } else if (tavern.roll.activity > 40) {
     brawlRoll -= 5
-  } else if (tavern.roll.population > 30) {
+  } else if (tavern.roll.activity > 30) {
     brawlRoll -= 15
-  } else if (tavern.roll.population > 20) {
+  } else if (tavern.roll.activity > 20) {
     brawlRoll -= 20
-  } else if (tavern.roll.population <= 20) {
+  } else if (tavern.roll.activity <= 20) {
     brawlRoll -= 40
   }
 

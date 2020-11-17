@@ -2,7 +2,7 @@ import { random } from '../src/random'
 import { Tavern } from './_common'
 
 export function tavernRooms (tavern: Tavern) {
-  return getRoomsBySize(tavern.roll.size) + getPopulationModifier(tavern.roll.population)
+  return getRoomsBySize(tavern.roll.size) + getPopulationModifier(tavern.roll.activity)
 }
 
 function getRoomsBySize (roll: number) {
