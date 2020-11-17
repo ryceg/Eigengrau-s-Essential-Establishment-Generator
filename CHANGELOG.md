@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.6.3
 
 ### Added
 - Tag that will make it much easier to force one-column layout for elements that should always be presented in one column
