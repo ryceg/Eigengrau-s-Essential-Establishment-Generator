@@ -4,6 +4,9 @@ export interface Tavern extends Building {
   draw: string
   roll: BuildingRolls & {
     bedCleanliness: number
+    roughness: number
+    reputation: number
+    sin: number
   }
   priceModifier: number
   lodging: number

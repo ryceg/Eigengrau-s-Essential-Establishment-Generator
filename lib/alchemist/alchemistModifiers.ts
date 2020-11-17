@@ -5,10 +5,12 @@ export function alchemistModifiers (alchemist: Alchemist) {
 
   switch (alchemist.material.noun) {
     case 'hewn rock':
-      alchemist.roll.roughness += 3
+      alchemist.roll.cleanliness -= 4
+      alchemist.roll.wealth -= 2
       break
     case 'chiseled stone':
-      alchemist.roll.roughness -= 1
+      alchemist.roll.cleanliness += 2
+      alchemist.roll.wealth += 4
       break
     case 'marble':
       alchemist.roll.cleanliness += 5
@@ -55,10 +57,10 @@ export function alchemistModifiers (alchemist: Alchemist) {
     alchemist.roll.reputation += 4
   } else if (alchemist.roll.wealth > 60) {
     alchemist.priceModifier += 1
-    alchemist.roll.population += 5
+    alchemist.roll.activity += 5
     alchemist.roll.cleanliness += 4
   } else if (alchemist.roll.wealth > 50) {
-    alchemist.roll.population += 5
+    alchemist.roll.activity += 5
     alchemist.roll.reputation -= 5
     alchemist.roll.cleanliness += 2
   } else if (alchemist.roll.wealth > 30) {
