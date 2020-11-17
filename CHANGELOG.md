@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Behind the scenes, shifted to a centralised source for NPC relationships.
 - Restructured rollData to directly access property
 - Fix bug with stevedores
+- Patreon credits now displays twenty random patrons, weighted according to their pledge.
 - Fixed bug with children being raised by grandmothers not being passed the town object.
 - Refactored some code so it's more maintainable
 - Update dependencies

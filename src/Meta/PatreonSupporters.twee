@@ -1,66 +1,16 @@
 :: PatreonSupporters
-Special thanks to my [[Patreon|https://www.patreon.com/bePatron?c=1709078]] supporters!
-<table>
-<tbody>
+Special thanks to my [[Patreon|https://www.patreon.com/join/eigengrausgenerator?]] supporters!
+<<if setup.supporters>><table>
+<tbody><<set _supportersList to setup.supporters>>
+<<for _i to 0; _i lt 10; _i++>>
+<<set _random to lib.weightRandom(_supportersList)>>
+<<run delete _supportersList[_random]>>
+<<set _random2 to lib.weightRandom(_supportersList)>>
+<<run delete _supportersList[_random2]>>
   <tr>
-    <td>- EarlofRaR</td>
-    <td>- John Senner</td>
+    <td>- _random</td>
+    <td>- _random2</td>
   </tr>
-  <tr>
-    <td>- Gunnar A Smits</td>
-    <td>- Martin Helleland</td>
-  </tr>
-  <tr>
-    <td>- Jonathan Ventura</td>
-    <td>- The Bearded One</td>
-  </tr>
-  <tr>
-    <td>- Bryan Holt</td>
-    <td>- Marcus Flores</td>
-  </tr>
-  <tr>
-    <td>- Kroy Mortlach</td>
-    <td>- Juan Miguel Cano</td>
-  </tr>
-  <tr>
-    <td>- Noah David</td>
-    <td>- Chris Pencis</td>
-  </tr>
-  <tr>
-    <td>- Conrad</td>
-    <td>- Michael</td>
-  </tr>
-  <tr>
-    <td>- Lachlan Scott</td>
-    <td>- Jooshyboy</td>
-  </tr>
-  <tr>
-    <td>- Gordon Randall</td>
-    <td>- Daniel Hodge</td>
-  </tr>
-  <tr>
-    <td>- Thijs Miedema</td>
-    <td>- Sarah Kouklis</td>
-  </tr>
-  <tr>
-    <td>- Lewis Kelly</td>
-    <td>- MaxOliver</td>
-  </tr>
-  <tr>
-    <td>- Duncan Thomson</td>
-    <td>- Tice Thomason</td>
-  </tr>
-  <tr>
-    <td>- Wendy Birb</td>
-    <td>- Mario Buehling</td>
-  </tr>
-  <tr>
-    <td>- Lane Watson</td>
-    <td>- Brett Thornton</td>
-  </tr>
-  <tr>
-    <td>- Connor Fitzgerald</td>
-    <td>- Adam Eschborn</td>
-  </tr>
+<</for>>
 </tbody>
-</table>
+</table><</if>>
