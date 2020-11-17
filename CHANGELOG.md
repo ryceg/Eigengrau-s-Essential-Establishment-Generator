@@ -10,10 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Tag that will make it much easier to force one-column layout for elements that should always be presented in one column
 - Some traits and bits of text here and there
 - Lots of interfaces for improved code reliability in future
-- Sliders for factions
+- Sliders and editing for factions
 
 ### Changed
 - Made widescreen layout slightly less cramped
+- Made blockquote margin less ridiculous on small screens
 - Welcome & tutorial are now one column
 - Attempts to fix the ongoing issues with Google Analytics
 - Behind the scenes, shifted to a centralised source for NPC relationships.

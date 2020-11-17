@@ -138,6 +138,11 @@ footer {
   body {
     font-size: 16px
   }
+
+  blockquote {
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+  }
 }
 
 @media (min-width: 411px) {
@@ -149,6 +154,10 @@ footer {
   }
   #paper {
     top: 14vw;
+  }
+  blockquote {
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
   }
 }
 
