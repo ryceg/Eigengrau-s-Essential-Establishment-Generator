@@ -16,6 +16,8 @@ export interface Faction {
     joiningFee: number
     meetingAccessibility?: number
     meetingRegularity?: number
+    leaderCompetence: number
+    leaderBribes: number
   }
   age: string
   size: string

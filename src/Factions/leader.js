@@ -51,6 +51,10 @@ setup.leaderFaction = function (town, faction) {
       break
     }
     case 'group': {
+      if (faction.leader) {
+        setup.deleteNPC(faction.leader)
+        delete faction.leader
+      }
       lib.createLeaderGroup(faction)
     }
   }

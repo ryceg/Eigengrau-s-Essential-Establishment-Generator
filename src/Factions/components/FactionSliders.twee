@@ -3,8 +3,10 @@
 <<liveblock>>
     <<link "reroll">>
         <<set $town.factions[$currentPassage.key].name to lib.setFactionName($town, $town.factions[$currentPassage.key])>><<update>>
-    <</link>> -- <span class="auto-update"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></span> -- <<button "Delete $town.factions[$currentPassage.key].name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
+    <</link>> -- <span class="auto-update"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></span> -- <<button "Delete $currentPassage.name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
 <</liveblock>>
+
+Type: <<listbox "$town.factions[$currentPassage.key].type" autoselect>><<optionsfrom Object.keys(lib.factionData)>><</listbox>>
 <table>
   <tr>
     <th>Attribute Slider</th>
@@ -17,5 +19,24 @@
 Motivation: <<listbox "$town.factions[$currentPassage.key].motivation" autoselect>><<optionsfrom Object.keys(lib.factionData[$town.factions[$currentPassage.key].type].motivation)>><</listbox>>
 Member's Trait: <<listbox "$town.factions[$currentPassage.key].membersTrait" autoselect>><<optionsfrom Object.keys(lib.factionData[$town.factions[$currentPassage.key].type].membersTrait)>><</listbox>>
 Leadership Type: <<listbox "$town.factions[$currentPassage.key].leadershipType" autoselect>><<optionsfrom Object.keys(lib.factionData[$town.factions[$currentPassage.key].type].leader.format)>><</listbox>>
+Joining Requirement: <<listbox "$town.factions[$currentPassage.key].joiningRequirement" autoselect>><<optionsfrom Object.keys(lib.factionData[$currentPassage.type].joiningRequirement).concatUnique([
+  'a display of bravery',
+  'a display of loyalty',
+  'a display of skill',
+  'a favour to be done',
+  'an excellent reputation',
+  'endorsement by the current leader',
+  'referral by an existing member',
+  'referral by several members',
+  'some social status',
+  'to be called on for a favour'])>><</listbox>>
+Joining Initiation: <<listbox "$town.factions[$currentPassage.key].joiningInitiation" autoselect>><<optionsfrom Object.keys(lib.factionData[$currentPassage.type].joiningInitiation).concatUnique([
+  'a mission',
+  'a secret ritual',
+  'a secret task',
+  'a simple form to be filled',
+  'an oath to be taken',
+  'nothing particularly interesting'])>><</listbox>>
+
 
 <<button "Save">><<set $town.factions[$currentPassage.key] to setup.createFaction($town, $town.factions[$currentPassage.key])>><<goto "FactionProfile">><</button>>

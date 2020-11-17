@@ -2,7 +2,6 @@ import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, GenderName, AgeName } from './raceTraits'
-import { Town } from '../town/_common'
 
 export type SocialClassName =
   | 'indentured servitude'
