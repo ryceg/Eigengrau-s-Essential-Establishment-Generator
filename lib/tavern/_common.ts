@@ -7,6 +7,7 @@ export interface Tavern extends Building {
     roughness: number
     reputation: number
     sin: number
+    activity: number
   }
   priceModifier: number
   lodging: number

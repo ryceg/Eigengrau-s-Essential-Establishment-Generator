@@ -9,7 +9,7 @@ interface Rolled {
   roll: Record<string, number>
 }
 
-type RollArray = [number, ...unknown[]][]
+export type RollArray = [number, ...unknown[]][]
 
 export type RollData<T extends Rolled> = {
   readonly [P in keyof T['roll']]: RollArray

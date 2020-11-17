@@ -13,13 +13,13 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
     tavernRoll.wealth += 5
   } else if (townRoll.wealth > 60) {
     tavernRoll.wealth += 3
-    tavernRoll.population += 1
+    tavernRoll.activity += 1
   } else if (townRoll.wealth > 50) {
     tavernRoll.wealth += 1
-    tavernRoll.population += 3
+    tavernRoll.activity += 3
   } else if (townRoll.wealth > 40) {
     tavernRoll.wealth -= 1
-    tavernRoll.population += 2
+    tavernRoll.activity += 2
   } else if (townRoll.wealth > 30) {
     tavernRoll.wealth -= 2
   } else if (townRoll.wealth > 20) {
@@ -28,7 +28,7 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
   } else if (townRoll.wealth <= 20) {
     tavernRoll.wealth -= 15
     tavernRoll.sin += 5
-    tavernRoll.population -= 3
+    tavernRoll.activity -= 3
   }
 
   switch (tavern.type) {
@@ -44,13 +44,13 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
       break
     case 'quiet and low-key bar':
       tavernRoll.sin -= 15
-      tavernRoll.population -= 5
+      tavernRoll.activity -= 5
       tavernRoll.roughness -= 10
       tavernRoll.cleanliness += 3
       break
     case 'raucous dive':
       tavernRoll.sin += 5
-      tavernRoll.population += 15
+      tavernRoll.activity += 15
       tavernRoll.roughness += 5
       tavernRoll.cleanliness -= 5
       break
@@ -73,7 +73,7 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
 
     case 'gathering place for a secret society':
       tavernRoll.sin += 5
-      tavernRoll.population -= 5
+      tavernRoll.activity -= 5
       break
   }
   /* ------------------------- DRAW -------------------------- */
@@ -167,10 +167,10 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
     tavernRoll.cleanliness += 6
   } else if (tavernRoll.wealth > 60) {
     tavern.priceModifier += 1
-    tavernRoll.population += 5
+    tavernRoll.activity += 5
     tavernRoll.cleanliness += 4
   } else if (tavernRoll.wealth > 50) {
-    tavernRoll.population += 5
+    tavernRoll.activity += 5
     tavernRoll.reputation -= 5
     tavernRoll.cleanliness += 2
   } else if (tavernRoll.wealth > 30) {
@@ -186,49 +186,49 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
   /* ------------------------- SIZE -------------------------- */
 
   if (tavernRoll.size > 80) {
-    tavernRoll.population += 5
+    tavernRoll.activity += 5
     tavernRoll.roughness += 3
     tavernRoll.cleanliness -= 2
   } else if (tavernRoll.size > 60) {
-    tavernRoll.population += 4
+    tavernRoll.activity += 4
     tavernRoll.roughness += 1
   } else if (tavernRoll.size > 40) {
-    tavernRoll.population += 3
+    tavernRoll.activity += 3
   } else if (tavernRoll.size > 20) {
-    tavernRoll.population -= 2
+    tavernRoll.activity -= 2
     tavernRoll.sin -= 5
   } else if (tavernRoll.size <= 20) {
     tavernRoll.sin -= 5
-    tavernRoll.population -= 5
+    tavernRoll.activity -= 5
     tavernRoll.roughness -= 3
   }
 
   /* ------------------------- ROUGHNESS -------------------------- */
 
   if (tavernRoll.roughness > 80) {
-    tavernRoll.population += 3
+    tavernRoll.activity += 3
     tavernRoll.sin += 5
     tavernRoll.cleanliness -= 4
   } else if (tavernRoll.roughness > 60) {
-    tavernRoll.population += 1
+    tavernRoll.activity += 1
     tavernRoll.sin += 3
     tavernRoll.cleanliness -= 2
   } else if (tavernRoll.roughness > 50) {
-    tavernRoll.population += 1
+    tavernRoll.activity += 1
     tavernRoll.sin -= 1
   } else if (tavernRoll.roughness > 40) {
-    tavernRoll.population += 2
+    tavernRoll.activity += 2
     tavernRoll.sin -= 3
   } else if (tavernRoll.roughness > 30) {
-    tavernRoll.population -= 5
+    tavernRoll.activity -= 5
     tavernRoll.sin -= 1
     tavernRoll.wealth += 1
   } else if (tavernRoll.roughness > 20) {
-    tavernRoll.population -= 10
+    tavernRoll.activity -= 10
     tavernRoll.sin -= 3
     tavernRoll.wealth -= 1
   } else if (tavernRoll.roughness <= 20) {
-    tavernRoll.population -= 15
+    tavernRoll.activity -= 15
     tavernRoll.sin -= 5
     tavernRoll.wealth -= 3
   }
@@ -247,15 +247,15 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
   } else if (tavernRoll.cleanliness > 40) {
     tavernRoll.roughness -= 1
   } else if (tavernRoll.cleanliness > 30) {
-    tavernRoll.population -= 1
+    tavernRoll.activity -= 1
     tavernRoll.sin += 1
     tavernRoll.wealth -= 2
   } else if (tavernRoll.cleanliness > 20) {
-    tavernRoll.population -= 2
+    tavernRoll.activity -= 2
     tavernRoll.sin += 3
     tavernRoll.wealth -= 4
   } else if (tavernRoll.cleanliness <= 20) {
-    tavernRoll.population -= 3
+    tavernRoll.activity -= 3
     tavernRoll.sin += 5
     tavernRoll.wealth -= 8
   }

@@ -1,4 +1,4 @@
-import { defineRollDataGetter, RollData } from '../src/defineRollDataGetter'
+import { defineRollDataGetter, RollArray } from '../src/defineRollDataGetter'
 import { getUUID, keys } from '../src/utils'
 import { random } from '../src/random'
 import { Construct, ConstructUtils } from './_common'
@@ -74,7 +74,7 @@ function setRollGetters (cabin: Cabin) {
   }
 }
 
-const rollData: RollData<Cabin> = {
+const rollData = {
   size: {
     rolls: [
       [95, 'huge'],
@@ -87,7 +87,7 @@ const rollData: RollData<Cabin> = {
       [20, 'small'],
       [10, 'tiny'],
       [0, 'extremely cramped']
-    ]
+    ] as RollArray
   },
   cleanliness: {
     rolls: [
@@ -101,7 +101,7 @@ const rollData: RollData<Cabin> = {
       [20, 'filthy'],
       [10, 'rather filthy'],
       [0, 'absolutely putrid']
-    ]
+    ] as RollArray
   },
   bedCleanliness: {
     rolls: [
@@ -115,6 +115,6 @@ const rollData: RollData<Cabin> = {
       [20, 'teeming with rats'],
       [10, 'rather filthy'],
       [0, 'festering with bugs']
-    ]
+    ] as RollArray
   }
 }
