@@ -10,4 +10,5 @@ export interface Tavern extends Building {
   stageDescriptor: string
   colour1: string
   colour2: string
+  lighting: string
 }
