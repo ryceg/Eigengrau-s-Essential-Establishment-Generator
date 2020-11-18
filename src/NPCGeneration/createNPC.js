@@ -197,7 +197,7 @@ setup.createNPC = (town, base = defaultBase) => {
   if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
 
   setup.createSexuality(npc)
-  setup.createSocialClass(town, npc)
+  lib.createSocialClass(town, npc)
   setup.createLifestyleStandards(town, npc)
   setup.createReligiosity(town, npc)
 
