@@ -1,4 +1,17 @@
-export const lifestyleStandards = {
+import { ThresholdTable } from '../src/rollFromTable'
+
+export interface LifestyleStandard {
+  dailyWagePercentage: number
+    incomeThreshold: number
+    lifestyleStandard: string
+    lifestyleDescription: string
+    homeBias: number,
+    socialClass: {
+      table: ThresholdTable
+    }
+}
+
+export const lifestyleStandards: Record<string, LifestyleStandard> = {
   aristocratic: {
     dailyWagePercentage: 40,
     incomeThreshold: 1000,
