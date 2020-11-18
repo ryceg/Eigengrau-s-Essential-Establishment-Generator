@@ -25,6 +25,14 @@ if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
   settings.forceOneColumn = State.metadata.get('forceOneColumn')
 }
 
+if (State.metadata.get('showVerboseErrors') !== settings.showVerboseErrors) {
+  settings.showVerboseErrors = State.metadata.get('showVerboseErrors')
+}
+
+if (settings.showVerboseErrors) {
+  jQuery('error-view').css('display', 'block')
+}
+
 if (settings.forceOneColumn) {
   jQuery('html').addClass('force-one-column')
 }
@@ -79,6 +87,18 @@ function settingForceOneColumn () {
   }
 }
 
+function settingShowVerboseErrors () {
+  const showVerboseErrors = State.metadata.get('showVerboseErrors')
+  if (settings.showVerboseErrors !== showVerboseErrors) {
+    State.metadata.set('showVerboseErrors', settings.showVerboseErrors)
+  }
+  if (settings.showVerboseErrors) {
+    jQuery('error-view').css('display', 'block')
+  } else {
+    jQuery('error-view').css('display', 'none')
+  }
+}
+
 Setting.addToggle('showTutorial', {
   label: 'Show tutorial?',
   onChange: settingShowTutorial
@@ -121,6 +141,11 @@ Setting.addToggle('forceOneColumn', {
 Setting.addToggle('hideAds', {
   label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
   onChange: settingHideAds
+})
+
+Setting.addToggle('showVerboseErrors', {
+  label: '<span id="verboseErrors" class="tip dotted" title="This shows the SugarCube errors.">Show debugging information?</span>',
+  onChange: settingShowVerboseErrors
 })
 
 Setting.addToggle('disableAnalytics', {

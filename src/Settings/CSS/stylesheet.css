@@ -637,8 +637,9 @@ input#mce-EMAIL.required.email:hover {
   background-color: rgb(238, 238, 238);
 }
 .error-view {
-	background-color: #eaa;
-	border-left-color: #d77;
+  display: block;
+  background-color: transparent;
+  font-size: 16px;
 }
 .error-view > .error-source:not([hidden]) {
 	background-color: rgba(255, 255, 255, 0.2);
