@@ -10,7 +10,7 @@ $currentNPC.firstName $currentNPC.trait.
 
 
 \<<if $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
-\<<if setup.socialClass[$currentNPC.socialClass].lifestyle.includes(setup.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>
+\<<if lib.socialClass[$currentNPC.socialClass].lifestyle.includes(setup.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + setup.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, $currentNPC.socialClass)>> social class
 \<<else>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but <<print setup.npcLifestyleStandard($town, $currentNPC).lifestyleDescription>>

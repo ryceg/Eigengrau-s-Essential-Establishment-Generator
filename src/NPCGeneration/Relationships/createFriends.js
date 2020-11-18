@@ -161,7 +161,7 @@ function sameSocialClass (town, npcs, npc) {
   console.log('friend:')
   console.log(friend)
   if (typeof friend === 'object') {
-    const relObj = lib.weightedRandomFetcher(town, setup.socialClass[npc.socialClass].relationships(npc, friend), npc, null, 'object')
+    const relObj = lib.weightedRandomFetcher(town, lib.socialClass[npc.socialClass].relationships(npc, friend), npc, null, 'object')
     setup.createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
   }
   return friend

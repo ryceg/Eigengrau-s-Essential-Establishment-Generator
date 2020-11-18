@@ -37,6 +37,9 @@ export interface Town {
     welfare: number
     military: number
     economics: number
+    base: number
+    land: number
+    tithe: number
   }
   wealth: string
   economics: string

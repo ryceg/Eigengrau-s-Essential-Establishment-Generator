@@ -64,7 +64,7 @@ function getProfessionOrigin (npc, town) {
     return lib.random(professionTrait.professionOrigin)
   }
 
-  const wageVariation = npc.roll.wageVariation(town, npc)
+  const wageVariation = lib.wageVariation(town, npc)
   for (const [amount, origin] of originWage) {
     if (amount >= wageVariation) return origin
   }

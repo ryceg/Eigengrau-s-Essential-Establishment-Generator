@@ -74,11 +74,7 @@ setup.createNPC = (town, base = defaultBase) => {
       * @param {Town} town
       * @param {NPC} npc
       * @returns {number} */
-      wageVariation (town, npc) {
-        // town.roll.wealth increases or decreases npc.professionLuck by up to 10%, reflecting the strength of the economy.
-        // expected range should be between -25 and 25.
-        return lib.calcPercentage(npc.roll.professionLuck, (town.roll.wealth - 50) / 5)
-      },
+
       physicalTrait: lib.random(1, 100),
       gregariousness: lib.dice(3, 6),
       // conformity: 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care"

@@ -1,5 +1,3 @@
-/* global Setting State */
-
 document.cookie = 'SameSite=Strict'
 
 Setting.addHeader('Content Settings')

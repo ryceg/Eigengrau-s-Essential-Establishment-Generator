@@ -9,7 +9,7 @@ $currentNPC.firstName currently earns <<if setup.money(setup.npcNetIncome($town,
         <th>Amount</th>
     </tr>
     <tr><td>Gross Income</td><td><<print setup.money(setup.npcGrossIncome($town, $currentNPC))>></td></tr>
-    <tr><td><i>Tax</i></td><td><i><<print setup.money(setup.npcTaxRate($town, $currentNPC))>></i></td></tr>
+    <tr><td><i>Tax</i></td><td><i><<print setup.money(lib.npcTaxRate($town, $currentNPC))>></i></td></tr>
     <tr><td>Net Income</td><td><<print setup.money(setup.npcNetIncome($town, $currentNPC))>></td></tr>
     <tr><td>Total Lifestyle Expenses (<<print lib.createTippyFull($currentNPC.firstName + " " + setup.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, setup.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>)</td><td><<print setup.money(setup.npcTotalLifestyleExpenses($town, $currentNPC))>></td></tr>
     <tr><td>Profit</td><td><<print setup.money(setup.npcProfit($town, $currentNPC))>></td></tr>
