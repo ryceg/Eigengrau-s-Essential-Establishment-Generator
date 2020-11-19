@@ -1,4 +1,4 @@
-/** @type {[number, string][]} */
+/** @type {import("../../lib/index").ThresholdTable} */
 const birthplaceTable = [
   [50, 'at home'],
   [5, 'in the home of a friend'],
