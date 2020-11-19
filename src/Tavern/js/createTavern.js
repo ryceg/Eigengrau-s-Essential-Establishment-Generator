@@ -106,9 +106,9 @@ setup.getTavernLodging = tavern => {
   console.log(`Fetching ${tavern.name} lodging.`)
   const { wealth } = setup.tavern.rollData
 
-  const [,, lodging] = wealth.find(([threshold]) => {
+  const [,, lodging] = wealth.rolls.find(([threshold]) => {
     return threshold <= tavern.roll.wealth
-  }) || lib.last(wealth)
+  }) || lib.last(wealth.rolls)
 
   return lodging
 }
@@ -117,9 +117,9 @@ setup.getTavernBedCleanliness = (tavern) => {
   console.log(`Fetching ${tavern.name} bed cleanliness.`)
   const { cleanliness } = setup.tavern.rollData
 
-  const [, bedCleanliness] = cleanliness.find(([threshold]) => {
+  const [, bedCleanliness] = cleanliness.rolls.find(([threshold]) => {
     return threshold <= tavern.roll.bedCleanliness
-  }) || lib.last(cleanliness)
+  }) || lib.last(cleanliness.rolls)
 
   return bedCleanliness
 }
