@@ -1,3 +1,4 @@
+// uses setup.createNPC
 const ABSENCE_PERCENT = 74
 const OLD_ABSENCE_PERCENT = 40
 const VERY_OLD_ABSENCE_PERCENT = 70

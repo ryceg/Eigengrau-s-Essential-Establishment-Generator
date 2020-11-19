@@ -1,3 +1,4 @@
+// uses setup.createRelationship, setup.createNPC
 setup.createFriends = (town, npc) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)

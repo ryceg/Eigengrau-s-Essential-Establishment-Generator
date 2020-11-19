@@ -1,3 +1,4 @@
+// uses State.variables.npcs
 setup.createRelationship = (town, sourceNPC, targetNPC, type, targetType) => {
   console.log('Forming a relationship.', sourceNPC, targetNPC)
 

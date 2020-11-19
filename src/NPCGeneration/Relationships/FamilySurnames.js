@@ -1,3 +1,4 @@
+// uses State.variables.npcs
 // TODO test matrilineal marriages
 setup.marriageIsMatrilineal = marriage => {
   return false
@@ -17,6 +18,7 @@ setup.getParentSurnames = marriage => {
   return { fatherSurname, motherSurname }
 }
 
+// uses State.variables.npcs
 // Given a marriage with at least one parent or child, determine child surnames
 setup.getChildSurname = marriage => {
   if (marriage.children.length !== 0) { return State.variables.npcs[marriage.children[0]].lastName }

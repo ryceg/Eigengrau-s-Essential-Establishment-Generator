@@ -1,3 +1,4 @@
+// TODO: convert
 setup.familyRelationships = {
   // Specific names when traversing the family tree
   // (the bracketed ones should never occur)
@@ -67,6 +68,7 @@ setup.familyRelationships = {
   }
 }
 
+// TODO: convert
 setup.knewParents = function (town, npc) {
   if (!npc) return false
   const family = town.families[npc.family]
@@ -74,6 +76,7 @@ setup.knewParents = function (town, npc) {
   return !!node.parentMarriage
 }
 
+// TODO: convert
 setup.getMarriages = function (town, npc) {
   if (!npc) return []
   const family = town.families[npc.family]
@@ -81,6 +84,7 @@ setup.getMarriages = function (town, npc) {
   return !!node.parentMarriage
 }
 
+// uses State.variables.npcs
 setup.getFatherMother = function (town, npc) {
   let father, mother
 

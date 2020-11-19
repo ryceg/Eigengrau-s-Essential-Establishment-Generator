@@ -1,3 +1,4 @@
+// TODO: convert
 // Given a NPC to be married, determine the partner race
 setup.marriagePools = {
   'human': ['human', 'elf', 'orc', 'half-elf', 'half-orc', 'tiefling'],
