@@ -1,4 +1,3 @@
-import { RaceName } from '../../../lib/index'
 
 interface Setup {
   createRelative(
@@ -44,4 +43,5 @@ interface Marriage {
   parents: string[]
   children: any[]
   socialClass?: string
+  lifestyle?: string
 }

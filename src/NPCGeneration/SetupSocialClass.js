@@ -30,6 +30,10 @@ setup.relativeSocialClass = function (npcClass) {
   return socialClassArray[newIndex]
 }
 
+/**
+ * @param {Marriage} marriage
+ * @returns {string}
+ * */
 setup.familySocialClass = function (marriage) {
   if (marriage.parents.length === 0) {
     if (marriage.children.length === 0) {
