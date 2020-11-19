@@ -7,6 +7,8 @@ interface RaceTrait {
   probability: number
   muscleMass: number
   bmiModifier: number
+  // TODO: code in orc as a viable "race"
+  viableBreedingPartners?: string[]
   ageTraits: Record<AgeName, AgeTrait> & {
     ageDescriptors: ThresholdTable
   }
@@ -612,6 +614,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     probability: 2,
     muscleMass: 10,
     bmiModifier: 703,
+    viableBreedingPartners: ['human', 'elf', 'half-elf', 'half-orc'],
     ageTraits: {
       'ageDescriptors': [
         [220, 'positively ancient'],
@@ -790,6 +793,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     probability: 1,
     muscleMass: 12,
     bmiModifier: 600,
+    viableBreedingPartners: ['human', 'orc', 'half-elf', 'half-orc'],
     ageTraits: {
       'ageDescriptors': [
         [80, 'vulnerably elderly'],
@@ -878,6 +882,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     probability: 6,
     muscleMass: 10,
     bmiModifier: 703,
+    viableBreedingPartners: ['human', 'elf', 'orc', 'half-elf', 'half-orc', 'tiefling'],
     ageTraits: {
       'ageDescriptors': [
         [80, 'vulnerably elderly'],
@@ -965,6 +970,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     probability: 1,
     muscleMass: 10,
     bmiModifier: 703,
+    viableBreedingPartners: ['human', 'tiefling'],
     ageTraits: {
       'ageDescriptors': [
         [80, 'vulnerably elderly'],
