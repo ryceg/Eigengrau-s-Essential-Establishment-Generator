@@ -1,9 +1,14 @@
+// uses setup.createRelationship and setup.createNPC so can't be translated.
 setup.createDebt = (town, npc) => {
   console.groupCollapsed(`${npc.name} is in debt!`)
-  const profit = lib.npcProfit(town, npc) // expressed in copper! Assumed to be negative (often is not, though!)
-  const grossIncome = lib.npcGrossIncome(town, npc) // expressed in copper!
-  const debtRate = Math.abs(profit / grossIncome) // typically a floating point, ~0.2
-  const cashLiquidity = Math.abs(grossIncome / profit) // usually 3-10
+  /** @description expressed in copper! Assumed to be negative (often is not, though!) */
+  const profit = lib.npcProfit(town, npc)
+  /** @description expressed in copper */
+  const grossIncome = lib.npcGrossIncome(town, npc)
+  /** @description typically a floating point, ~0.2 */
+  const debtRate = Math.abs(profit / grossIncome)
+  /** @description usually 3-10 */
+  const cashLiquidity = Math.abs(grossIncome / profit)
   console.log({
     profit,
     grossIncome,
