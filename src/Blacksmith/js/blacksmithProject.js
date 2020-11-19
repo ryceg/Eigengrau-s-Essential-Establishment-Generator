@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.profile, setup.createRelationship
 setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   if (!smithy) {
     smithy = {

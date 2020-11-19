@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.createRelationship
 setup.createCastlePopulation = (town, castle, opts) => {
   const selected = lib.weightedRandomFetcher(town, setup.castle.ruler.types, castle, null, 'object')
   console.log(selected)

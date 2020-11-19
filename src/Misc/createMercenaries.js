@@ -1,3 +1,4 @@
+// uses setup.createNPC
 setup.createMercenaries = function (town) {
   const mercenaries = {
     colours: [

@@ -1,3 +1,4 @@
+// uses setup.renderWeather
 /**
  * This weather function is pretty complex.
  * Basically, temperature, precipitation,

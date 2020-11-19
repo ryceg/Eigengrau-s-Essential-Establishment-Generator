@@ -1,4 +1,5 @@
 
+// uses setup.createNPC
 setup.tavernBrawl = function (town, tavern) {
   const guardRoll = random(1, 100)
   let brawlRoll = random(1, 100)

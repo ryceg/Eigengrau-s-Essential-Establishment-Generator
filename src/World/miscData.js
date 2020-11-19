@@ -1,3 +1,4 @@
+// uses getEventDescription, setup.getEncounter, setup.createNPC, setup.profile
 setup.initMisc = () => {
   setup.misc = {
     caravan: {

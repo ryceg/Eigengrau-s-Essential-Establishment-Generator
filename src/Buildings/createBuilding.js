@@ -1,3 +1,4 @@
+// TODO: convert
 setup.createBuilding = (town, type, base = {}) => {
   let roadName
   let roadType

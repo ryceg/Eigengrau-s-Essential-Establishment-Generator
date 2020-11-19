@@ -1,4 +1,4 @@
-
+// uses setup.toCelsius (which uses settings)
 setup.renderWeather = (town, biome = town.terrain, weather) => {
   console.log('Rendering weather...')
 

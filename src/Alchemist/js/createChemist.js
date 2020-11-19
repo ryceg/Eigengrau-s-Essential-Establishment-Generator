@@ -1,4 +1,6 @@
-
+// uses setup.createNPC
+// TODO: convert
+// can be simplified into a data thing as part of alchemistData
 setup.createChemist = (town, opts) => setup.createNPC(town, Object.assign({
   profession: ['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].random(),
   background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].random(),

@@ -1,4 +1,6 @@
-
+// uses setup.createNPC
+// TODO: convert
+// can be simplified into a data thing as part of smithyData
 setup.createBlacksmith = (town, smithy, opts) => setup.createNPC(town, Object.assign({
   hasClass: false,
   profession: 'blacksmith',

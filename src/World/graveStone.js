@@ -1,3 +1,4 @@
+// uses setup.createDeadNPC, setup.profile
 setup.graveStone = {
   create (town) {
     console.log('setup.graveStone.create called...')

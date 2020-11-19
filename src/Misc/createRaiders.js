@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.profile
 setup.raiderTables = {
   intro: {
     create (town, base) {

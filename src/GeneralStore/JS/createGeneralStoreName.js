@@ -1,3 +1,4 @@
+// uses setup.createNPC
 setup.createGeneralStoreName = (town, generalStore) => {
   const adjective = ['Dependable', 'Reliable', 'Expendable', 'Indispensible', 'Incomparable', 'Incredible', 'Excellent', 'Important', 'Cheap', 'Affordable', 'Affable', 'Discount', 'Low-Cost', 'Fancy'].random()
   const noun = ['Mount', 'Saddle', 'Guild', 'Fangs', 'Man', 'Pardon', 'Pleasure', 'Belt', 'Staff', 'Shield', 'Prince', 'Master', 'Servant', 'Meal', 'Prince', 'Favor', 'Love', 'Word', 'Scribe', 'Apprentice', 'Acolyte', 'Dress', 'Goddess', 'God', 'Gold', 'Purse', 'Trap', 'King', 'Son', 'Sister', 'Mother', 'Daughter', 'Cry', 'Shout', 'Cupboard', 'Pantry', 'Queen', 'Wealth', 'Star', 'Void', 'Woman', 'Man', 'Whore', 'Butcher', 'Anvil', 'Tome', 'Sacrifice', 'Armor', 'Cup', 'Pot', 'Stove', 'Stool', 'Princess', 'Chain', 'Sword', 'Pork', 'Grain', 'Tooth', 'Lance', 'Axe', 'Scabbard', 'Knife', 'Dagger', 'Spear', 'Bow', 'Crossbow', 'Quarterstaff', 'Staff', 'Fire', 'Ice', 'Wind', 'Earth', 'Water', 'Stone', 'Ladle', 'Monastery', 'Chalice', 'Goblet', 'Dungeon', 'Lust', 'Lantern', 'Bone', 'Life', 'Stone', 'Mistress', 'Mind', 'Treasure', 'Barter', 'Armorer', 'Butler', 'Page', 'Tome', 'Feather', 'Shadow', 'Friend', 'Labyrinth', 'Mountain', 'Hope', 'Boot', 'Gauntlet'].random()
@@ -125,11 +126,13 @@ setup.createGeneralStoreName = (town, generalStore) => {
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
+      break
     case 7:
       generalStore.name = `${associatedNPC.firstName} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
+      break
     default:
       return `The ${adjective} Adventurer's Store`
   }

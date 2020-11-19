@@ -1,3 +1,4 @@
+// TODO: convert
 setup.createStructure = (town, building) => {
   const { output } = lib.articles
   console.groupCollapsed(`Creating the structure for ${output(building.wordNoun || 'building')}`)

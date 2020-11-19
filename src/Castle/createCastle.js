@@ -1,3 +1,4 @@
+// uses setup.createStructure, setup.createNPC, setup.createBuilding, setup.createCastleName, setup.createCastlePopulation, setup.createDungeon
 setup.createCastle = (town, opts = {}) => {
   console.groupCollapsed('Creating a castle...')
   const castle = setup.createBuilding(town, 'castle', opts)

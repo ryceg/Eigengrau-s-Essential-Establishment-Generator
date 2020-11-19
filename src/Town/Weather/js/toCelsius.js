@@ -1,3 +1,4 @@
+// uses settings.showCelsius
 setup.toCelsius = temp => {
   if (settings.showCelsius) {
     console.log(`${temp} in Fahrenheit`)

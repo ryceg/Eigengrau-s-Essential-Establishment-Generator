@@ -1,3 +1,4 @@
+// uses setup.createFaction
 setup.findPoliceSource = (town) => {
   for (const factionKey of Object.keys(town.factions)) {
     const faction = town.factions[factionKey]

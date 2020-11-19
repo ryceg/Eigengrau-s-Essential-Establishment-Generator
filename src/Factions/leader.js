@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.deleteNPC
 setup.leaderFaction = function (town, faction) {
   console.log('determining leaders...')
 

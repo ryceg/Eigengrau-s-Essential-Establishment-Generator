@@ -1,3 +1,4 @@
+// TODO: convert
 setup.tavernSleep = tavern => {
   let restfulness = random(1, 100)
   let sleepEasy = 0

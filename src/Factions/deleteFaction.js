@@ -1,3 +1,4 @@
+// uses setup.deleteNPC
 setup.deleteFaction = function (town, key) {
   console.log(town, key)
   if (town.factions[key].leader) setup.deleteNPC(town.factions[key].leader.key)

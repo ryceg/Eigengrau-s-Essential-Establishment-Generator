@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.createRelationship, setup.profile, setup.createParentage, setup.createFamily
 setup.brothel = {
   rollData: {
     wealth: {

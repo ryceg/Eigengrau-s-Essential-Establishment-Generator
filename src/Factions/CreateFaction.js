@@ -1,3 +1,4 @@
+// uses setup.leaderFaction
 setup.createFaction = (town, opts = {}) => {
   const type = opts.type || lib.weightedRandomFetcher(town, lib.factionData, null, null, 'object').type
 

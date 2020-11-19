@@ -1,3 +1,4 @@
+// uses setup.misc, getEventDescription, setup.getEncounter, setup.gravestone.create
 setup.initMiscLocations = () => {
   setup.misc.locations = [
     {

@@ -1,3 +1,4 @@
+// uses setup.deleteNPC
 setup.deleteBuilding = (town, building) => {
   if (building.associatedNPC) {
     setup.deleteNPC(building.associatedNPC)

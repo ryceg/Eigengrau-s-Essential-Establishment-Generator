@@ -1,3 +1,4 @@
+// TODO: convert
 setup.createNightmare = base => {
   if (!base) { base = {} }
   base.figure = base.figure || [

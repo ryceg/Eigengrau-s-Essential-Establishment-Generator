@@ -1,3 +1,4 @@
+// uses setup.misc.encounters
 setup.getLocation = biome => {
   return lib.random(setup.misc.locations.filter(location => {
     return location.available.includes(biome)

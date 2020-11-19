@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.createBuilding
 setup.createDocks = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || setup.createBuilding
 

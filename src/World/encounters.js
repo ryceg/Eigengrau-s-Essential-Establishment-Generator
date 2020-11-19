@@ -1,3 +1,4 @@
+// uses setup.createNPC, setup.profile, setup.misc, setup.createMercenaries
 setup.initMiscEncounters = () => {
   setup.misc.encounters = [
     {
