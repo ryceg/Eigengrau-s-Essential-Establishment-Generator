@@ -1,4 +1,8 @@
 // uses setup.createTownName, setup.townDemographics
+/**
+ * @param {Partial<Town>} base
+ * @returns {Partial<Town>}
+ * */
 setup.createTownBiome = (base = {}) => {
   const type = ['hamlet', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
@@ -83,7 +87,7 @@ setup.createTownBiome = (base = {}) => {
     }
   }, base)
 
-  setup.townDemographics(town)
+  lib.townDemographics(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology

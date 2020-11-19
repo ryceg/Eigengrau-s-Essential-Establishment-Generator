@@ -64,10 +64,7 @@ setup.createTown = (base = {}) => {
     npcRelations: {},
     population: lib.townData.type[type].population(),
     _demographicPercentile: {},
-    // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
-      // console.log('Getting base demographics.')
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
@@ -184,7 +181,7 @@ setup.createTown = (base = {}) => {
     }
   }, base)
 
-  setup.townDemographics(town)
+  lib.townDemographics(town)
   town.professions = lib.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology

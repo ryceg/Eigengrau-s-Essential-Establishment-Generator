@@ -23,12 +23,6 @@ interface Setup {
   createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
 
-  npcLifestyleStandard(town: Town, npc: NPC): any
-  npcTotalLifestyleExpenses(town: Town, npc: NPC): number
-  npcProfit(town: Town, npc: NPC): number
-  npcLifestyleExpenses(town: Town, npc: NPC): number
-  npcGrossIncome(town: Town, npc: NPC): number
-  npcNetIncome(town: Town, npc: NPC): number
   npcDeath(town: Town, npc: NPC, base?: Partial<NPC>): NPC
   createDeadNPC(town: Town, base?: Partial<NPC>): NPC
   expandNPC(town: Town, npc: NPC)
@@ -41,8 +35,6 @@ interface Setup {
   makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
   createTownName(town: Town): string
-  townDemographics(town: Town): void
-  updateDemographics(town: Town, newDemographics: Record<RaceName, number>): void
 }
 
 interface FamilyData {

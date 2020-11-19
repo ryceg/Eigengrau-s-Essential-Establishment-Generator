@@ -39,7 +39,7 @@
 </table>
 ----
 
-<<liveblock>><<run setup.updateDemographics($tempTown, $tempTown._baseDemographics)>>$tempTown.name is a <<print setup.getTownType($tempTown)>> comprised <<print lib.getPredominantRace($tempTown._demographicPercentile).amountDescriptive>>.
+<<liveblock>><<run lib.updateDemographics($tempTown, $tempTown._baseDemographics)>>$tempTown.name is a <<print setup.getTownType($tempTown)>> comprised <<print lib.getPredominantRace($tempTown._demographicPercentile).amountDescriptive>>.
 <span class="races-slider"><span class="tip" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span></span>
 <<nobr>><table class="sortable">
     <tr>

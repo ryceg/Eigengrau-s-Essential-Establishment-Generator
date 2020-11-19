@@ -1,6 +1,6 @@
 :: Rerender
 <<run console.log("Saving changes...")>>
-<<run setup.updateDemographics($town, $town._baseDemographics)>>
+<<run lib.updateDemographics($town, $town._baseDemographics)>>
 <<run console.log($town)>>
 <<run setup.createSocioPolitics($town)>>
 <<run lib.updateTownSocioPolitics($town)>>
