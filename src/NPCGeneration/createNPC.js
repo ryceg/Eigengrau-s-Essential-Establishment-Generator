@@ -198,7 +198,7 @@ setup.createNPC = (town, base = defaultBase) => {
 
   setup.createSexuality(npc)
   lib.createSocialClass(town, npc)
-  setup.createLifestyleStandards(town, npc)
+  lib.createLifestyleStandards(town, npc)
   setup.createReligiosity(town, npc)
 
   if (lib.npcProfit(town, npc) < 0 && npc.isShallow !== true) {
