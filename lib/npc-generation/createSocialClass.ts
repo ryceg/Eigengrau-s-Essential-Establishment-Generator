@@ -1,5 +1,5 @@
 import { Town } from '../town/_common'
-import { NPC } from './_common'
+import { NPC, SocialClassName } from './_common'
 import { socialClass } from './socialClass'
 import { keys } from '../src/utils'
 import { findProfession } from '../src/findProfession'
@@ -41,7 +41,7 @@ export function createSocialClass (town: Town, npc: NPC): void {
 
   if (array) {
     const newSocialClass = array[1]
-    npc.socialClass = newSocialClass
+    npc.socialClass = newSocialClass as SocialClassName
     return
   }
 
