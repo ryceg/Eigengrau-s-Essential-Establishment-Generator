@@ -15,7 +15,7 @@ setup.createSmithy = function (town, opts = {}) {
     mundane: ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
   })
 
-  setup.createStructure(town, smithy)
+  lib.createStructure(town, smithy)
   smithy.structure.smithyDescriptor = `${smithy.structure.material.wealth} ${smithy.structure.material.noun} ${smithy.wordNoun} with ${lib.articles.output(smithy.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise', 'activity']

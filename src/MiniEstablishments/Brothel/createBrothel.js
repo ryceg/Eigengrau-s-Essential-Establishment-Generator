@@ -18,7 +18,7 @@ setup.createBrothel = (town, opts = {}) => {
     owner: Object.keys(setup.brothel.pimp).random()
   })
   brothel.notableFeature = `${brothel.specialty} and being owned by ${brothel.owner}`
-  setup.createStructure(town, brothel)
+  lib.createStructure(town, brothel)
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
     lib.defineRollDataGetter(brothel, setup.brothel.rollData[propName].rolls, propName)

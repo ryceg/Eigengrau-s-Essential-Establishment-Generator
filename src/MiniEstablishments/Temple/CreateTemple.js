@@ -33,7 +33,7 @@ setup.createTemple = (town, opts = {}) => {
     blessingGift: data.blessingGift.random()
   })
 
-  setup.createStructure(town, temple)
+  lib.createStructure(town, temple)
 
   lib.assign(temple.structure, {
     templeDescriptor: `${lib.articles.output(temple.structure.material.wealth).toUpperFirst()} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`

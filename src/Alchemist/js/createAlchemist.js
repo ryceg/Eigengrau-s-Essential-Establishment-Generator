@@ -19,7 +19,7 @@ setup.createAlchemist = (town, opts = {}) => {
     name: lib.createAlchemistName(associatedNPC.firstName)
   })
 
-  setup.createStructure(town, alchemist)
+  lib.createStructure(town, alchemist)
   alchemist.structure.alchemistDescriptor = `${alchemist.structure.material.wealth} ${alchemist.structure.material.noun} ${alchemist.wordNoun} with ${lib.articles.output(alchemist.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'expertise']

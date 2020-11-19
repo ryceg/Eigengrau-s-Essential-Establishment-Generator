@@ -88,7 +88,7 @@ setup.createTavern = (town, opts = {}) => {
     tavern.feature = setup.tavern.get.wealthyFeature(tavern)
   }
   // Sets up building structure and creates building description
-  setup.createStructure(town, tavern)
+  lib.createStructure(town, tavern)
   tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
