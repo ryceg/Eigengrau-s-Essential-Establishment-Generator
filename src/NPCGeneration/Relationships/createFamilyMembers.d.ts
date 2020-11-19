@@ -34,12 +34,12 @@ interface Setup {
   }
 }
 
-interface Family {
+export interface Family {
   key: string
   members: Record<string, any>
 }
 
-interface Marriage {
+export interface Marriage {
   parents: string[]
   children: any[]
   socialClass?: string
