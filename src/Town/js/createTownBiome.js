@@ -1,3 +1,4 @@
+// uses setup.createTownName, setup.townDemographics
 setup.createTownBiome = (base = {}) => {
   const type = ['hamlet', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()

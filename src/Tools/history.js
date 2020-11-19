@@ -1,3 +1,4 @@
+// uses State.variables.history
 setup.history = (object, passageName, linkDescription) => {
   const history = State.variables.history
   passageName = passageName || object.passageName
@@ -33,7 +34,6 @@ setup.history = (object, passageName, linkDescription) => {
       })
     }
     if (window['ga-disable-UA-119249239-1'] !== true && typeof gtag === 'function') {
-      console.log('GA is working!')
       gtag('event', 'passage', {
         event_category: 'passage',
         event_action: 'loaded',
@@ -45,7 +45,6 @@ setup.history = (object, passageName, linkDescription) => {
         event_label: location.hash
       })
     } else if (window['ga-disable-UA-119249239-1'] === true || typeof gtag !== 'function') {
-      console.log('GA is blocked.')
     }
   }
 }

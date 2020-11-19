@@ -1,3 +1,4 @@
+// uses setup.createFaction, setup.createNPC, setup.createTownLeader
 setup.createSocioPolitics = town => {
   console.groupCollapsed('Creating sociopolitics!')
   // ecoIde and polSource are now set in the createTown.js function

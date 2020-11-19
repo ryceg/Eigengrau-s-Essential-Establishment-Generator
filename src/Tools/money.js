@@ -1,3 +1,4 @@
+// uses settings.silverStandard, setup.getPriceMod
 setup.money = (copper, priceMod) => {
   if (priceMod) copper = Math.round(copper * setup.getPriceMod(priceMod))
   let silver

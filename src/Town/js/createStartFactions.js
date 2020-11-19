@@ -1,3 +1,4 @@
+// uses setup.createFaction
 // already has a definition
 setup.createStartFactions = town => {
   console.log('Creating starting factions...')

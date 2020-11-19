@@ -1,3 +1,4 @@
+// uses setup.createNewBuilding
 setup.createStartBuildings = town => {
   console.log('Creating starting buildings...', town)
 
