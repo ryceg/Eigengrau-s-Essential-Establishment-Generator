@@ -9,6 +9,8 @@
  * @param value The value that is expected for variable.
  * if it doesn't find any, it creates a matching faction.
  * This is for plot hooks that require a wizard's college, etc.
+ *
+ * @returns {Faction}
  */
 setup.factionsForType = (town, variable, value) => {
   const found = []
