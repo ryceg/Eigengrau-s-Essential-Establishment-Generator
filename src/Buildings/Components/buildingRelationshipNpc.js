@@ -1,3 +1,12 @@
+// uses setup.createNPC, setup.createRelationship
+/**
+ *
+ * @param {Town} town
+ * @param {Building} building
+ * @param {NPC} associatedNPC
+ * @param {Record<string, any>[]} relationshipTable
+ * @param {Record<string, any>} args
+ */
 setup.createBuildingRelationshipNpc = (town, building, associatedNPC, relationshipTable, args) => {
   // args: {
   //   objectKey?: 'building' - this is for if you're accessing a relationships object that has different names for the relationships
