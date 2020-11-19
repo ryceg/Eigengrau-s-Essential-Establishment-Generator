@@ -1,7 +1,7 @@
 // types are stored in setup.d.ts
 // don't bother creating a FamilyData.d.ts
 // you'll waste your time like me
-// TODO: convert
+// uses State.variables.npcs
 setup.familyData = {
   parentStageTable: [
     [55, 'young adult'],
