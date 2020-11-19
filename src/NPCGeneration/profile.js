@@ -1,3 +1,4 @@
+// uses State.variables.npcs, State.variables.town
 /**
  * @description This is a function that returns the profile widget for the provided object.
  * @param obj - The object. It is mandatory.
