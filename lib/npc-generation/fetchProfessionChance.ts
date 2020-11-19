@@ -63,7 +63,7 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
   }
   console.log(`Profession is: ${resultantProfession}`)
 
-  // the on-load function is handled in setup.createClass because it should apply to *every* NPC with the profession, not just those that are rolled with it
+  // the on-load function is handled in lib.createClass because it should apply to *every* NPC with the profession, not just those that are rolled with it
   if (town.professions[resultantProfession].exclusions) {
     if (typeof town.professions[resultantProfession].exclusions === 'function') {
       console.log('There is an exclusion function. Testing...')

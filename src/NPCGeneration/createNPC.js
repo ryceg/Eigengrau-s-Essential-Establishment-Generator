@@ -188,7 +188,7 @@ setup.createNPC = (town, base = defaultBase) => {
       npc.physicalTrait = lib.random(data.tattoo)
     }
   }
-  setup.createClass(town, npc)
+  lib.createClass(town, npc)
 
   lib.createBackground(npc)
 
