@@ -1,106 +1,10 @@
-// TODO: convert
-setup.tavernSleep = tavern => {
-  let restfulness = random(1, 100)
-  let sleepEasy = 0
-
-  if (tavern.wealth === 'kingly') {
-    restfulness += 30
-    sleepEasy += 3
-  } else if (tavern.wealth === 'aristocratic') {
-    restfulness += 15
-    sleepEasy += 2
-  } else if (tavern.wealth === 'wealthy') {
-    restfulness += 7
-    sleepEasy += 1
-  } else if (tavern.wealth === 'modest') {
-    restfulness -= 2
-  } else if (tavern.wealth === 'poor') {
-    restfulness -= 5
-    sleepEasy -= 2
-  } else {
-    restfulness -= 10
-    sleepEasy -= 3
-  }
-
-  if (tavern.roll.cleanliness > 90) {
-    restfulness += 30
-  } else if (tavern.roll.cleanliness > 80) {
-    restfulness += 15
-    sleepEasy += 3
-  } else if (tavern.roll.cleanliness > 70) {
-    restfulness += 5
-    sleepEasy += 2
-  } else if (tavern.roll.cleanliness > 60) {
-    restfulness += 3
-    sleepEasy += 1
-  } else if (tavern.roll.cleanliness > 50) {
-    restfulness -= 2
-  } else if (tavern.roll.cleanliness > 40) {
-    restfulness -= 5
-  } else if (tavern.roll.cleanliness > 30) {
-    restfulness -= 10
-    sleepEasy -= 1
-  } else if (tavern.roll.cleanliness > 20) {
-    restfulness -= 15
-    sleepEasy -= 2
-  } else {
-    restfulness -= 20
-    sleepEasy -= 3
-  }
-
-  if (tavern.roll.bedCleanliness > 90) {
-    restfulness += 30
-    sleepEasy += 4
-  } else if (tavern.roll.bedCleanliness > 80) {
-    restfulness += 15
-    sleepEasy += 3
-  } else if (tavern.roll.bedCleanliness > 70) {
-    restfulness += 5
-    sleepEasy += 2
-  } else if (tavern.roll.bedCleanliness > 60) {
-    restfulness += 3
-    sleepEasy += 1
-  } else if (tavern.roll.bedCleanliness > 50) {
-    restfulness -= 2
-  } else if (tavern.roll.bedCleanliness > 40) {
-    restfulness -= 5
-  } else if (tavern.roll.bedCleanliness > 30) {
-    restfulness -= 10
-    sleepEasy -= 1
-  } else if (tavern.roll.bedCleanliness > 20) {
-    restfulness -= 15
-    sleepEasy -= 2
-  } else {
-    restfulness -= 20
-    sleepEasy -= 3
-  }
-
-  let sleepOutput = lib.closestMatch(setup.tavern.get.sleep(tavern), 'note', 'restfulness', 'sleepEasy', restfulness, sleepEasy)
-
-  sleepOutput += ` ${getWakeUpByType(tavern)}. ${getWakeUpByWealth(tavern)}`
-
-  return sleepOutput
-}
+// uses setup.profile
 
 /**
  * @param {Tavern} tavern
  * @returns {string}
  */
-function getWakeUpByType (tavern) {
-  switch (tavern.type) {
-    case 'brothel':
-      return 'in spite of the whores moaning'
-    case 'gambling den':
-      return 'in spite of the commotion whenever something interesting happened at the gambling tables'
-  }
-  return ''
-}
-
-/**
- * @param {Tavern} tavern
- * @returns {string}
- */
-function getWakeUpByWealth (tavern) {
+setup.getWakeUpByWealth = (tavern) => {
   const bartender = tavern.associatedNPC
 
   if (tavern.wealth === 'kingly') {

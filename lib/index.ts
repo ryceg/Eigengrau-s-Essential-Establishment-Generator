@@ -125,6 +125,7 @@ export * from './tavern/createTavernName'
 export * from './tavern/getTavernSin'
 export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
+export * from './tavern/tavernSleep'
 
 export * from './town/getPredominantRace'
 export * from './town/getTownMaterial'

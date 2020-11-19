@@ -1,6 +1,8 @@
 import { Building, BuildingRolls } from '../buildings/_common'
+import { NPC } from '../npc-generation/_common'
 
 export interface Tavern extends Building {
+  barmaid: NPC
   draw: string
   roll: BuildingRolls & {
     bedCleanliness: number
