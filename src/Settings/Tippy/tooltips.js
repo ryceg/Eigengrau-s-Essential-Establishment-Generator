@@ -41,6 +41,7 @@ setup.itemTooltip = function (id, item) {
   })
 }
 
+/** @param {NPC} char */
 setup.profileAgeTooltip = function (id, char) {
   jQuery(() => {
     const span = document.getElementById(id)
@@ -51,6 +52,10 @@ setup.profileAgeTooltip = function (id, char) {
   })
 }
 
+/**
+ * @param {number} height
+ * @param {boolean} isMetric
+ */
 setup.metricHeight = (height, isMetric) => {
   if (isMetric === true) {
     return `${(height * 0.0254).toFixed(2)}m`
@@ -65,6 +70,10 @@ setup.metricHeight = (height, isMetric) => {
   }
 }
 
+/**
+ * @param {NPC} npc
+ * @param {boolean} isMetric
+ */
 setup.metricWeight = (npc, isMetric) => {
   if (isMetric === true) {
     return `${(npc.weightRoll / 2.2046).toFixed(1)}kg (with a BMI of ${npc.bmi})`
@@ -73,6 +82,10 @@ setup.metricWeight = (npc, isMetric) => {
   }
 }
 
+/**
+ * @param {NPC} char
+ * @param {number} heightVar
+ */
 setup.profileHeightTooltip = function (id, char, heightVar) {
   if (heightVar) {
     char.heightRoll = heightVar
@@ -124,6 +137,10 @@ setup.buildingTooltip = function (id, building) {
   })
 }
 
+/**
+ * @param {Town} town
+ * @param {string} type
+ * */
 setup.politicsDescription = (town, type) => {
   let description
   switch (type) {
@@ -147,6 +164,7 @@ setup.politicsDescription = (town, type) => {
   return description
 }
 
+/** @param {Town} town */
 setup.politicsTooltip = function (id, type, town) {
   jQuery(() => {
     const span = document.getElementById(id)
