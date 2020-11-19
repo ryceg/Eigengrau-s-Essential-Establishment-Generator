@@ -5,6 +5,7 @@ import { createTippyFull } from '../src/tippy'
 import { capitalizeFirstLetter, assign } from '../src/utils'
 import { wageVariation } from './npcFinances'
 import { articles } from '../src/articles'
+import { random } from '../src/random'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
@@ -25,18 +26,18 @@ const homeTable = [
 
 export function createLifestyleStandards (town: Town, npc: NPC) {
   console.groupCollapsed(`Creating living standards for ${npc.name}`)
-  const isCurrently = [
+  const isCurrently = random([
     'has been',
     'has recently been',
     'is',
     'is currently'
-  ].random()
-  const isHaving = [
+  ])
+  const isHaving = random([
     'has been having',
     'has recently had',
     'is having',
     'is currently having'
-  ].random()
+  ])
   const desc = findProfession(town, npc)
 
   const tippy = createTippyFull(capitalizeFirstLetter(desc.description), npc.profession)
@@ -48,30 +49,36 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
     [-8, `${isCurrently} somewhat unsuccessful as`],
     [-5, `${isCurrently} slightly unsuccessful as`],
     [0, 'is'],
-    [5, [
-      `${isCurrently} mildly successful as`,
-      `${isHaving} mild success as`
-    ].random()],
-    [8, [
-      `${isCurrently} reasonably successful as`,
-      `${isHaving} reasonable success as`
-    ].random()],
-    [8, [
-      `${isCurrently} modestly successful as`,
-      `${isHaving} modest success as`
-    ].random()],
-    [12, [
-      `${isCurrently} successful as`,
-      `${isHaving} success as`
-    ].random()],
-    [12, [
-      `${isCurrently} fabulously successful as`,
-      `${isHaving} fabulous success as`
-    ].random()],
-    [25, [
-      `${isCurrently} extremely successful as`,
-      `${isHaving} extreme success as`
-    ].random()]
+    [5, random([
+        `${isCurrently} mildly successful as`,
+        `${isHaving} mild success as`
+    ])
+    ],
+    [8, random([
+        `${isCurrently} reasonably successful as`,
+        `${isHaving} reasonable success as`
+    ])
+    ],
+    [8, random([
+        `${isCurrently} modestly successful as`,
+        `${isHaving} modest success as`
+    ])
+    ],
+    [12, random([
+        `${isCurrently} successful as`,
+        `${isHaving} success as`
+    ])
+    ],
+    [12, random([
+        `${isCurrently} fabulously successful as`,
+        `${isHaving} fabulous success as`
+    ])
+    ],
+    [25, random([
+        `${isCurrently} extremely successful as`,
+        `${isHaving} extreme success as`
+    ])
+    ]
   ] as ThresholdTable
   let note = wageVarianceNotes.find(desc => {
     return desc[0] >= wageVariation(town, npc)

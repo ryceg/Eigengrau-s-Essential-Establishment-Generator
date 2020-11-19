@@ -4,6 +4,8 @@ import { Town } from '../town/_common'
 import { RaceName } from './raceTraits'
 import { NPC } from './_common'
 import { fetchRace } from './fetchRace'
+import { random } from '../src/random'
+import { randomFloat } from '../src/randomFloat'
 
 // Given a NPC to be married, determine the partner race
 export const marriagePools = {
