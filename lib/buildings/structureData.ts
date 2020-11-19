@@ -1,32 +1,43 @@
 import { ThresholdTable } from '../src/rollFromTable'
 
+export interface RoofType {
+  probability: number
+  noun: string
+  verb: string
+  canBeColoured?: boolean
+}
+
+export interface MaterialType {
+  probability: number
+  noun: string
+  tier: number[]
+}
+
 export const structureData = {
-  data: {
-    colour: [
-      'red',
-      'blue',
-      'grey',
-      'black',
-      'white',
-      'yellow',
-      'orange'
-    ],
-    rollData: {
-      size: {
-        rolls: [
-          [99, 'cavernous'],
-          [95, 'cavernous'],
-          [80, 'huge'],
-          [70, 'quite large'],
-          [60, 'large'],
-          [50, 'spacious'],
-          [40, 'average sized'],
-          [30, 'somewhat cramped'],
-          [20, 'small'],
-          [10, 'tiny'],
-          [0, 'extremely cramped']
-        ] as ThresholdTable
-      }
+  colour: [
+    'red',
+    'blue',
+    'grey',
+    'black',
+    'white',
+    'yellow',
+    'orange'
+  ] as string[],
+  rollData: {
+    size: {
+      rolls: [
+        [99, 'cavernous'],
+        [95, 'cavernous'],
+        [80, 'huge'],
+        [70, 'quite large'],
+        [60, 'large'],
+        [50, 'spacious'],
+        [40, 'average sized'],
+        [30, 'somewhat cramped'],
+        [20, 'small'],
+        [10, 'tiny'],
+        [0, 'extremely cramped']
+      ] as ThresholdTable
     }
   },
   material: {
@@ -49,31 +60,30 @@ export const structureData = {
       }
     },
     types: {
-      'wood': {
-        probability: 40,
+      'log': {
+        probability: 10,
         tier: [1, 2],
-        variations: {
-          'log': {
-            probability: 10,
-            noun: 'log'
-          },
-          'split log': {
-            probability: 10,
-            noun: 'split log'
-          },
-          'wood': {
-            probability: 10,
-            noun: 'wood'
-          },
-          'timber': {
-            probability: 10,
-            noun: 'timber'
-          },
-          'plank': {
-            probability: 10,
-            noun: 'plank'
-          }
-        }
+        noun: 'log'
+      },
+      'split log': {
+        probability: 10,
+        tier: [1, 2],
+        noun: 'split log'
+      },
+      'wood': {
+        probability: 10,
+        tier: [1, 2],
+        noun: 'wood'
+      },
+      'timber': {
+        probability: 10,
+        tier: [1, 2],
+        noun: 'timber'
+      },
+      'plank': {
+        probability: 10,
+        tier: [1, 2],
+        noun: 'plank'
       },
       'terra cotta': {
         probability: 30,
@@ -145,9 +155,18 @@ export const structureData = {
         tier: [3],
         noun: 'gypsum'
       }
-    }
+    } as Record<string, MaterialType>
   },
   roof: {
+    colour: [
+      'red',
+      'blue',
+      'grey',
+      'black',
+      'white',
+      'yellow',
+      'orange'
+    ] as string[],
     rollData: {
       wealth: {
         rolls: [
@@ -191,6 +210,6 @@ export const structureData = {
         noun: 'shingle',
         verb: 'shingled'
       }
-    }
+    } as Record<string, RoofType>
   }
 }
