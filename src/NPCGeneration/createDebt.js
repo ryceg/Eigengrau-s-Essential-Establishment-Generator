@@ -1,7 +1,7 @@
 setup.createDebt = (town, npc) => {
   console.groupCollapsed(`${npc.name} is in debt!`)
-  const profit = setup.npcProfit(town, npc) // expressed in copper! Assumed to be negative (often is not, though!)
-  const grossIncome = setup.npcGrossIncome(town, npc) // expressed in copper!
+  const profit = lib.npcProfit(town, npc) // expressed in copper! Assumed to be negative (often is not, though!)
+  const grossIncome = lib.npcGrossIncome(town, npc) // expressed in copper!
   const debtRate = Math.abs(profit / grossIncome) // typically a floating point, ~0.2
   const cashLiquidity = Math.abs(grossIncome / profit) // usually 3-10
   console.log({

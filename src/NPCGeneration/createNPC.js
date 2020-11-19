@@ -201,7 +201,7 @@ setup.createNPC = (town, base = defaultBase) => {
   setup.createLifestyleStandards(town, npc)
   setup.createReligiosity(town, npc)
 
-  if (setup.npcProfit(town, npc) < 0 && npc.isShallow !== true) {
+  if (lib.npcProfit(town, npc) < 0 && npc.isShallow !== true) {
     setup.createDebt(town, npc)
   }
   if (npc.hasHistory !== false) setup.expandNPC(town, npc)

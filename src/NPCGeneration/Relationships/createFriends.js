@@ -88,7 +88,7 @@ setup.createFriends = (town, npc) => {
     'servant': {
       relationship: 'employee',
       reciprocalRelationship: 'employer',
-      exclusions (town, npc) { if (!['wealthy', 'aristocratic'].includes(setup.npcLifestyleStandard(town, npc).lifestyleStandard) && !(setup.npcProfit(town, npc) > -5 || setup.npcProfit(town, npc) < -100)) { return false } },
+      exclusions (town, npc) { if (!['wealthy', 'aristocratic'].includes(lib.npcLifestyleStandard(town, npc).lifestyleStandard) && !(lib.npcProfit(town, npc) > -5 || lib.npcProfit(town, npc) < -100)) { return false } },
       base: {
         profession: 'servant'
       }
