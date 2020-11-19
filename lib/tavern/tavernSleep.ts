@@ -1,5 +1,6 @@
 import { Tavern } from './_common'
 import { closestMatch } from '../src/closestMatch'
+import { random } from '../src/random'
 
 export function tavernSleep (tavern: Tavern) {
   const sleepData = [
