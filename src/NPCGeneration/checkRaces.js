@@ -1,3 +1,4 @@
+// uses setup.createNPC
 setup.checkRaces = function (town, npcs) {
   console.groupCollapsed('Checking the races...')
   console.log({ npcs })
