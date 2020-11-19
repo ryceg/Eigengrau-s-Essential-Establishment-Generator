@@ -28,7 +28,7 @@ setup.createStructure = (town, building) => {
   structure.roof = lib.weightedRandomFetcher(town, lib.structureData.roof.types, null, null, 'object')
 
   if (structure.roof.canBeColoured) {
-    structure.roof.colour = lib.structureData.data.colour.random()
+    structure.roof.colour = lib.structureData.colour.random()
     structure.roof.verb = `${structure.roof.colour} ${structure.roof.verb}`
     structure.roof.noun = `${structure.roof.colour} ${structure.roof.noun}`
   }
