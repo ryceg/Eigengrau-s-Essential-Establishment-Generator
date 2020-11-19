@@ -50,7 +50,7 @@ setup.createParentage = (town, family, npc, forceFather = false, forceMother = f
         children: [npc.key]
       }
 
-      const { motherRace, fatherRace, lineage } = setup.findParentRaces(npc)
+      const { motherRace, fatherRace, lineage } = lib.findParentRaces(npc)
       npc.parentalLineage = lineage
       const { fatherSurname, motherSurname } = setup.getParentSurnames(marriage)
 
@@ -141,7 +141,7 @@ setup.createMarriage = (town, family, npc, force = false) => {
   const partnerBase = Object.assign({}, setup.familyData.relativeBase(npc), {
     gender: lib.getOppositeGender(npc.gender),
     ageYears: setup.familyData.partnerAge(npc),
-    race: setup.findPartnerRace(town, npc),
+    race: lib.findPartnerRace(town, npc),
     socialClass: setup.relativeSocialClass(setup.relativeSocialClass(npc.socialClass))
   })
   partnerBase.ageYears = Math.max(partnerBase.ageYears, marriageMin)

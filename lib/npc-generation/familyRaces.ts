@@ -1,15 +1,26 @@
-// TODO: convert
+// TODO: finish fixing TypeScript issues
+
+import { Town } from '../town/_common'
+import { RaceName } from './raceTraits'
+import { NPC } from './_common'
+import { fetchRace } from './fetchRace'
+
 // Given a NPC to be married, determine the partner race
-setup.marriagePools = {
+export const marriagePools = {
+  'dragonborn': ['dragonborn'],
+  'dwarf': ['dwarf'],
+  'gnome': ['gnome'],
+  'goblin': ['goblin'],
+  'halfling': ['halfling'],
+  'orc': ['human', 'orc', 'half-orc'],
   'human': ['human', 'elf', 'orc', 'half-elf', 'half-orc', 'tiefling'],
   'elf': ['human', 'elf', 'half-elf'],
-  'orc': ['human', 'orc', 'half-orc'],
   'half-elf': ['human', 'elf', 'half-elf', 'half-orc'],
   'half-orc': ['human', 'orc', 'half-elf', 'half-orc'],
   'tiefling': ['human', 'tiefling']
 }
 
-setup.findParentRaces = function (npc) {
+export function findParentRaces (npc: NPC) {
   const parentalLineageRoll = random(1, 8)
 
   let lineage, fatherRace, motherRace
@@ -82,11 +93,11 @@ setup.findParentRaces = function (npc) {
   return { motherRace, fatherRace, lineage }
 }
 
-setup.findChildRace = function (town, motherRace, fatherRace) {
+export function findChildRace (town: Town, motherRace: string, fatherRace: string) {
   console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
 
-  motherRace = motherRace || fatherRace || lib.fetchRace(town)
-  fatherRace = fatherRace || motherRace || lib.fetchRace(town)
+  motherRace = motherRace || fatherRace || fetchRace(town)
+  fatherRace = fatherRace || motherRace || fetchRace(town)
   const races = []
   races.push(motherRace, fatherRace)
 
@@ -114,10 +125,10 @@ setup.findChildRace = function (town, motherRace, fatherRace) {
   }
 }
 
-setup.findPartnerRace = function (town, npc) {
-  if (!(npc.race in setup.marriagePools)) return npc.race
+export function findPartnerRace (town: Town, npc: NPC): RaceName {
+  if (!(npc.race in marriagePools)) return npc.race
 
-  const pool = setup.marriagePools[npc.race]
+  const pool = marriagePools[npc.race]
     .filter((race) => typeof town.baseDemographics[race] === 'number')
   const poolSum = pool.map((race) => town.baseDemographics[race])
     .reduce((a, b) => a + b, 0)
