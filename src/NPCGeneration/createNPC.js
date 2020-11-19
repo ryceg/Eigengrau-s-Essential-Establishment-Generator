@@ -192,7 +192,7 @@ setup.createNPC = (town, base = defaultBase) => {
 
   lib.createBackground(npc)
 
-  setup.createDescriptors(npc)
+  lib.createDescriptors(npc)
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
   if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
 

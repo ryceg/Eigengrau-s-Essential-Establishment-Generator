@@ -1,5 +1,6 @@
-
-setup.createDescriptors = npc => {
+import { articles } from '../src/articles'
+import { NPC } from './_common'
+export function createDescriptors (npc: NPC): void {
   console.log(`assigning descriptors to ${npc.name}...`)
   // remember adjectival precedence!
   // opinion  size    age   shape       colour  origin  material  purpose     noun
@@ -13,7 +14,7 @@ setup.createDescriptors = npc => {
   ]
 
   if (npc.beard) {
-    descriptors.push(`${npc.raceName} with ${lib.articles.output(npc.beard)}`)
+    descriptors.push(`${npc.raceName} with ${articles.output(npc.beard)}`)
   }
 
   if (npc.hasClass) {
