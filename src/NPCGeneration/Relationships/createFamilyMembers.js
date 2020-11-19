@@ -103,7 +103,7 @@ setup.createChildren = (town, family, marriage, amount,
   const inserted = []
   for (let k = 0; k < amount; k++) {
     const siblingBase = {
-      race: setup.findChildRace(town, motherRace, fatherRace),
+      race: lib.findChildRace(town, motherRace, fatherRace),
       gender: ['man', 'woman'].random(),
       ageYears: setup.familyData.childAge(marriage),
       lastName: surname,
