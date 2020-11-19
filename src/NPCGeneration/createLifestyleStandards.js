@@ -1,51 +1,4 @@
-/** @type {Record<string, [number, string][]>} */
-const lifestyleTables = {
-  'aristocracy': [
-    [5, 'comfortable'],
-    [15, 'wealthy'],
-    [80, 'aristocratic']
-  ],
-  'nobility': [
-    [5, 'modest'],
-    [30, 'comfortable'],
-    [60, 'wealthy'],
-    [5, 'aristocratic']
-  ],
-  'commoner': [
-    [5, 'poor'],
-    [45, 'modest'],
-    [45, 'comfortable'],
-    [5, 'wealthy']
-  ],
-  'peasantry': [
-    [5, 'squalid'],
-    [60, 'poor'],
-    [30, 'modest'],
-    [5, 'comfortable']
-  ],
-  'paupery': [
-    [5, 'wretched'],
-    [75, 'squalid'],
-    [15, 'poor'],
-    [5, 'modest']
-  ],
-  'indentured servitude': [
-    [95, 'wretched'],
-    [5, 'squalid']
-  ]
-}
-
-const homeBiases = {
-  aristocratic: 40,
-  wealthy: 20,
-  comfortable: 10,
-  modest: 0,
-  poor: -10,
-  squalid: -20,
-  wretched: -40
-}
-
-/** @type {[number,string][]} */
+/** @type {import("../../lib/index").ThresholdTable} */
 const homeTable = [
   [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
@@ -118,9 +71,8 @@ setup.createLifestyleStandards = (town, npc) => {
 }
 
 setup.createFamilyLifestyle = marriage => {
-  const lifestyle = lib.rollFromTable(lifestyleTables[marriage.socialClass], 100)
-
-  const home = lib.rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
+  const lifestyle = lib.rollFromTable(lib.socialClass[marriage.socialClass].lifestyleStandards, 100)
+  const home = lib.rollFromTable(homeTable, 100, lib.lifestyleStandards[marriage.lifestyle].homeBias)
 
   lib.assign(marriage, { lifestyle, home })
 }

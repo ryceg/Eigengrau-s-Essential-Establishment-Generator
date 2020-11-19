@@ -1,11 +1,13 @@
 import { NPC } from './_common'
 import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
+import { ThresholdTable } from '../src/rollFromTable'
 interface SocialClass {
   landRate: number
   socialClassRollThreshold: number
   probability: number
   lifestyle: string[]
+  lifestyleStandards: ThresholdTable
   defaultBackground: WeightRecord<BackgroundName>
   relationships(npc: NPC, otherNpc: NPC): Customer[]
 }
@@ -21,6 +23,11 @@ export const socialClass: Record<string, SocialClass> = {
     socialClassRollThreshold: 95,
     probability: 10,
     lifestyle: ['aristocratic'],
+    lifestyleStandards: [
+      [5, 'comfortable'],
+      [15, 'wealthy'],
+      [80, 'aristocratic']
+    ],
     defaultBackground: {
       noble: 10,
       knight: 2,
@@ -51,6 +58,12 @@ export const socialClass: Record<string, SocialClass> = {
     socialClassRollThreshold: 80,
     probability: 20,
     lifestyle: ['aristocratic', 'wealthy', 'comfortable'],
+    lifestyleStandards: [
+      [5, 'modest'],
+      [30, 'comfortable'],
+      [60, 'wealthy'],
+      [5, 'aristocratic']
+    ],
     relationships: (npc: NPC, otherNpc: NPC) => [
       {
         relationship: 'fellow wine lover',
@@ -83,6 +96,12 @@ export const socialClass: Record<string, SocialClass> = {
     socialClassRollThreshold: 60,
     probability: 50,
     lifestyle: ['comfortable', 'modest', 'poor'],
+    lifestyleStandards: [
+      [5, 'poor'],
+      [45, 'modest'],
+      [45, 'comfortable'],
+      [5, 'wealthy']
+    ],
     relationships: (npc: NPC, otherNpc: NPC) => [
       {
         relationship: 'fellow wine lover',
@@ -122,6 +141,12 @@ export const socialClass: Record<string, SocialClass> = {
     socialClassRollThreshold: 20,
     probability: 80,
     lifestyle: ['modest', 'poor', 'squalid'],
+    lifestyleStandards: [
+      [5, 'squalid'],
+      [60, 'poor'],
+      [30, 'modest'],
+      [5, 'comfortable']
+    ],
     relationships: (npc: NPC, otherNpc: NPC) => [
       {
         relationship: 'fellow peasant',
@@ -152,6 +177,12 @@ export const socialClass: Record<string, SocialClass> = {
     socialClassRollThreshold: 10,
     probability: 30,
     lifestyle: ['poor', 'squalid', 'wretched'],
+    lifestyleStandards: [
+      [5, 'wretched'],
+      [75, 'squalid'],
+      [15, 'poor'],
+      [5, 'modest']
+    ],
     relationships: (npc: NPC, otherNpc: NPC) => [
       {
         relationship: 'fellow wretch',
@@ -181,6 +212,10 @@ export const socialClass: Record<string, SocialClass> = {
     socialClassRollThreshold: 10,
     probability: 5,
     lifestyle: ['squalid', 'wretched'],
+    lifestyleStandards: [
+      [95, 'wretched'],
+      [5, 'squalid']
+    ],
     relationships: (npc: NPC, otherNpc: NPC) => [
       {
         relationship: 'fellow slave',

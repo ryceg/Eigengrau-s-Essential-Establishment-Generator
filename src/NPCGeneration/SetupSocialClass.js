@@ -1,3 +1,4 @@
+// uses State.variables.npcs so can't be translated
 const socialClassArray = [
   'indentured servitude',
   'paupery',
