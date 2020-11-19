@@ -135,7 +135,7 @@ setup.createHistory = function (town, npc) {
 
   if (parentMarriage) {
     if (!parentMarriage.lifestyle) {
-      setup.createFamilyLifestyle(parentMarriage)
+      lib.createFamilyLifestyle(parentMarriage)
     }
 
     npc.familyLifestyle = parentMarriage.lifestyle
@@ -146,7 +146,7 @@ setup.createHistory = function (town, npc) {
       socialClass: npc.socialClass || 'peasantry'
     }
 
-    setup.createFamilyLifestyle(marriage)
+    lib.createFamilyLifestyle(marriage)
     npc.familyLifestyle = marriage.lifestyle
     npc.familyHome = marriage.home
   }
