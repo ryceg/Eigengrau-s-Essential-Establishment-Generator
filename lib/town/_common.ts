@@ -69,6 +69,7 @@ export interface Town {
   townMaterial: string
   leaderType: string
   leader: NPC
+  ruler?: NPC
   founder?: string
   factions: Record<string, Faction>
   families: Record<string, Family>
