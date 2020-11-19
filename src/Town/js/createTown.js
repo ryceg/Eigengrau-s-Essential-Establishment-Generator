@@ -289,21 +289,25 @@ function calculateTax (nominalTarget, economics) {
   return nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
 }
 
+/** @param {Town} town */
 function assignSizeModifiers (town) {
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   assignRollModifiers(town, lib.townData.type[town.type].modifiers)
 }
 
+/** @param {Town} town */
 function assignEconomicModifiers (town) {
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
 }
 
+/** @param {Town} town */
 function assignPoliticalModifiers (town) {
   console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
 }
 
+/** @param {Town} town */
 function assignRollModifiers (town, modifiers) {
   for (const [key, modifier] of Object.entries(modifiers)) {
     town.roll[key] = lib.fm(town.roll[key], modifier)

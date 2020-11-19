@@ -20,7 +20,7 @@ setup.createTownName = function (town) {
     if (town) {
       const npc = setup.createDeadNPC(town, { note: 'The namesake of the town.' })
       town.founder = npc.key
-      name = town.founder.lastName + suffix.random()
+      name = npc + suffix.random()
     } else {
       name = lib.raceTraits.human.lastName.random() + suffix.random()
     }
