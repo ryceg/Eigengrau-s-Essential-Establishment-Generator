@@ -30,6 +30,7 @@ setup.createLifestyleStandards = (town, npc) => {
 
   const tippy = lib.createTippyFull(lib.capitalizeFirstLetter(desc.description), npc.profession || npc.dndClass)
 
+  /** @type {import("../../lib/index").ThresholdTable} */
   const wageVarianceNotes = [
     [-25, `${isCurrently} impossibly unsuccessful as`],
     [-18, `${isCurrently} incredibly unsuccessful as`],
