@@ -5,7 +5,7 @@ import { keys } from '../src/utils'
 import { findProfession } from '../src/findProfession'
 import { dice } from '../src/dice'
 
-export function createSocialClass (town: Town, npc: NPC) {
+export function createSocialClass (town: Town, npc: NPC): void {
   console.log('Creating social class...')
   if (npc.socialClass) {
     return
