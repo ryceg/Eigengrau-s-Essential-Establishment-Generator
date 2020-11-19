@@ -8,6 +8,7 @@ import { articles } from '../src/articles'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
+import { Marriage } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
 
 const homeTable = [
   [0, 'on the streets'], // unreachable without biases
