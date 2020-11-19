@@ -4,28 +4,22 @@ setup.createClass = (town, npc) => {
   /** @type {string} */
   let professionOrigin
   /** @type {string} */
-  let background
-  /** @type {string} */
   let classWeapon
 
   const dndClassTraits = lib.classTraits[npc.dndClass]
   const professionTraits = lib.professionTraits[npc.profession]
 
   if (npc.hasClass !== false && dndClassTraits) {
-    background = lib.weightRandom(dndClassTraits.background)
     classWeapon = dndClassTraits.weapon.random()
   } else if (npc.hasClass === false && professionTraits) {
-    background = professionTraits.background.random()
     classWeapon = professionTraits.weapon.random()
   } else {
     console.log(`${npc.name} the ${npc.dndClass} did not have a valid class.`)
-    professionOrigin = `My circumstances kept me from doing more than being ${lib.articles.output(npc.profession)}`
-    background = 'commoner'
     classWeapon = 'a dagger'
   }
 
   npc.professionOrigin = npc.professionOrigin || professionOrigin || getProfessionOrigin(npc, town)
-  npc.background = npc.background || background
+  npc.background = npc.background || lib.weightRandom(lib.socialClass[npc.socialClass].defaultBackground)
   npc.weapon = npc.weapon || classWeapon
 }
 
@@ -44,7 +38,7 @@ function getProfessionOrigin (npc, town) {
 
   const professionWithArticle = lib.articles.output(npc.profession)
 
-  /** @type {[number, string][]} */
+  /** @type {import("../../lib/index").ThresholdTable} */
   const originWage = [
     [-25, `I've tried to do a good job as ${professionWithArticle} but am just rubbish at it. I don't think I'm good at anything, really.`],
     [-20, `I've been trying to make it as ${professionWithArticle} but suck at it. I'm beginning to think I was never meant to be ${professionWithArticle}.`],
