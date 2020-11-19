@@ -188,6 +188,7 @@ setup.createNPC = (town, base = defaultBase) => {
       npc.physicalTrait = lib.random(data.tattoo)
     }
   }
+  lib.createSocialClass(town, npc)
   lib.createClass(town, npc)
 
   lib.createBackground(npc)
@@ -197,7 +198,7 @@ setup.createNPC = (town, base = defaultBase) => {
   if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
 
   setup.createSexuality(npc)
-  lib.createSocialClass(town, npc)
+
   lib.createLifestyleStandards(town, npc)
   setup.createReligiosity(town, npc)
 
