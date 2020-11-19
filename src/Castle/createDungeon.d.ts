@@ -12,7 +12,7 @@ export interface Dungeon {
     passageName: string
     initPassage: string
     tippyDescription: string
-    tooltip: string
+    tippyDescription: string
     buildingType: string
     objectType: string
     cells: {

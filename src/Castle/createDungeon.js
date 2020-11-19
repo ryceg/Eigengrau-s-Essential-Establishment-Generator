@@ -41,7 +41,6 @@ setup.createDungeon = (town, opts) => {
   }
   dungeon.name = setup.createDungeonName(town, dungeon)
   dungeon.tippyDescription = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
-  dungeon.tooltip = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
   console.groupEnd()
   return dungeon
 }
