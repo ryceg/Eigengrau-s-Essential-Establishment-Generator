@@ -1,3 +1,4 @@
+// Uses State.variables.npcs, State.variables.town
 setup.deleteNPC = npc => {
   if (!npc) return
   console.log('Deleting NPC!', npc)

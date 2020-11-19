@@ -1,4 +1,4 @@
-
+// uses setup.npcData.lifeEvents so can't be translated
 setup.createLifeEvents = function (town, npc) {
   console.groupCollapsed(`creating life events for ${npc.name}...`)
   let lifeEventsNumber

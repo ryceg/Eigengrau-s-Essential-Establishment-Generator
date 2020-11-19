@@ -1,3 +1,5 @@
+// uses setup.createNPC, setup.createRelationship, setup.profile
+
 const death = {
   whileAdventuring (town, npc, text) {
     const whilst = [

@@ -2,7 +2,7 @@
 const defaultBase = {
   isShallow: true
 }
-
+/** @returns {NPC} npc */
 setup.createNPC = (town, base = defaultBase) => {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
