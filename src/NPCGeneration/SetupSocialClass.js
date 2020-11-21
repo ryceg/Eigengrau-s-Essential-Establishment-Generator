@@ -20,8 +20,12 @@ const adultSocialMobilityTable = [
   [2, 2]
 ]
 
-setup.relativeSocialClass = function (npcClass) {
-  let classIndex = socialClassArray.indexOf(npcClass)
+/**
+ *
+ * @param {import("../../lib/npc-generation/_common").SocialClassName} socialClass
+ */
+setup.relativeSocialClass = function (socialClass) {
+  let classIndex = socialClassArray.indexOf(socialClass)
   if (classIndex < 0) classIndex = 3
 
   const delta = lib.rollFromTable(adultSocialMobilityTable, 100)
@@ -31,7 +35,7 @@ setup.relativeSocialClass = function (npcClass) {
 }
 
 /**
- * @param {Marriage} marriage
+ * @param {import("./Relationships/createFamilyMembers").Marriage} marriage
  * @returns {string}
  * */
 setup.familySocialClass = function (marriage) {

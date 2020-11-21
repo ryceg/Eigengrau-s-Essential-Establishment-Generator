@@ -1,10 +1,16 @@
 // uses State.variables.npcs
 // TODO test matrilineal marriages
+/**
+ * @param {import("./createFamilyMembers").Marriage} marriage
+ */
 setup.marriageIsMatrilineal = marriage => {
   return false
 }
 
-// Given a marriage with at least one child, determine parent surnames
+/**
+ * @param {import("./createFamilyMembers").Marriage} marriage
+ * @description Given a marriage with at least one child, determine parent surnames
+ */
 setup.getParentSurnames = marriage => {
   let familyName, fatherSurname, motherSurname
   if (marriage.children.length) {
@@ -19,7 +25,10 @@ setup.getParentSurnames = marriage => {
 }
 
 // uses State.variables.npcs
-// Given a marriage with at least one parent or child, determine child surnames
+/**
+ * @param {import("./createFamilyMembers").Marriage} marriage
+ * @description Given a marriage with at least one parent or child, determine child surnames
+ */
 setup.getChildSurname = marriage => {
   if (marriage.children.length !== 0) { return State.variables.npcs[marriage.children[0]].lastName }
 

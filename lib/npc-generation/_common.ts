@@ -97,6 +97,8 @@ export interface NPC {
   birthplace: string
   siblingNumber: number
   childhoodMemories: string
+  parentalLineage: string
+  partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
   familyLifestyle: string
@@ -106,6 +108,9 @@ export interface NPC {
   ideal: string
   greeting?: string[]
   death?: {
+    murderer: null | string
+    burialConditions: string
+    graveStandard: string
     cause: string
     timeSinceDeath: number
   }

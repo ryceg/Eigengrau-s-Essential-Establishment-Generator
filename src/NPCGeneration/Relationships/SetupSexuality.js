@@ -1,8 +1,9 @@
 setup.createSexuality = function (npc) {
-  // this is just one person's efforts to increase diversity and make an attempt at relatively realistic sexuality modeling
-  // I cannot guarantee exact representation, and make no promises for such a thing- this is, at the end of the day, meant to be a tool for DMs.
-  // I would, however, be very open to feedback and ways that I could improve the system.
-
+  /**
+   * @description this is just one person's efforts to increase diversity and make an attempt at relatively realistic sexuality modeling
+   * I cannot guarantee exact representation, and make no promises for such a thing- this is, at the end of the day, meant to be a tool for DMs.
+   * I would, however, be very open to feedback and ways that I could improve the system.
+   */
   // Using the Kinsey scale, bastardised to fit my methods.
 
   // if a partner exists, then we need to make sure that it's an acceptable gender.
@@ -20,8 +21,11 @@ setup.createSexuality = function (npc) {
     npc.roll.sexuality = npc.roll.sexuality || roll || 47 + lib.dice(13, 4)
     npc.roll.kinsey = getKinseyRoll(npc.roll.sexuality)
   }
+  /**
+   * @type {Record <number, import("./createRelationship").Kinsey>}
+   * @description true = male, false = female. Very basic function, am aware.
+   */
   const kinsey = {
-    // true = male, false = female. Very basic function, am aware.
     0: {
       sexuality: 'heterosexual',
       partnerGenderProbability (npc) {

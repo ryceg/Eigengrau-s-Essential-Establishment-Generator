@@ -1,3 +1,6 @@
+import { GenderName } from '../../../lib/index'
+import { NPC } from '../../../lib/npc-generation/_common'
+
 interface Setup {
   /**
    * Creates a relationship between two NPCs.
@@ -8,4 +11,9 @@ interface Setup {
 type Type = string | {
   relationship: string
   reciprocalRelationship?: string
+}
+
+export type Kinsey = {
+  sexuality: string
+  partnerGenderProbability(npc: NPC): GenderName
 }

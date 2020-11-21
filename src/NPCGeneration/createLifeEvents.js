@@ -1,4 +1,8 @@
 // uses setup.npcData.lifeEvents so can't be translated
+/**
+ * @param {import("../../lib/town/_common").Town} town
+ * @param {import("../../lib/npc-generation/_common").NPC} npc
+ */
 setup.createLifeEvents = function (town, npc) {
   console.groupCollapsed(`creating life events for ${npc.name}...`)
   let lifeEventsNumber

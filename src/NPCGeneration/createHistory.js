@@ -33,6 +33,9 @@ const birthplaceTable = [
   [1, 'on an Outer Plane']
 ]
 
+/**
+ * @type {Record<string, import("./createHistory").FamilyUnit>}
+ */
 const familyUnits = {
   bothParents: {
     probability: 25,
@@ -106,6 +109,11 @@ const familyUnits = {
   }
 }
 
+/**
+ * @param {Town} town
+ * @param {NPC} npc
+ * @returns {void}
+ */
 setup.createHistory = function (town, npc) {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
@@ -146,6 +154,7 @@ setup.createHistory = function (town, npc) {
       socialClass: npc.socialClass || 'peasantry'
     }
 
+    /** @param {import("./Relationships/createFamilyMembers").Marriage} marriage */
     lib.createFamilyLifestyle(marriage)
     npc.familyLifestyle = marriage.lifestyle
     npc.familyHome = marriage.home

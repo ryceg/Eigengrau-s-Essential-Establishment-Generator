@@ -1,5 +1,7 @@
 // uses setup.createNPC, setup.createRelationship, setup.profile
-
+/**
+ * @type {import("./setupDeath").DeathData}
+ */
 const death = {
   whileAdventuring (town, npc, text) {
     const whilst = [
@@ -197,7 +199,7 @@ setup.npcDeath = (town, npc, base = {}) => {
   npc.death = {}
   npc.death = {
     cause: lib.weightedRandomFetcher(town, death.cause, npc),
-    murderer: false,
+    murderer: null,
     timeSinceDeath: lib.dice(2, 60),
     ...base,
     ...npc.death

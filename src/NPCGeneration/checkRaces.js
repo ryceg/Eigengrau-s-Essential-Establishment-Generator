@@ -1,4 +1,10 @@
 // uses setup.createNPC
+/**
+ *
+ * @param {import("../../lib/town/_common").Town} town
+ * @param {Record<string, NPC>} npcs
+ * @returns {Record<string, NPC>}
+ */
 setup.checkRaces = function (town, npcs) {
   console.groupCollapsed('Checking the races...')
   console.log({ npcs })
