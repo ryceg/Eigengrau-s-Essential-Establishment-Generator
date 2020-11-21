@@ -919,12 +919,12 @@ setup.initNpcData = () => {
           if (node.marriages === undefined || node.marriages.length === 0) {
             console.log(`${npc.name} met somebody!`)
 
-            const newMarriage = setup.createMarriage(town, family, npc, undefined, true)
+            const newMarriage = setup.createMarriage(town, family, npc)
             node.marriages = [newMarriage]
             partnerKey = newMarriage.parents.find(key => key !== npc.key)
 
             if (!partnerKey) { return 'I met the love of my life, who is no longer with me.' }
-            return `I met the love of my life, ${setup.profile(partnerKey)}.`
+            return `I met the love of my life, ${State.variables.npcs[partnerKey]}.`
           } else {
             console.log(`${npc.name} already met somebody!`)
             console.log(node.marriages)
