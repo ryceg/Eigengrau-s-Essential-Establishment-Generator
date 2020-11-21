@@ -1,10 +1,14 @@
 // uses setup.createRelationship, setup.createNPC
+// has a .d.ts
 setup.createFriends = (town, npc) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
   const professionData = lib.professions[npc.profession]
 
   if (professionData.type === 'business') friendsNumber += 2
+  /**
+ * @type {Record<string, import("./createFriends").FriendsType>}
+ */
   const friendsTypes = {
     'drinking buddy': {
       relationship: 'drinking buddy',
@@ -119,8 +123,17 @@ setup.createFriends = (town, npc) => {
     console.log(friendsTypes)
   }
 
-  const createNewFriend = () => {
+  /**
+   *
+   * @param {Town} town
+   * @param {import("../../../lib/npc-generation/_common").NPC} npc
+   * @param {Record<string, import("./createFriends").FriendsType>} friendsTypes
+   */
+  const createNewFriend = (town, npc, friendsTypes) => {
     console.log('Creating a new friend!')
+    /**
+    * @type {import("./createFriends").FriendsType}
+    */
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
     const friend = setup.createNPC(town, friendObj.base)
     setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
@@ -130,7 +143,7 @@ setup.createFriends = (town, npc) => {
     if (random(100) >= town.reuseNpcProbability) {
       town.reuseNpcProbability += lib.fm(town.reuseNpcProbability, 1)
       town.reuseNpcProbability = Math.clamp(town.reuseNpcProbability, 1, 90)
-      createNewFriend()
+      createNewFriend(town, npc, friendsTypes)
       continue
     }
 
@@ -142,7 +155,7 @@ setup.createFriends = (town, npc) => {
     }
     if (typeof friend === 'undefined') {
       console.log(`Nobody was in the same profession sector as ${npc.name}`)
-      createNewFriend()
+      createNewFriend(town, npc, friendsTypes)
       continue
     }
   }
@@ -150,10 +163,20 @@ setup.createFriends = (town, npc) => {
   console.groupEnd()
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ * @param {import("../../../lib/npc-generation/_common").NPC} otherNpc
+ */
 function basicFilterNpc (town, npc, otherNpc) {
   return !town.npcRelations[otherNpc.key].map(r => r.targetNpcKey).includes(npc.key) && otherNpc.key !== npc.key
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {Record<string, import("../../../lib/npc-generation/_common").NPC>} npcs
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ */
 function sameSocialClass (town, npcs, npc) {
   console.log('Looking for a friend of the same social class...')
   const friend = Object.values(npcs).find(otherNpc => {
@@ -168,10 +191,15 @@ function sameSocialClass (town, npcs, npc) {
   return friend
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {Record<string, import("../../../lib/npc-generation/_common").NPC>} npcs
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ */
 function sameProfessionSector (town, npcs, npc) {
   console.log('Looking for a friend of the same profession sector...')
   const friend = Object.values(npcs).find(otherNpc => {
-    return basicFilterNpc(npc, otherNpc) && otherNpc.professionSector === npc.professionSector
+    return basicFilterNpc(town, npc, otherNpc) && otherNpc.professionSector === npc.professionSector
   })
   if (friend) {
     if (npc.profession === friend.profession) {
