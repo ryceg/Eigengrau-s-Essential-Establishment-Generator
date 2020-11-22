@@ -4,12 +4,12 @@
     <th>Attribute Slider</th>
     <th>Percentage Value</th>
   </tr>
-  <<nobr>><<for _key, _obj range lib.townData.rollData.sliderTooltips>><<set _tooltip to lib.townData.rollData.sliderTooltips[_key].tooltip>>
+  <<nobr>><<for _key, _obj range lib.townData.rollData>><<capture _key, _obj>><<if _key === 'equality'>><<continue>><</if>><<set _tooltip to lib.townData.rollData[_key].tooltip>>
   <<if _obj.isHidden>>
     <<continue>>
     <<else>>
-    <tr><td><<print lib.createTippyFull(_tooltip, lib.townData.rollData.sliderTooltips[_key].preceding)>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr>
+    <tr><td><<print lib.createTippyFull(_tooltip, lib.townData.rollData[_key].preceding)>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr>
     <</if>>
-  <</for>><</nobr>>
+  <</capture>><</for>><</nobr>>
 <tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></td></tr>
 </table>
