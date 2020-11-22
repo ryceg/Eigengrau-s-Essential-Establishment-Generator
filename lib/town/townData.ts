@@ -1,7 +1,115 @@
 import { randomFloat } from '../src/randomFloat'
 import { random } from '../src/random'
+import { ThresholdTable } from '../src/rollFromTable'
+import { RaceName } from '../npc-generation/raceTraits'
+import { WeightRecord } from '../types'
+import { EconomicIdeology, PoliticalIdeology, PoliticalSource } from './_common'
+import { NPC } from '../npc-generation/_common'
 
-export const townData = {
+type InternalTownType = 'hamlet' | 'village' | 'town' | 'city'
+type InternalPoliticalIdeology = 'autocracy' | 'meritocracy' | 'democracy' | 'kleptocracy' | 'magocracy' | 'militocracy' | 'oligarchy' | 'sophocracy' | 'theocracy' | 'technocracy'
+type InternalEconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
+// type InternalPoliticalSource = 'absolute monarchy' | 'constitutional monarchy' | 'republic' | 'anarchy'
+
+export type TownType = keyof typeof townData.type
+type RollKeys = keyof typeof townData.rollData
+interface TownData {
+  name: {
+    prefix: string[]
+    suffix: string[]
+  }
+  roads: {
+    name: string[]
+    type: string[]
+  }
+  lifestyleStandards: ThresholdTable
+  rollData: {
+    // TODO: prettify this so it handles the equality.man properly.
+    [key: string]: TownRollData | {
+      man: TownRollData
+      woman: TownRollData
+    }
+  }
+  type: {
+    [key in InternalTownType]: {
+      demographics(): {
+        probability: number
+        popPercentages: Record<RaceName, number>
+      }[]
+      ideologies: {
+        economicIdeology: WeightRecord<EconomicIdeology>
+        politicalSource: WeightRecord<PoliticalSource>
+      }
+      population(): number
+      startFactionsNumber(): number
+      roadDuplication: number
+      modifiers: Record<RollKeys, number>
+    }
+  }
+  economicIdeology: {
+    [key in InternalEconomicIdeology]: {
+      modifiers: Record<RollKeys, number>
+      descriptors: {
+        economicIdeologyIC: string
+        economicIdeologyIST: string
+        economicIdeologyDescription: string
+        tippy: string
+      }
+    }
+  }
+  politicalSource: {
+    'absolute monarchy': Monarchy
+    'constitutional monarchy': Monarchy
+    republic: Republic
+    anarchy: Republic
+  }
+  politicalIdeology: {
+    [key in InternalPoliticalIdeology]: {
+      leaderTraits: () => Partial<NPC>
+      modifiers: Record<RollKeys, number>
+      data: {
+        isFaction: boolean
+        leaderType: string
+        governmentType: string
+        politicalIdeologyIC: string
+        description: string
+      }
+    }
+  }
+  misc: {
+    primaryCrop: string[]
+    primaryExport: string[]
+    currentEvent: string[]
+    microEvent: string[]
+    landmark: string[]
+  }
+}
+
+interface Republic {
+  politicalIdeology: PoliticalIdeology[]
+  politicalSourceDescription: string
+  description: string
+}
+interface Monarchy {
+  politicalIdeology: PoliticalIdeology[]
+  autocracy: {
+    politicalSourceDescription: string
+    description: string
+  }
+  default: {
+    politicalSourceDescription: string
+    description: string
+  }
+}
+interface TownRollData {
+  tooltip: string
+  preceding: string
+  isHidden?: boolean
+  hasRolls?: boolean
+  rolls?: ThresholdTable | [number, string, string][]
+}
+
+export const townData: TownData = {
   name: {
     prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
     suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
@@ -21,20 +129,6 @@ export const townData = {
     [0, 'wretched']
   ],
   rollData: {
-    wealth: {
-      tooltip: 'How wealthy is the town?',
-      preceding: 'Dirt poor -- Fabulously wealthy',
-      rolls: [
-        [95, 'kingly'],
-        [80, 'aristocratic'],
-        [70, 'wealthy'],
-        [60, 'comfortable'],
-        [50, 'modest'],
-        [25, 'poor'],
-        [15, 'squalid'],
-        [0, 'destitute']
-      ]
-    },
     equality: {
       man: {
         tooltip: 'How sexist is the society here?',
@@ -63,6 +157,20 @@ export const townData = {
           [0, 'overwhelmingly matriarchal', 'Almost all positions of authority are occupied by women.']
         ]
       }
+    },
+    wealth: {
+      tooltip: 'How wealthy is the town?',
+      preceding: 'Dirt poor -- Fabulously wealthy',
+      rolls: [
+        [95, 'kingly'],
+        [80, 'aristocratic'],
+        [70, 'wealthy'],
+        [60, 'comfortable'],
+        [50, 'modest'],
+        [25, 'poor'],
+        [15, 'squalid'],
+        [0, 'destitute']
+      ] as ThresholdTable
     },
     size: {
       tooltip: 'How much land is covered?',
