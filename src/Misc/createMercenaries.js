@@ -147,12 +147,12 @@ setup.createMercenaries = function (town) {
   mercenaries.captain = createMercenaryCaptain(mercenaries.commanderTrait, town)
 
   mercenaries.name = [
-    `The ${lib.factionData.mercenaries.names.group.random()} of ${lib.factionData.mercenaries.names.adjective.random()} ${lib.factionData.mercenaries.names.main.random()}`,
-    `The ${lib.factionData.mercenaries.names.group.random()} of ${lib.factionData.mercenaries.names.main.random()}`,
-    `The ${lib.factionData.mercenaries.names.adjective.random()} ${lib.factionData.mercenaries.names.group.random()}`,
-    `The ${lib.factionData.mercenaries.names.main.random()} of ${State.variables.town.name}`,
-    `The ${State.variables.town.name} ${lib.factionData.mercenaries.names.main.random()}`,
-    lib.factionData.mercenaries.names.unique.random()
+    `The ${lib.factionData.types.mercenaries.names.group.random()} of ${lib.factionData.types.mercenaries.names.adjective.random()} ${lib.factionData.types.mercenaries.names.main.random()}`,
+    `The ${lib.factionData.types.mercenaries.names.group.random()} of ${lib.factionData.types.mercenaries.names.main.random()}`,
+    `The ${lib.factionData.types.mercenaries.names.adjective.random()} ${lib.factionData.types.mercenaries.names.group.random()}`,
+    `The ${lib.factionData.types.mercenaries.names.main.random()} of ${State.variables.town.name}`,
+    `The ${State.variables.town.name} ${lib.factionData.types.mercenaries.names.main.random()}`,
+    lib.factionData.types.mercenaries.names.unique.random()
   ].random()
 
   mercenaries.readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${setup.profile(mercenaries.captain)}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`

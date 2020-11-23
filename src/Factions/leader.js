@@ -38,7 +38,7 @@ setup.leaderFaction = function (town, faction) {
 
   switch (faction.leadershipType) {
     case 'individual': {
-      const leaderTraits = lib.factionData[faction.type].leader.base
+      const leaderTraits = lib.factionData.types[faction.type].leader.base
       for (const key in leaderTraits) {
         if (Array.isArray(leaderTraits[key])) {
           leaderTraits[key] = leaderTraits[key].random()
@@ -73,7 +73,7 @@ function getLeaderQualification (faction) {
     }
     return ['the original founder', 'the original founder', 'the first appointed leader'].random()
   }
-  return lib.weightRandom(lib.factionData[faction.type].leader.qualification)
+  return lib.weightRandom(lib.factionData.types[faction.type].leader.qualification)
 }
 
 /** @returns {string} */

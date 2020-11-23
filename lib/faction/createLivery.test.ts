@@ -10,7 +10,7 @@ describe('createLivery', () => {
     let calledNumberOfTimes = 0
 
     for (const type of keys(factionData)) {
-      if (factionData[type].livery) {
+      if (factionData.types[type].livery) {
         const livery = createLivery(type)
         expect(livery).toBeDefined()
         calledNumberOfTimes += 1

@@ -1,5 +1,6 @@
 import { dice, fm } from '../src/dice'
 import { random } from '../src/random'
+import { ThresholdTable } from '../src/rollFromTable'
 import { repeat, sumWeights } from '../src/utils'
 import { validateWeight, weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -28,7 +29,7 @@ export function setFactionResources (faction: Faction): void {
   const resources: string[] = []
 
   // this is where weighting different groups happens. Needs updating with each new faction.
-  const weightedResources = sumWeights(defaultWeightedResources, factionData[faction.type].resources)
+  const weightedResources = sumWeights(defaultWeightedResources, factionData.types[faction.type].resources)
 
   const ageModifier = getAgeModifier(faction.roll.age)
 
@@ -115,14 +116,22 @@ function getAgeModifier (roll: number): number {
 }
 
 function getTempGroupSize (roll: number): string {
-  if (roll >= 90) return 'an enormous amount of '
-  if (roll >= 80) return 'more than enough '
-  if (roll >= 70) return 'a large number of '
-  if (roll >= 60) return 'quite a few '
-  if (roll >= 50) return 'more than a couple '
-  if (roll >= 40) return 'a couple '
-  if (roll >= 30) return 'some '
-  if (roll >= 20) return 'a few '
-  if (roll >= 10) return 'a handful of '
-  return 'some '
+  const resourceSize: ThresholdTable = [
+    [90, 'an enormous amount of '],
+    [80, 'more than enough '],
+    [70, 'a large number of '],
+    [60, 'quite a few '],
+    [50, 'more than a couple '],
+    [40, 'a couple '],
+    [30, 'some '],
+    [20, 'a few '],
+    [10, 'a handful of ']
+  ]
+  let result
+  for (const [num, description] of resourceSize) {
+    if (roll > num) {
+      result = description
+    }
+  }
+  return result || 'some '
 }

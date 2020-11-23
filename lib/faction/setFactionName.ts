@@ -8,7 +8,7 @@ interface Town {
 
 export function setFactionName (town: Town, faction: Faction): string {
   console.log(`Naming the ${faction.type} faction`)
-  const data = factionData[faction.type]
+  const data = factionData.types[faction.type]
 
   const name = random([
     `The ${random(data.names.group)} of ${random(data.names.adjective)} ${random(data.names.main)}`,

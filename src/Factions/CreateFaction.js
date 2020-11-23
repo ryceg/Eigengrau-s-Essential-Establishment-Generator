@@ -1,6 +1,6 @@
 // uses setup.leaderFaction
 setup.createFaction = (town, opts = {}) => {
-  const type = opts.type || lib.weightedRandomFetcher(town, lib.factionData, null, null, 'object').type
+  const type = opts.type || lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type
 
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
@@ -11,10 +11,10 @@ setup.createFaction = (town, opts = {}) => {
     objectType: 'faction',
     type,
     isPolicing: false,
-    wordNoun: lib.factionData[type].wordNoun,
-    motivation: lib.weightRandom(lib.factionData[type].motivation),
-    membersTrait: lib.weightRandom(lib.factionData[type].membersTrait),
-    leadershipType: lib.weightRandom(lib.factionData[type].leader.format),
+    wordNoun: lib.factionData.types[type].wordNoun,
+    motivation: lib.weightRandom(lib.factionData.types[type].motivation),
+    membersTrait: lib.weightRandom(lib.factionData.types[type].membersTrait),
+    leadershipType: lib.weightRandom(lib.factionData.types[type].leader.format),
     roll: {
       influence: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
