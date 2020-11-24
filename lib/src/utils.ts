@@ -97,7 +97,9 @@ export function last<T> (array: T[] | string) {
   return array[array.length - 1]
 }
 
-export function clamp (value: number, min: number, max: number) {
+export function clamp (value: number, min?: number, max?: number) {
+  if (!min) min = 0
+  if (!max) max = 100
   return Math.min(Math.max(value, min), max)
 }
 
