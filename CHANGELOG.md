@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Changed
+- Overhauled the faction resources.
 - Changed the errors to be slightly less obtrusive.
 - Fixed a bug with marriages
 - Fixed a bug with tavern sleep
