@@ -113,7 +113,7 @@
 <<widget "profile">>
     \<<set _object = $args[0],
         _readout = $args[1] || _object.name,
-        _id = "tip-" + Util.slugify((_object.name) || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
+        _id = Util.slugify((_object.name) || _object.description || _object.wordNoun || "profile") + "-" + Math.floor(randomFloat(1).toString(16))>>
     \<<capture _object, _readout, _id>>
         \<span @id="_id" class="tip"><<if $args[2] is true>><<print lib.articles.find(_readout)>><</if>> <<link _readout>>
 				<<run setup.history(_object, null, _readout)>>
