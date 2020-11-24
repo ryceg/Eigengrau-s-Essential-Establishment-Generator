@@ -1,60 +1,50 @@
 import { fm } from '../src/dice'
+import { factionData } from './factionData'
 import { Faction } from './_common'
 
 export function setFactionReputation (faction: Faction): void {
   console.log('assigning a reputation...')
 
-  const ageModifier = getAgeModifier(faction.age)
+  const ageModifier = getAgeModifier(faction)
 
   faction.roll.reputation += fm(faction.roll.reputation, ageModifier)
 
   faction.reputation = getFactionReputation(faction.roll.reputation)
 }
 
-function getAgeModifier (age: string): number {
-  switch (age) {
-    case 'ancient':
-      return 30
-    case 'extremely old':
-      return 25
-    case 'very old':
-      return 20
-    case 'quite old':
-      return 15
-    case 'well established':
-      return 10
-    case 'somewhat old':
-      return 5
-    case 'relatively new':
-      return -5
-    case 'recently established':
-      return -10
-    case 'new':
-      return -15
-    case 'quite new':
-      return -20
-    case 'very new':
-      return -25
-    case 'brand new':
-      return -25
-    case 'unknown':
-      return 15
+function getAgeModifier (faction: Faction): number {
+  /**
+   * @description [age, result]
+   */
+  const ages = [
+    [95, 30],
+    [90, 28],
+    [80, 25],
+    [70, 20],
+    [60, 10],
+    [55, 5],
+    [50, 1],
+    [45, -5],
+    [40, -10],
+    [30, -15],
+    [20, -20],
+    [10, -25],
+    [5, -30],
+    [0, -30]
+  ]
+  for (const [num, description] of ages) {
+    if (faction.roll.age > num) {
+      return description
+    }
   }
   return 0
 }
 
 function getFactionReputation (roll: number): string {
-  if (roll > 95) return 'excellent'
-  if (roll > 90) return 'very good'
-  if (roll > 80) return 'quite good'
-  if (roll > 70) return 'good'
-  if (roll > 60) return 'above average'
-  if (roll > 55) return 'slightly above average'
-  if (roll > 50) return 'average'
-  if (roll > 45) return 'slightly below average'
-  if (roll > 40) return 'poor'
-  if (roll > 30) return 'quite poor'
-  if (roll > 20) return 'very poor'
-  if (roll > 10) return 'extremely poor'
-  return 'abysmal'
+  for (const [num, description] of factionData.rollData.reputation.rolls) {
+    if (roll > num) {
+      return description as string
+    }
+  }
+  return 'average'
 }
