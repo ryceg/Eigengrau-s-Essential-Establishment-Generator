@@ -1,2 +1,2 @@
-:: OutputEverything [force-one-column]
+:: OutputEverything [force-one-column, squash-errors]
 <<print setup.outputEverything()>>
