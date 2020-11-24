@@ -54,6 +54,10 @@ body[data-tags~="force-one-column"] {
   column-count: 1;
 }
 
+.error-view[data-tags~="squash-errors"] {
+    display: hidden;
+}
+
 .force-one-column {
   column-count: 1;
 }
