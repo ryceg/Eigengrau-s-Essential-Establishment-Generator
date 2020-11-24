@@ -1,2 +1,4 @@
 :: OutputEverything [force-one-column, squash-errors]
-<<print setup.outputEverything()>>
+<<button "Copy">><<run setup.copyEverything()>><</button>>
+
+<span id="everything"><<print setup.outputEverything()>></span>
