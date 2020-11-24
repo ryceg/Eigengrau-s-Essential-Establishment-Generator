@@ -2,6 +2,7 @@ import { NPC } from '../npc-generation/_common'
 
 export interface Building {
   key: string
+  passageName: string
   parentKey?: string
   objectType: string
   isChild?: boolean
